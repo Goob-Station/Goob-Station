@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 ### Visitors with Visitor ID
 
 # Command
@@ -1027,6 +1036,8 @@
     outerClothing: ClothingOuterPlagueSuit
     pocket1: PlushieSharkGrey
     pocket2: FoodSnackEnergy
+  inhand:                 #goobstation
+  - Nullrod               #goobstation
 
 - type: startingGear
   id: VisitorChaplainAlt
@@ -1040,6 +1051,8 @@
     outerClothing: ClothingOuterNunRobe
     pocket1: PlushiePenguin
     pocket2: DrinkCoconutWaterCarton
+  inhand:                 #goobstation
+  - Nullrod               #goobstation
 
 - type: startingGear
   id: VisitorChef
@@ -1056,7 +1069,7 @@
     pocket1: ButchCleaver
     pocket2: BookHowToCookForFortySpaceman
   inhand:
-  - ClothingMaskItalianMoustache
+  #- ClothingMaskItalianMoustache         #Chefs now start with the space italian implant.
   - DrinkWineBottleFull
 
 - type: startingGear
@@ -1070,11 +1083,11 @@
     back: ClothingBackpack
     belt: ClothingBeltChefFilled
     ears: ClothingHeadsetService
-    outerClothing: ClothingOuterWinterChef
+    outerClothing: ClothingOuterWinterChef 
     pocket1: RollingPin
     pocket2: BookHowToCookForFortySpaceman
   inhand:
-  - ClothingMaskItalianMoustache
+  #- ClothingMaskItalianMoustache        #Chefs now start with the space italian implant.
   - FoodCheese
 
 - type: startingGear

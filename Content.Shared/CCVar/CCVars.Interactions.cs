@@ -1,4 +1,17 @@
-﻿using Robust.Shared.Configuration;
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
 
@@ -14,7 +27,13 @@ public sealed partial class CCVars
     ///     Toggles whether the walking key is a toggle or a held key.
     /// </summary>
     public static readonly CVarDef<bool> ToggleWalk =
-        CVarDef.Create("control.toggle_walk", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("control.toggle_walk", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Whether the player mob is walking by default instead of running.
+    /// </summary>
+    public static readonly CVarDef<bool> DefaultWalk =
+        CVarDef.Create("control.default_walk", false, CVar.CLIENT | CVar.REPLICATED | CVar.ARCHIVE);
 
     // The rationale behind the default limit is simply that I can easily get to 7 interactions per second by just
     // trying to spam toggle a light switch or lever (though the UseDelay component limits the actual effect of the

@@ -1,3 +1,18 @@
+// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 Saphire <lattice@saphi.re>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <slambamactionman@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.ParticleAccelerator.Components;
 using Content.Shared.Popups;
 using Content.Shared.Singularity.Components;
@@ -53,7 +68,10 @@ public sealed class SingularityGeneratorSystem : SharedSingularityGeneratorSyste
             return;
 
         SetPower(uid, 0, comp);
-        EntityManager.SpawnEntity(comp.SpawnPrototype, Transform(uid).Coordinates);
+        Spawn(comp.SpawnPrototype, Transform(uid).Coordinates);
+
+        // Goobstation - since it's reusable also trigger failsafe to avoid unintentional tesla spam
+        comp.NextFailsafe = _timing.CurTime + comp.FailsafeCooldown;
     }
 
     #region Getters/Setters
@@ -109,12 +127,12 @@ public sealed class SingularityGeneratorSystem : SharedSingularityGeneratorSyste
     /// <param name="args">The state of the beginning of the collision.</param>
     private void HandleParticleCollide(EntityUid uid, ParticleProjectileComponent component, ref StartCollideEvent args)
     {
-        if (!EntityManager.TryGetComponent<SingularityGeneratorComponent>(args.OtherEntity, out var generatorComp))
+        if (!TryComp<SingularityGeneratorComponent>(args.OtherEntity, out var generatorComp))
             return;
 
         if (_timing.CurTime < _metadata.GetPauseTime(uid) + generatorComp.NextFailsafe && !generatorComp.FailsafeDisabled)
         {
-            EntityManager.QueueDeleteEntity(uid);
+            QueueDel(uid);
             return;
         }
 
@@ -152,7 +170,7 @@ public sealed class SingularityGeneratorSystem : SharedSingularityGeneratorSyste
             );
         }
 
-        EntityManager.QueueDeleteEntity(uid);
+        QueueDel(uid);
     }
     #endregion Event Handlers
 
@@ -179,7 +197,7 @@ public sealed class SingularityGeneratorSystem : SharedSingularityGeneratorSyste
             if (genQuery.HasComponent(result.HitEntity))
                 closestResult = result;
 
-            break;
+            // break; // Goobstation - still trigger with stuff inside the field
         }
 
         if (closestResult == null)

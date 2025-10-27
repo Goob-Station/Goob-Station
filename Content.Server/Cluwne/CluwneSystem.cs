@@ -1,9 +1,30 @@
-using Content.Server.Administration.Commands;
+// SPDX-FileCopyrightText: 2023 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Mnemotechnican <69920617+Mnemotechnician@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Popups;
 using Content.Shared.Popups;
 using Content.Shared.Mobs;
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
+using Content.Server.Clothing.Systems;
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Stunnable;
@@ -12,6 +33,7 @@ using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
 using Content.Server.Emoting.Systems;
 using Content.Server.Speech.EntitySystems;
+using Content.Shared.Chat; // Einstein Engines - Languages
 using Content.Shared.Cluwne;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.NameModifier.EntitySystems;
@@ -21,6 +43,8 @@ namespace Content.Server.Cluwne;
 
 public sealed class CluwneSystem : EntitySystem
 {
+    private static readonly ProtoId<DamageGroupPrototype> GeneticDamageGroup = "Genetic";
+
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
@@ -30,6 +54,7 @@ public sealed class CluwneSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly AutoEmoteSystem _autoEmote = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
+    [Dependency] private readonly OutfitSystem _outfitSystem = default!;
 
     public override void Initialize()
     {
@@ -52,7 +77,7 @@ public sealed class CluwneSystem : EntitySystem
             RemComp<CluwneComponent>(uid);
             RemComp<ClumsyComponent>(uid);
             RemComp<AutoEmoteComponent>(uid);
-            var damageSpec = new DamageSpecifier(_prototypeManager.Index<DamageGroupPrototype>("Genetic"), 300);
+            var damageSpec = new DamageSpecifier(_prototypeManager.Index(GeneticDamageGroup), 300);
             _damageableSystem.TryChangeDamage(uid, damageSpec);
         }
     }
@@ -77,7 +102,7 @@ public sealed class CluwneSystem : EntitySystem
 
         _nameMod.RefreshNameModifiers(uid);
 
-        SetOutfitCommand.SetOutfit(uid, "CluwneGear", EntityManager);
+        _outfitSystem.SetOutfit(uid, "CluwneGear");
     }
 
     /// <summary>

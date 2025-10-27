@@ -1,3 +1,22 @@
+# SPDX-FileCopyrightText: 2020 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Maxtone <124747282+MagnusCrowe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Sigil <84070966+Siigiil@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Sigil <noreply>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: ClothingOuterBaseLarge
   id: ClothingOuterBioGeneral
@@ -10,9 +29,26 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/general.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
     modifiers:
       coefficients:
-        Caustic: 0.5
+        Caustic: 0.2
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.35
+  - type: GroupExamine
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -31,12 +67,16 @@
   id: ClothingOuterBioJanitor
   name: bio suit
   suffix: Janitor
-  description: A suit that protects against biological contamination, in Janitor colors.
+  description: A suit that protects against biological contamination and caustic spills.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Bio/janitor.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/janitor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.4
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -51,25 +91,45 @@
     sprite: Clothing/OuterClothing/Bio/scientist.rsi
 
 - type: entity
-  parent: ClothingOuterBioGeneral
+  parent: [ClothingOuterBioGeneral, BaseSecurityContraband]
   id: ClothingOuterBioSecurity
   name: bio suit
   suffix: Security
-  description: A suit that protects against biological contamination, in Security colors.
+  description: A suit that protects against biological contamination, kitted out with additional armor.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Bio/security.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/security.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.8
+        Caustic: 0.2
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.4
 
 - type: entity
   parent: ClothingOuterBioGeneral
   id: ClothingOuterBioVirology
   name: bio suit
   suffix: Virology
-  description: A suit that protects against biological contamination, in Virology colors.
+  description: A suit that strongly protects against biological contamination.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Bio/virology.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/virology.rsi
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.25

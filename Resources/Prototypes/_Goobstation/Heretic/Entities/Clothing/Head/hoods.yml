@@ -1,21 +1,97 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
-  parent: [ ClothingHeadBase, BaseMagicContraband ]
+  parent: [ ClothingHeadBase, BaseMagicalContraband ]
   id: ClothingHeadHatHoodHeretic
   name: ominous hood
   description: A torn, dust-caked hood. Strange eyes line the inside.
   components:
   - type: HereticMagicItem
   - type: Sprite
-    sprite: _Goobstation/Heretic/eldritch_hood.rsi
+    sprite: _Goobstation/Heretic/Clothing/Head/eldritch_hood.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/eldritch_hood.rsi
+    sprite: _Goobstation/Heretic/Clothing/Head/eldritch_hood.rsi
   - type: Tag
     tags:
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
     - Hair
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Caustic: 0.5
+        Holy: 1.25
+
+- type: entity
+  parent: ClothingHeadHatHoodHeretic
+  id: ClothingHeadHatHoodHereticVoid
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/Head/void_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/Head/void_hood.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodHeretic
+  id: ClothingHeadHatHoodHereticAsh
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/Head/ashen_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/Head/ashen_hood.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodHeretic
+  id: ClothingHeadHatHoodHereticFlesh
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/Head/flesh_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/Head/flesh_hood.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodHeretic
+  id: ClothingHeadHatHoodHereticBlade
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/Head/blade_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/Head/blade_hood.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodHeretic
+  id: ClothingHeadHatHoodHereticCosmos
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/Head/cosmos_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/Head/cosmos_hood.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -24,11 +100,22 @@
   description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/void_hood.rsi
+    sprite: _Goobstation/Heretic/Clothing/Head/void_cloak_hood.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/void_hood.rsi
+    sprite: _Goobstation/Heretic/Clothing/Head/void_cloak_hood.rsi
   - type: Tag
-    tags: []
+    tags: [ ]
   - type: StripMenuInvisible
   - type: VoidCloakHood
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.7
+        Caustic: 0.7
+        # Holy: 1.25

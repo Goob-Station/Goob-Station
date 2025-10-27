@@ -1,3 +1,19 @@
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Client.Items;
 using Content.Client.Storage.Systems;
@@ -12,6 +28,7 @@ namespace Content.Client.Stack
     {
         [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly ItemCounterSystem _counterSystem = default!;
+        [Dependency] private readonly SpriteSystem _sprite = default!;
 
         public override void Initialize()
         {
@@ -37,7 +54,7 @@ namespace Content.Client.Stack
 
                 for (var i = 0; i < sprite.AllLayers.Count(); i++)
                 {
-                    sprite.LayerSetColor(i, color);
+                    _sprite.LayerSetColor((uid, sprite), i, color);
                 }
             }
 
@@ -66,10 +83,60 @@ namespace Content.Client.Stack
             if (!_appearanceSystem.TryGetData<bool>(uid, StackVisuals.Hide, out var hidden, args.Component))
                 hidden = false;
 
+            if (comp.LayerFunction != StackLayerFunction.None)
+                ApplyLayerFunction((uid, comp), ref actual, ref maxCount);
+
             if (comp.IsComposite)
                 _counterSystem.ProcessCompositeSprite(uid, actual, maxCount, comp.LayerStates, hidden, sprite: args.Sprite);
             else
                 _counterSystem.ProcessOpaqueSprite(uid, comp.BaseLayer, actual, maxCount, comp.LayerStates, hidden, sprite: args.Sprite);
+        }
+
+        /// <summary>
+        /// Adjusts the actual and maxCount to change how stack amounts are displayed.
+        /// </summary>
+        /// <param name="ent">The entity considered.</param>
+        /// <param name="actual">The actual number of items in the stack. Altered depending on the function to run.</param>
+        /// <param name="maxCount">The maximum number of items in the stack. Altered depending on the function to run.</param>
+        /// <returns>Whether or not a function was applied.</returns>
+        private bool ApplyLayerFunction(Entity<StackComponent> ent, ref int actual, ref int maxCount)
+        {
+            switch (ent.Comp.LayerFunction)
+            {
+                case StackLayerFunction.Threshold:
+                    if (TryComp<StackLayerThresholdComponent>(ent, out var threshold))
+                    {
+                        ApplyThreshold(threshold, ref actual, ref maxCount);
+                        return true;
+                    }
+                    break;
+            }
+            // No function applied.
+            return false;
+        }
+
+        /// <summary>
+        /// Selects which layer a stack applies based on a list of thresholds.
+        /// Each threshold passed results in the next layer being selected.
+        /// </summary>
+        /// <param name="comp">The threshold parameters to apply.</param>
+        /// <param name="actual">The number of items in the stack. Will be set to the index of the layer to use.</param>
+        /// <param name="maxCount">The maximum possible number of items in the stack. Will be set to the number of selectable layers.</param>
+        private static void ApplyThreshold(StackLayerThresholdComponent comp, ref int actual, ref int maxCount)
+        {
+            // We must stop before we run out of thresholds or layers, whichever's smaller.
+            maxCount = Math.Min(comp.Thresholds.Count + 1, maxCount);
+            var newActual = 0;
+            foreach (var threshold in comp.Thresholds)
+            {
+                //If our value exceeds threshold, the next layer should be displayed.
+                //Note: we must ensure actual <= MaxCount.
+                if (actual >= threshold && newActual < maxCount)
+                    newActual++;
+                else
+                    break;
+            }
+            actual = newActual;
         }
     }
 }

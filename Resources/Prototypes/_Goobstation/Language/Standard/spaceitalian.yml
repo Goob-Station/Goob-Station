@@ -1,0 +1,150 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 ImWeax <59857479+ImWeax@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Weax <59857479+ImWeax@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Spoken by people from the Kitchen. Mama mia.
+- type: language
+  id: SpaceItalian
+  isVisibleLanguage: true
+  speech:
+    color: "#b54a4a"
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 1
+    replacement:
+    - insomma
+    - allora
+    - via
+    - cioè
+    - però
+    - neanche
+    - invece
+    - ecco
+    - basta
+    - proprio
+    - appena
+    - intanto
+    - ovvio
+    - addirittura
+    - nemmeno
+    - neppure
+    - manco
+    - giusto
+    - perfino
+    - altrimenti
+    - piuttosto
+    - oppure
+    - senz’altro
+    - talvolta
+    - finché
+    - benché
+    - durante
+    - intorno
+    - "come va"
+    - "che cosa"
+    - "a presto"
+    - "non lo so"
+    - "da quanto tempo"
+    - "va bene"
+    - "ti va"
+    - "per favore"
+    - "mi dispiace"
+    - "non importa"
+    - "a domani"
+    - "che ne so"
+    - "magari sì"
+    - "magari no"
+    - "non fa niente"
+    - "ti credo"
+    - "non ci credo"
+    - "perché no"
+    - "a dire il vero"
+    - "in effetti"
+    - "da un po"
+    - "a volte"
+    - "in realtà"
+    - "chissà perché"
+    - "di solito"
+    - "così così"
+    - "un po"
+    - "a caso"
+    - "per caso"
+    - "come sempre"
+    - "tanto meglio"
+    - "benissimo"
+    - "più o meno"
+    - "davvero"
+    - "non ci posso credere"
+    - "fai attenzione"
+    - "stai tranquillo"
+    - "senza dubbio"
+    - "a buon rendere"
+    - "non è detto"
+    - "per carità"
+    - "tutto sommato"
+    - "ad ogni modo"
+    - "in ogni caso"
+    - "come va a finire"
+    - "piano piano"
+    - "con calma"
+    - "senza fretta"
+    - "make-a the pasta"
+    - "make-a the pizza"
+    - "make-a the bread"
+    - "cook-a"
+    - "mamma mia"
+    - bellissimo
+    - pasta
+    - amore
+    - bella
+    - prego
+    - arrivederci
+    - prosciutto
+    - mozzarella
+    - parmigiano
+    - salami
+    - panini
+    - marinara
+    - pizza
+    - spaghetti
+    - penne
+    - fusilli
+    - rigatoni
+    - farfalle
+    - linguine
+    - fettuccine
+    - tortellini
+    - ravioli
+    - gnocchi
+    - orecchiette
+    - conchiglie
+    - bucatini
+    - ziti
+    - cavatappi
+    - tagliatelle
+    - pappardelle
+    - lasagna
+    - capellini
+    - macaroni
+    - cannelloni
+    - trofie
+    - radiatori
+    - passatelli
+    - ditalini
+    - mafaldine
+    - calamarata
+    - gemelli
+    - strozzapreti
+    - malloreddus
+    - bigoli
+    - casarecce
+    - paccheri
+    - lumache
+    - scialatielli
+    - sedanini
+    - tortiglioni
+    - filini

@@ -7,26 +7,48 @@
 		"y": 32
 	},
 	"states": [
-	{
-		"name": "bsokit"
-	},
-	{
-      "name": "bsokit-inhand-right",
-      "directions": 4
+    {
+      "name": "bsokit"
     },
     {
       "name": "bsokit-inhand-left",
       "directions": 4
     },
-	{
-		"name": "bsokit-ipc"
-	},
-	{
+    {
+      "name": "bsokit-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "bsokit-ipc"
+    },
+    {
+      "name": "bsokit-ipc-inhand-left",
+      "directions": 4
+    },
+    {
       "name": "bsokit-ipc-inhand-right",
       "directions": 4
     },
     {
-      "name": "bsokit-ipc-inhand-left",
+      "name": "blackbluekit"
+    },
+    {
+      "name": "blackbluekit-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "blackbluekit-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "blackpurplekit"
+    },
+    {
+      "name": "blackpurplekit-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "blackpurplekit-inhand-right",
       "directions": 4
     }
 	]

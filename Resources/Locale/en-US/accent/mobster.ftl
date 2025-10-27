@@ -1,4 +1,10 @@
-﻿accent-mobster-prefix-1 = Nyehh,
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+accent-mobster-prefix-1 = Nyehh,
 
 accent-mobster-suffix-boss-1 = , see?
 accent-mobster-suffix-boss-2 = , fugeddaboutit.

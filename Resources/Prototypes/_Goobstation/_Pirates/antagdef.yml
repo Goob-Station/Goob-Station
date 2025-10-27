@@ -1,8 +1,23 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 amogus <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: antag
   id: Pirate
   antagonist: true
   setPreference: false
   objective: roles-antag-syndicate-agent-objective
+  requirements:
+  - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hrs
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
 
 - type: entity
   parent: BaseMindRoleAntag
@@ -12,4 +27,6 @@
   - type: MindRole
     antagPrototype: Pirate
     exclusiveAntag: true
+    roleType: TeamAntagonist
+    subtype: role-subtype-pirate
   - type: PirateRole

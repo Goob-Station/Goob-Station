@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2017 PJB3005 <pieterjan.briers@gmail.com>
+# SPDX-FileCopyrightText: 2018 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+# SPDX-FileCopyrightText: 2018 Remie Richards <remierichards@gmail.com>
+# SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
+# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 #!/usr/bin/env python3
 # Installs git hooks, updates them, updates submodules, that kind of thing.
 
@@ -5,6 +18,7 @@ import subprocess
 import sys
 import os
 import shutil
+import time
 from pathlib import Path
 from typing import List
 
@@ -104,7 +118,21 @@ def reset_solution():
     with SOLUTION_PATH.open("w") as f:
         f.write(content)
 
+def check_for_zip_download():
+    # Check if .git exists,
+    cur_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+    if not os.path.isdir(os.path.join(cur_dir, ".git")):
+        print("It appears that you downloaded this repository directly from GitHub. (Using the .zip download option) \n"
+              "When downloading straight from GitHub, it leaves out important information that git needs to function. "
+              "Such as information to download the engine or even the ability to even be able to create contributions. \n"
+              "Please read and follow https://docs.spacestation14.com/en/general-development/setup/setting-up-a-development-environment.html \n"
+              "If you just want a Sandbox Server, you are following the wrong guide! You can download a premade server following the instructions here:"
+              "https://docs.spacestation14.com/en/general-development/setup/server-hosting-tutorial.html \n"
+              "Closing automatically in 30 seconds.")
+        time.sleep(30)
+        exit(1)
 
 if __name__ == '__main__':
+    check_for_zip_download()
     install_hooks()
     update_submodules()

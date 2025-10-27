@@ -1,16 +1,44 @@
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
 # threats called in by ninja hacking comms console
 - type: weightedRandom
   id: NinjaThreats
   weights:
     Dragon: 1
-    Revenant: 1
+    # Revenant: 1 # Goob - Removed in favor of LoneOperative
+    SlaughterDemon: 1
+    Wraith: 1
+    LoneOperative: 1 # Goobstation
 
 - type: ninjaHackingThreat
   id: Dragon
   announcement: terror-dragon
   rule: DragonSpawn
 
+# Goobstation - start
 - type: ninjaHackingThreat
-  id: Revenant
-  announcement: terror-revenant
-  rule: RevenantSpawn
+  id: SlaughterDemon
+  announcement: terror-slaughter-demon
+  rule: SlaughterDemonMidround
+
+- type: ninjaHackingThreat
+  id: LoneOperative
+  announcement: terror-lone-operative
+  rule: LoneOpsSpawn
+
+# Enable once testing is done
+#- type: ninjaHackingThreat
+#  id: Wraith
+#  announcement: terror-wraith
+#  rule: WraithMidround
+# Goobstation - end
+
+#- type: ninjaHackingThreat
+#  id: Revenant
+#  announcement: terror-revenant
+#  rule: RevenantSpawn
+# Revenant was disabledz

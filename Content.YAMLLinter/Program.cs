@@ -1,3 +1,20 @@
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
+// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +53,9 @@ namespace Content.YAMLLinter
             {
                 foreach (var errorNode in errorHashset)
                 {
-                    Console.WriteLine($"::error file={file},line={errorNode.Node.Start.Line},col={errorNode.Node.Start.Column}::{file}({errorNode.Node.Start.Line},{errorNode.Node.Start.Column})  {errorNode.ErrorReason}");
+                    // TODO YAML LINTER Fix inheritance
+                    // If a parent/abstract prototype has na error, this will misreport the file name (but with the correct line/column).
+                    Console.WriteLine($"::error in {file}({errorNode.Node.Start.Line},{errorNode.Node.Start.Column})  {errorNode.ErrorReason}");
                 }
             }
 
@@ -143,22 +162,24 @@ namespace Content.YAMLLinter
             foreach (var (key, val) in clientErrors.YamlErrors)
             {
                 var newErrors = val.Where(n => n.AlwaysRelevant).ToHashSet();
-                if (newErrors.Count == 0)
-                    continue;
-
-                if (yamlErrors.TryGetValue(key, out var errors))
-                    errors.UnionWith(val.Where(n => n.AlwaysRelevant));
-                else
-                    yamlErrors[key] = newErrors;
 
                 // Include any errors that relate to client-only types
                 foreach (var errorNode in val)
                 {
-                    if (errorNode is FieldNotFoundErrorNode fieldNotFoundNode && !serverTypes.Contains(fieldNotFoundNode.FieldType.Name))
+                    if (errorNode is FieldNotFoundErrorNode fieldNotFoundNode
+                        && !serverTypes.Contains(fieldNotFoundNode.FieldType.Name))
                     {
                         newErrors.Add(errorNode);
                     }
                 }
+
+                if (newErrors.Count == 0)
+                    continue;
+
+                if (yamlErrors.TryGetValue(key, out var errors))
+                    errors.UnionWith(newErrors);
+                else
+                    yamlErrors[key] = newErrors;
             }
 
             // Finally, combine the prototype ID field errors.

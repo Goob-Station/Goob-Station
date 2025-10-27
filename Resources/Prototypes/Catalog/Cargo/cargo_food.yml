@@ -1,10 +1,25 @@
+# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 KIBORG04 <bossmira4@gmail.com>
+# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
+# SPDX-FileCopyrightText: 2022 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Checkraze <71046427+Cheackraze@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 EnDecc <33369477+Endecc@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
+# SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MODERN <87994977+modern-nm@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: cargoProduct
   id: FoodPizza
   icon:
     sprite: Objects/Consumable/Food/Baked/pizza.rsi
     state: margherita-slice
   product: CrateFoodPizza
-  cost: 450
+  cost: 1600
   category: cargoproduct-category-name-food
   group: market
 
@@ -24,7 +39,7 @@
     sprite: Objects/Consumable/Food/snacks.rsi
     state: nutribrick
   product: CrateFoodMRE
-  cost: 1000
+  cost: 1400
   category: cargoproduct-category-name-food
   group: market
 
@@ -64,7 +79,7 @@
     sprite: Objects/Consumable/Drinks/cola.rsi
     state: icon
   product: CrateFoodSoftdrinks
-  cost: 1200
+  cost: 1500
   category: cargoproduct-category-name-food
   group: market
 
@@ -75,5 +90,45 @@
     state: icon
   product: CrateFoodSoftdrinksLarge
   cost: 2400
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: FoodCookGetmore
+  icon:
+    sprite: Objects/Consumable/Food/snacks.rsi
+    state: raisins
+  product: CrateFoodGetMore
+  cost: 750
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: FoodHappyHonkMeals
+  icon:
+    sprite: Objects/Consumable/Food/burger.rsi
+    state: bigbite
+  product: CrateFoodHappyHonkBigBite
+  cost: 2800
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: FoodIceCream
+  icon:
+    sprite: Objects/Consumable/Food/frozen.rsi
+    state: sandwich
+  product: CrateFoodIceCream
+  cost: 2000
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: FoodSnowcone
+  icon:
+    sprite: Objects/Consumable/Food/frozen.rsi
+    state: cone
+  product: CrateFoodSnowcone
+  cost: 2000
   category: cargoproduct-category-name-food
   group: market

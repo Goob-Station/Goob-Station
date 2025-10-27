@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: web cocoon
+  description: Strong web cocoon used to restrain preys or just criminals.
+  id: WebCocoon
+  parent: Handcuffs
+  components:
+  - type: Item
+    size: Huge
+  - type: Handcuff
+    cuffTime: 5
+    breakoutTime: 30
+    uncuffTime: 10
+    cuffedRSI: _NF/Objects/Misc/webcocoon.rsi
+    bodyIconState: body-overlay
+    breakOnRemove: true
+    brokenPrototype: MaterialWebSilk1
+    startCuffSound:
+      path: /Audio/Items/Handcuffs/rope_start.ogg
+    endCuffSound:
+      path: /Audio/Items/Handcuffs/rope_end.ogg
+    startUncuffSound:
+      path: /Audio/Items/Handcuffs/rope_start.ogg
+    endUncuffSound:
+      path: /Audio/Items/Handcuffs/rope_breakout.ogg
+    startBreakoutSound:
+      path: /Audio/Items/Handcuffs/rope_takeoff.ogg
+  - type: Construction
+    graph: WebCocoon
+    node: end
+  - type: Sprite
+    sprite: _NF/Objects/Misc/webcocoon.rsi
+    state: cocoon

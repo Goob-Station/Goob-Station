@@ -1,3 +1,13 @@
+<!--
+SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <Document>
   # Changelings
   <Box>
@@ -15,14 +25,6 @@
   ### Chemicals
   Chemicals are your source of abilities. Without them you won't be able to use your powers.
   They regenerate slowly over time, and absorption will increase their max capacity.
-
-  ### Biomass
-  Your biomass is your health. In the beginning you have 30 biomass to begin. You spend 1 biomass each minute, and absorption fully recovers it.
-  Once your biomass levels get low enough, the effects of your decay will be seen by crew, such as:
-  - Vomiting blood
-  - Violently shaking
-  - Death.
-  You cannot die normally, as in being gibbed by blunt trauma, but your Biomass is slowly draining away, and if you don't get to absorb someone before it runs out, your game will be over.
 
   ### DNA Absorption
   Your main weapon is deception. Transform into other humanoid creatures to confuse the crew.
@@ -43,22 +45,25 @@
 
   ### Regeneration
   Also known as Regenerative Stasis, changelings have the ability to 'kill' themselves, and appear dead. After an uncertain amount of time, the changeling can revive at will, fully healed of all injuries and illness.
-  Entering stasis drains all of the changeling's chemicals, and leaving costs 60. Chemicals will still regenerate while a changeling is dead, meaning it can always enter stasis unless it's biomass levels are critical.
+  Entering stasis will start a timer that scales with damage taken, and leaving will cost 30 chemicals. Chemicals will still regenerate while a changeling is dead.
 
   Changelings can also choose to revive by defibrillator, making it even harder to tell if they are one or not.
 
-  This makes them nigh-unkillable, as they can fully regenerate themselves even from death if they have enough chemicals. Spaced changelings may also be able to make it back on station given enough time. The best way to permanently deal with a changeling is to starve it to death, putting them on mining colonies or solitary confinement.
+  This makes them nigh-unkillable, as they can fully regenerate themselves even from death if they have enough chemicals. Spaced changelings may also be able to make it back on station given enough time. The best way to permanently deal with a changeling is to cremate them, put them on mining colonies or in solitary confinement.
 
   ### Going Solo or Teaming Up
   Like traitors, changelings operate individually and are in no way obligated to assist each other. It is not required for changelings to even reveal their identity to each other, as it's not uncommon for changelings to backstab each other to remove competition.
-  Even so, [colopr=red]a coordinated group of changelings is truly a terror to behold[/color].
+  Even so, [color=red]a coordinated group of changelings is truly a terror to behold[/color].
 
   ## Identifying a changeling
   Changelings have a different blood type. Even if a changeling is pretending to be a diona, vox or a moth person, they have one blood type.
   Also, when put in a centrifuge, the changeling's blood reacts violently.
   You cannot identify changelings in any other possible way, unless they're dead obvious and start going loud.
 
-[textlink="Learn about the changeling abilities." link="ChangelingsAbilities"]
+  ## Your true weakness...
+  [color=orange]Kill it with fire![/color]
+  - While on fire, they are [color=red]unable to use or toggle most of their combat, defensive and utility oriented abilities.[/color]
+  - Changelings also suffer a massive reduction to their chemical generation, being [color=red]reduced to a 1/4 of its current amount[/color] when on fire!
+
+  [textlink="Learn about the changeling abilities." link="ChangelingsAbilities"]
 </Document>
-
-

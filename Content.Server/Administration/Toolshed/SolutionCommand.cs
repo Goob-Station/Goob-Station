@@ -1,7 +1,20 @@
-﻿using Content.Shared.Administration;
+// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Administration;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Toolshed.Syntax;
@@ -37,18 +50,21 @@ public sealed class SolutionCommand : ToolshedCommand
     public SolutionRef AdjReagent(
             [PipedArgument] SolutionRef input,
             ProtoId<ReagentPrototype> proto,
-            FixedPoint2 amount
+            float amount
         )
     {
         _solutionContainer ??= GetSys<SharedSolutionContainerSystem>();
 
-        if (amount > 0)
+        // Convert float to FixedPoint2
+        var amountFixed = FixedPoint2.New(amount);
+
+        if (amountFixed > 0)
         {
-            _solutionContainer.TryAddReagent(input.Solution, proto, amount, out _);
+            _solutionContainer.TryAddReagent(input.Solution, proto, amountFixed, out _);
         }
-        else if (amount < 0)
+        else if (amountFixed < 0)
         {
-            _solutionContainer.RemoveReagent(input.Solution, proto, -amount);
+            _solutionContainer.RemoveReagent(input.Solution, proto, -amountFixed);
         }
 
         return input;
@@ -58,7 +74,7 @@ public sealed class SolutionCommand : ToolshedCommand
     public IEnumerable<SolutionRef> AdjReagent(
             [PipedArgument] IEnumerable<SolutionRef> input,
             ProtoId<ReagentPrototype> name,
-            FixedPoint2 amount
+            float amount
         )
         => input.Select(x => AdjReagent(x, name, amount));
 }

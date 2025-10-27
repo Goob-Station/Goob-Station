@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Objectives.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Cuffs.Components;
@@ -30,8 +36,9 @@ public sealed class EscapeShuttleConditionSystem : EntitySystem
             return 0f;
 
         // You're not escaping if you're restrained!
+        // Granting 50% as to allow for partial completion of the objective.
         if (TryComp<CuffableComponent>(mind.OwnedEntity, out var cuffed) && cuffed.CuffedHandCount > 0)
-            return 0f;
+            return _emergencyShuttle.IsTargetEscaping(mind.OwnedEntity.Value) ? 0.5f : 0f;
 
         // Any emergency shuttle counts for this objective, but not pods.
         return _emergencyShuttle.IsTargetEscaping(mind.OwnedEntity.Value) ? 1f : 0f;

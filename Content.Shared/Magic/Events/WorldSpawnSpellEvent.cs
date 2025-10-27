@@ -1,4 +1,14 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
+// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Numerics;
 using Content.Shared.Actions;
 using Content.Shared.Storage;
 
@@ -6,7 +16,7 @@ namespace Content.Shared.Magic.Events;
 
 // TODO: This class needs combining with InstantSpawnSpellEvent
 
-public sealed partial class WorldSpawnSpellEvent : WorldTargetActionEvent, ISpeakSpell
+public sealed partial class WorldSpawnSpellEvent : WorldTargetActionEvent
 {
     /// <summary>
     /// The list of prototypes this spell will spawn
@@ -28,7 +38,4 @@ public sealed partial class WorldSpawnSpellEvent : WorldTargetActionEvent, ISpea
     /// </summary>
     [DataField]
     public float? Lifetime;
-
-    [DataField]
-    public string? Speech { get; private set; }
 }

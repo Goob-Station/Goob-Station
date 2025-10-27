@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Miro Kavaliou <miraslauk@gmail.com>
+// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Options.UI;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface.Controllers;
@@ -26,7 +34,7 @@ public sealed class OptionsUIController : UIController
 
         if (!int.TryParse(args[0], out var tab))
         {
-            shell.WriteError(Loc.GetString("cmd-parse-failure-int", ("arg", args[0])));
+            shell.WriteError(Loc.GetString("cmd-parse-failure-integer", ("arg", args[0])));
             return;
         }
 

@@ -1,6 +1,14 @@
-﻿using Content.Server.Worldgen.Systems.Debris;
+// SPDX-FileCopyrightText: 2023 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Worldgen.Systems.Debris;
 using Content.Shared.Maps;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Worldgen.Components.Debris;
 
@@ -24,9 +32,8 @@ public sealed partial class BlobFloorPlanBuilderComponent : Component
     /// <summary>
     ///     The tiles to be used for the floor plan.
     /// </summary>
-    [DataField("floorTileset", required: true,
-        customTypeSerializer: typeof(PrototypeIdListSerializer<ContentTileDefinition>))]
-    public List<string> FloorTileset { get; private set;  } = default!;
+    [DataField(required: true)]
+    public List<ProtoId<ContentTileDefinition>> FloorTileset { get; private set;  } = default!;
 
     /// <summary>
     ///     The number of floor tiles to place when drawing the asteroid layout.
@@ -34,4 +41,3 @@ public sealed partial class BlobFloorPlanBuilderComponent : Component
     [DataField("floorPlacements", required: true)]
     public int FloorPlacements { get; private set; }
 }
-

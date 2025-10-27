@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entityTable
   id: LavalandMobs
   table: !type:GroupSelector
@@ -5,7 +10,7 @@
     - !type:GroupSelector
       weight: 50
       children:
-      - id: MobGoliath
+      - id: MobGoliathRandom
       - id: MobHivelord
     - !type:GroupSelector
         weight: 35
@@ -17,6 +22,7 @@
       - id: MobWatcherIcewing
       - id: MobWatcherLavaland
       #- id: LavalandTendrilLegion
+
 
 - type: entity
   name: lavaland mob spawner
@@ -34,3 +40,21 @@
       tableId: LavalandMobs
   placement:
     mode: AlignTileAny
+
+
+- type: entity
+  id: MobGoliathRandom
+  parent: MarkerBase
+  name: Goliath
+  suffix: Random
+  components:
+  - type: Sprite
+    sprite: Mobs/Aliens/Asteroid/goliath.rsi
+    state: goliath
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: MobLavalandGoliath
+        weight: 99
+      - id: MobLavalandGoliathAncient
+        weight: 1

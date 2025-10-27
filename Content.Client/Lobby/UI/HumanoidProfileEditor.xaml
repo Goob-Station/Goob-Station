@@ -1,3 +1,24 @@
+<!--
+SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 James Simonson <jamessimo89@gmail.com>
+SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+SPDX-FileCopyrightText: 2024 PoTeletubby <151896601+PoTeletubby@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 ShadowCommander <shadowjjt@gmail.com>
+SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <BoxContainer xmlns="https://spacestation14.io"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:humanoid="clr-namespace:Content.Client.Humanoid"
@@ -67,15 +88,6 @@
                                     <Control HorizontalExpand="True"/>
                                     <LineEdit Name="AgeEdit" MinSize="40 0" HorizontalAlignment="Right" />
                                 </BoxContainer>
-                                <!-- Goobstation - Preferred Borg Name Container-->
-                                <!-- Borg Name -->
-                                <BoxContainer HorizontalExpand="True">
-                                    <Label Text="{Loc 'humanoid-profile-editor-borgname-label'}" />
-                                    <Control HorizontalExpand="True"/>
-                                    <LineEdit Name="BorgNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
-                                    <Button Name="BorgNameRandomize" Text="{Loc 'humanoid-profile-editor-name-random-button'}" />
-                                </BoxContainer>
-                                <!-- End of Goobstation-->
                                 <!-- Sex -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-sex-label'}" />
@@ -100,6 +112,23 @@
                                     <Control HorizontalExpand="True"/>
                                     <OptionButton Name="SpawnPriorityButton" HorizontalAlignment="Right" />
                                 </BoxContainer>
+                                <!-- Height Slider --> <!-- begin Goobstation: port EE height/width sliders -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Name="HeightLabel" MinWidth="110" />
+                                    <Slider Name="HeightSlider" MinValue="0.5" Value="1" MaxValue="1.5" HorizontalExpand="True" Margin="5 0 5 0" />
+                                    <Button Name="HeightReset" Text="{Loc 'ui-options-bind-reset'}" />
+                                </BoxContainer>
+                                <!-- Width Slider -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Name="WidthLabel" MinWidth="110" />
+                                    <Slider Name="WidthSlider" MinValue="0.5" Value="1" MaxValue="1.5" HorizontalExpand="True" Margin="5 0 5 0" />
+                                    <Button Name="WidthReset" Text="{Loc 'ui-options-bind-reset'}" />
+                                </BoxContainer>
+                                <!--Weight (Derived from height and width)-->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Name="WeightLabel" />
+                                </BoxContainer>
+                                <!-- end Goobstation: port EE height/width sliders -->
                             </BoxContainer>
                             <!-- Skin -->
                             <BoxContainer Margin="10" HorizontalExpand="True" Orientation="Vertical">

@@ -1,0 +1,25 @@
+- type: entity
+  id: TelescopicBatonAdvanced
+  parent: [TelescopicBaton, BaseCentcommContraband]
+  name: disciplinary baton
+  description: A compact and slightly harmful personal defense weapon, designed to discipline shoddy workers. Sturdy enough to knock the feet out from under attackers.
+  components:
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/_Goobstation/Weapons/Baton/woodhit.ogg
+      params:
+        variation: 0.250
+    activatedDamage:
+      types:
+        Blunt: 15
+  - type: TelescopicBaton
+  - type: KnockdownOnHit
+    duration: 3.0
+    dropHeldItemsBehavior: DropIfStanding
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    bluntStaminaDamageFactor: 1.5
+    angle: 0
+    damage:
+      types:
+        Blunt: 1

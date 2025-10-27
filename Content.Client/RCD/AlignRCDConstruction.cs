@@ -1,5 +1,14 @@
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Content.Client.Gameplay;
+using Content.Client.Hands.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.RCD.Components;
@@ -17,6 +26,7 @@ public sealed class AlignRCDConstruction : PlacementMode
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     private readonly SharedMapSystem _mapSystem;
+    private readonly HandsSystem _handsSystem;
     private readonly RCDSystem _rcdSystem;
     private readonly SharedTransformSystem _transformSystem;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -34,6 +44,7 @@ public sealed class AlignRCDConstruction : PlacementMode
     {
         IoCManager.InjectDependencies(this);
         _mapSystem = _entityManager.System<SharedMapSystem>();
+        _handsSystem = _entityManager.System<HandsSystem>();
         _rcdSystem = _entityManager.System<RCDSystem>();
         _transformSystem = _entityManager.System<SharedTransformSystem>();
 
@@ -88,28 +99,28 @@ public sealed class AlignRCDConstruction : PlacementMode
         }
 
         // Determine if player is carrying an RCD in their active hand
-        if (!_entityManager.TryGetComponent<HandsComponent>(player, out var hands))
+        if (!_handsSystem.TryGetActiveItem(player.Value, out var heldEntity))
             return false;
-
-        var heldEntity = hands.ActiveHand?.HeldEntity;
 
         if (!_entityManager.TryGetComponent<RCDComponent>(heldEntity, out var rcd))
             return false;
 
-        // Retrieve the map grid data for the position
-        if (!_rcdSystem.TryGetMapGridData(position, out var mapGridData))
+        var gridUid = _transformSystem.GetGrid(position);
+        if (!_entityManager.TryGetComponent<MapGridComponent>(gridUid, out var mapGrid))
             return false;
+        var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, position);
+        var posVector = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, position);
 
         // Determine if the user is hovering over a target
         var currentState = _stateManager.CurrentState;
 
         if (currentState is not GameplayStateBase screen)
             return false;
-        
+
         var target = screen.GetClickedEntity(_transformSystem.ToMapCoordinates(_unalignedMouseCoords));
 
         // Determine if the RCD operation is valid or not
-        if (!_rcdSystem.IsRCDOperationStillValid(heldEntity.Value, rcd, mapGridData.Value, target, player.Value, false))
+        if (!_rcdSystem.IsRCDOperationStillValid(heldEntity.Value, rcd, gridUid.Value, mapGrid, tile, posVector, target, player.Value, false))
             return false;
 
         return true;

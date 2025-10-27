@@ -1,8 +1,28 @@
+# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
+# SPDX-FileCopyrightText: 2024 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ps3Moira <113228053+ps3moira@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseItem
   id: Cane
   name: cane
-  description: A wooden cane.
+  description: A standard wooden cane. Can help disabled people move easier. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/cane.rsi
@@ -12,6 +32,7 @@
     sprite: Objects/Weapons/Melee/cane.rsi
   - type: Appearance
   - type: MeleeWeapon
+    animationRotation: -45 # WWDP
     wideAnimationRotation: 45
     damage:
       types:
@@ -25,6 +46,7 @@
         Blunt: 3
   - type: UseDelay
     delay: 1
+  - type: MovementImpairedCorrection # Goobstation
 
 - type: entity
   name: cane blade
@@ -37,6 +59,7 @@
     sprite: Objects/Weapons/Melee/cane_blade.rsi
     state: icon
   - type: MeleeWeapon
+    animationRotation: 45 # WWDP
     wideAnimationRotation: 65
     attackRate: 1.5
     damage:
@@ -89,6 +112,7 @@
           tags:
           - CaneBlade
   - type: HideContrabandContent #Goobstation-Contraband detector
+  - type: MovementImpairedCorrection # Goobstation
 
 - type: entity
   id: CaneSheathFilled

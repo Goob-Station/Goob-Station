@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Content.Shared.Shuttles.Components;
 using Robust.Client.GameObjects;
@@ -14,6 +20,8 @@ namespace Content.Client.Shuttles;
 /// </summary>
 public sealed class FtlArrivalOverlay : Overlay
 {
+    private static readonly ProtoId<ShaderPrototype> UnshadedShader = "unshaded";
+
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowEntities;
 
     private EntityLookupSystem _lookups;
@@ -36,7 +44,7 @@ public sealed class FtlArrivalOverlay : Overlay
         _maps = _entManager.System<SharedMapSystem>();
         _sprites = _entManager.System<SpriteSystem>();
 
-        _shader = _protos.Index<ShaderPrototype>("unshaded").Instance();
+        _shader = _protos.Index(UnshadedShader).Instance();
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)

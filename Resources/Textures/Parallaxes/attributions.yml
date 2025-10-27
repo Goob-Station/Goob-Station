@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2023 Checkraze <71046427+Cheackraze@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - files: ["planet.png"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "by Adipemdragon for tgstation, taken at commit 3839e860a7f3102b1488285d3319f61bbfe1fa51 from parallax.dmi"
@@ -22,3 +33,18 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "Drawn by Ubaser"
   source: "https://github.com/space-wizards/space-station-14/blob/master/Resources/Textures/Parallaxes/core_planet.png"
+
+- files: ["debris_small.png"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "Drawn by Southbridge"
+  source: "https://github.com/space-wizards/space-station-14/blob/master/Resources/Textures/Parallaxes/debris_small.png"
+
+- files: [ "space_map3.png", "XenoParallaxNeb.png" ]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Made by SlamBamActionman"
+  source: "https://github.com/space-wizards/space-station-14/blob/master/Resources/Textures/Parallaxes/space_map3.png"
+
+- files: [ "layer1.png", "layer2.png", "layer3.png" ]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TGstation13"
+  source: "https://github.com/tgstation/tgstation/blob/bce9afc2cf39c229f2799c6ad2124f4d69a2dbbf/icons/effects/parallax.dmi"

@@ -1,25 +1,48 @@
-<DefaultWindow xmlns="https://spacestation14.io"
+<!--
+SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+<!-- Goobstation  start -->
+<controls:FancyWindow xmlns="https://spacestation14.io" 
+               xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                xmlns:viewport="clr-namespace:Content.Client.Viewport"
-               Title="{Loc 'surveillance-camera-monitor-ui-window'}">
+               xmlns:ui="clr-namespace:Content.Client.SurveillanceCamera.UI"
+               Title="{Loc 'surveillance-camera-monitor-ui-window'}"
+               Resizable="False"
+               SetSize="1500 780"
+               MinSize="1500 780">
+    <!-- Goobstation  end -->
     <BoxContainer Orientation="Horizontal">
-        <BoxContainer Orientation="Vertical" MinWidth="350" VerticalExpand="True">
-            <!-- lazy -->
-            <OptionButton Name="SubnetSelector" />
-            <Button Name="SubnetRefreshButton" Text="{Loc 'surveillance-camera-monitor-ui-refresh-subnets'}" />
-            <ScrollContainer VerticalExpand="True">
-                <ItemList Name="SubnetList" />
-            </ScrollContainer>
-            <Button Name="CameraRefreshButton" Text="{Loc 'surveillance-camera-monitor-ui-refresh-cameras'}" />
-            <Button Name="CameraDisconnectButton" Text="{Loc 'surveillance-camera-monitor-ui-disconnect'}" />
-            <Label Name="CameraStatus" />
+        <!-- Goobstation  start -->
+        <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+            <controls:StripeBack>
+                <PanelContainer>
+                    <RichTextLabel Name="StationName" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </PanelContainer>
+            </controls:StripeBack>
+            <ui:SurveillanceCameraConsoleNavMapControl Name="NavMap" VerticalExpand="True" HorizontalExpand="True" />
+            <BoxContainer Orientation="Vertical">
+                <BoxContainer Orientation="Horizontal" VerticalExpand="True">
+                    <!-- lazy -->
+                    <Button Name="SubnetRefreshButton" Text="{Loc 'surveillance-camera-monitor-ui-refresh-subnets'}" />
+                    <Button Name="CameraRefreshButton" Text="{Loc 'surveillance-camera-monitor-ui-refresh-cameras'}" />
+                    <Button Name="CameraDisconnectButton" Text="{Loc 'surveillance-camera-monitor-ui-disconnect'}" />
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal">
+                    <Label Name="CameraStatus" />
+                </BoxContainer>
+            </BoxContainer>
+            <!-- Goobstation end -->
         </BoxContainer>
         <Control VerticalExpand="True" HorizontalExpand="True" Margin="5 5 5 5" Name="CameraViewBox">
             <viewport:ScalingViewport Name="CameraView"
                                       VerticalExpand="True"
                                       HorizontalExpand="True"
-                                      MinSize="500 500"
+                                      MinSize="770 770"
                                       MouseFilter="Ignore" />
-            <TextureRect VerticalExpand="True" HorizontalExpand="True" MinSize="500 500" Name="CameraViewBackground" />
+            <TextureRect VerticalExpand="True" HorizontalExpand="True" MinSize="770 770" Name="CameraViewBackground" />
         </Control>
     </BoxContainer>
-</DefaultWindow>
+</controls:FancyWindow><!-- Goobstation -->

@@ -1,4 +1,14 @@
-﻿<DefaultWindow xmlns="https://spacestation14.io"
+<!--
+SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<DefaultWindow xmlns="https://spacestation14.io"
             xmlns:logs="clr-namespace:Content.Client.Administration.UI.Logs"
             Title="{Loc admin-logs-title}"
             SetSize="1100 400">

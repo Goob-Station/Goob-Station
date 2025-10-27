@@ -1,3 +1,17 @@
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 mhamster <81412348+mhamsterr@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Client.Clothing.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Tag;
@@ -11,7 +25,6 @@ namespace Content.Client.Clothing.UI;
 [UsedImplicitly]
 public sealed class ChameleonBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     private readonly ChameleonClothingSystem _chameleon;
     private readonly TagSystem _tag;
@@ -42,13 +55,13 @@ public sealed class ChameleonBoundUserInterface : BoundUserInterface
         var targets = _chameleon.GetValidTargets(st.Slot);
         if (st.RequiredTag != null)
         {
-            var newTargets = new List<string>();
+            var newTargets = new List<EntProtoId>();
             foreach (var target in targets)
             {
                 if (string.IsNullOrEmpty(target) || !_proto.TryIndex(target, out EntityPrototype? proto))
                     continue;
 
-                if (!proto.TryGetComponent(out TagComponent? tag, _factory) || !_tag.HasTag(tag, st.RequiredTag))
+                if (!proto.TryGetComponent(out TagComponent? tag, EntMan.ComponentFactory) || !_tag.HasTag(tag, st.RequiredTag))
                     continue;
 
                 newTargets.Add(target);

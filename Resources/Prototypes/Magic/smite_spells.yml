@@ -1,24 +1,36 @@
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PoTeletubby <ajcraigaz@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: ActionSmite
   name: Smite
   description: Charge your hand with an unholy energy that can be used to cause a touched victim to violently explode.
   components:
-  - type: EntityTargetAction
+  - type: Action
     useDelay: 60
     itemIconStyle: BigAction
-    whitelist:
-      components:
-      - Body
-    canTargetSelf: false
-    interactOnMiss: false
-    raiseOnUser: true # Goobstation
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/disintegrate.ogg
     icon:
       sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: gib
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
     event: !type:SmiteSpellEvent
-      speech: action-speech-spell-smite
+  - type: SpeakOnAction
+    sentence: action-speech-spell-smite
   - type: Magic # Goobstation
     requiresClothes: true
     requiresSpeech: true

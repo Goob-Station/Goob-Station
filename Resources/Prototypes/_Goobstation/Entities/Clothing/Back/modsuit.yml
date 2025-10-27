@@ -1,8 +1,22 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitStandard
-  name: standard modsuit control
-  description: A special modular suit contol containing all modular suit parts.
+  name: standard modsuit control unit
+  description: A special modular suit contol unit containing all necessary modular hardsuit parts.
   components:
   - type: Appearance
   - type: Sprite
@@ -14,14 +28,16 @@
       shader: unshaded
       map: [ "sealed" ]
   - type: Item
-    size: Huge
+    size: Ginormous
   - type: Clothing
     quickEquip: false
     slots:
     - back
   - type: Storage
     grid:
-    - 0,0,6,3
+    - 0,0,1,3
+    - 3,0,6,3
+    - 8,0,9,3
     maxItemSize: Huge
   - type: ContainerContainer
     containers:
@@ -41,9 +57,9 @@
     damageCoefficient: 0.9
   - type: ToggleableClothing
     requiredSlot: back
-    blockUnequipWhenAttached: true
+    blockUnequipWhenAttached: false # easier to use and now its fixed
     replaceCurrentClothing: true
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingModsuitHelmetStandard
       gloves: ClothingModsuitGauntletsStandard
       outerClothing: ClothingModsuitChestplateStandard
@@ -60,8 +76,8 @@
     slots:
       cell_slot: true
   - type: PowerCellDraw
-    drawRate: 1 # Sealed draw rate
-    useRate: 5 # Draw rate for sealing
+    drawRate: 0.8 # Sealed draw rate
+    useRate: 4 # Draw rate for sealing
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: false
@@ -69,17 +85,310 @@
   - type: SealableClothingControl
   - type: SealableClothingRequiresPower
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       back:
       - state: equipped-BACKPACK-sealed
-        shader: unshaded
   - type: Construction
     graph: Modsuit
     node: standard
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.95
+    walkModifier: 0.95
 
 - type: entity
   parent: ClothingModsuitStandard
   id: ClothingModsuitStandardPowerCell
+  suffix: High-Capacity Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+        whitelist:
+          components:
+            - PowerCell
+
+- type: entity
+  parent: [ClothingModsuitStandard, BaseSecurityContraband]
+  id: ClothingModsuitSecurity
+  name: security soldat modsuit control unit
+  description: A robust modular hardsuit control module unit for thrashing commies in spess.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Modsuits/security.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingModsuitHelmetSecurity
+      gloves: ClothingModsuitGauntletsSecurity
+      outerClothing: ClothingModsuitChestplateSecurity
+      shoes: ClothingModsuitBootsSecurity
+  - type: Construction
+    graph: Modsuit
+    node: security
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+
+- type: entity
+  parent: ClothingModsuitSecurity
+  id: ClothingModsuitSecurityPowerCell
+  suffix: High-Capacity Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+        whitelist:
+          components:
+            - PowerCell
+
+- type: entity
+  parent: [ClothingModsuitStandard, BaseCommandContraband]
+  id: ClothingModsuitHeadOfSecurity
+  name: head of security's bulwark modsuit control unit
+  description: A robust modular HARDERsuit control module unit for the head of security.
+  components:
+  - type: Appearance
+  - type: Clothing
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      back-resomi:
+      - state: equipped-BACKPACK-resomi
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Modsuits/headofsecurity.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingModsuitHelmetHeadOfSecurity
+      gloves: ClothingModsuitGauntletsHeadOfSecurity
+      outerClothing: ClothingModsuitChestplateHeadOfSecurity
+      shoes: ClothingModsuitBootsHeadOfSecurity
+  - type: Construction
+    graph: Modsuit
+    node: headofsecurity
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+      back-resomi:
+      - state: equipped-BACKPACK-sealed-resomi
+
+- type: entity
+  parent: ClothingModsuitHeadOfSecurity
+  id: ClothingModsuitHeadOfSecurityPowerCell
+  suffix: High-Capacity Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+        whitelist:
+          components:
+            - PowerCell
+
+- type: entity
+  parent: [ClothingModsuitStandard, BaseMedicalContraband]
+  id: ClothingModsuitParamedic
+  name: sanitater modsuit control unit
+  description: A modular hardsuit control module unit for paramedics.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Modsuits/paramedic.rsi
+  - type: Storage
+    grid:
+    - 0,0,1,3
+    - 3,0,6,3
+    - 8,0,9,3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingModsuitHelmetParamedic
+      gloves: ClothingModsuitGauntletsParamedic
+      outerClothing: ClothingModsuitChestplateParamedic
+      shoes: ClothingModsuitBootsParamedic
+  - type: Construction
+    graph: Modsuit
+    node: paramedic
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+
+- type: entity
+  parent: ClothingModsuitParamedic
+  id: ClothingModsuitParamedicPowerCell
+  suffix: High-Capacity Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+        whitelist:
+          components:
+            - PowerCell
+
+- type: entity
+  parent: [ClothingModsuitStandard, BaseEngineeringContraband]
+  id: ClothingModsuitEngineer
+  name: engineer sapper modsuit control unit
+  description: A modular hardsuit control module unit for withstanding the greatest hazards on the job.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Modsuits/engineer.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingModsuitHelmetEngineer
+      gloves: ClothingModsuitGauntletsEngineer
+      outerClothing: ClothingModsuitChestplateEngineer
+      shoes: ClothingModsuitBootsEngineer
+  - type: Construction
+    graph: Modsuit
+    node: engineer
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+      back-resomi:
+      - state: equipped-BACKPACK-sealed-resomi
+
+- type: entity
+  parent: ClothingModsuitEngineer
+  id: ClothingModsuitEngineerPowerCell
+  suffix: High-Capacity Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+        whitelist:
+          components:
+            - PowerCell
+
+- type: entity
+  parent: [ClothingModsuitStandard, BaseEngineeringContraband]
+  id: ClothingModsuitAtmostech
+  name: atmospheric technician aeolus modsuit control unit
+  description: A modular hardsuit control module unit for withstanding the greatest hazards on the job.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Modsuits/atmostech.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingModsuitHelmetAtmostech
+      gloves: ClothingModsuitGauntletsAtmostech
+      outerClothing: ClothingModsuitChestplateAtmostech
+      shoes: ClothingModsuitBootsAtmostech
+  - type: Construction
+    graph: Modsuit
+    node: atmostech
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+      back-resomi:
+      - state: equipped-BACKPACK-sealed-resomi
+
+- type: entity
+  parent: ClothingModsuitAtmostech
+  id: ClothingModsuitAtmostechPowerCell
+  suffix: High-Capacity Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+        whitelist:
+          components:
+            - PowerCell
+
+- type: entity
+  parent: [ClothingModsuitStandard, BaseCommandContraband, BaseGrandTheftContraband]
+  id: ClothingModsuitResearchDirector
+  name: RD's minerva modsuit control unit
+  description: A modular hardsuit control module unit for withstanding another shuttlebomb.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Modsuits/researchdirector.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingModsuitHelmetResearchDirector
+      gloves: ClothingModsuitGauntletsResearchDirector
+      outerClothing: ClothingModsuitChestplateResearchDirector
+      shoes: ClothingModsuitBootsResearchDirector
+  - type: Construction
+    graph: Modsuit
+    node: rd
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+  - type: StealTarget
+    stealGroup: ClothingOuterHardsuitRd
+  - type: Tag
+    tags:
+      - HighRiskItem
+
+- type: entity
+  parent: ClothingModsuitResearchDirector
+  id: ClothingModsuitResearchDirectorPowerCell
+  suffix: High-Capacity Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+        whitelist:
+          components:
+            - PowerCell
+
+- type: entity
+  parent: [ClothingModsuitStandard, BaseCommandContraband]
+  id: ClothingModsuitCaptain
+  name: captain's magnate modsuit control unit
+  description: A gem-encrusted, mirror-shined and absolutely MAGNATE armored modsuit. The cooling fluid is dragons' blood watered down with Dr. Gibb. This shit is nothing to you, man. # goob edit - grammar
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Modsuits/captain.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingModsuitHelmetCaptain
+      gloves: ClothingModsuitGauntletsCaptain
+      outerClothing: ClothingModsuitChestplateCaptain
+      shoes: ClothingModsuitBootsCaptain
+  - type: Construction
+    graph: Modsuit
+    node: captain
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+      back-resomi:
+      - state: equipped-BACKPACK-sealed-resomi
+
+- type: entity
+  parent: ClothingModsuitCaptain
+  id: ClothingModsuitCaptainPowerCell
   suffix: High-Capacity Battery
   components:
   - type: ItemSlots

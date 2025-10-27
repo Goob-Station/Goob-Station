@@ -1,4 +1,16 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: preloadedGrid
   id: FrontierProspector
   path: /Maps/_Goobstation/Shuttles/ShuttleEvent/prospector.yml
+  copies: 1
+
+- type: preloadedGrid
+  id: AlienTourist
+  path: /Maps/_Goobstation/Shuttles/ShuttleEvent/alien_tourist.yml
   copies: 1

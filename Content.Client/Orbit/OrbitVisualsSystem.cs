@@ -1,4 +1,13 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Numerics;
 using Content.Shared.Follower.Components;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
@@ -13,6 +22,7 @@ public sealed class OrbitVisualsSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly AnimationPlayerSystem _animations = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     private readonly string _orbitStopKey = "orbiting_stop";
 
@@ -63,14 +73,15 @@ public sealed class OrbitVisualsSystem : EntitySystem
     {
         base.FrameUpdate(frameTime);
 
-        foreach (var (orbit, sprite) in EntityManager.EntityQuery<OrbitVisualsComponent, SpriteComponent>())
+        var query = EntityQueryEnumerator<OrbitVisualsComponent, SpriteComponent>();
+        while (query.MoveNext(out var uid, out var orbit, out var sprite))
         {
             var progress = (float)(_timing.CurTime.TotalSeconds / orbit.OrbitLength) % 1;
             var angle = new Angle(Math.PI * 2 * progress);
             var vec = angle.RotateVec(new Vector2(orbit.OrbitDistance, 0));
 
-            sprite.Rotation = angle;
-            sprite.Offset = vec;
+            _sprite.SetRotation((uid, sprite), angle);
+            _sprite.SetOffset((uid, sprite), vec);
         }
     }
 

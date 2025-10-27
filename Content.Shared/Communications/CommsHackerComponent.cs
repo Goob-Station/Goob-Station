@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Random;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -29,7 +37,7 @@ public sealed partial class CommsHackerComponent : Component
 /// Generally some kind of mid-round minor antag, though you could make it call in scrubber backflow if you wanted to.
 /// You wouldn't do that, right?
 /// </summary>
-[Prototype("ninjaHackingThreat")]
+[Prototype]
 public sealed partial class NinjaHackingThreatPrototype : IPrototype
 {
     [IdDataField]

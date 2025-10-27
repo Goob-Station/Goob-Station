@@ -1,3 +1,87 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
+// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
+// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Administration.Logs;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Anomaly.Prototypes;
@@ -51,13 +135,18 @@ public abstract class SharedAnomalySystem : EntitySystem
             return;
 
         // anomalies are static by default, so we have set them to dynamic to be throwable
-        _physics.SetBodyType(ent, BodyType.Dynamic, body: body);
+        // only regular anomalies are static, so the check is meant to filter out things such as infection anomalies, which affect players
+        if (TryComp<PhysicsComponent>(ent, out var physics) && physics.BodyType == BodyType.Static)
+            _physics.SetBodyType(ent, BodyType.Dynamic, body: body);
         ChangeAnomalyStability(ent, Random.NextFloat(corePowered.StabilityPerThrow.X, corePowered.StabilityPerThrow.Y), ent.Comp);
     }
 
     private void OnLand(Entity<AnomalyComponent> ent, ref LandEvent args)
     {
-        // revert back to static
+        // revert back to static, but only if the object was dynamic (such as thrown anomalies, but not anomaly infected players)
+        if (!TryComp<PhysicsComponent>(ent, out var body) || body.BodyType != BodyType.Dynamic)
+            return;
+
         _physics.SetBodyType(ent, BodyType.Static);
     }
 
@@ -116,21 +205,26 @@ public abstract class SharedAnomalySystem : EntitySystem
     /// <summary>
     /// Begins the animation for going supercritical
     /// </summary>
-    /// <param name="uid"></param>
-    public void StartSupercriticalEvent(EntityUid uid)
+    /// <param name="ent">Entity to go supercritical</param>
+    public void StartSupercriticalEvent(Entity<AnomalyComponent?> ent)
     {
         // don't restart it if it's already begun
-        if (HasComp<AnomalySupercriticalComponent>(uid))
+        if (HasComp<AnomalySupercriticalComponent>(ent))
             return;
 
-        AdminLog.Add(LogType.Anomaly, LogImpact.Extreme, $"Anomaly {ToPrettyString(uid)} began to go supercritical.");
-        if (_net.IsServer)
-            Log.Info($"Anomaly is going supercritical. Entity: {ToPrettyString(uid)}");
+        if(!Resolve(ent, ref ent.Comp))
+            return;
 
-        var super = AddComp<AnomalySupercriticalComponent>(uid);
-        super.EndTime = Timing.CurTime + super.SupercriticalDuration;
-        Appearance.SetData(uid, AnomalyVisuals.Supercritical, true);
-        Dirty(uid, super);
+        AdminLog.Add(LogType.Anomaly, LogImpact.High, $"Anomaly {ToPrettyString(ent.Owner)} began to go supercritical.");
+        if (_net.IsServer)
+            Log.Info($"Anomaly is going supercritical. Entity: {ToPrettyString(ent.Owner)}");
+
+        Audio.PlayPvs(ent.Comp.SupercriticalSoundAtAnimationStart, ent);
+
+        var super = AddComp<AnomalySupercriticalComponent>(ent);
+        super.EndTime = Timing.CurTime + ent.Comp.SupercriticalDuration;
+        Appearance.SetData(ent, AnomalyVisuals.Supercritical, true);
+        Dirty(ent, super);
     }
 
     /// <summary>
@@ -148,10 +242,11 @@ public abstract class SharedAnomalySystem : EntitySystem
         if (!Timing.IsFirstTimePredicted)
             return;
 
-        Audio.PlayPvs(component.SupercriticalSound, Transform(uid).Coordinates);
-
         if (_net.IsServer)
+        {
+            Audio.PlayPvs(component.SupercriticalSound, Transform(uid).Coordinates);
             Log.Info($"Raising supercritical event. Entity: {ToPrettyString(uid)}");
+        }
 
         var powerMod = 1f;
         if (component.CurrentBehavior != null)
@@ -163,7 +258,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         var ev = new AnomalySupercriticalEvent(uid, powerMod);
         RaiseLocalEvent(uid, ref ev, true);
 
-        EndAnomaly(uid, component, true);
+        EndAnomaly(uid, component, true, logged: true);
     }
 
     /// <summary>
@@ -173,13 +268,18 @@ public abstract class SharedAnomalySystem : EntitySystem
     /// <param name="component"></param>
     /// <param name="supercritical">Whether or not the anomaly ended via supercritical event</param>
     /// <param name="spawnCore">Create anomaly cores based on the result of completing an anomaly?</param>
-    public void EndAnomaly(EntityUid uid, AnomalyComponent? component = null, bool supercritical = false, bool spawnCore = true)
+    /// <param name="logged">Whether or not the anomaly decaying/going supercritical is logged</param>
+    public void EndAnomaly(EntityUid uid, AnomalyComponent? component = null, bool supercritical = false, bool spawnCore = true, bool logged = false)
     {
-        // Logging before resolve, in case the anomaly has deleted itself.
-        if (_net.IsServer)
-            Log.Info($"Ending anomaly. Entity: {ToPrettyString(uid)}");
-        AdminLog.Add(LogType.Anomaly, supercritical ? LogImpact.High : LogImpact.Low,
-                     $"Anomaly {ToPrettyString(uid)} {(supercritical ? "went supercritical" : "decayed")}.");
+        if (logged)
+        {
+            // Logging before resolve, in case the anomaly has deleted itself.
+            if (_net.IsServer)
+                Log.Info($"Ending anomaly. Entity: {ToPrettyString(uid)}");
+            AdminLog.Add(LogType.Anomaly,
+                supercritical ? LogImpact.High : LogImpact.Low,
+                $"Anomaly {ToPrettyString(uid)} {(supercritical ? "went supercritical" : "decayed")}.");
+        }
 
         if (!Resolve(uid, ref component))
             return;
@@ -236,7 +336,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         var newVal = component.Severity + change;
 
         if (newVal >= 1)
-            StartSupercriticalEvent(uid);
+            StartSupercriticalEvent((uid, component));
 
         component.Severity = Math.Clamp(newVal, 0, 1);
         Dirty(uid, component);
@@ -260,7 +360,7 @@ public abstract class SharedAnomalySystem : EntitySystem
 
         if (newVal < 0)
         {
-            EndAnomaly(uid, component);
+            EndAnomaly(uid, component, logged: true);
             return;
         }
 
@@ -346,7 +446,7 @@ public abstract class SharedAnomalySystem : EntitySystem
             if (Timing.CurTime <= super.EndTime)
                 continue;
             DoAnomalySupercriticalEvent(ent, anom);
-            RemComp(ent, super);
+            // Removal of the supercritical component is handled by DoAnomalySupercriticalEvent
         }
     }
 
@@ -360,13 +460,19 @@ public abstract class SharedAnomalySystem : EntitySystem
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return null;
 
+        // How many spawn points we will be aiming to return
         var amount = (int) (MathHelper.Lerp(settings.MinAmount, settings.MaxAmount, severity * stability * powerModifier) + 0.5f);
 
-        var localpos = xform.Coordinates.Position;
-        var tilerefs = _map.GetLocalTilesIntersecting(
-            xform.GridUid.Value,
-            grid,
-            new Box2(localpos + new Vector2(-settings.MaxRange, -settings.MaxRange), localpos + new Vector2(settings.MaxRange, settings.MaxRange)))
+        // When the entity is in a container or buckled (such as a hosted anomaly), local coordinates will not be comparable
+        // to tile coordinates.
+        // Get the world coordinates for the anomalous entity
+        var worldPos = _transform.GetWorldPosition(uid);
+
+        // Get a list of the tiles within the maximum range of the effect
+        var tilerefs = _map.GetTilesIntersecting(
+                xform.GridUid.Value,
+                grid,
+                new Box2(worldPos + new Vector2(-settings.MaxRange), worldPos + new Vector2(settings.MaxRange)))
             .ToList();
 
         if (tilerefs.Count == 0)
@@ -380,7 +486,10 @@ public abstract class SharedAnomalySystem : EntitySystem
                 break;
 
             var tileref = Random.Pick(tilerefs);
-            var distance = MathF.Sqrt(MathF.Pow(tileref.X - xform.LocalPosition.X, 2) + MathF.Pow(tileref.Y - xform.LocalPosition.Y, 2));
+
+            // Get the world position of the tile to calculate the distance to the anomalous object
+            var tileWorldPos = _map.GridTileToWorldPos(xform.GridUid.Value, grid, tileref.GridIndices);
+            var distance = Vector2.Distance(tileWorldPos, worldPos);
 
             //cut outer & inner circle
             if (distance > settings.MaxRange || distance < settings.MinRange)
@@ -392,7 +501,7 @@ public abstract class SharedAnomalySystem : EntitySystem
             if (!settings.CanSpawnOnEntities)
             {
                 var valid = true;
-                foreach (var ent in grid.GetAnchoredEntities(tileref.GridIndices))
+                foreach (var ent in _map.GetAnchoredEntities(xform.GridUid.Value, grid, tileref.GridIndices))
                 {
                     if (!physQuery.TryGetComponent(ent, out var body))
                         continue;
@@ -473,4 +582,4 @@ public partial record struct AnomalySpawnSettings()
     public bool SpawnOnSeverityChanged { get; set; } = false;
 }
 
-public sealed partial class ActionAnomalyPulseEvent : InstantActionEvent { }
+public sealed partial class ActionAnomalyPulseEvent : InstantActionEvent;

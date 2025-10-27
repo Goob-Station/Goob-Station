@@ -1,12 +1,90 @@
-using System.Linq;
-using Content.Server.DeviceNetwork;
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 12rabbits <53499656+12rabbits@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Alex Pavlenko <diraven@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Dimastra <65184747+Dimastra@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Dimastra <dimastra@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
+// SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
+// SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Redfire1331 <125223432+Redfire1331@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 YourUsername <you@example.com>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 neutrino <67447925+neutrino-laser@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 redfire1331 <Redfire1331@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.DeviceNetwork.Systems;
 using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Power;
-using Content.Shared.UserInterface;
 using Content.Shared.SurveillanceCamera;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
+
+// Goobstation
+using Content.Goobstation.Common.SurveillanceCamera;
+using Content.Shared.UserInterface;
+using Robust.Server.GameStates;
+using Robust.Shared.Map;
+using System.Runtime.InteropServices;
 
 namespace Content.Server.SurveillanceCamera;
 
@@ -16,48 +94,118 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
 
+    // Goobstation
+    [Dependency] private readonly PvsOverrideSystem _pvsOverrideSystem = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<SurveillanceCameraMonitorComponent, SurveillanceCameraDeactivateEvent>(OnSurveillanceCameraDeactivate);
         SubscribeLocalEvent<SurveillanceCameraMonitorComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<SurveillanceCameraMonitorComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<SurveillanceCameraMonitorComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
-        SubscribeLocalEvent<SurveillanceCameraMonitorComponent, ComponentStartup>(OnComponentStartup);
+        // SubscribeLocalEvent<SurveillanceCameraMonitorComponent, ComponentStartup>(OnComponentStartup); Goobstation remove
         SubscribeLocalEvent<SurveillanceCameraMonitorComponent, AfterActivatableUIOpenEvent>(OnToggleInterface);
         Subs.BuiEvents<SurveillanceCameraMonitorComponent>(SurveillanceCameraMonitorUiKey.Key, subs =>
         {
             subs.Event<SurveillanceCameraRefreshCamerasMessage>(OnRefreshCamerasMessage);
             subs.Event<SurveillanceCameraRefreshSubnetsMessage>(OnRefreshSubnetsMessage);
             subs.Event<SurveillanceCameraDisconnectMessage>(OnDisconnectMessage);
-            subs.Event<SurveillanceCameraMonitorSubnetRequestMessage>(OnSubnetRequest);
             subs.Event<SurveillanceCameraMonitorSwitchMessage>(OnSwitchMessage);
             subs.Event<BoundUIClosedEvent>(OnBoundUiClose);
         });
     }
 
-    private const float _maxHeartbeatTime = 300f;
-    private const float _heartbeatDelay = 30f;
+    private const float MaxHeartbeatTime = 3f; // Goobstation
+    private const float HeartbeatDelay = 1f; // Goobstation
 
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<ActiveSurveillanceCameraMonitorComponent, SurveillanceCameraMonitorComponent>();
         while (query.MoveNext(out var uid, out _, out var monitor))
         {
-            if (Paused(uid))
+            /*if (Paused(uid))
             {
                 continue;
-            }
-
+            } Goobstation remove */
             monitor.LastHeartbeatSent += frameTime;
-            SendHeartbeat(uid, monitor);
+            SendHeartbeat(uid, monitor.ActiveCameraAddress, monitor); // Goobstation
             monitor.LastHeartbeat += frameTime;
 
-            if (monitor.LastHeartbeat > _maxHeartbeatTime)
+            if (monitor.LastHeartbeat > MaxHeartbeatTime) // Goobstation
             {
                 DisconnectCamera(uid, true, monitor);
-                EntityManager.RemoveComponent<ActiveSurveillanceCameraMonitorComponent>(uid);
+                RemComp<ActiveSurveillanceCameraMonitorComponent>(uid);
+                monitor.LastHeartbeatSent = 0f; // Goobstation
+                monitor.LastHeartbeat = 0f; // Goobstation
+                RefreshCameras(uid, monitor); // Goobstation
             }
         }
+        // Goobstation start
+        var queryTwo = EntityQueryEnumerator<ReconnectingSurveillanceCameraMonitorComponent, SurveillanceCameraMonitorComponent>();
+        while (queryTwo.MoveNext(out var uid, out var reconnectingComponent, out var monitor))
+        {
+            if (reconnectingComponent.TicksDelay-- == 0)
+            {
+                ReconnectToSubnets(uid, monitor);
+                RemComp<ReconnectingSurveillanceCameraMonitorComponent>(uid);
+            }
+        }
+        var queryThree = EntityQueryEnumerator<HasMobileCamerasSurveillanceCameraMonitorComponent, SurveillanceCameraMonitorComponent>();
+        while (queryThree.MoveNext(out var uid, out var _, out var monitor))
+        {
+            if (monitor.KnownMobileCameras.Count > 0)
+            {
+                // Collect expired cameras and cache their entity references
+                var expiredCameras = new Dictionary<string, EntityUid>();
+
+                foreach (var (key, cameraData) in monitor.KnownMobileCameras)
+                {
+                    ref var lastSent = ref CollectionsMarshal.GetValueRefOrAddDefault(
+                        monitor.KnownMobileCamerasLastHeartbeatSent, key, out bool sentExists);
+                    ref var lastHeartbeat = ref CollectionsMarshal.GetValueRefOrAddDefault(
+                        monitor.KnownMobileCamerasLastHeartbeat, key, out bool hbExists);
+
+                    if (!sentExists) lastSent = 0f;
+                    if (!hbExists) lastHeartbeat = 0f;
+
+                    lastSent += frameTime;
+                    lastHeartbeat += frameTime;
+
+                    SendHeartbeat(uid, key, monitor);
+
+                    if (lastHeartbeat > MaxHeartbeatTime)
+                        expiredCameras[key] = _entityManager.GetEntity(cameraData.Item2.Item2.NetEntity);
+                }
+
+                // Remove PVS overrides for all viewers in a single pass
+                foreach (var player in monitor.Viewers)
+                {
+                    if (!TryComp<ActorComponent>(player, out var actor))
+                        continue;
+
+                    foreach (var entity in expiredCameras.Values)
+                        _pvsOverrideSystem.RemoveSessionOverride(entity, actor.PlayerSession);
+                }
+
+                // Remove expired cameras from all dictionaries
+                foreach (var key in expiredCameras.Keys)
+                {
+                    monitor.KnownMobileCameras.Remove(key);
+                    monitor.KnownMobileCamerasLastHeartbeat.Remove(key);
+                    monitor.KnownMobileCamerasLastHeartbeatSent.Remove(key);
+                }
+
+                // Cleanup component if empty
+                if (monitor.KnownMobileCameras.Count == 0)
+                    RemComp<HasMobileCamerasSurveillanceCameraMonitorComponent>(uid);
+
+                // Refresh subnets as clearly something went wrong with the networking
+                if (expiredCameras.Count > 0)
+                    RefreshCameras(uid, monitor); // Goobstation
+            }
+        }
+        // Goobstation end
     }
 
     /// ROUTING:
@@ -83,19 +231,10 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
     /// Router - [ monitor freq ] -> Monitor
 
     #region Event Handling
-    private void OnComponentStartup(EntityUid uid, SurveillanceCameraMonitorComponent component, ComponentStartup args)
+    /*private void OnComponentStartup(EntityUid uid, SurveillanceCameraMonitorComponent component, ComponentStartup args)
     {
         RefreshSubnets(uid, component);
-    }
-
-    private void OnSubnetRequest(EntityUid uid, SurveillanceCameraMonitorComponent component,
-        SurveillanceCameraMonitorSubnetRequestMessage args)
-    {
-        if (args.Actor is { Valid: true } actor && !Deleted(actor))
-        {
-            SetActiveSubnet(uid, args.Subnet, component);
-        }
-    }
+    } Goobstation remove */
 
     private void OnPacketReceived(EntityUid uid, SurveillanceCameraMonitorComponent component,
         DeviceNetworkPacketEvent args)
@@ -123,26 +262,36 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
                     {
                         component.LastHeartbeat = 0;
                     }
-
+                    // Goobstation start
+                    if (component.KnownMobileCamerasLastHeartbeat.ContainsKey(args.SenderAddress))
+                        component.KnownMobileCamerasLastHeartbeat[args.SenderAddress] = 0;
+                    // Goobstation end
                     break;
                 case SurveillanceCameraSystem.CameraDataMessage:
+                    // Goobstation start
                     if (!args.Data.TryGetValue(SurveillanceCameraSystem.CameraNameData, out string? name)
                         || !args.Data.TryGetValue(SurveillanceCameraSystem.CameraSubnetData, out string? subnetData)
-                        || !args.Data.TryGetValue(SurveillanceCameraSystem.CameraAddressData, out string? address))
+                        || !args.Data.TryGetValue(SurveillanceCameraSystem.CameraAddressData, out string? address)
+                        || !args.Data.TryGetValue(SurveillanceCameraSystem.CameraNetEntity, out (NetEntity, NetCoordinates)? netEntity)
+                        || !args.Data.TryGetValue(SurveillanceCameraSystem.CameraMobile, out bool? mobile))
                     {
                         return;
                     }
-
-                    if (component.ActiveSubnet != subnetData)
+                    if (mobile.HasValue && mobile.Value) // if camera is mobile, it should be in the mobile cameras list
                     {
-                        DisconnectFromSubnet(uid, subnetData);
+                        if (component.KnownMobileCameras.Count == 0) // was it the first mobile camera added?
+                            EnsureComp<HasMobileCamerasSurveillanceCameraMonitorComponent>(uid);
+                        if (!component.KnownMobileCameras.ContainsKey(address))
+                        {
+                            component.KnownMobileCameras.Add(address, (name, netEntity.Value));
+                            foreach (var player in component.Viewers)
+                                if (TryComp<ActorComponent>(player, out var actor))
+                                    _pvsOverrideSystem.AddSessionOverride(_entityManager.GetEntity(netEntity.Value.Item2.NetEntity), actor.PlayerSession);
+                        }
                     }
-
-                    if (!component.KnownCameras.ContainsKey(address))
-                    {
-                        component.KnownCameras.Add(address, name);
-                    }
-
+                    else if (!component.KnownCameras.ContainsKey(address))
+                        component.KnownCameras.Add(address, (name, netEntity.Value));
+                    // Goobstation end
                     UpdateUserInterface(uid, component);
                     break;
                 case SurveillanceCameraSystem.CameraSubnetData:
@@ -168,9 +317,21 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
     private void OnRefreshCamerasMessage(EntityUid uid, SurveillanceCameraMonitorComponent component,
         SurveillanceCameraRefreshCamerasMessage message)
     {
-        component.KnownCameras.Clear();
-        RequestActiveSubnetInfo(uid, component);
+        RefreshCameras(uid, component); // Goobstation
     }
+
+    // Goobstation start
+    private void RefreshCameras(EntityUid uid, SurveillanceCameraMonitorComponent component)
+    {
+        foreach (var player in component.Viewers)
+            if (TryComp<ActorComponent>(player, out var actor))
+                foreach (var camera in component.KnownMobileCameras)
+                    _pvsOverrideSystem.RemoveSessionOverride(_entityManager.GetEntity(camera.Value.Item2.Item2.NetEntity), actor.PlayerSession);
+        component.KnownCameras.Clear();
+        component.KnownMobileCameras.Clear();
+        RequestKnownSubnetsInfo(uid, component);
+    }
+    // Goobstation end
 
     private void OnRefreshSubnetsMessage(EntityUid uid, SurveillanceCameraMonitorComponent component,
         SurveillanceCameraRefreshSubnetsMessage message)
@@ -192,7 +353,10 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
         {
             RemoveActiveCamera(uid, component);
             component.NextCameraAddress = null;
-            component.ActiveSubnet = string.Empty;
+            // Goobstation start
+            foreach (var subnetwork in component.KnownSubnets.Values)
+                DisconnectFromSubnet(uid, subnetwork);
+            // Goobstation end
         }
     }
 
@@ -221,23 +385,26 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
 
     #endregion
 
-    private void SendHeartbeat(EntityUid uid, SurveillanceCameraMonitorComponent? monitor = null)
+    private void SendHeartbeat(EntityUid uid, string cameraAdress, SurveillanceCameraMonitorComponent? monitor = null) // Goobstation
     {
         if (!Resolve(uid, ref monitor)
-            || monitor.LastHeartbeatSent < _heartbeatDelay
-            || string.IsNullOrEmpty(monitor.ActiveSubnet)
-            || !monitor.KnownSubnets.TryGetValue(monitor.ActiveSubnet, out var subnetAddress))
+            || monitor.LastHeartbeatSent < HeartbeatDelay) // Goobstation
         {
             return;
         }
 
-        var payload = new NetworkPayload()
+        // Goobstation start
+        foreach (var subnetAddress in monitor.KnownSubnets.Values)
         {
-            { DeviceNetworkConstants.Command, SurveillanceCameraSystem.CameraHeartbeatMessage },
-            { SurveillanceCameraSystem.CameraAddressData, monitor.ActiveCameraAddress }
-        };
+            var payload = new NetworkPayload()
+            {
+                { DeviceNetworkConstants.Command, SurveillanceCameraSystem.CameraHeartbeatMessage },
+                { SurveillanceCameraSystem.CameraAddressData, cameraAdress } // Goobstation
+            };
 
-        _deviceNetworkSystem.QueuePacket(uid, subnetAddress, payload);
+            _deviceNetworkSystem.QueuePacket(uid, subnetAddress, payload);
+        }
+        // Goobstation end
     }
 
     private void DisconnectCamera(EntityUid uid, bool removeViewers, SurveillanceCameraMonitorComponent? monitor = null)
@@ -254,21 +421,54 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
 
         monitor.ActiveCamera = null;
         monitor.ActiveCameraAddress = string.Empty;
-        EntityManager.RemoveComponent<ActiveSurveillanceCameraMonitorComponent>(uid);
+        RemComp<ActiveSurveillanceCameraMonitorComponent>(uid);
         UpdateUserInterface(uid, monitor);
     }
 
     private void RefreshSubnets(EntityUid uid, SurveillanceCameraMonitorComponent? monitor = null)
     {
-        if (!Resolve(uid, ref monitor))
+        if (!Resolve(uid, ref monitor)
+            || HasComp<ReconnectingSurveillanceCameraMonitorComponent>(uid)) // Goobstation
         {
             return;
         }
 
+        // Goobstation start
+        foreach (var subnetAddress in monitor.KnownSubnets.Values)
+        {
+            var payload = new NetworkPayload()
+            {
+                {DeviceNetworkConstants.Command, SurveillanceCameraSystem.CameraSubnetDisconnectMessage},
+            };
+            _deviceNetworkSystem.QueuePacket(uid, subnetAddress, payload);
+        }
+        // Goobstation end
+
         monitor.KnownSubnets.Clear();
         PingCameraNetwork(uid, monitor);
+
+        EnsureComp<ReconnectingSurveillanceCameraMonitorComponent>(uid); // Goobstation
     }
 
+    // Goobstation start
+    private void ReconnectToSubnets(EntityUid uid, SurveillanceCameraMonitorComponent? monitor = null)
+    {
+        if (!Resolve(uid, ref monitor, false))
+        {
+            return;
+        }
+        foreach (var subnetAddress in monitor.KnownSubnets.Values)
+        {
+            var payload = new NetworkPayload()
+            {
+                {DeviceNetworkConstants.Command, SurveillanceCameraSystem.CameraSubnetConnectMessage},
+            };
+            _deviceNetworkSystem.QueuePacket(uid, subnetAddress, payload);
+        }
+    }
+    // Goobstation end
+
+    // Goobstation start
     private void PingCameraNetwork(EntityUid uid, SurveillanceCameraMonitorComponent? monitor = null)
     {
         if (!Resolve(uid, ref monitor))
@@ -282,59 +482,26 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
         };
         _deviceNetworkSystem.QueuePacket(uid, null, payload);
     }
+    // Goobstation end
 
-    private void SetActiveSubnet(EntityUid uid, string subnet,
-        SurveillanceCameraMonitorComponent? monitor = null)
+    // Goobstation start
+    private void RequestKnownSubnetsInfo(EntityUid uid, SurveillanceCameraMonitorComponent? monitor = null)
     {
-        if (!Resolve(uid, ref monitor)
-            || string.IsNullOrEmpty(subnet)
-            || !monitor.KnownSubnets.ContainsKey(subnet))
+        if (!Resolve(uid, ref monitor))
         {
             return;
         }
 
-        DisconnectFromSubnet(uid, monitor.ActiveSubnet);
-        DisconnectCamera(uid, true, monitor);
-        monitor.ActiveSubnet = subnet;
-        monitor.KnownCameras.Clear();
-        UpdateUserInterface(uid, monitor);
-
-        ConnectToSubnet(uid, subnet);
-    }
-
-    private void RequestActiveSubnetInfo(EntityUid uid, SurveillanceCameraMonitorComponent? monitor = null)
-    {
-        if (!Resolve(uid, ref monitor)
-            || string.IsNullOrEmpty(monitor.ActiveSubnet)
-            || !monitor.KnownSubnets.TryGetValue(monitor.ActiveSubnet, out var address))
+        foreach (var subnetAddress in monitor.KnownSubnets.Values)
         {
-            return;
+            var payload = new NetworkPayload()
+            {
+                {DeviceNetworkConstants.Command, SurveillanceCameraSystem.CameraPingSubnetMessage},
+            };
+            _deviceNetworkSystem.QueuePacket(uid, subnetAddress, payload);
         }
-
-        var payload = new NetworkPayload()
-        {
-            {DeviceNetworkConstants.Command, SurveillanceCameraSystem.CameraPingSubnetMessage},
-        };
-        _deviceNetworkSystem.QueuePacket(uid, address, payload);
     }
-
-    private void ConnectToSubnet(EntityUid uid, string subnet, SurveillanceCameraMonitorComponent? monitor = null)
-    {
-        if (!Resolve(uid, ref monitor)
-            || string.IsNullOrEmpty(subnet)
-            || !monitor.KnownSubnets.TryGetValue(subnet, out var address))
-        {
-            return;
-        }
-
-        var payload = new NetworkPayload()
-        {
-            {DeviceNetworkConstants.Command, SurveillanceCameraSystem.CameraSubnetConnectMessage},
-        };
-        _deviceNetworkSystem.QueuePacket(uid, address, payload);
-
-        RequestActiveSubnetInfo(uid);
-    }
+    // Goobstation end
 
     private void DisconnectFromSubnet(EntityUid uid, string subnet, SurveillanceCameraMonitorComponent? monitor = null)
     {
@@ -362,6 +529,12 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
 
         monitor.Viewers.Add(player);
 
+        // Goobstation start
+        if (TryComp<ActorComponent>(player, out var actor))
+            foreach (var camera in monitor.KnownMobileCameras)
+                _pvsOverrideSystem.AddSessionOverride(_entityManager.GetEntity(camera.Value.Item2.Item2.NetEntity), actor.PlayerSession);
+        // Goobstation end
+
         if (monitor.ActiveCamera != null)
         {
             _surveillanceCameras.AddActiveViewer(monitor.ActiveCamera.Value, player, uid);
@@ -379,6 +552,12 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
         }
 
         monitor.Viewers.Remove(player);
+
+        // Goobstation end
+        if (TryComp<ActorComponent>(player, out var actor))
+            foreach (var camera in monitor.KnownMobileCameras)
+                _pvsOverrideSystem.RemoveSessionOverride(_entityManager.GetEntity(camera.Value.Item2.Item2.NetEntity), actor.PlayerSession);
+        // Goobstation start
 
         if (monitor.ActiveCamera != null)
         {
@@ -403,7 +582,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
 
         monitor.ActiveCamera = camera;
 
-        AddComp<ActiveSurveillanceCameraMonitorComponent>(uid);
+        EnsureComp<ActiveSurveillanceCameraMonitorComponent>(uid); // Goobstation
 
         UpdateUserInterface(uid, monitor);
     }
@@ -427,21 +606,24 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
     private void TrySwitchCameraByAddress(EntityUid uid, string address,
         SurveillanceCameraMonitorComponent? monitor = null)
     {
-        if (!Resolve(uid, ref monitor)
-            || string.IsNullOrEmpty(monitor.ActiveSubnet)
-            || !monitor.KnownSubnets.TryGetValue(monitor.ActiveSubnet, out var subnetAddress))
+        if (!Resolve(uid, ref monitor)) // Goobstation - removed extra checks since no more active subnet
         {
             return;
         }
 
-        var payload = new NetworkPayload()
+        // Goobstation start
+        foreach (var subnetAddress in monitor.KnownSubnets.Values)
         {
-            {DeviceNetworkConstants.Command, SurveillanceCameraSystem.CameraConnectMessage},
-            {SurveillanceCameraSystem.CameraAddressData, address}
-        };
+            var payload = new NetworkPayload()
+            {
+                {DeviceNetworkConstants.Command, SurveillanceCameraSystem.CameraConnectMessage},
+                {SurveillanceCameraSystem.CameraAddressData, address}
+            };
 
-        monitor.NextCameraAddress = address;
-        _deviceNetworkSystem.QueuePacket(uid, subnetAddress, payload);
+            monitor.NextCameraAddress = address;
+            _deviceNetworkSystem.QueuePacket(uid, subnetAddress, payload);
+        }
+        // Goobstation end
     }
 
     // Attempts to switch over the current viewed camera on this monitor
@@ -496,7 +678,8 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
             return;
         }
 
-        var state = new SurveillanceCameraMonitorUiState(GetNetEntity(monitor.ActiveCamera), monitor.KnownSubnets.Keys.ToHashSet(), monitor.ActiveCameraAddress, monitor.ActiveSubnet, monitor.KnownCameras);
+        var state = new SurveillanceCameraMonitorUiState(GetNetEntity(monitor.ActiveCamera), // Goobstation
+            monitor.ActiveCameraAddress, monitor.KnownCameras, monitor.KnownMobileCameras); // Goobstation
         _userInterface.SetUiState(uid, SurveillanceCameraMonitorUiKey.Key, state);
     }
 }

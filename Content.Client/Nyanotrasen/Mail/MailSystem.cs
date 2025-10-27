@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Client.GameObjects;
 using Content.Shared.Mail;
 using Content.Shared.StatusIcon;
@@ -31,7 +36,6 @@ namespace Content.Client.Mail
     {
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly SpriteSystem _stateManager = default!;
         [Dependency] private readonly SpriteSystem _spriteSystem = default!;
 
         protected override void OnAppearanceChange(EntityUid uid, MailComponent component, ref AppearanceChangeEvent args)

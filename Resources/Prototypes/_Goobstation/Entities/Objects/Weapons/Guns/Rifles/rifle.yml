@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: Burner
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
@@ -12,7 +28,7 @@
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    fireRate: 3.5
+    fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: ChamberMagazineAmmoProvider
@@ -46,6 +62,9 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Item
+    shape:
+    - 0,0,5,2
 
 - type: entity
   name: M-90
@@ -116,7 +135,6 @@
     burstCooldown: 0.8
     shotsPerBurst: 4
     fireRate: 6.5
-    projectileSpeed: 35
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/thock.ogg
   - type: ChamberMagazineAmmoProvider
@@ -155,7 +173,7 @@
   name: WSPR
   parent: [BaseSyndicateContraband, BaseWeaponRifle]
   id: WeaponRifleWSPR
-  description: A cutting-edge rifle from Cybersun, versatile, reliable, and Syndicate-approved. Uses .25 caseless ammo.
+  description: A cutting-edge rifle from Cybersun, versatile, reliable, and Syndicate-approved. Uses 9.5mm caseless magnum ammo.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi
@@ -167,15 +185,12 @@
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi
   - type: Gun
-    availableModes:
-    - SemiAuto
-    - Burst
-    selectedMode: Burst
-    burstFireRate: 18
-    burstCooldown: 0.5
-    projectileSpeed: 20
+    fireRate: 5.5
+    projectileSpeed: 35
     soundGunshot:
-      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/bwuh.ogg
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/suppressed_smg.ogg
+      params:
+        volume: -12
   - type: ItemSlots
     slots:
       gun_magazine:

@@ -1,3 +1,30 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+// SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 using Content.Shared._Lavaland.Weapons.Ranged.Events;
 using Content.Shared.CCVar;
@@ -6,28 +33,20 @@ using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Popups;
 using Content.Shared.Projectiles;
-using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Containers;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Configuration;
 using System.Linq;
 using Content.Shared._Goobstation.Weapons.Ranged;
 
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades;
 
-public abstract partial class SharedGunUpgradeSystem : EntitySystem
+public abstract class SharedGunUpgradeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
@@ -87,7 +106,7 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
 
     private void OnExamine(Entity<UpgradeableGunComponent> ent, ref ExaminedEvent args)
     {
-        int usedCapacity = 0;
+        var usedCapacity = 0;
         using (args.PushGroup(nameof(UpgradeableGunComponent)))
         {
             foreach (var upgrade in GetCurrentUpgrades(ent))
@@ -142,18 +161,17 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
             return;
         }
 
-        var allowDupes = _config.GetCVar(CCVars.AllowDuplicatePkaModules);
+        var allowDupes = _config.GetCVar(CCVars.AllowDuplicatePkaModules) && !upgradeComp.Unique;
         var itemProto = MetaData(args.Item).EntityPrototype?.ID;
         foreach (var itemSlot in itemSlots.Slots.Values)
         {
-            if (itemSlot.HasItem
-                && itemSlot.Item is { } existingItem
-                && MetaData(existingItem).EntityPrototype?.ID == itemProto
-                && !allowDupes)
-            {
-                args.Cancelled = true;
-                break;
-            }
+            if (itemSlot is not { HasItem: true, Item: { } existingItem }
+                || MetaData(existingItem).EntityPrototype?.ID != itemProto
+                || allowDupes)
+                continue;
+
+            args.Cancelled = true;
+            break;
         }
     }
 
@@ -210,29 +228,17 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
     public HashSet<Entity<GunUpgradeComponent>> GetCurrentUpgrades(Entity<UpgradeableGunComponent> ent, ItemSlotsComponent? itemSlots = null)
     {
         if (!Resolve(ent, ref itemSlots))
-            return new HashSet<Entity<GunUpgradeComponent>>();
+            return [];
 
         var upgrades = new HashSet<Entity<GunUpgradeComponent>>();
 
         foreach (var itemSlot in itemSlots.Slots.Values)
         {
-            if (itemSlot.HasItem
-                && itemSlot.Item is { } item
+            if (itemSlot is { HasItem: true, Item: { } item }
                 && TryComp<GunUpgradeComponent>(item, out var upgradeComp))
                 upgrades.Add((item, upgradeComp));
         }
 
         return upgrades;
-    }
-
-    public IEnumerable<ProtoId<TagPrototype>> GetCurrentUpgradeTags(Entity<UpgradeableGunComponent> ent)
-    {
-        foreach (var upgrade in GetCurrentUpgrades(ent))
-        {
-            foreach (var tag in upgrade.Comp.Tags)
-            {
-                yield return tag;
-            }
-        }
     }
 }

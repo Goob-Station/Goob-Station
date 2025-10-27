@@ -1,4 +1,12 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Atmos;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Physics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
@@ -37,6 +45,15 @@ public sealed partial class IceCubeComponent : Component
 
     [DataField]
     public float TemperaturePerHeatDamageIncrease = 5f;
+
+    [DataField]
+    public float SustainedDamageMeltProbabilityMultiplier = 4f;
+
+    [DataField]
+    public float DamageMeltProbabilityThreshold = 20f;
+
+    [DataField]
+    public float SustainedDamage;
 
     [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionMask>))]
     public int CollisionMask = (int) CollisionGroup.FullTileMask;

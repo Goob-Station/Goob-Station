@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 FoxxoTrystan <45297731+FoxxoTrystan@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Pspritechologist <naaronn@gmail.com>
+# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: DrinkBase
   id: DrinkBasePlastic
@@ -58,17 +69,25 @@
         factor: 4
 
 - type: entity
-  parent: DrinkGlass
-  id: DrinkSigmaJuiceBase
-  suffix: sigmajuice
+  parent: [DrinkBottleVisualsAll, DrinkBottlePlasticSmallBaseFull]
+  id: DrinkMilkBottleFull
+  name: milk bottle
+  description: How do plasmamen even drink this?
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: SigmaJuice
-              Quantity: 30
-    - type: Icon
-      sprite: _Goobstation/Objects/Consumable/Drinks/sigmajuice.rsi
-      state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Milk
+          Quantity: 30
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/waterbottle.rsi
+  - type: SolutionContainerVisuals
+    inHandsMaxFillLevels: 2
+    inHandsFillBaseName: -fill-
+  - type: Label
+    currentLabel: reagent-name-milk
+  - type: Sealable
+  - type: Tag # Goobstation
+    tags:
+    - DrinkBottle

@@ -1,46 +1,47 @@
-﻿using Content.Client.Administration.Managers;
+// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Client.Administration.Managers;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 
 namespace Content.Client.NodeContainer
 {
-    public sealed class NodeVisCommand : IConsoleCommand
+    public sealed class NodeVisCommand : LocalizedEntityCommands
     {
-        [Dependency] private readonly IEntityManager _e = default!;
+        [Dependency] private readonly IClientAdminManager _adminManager = default!;
+        [Dependency] private readonly NodeGroupSystem _nodeSystem = default!;
 
-        public string Command => "nodevis";
-        public string Description => "Toggles node group visualization";
-        public string Help => "";
+        public override string Command => "nodevis";
 
-        public void Execute(IConsoleShell shell, string argStr, string[] args)
+        public override void Execute(IConsoleShell shell, string argStr, string[] args)
         {
-            var adminMan = IoCManager.Resolve<IClientAdminManager>();
-            if (!adminMan.HasFlag(AdminFlags.Debug))
+            if (!_adminManager.HasFlag(AdminFlags.Debug))
             {
-                shell.WriteError("You need +DEBUG for this command");
+                shell.WriteError(Loc.GetString($"shell-missing-required-permission", ("perm", "+DEBUG")));
                 return;
             }
 
-            var sys = _e.System<NodeGroupSystem>();
-            sys.SetVisEnabled(!sys.VisEnabled);
+            _nodeSystem.SetVisEnabled(!_nodeSystem.VisEnabled);
         }
     }
 
-    public sealed class NodeVisFilterCommand : IConsoleCommand
+    public sealed class NodeVisFilterCommand : LocalizedEntityCommands
     {
-        [Dependency] private readonly IEntityManager _e = default!;
+        [Dependency] private readonly NodeGroupSystem _nodeSystem = default!;
 
-        public string Command => "nodevisfilter";
-        public string Description => "Toggles showing a specific group on nodevis";
-        public string Help => "Usage: nodevis [filter]\nOmit filter to list currently masked-off";
+        public override string Command => "nodevisfilter";
 
-        public void Execute(IConsoleShell shell, string argStr, string[] args)
+        public override void Execute(IConsoleShell shell, string argStr, string[] args)
         {
-            var sys = _e.System<NodeGroupSystem>();
-
             if (args.Length == 0)
             {
-                foreach (var filtered in sys.Filtered)
+                foreach (var filtered in _nodeSystem.Filtered)
                 {
                     shell.WriteLine(filtered);
                 }
@@ -48,10 +49,8 @@ namespace Content.Client.NodeContainer
             else
             {
                 var filter = args[0];
-                if (!sys.Filtered.Add(filter))
-                {
-                    sys.Filtered.Remove(filter);
-                }
+                if (!_nodeSystem.Filtered.Add(filter))
+                    _nodeSystem.Filtered.Remove(filter);
             }
         }
     }

@@ -1,5 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 
 namespace Content.Shared._Goobstation.Heretic.Components;
 
@@ -7,7 +15,10 @@ namespace Content.Shared._Goobstation.Heretic.Components;
 public sealed partial class LeechingWalkComponent : Component
 {
     [DataField]
-    public float AscensuionMultiplier = 3f;
+    public float AscensionMultiplier = 3f;
+
+    [DataField]
+    public FixedPoint2 BoneHeal = -5;
 
     [DataField]
     public DamageSpecifier ToHeal = new()
@@ -26,6 +37,7 @@ public sealed partial class LeechingWalkComponent : Component
             {"Poison", -2},
             {"Radiation", -2},
             {"Cellular", -2},
+            {"Holy", -2},
         },
     };
 

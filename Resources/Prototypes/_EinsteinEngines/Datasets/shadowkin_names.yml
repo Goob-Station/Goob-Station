@@ -1,0 +1,11 @@
+# Names for the shadowkin,
+# Shadowkin names are descriptive of
+# The two schools of thought,
+# A job designated for them,
+# Or something symbolic.
+
+- type: localizedDataset
+  id: NamesShadowkin
+  values:
+    prefix: names-shadowkin-dataset-
+    count: 81

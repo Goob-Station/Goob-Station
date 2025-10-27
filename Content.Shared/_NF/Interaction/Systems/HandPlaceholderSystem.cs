@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._NF.Interaction.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -133,7 +138,7 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
             return;
 
         // Can't get the hand we're holding this with? Something's wrong, abort.  No empty hands.
-        if (!_hands.IsHolding(user, ent, out var hand, hands))
+        if (!_hands.IsHolding((user, hands), ent, out var hand))
             return;
 
         SetPlaceholder(target, ent);

@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2022 CommieFlowers <rasmus.cedergren@hotmail.com>
+# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: WallmountTelescreen
   start: start
@@ -38,7 +47,7 @@
             - tool: Screwing
               doAfter: 2
             - tag: SurveillanceCameraMonitorCircuitboard
-              name: surveillance camera monitor board
+              name: construction-graph-tag-surveillance-camera-monitor-board
               icon:
                 sprite: Objects/Misc/module.rsi
                 state: cpuboard
@@ -127,7 +136,7 @@
             - tool: Screwing
               doAfter: 2
             - tag: ComputerTelevisionCircuitboard
-              name: television board
+              name: construction-graph-tag-television-board
               icon:
                 sprite: Objects/Misc/module.rsi
                 state: cpuboard
@@ -173,4 +182,3 @@
           steps:
             - tool: Screwing
               doAfter: 3
-

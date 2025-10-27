@@ -1,4 +1,10 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2024 TheWaffleJesus <106146578+TheWaffleJesus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 icekot8 <93311212+icekot8@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
   id: HudMedSec
   start: start
   graph:
@@ -7,13 +13,13 @@
         - to: medsecHud
           steps:
             - tag: HudMedical
-              name: medical hud
+              name: construction-graph-tag-medical-hud
               icon:
                 sprite: Clothing/Eyes/Hud/med.rsi
                 state: icon
               doAfter: 5
             - tag: HudSecurity
-              name: security hud
+              name: construction-graph-tag-security-hud
               icon:
                 sprite: Clothing/Eyes/Hud/sec.rsi
                 state: icon
@@ -22,12 +28,12 @@
               amount: 5
               doAfter: 5
             - tag: Radio
-              name: radio
+              name: construction-graph-tag-radio
               icon:
                 sprite: Objects/Devices/communication.rsi
                 state: walkietalkie
               doAfter: 5
-            - material: Capacitor
+            - material: Manipulator
               amount: 2
               doAfter: 5
     - node: medsecHud

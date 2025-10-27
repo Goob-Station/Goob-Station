@@ -1,4 +1,13 @@
-using Content.Server.Administration.Commands;
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Server.Clothing.Systems;
 using Content.Server.Destructible;
 using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible.Thresholds.Behaviors;
@@ -20,6 +29,7 @@ public sealed class BindSoulSystem : SharedBindSoulSystem
     [Dependency] private readonly SpecialRespawnSystem _respawn = default!;
     [Dependency] private readonly WizardRuleSystem _wizard = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
+    [Dependency] private readonly OutfitSystem _outfit = default!;
 
     public override void Resurrect(EntityUid mind,
         EntityUid phylactery,
@@ -36,7 +46,7 @@ public sealed class BindSoulSystem : SharedBindSoulSystem
         RemCompDeferred<TransferMindOnGibComponent>(ent);
         EnsureComp<WizardComponent>(ent);
 
-        SetOutfitCommand.SetOutfit(ent, LichGear, EntityManager);
+        _outfit.SetOutfit(ent, LichGear);
 
         if (soulBound.Name != string.Empty)
             Meta.SetEntityName(ent, soulBound.Name);

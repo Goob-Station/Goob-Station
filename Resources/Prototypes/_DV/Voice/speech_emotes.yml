@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 GreyMario <mariomister541@gmail.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Harpy
 - type: emote
   id: Ring
@@ -202,3 +214,38 @@
     - awoos
     - awooing
     - awooed
+
+# Feroxi
+- type: emote
+  id: Gnash
+  name: chat-emote-name-gnash
+  category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [gnashes.]
+  chatTriggers:
+    - gnash
+    - gnashes
+    - gnashing
+    - gnashed
+    - gnash teeth
+    - gnashes teeth
+    - gnashing teeth
+    - gnashed teeth
+    - gnashes their teeth
+    - gnashes her teeth
+    - gnashes his teeth
+    - gnashes its teeth
+    - gnashing their teeth
+    - gnashing her teeth
+    - gnashing his teeth
+    - gnashing its teeth
+    - gnashed their teeth
+    - gnashed her teeth
+    - gnashed his teeth
+    - gnashed its teeth

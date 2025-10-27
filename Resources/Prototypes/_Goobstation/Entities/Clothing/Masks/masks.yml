@@ -1,3 +1,22 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nikita Rαmses Abdoelrahman <ramses@starwolves.io>
+# SPDX-FileCopyrightText: 2024 plyush <121322002+toasterpm87@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: ClothingMaskGasERT
   id: ClothingMaskGasChrono
@@ -21,15 +40,6 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
-
-- type: entity
-  id: ActionHailer
-  name: Hail
-  description: Audibly hail nearby crew, useful for giving quick orders.
-  components:
-  - type: InstantAction
-    icon: { sprite: Clothing/Mask/gassecurity.rsi, state: icon }
-    event: !type:HailerActionEvent
 
 - type: entity
   parent: ClothingMaskClown
@@ -69,3 +79,62 @@
     - type: Construction
       graph: VoiceMaskCraftable
       node: end
+
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskGasHalf
+  name: half gas mask
+  description: A gas mask... only the half of it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Mask/gashalf.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Mask/gashalf.rsi
+  - type: IdentityBlocker
+    coverage: MOUTH
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - GasMask
+    - Mask
+  - type: HideLayerClothing
+    slots:
+    - Snout
+    hideOnToggle: true
+  - type: Construction
+    graph: GasMaskHalf
+    node: end
+    deconstructionTarget: null
+
+- type: entity # TODO: Whenever vampirism is ported, make this block it.
+  parent: ClothingMaskBase
+  id: ClothingMaskMuzzleSecure
+  name: secure muzzle
+  description: Can prevent vampires from biting people, or prevent annoying people from talking.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Mask/securemuzzle.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Mask/securemuzzle.rsi
+    equipDelay: 3
+    unequipDelay: 10
+  - type: IngestionBlocker
+  - type: AddAccentClothing
+    accent: MumbleAccent
+  - type: Tag
+    tags:
+    - Muzzle
+
+- type: entity # TODO: Whenever vampirism is ported, make this block it, and shock.
+  parent: ClothingMaskMuzzleSecure
+  id: ClothingMaskMuzzleShock
+  name: shock muzzle
+  description: A muzzle designed to prevent biting. This one is fitted with a behaviour correction system.
+  components:
+  - type: ShockOnTrigger
+  - type: TriggerOnSpeak
+  - type: ActiveListener
+    range: 4

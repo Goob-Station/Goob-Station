@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 PECK <74548962+PeccNeck@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PeccNeck <74548962+PeccNeck@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   save: false
   name: Urist McRaptor
@@ -5,11 +20,13 @@
   id: BaseMobResomi
   abstract: true
   components:
-  # - type: LanguageKnowledge # Goobstation - WE ONLY SPEAK MURICAN HERE
-  #   speaks:
-  #     - TauCetiBasic
-  #   understands:
-  #     - TauCetiBasic
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    - Schechi               # From Floof
+    understands:
+    - TauCetiBasic
+    - Schechi               # From Floof
   - type: Fixtures
     fixtures:
       fix1:
@@ -22,14 +39,14 @@
         - MobMask
         layer:
         - MobLayer
-  - type: DamageVisuals
-    thresholds: [ 10, 30, 50, 70 ]
-    damageOverlayGroups:
-      Brute:
-        sprite: _Floofstation/Mobs/Effects/Resomi/brute_damage.rsi
-        color: "#C048C2"
-      Burn:
-        sprite: _Floofstation/Mobs/Effects/Resomi/burn_damage.rsi
+#  - type: DamageVisuals
+#    thresholds: [ 10, 30, 50, 70 ]
+#    damageOverlayGroups:
+#      Brute:
+#        sprite: _Floofstation/Mobs/Effects/Resomi/brute_damage.rsi
+#        color: "#C048C2"
+#      Burn:
+#        sprite: _Floofstation/Mobs/Effects/Resomi/burn_damage.rsi
   - type: FireVisuals
     sprite: _Floofstation/Mobs/Effects/onfire.rsi
     normalState: Resomi_minor_burning
@@ -45,11 +62,18 @@
   - type: Speech
     speechVerb: Parrot
     speechSounds: MaleAvali
+    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble'] #goob
   - type: Vocal
     sounds:
-      Male: MaleAvali
-      Unsexed: MaleAvali
-      Female: FemaleAvali
+      Male: MaleAvaliEmote
+      Unsexed: MaleAvaliEmote
+      Female: FemaleAvaliEmote
+  - type: Tag
+    tags:         # Goob - What the fuck is FootstepSound and DoorBumpOpener for if they work without them - rest fixes anoms though.
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
   - type: Hands
     handDisplacement:
       sizeMaps:
@@ -104,6 +128,11 @@
           32:
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: mask
+      outerClothing: # Goob - are you serious? there just wasn't an outerclothing displacement map? taken from starlight
+        sizeMaps:
+          32:
+            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            state: outerClothing
       suitstorage:
         sizeMaps:
           32:
@@ -160,6 +189,11 @@
           32:
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: mask
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            state: outerClothing
       suitstorage:
         sizeMaps:
           32:
@@ -170,9 +204,6 @@
           32:
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: belt
-  - type: FootPrints # Goobstation - resomi footprints
-    leftBarePrint: "footprint-left-bare-lizard"
-    rightBarePrint: "footprint-right-bare-lizard"
   - type: Bloodstream # Goobstation - lore stuff
     bloodReagent: AmmoniaBlood
   - type: MeleeWeapon # Goobstation - aliem raptors probably use their claws
@@ -186,22 +217,73 @@
   - type: Damageable # Goobstation - resomi damage modifiers
     damageModifierSet: Resomi
   - type: Temperature
-    coldDamageThreshold: 195.4 # Goobstation - freezing point of ammonia is -77.75°C
+    coldDamageThreshold: 0 # Goobstation - hyperborean velociraptors or some shit, ice planes of norway is where they came from, but in space
     heatDamageThreshold: 320.15 # Goobstation - space chickens can't tolerate reasonable temperatures, but requiring them to stay icy would be cringe, so instead make their heat damage threshold dangerously close to standard atmos, at 47°C
     coldDamage:
       types:
-        Cold : 0.05 #per second, scales with temperature & other constants
+        Cold : 0 #per second, scales with temperature & other constants
     heatDamage:
       types:
         Heat : 3 #per second, scales with temperature & other constants
-  - type: MovementSpeedModifier
-    weightlessAcceleration: 2.5 # Goobstation - Birb move fast in zero-g
-  - type: PseudoItem # Goobstation - Baggable; certified smol ops
-    storedOffset: -10,0
+  - type: TemperatureSpeed # Goobstation - You're supposed to be used to the cold why are you so slow
+    thresholds: # Goobstation - cold-immune resomi
+      272: 1
+      242: 1
+      196: 1
+  - type: PseudoItem
+    storedOffset: 20,0
     shape:
-      - 0, 0, 3, 2
-      - 0, 2, 5, 4
-
+    - 0,3,0,2
+    - 1,3,2,3
+    - 3,3,3,2
+    - 4,4,5,0
+    - 6,3,6,0
+    - 7,1,7,0
+  - type: Sprite # goob - in game visuals
+    layers:
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Groin" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.LHand" ]  # Hands below jumpsuit since its bigger-than-usual sprite and this allows jumpsuits to have better-looking sleeves
+    - map: [ "enum.HumanoidVisualLayers.RHand" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]   # Tail changed to be below outerclothing and above limbs
+    - map: [ "jumpsuit" ]                         # Jumpsuit above tail & limbs
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2-resomi
+      visible: false
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "outerClothing" ]
+    - map: [ "belt" ] #Goobedit - Belts over outerwear
+    - map: [ "eyes" ]
+    - map: [ "id" ]
+    - map: [ "back" ]
+    - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "maskalt" ]                          # gooblayer
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "mask" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "suitstorage" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: [ "clownedon" ]
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_resomi"
+      visible: false
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -265,6 +347,11 @@
           32:
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: mask
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            state: outerClothing
       suitstorage:
         sizeMaps:
           32:
@@ -275,3 +362,48 @@
           32:
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: belt
+  - type: Sprite # goob - makes character setup look consistent with in-game visuals
+    layers:
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Groin" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.LHand" ]  # Hands below jumpsuit since its bigger-than-usual sprite and this allows jumpsuits to have better-looking sleeves
+    - map: [ "enum.HumanoidVisualLayers.RHand" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]   # Tail changed to be below outerclothing and above limbs
+    - map: [ "jumpsuit" ]                         # Jumpsuit above tail & limbs
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2-resomi
+      visible: false
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "outerClothing" ]
+    - map: [ "belt" ] #Goobedit - Belts over outerwear
+    - map: [ "eyes" ]
+    - map: [ "id" ]
+    - map: [ "back" ]
+    - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "maskalt" ]                          # gooblayer
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "mask" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "suitstorage" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: [ "clownedon" ]
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_resomi"
+      visible: false

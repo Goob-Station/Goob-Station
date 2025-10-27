@@ -1,3 +1,25 @@
+// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
+// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2022 Kara D <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -26,13 +48,14 @@ namespace Content.Server.Decals
     {
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly ITileDefinitionManager _tileDefMan = default!;
         [Dependency] private readonly IParallelManager _parMan = default!;
         [Dependency] private readonly ChunkingSystem _chunking = default!;
         [Dependency] private readonly IConfigurationManager _conf = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+        [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private readonly TurfSystem _turf = default!;
 
         private readonly Dictionary<NetEntity, HashSet<Vector2i>> _dirtyChunks = new();
         private readonly Dictionary<ICommonSession, Dictionary<NetEntity, HashSet<Vector2i>>> _previousSentChunks = new();
@@ -156,38 +179,45 @@ namespace Content.Server.Decals
 
         private void OnTileChanged(ref TileChangedEvent args)
         {
-            if (!args.NewTile.IsSpace(_tileDefMan))
-                return;
-
             if (!TryComp(args.Entity, out DecalGridComponent? grid))
                 return;
 
-            var indices = GetChunkIndices(args.NewTile.GridIndices);
             var toDelete = new HashSet<uint>();
-            if (!grid.ChunkCollection.ChunkCollection.TryGetValue(indices, out var chunk))
-                return;
 
-            foreach (var (uid, decal) in chunk.Decals)
+            foreach (var change in args.Changes)
             {
-                if (new Vector2((int) Math.Floor(decal.Coordinates.X), (int) Math.Floor(decal.Coordinates.Y)) ==
-                    args.NewTile.GridIndices)
+                if (!_turf.IsSpace(change.NewTile))
+                    continue;
+
+                var indices = GetChunkIndices(change.GridIndices);
+
+                if (!grid.ChunkCollection.ChunkCollection.TryGetValue(indices, out var chunk))
+                    continue;
+
+                toDelete.Clear();
+
+                foreach (var (uid, decal) in chunk.Decals)
                 {
-                    toDelete.Add(uid);
+                    if (new Vector2((int)Math.Floor(decal.Coordinates.X), (int)Math.Floor(decal.Coordinates.Y)) ==
+                        change.GridIndices)
+                    {
+                        toDelete.Add(uid);
+                    }
                 }
+
+                if (toDelete.Count == 0)
+                    continue;
+
+                foreach (var decalId in toDelete)
+                {
+                    grid.DecalIndex.Remove(decalId);
+                    chunk.Decals.Remove(decalId);
+                }
+
+                DirtyChunk(args.Entity, indices, chunk);
+                if (chunk.Decals.Count == 0)
+                    grid.ChunkCollection.ChunkCollection.Remove(indices);
             }
-
-            if (toDelete.Count == 0)
-                return;
-
-            foreach (var decalId in toDelete)
-            {
-                grid.DecalIndex.Remove(decalId);
-                chunk.Decals.Remove(decalId);
-            }
-
-            DirtyChunk(args.Entity, indices, chunk);
-            if (chunk.Decals.Count == 0)
-                grid.ChunkCollection.ChunkCollection.Remove(indices);
         }
 
         private void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)
@@ -222,12 +252,12 @@ namespace Content.Server.Decals
 
             if (eventArgs.SenderSession.AttachedEntity != null)
             {
-                _adminLogger.Add(LogType.CrayonDraw, LogImpact.High,
+                _adminLogger.Add(LogType.CrayonDraw, LogImpact.Low,
                     $"{ToPrettyString(eventArgs.SenderSession.AttachedEntity.Value):actor} drew a {ev.Decal.Color} {ev.Decal.Id} at {ev.Coordinates}");
             }
             else
             {
-                _adminLogger.Add(LogType.CrayonDraw, LogImpact.High,
+                _adminLogger.Add(LogType.CrayonDraw, LogImpact.Low,
                     $"{eventArgs.SenderSession.Name} drew a {ev.Decal.Color} {ev.Decal.Id} at {ev.Coordinates}");
             }
         }
@@ -246,7 +276,7 @@ namespace Content.Server.Decals
             if (!coordinates.IsValid(EntityManager))
                 return;
 
-            var gridId = coordinates.GetGridUid(EntityManager);
+            var gridId = _transform.GetGrid(coordinates);
 
             if (gridId == null)
                 return;
@@ -256,12 +286,12 @@ namespace Content.Server.Decals
             {
                 if (eventArgs.SenderSession.AttachedEntity != null)
                 {
-                    _adminLogger.Add(LogType.CrayonDraw, LogImpact.High,
+                    _adminLogger.Add(LogType.CrayonDraw, LogImpact.Low,
                         $"{ToPrettyString(eventArgs.SenderSession.AttachedEntity.Value):actor} removed a {decal.Color} {decal.Id} at {ev.Coordinates}");
                 }
                 else
                 {
-                    _adminLogger.Add(LogType.CrayonDraw, LogImpact.High,
+                    _adminLogger.Add(LogType.CrayonDraw, LogImpact.Low,
                         $"{eventArgs.SenderSession.Name} removed a {decal.Color} {decal.Id} at {ev.Coordinates}");
                 }
 
@@ -293,11 +323,11 @@ namespace Content.Server.Decals
             if (!PrototypeManager.HasIndex<DecalPrototype>(decal.Id))
                 return false;
 
-            var gridId = coordinates.GetGridUid(EntityManager);
+            var gridId = _transform.GetGrid(coordinates);
             if (!TryComp(gridId, out MapGridComponent? grid))
                 return false;
 
-            if (_mapSystem.GetTileRef(gridId.Value, grid, coordinates).IsSpace(_tileDefMan))
+            if (_turf.IsSpace(_mapSystem.GetTileRef(gridId.Value, grid, coordinates)))
                 return false;
 
             if (!TryComp(gridId, out DecalGridComponent? comp))

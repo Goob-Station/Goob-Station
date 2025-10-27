@@ -1,3 +1,15 @@
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Popups;
 using Robust.Shared.Timing;
@@ -75,7 +87,7 @@ public sealed class ConfirmableActionSystem : EntitySystem
         if (!string.IsNullOrEmpty(comp.Popup))
             _popup.PopupClient(Loc.GetString(comp.Popup), user, user, comp.PopupFontType);
 
-        _actions.SetToggled(ent, true);
+        _actions.SetToggled(ent.Owner, true);
         // Goobstation - Confirmable action with changed icon - End
     }
 
@@ -85,7 +97,7 @@ public sealed class ConfirmableActionSystem : EntitySystem
         comp.NextConfirm = null;
         comp.NextUnprime = null;
 
-        _actions.SetToggled(ent, false); // Goobstation - Confirmable action with changed icon
+        _actions.SetToggled(ent.Owner, false); // Goobstation - Confirmable action with changed icon
 
         Dirty(uid, comp);
     }

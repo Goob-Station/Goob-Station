@@ -1,4 +1,11 @@
-﻿# ScatteringGrenade is intended for grenades that spawn entities, especially those with timers
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# ScatteringGrenade is intended for grenades that spawn entities, especially those with timers
 - type: entity
   abstract: true
   parent: BaseItem
@@ -18,6 +25,21 @@
       behaviors:
       - !type:TriggerBehavior
   - type: ScatteringGrenade
+  - type: OnUseTimerTrigger
+    delay: 3
+  - type: Tag
+    tags:
+    - HandGrenade
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 20 # derived from base_item
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
   parent: [ScatteringGrenadeBase, BaseSecurityContraband]
@@ -36,8 +58,6 @@
   - type: Sprite
     sprite: Objects/Weapons/Grenades/clusterbang.rsi
     state: base-0
-  - type: OnUseTimerTrigger
-    delay: 3.5
 
 - type: entity
   parent: ClusterBang
@@ -92,10 +112,11 @@
         volume: 5
     initialBeepDelay: 0
     beepInterval: 0.5
-    delay: 3.5
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Machines/door_lock_off.ogg"
+  - type: StaticPrice
+    price: 2500
 
 - type: entity
   parent: [ScatteringGrenadeBase, BaseSyndicateContraband]
@@ -143,6 +164,8 @@
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Effects/flash_bang.ogg"
+  - type: StaticPrice
+    price: 1000
 
 - type: entity
   parent: ScatteringGrenadeBase
@@ -168,7 +191,6 @@
         volume: 5
     initialBeepDelay: 0
     beepInterval: 2
-    delay: 3.5
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"

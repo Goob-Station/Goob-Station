@@ -1,0 +1,13 @@
+- type: entity
+  id: ActionSelfExtinguish
+  name: Self-Extinguish
+  description: Extinguishes you if you are on fire and insulated against self-ignition.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigItem
+    icon:
+      sprite: Objects/Misc/fire_extinguisher.rsi
+      state: fire_extinguisher_open
+  - type: InstantAction
+    event: !type:SelfExtinguishEvent

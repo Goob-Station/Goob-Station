@@ -1,3 +1,22 @@
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Rank #1 Jonestown partygoer <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2024 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   save: false
   name: Urist McFelinid
@@ -6,9 +25,9 @@
   abstract: true
   components:
   - type: Sprite
-    scale: 0.8, 0.8
+    # scale: 0.8, 0.8 # Goobstation: port EE height/width sliders
   - type: ScaleData # Goobstation
-    scale: 0.8, 0.8
+    # scale: 0.8, 0.8 # Goobstation: port EE height/width sliders
   - type: HumanoidAppearance
     species: Felinid
   - type: Fixtures
@@ -45,6 +64,13 @@
 #    - OwOnavirus
   - type: Speech
     speechSounds: Alto
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - Nekomimetic
+    understands:
+    - TauCetiBasic
+    - Nekomimetic
   - type: DamageOnHighSpeedImpact # Landing on all fours!
     damage:
       types:
@@ -73,8 +99,12 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+    - AnomalyHost
     - FelinidEmotes
-  - type: FootPrints # WD EDIT
+  #- type: FootPrints # WD EDIT
+  - type: Consciousness
+    cap: 160
+    threshold: 80
 
 - type: entity
   save: false

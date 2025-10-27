@@ -1,3 +1,19 @@
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Server.Tabletop.Components;
 using Content.Shared.Tabletop.Events;
@@ -42,7 +58,7 @@ namespace Content.Server.Tabletop
         /// <param name="uid">The UID of the tabletop game entity.</param>
         public void CleanupSession(EntityUid uid)
         {
-            if (!EntityManager.TryGetComponent(uid, out TabletopGameComponent? tabletop))
+            if (!TryComp(uid, out TabletopGameComponent? tabletop))
                 return;
 
             if (tabletop.Session is not { } session)
@@ -55,7 +71,7 @@ namespace Content.Server.Tabletop
 
             foreach (var euid in session.Entities)
             {
-                EntityManager.QueueDeleteEntity(euid);
+                QueueDel(euid);
             }
 
             tabletop.Session = null;
@@ -68,7 +84,7 @@ namespace Content.Server.Tabletop
         /// <param name="uid">The UID of the tabletop game entity.</param>
         public void OpenSessionFor(ICommonSession player, EntityUid uid)
         {
-            if (!EntityManager.TryGetComponent(uid, out TabletopGameComponent? tabletop) || player.AttachedEntity is not {Valid: true} attachedEntity)
+            if (!TryComp(uid, out TabletopGameComponent? tabletop) || player.AttachedEntity is not {Valid: true} attachedEntity)
                 return;
 
             // Make sure we have a session, and add the player to it if not added already.
@@ -77,7 +93,7 @@ namespace Content.Server.Tabletop
             if (session.Players.ContainsKey(player))
                 return;
 
-            if(EntityManager.TryGetComponent(attachedEntity, out TabletopGamerComponent? gamer))
+            if(TryComp(attachedEntity, out TabletopGamerComponent? gamer))
                 CloseSessionFor(player, gamer.Tabletop, false);
 
             // Set the entity as an absolute GAMER.
@@ -100,26 +116,26 @@ namespace Content.Server.Tabletop
         /// <param name="removeGamerComponent">Whether to remove the <see cref="TabletopGamerComponent"/> from the player's attached entity.</param>
         public void CloseSessionFor(ICommonSession player, EntityUid uid, bool removeGamerComponent = true)
         {
-            if (!EntityManager.TryGetComponent(uid, out TabletopGameComponent? tabletop) || tabletop.Session is not { } session)
+            if (!TryComp(uid, out TabletopGameComponent? tabletop) || tabletop.Session is not { } session)
                 return;
 
             if (!session.Players.TryGetValue(player, out var data))
                 return;
 
-            if(removeGamerComponent && player.AttachedEntity is {} attachedEntity && EntityManager.TryGetComponent(attachedEntity, out TabletopGamerComponent? gamer))
+            if(removeGamerComponent && player.AttachedEntity is {} attachedEntity && TryComp(attachedEntity, out TabletopGamerComponent? gamer))
             {
                 // We invalidate this to prevent an infinite feedback from removing the component.
                 gamer.Tabletop = EntityUid.Invalid;
 
                 // You stop being a gamer.......
-                EntityManager.RemoveComponent<TabletopGamerComponent>(attachedEntity);
+                RemComp<TabletopGamerComponent>(attachedEntity);
             }
 
             session.Players.Remove(player);
             session.Entities.Remove(data.Camera);
 
             // Deleting the view subscriber automatically cleans up subscriptions, no need to do anything else.
-            EntityManager.QueueDeleteEntity(data.Camera);
+            QueueDel(data.Camera);
         }
 
         /// <summary>

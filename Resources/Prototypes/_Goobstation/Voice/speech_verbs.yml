@@ -1,9 +1,32 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 unknown <Administrator@DESKTOP-PMRIVVA.kommune.indresogn.no>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: speechVerb
   id: Gondola
   name: chat-speech-verb-name-gondola
   speechVerbStrings:
   - chat-speech-verb-gondola-1
   - chat-speech-verb-gondola-2
+
+- type: speechVerb
+  id: HorseVerb
+  name: chat-speech-verb-name-horse
+  speechVerbStrings:
+  - chat-speech-verb-horse-1
+  - chat-speech-verb-horse-2
 
 - type: speechSounds
   id: Chrono
@@ -22,6 +45,30 @@
     path: /Audio/Machines/beep.ogg
   exclaimSound:
     path: /Audio/Machines/beep.ogg
+
+- type: speechSounds
+  id: ShadowCloak
+  saySound:
+    collection: HissSay
+  askSound:
+    path: /Audio/_Goobstation/Heretic/hiss/hiss3.ogg
+  exclaimSound:
+    path: /Audio/_Goobstation/Heretic/hiss/hiss4.ogg
+
+- type: speechSounds
+  id: Loudspeaker
+  saySound:
+    path: /Audio/_Goobstation/Loudspeaker/megaphone.ogg
+  askSound:
+    path: /Audio/_Goobstation/Loudspeaker/megaphone.ogg
+  exclaimSound:
+    path: /Audio/_Goobstation/Loudspeaker/megaphone.ogg
+
+- type: speechVerb
+  id: Hiss
+  name: chat-speech-verb-name-hiss
+  speechVerbStrings:
+  - chat-speech-verb-reptilian-1 # hiss
 
 - type: speechVerb
   id: Dead
@@ -46,7 +93,7 @@
   - chat-speech-verb-VoiceModulator-3
   - chat-speech-verb-VoiceModulator-4
   - chat-speech-verb-VoiceModulator-5
-  
+
 - type: speechVerb
   id: Bingle
   name: chat-speech-verb-name-bingle
@@ -55,3 +102,31 @@
   - bingle-verb-2
   - bingle-verb-3
   - bingle-verb-4
+
+- type: speechVerb
+  id: HolierThanThou
+  name: chat-speech-verb-name-holier-than-thou
+  speechVerbStrings:
+  - chat-speech-verb-holier-than-thou-1
+  - chat-speech-verb-holier-than-thou-2
+  - chat-speech-verb-holier-than-thou-3
+  - chat-speech-verb-holier-than-thou-4
+  - chat-speech-verb-holier-than-thou-5
+  - chat-speech-verb-holier-than-thou-6
+  - chat-speech-verb-holier-than-thou-7
+  - chat-speech-verb-holier-than-thou-8
+
+- type: speechVerb
+  id: Horse
+  name: chat-speech-verb-name-horse
+  speechVerbStrings:
+  - chat-speech-verb-horse-1
+  - chat-speech-verb-horse-2
+
+- type: speechVerb
+  id: FloorGoblin
+  name: chat-speech-verb-name-floor-goblin
+  speechVerbStrings:
+  - chat-speech-verb-floor-goblin-1
+  - chat-speech-verb-floor-goblin-2
+  - chat-speech-verb-floor-goblin-3

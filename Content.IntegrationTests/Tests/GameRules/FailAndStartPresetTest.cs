@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 #nullable enable
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Presets;
@@ -85,7 +96,7 @@ public sealed class FailAndStartPresetTest
         Assert.That(ticker.PlayerGameStatuses[client.User!.Value], Is.EqualTo(PlayerGameStatus.NotReadyToPlay));
 
         // Try to start nukeops without readying up
-        await pair.WaitCommand("setgamepreset TestPresetTenPlayers");
+        await pair.WaitCommand("setgamepreset TestPresetTenPlayers 9999");
         await pair.WaitCommand("startround");
         await pair.RunTicksSync(10);
 
@@ -99,7 +110,7 @@ public sealed class FailAndStartPresetTest
         // Ready up and start nukeops
         await pair.WaitClientCommand("toggleready True");
         Assert.That(ticker.PlayerGameStatuses[client.User!.Value], Is.EqualTo(PlayerGameStatus.ReadyToPlay));
-        await pair.WaitCommand("setgamepreset TestPreset");
+        await pair.WaitCommand("setgamepreset TestPreset 9999");
         await pair.WaitCommand("startround");
         await pair.RunTicksSync(10);
 

@@ -1,3 +1,20 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Shared.Actions;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Hands.EntitySystems;
@@ -18,7 +35,7 @@ public sealed class DashAbilitySystem : EntitySystem
 {
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
+    [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -67,7 +84,7 @@ public sealed class DashAbilitySystem : EntitySystem
         }
 
         var origin = _transform.GetMapCoordinates(user);
-        var target = args.Target.ToMap(EntityManager, _transform);
+        var target = _transform.ToMapCoordinates(args.Target);
         if (!_examine.InRangeUnOccluded(origin, target, SharedInteractionSystem.MaxRaycastRange, null))
         {
             // can only dash if the destination is visible on screen
@@ -75,7 +92,7 @@ public sealed class DashAbilitySystem : EntitySystem
             return;
         }
 
-        if (!_charges.TryUseCharge(uid))
+        if (!_sharedCharges.TryUseCharge(uid))
         {
             _popup.PopupClient(Loc.GetString("dash-ability-no-charges", ("item", uid)), user, user);
             return;
@@ -97,6 +114,13 @@ public sealed class DashAbilitySystem : EntitySystem
 
     public bool CheckDash(EntityUid uid, EntityUid user)
     {
+        // Goobstation start
+        var attemptEv = new TeleportAttemptEvent();
+        RaiseLocalEvent(user, ref attemptEv);
+        if (attemptEv.Cancelled)
+            return false;
+        // Goobstation end
+
         var ev = new CheckDashEvent(user);
         RaiseLocalEvent(uid, ref ev);
         return !ev.Cancelled;

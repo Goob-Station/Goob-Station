@@ -1,4 +1,14 @@
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: bottleCloseSounds
   files:
   - /Audio/Items/bottle_close1.ogg
+
+- type: soundCollection
+  id: flaskCloseSounds
+  files:
+  - /Audio/Items/flask_close1.ogg

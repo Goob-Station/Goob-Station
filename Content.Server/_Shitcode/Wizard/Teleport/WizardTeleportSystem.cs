@@ -1,4 +1,12 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Actions;
 using Content.Server.Chat.Systems;
@@ -8,6 +16,7 @@ using Content.Server.Warps;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Goobstation.Wizard.Teleport;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Magic.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Physics;
@@ -65,7 +74,7 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
 
         var action = GetEntity(args.Action.Value);
 
-        if (!TryComp(action, out InstantActionComponent? instantAction) || !_actions.ValidAction(instantAction))
+        if (!TryComp(action, out ActionComponent? actionComp) || !_actions.ValidAction((action, actionComp)))
             return;
 
         var user = args.Actor;
@@ -74,14 +83,15 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
         if (!HasComp<WizardTeleportLocationComponent>(location))
             return;
 
+        if (!Teleport(user, location))
+            return;
+
         _spells.SpeakSpell(user,
             user,
             Loc.GetString("action-speech-spell-teleport", ("location", args.LocationName)),
             MagicSchool.Translocation);
 
         _actions.StartUseDelay(action);
-
-        Teleport(user, location);
     }
 
     private void OnScrollLocationSelected(Entity<TeleportScrollComponent> ent,
@@ -96,7 +106,8 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
         if (!HasComp<WizardTeleportLocationComponent>(location))
             return;
 
-        Teleport(user, location);
+        if (!Teleport(user, location))
+            return;
 
         ent.Comp.UsesLeft--;
         if (ent.Comp.UsesLeft <= 0)
@@ -114,8 +125,13 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
         Dirty(ent);
     }
 
-    private void Teleport(EntityUid user, EntityUid location)
+    private bool Teleport(EntityUid user, EntityUid location)
     {
+        var ev = new TeleportAttemptEvent(false);
+        RaiseLocalEvent(user, ref ev);
+        if (ev.Cancelled)
+            return false;
+
         _pullingSystem.StopAllPulls(user);
 
         var userXform = Transform(user);
@@ -128,6 +144,8 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
 
         Spawn(SmokeProto, coords);
         _audio.PlayPvs(PostTeleportSound, userXform.Coordinates);
+
+        return true;
     }
 
     public override void OnTeleportSpell(EntityUid performer, EntityUid action)

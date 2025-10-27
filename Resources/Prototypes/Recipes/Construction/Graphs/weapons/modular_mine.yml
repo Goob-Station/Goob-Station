@@ -1,4 +1,13 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
   id: ModularMineGraph
   start: start
   graph:
@@ -12,7 +21,7 @@
         doAfter: 1
 
   - node: emptyCase
-    entity: LandMineModular
+    entity: LandMineModularUnarmed
     edges:
     - to: wiredCase
       steps:
@@ -22,7 +31,7 @@
         icon:
           sprite: Objects/Misc/proximity_sensor.rsi
           state: icon
-        name: proximity sensor
+        name: construction-graph-tag-proximity-sensor
     - to: start
       completed:
       - !type:SpawnPrototype
@@ -34,7 +43,7 @@
         doAfter: 2
 
   - node: wiredCase
-    entity: LandMineModular
+    entity: LandMineModularUnarmed
     actions:
     - !type:PlaySound
       sound: /Audio/Machines/button.ogg
@@ -52,7 +61,7 @@
       steps:
       - tag: Payload
         store: payload
-        name: payload
+        name: construction-graph-tag-payload
         doAfter: 0.5
 
   - node: mine

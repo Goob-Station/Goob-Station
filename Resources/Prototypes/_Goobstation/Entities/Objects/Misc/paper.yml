@@ -1,12 +1,21 @@
 - type: entity
-  name: futuristic pen
-  parent: PenCentcom
-  id: PenFuture
-  description: Some theories claim that the apocalypse of 3024 happened because of the pens
+  parent: BaseItem
+  name: station report paper
+  id: NanoRepStationReport
+  description: The document is made out of gold, but somehow you are still able to write on it.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/bureaucracy.rsi
-    state: pen_future
-  - type: Item
-    sprite: _Goobstation/Objects/Misc/bureaucracy.rsi
-    heldPrefix: pen_future
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: station-report-paper
+  - type: StationReport
+  - type: Paper
+    content: station-report-text
+  - type: PaperLabelType
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface

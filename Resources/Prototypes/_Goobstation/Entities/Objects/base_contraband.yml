@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: BaseSecurityMedicalContraband
   parent: BaseRestrictedContraband
@@ -6,3 +13,37 @@
   - type: Contraband
     allowedJobs: [ BlueshieldOfficer ] # Basically both security and medic.
     allowedDepartments: [ Security, Medical ]
+
+- type: entity
+  id: BaseWardenContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ Warden ]
+
+- type: entity
+  id: BaseSecurityEngineeringCargoContraband #exists for combat gloves
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Security, Engineering, Cargo ]
+
+- type: entity
+  id: BaseSecurityZookeeperContraband # Tranq shells
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Security ]
+    allowedJobs: [ Zookeeper ]
+
+# non-stealth syndicate stuff that can't be scanned by the NTR
+- type: entity
+  id: BaseSyndicateAnchoredContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Syndicate
+

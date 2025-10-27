@@ -1,9 +1,18 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Standard Combat Hardsuits
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitCombatStandard
   name: combat hardsuit
-  description: A purpose-built combat suit designed to protect its user against all manner of enemy combatants in low pressure environments.
+  description: A purpose-built combat hardsuit designed to protect its user against all manner of enemy combatants in low pressure environments.
   components:
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/standard.rsi
@@ -15,6 +24,13 @@
   - type: ExplosionResistance
     damageCoefficient: 0.50
   - type: Armor # Good armour resistance across the board, comparable to the standard security hardsuit.
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
         Blunt: 0.60
@@ -30,15 +46,17 @@
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatStandard
   - type: AllowSuitStorage
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1
-    knockdownTimeDelta: -1
+    delayDelta: 3
+    knockdownTimeDelta: -3
 
 - type: entity
   parent: [ClothingOuterHardsuitCombatStandard,BaseCommandContraband]
   id: ClothingOuterHardsuitCombatOfficer
   name: security combat hardsuit
-  description: A purpose-built combat suit designed to protect its user against all manner of enemy combatants in low pressure environments. This one has station security markings.
+  description: A purpose-built combat hardsuit designed to protect its user against all manner of enemy combatants in low pressure environments. This one has station security markings.
   components:
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/officer.rsi
@@ -53,7 +71,7 @@
   parent: [ClothingOuterHardsuitBase,BaseCommandContraband]
   id: ClothingOuterHardsuitCombatMedical
   name: medical combat hardsuit
-  description: A purpose-built combat suit designed to allow its user greater mobility for superior support of friendly units in active combat zones.
+  description: A purpose-built combat hardsuit designed to allow its user greater mobility for superior support of friendly units in active combat zones.
   components:
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/medical.rsi
@@ -65,6 +83,13 @@
   - type: ExplosionResistance
     damageCoefficient: 0.60
   - type: Armor # Slightly less armour than the standard hardsuit, but far higher mobility.
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
         Blunt: 0.65
@@ -80,16 +105,18 @@
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatMedical
   - type: AllowSuitStorage
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1
-    knockdownTimeDelta: -1
+    delayDelta: 3
+    knockdownTimeDelta: -3
 
 # Riot Combat Hardsuits
 - type: entity
   parent: [ClothingOuterHardsuitBase,BaseCommandContraband]
   id: ClothingOuterHardsuitCombatRiot
   name: riot combat hardsuit
-  description: A purpose-built combat suit designed for crowd control against armed combatants in low pressure environments.
+  description: A purpose-built combat hardsuit designed for crowd control against armed combatants in low pressure environments.
   components:
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/riot.rsi
@@ -101,6 +128,13 @@
   - type: ExplosionResistance
     damageCoefficient: 0.40
   - type: Armor # More protective than a standard security hardsuit, but far slower.
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
         Blunt: 0.50
@@ -116,3 +150,7 @@
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatRiot
   - type: AllowSuitStorage
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.5
+  - type: ModifyDelayedKnockdown # Goobstation
+    cancel: true

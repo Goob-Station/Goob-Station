@@ -1,3 +1,15 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 EmoGarbage404 <retron404@gmail.com>
+// SPDX-FileCopyrightText: 2023 coolmankid12345 <55817627+coolmankid12345@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 coolmankid12345 <coolmankid12345@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
@@ -21,9 +33,11 @@ public abstract class SharedRevolutionarySystem : EntitySystem
         SubscribeLocalEvent<MindShieldComponent, MapInitEvent>(MindShieldImplanted);
         SubscribeLocalEvent<RevolutionaryComponent, ComponentGetStateAttemptEvent>(OnRevCompGetStateAttempt);
         SubscribeLocalEvent<HeadRevolutionaryComponent, ComponentGetStateAttemptEvent>(OnRevCompGetStateAttempt);
-        SubscribeLocalEvent<RevolutionaryComponent, ComponentStartup>(DirtyRevComps);
-        SubscribeLocalEvent<HeadRevolutionaryComponent, ComponentStartup>(DirtyRevComps);
-        SubscribeLocalEvent<ShowAntagIconsComponent, ComponentStartup>(DirtyRevComps);
+
+        SubscribeLocalEvent<RevolutionaryComponent, ComponentStartup>(OnRevolutionaryComponentStartup); // Goob Station - Revolutionary Language
+        SubscribeLocalEvent<HeadRevolutionaryComponent, ComponentStartup>(OnRevolutionaryComponentStartup); // Goob Station - Revolutionary Language
+
+        SubscribeLocalEvent<ShowAntagIconsComponent, ComponentStartup>(OnRevolutionaryComponentStartup);
     }
 
     /// <summary>
@@ -87,7 +101,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
     /// becomes a rev then we need to send all the components to it. To my knowledge there is no way to do this on a
     /// per client basis so we are just dirtying all the components.
     /// </summary>
-    private void DirtyRevComps<T>(EntityUid someUid, T someComp, ComponentStartup ev)
+    public virtual void OnRevolutionaryComponentStartup<T>(EntityUid someUid, T someComp, ComponentStartup ev) // Goob Station - Revolutionary Language (made public virtual)
     {
         var revComps = AllEntityQuery<RevolutionaryComponent>();
         while (revComps.MoveNext(out var uid, out var comp))

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using System.Text;
 using Content.Shared.Parallax.Biomes;
@@ -17,7 +22,6 @@ public sealed class BiomeDebugOverlay : Overlay
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IEyeManager _eyeManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IResourceCache _cache = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
 
@@ -38,7 +42,7 @@ public sealed class BiomeDebugOverlay : Overlay
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        var mapUid = _mapManager.GetMapEntityId(args.MapId);
+        var mapUid = _maps.GetMapOrInvalid(args.MapId);
 
         return _entManager.HasComponent<BiomeComponent>(mapUid);
     }
@@ -51,7 +55,7 @@ public sealed class BiomeDebugOverlay : Overlay
         if (mousePos.MapId == MapId.Nullspace || mousePos.MapId != args.MapId)
             return;
 
-        var mapUid = _mapManager.GetMapEntityId(args.MapId);
+        var mapUid = _maps.GetMapOrInvalid(args.MapId);
 
         if (!_entManager.TryGetComponent(mapUid, out BiomeComponent? biomeComp) || !_entManager.TryGetComponent(mapUid, out MapGridComponent? grid))
             return;
@@ -59,13 +63,13 @@ public sealed class BiomeDebugOverlay : Overlay
         var sb = new StringBuilder();
         var nodePos = _maps.WorldToTile(mapUid, grid, mousePos.Position);
 
-        if (_biomes.TryGetEntity(nodePos, biomeComp, grid, out var ent))
+        if (_biomes.TryGetEntity(nodePos, biomeComp, (mapUid, grid), out var ent))
         {
             var text = $"Entity: {ent}";
             sb.AppendLine(text);
         }
 
-        if (_biomes.TryGetDecals(nodePos, biomeComp.Layers, biomeComp.Seed, grid, out var decals))
+        if (_biomes.TryGetDecals(nodePos, biomeComp.Layers, biomeComp.Seed, (mapUid, grid), out var decals))
         {
             var text = $"Decals: {decals.Count}";
             sb.AppendLine(text);
@@ -77,7 +81,7 @@ public sealed class BiomeDebugOverlay : Overlay
             }
         }
 
-        if (_biomes.TryGetBiomeTile(nodePos, biomeComp.Layers, biomeComp.Seed, grid, out var tile))
+        if (_biomes.TryGetBiomeTile(nodePos, biomeComp.Layers, biomeComp.Seed, (mapUid, grid), out var tile))
         {
             var tileText = $"Tile: {_tileDefManager[tile.Value.TypeId].ID}";
             sb.AppendLine(tileText);

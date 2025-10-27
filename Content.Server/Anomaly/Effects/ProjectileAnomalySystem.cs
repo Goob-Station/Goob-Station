@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 ThunderBear2006 <100388962+ThunderBear2006@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using System.Numerics;
 using Content.Server.Anomaly.Components;
@@ -22,10 +33,19 @@ public sealed class ProjectileAnomalySystem : EntitySystem
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly GunSystem _gunSystem = default!;
 
+    private EntityQuery<TransformComponent> _xFormQuery;
+    private EntityQuery<MobStateComponent> _mobQuery;
+
+    /// <summary> Pre-allocated collection for calculating entities in range. </summary>
+    private readonly HashSet<EntityUid> _inRange = new();
+
     public override void Initialize()
     {
         SubscribeLocalEvent<ProjectileAnomalyComponent, AnomalyPulseEvent>(OnPulse);
         SubscribeLocalEvent<ProjectileAnomalyComponent, AnomalySupercriticalEvent>(OnSupercritical);
+
+        _xFormQuery = GetEntityQuery<TransformComponent>();
+        _mobQuery = GetEntityQuery<MobStateComponent>();
     }
 
     private void OnPulse(EntityUid uid, ProjectileAnomalyComponent component, ref AnomalyPulseEvent args)
@@ -40,17 +60,20 @@ public sealed class ProjectileAnomalySystem : EntitySystem
 
     private void ShootProjectilesAtEntities(EntityUid uid, ProjectileAnomalyComponent component, float severity)
     {
-        var projectileCount = (int) MathF.Round(MathHelper.Lerp(component.MinProjectiles, component.MaxProjectiles, severity));
-        var xformQuery = GetEntityQuery<TransformComponent>();
-        var mobQuery = GetEntityQuery<MobStateComponent>();
-        var xform = xformQuery.GetComponent(uid);
+        var projectileCount = (int)MathF.Round(MathHelper.Lerp(component.MinProjectiles, component.MaxProjectiles, severity));
 
-        var inRange = _lookup.GetEntitiesInRange(uid, component.ProjectileRange * severity, LookupFlags.Dynamic).ToList();
-        _random.Shuffle(inRange);
+        var xform = _xFormQuery.GetComponent(uid);
+
+        _inRange.Clear();
+        _lookup.GetEntitiesInRange(uid, component.ProjectileRange * severity, _inRange, LookupFlags.Dynamic);
+
+        if (_inRange.Count == 0)
+            return;
+
         var priority = new List<EntityUid>();
-        foreach (var entity in inRange)
+        foreach (var entity in _inRange)
         {
-            if (mobQuery.HasComponent(entity))
+            if (_mobQuery.HasComponent(entity))
                 priority.Add(entity);
         }
 
@@ -58,17 +81,20 @@ public sealed class ProjectileAnomalySystem : EntitySystem
         while (projectileCount > 0)
         {
             Log.Debug($"{projectileCount}");
-            var target = priority.Any()
+            var target = priority.Count > 0
                 ? _random.PickAndTake(priority)
-                : _random.Pick(inRange);
+                : _random.Pick(_inRange);
 
-            var targetCoords = xformQuery.GetComponent(target).Coordinates.Offset(_random.NextVector2(0.5f));
+            var targetXForm= _xFormQuery.GetComponent(target);
+            var targetCoords = targetXForm.Coordinates.Offset(_random.NextVector2(0.5f));
 
             ShootProjectile(
-                uid, component,
+                uid,
+                component,
                 xform.Coordinates,
                 targetCoords,
-                severity);
+                severity
+            );
             projectileCount--;
         }
     }
@@ -78,16 +104,17 @@ public sealed class ProjectileAnomalySystem : EntitySystem
         ProjectileAnomalyComponent component,
         EntityCoordinates coords,
         EntityCoordinates targetCoords,
-        float severity)
+        float severity
+    )
     {
-        var mapPos = coords.ToMap(EntityManager, _xform);
+        var mapPos = _xform.ToMapCoordinates(coords);
 
         var spawnCoords = _mapManager.TryFindGridAt(mapPos, out var gridUid, out _)
-                ? coords.WithEntityId(gridUid, EntityManager)
+                ? _xform.WithEntityId(coords, gridUid)
                 : new(_mapManager.GetMapEntityId(mapPos.MapId), mapPos.Position);
 
         var ent = Spawn(component.ProjectilePrototype, spawnCoords);
-        var direction = targetCoords.ToMapPos(EntityManager, _xform) - mapPos.Position;
+        var direction = _xform.ToMapCoordinates(targetCoords).Position - mapPos.Position;
 
         if (!TryComp<ProjectileComponent>(ent, out var comp))
             return;

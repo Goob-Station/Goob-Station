@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Chemistry.Components;
 using Content.Shared.EntityEffects;
 using Content.Shared.Movement.Systems;
@@ -54,18 +63,16 @@ public sealed partial class NitriumMovespeedModifier : EntityEffect
         status.WalkSpeedModifier = WalkSpeedModifier;
         status.SprintSpeedModifier = SprintSpeedModifier;
 
-        IncreaseTimer(status, StatusLifetime);
+        SetTimer(status, StatusLifetime);
 
         if (modified)
             args.EntityManager.System<MovementSpeedModifierSystem>().RefreshMovementSpeedModifiers(args.TargetEntity);
     }
-    public void IncreaseTimer(MovespeedModifierMetabolismComponent status, float time)
+    public void SetTimer(MovespeedModifierMetabolismComponent status, float time)
     {
         var gameTiming = IoCManager.Resolve<IGameTiming>();
 
-        var offsetTime = Math.Max(status.ModifierTimer.TotalSeconds, gameTiming.CurTime.TotalSeconds);
-
-        status.ModifierTimer = TimeSpan.FromSeconds(offsetTime + time);
+        status.ModifierTimer = TimeSpan.FromSeconds(gameTiming.CurTime.TotalSeconds + time);
         status.Dirty();
     }
 }

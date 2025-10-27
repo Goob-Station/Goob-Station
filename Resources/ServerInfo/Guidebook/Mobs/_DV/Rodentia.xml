@@ -1,3 +1,13 @@
+<!--
+SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <Document>
   # Rodentia
 
@@ -26,7 +36,7 @@
 
   ## Drawbacks
 
-  - Takes 30% more Blunt damage, and 15% more Slash and Piercing damage.
+  - Takes 15% more Blunt, Slash, and Piercing damage.
   - Always triggers mousetraps, regardless of whether or not they are wearing shoes.
   - Gets hungry 33% faster.
 

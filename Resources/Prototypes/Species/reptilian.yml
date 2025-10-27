@@ -1,3 +1,25 @@
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Adrian16199 <144424013+Adrian16199@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 coolsurf6 <coolsurf24@yahoo.com.au>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
+# SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Sapphire <98045970+sapphirescript@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Skubman <ba.fallaria@gmail.com>
+# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: species
   id: Reptilian
   name: species-name-reptilian
@@ -8,16 +30,20 @@
   markingLimits: MobReptilianMarkingLimits
   dollPrototype: MobReptilianDummy
   skinColoration: Hues
-  maleFirstNames: names_reptilian_male
-  femaleFirstNames: names_reptilian_female
+  maleFirstNames: NamesReptilianMale
+  femaleFirstNames: NamesReptilianFemale
   naming: FirstDashFirst
 
 - type: speciesBaseSprites
   id: MobReptilianSprites
   sprites:
     Head: MobReptilianHead
+    Face: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Chest: MobReptilianTorso
+    Underwear: MobHumanoidAnyMarking
+    Undershirt: MobHumanoidAnyMarking
+    Chest: MobReptilianChest
+    Groin: MobReptilianGroin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -50,19 +76,43 @@
       required: true
       defaultMarkings: [ LizardSnoutRound ]
     HeadTop:
-      points: 2
-      required: false
-    HeadSide:
-      points: 2 # WWDP-Edit
-      required: false
-    Chest:
       points: 3
       required: false
-    Legs:
+    HeadSide:
+      points: 6 # WWDP-Edit
+      required: false
+    Chest:
+      points: 8
+      required: false
+    Underwear:
+      points: 1
+      required: false
+    Undershirt:
+      points: 1
+      required: false
+    RightLeg:
       points: 2
       required: false
-    Arms:
+    RightFoot:
       points: 2
+      required: false
+    LeftLeg:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    RightHand:
+      points: 3
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+    LeftHand:
+      points: 3
       required: false
 
 - type: humanoidBaseSprite
@@ -84,22 +134,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobReptilianTorso
+  id: MobReptilianChest
   baseSprite:
     sprite: Mobs/Species/Reptilian/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobReptilianTorsoMale
+  id: MobReptilianChestMale
   baseSprite:
     sprite: Mobs/Species/Reptilian/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobReptilianTorsoFemale
+  id: MobReptilianChestFemale
   baseSprite:
     sprite: Mobs/Species/Reptilian/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobReptilianGroin
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobReptilianGroinMale
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobReptilianGroinFemale
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobReptilianLLeg

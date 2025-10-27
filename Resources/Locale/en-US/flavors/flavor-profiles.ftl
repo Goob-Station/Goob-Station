@@ -1,3 +1,50 @@
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 DoubleRiceEddiedd <149714181+DoubleRiceEddiedd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Floofi <126319569+Shadowtheprotogen546@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Fluffiest Floofers <thebluewulf@gmail.com>
+# SPDX-FileCopyrightText: 2023 GoodWheatley <109803540+GoodWheatley@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+# SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+# SPDX-FileCopyrightText: 2023 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 SpaceCat <99134830+Verslebas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Veritius <veritiusgaming@gmail.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 forthbridge <79264743+forthbridge@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
+# SPDX-FileCopyrightText: 2024 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 RumiTiger <154005209+RumiTiger@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 TurboTrackerss14 <130304754+TurboTrackerss14@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 cool dolphin <36332236+Afrokada@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 dragonryan06 <71857681+dragonryan06@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 joshepvodka <86210200+joshepvodka@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Alpaccalypse <21291379+Alpaccalypse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 flavor-profile = Tastes {$flavor}.
 flavor-profile-multiple = Tastes {$flavors} and {$lastFlavor}.
 flavor-profile-unknown = Tastes indescribable.
@@ -52,6 +99,7 @@ flavor-base-horrible = horrible
 flavor-base-terrible = terrible
 flavor-base-mindful = mindful
 flavor-base-chewy = chewy
+flavor-base-trashy = trashy
 
 # Complex flavors. Put a flavor here when you want something that's more
 # specific.
@@ -180,6 +228,7 @@ flavor-complex-true-nature = like the true nature of reality
 flavor-complex-false-meat = not entirely unlike meat
 flavor-complex-paper = like mushy pulp
 flavor-complex-compressed-meat = like compressed meat
+flavor-complex-dog-food = like dog food
 
 # Drink-specific flavors.
 
@@ -236,8 +285,11 @@ flavor-complex-long-island = suspiciously like iced tea
 flavor-complex-three-mile-island = like tea brewed in nuclear runoff
 flavor-complex-whiskey-cola = like carbonated molasses
 flavor-complex-root-beer-float = like ice cream in root beer
+flavor-complex-crush-depth = like the Hadal Zone
 flavor-complex-black-russian = like alcoholic coffee
 flavor-complex-white-russian = like alcoholic sweetened coffee
+flavor-complex-electric-shark = like Shark Week in the tropics
+flavor-complex-tortuga = like sweet tea
 flavor-complex-moonshine = like pure alcohol
 flavor-complex-singulo = like a bottomless hole
 flavor-complex-syndie-bomb = like bitter whiskey
@@ -253,6 +305,12 @@ flavor-complex-atomic-cola = like hoarding bottle caps
 flavor-complex-cuba-libre = like spiked cola
 flavor-complex-gin-tonic = refreshingly bitter
 flavor-complex-screwdriver = like spiked orange juice
+flavor-complex-jack-rose = like a testimony
+flavor-complex-jungle-bird = like you’re in a tropical aviary
+flavor-complex-kalimotxo = like fancy spiked cola
+flavor-complex-vampiro = fruity, savoury, and spicy
+flavor-complex-bronx = like mildly sweet, alcoholic fruit
+flavor-complex-monkey-business = like going ape
 flavor-complex-vodka-red-bool = like a heart attack
 flavor-complex-irish-bool = like caffeine and Ireland
 flavor-complex-xeno-basher = like killing bugs
@@ -260,12 +318,24 @@ flavor-complex-budget-insuls-drink = like door hacking
 flavor-complex-watermelon-wakeup = like a sweet wakeup call
 flavor-complex-rubberneck = like synthetics
 flavor-complex-irish-car-bomb = like a spiked cola float
+flavor-complex-alien-brain-hemorrhage = like an extraterrestrial injury
 flavor-complex-themartinez = like violets and lemon vodka
 flavor-complex-cogchamp = like brass
 flavor-complex-white-gilgamesh = like lightly carbonated cream
 flavor-complex-antifreeze = warm
+flavor-complex-caipirinha = like Brazil
+flavor-complex-daiquiri = like rum, lime and sugar
+flavor-complex-deathintheafternoon = like anise and champagne
+flavor-complex-empress75 = like tyrian purple
+flavor-complex-espressomartini = like vodka and coffee
+flavor-complex-mayojito = like stomach turmoil
+flavor-complex-mimeosa = like silence and oranges
+flavor-complex-mimosa = like an early brunch
+flavor-complex-moscowmule = like vodka and ginger ale
+flavor-complex-thesunalsorises = like an absinthe daiquiri
+flavor-complex-whiskeysour = like whiskey and egg
 flavor-complex-zombiecocktail = like eating brains
-flavor-complex-absinthe = like anise
+flavor-complex-absinthe = like bitter anise
 flavor-complex-blue-curacao = like orange flowers
 flavor-complex-acidspit = like French battery acid
 flavor-complex-allies-cocktail = like medicinal tincture
@@ -280,9 +350,11 @@ flavor-complex-brave-bull = like being ran over by a truck
 flavor-complex-demons-blood = like the seventh circle of Hell
 flavor-complex-devils-kiss = like cannibalism
 flavor-complex-driest-martini = like a drunk mimic
+flavor-complex-eggnog = like melted custard
 flavor-complex-erika-surprise = like the bartender made a mistake
 flavor-complex-gin-fizz = refreshing and lemony
 flavor-complex-gildlager = like the Tzar's gold
+flavor-complex-dark-and-stormy = like ginger ale spiked with rum
 flavor-complex-grog = like a sea shanty
 flavor-complex-hippies-delight = like your blood pressure is dropping
 flavor-complex-hooch = like it would be delicious if you were a diesel engine
@@ -293,6 +365,7 @@ flavor-complex-martini = like a spy movie
 flavor-complex-mojito = like going into the shade after being in the hot sun
 flavor-complex-neurotoxin = like an underground testing facility
 flavor-complex-patron = like being serenaded by mariachi
+flavor-complex-radler = like spiked lemonade
 flavor-complex-red-mead = like a viking battle
 flavor-complex-sbiten = like fire
 flavor-complex-snowwhite = like sour and bitter hops
@@ -301,6 +374,7 @@ flavor-complex-toxins-special = like space exploration
 flavor-complex-vodka-martini = like a spy movie from Russia
 flavor-complex-vodka-tonic = refreshingly bitter
 flavor-complex-coconut-rum = like nutty fermented sugar
+flavor-complex-bacchus-blessing = like a wall of bricks
 
 ### This is exactly what pilk tastes like. I'm not even joking. I might've been a little drunk though
 flavor-complex-pilk = like sweet milk
@@ -315,5 +389,6 @@ flavor-complex-bee = unbeelievable
 flavor-complex-sax = like jazz
 flavor-complex-bottledlightning = like lightning in a bottle
 flavor-complex-punishment = like punishment
+flavor-complex-artifact-glue = like crushed artifacts
 flavor-weh = like weh
 flavor-hew = like hew

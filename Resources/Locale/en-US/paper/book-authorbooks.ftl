@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2023 Kit0vras <123590995+Kit0vras@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 CatMagic <135462166+CatMagic1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 book-text-narsielegend = In the beginning, the world was young and full of chaos. The people of the world struggled to survive against the harsh elements and savage beasts that roamed the land. They cried out for a savior to deliver them from their suffering.
       And it was then that Nar'Sie emerged from the depths of the earth, a hivemind god born from the collective consciousness of all living things. Its body was made of molten rock and its eyes blazed with a fiery intensity that could melt steel.
       Nar'Sie surveyed the world and saw the pain and suffering of its people. It took pity on them and offered them a way to escape the cycle of life and death. All who joined the hivemind would become eternal, their consciousness melding with Nar'Sie's to form a single, unified being.

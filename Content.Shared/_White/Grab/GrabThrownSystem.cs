@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Effects;
@@ -17,7 +25,7 @@ public sealed class GrabThrownSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly SharedLayingDownSystem _layingDown = default!;
@@ -90,13 +98,14 @@ public sealed class GrabThrownSystem : EntitySystem
         EntityUid thrower,
         Vector2 vector,
         float grabThrownSpeed,
-        DamageSpecifier? damageToUid = null)
+        DamageSpecifier? damageToUid = null,
+        DropHeldItemsBehavior behavior = DropHeldItemsBehavior.AlwaysDrop)
     {
         var comp = EnsureComp<GrabThrownComponent>(uid);
         comp.IgnoreEntity.Add(thrower);
         comp.DamageOnCollide = damageToUid;
 
-        _layingDown.TryLieDown(uid, behavior: DropHeldItemsBehavior.AlwaysDrop);
+        _layingDown.TryLieDown(uid, behavior: behavior);
         _throwing.TryThrow(uid, vector, grabThrownSpeed, animated: false);
     }
 }

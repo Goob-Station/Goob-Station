@@ -1,7 +1,21 @@
+// SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Pinpointer;
 using Content.Server.StationEvents.Components;
+using Content.Shared.EntityTable;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
 using Content.Shared.Storage;
@@ -26,6 +40,7 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
      */
 
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly EntityTableSystem _entityTable = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -62,9 +77,10 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
         var min = comp.Min * players / comp.PlayerRatio;
         var max = comp.Max * players / comp.PlayerRatio;
         var count = Math.Max(RobustRandom.Next(min, max), 1);
+        Log.Info($"Spawning {count} critters for {ToPrettyString(uid):rule}");
         for (int i = 0; i < count; i++)
         {
-            foreach (var spawn in EntitySpawnCollection.GetSpawns(comp.Entries, RobustRandom))
+            foreach (var spawn in _entityTable.GetSpawns(comp.Table))
             {
                 Spawn(spawn, coords);
             }

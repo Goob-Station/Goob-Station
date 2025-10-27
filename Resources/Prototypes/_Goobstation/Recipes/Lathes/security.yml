@@ -1,3 +1,30 @@
+# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+# SPDX-FileCopyrightText: 2024 Remuchi <72476615+Remuchi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: latheRecipe
   id: GrenadeFlashBang
   result: GrenadeFlashBang
@@ -5,6 +32,16 @@
   materials:
     Steel: 100
     Plastic: 100
+
+- type: latheRecipe
+  id: HoloprojectorSecurityAdvanced
+  result: HoloprojectorSecurityAdvanced
+  completetime: 6
+  materials:
+    Steel: 500
+    Plastic: 200
+    Glass: 300
+    Plasma: 200
 
 - type: latheRecipe
   id: BolaEnergy
@@ -20,6 +57,7 @@
   materials:
     Steel: 100
     Glass: 300
+    Plasma: 100
 
 - type: latheRecipe
   id: CartridgeAtropine
@@ -28,6 +66,7 @@
   materials:
     Steel: 100
     Glass: 300
+    Plasma: 200
 
 - type: latheRecipe
   id: CartridgeBicaridine
@@ -36,6 +75,7 @@
   materials:
     Steel: 100
     Glass: 300
+    Plasma: 100
 
 - type: latheRecipe
   id: CartridgeDermaline
@@ -44,6 +84,7 @@
   materials:
     Steel: 100
     Glass: 300
+    Plasma: 100
 
 - type: latheRecipe
   id: CartridgeSaline
@@ -59,9 +100,8 @@
   completetime: 1
   materials:
     Steel: 200
-    Glass: 500
+    Glass: 400
     Plasma: 200
-    Gold: 200
 
 - type: latheRecipe
   id: CartridgePuncturase
@@ -69,9 +109,17 @@
   completetime: 1
   materials:
     Steel: 200
-    Glass: 500
-    Plasma: 500
-    Gold: 200
+    Glass: 400
+    Plasma: 200
+
+- type: latheRecipe
+  id: CartridgeTirizene
+  result: CartridgeTirizene
+  completetime: 1
+  materials:
+    Steel: 200
+    Glass: 400
+    Plasma: 200
 
 - type: latheRecipe
   id: SecHypo
@@ -84,16 +132,93 @@
     Gold: 500
 
 # Guns
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponLaserCellRevolver
+  result: WeaponLaserCellRevolver
+  materials:
+    Steel: 1000
+    Glass: 300
+    Plastic: 200
+    Silver: 100
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
-  id: WeaponTemperatureGun
-  result: WeaponTemperatureGun
+  id: WeaponLaserCellSMG
+  result: WeaponLaserCellSMG
   materials:
     Steel: 1500
-    Glass: 800
-    Plastic: 500
-    Plasma: 500
+    Plastic: 1000
+    Silver: 500
+    Gold: 500
+    Glass: 850
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponLaserCellSniper
+  result: WeaponLaserCellSniper
+  materials:
+    Steel: 2000
+    Plastic: 1800
+    Silver: 800
+    Gold: 800
+    Glass: 1000
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: ClothingBackpackLMGBattery
+  result: ClothingBackpackLMGBattery
+  materials:
+    Steel: 4000
+    Plastic: 100
+    Silver: 1000
+    Gold: 1000
+    Glass: 1500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponEnergyRifle
+  result: WeaponEnergyRifle
+  materials:
+    Steel: 1500
+    Plastic: 1000
+    Silver: 500
+    Gold: 500
+    Glass: 850
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponEnergyIonRifle
+  result: WeaponEnergyIonRifle
+  materials:
+    Steel: 1200
+    Plastic: 600
+    Gold: 300
+
+- type: latheRecipe
+  parent: BaseWeaponRecipe
+  id: PolymerBaton
+  result: PolymerBaton
+  materials:
+    Plastic: 250
+    Steel: 100
+
+- type: latheRecipe
+  parent: BaseWeaponRecipe
+  id: SpearTelescopic
+  result: SpearTelescopic
+  materials:
+    Glass: 250
+    Steel: 100
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: Terminus
+  result: Terminus # Einstein Engines
+  materials:
+    Steel: 1250
+    Plastic: 750
+    Gold: 500
 
 # Smartgun
 
@@ -227,6 +352,179 @@
     Silver: 150
 
 # Ammo
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: PowerCellIRRevolver
+  result: PowerCellIRRevolver
+  materials:
+    Steel: 200
+    Gold: 100
+    Glass: 100
+    Plasma: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: PowerCellIonRevolver
+  result: PowerCellIonRevolver
+  materials:
+    Steel: 200
+    Gold: 100
+    Glass: 100
+    Plasma: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: PowerCellXrayRevolver
+  result: PowerCellXrayRevolver
+  materials:
+    Steel: 200
+    Gold: 100
+    Glass: 100
+    Plasma: 100
+    Uranium: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: PowerCellOverchargedRevolver
+  result: PowerCellOverchargedRevolver
+  materials:
+    Steel: 200
+    Gold: 100
+    Glass: 200
+    Plasma: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: PowerCellIRSMG
+  result: PowerCellIRSMG
+  materials:
+    Steel: 400
+    Gold: 200
+    Glass: 200
+    Plasma: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: PowerCellIonSMG
+  result: PowerCellIonSMG
+  materials:
+    Steel: 400
+    Gold: 200
+    Glass: 200
+    Plasma: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: PowerCellXraySMG
+  result: PowerCellXraySMG
+  materials:
+    Steel: 400
+    Gold: 200
+    Glass: 200
+    Plasma: 200
+    Uranium: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: PowerCellOverchargedSMG
+  result: PowerCellOverchargedSMG
+  materials:
+    Steel: 400
+    Gold: 200
+    Glass: 400
+    Plasma: 1000
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: PowerCellIRSniper
+  result: PowerCellIRSniper
+  materials:
+    Steel: 600
+    Gold: 300
+    Glass: 300
+    Plasma: 300
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: PowerCellIonSniper
+  result: PowerCellIonSniper
+  materials:
+    Steel: 600
+    Gold: 300
+    Glass: 300
+    Plasma: 300
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: PowerCellXraySniper
+  result: PowerCellXraySniper
+  materials:
+    Steel: 600
+    Gold: 300
+    Glass: 300
+    Plasma: 300
+    Uranium: 300
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: PowerCellOverchargedSniper
+  result: PowerCellOverchargedSniper
+  materials:
+    Steel: 600
+    Gold: 300
+    Glass: 600
+    Plasma: 1500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MilitaryPowerCellLMG
+  result: MilitaryPowerCellLMG
+  materials:
+    Steel: 1500
+    Gold: 200
+    Glass: 800
+    Plasma: 1000
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: EnergyMagRifleLethal
+  result: EnergyMagRifleLethal
+  materials:
+    Steel: 400
+    Gold: 200
+    Glass: 300
+    Plasma: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: EnergyMagRifleDisabler
+  result: EnergyMagRifleDisabler
+  materials:
+    Steel: 400
+    Gold: 200
+    Glass: 300
+    Plasma: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: EnergyMagRifleIon
+  result: EnergyMagRifleIon
+  materials:
+    Steel: 400
+    Gold: 200
+    Glass: 300
+    Plasma: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: EnergyMagRifleOverchargeLethal
+  result: EnergyMagRifleOverchargeLethal
+  materials:
+    Steel: 400
+    Gold: 300
+    Glass: 300
+    Plasma: 500
+    Uranium: 300
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -234,6 +532,13 @@
   result: MagazinePistolCaselessRifle
   materials:
     Steel: 145
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineLowCaliberM7S
+  result: MagazineLowCaliberM7S
+  materials:
+    Steel: 700
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -292,7 +597,7 @@
     Steel: 165
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseEmptyAmmoRecipe
   id: MagazineShotgunLeverRifleEmpty
   result: MagazineShotgunLeverRifleEmpty
   materials:
@@ -304,12 +609,6 @@
   result: MagazineShotgunLeverRifle
   materials:
     Steel: 240
-
-- type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  id: ContrabandDetectorCircuitboard
-  result: ContrabandDetectorCircuitboard
-  completetime: 4
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -358,14 +657,14 @@
     Steel: 160
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseEmptyAmmoRecipe
   id: MagazinePistolCaselessRifleEmpty
   result: MagazinePistolCaselessRifleEmpty
   materials:
     Steel: 25
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseEmptyAmmoRecipe
   id: MagazineCaselessRifleEmpty
   result: MagazineCaselessRifleEmpty
   materials:
@@ -384,3 +683,44 @@
   result: MagazineBoxAntiMateriel
   materials:
     Steel: 1500
+
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: MagazinePistolHighCapacityEmpty
+  result: MagazinePistolHighCapacityEmpty
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolHighCapacity
+  result: MagazinePistolHighCapacity
+  materials:
+    Steel: 285
+
+# Circuitboards
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  icon: { sprite: _Goobstation/Structures/Machines/contraband_detector.rsi, state: icon }
+  id: ContrabandDetectorCircuitboard
+  result: ContrabandDetectorCircuitboard
+  completetime: 4
+
+- type: latheRecipe
+  id: ClothingMaskMuzzleSecure
+  result: ClothingMaskMuzzleSecure
+  completetime: 4
+  materials:
+    Steel: 200
+    Plastic: 150
+    Cloth: 100
+
+- type: latheRecipe
+  id: ClothingMaskMuzzleShock
+  result: ClothingMaskMuzzleShock
+  completetime: 4
+  materials:
+    Steel: 500
+    Plastic: 250
+    Cloth: 200

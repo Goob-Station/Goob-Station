@@ -1,3 +1,17 @@
+// SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Client.Items.Systems;
 using Content.Shared.Clothing;
@@ -18,6 +32,7 @@ namespace Content.Client.Light
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly ItemSystem _itemSystem = default!;
         [Dependency] private readonly SharedPointLightSystem _lights = default!;
+        [Dependency] private readonly SpriteSystem _sprite = default!;
 
         public override void Initialize()
         {
@@ -75,7 +90,7 @@ namespace Content.Client.Light
 
             foreach (var key in args.RevealedLayers)
             {
-                if (!sprite.LayerMapTryGet(key, out var index) || sprite[index] is not Layer layer)
+                if (!_sprite.LayerMapTryGet((args.User, sprite), key, out var index, false) || sprite[index] is not Layer layer)
                     continue;
 
                 if (layer.ShaderPrototype == "unshaded")
@@ -93,7 +108,7 @@ namespace Content.Client.Light
 
             foreach (var key in args.RevealedLayers)
             {
-                if (!sprite.LayerMapTryGet(key, out var index) || sprite[index] is not Layer layer)
+                if (!_sprite.LayerMapTryGet((args.Equipee, sprite), key, out var index, false) || sprite[index] is not Layer layer)
                     continue;
 
                 if (layer.ShaderPrototype == "unshaded")
@@ -164,7 +179,7 @@ namespace Content.Client.Light
 
             foreach (var (layer, color) in rgb.OriginalLayerColors)
             {
-                sprite.LayerSetColor(layer, color);
+                _sprite.LayerSetColor((uid, sprite), layer, color);
             }
         }
 
@@ -181,7 +196,7 @@ namespace Content.Client.Light
                 {
                     foreach (var index in rgb.Layers)
                     {
-                        if (sprite.TryGetLayer(index, out var layer))
+                        if (_sprite.TryGetLayer((uid, sprite), index, out var layer, false))
                             layer.Color = color;
                     }
                 }
@@ -192,8 +207,8 @@ namespace Content.Client.Light
 
                 foreach (var layer in rgb.HolderLayers)
                 {
-                    if (holderSprite.LayerMapTryGet(layer, out var index))
-                        holderSprite.LayerSetColor(index, color);
+                    if (_sprite.LayerMapTryGet((rgb.Holder.Value, holderSprite), layer, out var index, false))
+                        _sprite.LayerSetColor((rgb.Holder.Value, holderSprite), index, color);
                 }
             }
 

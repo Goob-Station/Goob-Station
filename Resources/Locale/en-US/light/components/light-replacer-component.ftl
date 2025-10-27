@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 
 ### Interaction Messages
 
@@ -13,7 +22,7 @@ comp-light-replacer-insert-broken-light = You can't insert broken lights!
 # Shown when player refill light from light box
 comp-light-replacer-refill-from-storage = You refill {THE($light-replacer)}.
 
-### Examine 
+### Examine
 
 comp-light-replacer-no-lights = It's empty.
 comp-light-replacer-has-lights = It contains the following:

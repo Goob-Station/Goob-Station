@@ -1,4 +1,14 @@
+// SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Centronias <me@centronias.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Actions;
+using Content.Shared.Cloning.Events;
 using Content.Shared.DoAfter;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Serialization;
@@ -32,6 +42,21 @@ public abstract partial class SharedSericultureSystem : EntitySystem
         SubscribeLocalEvent<SericultureComponent, ComponentShutdown>(OnCompRemove);
         SubscribeLocalEvent<SericultureComponent, SericultureActionEvent>(OnSericultureStart);
         SubscribeLocalEvent<SericultureComponent, SericultureDoAfterEvent>(OnSericultureDoAfter);
+        SubscribeLocalEvent<SericultureComponent, CloningEvent>(OnClone);
+    }
+
+    private void OnClone(Entity<SericultureComponent> ent, ref CloningEvent args)
+    {
+        if(!args.Settings.EventComponents.Contains(Factory.GetRegistration(ent.Comp.GetType()).Name))
+            return;
+
+        var comp = EnsureComp<SericultureComponent>(args.CloneUid);
+        comp.PopupText = ent.Comp.PopupText;
+        comp.ProductionLength = ent.Comp.ProductionLength;
+        comp.HungerCost = ent.Comp.HungerCost;
+        comp.EntityProduced = ent.Comp.EntityProduced;
+        comp.MinHungerThreshold = ent.Comp.MinHungerThreshold;
+        Dirty(args.CloneUid, comp);
     }
 
     /// <summary>
@@ -114,4 +139,3 @@ public sealed partial class SericultureActionEvent : InstantActionEvent { }
 /// </summary>
 [Serializable, NetSerializable]
 public sealed partial class SericultureDoAfterEvent : SimpleDoAfterEvent { }
-

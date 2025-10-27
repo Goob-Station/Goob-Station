@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: random syndicate item spawner
   id: SyndicateSpawner
@@ -18,7 +28,6 @@
         - WeaponRevolverPython
         - ThrowingKnivesKit
         - ToolboxElectricalTurretFilled
-        - BoxDualettaKit
         - ContractorBaton
         - EnergySword
         - WeaponPistolAnaconda
@@ -75,8 +84,7 @@
         - Stimpack
         - HypoDartBox
         - CigPackSyndicate
-        - EncryptionKeyBinarySyndicate
-        - NocturineChemistryBottle
+        - ChemistryBottleNocturine
         - ClothingBackpackDuffelSyndicateFilledCandy
         - CyberPen
         - StimkitFilled
@@ -87,7 +95,6 @@
         - ClothingOuterVestWeb
         - AccessBreaker
         - BoxReagentGrenades
-        - BoxSkibidiRizz
         - Emag
         - AntimovCircuitBoard
         - BorgModuleMartyr
@@ -102,7 +109,7 @@
         - CameraBug
         - ChameleonProjector
         - ClothingBackpackDuffelSyndicateDecoyKitFilled
-        - ClothingSatchelSmuggler
+        - ClothingBackpackSatchelSmugglerUnanchored
         - BoxEncryptionKeySyndie
         - RevolverCapGunFake
         - ClothingBackpackDuffelSyndicateCarpSuit
@@ -110,15 +117,13 @@
         - ClothingBackpackDuffelSyndicateCostumeClown
         - ClusterBananaPeel
         - CombatBakeryKit
-        - DartSyringeGun
+        - SyringePistol
         - DehydratedSpaceCarp
         - GlueGrenade
         - BoxHoloclown
         - BoxHoloparasite
         - HolyHandGrenade
         - HotPotato
-        - JermovCircuitBoard
-        - ZooimovCircuitBoard
         - LubeGrenade
         - MindcontrolImplanter
         - SyndicateSpongeBox

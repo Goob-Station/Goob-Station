@@ -1,6 +1,14 @@
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
+using Content.Shared.Speech;
 using Robust.Shared.Random;
 
 namespace Content.Server.Speech.EntitySystems;
@@ -14,7 +22,7 @@ public sealed class MobsterAccentSystem : EntitySystem
     private static readonly Regex RegexUpperAr = new(@"(?<=\w)A[Rr](?=\w)");
     private static readonly Regex RegexFirstWord = new(@"^(\S+)");
     private static readonly Regex RegexLastWord = new(@"(\S+)$");
-
+    private static readonly Regex RegexLastPunctuation = new(@"([.!?]+$)(?!.*[.!?])|(?<![.!?])$");
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
 
@@ -84,7 +92,7 @@ public sealed class MobsterAccentSystem : EntitySystem
             }
             if (lastWordAllCaps)
                 suffix = suffix.ToUpper();
-            msg += suffix;
+            msg = RegexLastPunctuation.Replace(msg, suffix);
         }
 
         return msg;

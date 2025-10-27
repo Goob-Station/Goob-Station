@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # White Jumpskirt
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -489,3 +495,15 @@
       - state: equipped-INNERCLOTHING
         color: "#cc295f"
       - state: trinkets-equipped-INNERCLOTHING
+
+# Rainbow Jumpskirt
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtColorRainbow
+  name: rainbow jumpskirt
+  description: A multi-colored jumpskirt!
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpskirt/rainbow.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpskirt/rainbow.rsi

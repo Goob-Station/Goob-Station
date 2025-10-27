@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 atmos-monitoring-window-title = Atmospheric Network Monitor
 atmos-monitoring-window-station-name = [color=white][font size=14]{$stationName}[/font][/color]
 atmos-monitoring-window-unknown-location = Unknown location

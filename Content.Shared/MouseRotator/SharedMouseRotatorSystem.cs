@@ -1,4 +1,11 @@
-﻿using Content.Shared.Interaction;
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Interaction;
 
 namespace Content.Shared.MouseRotator;
 
@@ -47,10 +54,18 @@ public abstract class SharedMouseRotatorSystem : EntitySystem
 
     private void OnRequestRotation(RequestMouseRotatorRotationEvent msg, EntitySessionEventArgs args)
     {
+        // Ignore the request if the requested entity is not the user's attached entity.
+        // This can happen when a player switches controlled entities while rotating.
+        if (args.SenderSession.AttachedEntity != GetEntity(msg.User))
+            return;
+
         if (args.SenderSession.AttachedEntity is not { } ent
             || !TryComp<MouseRotatorComponent>(ent, out var rotator))
         {
+            // Goobstation - Disable stupid chud warning.
+            /*
             Log.Error($"User {args.SenderSession.Name} ({args.SenderSession.UserId}) tried setting local rotation directly without a valid mouse rotator component attached!");
+            */
             return;
         }
 

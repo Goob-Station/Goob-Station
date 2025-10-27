@@ -1,5 +1,65 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Jark255 <jaroslav.asanov@gmail.com>
+// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2024 Alex Pavlenko <diraven@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ArkiveDev <95712736+ArkiveDev@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Doomsdrayk <robotdoughnut@comcast.net>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mota <belochuc@gmail.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Redfire1331 <125223432+Redfire1331@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 neutrino <67447925+neutrino-laser@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 poeMota <142114334+poeMota@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 redfire1331 <Redfire1331@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Ghost.Roles.Components;
 using Content.Shared.Examine;
+using Content.Shared.Interaction; // Goobstation
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -25,6 +85,8 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
         SubscribeLocalEvent<ToggleableGhostRoleComponent, MindAddedMessage>(OnMindAdded);
         SubscribeLocalEvent<ToggleableGhostRoleComponent, MindRemovedMessage>(OnMindRemoved);
         SubscribeLocalEvent<ToggleableGhostRoleComponent, GetVerbsEvent<ActivationVerb>>(AddWipeVerb);
+
+        SubscribeLocalEvent<ToggleableGhostRoleComponent, ActivateInWorldEvent>(OnActivateInWorld); // Goobstation
     }
 
     private void OnUseInHand(EntityUid uid, ToggleableGhostRoleComponent component, UseInHandEvent args)
@@ -34,27 +96,19 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
 
         args.Handled = true;
 
-        // check if a mind is present
-        if (TryComp<MindContainerComponent>(uid, out var mind) && mind.HasMind)
-        {
-            _popup.PopupEntity(Loc.GetString(component.ExamineTextMindPresent), uid, args.User, PopupType.Large);
-            return;
-        }
-        if (HasComp<GhostTakeoverAvailableComponent>(uid))
-        {
-            _popup.PopupEntity(Loc.GetString(component.ExamineTextMindSearching), uid, args.User);
-            return;
-        }
-        _popup.PopupEntity(Loc.GetString(component.BeginSearchingText), uid, args.User);
+        // Goobstation - intentional conflict landmine: if you see conflicts here, move the new code to TryActivate()
+        TryActivate(uid, component, args.User);
+    }
 
-        UpdateAppearance(uid, ToggleableGhostRoleStatus.Searching);
+    // Goobstation
+    private void OnActivateInWorld(EntityUid uid, ToggleableGhostRoleComponent component, ActivateInWorldEvent args)
+    {
+        if (args.Handled)
+            return;
 
-        var ghostRole = EnsureComp<GhostRoleComponent>(uid);
-        EnsureComp<GhostTakeoverAvailableComponent>(uid);
-        ghostRole.RoleName = Loc.GetString(component.RoleName);
-        ghostRole.RoleDescription = Loc.GetString(component.RoleDescription);
-        ghostRole.RoleRules = Loc.GetString(component.RoleRules);
-        ghostRole.JobProto = component.JobProto;
+        args.Handled = true;
+
+        TryActivate(uid, component, args.User);
     }
 
     private void OnExamined(EntityUid uid, ToggleableGhostRoleComponent component, ExaminedEvent args)
@@ -97,7 +151,7 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
 
     private void AddWipeVerb(EntityUid uid, ToggleableGhostRoleComponent component, GetVerbsEvent<ActivationVerb> args)
     {
-        if (args.Hands == null || !args.CanAccess || !args.CanInteract)
+        if (!args.CanAccess || !args.CanComplexInteract) // Goobstation - replace hands check with CanComplexInteract
             return;
 
         if (TryComp<MindContainerComponent>(uid, out var mind) && mind.HasMind)
@@ -135,6 +189,35 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
             };
             args.Verbs.Add(verb);
         }
+    }
+
+    // Goobstation
+    public void TryActivate(EntityUid uid, ToggleableGhostRoleComponent component, EntityUid user)
+    {
+        // check if a mind is present
+        if (TryComp<MindContainerComponent>(uid, out var mind) && mind.HasMind)
+        {
+            _popup.PopupEntity(Loc.GetString(component.ExamineTextMindPresent), uid, user, PopupType.Large);
+            return;
+        }
+        if (HasComp<GhostTakeoverAvailableComponent>(uid))
+        {
+            _popup.PopupEntity(Loc.GetString(component.ExamineTextMindSearching), uid, user);
+            return;
+        }
+        _popup.PopupEntity(Loc.GetString(component.BeginSearchingText), uid, user);
+
+        UpdateAppearance(uid, ToggleableGhostRoleStatus.Searching);
+
+        var ghostRole = EnsureComp<GhostRoleComponent>(uid);
+        EnsureComp<GhostTakeoverAvailableComponent>(uid);
+
+        //GhostRoleComponent inherits custom settings from the ToggleableGhostRoleComponent
+        ghostRole.RoleName = Loc.GetString(component.RoleName);
+        ghostRole.RoleDescription = Loc.GetString(component.RoleDescription);
+        ghostRole.RoleRules = Loc.GetString(component.RoleRules);
+        ghostRole.JobProto = component.JobProto;
+        ghostRole.MindRoles = component.MindRoles;
     }
 
     /// <summary>

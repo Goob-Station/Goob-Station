@@ -1,3 +1,32 @@
+# SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kit0vras <123590995+Kit0vras@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 end <72604018+laok233@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 KonstantinAngelov <168754339+KonstantinAngelov@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PoTeletubby <ajcraigaz@gmail.com>
+# SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: Bookshelf
+  id: BookshelfFilled
+  suffix: random filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BookshelfEntityTable
+
+# Entity tables
 - type: entityTable
   id: BookshelfEntityTable
   table: !type:AllSelector
@@ -5,66 +34,78 @@
     # Randomly generated books
     - id: BookRandomStory
       amount: !type:RangeNumberSelector
-        range: 0, 4
+        range: 0, 8
     # Guidebooks
-    - !type:GroupSelector
-      children:
-      - id: BookBartendersManual
-      - id: BookChemicalCompendium
-      - id: BookEngineersHandbook
-      - id: BookHowToCookForFortySpaceman
-      - id: BookHowToKeepStationClean
-      - id: BookHowToRockAndStone
-      - id: BookHowToSurvive
-      - id: BookLeafLoversSecret
-      - id: BookMedicalReferenceBook
-      - id: BookScientistsGuidebook
-      - id: BookSecurity
-      - id: BookSpaceEncyclopedia
-      - id: BookSpaceLaw
-      - id: BookTheBookOfControl
-    # Handwritten books
-    - !type:GroupSelector
+    - !type:NestedSelector
       rolls: !type:RangeNumberSelector
         range: 0, 2
-      children:
-      - id: BookAurora
-      - id: BookCafe
-      - id: BookEarth
-      - id: BookFeather
-      - id: BookIanAntarctica
-      - id: BookIanArctic
-      - id: BookIanCity
-      - id: BookIanDesert
-      - id: BookIanLostWolfPup
-      - id: BookIanMountain
-      - id: BookIanOcean
-      - id: BookIanRanch
-      - id: BookInspiration
-      - id: BookJourney
-      - id: BookMap
-      - id: BookMedicalOfficer
-      - id: BookMorgue
-      - id: BookNames
-      - id: BookNarsieLegend
-      - id: BookPossum
-      - id: BookRufus
-      - id: BookSlothClownMMD
-      - id: BookSlothClownPranks
-      - id: BookSlothClownSSS
-      - id: BookStruck
-      - id: BookSun
-      - id: BookTemple
-      - id: BookTruth
-      - id: BookWatched
-      - id: BookWorld
+      tableId: RandomGuidebookTable
+    # Handwritten books
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 3
+      tableId: RandomHandwrittenBookTable
 
-- type: entity
-  id: BookshelfFilled
-  parent: Bookshelf
-  suffix: random filled
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:NestedSelector
-        tableId: BookshelfEntityTable
+- type: entityTable
+  id: RandomHandwrittenBookTable
+  table: !type:GroupSelector
+    children:
+    - id: BookAurora
+    - id: BookCafe
+    - id: BookEarth
+    - id: BookFeather
+    - id: BookIanAntarctica
+    - id: BookIanArctic
+    - id: BookIanCity
+    - id: BookIanDesert
+    - id: BookIanLostWolfPup
+    - id: BookIanMountain
+    - id: BookIanOcean
+    - id: BookIanRanch
+    - id: BookInspiration
+    - id: BookJourney
+    - id: BookMap
+    - id: BookMedicalOfficer
+    - id: BookMorgue
+    - id: BookNames
+    - id: BookNarsieLegend
+    - id: BookPossum
+    - id: BookRufus
+    - id: BookSlothClownMMD
+    - id: BookSlothClownPranks
+    - id: BookSlothClownSSS
+    - id: BookStruck
+    - id: BookSun
+    - id: BookTemple
+    - id: BookTruth
+    - id: BookWatched
+    - id: BookWorld
+
+- type: entityTable
+  id: RandomGuidebookTable
+  table: !type:GroupSelector
+    children:
+    - id: BookBartendersManual
+    - id: BookChemicalCompendium
+    - id: BookEngineersHandbook
+    - id: BookHowToCookForFortySpaceman
+    - id: BookHowToKeepStationClean
+    - id: BookHowToRockAndStone
+    - id: BookHowToSurvive
+    - id: BookLeafLoversSecret
+    - id: BookMedicalReferenceBook
+    - id: BookScientistsGuidebook
+    - id: BookSecurity
+    - id: BookSpaceEncyclopedia
+    - id: BookSpaceLaw
+    - id: BookTheBookOfControl
+
+- type: entityTable
+  id: RandomBookTable
+  table: !type:GroupSelector
+    children:
+    - id: BookRandomStory
+    - !type:NestedSelector
+      tableId: RandomGuidebookTable
+    - !type:NestedSelector
+      tableId: RandomHandwrittenBookTable

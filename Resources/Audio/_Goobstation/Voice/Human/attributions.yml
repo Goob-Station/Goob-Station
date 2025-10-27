@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - files: ["fart2.ogg", "fart3.ogg", "fart4.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Monkestation at commit 39c8a97b5067f903fc9486babb784a3e6f7a4ee5"
@@ -12,3 +20,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Modified version of parp1.ogg from TV_LING modified by Piras314"
   source: "https://github.com/Piras314"
+
+- files: ["gulp.ogg"]
+  license: "CC0-1.0"
+  copyright: "Stock sounds from Pixabay, converted to mono by @deltanedas (github)"
+  source: "https://pixabay.com/sound-effects/gulp-male-88413/"

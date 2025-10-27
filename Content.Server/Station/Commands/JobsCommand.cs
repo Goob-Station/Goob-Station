@@ -1,8 +1,16 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Roles;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Toolshed.Syntax;
 using Robust.Shared.Toolshed.TypeParsers;
@@ -30,15 +38,15 @@ public sealed class JobsCommand : ToolshedCommand
         => stations.SelectMany(Jobs);
 
     [CommandImplementation("job")]
-    public JobSlotRef Job([PipedArgument] EntityUid station, Prototype<JobPrototype> job)
+    public JobSlotRef Job([PipedArgument] EntityUid station, ProtoId<JobPrototype> job)
     {
         _jobs ??= GetSys<StationJobsSystem>();
 
-        return new JobSlotRef(job.Value.ID, station, _jobs, EntityManager);
+        return new JobSlotRef(job.Id, station, _jobs, EntityManager);
     }
 
     [CommandImplementation("job")]
-    public IEnumerable<JobSlotRef> Job([PipedArgument] IEnumerable<EntityUid> stations, Prototype<JobPrototype> job)
+    public IEnumerable<JobSlotRef> Job([PipedArgument] IEnumerable<EntityUid> stations, ProtoId<JobPrototype> job)
         => stations.Select(x => Job(x, job));
 
     [CommandImplementation("isinfinite")]

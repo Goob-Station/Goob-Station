@@ -1,0 +1,50 @@
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BaseFishingSpot
+  abstract: true
+  name: suspicious waves
+  description: Something is floating here...
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: FishingSpot
+    fishList: !type:NestedSelector
+      tableId: WaterFishingLootTable
+    fishDefaultTimer: 25.0
+    fishTimerVariety: 15.0
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        layer:
+        - ItemMask
+        mask:
+        - HighImpassable
+        density: 1000
+        hard: false
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: PhysicsGunBlacklist
+  # TODO: change visuals when it's active
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fishing_spot.rsi
+    state: water
+  - type: Icon
+    sprite: _Goobstation/Objects/Specific/Fishing/fishing_spot.rsi
+    state: water
+
+- type: entity
+  id: FishingSpotWater
+  parent: BaseFishingSpot

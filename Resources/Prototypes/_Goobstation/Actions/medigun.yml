@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseAction
+  id: ActionActivateMedigunUber
+  name: Activate Uber mode
+  description: Uber mode heals targets faster, but is enabled only for 10 seconds and drains battery faster.
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Actions/medigun.rsi
+      state: activate
+    itemIconStyle: BigAction
+    useDelay: 10.0
+  - type: InstantAction
+    event: !type:MediGunUberActivateActionEvent
+    

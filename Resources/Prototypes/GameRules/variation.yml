@@ -1,4 +1,12 @@
-﻿# Base
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Base
 
 - type: entity
   id: BaseVariationPass
@@ -47,6 +55,46 @@
     entities:
     - id: RandomSpawner
 
+- type: entity
+  id: BasicDecalDirtVariationPass
+  parent: BaseVariationPass
+  components:
+  - type: EntitySpawnVariationPass
+    tilesPerEntityAverage: 80
+    tilesPerEntityStdDev: 5
+    entities:
+    - id: DecalSpawnerDirtWide
+
+- type: entity
+  id: BasicDecalGraffitiVariationPass
+  parent: BaseVariationPass
+  components:
+  - type: EntitySpawnVariationPass
+    tilesPerEntityAverage: 120
+    tilesPerEntityStdDev: 5
+    entities:
+    - id: DecalSpawnerGraffiti
+
+- type: entity
+  id: BasicDecalBrunsVariationPass
+  parent: BaseVariationPass
+  components:
+  - type: EntitySpawnVariationPass
+    tilesPerEntityAverage: 120
+    tilesPerEntityStdDev: 10
+    entities:
+    - id: DecalSpawnerBurns
+
+- type: entity
+  id: BasicDecalDirtMonospaceVariationPass
+  parent: BaseVariationPass
+  components:
+  - type: EntitySpawnVariationPass
+    tilesPerEntityAverage: 80
+    tilesPerEntityStdDev: 10
+    entities:
+    - id: DecalSpawnerDirtMonospace
+
 - type: weightedRandomFillSolution
   id: RandomFillTrashPuddle
   fills:
@@ -66,7 +114,6 @@
     - Carbon
     - Hydrogen
     - Fat
-    - SpaceLube
     - SpaceGlue
     - Sulfur
     - Acetone
@@ -123,3 +170,25 @@
     blacklist:
       components:
       - ParticleAcceleratorControlBox
+
+- type: entity
+  id: SolarPanelDamageVariationPass
+  parent: BaseVariationPass
+  components:
+  - type: SolarPanelReplaceVariationPass
+  - type: EntityReplaceVariationPass
+    entitiesPerReplacementAverage: 30
+    entitiesPerReplacementStdDev: 5
+    replacements:
+    - id: SolarPanelBroken
+
+- type: entity
+  id: SolarPanelEmptyVariationPass
+  parent: BaseVariationPass
+  components:
+  - type: SolarPanelReplaceVariationPass
+  - type: EntityReplaceVariationPass
+    entitiesPerReplacementAverage: 30
+    entitiesPerReplacementStdDev: 5
+    replacements:
+    - id: SolarAssembly

@@ -1,10 +1,21 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Actions;
+using Content.Goobstation.Common.Bloodstream;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Abilities.Mime;
 using Content.Server.Antag;
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
@@ -28,11 +39,11 @@ using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Actions;
+using Content.Shared._Shitmed.Damage; // Shitmed Change
 using Content.Shared.Chat;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Coordinates.Helpers;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
@@ -47,6 +58,7 @@ using Content.Shared.Physics;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Speech.Components;
 using Content.Shared.Weapons.Ranged.Components;
+using Robust.Server.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Map;
@@ -58,6 +70,12 @@ using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Actions.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Construction.Components;
+using Content.Shared.Friction;
+using Content.Shared.Item;
+using Content.Shared.Tag;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 
@@ -79,17 +97,35 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly TeleportSystem _teleport = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly SharedItemSystem _item = default!;
+    [Dependency] private readonly TileFrictionController _tileFriction = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<MindContainerComponent, SummonSimiansMaxedOutEvent>(OnMonkeyAscension);
+        SubscribeLocalEvent<BloodlossDamageMultiplierComponent, StoppedTakingBloodlossDamageEvent>(OnBloodlossStopped);
+        SubscribeLocalEvent<BloodlossDamageMultiplierComponent, GetBloodlossDamageMultiplierEvent>(OnGetBloodlossMultiplier);
+    }
+
+    private void OnGetBloodlossMultiplier(Entity<BloodlossDamageMultiplierComponent> ent,
+        ref GetBloodlossDamageMultiplierEvent args)
+    {
+        args.Multiplier *= ent.Comp.Multiplier;
     }
 
     protected override void CreateChargeEffect(EntityUid uid, ChargeSpellRaysEffectEvent ev)
     {
         RaiseNetworkEvent(ev, Filter.PvsExcept(uid));
+    }
+
+    private void OnBloodlossStopped(Entity<BloodlossDamageMultiplierComponent> ent,
+        ref StoppedTakingBloodlossDamageEvent args)
+    {
+        RemCompDeferred(ent.Owner, ent.Comp);
     }
 
     private void OnMonkeyAscension(Entity<MindContainerComponent> ent, ref SummonSimiansMaxedOutEvent args)
@@ -120,7 +156,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         ActionContainer.AddAction(comp.Mind.Value, args.Action, container);
 
-        if (mindComp.Session == null)
+        if (!_player.TryGetSessionById(mindComp.UserId, out var session))
             return;
 
         var message = Loc.GetString("spell-summon-simians-maxed-out-message");
@@ -130,7 +166,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
             wrappedMessage,
             default,
             false,
-            mindComp.Session.Channel,
+            session.Channel,
             args.MessageColor);
     }
 
@@ -167,7 +203,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
             tileRef.Tile.IsEmpty)
             return;
 
-        if (_spreader.RequiresFloorToSpread(ev.Proto.ToString()) && tileRef.Tile.IsSpace())
+        if (_spreader.RequiresFloorToSpread(ev.Proto.ToString()) && _turf.IsSpace(tileRef.Tile))
             return;
 
         var coords = Map.MapToGrid(gridUid, mapCoords);
@@ -251,16 +287,17 @@ public sealed class SpellsSystem : SharedSpellsSystem
     {
         base.BindSoul(ev, item, mind, mindComponent);
 
-        var xform = Transform(ev.Performer);
-        var meta = MetaData(ev.Performer);
+        var oldEnt = ev.Performer;
+        var xform = Transform(oldEnt);
+        var meta = MetaData(oldEnt);
 
         var mapId = xform.MapUid;
 
         var newEntity = Spawn(ev.Entity,
-            TransformSystem.GetMapCoordinates(ev.Performer, xform),
-            rotation: TransformSystem.GetWorldRotation(ev.Performer));
+            TransformSystem.GetMapCoordinates(oldEnt, xform),
+            rotation: TransformSystem.GetWorldRotation(oldEnt));
 
-        if (Container.TryGetContainingContainer((ev.Performer, xform, meta), out var cont))
+        if (Container.TryGetContainingContainer((oldEnt, xform, meta), out var cont))
             Container.Insert(newEntity, cont);
 
         var name = meta.EntityName;
@@ -270,7 +307,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
         int? age = null;
         Gender? gender = null;
         Sex? sex = null;
-        if (TryComp(ev.Performer, out HumanoidAppearanceComponent? humanoid))
+        if (TryComp(oldEnt, out HumanoidAppearanceComponent? humanoid))
         {
             age = humanoid.Age;
             gender = humanoid.Gender;
@@ -299,7 +336,12 @@ public sealed class SpellsSystem : SharedSpellsSystem
         EnsureComp<WizardComponent>(newEntity);
         if (!Role.MindHasRole<WizardRoleComponent>(mind, out _))
             Role.MindAddRole(mind, WizardRuleSystem.Role.Id, mindComponent, true);
+
         EnsureComp<PhylacteryComponent>(item);
+        _item.SetSize(item, ev.PhylacterySize);
+        RemCompDeferred<TagComponent>(item);
+        RemCompDeferred<AnchorableComponent>(item);
+
         var soulBound = EntityManager.ComponentFactory.GetComponent<SoulBoundComponent>();
         soulBound.Name = name;
         soulBound.Item = item;
@@ -309,23 +351,29 @@ public sealed class SpellsSystem : SharedSpellsSystem
         soulBound.Sex = sex;
         AddComp(mind, soulBound, true);
 
-        DelayedSpeech(ev.Speech, newEntity, ev.Performer, MagicSchool.Necromancy);
-
-        _inventory.TransferEntityInventories(ev.Performer, newEntity);
-        foreach (var hand in Hands.EnumerateHeld(ev.Performer))
+        _inventory.TransferEntityInventories(oldEnt, newEntity);
+        foreach (var hand in Hands.EnumerateHeld(oldEnt))
         {
-            Hands.TryDrop(ev.Performer, hand, checkActionBlocker: false);
+            Hands.TryDrop(oldEnt, hand, checkActionBlocker: false);
             Hands.TryPickupAnyHand(newEntity, hand);
         }
 
         SetGear(newEntity, ev.Gear, false, false);
 
-        Body.GibBody(ev.Performer, contents: GibContentsOption.Gib);
+        if (TryComp(ev.Action.Owner, out SpeakOnActionComponent? speak))
+        {
+            DelayedSpeech(speak.Sentence == null ? null : Loc.GetString(speak.Sentence.Value),
+                newEntity,
+                oldEnt,
+                MagicSchool.Necromancy);
+        }
 
-        if (mindComponent.Session == null)
+        Body.GibBody(oldEnt, contents: GibContentsOption.Gib);
+
+        if (!_player.TryGetSessionById(mindComponent.UserId, out var session))
             return;
 
-        _antag.SendBriefing(mindComponent.Session, Loc.GetString("lich-greeting"), Color.DarkRed, ev.Sound);
+        _antag.SendBriefing(session, Loc.GetString("lich-greeting"), Color.DarkRed, ev.Sound);
     }
 
     protected override bool Polymorph(PolymorphSpellEvent ev)
@@ -352,22 +400,24 @@ public sealed class SpellsSystem : SharedSpellsSystem
         if (TryComp(ev.Action.Owner, out MagicComponent? magic))
             school = magic.School;
 
-        DelayedSpeech(ev.Speech, newEnt.Value, ev.Performer, school);
-
         if (ev.LoadActions)
             RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(ev.Performer)), newEnt.Value);
 
+        if (TryComp(ev.Action.Owner, out SpeakOnActionComponent? speak))
+        {
+            DelayedSpeech(speak.Sentence == null ? null : Loc.GetString(speak.Sentence.Value),
+                newEnt.Value,
+                ev.Performer,
+                school);
+        }
+
         return true;
     }
-
     private void DelayedSpeech(string? speech, EntityUid speaker, EntityUid caster, MagicSchool school)
     {
         Timer.Spawn(200,
             () =>
             {
-                if (!Exists(speaker) || !Exists(caster))
-                    return;
-
                 var toSpeak = speech == null ? string.Empty : Loc.GetString(speech);
                 SpeakSpell(speaker, caster, toSpeak, school);
             });
@@ -377,14 +427,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     {
         base.ShootSpellCards(ev, proto);
 
-        MapCoordinates targetMap;
-
-        if (ev.Coords != null)
-            targetMap = TransformSystem.ToMapCoordinates(ev.Coords.Value);
-        else if (TryComp(ev.Entity, out TransformComponent? xform))
-            targetMap = TransformSystem.GetMapCoordinates(ev.Entity.Value, xform);
-        else
-            return;
+        var targetMap = TransformSystem.ToMapCoordinates(ev.Target);
 
         var (_, mapCoords, spawnCoords, velocity) = GetProjectileData(ev.Performer);
 
@@ -412,6 +455,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
                 false,
                 body: physics);
             Physics.SetLinearDamping(newUid, physics, linearDamping, false);
+            _tileFriction.SetModifier(newUid, linearDamping);
 
             var spellCard = EnsureComp<SpellCardComponent>(newUid);
             if (!setHoming)
@@ -445,8 +489,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         Spawn(ev.Effect, TransformSystem.GetMapCoordinates(ev.Target));
 
-        _bloodstream.SpillAllSolutions(ev.Target, bloodstream);
-        _bloodstream.TryModifyBleedAmount(ev.Target, bloodstream.MaxBleedAmount, bloodstream);
+        _bloodstream.SpillAllSolutions((ev.Target, bloodstream));
+        _bloodstream.TryModifyBleedAmount((ev.Target, bloodstream), bloodstream.MaxBleedAmount);
         EnsureComp<BloodlossDamageMultiplierComponent>(ev.Target);
 
         return true;
@@ -553,45 +597,51 @@ public sealed class SpellsSystem : SharedSpellsSystem
     {
         base.SpeakSpell(speakerUid, casterUid, speech, school);
 
-        var postfix = string.Empty;
+        if (!Exists(speakerUid))
+            return;
 
-        var invocationEv = new GetSpellInvocationEvent(school, casterUid);
-        RaiseLocalEvent(casterUid, invocationEv);
-        if (invocationEv.Invocation != null)
-            speech = Loc.GetString(invocationEv.Invocation);
-        if (invocationEv.ToHeal.GetTotal() > FixedPoint2.Zero)
+        Color? color = null;
+
+        if (Exists(casterUid))
         {
-            // Heal both caster and speaker
-            Damageable.TryChangeDamage(casterUid,
-                -invocationEv.ToHeal,
-                true,
-                false,
-                canSever: false,
-                targetPart: TargetBodyPart.All);
-
-            if (speakerUid != casterUid)
+            var invocationEv = new GetSpellInvocationEvent(school, casterUid);
+            RaiseLocalEvent(casterUid, invocationEv);
+            if (invocationEv.Invocation != null)
+                speech = Loc.GetString(invocationEv.Invocation);
+            if (invocationEv.ToHeal.GetTotal() > FixedPoint2.Zero)
             {
-                Damageable.TryChangeDamage(speakerUid,
+                // Heal both caster and speaker
+                Damageable.TryChangeDamage(casterUid,
                     -invocationEv.ToHeal,
                     true,
                     false,
-                    canSever: false,
-                    targetPart: TargetBodyPart.All);
-            }
-        }
+                    targetPart: TargetBodyPart.All,
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll);
 
-        if (speakerUid != casterUid)
-        {
-            var postfixEv = new GetMessagePostfixEvent();
-            RaiseLocalEvent(casterUid, postfixEv);
-            postfix = postfixEv.Postfix;
+                if (speakerUid != casterUid)
+                {
+                    Damageable.TryChangeDamage(speakerUid,
+                        -invocationEv.ToHeal,
+                        true,
+                        false,
+                        targetPart: TargetBodyPart.All,
+                        splitDamage: SplitDamageBehavior.SplitEnsureAll);
+                }
+            }
+
+            if (speakerUid != casterUid)
+            {
+                var colorEv = new GetMessageColorOverrideEvent();
+                RaiseLocalEvent(casterUid, colorEv);
+                color = colorEv.Color;
+            }
         }
 
         _chat.TrySendInGameICMessage(speakerUid,
             speech,
             InGameICChatType.Speak,
             false,
-            wrappedMessagePostfix: postfix);
+            colorOverride: color);
     }
 
     protected override bool ChargeItem(EntityUid uid, ChargeMagicEvent ev)

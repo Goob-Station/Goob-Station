@@ -1,3 +1,19 @@
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mary <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 psykana <36602558+psykana@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.GameTicking.Rules;
 using Content.Server._Goobstation.Objectives.Components;
 using Content.Server.Objectives.Components;
@@ -7,8 +23,6 @@ using Content.Shared.Roles.Jobs;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Configuration;
-using Robust.Shared.Random;
-using System.Linq;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -19,7 +33,6 @@ public sealed class KillPersonConditionSystem : EntitySystem
 {
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedJobSystem _job = default!;
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
@@ -30,12 +43,6 @@ public sealed class KillPersonConditionSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<KillPersonConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
-
-        SubscribeLocalEvent<PickRandomPersonComponent, ObjectiveAssignedEvent>(OnPersonAssigned);
-
-        SubscribeLocalEvent<PickRandomHeadComponent, ObjectiveAssignedEvent>(OnHeadAssigned);
-
-        SubscribeLocalEvent<PickRandomTraitorComponent, ObjectiveAssignedEvent>(OnTraitorAssigned);
     }
 
     private void OnGetProgress(EntityUid uid, KillPersonConditionComponent comp, ref ObjectiveGetProgressEvent args)
@@ -43,132 +50,38 @@ public sealed class KillPersonConditionSystem : EntitySystem
         if (!_target.GetTarget(uid, out var target))
             return;
 
-        args.Progress = GetProgress(target.Value, comp.RequireDead);
+        args.Progress = GetProgress(target.Value, comp.RequireDead, comp.RequireMaroon);
     }
 
-    private void OnPersonAssigned(EntityUid uid, PickRandomPersonComponent comp, ref ObjectiveAssignedEvent args)
-    {
-        // invalid objective prototype
-        if (!TryComp<TargetObjectiveComponent>(uid, out var target))
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        // target already assigned
-        if (target.Target != null)
-            return;
-
-        var allHumans = _mind.GetAliveHumans(args.MindId, comp.NeedsOrganic);
-
-        // Can't have multiple objectives to kill the same person
-        foreach (var objective in args.Mind.Objectives)
-        {
-            if (HasComp<KillPersonConditionComponent>(objective) && TryComp<TargetObjectiveComponent>(objective, out var kill))
-            {
-                allHumans.RemoveWhere(x => x.Owner == kill.Target);
-            }
-        }
-
-        // no other humans to kill
-        if (allHumans.Count == 0)
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        _target.SetTarget(uid, _random.Pick(allHumans), target);
-    }
-
-    private void OnHeadAssigned(EntityUid uid, PickRandomHeadComponent comp, ref ObjectiveAssignedEvent args)
-    {
-        // invalid prototype
-        if (!TryComp<TargetObjectiveComponent>(uid, out var target))
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        // target already assigned
-        if (target.Target != null)
-            return;
-
-        // no other humans to kill
-        var allHumans = _mind.GetAliveHumans(args.MindId);
-        if (allHumans.Count == 0)
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        var allHeads = new HashSet<Entity<MindComponent>>();
-        foreach (var mind in allHumans)
-        {
-            // RequireAdminNotify used as a cheap way to check for command department
-            if (_job.MindTryGetJob(mind, out var prototype) && prototype.RequireAdminNotify)
-                allHeads.Add(mind);
-        }
-
-        if (allHeads.Count == 0)
-            allHeads = allHumans; // fallback to non-head target
-
-        _target.SetTarget(uid, _random.Pick(allHeads), target);
-    }
-
-    // Goobstation - Kill traitor objective
-    private void OnTraitorAssigned(EntityUid uid, PickRandomTraitorComponent comp, ref ObjectiveAssignedEvent args)
-    {
-        // preliminary checks yeah-yeah yada-yada
-        if (!TryComp<TargetObjectiveComponent>(uid, out var target))
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        if (target.Target != null)
-            return;
-
-        var allHumans = _mind.GetAliveHumans(args.MindId);
-        if (allHumans.Count == 0)
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        var tots = _traitor.GetOtherTraitorMindsAliveAndConnected(args.Mind);
-
-        // We have a requirement for there to be other traitors, no need to check if there are any other
-        var targetId = _random.Pick(tots).Id;
-        _target.SetTarget(uid, targetId, target);
-    }
-
-    private float GetProgress(EntityUid target, bool requireDead)
+    private float GetProgress(EntityUid target, bool requireDead, bool requireMaroon)
     {
         // deleted or gibbed or something, counts as dead
         if (!TryComp<MindComponent>(target, out var mind) || mind.OwnedEntity == null)
             return 1f;
 
-        // dead is success
-        if (_mind.IsCharacterDeadIc(mind))
-            return 1f;
+        var targetDead = _mind.IsCharacterDeadIc(mind);
+        var targetMarooned = !_emergencyShuttle.IsTargetEscaping(mind.OwnedEntity.Value) || _mind.IsCharacterUnrevivableIc(mind);
+        if (!_config.GetCVar(CCVars.EmergencyShuttleEnabled) && requireMaroon)
+        {
+            requireDead = true;
+            requireMaroon = false;
+        }
 
-        // if the target has to be dead dead then don't check evac stuff
-        if (requireDead)
+        if (requireDead && !targetDead)
             return 0f;
 
-        // if evac is disabled then they really do have to be dead
-        if (!_config.GetCVar(CCVars.EmergencyShuttleEnabled))
+        // Always failed if the target needs to be marooned and the shuttle hasn't even arrived yet
+        if (requireMaroon && !_emergencyShuttle.EmergencyShuttleArrived)
             return 0f;
 
-        // target is escaping so you fail
-        if (_emergencyShuttle.IsTargetEscaping(mind.OwnedEntity.Value))
-            return 0f;
+        // If the shuttle hasn't left, give 50% progress if the target isn't on the shuttle as a "almost there!"
+        if (requireMaroon && !_emergencyShuttle.ShuttlesLeft)
+            return targetMarooned ? 0.5f : 0f;
 
-        // evac has left without the target, greentext since the target is afk in space with a full oxygen tank and coordinates off.
-        if (_emergencyShuttle.ShuttlesLeft)
-            return 1f;
+        // If the shuttle has already left, and the target isn't on it, 100%
+        if (requireMaroon && _emergencyShuttle.ShuttlesLeft)
+            return targetMarooned ? 1f : 0f;
 
-        // if evac is still here and target hasn't boarded, show 50% to give you an indicator that you are doing good
-        return _emergencyShuttle.EmergencyShuttleArrived ? 0.5f : 0f;
+        return 1f; // Good job you did it woohoo
     }
 }

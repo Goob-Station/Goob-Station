@@ -1,8 +1,47 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: Tag
   id: Abductor
 
 - type: Tag
   id: AbductorScientist
+
+- type: Tag
+  id: AugmentRechargerBoard
+
+- type: Tag
+  id: AugmentBotanyToolElectronics
+
+- type: Tag
+  id: AugmentCellCasing
+
+- type: Tag
+  id: AugmentPaperworkToolElectronics
+
+- type: Tag
+  id: AugmentRechargerCasing
+
+- type: Tag
+  id: AugmentStationBoard
+
+- type: Tag
+  id: AugmentSurgeryToolElectronics
+
+- type: Tag
+  id: AugmentToolPanelCasing
+
+- type: Tag
+  id: AugmentUtilityToolElectronics
+
+- type: Tag
+  id: AugmentStrengthElectronics
+
+- type: Tag
+  id: AugmentStrengthCasing
 
 - type: Tag
   id: CantInteract

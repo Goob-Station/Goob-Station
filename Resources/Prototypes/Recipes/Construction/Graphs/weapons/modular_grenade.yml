@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2022 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: constructionGraph
   id: ModularGrenadeGraph
   start: start
@@ -48,13 +56,13 @@
       steps:
       - component: PayloadTrigger
         store: payloadTrigger
-        name: trigger
+        name: construction-graph-component-payload-trigger
         doAfter: 0.5
     - to: caseWithPayload
       steps:
       - tag: Payload
         store: payload
-        name: payload
+        name: construction-graph-tag-payload
         doAfter: 0.5
 
   - node: caseWithTrigger
@@ -74,7 +82,7 @@
       steps:
       - tag: Payload
         store: payload
-        name: payload
+        name: construction-graph-tag-payload
         doAfter: 0.5
 
   - node: caseWithPayload
@@ -94,7 +102,7 @@
       steps:
       - component: PayloadTrigger
         store: payloadTrigger
-        name: trigger
+        name: construction-graph-component-payload-trigger
         doAfter: 0.5
 
   - node: grenade

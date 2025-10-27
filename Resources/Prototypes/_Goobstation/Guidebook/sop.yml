@@ -1,19 +1,32 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # SOP Main Directory
 - type: guideEntry
   id: SOP
   name: guide-entry-sop
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/SoP.xml"
   children:
+  - Alert Levels
+  - Emergencies SOP
   - Jobs SOP
   - Legal SOP
   - StandardProcedures SOP
+  - Succession
 
 # Alert Levels Main Directory
 - type: guideEntry
   id: Alert Levels
   name: guide-entry-sop-alert-levels
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/AlertLevelsSOP.xml"
-  priority: 0
+  priority: 1
   children:
   - GreenAlert SOP
   - BlueAlert SOP
@@ -47,18 +60,17 @@
   id: StandardProcedures SOP
   name: guide-entry-sop-standards
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/StandardProceduresSOP.xml"
+  priority: 2
   children:
-  - Alert Levels
-  - Emergencies SOP
   - Demoting SOP
   - EarlyEvacuation SOP
   - Hiring SOP
-  - Succession
 
 - type: guideEntry
   id: Legal SOP
   name: guide-entry-sop-legal
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Legal/LegalSOP.xml"
+  priority: 2
   children:
   - Execution SOP
   - PermaBrig SOP
@@ -70,6 +82,7 @@
   id: Jobs SOP
   name: guide-entry-sop-jobs
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/JobsSOP.xml"
+  priority: 2
   children:
   - Cargo SOP
   - Command SOP
@@ -131,6 +144,7 @@
   name: guide-entry-sop-security
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/SecuritySOP.xml"
   children:
+  - Brigmedic SOP
   - Warden SOP
   - OfficerCadet SOP
   - Detective SOP
@@ -218,7 +232,7 @@
   id: Succession
   name: guide-entry-sop-succession # Is named as "Chain of Command" in game.
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/CommandSuccession.xml"
-  priority: 10
+  priority: 0
 
 # Emergency SOP Entries
 - type: guideEntry
@@ -378,6 +392,12 @@
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Science/RoboticistSOP.xml"
 
 # Security SOP Entries
+
+- type: guideEntry
+  id: Brigmedic SOP
+  name: guide-entry-sop-brigmedic
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/BrigmedicSOP.xml"
+
 - type: guideEntry
   id: Detective SOP
   name: guide-entry-sop-detective

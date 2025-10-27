@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2023 forthbridge <79264743+forthbridge@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 goet <6637097+goet@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: spaceshroom
   parent: BaseStructure
@@ -24,7 +33,9 @@
         components:
           - Hands
       loot:
-        All: SpaceshroomGather
+        All: !type:GroupSelector
+          children:
+          - id: FoodSpaceshroom
     - type: Damageable
       damageContainer: StructuralInorganic
       damageModifierSet: Wood
@@ -36,13 +47,9 @@
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
-
-- type: entityLootTable
-  id: SpaceshroomGather
-  entries:
-  - id: FoodSpaceshroom
-    amount: 1
-    maxAmount: 1
+    - type: Tag
+      tags:
+      - Fungus # Goobstation. used for plague rat to be able to eat maints shrooms in structure form.
 
 - type: entity
   name: spaceshroom
@@ -98,6 +105,9 @@
     thickness: 0.02
     area: 0.02
     conductivity: 0.43
+  - type: Tag
+    tags:
+    - Mushroom
 
 - type: weightedRandomFillSolution
   id: RandomFillSpaceshroom

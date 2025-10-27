@@ -1,6 +1,15 @@
-﻿using System.Collections.Generic;
+// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using System.Collections.Generic;
 using System.Numerics;
-using Robust.Shared.Maths;
+using System.Text.Json.Serialization;
+using Robust.Shared.ContentPack;
+using Robust.Shared.Utility;
 using SixLabors.ImageSharp.PixelFormats;
 
 namespace Content.MapRenderer;
@@ -43,31 +52,31 @@ public sealed class LayerGroup
     public GroupSource Source { get; set; } = new();
     public List<Layer> Layers { get; set; } = new();
 
-    public static LayerGroup DefaultParallax()
+    public static LayerGroup DefaultParallax(IResourceManager resourceManager, ParallaxOutput output)
     {
         return new LayerGroup
         {
             Scale = new Position(0.1f, 0.1f),
             Source = new GroupSource
             {
-                Url = "https://i.imgur.com/3YO8KRd.png",
-                Extent = new Extent(6000, 4000)
+                Url = output.ReferenceResourceFile(resourceManager, new ResPath("/Textures/Parallaxes/layer1.png")),
+                Extent = new Extent(6000, 4000),
             },
             Layers = new List<Layer>
             {
                 new()
                 {
-                    Url = "https://i.imgur.com/IannmmK.png"
+                    Url = output.ReferenceResourceFile(resourceManager, new ResPath("/Textures/Parallaxes/layer1.png")),
                 },
                 new()
                 {
-                    Url = "https://i.imgur.com/T3W6JsE.png",
+                    Url = output.ReferenceResourceFile(resourceManager, new ResPath("/Textures/Parallaxes/layer2.png")),
                     Composition = "lighter",
                     ParallaxScale = new Position(0.2f, 0.2f)
                 },
                 new()
                 {
-                    Url = "https://i.imgur.com/T3W6JsE.png",
+                    Url = output.ReferenceResourceFile(resourceManager, new ResPath("/Textures/Parallaxes/layer3.png")),
                     Composition = "lighter",
                     ParallaxScale = new Position(0.3f, 0.3f)
                 }
@@ -91,9 +100,13 @@ public sealed class Layer
 
 public readonly struct Extent
 {
+    [JsonInclude]
     public readonly float X1;
+    [JsonInclude]
     public readonly float Y1;
+    [JsonInclude]
     public readonly float X2;
+    [JsonInclude]
     public readonly float Y2;
 
     public Extent()
@@ -123,7 +136,9 @@ public readonly struct Extent
 
 public readonly struct Position
 {
+    [JsonInclude]
     public readonly float X;
+    [JsonInclude]
     public readonly float Y;
 
     public Position(float x, float y)

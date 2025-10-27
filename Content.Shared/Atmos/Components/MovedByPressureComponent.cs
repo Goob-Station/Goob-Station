@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 namespace Content.Shared.Atmos.Components;
 
 // Unfortunately can't be friends yet due to magboots.
@@ -27,5 +32,10 @@ public sealed partial class MovedByPressureComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public int LastHighPressureMovementAirCycle { get; set; } = 0;
-}
 
+    /// <summary>
+    /// Used to remember which fixtures we have to remove the table mask from and give it back accordingly
+    /// </summary>
+    [DataField]
+    public HashSet<string> TableLayerRemoved = new();
+}

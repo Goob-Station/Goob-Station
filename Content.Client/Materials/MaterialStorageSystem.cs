@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Materials;
 using Robust.Client.GameObjects;
 
@@ -7,6 +16,7 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -20,7 +30,7 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         if (args.Sprite == null)
             return;
 
-        if (!args.Sprite.LayerMapTryGet(MaterialStorageVisualLayers.Inserting, out var layer))
+        if (!_sprite.LayerMapTryGet((uid, args.Sprite), MaterialStorageVisualLayers.Inserting, out var layer, false))
             return;
 
         if (!_appearance.TryGetData<bool>(uid, MaterialStorageVisuals.Inserting, out var inserting, args.Component))
@@ -28,15 +38,15 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
 
         if (inserting && TryComp<InsertingMaterialStorageComponent>(uid, out var insertingComp))
         {
-            args.Sprite.LayerSetAnimationTime(layer, 0f);
+            _sprite.LayerSetAnimationTime((uid, args.Sprite), layer, 0f);
 
-            args.Sprite.LayerSetVisible(layer, true);
+            _sprite.LayerSetVisible((uid, args.Sprite), layer, true);
             if (insertingComp.MaterialColor != null)
-                args.Sprite.LayerSetColor(layer, insertingComp.MaterialColor.Value);
+                _sprite.LayerSetColor((uid, args.Sprite), layer, insertingComp.MaterialColor.Value);
         }
         else
         {
-            args.Sprite.LayerSetVisible(layer, false);
+            _sprite.LayerSetVisible((uid, args.Sprite), layer, false);
         }
     }
 

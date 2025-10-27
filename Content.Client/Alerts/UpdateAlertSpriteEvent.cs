@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Alert;
 using Robust.Client.GameObjects;
 
@@ -11,11 +16,14 @@ public record struct UpdateAlertSpriteEvent
 {
     public Entity<SpriteComponent> SpriteViewEnt;
 
+    public EntityUid ViewerEnt;
+
     public AlertPrototype Alert;
 
-    public UpdateAlertSpriteEvent(Entity<SpriteComponent> spriteViewEnt, AlertPrototype alert)
+    public UpdateAlertSpriteEvent(Entity<SpriteComponent> spriteViewEnt, EntityUid viewerEnt, AlertPrototype alert)
     {
         SpriteViewEnt = spriteViewEnt;
+        ViewerEnt = viewerEnt;
         Alert = alert;
     }
 }

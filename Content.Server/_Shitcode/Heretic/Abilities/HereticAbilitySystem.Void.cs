@@ -1,20 +1,38 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Shared.Body.Components;
 using Content.Server.Atmos.Components;
-using Content.Server.Body.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Magic;
-using Content.Server.Temperature.Components;
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
-using Content.Shared.Temperature.Components;
+using Content.Shared.Movement.Components;
+using Content.Shared.Slippery;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
+using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Temperature.Components;
 using System.Linq;
+using Content.Goobstation.Common.BlockTeleport;
+using Content.Shared.Interaction;
 
 namespace Content.Server.Heretic.Abilities;
 
-public sealed partial class HereticAbilitySystem : EntitySystem
+public sealed partial class HereticAbilitySystem
 {
     private void SubscribeVoid()
     {
@@ -28,14 +46,26 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
     private void OnAristocratWay(Entity<HereticComponent> ent, ref HereticAristocratWayEvent args)
     {
-        RemComp<TemperatureComponent>(ent);
-        RemComp<TemperatureSpeedComponent>(ent);
-        RemComp<RespiratorComponent>(ent);
+        EnsureComp<SpecialLowTempImmunityComponent>(ent);
+        EnsureComp<SpecialBreathingImmunityComponent>(ent);
     }
+
     private void OnAscensionVoid(Entity<HereticComponent> ent, ref HereticAscensionVoidEvent args)
     {
-        RemComp<BarotraumaComponent>(ent);
+        EnsureComp<SpecialHighTempImmunityComponent>(ent);
+        EnsureComp<SpecialPressureImmunityComponent>(ent);
         EnsureComp<AristocratComponent>(ent);
+
+        EnsureComp<MovementIgnoreGravityComponent>(ent);
+        EnsureComp<NoSlipComponent>(ent); // :godo:
+
+        // fire immunity
+        var flam = EnsureComp<FlammableComponent>(ent);
+        flam.Damage = new(); // reset damage dict
+
+        // the hunt begins
+        var voidVision = new HereticVoidVisionEvent();
+        RaiseLocalEvent(ent, voidVision);
     }
 
     private void OnVoidBlast(Entity<HereticComponent> ent, ref HereticVoidBlastEvent args)
@@ -65,27 +95,42 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
     private void OnVoidBlink(Entity<HereticComponent> ent, ref HereticVoidBlinkEvent args)
     {
+        var ev = new TeleportAttemptEvent(false);
+        RaiseLocalEvent(ent, ref ev);
+        if (ev.Cancelled)
+            return;
+
         if (!TryUseAbility(ent, args))
             return;
 
+        var target = _transform.ToMapCoordinates(args.Target);
+        if (!_examine.InRangeUnOccluded(ent, target, SharedInteractionSystem.MaxRaycastRange))
+        {
+            // can only dash if the destination is visible on screen
+            Popup.PopupEntity(Loc.GetString("dash-ability-cant-see"), ent, ent);
+            return;
+        }
+
+        var people = GetNearbyPeople(ent, args.Radius, ent.Comp.CurrentPath);
+        var xform = Transform(ent);
+
+        Spawn(args.InEffect, xform.Coordinates);
+        _transform.SetCoordinates(ent, xform, args.Target);
+        Spawn(args.OutEffect, args.Target);
+
         var condition = ent.Comp.CurrentPath == "Void";
 
-        var power = condition ? 1.5f + ent.Comp.PathStage / 5f : 1.5f;
-
-        _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
-
-        foreach (var pookie in GetNearbyPeople(ent, power))
-            _stun.KnockdownOrStun(pookie, TimeSpan.FromSeconds(power), true);
-
-        _transform.SetCoordinates(ent, args.Target);
-
-        // repeating for both sides
-        _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
-
-        foreach (var pookie in GetNearbyPeople(ent, power))
+        people.AddRange(GetNearbyPeople(ent, args.Radius, ent.Comp.CurrentPath));
+        foreach (var pookie in people.ToHashSet())
         {
-            _stun.KnockdownOrStun(pookie, TimeSpan.FromSeconds(power), true);
-            if (condition) _voidcurse.DoCurse(pookie);
+            if (condition)
+                _voidcurse.DoCurse(pookie);
+            _dmg.TryChangeDamage(pookie,
+                args.Damage,
+                true,
+                origin: ent,
+                targetPart: TargetBodyPart.All,
+                canMiss: false);
         }
 
         args.Handled = true;
@@ -96,35 +141,44 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        var topPriority = GetNearbyPeople(ent, 1.5f);
-        var midPriority = GetNearbyPeople(ent, 2.5f);
-        var farPriority = GetNearbyPeople(ent, 5f);
-
-        var power = ent.Comp.CurrentPath == "Void" ? 10f + ent.Comp.PathStage * 2 : 10f;
+        var path = ent.Comp.CurrentPath;
+        var topPriority = GetNearbyPeople(ent, args.DamageRadius, path);
+        var midPriority = GetNearbyPeople(ent, args.StunRadius, path);
+        var farPriority = GetNearbyPeople(ent, args.Radius, path);
 
         // damage closest ones
         foreach (var pookie in topPriority)
         {
-            if (!TryComp<DamageableComponent>(pookie, out var dmgComp))
-                continue;
-
-            // total damage + power divided by all damage types.
-            var damage = (dmgComp.TotalDamage + power) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
-
             // apply gaming.
-            _dmg.SetAllDamage(pookie, dmgComp, damage);
+            _dmg.TryChangeDamage(pookie,
+                args.Damage,
+                true,
+                origin: ent,
+                targetPart: TargetBodyPart.All,
+                canMiss: false);
         }
+
+        var condition = ent.Comp.CurrentPath == "Void";
 
         // stun close-mid range
         foreach (var pookie in midPriority)
         {
-            _stun.KnockdownOrStun(pookie, TimeSpan.FromSeconds(2.5f), true);
-            if (ent.Comp.CurrentPath == "Void") _voidcurse.DoCurse(pookie);
+            _stun.TryStun(pookie, args.StunTime, true);
+            _stun.TryKnockdown(pookie, args.KnockDownTime, true);
+
+            if (condition)
+                _voidcurse.DoCurse(pookie);
         }
+
+        var coords = Transform(ent).Coordinates;
 
         // pull in farthest ones
         foreach (var pookie in farPriority)
-            _throw.TryThrow(pookie, Transform(ent).Coordinates);
+        {
+            _throw.TryThrow(pookie, coords);
+        }
+
+        Spawn(args.InEffect, coords);
 
         args.Handled = true;
     }

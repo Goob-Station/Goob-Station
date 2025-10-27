@@ -1,8 +1,14 @@
-using Content.Server.Body.Components;
+// SPDX-FileCopyrightText: 2024 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Chemistry.Reagent;
 using Content.Server.Body.Systems;
 using Content.Shared.EntityEffects;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Body.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Chemistry.Components;
@@ -31,7 +37,7 @@ public sealed partial class AddReagentToBlood : EntityEffect
                 var amt = Amount;
                 var solution = new Solution();
                 solution.AddReagent(Reagent, amt);
-                sys.TryAddToChemicals(args.TargetEntity, solution, blood);
+                sys.TryAddToChemicals((args.TargetEntity, blood), solution);
             }
             return;
         }

@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
@@ -27,7 +40,7 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private readonly TurfSystem _turfSystem = default!;
 
     public const float CloseDistance = 15f;
     public const float FarDistance = 30f;
@@ -100,30 +113,36 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
 
     private void OnTileChanged(ref TileChangedEvent ev)
     {
-        if (!ev.EmptyChanged || !_navQuery.TryComp(ev.NewTile.GridUid, out var navMap))
+        if (!_navQuery.TryComp(ev.Entity, out var navMap))
             return;
 
-        var tile = ev.NewTile.GridIndices;
-        var chunkOrigin = SharedMapSystem.GetChunkIndices(tile, ChunkSize);
-
-        var chunk = EnsureChunk(navMap, chunkOrigin);
-
-        // This could be easily replaced in the future to accommodate diagonal tiles
-        var relative = SharedMapSystem.GetChunkRelative(tile, ChunkSize);
-        ref var tileData = ref chunk.TileData[GetTileIndex(relative)];
-
-        if (ev.NewTile.IsSpace(_tileDefManager))
+        foreach (var change in ev.Changes)
         {
-            tileData = 0;
-            if (PruneEmpty((ev.NewTile.GridUid, navMap), chunk))
-                return;
-        }
-        else
-        {
-            tileData = FloorMask;
-        }
+            if (!change.EmptyChanged)
+                continue;
 
-        DirtyChunk((ev.NewTile.GridUid, navMap), chunk);
+            var tile = change.GridIndices;
+            var chunkOrigin = SharedMapSystem.GetChunkIndices(tile, ChunkSize);
+
+            var chunk = EnsureChunk(navMap, chunkOrigin);
+
+            // This could be easily replaced in the future to accommodate diagonal tiles
+            var relative = SharedMapSystem.GetChunkRelative(tile, ChunkSize);
+            ref var tileData = ref chunk.TileData[GetTileIndex(relative)];
+
+            if (_turfSystem.IsSpace(change.NewTile))
+            {
+                tileData = 0;
+                if (PruneEmpty((ev.Entity, navMap), chunk))
+                    continue;
+            }
+            else
+            {
+                tileData = FloorMask;
+            }
+
+            DirtyChunk((ev.Entity, navMap), chunk);
+        }
     }
 
     private void DirtyChunk(Entity<NavMapComponent> entity, NavMapChunk chunk)
@@ -199,6 +218,7 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
         beacon.Text = args.Text;
         beacon.Color = args.Color;
         beacon.Enabled = args.Enabled;
+        Dirty(ent, beacon);
 
         UpdateBeaconEnabledVisuals((ent, beacon));
         UpdateNavMapBeaconData(ent, beacon);

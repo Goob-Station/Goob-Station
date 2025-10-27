@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2024 CBozo <165491409+CBozo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 tiderwithagun <notrightnow@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: reaction
   id: Barozine
   reactants:
@@ -108,7 +119,7 @@
       amount: 2
     Sigynate: # check 2
       amount: 2
-    Silicon: 
+    Silicon:
       amount: 1
     Aluite:
       amount: 5
@@ -201,7 +212,7 @@
     Antihol: 3
 
 - type: reaction # This will do until we get molecular chemistry in
-  id: Ibuprofen 
+  id: Ibuprofen
   reactants:
     Charcoal:
       amount: 1
@@ -370,7 +381,7 @@
     PotassiumIodide:
       amount: 1
   products:
-    Hercuri: 5  
+    Hercuri: 5
 
 - type: reaction
   id: Herignis
@@ -382,4 +393,45 @@
     Phlogiston:
       amount: 2
   products:
-    Herignis: 5  
+    Herignis: 5
+
+- type: reaction
+  id: Tramadol
+  reactants:
+    Acetone:
+      amount: 1
+    Inaprovaline:
+      amount: 1
+    Ethanol:
+      amount: 1
+  products:
+    Tramadol: 3
+
+- type: reaction
+  id: Oxycodone
+  reactants:
+    Tramadol:
+      amount: 1
+    Heroin:
+      amount: 1
+    Epinephrine:
+      amount: 1
+    Plasma:
+      amount: 1
+      catalyst: true
+  products:
+    Oxycodone: 1
+
+# Wraith
+- type: reaction
+  minTemp: 424
+  id: Formaldehyde
+  reactants:
+    Ethanol:
+      amount: 1
+    Iron:
+      amount: 1
+    Silver:
+      amount: 1
+  products:
+    Formaldehyde: 2

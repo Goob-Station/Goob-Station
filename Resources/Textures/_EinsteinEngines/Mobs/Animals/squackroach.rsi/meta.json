@@ -1,0 +1,64 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "dootythefrooty",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "icon"
+      },
+      {
+        "name": "squackroach_dead",
+        "directions": 4
+      },
+      {
+        "name": "squackroach-moving",
+        "directions": 4,
+        "delays": [
+          [
+            0.2,
+            0.2,
+            0.2
+          ],
+          [
+            0.2,
+            0.2,
+            0.2
+          ],
+          [
+            0.2,
+            0.2,
+            0.2
+          ],
+          [
+            0.2,
+            0.2,
+            0.2
+          ]
+        ]
+      },
+      {
+        "name": "squackroach",
+        "directions": 4
+      },
+      {
+        "name": "sq-equipped-NECK",
+        "directions": 4
+      },
+      {
+        "name": "sq-equipped-HELMET",
+        "directions": 4
+        },
+      {
+        "name": "inhand-left",
+        "directions": 4
+      },
+      {
+        "name": "inhand-right",
+        "directions": 4
+      }
+    ]
+  }

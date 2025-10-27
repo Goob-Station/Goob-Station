@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2023 drteaspoon420 <87363733+drteaspoon420@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 superjj18 <gagnonjake@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseItem
   id: BaseArrow
@@ -20,7 +32,7 @@
       projectile:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.1,-0.1,0.1,0.1"
+          bounds: "-0.1,-0.3,0.1,-0.1"
         hard: false
         mask:
         - Impassable
@@ -159,3 +171,29 @@
   - type: Construction
     graph: ImprovisedArrowUranium
     node: ImprovisedArrowUranium
+
+- type: entity
+  parent: BaseArrow
+  id: ArrowImprovisedCarp
+  name: carp tooth arrow
+  description: The salvager's preferred arrow. Kill your enemies with the teeth of their families.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+    layers:
+    - state: tail
+      color: purple
+    - state: rod
+      color: darkgray
+    - state: tip
+      color: white
+    - state: solution1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 30
+  - type: Construction
+    graph: ImprovisedArrowCarp
+    node: ImprovisedArrowCarp

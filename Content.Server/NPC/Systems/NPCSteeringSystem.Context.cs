@@ -1,3 +1,53 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 12rabbits <53499656+12rabbits@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Dimastra <65184747+Dimastra@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Dimastra <dimastra@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
+// SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
+// SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using System.Numerics;
 using Content.Server.NPC.Components;
@@ -66,7 +116,7 @@ public sealed partial class NPCSteeringSystem
 
             foreach (var intersecting in ents)
             {
-                if (!_physics.IsCurrentlyHardCollidable((uid, fixtures, physics), intersecting))
+                if (!PhysicsSystem.IsCurrentlyHardCollidable((uid, fixtures, physics), intersecting))
                 {
                     continue;
                 }
@@ -91,13 +141,19 @@ public sealed partial class NPCSteeringSystem
         TransformComponent xform,
         Angle offsetRot,
         float moveSpeed,
+        float acceleration, // Goobstation
+        float friction, // Goobstation
         Span<float> interest,
         float frameTime,
-        ref bool forceSteer)
+        ref bool forceSteer,
+        ref float moveMultiplier) // Goobstation
     {
         var ourCoordinates = xform.Coordinates;
         var destinationCoordinates = steering.Coordinates;
         var inLos = true;
+
+        // Goobstation - makes us ignore all pathing logic and go straight to the target coordinates
+        var directMove = steering.DirectMove;
 
         // Check if we're in LOS if that's required.
         // TODO: Need something uhh better not sure on the interaction between these.
@@ -128,10 +184,19 @@ public sealed partial class NPCSteeringSystem
             steering.ForceMove = false;
         }
 
+        // Goobstation
+        var velLen = body.LinearVelocity.Length();
+
+        var careAboutSpeed = steering.InRangeMaxSpeed != null;
+        var finalInRange = ourCoordinates.TryDistance(EntityManager, destinationCoordinates, out var targetDistance) && inLos && targetDistance <= steering.Range;
+        var velocityHigh = careAboutSpeed && velLen > steering.InRangeMaxSpeed!.Value;
+        // if we're in range and we care about velocity, stop trying to move if we early return
+        if (finalInRange && careAboutSpeed)
+            moveMultiplier = 0f;
+
         // We've arrived, nothing else matters.
-        if (xform.Coordinates.TryDistance(EntityManager, destinationCoordinates, out var targetDistance) &&
-            inLos &&
-            targetDistance <= steering.Range)
+        // Goobstation - also check if our velocity is higher than desired
+        if (finalInRange && !velocityHigh)
         {
             steering.Status = SteeringStatus.InRange;
             ResetStuck(steering, ourCoordinates);
@@ -139,7 +204,8 @@ public sealed partial class NPCSteeringSystem
         }
 
         // Grab the target position, either the next path node or our end goal..
-        var targetCoordinates = GetTargetCoordinates(steering);
+        // Goobstation - add DirectMove
+        var targetCoordinates = steering.DirectMove ? steering.Coordinates : GetTargetCoordinates(steering);
 
         if (!targetCoordinates.IsValid(EntityManager))
         {
@@ -152,7 +218,8 @@ public sealed partial class NPCSteeringSystem
         // If the next node is invalid then get new ones
         if (!targetCoordinates.IsValid(EntityManager))
         {
-            if (steering.CurrentPath.TryPeek(out var poly) &&
+            // Goobstation - add DirectMove
+            if (!directMove && steering.CurrentPath.TryPeek(out var poly) &&
                 (poly.Data.Flags & PathfindingBreadcrumbFlag.Invalid) != 0x0)
             {
                 steering.CurrentPath.Dequeue();
@@ -201,7 +268,8 @@ public sealed partial class NPCSteeringSystem
         if (arrived)
         {
             // Node needs some kind of special handling like access or smashing.
-            if (steering.CurrentPath.TryPeek(out var node) && !IsFreeSpace(uid, steering, node))
+            // Goobstation - add DirectMove
+            if (!directMove && steering.CurrentPath.TryPeek(out var node) && !IsFreeSpace(uid, steering, node))
             {
                 // Ignore stuck while handling obstacles.
                 ResetStuck(steering, ourCoordinates);
@@ -240,7 +308,8 @@ public sealed partial class NPCSteeringSystem
 
             // Distance should already be handled above.
             // It was just a node, not the target, so grab the next destination (either the target or next node).
-            if (steering.CurrentPath.Count > 0)
+            // Goobstation - add DirectMove
+            if (!directMove && steering.CurrentPath.Count > 0)
             {
                 forceSteer = true;
                 steering.CurrentPath.Dequeue();
@@ -281,7 +350,7 @@ public sealed partial class NPCSteeringSystem
                  ourCoordinates.TryDistance(EntityManager, steering.LastStuckCoordinates, out var stuckDistance) &&
                  stuckDistance < NPCSteeringComponent.StuckDistance)
         {
-            var stuckTime = _timing.CurTime - steering.LastStuckTime;
+            var stuckTime = Timing.CurTime - steering.LastStuckTime;
             // Either 1 second or how long it takes to move the stuck distance + buffer if we're REALLY slow.
             var maxStuckTime = Math.Max(1, NPCSteeringComponent.StuckDistance / moveSpeed * 1.2f);
 
@@ -308,18 +377,27 @@ public sealed partial class NPCSteeringSystem
         }
 
         // If not in LOS and no path then get a new one fam.
-        if ((!inLos && steering.ArriveOnLineOfSight && steering.CurrentPath.Count == 0) ||
-            (!steering.ArriveOnLineOfSight && steering.CurrentPath.Count == 0))
+        // Goobstation - add DirectMove
+        if (!directMove &&
+            ((!inLos && steering.ArriveOnLineOfSight && steering.CurrentPath.Count == 0) ||
+             (!steering.ArriveOnLineOfSight && steering.CurrentPath.Count == 0)))
         {
             needsPath = true;
         }
 
         // TODO: Probably need partial planning support i.e. patch from the last node to where the target moved to.
-        CheckPath(uid, steering, xform, needsPath, targetDistance);
+        // Goobstation - add DirectMove
+        if (!directMove)
+            CheckPath(uid, steering, xform, needsPath, targetDistance);
+
+        // Goobstation
+        var haveToBrake = finalInRange && velocityHigh;
 
         // If we don't have a path yet then do nothing; this is to avoid stutter-stepping if it turns out there's no path
         // available but we assume there was.
-        if (steering is { Pathfind: true, CurrentPath.Count: 0 })
+        // Goobstation - add DirectMove
+        if (!directMove && steering is { Pathfind: true, CurrentPath.Count: 0 } && !haveToBrake)
+                                                                 // Goobstation
             return true;
 
         if (moveSpeed == 0f || direction == Vector2.Zero)
@@ -328,32 +406,86 @@ public sealed partial class NPCSteeringSystem
             return false;
         }
 
-        var input = direction.Normalized();
-        var tickMovement = moveSpeed * frameTime;
+        // <Goobstation>
+        var moveType = MovementType.MovingToTarget;
 
-        // We have the input in world terms but need to convert it back to what movercontroller is doing.
-        input = offsetRot.RotateVec(input);
-        var norm = input.Normalized();
-        var weight = MapValue(direction.Length(), tickMovement * 0.5f, tickMovement * 0.75f);
+        var realAccel = acceleration * moveSpeed;
+        var frameAccel = realAccel * frameTime;
 
-        ApplySeek(interest, norm, weight);
+        // check our tangential velocity
+        var normVel = direction * Vector2.Dot(body.LinearVelocity, direction) / direction.LengthSquared();
+        var tgVel = body.LinearVelocity - normVel;
 
-        // Prefer our current direction
-        if (weight > 0f && body.LinearVelocity.LengthSquared() > 0f)
+        // we're near final node but haven't braked, do so
+        if (haveToBrake)
         {
-            const float sameDirectionWeight = 0.1f;
-            norm = body.LinearVelocity.Normalized();
+            // how much distance we'll pass before hitting our desired max speed
+            var brakePath = (velLen - steering.InRangeMaxSpeed ?? 0f) / friction;
+            var hardBrake = brakePath > MathF.Min(0.5f, steering.Range); // hard brake if it takes more than half a tile
 
-            ApplySeek(interest, norm, sameDirectionWeight);
+            moveType = hardBrake ? MovementType.Braking : MovementType.Coasting;
+        }
+        else
+        {
+            const float circlingTolerance = 0.5f;
+
+            var dirLen = direction.Length();
+            // tangentially brake if we'll be spiraling outwards at our current tangential velocity
+            var tangentialBrake = !arrived && realAccel * circlingTolerance < tgVel.LengthSquared() / dirLen;
+
+            moveType = tangentialBrake ? MovementType.BrakingTangential : MovementType.MovingToTarget;
         }
 
+        switch (moveType)
+        {
+            case MovementType.MovingToTarget:
+                moveMultiplier = 1f;
+                ApplySeek(interest, offsetRot.RotateVec(direction.Normalized()), 1f);
+                break;
+            case MovementType.Braking:
+                if (velLen > 0f)
+                {
+                    // copy our velocity and apply friction to the copy
+                    var cvel = body.LinearVelocity;
+                    _mover.Friction(0f, frameTime, friction, ref cvel);
+                    // clamp our braking to what our post-friction velocity would be
+                    // otherwise we can overbrake in this frame and reverse movement direction
+                    // TODO: a way to tell calling code that we don't want to reverse movement direction to not have to do this
+                    moveMultiplier = MapValue(cvel.Length(), 0f, frameAccel);
+                                        // brake                                 // normalise
+                    ApplySeek(interest, -offsetRot.RotateVec(body.LinearVelocity / velLen), 1f);
+                }
+                break;
+            case MovementType.BrakingTangential:
+                if (velLen > 0f)
+                {
+                    moveMultiplier = MapValue(tgVel.Length(), 0f, frameAccel);
+                                        // brake
+                    ApplySeek(interest, -offsetRot.RotateVec(tgVel.Normalized()), tgVel.Length() / velLen);
+                }
+                break;
+            case MovementType.Coasting:
+                moveMultiplier = 0f;
+                break;
+        }
+        // </Goobstation>
+
         return true;
+    }
+
+    // Goobstation - used in TrySeek()
+    private enum MovementType
+    {
+        MovingToTarget,
+        Braking,
+        BrakingTangential,
+        Coasting
     }
 
     private void ResetStuck(NPCSteeringComponent component, EntityCoordinates ourCoordinates)
     {
         component.LastStuckCoordinates = ourCoordinates;
-        component.LastStuckTime = _timing.CurTime;
+        component.LastStuckTime = Timing.CurTime;
     }
 
     private void CheckPath(EntityUid uid, NPCSteeringComponent steering, TransformComponent xform, bool needsPath, float targetDistance)
@@ -505,7 +637,7 @@ public sealed partial class NPCSteeringSystem
         var objectRadius = 0.25f;
         var detectionRadius = MathF.Max(0.35f, agentRadius + objectRadius);
         var ents = _entSetPool.Get();
-        _lookup.GetEntitiesInRange(uid, detectionRadius, ents, LookupFlags.Dynamic | LookupFlags.Static);
+        _lookup.GetEntitiesInRange(uid, detectionRadius, ents, LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Approximate);
 
         foreach (var ent in ents)
         {
@@ -522,7 +654,7 @@ public sealed partial class NPCSteeringSystem
 
             var xformB = _xformQuery.GetComponent(ent);
 
-            if (!_physics.TryGetNearest(uid, ent,
+            if (!PhysicsSystem.TryGetNearest(uid, ent,
                     out var pointA, out var pointB, out var distance,
                     xform, xformB))
             {
@@ -584,7 +716,7 @@ public sealed partial class NPCSteeringSystem
         var ourVelocity = body.LinearVelocity;
         _factionQuery.TryGetComponent(uid, out var ourFaction);
         var ents = _entSetPool.Get();
-        _lookup.GetEntitiesInRange(uid, detectionRadius, ents, LookupFlags.Dynamic);
+        _lookup.GetEntitiesInRange(uid, detectionRadius, ents, LookupFlags.Dynamic | LookupFlags.Approximate);
 
         foreach (var ent in ents)
         {
@@ -604,7 +736,7 @@ public sealed partial class NPCSteeringSystem
 
             var xformB = _xformQuery.GetComponent(ent);
 
-            if (!_physics.TryGetNearest(uid, ent, out var pointA, out var pointB, out var distance, xform, xformB))
+            if (!PhysicsSystem.TryGetNearest(uid, ent, out var pointA, out var pointB, out var distance, xform, xformB))
             {
                 continue;
             }

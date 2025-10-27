@@ -1,0 +1,8 @@
+- type: speechVerb
+  id: Oni
+  name: chat-speech-verb-name-oni
+  speechVerbStrings:
+  - chat-speech-verb-oni-1
+  - chat-speech-verb-oni-2
+  - chat-speech-verb-oni-3
+  - chat-speech-verb-oni-4

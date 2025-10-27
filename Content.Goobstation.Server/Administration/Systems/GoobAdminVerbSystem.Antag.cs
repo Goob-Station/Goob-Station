@@ -1,6 +1,18 @@
-﻿using System.Diagnostics.CodeAnalysis;
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Blob;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
+using Content.Goobstation.Server.Devil.GameTicking.Rules;
+using Content.Goobstation.Server.Shadowling.Rules;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
 using Content.Shared._EinsteinEngines.Silicon.Components;
@@ -23,7 +35,7 @@ public sealed partial class GoobAdminVerbSystem
         if (!AntagVerbAllowed(args, out var targetPlayer))
             return;
 
-        // Goobstation - changelings
+        // Changelings
         Verb ling = new()
         {
             Text = Loc.GetString("admin-verb-text-make-changeling"),
@@ -40,7 +52,7 @@ public sealed partial class GoobAdminVerbSystem
         if (!HasComp<SiliconComponent>(args.Target))
             args.Verbs.Add(ling);
 
-        // Goobstation - Blob
+        // Blob
         Verb blobAntag = new()
         {
             Text = Loc.GetString("admin-verb-text-make-blob"),
@@ -55,6 +67,38 @@ public sealed partial class GoobAdminVerbSystem
         };
         if (!HasComp<SiliconComponent>(args.Target))
             args.Verbs.Add(blobAntag);
+
+        // Devil
+        Verb devilAntag = new()
+        {
+            Text = Loc.GetString("admin-verb-text-make-devil"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/devil.rsi"), "summon-contract"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<DevilRuleComponent>(targetPlayer, "Devil");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-devil"),
+        };
+        args.Verbs.Add(devilAntag);
+
+        // Einstein Engines - Shadowlings
+        Verb shadowling = new()
+        {
+            Text = Loc.GetString("admin-verb-text-make-shadowling"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(
+                new("/Textures/_EinsteinEngines/Shadowling/shadowling_abilities.rsi"),
+                "engage_hatch"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<ShadowlingRuleComponent>(targetPlayer, "Shadowling");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-shadowling"),
+        };
+        args.Verbs.Add(shadowling);
     }
 
     public bool AntagVerbAllowed(GetVerbsEvent<Verb> args, [NotNullWhen(true)] out ICommonSession? target)

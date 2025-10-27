@@ -1,3 +1,26 @@
+// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2023 Bakke <luringens@protonmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 keronshb <keronshb@live.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Containers.ItemSlots;
@@ -8,10 +31,12 @@ using Content.Shared.Forensics;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -28,6 +53,8 @@ public abstract class SharedImplanterSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly INetManager _netMan = default!; // Goobstation - Labeled implants
+    [Dependency] private readonly LabelSystem _label = default!; // Goobstation - Labeled implants
 
     public override void Initialize()
     {
@@ -35,6 +62,7 @@ public abstract class SharedImplanterSystem : EntitySystem
 
         SubscribeLocalEvent<ImplanterComponent, ComponentInit>(OnImplanterInit);
         SubscribeLocalEvent<ImplanterComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
+        SubscribeLocalEvent<ImplanterComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
         SubscribeLocalEvent<ImplanterComponent, ExaminedEvent>(OnExamine);
 
         SubscribeLocalEvent<ImplanterComponent, UseInHandEvent>(OnUseInHand);
@@ -56,8 +84,19 @@ public abstract class SharedImplanterSystem : EntitySystem
 
     private void OnEntInserted(EntityUid uid, ImplanterComponent component, EntInsertedIntoContainerMessage args)
     {
-        var implantData = EntityManager.GetComponent<MetaDataComponent>(args.Entity);
+        var implantData = Comp<MetaDataComponent>(args.Entity);
         component.ImplantData = (implantData.EntityName, implantData.EntityDescription);
+
+        // Goobstation - Labeled implants
+        if (_netMan.IsServer)
+            _label.Label(uid, implantData.EntityName);
+    }
+
+    // Goobstation - Labeled implants - Remove label on implant inject
+    private void OnEntRemoved(EntityUid uid, ImplanterComponent component, EntRemovedFromContainerMessage args)
+    {
+        if (_netMan.IsServer)
+            _label.Label(uid, null);
     }
 
     private void OnExamine(EntityUid uid, ImplanterComponent component, ExaminedEvent args)
@@ -376,22 +415,6 @@ public sealed class AddImplantAttemptEvent : CancellableEntityEventArgs
         Implanter = implanter;
     }
 }
-
-
-[Serializable, NetSerializable]
-public sealed class DeimplantBuiState : BoundUserInterfaceState
-{
-    public readonly string? Implant;
-
-    public Dictionary<string, string> ImplantList;
-
-    public DeimplantBuiState(string? implant, Dictionary<string, string> implantList)
-    {
-        Implant = implant;
-        ImplantList = implantList;
-    }
-}
-
 
 /// <summary>
 /// Change the chosen implanter in the UI.

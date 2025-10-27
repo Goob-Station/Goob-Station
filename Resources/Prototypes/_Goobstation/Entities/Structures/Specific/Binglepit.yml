@@ -1,5 +1,19 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 unknown <Administrator@DESKTOP-PMRIVVA.kommune.indresogn.no>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: BinglePit
+  categories: [ Spawner ] # needed so tests don't sus
   name: binglepit
   description: Looks Hungry
   placement:
@@ -31,8 +45,9 @@
   - type: Sprite
     drawdepth: FloorTiles
     layers:
-    - sprite: _Goobstation/Mobs/Bingle/bingle.rsi
+    - sprite: _Goobstation/Mobs/Bingle/bingle_pit.rsi
       state: pit
+  - type: Appearance
   - type: InteractionOutline
   - type: Clickable
   - type: Damageable
@@ -57,6 +72,8 @@
   - type: Drain # remove liquids around pit
     unitsPerSecond: 10
     unitsDestroyedPerSecond: 10
+  - type: ExplosionResistance
+    damageCoefficient: 0.9 #No more suicide bombers inshallah
   - type: PassiveDamage #passive Healing
     damage:
       types:
@@ -64,7 +81,15 @@
         Shock: -1
         Structural: -1
       groups:
-        Brute: -1
+        Brute: -3
   - type: AntiRottingContainer
   - type: SpawnOnDespawn
     prototype: CrateFunBingleLoot
+
+- type: entity
+  id: BinglePitBingleless
+  parent: BinglePit
+  suffix: no starting
+  components:
+  - type: BinglePit
+    startingBingles: 0

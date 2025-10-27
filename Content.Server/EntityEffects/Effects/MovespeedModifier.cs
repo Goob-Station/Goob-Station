@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Chemistry.Components;
 using Content.Shared.EntityEffects;
 using Content.Shared.Movement.Systems;
@@ -61,18 +66,19 @@ public sealed partial class MovespeedModifier : EntityEffect
             statusLifetime *= reagentArgs.Scale.Float();
         }
 
-        IncreaseTimer(status, statusLifetime);
+        IncreaseTimer(status, statusLifetime, args.EntityManager, args.TargetEntity);
 
         if (modified)
             args.EntityManager.System<MovementSpeedModifierSystem>().RefreshMovementSpeedModifiers(args.TargetEntity);
     }
-    public void IncreaseTimer(MovespeedModifierMetabolismComponent status, float time)
+    private void IncreaseTimer(MovespeedModifierMetabolismComponent status, float time, IEntityManager entityManager, EntityUid uid)
     {
         var gameTiming = IoCManager.Resolve<IGameTiming>();
 
         var offsetTime = Math.Max(status.ModifierTimer.TotalSeconds, gameTiming.CurTime.TotalSeconds);
 
         status.ModifierTimer = TimeSpan.FromSeconds(offsetTime + time);
-        status.Dirty();
+
+        entityManager.Dirty(uid, status);
     }
 }

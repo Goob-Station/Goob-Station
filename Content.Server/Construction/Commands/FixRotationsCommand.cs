@@ -1,3 +1,23 @@
+// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Administration;
 using Content.Server.Power.Components;
 using Content.Shared.Administration;
@@ -5,6 +25,7 @@ using Content.Shared.Construction;
 using Content.Shared.Tag;
 using Robust.Shared.Console;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Construction.Commands;
 
@@ -12,6 +33,10 @@ namespace Content.Server.Construction.Commands;
 public sealed class FixRotationsCommand : IConsoleCommand
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
+
+    private static readonly ProtoId<TagPrototype> ForceFixRotationsTag = "ForceFixRotations";
+    private static readonly ProtoId<TagPrototype> ForceNoFixRotationsTag = "ForceNoFixRotations";
+    private static readonly ProtoId<TagPrototype> DiagonalTag = "Diagonal";
 
     // ReSharper disable once StringLiteralTypo
     public string Command => "fixrotations";
@@ -86,11 +111,11 @@ public sealed class FixRotationsCommand : IConsoleCommand
             // cables
             valid |= _entManager.HasComponent<CableComponent>(child);
             // anything else that might need this forced
-            valid |= tagSystem.HasTag(child, "ForceFixRotations");
+            valid |= tagSystem.HasTag(child, ForceFixRotationsTag);
             // override
-            valid &= !tagSystem.HasTag(child, "ForceNoFixRotations");
+            valid &= !tagSystem.HasTag(child, ForceNoFixRotationsTag);
             // remove diagonal entities as well
-            valid &= !tagSystem.HasTag(child, "Diagonal");
+            valid &= !tagSystem.HasTag(child, DiagonalTag);
 
             if (!valid)
                 continue;

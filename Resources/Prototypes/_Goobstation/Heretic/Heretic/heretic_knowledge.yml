@@ -1,3 +1,29 @@
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 DamianX <DamianX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Visne <vincefvanwijk@gmail.com>
+# SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2021 RemberBL <timmermanrembrandt@gmail.com>
+# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 yglop <95057024+yglop@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 ### basic knowledge
 - type: hereticKnowledge
   id: BreakOfDawn
@@ -26,6 +52,21 @@
   - LivingHeart
   actionPrototypes:
   - ActionHereticLivingHeart
+
+- type: hereticKnowledge
+  id: CloakOfShadow
+  actionPrototypes:
+  - ActionHereticShadowCloak
+
+- type: hereticKnowledge
+  id: Reminiscence
+  ritualPrototypes:
+  - Reminiscence
+
+- type: hereticKnowledge
+  id: FeastOfOwls
+  ritualPrototypes:
+  - FeastOfOwls
 
 ### ash path
 - type: hereticKnowledge
@@ -252,12 +293,19 @@
   path: Void
   stage: 4
 
+#- type: hereticKnowledge
+#  id: VoidBlast
+#  path: Void
+#  stage: 5
+#  actionPrototypes:
+#  - ActionHereticVoidBlast
+
 - type: hereticKnowledge
-  id: VoidBlast
+  id: MysteriesOfCreation
   path: Void
   stage: 5
   actionPrototypes:
-  - ActionHereticVoidBlast
+  - ActionHereticIceSpear
 
 - type: hereticKnowledge
   id: VoidPhase
@@ -359,6 +407,76 @@
   path: Rust
   event: !type:HereticAscensionRustEvent
 
+## cosmos path
+- type: hereticKnowledge
+  id: EternalGate
+  path: Cosmos
+  stage: 1
+  ritualPrototypes:
+  - BladeCosmos
+
+- type: hereticKnowledge
+  id: GraspOfCosmos
+  path: Cosmos
+  stage: 2
+
+- type: hereticKnowledge
+  id: CosmicRunes
+  path: Cosmos
+  sideKnowledge: true
+  stage: 3
+  actionPrototypes:
+  - ActionHereticCosmicRune
+
+- type: hereticKnowledge
+  id: MarkOfCosmos
+  path: Cosmos
+  stage: 4
+  event: !type:EventHereticCosmosPassive
+
+- type: hereticKnowledge
+  id: StarTouch
+  path: Cosmos
+  stage: 5
+  actionPrototypes:
+  - ActionHereticStarTouch
+
+- type: hereticKnowledge
+  id: StarBlast
+  path: Cosmos
+  sideKnowledge: true
+  stage: 6
+  actionPrototypes:
+  - ActionHereticStarBlast
+
+- type: hereticKnowledge
+  id: CosmicBlade
+  path: Cosmos
+  stage: 7
+
+- type: hereticKnowledge
+  id: CosmicExpansion
+  path: Cosmos
+  sideKnowledge: true
+  stage: 8
+  actionPrototypes:
+  - ActionHereticCosmicExpansion
+
+- type: hereticKnowledge
+  id: AscensionCosmos
+  stage: 9
+  path: Cosmos
+  ritualPrototypes:
+  - AscensionCosmos
+
+- type: hereticKnowledge
+  id: CreatorsGift
+  stage: 10
+  path: Cosmos
+  event: !type:HereticAscensionCosmosEvent
+  actionPrototypes:
+  - ActionResetStarGazerConsciousness
+
 ### side paths
 - type: hereticKnowledge
   id: RitualOfKnowledge
@@ -395,6 +513,13 @@
   ritualPrototypes:
   - VoidCloak
 
+- type: hereticKnowledge
+  id: ScorchingShark
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - ScorchingShark
+
 ## stage 6
 - type: hereticKnowledge
   id: RustedRitual
@@ -417,3 +542,10 @@
   stage: 8
   actionPrototypes:
   - ActionHereticCleave
+
+- type: hereticKnowledge
+  id: RustCharge
+  sideKnowledge: true
+  stage: 8
+  actionPrototypes:
+  - ActionHereticRustCharge

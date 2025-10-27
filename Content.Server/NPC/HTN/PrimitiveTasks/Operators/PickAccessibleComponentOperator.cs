@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.NPC.Pathfinding;
@@ -10,7 +19,6 @@ namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators;
 /// </summary>
 public sealed partial class PickAccessibleComponentOperator : HTNOperator
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
     private PathfindingSystem _pathfinding = default!;
     private EntityLookupSystem _lookup = default!;
@@ -45,7 +53,7 @@ public sealed partial class PickAccessibleComponentOperator : HTNOperator
         CancellationToken cancelToken)
     {
         // Check if the component exists
-        if (!_factory.TryGetRegistration(Component, out var registration))
+        if (!_entManager.ComponentFactory.TryGetRegistration(Component, out var registration))
         {
             return (false, null);
         }

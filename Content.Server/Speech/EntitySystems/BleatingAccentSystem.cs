@@ -1,5 +1,11 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
+using Content.Shared.Speech;
 
 namespace Content.Server.Speech.EntitySystems;
 

@@ -1,4 +1,9 @@
-﻿using Content.Shared.Administration;
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Administration;
 using Content.Shared.CCVar.CVarAccess;
 using Content.Shared.Roles;
 using Robust.Shared.Configuration;
@@ -76,5 +81,19 @@ public sealed partial class CCVars
         [CVarControl(AdminFlags.VarEdit)]
         public static readonly CVarDef<float> PlaytestExplosionDamageModifier =
             CVarDef.Create("playtest.explosion_damage_modifier", 1f, CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        ///     Scales the damage dealt to mobs in the game (i.e. entities with MobStateComponent).
+        /// </summary>
+        [CVarControl(AdminFlags.VarEdit)]
+        public static readonly CVarDef<float> PlaytestMobDamageModifier =
+            CVarDef.Create("playtest.mob_damage_modifier", 1f, CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        ///     Scales the stamina damage dealt the game.
+        /// </summary>
+        [CVarControl(AdminFlags.VarEdit)]
+        public static readonly CVarDef<float> PlaytestStaminaDamageModifier =
+            CVarDef.Create("playtest.stamina_damage_modifier", 1f, CVar.SERVER | CVar.REPLICATED);
 
 }

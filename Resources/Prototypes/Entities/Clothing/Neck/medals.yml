@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 AsikKEsel <115815982+AsikKEsel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Colin-Tel <113523727+Colin-Tel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Keer-Sar <144283718+Keer-Sar@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   parent: ClothingNeckBase
@@ -5,6 +17,17 @@
   name: bronzeheart medal
   description: Given to crewmates for exemplary bravery in the face of danger.
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/bronzeheart.rsi
   - type: Clothing
@@ -12,6 +35,7 @@
   - type: Tag
     tags:
       - Medal
+      - WhitelistChameleon
 
 - type: entity
   parent: ClothingNeckBase
@@ -19,6 +43,17 @@
   name: gold medal of crewmanship
   description: Given to crewmates who display excellent crewmanship.
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/gold.rsi
   - type: Clothing
@@ -28,6 +63,7 @@
   - type: Tag
     tags:
       - Medal
+      - WhitelistChameleon
 
 - type: entity
   parent: ClothingNeckBase
@@ -35,6 +71,17 @@
   name: cargo medal
   description: Given for the best work in the cargo department.
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/cargomedal.rsi
   - type: Clothing
@@ -42,6 +89,7 @@
   - type: Tag
     tags:
       - Medal
+      - WhitelistChameleon
 
 - type: entity
   parent: ClothingNeckBase
@@ -49,6 +97,17 @@
   name: engineer medal
   description: Given for the best work in the engineering department.
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/engineermedal.rsi
   - type: Clothing
@@ -56,6 +115,7 @@
   - type: Tag
     tags:
       - Medal
+      - WhitelistChameleon
 
 - type: entity
   parent: ClothingNeckBase
@@ -63,6 +123,17 @@
   name: medical medal
   description: Given for the best work in the medical department.
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/medicalmedal.rsi
   - type: Clothing
@@ -70,6 +141,7 @@
   - type: Tag
     tags:
       - Medal
+      - WhitelistChameleon
 
 - type: entity
   parent: ClothingNeckBase
@@ -77,6 +149,17 @@
   name: science medal
   description: Given for the best work in the science department.
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/sciencemedal.rsi
   - type: Clothing
@@ -84,6 +167,7 @@
   - type: Tag
     tags:
       - Medal
+      - WhitelistChameleon
 
 - type: entity
   parent: ClothingNeckBase
@@ -91,6 +175,17 @@
   name: security medal
   description: Given for the best work in the security department.
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/securitymedal.rsi
   - type: Clothing
@@ -98,6 +193,7 @@
   - type: Tag
     tags:
       - Medal
+      - WhitelistChameleon
 
 - type: entity
   parent: ClothingNeckBase
@@ -105,6 +201,17 @@
   name: clown medal
   description: Given for the best joke in the universe. HONK!
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/clownmedal.rsi
   - type: Clothing
@@ -114,3 +221,4 @@
   - type: Tag
     tags:
       - Medal
+      - WhitelistChameleon

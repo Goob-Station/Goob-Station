@@ -1,3 +1,26 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using System.Threading;
 using Content.Server.Salvage.Expeditions;
@@ -5,6 +28,7 @@ using Content.Server.Salvage.Expeditions.Structure;
 using Content.Shared.CCVar;
 using Content.Shared.Examine;
 using Content.Shared.Salvage.Expeditions;
+using Content.Shared.Shuttles.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.CPUJob.JobQueues.Queues;
@@ -74,6 +98,15 @@ public sealed partial class SalvageSystem
     {
         component.Stream = _audio.Stop(component.Stream);
 
+        // First wipe any disks referencing us
+        var disks = AllEntityQuery<ShuttleDestinationCoordinatesComponent>();
+        while (disks.MoveNext(out var disk, out var diskComp)
+               && diskComp.Destination == uid)
+        {
+            diskComp.Destination = null;
+            Dirty(disk, diskComp);
+        }
+
         foreach (var (job, cancelToken) in _salvageJobs.ToArray())
         {
             if (job.Station == component.Station)
@@ -126,7 +159,7 @@ public sealed partial class SalvageSystem
     {
         var component = expedition.Comp;
         component.NextOffer = _timing.CurTime + TimeSpan.FromSeconds(_cooldown);
-        Announce(uid, Loc.GetString("salvage-expedition-mission-completed"));
+        Announce(uid, Loc.GetString("salvage-expedition-completed"));
         component.ActiveMission = 0;
         component.Cooldown = true;
         UpdateConsoles(expedition);
@@ -163,13 +196,11 @@ public sealed partial class SalvageSystem
             EntityManager,
             _timing,
             _logManager,
-            _mapManager,
             _prototypeManager,
             _anchorable,
             _biome,
             _dungeon,
             _metaData,
-            _transform,
             _mapSystem,
             station,
             coordinatesDisk,

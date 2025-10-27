@@ -17,36 +17,6 @@ namespace Content.Server.Database.Migrations.Sqlite
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
 
-            modelBuilder.Entity("Content.Server.Database.Achievement", b =>
-                {
-                    b.Property<Guid>("PlayerId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("player_id");
-
-                    b.Property<string>("AchievementId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("achievement_id");
-
-                    b.Property<DateTime>("LastUpdatedAt")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("last_updated_at");
-
-                    b.Property<float>("Progress")
-                        .HasColumnType("REAL")
-                        .HasColumnName("progress");
-
-                    b.HasKey("PlayerId", "AchievementId")
-                        .HasName("PK_achievements");
-
-                    b.HasIndex("AchievementId")
-                        .HasDatabaseName("IX_achievements_achievement_id");
-
-                    b.HasIndex("PlayerId")
-                        .HasDatabaseName("IX_achievements_player_id");
-
-                    b.ToTable("achievements", (string)null);
-                });
-
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
                 {
                     b.Property<Guid>("UserId")
@@ -735,6 +705,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("last_read_rules");
 
+                    b.Property<TimeSpan?>("LastRolledAntag")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("last_rolled_antag");
+
                     b.Property<string>("LastSeenAddress")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -783,6 +757,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("admin_ooc_color");
 
+                    b.PrimitiveCollection<string>("ConstructionFavorites")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("construction_favorites");
+
                     b.Property<int>("SelectedCharacterSlot")
                         .HasColumnType("INTEGER")
                         .HasColumnName("selected_character_slot");
@@ -810,11 +789,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<int>("Age")
                         .HasColumnType("INTEGER")
                         .HasColumnName("age");
-
-                    b.Property<string>("BorgName")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("borg_name");
 
                     b.Property<string>("CharacterName")
                         .IsRequired()
@@ -856,6 +830,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("hair_name");
 
+                    b.Property<float>("Height")
+                        .HasColumnType("REAL")
+                        .HasColumnName("height");
+
                     b.Property<byte[]>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
@@ -890,6 +868,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("species");
+
+                    b.Property<float>("Width")
+                        .HasColumnType("REAL")
+                        .HasColumnName("width");
 
                     b.HasKey("Id")
                         .HasName("PK_profile");
@@ -1169,6 +1151,12 @@ namespace Content.Server.Database.Migrations.Sqlite
 
                     b.HasIndex("DiscordRole")
                         .IsUnique();
+
+                    b.HasIndex("LobbyMessage")
+                        .HasDatabaseName("IX_rmc_patron_tiers_lobby_message");
+
+                    b.HasIndex("RoundEndShoutout")
+                        .HasDatabaseName("IX_rmc_patron_tiers_round_end_shoutout");
 
                     b.ToTable("rmc_patron_tiers", (string)null);
                 });
@@ -1589,19 +1577,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasDatabaseName("IX_player_round_rounds_id");
 
                     b.ToTable("player_round", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.Achievement", b =>
-                {
-                    b.HasOne("Content.Server.Database.Player", "Player")
-                        .WithMany("Achievements")
-                        .HasForeignKey("PlayerId")
-                        .HasPrincipalKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_achievements_player_player_id1");
-
-                    b.Navigation("Player");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
@@ -2292,8 +2267,6 @@ namespace Content.Server.Database.Migrations.Sqlite
 
             modelBuilder.Entity("Content.Server.Database.Player", b =>
                 {
-                    b.Navigation("Achievements");
-
                     b.Navigation("AdminLogs");
 
                     b.Navigation("AdminMessagesCreated");

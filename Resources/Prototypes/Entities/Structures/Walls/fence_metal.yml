@@ -1,4 +1,13 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
   parent: BaseStructure
   id: BaseFenceMetal
   name: chain link fence
@@ -79,6 +88,9 @@
     cost: 2
     delay: 2
     fx: EffectRCDDeconstruct2
+  - type: InteractionVerbs # EE: Interaction Verbs
+    allowedVerbs:
+    - Rattle
 
 - type: entity
   parent: BaseFenceMetal
@@ -107,11 +119,6 @@
         - FullTileMask
         layer:
         - TableLayer
-  - type: InteractionPopup
-    interactSuccessString: fence-rattle-success
-    messagePerceivedByOthers: fence-rattle-success
-    interactSuccessSound:
-      collection: FenceRattle
   - type: Destructible
     thresholds:
     - trigger:
@@ -166,11 +173,6 @@
         layer:
         - MidImpassable
         - LowImpassable
-  - type: InteractionPopup
-    interactSuccessString: fence-rattle-success
-    messagePerceivedByOthers: fence-rattle-success
-    interactSuccessSound:
-      collection: FenceRattle
   - type: Destructible
     thresholds:
     - trigger:
@@ -234,11 +236,6 @@
         layer:
         - MidImpassable
         - LowImpassable
-  - type: InteractionPopup
-    interactSuccessString: fence-rattle-success
-    messagePerceivedByOthers: fence-rattle-success
-    interactSuccessSound:
-      collection: FenceRattle
   - type: Construction
     graph: FenceMetal
     node: corner
@@ -271,11 +268,6 @@
         layer:
         - MidImpassable
         - LowImpassable
-  - type: InteractionPopup
-    interactSuccessString: fence-rattle-success
-    messagePerceivedByOthers: fence-rattle-success
-    interactSuccessSound:
-      collection: FenceRattle
   - type: Construction
     graph: FenceMetal
     node: end

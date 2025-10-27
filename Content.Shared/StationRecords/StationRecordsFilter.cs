@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.StationRecords;
@@ -39,6 +44,8 @@ public sealed class SetStationRecordFilter : BoundUserInterfaceMessage
 public enum StationRecordFilterType : byte
 {
     Name,
+    Job,
+    Species,
     Prints,
     DNA,
 }

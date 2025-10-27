@@ -1,4 +1,20 @@
-using Content.Shared.FixedPoint;
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 AWF <you@example.com>
+// SPDX-FileCopyrightText: 2024 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 GitHubUser53123 <110841413+GitHubUser53123@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
+// SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Storage;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Chemistry
@@ -65,11 +81,25 @@ namespace Content.Shared.Chemistry
     [Serializable, NetSerializable]
     public sealed class ReagentDispenserDispenseReagentMessage : BoundUserInterfaceMessage
     {
-        public readonly string SlotId;
+        public readonly ItemStorageLocation StorageLocation;
 
-        public ReagentDispenserDispenseReagentMessage(string slotId)
+        public ReagentDispenserDispenseReagentMessage(ItemStorageLocation storageLocation)
         {
-            SlotId = slotId;
+            StorageLocation = storageLocation;
+        }
+    }
+
+    /// <summary>
+    ///     Message sent by the user interface to ask the reagent dispenser to eject a container
+    /// </summary>
+    [Serializable, NetSerializable]
+    public sealed class ReagentDispenserEjectContainerMessage : BoundUserInterfaceMessage
+    {
+        public readonly ItemStorageLocation StorageLocation;
+
+        public ReagentDispenserEjectContainerMessage(ItemStorageLocation storageLocation)
+        {
+            StorageLocation = storageLocation;
         }
     }
 
@@ -93,9 +123,9 @@ namespace Content.Shared.Chemistry
     }
 
     [Serializable, NetSerializable]
-    public sealed class ReagentInventoryItem(string storageSlotId, string reagentLabel, FixedPoint2 quantity, Color reagentColor)
+    public sealed class ReagentInventoryItem(ItemStorageLocation storageLocation, string reagentLabel, FixedPoint2 quantity, Color reagentColor)
     {
-        public string StorageSlotId = storageSlotId;
+        public ItemStorageLocation StorageLocation = storageLocation;
         public string ReagentLabel = reagentLabel;
         public FixedPoint2 Quantity = quantity;
         public Color ReagentColor = reagentColor;

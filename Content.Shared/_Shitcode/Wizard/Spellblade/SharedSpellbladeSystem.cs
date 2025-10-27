@@ -1,11 +1,25 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Shared._White.Blink;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Electrocution;
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Timing;
 using Content.Shared.UserInterface;
 using Content.Shared.Weapons.Melee;
@@ -38,16 +52,17 @@ public abstract class SharedSpellbladeSystem : EntitySystem
         SubscribeLocalEvent<ElectrocutionAttemptEvent>(OnElectrocutionAttempt);
 
         SubscribeLocalEvent<ShieldedComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
-        SubscribeLocalEvent<ShieldedComponent, BeforeStatusEffectAddedEvent>(OnBeforeStatusEffect);
+        SubscribeLocalEvent<ShieldedComponent, OldBeforeStatusEffectAddedEvent>(OnBeforeStatusEffect);
         SubscribeLocalEvent<ShieldedComponent, DamageModifyEvent>(OnDamageModify);
     }
 
     private void OnDamageModify(Entity<ShieldedComponent> ent, ref DamageModifyEvent args)
     {
-        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, ent.Comp.Resistances);
+        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage,
+            DamageSpecifier.PenetrateArmor(ent.Comp.Resistances, args.Damage.ArmorPenetration));
     }
 
-    private void OnBeforeStatusEffect(Entity<ShieldedComponent> ent, ref BeforeStatusEffectAddedEvent args)
+    private void OnBeforeStatusEffect(Entity<ShieldedComponent> ent, ref OldBeforeStatusEffectAddedEvent args)
     {
         if (!ent.Comp.AntiStun || args.Key is not ("Stun"))
             return;

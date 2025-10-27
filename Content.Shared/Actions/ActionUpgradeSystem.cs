@@ -1,5 +1,11 @@
-﻿using System.Diagnostics.CodeAnalysis;
+// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -10,7 +16,6 @@ public sealed class ActionUpgradeSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
 
     public override void Initialize()
     {
@@ -22,13 +27,13 @@ public sealed class ActionUpgradeSystem : EntitySystem
     private void OnActionUpgradeEvent(EntityUid uid, ActionUpgradeComponent component, ActionUpgradeEvent args)
     {
         if (!CanUpgrade(args.NewLevel, component.EffectedLevels, out var newActionProto)
-            || !_actions.TryGetActionData(uid, out var actionComp))
+            || _actions.GetAction(uid) is not {} action)
             return;
 
-        var originalContainer = actionComp.Container;
-        var originalAttachedEntity = actionComp.AttachedEntity;
+        var originalContainer = action.Comp.Container;
+        var originalAttachedEntity = action.Comp.AttachedEntity;
 
-        _actionContainer.RemoveAction(uid, actionComp);
+        _actionContainer.RemoveAction((action, action));
 
         EntityUid? upgradedActionId = null;
         if (originalContainer != null
@@ -53,7 +58,7 @@ public sealed class ActionUpgradeSystem : EntitySystem
 
         // TODO: Preserve ordering of actions
 
-        _entityManager.DeleteEntity(uid);
+        Del(uid);
     }
 
     public bool TryUpgradeAction(EntityUid? actionId, out EntityUid? upgradeActionId, ActionUpgradeComponent? actionUpgradeComponent = null, int newLevel = 0)
@@ -150,16 +155,16 @@ public sealed class ActionUpgradeSystem : EntitySystem
         // RaiseActionUpgradeEvent(newLevel, actionId.Value);
 
         if (!CanUpgrade(newLevel, actionUpgradeComponent.EffectedLevels, out var newActionPrototype)
-            || !_actions.TryGetActionData(actionId, out var actionComp))
+            || _actions.GetAction(actionId) is not {} action)
             return null;
 
         newActionProto ??= newActionPrototype;
         DebugTools.AssertNotNull(newActionProto);
 
-        var originalContainer = actionComp.Container;
-        var originalAttachedEntity = actionComp.AttachedEntity;
+        var originalContainer = action.Comp.Container;
+        var originalAttachedEntity = action.Comp.AttachedEntity;
 
-        _actionContainer.RemoveAction(actionId.Value, actionComp);
+        _actionContainer.RemoveAction((action, action.Comp));
 
         EntityUid? upgradedActionId = null;
         if (originalContainer != null
@@ -184,7 +189,7 @@ public sealed class ActionUpgradeSystem : EntitySystem
 
         // TODO: Preserve ordering of actions
 
-        _entityManager.DeleteEntity(actionId);
+        Del(actionId);
 
         return upgradedActionId.Value;
     }

@@ -1,0 +1,94 @@
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Spoken by the Republic of Elyra.
+- type: language
+  id: Elyran
+  isVisibleLanguage: true
+  speech:
+    color: "#c480e8aa" # Goob Edit - Separation from Sol Common, make more unique.
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 4
+    replacement:
+    - af
+    - if
+    - ba
+    - ta
+    - tha
+    - id
+    - jem
+    - ha
+    - kha
+    - dal
+    - dhl
+    - ra
+    - zay
+    - sen
+    - um
+    - shn
+    - sid
+    - ad
+    - ta
+    - za
+    - ayn
+    - gha
+    - zir
+    - yn
+    - fa
+    - qaf
+    - iam
+    - mim
+    - al
+    - ja
+    - non
+    - ha
+    - waw
+    - ya
+    - hem
+    - zah
+    - hml
+    - ks
+    - ini
+    - da
+    - ks
+    - iga
+    - ih
+    - la
+    - ulf
+    - xe
+    - ayw
+    - sit
+    - ah
+    - aarah
+    - jalaa
+    - sirt
+    - kurt
+    - turhk
+    - ust
+    - irk
+    - kir
+    - mir
+    - ach
+    - oglu
+    - bolu
+    - shek
+    - she
+    - ghoz
+    - miya
+    - ejdan
+    - haaz
+    - quq
+    - taab
+    - shanha
+    - an
+    - saa
+    - seh
+    - an'
+    - e'
+    - a'
+    - em'

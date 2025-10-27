@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: MachinePowerTransmissionLaserCrate
+  parent: CrateGenericSteel
+  name: power transmission laser crate
+  components:
+  - type: StorageFill
+    contents:
+    - id: MachinePowerTransmissionLaserFlatpack
+
+- type: entity
+  id: CrateEngineeringTEG
+  parent: CrateEngineeringSecure
+  name: thermo-electric generator crate
+  description: Containing thermo-electric generator flatpack to make atmosian happy.
+  components:
+  - type: StorageFill
+    contents:
+      - id: TegCirculatorFlatpack
+      - id: TegCirculatorFlatpack
+      - id: TegMiddleFlatpack
+      - id: ToyFigurineAtmosTech

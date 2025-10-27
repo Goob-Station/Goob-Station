@@ -1,5 +1,18 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage;
 using Content.Shared.Spreader;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -14,8 +27,7 @@ public sealed class KudzuSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
 
-    [ValidatePrototypeId<EdgeSpreaderPrototype>]
-    private const string KudzuGroup = "Kudzu";
+    private static readonly ProtoId<EdgeSpreaderPrototype> KudzuGroup = "Kudzu";
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -36,7 +48,7 @@ public sealed class KudzuSystem : EntitySystem
                 component.GrowthLevel = 3;
 
             component.GrowthLevel = Math.Max(1, component.GrowthLevel - growthDamage);
-            if (EntityManager.TryGetComponent<AppearanceComponent>(uid, out var appearance))
+            if (TryComp<AppearanceComponent>(uid, out var appearance))
             {
                 _appearance.SetData(uid, KudzuVisuals.GrowthLevel, component.GrowthLevel, appearance);
             }
@@ -79,7 +91,7 @@ public sealed class KudzuSystem : EntitySystem
 
     private void SetupKudzu(EntityUid uid, KudzuComponent component, ComponentStartup args)
     {
-        if (!EntityManager.TryGetComponent<AppearanceComponent>(uid, out var appearance))
+        if (!TryComp<AppearanceComponent>(uid, out var appearance))
         {
             return;
         }

@@ -1,0 +1,113 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: AutomationFilter
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: label
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - material: Cable
+        amount: 3
+        doAfter: 1
+    - to: name
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - material: Glass
+        doAfter: 1
+      - material: Cable
+        amount: 3
+        doAfter: 1
+    - to: stack
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 2
+      - material: Cable
+        amount: 4
+        doAfter: 2
+    - to: pressure
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 2
+      - material: Glass
+        amount: 1
+        doAfter: 2
+      - material: Cable
+        amount: 4
+        doAfter: 1
+    - to: combined
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - material: Glass
+        amount: 2
+        doAfter: 2
+      - material: Cable
+        amount: 5
+        doAfter: 1
+    - to: anchor
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 2
+      - material: Cable
+        amount: 4
+        doAfter: 2
+    - to: mob
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 2
+      - tag: DiscreteHealthAnalyzer
+        name: construction-graph-tag-health-analyzer
+        icon:
+          sprite: Objects/Specific/Medical/healthanalyzer.rsi
+          state: analyzer
+        doAfter: 2
+      - material: Cable
+        amount: 4
+        doAfter: 2
+    - to: cuff
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 2
+      - tag: Handcuffs # need cuffs to detect cuffs :)
+        name: construction-graph-tag-cuffs
+        icon:
+          sprite: Objects/Misc/cablecuffs.rsi
+          state: cuff
+          color: red
+        doAfter: 2
+      - material: Cable
+        amount: 4
+        doAfter: 2
+  - node: label
+    entity: AutomationFilterLabel
+  - node: name
+    entity: AutomationFilterName
+  - node: stack
+    entity: AutomationFilterStack
+  - node: pressure
+    entity: AutomationFilterPressure
+  - node: combined
+    entity: AutomationFilterCombined
+  - node: anchor
+    entity: AutomationFilterAnchor
+  - node: mob
+    entity: AutomationFilterMob
+  - node: cuff
+    entity: AutomationFilterCuff

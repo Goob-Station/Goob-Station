@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: constructionGraph
   id: ClownHardsuit
   start: start
@@ -10,37 +17,37 @@
               amount: 5
               doAfter: 1
             - tag: SuitEVA
-              name: an EVA suit
+              name: construction-graph-tag-eva-suit
               icon:
                 sprite: Clothing/OuterClothing/Suits/eva.rsi
                 state: icon
               doAfter: 1
             - tag: HelmetEVA
-              name: an EVA helmet
+              name: construction-graph-tag-eva-helmet
               icon:
                 sprite: Clothing/Head/Helmets/eva.rsi
                 state: icon
               doAfter: 1
             - tag: CrayonPurple
-              name: purple crayon
+              name: construction-graph-tag-purple-crayon
               icon:
                 sprite: Objects/Fun/crayons.rsi
                 state: purple
               doAfter: 1
             - tag: CrayonRed
-              name: red crayon
+              name: construction-graph-tag-red-crayon
               icon:
                 sprite: Objects/Fun/crayons.rsi
                 state: red
               doAfter: 1
             - tag: CrayonYellow
-              name: yellow crayon
+              name: construction-graph-tag-yellow-crayon
               icon:
                 sprite: Objects/Fun/crayons.rsi
                 state: yellow
               doAfter: 1
             - tag: ClownRecorder
-              name: clown recorder
+              name: construction-graph-tag-clown-recorder
               icon:
                 sprite: Objects/Fun/clownrecorder.rsi
                 state: icon

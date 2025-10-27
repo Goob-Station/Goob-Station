@@ -1,5 +1,32 @@
+# SPDX-FileCopyrightText: 2023 justproggramer <68664576+Klaypexx@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 - files:
   - slime_squish.ogg
   license: "CC-BY-SA-3.0"
   copyright: "Taken from https://github.com/ParadiseSS13/Paradise/commit/60d27e07de73f0fe72f4cff78b9c4100fd1d3b19"
   source: "https://github.com/ParadiseSS13/Paradise"
+
+- files:
+  - slime_crackleslap.ogg
+  - slime_laugh_f1.ogg
+  - slime_laugh_m1.ogg
+  - slime_laugh_m2.ogg
+  - slime_laugh_m2.ogg
+  - slime_scream_f1.ogg
+  - slime_scream_m1.ogg
+  - slime_scream_m2.ogg
+  license: "MIT"
+  copyright: "Taken from https://github.com/Simple-Station/Parkstation/commit/38c203cde0c915e029573e96fe9c97986bb6a036"
+  source: "https://github.com/Simple-Station"
+
+- files:
+  - slime_scream_f2.ogg
+  license: "MIT"
+  copyright: "Taken from https://github.com/Goob-Station/Goob-Station-MRP/commit/d3eeaba490a3b89004b411fd3f24aceb1e633ad3"
+  source: "https://github.com/Goob-Station/Goob-Station-MRP"

@@ -1,7 +1,19 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Numerics;
 using Content.Shared.Decals;
+using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.Utility;
 using Robust.Shared.ContentPack;
@@ -29,7 +41,7 @@ public sealed class DecalPainter
         _sPrototypeManager = server.ResolveDependency<IPrototypeManager>();
     }
 
-    public void Run(Image canvas, Span<DecalData> decals)
+    public void Run(Image canvas, Span<DecalData> decals, Vector2 customOffset = default)
     {
         var stopwatch = new Stopwatch();
         stopwatch.Start();
@@ -46,13 +58,13 @@ public sealed class DecalPainter
 
         foreach (var decal in decals)
         {
-            Run(canvas, decal);
+            Run(canvas, decal, customOffset);
         }
 
         Console.WriteLine($"{nameof(DecalPainter)} painted {decals.Length} decals in {(int) stopwatch.Elapsed.TotalMilliseconds} ms");
     }
 
-    private void Run(Image canvas, DecalData data)
+    private void Run(Image canvas, DecalData data, Vector2 customOffset = default)
     {
         var decal = data.Decal;
         if (!_decalTextures.TryGetValue(decal.Id, out var sprite))
@@ -94,8 +106,10 @@ public sealed class DecalPainter
             .DrawImage(coloredImage, PixelColorBlendingMode.Multiply, PixelAlphaCompositionMode.SrcAtop, 1.0f)
             .Flip(FlipMode.Vertical));
 
-        // Very unsure why the - 1 is needed in the first place but all decals are off by exactly one pixel otherwise
+        var pointX = (int) data.X + (int) (customOffset.X * EyeManager.PixelsPerMeter);
+        var pointY = (int) data.Y + (int) (customOffset.Y * EyeManager.PixelsPerMeter);
+
         // Woohoo!
-        canvas.Mutate(o => o.DrawImage(image, new Point((int) data.X, (int) data.Y - 1), alpha));
+        canvas.Mutate(o => o.DrawImage(image, new Point(pointX, pointY), alpha));
     }
 }

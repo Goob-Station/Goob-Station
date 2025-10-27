@@ -1,3 +1,57 @@
+# SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 WlarusFromDaSpace <44726328+WlarusFromDaSpace@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+# SPDX-FileCopyrightText: 2023 AJCM <AJCM@tutanota.com>
+# SPDX-FileCopyrightText: 2023 AjexRose <112997230+AjexRose@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Chris <HoofedEar@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
+# SPDX-FileCopyrightText: 2023 Hyenh <108431937+Hyenh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+# SPDX-FileCopyrightText: 2023 Tunguso4ka <71643624+Tunguso4ka@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PursuitInAshes <91865152+PursuitInAshes@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 War Pigeon <54217755+minus1over12@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: CrateBaseWeldable
   id: CrateGenericSteel
@@ -12,8 +66,13 @@
     - Energy
     reflectProb: 0.2
     spread: 90
+  - type: Paintable
+    group: CrateSteel
   - type: RadiationBlockingContainer
-    resistance: 2.5
+    # Goobstation Start - Radiation Overhaul
+    # resistance: 2.5
+    decay: 2.5
+    # Goobstation End - Radiation Overhaul
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 125
@@ -37,6 +96,8 @@
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Plastic: 125
+  - type: Paintable
+    group: CratePlastic
 
 - type: entity
   parent: CratePlastic
@@ -55,6 +116,8 @@
     node: done
     containers:
     - entity_storage
+  - type: Paintable
+    group: null
 
 - type: entity
   parent: CratePlastic
@@ -161,6 +224,15 @@
     damageModifierSet: Web
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -298,6 +370,20 @@
     sprite: Structures/Storage/Crates/weapon.rsi
   - type: AccessReader
     access: [["Armory"]]
+  - type: Destructible #GOOB START
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StrongCrates
 
 - type: entity
   parent: [ CrateBaseSecure, BaseSecurityContraband ]
@@ -399,6 +485,15 @@
     sprite: Structures/Storage/Crates/cage.rsi
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -431,6 +526,194 @@
         - LargeMobLayer
   - type: StaticPrice
     price: 75
+
+- type: entity
+  id: CrateBaseLockBox
+  parent: CrateBaseSecure
+  name: lock box
+  description: "A secure lock box. Funds from its sale will be distributed back to the department. Just remember: Cargo always takes a cut."
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Structures/Storage/Crates/lockbox.rsi
+  - type: GenericVisualizer
+    visuals:
+      enum.PaperLabelVisuals.HasLabel:
+        enum.PaperLabelVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PaperLabelVisuals.LabelType:
+        enum.PaperLabelVisuals.Layer:
+          Paper: { state: paper }
+          Bounty: { state: bounty }
+          CaptainsPaper: { state: captains_paper }
+          Invoice: { state: invoice }
+      enum.StorageVisuals.Open:
+        lid_overlay:
+          True: { visible: false }
+          False: { visible: true }
+  - type: OverrideSell
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.4,0.3,0.19"
+        density: 50
+        mask:
+        - CrateMask #this is so they can go under plastic flaps
+        layer:
+        - MachineLayer
+
+- type: entity
+  id: CrateLockBoxEngineering
+  parent: CrateBaseLockBox
+  name: engineering lock box
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#ad8c27"
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: overlay-closed
+      color: "#ad8c27"
+      map: [ lid_overlay ]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.46875,0.03125"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: OverrideSell
+    overrideAccount: Engineering
+  - type: AccessReader
+    access: [["Engineering"]]
+
+- type: entity
+  id: CrateLockBoxMedical
+  parent: CrateBaseLockBox
+  name: medical lock box
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#92c7e8"
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: overlay-closed
+      color: "#92c7e8"
+      map: [ lid_overlay ]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.46875,0.03125"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: OverrideSell
+    overrideAccount: Medical
+  - type: AccessReader
+    access: [["Medical"]]
+
+- type: entity
+  id: CrateLockBoxScience
+  parent: CrateBaseLockBox
+  name: science lock box
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#ba4bf0"
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: overlay-closed
+      color: "#ba4bf0"
+      map: [ lid_overlay ]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.46875,0.03125"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: OverrideSell
+    overrideAccount: Science
+  - type: AccessReader
+    access: [["Research"]]
+
+- type: entity
+  id: CrateLockBoxSecurity
+  parent: CrateBaseLockBox
+  name: security lock box
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#c12d30"
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: overlay-closed
+      color: "#c12d30"
+      map: [ lid_overlay ]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.46875,0.03125"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: OverrideSell
+    overrideAccount: Security
+  - type: AccessReader
+    access: [["Security"]]
+
+- type: entity
+  id: CrateLockBoxService
+  parent: CrateBaseLockBox
+  name: service lock box
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#53b723"
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: overlay-closed
+      color: "#53b723"
+      map: [ lid_overlay ]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.46875,0.03125"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: OverrideSell
+    overrideAccount: Service
+  - type: AccessReader
+    access: [["Service"]]
 
 - type: entity
   parent: CrateGeneric
@@ -487,7 +770,7 @@
   parent: CrateGeneric
   id: CrateCoffin
   name: coffin
-  description: A comfy coffin, excelent place for the vampires and corpses.
+  description: A comfy coffin, excellent place for the vampires and corpses.
   components:
   - type: Sprite
     sprite: Structures/Storage/Crates/coffin.rsi
@@ -502,6 +785,15 @@
     state: base
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -544,6 +836,15 @@
     state: base
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 200 # discourage just beating the grave to break it open
@@ -622,6 +923,8 @@
       sprite: Structures/Storage/Crates/labels.rsi
       offset: "0.0,0.03125"
       map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Paintable
+    group: null
 
 - type: entity
   parent: CrateBaseSecure
@@ -648,6 +951,8 @@
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: AccessReader
     access: [["Janitor"]]
+  - type: Paintable
+    group: null
 
 - type: entity
   parent: CrateBaseWeldable

@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2024 DEATHB4DEFEAT <77995199+DEATHB4DEFEAT@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 portfiend <109661617+portfiend@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # HEAD
 
 ## DEFAULTS
@@ -412,7 +423,7 @@
 
 - type: marking
   id: RodentiaLegLeftCountershade
-  markingCategory: Legs
+  markingCategory: LeftLeg
   bodyPart: LLeg
   speciesRestriction: [Rodentia]
   sprites:
@@ -423,7 +434,7 @@
 
 - type: marking
   id: RodentiaLegRightCountershade
-  markingCategory: Legs
+  markingCategory: RightLeg
   bodyPart: RLeg
   speciesRestriction: [Rodentia]
   sprites:
@@ -502,7 +513,7 @@
 
 - type: marking
   id: RodentiaArmLeftBasic
-  markingCategory: Arms
+  markingCategory: LeftArm
   bodyPart: LArm
   speciesRestriction: [Rodentia]
   sprites:
@@ -511,7 +522,7 @@
 
 - type: marking
   id: RodentiaArmRightBasic
-  markingCategory: Arms
+  markingCategory: RightArm
   bodyPart: RArm
   speciesRestriction: [Rodentia]
   sprites:
@@ -522,7 +533,7 @@
 
 - type: marking
   id: RodentiaLegLeftBasic
-  markingCategory: Legs
+  markingCategory: LeftLeg
   bodyPart: LLeg
   speciesRestriction: [Rodentia]
   sprites:
@@ -531,7 +542,7 @@
 
 - type: marking
   id: RodentiaLegRightBasic
-  markingCategory: Legs
+  markingCategory: RightLeg
   bodyPart: RLeg
   speciesRestriction: [Rodentia]
   sprites:
@@ -542,7 +553,7 @@
 
 - type: marking
   id: RodentiaHandLeftBasic
-  markingCategory: Arms
+  markingCategory: LeftHand
   bodyPart: LHand
   speciesRestriction: [Rodentia]
   sprites:
@@ -551,7 +562,7 @@
 
 - type: marking
   id: RodentiaHandRightBasic
-  markingCategory: Arms
+  markingCategory: RightHand
   bodyPart: RHand
   speciesRestriction: [Rodentia]
   sprites:
@@ -562,7 +573,7 @@
 
 - type: marking
   id: RodentiaFootLeftBasic
-  markingCategory: Legs
+  markingCategory: LeftFoot
   bodyPart: LFoot
   speciesRestriction: [Rodentia]
   sprites:
@@ -571,7 +582,7 @@
 
 - type: marking
   id: RodentiaFootRightBasic
-  markingCategory: Legs
+  markingCategory: RightFoot
   bodyPart: RFoot
   speciesRestriction: [Rodentia]
   sprites:

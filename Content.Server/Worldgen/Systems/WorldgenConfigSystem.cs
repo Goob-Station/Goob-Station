@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2023 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
@@ -22,7 +32,7 @@ public sealed class WorldgenConfigSystem : EntitySystem
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IConsoleHost _conHost = default!;
-    [Dependency] private readonly IMapManager _map = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ISerializationManager _ser = default!;
 
@@ -53,7 +63,7 @@ public sealed class WorldgenConfigSystem : EntitySystem
             return;
         }
 
-        var map = _map.GetMapEntityId(new MapId(mapInt));
+        var map = _map.GetMapOrInvalid(new MapId(mapInt));
 
         if (!_proto.TryIndex<WorldgenConfigPrototype>(args[1], out var proto))
         {
@@ -73,7 +83,7 @@ public sealed class WorldgenConfigSystem : EntitySystem
         if (_enabled == false)
             return;
 
-        var target = _map.GetMapEntityId(_gameTicker.DefaultMap);
+        var target = _map.GetMapOrInvalid(_gameTicker.DefaultMap);
         Log.Debug($"Trying to configure {_gameTicker.DefaultMap}, aka {ToPrettyString(target)} aka {target}");
         var cfg = _proto.Index<WorldgenConfigPrototype>(_worldgenConfig);
 
@@ -82,4 +92,3 @@ public sealed class WorldgenConfigSystem : EntitySystem
         DebugTools.Assert(HasComp<WorldControllerComponent>(target));
     }
 }
-

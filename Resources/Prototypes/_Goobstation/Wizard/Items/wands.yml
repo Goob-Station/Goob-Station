@@ -1,8 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: MultiWand
   name: wizard wand
   description: Apparently a wand used by the wizard.
-  parent: [BaseItem, BaseMagicContraband]
+  parent: [BaseItem, BaseMagicalContraband]
   suffix: DO NOT MAP
   categories: [ DoNotMap ]
   components:
@@ -20,6 +26,7 @@
     size: Normal
   - type: AmmoCounter
   - type: Gun
+    projectileSpeed: 20
     soundEmpty: null
     soundMode: null
     clumsyProof: true
@@ -64,7 +71,7 @@
   - type: ActivatableUI
     inHandsOnly: true
     key: enum.AmmoSelectorUiKey.Key
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: Firemode
     inhandVisuals:
       left:

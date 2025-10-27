@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - files: ["mindcontrol_start.ogg"]
   license: "CC0-1.0"
   copyright: "Made by https://www.youtube.com/@a-guy173"
@@ -8,7 +20,19 @@
   copyright: "Used with permission from the creator, Cuboos"
   source: "https://soundcloud.com/cuboos/engrev?in=cuboos/sets/space-station-13-audio-logs"
 
+- files: ["hisgrace_ascension.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Taken from Freesound.org, edited by SolsticeOfTheWinter"
+  source: "https://freesound.org/people/ViraMiller/sounds/744877/"
+
+- files: ["devil_start.ogg"]
+  license: "CC-BY-SA-4.0"
+  copyright: "Created by SolsticeOfTheWinter"
+  source: "https://github.com/SolsticeOfTheWinter"
+
 - files: ["changeling_start.ogg", "bloodcult_eyes.ogg", "bloodcult_gain.ogg", "bloodcult_halos.ogg", "bloodcult_scribe.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from TG station"
   source: "https://github.com/tgstation/tgstation/tree/master"
+
+

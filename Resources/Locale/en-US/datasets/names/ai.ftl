@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 names-ai-dataset-1 = 16-20
 names-ai-dataset-2 = 512k
 
@@ -90,7 +99,7 @@ names-ai-dataset-64 = Knight
 names-ai-dataset-65 = Louie
 
 # Named after the Manchester Mark 1, the successor of which was actually named the Ferranti Mark 1, rather than Manchester Mark 2
-names-ai-dataset-66 = Manchester Mark 2 
+names-ai-dataset-66 = Manchester Mark 2
 
 names-ai-dataset-67 = MARK13
 names-ai-dataset-68 = Maria
@@ -98,7 +107,7 @@ names-ai-dataset-69 = Marvin
 names-ai-dataset-70 = Max 404
 names-ai-dataset-71 = Metalhead
 names-ai-dataset-72 = M.I.M.I
-names-ai-dataset-73 = MK ULTRA
+names-ai-dataset-73 = Large Language Model
 names-ai-dataset-74 = Monarch
 names-ai-dataset-75 = MoMMI
 names-ai-dataset-76 = Mugsy3000

@@ -1,3 +1,50 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Alex Pavlenko <diraven@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Redfire1331 <125223432+Redfire1331@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 neutrino <67447925+neutrino-laser@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 redfire1331 <Redfire1331@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Skubman <ba.fallaria@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Effects;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
@@ -13,7 +60,8 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
-
+    [Dependency] private readonly IComponentFactory _factory = default!; // EE Plasmamen Change
+    [Dependency] private readonly SpriteSystem _sprite = default!;
     /// <summary>
     /// It's a little on the long side but given we use multiple colours denoting what happened it makes it easier to register.
     /// </summary>
@@ -29,12 +77,13 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
         SubscribeLocalEvent<ColorFlashEffectComponent, AnimationCompletedEvent>(OnEffectAnimationCompleted);
     }
 
-    public override void RaiseEffect(Color color, List<EntityUid> entities, Filter filter)
+    // EE Plasmamen Change
+    public override void RaiseEffect(Color color, List<EntityUid> entities, Filter filter, float? animationLength = null)
     {
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        OnColorFlashEffect(new ColorFlashEffectEvent(color, GetNetEntityList(entities)));
+        OnColorFlashEffect(new ColorFlashEffectEvent(color, GetNetEntityList(entities), animationLength)); // EE Plasmamen Change
     }
 
     private void OnEffectAnimationCompleted(EntityUid uid, ColorFlashEffectComponent component, AnimationCompletedEvent args)
@@ -44,7 +93,7 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
 
         if (TryComp<SpriteComponent>(uid, out var sprite))
         {
-            sprite.Color = component.Color;
+            _sprite.SetColor((uid, sprite), component.Color);
         }
     }
 
@@ -70,7 +119,8 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
         }
     }
 
-    private Animation? GetDamageAnimation(EntityUid uid, Color color, SpriteComponent? sprite = null)
+    // EE Plasmamen Change
+    private Animation? GetDamageAnimation(EntityUid uid, Color color, SpriteComponent? sprite = null, float? animationLength = null)
     {
         if (!Resolve(uid, ref sprite, false))
             return null;
@@ -78,7 +128,7 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
         // 90% of them are going to be this so why allocate a new class.
         return new Animation
         {
-            Length = TimeSpan.FromSeconds(AnimationLength),
+            Length = TimeSpan.FromSeconds(animationLength ?? AnimationLength), // EE Plasmamen Change
             AnimationTracks =
             {
                 new AnimationTrackComponentProperty
@@ -89,7 +139,7 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
                     KeyFrames =
                     {
                         new AnimationTrackProperty.KeyFrame(color, 0f),
-                        new AnimationTrackProperty.KeyFrame(sprite.Color, AnimationLength)
+                        new AnimationTrackProperty.KeyFrame(sprite.Color, animationLength ?? AnimationLength) // EE Plasmamen Change
                     }
                 }
             }
@@ -109,6 +159,29 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
                 continue;
             }
 
+            // EE Plasmamen Change Start
+            if (!TryComp(ent, out AnimationPlayerComponent? player))
+            {
+                player = (AnimationPlayerComponent) _factory.GetComponent(typeof(AnimationPlayerComponent));
+                player.Owner = ent;
+                player.NetSyncEnabled = false;
+                AddComp(ent, player);
+            }
+
+            // Need to stop the existing animation first to ensure the sprite color is fixed.
+            // Otherwise we might lerp to a red colour instead.
+            if (_animation.HasRunningAnimation(ent, player, AnimationKey))
+                _animation.Stop(ent, player, AnimationKey);
+
+            if (TryComp<ColorFlashEffectComponent>(ent, out var effect))
+                sprite.Color = effect.Color;
+
+            var animation = GetDamageAnimation(ent, color, sprite, ev.AnimationLength);
+
+            if (animation == null)
+                continue;
+            // EE Plasmamen Change End
+
             if (!TryComp(ent, out ColorFlashEffectComponent? comp))
             {
 #if DEBUG
@@ -117,7 +190,6 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
             }
 
             _animation.Stop(ent, AnimationKey);
-            var animation = GetDamageAnimation(ent, color, sprite);
 
             if (animation == null)
             {

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Anomaly.Effects;
 using Content.Shared.Body.Components;
@@ -7,6 +12,8 @@ namespace Content.Client.Anomaly.Effects;
 
 public sealed class ClientInnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 {
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<InnerBodyAnomalyComponent, AfterAutoHandleStateEvent>(OnAfterHandleState);
@@ -21,21 +28,20 @@ public sealed class ClientInnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         if (ent.Comp.FallbackSprite is null)
             return;
 
-        if (!sprite.LayerMapTryGet(ent.Comp.LayerMap, out var index))
-            index = sprite.LayerMapReserveBlank(ent.Comp.LayerMap);
+        var index = _sprite.LayerMapReserve((ent.Owner, sprite), ent.Comp.LayerMap);
 
         if (TryComp<BodyComponent>(ent, out var body) &&
             body.Prototype is not null &&
             ent.Comp.SpeciesSprites.TryGetValue(body.Prototype.Value, out var speciesSprite))
         {
-            sprite.LayerSetSprite(index, speciesSprite);
+            _sprite.LayerSetSprite((ent.Owner, sprite), index, speciesSprite);
         }
         else
         {
-            sprite.LayerSetSprite(index, ent.Comp.FallbackSprite);
+            _sprite.LayerSetSprite((ent.Owner, sprite), index, ent.Comp.FallbackSprite);
         }
 
-        sprite.LayerSetVisible(index, true);
+        _sprite.LayerSetVisible((ent.Owner, sprite), index, true);
         sprite.LayerSetShader(index, "unshaded");
     }
 
@@ -44,7 +50,7 @@ public sealed class ClientInnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
 
-        var index = sprite.LayerMapGet(ent.Comp.LayerMap);
-        sprite.LayerSetVisible(index, false);
+        var index = _sprite.LayerMapGet((ent.Owner, sprite), ent.Comp.LayerMap);
+        _sprite.LayerSetVisible((ent.Owner, sprite), index, false);
     }
 }

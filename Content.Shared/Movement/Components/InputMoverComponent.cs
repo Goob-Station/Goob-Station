@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.GameStates;
@@ -29,12 +40,6 @@ namespace Content.Shared.Movement.Components
         //   (well maybe we do but the code is designed such that MoverSystem applies movement speed)
         //   (and I'm not changing that)
 
-        /// <summary>
-        /// Should our velocity be applied to our parent?
-        /// </summary>
-        [ViewVariables(VVAccess.ReadWrite), DataField("toParent")]
-        public bool ToParent = false;
-
         public GameTick LastInputTick;
         public ushort LastInputSubTick;
 
@@ -42,6 +47,20 @@ namespace Content.Shared.Movement.Components
         public Vector2 CurTickSprintMovement;
 
         public MoveButtons HeldMoveButtons = MoveButtons.None;
+
+        /// <summary>
+        /// Does our input indicate actual movement, and not just modifiers?
+        /// </summary>
+        /// <remarks>
+        /// This can be useful to filter out input from just pressing the walk button with no directions, for example.
+        /// </remarks>
+        public bool HasDirectionalMovement => (HeldMoveButtons & MoveButtons.AnyDirection) != MoveButtons.None;
+
+        // I don't know if we even need this networked? It's mostly so conveyors can calculate properly.
+        /// <summary>
+        /// Direction to move this tick.
+        /// </summary>
+        public Vector2 WishDir;
 
         /// <summary>
         /// Entity our movement is relative to.
@@ -65,12 +84,15 @@ namespace Content.Shared.Movement.Components
         /// If we traverse on / off a grid then set a timer to update our relative inputs.
         /// </summary>
         [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-        [ViewVariables(VVAccess.ReadWrite)]
         public TimeSpan LerpTarget;
 
         public const float LerpTime = 1.0f;
 
-        public bool Sprinting => (HeldMoveButtons & MoveButtons.Walk) == 0x0;
+        public bool Sprinting => DefaultSprinting
+        ? (HeldMoveButtons & MoveButtons.Walk) != 0x0
+        : (HeldMoveButtons & MoveButtons.Walk) == 0x0;
+        
+        public bool DefaultSprinting = true;
 
         [ViewVariables(VVAccess.ReadWrite)]
         public bool CanMove = true;
@@ -84,6 +106,6 @@ namespace Content.Shared.Movement.Components
         public Angle TargetRelativeRotation;
         public Angle RelativeRotation;
         public TimeSpan LerpTarget;
-        public bool CanMove;
+        public bool CanMove, DefaultSprinting;
     }
 }

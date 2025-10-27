@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: CrateCargoGatewayLavaland
+  parent: CrateGenericSteel
+  name: lavaland gateway crate
+  description: Allows you to teleport straight to Lavaland.
+  components:
+  - type: StorageFill
+    contents:
+    - id: GatewayFlatpackLavaland
+
+- type: entity
+  id: CrateCargoClarkeAssembly
+  name: clarke assembly crate
+  description: At long last, you will finally feel secure inside this brand new spankin machine! Assembly required.
+  parent: CratePrivateSecure
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClarkeHarness
+    - id: ClarkeHead
+    - id: ClarkeLArm
+    - id: ClarkeRArm
+    - id: ClarkeTreads
+    - id: ClarkeCentralElectronics
+    - id: ClarkePeripheralsElectronics
+    - id: MechAirTank
+    - id: MechThruster

@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: constructionGraph
   id: Durand
   start: start
@@ -30,7 +39,7 @@
           data: 3
 
       - tag: DurandCentralControlModule
-        name: durand central control module
+        name: construction-graph-tag-durand-central-control-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "mainboard"
@@ -47,7 +56,7 @@
           data: 5
 
       - tag: DurandPeripheralsControlModule
-        name: durand peripherals control module
+        name: construction-graph-tag-durand-peripherals-control-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: id_mod
@@ -64,7 +73,7 @@
           data: 7
 
       - tag: DurandTargetingControlModule
-        name: durand weapon control and targeting module
+        name: construction-graph-tag-durand-targeting-control-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: mcontroller
@@ -80,11 +89,8 @@
           key: "enum.MechAssemblyVisuals.State"
           data: 9
 
-      - tag: CapacitorStockPart
-        name: capacitor
-        icon:
-          sprite: Objects/Misc/stock_parts.rsi
-          state: capacitor
+      - material: Manipulator
+        amount: 1
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
@@ -98,7 +104,7 @@
           data: 11
 
       - component: PowerCell
-        name: power cell
+        name: construction-graph-component-power-cell
         store: battery-container
         icon:
           sprite: Objects/Power/power_cells.rsi
@@ -137,7 +143,7 @@
           data: 16
 
       - tag: MechAirTank
-        name: exosuit air tank
+        name: construction-graph-tag-exosuit-air-tank
         icon:
           sprite: Objects/Specific/Mech/mecha_equipment.rsi
           state: mecha_air_tank
@@ -146,7 +152,7 @@
         doAfter: 1
 
       - tag: MechThruster
-        name: exosuit thruster
+        name: construction-graph-tag-exosuit-thruster
         icon:
           sprite: Objects/Specific/Mech/mecha_equipment.rsi
           state: mecha_bin
@@ -155,7 +161,7 @@
         doAfter: 1
 
       - tag: DurandArmor
-        name: durand armor plates
+        name: construction-graph-tag-durand-armor
         icon:
           sprite: "_Goobstation/Objects/Specific/Mech/durand_construction.rsi"
           state: durand_armor

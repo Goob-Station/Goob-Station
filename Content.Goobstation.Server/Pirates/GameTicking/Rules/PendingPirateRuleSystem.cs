@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 amogus <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Chat.Systems;
@@ -6,6 +16,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Cargo;
+using Content.Shared.Cargo.Components;
 using Content.Shared.Dataset;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
@@ -38,9 +49,11 @@ public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPira
                 // remove spawned order.
                 AllEntityQuery<BecomesStationComponent, StationMemberComponent>().MoveNext(out var eqData, out _, out _);
                 var station = _station.GetOwningStation(eqData);
+                if (!TryComp<StationBankAccountComponent>(station, out var bank))
+                    return;
                 if (station != null && _cargo.TryGetOrderDatabase(station, out var cargoDb) && pending.Order != null)
                 {
-                    _cargo.RemoveOrder(station.Value, pending.Order.OrderId, cargoDb);
+                    _cargo.RemoveOrder(station.Value, bank.PrimaryAccount, pending.Order.OrderId, cargoDb);
                 }
 
                 SendAnnouncement((uid, pending), AnnouncementType.Arrival);
@@ -65,8 +78,11 @@ public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPira
         if (_cargo.TryGetOrderDatabase(station, out var cargoDb))
         {
             var price = 25000;
-            if (TryComp<StationBankAccountComponent>(station, out var bank))
-                price = _rand.Next((int) (bank.Balance * 0.75f), bank.Balance);
+            if (!TryComp<StationBankAccountComponent>(station, out var bank))
+                return;
+
+            var balance = _cargo.GetBalanceFromAccount((station.Value, bank), bank.PrimaryAccount);
+            price = _rand.Next((int) (balance * 0.75f), (int) (balance * 1.25f));
 
             var orderId = CargoSystem.GenerateOrderId(cargoDb) + 1984;
 
@@ -74,11 +90,11 @@ public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPira
             var reason = Loc.GetString($"pirates-ransom-{announcer}-desc", ("num", price));
             var requester = Loc.GetString($"pirates-announcer-{announcer}");
 
-            var ransom = new CargoOrderData(orderId, component.RansomPrototype, name, price, 1, requester, reason, 30);
+            var ransom = new CargoOrderData(orderId, component.RansomPrototype, name, price, 1, requester, reason, bank.PrimaryAccount, 30);
 
             component.Order = ransom;
 
-            _cargo.TryAddOrder(station.Value, ransom, cargoDb);
+            _cargo.TryAddOrder(station.Value, bank.PrimaryAccount, ransom, cargoDb);
         }
 
         SendAnnouncement((uid, component), AnnouncementType.Threat);

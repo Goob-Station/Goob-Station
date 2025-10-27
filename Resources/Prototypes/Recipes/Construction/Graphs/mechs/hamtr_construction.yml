@@ -1,4 +1,11 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: Hamtr
   start: start
   graph:
@@ -34,7 +41,7 @@
           data: 4
 
       - tag: HamtrCentralControlModule
-        name: HAMTR central control module
+        name: construction-graph-tag-hamtr-central-control-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "mainboard"
@@ -51,7 +58,7 @@
           data: 6
 
       - tag: HamtrPeripheralsControlModule
-        name: HAMTR peripherals control module
+        name: construction-graph-tag-hamtr-peripherals-control-module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: id_mod
@@ -71,7 +78,7 @@
 #currently mechs don't support upgrading. add them back in once that's squared away.
 
       - component: PowerCell
-        name: power cell
+        name: construction-graph-component-power-cell
         store: battery-container
         icon:
           sprite: Objects/Power/power_cells.rsi

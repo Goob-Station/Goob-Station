@@ -1,4 +1,10 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
   id: BaseClockworkWindoor
   name: clockwork windoor
   parent: BaseWindoor
@@ -6,6 +12,7 @@
   components:
   - type: Sprite
     sprite: Structures/Doors/Windoors/clockwork_windoor.rsi
+  - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
@@ -23,8 +30,8 @@
             min: 1
             max: 2
           SheetBrass1:
-            min: 2
-            max: 4
+            min: 0
+            max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Construction

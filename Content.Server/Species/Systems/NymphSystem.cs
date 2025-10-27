@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LankLTE <135308300+LankLTE@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Mind;
 using Content.Shared.Species.Components;
 using Content.Shared.Body.Events;
@@ -35,7 +42,7 @@ public sealed partial class NymphSystem : EntitySystem
 
         // Get the organs' position & spawn a nymph there
         var coords = Transform(uid).Coordinates;
-        var nymph = EntityManager.SpawnAtPosition(entityProto.ID, coords);
+        var nymph = SpawnAtPosition(entityProto.ID, coords);
 
         if (HasComp<ZombieComponent>(args.OldBody)) // Zombify the new nymph if old one is a zombie
             _zombie.ZombifyEntity(nymph);

@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 RieBi <42877671+RieBi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - files: ["bullet_meat1.ogg", "bullet_meat2.ogg", "bullet_meat3.ogg", "bullet_meat4.ogg", "energy_meat1.ogg", "energy_meat2.ogg", "energy_metal1.ogg", "energy_metal2.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from Citadel Station 13. Remixed to mono where it was stereo by metalgearsloth"

@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: gameMap
   id: MeteorArena
   mapName: Meteor Arena
@@ -9,6 +16,20 @@
       components:
         - type: StationNameSetup
           mapNameTemplate: "Meteor Arena"
+        - type: StationJobs
+          availableJobs:
+            Passenger: [ -1, -1 ]
+- type: gameMap
+  id: dm01-entryway
+  mapName: DM01 Entryway
+  mapPath: /Maps/_Goobstation/Nonstations/dm01-entryway.yml #goobstation - no more shitty deathmatch in a dark
+  minPlayers: 0
+  stations:
+    dm01-entryway:
+      stationProto: StandardStationArena
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "DM01 Entryway"
         - type: StationJobs
           availableJobs:
             Passenger: [ -1, -1 ]

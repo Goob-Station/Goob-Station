@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Jeff <velcroboy333@hotmail.com>
+# SPDX-FileCopyrightText: 2024 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 #Spawners
 - type: entity
   id: RandomSmokables
@@ -32,7 +38,7 @@
         state: unlit-icon
   - type: EntityTableSpawner
     table: !type:NestedSelector
-      tableId: SoakedSmokesTable
+      tableId: RandomSoakedSmokeTable
 
 #Tables
 - type: entityTable
@@ -70,39 +76,11 @@
         - id: Joint
         - id: JointRainbow
           weight: 0.5
-        - id: Blunt
+        - id: BluntCigar # Shitmed Change
         - id: BluntRainbow
           weight: 0.5
       - !type:GroupSelector
         children:
-        - id: CigPackMixedMedical
         - id: CigPackMixed
-        - id: CigPackMixedNasty
       - id: CigarGold
         weight: 0.10
-
-- type: entityTable
-  id: SoakedSmokesTable
-  table: !type:GroupSelector
-    children:
-      - id: CigaretteOmnizine
-      - id: CigaretteIron
-      - id: CigaretteDylovene
-      - id: CigaretteDermaline
-      - id: CigaretteIpecac
-      - id: CigaretteBicaridine
-      - id: CigaretteDexalin
-      - id: CigarettePax
-      - id: CigaretteBbqSauce
-      - id: CigaretteBlackPepper
-      - id: CigaretteOmnizine
-      - id: CigaretteCapsaicinOil
-      - id: CigaretteBread
-      - id: CigaretteMilk
-      - id: CigaretteBanana
-      - id: CigaretteSpaceDrugs
-      - id: CigaretteMuteToxin
-      - id: CigaretteMold
-      - id: CigaretteLicoxide
-      - id: CigaretteWeldingFuel
-      - id: CigaretteTHC

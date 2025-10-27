@@ -1,3 +1,21 @@
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 deltanedas <deltanedas@laptop>
+// SPDX-FileCopyrightText: 2023 deltanedas <user@zenith>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Saphire <lattice@saphi.re>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Administration.Logs;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
@@ -22,7 +40,7 @@ namespace Content.Shared.Emag.Systems;
 public sealed class EmagSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
+    [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -53,9 +71,9 @@ public sealed class EmagSystem : EntitySystem
     }
 
     /// <summary>
-    /// Does the emag effect on a specified entity
+    /// Does the emag effect on a specified entity with a specified EmagType. The optional field customEmagType can be used to override the emag type defined in the component.
     /// </summary>
-    public bool TryEmagEffect(Entity<EmagComponent?> ent, EntityUid user, EntityUid target)
+    public bool TryEmagEffect(Entity<EmagComponent?> ent, EntityUid user, EntityUid target, EmagType? customEmagType = null)
     {
         if (!Resolve(ent, ref ent.Comp, false))
             return false;
@@ -63,8 +81,8 @@ public sealed class EmagSystem : EntitySystem
         if (_tag.HasTag(target, ent.Comp.EmagImmuneTag))
             return false;
 
-        TryComp<LimitedChargesComponent>(ent, out var charges);
-        if (_charges.IsEmpty(ent, charges))
+        Entity<LimitedChargesComponent?> chargesEnt = ent.Owner;
+        if (_sharedCharges.IsEmpty(chargesEnt))
         {
             _popup.PopupClient(Loc.GetString("emag-no-charges"), user, user);
             return false;
@@ -76,26 +94,29 @@ public sealed class EmagSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("emag-attempt-failed", ("tool", ent)), user, user);
             return false;
         }
+        // Shitmed end
+
+        var typeToUse = customEmagType ?? ent.Comp.EmagType;
 
         var emaggedEvent = new GotEmaggedEvent(user, ent.Comp.EmagType, EmagUid: ent);
         RaiseLocalEvent(target, ref emaggedEvent);
         if (!emaggedEvent.Handled)
             return false;
 
-        _popup.PopupPredicted(Loc.GetString("emag-success", ("target", Identity.Entity(target, EntityManager))), user, user, PopupType.Medium);
+        _popup.PopupPredicted(Loc.GetString(ent.Comp.SuccessText, ("target", Identity.Entity(target, EntityManager))), user, user, PopupType.Medium); // Goobstation - Success text de-hardcoded
 
         _audio.PlayPredicted(ent.Comp.EmagSound, ent, ent);
 
-        _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(user):player} emagged {ToPrettyString(target):target} with flag(s): {ent.Comp.EmagType}");
+        _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(user):player} emagged {ToPrettyString(target):target} with flag(s): {typeToUse}");
 
-        if (charges != null  && emaggedEvent.Handled)
-            _charges.UseCharge(ent, charges);
+        if (emaggedEvent.Handled)
+            _sharedCharges.TryUseCharge(chargesEnt);
 
         if (!emaggedEvent.Repeatable)
         {
             EnsureComp<EmaggedComponent>(target, out var emaggedComp);
 
-            emaggedComp.EmagType |= ent.Comp.EmagType;
+            emaggedComp.EmagType |= typeToUse;
             Dirty(target, emaggedComp);
         }
 
@@ -137,9 +158,10 @@ public sealed class EmagSystem : EntitySystem
 
 [Flags]
 [Serializable, NetSerializable]
-public enum EmagType : byte
+public enum EmagType
 {
     None = 0,
+    All = ~None,
     Interaction = 1 << 1,
     Access = 1 << 2
 }

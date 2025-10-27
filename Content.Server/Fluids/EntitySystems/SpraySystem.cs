@@ -1,20 +1,70 @@
+// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2022 TekuNut <13456422+TekuNut@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Golinth <amh2023@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+// SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Fluids.Components;
 using Content.Server.Gravity;
 using Content.Server.Popups;
-using Content.Shared.FixedPoint;
+using Content.Shared.CCVar;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Interaction;
 using Content.Shared.Timing;
 using Content.Shared.Vapor;
-using Content.Shared.Chemistry.EntitySystems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using System.Numerics;
 using Robust.Shared.Map;
+using Content.Shared.Inventory; // Assmos - Extinguisher Nozzle
+using Content.Shared.Whitelist; // Assmos - Extinguisher Nozzle
+using Content.Shared.Hands.EntitySystems; // Assmos - Extinguisher Nozzle
+using Content.Goobstation.Shared.OfficeChair; // Goobstation - Vehicle Spray Pushback (Office chairs)
 
 namespace Content.Server.Fluids.EntitySystems;
 
@@ -30,6 +80,13 @@ public sealed class SpraySystem : EntitySystem
     [Dependency] private readonly VaporSystem _vapor = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!; // Assmos - Extinguisher Nozzle
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; // Assmos - Extinguisher Nozzle
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!; // Assmos - Extinguisher Nozzle
+    [Dependency] private readonly SprayPushableVehicleSystem _sprayPushSys = default!; // Goobstation - Vehicle Spray Pushback (Office chairs)
+
+    private float _gridImpulseMultiplier;
 
     public override void Initialize()
     {
@@ -37,6 +94,7 @@ public sealed class SpraySystem : EntitySystem
 
         SubscribeLocalEvent<SprayComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<SprayComponent, UserActivateInWorldEvent>(OnActivateInWorld);
+        Subs.CVar(_cfg, CCVars.GridImpulseMultiplier, UpdateGridMassMultiplier, true);
     }
 
     private void OnActivateInWorld(Entity<SprayComponent> entity, ref UserActivateInWorldEvent args)
@@ -49,6 +107,11 @@ public sealed class SpraySystem : EntitySystem
         var targetMapPos = _transform.GetMapCoordinates(GetEntityQuery<TransformComponent>().GetComponent(args.Target));
 
         Spray(entity, args.User, targetMapPos);
+    }
+
+    private void UpdateGridMassMultiplier(float value)
+    {
+        _gridImpulseMultiplier = value;
     }
 
     private void OnAfterInteract(Entity<SprayComponent> entity, ref AfterInteractEvent args)
@@ -65,8 +128,52 @@ public sealed class SpraySystem : EntitySystem
 
     public void Spray(Entity<SprayComponent> entity, EntityUid user, MapCoordinates mapcoord)
     {
-        if (!_solutionContainer.TryGetSolution(entity.Owner, SprayComponent.SolutionName, out var soln, out var solution))
-            return;
+        // Assmos - Extinguisher Nozzle
+        var sprayOwner = entity.Owner;
+        var solutionName = SprayComponent.SolutionName;
+
+        if (entity.Comp.ExternalContainer == true)
+        {
+            bool foundContainer = false;
+
+            // Check held items (exclude nozzle)
+            foreach (var item in _handsSystem.EnumerateHeld(user))
+            {
+                if (item == entity.Owner)
+                {
+                    continue;
+                }
+
+                if (!_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item) &&
+                    _solutionContainer.TryGetSolution(item, SprayComponent.TankSolutionName, out _, out _))
+                {
+                    sprayOwner = item;
+                    solutionName = SprayComponent.TankSolutionName;
+                    foundContainer = true;
+                    break;
+                }
+            }
+
+            // Fall back to target slot
+            if (!foundContainer && _inventory.TryGetContainerSlotEnumerator(user, out var enumerator, entity.Comp.TargetSlot))
+            {
+                while (enumerator.NextItem(out var item))
+                {
+                    if (!_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item) &&
+                        _solutionContainer.TryGetSolution(item, SprayComponent.TankSolutionName, out _, out _))
+                    {
+                        sprayOwner = item;
+                        solutionName = SprayComponent.TankSolutionName;
+                        foundContainer = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (!_solutionContainer.TryGetSolution(sprayOwner, solutionName, out var soln, out var solution)) return;
+        // End of assmos changes
+        //if (!_solutionContainer.TryGetSolution(entity.Owner, SprayComponent.SolutionName, out var soln, out var solution)) return;
 
         var ev = new SprayAttemptEvent(user);
         RaiseLocalEvent(entity, ref ev);
@@ -132,6 +239,8 @@ public sealed class SpraySystem : EntitySystem
                         _physics.ApplyLinearImpulse(user, -impulseDirection.Normalized() * entity.Comp.PushbackAmount, body: body);
                 }
 
+                RaiseLocalEvent(user, new SprayUserImpulseEvent(-impulseDirection.Normalized() * entity.Comp.PushbackAmount)); // Goobstation - Vehicle Spray Pushback (Office chairs)
+
                 _audio.PlayPvs(entity.Comp.SpraySound, entity, entity.Comp.SpraySound.Params.WithVariation(0.125f));
 
                 if (useDelay != null)
@@ -157,6 +266,8 @@ public sealed class SpraySystem : EntitySystem
 
         var amount = Math.Max(Math.Min((solution.Volume / entity.Comp.TransferAmount).Int(), entity.Comp.VaporAmount), 1);
         var spread = entity.Comp.VaporSpread / amount;
+
+        var accumulatedVehiclePush = Vector2.Zero; // Goobstation - Vehicle Spray Pushback (Office chairs)
 
         for (var i = 0; i < amount; i++)
         {
@@ -204,9 +315,27 @@ public sealed class SpraySystem : EntitySystem
             if (TryComp<PhysicsComponent>(user, out var body))
             {
                 if (_gravity.IsWeightless(user, body))
-                    _physics.ApplyLinearImpulse(user, -impulseDirection.Normalized() * entity.Comp.PushbackAmount, body: body);
+                {
+                    // push back the player
+                    _physics.ApplyLinearImpulse(user, -impulseDirection * entity.Comp.PushbackAmount, body: body);
+                }
+                else
+                {
+                    // push back the grid the player is standing on
+                    var userTransform = Transform(user);
+                    if (userTransform.GridUid == userTransform.ParentUid)
+                    {
+                        // apply both linear and angular momentum depending on the player position
+                        // multiply by a cvar because grid mass is currently extremely small compared to all other masses
+                        _physics.ApplyLinearImpulse(userTransform.GridUid.Value, -impulseDirection * _gridImpulseMultiplier * entity.Comp.PushbackAmount, userTransform.LocalPosition);
+                    }
+                }
             }
+
+            accumulatedVehiclePush += -impulseDirection * entity.Comp.PushbackAmount; // Goobstation - Vehicle Spray Pushback (Office chairs)
         }
+
+        RaiseLocalEvent(user, new SprayUserImpulseEvent(accumulatedVehiclePush));  // Goobstation - Vehicle Spray Pushback (Office chairs)
 
         _audio.PlayPvs(entity.Comp.SpraySound, entity, entity.Comp.SpraySound.Params.WithVariation(0.125f));
 

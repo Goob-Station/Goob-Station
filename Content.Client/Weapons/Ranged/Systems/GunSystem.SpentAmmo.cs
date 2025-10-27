@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2024 PoorMansDreams <150595537+PoorMansDreams@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Client.GameObjects;
@@ -29,9 +40,7 @@ public sealed partial class GunSystem
         else
             state = component.State;
 
-        sprite.LayerSetState(AmmoVisualLayers.Base, state);
-        if (sprite.LayerExists(AmmoVisualLayers.Tip)){
-            sprite.RemoveLayer(AmmoVisualLayers.Tip);
-        }
+        _sprite.LayerSetRsiState((uid, sprite), AmmoVisualLayers.Base, state);
+        _sprite.RemoveLayer((uid, sprite), AmmoVisualLayers.Tip, false);
     }
 }

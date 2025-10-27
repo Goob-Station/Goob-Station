@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2024 DEATHB4DEFEAT <77995199+DEATHB4DEFEAT@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 portfiend <109661617+portfiend@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: species
   id: Rodentia
   name: species-name-rodentia
@@ -8,10 +23,19 @@
   markingLimits: MobRodentiaMarkingLimits
   dollPrototype: MobRodentiaDummy
   skinColoration: Hues
-  maleFirstNames: names_rodentia_male
-  femaleFirstNames: names_rodentia_female
-  lastNames: names_rodentia_last
+  maleFirstNames: NamesRodentiaMale
+  femaleFirstNames: NamesRodentiaFemale
+  lastNames: NamesRodentiaLast
   naming: LastFirst
+  # begin Goobstation: port EE height/width sliders
+  sizeRatio: 1.1 # i don't know WHY, but disproportionate rodentia always look weird.
+  minHeight: 0.8
+  defaultHeight: 0.80
+  maxHeight: 1.15
+  minWidth: 0.80
+  defaultWidth: 0.80
+  maxWidth: 1.10
+  # end Goobstation: port EE height/width sliders
 
 - type: speciesBaseSprites
   id: MobRodentiaSprites
@@ -20,7 +44,8 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Chest: MobRodentiaTorso
+    Chest: MobRodentiaChest
+    Groin: MobRodentiaGroin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -43,28 +68,52 @@
     FacialHair:
       points: 1
       required: false
-    Tail:
-      points: 1
-      required: true
-      defaultMarkings: [ RodentiaTailDefault ]
-    Legs:
-      points: 4
-      required: false
-    Arms:
-      points: 4
-      required: false
     Snout:
       points: 1
       required: false
+    Tail: # the cat tail joke, its real *godo*
+      points: 2
+      required: false
+      defaultMarkings: [ RodentiaTailDefault ]
     HeadTop:
-      points: 1
+      points: 8
+      required: false
+    HeadSide:
+      points: 8
       required: true
       defaultMarkings: [ RodentiaHeadTopEarDefault ]
-    HeadSide:
+    Chest:
+      points: 10
+      required: false
+    Underwear:
       points: 1
       required: false
-    Chest:
+    Undershirt:
+      points: 1
+      required: false
+    RightLeg:
       points: 2
+      required: false
+    RightFoot:
+      points: 2
+      required: false
+    LeftLeg:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    RightHand:
+      points: 3
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+    LeftHand:
+      points: 3
       required: false
 
 - type: humanoidBaseSprite
@@ -86,22 +135,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobRodentiaTorso
+  id: MobRodentiaChest
   baseSprite:
     sprite: _DV/Mobs/Species/Rodentia/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobRodentiaTorsoMale
+  id: MobRodentiaChestMale
   baseSprite:
     sprite: _DV/Mobs/Species/Rodentia/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobRodentiaTorsoFemale
+  id: MobRodentiaChestFemale
   baseSprite:
     sprite: _DV/Mobs/Species/Rodentia/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobRodentiaGroin
+  baseSprite:
+    sprite: _DV/Mobs/Species/Rodentia/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobRodentiaGroinMale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Rodentia/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobRodentiaGroinFemale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Rodentia/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobRodentiaLLeg

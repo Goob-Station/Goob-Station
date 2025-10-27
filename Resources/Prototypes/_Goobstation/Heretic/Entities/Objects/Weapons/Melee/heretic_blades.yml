@@ -1,9 +1,31 @@
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
-  parent: [ BaseItem, BaseMagicContraband ]
-  id: HereticBladeBase
+  parent: [ BaseItem, BaseMagicalContraband ]
+  id: HereticBladeBaseNoTeleport
+  abstract: true
   name: eldritch blade
   description: A sickly green crescent blade, decorated with an ornamental eye. You feel like you're being watched...
   components:
+  - type: UnholyItem
   - type: HereticBlade
   - type: Sharp
   - type: Sprite
@@ -17,16 +39,13 @@
     wideAnimationRotation: -125
     damage:
       types:
-        Slash: 17.5
+        Slash: 20
+      armorPenetration: 0.3
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     size: Normal
-    sprite: _Goobstation/Heretic/Blades/eldritch_blade-inhand.rsi
-  - type: RandomTeleport
-    radius:
-      min: 10
-      max: 100
+    sprite: _Goobstation/Heretic/Blades/eldritch_blade-inhands.rsi
   - type: Scalpel
     speed: 1.5
   - type: BoneSaw
@@ -34,6 +53,20 @@
   - type: Tag
     tags:
     - HereticItem
+    - HereticBlade
+
+- type: entity
+  id: BaseRandomTeleportBlade
+  abstract: true
+  components:
+  - type: RandomTeleport
+    radius:
+      min: 10
+      max: 100
+
+- type: entity
+  parent: [ HereticBladeBaseNoTeleport, BaseRandomTeleportBlade ]
+  id: HereticBladeBase
 
 - type: entity
   parent: HereticBladeBase
@@ -49,11 +82,8 @@
     state: icon
   - type: Item
     sprite: _Goobstation/Heretic/Blades/blade_ash-inhand.rsi
-  - type: MeleeWeapon
-    damage:
-      types:
-        Heat: 10
-        Slash: 7.5
+  - type: Cautery
+    speed: 1.5
 
 - type: entity
   parent: HereticBladeBase
@@ -66,16 +96,40 @@
     path: Blade
   - type: Sprite
     sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
-    state: icon
+    layers:
+    - state: icon
+      map: [ "base" ]
   - type: Item
     sprite: _Goobstation/Heretic/Blades/blade_blade-inhand.rsi
+  - type: Tag
+    tags:
+    - HereticItem
+    - HereticBlade
+    - HereticBladeBlade
+  - type: Multihit
+    damageMultiplier: 0.75
+    multihitWhitelist:
+      tags:
+      - HereticBladeBlade
+    conditions:
+    - !type:MultihitUserHereticEvent
+      requiredPath: Blade
+      minPathStage: 7
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.InfusedBladeVisuals.Infused:
+        base:
+          False: { state: icon }
+          True: { state: infused }
 
+# Ghoul blade (cannot teleport)
 - type: entity
-  parent: HereticBladeBase
-  id: HereticBladeFlesh
-  name: bloody blade
+  parent: HereticBladeBaseNoTeleport
+  id: HereticBladeFleshGhoul
+  name: ghoul blade
   description: A crescent blade born from a fleshwarped creature. Keenly aware, it seeks to spread to others the suffering it has endured from its dreadful origins.
-  suffix: Flesh
+  suffix: Flesh ghoul
   components:
   - type: HereticBlade
     path: Flesh
@@ -84,6 +138,12 @@
     state: icon
   - type: Item
     sprite: _Goobstation/Heretic/Blades/blade_flesh-inhand.rsi
+
+- type: entity
+  parent: [HereticBladeFleshGhoul, BaseRandomTeleportBlade]
+  id: HereticBladeFlesh
+  name: bloody blade
+  suffix: Flesh
 
 - type: entity
   parent: HereticBladeBase
@@ -129,8 +189,18 @@
     state: icon
   - type: Item
     sprite: _Goobstation/Heretic/Blades/blade_void-inhand.rsi
-  - type: MeleeWeapon
-    damage:
-      types:
-        Cold: 10
-        Slash: 7.5
+
+- type: entity
+  parent: HereticBladeBase
+  id: HereticBladeCosmos
+  name: cosmic blade
+  description: A mote of celestial resonance, shaped into a star-woven blade. An iridescent exile, carving radiant trails, desperately seeking unification.
+  suffix: Cosmos
+  components:
+  - type: HereticBlade
+    path: Cosmos
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Blades/blade_cosmos.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Heretic/Blades/blade_cosmos-inhand.rsi

@@ -1,8 +1,24 @@
+# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Sam Weaver <weaversam8@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Waylon Cude <waylon.cude@finzdani.net>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 ike709 <ike709@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: reagent
   id: BaseDrink
   group: Drinks
   abstract: true
-  slippery: true
+  slipData:
+    requiredSlipSpeed: 3.5
   metabolisms:
     Drink:
       effects:
@@ -37,15 +53,16 @@
   - !type:PlantAdjustHealth
     amount: -0.1
   footstepSound:
-    collection: FootstepSticky
-    params:
-      volume: 6
+    collection: FootstepSlime
   fizziness: 0.5
 
 - type: reagent
   id: BaseAlcohol
   group: Drinks
   abstract: true
+  slipData:
+    requiredSlipSpeed: 3.5
+  friction: 0.4
   metabolisms:
     Drink:
       effects:
@@ -74,6 +91,4 @@
   abstract: true
   flavor: sweet
   footstepSound:
-    collection: FootstepSticky
-    params:
-      volume: 6
+    collection: FootstepSlime

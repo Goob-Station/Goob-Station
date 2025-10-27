@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using JetBrains.Annotations;
@@ -9,6 +22,7 @@ namespace Content.Client.PowerCell;
 public sealed class PowerCellSystem : SharedPowerCellSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -44,20 +58,18 @@ public sealed class PowerCellSystem : SharedPowerCellSystem
         if (args.Sprite == null)
             return;
 
-        if (!args.Sprite.TryGetLayer((int) PowerCellVisualLayers.Unshaded, out var unshadedLayer))
+        if (!_sprite.LayerExists((uid, args.Sprite), PowerCellVisualLayers.Unshaded))
             return;
 
-        if (_appearance.TryGetData<byte>(uid, PowerCellVisuals.ChargeLevel, out var level, args.Component))
-        {
-            if (level == 0)
-            {
-                unshadedLayer.Visible = false;
-                return;
-            }
+        // If no appearance data is set, rely on whatever existing sprite state is set being correct.
+        if (!_appearance.TryGetData<byte>(uid, PowerCellVisuals.ChargeLevel, out var level, args.Component))
+            return;
 
-            unshadedLayer.Visible = true;
-            args.Sprite.LayerSetState(PowerCellVisualLayers.Unshaded, $"o{level}");
-        }
+        var positiveCharge = level > 0;
+        _sprite.LayerSetVisible((uid, args.Sprite), PowerCellVisualLayers.Unshaded, positiveCharge);
+
+        if (positiveCharge)
+            _sprite.LayerSetRsiState((uid, args.Sprite), PowerCellVisualLayers.Unshaded, $"o{level}");
     }
 
     private enum PowerCellVisualLayers : byte

@@ -1,27 +1,58 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
+  parent: BaseAction
   id: ActionSwapImplant
   name: Swap
   description: Allows you to swap locations with any living being.
   components:
-  - type: EntityTargetAction
-    checkCanAccess: false
-    raiseOnUser: true
+  - type: Action
     checkCanInteract: false
     useDelay: 60
+    raiseOnUser: true
     itemIconStyle: BigAction
+    icon:
+      sprite: /Textures/_Goobstation/Actions/syndicateswap.rsi
+      state: icon
+  - type: TargetAction
+    checkCanAccess: false
+    range: 15
+  - type: EntityTargetAction
     whitelist:
       requireAll: true
       components:
       - Transform
       - MobState
-    canTargetSelf: false
-    range: 15
-    icon:
-      sprite: /Textures/_Goobstation/Actions/syndicateswap.rsi
-      state: icon
+    canTargetSelf: false 
     event: !type:SwapSpellEvent
       sound:
         path: /Audio/Effects/Lightning/lightningbolt.ogg
       throughWalls: false
   - type: SwapSpell
     allowSecondaryTarget: false
+
+- type: entity
+  parent: BaseAction
+  id: ActionNaniteMend
+  name: Nanite Mender
+  description: Let loose a swarm of nanites to rapidly repair a target entity.
+  components:
+  - type: Action
+    useDelay: 20
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    icon:
+      sprite: /Textures/_Goobstation/Actions/implants/nanitemend.rsi
+      state: icon
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    event: !type:NaniteMendEvent
+

@@ -1,6 +1,23 @@
+# SPDX-FileCopyrightText: 2023 Bixkitts <72874643+Bixkitts@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 HighTechPuddle <131694215+HighTechPuddle@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Vyacheslav Titov <rincew1nd@ya.ru>
+# SPDX-FileCopyrightText: 2023 Титов Вячеслав Витальевич <rincew1nd@yandex.ru>
+# SPDX-FileCopyrightText: 2024 Zachary Higgs <compgeek223@gmail.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - files: ["nukeops_start.ogg, traitor_start.ogg", "headrev_start.ogg", "emagged_borg.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from TG station"
+  source: "https://github.com/tgstation/tgstation/commit/827967c9650c23af64280ad1491405fed8f644c5#diff-6cc910b7cad9ac4333c8d0885fc844746066120b465d8d4ba8f7019169316574"
+- files: ["traitor_wawa.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TG station, edited by FairlySadPanda (Github)"
   source: "https://github.com/tgstation/tgstation/commit/827967c9650c23af64280ad1491405fed8f644c5#diff-6cc910b7cad9ac4333c8d0885fc844746066120b465d8d4ba8f7019169316574"
 - files: ["pirate_start.ogg"]
   license: "CC-BY-NC-SA-3.0"

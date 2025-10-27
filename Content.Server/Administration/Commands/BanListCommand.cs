@@ -1,4 +1,14 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Linq;
 using Content.Server.Administration.BanList;
 using Content.Server.Database;
 using Content.Server.EUI;
@@ -14,9 +24,10 @@ namespace Content.Server.Administration.Commands;
 [AdminCommand(AdminFlags.Ban)]
 public sealed class BanListCommand : LocalizedCommands
 {
+    [Dependency] private readonly IPlayerLocator _locator = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IServerDbManager _dbManager = default!;
     [Dependency] private readonly EuiManager _eui = default!;
-    [Dependency] private readonly IPlayerLocator _locator = default!;
 
     public override string Command => "banlist";
 
@@ -66,8 +77,7 @@ public sealed class BanListCommand : LocalizedCommands
         if (args.Length != 1)
             return CompletionResult.Empty;
 
-        var playerMgr = IoCManager.Resolve<IPlayerManager>();
-        var options = playerMgr.Sessions.Select(c => c.Name).OrderBy(c => c).ToArray();
+        var options = _playerManager.Sessions.Select(c => c.Name).OrderBy(c => c).ToArray();
         return CompletionResult.FromHintOptions(options, Loc.GetString("cmd-banlist-hint"));
     }
 }

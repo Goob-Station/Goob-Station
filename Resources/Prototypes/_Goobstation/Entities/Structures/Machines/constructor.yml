@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 cheetah1984 <davidc71114@gmail.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: StorageBin
+  id: Constructor
+  name: constructor
+  description: The machine putting assistants out of a job, it can build anything using supplied materials.
+  components:
+  # Appearance
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/constructor.rsi
+  # Physics
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+    rotateWhileAnchored: true
+  # Construction
+  - type: Machine
+    board: ConstructorCircuitboard
+  # UI
+  - type: ActivatableUI
+    key: enum.ConstructorUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ConstructorUiKey.Key:
+        type: ConstructorBUI
+  # Constructor
+  - type: Constructor
+  - type: DoAfter
+  - type: StartableMachine
+  - type: DeviceLinkSink
+    ports:
+    - Start
+    - AutoStart
+  - type: DeviceLinkSource
+    ports:
+    - Started
+    - Completed
+    - Failed
+  # Power
+  - type: ApcPowerReceiver
+    powerLoad: 1000

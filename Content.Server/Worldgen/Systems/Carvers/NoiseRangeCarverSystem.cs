@@ -1,4 +1,12 @@
-﻿using Content.Server.Worldgen.Components.Carvers;
+// SPDX-FileCopyrightText: 2023 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Worldgen.Components.Carvers;
 using Content.Server.Worldgen.Systems.Debris;
 
 namespace Content.Server.Worldgen.Systems.Carvers;
@@ -20,7 +28,7 @@ public sealed class NoiseRangeCarverSystem : EntitySystem
     private void OnPrePlaceDebris(EntityUid uid, NoiseRangeCarverComponent component,
         ref PrePlaceDebrisFeatureEvent args)
     {
-        var coords = WorldGen.WorldToChunkCoords(args.Coords.ToMapPos(EntityManager, _transform));
+        var coords = WorldGen.WorldToChunkCoords(_transform.ToMapCoordinates(args.Coords).Position);
         var val = _index.Evaluate(uid, component.NoiseChannel, coords);
 
         foreach (var (low, high) in component.Ranges)
@@ -33,4 +41,3 @@ public sealed class NoiseRangeCarverSystem : EntitySystem
         }
     }
 }
-

@@ -11,6 +11,9 @@
       "name": "raw_prophet"
     },
     {
+      "name": "fire_shark_icon"
+    },
+    {
       "name": "raw_prophet-move",
       "delays":
       [
@@ -43,6 +46,44 @@
     },
     {
       "name": "rust_walker",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "rust_walker-move",
       "directions": 4,
       "delays": [
         [

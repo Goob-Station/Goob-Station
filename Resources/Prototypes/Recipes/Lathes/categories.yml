@@ -1,15 +1,26 @@
+# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Generic
-- type: latheCategory
-  id: Ammo
-  name: lathe-category-ammo
-
 - type: latheCategory
   id: Circuitry
   name: lathe-category-circuitry
 
 - type: latheCategory
+  id: Clothing
+  name: lathe-category-clothing
+
+- type: latheCategory
   id: Lights
   name: lathe-category-lights
+
+- type: latheCategory
+  id: Machines
+  name: lathe-category-machines
 
 - type: latheCategory
   id: Parts
@@ -18,6 +29,10 @@
 - type: latheCategory
   id: Robotics
   name: lathe-category-robotics
+
+- type: latheCategory
+  id: Tiles
+  name: lathe-category-tiles
 
 - type: latheCategory
   id: Tools
@@ -39,6 +54,86 @@
 - type: latheCategory
   id: Materials
   name: lathe-category-materials
+
+# Circuit imprinter
+- type: latheCategory
+  id: Computers
+  name: lathe-category-computers
+
+- type: latheCategory
+  id: Engineering
+  name: lathe-category-engineering
+
+- type: latheCategory
+  id: General
+  name: lathe-category-general
+
+- type: latheCategory
+  id: Medical
+  name: lathe-category-medical
+
+- type: latheCategory
+  id: Research
+  name: lathe-category-research
+
+- type: latheCategory
+  id: Security
+  name: lathe-category-security
+
+- type: latheCategory
+  id: Service
+  name: lathe-category-service
+
+- type: latheCategory
+  id: Supply
+  name: lathe-category-supply
+
+# Cutter machine
+- type: latheCategory
+  id: Concrete
+  name: lathe-category-concrete
+
+- type: latheCategory
+  id: Dark
+  name: lathe-category-dark
+
+- type: latheCategory
+  id: Maints
+  name: lathe-category-maints
+
+- type: latheCategory
+  id: Steel
+  name: lathe-category-steel
+
+- type: latheCategory
+  id: White
+  name: lathe-category-white
+
+- type: latheCategory
+  id: Wood
+  name: lathe-category-wood
+
+- type: latheCategory
+  id: Marble
+  name: lathe-category-marble
+
+# Science
+- type: latheCategory
+  id: Mech
+  name: lathe-category-mechs
+
+# Security TechFab
+- type: latheCategory
+  id: Ammo
+  name: lathe-category-ammo
+
+- type: latheCategory
+  id: Boxes
+  name: lathe-category-boxes
+
+- type: latheCategory
+  id: Magazines
+  name: lathe-category-magazines
 
 # Uniform printer
 - type: latheCategory

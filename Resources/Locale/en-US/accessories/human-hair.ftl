@@ -1,3 +1,24 @@
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Bloody2372 <146976013+Bloody2372@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 KingFroozy <140668342+KingFroozy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 MACMAN2003 <macman2003c@gmail.com>
+# SPDX-FileCopyrightText: 2023 liltenhead <104418166+liltenhead@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Илья Стокалюк <darkelement237@mail.ru>
+# SPDX-FileCopyrightText: 2024 BeeRobynn <robynthewarcrime@proton.me>
+# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Futuristic-OK <141568243+Futuristic-OK@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 RenQ <164364533+ImRenQ@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 UnicornOnLSD <149102472+UnicornOnLSD@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 nao fujiwara <awkwarddryad@gmail.com>
+# SPDX-FileCopyrightText: 2024 ~DreamlyJack~ <148849095+DreamlyJack@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 marking-HumanHairAfro = Afro
 marking-HumanHairAfro2 = Afro 2
 marking-HumanHairBigafro = Afro (Large)
@@ -77,6 +98,7 @@ marking-HumanHairLowfade = Fade (Low)
 marking-HumanHairBaldfade = Fade (Bald)
 marking-HumanHairFeather = Feather
 marking-HumanHairFather = Father
+marking-HumanHairNiko = Niko
 marking-HumanHairSargeant = Flat Top
 marking-HumanHairFlair = Flair
 marking-HumanHairBigflattop = Flat Top (Big)
@@ -163,7 +185,7 @@ marking-HumanHairShorthairg = Short Hair 7
 marking-HumanHair80s = Short Hair 80s
 marking-HumanHairRosa = Short Hair Rosa
 marking-HumanHairB = Shoulder-length Hair
-marking-HumanHairShoulderLengthOverEye = Shoulder-length Over Eye
+marking-HumanHairBAlt = Shoulder-length Hair (Over eye)
 marking-HumanHairSidecut = Sidecut
 marking-HumanHairSkinhead = Skinhead
 marking-HumanHairProtagonist = Slightly Long Hair
@@ -192,7 +214,8 @@ marking-HumanHairUpdo = Updo
 marking-HumanHairVlong = Very Long Hair
 marking-HumanHairLongest = Very Long Hair 2
 marking-HumanHairLongest2 = Very Long Over Eye
-marking-HumanHairVeryshortovereyealternate = Very Short Over Eye
+marking-HumanHairVeryshortovereyealternate = Very Short (Over Eye)
 marking-HumanHairVlongfringe = Very Long with Fringe
 marking-HumanHairVolaju = Volaju
 marking-HumanHairWisp = Wisp
+marking-HumanHairLongWithBangs = Long With Bangs

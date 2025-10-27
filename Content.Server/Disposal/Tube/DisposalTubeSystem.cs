@@ -1,13 +1,41 @@
+// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 Nikolai Korolev <CrafterKolyan@mail.ru>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using System.Text;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Construction.Completions;
-using Content.Server.Disposal.Tube.Components;
-using Content.Server.Disposal.Unit.Components;
-using Content.Server.Disposal.Unit.EntitySystems;
+using Content.Server.Disposal.Unit;
 using Content.Server.Popups;
 using Content.Shared.Destructible;
 using Content.Shared.Disposal.Components;
+using Content.Shared.Disposal.Tube;
+using Content.Shared.Disposal.Unit;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -16,12 +44,10 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
-using static Content.Shared.Disposal.Components.SharedDisposalRouterComponent;
-using static Content.Shared.Disposal.Components.SharedDisposalTaggerComponent;
 
 namespace Content.Server.Disposal.Tube
 {
-    public sealed class DisposalTubeSystem : EntitySystem
+    public sealed class DisposalTubeSystem : SharedDisposalTubeSystem
     {
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
@@ -49,8 +75,8 @@ namespace Content.Server.Disposal.Tube
             SubscribeLocalEvent<DisposalBendComponent, GetDisposalsConnectableDirectionsEvent>(OnGetBendConnectableDirections);
             SubscribeLocalEvent<DisposalBendComponent, GetDisposalsNextDirectionEvent>(OnGetBendNextDirection);
 
-            SubscribeLocalEvent<DisposalEntryComponent, GetDisposalsConnectableDirectionsEvent>(OnGetEntryConnectableDirections);
-            SubscribeLocalEvent<DisposalEntryComponent, GetDisposalsNextDirectionEvent>(OnGetEntryNextDirection);
+            SubscribeLocalEvent<Shared.Disposal.Tube.DisposalEntryComponent, GetDisposalsConnectableDirectionsEvent>(OnGetEntryConnectableDirections);
+            SubscribeLocalEvent<Shared.Disposal.Tube.DisposalEntryComponent, GetDisposalsNextDirectionEvent>(OnGetEntryNextDirection);
 
             SubscribeLocalEvent<DisposalJunctionComponent, GetDisposalsConnectableDirectionsEvent>(OnGetJunctionConnectableDirections);
             SubscribeLocalEvent<DisposalJunctionComponent, GetDisposalsNextDirectionEvent>(OnGetJunctionNextDirection);
@@ -64,13 +90,13 @@ namespace Content.Server.Disposal.Tube
             SubscribeLocalEvent<DisposalTaggerComponent, GetDisposalsConnectableDirectionsEvent>(OnGetTaggerConnectableDirections);
             SubscribeLocalEvent<DisposalTaggerComponent, GetDisposalsNextDirectionEvent>(OnGetTaggerNextDirection);
 
-            Subs.BuiEvents<DisposalRouterComponent>(DisposalRouterUiKey.Key, subs =>
+            Subs.BuiEvents<DisposalRouterComponent>(SharedDisposalRouterComponent.DisposalRouterUiKey.Key, subs =>
             {
                 subs.Event<BoundUIOpenedEvent>(OnOpenRouterUI);
                 subs.Event<SharedDisposalRouterComponent.UiActionMessage>(OnUiAction);
             });
 
-            Subs.BuiEvents<DisposalTaggerComponent>(DisposalTaggerUiKey.Key, subs =>
+            Subs.BuiEvents<DisposalTaggerComponent>(SharedDisposalTaggerComponent.DisposalTaggerUiKey.Key, subs =>
             {
                 subs.Event<BoundUIOpenedEvent>(OnOpenTaggerUI);
                 subs.Event<SharedDisposalTaggerComponent.UiActionMessage>(OnUiAction);
@@ -104,7 +130,7 @@ namespace Content.Server.Disposal.Tube
         /// <param name="msg">A user interface message from the client.</param>
         private void OnUiAction(EntityUid uid, DisposalRouterComponent router, SharedDisposalRouterComponent.UiActionMessage msg)
         {
-            if (!EntityManager.EntityExists(msg.Actor))
+            if (!Exists(msg.Actor))
                 return;
 
             if (TryComp<PhysicsComponent>(uid, out var physBody) && physBody.BodyType != BodyType.Static)
@@ -161,12 +187,12 @@ namespace Content.Server.Disposal.Tube
             args.Next = previousDF == ev.Connectable[0] ? ev.Connectable[1] : ev.Connectable[0];
         }
 
-        private void OnGetEntryConnectableDirections(EntityUid uid, DisposalEntryComponent component, ref GetDisposalsConnectableDirectionsEvent args)
+        private void OnGetEntryConnectableDirections(EntityUid uid, Shared.Disposal.Tube.DisposalEntryComponent component, ref GetDisposalsConnectableDirectionsEvent args)
         {
             args.Connectable = new[] { Transform(uid).LocalRotation.GetDir() };
         }
 
-        private void OnGetEntryNextDirection(EntityUid uid, DisposalEntryComponent component, ref GetDisposalsNextDirectionEvent args)
+        private void OnGetEntryNextDirection(EntityUid uid, Shared.Disposal.Tube.DisposalEntryComponent component, ref GetDisposalsNextDirectionEvent args)
         {
             // Ejects contents when they come from the same direction the entry is facing.
             if (args.Holder.PreviousDirectionFrom != Direction.Invalid)
@@ -283,10 +309,10 @@ namespace Content.Server.Disposal.Tube
 
         private void OnOpenTaggerUI(EntityUid uid, DisposalTaggerComponent tagger, BoundUIOpenedEvent args)
         {
-            if (_uiSystem.HasUi(uid, DisposalTaggerUiKey.Key))
+            if (_uiSystem.HasUi(uid, SharedDisposalTaggerComponent.DisposalTaggerUiKey.Key))
             {
-                _uiSystem.SetUiState(uid, DisposalTaggerUiKey.Key,
-                    new DisposalTaggerUserInterfaceState(tagger.Tag));
+                _uiSystem.SetUiState(uid, SharedDisposalTaggerComponent.DisposalTaggerUiKey.Key,
+                    new SharedDisposalTaggerComponent.DisposalTaggerUserInterfaceState(tagger.Tag));
             }
         }
 
@@ -298,7 +324,7 @@ namespace Content.Server.Disposal.Tube
         {
             if (router.Tags.Count <= 0)
             {
-                _uiSystem.SetUiState(uid, DisposalRouterUiKey.Key, new DisposalRouterUserInterfaceState(""));
+                _uiSystem.SetUiState(uid, SharedDisposalRouterComponent.DisposalRouterUiKey.Key, new SharedDisposalRouterComponent.DisposalRouterUserInterfaceState(""));
                 return;
             }
 
@@ -312,7 +338,7 @@ namespace Content.Server.Disposal.Tube
 
             taglist.Remove(taglist.Length - 2, 2);
 
-            _uiSystem.SetUiState(uid, DisposalRouterUiKey.Key, new DisposalRouterUserInterfaceState(taglist.ToString()));
+            _uiSystem.SetUiState(uid, SharedDisposalRouterComponent.DisposalRouterUiKey.Key, new SharedDisposalRouterComponent.DisposalRouterUserInterfaceState(taglist.ToString()));
         }
 
         private void OnAnchorChange(EntityUid uid, DisposalTubeComponent component, ref AnchorStateChangedEvent args)
@@ -419,24 +445,24 @@ namespace Content.Server.Disposal.Tube
             _popups.PopupEntity(Loc.GetString("disposal-tube-component-popup-directions-text", ("directions", directions)), tubeId, recipient);
         }
 
-        public bool TryInsert(EntityUid uid, DisposalUnitComponent from, IEnumerable<string>? tags = default, DisposalEntryComponent? entry = null)
+        public override bool TryInsert(EntityUid uid, DisposalUnitComponent from, IEnumerable<string>? tags = default, DisposalEntryComponent? entry = null)
         {
             if (!Resolve(uid, ref entry))
                 return false;
 
             var xform = Transform(uid);
-            var holder = Spawn(DisposalEntryComponent.HolderPrototypeId, _transform.GetMapCoordinates(uid, xform: xform));
+            var holder = Spawn(entry.HolderPrototypeId, _transform.GetMapCoordinates(uid, xform: xform));
             var holderComponent = Comp<DisposalHolderComponent>(holder);
 
             foreach (var entity in from.Container.ContainedEntities.ToArray())
             {
-                _disposableSystem.TryInsert(holder, entity, holderComponent);
+                _containerSystem.Insert(entity, holderComponent.Container);
             }
 
             _atmosSystem.Merge(holderComponent.Air, from.Air);
             from.Air.Clear();
 
-            if (tags != default)
+            if (tags != null)
                 holderComponent.Tags.UnionWith(tags);
 
             return _disposableSystem.EnterTube(holder, uid, holderComponent);

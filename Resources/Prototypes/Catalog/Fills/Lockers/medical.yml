@@ -1,74 +1,112 @@
-- type: entity
-  id: LockerMedicineFilled
-  suffix: Filled
-  parent: LockerMedicine
-  components:
-  - type: StorageFill
-    contents:
-      - id: BoxSyringe
-      - id: EpinephrineChemistryBottle
-        amount: 1
-      - id: Brutepack
-        amount: 2
-      - id: Ointment
-        amount: 2
-      - id: Bloodpack
-        amount: 2
-      - id: Gauze
+# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Illiux <newoutlook@gmail.com>
+# SPDX-FileCopyrightText: 2022 Lamrr <96937466+Lamrr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2023 AJCM <AJCM@tutanota.com>
+# SPDX-FileCopyrightText: 2023 Alekshhh <44923899+Alekshhh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 ChilbroBaggins <107660393+ChilbroBaggins@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Jeff <velcroboy333@hotmail.com>
+# SPDX-FileCopyrightText: 2023 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 MagnusCrowe <whiterider1988@yahoo.com>
+# SPDX-FileCopyrightText: 2023 Maxtone <124747282+MagnusCrowe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk228 <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nim <128169402+Nimfar11@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PoorMansDreams <150595537+PoorMansDreams@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Minemoder5000 <minemoder50000@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Radezolid <snappednexus@gmail.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+- type: entityTable
+  id: LockerFillMedicine
+  table: !type:AllSelector
+    children:
+    - id: BoxSyringe
+    - id: ChemistryBottleEpinephrine
+    - id: Brutepack
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: Ointment
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: Bloodpack
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: Gauze
 
 - type: entity
+  parent: LockerMedicine
+  id: LockerMedicineFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillMedicine
+
+- type: entity
+  parent: LockerWallMedical
   id: LockerWallMedicalFilled
   name: medicine wall locker
   suffix: Filled
-  parent: LockerWallMedical
   components:
-  - type: StorageFill
-    contents:
-      - id: BoxSyringe
-      - id: EpinephrineChemistryBottle
-        amount: 1
-      - id: Brutepack
-        amount: 2
-      - id: Ointment
-        amount: 2
-      - id: Bloodpack
-        amount: 2
-      - id: Gauze
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillMedicine
 
+- type: entityTable
+  id: LockerFillMedicalDoctor
+  table: !type:AllSelector
+    children:
+    - id: HandheldHealthAnalyzer
+      prob: 0.6
+    - id: ClothingHeadMirror
+      prob: 0.1
+    - id: ClothingHandsGlovesLatex
+    - id: ClothingHeadsetMedical
+    - id: ClothingEyesHudMedical
+    - !type:GroupSelector
+      children:
+      - id: ClothingHeadHatSurgcapGreen
+        weight: 0.1
+      - id: ClothingHeadHatSurgcapPurple
+        weight: 0.05
+      - id: ClothingHeadHatSurgcapBlue
+        weight: 0.90
+    - !type:GroupSelector
+      children:
+      - id: UniformScrubsColorBlue
+        weight: 0.5
+      - id: UniformScrubsColorGreen
+        weight: 0.1
+      - id: UniformScrubsColorPurple
+        weight: 0.05
+    - id: ClothingMaskSterile
 
 - type: entity
+  parent: LockerMedical
   id: LockerMedicalFilled
   suffix: Filled
-  parent: LockerMedical
   components:
-  - type: StorageFill
-    contents:
-      - id: HandheldHealthAnalyzer
-        prob: 0.6
-      - id: ClothingHeadMirror
-        prob: 0.1
-      - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
-      - id: ClothingEyesHudMedical
-      - id: ClothingHeadHatSurgcapGreen
-        prob: 0.1
-        orGroup: Surgcaps
-      - id: ClothingHeadHatSurgcapPurple
-        prob: 0.05
-        orGroup: Surgcaps
-      - id: ClothingHeadHatSurgcapBlue
-        prob: 0.90
-        orGroup: Surgcaps
-      - id: UniformScrubsColorBlue
-        prob: 0.5
-        orGroup: Surgshrubs
-      - id: UniformScrubsColorGreen
-        prob: 0.1
-        orGroup: Surgshrubs
-      - id: UniformScrubsColorPurple
-        prob: 0.05
-        orGroup: Surgshrubs
-      - id: ClothingMaskSterile
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillMedicalDoctor
 
 - type: entity
   parent: LockerWallMedical
@@ -76,63 +114,68 @@
   name: medical doctor's wall locker
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: HandheldHealthAnalyzer
-        prob: 0.6
-      - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
-      - id: ClothingEyesHudMedical
-      - id: ClothingHeadHatSurgcapGreen
-        prob: 0.1
-        orGroup: Surgcaps
-      - id: ClothingHeadHatSurgcapPurple
-        prob: 0.05
-        orGroup: Surgcaps
-      - id: ClothingHeadHatSurgcapBlue
-        prob: 0.90
-        orGroup: Surgcaps
-      - id: UniformScrubsColorBlue
-        prob: 0.5
-        orGroup: Surgshrubs
-      - id: UniformScrubsColorGreen
-        prob: 0.1
-        orGroup: Surgshrubs
-      - id: UniformScrubsColorPurple
-        prob: 0.05
-        orGroup: Surgshrubs
-      - id: ClothingMaskSterile
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillMedicalDoctor
+
+- type: entityTable
+  id: LockerFillChemistry
+  table: !type:AllSelector
+    children:
+    - id: BoxSyringe
+    - id: BoxBeaker
+    - id: BoxBeaker
+      prob: 0.3
+    - id: BoxPillCanister
+    - id: BoxBottle
+    - id: BoxVial
+    - id: PlasmaChemistryVial
+    - id: ChemBag
+    - id: ClothingHandsGlovesLatex
+    - id: ClothingHeadsetMedical
+    - id: ClothingMaskSterile
+    - id: HandLabeler
+      prob: 0.5
 
 - type: entity
+  parent: LockerChemistry
   id: LockerChemistryFilled
   suffix: Filled
-  parent: LockerChemistry
   components:
-  - type: StorageFill
-    contents:
-      - id: BoxSyringe
-      - id: BoxBeaker
-      - id: BoxBeaker
-        prob: 0.3
-      - id: BoxPillCanister
-      - id: BoxBottle
-      - id: BoxVial
-      - id: PlasmaChemistryVial
-      - id: ChemBag
-      - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
-      - id: ClothingMaskSterile
-      - id: HandLabeler
-        prob: 0.5
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillChemistry
+
+- type: entityTable
+  id: LockerFillParamedic
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterHardsuitVoidParamed
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterCoatParamedicWB
+    - id: ClothingHeadHatParamedicsoft
+    - id: ClothingOuterWinterPara
+    - id: ClothingUniformJumpsuitParamedic
+    - id: ClothingUniformJumpskirtParamedic
+    - id: ClothingEyesHudMedical
+    - id: ClothingHandsGlovesLatex
+    - id: ClothingHeadsetMedical
+    - id: ClothingMaskSterile
+    - id: HandheldGPSBasic
+    - id: MedkitFilled
+      prob: 0.3
 
 - type: entity
+  parent: LockerParamedic
   id: LockerParamedicFilled
   suffix: Filled
-  parent: LockerParamedic
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterHardsuitVoidParamed
+      - id: UndeterminedVoidsuitParamedic # Goob edit
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
       - id: ClothingOuterCoatParamedicWB

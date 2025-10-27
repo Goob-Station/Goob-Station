@@ -1,5 +1,21 @@
+// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Centronias <charlie.t.santos@gmail.com>
+// SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Chemistry.Components;
-using Content.Shared.FixedPoint;
+using Content.Shared.Chemistry.Reagent;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Fluids.Components;
 
 namespace Content.Server.Fluids.EntitySystems;
@@ -20,7 +36,7 @@ public sealed partial class PuddleSystem
             return;
         }
 
-        if (solution.GetTotalPrototypeQuantity(EvaporationReagents) > FixedPoint2.Zero)
+        if (solution.GetTotalPrototypeQuantity(GetEvaporatingReagents(solution)) > FixedPoint2.Zero)
         {
             var evaporation = AddComp<EvaporationComponent>(uid);
             evaporation.NextTick = _timing.CurTime + EvaporationCooldown;
@@ -45,8 +61,12 @@ public sealed partial class PuddleSystem
             if (!_solutionContainerSystem.ResolveSolution(uid, puddle.SolutionName, ref puddle.Solution, out var puddleSolution))
                 continue;
 
-            var reagentTick = evaporation.EvaporationAmount * EvaporationCooldown.TotalSeconds;
-            puddleSolution.SplitSolutionWithOnly(reagentTick, EvaporationReagents);
+            // Yes, this means that 50u water + 50u holy water evaporates twice as fast as 100u water.
+            foreach ((string evaporatingReagent, FixedPoint2 evaporatingSpeed) in GetEvaporationSpeeds(puddleSolution))
+            {
+                var reagentTick = evaporation.EvaporationAmount * EvaporationCooldown.TotalSeconds * evaporatingSpeed;
+                puddleSolution.SplitSolutionWithOnly(reagentTick, evaporatingReagent);
+            }
 
             // Despawn if we're done
             if (puddleSolution.Volume == FixedPoint2.Zero)

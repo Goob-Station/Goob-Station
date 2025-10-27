@@ -1,4 +1,93 @@
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2022 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2022 Paul <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
+// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 12rabbits <53499656+12rabbits@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Dimastra <65184747+Dimastra@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Dimastra <dimastra@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
+// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
+// SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
+// SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+// SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Diagnostics.CodeAnalysis;
+using System.Linq; // Goob Edit
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -74,7 +163,7 @@ namespace Content.Shared.Containers.ItemSlots
                     continue;
 
                 var item = Spawn(slot.StartingItem, Transform(uid).Coordinates);
-                    
+
                 if (slot.ContainerSlot != null)
                     _containers.Insert(item, slot.ContainerSlot);
             }
@@ -89,6 +178,7 @@ namespace Content.Shared.Containers.ItemSlots
             {
                 slot.ContainerSlot = _containers.EnsureContainer<ContainerSlot>(uid, id);
             }
+            itemSlots.Slots = itemSlots.Slots.OrderByDescending((pair => pair.Value.Priority)).ToDictionary(); //Goob Edit - Ordered lists are good.
         }
 
         /// <summary>
@@ -104,7 +194,7 @@ namespace Content.Shared.Containers.ItemSlots
             {
                 if (existing.Local)
                     Log.Error(
-                        $"Duplicate item slot key. Entity: {EntityManager.GetComponent<MetaDataComponent>(uid).EntityName} ({uid}), key: {id}");
+                        $"Duplicate item slot key. Entity: {Comp<MetaDataComponent>(uid).EntityName} ({uid}), key: {id}");
                 else
                     // server state takes priority
                     slot.CopyFrom(existing);
@@ -135,7 +225,7 @@ namespace Content.Shared.Containers.ItemSlots
             itemSlots.Slots.Remove(slot.ContainerSlot.ID);
 
             if (itemSlots.Slots.Count == 0)
-                EntityManager.RemoveComponent(uid, itemSlots);
+                RemComp(uid, itemSlots);
             else
                 Dirty(uid, itemSlots);
         }
@@ -147,7 +237,7 @@ namespace Content.Shared.Containers.ItemSlots
         {
             itemSlot = null;
 
-            if (!Resolve(uid, ref component))
+            if (!Resolve(uid, ref component, false)) // Goobstation - sane API
                 return false;
 
             return component.Slots.TryGetValue(slotId, out itemSlot);
@@ -209,7 +299,7 @@ namespace Content.Shared.Containers.ItemSlots
             if (args.Handled)
                 return;
 
-            if (!EntityManager.TryGetComponent(args.User, out HandsComponent? hands))
+            if (!TryComp(args.User, out HandsComponent? hands))
                 return;
 
             if (itemSlots.Slots.Count == 0)
@@ -232,6 +322,7 @@ namespace Content.Shared.Containers.ItemSlots
                 if (CanInsert(uid, args.Used, args.User, slot, slot.Swap))
                 {
                     slots.Add(slot);
+                    break; //Goobstation: If an item has multiple ItemSlots, stick with the highest priority and stop looking.
                 }
                 else
                 {
@@ -258,7 +349,7 @@ namespace Content.Shared.Containers.ItemSlots
             }
 
             // Drop the held item onto the floor. Return if the user cannot drop.
-            if (!_handsSystem.TryDrop(args.User, args.Used, handsComp: hands))
+            if (_handsSystem.IsHolding(args.User, args.Used) && !_handsSystem.TryDrop(args.User, args.Used)) // Goobstation - don't try to drop if not holding
                 return;
 
             slots.Sort(SortEmpty);
@@ -398,17 +489,17 @@ namespace Content.Shared.Containers.ItemSlots
             if (!Resolve(user, ref hands, false))
                 return false;
 
-            if (hands.ActiveHand?.HeldEntity is not { } held)
+            if (!_handsSystem.TryGetActiveItem((user, hands), out var held))
                 return false;
 
-            if (!CanInsert(uid, held, user, slot))
+            if (!CanInsert(uid, held.Value, user, slot))
                 return false;
 
             // hands.Drop(item) checks CanDrop action blocker
-            if (!_handsSystem.TryDrop(user, hands.ActiveHand))
+            if (!_handsSystem.TryDrop(user, hands.ActiveHandId!))
                 return false;
 
-            Insert(uid, slot, held, user, excludeUserAudio: excludeUserAudio);
+            Insert(uid, slot, held.Value, user, excludeUserAudio: excludeUserAudio);
             return true;
         }
 
@@ -431,16 +522,14 @@ namespace Content.Shared.Containers.ItemSlots
             if (!Resolve(ent, ref ent.Comp, false))
                 return false;
 
-            TryComp(user, out HandsComponent? handsComp);
-
             if (!TryGetAvailableSlot(ent,
                     item,
-                    user == null ? null : (user.Value, handsComp),
+                    user,
                     out var itemSlot,
                     emptyOnly: true))
                 return false;
 
-            if (user != null && !_handsSystem.TryDrop(user.Value, item, handsComp: handsComp))
+            if (user != null && !_handsSystem.TryDrop(user.Value, item))
                 return false;
 
             Insert(ent, itemSlot, item, user, excludeUserAudio: excludeUserAudio);
@@ -469,7 +558,7 @@ namespace Content.Shared.Containers.ItemSlots
                 && Resolve(user, ref user.Comp)
                 && _handsSystem.IsHolding(user, item))
             {
-                if (!_handsSystem.CanDrop(user, item, user.Comp))
+                if (!_handsSystem.CanDrop(user, item))
                     return false;
             }
 
@@ -705,7 +794,7 @@ namespace Content.Shared.Containers.ItemSlots
 
                 var verbSubject = slot.Name != string.Empty
                     ? Loc.GetString(slot.Name)
-                    : EntityManager.GetComponent<MetaDataComponent>(slot.Item.Value).EntityName ?? string.Empty;
+                    : Comp<MetaDataComponent>(slot.Item.Value).EntityName ?? string.Empty;
 
                 AlternativeVerb verb = new()
                 {

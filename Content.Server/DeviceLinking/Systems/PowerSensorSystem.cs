@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.DeviceLinking.Components;
 using Content.Server.NodeContainer;
 using Content.Server.Power.EntitySystems;
@@ -5,6 +12,7 @@ using Content.Server.Power.Nodes;
 using Content.Server.Power.NodeGroups;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
+using Content.Shared.NodeContainer;
 using Content.Shared.Popups;
 using Content.Shared.Power.Generator;
 using Content.Shared.Timing;

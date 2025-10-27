@@ -1,4 +1,23 @@
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 a.rudenko <creadth@gmail.com>
+// SPDX-FileCopyrightText: 2020 creadth <creadth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos.EntitySystems;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
@@ -16,7 +35,7 @@ namespace Content.Client.UserInterface.Systems.Atmos.GasTank
 
         public void SetOutputPressure(float value)
         {
-            SendMessage(new GasTankSetPressureMessage
+            SendPredictedMessage(new GasTankSetPressureMessage
             {
                 Pressure = value
             });
@@ -24,13 +43,14 @@ namespace Content.Client.UserInterface.Systems.Atmos.GasTank
 
         public void ToggleInternals()
         {
-            SendMessage(new GasTankToggleInternalsMessage());
+            SendPredictedMessage(new GasTankToggleInternalsMessage());
         }
 
         protected override void Open()
         {
             base.Open();
             _window = this.CreateWindow<GasTankWindow>();
+            _window.Entity = Owner;
             _window.SetTitle(EntMan.GetComponent<MetaDataComponent>(Owner).EntityName);
             _window.OnOutputPressure += SetOutputPressure;
             _window.OnToggleInternals += ToggleInternals;
@@ -39,6 +59,12 @@ namespace Content.Client.UserInterface.Systems.Atmos.GasTank
         protected override void UpdateState(BoundUserInterfaceState state)
         {
             base.UpdateState(state);
+
+            if (EntMan.TryGetComponent(Owner, out GasTankComponent? component))
+            {
+                var canConnect = EntMan.System<SharedGasTankSystem>().CanConnectToInternals((Owner, component));
+                _window?.Update(canConnect, component.IsConnected, component.OutputPressure);
+            }
 
             if (state is GasTankBoundUserInterfaceState cast)
                 _window?.UpdateState(cast);

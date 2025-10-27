@@ -1,5 +1,14 @@
+// SPDX-FileCopyrightText: 2023 dahnte <70238020+dahnte@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Redrover1760 <39284090+Redrover1760@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
+using Content.Shared.Speech;
 
 namespace Content.Server.Speech.EntitySystems;
 
@@ -23,10 +32,10 @@ public sealed class FrontalLispSystem : EntitySystem
         var message = args.Message;
 
         // handles ts, sc(i|e|y), c(i|e|y), ps, st(io(u|n)), ch(i|e), z, s
-        message = RegexUpperTh.Replace(message, "TH");
+        message = RegexUpperTh.Replace(message, "Th"); // Goob Edit
         message = RegexLowerTh.Replace(message, "th");
         // handles ex(c), x
-        message = RegexUpperEcks.Replace(message, "EKTH");
+        message = RegexUpperEcks.Replace(message, "Ekth"); // Goob Edit
         message = RegexLowerEcks.Replace(message, "ekth");
 
         args.Message = message;

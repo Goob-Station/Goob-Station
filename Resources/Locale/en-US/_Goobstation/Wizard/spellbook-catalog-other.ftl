@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 spellbook-mime-bundle-name = Mime Wizard Bundle
 spellbook-mime-bundle-desc =
     Contains a set of mime clothes, as well as mime PDA and special mime wizard hat and robes.
@@ -63,3 +70,22 @@ spellbook-magical-lamp-desc =
     After hosting guardian you won't be able to change your species in wizard magic mirror.
     Can only be purchased once.
     Cannot be refunded.
+
+spellbook-bottle-blood-name = Bottle of Blood
+spellbook-bottle-blood-desc =
+    A bottle of magically infused blood, the smell of which will attract extradimensional beings when broken.
+
+    Be careful though, these creatures, called Slaughter Demons, are indiscriminate in their killing,
+    and you yourself may become a victim.
+
+    You need to shatter the bottle to unleash the slaughter demon.
+
+spellbook-bottle-tickles-name = Bottle of Tickles
+spellbook-bottle-tickles-desc =
+    A bottle of magically infused fun, the smell of which will attract adorable extradimensional beings when broken.
+
+    These beings are similar to slaughter demons, but instead put their victims in an extradimensional hugspace,
+    reviving them after the demon dies. Chaotic, but not ultimately damaging.
+    The crew's reaction on the other hand could be very destructive.
+
+    You need to shatter the bottle to unleash the laughter demon.

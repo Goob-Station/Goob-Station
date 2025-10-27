@@ -1,3 +1,126 @@
+# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 M3739 <47579354+M3739@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
+# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
+# SPDX-FileCopyrightText: 2024 JIP <jipdawg93@gmail.com>
+# SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 John Alexander Le Roux <94056103+CMDR-JohnAlex@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mangohydra <156087924+Mangohydra@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nairod <110078045+Nairodian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Naive817 <lyx2020@sjtu.edu.cn>
+# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
+# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 SoulFN <164462467+SoulFN@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ThatGuyUSA <thatguyusa123@gmail.com>
+# SPDX-FileCopyrightText: 2024 TheKittehJesus <29379890+SamGithubAccount@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TruePaInt <113789950+TruePaIntGit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 coolboy911 <85909253+coolboy911@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
+# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+# SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 pigeonpeas <147350443+pigeonpeas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
+# SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Whatstone <whatston3@gmail.com>
+# SPDX-FileCopyrightText: 2025 acatrw <96485972+acatrw@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 acatrw <wispycat07@gmail.com>
+# SPDX-FileCopyrightText: 2025 cheetah1984 <152602630+cheetah1984@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 cheetah1984 <davidc71114@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 mubururu_ <139181059+muburu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: BaseBorgModule
   parent: BaseItem
@@ -7,6 +130,23 @@
   components:
   - type: Item
     storedRotation: -90
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#8FCBCB"
+      - state: base-module-inhand-left
+        color: "#A1A1A1"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#7D7D7D"
+      right:
+      - state: base-icon-inhand-right
+        color: "#8FCBCB"
+      - state: base-module-inhand-right
+        color: "#A1A1A1"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#7D7D7D"
   - type: Sprite
     sprite: Objects/Specific/Robotics/borgmodule.rsi
   - type: BorgModule
@@ -32,13 +172,15 @@
       provided_container: !type:Container { }
 
 - type: entity
+  parent: BaseAction
   id: ActionBorgSwapModule
   name: Swap Module
   description: Select this module, enabling you to use the tools it provides.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: BigAction
     useDelay: 0.5
+  - type: InstantAction
     event: !type:BorgModuleActionSelectedEvent
 
 - type: entity
@@ -49,6 +191,22 @@
   - type: Tag
     tags:
     - BorgModuleCargo
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#EBD8B7"
+      - state: base-module-inhand-left
+        color: "#613D1D"
+      - state: base-stripes-inhand-left
+        color: "#593718"
+      right:
+      - state: base-icon-inhand-right
+        color: "#EBD8B7"
+      - state: base-module-inhand-right
+        color: "#613D1D"
+      - state: base-stripes-inhand-right
+        color: "#593718"
 
 - type: entity
   id: BaseBorgModuleEngineering
@@ -58,6 +216,24 @@
   - type: Tag
     tags:
     - BorgModuleEngineering
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#8FCBCB"
+      - state: base-module-inhand-left
+        color: "#BA3939"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#DEC343"
+      right:
+      - state: base-icon-inhand-right
+        color: "#8FCBCB"
+      - state: base-module-inhand-right
+        color: "#BA3939"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#DEC343"
 
 - type: entity
   id: BaseBorgModuleJanitor
@@ -67,6 +243,24 @@
   - type: Tag
     tags:
     - BorgModuleJanitor
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#CFA2E4"
+      - state: base-module-inhand-left
+        color: "#753186"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#404040"
+      right:
+      - state: base-icon-inhand-right
+        color: "#CFA2E4"
+      - state: base-module-inhand-right
+        color: "#753186"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#404040"
 
 - type: entity
   id: BaseBorgModuleMedical
@@ -76,6 +270,51 @@
   - type: Tag
     tags:
     - BorgModuleMedical
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#EEF5F5"
+      - state: base-module-inhand-left
+        color: "#5A96BB"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#C3C3C3"
+      right:
+      - state: base-icon-inhand-right
+        color: "#EEF5F5"
+      - state: base-module-inhand-right
+        color: "#5A96BB"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#C3C3C3"
+
+- type: entity
+  id: BaseBorgModuleScience
+  parent: BaseBorgModule
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - BorgModuleScience
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#FFAEB6"
+      - state: base-module-inhand-left
+        color: "#9C0DE1"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#C3C3C3"
+      right:
+      - state: base-icon-inhand-right
+        color: "#FFAEB6"
+      - state: base-module-inhand-right
+        color: "#9C0DE1"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#C3C3C3"
 
 - type: entity
   id: BaseBorgModuleService
@@ -85,30 +324,221 @@
   - type: Tag
     tags:
     - BorgModuleService
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#F3F3F3"
+      - state: base-module-inhand-left
+        color: "#3A3A3A"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#313131"
+      right:
+      - state: base-icon-inhand-right
+        color: "#F3F3F3"
+      - state: base-module-inhand-right
+        color: "#3A3A3A"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#313131"
 
 - type: entity
   id: BaseBorgModuleSyndicate
   parent: BaseBorgModule
   abstract: true
   components:
-    - type: Tag
-      tags:
-        - BorgModuleSyndicate
+  - type: Tag
+    tags:
+    - BorgModuleSyndicate
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#FF0000"
+      - state: base-module-inhand-left
+        color: "#891417"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#7B0F12"
+      right:
+      - state: base-icon-inhand-right
+        color: "#FF0000"
+      - state: base-module-inhand-right
+        color: "#891417"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#7B0F12"
+
 
 - type: entity
   id: BaseBorgModuleSyndicateAssault
   parent: BaseBorgModule
   abstract: true
   components:
-    - type: Tag
-      tags:
-        - BorgModuleSyndicateAssault
+  - type: Tag
+    tags:
+    - BorgModuleSyndicateAssault
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#FF0000"
+      - state: base-module-inhand-left
+        color: "#891417"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#7B0F12"
+      right:
+      - state: base-icon-inhand-right
+        color: "#FF0000"
+      - state: base-module-inhand-right
+        color: "#891417"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#7B0F12"
+
+- type: entity
+  abstract: true
+  parent: BaseBorgModule
+  id: BaseXenoborgModuleGeneric
+  components:
+  - type: Tag
+    tags:
+    - XenoborgModuleGeneric
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#6E9EE0"
+      - state: base-module-inhand-left
+        color: "#337dd6"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#337dd6"
+      right:
+      - state: base-icon-inhand-right
+        color: "#6E9EE0"
+      - state: base-module-inhand-right
+        color: "#337dd6"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#337dd6"
+
+- type: entity
+  abstract: true
+  parent: BaseBorgModule
+  id: BaseXenoborgModuleEngi
+  components:
+  - type: Tag
+    tags:
+    - XenoborgModuleEngi
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#6E9EE0"
+      - state: base-module-inhand-left
+        color: "#337dd6"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#EDB45B"
+      right:
+      - state: base-icon-inhand-right
+        color: "#6E9EE0"
+      - state: base-module-inhand-right
+        color: "#337dd6"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#EDB45B"
+
+- type: entity
+  parent: BaseBorgModule
+  id: BaseXenoborgModuleHeavy
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - XenoborgModuleHeavy
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#6E9EE0"
+      - state: base-module-inhand-left
+        color: "#337dd6"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#962023"
+      right:
+      - state: base-icon-inhand-right
+        color: "#6E9EE0"
+      - state: base-module-inhand-right
+        color: "#337dd6"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#962023"
+
+- type: entity
+  parent: BaseBorgModule
+  id: BaseXenoborgModuleScout
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - XenoborgModuleScout
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#6E9EE0"
+      - state: base-module-inhand-left
+        color: "#337dd6"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#282828"
+      right:
+      - state: base-icon-inhand-right
+        color: "#6E9EE0"
+      - state: base-module-inhand-right
+        color: "#337dd6"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#282828"
+
+- type: entity
+  parent: BaseBorgModule
+  id: BaseXenoborgModuleStealth
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - XenoborgModuleStealth
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#6E9EE0"
+      - state: base-module-inhand-left
+        color: "#337dd6"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#FF00CC"
+      right:
+      - state: base-icon-inhand-right
+        color: "#6E9EE0"
+      - state: base-module-inhand-right
+        color: "#337dd6"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#FF00CC"
 
 # generic modules
 - type: entity
   id: BorgModuleCable
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
   name: cable cyborg module
+  description: A universal cyborg module which allows the unit to install and manipulate electrical systems.
   components:
   - type: Sprite
     layers:
@@ -121,6 +551,7 @@
     - CableMVStackLingering10
     - CableHVStackLingering10
     - Wirecutter
+    - Crowbar
     - trayScanner
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: wire-module }
@@ -128,7 +559,8 @@
 - type: entity
   id: BorgModuleFireExtinguisher
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: fire extinguisher cyborg module
+  name: thruster cyborg module
+  description: NT assigned a team to design a jetpack for cyborg units, but they ran out of funding and just made a bigger fire extinguisher. It comes with a integrated GPS and mass scanner though!
   components:
   - type: Sprite
     layers:
@@ -137,42 +569,12 @@
   - type: ItemBorgModule
     moduleId: FireExtinguisher
     items:
-    - FireExtinguisher
+    - BorgFireExtinguisher
+    - BorgHandheldGPSBasic
+    - HandheldStationMapUnpowered
+    #- HandHeldMassScannerBorg # Lavaland Change
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: extinguisher-module }
-
-- type: entity
-  id: BorgModuleGPS
-  parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: GPS cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: generic
-    - state: icon-gps
-  - type: ItemBorgModule
-    moduleId: GPS
-    items:
-    - HandheldGPSBasic
-    #- HandHeldMassScannerBorg - Removed by Lavaland
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: gps-module }
-
-- type: entity
-  id: BorgModuleRadiationDetection
-  parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: radiation detection cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: generic
-    - state: icon-radiation
-  - type: ItemBorgModule
-    moduleId: RadiationDetection
-    items:
-    - GeigerCounter
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: geiger-module }
 
 - type: entity
   id: BorgModuleTool
@@ -192,6 +594,7 @@
     - Wirecutter
     - MultitoolBorg
     - WelderIndustrial
+    - MeleeHammer # Goobstation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: tool-module }
 
@@ -209,6 +612,11 @@
     moduleId: Appraisal
     items:
     - AppraisalTool
+    - Pen
+    - HandLabeler
+    - RubberStampApproved
+    - RubberStampDenied
+    - RadioHandheld
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: appraisal-module }
 
@@ -227,16 +635,43 @@
     - MiningDrill
     # - Shovel # Goobstation
     - MineralScannerUnpowered
-    - OreBag
-    - Crowbar
-    - RadioHandheld
+    - BorgOreBag
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: mining-module }
 
 - type: entity
-  id: BorgModuleGrapplingGun
+  id: BorgModuleAdvancedMining
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: grappling gun cyborg module
+  name: advanced mining cyborg module
+  description: Advanced cargo module containing advanced mining equipment. Studies show it advances productivity of a cyborg by 150%.
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-mining-adv
+  - type: ItemBorgModule
+    moduleId: AdvancedMining
+    items:
+    - MiningDrillDiamond
+    - Shovel
+    - AdvancedMineralScannerUnpowered
+    - OreBagOfHolding
+  # Goob start
+  - type: DroppableBorgModule
+    moduleId: AdvancedMining
+    items:
+    - id: WeaponProtoKineticAccelerator
+      whitelist:
+        components:
+        - PressureDamageChange
+  # Goob end
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-mining-module }
+
+- type: entity
+  id: BorgModuleTraversal
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: traversal cyborg module
   components:
   - type: Sprite
     layers:
@@ -246,7 +681,10 @@
     moduleId: GrapplingGun
     items:
     - WeaponGrapplingGun
-    - HandheldGPSBasic
+    - BorgFireExtinguisher
+    - BorgHandheldGPSBasic
+    # - HandHeldMassScannerBorg # goob - no mass scanners
+    - LavalandJaunterRecharging # Goobstation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: grappling-module }
 
@@ -255,6 +693,7 @@
   id: BorgModuleAdvancedTool
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
   name: advanced tool cyborg module
+  description: Advanced engineering module containing cutting-edge tools.
   components:
   - type: Sprite
     layers:
@@ -265,10 +704,9 @@
     items:
     - JawsOfLife
     - PowerDrill
-    - Multitool
     - WelderExperimental
-    - RemoteSignaller
-    - GasAnalyzer
+    - Multitool
+    - RemoteSignallerAdvanced
     - GeigerCounter
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-tools-module }
@@ -287,8 +725,14 @@
     items:
     - SheetSteelLingering0
     - SheetGlassLingering0
+    - SheetRGlassLingering0
+    - SheetRPGlassLingering0
+    - SheetPlasteelLingering0
     - PartRodMetalLingering0
     - FloorTileItemSteelLingering0
+    - FloorTileItemWhiteLingering0
+    - FloorTileItemDarkLingering0
+    - ConstructionBag # Goobstation
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: Construction
@@ -298,7 +742,7 @@
         components:
         - Electronics
         - MachineBoard
-    - id: CapacitorStockPart
+    - id: MicroManipulatorStockPart
       whitelist:
         components:
         - StockPart
@@ -309,7 +753,7 @@
 - type: entity
   id: BorgModuleRCD
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: RCD cyborg module
+  name: engineering cyborg module
   components:
   - type: Sprite
     layers:
@@ -319,14 +763,20 @@
     moduleId: RCD
     items:
     - RCDRecharging
+    - RPDRecharging # Goobstation
+    - BorgFireExtinguisher
+    - BorgHandheldGPSBasic
+    - GasAnalyzer
+    - HolofanProjector
+    - GeigerCounter
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: rcd-module }
 
 # janitorial modules (this gets its own unique things because janis are epic)
 - type: entity
-  id: BorgModuleLightReplacer
+  id: BorgModuleCustodial
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
-  name: light replacer cyborg module
+  name: custodial cyborg module
   components:
   - type: Sprite
     layers:
@@ -338,6 +788,9 @@
     - Crowbar
     - LightReplacer
     - Screwdriver
+    - BorgTrashBag
+    - Plunger
+    - SoapBorg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: light-replacer-module }
 
@@ -354,8 +807,9 @@
     moduleId: Cleaning
     items:
     - MopItem
-    - Bucket
-    - TrashBag
+    - BorgBucket
+    - BorgSprayBottle
+    - HoloprojectorBorg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: cleaning-module }
 
@@ -363,6 +817,7 @@
   id: BorgModuleAdvancedCleaning
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
   name: advanced cleaning cyborg module
+  description: Advanced janitorial module containing, well... advanced janitor equipment. What were you expecting?
   components:
   - type: Sprite
     layers:
@@ -372,10 +827,10 @@
     moduleId: AdvancedCleaning
     items:
     - AdvMopItem
+    - BorgMegaSprayBottle
     - HoloprojectorBorg
-    - SprayBottleSpaceCleaner
-    - Dropper
-    - TrashBag
+    - BorgDropper
+    - BorgBeaker
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-cleaning-module }
 
@@ -398,9 +853,9 @@
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: diagnosis-module }
 
 - type: entity
-  id: BorgModuleTreatment
+  id: BorgModuleTopicals
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: treatment cyborg module
+  name: topicals cyborg module
   components:
   - type: Sprite
     layers:
@@ -410,18 +865,19 @@
     moduleId: Treatment
     items:
     - HandheldHealthAnalyzerUnpowered
+    - Gauze10Lingering
     - Brutepack10Lingering
     - Ointment10Lingering
-    - Gauze10Lingering
     - Bloodpack10Lingering
-    - Syringe
+    - RegenerativeMeshLingering0
+    - MedicatedSutureLingering0
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: treatment-module }
 
 - type: entity
-  id: BorgModuleDefibrillator
+  id: BorgModuleRescue
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: defibrillator cyborg module
+  name: rescue cyborg module
   components:
   - type: Sprite
     layers:
@@ -430,14 +886,40 @@
   - type: ItemBorgModule
     moduleId: Defibrillator
     items:
+    - HandheldHealthAnalyzerUnpowered
     - DefibrillatorOneHandedUnpowered
+    - BorgFireExtinguisher
+    - BorgHandheldGPSBasic
+    - HandLabeler
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: defib-module }
 
 - type: entity
-  id: BorgModuleAdvancedTreatment
+  id: BorgModuleChemical
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: advanced treatment cyborg module
+  name: chemical cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-chem
+  - type: ItemBorgModule
+    moduleId: Chemical
+    items:
+    - HandheldHealthAnalyzerUnpowered
+    - Syringe
+    - BorgDropper
+    - BorgVial
+    - BorgVial
+    - BorgVial
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: chem-module }
+
+- type: entity
+  id: BorgModuleAdvancedChemical
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: advanced chemical cyborg module
+  description: Advanced medical module containing the cyborg adaptation of the highly coveted hypospray. Now your cyborgs can inject crew-harmers with chloral hydrate even faster!
   components:
   - type: Sprite
     layers:
@@ -447,10 +929,8 @@
     moduleId: AdvancedTreatment
     items:
     - HandheldHealthAnalyzerUnpowered
-#    - Beaker # Frontier
-#    - Beaker # Frontier
-#    - BorgDropper # Frontier
     - BorgHypo
+    - Syringe
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: AdvancedTreatment
@@ -461,13 +941,13 @@
         - FitsInDispenser
     # End Frontier: droppable borg items
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-diagnosis-module }
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
 
 # science modules
 # todo: if science ever gets their own custom robot, add more "sci" modules.
 - type: entity
   id: BorgModuleArtifact
-  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
   name: artifact cyborg module
   components:
   - type: Sprite
@@ -478,12 +958,17 @@
     moduleId: Artifact
     items:
     - NodeScanner
+    - SprayBottle
+    - GasAnalyzer
+    - BorgDropper
+    - BorgVial
+    - GeigerCounter
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: node-scanner-module }
 
 - type: entity
   id: BorgModuleAnomaly
-  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
   name: anomaly cyborg module
   components:
   - type: Sprite
@@ -496,8 +981,9 @@
     - AnomalyScanner
     - AnomalyLocatorUnpowered
     - AnomalyLocatorWideUnpowered
-    - RemoteSignaller
-    - Multitool
+    - HandLabeler
+    - SheetRGlassLingering0
+    - SheetRPGlassLingering0
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: anomaly-module }
 
@@ -515,8 +1001,10 @@
     moduleId: Service
     items:
     - Pen
-    - BooksBag
+    #- BooksBag (Add back when hand whitelisting exists, at the moment they can only use it like an orebag.)
     - HandLabeler
+    - RubberStampApproved
+    - RubberStampDenied
     - Lighter
     # Frontier: droppable borg items
     # - DrinkShaker
@@ -565,6 +1053,7 @@
     - HydroponicsToolMiniHoe
     - HydroponicsToolSpade
     - HydroponicsToolClippers
+    - Syringe
     - Bucket
     # Frontier: droppable borg items
   - type: DroppableBorgModule
@@ -631,6 +1120,26 @@
     - EnergyDaggerLoud
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#FF0000"
+      - state: base-module-inhand-left
+        color: "#891417"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#7B0F12"
+      right:
+      - state: base-icon-inhand-right
+        color: "#FF0000"
+      - state: base-module-inhand-right
+        color: "#891417"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#7B0F12"
+  - type: StaticPrice
+    price: 2500
 
 - type: entity
   id: BorgModuleOperative
@@ -704,6 +1213,26 @@
         - SelfDestructSeq
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-martyr-module }
+    - type: Item
+      inhandVisuals:
+        left:
+        - state: base-icon-inhand-left
+          color: "#FF0000"
+        - state: base-module-inhand-left
+          color: "#891417"
+        - state: base-part-inhand-left
+        - state: base-stripes-inhand-left
+          color: "#7B0F12"
+        right:
+        - state: base-icon-inhand-right
+          color: "#FF0000"
+        - state: base-module-inhand-right
+          color: "#891417"
+        - state: base-part-inhand-right
+        - state: base-stripes-inhand-right
+          color: "#7B0F12"
+    - type: StaticPrice
+      price: 2000
 
 # Shitmed Modules
 
@@ -720,12 +1249,14 @@
     moduleId: Surgery
     items:
     - Scalpel
-    - Drill
-    - Hemostat
-    - Retractor
-    - Cautery
     - SawElectric
+    - Drill
+    - Retractor
+    - Hemostat
+    - Cautery
+    - MedicalStitches
     - BoneGel
+    - Bonesetter
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: Surgery
@@ -755,7 +1286,7 @@
     - EnergyScalpel
     - EnergyCautery
     - AdvancedRetractor
-    - BoneGel
+    - AdvancedBoneGel
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: AdvancedSurgery
@@ -769,3 +1300,238 @@
     # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-surgery-module }
+
+# xenoborg modules
+- type: entity
+  parent: [ BaseXenoborgModuleGeneric, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleBasic
+  name: basic xenoborg module
+  description: Essential items for any xenoborg.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_generic
+    - state: icon-xenoborg-basic
+  - type: ItemBorgModule
+    moduleId: XenoborgBasic
+    items:
+    - MaterialBag
+    - PinpointerMothership
+    - HandheldGPSBasic
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-basic-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleGeneric, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleTool
+  name: tool xenoborg module
+  description: Simple tools for most xenoborgs.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_generic
+    - state: icon-xenoborg-tools
+  - type: ItemBorgModule
+    moduleId: XenoborgTool
+    items:
+    - Crowbar
+    - Wrench
+    - Screwdriver
+    - Wirecutter
+    - Multitool
+    - RefuelingWelder
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-tool-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleAccessBreaker
+  name: access breaker xenoborg module
+  description: Module with a access breaker.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_engi
+    - state: icon-xenoborg-access-breaker
+  - type: ItemBorgModule
+    moduleId: XenoborgAccessBreaker
+    items:
+    - AccessBreaker
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-access-breaker-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleFireExtinguisher
+  name: fire extinguisher xenoborg module
+  description: Module with a self-refueling fire extinguisher.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_engi
+    - state: icon-xenoborg-fire-extinguisher
+  - type: ItemBorgModule
+    moduleId: XenoborgFireExtinguisher
+    items:
+    - SelfRechargingFireExtinguisher
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-extinguisher-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleJammer
+  name: jammer xenoborg module
+  description: Module with a communication jammer.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_heavy
+    - state: icon-xenoborg-jammer
+  - type: ItemBorgModule
+    moduleId: XenoborgJammer
+    items:
+    - XenoborgRadioJammer
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-jammer-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleLaser
+  name: laser xenoborg module
+  description: Module with a laser gun.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_heavy
+    - state: icon-xenoborg-laser
+  - type: ItemBorgModule
+    moduleId: XenoborgLaser
+    items:
+    - XenoborgLaserGun
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-laser-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleHeavyLaser
+  name: heavy laser xenoborg module
+  description: Module with a heavy laser gun.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_heavy
+    - state: icon-xenoborg-laser2
+  - type: ItemBorgModule
+    moduleId: XenoborgHeavyLaser
+    items:
+    - XenoborgHeavyLaserGun
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-laser2-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleSpaceMovement
+  name: space movement xenoborg module
+  description: Module that helps a xenoborg move better in space.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_scout
+    - state: icon-xenoborg-space-movement
+  - type: ItemBorgModule
+    moduleId: XenoborgSpaceMovement
+    items:
+    - HandheldGPSBasic
+    - HandHeldMassScannerBorg
+    - HandheldStationMapUnpowered
+    - WeaponGrapplingGun
+    - JetpackXenoborg
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-space-movement-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleSword
+  name: sword xenoborg module
+  description: Module with a kukri knife.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_scout
+    - state: icon-xenoborg-sword
+  - type: ItemBorgModule
+    moduleId: XenoborgSword
+    items:
+    - KukriKnife
+    - JetpackXenoborg
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-sword-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleEnergySword
+  name: energy sword xenoborg module
+  description: Module with an energy dagger.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_scout
+    - state: icon-xenoborg-sword2
+  - type: ItemBorgModule
+    moduleId: XenoborgFastSword
+    items:
+    - EnergyDaggerLoudBlue
+    - JetpackXenoborg
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-sword2-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleHypo
+  name: nocturine hypo xenoborg module
+  description: Module with a self-refilling nocturine hypo.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_stealth
+    - state: icon-xenoborg-hypo
+  - type: ItemBorgModule
+    moduleId: XenoborgHypo
+    items:
+    - NocturineHypo
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-hypo-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleChameleonProjector
+  name: chameleon projector xenoborg module
+  description: Module with a chameleon projector.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_stealth
+    - state: icon-xenoborg-projector
+  - type: ItemBorgModule
+    moduleId: XenoborgChameleonProjector
+    items:
+    - ChameleonProjector
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-projector-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleCloakDevice
+  name: cloaking device xenoborg module
+  description: Module with a device that allows xenoborgs to become invisible for some time.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_stealth
+    - state: icon-xenoborg-cloak
+  - type: ItemBorgModule
+    moduleId: XenoborgCloakDevice
+    items:
+    - CloakingDevice
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-eye-module }

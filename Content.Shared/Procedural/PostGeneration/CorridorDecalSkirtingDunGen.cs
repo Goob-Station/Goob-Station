@@ -22,4 +22,10 @@ public sealed partial class CorridorDecalSkirtingDunGen : IDunGenLayer
     /// </summary>
     [DataField]
     public Dictionary<DirectionFlag, string> CornerDecals = new();
+
+    /// <summary>
+    /// Optional color to apply to the decals.
+    /// </summary>
+    [DataField]
+    public Color? Color;
 }

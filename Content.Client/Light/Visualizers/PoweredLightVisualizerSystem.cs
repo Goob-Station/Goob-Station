@@ -1,3 +1,15 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Light;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
@@ -11,6 +23,7 @@ public sealed class PoweredLightVisualizerSystem : VisualizerSystem<PoweredLight
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -27,16 +40,16 @@ public sealed class PoweredLightVisualizerSystem : VisualizerSystem<PoweredLight
             return;
 
         if (comp.SpriteStateMap.TryGetValue(state, out var spriteState))
-            args.Sprite.LayerSetState(PoweredLightLayers.Base, spriteState);
+            _sprite.LayerSetRsiState((uid, args.Sprite), PoweredLightLayers.Base, spriteState);
 
-        if (args.Sprite.LayerExists(PoweredLightLayers.Glow))
+        if (_sprite.LayerExists((uid, args.Sprite), PoweredLightLayers.Glow))
         {
             if (TryComp<PointLightComponent>(uid, out var light))
             {
-                args.Sprite.LayerSetColor(PoweredLightLayers.Glow, light.Color);
+                _sprite.LayerSetColor((uid, args.Sprite), PoweredLightLayers.Glow, light.Color);
             }
 
-            args.Sprite.LayerSetVisible(PoweredLightLayers.Glow, state == PoweredLightState.On);
+            _sprite.LayerSetVisible((uid, args.Sprite), PoweredLightLayers.Glow, state == PoweredLightState.On);
         }
 
         SetBlinkingAnimation(
@@ -52,13 +65,14 @@ public sealed class PoweredLightVisualizerSystem : VisualizerSystem<PoweredLight
     /// </summary>
     private void OnAnimationCompleted(EntityUid uid, PoweredLightVisualsComponent comp, AnimationCompletedEvent args)
     {
+        if (!TryComp<AnimationPlayerComponent>(uid, out var animationPlayer))
+            return;
         if (args.Key != PoweredLightVisualsComponent.BlinkingAnimationKey)
             return;
-
-        if(!comp.IsBlinking)
+        if (!comp.IsBlinking)
             return;
 
-        AnimationSystem.Play(uid, Comp<AnimationPlayerComponent>(uid), BlinkingAnimation(comp), PoweredLightVisualsComponent.BlinkingAnimationKey);
+        AnimationSystem.Play((uid, animationPlayer), BlinkingAnimation(comp), PoweredLightVisualsComponent.BlinkingAnimationKey);
     }
 
     /// <summary>
@@ -75,7 +89,7 @@ public sealed class PoweredLightVisualizerSystem : VisualizerSystem<PoweredLight
         var animationPlayer = EnsureComp<AnimationPlayerComponent>(uid);
         if (shouldBeBlinking)
         {
-            AnimationSystem.Play(uid, animationPlayer, BlinkingAnimation(comp), PoweredLightVisualsComponent.BlinkingAnimationKey);
+            AnimationSystem.Play((uid, animationPlayer), BlinkingAnimation(comp), PoweredLightVisualsComponent.BlinkingAnimationKey);
         }
         else if (AnimationSystem.HasRunningAnimation(uid, animationPlayer, PoweredLightVisualsComponent.BlinkingAnimationKey))
         {

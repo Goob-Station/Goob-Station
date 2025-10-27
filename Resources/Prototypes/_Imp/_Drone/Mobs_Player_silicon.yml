@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 acatrw <wispycat07@gmail.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Drones and OneStar mech
 - type: entity
   save: false
@@ -66,13 +75,18 @@
   - type: Body
     prototype: Drone
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Binary
+  #- type: IntrinsicRadioTransmitter
+  #  channels:
+  #  - Binary # Goobstation - replaced with collective mind
   - type: ActiveRadio
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
     - Common
+  # Goobstation
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
   - type: DoAfter
   - type: Pullable
   - type: Examiner
@@ -81,7 +95,14 @@
   - type: Alerts
   - type: ProtectedFromStepTriggers
   - type: Targeting # Shitmed Change
-  - type: CollectiveMind # Goobstation
+  # <Goobstation>
+  - type: FlashVulnerable
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Borg
+  # </Goobstation>
 
 - type: entity
   name: drone
@@ -102,9 +123,6 @@
       components:
       - Gun
       - EnergySword
-  - type: PAI # imp; this is added specifically for the internal station map feature but the other aspects are not especially against the identity of drones. and i dont want to put the work into ECS-ifying PAIComponent
-    mapActionId: ActionDroneOpenMap # redefining these to reflavor their descriptions.
-    midiActionId: ActionDronePlayMidi
   - type: Instrument # imp
     allowPercussion: false
     handheld: false
@@ -131,6 +149,12 @@
       enum.StationMapUiKey.Key: #imp
         type: StationMapBoundUserInterface
         requireInputValidation: false
+  - type: IntrinsicUI # Goob edit
+    uis:
+      enum.StationMapUiKey.Key:
+        toggleAction: ActionShowStationMap
+      enum.InstrumentUiKey.Key:
+        toggleAction: ActionDronePlayMidi
   - type: StationMap #imp
   - type: GhostRole
     requirements:
@@ -144,6 +168,8 @@
     name: ghost-role-information-drone-name
     description: ghost-role-information-drone-description
     rules: ghost-role-information-drone-rules
+    mindRoles:
+    - MindRoleGhostRoleSilicon
   - type: GhostTakeoverAvailable
   - type: SiliconLawBound
   - type: SiliconLawProvider
@@ -159,13 +185,14 @@
     thresholds:
       0: Alive
       60: Dead
-  - type: Flash
+  #- type: Flash # Goobstation - Remove drone flashing.
   - type: NoSlip
   - type: StatusEffects
     allowed:
     - Stun
     - KnockedDown
     - SlowedDown
+    - Flashed # Goobstation - counter to shitter drones
   - type: SlowOnDamage
     speedModifierThresholds:
       30: 0.7
@@ -207,8 +234,18 @@
         base:
           Off: { state: shell }
           On: { state: drone }
-  - type: ReplacementAccent
-    accent: silicon
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - DroneTalk
+    understands:
+    - DroneTalk
+    - TauCetiBasic
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
   - type: Repairable
     fuelCost: 15
     doAfterDelay: 8
@@ -234,13 +271,16 @@
     - EmagImmune
     - CanPilot
     - VimPilot
-    - DroneMind # Goobstation
+    - Bot # Goobstation
   - type: CollectiveMind # Goobstation
     defaultChannel: Dronemind
+    channels:
+    - Dronemind
   - type: Access
     tags:
     - Engineering
     - Maintenance
+    - Atmospherics # Goobstation
   - type: RandomMetadata
     nameSegments:
-    - names_drone # maintainer drones get named after maintainers get it? its funny
+    - NamesDrone # maintainer drones get named after maintainers get it? its funny

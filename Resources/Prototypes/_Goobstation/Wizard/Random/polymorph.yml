@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: weightedRandomEntity
   id: WizardWallDoor
   weights:
@@ -8,18 +18,6 @@
     SilverDoor: 1
     PaperDoor: 1
     BananiumDoor: 1
-
-- type: weightedRandom
-  id: WabbajackGroups
-  weights:
-    WabbajackMonkey: 1
-    # WabbajackCluwne: 1
-    WabbajackRobot: 1
-    WabbajackSlime: 1
-    WabbajackXeno: 1
-    WabbajackSpecies: 1
-    WabbajackAnimal: 1
-    WabbajackSpecial: 0.05 # for high-impact transmutations, approximately 1/160 chance with 8 groups
 
 - type: weightedRandomEntity
   id: WabbajackMonkey
@@ -62,18 +60,6 @@
     MobAdultSlimesYellowAngry: 1
 
 - type: weightedRandomEntity
-  id: WabbajackXeno
-  weights:
-    MobXeno: 10
-    MobXenoDrone: 8
-    MobXenoRunner: 8
-    MobXenoPraetorian: 5
-    MobXenoRavager: 4
-    MobXenoRouny: 2
-    MobXenoSpitter: 2
-    MobXenoQueen: 1
-
-- type: weightedRandomEntity
   id: WabbajackSpecies
   weights:
     MobHumanRandom: 1
@@ -95,6 +81,9 @@
     MobFelinidRandom: 1 # le funny
     MobTajaranRandom: 1
     MobOniRandom: 1
+    MobChitinidRandom: 1
+    MobShadowkinRandom: 1
+    MobShadowling: 0.01
 
 - type: weightedRandomEntity
   id: WabbajackAnimal
@@ -184,8 +173,33 @@
     MobStickman: 1
     MobCreature: 1
     MobBingle: 1
+    MobGhoulStalker: 0.33
+    MobGhoulProphet: 0.33
+    MobGhoulRustWalker: 0.33
 
 - type: weightedRandomEntity
   id: WabbajackSpecial
   weights:
     MobBinglePrime: 1
+
+- type: weightedRandomEntity
+  id: WabbajackXeno
+  weights:
+    MobXenomorphQueen: 0.1
+    MobXenomorphDrone: 2
+    MobXenomorphSentinel: 0.8
+    MobXenomorphHunter: 1
+    MobXenomorphPraetorian: 0.5
+    MobXenomorphMaid: 0.01
+
+- type: weightedRandom
+  id: WabbajackGroups
+  weights:
+    WabbajackMonkey: 1
+    # WabbajackCluwne: 1
+    WabbajackRobot: 1
+    WabbajackSlime: 1
+    WabbajackSpecies: 1
+    WabbajackAnimal: 1
+    WabbajackXeno: 1
+    WabbajackSpecial: 0.05 # for high-impact transmutations, approximately 1/160 chance with 8 groups

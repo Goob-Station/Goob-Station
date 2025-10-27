@@ -1,3 +1,15 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Tom Richardson <tgrkzus@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -24,13 +36,12 @@ public sealed class BinSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
-    public const string BinContainerId = "bin-container";
-
     /// <inheritdoc/>
     public override void Initialize()
     {
         SubscribeLocalEvent<BinComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<BinComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<BinComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<BinComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
         SubscribeLocalEvent<BinComponent, InteractHandEvent>(OnInteractHand, before: new[] { typeof(SharedItemSystem) });
         SubscribeLocalEvent<BinComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
@@ -45,7 +56,7 @@ public sealed class BinSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, BinComponent component, ComponentStartup args)
     {
-        component.ItemContainer = _container.EnsureContainer<Container>(uid, BinContainerId);
+        component.ItemContainer = _container.EnsureContainer<Container>(uid, component.ContainerId);
     }
 
     private void OnMapInit(EntityUid uid, BinComponent component, MapInitEvent args)
@@ -66,9 +77,20 @@ public sealed class BinSystem : EntitySystem
         }
     }
 
-    private void OnEntRemoved(EntityUid uid, BinComponent component, EntRemovedFromContainerMessage args)
+    private void OnEntInserted(Entity<BinComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
-        component.Items.Remove(args.Entity);
+        if (args.Container.ID != ent.Comp.ContainerId)
+            return;
+
+        ent.Comp.Items.Add(args.Entity);
+    }
+
+    private void OnEntRemoved(Entity<BinComponent> ent, ref EntRemovedFromContainerMessage args)
+    {
+        if (args.Container.ID != ent.Comp.ContainerId)
+            return;
+
+        ent.Comp.Items.Remove(args.Entity);
     }
 
     private void OnInteractHand(EntityUid uid, BinComponent component, InteractHandEvent args)
@@ -96,7 +118,7 @@ public sealed class BinSystem : EntitySystem
         if (args.Using != null)
         {
             var canReach = args.CanAccess && args.CanInteract;
-            InsertIntoBin(args.User, args.Target, (EntityUid) args.Using, component, false, canReach);
+            InsertIntoBin(args.User, args.Target, (EntityUid)args.Using, component, false, canReach);
         }
     }
 
@@ -136,7 +158,6 @@ public sealed class BinSystem : EntitySystem
             return false;
 
         _container.Insert(toInsert, component.ItemContainer);
-        component.Items.Add(toInsert);
         Dirty(uid, component);
         return true;
     }

@@ -1,3 +1,48 @@
+// SPDX-FileCopyrightText: 2022 Dylan Corrales <DeathCamel58@gmail.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <jmaster9999@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <wrexbe@protonmail.com>
+// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 KP <13428215+nok-ko@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kot <1192090+koteq@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2023 Vasilis The Pikachu <vascreeper@yahoo.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deathride58 <deathride58@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 gus <august.eymann@gmail.ccom>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2023 router <messagebus@vk.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Sk1tch <ben.peter.smith@gmail.com>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tainakov <136968973+Tainakov@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 Your Name <you@example.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
@@ -45,9 +90,10 @@ using Content.Client.CharacterInfo;
 using Content.Goobstation.Common.CCVar; // Goob - start
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
 
+
 namespace Content.Client.UserInterface.Systems.Chat;
 
-public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterInfoSystem> // goob highlights - added IOnSystemChanged<CharacterInfoSystem>
+public sealed partial class ChatUIController : UIController
 {
     [Dependency] private readonly IClientAdminManager _admin = default!;
     [Dependency] private readonly IChatManager _manager = default!;
@@ -72,8 +118,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
     [UISystemDependency] private readonly MindSystem? _mindSystem = default!;
     [UISystemDependency] private readonly RoleCodewordSystem? _roleCodewordSystem = default!;
 
-    [ValidatePrototypeId<ColorPalettePrototype>]
-    private const string ChatNamePalette = "ChatNames";
+    private static readonly ProtoId<ColorPalettePrototype> ChatNamePalette = "ChatNames";
     private string[] _chatNameColors = default!;
     private bool _chatNameColorsEnabled;
 
@@ -246,7 +291,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         gameplayStateLoad.OnScreenLoad += OnScreenLoad;
         gameplayStateLoad.OnScreenUnload += OnScreenUnload;
 
-        var nameColors = _prototypeManager.Index<ColorPalettePrototype>(ChatNamePalette).Colors.Values.ToArray();
+        var nameColors = _prototypeManager.Index(ChatNamePalette).Colors.Values.ToArray();
         _chatNameColors = new string[nameColors.Length];
         for (var i = 0; i < nameColors.Length; i++)
         {
@@ -255,108 +300,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
 
         _config.OnValueChanged(CCVars.ChatWindowOpacity, OnChatWindowOpacityChanged);
 
-    // Goobstation highlights - start
-
-        _config.OnValueChanged(GoobCVars.ChatAutoFillHighlights, (value) => { _autoFillHighlightsEnabled = value; });
-        _autoFillHighlightsEnabled = _config.GetCVar(GoobCVars.ChatAutoFillHighlights);
-
-        _config.OnValueChanged(GoobCVars.ChatHighlightsColor, (value) => { _highlightsColor = value; });
-        _highlightsColor = _config.GetCVar(GoobCVars.ChatHighlightsColor);
-
-        // Load highlights if any were saved.
-        string highlights = _config.GetCVar(GoobCVars.ChatHighlights);
-
-        if (!string.IsNullOrEmpty(highlights))
-        {
-            UpdateHighlights(highlights);
-        }
-    }
-
-    [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;
-
-    /// <summary>
-    ///     The list of words to be highlighted in the chatbox.
-    /// </summary>
-    private List<string> _highlights = new();
-
-    /// <summary>
-    ///     The string holding the hex color used to highlight words.
-    /// </summary>
-    private string? _highlightsColor;
-
-    private bool _autoFillHighlightsEnabled;
-
-    /// <summary>
-    ///     The boolean that keeps track of the 'OnCharacterUpdated' event, whenever it's a player attaching or opening the character info panel.
-    /// </summary>
-    private bool _charInfoIsAttach = false;
-
-    public event Action<string>? HighlightsUpdated;
-
-    public void OnSystemLoaded(CharacterInfoSystem system)
-    {
-        system.OnCharacterUpdate += OnCharacterUpdated;
-    }
-
-    public void OnSystemUnloaded(CharacterInfoSystem system)
-    {
-        system.OnCharacterUpdate -= OnCharacterUpdated;
-    }
-
-  private void OnCharacterUpdated(CharacterData data)
-    {
-        // If the _charInfoIsAttach is false then the character panel was the one
-        // to generate the event, dismiss it.
-        if (!_charInfoIsAttach)
-            return;
-
-        var (_, job, _, _, entityName) = data;
-
-        // If the character has a normal name (eg. "Name Surname" and not "Name Initial Surname" or a particular species name)
-        // subdivide it so that the name and surname individually get highlighted.
-        if (entityName.Count(c => c == ' ') == 1)
-            entityName = entityName.Replace(' ', '\n');
-
-        string newHighlights = entityName;
-
-        // Convert the job title to kebab-case and use it as a key for the loc file.
-        string jobKey = job.Replace(' ', '-').ToLower();
-
-        if (Loc.TryGetString($"highlights-{jobKey}", out var jobMatches))
-            newHighlights += '\n' + jobMatches.Replace(", ", "\n");
-
-        UpdateHighlights(newHighlights);
-        HighlightsUpdated?.Invoke(newHighlights);
-        _charInfoIsAttach = false;
-    }
-    public void UpdateHighlights(string highlights)
-    {
-        // Do nothing if the provided highlighs are the same as the old ones.
-        if (_config.GetCVar(GoobCVars.ChatHighlights).Equals(highlights, StringComparison.CurrentCultureIgnoreCase))
-            return;
-
-        _config.SetCVar(GoobCVars.ChatHighlights, highlights);
-        _config.SaveToFile();
-
-        // Replace any " character with a whole-word regex tag,
-        // this tag will make the words to match are separated by spaces or punctuation.
-        highlights = highlights.Replace("\"", "\\b");
-
-        _highlights.Clear();
-
-        // Fill the array with the highlights separated by newlines, disregarding empty entries.
-        string[] arrHighlights = highlights.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-        foreach (var keyword in arrHighlights)
-        {
-            _highlights.Add(keyword);
-        }
-
-        // Arrange the list of highlights in descending order so that when highlighting,
-        // the full word (eg. "Security") gets picked before the abbreviation (eg. "Sec").
-        _highlights.Sort((x, y) => y.Length.CompareTo(x.Length));
-
-    // Goobstation highlights - end
-
+        InitializeHighlights();
     }
 
     public void OnScreenLoad()
@@ -544,12 +488,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
     {
         UpdateChannelPermissions();
 
-        // Goobstation - if auto highlights are enabled generate a request for new character info that will be used to determine the highlights.
-        if (_autoFillHighlightsEnabled)
-        {
-            _charInfoIsAttach = true;
-            _characterInfo.RequestCharacterInfo();
-        }
+        UpdateAutoFillHighlights();
     }
 
     private void AddSpeechBubble(ChatMessage msg, SpeechBubble.SpeechType speechType)
@@ -591,8 +530,9 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
 
         if (existing.Count > SpeechBubbleCap)
         {
-            // Get the oldest to start fading fast.
-            var last = existing[0];
+            // Get the next speech bubble to fade
+            // Any speech bubbles before it are already fading
+            var last = existing[^(SpeechBubbleCap + 1)];
             last.FadeNow();
         }
     }
@@ -605,7 +545,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
     private void EnqueueSpeechBubble(EntityUid entity, ChatMessage message, SpeechBubble.SpeechType speechType)
     {
         // Don't enqueue speech bubbles for other maps. TODO: Support multiple viewports/maps?
-        if (EntityManager.GetComponent<TransformComponent>(entity).MapID != _eye.CurrentMap)
+        if (EntityManager.GetComponent<TransformComponent>(entity).MapID != _eye.CurrentEye.Position.MapId)
             return;
 
         if (!_queuedSpeechBubbles.TryGetValue(entity, out var queueData))
@@ -988,7 +928,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
                 msg.WrappedMessage = SharedChatSystem.InjectTagInsideTag(msg, "Name", "color", GetNameColor(SharedChatSystem.GetStringInsideTag(msg, "Name")));
         }
 
-        // Goobstation - color any words choosen by the client.
+        // Color any words chosen by the client.
         foreach (var highlight in _highlights)
         {
             msg.WrappedMessage = SharedChatSystem.InjectTagAroundString(msg, highlight, "color", _highlightsColor);
@@ -1085,6 +1025,11 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
     public void NotifyChatTextChange()
     {
         _typingIndicator?.ClientChangedChatText();
+    }
+
+    public void NotifyChatFocus(bool isFocused)
+    {
+        _typingIndicator?.ClientChangedChatFocus(isFocused);
     }
 
     public void Repopulate()

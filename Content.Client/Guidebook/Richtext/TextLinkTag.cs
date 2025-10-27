@@ -1,4 +1,9 @@
-﻿using System.Diagnostics.CodeAnalysis;
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using System.Diagnostics.CodeAnalysis;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -9,14 +14,12 @@ using Robust.Shared.Utility;
 namespace Content.Client.Guidebook.RichText;
 
 [UsedImplicitly]
-public sealed class TextLinkTag : IMarkupTag
+public sealed class TextLinkTag : IMarkupTagHandler
 {
     public string Name => "textlink";
 
-    public Control? Control;
-
     /// <inheritdoc/>
-    public bool TryGetControl(MarkupNode node, [NotNullWhen(true)] out Control? control)
+    public bool TryCreateControl(MarkupNode node, [NotNullWhen(true)] out Control? control)
     {
         if (!node.Value.TryGetString(out var text)
             || !node.Attributes.TryGetValue("link", out var linkParameter)
@@ -35,22 +38,21 @@ public sealed class TextLinkTag : IMarkupTag
 
         label.OnMouseEntered += _ => label.FontColorOverride = Color.LightSkyBlue;
         label.OnMouseExited += _ => label.FontColorOverride = Color.CornflowerBlue;
-        label.OnKeyBindDown += args => OnKeybindDown(args, link);
+        label.OnKeyBindDown += args => OnKeybindDown(args, link, label);
 
         control = label;
-        Control = label;
         return true;
     }
 
-    private void OnKeybindDown(GUIBoundKeyEventArgs args, string link)
+    private void OnKeybindDown(GUIBoundKeyEventArgs args, string link, Control? control)
     {
         if (args.Function != EngineKeyFunctions.UIClick)
             return;
 
-        if (Control == null)
+        if (control == null)
             return;
 
-        var current = Control;
+        var current = control;
         while (current != null)
         {
             current = current.Parent;
@@ -60,7 +62,6 @@ public sealed class TextLinkTag : IMarkupTag
             handler.HandleClick(link);
             return;
         }
-        Logger.Warning($"Warning! No valid ILinkClickHandler found.");
     }
 }
 

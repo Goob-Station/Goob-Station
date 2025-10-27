@@ -1,5 +1,15 @@
+// SPDX-FileCopyrightText: 2022 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Bed.Sleep;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Random;
 
 namespace Content.Server.Traits.Assorted;
@@ -9,9 +19,6 @@ namespace Content.Server.Traits.Assorted;
 /// </summary>
 public sealed class NarcolepsySystem : EntitySystem
 {
-    [ValidatePrototypeId<StatusEffectPrototype>]
-    private const string StatusEffectKey = "ForcedSleep"; // Same one used by N2O and other sleep chems.
-
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
@@ -56,8 +63,7 @@ public sealed class NarcolepsySystem : EntitySystem
             // Make sure the sleep time doesn't cut into the time to next incident.
             narcolepsy.NextIncidentTime += duration;
 
-            _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(uid, StatusEffectKey,
-                TimeSpan.FromSeconds(duration), false);
+            _statusEffects.TryAddStatusEffectDuration(uid, SleepingSystem.StatusEffectForcedSleeping, TimeSpan.FromSeconds(duration));
         }
     }
 }

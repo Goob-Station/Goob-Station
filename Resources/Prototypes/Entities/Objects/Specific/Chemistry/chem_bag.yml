@@ -1,7 +1,21 @@
+# SPDX-FileCopyrightText: 2023 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Joel Hedtjärn <joel.hedtjarn@gmail.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: chemistry bag
   id: ChemBag
-  parent: BaseStorageItem
+  parent: [ BaseStorageItem , ContentsExplosionResistanceBase ] # Goobstation edit
   description: A bag for storing chemistry products, such as pills, pill canisters, bottles, and syringes.
   components:
   - type: Sprite
@@ -17,7 +31,7 @@
   - type: Storage
     maxItemSize: Normal # allow up to 5 large beakers / 10 beakers / 10 pill canisters
     grid:
-    - 0,0,4,3
+    - 0,0,5,3 # Goobstation edit
     quickInsert: true
     areaInsert: true
     whitelist:
@@ -30,4 +44,8 @@
         - Bottle
         - Syringe
         - Dropper
-  - type: Dumpable
+        - ChemDispensable # Goobstation
+        - MedicalPatch # Goobstation
+  #- type: Dumpable # Goobstation edit
+  - type: ExplosionResistance # Goobstation
+    damageCoefficient: 0.25

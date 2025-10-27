@@ -1,4 +1,9 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: BladedFlatcapGrey
   start: start
   graph:
@@ -7,13 +12,13 @@
     - to: icon
       steps:
       - tag: GlassShard
-        name: a glass shard
+        name: construction-graph-tag-glass-shard
         icon:
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1
         doAfter: 1
       - tag: BrimFlatcapGrey
-        name: a grey flatcap
+        name: construction-graph-tag-grey-flatcap
         icon:
           sprite: Clothing/Head/Hats/greyflatcap.rsi
           state: icon
@@ -29,13 +34,13 @@
     - to: icon
       steps:
       - tag: GlassShard
-        name: a glass shard
+        name: construction-graph-tag-glass-shard
         icon:
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1
         doAfter: 1
       - tag: BrimFlatcapBrown
-        name: a brown flatcap
+        name: construction-graph-tag-brown-flatcap
         icon:
           sprite: Clothing/Head/Hats/brownflatcap.rsi
           state: icon

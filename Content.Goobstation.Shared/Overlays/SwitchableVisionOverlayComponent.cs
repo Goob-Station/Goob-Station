@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -47,10 +55,12 @@ public abstract partial class SwitchableVisionOverlayComponent : BaseVisionOverl
 public sealed class SwitchableVisionOverlayComponentState : IComponentState
 {
     public Color Color;
+    public bool IsEquipment;
     public bool IsActive;
     public float FlashDurationMultiplier;
     public SoundSpecifier? ActivateSound;
     public SoundSpecifier? DeactivateSound;
     public EntProtoId? ToggleAction;
     public float LightRadius;
+    public bool DrawOverlay;
 }

@@ -1,5 +1,12 @@
+# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 name: "Labels: Size"
 on: pull_request_target
+
 jobs:
   size-label:
     runs-on: ubuntu-latest
@@ -7,7 +14,7 @@ jobs:
       - name: size-label
         uses: "pascalgn/size-label-action@v0.5.5"
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.BOT_TOKEN }}"
         with:
           # Custom size configuration
           sizes: >

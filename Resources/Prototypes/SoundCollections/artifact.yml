@@ -1,5 +1,10 @@
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
-  id: ArtifactActivation
+  id: ArtifactUnlockingActivationSuccess
   files:
     - /Audio/Items/Artifact/artifact1.ogg
     - /Audio/Items/Artifact/artifact2.ogg
@@ -8,3 +13,13 @@
     - /Audio/Items/Artifact/artifact5.ogg
     - /Audio/Items/Artifact/artifact6.ogg
     - /Audio/Items/Artifact/artifact7.ogg
+
+- type: soundCollection
+  id: ArtifactUnlockActivationFailure
+  files:
+    - /Audio/Items/Artifact/artifact-activation-fail1.ogg
+
+- type: soundCollection
+  id: ArtifactForceActivation
+  files:
+    - /Audio/Items/Artifact/artifact-force-activated1.ogg

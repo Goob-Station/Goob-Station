@@ -1,3 +1,168 @@
+# SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2024 Alex Pavlenko <diraven@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ArkiveDev <95712736+ArkiveDev@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BeeRobynn <robynthewarcrime@proton.me>
+# SPDX-FileCopyrightText: 2024 Bellwether <157836624+BellwetherLogic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 DieselMohawk <gavin.drinka@gmail.com>
+# SPDX-FileCopyrightText: 2024 Doctor-Cpu <77215380+Doctor-Cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Doomsdrayk <robotdoughnut@comcast.net>
+# SPDX-FileCopyrightText: 2024 DrEnzyme <DrEnzyme@gmail.com>
+# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Elysium206 <151651971+Elysium206@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
+# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Floofi <126319569+Shadowtheprotogen546@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 LittleNorthStar <vorriasam@gmail.com>
+# SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+# SPDX-FileCopyrightText: 2024 MetalSage <74924875+MetalSage@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MetalSage <metalsage.official@gmail.com>
+# SPDX-FileCopyrightText: 2024 Michael Krebs <michael@krb.io>
+# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <koolthunder019@gmail.com>
+# SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Pancake <Pangogie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PoorMansDreams <150595537+PoorMansDreams@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
+# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Redfire1331 <125223432+Redfire1331@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 WarMechanic <69510347+WarMechanic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Weide <64257676+Lyacs@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 cool dolphin <36332236+Afrokada@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 coolboy911 <85909253+coolboy911@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
+# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 joshepvodka <86210200+joshepvodka@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 marbow <152051971+marboww@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 mhamster <81412348+mhamsterr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 neutrino <67447925+neutrino-laser@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 pigeonpeas <147350443+pigeonpeas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2024 redfire1331 <Redfire1331@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Avalon <jfbentley1@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Brassica Prime <114382089+Pumkin69@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Cass <45694413+CubixThree@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Julian Giebel <juliangiebel@live.de>
+# SPDX-FileCopyrightText: 2025 KingFroozy <140668342+KingFroozy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Momo <Rsnesrud@gmail.com>
+# SPDX-FileCopyrightText: 2025 Phooooooooooooooooooooooooooooooosphate <184853112+Phooooooooooooooooooooooooooooooosphate@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Pumkin69 <judeb@DESKTOP-M4B8G5D>
+# SPDX-FileCopyrightText: 2025 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 T <theo75cg@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 centcomofficer24 <theo75cg@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
+# SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Miscellaneous
 - type: loadoutGroup
   id: Trinkets
@@ -10,6 +175,8 @@
   - Headphones
   - PlushieLizard
   - PlushieSpaceLizard
+  - PersonalAI # Goobstation
+  - GoldenPersonalAI # Goobstation
   - ThreeCandles
   - Lighter
   - CigPackGreen
@@ -22,14 +189,17 @@
   - ClothingNeckAllyPin
   - ClothingNeckAromanticPin
   - ClothingNeckAsexualPin
+  - ClothingNeckAroacePin
   - ClothingNeckBisexualPin
   - ClothingNeckGayPin
   - ClothingNeckIntersexPin
   - ClothingNeckLesbianPin
   - ClothingNeckNonBinaryPin
   - ClothingNeckPansexualPin
+  - ClothingNeckPluralPin
   - ClothingNeckOmnisexualPin
   - ClothingNeckGenderqueerPin
+  - ClothingNeckGenderfluidPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - CardBoxBlack # GoobStation
@@ -53,6 +223,14 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
+  # Begin DeltaV Additions
+  - GoldRing
+  - SilverRing
+  - Cane
+  - WhiteCane
+  - TapeRecorder
+  - DrinkOniGourd
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: Glasses
@@ -62,6 +240,18 @@
   - Glasses
   - GlassesJamjar
   - GlassesJensen
+  - CheapSunglasses # Goobstation
+
+- type: loadoutGroup
+  id: Animals  # Goobstation
+  name: loadout-group-animals
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - Squackroach
+  - Mouse
+  - Mothroach
+  - Goldfish
 
 - type: loadoutGroup
   id: GroupTankHarness
@@ -79,8 +269,13 @@
   loadouts:
   - EmergencyNitrogen
   - EmergencyOxygen
+  - EmergencyPlasma
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
+  - EmergencyWaterVapor # Delta-V
+  - EmergencySilicon
 
+# nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
   id: GroupEVATank
   name: loadout-group-EVA-tank
@@ -88,6 +283,15 @@
   loadouts:
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
+  - LoadoutSpeciesEVAWaterVapor
+
+# vox get a nitrogen tank, other species get nothing
+- type: loadoutGroup
+  id: GroupEVATankVox
+  name: loadout-group-vox-tank
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
   id: GroupPocketTankDouble
@@ -96,6 +300,7 @@
   loadouts:
   - LoadoutSpeciesPocketDoubleNitrogen
   - LoadoutSpeciesPocketDoubleOxygen
+  - LoadoutSpeciesPocketDoubleWaterVapor
 
 # Command
 - type: loadoutGroup
@@ -115,6 +320,7 @@
   - CaptainFormalSuit
   - CaptainFormalSkirt
   - CaptainJumpsuitMilitary # goob
+  - CaptainSummerShirt # also goob
 
 - type: loadoutGroup
   id: CaptainNeck
@@ -132,6 +338,7 @@
   - CaptainBackpack
   - CaptainSatchel
   - CaptainDuffel
+  - CaptainMessenger # Frontier
 
 - type: loadoutGroup
   id: CaptainOuterClothing
@@ -139,6 +346,7 @@
   loadouts:
   - CaptainOuterClothing
   - CaptainWintercoat
+  - CaptainJacket # Goobstation
 
 - type: loadoutGroup
   id: HoPHead
@@ -154,6 +362,7 @@
   - HoPJumpsuit
   - HoPJumpskirt
   - HoPJumpsuitMilitary # goob
+  - HoPSummerShirt # goob
 
 - type: loadoutGroup
   id: HoPNeck
@@ -170,6 +379,7 @@
   - CommonBackpack
   - CommonSatchel
   - CommonDuffel
+  - CommonMessenger # Frontier
   - HoPBackpackIan
 
 - type: loadoutGroup
@@ -178,6 +388,7 @@
   minLimit: 0
   loadouts:
   - HoPWintercoat
+  - HoPLongcoat #goob
 
 # Civilian
 - type: loadoutGroup
@@ -188,6 +399,7 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
+  - RainbowJumpskirt
  # goob changes start
   - GreyMJ
   - BlackMJ
@@ -227,6 +439,7 @@
   - CommonBackpack
   - CommonSatchel
   - CommonDuffel
+  - CommonMessenger # Frontier
 
 - type: loadoutGroup
   id: PassengerNeck
@@ -234,6 +447,7 @@
   minLimit: 0
   loadouts:
   - Mantle
+  - OldNeckWrap # EE
 
 - type: loadoutGroup
   id: PassengerOuterClothing
@@ -390,6 +604,7 @@
   minLimit: 0
   loadouts:
   - JanitorHead
+  - JanitorHeadSenior # Goobstation
 
 - type: loadoutGroup
   id: JanitorJumpsuit
@@ -429,6 +644,7 @@
   loadouts:
   - BotanistHead
   - BotanistBandana
+  - BotanistBeret # Goobstation
 
 - type: loadoutGroup
   id: BotanistJumpsuit
@@ -447,6 +663,7 @@
   - BotanistBackpack
   - BotanistSatchel
   - BotanistDuffel
+  - BotanistMessenger # Frontier
 
 - type: loadoutGroup
   id: BotanistOuterClothing
@@ -480,6 +697,7 @@
   - ClownBackpack
   - ClownSatchel
   - ClownDuffel
+  - ClownMessenger # Frontier
 
 - type: loadoutGroup
   id: ClownOuterClothing
@@ -504,7 +722,11 @@
   loadouts:
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
+  - EmergencyPlasmaClown
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
+  - EmergencyWaterVaporClown # Delta-V
+  - EmergencySilicon
 
 - type: loadoutGroup
   id: MimeHead
@@ -537,6 +759,7 @@
   - MimeBackpack
   - MimeSatchel
   - MimeDuffel
+  - MimeMessenger # Frontier
 
 - type: loadoutGroup
   id: MimeOuterClothing
@@ -560,7 +783,12 @@
   loadouts:
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
+  - EmergencySpeciesMothMime
+  - EmergencyPlasmaMime
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
+  - EmergencyWaterVaporMime # Delta-V
+  - EmergencySilicon
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -631,6 +859,7 @@
   - QuartermasterTurtleneckSkirt
   - QuartermasterFormalSuit
   - QuartermasterMJ # goob
+  - QMSummerShirt # goob
 
 - type: loadoutGroup
   id: QuartermasterNeck
@@ -679,6 +908,7 @@
   - CargoTechnicianBackpack
   - CargoTechnicianSatchel
   - CargoTechnicianDuffel
+  - CargoTechnicianMessenger # Frontier
 
 - type: loadoutGroup
   id: CargoTechnicianOuterClothing
@@ -702,6 +932,7 @@
   - SalvageSpecialistBackpack
   - SalvageSpecialistSatchel
   - SalvageSpecialistDuffel
+  - SalvageSpecialistMessenger # Frontier
 
 - type: loadoutGroup
   id: SalvageSpecialistOuterClothing
@@ -735,6 +966,7 @@
   - ChiefEngineerTurtleneck
   - ChiefEngineerTurtleneckSkirt
   - ChiefEngineerMJ # goob
+  - CESummerShirt # goob
 
 - type: loadoutGroup
   id: ChiefEngineerNeck
@@ -794,6 +1026,7 @@
   - StationEngineerBackpack
   - StationEngineerSatchel
   - StationEngineerDuffel
+  - StationEngineerMessenger # Frontier
 
 - type: loadoutGroup
   id: StationEngineerOuterClothing
@@ -849,6 +1082,7 @@
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianSatchel
   - AtmosphericTechnicianDuffel
+  - AtmosphericTechnicianMessenger # Frontier
 
 - type: loadoutGroup
   id: AtmosphericTechnicianShoes
@@ -865,7 +1099,11 @@
   loadouts:
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
+  - EmergencyPlasmaExtended
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
+  - EmergencyWaterVaporExtended # Delta-V
+  - EmergencySilicon
 
 # Science
 - type: loadoutGroup
@@ -890,6 +1128,7 @@
   - ResearchDirectorJumpsuit
   - ResearchDirectorJumpskirt
   - ResearchDirectorMJ # goob
+  - RDSummerShirt # goob
 
 - type: loadoutGroup
   id: ResearchDirectorOuterClothing
@@ -898,6 +1137,7 @@
   loadouts:
   - ResearchDirectorLabCoat
   - ResearchDirectorWintercoat
+  - ResearchDirectorLabCoatPurple #goob
 
 - type: loadoutGroup
   id: ResearchDirectorShoes
@@ -941,6 +1181,7 @@
   - ScientistBackpack
   - ScientistSatchel
   - ScientistDuffel
+  - ScientistMessenger # Frontier
 
 - type: loadoutGroup
   id: ScientistOuterClothing
@@ -994,6 +1235,7 @@
   loadouts:
   - HeadofSecurityHead
   - HeadofSecurityBeret
+  - HeadofSecuritySpecialBeret # Goobstation
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1005,6 +1247,7 @@
   - HeadofSecurityTurtleneckSkirt
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
+  - HoSSummerShirt # goob
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1021,8 +1264,8 @@
   loadouts:
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
-  - ArmorVest #Goobstation change
-  - ArmorVestSlim #Goobstation change
+  - HeadofSecurityGreatCoat # Goobstation
+  - HeadofSecurityVestWeb # Goobstation
 
 - type: loadoutGroup
   id: WardenHead
@@ -1045,6 +1288,7 @@
   loadouts:
   - WardenCoat
   - WardenArmoredWinterCoat
+  - WardenCoatBlue #goob
 
 - type: loadoutGroup
   id: SecurityHead
@@ -1076,6 +1320,7 @@
   - SecurityBackpack
   - SecuritySatchel
   - SecurityDuffel
+  - SecurityMessenger # Frontier
 
 - type: loadoutGroup
   id: SecurityBelt
@@ -1083,7 +1328,6 @@
   loadouts:
   - SecurityBelt
   - SecurityWebbing
-  - SecurityJudoBelt # Goobstation - Martial Arts
 
 - type: loadoutGroup
   id: SecurityOuterClothing
@@ -1092,12 +1336,14 @@
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
+  - WinterCoatSeniorSecArmored # Goobstation
 
 - type: loadoutGroup
   id: SecurityShoes
   name: loadout-group-security-shoes
   loadouts:
   - JackBoots
+  - CombatBoots # Goobstation
   - SecurityWinterBoots
 
 - type: loadoutGroup
@@ -1155,7 +1401,11 @@
   loadouts:
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
+  - EmergencyPlasmaSecurity
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
+  - EmergencyWaterVaporSecurity # Delta-V
+  - EmergencySilicon
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1172,6 +1422,7 @@
   loadouts:
   - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
+  - ChemistUshanka # Goobstation
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
@@ -1248,6 +1499,7 @@
   - MedicalDoctorBackpack
   - MedicalDoctorSatchel
   - MedicalDoctorDuffel
+  - MedicalDoctorMessenger # Frontier
 
 - type: loadoutGroup
   id: MedicalShoes
@@ -1292,6 +1544,8 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
+  - SeniorPhysicianJumpsuit # Goobstation
+  - SeniorPhysicianJumpskirt # Goobstation
   - ChemistMJ # goob
 
 - type: loadoutGroup
@@ -1302,6 +1556,7 @@
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
+  - SeniorPhysicianLabCoat # Goobstation
 
 - type: loadoutGroup
   id: ChemistBackpack
@@ -1310,6 +1565,7 @@
   - ChemistBackpack
   - ChemistSatchel
   - ChemistDuffel
+  - ChemistMessenger # Frontier
 
 - type: loadoutGroup
   id: ParamedicHead
@@ -1317,6 +1573,7 @@
   minLimit: 0
   loadouts:
   - ParamedicHead
+  - SeniorPhysicianBeret # Goobstation
 
 - type: loadoutGroup
   id: ParamedicJumpsuit
@@ -1324,6 +1581,8 @@
   loadouts:
   - ParamedicJumpsuit
   - ParamedicJumpskirt
+  - SeniorPhysicianJumpsuit # Goobstation
+  - SeniorPhysicianJumpskirt # Goobstation
   - ParamedMJ # goob
 
 - type: loadoutGroup
@@ -1333,13 +1592,27 @@
   loadouts:
   - ParamedicWindbreaker
   - ParamedicWintercoat
+  - ParamedicDavidsJacket # Goobstation
+  - SeniorPhysicianLabCoat # Goobstation
 
 - type: loadoutGroup
   id: ParamedicShoes
   name: loadout-group-paramedic-shoes
   loadouts:
   - BlueShoes
+  - WhiteShoes
   - MedicalWinterBoots
+
+- type: loadoutGroup
+  id: MedicalEyewear
+  name: loadout-group-medical-glasses
+  minLimit: 0
+  loadouts:
+  - MedicalHud
+  - MedicalEyePatchHud
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
 
 - type: loadoutGroup
   id: SurvivalMedical
@@ -1349,7 +1622,11 @@
   loadouts:
   - EmergencyNitrogenMedical
   - EmergencyOxygenMedical
+  - EmergencyPlasmaMedical
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
+  - EmergencyWaterVaporMedical # Delta-V
+  - EmergencySilicon
 
 # Wildcards
 - type: loadoutGroup
@@ -1392,7 +1669,11 @@
   loadouts:
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
+  - EmergencyPlasmaSyndicate
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
+  - EmergencyWaterVaporSyndicate # Delta-V
+  - EmergencySilicon
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool

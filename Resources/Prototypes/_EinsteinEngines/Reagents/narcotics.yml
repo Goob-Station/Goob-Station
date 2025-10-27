@@ -1,0 +1,62 @@
+# SPDX-FileCopyrightText: 2025 GNUtopia <erainach14@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: reagent
+  id: Morphine
+  name: reagent-name-morphine
+  group: Narcotics
+  desc: reagent-desc-morphine
+  flavor: bitter
+  color: "#ffde7448"
+  physicalDesc: reagent-physical-desc-translucent
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+        damage:
+          groups:
+            Brute: -1
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Radiation: -0.5
+      - !type:Emote
+        emote: Yawn
+        showInChat: true
+        probability: 0.03
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
+        time: 2.5
+        type: Add
+        refresh: false
+      - !type:SuppressPain
+        amount: 50
+        time: 30
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          reagent: Morphine
+          min: 16
+        damage:
+          types:
+            Asphyxiation: 2
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:ReagentThreshold
+          min: 16
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -2
+        time: 12

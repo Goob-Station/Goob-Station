@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Administration;
 using Content.Shared.Maps;
 using Robust.Shared.Console;
@@ -10,7 +20,6 @@ namespace Content.Server.Administration.Commands;
 public sealed class VariantizeCommand : IConsoleCommand
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
 
     public string Command => "variantize";
 
@@ -40,10 +49,11 @@ public sealed class VariantizeCommand : IConsoleCommand
 
         var mapsSystem = _entManager.System<SharedMapSystem>();
         var tileSystem = _entManager.System<TileSystem>();
+        var turfSystem = _entManager.System<TurfSystem>();
 
         foreach (var tile in mapsSystem.GetAllTiles(euid.Value, gridComp))
         {
-            var def = tile.GetContentTileDefinition(_tileDefManager);
+            var def = turfSystem.GetContentTileDefinition(tile);
             var newTile = new Tile(tile.Tile.TypeId, tile.Tile.Flags, tileSystem.PickVariant(def));
             mapsSystem.SetTile(euid.Value, gridComp, tile.GridIndices, newTile);
         }

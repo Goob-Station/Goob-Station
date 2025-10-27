@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # non-projectile / "gun" staves
 
 # wand that gives lights an RGB effect.
@@ -7,6 +18,10 @@
   name: RGB staff
   description: Helps fix the underabundance of RGB gear on the station.
   components:
+  - type: LimitedCharges
+    maxCharges: 25
+  - type: AutoRecharge
+    rechargeDuration: 30
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/staves.rsi
     layers:
@@ -14,6 +29,7 @@
     - state: nothing-unshaded
       shader: unshaded
   - type: ActionOnInteract
+    requiresCharge: true
     actions:
     - ActionRgbLight
   - type: Item
@@ -36,17 +52,22 @@
   id: AnimationStaff
   parent: BaseItem
   name: staff of animation
-  description: Brings inanimate objects to life!
+  description: An artefact that spits bolts of life-force which causes objects which are hit by it to animate and come to life!
   components:
+  - type: LimitedCharges
+    maxCharges: 6
+  - type: AutoRecharge
+    rechargeDuration: 8
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/staves.rsi
     layers:
     - state: animation
   - type: ActionOnInteract
+    requiresCharge: true
     actions:
     - ActionAnimateSpell
   - type: Item
-    size: Normal
+    size: Huge
     inhandVisuals:
       left:
       - state: animation-inhand-left
@@ -54,15 +75,29 @@
       - state: animation-inhand-right
   - type: Tag
     tags:
-    - WizardWand
+    - WizardStaff
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Objects/Weapons/Staves/animation.rsi
+    quickEquip: false
+    slots:
+      - Back
+      - suitStorage
+    clothingVisuals:
+      back:
+      - sprite: _Goobstation/Wizard/Objects/Weapons/Staves/animation.rsi
+        state: equipped-BACKPACK
+      suitstorage:
+      - sprite: _Goobstation/Wizard/Objects/Weapons/Staves/animation.rsi
+        state: equipped-BACKPACK
+  - type: StaticPrice
+    price: 50000
 
 - type: entity
+  parent: BaseAction
   id: ActionRgbLight
   components:
   - type: EntityTargetAction
     whitelist: { components: [ PointLight ] }
-    charges: 25
-    sound: /Audio/Magic/blink.ogg
     event: !type:ChangeComponentsSpellEvent
       toAdd:
       - type: RgbLightController

@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Threading.Tasks;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.DungeonGenerators;
@@ -11,49 +17,43 @@ public sealed partial class DungeonJob
     /// <summary>
     /// <see cref="ReplaceTileDunGen"/>
     /// </summary>
-    private async Task<Dungeon> GenerateTileReplacementDunGen(ReplaceTileDunGen gen, DungeonData data, HashSet<Vector2i> reservedTiles, Random random)
+    private async Task GenerateTileReplacementDunGen(ReplaceTileDunGen gen, List<Dungeon> dungeons, HashSet<Vector2i> reservedTiles, Random random)
     {
-        var tiles = _maps.GetAllTilesEnumerator(_gridUid, _grid);
         var replacements = new List<(Vector2i Index, Tile Tile)>();
-        var reserved = new HashSet<Vector2i>();
 
-        while (tiles.MoveNext(out var tileRef))
+        foreach (var dungeon in dungeons)
         {
-            var node = tileRef.Value.GridIndices;
-
-            if (reservedTiles.Contains(node))
-                continue;
-
-            foreach (var layer in gen.Layers)
+            foreach (var node in dungeon.AllTiles)
             {
-                var value = layer.Noise.GetNoise(node.X, node.Y);
-
-                if (value < layer.Threshold)
+                if (reservedTiles.Contains(node))
                     continue;
 
-                Tile tile;
-
-                if (random.Prob(gen.VariantWeight))
+                foreach (var layer in gen.Layers)
                 {
-                    tile = _tileDefManager.GetVariantTile(_prototype.Index(layer.Tile), random);
-                }
-                else
-                {
-                    tile = new Tile(_prototype.Index(layer.Tile).TileId);
+                    var value = layer.Noise.GetNoise(node.X, node.Y);
+
+                    if (value < layer.Threshold)
+                        continue;
+
+                    Tile tile;
+
+                    if (random.Prob(gen.VariantWeight))
+                    {
+                        tile = _tileDefManager.GetVariantTile(_prototype.Index(layer.Tile), random);
+                    }
+                    else
+                    {
+                        tile = new Tile(_prototype.Index(layer.Tile).TileId);
+                    }
+
+                    replacements.Add((node, tile));
+                    break;
                 }
 
-                replacements.Add((node, tile));
-                reserved.Add(node);
-                break;
+                await SuspendDungeon();
             }
 
-            await SuspendDungeon();
+            _maps.SetTiles(_gridUid, _grid, replacements);
         }
-
-        _maps.SetTiles(_gridUid, _grid, replacements);
-        return new Dungeon(new List<DungeonRoom>()
-        {
-            new DungeonRoom(reserved, _position, Box2i.Empty, new HashSet<Vector2i>()),
-        });
     }
 }

@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 John Doe <johndoe@example.com>
+# SPDX-FileCopyrightText: 2024 Speebro <100388782+Speebr0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Speebro <speebro@notreal.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: reaction
   id: MethExplosion
   minTemp: 420 # in the latest ss13 code I could find, this was at 380, only 10k above the meth reaction, so this is lenient
@@ -25,7 +34,7 @@
   effects:
     - !type:ExplosionReactionEffect
       explosionType: Default
-      maxIntensity: 100
+      maxIntensity: 10
       intensityPerUnit: 2 # this is scary
-      intensitySlope: 2 # spreads out a lot
-      maxTotalIntensity: 600 # Caps out at 300 black powder, can't have bluespace beakers take out a whole department
+      intensitySlope: 2.5 # spreads out a lot
+      maxTotalIntensity: 400 # Caps out at 200 black powder, can't have bluespace beakers take out a whole department

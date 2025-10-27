@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2022 Jack Fox <35575261+DubiousDoggo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: GasPipe
   start: start
@@ -10,7 +18,31 @@
         amount: 1
         doAfter: 1
 
+    - to: halfAlt1
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+
+    - to: halfAlt2
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+
     - to: straight
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+
+    - to: straightAlt1
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+
+    - to: straightAlt2
       steps:
       - material: Steel
         amount: 1
@@ -22,7 +54,31 @@
         amount: 1
         doAfter: 1
 
+    - to: bendAlt1
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+
+    - to: bendAlt2
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+
     - to: tjunction
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+
+    - to: tjunctionAlt1
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+
+    - to: tjunctionAlt2
       steps:
       - material: Steel
         amount: 1
@@ -34,8 +90,58 @@
         amount: 1
         doAfter: 1
 
+    - to: fourwayAlt1
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+
+    - to: fourwayAlt2
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+
+    - to: manifold
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
   - node: half
     entity: GasPipeHalf
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: halfAlt1
+    entity: GasPipeHalfAlt1
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: halfAlt2
+    entity: GasPipeHalfAlt2
     edges:
     - to: start
       conditions:
@@ -66,8 +172,72 @@
       - tool: Welding
         doAfter: 1
 
+  - node: straightAlt1
+    entity: GasPipeStraightAlt1
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: straightAlt2
+    entity: GasPipeStraightAlt2
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
   - node: bend
     entity: GasPipeBend
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: bendAlt1
+    entity: GasPipeBendAlt1
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: bendAlt2
+    entity: GasPipeBendAlt2
     edges:
     - to: start
       conditions:
@@ -98,8 +268,72 @@
       - tool: Welding
         doAfter: 1
 
+  - node: tjunctionAlt1
+    entity: GasPipeTJunctionAlt1
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: tjunctionAlt2
+    entity: GasPipeTJunctionAlt2
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
   - node: fourway
     entity: GasPipeFourway
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: fourwayAlt1
+    entity: GasPipeFourwayAlt1
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: fourwayAlt2
+    entity: GasPipeFourwayAlt2
     edges:
     - to: start
       conditions:
@@ -125,6 +359,22 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: manifold
+    entity: GasPipeManifold
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding

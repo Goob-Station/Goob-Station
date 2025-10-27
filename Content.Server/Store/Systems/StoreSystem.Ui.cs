@@ -1,4 +1,36 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 J�lio C�sar Ueti <52474532+Mirino97@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
+// SPDX-FileCopyrightText: 2024 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
+// SPDX-FileCopyrightText: 2024 J. Brown <DrMelon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
+using Content.Goobstation.Shared.NTR;
+using Content.Goobstation.Shared.NTR.Events;
 using Content.Server._Goobstation.Wizard.Store;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
@@ -9,11 +41,12 @@ using Content.Server.Store.Components;
 using Content.Shared._Goobstation.Wizard.Refund; // Goob
 using Content.Shared.Actions;
 using Content.Shared.Database;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic; // Goob
 using Content.Shared.Heretic.Prototypes; // Goob
 using Content.Shared.Mind;
+using Content.Shared.PDA.Ringer;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Content.Shared.UserInterface;
@@ -21,6 +54,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing; // Goob
 
 namespace Content.Server.Store.Systems;
 
@@ -38,6 +72,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly HereticKnowledgeSystem _heretic = default!; // goobstation - heretics
+    [Dependency] private readonly IGameTiming _timing = default!; // goobstation - ntr update
 
     private void InitializeUi()
     {
@@ -174,6 +209,9 @@ public sealed partial class StoreSystem
                 return;
             }
         }
+        if (HasComp<NtrClientAccountComponent>(uid))
+            RaiseLocalEvent(uid, new NtrListingPurchaseEvent(listing.Cost.First().Value));
+        OnPurchase(listing); // Goob edit - ntr shittery
 
         // if (!IsOnStartingMap(uid, component)) // Goob edit
         //     component.RefundAllowed = false;
@@ -323,6 +361,13 @@ public sealed partial class StoreSystem
 
         UpdateUserInterface(buyer, uid, component);
         UpdateRefundUserInterface(uid, component); // Goobstation
+        if (listing.ResetRestockOnPurchase) // goobstation edit start
+        {
+            // making sure that you cant buy some stuff endlessly if they are not meant to
+            var restockDuration = listing.RestockAfterPurchase ?? listing.RestockDuration; // Просто используем значение напрямую
+            listing.RestockTime = _timing.CurTime + restockDuration;
+        } // goob edit end
+
     }
 
     /// <summary>
@@ -412,12 +457,9 @@ public sealed partial class StoreSystem
 
             component.BoughtEntities.RemoveAt(i);
 
-            if (_actions.TryGetActionData(purchase, out var actionComponent, logError: false))
-            {
-                _actionContainer.RemoveAction(purchase, actionComponent);
-            }
+            _actionContainer.RemoveAction(purchase, logMissing: false);
 
-            EntityManager.DeleteEntity(purchase);
+            Del(purchase);
         }
 
         component.BoughtEntities.Clear();
@@ -488,8 +530,8 @@ public sealed partial class StoreSystem
 
         component.BoughtEntities.Remove(boughtEntity);
 
-        if (_actions.TryGetActionData(boughtEntity, out var actionComponent, logError: false))
-            _actionContainer.RemoveAction(boughtEntity, actionComponent);
+        if (_actions.GetAction(boughtEntity) is { } action)
+            _actionContainer.RemoveAction((boughtEntity, action.Comp));
 
         refundComp.Data.PurchaseAmount = Math.Max(0, refundComp.Data.PurchaseAmount - 1);
 

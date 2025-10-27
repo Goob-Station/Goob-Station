@@ -1,3 +1,29 @@
+// SPDX-FileCopyrightText: 2020 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 theashtronaut <112137107+theashtronaut@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Server.Atmos.Components;
 using Content.Server.NodeContainer;
@@ -7,6 +33,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.NodeContainer;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using static Content.Shared.Atmos.Components.GasAnalyzerComponent;
@@ -32,9 +59,12 @@ public sealed class GasAnalyzerSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<GasAnalyzerComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<GasAnalyzerComponent, GasAnalyzerDisableMessage>(OnDisabledMessage);
-        SubscribeLocalEvent<GasAnalyzerComponent, DroppedEvent>(OnDropped);
-        SubscribeLocalEvent<GasAnalyzerComponent, UseInHandEvent>(OnUseInHand);
+
+        Subs.BuiEvents<GasAnalyzerComponent>(GasAnalyzerUiKey.Key, subs =>
+        {
+            subs.Event<BoundUIOpenedEvent>(OnBoundUIOpened);
+            subs.Event<BoundUIClosedEvent>(OnBoundUIClosed);
+        });
     }
 
     public override void Update(float frameTime)
@@ -72,21 +102,6 @@ public sealed class GasAnalyzerSystem : EntitySystem
     }
 
     /// <summary>
-    /// Activates the analyzer with no target, so it only scans the tile the user was on when activated
-    /// </summary>
-    private void OnUseInHand(Entity<GasAnalyzerComponent> entity, ref UseInHandEvent args)
-    {
-        // Not checking for Handled because ActivatableUISystem already marks it as such.
-
-        if (!entity.Comp.Enabled)
-            ActivateAnalyzer(entity, args.User);
-        else
-            DisableAnalyzer(entity, args.User);
-
-        args.Handled = true;
-    }
-
-    /// <summary>
     /// Handles analyzer activation logic
     /// </summary>
     private void ActivateAnalyzer(Entity<GasAnalyzerComponent> entity, EntityUid user, EntityUid? target = null)
@@ -104,21 +119,14 @@ public sealed class GasAnalyzerSystem : EntitySystem
     }
 
     /// <summary>
-    /// Close the UI, turn the analyzer off, and don't update when it's dropped
-    /// </summary>
-    private void OnDropped(Entity<GasAnalyzerComponent> entity, ref DroppedEvent args)
-    {
-        if (args.User is var userId && entity.Comp.Enabled)
-            _popup.PopupEntity(Loc.GetString("gas-analyzer-shutoff"), userId, userId);
-        DisableAnalyzer(entity, args.User);
-    }
-
-    /// <summary>
     /// Closes the UI, sets the icon to off, and removes it from the update list
     /// </summary>
     private void DisableAnalyzer(Entity<GasAnalyzerComponent> entity, EntityUid? user = null)
     {
         _userInterface.CloseUi(entity.Owner, GasAnalyzerUiKey.Key, user);
+
+        if (user.HasValue && entity.Comp.Enabled)
+            _popup.PopupEntity(Loc.GetString("gas-analyzer-shutoff"), user.Value, user.Value);
 
         entity.Comp.Enabled = false;
         Dirty(entity);
@@ -129,9 +137,25 @@ public sealed class GasAnalyzerSystem : EntitySystem
     /// <summary>
     /// Disables the analyzer when the user closes the UI
     /// </summary>
-    private void OnDisabledMessage(Entity<GasAnalyzerComponent> entity, ref GasAnalyzerDisableMessage message)
+    private void OnBoundUIClosed(Entity<GasAnalyzerComponent> entity, ref BoundUIClosedEvent args)
     {
-        DisableAnalyzer(entity);
+        if (HasComp<ActiveGasAnalyzerComponent>(entity.Owner)
+            && !_userInterface.IsUiOpen(entity.Owner, args.UiKey))
+        {
+            DisableAnalyzer(entity, args.Actor);
+        }
+    }
+
+    /// <summary>
+    /// Enables the analyzer when the user opens the UI
+    /// </summary>
+    private void OnBoundUIOpened(Entity<GasAnalyzerComponent> entity, ref BoundUIOpenedEvent args)
+    {
+        if (!HasComp<ActiveGasAnalyzerComponent>(entity.Owner)
+            && _userInterface.IsUiOpen(entity.Owner, args.UiKey))
+        {
+            ActivateAnalyzer(entity, args.Actor);
+        }
     }
 
     /// <summary>

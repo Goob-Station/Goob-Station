@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Errant <35878406+dmnct@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Chat.Systems;
 using Content.Server.Speech.Components;
 
@@ -8,6 +18,7 @@ namespace Content.Server.Speech.EntitySystems;
 /// </summary>
 public sealed class ListeningSystem : EntitySystem
 {
+    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
 
     public override void Initialize()
@@ -18,10 +29,10 @@ public sealed class ListeningSystem : EntitySystem
 
     private void OnSpeak(EntitySpokeEvent ev)
     {
-        PingListeners(ev.Source, ev.Message, ev.ObfuscatedMessage);
+        PingListeners(ev.Source, ev.Message, ev.IsWhisper); // Einstein Engines - Languages
     }
 
-    public void PingListeners(EntityUid source, string message, string? obfuscatedMessage)
+    public void PingListeners(EntityUid source, string message, bool isWhisper) // Einstein Engines - Language
     {
         // TODO whispering / audio volume? Microphone sensitivity?
         // for now, whispering just arbitrarily reduces the listener's max range.
@@ -32,7 +43,7 @@ public sealed class ListeningSystem : EntitySystem
 
         var attemptEv = new ListenAttemptEvent(source);
         var ev = new ListenEvent(message, source);
-        var obfuscatedEv = obfuscatedMessage == null ? null : new ListenEvent(obfuscatedMessage, source);
+        var obfuscatedEv = !isWhisper ? null : new ListenEvent(_chat.ObfuscateMessageReadability(message), source); // Einstein Engines - Language
         var query = EntityQueryEnumerator<ActiveListenerComponent, TransformComponent>();
 
         while(query.MoveNext(out var listenerUid, out var listener, out var xform))

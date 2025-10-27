@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Physics.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Singularity.Components;
@@ -64,7 +71,7 @@ public sealed class SingularityAttractorSystem : EntitySystem
 
         attractor.LastPulseTime = _timing.CurTime;
 
-        var mapPos = xform.Coordinates.ToMap(EntityManager, _transform);
+        var mapPos = _transform.ToMapCoordinates(xform.Coordinates);
 
         if (mapPos == MapCoordinates.Nullspace)
             return;
@@ -72,7 +79,7 @@ public sealed class SingularityAttractorSystem : EntitySystem
         var query = EntityQuery<SingularityComponent, RandomWalkComponent, TransformComponent>();
         foreach (var (singulo, walk, singuloXform) in query)
         {
-            var singuloMapPos = singuloXform.Coordinates.ToMap(EntityManager, _transform);
+            var singuloMapPos = _transform.ToMapCoordinates(singuloXform.Coordinates);
 
             if (singuloMapPos.MapId != mapPos.MapId)
                 continue;

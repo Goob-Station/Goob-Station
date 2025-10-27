@@ -1,3 +1,19 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Shared.Blob.Components;
 using Content.Goobstation.Shared.Blob.NPC.BlobPod;
 using Content.Server.DoAfter;
@@ -16,7 +32,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Rejuvenate;
-using Content.Shared.Tag;
+using Content.Shared._Starlight.CollectiveMind;
 using Robust.Server.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
@@ -35,7 +51,6 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -69,7 +84,8 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
         if (!TryComp<ZombieBlobComponent>(args.Container.Owner, out var zombieBlob))
             return;
 
-        _tag.RemoveTag(args.Container.Owner, zombieBlob.TagAdded);
+        if (TryComp<CollectiveMindComponent>(args.Container.Owner, out var mind))
+            mind.Channels.Remove(zombieBlob.CollectiveMindAdded);
 
         RemCompDeferred<ZombieBlobComponent>(args.Container.Owner);
     }
@@ -119,8 +135,8 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
         ent.Comp.ZombifiedEntityUid = target;
 
         var zombieBlob = EnsureComp<ZombieBlobComponent>(target);
-        _tag.AddTag(target, ent.Comp.HostTag);
-        zombieBlob.TagAdded = ent.Comp.HostTag;
+        EnsureComp<CollectiveMindComponent>(target).Channels.Add(ent.Comp.CollectiveMind);
+        zombieBlob.CollectiveMindAdded = ent.Comp.CollectiveMind;
         zombieBlob.BlobPodUid = ent;
         if (HasComp<ActorComponent>(ent))
         {

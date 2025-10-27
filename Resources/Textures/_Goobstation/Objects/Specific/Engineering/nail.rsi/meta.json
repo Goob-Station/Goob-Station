@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken at commit https://github.com/cmss13-devs/cmss13/commit/4ffd7d3dbb30a8a14980bc51abec44c39fc2e02d",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        }
+    ]
+}

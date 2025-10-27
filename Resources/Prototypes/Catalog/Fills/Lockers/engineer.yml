@@ -1,3 +1,49 @@
+# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2022 CrzyPotato <75244093+CrzyPotato@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
+# SPDX-FileCopyrightText: 2022 Jessica M <jessica@jessicamaybe.com>
+# SPDX-FileCopyrightText: 2022 Lamrr <96937466+Lamrr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Pancake <Pangogie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Sam Weaver <weaversam8@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 ZeroDayDaemon <60460608+ZeroDayDaemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 zlodo <a.chavasse@gmail.com>
+# SPDX-FileCopyrightText: 2023 Aexxie <codyfox.077@gmail.com>
+# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
+# SPDX-FileCopyrightText: 2023 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 August Eymann <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2024 a_person <alexanderbeaumont05@hotmail.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: ClosetToolFilled
   parent: ClosetTool
@@ -63,22 +109,41 @@
   suffix: Filled
   parent: LockerWeldingSupplies
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingHeadHatWelding
-      - id: ClothingHeadHatWelding
-      - id: ClothingHeadHatWelding
-        prob: 0.5
-      - id: Welder
-      - id: Welder
-      - id: WelderMini
-        orGroup: thirdWelder
-      - id: Welder
-        prob: 0.33
-        orGroup: thirdWelder
-      - id: WelderIndustrial
-        prob: 0.33
-        orGroup: thirdWelder
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillWelderSupplies
+          rolls: !type:ConstantNumberSelector
+            value: 3
+        - !type:NestedSelector
+          tableId: FillWelderSuppliesMask
+          rolls: !type:ConstantNumberSelector
+            value: 3
+
+- type: entityTable
+  id: FillWelderSupplies
+  table: !type:GroupSelector
+    children:
+    - id: ClothingHeadHatWelding
+    - id: ClothingHeadHatWeldingMaskFlame
+      weight: 0.25
+    - id: ClothingHeadHatWeldingMaskFlameBlue
+      weight: 0.25
+    - id: ClothingHeadHatWeldingMaskPainted
+      weight: 0.25
+
+- type: entityTable
+  id: FillWelderSuppliesMask
+  table: !type:GroupSelector
+    children:
+    - id: WelderMini
+    - id: Welder
+    - id: WelderIndustrial
+      weight: 0.25
+    - id: WelderIndustrialAdvanced
+      weight: 0.05
 
 - type: entity
   id: LockerAtmosphericsFilledHardsuit
@@ -87,7 +152,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterHardsuitAtmos
+      - id: ClothingModsuitAtmostechPowerCell # Goob edit
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
       - id: ClothingMaskGasAtmos
@@ -100,7 +165,9 @@
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: RCD
       - id: RCDAmmo
+      - id: AirGrenade
       - id: ClothingHandsGlovesAtmosInsulated # Goobstation - insulated atmos gloves
+      - id: ClothingBackpackFirefighterTank # Assmos - Firefighter nozzle
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -120,6 +187,8 @@
       - id: RCD
       - id: RCDAmmo
       - id: ClothingHandsGlovesAtmosInsulated # Goobstation - insulated atmos gloves
+      - id: ClothingBackpackFirefighterTank # Assmos - Firefighter nozzle
+      - id: AirGrenade
 
 - type: entity
   id: LockerEngineerFilledHardsuit
@@ -128,7 +197,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterHardsuitEngineering
+      - id: UndeterminedVoidsuitEngineer # Goob edit
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
       - id: ClothingHandsGlovesColorYellow
@@ -136,6 +205,7 @@
       - id: ClothingShoesBootsMag
       - id: RCD
       - id: RCDAmmo
+      - id: MetalFoamGrenade
 
 - type: entity
   id: LockerEngineerFilled
@@ -149,17 +219,56 @@
       - id: trayScanner
       - id: RCD
       - id: RCDAmmo
+      - id: MetalFoamGrenade
 
 - type: entity
   id: ClosetRadiationSuitFilled
   parent: ClosetRadiationSuit
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterSuitRad
-        amount: 2
-      - id: GeigerCounter
-        amount: 2
-      - id: ClothingOuterSuitHEV
-        prob: 0.05
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillRadiationSuit
+
+- type: entityTable
+  id: FillRadiationSuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterSuitRad
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: GeigerCounter
+      amount: !type:ConstantNumberSelector
+        value: 2
+
+- type: entity
+  parent: LockerEvacRepair
+  id: LockerEvacRepairFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerEvacRepair
+
+- type: entity
+  parent: LockerWallEvacRepair
+  id: LockerWallEvacRepairFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerEvacRepair
+
+- type: entityTable
+  id: FillLockerEvacRepair
+  table: !type:AllSelector
+    children:
+    - id: BoxInflatable
+    - id: HolofanProjector
+    - id: MetalFoamGrenade
+      amount: 3
+    - id: AirGrenade
+      amount: 3

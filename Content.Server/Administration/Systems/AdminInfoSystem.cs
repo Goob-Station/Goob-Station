@@ -1,4 +1,12 @@
-﻿using Content.Server.Administration.Logs;
+// SPDX-FileCopyrightText: 2024 Conchelle <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Shared.Administration.Events;
 using Content.Shared.Database;
@@ -33,5 +41,6 @@ public sealed class AdminInfoSystem : EntitySystem
 
         _adminLog.Add(LogType.AdminMessage, LogImpact.High, $"{name} is attempting to connect with a userid from {main.Username}");
         _chatManager.SendAdminAlert($"{name} is attempting to connect with a userid from {main.Username}");
+
     }
 }

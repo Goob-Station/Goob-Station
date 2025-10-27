@@ -1,6 +1,52 @@
+// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2022 Illiux <newoutlook@gmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mnemotechnican <69920617+Mnemotechnician@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Rank #1 Jonestown partygoer <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 RadsammyT <radsammyt@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Emoting;
 using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
+using Content.Shared.InteractionVerbs.Events;
 using Content.Shared.Item;
 using Content.Shared.Popups;
 using Robust.Shared.Serialization;
@@ -23,6 +69,9 @@ namespace Content.Shared.Ghost
             SubscribeLocalEvent<GhostComponent, EmoteAttemptEvent>(OnAttempt);
             SubscribeLocalEvent<GhostComponent, DropAttemptEvent>(OnAttempt);
             SubscribeLocalEvent<GhostComponent, PickupAttemptEvent>(OnAttempt);
+            // EE Interaction Verb Begin
+            SubscribeLocalEvent<GhostComponent, InteractionVerbAttemptEvent>(OnAttempt);
+            // End
         }
 
         private void OnAttemptInteract(Entity<GhostComponent> ent, ref InteractionAttemptEvent args)
@@ -37,25 +86,68 @@ namespace Content.Shared.Ghost
                 args.Cancel();
         }
 
+        /// <summary>
+        /// Sets the ghost's time of death.
+        /// </summary>
+        public void SetTimeOfDeath(Entity<GhostComponent?> entity, TimeSpan value)
+        {
+            if (!Resolve(entity, ref entity.Comp))
+                return;
+
+            if (entity.Comp.TimeOfDeath == value)
+                return;
+
+            entity.Comp.TimeOfDeath = value;
+            Dirty(entity);
+        }
+
+        [Obsolete("Use the Entity<GhostComponent?> overload")]
         public void SetTimeOfDeath(EntityUid uid, TimeSpan value, GhostComponent? component)
         {
-            if (!Resolve(uid, ref component))
-                return;
-
-            component.TimeOfDeath = value;
+            SetTimeOfDeath((uid, component), value);
         }
 
+        /// <summary>
+        /// Sets whether or not the ghost player is allowed to return to their original body.
+        /// </summary>
+        public void SetCanReturnToBody(Entity<GhostComponent?> entity, bool value)
+        {
+            if (!Resolve(entity, ref entity.Comp))
+                return;
+
+            if (entity.Comp.CanReturnToBody == value)
+                return;
+
+            entity.Comp.CanReturnToBody = value;
+            Dirty(entity);
+        }
+
+        [Obsolete("Use the Entity<GhostComponent?> overload")]
         public void SetCanReturnToBody(EntityUid uid, bool value, GhostComponent? component = null)
         {
-            if (!Resolve(uid, ref component))
-                return;
-
-            component.CanReturnToBody = value;
+            SetCanReturnToBody((uid, component), value);
         }
 
+        [Obsolete("Use the Entity<GhostComponent?> overload")]
         public void SetCanReturnToBody(GhostComponent component, bool value)
         {
-            component.CanReturnToBody = value;
+            SetCanReturnToBody((component.Owner, component), value);
+        }
+
+
+        /// <summary>
+        /// Sets whether the ghost is allowed to interact with other entities.
+        /// </summary>
+        public void SetCanGhostInteract(Entity<GhostComponent?> entity, bool value)
+        {
+            if (!Resolve(entity, ref entity.Comp))
+                return;
+
+            if (entity.Comp.CanGhostInteract == value)
+                return;
+
+            entity.Comp.CanGhostInteract = value;
+            Dirty(entity);
         }
     }
 

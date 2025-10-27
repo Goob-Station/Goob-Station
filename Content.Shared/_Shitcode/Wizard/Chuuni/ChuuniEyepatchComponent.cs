@@ -1,4 +1,13 @@
-using Content.Shared.FixedPoint;
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Magic.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -15,7 +24,7 @@ public sealed partial class ChuuniEyepatchComponent : Component
     public string FlippedPrefix = "flipped";
 
     [DataField]
-    public string MessagePostfix = "-chuuni";
+    public Color Color = Color.HotPink;
 
     [DataField, AutoNetworkedField]
     public bool IsFliped;
@@ -38,6 +47,7 @@ public sealed partial class ChuuniEyepatchComponent : Component
         { MagicSchool.Mime, "chuuni-invocation-mime" },
         { MagicSchool.Restoration, "chuuni-invocation-restoration" },
         { MagicSchool.Evocation, "chuuni-invocation-evocation" },
+        { MagicSchool.Explosion, "chuuni-invocation-explosion" },
         { MagicSchool.Transmutation, "chuuni-invocation-transmutation" },
         { MagicSchool.Translocation, "chuuni-invocation-translocation" },
         { MagicSchool.Conjuration, "chuuni-invocation-conjuration" },

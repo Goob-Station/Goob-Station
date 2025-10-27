@@ -1,3 +1,21 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Poips <Hanakohashbrown@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseGameRule
   id: LoneAbductorSpawn
@@ -5,12 +23,15 @@
   - type: StationEvent
     earliestStart: 15
     reoccurrenceDelay: 45
-    weight: 7.5
+    weight: 4 # Goobstation - 7.5 -> 4
     minimumPlayers: 10
-    duration: 1
-    chaos: # Goobstation
+    duration: null # Goobstation - chud
+    chaos:
       Hostile: 75
       Medical: 75
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 300
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/abductor_shuttle.yml
@@ -39,11 +60,13 @@
         name: abductor-lone-ghost-role-name
         description: abductor-lone-ghost-role-desc
         rules: abductors-ghost-role-rules
+        mindRoles:
+        - MindRoleGhostRoleSoloAntagonist
         raffle:
           settings: default
         requirements:
         - !type:OverallPlaytimeRequirement
-          time: 18000 #5 hours
+          time: 180000 #50 hours
         - !type:DepartmentTimeRequirement
           department: Medical
           time: 7200 #2 hours
@@ -58,6 +81,7 @@
         nameSegments:
           - AbductorScientistPrefix
           - AbductorNames
+        nameFormat: name-format-standard
       - type: Tag
         tags:
           - Abductor
@@ -65,7 +89,6 @@
           - CanPilot
           - FootstepSound
           - DoorBumpOpener
-          - AbductorMind
       - type: AbductorScientist
       - type: SurgeryIgnoreClothing
       - type: Sanitized
@@ -100,12 +123,15 @@
   - type: StationEvent
     earliestStart: 15
     reoccurrenceDelay: 45
-    weight: 7.5
+    weight: 4 # Goobstation - 7.5 -> 4
     minimumPlayers: 20
-    duration: 1
-    chaos: # Goobstation
+    duration: null # Goobstation - chud
+    chaos:
       Hostile: 150
       Medical: 150
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 450
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/duo_abductor_shuttle.yml
@@ -134,11 +160,13 @@
         name: abductor-scientist-ghost-role-name
         description: abductor-scientist-ghost-role-desc
         rules: abductors-ghost-role-rules
+        mindRoles:
+        - MindRoleGhostRoleTeamAntagonist
         raffle:
           settings: default
         requirements:
         - !type:OverallPlaytimeRequirement
-          time: 18000 #5 hours
+          time: 180000 #50 hours
         - !type:DepartmentTimeRequirement
           department: Medical
           time: 10800 #3 hours
@@ -150,6 +178,7 @@
         nameSegments:
           - AbductorScientistPrefix
           - AbductorNames
+        nameFormat: name-format-standard
       - type: Tag
         tags:
           - Abductor
@@ -157,7 +186,6 @@
           - CanPilot
           - FootstepSound
           - DoorBumpOpener
-          - AbductorMind
       - type: AbductorScientist
       - type: SurgeryIgnoreClothing
       - type: Sanitized
@@ -183,6 +211,8 @@
         name: abductor-agent-ghost-role-name
         description: abductor-agent-ghost-role-desc
         rules: abductors-ghost-role-rules
+        mindRoles:
+        - MindRoleGhostRoleTeamAntagonist
         raffle:
           settings: default
         requirements:
@@ -199,6 +229,7 @@
         nameSegments:
           - AbductorAgentPrefix
           - AbductorNames
+        nameFormat: name-format-standard
       - type: Tag
         tags:
           - Abductor

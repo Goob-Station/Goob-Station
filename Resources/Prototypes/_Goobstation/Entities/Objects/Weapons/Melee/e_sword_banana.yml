@@ -1,6 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GreenArg7 <GreenArc12@outlook.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Goobstation
 - type: entity
-  parent: [BaseItem, BaseMinorContraband]
+  parent: [BaseItem, BaseHonkraband]
   id: BananiumSword
   name: bananium energy sword
   description: A very loud & slippery sword with a beam made of pure, concentrated bananium. Slips un-galoshed targets like butter.
@@ -37,7 +43,7 @@
       color: white
       netsync: false
     - type: Appearance
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: blade
       inhandVisuals:
         left:

@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 TheWaffleJesus <106146578+TheWaffleJesus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: constructionGraph
   id: PowerCellPotato
   start: start
@@ -7,7 +14,7 @@
         - to: potatobattery
           steps:
             - tag: Potato
-              name: a potato
+              name: construction-graph-tag-potato
               icon:
                 sprite: Objects/Specific/Hydroponics/potato.rsi
                 state: produce
@@ -30,13 +37,13 @@
         - to: potatoai
           steps:
             - tag: PotatoBattery
-              name: a potato battery
+              name: construction-graph-tag-potato-battery
               icon:
                 sprite: Objects/Power/power_cells.rsi
                 state: potato
               doAfter: 1
             - tag: SmallAIChip
-              name: a super-compact AI chip
+              name: construction-graph-tag-super-compact-ai-chip
               icon:
                 sprite: Objects/Misc/potatoai_chip.rsi
                 state: icon
@@ -60,7 +67,7 @@
             - material: Cable
               amount: 2
               doAfter: 1
-            - material: Capacitor
+            - material: Manipulator
               amount: 2
     - node: potatoaichip
       entity: PotatoAIChip

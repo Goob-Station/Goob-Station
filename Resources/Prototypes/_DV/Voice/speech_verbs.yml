@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 DEATHB4DEFEAT <77995199+DEATHB4DEFEAT@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 portfiend <109661617+portfiend@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: speechVerb
   id: Vulpkanin
   name: chat-speech-verb-name-vulpkanin
@@ -33,3 +45,21 @@
   - chat-speech-verb-rodentia-2
   - chat-speech-verb-rodentia-3
   - chat-speech-verb-rodentia-4
+
+- type: speechVerb
+  id: Chitinid
+  name: chat-speech-verb-name-chitinid
+  speechVerbStrings:
+  - chat-speech-verb-chitinid-1
+  - chat-speech-verb-chitinid-2
+  - chat-speech-verb-chitinid-3
+  - chat-speech-verb-chitinid-4
+
+- type: speechVerb
+  id: Feroxi
+  name: chat-speech-verb-name-feroxi
+  speechVerbStrings:
+  - chat-speech-verb-feroxi-1
+  - chat-speech-verb-feroxi-2
+  - chat-speech-verb-feroxi-3
+  - chat-speech-verb-feroxi-4

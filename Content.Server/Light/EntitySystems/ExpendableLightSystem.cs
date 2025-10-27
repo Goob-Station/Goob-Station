@@ -1,15 +1,53 @@
+// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
+// SPDX-FileCopyrightText: 2020 ComicIronic <comicironic@gmail.com>
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
+// SPDX-FileCopyrightText: 2020 nuke <47336974+nuke-makes-games@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Jessica M <jessica@jessicamaybe.com>
+// SPDX-FileCopyrightText: 2022 Morber <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Jezithyr <6192499+Jezithyr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Light.Components;
+using Content.Server.Stack;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.IgnitionSource;
+using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Light.Components;
+using Content.Shared.NameModifier.EntitySystems;
+using Content.Shared.Stacks;
 using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Light.EntitySystems
@@ -22,7 +60,10 @@ namespace Content.Server.Light.EntitySystems
         [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly MetaDataSystem _metaData = default!;
+        [Dependency] private readonly StackSystem _stackSystem = default!;
+        [Dependency] private readonly NameModifierSystem _nameModifier = default!;
+
+        private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
 
         public override void Initialize()
         {
@@ -31,6 +72,8 @@ namespace Content.Server.Light.EntitySystems
             SubscribeLocalEvent<ExpendableLightComponent, ComponentInit>(OnExpLightInit);
             SubscribeLocalEvent<ExpendableLightComponent, UseInHandEvent>(OnExpLightUse);
             SubscribeLocalEvent<ExpendableLightComponent, GetVerbsEvent<ActivationVerb>>(AddIgniteVerb);
+            SubscribeLocalEvent<ExpendableLightComponent, InteractUsingEvent>(OnInteractUsing);
+            SubscribeLocalEvent<ExpendableLightComponent, RefreshNameModifiersEvent>(OnRefreshNameModifiers);
         }
 
         public override void Update(float frameTime)
@@ -56,7 +99,7 @@ namespace Content.Server.Light.EntitySystems
                 {
                     case ExpendableLightState.Lit:
                         component.CurrentState = ExpendableLightState.Fading;
-                        component.StateExpiryTime = component.FadeOutDuration;
+                        component.StateExpiryTime = (float)component.FadeOutDuration.TotalSeconds;
 
                         UpdateVisualizer(ent);
 
@@ -65,11 +108,9 @@ namespace Content.Server.Light.EntitySystems
                     default:
                     case ExpendableLightState.Fading:
                         component.CurrentState = ExpendableLightState.Dead;
-                        var meta = MetaData(ent);
-                        _metaData.SetEntityName(ent, Loc.GetString(component.SpentName), meta);
-                        _metaData.SetEntityDescription(ent, Loc.GetString(component.SpentDesc), meta);
+                        _nameModifier.RefreshNameModifiers(ent.Owner);
 
-                        _tagSystem.AddTag(ent, "Trash");
+                        _tagSystem.AddTag(ent, TrashTag);
 
                         UpdateSounds(ent);
                         UpdateVisualizer(ent);
@@ -101,15 +142,47 @@ namespace Content.Server.Light.EntitySystems
                 RaiseLocalEvent(ent, ref ignite);
 
                 component.CurrentState = ExpendableLightState.Lit;
-                component.StateExpiryTime = component.GlowDuration;
 
                 UpdateSounds(ent);
                 UpdateVisualizer(ent);
+            }
+            return true;
+        }
 
-                return true;
+        private void OnInteractUsing(EntityUid uid, ExpendableLightComponent component, ref InteractUsingEvent args)
+        {
+            if (args.Handled)
+                return;
+
+            if (!TryComp(args.Used, out StackComponent? stack))
+                return;
+
+            if (stack.StackTypeId != component.RefuelMaterialID)
+                return;
+
+            if (component.StateExpiryTime + component.RefuelMaterialTime.TotalSeconds >= component.RefuelMaximumDuration.TotalSeconds)
+                return;
+
+            if (component.CurrentState is ExpendableLightState.Dead)
+            {
+                component.CurrentState = ExpendableLightState.BrandNew;
+                component.StateExpiryTime = (float)component.RefuelMaterialTime.TotalSeconds;
+
+                _nameModifier.RefreshNameModifiers(uid);
+                _stackSystem.SetCount(args.Used, stack.Count - 1, stack);
+                UpdateVisualizer((uid, component));
+                return;
             }
 
-            return false;
+            component.StateExpiryTime += (float)component.RefuelMaterialTime.TotalSeconds;
+            _stackSystem.SetCount(args.Used, stack.Count - 1, stack);
+            args.Handled = true;
+        }
+
+        private void OnRefreshNameModifiers(Entity<ExpendableLightComponent> entity, ref RefreshNameModifiersEvent args)
+        {
+            if (entity.Comp.CurrentState is ExpendableLightState.Dead)
+                args.AddModifier("expendable-light-spent-prefix");
         }
 
         private void UpdateVisualizer(Entity<ExpendableLightComponent> ent, AppearanceComponent? appearance = null)
@@ -168,7 +241,8 @@ namespace Content.Server.Light.EntitySystems
             }
 
             component.CurrentState = ExpendableLightState.BrandNew;
-            EntityManager.EnsureComponent<PointLightComponent>(uid);
+            component.StateExpiryTime = (float)component.GlowDuration.TotalSeconds;
+            EnsureComp<PointLightComponent>(uid);
         }
 
         private void OnExpLightUse(Entity<ExpendableLightComponent> ent, ref UseInHandEvent args)

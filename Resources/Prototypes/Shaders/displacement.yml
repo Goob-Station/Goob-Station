@@ -1,4 +1,9 @@
-﻿- type: shader
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: shader
   id: DisplacedStencilDraw
   kind: source
   path: "/Textures/Shaders/displacement.swsl"
@@ -6,5 +11,12 @@
     ref: 1
     op: Keep
     func: NotEqual
+  params:
+    displacementSize: 127
+
+- type: shader
+  id: DisplacedDraw
+  kind: source
+  path: "/Textures/Shaders/displacement.swsl"
   params:
     displacementSize: 127

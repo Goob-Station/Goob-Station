@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Minor science loot spawner
 # Use case: Common areas that aren't science
 - type: entity
@@ -26,8 +30,6 @@
     - PowerCellSmall
     - PowerCellMedium
     - FlashlightLantern
-    - MatterBinStockPart
-    - CapacitorStockPart
     - MicroManipulatorStockPart
     - Beaker
     chance: 0.8
@@ -63,8 +65,6 @@
       - id: SheetGlass10
       - id: ToolboxElectricalFilled
       - id: ToolboxMechanicalFilled
-      - id: MatterBinStockPart
-      - id: CapacitorStockPart
       - id: MicroManipulatorStockPart
     # Rare Group
     - !type:GroupSelector
@@ -107,19 +107,12 @@
       state: generic
   - type: RandomSpawner
     rarePrototypes:
-    - BorgModuleDefibrillator
+    - BorgModuleAdvancedChemical
     - BorgModuleAdvancedCleaning
-    - BorgModuleClowning
-    - BorgModuleGardening
-    - BorgModuleHarvesting
+    - BorgModuleAdvancedTool
+
     rareChance: 0.1
     prototypes:
-    - BorgModuleCable
     - BorgModuleFireExtinguisher
-    - BorgModuleGPS
-    - BorgModuleRadiationDetection
-    - BorgModuleTool
-    - BorgModuleArtifact
-    - BorgModuleAnomaly
     chance: 0.9
     offset: 0.2

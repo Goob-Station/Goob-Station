@@ -1,3 +1,41 @@
+# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 BubblegumBlue <63939723+BubblegumBlue@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Starm4ncer <63939723+Starm4ncer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
+# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 ZeroDayDaemon <60460608+ZeroDayDaemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2022 ninruB <38016303+asperger-sind@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 wrexbe <wrexbe@protonmail.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Jackal298 <129199891+Jackal298@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: CrateSalvageEquipment
   name: "salvage equipment crate"
@@ -89,6 +127,119 @@
         prob: 0.0001
       - id: WeaponRevolverMateba
         prob: 0.0001
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateCrusherDagger
+  name: crusher dagger crate
+  description: Contains 4 crusher daggers for use by salvage.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: WeaponCrusherDagger
+        amount: 4
+
+# Salvage rewards
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateSeismicCharge
+  name: seismic charge crate
+  description: Contains 6 seismic charges for use by salvage.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: SeismicCharge
+        amount: 6
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateDoubleEmergencyTank
+  name: double emergency tank crate
+  description: Contains 2 double emergency oxygen tanks and 2 double emergency nitrogen tanks
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: DoubleEmergencyOxygenTankFilled
+          amount: 2
+        - id: DoubleEmergencyNitrogenTankFilled
+          amount: 2
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateCrusher
+  name: crusher crate
+  description: Contains 2 crushers for use by salvage.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: WeaponCrusher
+        amount: 2
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateFulton
+  name: fulton crate
+  description: Contains a fulton beacon and 8 fultons.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: FultonBeacon
+        - id: Fulton
+          amount: 8
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateVoidJetpack
+  name: void jetpack crate
+  description: Contains a single void jetpack.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: JetpackVoidFilled
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateSalvageHardsuit
+  name: salvage hardsuit crate
+  description: Contains a salvage hardsuit, breath mask, and oxygen tank.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingOuterHardsuitSalvage
+        - id: ClothingMaskBreath
+        - id: OxygenTankFilled
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateCrusherGlaive
+  name: crusher glaive crate
+  description: Contains a crusher glaive for use by salvage.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: WeaponCrusherGlaive
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateSupremeSalvagerCloak
+  name: supreme salvager cloak crate
+  description: Contains a cloak only to be worn by supreme salvagers. Wearing it undeservedly will result in your doom.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: ClothingNeckCloakSalvagerSupreme
 
 - type: entity
   parent: CrateGenericSteel

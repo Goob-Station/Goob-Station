@@ -1,9 +1,76 @@
+# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+# SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 CometVoid <cometsstrile@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GreenArg7 <GreenArc12@outlook.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tom <t.jans@student.fontys.nl>
+# SPDX-FileCopyrightText: 2025 Vrilly <tnjans@outlook.de>
+# SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Alphabetical order people!
+
+- type: Tag
+  id: ArrythmicKnife
+
+- type: Tag
+  id: AthiestsFedora
+
+- type: Tag
+  id: AntagGateway
+
 - type: Tag
   id: AutoinjectorCartridge
 
 - type: Tag
   id: BindSoulAction
+
+- type: Tag
+  id: Bible
+
+- type: Tag
+  id: Blobbernaut
 
 - type: Tag
   id: BlockLightning
@@ -15,19 +82,40 @@
   id: BolaEnergy
 
 - type: Tag
+  id: BudgetInsuls
+
+- type: Tag
   id: BreadEmergency
 
 - type: Tag
   id: BreathMask
 
 - type: Tag
+  id: Bulwark
+
+- type: Tag
   id: CartridgeHighCaliber
+
+- type: Tag
+  id: CartridgeLowCaliber
 
 - type: Tag
   id: CartridgeMagicBullet
 
 - type: Tag
   id: CartridgeSmart
+
+- type: Tag
+  id: CartridgeG8
+
+- type: Tag
+  id: CannotSuicideAny
+
+- type: Tag
+  id: Chair
+
+- type: Tag
+  id: ClothingBeltGeminiHoloProjector
 
 - type: Tag
   id: Clarke
@@ -57,13 +145,13 @@
   id: CombatMech
 
 - type: Tag
+  id: CorporateOverride
+
+- type: Tag
   id: ContrabandDetectorCircuitboard
 
 - type: Tag
   id: CursedAnimalMask
-
-- type: Tag
-  id: DroneMind
 
 - type: Tag
   id: Durand
@@ -105,6 +193,9 @@
   id: EmergencyOxygenTank
 
 - type: Tag
+  id: EmergencyPlasmaTank
+
+- type: Tag
   id: EnergySpeedloader
 
 - type: Tag
@@ -114,25 +205,46 @@
   id: EnergySpeedloaderLethal
 
 - type: Tag
-  id: EnergySpeedloaderTerminate
+  id: EnergySpeedloaderPulse
 
 - type: Tag
   id: ExtendedEmergencyOxygenTank
 
 - type: Tag
+  id: ExtendedEmergencyNitrogenTank
+
+- type: Tag
+  id: ExtendedEmergencyPlasmaTank
+
+- type: Tag
   id: Eyes
+
+- type: Tag
+  id: EnergyMagAmmo
 
 - type: Tag
   id: FelinidEmotes
 
 - type: Tag
+  id: FitsInCharger
+
+- type: Tag
   id: FlashIgnoreResistances
+
+- type: Tag
+  id: FollowerStayOnPolymorph
 
 - type: Tag
   id: FrozenIgnoreMindAction
 
 - type: Tag
   id: GasMask
+
+- type: Tag
+  id: GasMaskFullDefault
+
+- type: Tag
+  id: GodHand
 
 - type: Tag
   id: GorillaFormAction
@@ -171,6 +283,12 @@
   id: GunCanAimShooter
 
 - type: Tag
+  id: Hammer
+
+- type: Tag
+  id: HardHat
+
+- type: Tag
   id: HandheldCrewMonitor
 
 - type: Tag
@@ -180,10 +298,25 @@
   id: Heart
 
 - type: Tag
+  id: HereticBlade
+
+- type: Tag
+  id: HereticBladeBlade
+
+- type: Tag
   id: HereticItem
 
 - type: Tag
   id: HEVSuit
+
+- type: Tag
+  id: HolyClaymore
+
+- type: Tag
+  id: HonkmotherMaw
+
+- type: Tag
+  id: HydroponicsToolClippers
 
 - type: Tag
   id: IgnoreBindSoul
@@ -192,28 +325,68 @@
   id: IgnoreImmovableRod
 
 - type: Tag
+  id: IPCDrinkBlacklist
+
+- type: Tag
+  id: ItemPickaxe
+
+- type: Tag
+  id: ImprovisedShotgun
+
+- type: Tag
   id: IndustrialMech
 
 - type: Tag
   id: JanicartKeys
 
 - type: Tag
+  id: Justice
+
+- type: Tag
+  id: Keyring
+
+- type: Tag
   id: Kidneys
 
 - type: Tag
+  id: LaserLMG
+
+- type: Tag
+  id: LaserLMGBackpack
+
+- type: Tag
   id: Liver
+
+# tag roundstart rules that should be run alone
+- type: Tag
+  id: LoneRunRule
 
 - type: Tag
   id: Lungs
 
 - type: Tag
+  id: MagazineAntiMateriel
+
+- type: Tag
   id: MagazineHighCaliber
+
+- type: Tag
+  id: MagazineLowCaliberM7S
 
 - type: Tag
   id: MagazineMagnumLeverRifle
 
 - type: Tag
+  id: MagazineNailgun
+
+- type: Tag
+  id: MagazineShotgunHeavy
+
+- type: Tag
   id: MagazineSmart
+
+- type: Tag
+  id: MantisBlade
 
 - type: Tag
   id: Mask
@@ -225,7 +398,28 @@
   id: MechThruster
 
 - type: Tag
+  id: MechUnGrabbable
+
+- type: Tag
   id: MedicalPatch
+
+- type: Tag
+  id: Medipen
+
+- type: Tag
+  id: MilitaryPowerCell
+
+- type: Tag
+  id: MilitaryPowerCellLMG
+
+- type: Tag
+  id: MilitaryPowerCellRevolver
+
+- type: Tag
+  id: MilitaryPowerCellSniper
+
+- type: Tag
+  id: MilitaryPowerCellSMG
 
 - type: Tag
   id: ModsuitBoots
@@ -252,6 +446,21 @@
   id: ModsuitShell
 
 - type: Tag
+  id: MonkStaff
+
+- type: Tag
+  id: Muzzle
+
+- type: Tag
+  id: Nail
+
+- type: Tag
+  id: Nailgun
+
+- type: Tag
+  id: NonLethalGrenade
+
+- type: Tag
   id: NukeOpsCommanderUplink
 
 - type: Tag
@@ -261,10 +470,22 @@
   id: NukeOpsReinforcementUplink
 
 - type: Tag
+  id: Nullrod
+
+- type: Tag
+  id: NunHood
+
+- type: Tag
   id: Organ
 
 - type: Tag
+  id: PepperSpray
+
+- type: Tag
   id: Poppy
+
+- type: Tag
+  id: ReptilianEmotes
 
 - type: Tag
   id: RipleyMKIIUpgradeKit
@@ -273,13 +494,34 @@
   id: RipleyMkII
 
 - type: Tag
+  id: Rosary
+
+- type: Tag
+  id: SealedAirlock
+
+- type: Tag
+  id: SealedGlassAirlock
+
+- type: Tag
   id: SecurityBreathMask
+
+- type: Tag
+  id: ShadowCloakAction
+
+- type: Tag
+  id: SheetPlasma
 
 - type: Tag
   id: ShowWizardIcons
 
 - type: Tag
+  id: SiliconMob
+
+- type: Tag
   id: SnapPop
+
+- type: Tag
+  id: SolarAssemblyFlatpack # stupid upstream thing used it in a construction graph
 
 - type: Tag
   id: SoulTapped
@@ -309,6 +551,12 @@
   id: SyndicateBreathMask
 
 - type: Tag
+  id: ShellShotgunHeavier
+
+- type: Tag
+  id: SheetGlass
+
+- type: Tag
   id: ShellShotgunHeavy
 
 - type: Tag
@@ -316,6 +564,15 @@
 
 - type: Tag
   id: Table
+
+- type: Tag
+  id: Telecrystal
+
+- type: Tag
+  id: TemplarHelmet
+
+- type: Tag
+  id: Tesla
 
 - type: Tag
   id: Tongue
@@ -330,7 +587,22 @@
   id: ToySword
 
 - type: Tag
+  id: MakeshiftShield
+
+- type: Tag
+  id: MolotovConstruction
+
+- type: Tag
+  id: IgnitionSource
+
+- type: Tag
   id: Undead
+
+- type: Tag
+  id: UristHand
+
+- type: Tag
+  id: Ushanka
 
 - type: Tag
   id: VehicleKey
@@ -339,16 +611,49 @@
   id: VulpEmotes
 
 - type: Tag
+  id: Vial
+  
+- type: Tag
+  id: WallLight
+
+- type: Tag
   id: WaterTank
 
 - type: Tag
+  id: WeaponDisabler
+
+- type: Tag
+  id: Flash
+
+- type: Tag
+  id: RevFlash
+
+- type: Tag
   id: WeaponPistolDualetta
+
+- type: Tag
+  id: WeaponEnergyGunLawbringer
+
+- type: Tag
+  id: WideSwingIgnore
+
+- type: Tag
+  id: WeaponPistolCasul
+
+- type: Tag
+  id: WeaponPistolJackal
+
+- type: Tag
+  id: WeldingTool
 
 - type: Tag
   id: WinterCoat
 
 - type: Tag
   id: WizardHat
+
+- type: Tag # These tags are NOT alphabetical!!
+  id: Xenomorph
 
 - type: Tag
   id: HudMedicalSecurity
@@ -361,9 +666,6 @@
 
 - type: Tag
   id: ReverseBearTrapKey
-
-- type: Tag
-  id: Bomb
 
 - type: Tag
   id: Rifle
@@ -382,3 +684,12 @@
 
 - type: Tag
   id: MidroundAntag
+
+- type: Tag
+  id: FoodTinMRE
+
+- type: Tag
+  id: EmergencyWaterVaporTank
+
+- type: Tag
+  id: DisposableBattery

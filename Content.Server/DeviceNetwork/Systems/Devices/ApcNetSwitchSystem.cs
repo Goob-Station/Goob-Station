@@ -1,7 +1,17 @@
-using Content.Server.DeviceNetwork.Components;
+// SPDX-FileCopyrightText: 2021 Julian Giebel <j.giebel@netrocks.info>
+// SPDX-FileCopyrightText: 2021 Julian Giebel <juliangiebel@live.de>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.DeviceNetwork.Components.Devices;
 using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Interaction;
+using Content.Shared.DeviceNetwork.Components;
 
 namespace Content.Server.DeviceNetwork.Systems.Devices
 {
@@ -23,7 +33,7 @@ namespace Content.Server.DeviceNetwork.Systems.Devices
         /// </summary>
         private void OnInteracted(EntityUid uid, ApcNetSwitchComponent component, InteractHandEvent args)
         {
-            if (!EntityManager.TryGetComponent(uid, out DeviceNetworkComponent? networkComponent)) return;
+            if (!TryComp(uid, out DeviceNetworkComponent? networkComponent)) return;
 
             component.State = !component.State;
 
@@ -46,7 +56,7 @@ namespace Content.Server.DeviceNetwork.Systems.Devices
         /// </summary>
         private void OnPackedReceived(EntityUid uid, ApcNetSwitchComponent component, DeviceNetworkPacketEvent args)
         {
-            if (!EntityManager.TryGetComponent(uid, out DeviceNetworkComponent? networkComponent) || args.SenderAddress == networkComponent.Address) return;
+            if (!TryComp(uid, out DeviceNetworkComponent? networkComponent) || args.SenderAddress == networkComponent.Address) return;
             if (!args.Data.TryGetValue(DeviceNetworkConstants.Command, out string? command) || command != DeviceNetworkConstants.CmdSetState) return;
             if (!args.Data.TryGetValue(DeviceNetworkConstants.StateEnabled, out bool enabled)) return;
 

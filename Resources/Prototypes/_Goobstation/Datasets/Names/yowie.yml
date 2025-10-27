@@ -1,0 +1,11 @@
+- type: localizedDataset
+  id: NamesYowieMale
+  values:
+    prefix: names-yowie-male-dataset-
+    count: 43
+
+- type: localizedDataset
+  id: NamesYowieFemale
+  values:
+    prefix: names-yowie-female-dataset-
+    count: 35

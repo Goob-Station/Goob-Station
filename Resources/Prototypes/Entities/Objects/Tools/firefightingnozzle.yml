@@ -1,0 +1,82 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Assmos - Extinguisher Nozzle
+- type: entity
+  id: FirefighterNozzle
+  parent: BaseItem
+  name: firefighter nozzle
+  description: A specialized nozzle intended to fight fires. 
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/extinguishernozzle.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Weapons/Guns/Basic/extinguishernozzle.rsi
+    size: Normal
+  - type: FirefighterTankRefillable
+    externalContainer: true
+    targetSlot: BACK
+    providerWhitelist:
+      tags:
+      - AtmosBackTank
+  - type: Tag
+    tags:
+    - Nozzle
+    
+  - type: Spray
+    transferAmount: 15
+    pushbackAmount: 60
+    spraySound:
+      path: /Audio/Effects/extinguish.ogg
+    sprayedPrototype: ExtinguisherSpray
+    vaporAmount: 5
+    vaporSpread: 120
+    sprayDistance: 5
+    sprayVelocity: 2.0
+    externalContainer: true
+    targetSlot: BACK
+    providerWhitelist:
+      tags:
+      - NozzleBackTank
+      - AtmosBackTank
+
+  - type: PacifismAllowedGun
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Effects/thunk.ogg
+    soundEmpty:
+      path: /Audio/Items/hiss.ogg
+    clumsyProof: true
+  - type: ClothingSlotAmmoProvider
+    targetSlot: BACK
+    providerWhitelist:
+      tags:
+      - AtmosBackTank
+
+- type: entity
+  parent: [ BaseCivilianContraband, SmokeGrenade ]
+  categories: [ HideSpawnMenu ]
+  id: AtmosResin
+  name: atmos resin
+  description: Special grenade for atmosians.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/frozen-smoke-capsule.rsi
+    state: icon
+  - type: SmokeOnTrigger
+    duration: 8
+    spreadAmount: 200
+    smokePrototype: Resin
+  - type: ActiveTimerTrigger
+    timeRemaining: 0.3
+  - type: DeleteOnTrigger
+  
+  

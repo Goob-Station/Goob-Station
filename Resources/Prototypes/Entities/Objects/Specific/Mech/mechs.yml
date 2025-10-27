@@ -1,3 +1,39 @@
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 OttoMaticode <124523848+OttoMaticode@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Jophire <36978900+Jophire@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 LittleNyanCat <littlenyancat204@gmail.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 Token <esil.bektay@yandex.com>
+# SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deepdarkdepths <155149356+deepdarkdepths@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: BaseMech
   save: false
@@ -5,6 +41,10 @@
   components:
   - type: MobMover
   - type: Mech
+    pilotBlacklist: # Goobstation Change
+      components:
+      - Zombie
+      - ZombieBlob
   - type: MechAir
   - type: AirFilter
     # everything except oxygen and nitrogen
@@ -16,10 +56,11 @@
     - Ammonia
     - NitrousOxide
     - Frezon
-    - BZ
-    - Healium
-    - Nitrium
     #- Helium3 TODO: fusion
+    # <Goobstation> - healium not included for ADVANCED mech trolling
+    - BZ
+    - Nitrium
+    # </Goobstation>
     # remove everything except oxygen to maintain oxygen ratio
     overflowGases:
     - Nitrogen
@@ -30,11 +71,13 @@
     - Ammonia
     - NitrousOxide
     - Frezon
+    #- Helium3 TODO: fusion
+    # <Goobstation>
     - BZ
     - Healium
     - Nitrium
     - Pluoxium
-    #- Helium3 TODO: fusion
+    # </Goobstation>
   - type: AirIntake
   # for intake and filter to work
   - type: AtmosDevice
@@ -64,7 +107,7 @@
   - type: InteractionOutline
   - type: MovementSpeedModifier
     baseWalkSpeed: 1
-    baseSprintSpeed: 2
+    baseSprintSpeed: 1 #Goobedit
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -148,6 +191,7 @@
         - Book
   - type: StaticPrice
     price: 450
+  - type: DragDropTargetable
   # Goobstation Change End
 
 - type: entity
@@ -174,7 +218,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -184,7 +227,7 @@
         Structural: 30 # Goobstation - Make ripley punch hard
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.25
-    baseSprintSpeed: 3.6
+    baseSprintSpeed: 2.25 #Goobedit
 
 - type: entity
   id: MechRipleyBattery
@@ -214,6 +257,9 @@
       collection: FootstepClown
       params:
         variation: 0.17
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2.5 #Goobedit
   - type: Mech
     baseState: honker
     openState: honker-open
@@ -223,7 +269,6 @@
     pilotWhitelist:
       components:
       - HumanoidAppearance
-      - BorgChassis # Goobstation - Let borgs pilot mechs
 
 - type: entity
   parent: MechHonker
@@ -270,7 +315,7 @@
         Structural: 2
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.4
-    baseSprintSpeed: 3.7
+    baseSprintSpeed: 2.4 #Goobedit
 
 - type: entity
   parent: MechHamtr
@@ -333,7 +378,7 @@
         Structural: 2
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.25
-    baseSprintSpeed: 3.6
+    baseSprintSpeed: 2.25 #Goobedit
   - type: Access
     tags:
     - Maintenance

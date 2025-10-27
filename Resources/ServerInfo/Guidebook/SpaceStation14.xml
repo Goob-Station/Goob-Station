@@ -1,4 +1,15 @@
-﻿<Document>
+<!--
+SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Myakot <30875116+Myakot@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 end <72604018+laok233@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 UBlueberry <161545003+UBlueberry@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
 # Station and Shifts
 
 Every round of SS14 is a [bold]self-contained shift[/bold] that takes place on one of many different stations.
@@ -7,7 +18,7 @@ Rounds typically last from [color=cyan]45 to 90 minutes[/color], but players are
 
 ## Shuttle Terminal
 If you join in the middle of a shift, you will likely spawn on the [color=lime]shuttle terminal[/color].
-Here you can grab drinks, conversate with other players, and wait for the shuttle to take you to the station.
+Here you can grab drinks, converse with other players, and wait for the shuttle to take you to the station.
 
 Screens on the walls will give you an ETA for the shuttle.
 When it arrives, simply walk on to be transported to the station.
@@ -38,7 +49,7 @@ The round doesn't officially end until you reach [bold]Central Command[/bold]
   <GuideEntityEmbed Entity="CryogenicSleepUnit"/>
 </Box>
 
-If you need to leave a round early, you can do so through a [color=lime]cyrogenic sleep unit[/color].
+If you need to leave a round early, you can do so through a [color=lime]cryogenic sleep unit[/color].
 Simply going inside and leaving the game will store your belongings and ensure that they are not stolen or misused.
 
 ## More Info

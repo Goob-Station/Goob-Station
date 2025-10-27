@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 abductors-ui-beacons = Beacons
 abductors-ui-teleport = Teleport
 abductors-ui-attract = Attract
@@ -49,6 +58,7 @@ roles-antag-abductor-objective = Kidnap station crew and perform your experiment
 
 abductor-victim-role-greeting = You have seen things you shouldn't have. The world must know the truth.
 abductor-victim-role-name = Abductee
+abductor-victim-role-name-freeagent = Abductee (Free Agent)
 abductor-victim-role-desc = You have seen things you shouldn't have. The world must know the truth.
 
 objective-issuer-voices = [color=#FD0098]The Voices[/color]

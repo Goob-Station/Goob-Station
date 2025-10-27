@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 github-actions <github-actions@github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Heretic;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.Player;
@@ -24,10 +37,17 @@ public sealed partial class GhoulSystem : EntitySystem
     {
         var player = _player.LocalEntity;
 
+        if (TryComp(player, out StarGazerComponent? starGazer) && ent.Owner == starGazer.Summoner &&
+            _prototype.TryIndex(starGazer.MasterIcon, out var icon))
+        {
+            args.StatusIcons.Add(icon);
+            return;
+        }
+
         if (!TryComp<GhoulComponent>(player, out var playerGhoul))
             return;
 
-        if (GetNetEntity(ent.Owner) != playerGhoul.BoundHeretic)
+        if (ent.Owner != playerGhoul.BoundHeretic)
             return;
 
         if (_prototype.TryIndex(playerGhoul.MasterIcon, out var iconPrototype))

@@ -1,11 +1,83 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 12rabbits <53499656+12rabbits@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Dimastra <65184747+Dimastra@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Dimastra <dimastra@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
+// SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
+// SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+bebr3ght@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 ImHoks <142083149+ImHoks@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ImHoks <imhokzzzz@gmail.com>
+// SPDX-FileCopyrightText: 2025 KillanGenifer <killangenifer@gmail.com>
+// SPDX-FileCopyrightText: 2025 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
+// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
+using Content.Server.Body.Components;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using Content.Server.Actions;
+using Content.Server.Administration.Logs;
+using Content.Server.Administration.Managers;
+using Content.Shared.Body.Events;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
 using Content.Server.PowerCell;
+using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Content.Shared.Alert;
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Body.Events;
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -21,12 +93,16 @@ using Content.Shared.PowerCell.Components;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared.StationAi;
 using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
 using Content.Shared.Wires;
 using Robust.Server.GameObjects;
+using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -37,6 +113,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IBanManager _banManager = default!;
+    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
@@ -54,10 +131,9 @@ public sealed partial class BorgSystem : SharedBorgSystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
 
-
-    [ValidatePrototypeId<JobPrototype>]
-    public const string BorgJobId = "Borg";
+    public static readonly ProtoId<JobPrototype> BorgJobId = "Borg";
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -69,9 +145,11 @@ public sealed partial class BorgSystem : SharedBorgSystem
         SubscribeLocalEvent<BorgChassisComponent, MindAddedMessage>(OnMindAdded);
         SubscribeLocalEvent<BorgChassisComponent, MindRemovedMessage>(OnMindRemoved);
         SubscribeLocalEvent<BorgChassisComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<BorgChassisComponent, BeingGibbedEvent>(OnBeingGibbed);
         SubscribeLocalEvent<BorgChassisComponent, PowerCellChangedEvent>(OnPowerCellChanged);
         SubscribeLocalEvent<BorgChassisComponent, PowerCellSlotEmptyEvent>(OnPowerCellSlotEmpty);
         SubscribeLocalEvent<BorgChassisComponent, GetCharactedDeadIcEvent>(OnGetDeadIC);
+        SubscribeLocalEvent<BorgChassisComponent, GetCharacterUnrevivableIcEvent>(OnGetUnrevivableIC);
         SubscribeLocalEvent<BorgChassisComponent, ItemToggledEvent>(OnToggled);
 
         SubscribeLocalEvent<BorgBrainComponent, MindAddedMessage>(OnBrainMindAdded);
@@ -97,6 +175,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
         var used = args.Used;
         TryComp<BorgBrainComponent>(used, out var brain);
         TryComp<BorgModuleComponent>(used, out var module);
+        TryComp<AiRemoteBrainComponent>(used, out var aiBrain); // Corvax-Next-AiRemoteControl
 
         if (TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open)
         {
@@ -110,9 +189,10 @@ public sealed partial class BorgSystem : SharedBorgSystem
         if (component.BrainEntity == null && brain != null &&
             _whitelistSystem.IsWhitelistPassOrNull(component.BrainWhitelist, used))
         {
-            if (_mind.TryGetMind(used, out _, out var mind) && mind.Session != null)
+            if (_mind.TryGetMind(used, out _, out var mind) &&
+                _player.TryGetSessionById(mind.UserId, out var session))
             {
-                if (!CanPlayerBeBorged(mind.Session))
+                if (!CanPlayerBeBorged(session))
                 {
                     Popup.PopupEntity(Loc.GetString("borg-player-not-allowed"), used, args.User);
                     return;
@@ -134,6 +214,21 @@ public sealed partial class BorgSystem : SharedBorgSystem
             args.Handled = true;
             UpdateUI(uid, component);
         }
+
+        // Corvax-Next-AiRemoteControl-Start
+        if (component.BrainEntity == null && aiBrain != null &&
+    _whitelistSystem.IsWhitelistPassOrNull(component.BrainWhitelist, used))
+        {
+            EnsureComp<AiRemoteControllerComponent>(uid);
+            _container.Insert(used, component.BrainContainer);
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
+                $"{ToPrettyString(args.User):player} installed ai remote brain {ToPrettyString(used)} into borg {ToPrettyString(uid)}");
+            args.Handled = true;
+            BorgActivate(uid, component);
+
+            UpdateUI(uid, component);
+        }
+        // Corvax-Next-AiRemoteControl-End
     }
 
     /// <summary>
@@ -168,11 +263,25 @@ public sealed partial class BorgSystem : SharedBorgSystem
         {
             _mind.TransferTo(mindId, args.Entity, mind: mind);
         }
+
+        // Corvax-Next-AiRemoteControl-Start
+        if (HasComp<AiRemoteBrainComponent>(args.Entity))
+        {
+            BorgDeactivate(uid, component);
+            RemComp<AiRemoteControllerComponent>(uid);
+            RemComp<StationAiVisionComponent>(uid);
+        }
+        // Corvax-Next-AiRemoteControl-End
     }
 
     private void OnMindAdded(EntityUid uid, BorgChassisComponent component, MindAddedMessage args)
     {
         BorgActivate(uid, component);
+
+        // Goobstation: Customizable borgs sprites
+        if (TryComp<BorgSwitchableTypeComponent>(uid, out var switchable))
+            if (switchable.SelectedBorgType == null)
+                _ui.TryOpenUi(uid, BorgSwitchableTypeUiKey.SelectBorgType, uid);
     }
 
     private void OnMindRemoved(EntityUid uid, BorgChassisComponent component, MindRemovedMessage args)
@@ -191,6 +300,14 @@ public sealed partial class BorgSystem : SharedBorgSystem
         {
             _powerCell.SetDrawEnabled(uid, false);
         }
+    }
+
+    private void OnBeingGibbed(EntityUid uid, BorgChassisComponent component, ref BeingGibbedEvent args)
+    {
+        TryEjectPowerCell(uid, component, out var _);
+
+        _container.EmptyContainer(component.BrainContainer);
+        _container.EmptyContainer(component.ModuleContainer);
     }
 
     private void OnPowerCellChanged(EntityUid uid, BorgChassisComponent component, PowerCellChangedEvent args)
@@ -215,6 +332,11 @@ public sealed partial class BorgSystem : SharedBorgSystem
     private void OnGetDeadIC(EntityUid uid, BorgChassisComponent component, ref GetCharactedDeadIcEvent args)
     {
         args.Dead = true;
+    }
+
+    private void OnGetUnrevivableIC(EntityUid uid, BorgChassisComponent component, ref GetCharacterUnrevivableIcEvent args)
+    {
+        args.Unrevivable = true;
     }
 
     private void OnToggled(Entity<BorgChassisComponent> ent, ref ItemToggledEvent args)
@@ -245,10 +367,11 @@ public sealed partial class BorgSystem : SharedBorgSystem
             container.ID != chassisComponent.BrainContainerId)
             return;
 
-        if (!_mind.TryGetMind(uid, out var mindId, out var mind) || mind.Session == null)
+        if (!_mind.TryGetMind(uid, out var mindId, out var mind) ||
+            !_player.TryGetSessionById(mind.UserId, out var session))
             return;
 
-        if (!CanPlayerBeBorged(mind.Session))
+        if (!CanPlayerBeBorged(session))
         {
             Popup.PopupEntity(Loc.GetString("borg-player-not-allowed-eject"), uid);
             Container.RemoveEntity(containerEnt, uid);
@@ -284,6 +407,20 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
         _alerts.ClearAlert(ent, ent.Comp.NoBatteryAlert);
         _alerts.ShowAlert(ent, ent.Comp.BatteryAlert, chargePercent);
+    }
+
+    public bool TryEjectPowerCell(EntityUid uid, BorgChassisComponent component, [NotNullWhen(true)] out List<EntityUid>? ents)
+    {
+        ents = null;
+
+        if (!TryComp<PowerCellSlotComponent>(uid, out var slotComp) ||
+            !Container.TryGetContainer(uid, slotComp.CellSlotId, out var container) ||
+            !container.ContainedEntities.Any())
+                return false;
+
+        ents = Container.EmptyContainer(container);
+
+        return true;
     }
 
     /// <summary>

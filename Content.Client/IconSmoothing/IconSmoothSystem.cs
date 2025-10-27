@@ -1,4 +1,33 @@
+// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2020 Tyler Young <tyler.young@impromptu.ninja>
+// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
+using Content.Client._Shitcode.Heretic;
 using Content.Shared.IconSmoothing;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
@@ -17,6 +46,7 @@ namespace Content.Client.IconSmoothing
     public sealed partial class IconSmoothSystem : EntitySystem
     {
         [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+        [Dependency] private readonly SpriteSystem _sprite = default!;
 
         private readonly Queue<EntityUid> _dirtyEntities = new();
         private readonly Queue<EntityUid> _anchorChangedEntities = new();
@@ -57,7 +87,8 @@ namespace Content.Client.IconSmoothing
             if (component.Mode != IconSmoothingMode.Corners || !TryComp(uid, out SpriteComponent? sprite))
                 return;
 
-            SetCornerLayers(sprite, component);
+            SetCornerLayers((uid, sprite), component);
+            RaiseLocalEvent(uid, new IconSmoothCornersInitializedEvent()); // Goobstation
 
             if (component.Shader != null)
             {
@@ -74,25 +105,26 @@ namespace Content.Client.IconSmoothing
                 return;
 
             component.StateBase = newState;
-            SetCornerLayers(sprite, component);
+            SetCornerLayers((uid, sprite), component);
+            RaiseLocalEvent(uid, new IconSmoothCornersInitializedEvent()); // Goobstation
         }
 
-        private void SetCornerLayers(SpriteComponent sprite, IconSmoothComponent component)
+        private void SetCornerLayers(Entity<SpriteComponent?> sprite, IconSmoothComponent component)
         {
-            sprite.LayerMapRemove(CornerLayers.SE);
-            sprite.LayerMapRemove(CornerLayers.NE);
-            sprite.LayerMapRemove(CornerLayers.NW);
-            sprite.LayerMapRemove(CornerLayers.SW);
+            _sprite.LayerMapRemove(sprite, CornerLayers.SE);
+            _sprite.LayerMapRemove(sprite, CornerLayers.NE);
+            _sprite.LayerMapRemove(sprite, CornerLayers.NW);
+            _sprite.LayerMapRemove(sprite, CornerLayers.SW);
 
             var state0 = $"{component.StateBase}0";
-            sprite.LayerMapSet(CornerLayers.SE, sprite.AddLayerState(state0, 0)); // Goob edit
-            sprite.LayerSetDirOffset(CornerLayers.SE, DirectionOffset.None);
-            sprite.LayerMapSet(CornerLayers.NE, sprite.AddLayerState(state0, 0)); // Goob edit
-            sprite.LayerSetDirOffset(CornerLayers.NE, DirectionOffset.CounterClockwise);
-            sprite.LayerMapSet(CornerLayers.NW, sprite.AddLayerState(state0, 0)); // Goob edit
-            sprite.LayerSetDirOffset(CornerLayers.NW, DirectionOffset.Flip);
-            sprite.LayerMapSet(CornerLayers.SW, sprite.AddLayerState(state0, 0)); // Goob edit
-            sprite.LayerSetDirOffset(CornerLayers.SW, DirectionOffset.Clockwise);
+            _sprite.LayerMapSet(sprite, CornerLayers.SE, _sprite.AddRsiLayer(sprite, state0));
+            _sprite.LayerSetDirOffset(sprite, CornerLayers.SE, DirectionOffset.None);
+            _sprite.LayerMapSet(sprite, CornerLayers.NE, _sprite.AddRsiLayer(sprite, state0));
+            _sprite.LayerSetDirOffset(sprite, CornerLayers.NE, DirectionOffset.CounterClockwise);
+            _sprite.LayerMapSet(sprite, CornerLayers.NW, _sprite.AddRsiLayer(sprite, state0));
+            _sprite.LayerSetDirOffset(sprite, CornerLayers.NW, DirectionOffset.Flip);
+            _sprite.LayerMapSet(sprite, CornerLayers.SW, _sprite.AddRsiLayer(sprite, state0));
+            _sprite.LayerSetDirOffset(sprite, CornerLayers.SW, DirectionOffset.Clockwise);
         }
 
         private void OnShutdown(EntityUid uid, IconSmoothComponent component, ComponentShutdown args)
@@ -298,7 +330,7 @@ namespace Content.Client.IconSmoothing
         {
             if (gridEntity == null)
             {
-                sprite.Comp.LayerSetState(0, $"{smooth.StateBase}0");
+                _sprite.LayerSetRsiState(sprite.AsNullable(), 0, $"{smooth.StateBase}0");
                 return;
             }
 
@@ -324,11 +356,11 @@ namespace Content.Client.IconSmoothing
 
             if (matching)
             {
-                sprite.Comp.LayerSetState(0, $"{smooth.StateBase}1");
+                _sprite.LayerSetRsiState(sprite.AsNullable(), 0, $"{smooth.StateBase}1");
             }
             else
             {
-                sprite.Comp.LayerSetState(0, $"{smooth.StateBase}0");
+                _sprite.LayerSetRsiState(sprite.AsNullable(), 0, $"{smooth.StateBase}0");
             }
         }
 
@@ -338,7 +370,7 @@ namespace Content.Client.IconSmoothing
 
             if (gridEntity == null)
             {
-                sprite.Comp.LayerSetState(0, $"{smooth.StateBase}{(int)dirs}");
+                _sprite.LayerSetRsiState(sprite.AsNullable(), 0, $"{smooth.StateBase}{(int)dirs}");
                 return;
             }
 
@@ -355,7 +387,7 @@ namespace Content.Client.IconSmoothing
             if (MatchingEntity(smooth, _mapSystem.GetAnchoredEntitiesEnumerator(gridUid, grid, pos.Offset(Direction.West)), smoothQuery))
                 dirs |= CardinalConnectDirs.West;
 
-            sprite.Comp.LayerSetState(0, $"{smooth.StateBase}{(int)dirs}");
+            _sprite.LayerSetRsiState(sprite.AsNullable(), 0, $"{smooth.StateBase}{(int)dirs}");
 
             var directions = DirectionFlag.None;
 
@@ -376,7 +408,8 @@ namespace Content.Client.IconSmoothing
             while (candidates.MoveNext(out var entity))
             {
                 if (smoothQuery.TryGetComponent(entity, out var other) &&
-                    other.SmoothKey == smooth.SmoothKey &&
+                    other.SmoothKey != null &&
+                    (other.SmoothKey == smooth.SmoothKey || smooth.AdditionalKeys.Contains(other.SmoothKey)) &&
                     other.Enabled)
                 {
                     return true;
@@ -398,10 +431,10 @@ namespace Content.Client.IconSmoothing
             // At the very least each event currently only queues a sprite for updating.
             // Oh god sprite component is a mess.
             var sprite = spriteEnt.Comp;
-            sprite.LayerSetState(CornerLayers.NE, $"{smooth.StateBase}{(int)cornerNE}");
-            sprite.LayerSetState(CornerLayers.SE, $"{smooth.StateBase}{(int)cornerSE}");
-            sprite.LayerSetState(CornerLayers.SW, $"{smooth.StateBase}{(int)cornerSW}");
-            sprite.LayerSetState(CornerLayers.NW, $"{smooth.StateBase}{(int)cornerNW}");
+            _sprite.LayerSetRsiState(spriteEnt.AsNullable(), CornerLayers.NE, $"{smooth.StateBase}{(int)cornerNE}");
+            _sprite.LayerSetRsiState(spriteEnt.AsNullable(), CornerLayers.SE, $"{smooth.StateBase}{(int)cornerSE}");
+            _sprite.LayerSetRsiState(spriteEnt.AsNullable(), CornerLayers.SW, $"{smooth.StateBase}{(int)cornerSW}");
+            _sprite.LayerSetRsiState(spriteEnt.AsNullable(), CornerLayers.NW, $"{smooth.StateBase}{(int)cornerNW}");
 
             var directions = DirectionFlag.None;
 

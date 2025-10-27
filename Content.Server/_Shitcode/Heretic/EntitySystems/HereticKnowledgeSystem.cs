@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Actions;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Heretic;
@@ -24,8 +34,15 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
             RaiseLocalEvent(uid, (object) data.Event, true);
 
         if (data.ActionPrototypes != null && data.ActionPrototypes.Count > 0)
+        {
             foreach (var act in data.ActionPrototypes)
-                _action.AddAction(uid, act);
+            {
+                if (_action.AddAction(uid, act) is {} action)
+                    comp.ProvidedActions.Add(action);
+                else
+                    Log.Error($"Failed to give heretic {ToPrettyString(uid)} action {act}!");
+            }
+        }
 
         if (data.RitualPrototypes != null && data.RitualPrototypes.Count > 0)
             foreach (var ritual in data.RitualPrototypes)
@@ -55,11 +72,15 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         {
             foreach (var act in data.ActionPrototypes)
             {
-                var actionName = (EntityPrototype) _proto.Index(typeof(EntityPrototype), act);
-                // jesus christ.
-                foreach (var action in _action.GetActions(uid))
-                    if (Name(action.Id) == actionName.Name)
-                        _action.RemoveAction(action.Id);
+                comp.ProvidedActions.RemoveAll(action =>
+                {
+                    // goida
+                    if (Prototype(action)?.ID is not {} id || id != act)
+                        return false;
+
+                    _action.RemoveAction(action);
+                    return true;
+                });
             }
         }
 

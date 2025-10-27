@@ -1,4 +1,11 @@
-﻿using Content.Shared.Chemistry.Components;
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Chemistry.Components;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.Timing;
@@ -11,6 +18,7 @@ namespace Content.Client.Chemistry.Visualizers;
 public sealed class FoamVisualizerSystem : VisualizerSystem<FoamVisualsComponent>
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -37,7 +45,7 @@ public sealed class FoamVisualizerSystem : VisualizerSystem<FoamVisualsComponent
             if (TryComp(uid, out AnimationPlayerComponent? animPlayer)
                 && !AnimationSystem.HasRunningAnimation(uid, animPlayer, FoamVisualsComponent.AnimationKey))
             {
-                AnimationSystem.Play(uid, animPlayer, comp.Animation, FoamVisualsComponent.AnimationKey);
+                AnimationSystem.Play((uid, animPlayer), comp.Animation, FoamVisualsComponent.AnimationKey);
             }
         }
     }
@@ -71,7 +79,7 @@ public sealed class FoamVisualizerSystem : VisualizerSystem<FoamVisualsComponent
             return;
 
         if (TryComp<SpriteComponent>(uid, out var sprite))
-            sprite.Visible = false;
+            _sprite.SetVisible((uid, sprite), false);
     }
 }
 

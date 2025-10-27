@@ -1,3 +1,15 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Client.Parallax.Data;
 using Content.Client.Parallax.Managers;
@@ -10,12 +22,11 @@ namespace Content.Client.Parallax;
 
 public sealed class ParallaxSystem : SharedParallaxSystem
 {
-    [Dependency] private readonly IMapManager _map = default!;
     [Dependency] private readonly IOverlayManager _overlay = default!;
     [Dependency] private readonly IParallaxManager _parallax = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
 
-    [ValidatePrototypeId<ParallaxPrototype>]
-    private const string Fallback = "Default";
+    private static readonly ProtoId<ParallaxPrototype> Fallback = "Default";
 
     public const int ParallaxZIndex = 0;
 
@@ -58,12 +69,12 @@ public sealed class ParallaxSystem : SharedParallaxSystem
 
     public ParallaxLayerPrepared[] GetParallaxLayers(MapId mapId)
     {
-        return _parallax.GetParallaxLayers(GetParallax(_map.GetMapEntityId(mapId)));
+        return _parallax.GetParallaxLayers(GetParallax(_map.GetMapOrInvalid(mapId)));
     }
 
     public string GetParallax(MapId mapId)
     {
-        return GetParallax(_map.GetMapEntityId(mapId));
+        return GetParallax(_map.GetMapOrInvalid(mapId));
     }
 
     public string GetParallax(EntityUid mapUid)

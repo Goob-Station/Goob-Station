@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 spell-fail-no-targets = No targets!
 spell-fail-not-dead = Target must be dead.
 spell-fail-target-borg = Can't cast on borgs.
@@ -32,7 +39,7 @@ spell-fail-mindswap-dead = You don't particularly want to be dead!
 spell-requirements-failed-clothes = Missing requirements to cast this spell! You need to wear wizard robes and hat.
 spell-requirements-failed-speech = Missing requirements to cast this spell! You can't speak.
 
-instant-summons-item-marked = Sucessfully marked {$item}.
+instant-summons-item-marked = Successfully marked {$item}.
 instant-summons-confirm-popup = This action will remove the current mark! Use it again to confirm.
 
 chuuni-invocation-confirm-popup = This action will force you to wear unremoveable eyepatch! Use it again to confirm.

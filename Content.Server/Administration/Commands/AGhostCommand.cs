@@ -1,4 +1,35 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2018 PJB3005 <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2019 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
+// SPDX-FileCopyrightText: 2020 NuclearWinter <nukeuler123@gmail.com>
+// SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 Injazz <43905364+Injazz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Injazz <injazza@gmail.com>
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2021 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Linq;
 using Content.Server.GameTicking;
 using Content.Shared.Administration;
 using Content.Shared.Ghost;
@@ -6,6 +37,7 @@ using Content.Shared.Mind;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Console;
+using Robust.Shared.Player;
 
 namespace Content.Server.Administration.Commands;
 
@@ -13,7 +45,7 @@ namespace Content.Server.Administration.Commands;
 public sealed class AGhostCommand : LocalizedCommands
 {
     [Dependency] private readonly IEntityManager _entities = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
     public override string Command => "aghost";
     public override string Help => "aghost";
@@ -102,8 +134,8 @@ public sealed class AGhostCommand : LocalizedCommands
             // TODO: Remove duplication between all this and "GamePreset.OnGhostAttempt()"...
             if (!string.IsNullOrWhiteSpace(mind.CharacterName))
                 metaDataSystem.SetEntityName(ghost, mind.CharacterName);
-            else if (!string.IsNullOrWhiteSpace(mind.Session?.Name))
-                metaDataSystem.SetEntityName(ghost, mind.Session.Name);
+            else if (!string.IsNullOrWhiteSpace(player.Name))
+                metaDataSystem.SetEntityName(ghost, player.Name);
 
             mindSystem.Visit(mindId, ghost, mind);
         }
@@ -114,6 +146,6 @@ public sealed class AGhostCommand : LocalizedCommands
         }
 
         var comp = _entities.GetComponent<GhostComponent>(ghost);
-        ghostSystem.SetCanReturnToBody(comp, canReturn);
+        ghostSystem.SetCanReturnToBody((ghost, comp), canReturn);
     }
 }

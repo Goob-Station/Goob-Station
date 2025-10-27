@@ -1,3 +1,35 @@
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CometVoid <cometsstrile@gmail.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: gamePreset
   id: Changeling
   alias:
@@ -11,9 +43,8 @@
     - Changeling
     - SubGamemodesRule
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
-    - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
   id: Traitorling
@@ -27,9 +58,8 @@
     - CalmLing
     - CalmTraitor
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
-    - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
   id: NukeTraitor
@@ -44,9 +74,8 @@
     - Calmops
     - CalmTraitor
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
-    - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
   id: NukeLing
@@ -60,9 +89,8 @@
     - Calmops
     - CalmLing
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
-    - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
   id: RevTraitor
@@ -77,8 +105,7 @@
     - CalmRevs
     - CalmTraitor
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
-    - LavalandStormScheduler # Lavaland Change
+    - MeteorSwarmScheduler
 
 - type: gamePreset
   id: RevLing
@@ -92,10 +119,9 @@
     - CalmRevs
     - CalmLing
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
     - BasicRoundstartVariation
-    - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
   id: Blob
@@ -110,7 +136,6 @@
   - AntagStationEventScheduler
   - BasicRoundstartVariation
   - SubGamemodesRule
-  - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
   id: Honkops
@@ -123,13 +148,12 @@
     - Honkops
     - SubGamemodesRule
     - BasicStationEventScheduler
-  #  - MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
-  id: TheSleeper
+  id: TheGhost
   alias:
     - calm
     - calmdynamic
@@ -139,7 +163,9 @@
   minPlayers: 5
   rules:
     - CalmDynamic
-    - LavalandStormScheduler # Lavaland Change
+    - SubGamemodesRule
+    - RareIonStormScheduler
+    - SpaceTrafficControlFriendlyEventScheduler
 
 - type: gamePreset
   id: TheGuide
@@ -148,8 +174,73 @@
     - combatdynamic
   name: guide-title
   description: guide-description
-  showInVote: true
+  showInVote: false
   minPlayers: 25
   rules:
     - CombatDynamic
-    - LavalandStormScheduler # Lavaland Change
+    - SubGamemodesRule
+    - IonStormScheduler
+    - SpaceTrafficControlEventScheduler
+
+- type: gamePreset
+  id: SecretPlusLow
+  alias:
+    - secretpluslow
+    - secretpluscalm
+    - turbulence
+  name: secretplus-low-title
+  description: secretplus-low-description
+  showInVote: true
+  rules:
+    - SecretPlusLow
+
+- type: gamePreset
+  id: SecretPlusMid
+  alias:
+    - secretplusmid
+    - secretplus
+    - entropy
+  name: secretplus-mid-title
+  description: secretplus-mid-description
+  showInVote: true
+  rules:
+    - SecretPlusMid
+
+- type: gamePreset
+  id: SecretPlusAdmeme
+  alias:
+    - secretplusadmeme
+    - secretplusevil
+    - secretplushigh
+    - chaos
+  name: secretplus-admeme-title
+  description: secretplus-admeme-description
+  showInVote: false # 1984
+  rules:
+    - SecretPlusAdmeme
+
+- type: gamePreset
+  id: SurvivalPlusMid
+  alias:
+    - survivalplus
+    - newsurvival
+    - survivalnew
+  name: survivalplus-title
+  description: survivalplus-description
+  showInVote: true
+  rules:
+    - SecretPlusRampingMid
+
+# survival+ but it has roundstart abductors and maybe thieves
+- type: gamePreset
+  id: Abductors
+  alias:
+  - ayylmao
+  name: abductors-title
+  description: abductors-description
+  showInVote: false
+  minPlayers: 20
+  rules:
+  - DuoAbductorRoundstart
+  - SubGamemodesRule
+  - SecretPlusRampingMid

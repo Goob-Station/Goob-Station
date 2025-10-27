@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Content.Shared.Explosion;
 using JetBrains.Annotations;
@@ -19,10 +32,10 @@ namespace Content.Client.Administration.UI.SpawnExplosion;
 public sealed partial class SpawnExplosionWindow : DefaultWindow
 {
     [Dependency] private readonly IClientConsoleHost _conHost = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
+    private readonly SharedMapSystem _mapSystem;
     private readonly SharedTransformSystem _transform = default!;
 
     private readonly SpawnExplosionEui _eui;
@@ -38,6 +51,7 @@ public sealed partial class SpawnExplosionWindow : DefaultWindow
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+        _mapSystem = _entMan.System<SharedMapSystem>();
         _transform = _entMan.System<TransformSystem>();
         _eui = eui;
 
@@ -87,7 +101,7 @@ public sealed partial class SpawnExplosionWindow : DefaultWindow
     {
         _mapData.Clear();
         MapOptions.Clear();
-        foreach (var map in _mapManager.GetAllMapIds())
+        foreach (var map in _mapSystem.GetAllMapIds())
         {
             _mapData.Add(map);
             MapOptions.AddItem(map.ToString());

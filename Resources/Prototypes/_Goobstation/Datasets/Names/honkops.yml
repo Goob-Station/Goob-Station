@@ -1,47 +1,28 @@
-- type: dataset
-  id: HonkopsNamesElite
-  values:
-  - Honkman
-  - Bonkman
-  - Jokester
-  - Clown
-  - Prankster
-  - Bozo
-  - Circus
-  - Bezerk
-  - Dope
-  - Jester
-  - Chuckler
-  - Chuckster
-  - Jokeler
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: dataset
-  id: HonkopsNamesPrefix
+- type: localizedDataset
+  id: NamesHonkopsElite
   values:
-  - Honkerative
+    prefix: names-honkops-elite-dataset-
+    count: 13
 
-- type: dataset
-  id: operationPrefixHonkops
+- type: localizedDataset
+  id: NamesHonkopsPrefix
   values:
-  - Honk
-  - Bonk
-  - Clown
-  - Killing
-  - Prank
-  - Bozo
-  - Circus
-  - Bezerk
-  - Dope
-  - Chuckler
-  - Chuckster
-  - Boom
-  - Funny
+    prefix: names-honkops-prefix-dataset-
+    count: 1 # tbqh could be naming convention instead but lazy
 
-- type: dataset
-  id: operationSuffixHonkops
+- type: localizedDataset
+  id: OperationPrefixHonkops
   values:
-  - Kablooey
-  - Kaboom
-  - Explode
-  - Joke
-  - Bonk
+    prefix: operation-prefix-honkops-dataset-
+    count: 13
+
+- type: localizedDataset
+  id: OperationSuffixHonkops
+  values:
+    prefix: operation-suffix-honkops-dataset-
+    count: 5

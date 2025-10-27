@@ -1,20 +1,36 @@
-﻿- type: construction
-  name: computer
+# SPDX-FileCopyrightText: 2019 Swept <49448379+SweptWasTaken@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
+# SPDX-FileCopyrightText: 2020 Hugo Laloge <hugo.laloge@gmail.com>
+# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+# SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2022 Martin Petkovski <63034378+martin69420@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Jeff <velcroboy333@hotmail.com>
+# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+ChilbroBaggins@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: construction
   id: Computer
   graph: Computer
   startNode: start
   targetNode: computer
   category: construction-category-machines
-  description: A frame used to construct anything with a computer circuitboard.
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  icon:
-    sprite: Structures/Machines/parts.rsi
-    state: 4
 
 - type: construction
-  name: machine frame
-  description: A machine under construction. Needs more parts.
   id: MachineFrame
   graph: Machine
   startNode: start
@@ -22,56 +38,39 @@
   category: construction-category-machines
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  icon:
-    sprite: Structures/Machines/parts.rsi
-    state: "box_0"
 
 # Switching
 - type: construction
-  name: two-way lever
   id: TwoWayLeverRecipe
   graph: LeverGraph
   startNode: start
   targetNode: LeverNode
   category: construction-category-machines
-  description: A lever to control machines. It has 3 modes.
   objectType: Structure
   canBuildInImpassable: false
-  icon:
-    sprite: Structures/conveyor.rsi
-    state: switch-off
   conditions:
     - !type:TileNotBlocked
 
 - type: construction
-  name: light switch
   id: LightSwitchRecipe
   graph: LightSwitchGraph
   startNode: start
   targetNode: LightSwitchNode
   category: construction-category-machines
-  description: A switch for toggling lights that are connected to the same apc.
-  icon:
-    sprite: Structures/Wallmounts/switch.rsi
-    state: on
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: true
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+  hide: true #TODO: Fix the lightswitch, issue #34659. Until then, keep hidden so people don't build it and get confused.
 
 - type: construction
-  name: signal switch
   id: SignalSwitchRecipe
   graph: SignalSwitchGraph
   startNode: start
   targetNode: SignalSwitchNode
   category: construction-category-machines
-  description: It's a switch for toggling power to things.
-  icon:
-    sprite: Structures/Wallmounts/switch.rsi
-    state: on
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: true
@@ -80,16 +79,11 @@
     - !type:WallmountCondition
 
 - type: construction
-  name: signal button
   id: SignalButtonRecipe
   graph: SignalButtonGraph
   startNode: start
   targetNode: SignalButtonNode
   category: construction-category-machines
-  description: It's a button for activating something.
-  icon:
-    sprite: Structures/Wallmounts/switch.rsi
-    state: on
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: true
@@ -98,34 +92,27 @@
     - !type:WallmountCondition
 
 - type: construction
-  name: directional light switch
   id: LightSwitchDirectionalRecipe
+  name: construction-recipe-light-switch-directional
   graph: LightSwitchDirectionalGraph
   startNode: start
   targetNode: LightSwitchDirectionalNode
   category: construction-category-machines
-  description: A switch for toggling lights that are connected to the same apc.
-  icon:
-    sprite: Structures/Wallmounts/switch.rsi
-    state: on
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: true
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+  hide: true #TODO: Fix the lightswitch, issue #34659. Until then, keep hidden so people don't build it and get confused.
 
 - type: construction
-  name: directional signal switch
   id: SignalSwitchDirectionalRecipe
+  name: construction-recipe-signal-switch-directional
   graph: SignalSwitchDirectionalGraph
   startNode: start
   targetNode: SignalSwitchDirectionalNode
   category: construction-category-machines
-  description: It's a switch for toggling power to things.
-  icon:
-    sprite: Structures/Wallmounts/switch.rsi
-    state: on
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: true
@@ -134,16 +121,12 @@
     - !type:WallmountCondition
 
 - type: construction
-  name: directional signal button
   id: SignalButtonDirectionalRecipe
+  name: construction-recipe-signal-button-directional
   graph: SignalButtonDirectionalGraph
   startNode: start
   targetNode: SignalButtonDirectionalNode
   category: construction-category-machines
-  description: It's a button for activating something.
-  icon:
-    sprite: Structures/Wallmounts/switch.rsi
-    state: on
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: true

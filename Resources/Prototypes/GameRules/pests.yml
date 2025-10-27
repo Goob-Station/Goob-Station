@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # tables
 
 - type: entityTable
@@ -30,16 +42,18 @@
     duration: 30 # DeltaV: was 50, used as a delay now
     chaos: # Goobstation
       Mess: 10 # there's 15 morbillion mice usually and they're easy to kill
+    eventType: Neutral # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 20
   - type: VentCrittersRule
-    entries:
-    - id: MobMouse
-      prob: 0.02
-    - id: MobMouse1
-      prob: 0.02
-    - id: MobMouse2
-      prob: 0.02
-    - id: MobMouseCancer
-      prob: 0.001
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobMouse
+      - id: MobMouse1
+      - id: MobMouse2
+      - id: MobMouseCancer # Goobstation
+        weight: 0.05 # 1/60
 # Events always spawn a critter regardless of Probability https://github.com/space-wizards/space-station-14/issues/28480 I added the Rat King to their own event with a player cap.
 
 - type: entity
@@ -57,18 +71,20 @@
     chaos: # Goobstation
       Mess: 10
       Hostile: 1 # low chance to spawn rat king
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 25
   - type: VentCrittersRule
-    entries:
-    - id: MobMouse
-      prob: 0.02
-    - id: MobMouse1
-      prob: 0.02
-    - id: MobMouse2
-      prob: 0.02
-    - id: MobMouseCancer
-      prob: 0.001
-    - id: MobLootbug # Goobstation
-      prob: 0.005
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobMouse
+      - id: MobMouse1
+      - id: MobMouse2
+      - id: MobMouseCancer # Goobstation
+        weight: 0.05
+      - id: MobLootbug # Goobstation
+        weight: 0.25
     specialEntries:
     - id: SpawnPointGhostRatKing
       prob: 0.001
@@ -86,14 +102,23 @@
     chaos: # Goobstation
       Mess: 15
       Hostile: 2
+    eventType: Neutral # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 20
   - type: VentCrittersRule
-    entries:
-    - id: MobCockroach
-      prob: 0.03
-    - id: MobMothroach
-      prob: 0.008
-    - id: MobLootbug # Goobstation
-      prob: 0.01
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobCockroach
+        weight: 0.79
+      - id: MobMothroach
+        weight: 0.20
+      - id: MobSquackroach # Goobstation
+        weight: 0.1
+      - id: MobLootbug # Goobstation
+        weight: 0.3
+      - id: MobMoproach
+        weight: 0.01
 
 - type: entity
   id: SnailMigrationLowPop
@@ -108,14 +133,16 @@
     chaos: # Goobstation
       Friend: -5
       Mess: 5
+    eventType: Neutral # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 20
   - type: VentCrittersRule
-    entries:
-    - id: MobSnail
-      prob: 0.02
-    - id: MobSnailSpeed
-      prob: 0.002
-    - id: MobSnailMoth
-      prob: 0.002
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobSnail
+      - id: MobSnailSpeed
+      - id: MobSnailMoth
 
 - type: entity
   id: SnailMigration
@@ -132,13 +159,19 @@
     chaos: # Goobstation
       Mess: 5
       Hostile: 1 # the very low gib snail prob
+    eventType: Chaotic # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 30
   - type: VentCrittersRule
-    entries:
-    - id: MobSnail
-      prob: 0.02
-    - id: MobSnailSpeed
-      prob: 0.002
-    - id: MobSnailMoth
-      prob: 0.002
-    - id: MobSnailInstantDeath
-      prob: 0.00001 #  ~ 1:2000 snails
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobSnail
+        weight: 0.84
+      - id: MobSnailSpeed
+        weight: 0.08
+      - id: MobSnailMoth
+        weight: 0.08
+      # Goobstation
+      - id: MobSnailInstantDeath
+        weight: 0.0004

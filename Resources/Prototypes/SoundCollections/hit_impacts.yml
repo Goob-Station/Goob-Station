@@ -1,4 +1,9 @@
-﻿- type: soundCollection
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: soundCollection
   id: MetalThud
   files:
   - /Audio/Effects/metal_thud1.ogg

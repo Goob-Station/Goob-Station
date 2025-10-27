@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: palette
   id: KoboldColors
   name: KoboldColors
@@ -41,3 +46,18 @@
     HornA: "#d4c8bf"
     hornB: "#eec7ab"
     hornC: "#ad9584"
+
+- type: palette
+  id: ScurretColors
+  name: ScurretColors
+  colors:
+    Normal: "#ffffff" # Sluggy
+    Innocent: "#f6f439" # Monky
+    Angry: "#dc5864" # Hunty
+    Perceptive: "#222222" # Watchy
+    Eldritch: "#dc5864"
+    Fat: "#fefcab"
+    Violent: "#ab3430"
+    Speedy: "#679cfe"
+    Mutated: "#7824a0"
+    Damned: "#98e652"

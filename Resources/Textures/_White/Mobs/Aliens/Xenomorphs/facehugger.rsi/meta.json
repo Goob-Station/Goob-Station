@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites by @aleksh and @.sigma_draconis. Animations by VictorJob. revised for Goobstation by johnjjohn(github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "facehugger",
+      "directions": 4,
+      "delays": [
+	    [
+	      0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1
+	    ],
+	    [
+	      0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1
+	    ],      
+		[
+          0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1
+	    ],
+	    [
+	      0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1
+	    ]
+	  ]
+    },
+    {
+      "name": "facehugger_dead"
+    },
+    {
+      "name": "equipped-MASK",
+      "directions": 4,
+      "delays": [
+	    [
+	      0.2,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1
+	    ],
+	    [
+	      0.2,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1
+	    ],      
+		[
+          0.2,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1
+	    ],
+	    [
+	      0.2,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1,
+		  0.1
+	    ]
+	  ]
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

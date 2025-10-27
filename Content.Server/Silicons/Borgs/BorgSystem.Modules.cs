@@ -1,3 +1,23 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LankLTE <135308300+LankLTE@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Whatstone <whatston3@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Components;
@@ -62,12 +82,10 @@ public sealed partial class BorgSystem
 
         if (_actions.AddAction(chassis, ref component.ModuleSwapActionEntity, out var action, component.ModuleSwapActionId, uid))
         {
-            if(TryComp<BorgModuleIconComponent>(uid, out var moduleIconComp))
-            {
-                action.Icon = moduleIconComp.Icon;
-            };
-            action.EntityIcon = uid;
-            Dirty(component.ModuleSwapActionEntity.Value, action);
+            var actEnt = (component.ModuleSwapActionEntity.Value, action);
+            _actions.SetEntityIcon(actEnt, uid);
+            if (TryComp<BorgModuleIconComponent>(uid, out var moduleIconComp))
+                _actions.SetIcon(actEnt, moduleIconComp.Icon);
         }
 
         if (!TryComp(chassis, out BorgChassisComponent? chassisComp))
@@ -202,7 +220,7 @@ public sealed partial class BorgSystem
             else
             {
                 item = component.ProvidedContainer.ContainedEntities
-                    .FirstOrDefault(ent => Prototype(ent)?.ID == itemProto);
+                    .FirstOrDefault(ent => Prototype(ent)?.ID == itemProto.Id);
                 if (!item.IsValid())
                 {
                     Log.Debug($"no items found: {component.ProvidedContainer.ContainedEntities.Count}");
@@ -220,8 +238,8 @@ public sealed partial class BorgSystem
 
             var handId = $"{uid}-item{component.HandCounter}";
             component.HandCounter++;
-            _hands.AddHand(chassis, handId, HandLocation.Middle, hands);
-            _hands.DoPickup(chassis, hands.Hands[handId], item, hands);
+            _hands.AddHand((chassis, hands), handId, HandLocation.Middle);
+            _hands.DoPickup(chassis, handId, item, hands);
             EnsureComp<UnremoveableComponent>(item);
             component.ProvidedItems.Add(handId, item);
         }
@@ -242,7 +260,7 @@ public sealed partial class BorgSystem
             foreach (var (hand, item) in component.ProvidedItems)
             {
                 QueueDel(item);
-                _hands.RemoveHand(chassis, hand, hands);
+                _hands.RemoveHand(chassis, hand);
             }
             component.ProvidedItems.Clear();
             return;
@@ -255,7 +273,7 @@ public sealed partial class BorgSystem
                 RemComp<UnremoveableComponent>(item);
                 _container.Insert(item, component.ProvidedContainer);
             }
-            _hands.RemoveHand(chassis, handId, hands);
+            _hands.RemoveHand(chassis, handId);
         }
         component.ProvidedItems.Clear();
     }

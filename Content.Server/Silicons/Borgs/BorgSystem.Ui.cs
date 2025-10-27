@@ -1,17 +1,33 @@
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Shared.UserInterface;
+using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.NameIdentifier;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.Silicons.Borgs;
 
 /// <inheritdoc/>
 public sealed partial class BorgSystem
 {
+    // CCvar.
+    private int _maxNameLength;
+
     public void InitializeUI()
     {
         SubscribeLocalEvent<BorgChassisComponent, BeforeActivatableUIOpenEvent>(OnBeforeBorgUiOpen);
@@ -19,6 +35,8 @@ public sealed partial class BorgSystem
         SubscribeLocalEvent<BorgChassisComponent, BorgEjectBatteryBuiMessage>(OnEjectBatteryBuiMessage);
         SubscribeLocalEvent<BorgChassisComponent, BorgSetNameBuiMessage>(OnSetNameBuiMessage);
         SubscribeLocalEvent<BorgChassisComponent, BorgRemoveModuleBuiMessage>(OnRemoveModuleBuiMessage);
+
+        Subs.CVar(_cfgManager, CCVars.MaxNameLength, value => _maxNameLength = value, true);
     }
 
     private void OnBeforeBorgUiOpen(EntityUid uid, BorgChassisComponent component, BeforeActivatableUIOpenEvent args)
@@ -40,20 +58,13 @@ public sealed partial class BorgSystem
 
     private void OnEjectBatteryBuiMessage(EntityUid uid, BorgChassisComponent component, BorgEjectBatteryBuiMessage args)
     {
-        if (!TryComp<PowerCellSlotComponent>(uid, out var slotComp) ||
-            !Container.TryGetContainer(uid, slotComp.CellSlotId, out var container) ||
-            !container.ContainedEntities.Any())
-        {
-            return;
-        }
-
-        var ents = Container.EmptyContainer(container);
-        _hands.TryPickupAnyHand(args.Actor, ents.First());
+        if (TryEjectPowerCell(uid, component, out var ents))
+            _hands.TryPickupAnyHand(args.Actor, ents.First());
     }
 
     private void OnSetNameBuiMessage(EntityUid uid, BorgChassisComponent component, BorgSetNameBuiMessage args)
     {
-        if (args.Name.Length > HumanoidCharacterProfile.MaxNameLength ||
+        if (args.Name.Length > _maxNameLength ||
             args.Name.Length == 0 ||
             string.IsNullOrWhiteSpace(args.Name) ||
             string.IsNullOrEmpty(args.Name))
@@ -62,8 +73,6 @@ public sealed partial class BorgSystem
         }
 
         var name = args.Name.Trim();
-        if (TryComp<NameIdentifierComponent>(uid, out var identifier))
-            name = $"{name} {identifier.FullIdentifier}";
 
         var metaData = MetaData(uid);
 

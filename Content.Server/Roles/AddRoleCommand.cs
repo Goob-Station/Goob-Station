@@ -1,4 +1,16 @@
-﻿using Content.Server.Administration;
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Administration;
 using Content.Server.Roles.Jobs;
 using Content.Shared.Administration;
 using Content.Shared.Players;
@@ -10,53 +22,50 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Roles
 {
     [AdminCommand(AdminFlags.Admin)]
-    public sealed class AddRoleCommand : IConsoleCommand
+    public sealed class AddRoleCommand : LocalizedEntityCommands
     {
-        [Dependency] private readonly EntityManager _entityManager = default!;
+        [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly JobSystem _jobSystem = default!;
 
-        public string Command => "addrole";
+        public override string Command => "addrole";
 
-        public string Description => "Adds a role to a player's mind.";
-
-        public string Help => "addrole <session ID> <role>";
-
-        public void Execute(IConsoleShell shell, string argStr, string[] args)
+        public override void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             if (args.Length != 2)
             {
-                shell.WriteLine("Expected exactly 2 arguments.");
+                shell.WriteLine(Loc.GetString($"shell-wrong-arguments-number-need-specific",
+                    ("properAmount", 2),
+                    ("currentAmount", args.Length)));
                 return;
             }
 
-            var mgr = IoCManager.Resolve<IPlayerManager>();
-            if (!mgr.TryGetPlayerDataByUsername(args[0], out var data))
+            if (!_playerManager.TryGetPlayerDataByUsername(args[0], out var data))
             {
-                shell.WriteLine("Can't find that mind");
+                shell.WriteLine(Loc.GetString($"cmd-addrole-mind-not-found"));
                 return;
             }
 
             var mind = data.ContentData()?.Mind;
             if (mind == null)
             {
-                shell.WriteLine("Can't find that mind");
+                shell.WriteLine(Loc.GetString($"cmd-addrole-mind-not-found"));
                 return;
             }
 
-            var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
-            if (!prototypeManager.TryIndex<JobPrototype>(args[1], out var jobPrototype))
+            if (!_prototypeManager.TryIndex<JobPrototype>(args[1], out var jobPrototype))
             {
-                shell.WriteLine("Can't find that role");
+                shell.WriteLine(Loc.GetString($"cmd-addrole-role-not-found"));
                 return;
             }
 
-            var jobs = _entityManager.System<JobSystem>();
-            if (jobs.MindHasJobWithId(mind, jobPrototype.Name))
+            if (_jobSystem.MindHasJobWithId(mind, jobPrototype.Name))
             {
-                shell.WriteLine("Mind already has that role");
+                shell.WriteLine(Loc.GetString($"cmd-addrole-mind-already-has-role"));
                 return;
             }
 
-            jobs.MindAddJob(mind.Value, args[1]);
+            _jobSystem.MindAddJob(mind.Value, args[1]);
         }
     }
 }

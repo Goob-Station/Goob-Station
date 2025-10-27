@@ -1,7 +1,33 @@
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 DamianX <DamianX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Visne <vincefvanwijk@gmail.com>
+# SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2021 RemberBL <timmermanrembrandt@gmail.com>
+# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 knowledge-path-side-knowledge-name = Ritual of Knowledge
 knowledge-path-side-knowledge-desc =
-    You learn a special ritual that requires 4 different items, from various organs to candles and stun batons.
-    Performing this ritual grants you 4 knowledge points and resets the items needed.
+    Everything can be a key to unlocking the secrets behind the Gates. I must be wary and wise.
+
+    You learn a special, one-time-only ritual that requires 4 different items. Performing this ritual instantly grants you 5 knowledge points.
 
 ## stage 3
 knowledge-path-side-s3-armor-name = Armorer’s Ritual
@@ -30,8 +56,22 @@ knowledge-path-side-s3-void-cloak-desc =
     The Owl is the keeper of things that are not quite in practice, but in theory are. Many things are.
 
     Allows you to transmute a glass shard, a bedsheet, and any winter coat to create a Void Cloak.
-    While the hood is down, the cloak functions as a focus and provides low pressure protection, and while the hood is up, the cloak is completely invisible.
+    While the hood is down, the cloak functions as a focus and provides low pressure and low temperature protection, and while the hood is up, the cloak is completely invisible.
     It also provide decent armor and has pockets which can hold one of your blades, various ritual components (such as organs), and small heretical trinkets.
+
+knowledge-path-side-s3-shark-name = Scorching Shark
+knowledge-path-side-s3-shark-desc =
+    The cradle of the nebula was cold, but not dead. Light and heat flits even through the deepest darkness, and is hunted by its own predators.
+
+    Allows you to transmute a pool of ash, a liver, and a sheet of plasma into a Fire Shark.
+    Fire Sharks are fast and strong in groups, but die quickly. They are also highly resistant against fire attacks.
+    Fire Sharks ignite their victims and spawn plasma once they die.
+
+knowledge-path-side-s3-ice-spear-name = Mysteries of Creation
+knowledge-path-side-s3-ice-spear-desc =
+    Artifacts linked to the Winter Dawn exude unnatural stillness. Time slows around them. Fires choke. Thoughts become brittle. Proximity breeds hallucinations of endless white fields, a sky with no sun, and a voice that speaks only in cracking ice.
+
+    Grants you Mysteries of Creation, a spell that allows you to summon the Glacier Spear at will. This magical spear chills victims upon hit, but more importantly, it shatters upon throwing, dealing a significant amount of damage and temporarily freezing the target into an ice cube. If the spear is destroyed, activating this ability will create a new one, otherwise it will summon the existing spear into your hand.
 
 ## stage 6
 knowledge-path-side-s6-rustwalker-name = Rusted Ritual
@@ -79,6 +119,12 @@ knowledge-path-side-s8-cleave-desc =
     At first I didn't understand these instruments of war, but the Priest told me to use them regardless. Soon, he said, I would know them well.
 
     Grants you Cleave, an area-of-effect targeted spell that causes heavy bleeding and blood loss to anyone afflicted.
+
+knowledge-path-side-s8-rust-charge-name = Rust Charge
+knowledge-path-side-s8-rust-charge-desc =
+    The hills sparkled now, as I neared them my mind began to wander. I quickly regained my resolve and pushed forward, this last leg would be the most treacherous.
+
+    Grants you Rust Charge, a targeted action that can only be cast on a rusted tile. It charges you forward, destroying any rusted objects you come into contact with, it will also deal high damage to others and rust around you during the charge.
 
 ## stage 9
 knowledge-path-side-s9-coin-name = Eldritch Coin

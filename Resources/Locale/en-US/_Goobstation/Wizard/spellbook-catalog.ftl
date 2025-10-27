@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 spellbook-mime-malaise-name = Mime Malaise
 spellbook-mime-malaise-desc =
     A spell popular with theater nerd wizards and contrarian pranksters, this spell will put on a mime costume on the target, stun them so that they may contemplate Art, and silence them.
@@ -167,7 +173,7 @@ spellbook-soul-tap-desc =
 
 spellbook-thrown-lightning-name = Thrown Lightning
 spellbook-thrown-lightning-desc =
-    Forged from eldritch energies, a packet of pure power, known as a spell packet will appear in your hand, that when thrown will deal a lot of stamina damage to your target.
+    Forged from eldritch energies, a packet of pure power, known as a spell packet will appear in your hand, that when thrown will paralyze your target.
     Doesn't require wizard's robe and hat to cast.
 
 spellbook-knock-name = Knock

@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 inner-anomaly-start-message-pyro = You can feel the insane flame inside of you. You became the host of a pyroclastic anomaly.
 inner-anomaly-start-message-shock = Lightning bolts quivering at your fingertips! You became the host of a electric anomaly.
 inner-anomaly-start-message-shadow = There's an impenetrable darkness oozing out of you... You became the host of a shadow anomaly.

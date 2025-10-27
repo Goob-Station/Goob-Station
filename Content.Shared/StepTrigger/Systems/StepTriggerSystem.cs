@@ -1,4 +1,29 @@
+// SPDX-FileCopyrightText: 2022 Alex Klos <alexklos@prohobo.dev>
+// SPDX-FileCopyrightText: 2022 Alex Klos <alexklos@proton.me>
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2022 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Adeinitas <147965189+adeinitas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Danger Revolution! <142105406+DangerRevolution@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 KISS <59531932+YuriyKiss@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Timemaster99 <57200767+Timemaster99@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
+// SPDX-FileCopyrightText: 2024 Yurii Kis <yurii.kis@smartteksas.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Gravity;
+using Content.Shared.Inventory; // Goobstation
 using Content.Shared.StepTrigger.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map.Components;
@@ -22,6 +47,7 @@ public sealed class StepTriggerSystem : EntitySystem
 
         SubscribeLocalEvent<StepTriggerComponent, StartCollideEvent>(OnStartCollide);
         SubscribeLocalEvent<StepTriggerComponent, EndCollideEvent>(OnEndCollide);
+        SubscribeLocalEvent<StepTriggerCleanupComponent, EntityTerminatingEvent>(OnTerminating); // Goobstation - Fix
 #if DEBUG
         SubscribeLocalEvent<StepTriggerComponent, ComponentStartup>(OnStartup);
     }
@@ -152,6 +178,7 @@ public sealed class StepTriggerSystem : EntitySystem
         var msg = new StepTriggerAttemptEvent { Source = uid, Tripper = otherUid };
 
         RaiseLocalEvent(uid, ref msg);
+        RaiseLocalEvent(otherUid, ref msg); // Goobstation - let enchants handle it too
 
         return msg.Continue && !msg.Cancelled;
     }
@@ -170,6 +197,8 @@ public sealed class StepTriggerSystem : EntitySystem
 
         if (component.Colliding.Add(otherUid))
         {
+            var cleanup = EnsureComp<StepTriggerCleanupComponent>(otherUid); // Goobstation - Fix
+            cleanup.StepTrigger = uid;
             Dirty(uid, component);
         }
     }
@@ -182,6 +211,7 @@ public sealed class StepTriggerSystem : EntitySystem
             return;
 
         component.CurrentlySteppedOn.Remove(otherUid);
+        RemComp<StepTriggerCleanupComponent>(otherUid); // Goobstation - Fix
         Dirty(uid, component);
 
         if (component.StepOn)
@@ -256,11 +286,22 @@ public sealed class StepTriggerSystem : EntitySystem
         component.IgnoreWeightless = ignore;
         Dirty(uid, component);
     }
+
+    private void OnTerminating(EntityUid uid, StepTriggerCleanupComponent component, ref EntityTerminatingEvent args) // Goobstation - Fix
+    {
+        if (!TryComp<StepTriggerComponent>(component.StepTrigger, out var step))
+            return;
+
+        if (step.Colliding.Remove(uid) || step.CurrentlySteppedOn.Remove(uid))
+            Dirty(component.StepTrigger, step);
+    }
+
 }
 
 [ByRefEvent]
-public struct StepTriggerAttemptEvent
+public struct StepTriggerAttemptEvent : IInventoryRelayEvent // Goobstation
 {
+    SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.FEET | SlotFlags.OUTERCLOTHING; // Goobstation
     public EntityUid Source;
     public EntityUid Tripper;
     public bool Continue;

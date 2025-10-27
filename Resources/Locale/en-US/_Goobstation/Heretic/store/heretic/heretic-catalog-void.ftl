@@ -1,3 +1,27 @@
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 DamianX <DamianX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Visne <vincefvanwijk@gmail.com>
+# SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2021 RemberBL <timmermanrembrandt@gmail.com>
+# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 knowledge-path-void-s1-name = Glimmer of Winter
 knowledge-path-void-s1-desc =
     I feel a shimmer in the air, the air around me gets colder.
@@ -5,6 +29,7 @@ knowledge-path-void-s1-desc =
 
     Opens up the Path of Void to you.
     Allows you to transmute a knife in sub-zero temperatures into a Void Blade.
+    You can only create two at a time.
 
 knowledge-path-void-s2-name = Grasp of Void
 knowledge-path-void-s2-desc =
@@ -42,13 +67,13 @@ knowledge-path-void-s6-desc =
     They disappear, and I am left in the blizzard.
 
     Grants you Void Phase, a long range targeted teleport spell.
-    Additionally stuns heathens around your original and target destination.
+    Additionally causes damage to heathens around your original and target destination.
 
 knowledge-path-void-s7-name = Seeking Blade
 knowledge-path-void-s7-desc =
     Fleeting memories, fleeting feet. I mark my way with frozen blood upon the snow. Covered and forgotten.
 
-    Your blade freezes enemies. Additionally, when a target is marked, activate the Void Blade in your hand to teleport right next to them without breaking the blade.
+    Your blade now freezes enemies. Additionally, you can now attack distant targets with your Void Blade, teleporting directly next to them.
 
 knowledge-path-void-s8-name = Void Pull
 knowledge-path-void-s8-desc =
@@ -62,5 +87,6 @@ knowledge-path-void-s9-desc =
     The ascension ritual of the Path of Void.
     Bring 3 corpses to a transmutation rune in sub-zero temperatures to complete the ritual.
     When completed, grants you Aristocrat's Blessing.
-    Everything around you will be turned into snow and the air will constantly be frozen. Those nearby will be silenced and frozen even quicker.
-    You will also become immune to flames, space, and similar environmental hazards.
+    A snowstorm is summoned, everything around you will be turned into snow and the air will constantly be frozen. Those nearby will be silenced and frozen even quicker.
+    Windows and lights will shatter when nearby.
+    You will also become immune to flames, space, and similar environmental hazards. You gain total freedom of movement in zero-gravity.

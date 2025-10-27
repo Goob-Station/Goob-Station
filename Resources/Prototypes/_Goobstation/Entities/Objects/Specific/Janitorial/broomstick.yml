@@ -1,0 +1,94 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseItem
+  name: broomstick
+  id: Broomstick
+  description: To stay healthy, you need to sweep at least 8 hours a day!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Janitorial/broomstick.rsi
+    state: icon
+  - type: Appearance
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: Spillable
+    solution: absorbed
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: -8 # It's in between your legs, you can't use it as a weapon.
+  - type: Item
+    size: Large
+    #sprite: _Goobstation/Objects/Specific/Janitorial/broomstick.rsi
+  - type: Absorbent
+  - type: SolutionContainerManager
+    solutions:
+      absorbed:
+        maxVol: 60
+  - type: UseDelay
+    delay: 0.5
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Wood: 100
+      Cloth: 100
+  - type: Tag
+    tags:
+    - Mop
+    - DroneUsable # Goobstation
+  - type: GuideHelp
+    guides:
+    - Janitorial
+  - type: DnaSubstanceTrace
+
+- type: entity
+  id: MagicBroomstickVehicle
+  parent: [ BaseVehicle, BaseFoldable, BaseItem, BaseMagicalContraband, Broomstick]
+  name: magic broomstick
+  description: Broomstick that floats in the middle of the air. Remember to put on a witch hat for safety!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Vehicles/broomstick.rsi
+    layers:
+    - state: vehicle
+      map: ["unfoldedLayer"]
+    - state: vehicle_folded
+      map: ["foldedLayer"]
+      visible: false
+    noRot: true
+  - type: Vehicle
+    requiredHands: 1
+    engineRunning: true
+    renderOver: South
+  - type: MovementSpeedModifier
+    acceleration: 1 # Hard to accelerate, but has high max speed
+    friction: 0.1
+    baseSprintSpeed: 8
+    baseWalkSpeed: 5.5
+  - type: MovementAlwaysTouching
+  - type: StaticPrice
+    price: 1000
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 125
+      Plastic: 125
+  - type: Item
+    size: Large
+    sprite: _Goobstation/Objects/Specific/Janitorial/broomstick.rsi
+
+- type: entity
+  parent: MagicBroomstickVehicle
+  id: MagicBroomstickVehicleFolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true

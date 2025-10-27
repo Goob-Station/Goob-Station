@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Nutrition.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -30,10 +37,10 @@ public sealed partial class SericultureComponent : Component
     /// <summary>
     /// The entity needed to actually preform sericulture. This will be granted (and removed) upon the entity's creation.
     /// </summary>
-    [DataField(required: true)]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
-    public EntProtoId Action;
+    public EntProtoId Action = "ActionSericulture";
 
     [AutoNetworkedField]
     [DataField("actionEntity")]

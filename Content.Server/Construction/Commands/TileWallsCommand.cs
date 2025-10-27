@@ -1,3 +1,21 @@
+// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
+// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Maps;
@@ -6,6 +24,7 @@ using Robust.Shared.Console;
 using Robust.Shared.Map;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Construction.Commands;
 
@@ -20,11 +39,9 @@ public sealed class TileWallsCommand : IConsoleCommand
     public string Description => "Puts an underplating tile below every wall on a grid.";
     public string Help => $"Usage: {Command} <gridId> | {Command}";
 
-    [ValidatePrototypeId<ContentTileDefinition>]
-    public const string TilePrototypeId = "Plating";
-
-    [ValidatePrototypeId<TagPrototype>]
-    public const string WallTag = "Wall";
+    public static readonly ProtoId<ContentTileDefinition> TilePrototypeId = "Plating";
+    public static readonly ProtoId<TagPrototype> WallTag = "Wall";
+    public static readonly ProtoId<TagPrototype> DiagonalTag = "Diagonal";
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
@@ -81,6 +98,11 @@ public sealed class TileWallsCommand : IConsoleCommand
             }
 
             if (!tagSystem.HasTag(child, WallTag))
+            {
+                continue;
+            }
+
+            if (tagSystem.HasTag(child, DiagonalTag))
             {
                 continue;
             }

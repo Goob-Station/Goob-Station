@@ -1,3 +1,22 @@
+// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@gmail.com>
+// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Rainfall <rainfey0+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Hands.Components;
 using Content.Shared.Storage.EntitySystems;
@@ -16,12 +35,9 @@ public partial class InventorySystem
     {
         if (Resolve(user.Owner, ref user.Comp1, false))
         {
-            foreach (var hand in user.Comp1.Hands.Values)
+            foreach (var held in _handsSystem.EnumerateHeld(user))
             {
-                if (hand.HeldEntity == null)
-                    continue;
-
-                yield return hand.HeldEntity.Value;
+                yield return held;
             }
         }
 
@@ -76,12 +92,12 @@ public partial class InventorySystem
             return false;
 
         // Let's spawn this first...
-        var item = EntityManager.SpawnEntity(prototype, Transform(uid).Coordinates);
+        var item = Spawn(prototype, Transform(uid).Coordinates);
 
         // Helper method that deletes the item and returns false.
         bool DeleteItem()
         {
-            EntityManager.DeleteEntity(item);
+            Del(item);
             return false;
         }
 

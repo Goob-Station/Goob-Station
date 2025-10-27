@@ -1,3 +1,25 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThunderBear2006 <bearthunder06@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: lost frontier salvager spawner
   id: LostFrontierSalvagerSpawner
@@ -46,8 +68,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobDiona
@@ -58,8 +81,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - DionaFirst
-    - DionaLast
+    - NamesDionaFirst
+    - NamesDionaLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobFelinid
@@ -70,8 +94,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobTajaran
@@ -82,8 +107,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_tajaran_first
-    - names_tajaran_last
+    - NamesTajaranFirst
+    - NamesTajaranLast
+    nameFormat: name-format-standard
 
 
 - type: entity
@@ -95,8 +121,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobMoth
@@ -107,8 +134,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_moth_first_female
-    - names_moth_last
+    - NamesMothFirstFemale
+    - NamesMothLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobDwarf
@@ -119,8 +147,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobHarpy
@@ -131,8 +160,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobRodentia
@@ -143,8 +173,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_rodentia_male
-    - names_rodentia_last
+    - NamesRodentiaMale
+    - NamesRodentiaLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobReptilian
@@ -155,7 +186,7 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_reptilian_male
+    - NamesReptilianMale
 
 - type: entity
   parent: MobVulpkanin
@@ -166,8 +197,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_vulpkanin_male
-    - names_vulpkanin_last
+    - NamesVulpakinMale
+    - NamesVulpakinLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobSlimePerson
@@ -178,8 +210,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobYowie
@@ -190,7 +223,7 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_yowie_male
+    - NamesYowieMale
 
 - type: entity
   parent: MobVox
@@ -201,18 +234,279 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_vox
+    - NamesVox
 
 - type: entity
-  id: RandomHumanoidSpawnerERTSecurityEVAAnnie
-  parent: RandomHumanoidSpawnerERTSecurityEVA
-  suffix: ERTRole, Annie, EVA
+  parent: MobShadowkin
+  id: MobShadowkinRandom
+  name: Urist McShadowkin
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesShadowkin
+    nameFormat: random-metadata-name-format-default
+
+- type: entity
+  parent: MobChitinid
+  id: MobChitinidRandom
+  name: Urist McAnt
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesChitinidFirstMale
+
+- type: entity
+  parent: MobFeroxi
+  id: MobFeroxiRandom
+  name: Urist McFin
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFeroxiFirstMale
+    - NamesFeroxiLast
+    nameFormat: name-format-standard
+### No hour requirement ERT roles.
+
+## Death Squad
+
+- type: entity
+  id: RandomHumanoidSpawnerDeathSquadNoReq
+  parent: RandomHumanoidSpawnerDeathSquad
+  name: Death Squad Lackey
+  suffix: ERTRole, Death Squad, No Requirements
   components:
     - type: RandomHumanoidSpawner
-      settings: ERTSecurityEVAAnnie
+      settings: DeathSquadNoReq
 
 - type: randomHumanoidSettings
-  id: ERTSecurityEVAAnnie
+  id: DeathSquadNoReq
+  parent: DeathSquad # Goobstation
+  components:
+    - type: GhostRole
+      name: ghost-role-information-Death-Squad-name
+      description: ghost-role-information-Death-Squad-description
+      rules: ghost-role-information-Death-Squad-rules
+      raffle:
+        settings: short
+      requirements:
+
+## ERT Leader
+
+- type: entity
+  id: RandomHumanoidSpawnerERTLeaderNoReq
+  parent: RandomHumanoidSpawnerERTLeader
+  name: ERT Leader Stand-in
+  suffix: ERTRole, Basic, No Requirements
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTLeaderNoReq
+
+- type: randomHumanoidSettings
+  id: ERTLeaderNoReq
+  parent: ERTLeader # Goobstation
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-leader-name
+      description: ghost-role-information-ert-leader-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+
+- type: entity
+  id: RandomHumanoidSpawnerERTLeaderEVANoReq
+  parent: RandomHumanoidSpawnerERTLeaderNoReq
+  name: ERT Leader Stand-in
+  suffix: ERTRole, Armored EVA, No Requirements
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTLeaderEVANoReq
+
+- type: randomHumanoidSettings
+  id: ERTLeaderEVANoReq
+  parent: ERTLeaderEVA
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-leader-name
+      description: ghost-role-information-ert-leader-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+
+## ERT Chaplain
+
+- type: entity
+  id: RandomHumanoidSpawnerERTChaplainNoReq
+  parent: RandomHumanoidSpawnerERTLeader
+  name: ERT Deacon
+  suffix: ERTRole, Basic, No Requirements
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTChaplainNoReq
+
+- type: randomHumanoidSettings
+  id: ERTChaplainNoReq
+  parent: ERTLeader
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-chaplain-name
+      description: ghost-role-information-ert-chaplain-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+
+- type: entity
+  id: RandomHumanoidSpawnerERTChaplainEVANoReq
+  parent: RandomHumanoidSpawnerERTChaplainNoReq
+  name: ERT Deacon
+  suffix: ERTRole, Enviro EVA
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTChaplainEVANoReq
+
+- type: randomHumanoidSettings
+  id: ERTChaplainEVANoReq
+  parent: ERTChaplainEVA
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-chaplain-name
+      description: ghost-role-information-ert-chaplain-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+
+## ERT Janitor
+
+- type: entity
+  id: RandomHumanoidSpawnerERTJanitorNoReq
+  parent: RandomHumanoidSpawnerERTLeaderNoReq
+  name: ERT Janitor Intern
+  suffix: ERTRole, Basic, No Requirements
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTJanitorNoReq
+
+- type: randomHumanoidSettings
+  id: ERTJanitorNoReq
+  parent: ERTLeaderNoReq
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-janitor-name
+      description: ghost-role-information-ert-janitor-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+
+- type: entity
+  id: RandomHumanoidSpawnerERTJanitorEVANoReq
+  parent: RandomHumanoidSpawnerERTJanitorNoReq
+  name: ERT Janitor Intern
+  suffix: ERTRole, Enviro EVA, No Requirements
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTJanitorEVANoReq
+
+- type: randomHumanoidSettings
+  id: ERTJanitorEVANoReq
+  parent: ERTJanitorEVA
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-janitor-name
+      description: ghost-role-information-ert-janitor-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+
+## ERT Engineer
+
+- type: entity
+  id: RandomHumanoidSpawnerERTEngineerNoReq
+  parent: RandomHumanoidSpawnerERTLeaderNoReq
+  name: ERT Engineer Intern
+  suffix: ERTRole, Basic, No Requirements
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTEngineerNoReq
+
+- type: randomHumanoidSettings
+  id: ERTEngineerNoReq
+  parent: ERTLeader
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-engineer-name
+      description: ghost-role-information-ert-engineer-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+
+- type: entity
+  id: RandomHumanoidSpawnerERTEngineerEVANoReq
+  parent: RandomHumanoidSpawnerERTEngineerNoReq
+  name: ERT Engineer Intern
+  suffix: ERTRole, Enviro EVA, No Requirements
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTEngineerEVANoReq
+
+- type: randomHumanoidSettings
+  id: ERTEngineerEVANoReq
+  parent: ERTEngineerEVA
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-engineer-name
+      description: ghost-role-information-ert-engineer-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+
+## ERT Security
+
+- type: entity
+  id: RandomHumanoidSpawnerERTSecurityNoReq
+  parent: RandomHumanoidSpawnerERTLeaderNoReq
+  name: ERT Security Cadet
+  suffix: ERTRole, Basic, No Requirements
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTSecurityNoReq
+
+- type: randomHumanoidSettings
+  id: ERTSecurityNoReq
+  parent: ERTLeader
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-security-name
+      description: ghost-role-information-ert-security-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+      job: ERTSecurity
+
+- type: entity
+  id: RandomHumanoidSpawnerERTSecurityEVANoReq
+  parent: RandomHumanoidSpawnerERTSecurity
+  name: ERT Security Cadet
+  suffix: ERTRole, Armored EVA, No Requirements
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTSecurityEVANoReq
+
+- type: randomHumanoidSettings
+  id: ERTSecurityEVANoReq
   parent: ERTSecurityEVA
   components:
     - type: GhostRole
@@ -221,207 +515,73 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
       job: ERTSecurity
-    - type: Loadout
-      prototypes: [ ERTSecurityGearEVAAnnie ]
-      roleLoadout: [ RoleSurvivalEVA ]
 
-# Central Command!
-
-# Navy Officer
+## ERT Medic
 
 - type: entity
-  id: RandomHumanoidSpawnerNavyOfficer
-  name: Navy Officer
-  suffix: CentComm
+  id: RandomHumanoidSpawnerERTMedicalNoReq
+  parent: RandomHumanoidSpawnerERTLeaderNoReq
+  name: ERT Medic Intern
+  suffix: ERTRole, Basic, No Requirements
   components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
-    state: icon
-  - type: RandomMetadata
-    nameSegments:
-    - NamesFirstMilitaryLeader
-    - NamesLastMilitary
-  - type: RandomHumanoidSpawner
-    settings: NavyOfficer
+    - type: RandomHumanoidSpawner
+      settings: ERTMedicalNoReq
 
 - type: randomHumanoidSettings
-  id: NavyOfficer
-  parent: EventHumanoidMindShielded
-  randomizeName: false
+  id: ERTMedicalNoReq
+  parent: ERTLeader
   components:
-  - type: GrantImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
-  - type: GrantCqc
-    isBlocked: false
-  - type: GhostRole
-    name: ghost-role-information-navy-officer-name
-    description: ghost-role-information-navy-officer-description
-    rules: ghost-role-information-navy-officer-rules
-    raffle:
-      settings: short
-  - type: Loadout
-    prototypes: [ NavyOfficerGear ]
-    roleLoadout: [ RoleSurvivalEVA ]
-  - type: RandomMetadata
-    nameSegments:
-    - NamesFirstMilitaryLeader
-    - NamesLastMilitary
-
-# Navy Captain
+    - type: GhostRole
+      name: ghost-role-information-ert-medical-name
+      description: ghost-role-information-ert-medical-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+      job: ERTMedical
 
 - type: entity
-  id: RandomHumanoidSpawnerNavyCaptain
-  name: Navy Captain
-  suffix: ADMIN ONLY, DO FUCKING NOT
+  id: RandomHumanoidSpawnerERTMedicalEVANoReq
+  parent: RandomHumanoidSpawnerERTMedical
+  name: ERT Medic Intern
+  suffix: ERTRole, Armored EVA, No Requirements
   components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
-    state: icon
-  - type: RandomMetadata
-    nameSegments:
-    - NamesFirstMilitaryHighRank
-    - NamesLastMilitary
-  - type: RandomHumanoidSpawner
-    settings: NavyCaptain
+    - type: RandomHumanoidSpawner
+      settings: ERTMedicalEVANoReq
 
 - type: randomHumanoidSettings
-  id: NavyCaptain
-  parent: EventHumanoidMindShielded
-  randomizeName: false
+  id: ERTMedicalEVANoReq
+  parent: ERTMedicalEVA
   components:
-  - type: GrantImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
-  - type: GrantCqc
-    isBlocked: false
-  - type: GhostRole
-    name: ghost-role-information-navy-captain-name
-    description: ghost-role-information-navy-captain-description
-    rules: ghost-role-information-navy-captain-rules
-    raffle:
-      settings: short
-  - type: Loadout
-    prototypes: [ NavyCaptainGear ]
-    roleLoadout: [ RoleSurvivalEVA ]
-  - type: RandomMetadata
-    nameSegments:
-    - NamesFirstMilitaryHighRank
-    - NamesLastMilitary
+    - type: GhostRole
+      name: ghost-role-information-ert-medical-name
+      description: ghost-role-information-ert-medical-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+      job: ERTMedical
 
-# Navy Undercover Officer
+## CBURN
 
 - type: entity
-  id: RandomHumanoidSpawnerNavyOfficerUndercover
-  name: Undercover Navy Officer
-  suffix: CentComm
+  id: RandomHumanoidSpawnerCBURNUnitNoReq
+  name: CBURN Agent Cadet
+  suffix: ERTRole, No Requirements
   components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
-    state: icon
-  - type: RandomMetadata
-    nameSegments:
-    - NamesFirstMilitaryLeader
-    - NamesLastMilitary
-  - type: RandomHumanoidSpawner
-    settings: NavyOfficerUndercover
+    - type: RandomHumanoidSpawner
+      settings: CBURNAgentNoReq
 
 - type: randomHumanoidSettings
-  id: NavyOfficerUndercover
-  parent: EventHumanoidMindShielded
-  randomizeName: false
+  id: CBURNAgentNoReq
+  parent: EventHumanoidCentcomm
   components:
-  - type: GrantImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, StorageImplant ]
-  - type: GrantCqc
-    isBlocked: false
-  - type: GhostRole
-    name: ghost-role-information-navy-officer-undercover-name
-    description: ghost-role-information-navy-officer-undercover-description
-    rules: ghost-role-information-navy-officer-rules
-    raffle:
-      settings: short
-  - type: Loadout
-    prototypes: [  NavyOfficerUndercoverGear ]
-    roleLoadout: [ RoleSurvivalEVA ]
-  - type: RandomMetadata
-    nameSegments:
-    - NamesFirstMilitaryLeader
-    - NamesLastMilitary
-
-# Special Operations Officer
-
-- type: entity
-  id: RandomHumanoidSpawnerSpecialOperationsOfficers
-  name: Special Operations Officer
-  suffix: CentComm
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
-    state: icon
-  - type: RandomMetadata
-    nameSegments:
-    - NamesFirstMilitaryHighRank
-    - NamesLastMilitary
-  - type: RandomHumanoidSpawner
-    settings: SpecialOperationsOfficer
-
-- type: randomHumanoidSettings
-  id: SpecialOperationsOfficer
-  parent: EventHumanoidMindShielded
-  randomizeName: false
-  components:
-  - type: GrantImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
-  - type: GrantCqc
-    isBlocked: false
-  - type: GhostRole
-    name: ghost-role-information-special-operations-officer-name
-    description: ghost-role-information-special-operations-officer-description
-    rules: ghost-role-information-special-operations-officer-rules
-    raffle:
-      settings: short
-  - type: Loadout
-    prototypes: [ SpecialOperationsOfficerGear ]
-    roleLoadout: [ RoleSurvivalEVA ]
-  - type: RandomMetadata
-    nameSegments:
-    - NamesFirstMilitaryHighRank
-    - NamesLastMilitary
-
-# Diplomat
-
-- type: entity
-  id: RandomHumanoidSpawnerDiplomat
-  name: Diplomat
-  suffix: CentComm
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
-    state: icon
-  - type: RandomMetadata
-    nameSegments:
-    - NamesFirstMilitaryPolitical
-    - names_last
-  - type: RandomHumanoidSpawner
-    settings: DiplomatGear
-
-- type: randomHumanoidSettings
-  id: DiplomatGear
-  parent: EventHumanoidMindShielded
-  randomizeName: false
-  components:
-  - type: GrantImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
-  - type: GhostRole
-    name: ghost-role-information-diplomat-name
-    description: ghost-role-information-diplomat-description
-    rules: ghost-role-information-navy-officer-rules
-    raffle:
-      settings: short
-  - type: Loadout
-    prototypes: [ DiplomatGear ]
-    roleLoadout: [ RoleSurvivalEVA ]
-  - type: RandomMetadata
-    nameSegments:
-    - NamesFirstMilitaryPolitical
-    - names_last
+    - type: GhostRole
+      name: ghost-role-information-cburn-agent-name
+      description: ghost-role-information-cburn-agent-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:

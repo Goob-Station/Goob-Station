@@ -1,3 +1,20 @@
+// SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -13,7 +30,7 @@ namespace Content.Shared.Explosion;
 ///     entities is evaluated and stored by the explosion system. Adding or removing a prototype would require updating
 ///     that map of airtight entities. This could be done, but is just not yet implemented.
 /// </remarks>
-[Prototype("explosion")]
+[Prototype]
 public sealed partial class ExplosionPrototype : IPrototype
 {
     [IdDataField]
@@ -36,14 +53,14 @@ public sealed partial class ExplosionPrototype : IPrototype
     ///     explosion intensity to a tile break chance via linear interpolation.
     /// </summary>
     [DataField("tileBreakChance")]
-    private float[] _tileBreakChance = { 0f, 1f };
+    public float[] _tileBreakChance = { 0f, 1f };
 
     /// <summary>
     ///     This set of points, together with <see cref="_tileBreakChance"/> define a function that maps the
     ///     explosion intensity to a tile break chance via linear interpolation.
     /// </summary>
     [DataField("tileBreakIntensity")]
-    private float[] _tileBreakIntensity = {0f, 15f };
+    public float[] _tileBreakIntensity = { 0f, 15f };
 
     /// <summary>
     ///     When a tile is broken by an explosion, the intensity is reduced by this amount and is used to try and
@@ -115,19 +132,13 @@ public sealed partial class ExplosionPrototype : IPrototype
     /// </summary>
     public float TileBreakChance(float intensity)
     {
-        if (_tileBreakChance.Length == 0 || _tileBreakChance.Length != _tileBreakIntensity.Length)
-        {
-            Logger.Error($"Malformed tile break chance definitions for explosion prototype: {ID}");
-            return 0;
-        }
-
         if (intensity >= _tileBreakIntensity[^1] || _tileBreakIntensity.Length == 1)
             return _tileBreakChance[^1];
 
         if (intensity <= _tileBreakIntensity[0])
             return _tileBreakChance[0];
 
-        int i = Array.FindIndex(_tileBreakIntensity, k => k >= intensity);
+        var i = Array.FindIndex(_tileBreakIntensity, k => k >= intensity);
 
         var slope = (_tileBreakChance[i] - _tileBreakChance[i - 1]) / (_tileBreakIntensity[i] - _tileBreakIntensity[i - 1]);
         return _tileBreakChance[i - 1] + slope * (intensity - _tileBreakIntensity[i - 1]);

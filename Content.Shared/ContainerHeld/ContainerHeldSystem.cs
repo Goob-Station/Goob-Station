@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2023 Bixkitts <72874643+Bixkitts@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Containers;
 
 using Content.Shared.Item;
@@ -32,12 +39,12 @@ public sealed class ContainerHeldSystem : EntitySystem
         if (_storage.GetCumulativeItemAreas(uid) >= comp.Threshold)
         {
             _item.SetHeldPrefix(uid, "full", component: item);
-            _appearance.SetData(uid, ToggleVisuals.Toggled, true, appearance);
+            _appearance.SetData(uid, ToggleableVisuals.Enabled, true, appearance);
         }
         else
         {
             _item.SetHeldPrefix(uid, "empty", component: item);
-            _appearance.SetData(uid, ToggleVisuals.Toggled, false, appearance);
+            _appearance.SetData(uid, ToggleableVisuals.Enabled, false, appearance);
         }
     }
 }

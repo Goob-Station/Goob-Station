@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Movement.Events;
 
 /// <summary>
@@ -10,6 +15,7 @@ public struct TileFrictionEvent
 
     public TileFrictionEvent(float modifier)
     {
+        // TODO: If something ever uses different angular and linear modifiers, split this into two modifiers
         Modifier = modifier;
     }
 }

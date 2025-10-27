@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseComputer
   id: AbductorConsole
@@ -74,7 +81,7 @@
   - type: Eye
     pvsScale: 1.5
   - type: Visibility
-    layer: 4
+    layer: 8
   - type: Sprite
     sprite: _Shitmed/Structures/Machines/abductor_camera_console.rsi
     layers:

@@ -1,3 +1,10 @@
+<!--
+SPDX-FileCopyrightText: 2023 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <DefaultWindow Title="{Loc 'instruments-component-band-menu'}" MinSize="250 350" xmlns="https://spacestation14.io"
                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
     <BoxContainer Orientation="Vertical" Align="Center" HorizontalExpand="true" VerticalExpand="true">

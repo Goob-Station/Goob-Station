@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: entity
   id: AdminInstantEffectBase
   abstract: true
@@ -19,6 +24,14 @@
   - type: EmpOnTrigger
     range: 4
     energyConsumption: 50000
+
+- type: entity
+  id: AdminInstantEffectBluespace
+  suffix: BluespaceFlash
+  parent: AdminInstantEffectBase
+  components:
+  - type: SpawnOnTrigger 
+    proto: EffectFlashBluespace
 
 - type: entity
   id: AdminInstantEffectFlash

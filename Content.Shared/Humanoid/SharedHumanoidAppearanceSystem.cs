@@ -1,11 +1,46 @@
+// SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 csqrb <56765288+CaptainSqrBeard@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 ike709 <ike709@github.com>
+// SPDX-FileCopyrightText: 2024 ike709 <ike709@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
+// SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.IO;
 using System.Linq;
+using System.Numerics;
+using Content.Shared.CCVar;
+using Content.Shared.Decals;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared._Shitmed.Humanoid.Events; // Shitmed Change
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Inventory;
 using Content.Shared.Preferences;
+using Content.Shared._EinsteinEngines.HeightAdjust;
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.GameObjects.Components.Localization;
@@ -34,10 +69,12 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ISerializationManager _serManager = default!;
+    [Dependency] private readonly HeightAdjustSystem _heightAdjust = default!; // Goobstation: port EE height/width sliders
     [Dependency] private readonly MarkingManager _markingManager = default!;
+    [Dependency] private readonly GrammarSystem _grammarSystem = default!;
+    [Dependency] private readonly SharedIdentitySystem _identity = default!;
 
-    [ValidatePrototypeId<SpeciesPrototype>]
-    public const string DefaultSpecies = "Human";
+    public static readonly ProtoId<SpeciesPrototype> DefaultSpecies = "Human";
 
     public override void Initialize()
     {
@@ -107,28 +144,35 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         var species = GetSpeciesRepresentation(component.Species).ToLower();
         var age = GetAgeRepresentation(component.Species, component.Age);
 
-        args.PushText(Loc.GetString("humanoid-appearance-component-examine", ("user", identity), ("age", age), ("species", species)));
+        // WWDP EDIT
+        string locale = "humanoid-appearance-component-examine";
+
+        if (args.Examiner == args.Examined) // Use the selfaware locale when examining yourself
+            locale += "-selfaware";
+
+        args.PushText(Loc.GetString(locale, ("user", identity), ("age", age), ("species", species)), 100); // priority for examine
+        // WWDP EDIT END
     }
 
     /// <summary>
     ///     Toggles a humanoid's sprite layer visibility.
     /// </summary>
-    /// <param name="uid">Humanoid mob's UID</param>
+    /// <param name="ent">Humanoid entity</param>
     /// <param name="layer">Layer to toggle visibility for</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
-    public void SetLayerVisibility(EntityUid uid,
+    /// <param name="visible">Whether to hide or show the layer. If more than once piece of clothing is hiding the layer, it may remain hidden.</param>
+    /// <param name="source">Equipment slot that has the clothing that is (or was) hiding the layer. If not specified, the change is "permanent" (i.e., see <see cref="HumanoidAppearanceComponent.PermanentlyHidden"/>)</param>
+    public void SetLayerVisibility(Entity<HumanoidAppearanceComponent?> ent,
         HumanoidVisualLayers layer,
         bool visible,
-        bool permanent = false,
-        HumanoidAppearanceComponent? humanoid = null)
+        SlotFlags? source = null)
     {
-        if (!Resolve(uid, ref humanoid, false))
+        if (!Resolve(ent.Owner, ref ent.Comp, false))
             return;
 
         var dirty = false;
-        SetLayerVisibility(uid, humanoid, layer, visible, permanent, ref dirty);
+        SetLayerVisibility(ent!, layer, visible, source, ref dirty);
         if (dirty)
-            Dirty(uid, humanoid);
+            Dirty(ent);
     }
 
     /// <summary>
@@ -141,70 +185,100 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     public void CloneAppearance(EntityUid source, EntityUid target, HumanoidAppearanceComponent? sourceHumanoid = null,
         HumanoidAppearanceComponent? targetHumanoid = null)
     {
-        if (!Resolve(source, ref sourceHumanoid) || !Resolve(target, ref targetHumanoid))
+        if (!Resolve(source, ref sourceHumanoid, false) || !Resolve(target, ref targetHumanoid, false))
             return;
 
         targetHumanoid.Species = sourceHumanoid.Species;
         targetHumanoid.SkinColor = sourceHumanoid.SkinColor;
         targetHumanoid.EyeColor = sourceHumanoid.EyeColor;
         targetHumanoid.Age = sourceHumanoid.Age;
+        targetHumanoid.Height = sourceHumanoid.Height; // Goobstation: port EE height/width sliders
+        targetHumanoid.Width = sourceHumanoid.Width; // Goobstation: port EE height/width sliders
         SetSex(target, sourceHumanoid.Sex, false, targetHumanoid);
         targetHumanoid.CustomBaseLayers = new(sourceHumanoid.CustomBaseLayers);
         targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
 
         targetHumanoid.Gender = sourceHumanoid.Gender;
-        if (TryComp<GrammarComponent>(target, out var grammar))
-            grammar.Gender = sourceHumanoid.Gender;
 
+        if (TryComp<GrammarComponent>(target, out var grammar))
+            _grammarSystem.SetGender((target, grammar), sourceHumanoid.Gender);
+
+        _identity.QueueIdentityUpdate(target);
         Dirty(target, targetHumanoid);
     }
 
     /// <summary>
     ///     Sets the visibility for multiple layers at once on a humanoid's sprite.
     /// </summary>
-    /// <param name="uid">Humanoid mob's UID</param>
+    /// <param name="ent">Humanoid entity</param>
     /// <param name="layers">An enumerable of all sprite layers that are going to have their visibility set</param>
     /// <param name="visible">The visibility state of the layers given</param>
-    /// <param name="permanent">If this is a permanent change, or temporary. Permanent layers are stored in their own hash set.</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
-    public void SetLayersVisibility(EntityUid uid, IEnumerable<HumanoidVisualLayers> layers, bool visible, bool permanent = false,
-        HumanoidAppearanceComponent? humanoid = null)
+    public void SetLayersVisibility(Entity<HumanoidAppearanceComponent?> ent,
+        IEnumerable<HumanoidVisualLayers> layers,
+        bool visible)
     {
-        if (!Resolve(uid, ref humanoid))
+        if (!Resolve(ent.Owner, ref ent.Comp, false))
             return;
 
         var dirty = false;
 
         foreach (var layer in layers)
         {
-            SetLayerVisibility(uid, humanoid, layer, visible, permanent, ref dirty);
+            SetLayerVisibility(ent!, layer, visible, null, ref dirty);
         }
 
         if (dirty)
-            Dirty(uid, humanoid);
+            Dirty(ent);
     }
 
-    protected virtual void SetLayerVisibility(
-        EntityUid uid,
-        HumanoidAppearanceComponent humanoid,
+    /// <inheritdoc cref="SetLayerVisibility(Entity{HumanoidAppearanceComponent?},HumanoidVisualLayers,bool,Nullable{SlotFlags})"/>
+    public virtual void SetLayerVisibility(
+        Entity<HumanoidAppearanceComponent> ent,
         HumanoidVisualLayers layer,
         bool visible,
-        bool permanent,
+        SlotFlags? source,
         ref bool dirty)
     {
+#if DEBUG
+        if (source is {} s)
+        {
+            DebugTools.AssertNotEqual(s, SlotFlags.NONE);
+            // Check that only a single bit in the bitflag is set
+            var powerOfTwo = BitOperations.RoundUpToPowerOf2((uint)s);
+            DebugTools.AssertEqual((uint)s, powerOfTwo);
+        }
+#endif
+
         if (visible)
         {
-            if (permanent)
-                dirty |= humanoid.PermanentlyHidden.Remove(layer);
+            if (source is not {} slot)
+            {
+                dirty |= ent.Comp.PermanentlyHidden.Remove(layer);
+            }
+            else if (ent.Comp.HiddenLayers.TryGetValue(layer, out var oldSlots))
+            {
+                // This layer might be getting hidden by more than one piece of equipped clothing.
+                // remove slot flag from the set of slots hiding this layer, then check if there are any left.
+                ent.Comp.HiddenLayers[layer] = ~slot & oldSlots;
+                if (ent.Comp.HiddenLayers[layer] == SlotFlags.NONE)
+                    ent.Comp.HiddenLayers.Remove(layer);
 
-            dirty |= humanoid.HiddenLayers.Remove(layer);
+                dirty |= (oldSlots & slot) != 0;
+            }
         }
         else
         {
-            if (permanent)
-                dirty |= humanoid.PermanentlyHidden.Add(layer);
+            if (source is not { } slot)
+            {
+                dirty |= ent.Comp.PermanentlyHidden.Add(layer);
+            }
+            else
+            {
+                var oldSlots = ent.Comp.HiddenLayers.GetValueOrDefault(layer);
+                ent.Comp.HiddenLayers[layer] = slot | oldSlots;
+                dirty |= (oldSlots & slot) != slot;
+            }
 
-            dirty |= humanoid.HiddenLayers.Add(layer);
         }
     }
 
@@ -330,6 +404,68 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         }
     }
 
+    // begin Goobstation: port EE height/width sliders
+
+    /// <summary>
+    ///     Set the height of a humanoid mob
+    /// </summary>
+    /// <param name="uid">The humanoid mob's UID</param>
+    /// <param name="height">The height to set the mob to</param>
+    /// <param name="sync">Whether to immediately synchronize this to the humanoid mob, or not</param>
+    /// <param name="humanoid">Humanoid component of the entity</param>
+    public void SetHeight(EntityUid uid, float height, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
+    {
+        if (!Resolve(uid, ref humanoid) || MathHelper.CloseTo(humanoid.Height, height, 0.001f))
+            return;
+
+        var species = _proto.Index(humanoid.Species);
+        humanoid.Height = Math.Clamp(height, species.MinHeight, species.MaxHeight);
+
+        if (sync)
+            Dirty(uid, humanoid);
+    }
+
+    /// <summary>
+    ///     Set the width of a humanoid mob
+    /// </summary>
+    /// <param name="uid">The humanoid mob's UID</param>
+    /// <param name="width">The width to set the mob to</param>
+    /// <param name="sync">Whether to immediately synchronize this to the humanoid mob, or not</param>
+    /// <param name="humanoid">Humanoid component of the entity</param>
+    public void SetWidth(EntityUid uid, float width, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
+    {
+        if (!Resolve(uid, ref humanoid) || MathHelper.CloseTo(humanoid.Width, width, 0.001f))
+            return;
+
+        var species = _proto.Index(humanoid.Species);
+        humanoid.Width = Math.Clamp(width, species.MinWidth, species.MaxWidth);
+
+        if (sync)
+            Dirty(uid, humanoid);
+    }
+
+    /// <summary>
+    ///     Set the scale of a humanoid mob
+    /// </summary>
+    /// <param name="uid">The humanoid mob's UID</param>
+    /// <param name="scale">The scale to set the mob to</param>
+    /// <param name="sync">Whether to immediately synchronize this to the humanoid mob, or not</param>
+    /// <param name="humanoid">Humanoid component of the entity</param>
+    public void SetScale(EntityUid uid, Vector2 scale, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
+    {
+        if (!Resolve(uid, ref humanoid))
+            return;
+
+        var species = _proto.Index(humanoid.Species);
+        humanoid.Height = Math.Clamp(scale.Y, species.MinHeight, species.MaxHeight);
+        humanoid.Width = Math.Clamp(scale.X, species.MinWidth, species.MaxWidth);
+
+        if (sync)
+            Dirty(uid, humanoid);
+    }
+
+    // end Goobstation: port EE height/width sliders
+
     /// <summary>
     ///     Loads a humanoid character profile directly onto this humanoid mob.
     /// </summary>
@@ -409,10 +545,21 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         humanoid.Gender = profile.Gender;
         if (TryComp<GrammarComponent>(uid, out var grammar))
         {
-            grammar.Gender = profile.Gender;
+            _grammarSystem.SetGender((uid, grammar), profile.Gender);
         }
 
         humanoid.Age = profile.Age;
+
+        // begin Goobstation: port EE height/width sliders
+        var species = _proto.Index(humanoid.Species);
+
+        if (profile.Height <= 0 || profile.Width <= 0)
+            SetScale(uid, new Vector2(species.DefaultWidth, species.DefaultHeight), true, humanoid);
+        else
+            SetScale(uid, new Vector2(profile.Width, profile.Height), true, humanoid);
+
+        _heightAdjust.SetScale(uid, new Vector2(humanoid.Width, humanoid.Height));
+        // end Goobstation: port EE height/width sliders
 
         RaiseLocalEvent(uid, new ProfileLoadFinishedEvent()); // Shitmed Change
         Dirty(uid, humanoid);

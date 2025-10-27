@@ -1,7 +1,23 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - files: ["guillotine.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from tgstation."
   source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/items/weapons/guillotine.ogg"
+
+- files: ["pierce1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/wounds/pierce1.ogg"
 
 - files: ["nanotrasenenergyhum.ogg"]
   license: "CC-BY-SA-3.0"
@@ -17,6 +33,16 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from freesound.org, and reversed by SolsticeOfTheWinter"
   source: "https://freesound.org/people/pip_/sounds/557194/"
+
+- files: ["energy-short-sword-swing.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from freesound.org"
+  source: "https://freesound.org/people/ejfortin/sounds/49675/"
+
+- files: ["metalcrush.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from freesound.org, and edited by SolsticeOfTheWinter"
+  source: "https://freesound.org/people/Artninja/sounds/752072/"
 
 - files: ["throwhard.ogg"]
   license: "CC-BY-SA-3.0"

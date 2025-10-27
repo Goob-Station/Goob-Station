@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 hubismal <47284081+hubismal@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tabitha <64847293+KyuPolaris@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: speechSounds
   id: Bass
   saySound:
@@ -69,6 +81,15 @@
     path: /Audio/Voice/Talk/Silicon/syndieborg_ask.ogg
   exclaimSound:
     path: /Audio/Voice/Talk/Silicon/syndieborg_exclaim.ogg
+
+- type: speechSounds
+  id: Xenoborg
+  saySound:
+    path: /Audio/Voice/Xenoborg/xenoborg_talk.ogg
+  askSound:
+    path: /Audio/Voice/Xenoborg/xenoborg_ask.ogg
+  exclaimSound:
+    path: /Audio/Voice/Xenoborg/xenoborg_exclaim.ogg
 
 - type: speechSounds
   id: Pai
@@ -168,3 +189,12 @@
     path: /Audio/Animals/goat_bah.ogg
   exclaimSound:
     path: /Audio/Animals/goat_bah.ogg
+
+- type: speechSounds
+  id: Wawa
+  saySound:
+    path: /Audio/Animals/wawa_statement.ogg
+  askSound:
+    path: /Audio/Animals/wawa_question.ogg
+  exclaimSound:
+    path: /Audio/Animals/wawa_exclaim.ogg

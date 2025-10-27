@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseMail
   id: MailAlcohol
@@ -135,13 +141,7 @@
       prob: 0.19
     - id: CigPackMixed
       orGroup: Cigs
-      prob: 0.09
-    - id: CigPackMixedMedical
-      orGroup: Cigs
-      prob: 0.05
-    - id: CigPackMixedNasty
-      orGroup: Cigs
-      prob: 0.05
+      prob: 0.19
       # Rare
     - id: CigPackSyndicate
       orGroup: Cigs
@@ -464,7 +464,7 @@
     - id: JointRainbow
       orGroup: Smokeable1
       prob: 0.15
-    - id: Blunt
+    - id: BluntCigar
       orGroup: Smokeable1
       prob: 0.35
     - id: BluntRainbow
@@ -477,7 +477,7 @@
     - id: JointRainbow
       orGroup: Smokeable2
       prob: 0.15
-    - id: Blunt
+    - id: BluntCigar
       orGroup: Smokeable2
       prob: 0.35
     - id: BluntRainbow
@@ -490,7 +490,7 @@
     - id: JointRainbow
       orGroup: Smokeable3
       prob: 0.15
-    - id: Blunt
+    - id: BluntCigar
       orGroup: Smokeable3
       prob: 0.35
     - id: BluntRainbow
@@ -657,7 +657,7 @@
     - id: FoodDonutJellySweetpea
       amount: 2
       orGroup: Food
-    - id: FoodDonutJellySlugcat
+    - id: FoodDonutJellyScurret #Goobstation
       amount: 2
       orGroup: Food
     - id: FoodFrozenSandwich # ah yes, baked goods

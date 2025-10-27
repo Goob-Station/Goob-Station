@@ -1,3 +1,21 @@
+// SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 eclips_e <67359748+Just-a-Unity-Dev@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.ActionBlocker;
@@ -5,7 +23,6 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Tabletop.Components;
 using Content.Shared.Tabletop.Events;
-using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
@@ -16,8 +33,8 @@ namespace Content.Shared.Tabletop
         [Dependency] protected readonly ActionBlockerSystem ActionBlockerSystem = default!;
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+        [Dependency] private readonly SharedMapSystem _mapSystem = default!;
         [Dependency] protected readonly SharedTransformSystem Transforms = default!;
-        [Dependency] private readonly IMapManager _mapMan = default!;
 
         public override void Initialize()
         {
@@ -40,9 +57,9 @@ namespace Content.Shared.Tabletop
                 return;
 
             // Move the entity and dirty it (we use the map ID from the entity so noone can try to be funny and move the item to another map)
-            var transform = EntityManager.GetComponent<TransformComponent>(moved);
-            Transforms.SetParent(moved, transform, _mapMan.GetMapEntityId(transform.MapID));
-            Transforms.SetLocalPositionNoLerp(transform, msg.Coordinates.Position);
+            var transform = Comp<TransformComponent>(moved);
+            Transforms.SetParent(moved, transform, _mapSystem.GetMapOrInvalid(transform.MapID));
+            Transforms.SetLocalPositionNoLerp(moved, msg.Coordinates.Position, transform);
         }
 
         private void OnDraggingPlayerChanged(TabletopDraggingPlayerChangedEvent msg, EntitySessionEventArgs args)

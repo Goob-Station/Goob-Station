@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: weather
   id: Ashfall
   sprite:
@@ -8,6 +17,12 @@
     params:
       loop: true
       volume: -6
+  damage: # DeltaV
+    types:
+      Heat: 4
+  damageBlacklist: # DeltaV
+    components:
+    - WeatherImmune
 
 - type: weather
   id: AshfallLight
@@ -125,6 +140,19 @@
     params:
       loop: true
       volume: -20
+
+## goobstation
+- type: weather
+  id: SnowfallMagic
+  sprite:
+    sprite: /Textures/Effects/weather.rsi
+    state: snowfall_magic
+  sound:
+    path: /Audio/Effects/Weather/snowstorm.ogg
+    params:
+      loop: true
+      volume: -20
+##
 
 - type: weather
   id: Storm

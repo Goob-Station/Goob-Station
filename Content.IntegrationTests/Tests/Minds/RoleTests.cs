@@ -1,4 +1,9 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Linq;
 using Content.Server.Roles;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
@@ -18,7 +23,7 @@ public sealed class RoleTests
     {
         await using var pair = await PoolManager.GetServerClient();
 
-        var jobComp = pair.Server.ResolveDependency<IComponentFactory>().GetComponentName(typeof(JobRoleComponent));
+        var jobComp = pair.Server.ResolveDependency<IComponentFactory>().GetComponentName<JobRoleComponent>();
 
         Assert.Multiple(() =>
         {
@@ -49,7 +54,7 @@ public sealed class RoleTests
     {
         await using var pair = await PoolManager.GetServerClient();
 
-        var mindCompId = pair.Server.ResolveDependency<IComponentFactory>().GetComponentName(typeof(MindRoleComponent));
+        var mindCompId = pair.Server.ResolveDependency<IComponentFactory>().GetComponentName<MindRoleComponent>();
 
         Assert.Multiple(() =>
         {
@@ -73,7 +78,7 @@ public sealed class RoleTests
         await using var pair = await PoolManager.GetServerClient();
 
         var refMan = pair.Server.ResolveDependency<IReflectionManager>();
-        var mindCompId = pair.Server.ResolveDependency<IComponentFactory>().GetComponentName(typeof(MindRoleComponent));
+        var mindCompId = pair.Server.ResolveDependency<IComponentFactory>().GetComponentName<MindRoleComponent>();
 
         var compTypes = refMan.GetAllChildren(typeof(BaseMindRoleComponent))
             .Append(typeof(RoleBriefingComponent))

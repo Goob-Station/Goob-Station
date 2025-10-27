@@ -1,6 +1,23 @@
+// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2022 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 github-actions <github-actions@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.ContentPack;
@@ -31,7 +48,7 @@ namespace Content.MapRenderer.Painters
             _sMapSystem = esm.GetEntitySystem<SharedMapSystem>();
         }
 
-        public void Run(Image gridCanvas, EntityUid gridUid, MapGridComponent grid)
+        public void Run(Image gridCanvas, EntityUid gridUid, MapGridComponent grid, Vector2 customOffset = default)
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -51,9 +68,29 @@ namespace Content.MapRenderer.Painters
                 if (string.IsNullOrWhiteSpace(path))
                     return;
 
-                var x = (int) (tile.X + xOffset);
-                var y = (int) (tile.Y + yOffset);
-                var image = images[path][tile.Tile.Variant];
+                var x = (int) (tile.X + xOffset + customOffset.X);
+                var y = (int) (tile.Y + yOffset + customOffset.Y);
+                var image = images[path][tile.Tile.Variant].CloneAs<Rgba32>();
+
+                switch (tile.Tile.RotationMirroring % 4)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        image.Mutate(o => o.Rotate(90f));
+                        break;
+                    case 2:
+                        image.Mutate(o => o.Rotate(180f));
+                        break;
+                    case 3:
+                        image.Mutate(o => o.Rotate(270f));
+                        break;
+                }
+
+                if (tile.Tile.RotationMirroring > 3)
+                {
+                    image.Mutate(o => o.Flip(FlipMode.Horizontal));
+                }
 
                 gridCanvas.Mutate(o => o.DrawImage(image, new Point(x * tileSize, y * tileSize), 1));
 
@@ -93,7 +130,7 @@ namespace Content.MapRenderer.Painters
                 for (var i = 0; i < definition.Variants; i++)
                 {
                     var index = i;
-                    var tileImage = tileSheet.Clone(o => o.Crop(new Rectangle(tileSize * index, 0, 32, 32)));
+                    var tileImage = tileSheet.Clone(o => o.Crop(new Rectangle(tileSize * index, 0, 32, 32)).Flip(FlipMode.Vertical));
                     images[path].Add(tileImage);
                 }
             }

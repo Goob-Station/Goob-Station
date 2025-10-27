@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Scruq445 <storchdamien@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: cargoProduct
   id: FunATV
   icon:
@@ -33,4 +44,45 @@
     state: icon
   product: CrateFunRedCaviar
   cost: 1000
+  group: market
+
+
+- type: cargoProduct
+  id: FunBalloonPack
+  icon:
+    sprite: _Goobstation/Objects/Fun/balloons.rsi
+    state: red
+  product: CrateBalloonPackage
+  cost: 1500
+  category: cargoproduct-category-name-fun
+  group: market
+ 
+- type: cargoProduct
+  id: FunPremiumBalloonPack
+  icon:
+    sprite: _Goobstation/Objects/Fun/balloons.rsi
+    state: carp
+  product: PremiumCrateBalloonPackage
+  cost: 7500
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: FunDiscoBeachBall
+  icon:
+    sprite: Objects/Fun/Balls/beach_ball.rsi
+    state: icon
+  product: CrateFunDiscoBeachBall
+  cost: 1000
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: FunDartMonkey
+  icon:
+    sprite: _Goobstation/Objects/Fun/Monkey_Turrets/dartmonkey.rsi
+    state: icon
+  product: CrateDartMonkey
+  cost: 1500
+  category: cargoproduct-category-name-fun
   group: market

@@ -1,3 +1,15 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Actions;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
@@ -88,8 +100,9 @@ public abstract class SharedNinjaSuitSystem : EntitySystem
 
     private void OnCreateStarAttempt(Entity<NinjaSuitComponent> ent, ref CreateItemAttemptEvent args)
     {
-        if (CheckDisabled(ent, args.User))
-            args.Cancelled = true;
+        // Goob edit
+        // if (CheckDisabled(ent, args.User))
+        //    args.Cancelled = true;
     }
 
     /// <summary>
@@ -112,12 +125,12 @@ public abstract class SharedNinjaSuitSystem : EntitySystem
 
         var uid = ent.Owner;
         var comp = ent.Comp;
-        if (_toggle.TryDeactivate(uid, user) || !disable)
+        if (!_toggle.TryDeactivate(uid, user) || !disable) // Goob edit
             return;
 
         // previously cloaked, disable abilities for a short time
-        _audio.PlayPredicted(comp.RevealSound, uid, user);
-        Popup.PopupClient(Loc.GetString("ninja-revealed"), user, user, PopupType.MediumCaution);
+        // _audio.PlayPredicted(comp.RevealSound, uid, user); // Goob edit
+        // Popup.PopupClient(Loc.GetString("ninja-revealed"), user, user, PopupType.MediumCaution); // Goob edit
         _useDelay.TryResetDelay(uid, id: comp.DisableDelayId);
     }
 

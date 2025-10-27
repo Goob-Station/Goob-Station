@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 accent-dementia-prefix-1 = Now I’m not sure but,
 accent-dementia-prefix-2 = Hey-… shit, I forgot… Oh, right!
 accent-dementia-prefix-3 = What was it again… Ah!
@@ -81,3 +88,12 @@ accent-dementia-words-33 = wizard
 accent-dementia-words-replace-33 = some sort of bad guy, forgot which
 accent-dementia-words-34 = wiz
 accent-dementia-words-replace-34 = some sort of bad guy, forgot which
+
+accent-dementia-words-35 = south
+accent-dementia-words-replace-35 = somewhere
+accent-dementia-words-36 = north
+accent-dementia-words-replace-36 = somewhere
+accent-dementia-words-37 = east
+accent-dementia-words-replace-37 = somewhere
+accent-dementia-words-38 = west
+accent-dementia-words-replace-38 = somewhere

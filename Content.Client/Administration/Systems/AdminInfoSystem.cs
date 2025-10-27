@@ -1,4 +1,11 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2024 Conchelle <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Linq;
 using Content.Shared.Administration.Events;
 using Robust.Client.Player;
 using Robust.Shared.ContentPack;
@@ -18,7 +25,6 @@ public sealed class AdminInfoSystem : EntitySystem
 
         b();
     }
-
     private void i(Guid p)
     {
         y(p, out _, out var q);

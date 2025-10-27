@@ -1,3 +1,25 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 JoeHammad1844 <finiansalas2@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # durathread jumpsuit
 - type: entity
   parent: ClothingUniformBase
@@ -10,10 +32,28 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/durathread_jumpsuit.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.95
-        Heat: 0.95
+        Blunt: 0.85
+        Heat: 0.85
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitResonant
+  name: resonant jumpsuit
+  description: Lets not play too rough. Neither you nor I can reach it just yet…
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/breverb.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/breverb.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -125,15 +165,22 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.70
-        Heat: 0.75
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.60
+        Heat: 0.65
 
 - type: entity
-  parent: [ClothingUniformBase, BaseCentcommContraband]
+  parent: ClothingUniformJumpsuitNavyGold
   id: ClothingUniformJumpsuitSpecOps
   name: special operations officer's jumpsuit
   description: A suit worn by high-ranking spec ops officers. The rest is classified.
@@ -143,15 +190,22 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/specialoperations.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.65
-        Heat: 0.70
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.55
+        Heat: 0.60
 
 - type: entity
-  parent: [ClothingUniformBase, BaseCentcommContraband]
+  parent: ClothingUniformJumpsuitNavyGold
   id: ClothingUniformJumpsuitDiplomat
   name: diplomat's jumpsuit
   description: A suit worn by diplomacy focused Central Command workers.
@@ -161,12 +215,19 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.70
-        Heat: 0.75
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.60
+        Heat: 0.65
 
 - type: entity
   parent: ClothingUniformBase
@@ -178,3 +239,111 @@
     sprite: _Shitmed/Clothing/Uniforms/Jumpsuit/abductor.rsi
   - type: Clothing
     sprite: _Shitmed/Clothing/Uniforms/Jumpsuit/abductor.rsi
+
+- type: entity
+  parent: ClothingUniformJumpsuitNavyGold
+  id: ClothingUniformJumpsuitTrainer
+  name: NCT Jumpsuit
+  description: A jumpsuit issued to Nanotrasen Career Trainers. Fills you with a feeling of pride.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/trainer.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/trainer.rsi
+
+
+- type: entity
+  parent: ClothingUniformJumpsuitLawyerBlack # Not contraband. It's just a suit, dude :godo:
+  id: ClothingUniformJumpsuitDevil
+  name: devilish suit
+  description: A stylish black suit made of materials not from this dimension. Warm to the touch.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
+  - type: CrematoriumImmune
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.70
+        Heat: 0.75
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMercer
+  name: manhattan streetwear
+  description: Only someone who would try to run away with Earth's deadliest bioweapon would want to wear this.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mercer.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mercer.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoSSummer
+  name: head of security's summer shirt
+  description: The head of security's custom-commissioned summer outfit, for when chasing tiders gets hot.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_hos.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_hos.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitRDSummer
+  name: research director's summer shirt
+  description: The research director's custom-commissioned summer outfit, for when those fire anomalies are making you sweat.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_rd.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_rd.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitQMSummer
+  name: quartermaster's summer shirt
+  description: The quartermaster's custom-commissioned summer outfit, for when you want to show off your cash to the other departments.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_qm.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_qm.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitCaptainSummer
+  name: captain's summer shirt
+  description: The captain's custom-commissioned summer outfit, for when you've been in the green for a while.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_captain.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_captain.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoPSummer
+  name: head of personnel's summer shirt
+  description: The head of personnel's custom-commissioned summer outfit, for when you want to comfortably do paperwork.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_hop.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_hop.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitCESummer
+  name: chief engineer's summer shirt
+  description: The chief engineer's custom-commissioned summer outfit, for when you just want to lay down and look at the tesla.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_ce.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_ce.rsi

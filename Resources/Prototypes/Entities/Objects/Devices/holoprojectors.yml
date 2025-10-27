@@ -1,3 +1,31 @@
+# SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Interrobang01 <113810873+Interrobang01@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
+# SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2023 Lei Yunxing <lyx2020@sjtu.edu.cn>
+# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Callmore <22885888+Callmore@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Nairod <110078045+Nairodian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseItem
   id: Holoprojector
@@ -43,6 +71,8 @@
   parent: Holoprojector
   id: HoloprojectorBorg
   suffix: borg
+  name: holosign projector
+  description: A modified holographic sign projector for use in custodial cyborgs. Automatically self-charges.
   components:
   - type: HolosignProjector
     chargeUse: 240
@@ -55,17 +85,27 @@
         swap: false
 
 - type: entity
-  parent: Holoprojector
+  parent: BaseItem # DeltaV - remove powercell requirement
   id: HolofanProjector
   name: holofan projector
   description: Stop suicidal passengers from killing everyone during atmos emergencies.
   components:
-  - type: HolosignProjector
+  - type: ChargeHolosignProjector # DeltaV - different implementation using charges
     signProto: HoloFan
-    chargeUse: 120
+    signComponentName: Holofan # DeltaV
+    #chargeUse: 120 # DeltaV
   - type: Sprite
     sprite: Objects/Devices/Holoprojectors/atmos.rsi
     state: icon
+  # Begin DeltaV Additions
+  - type: Item
+    storedRotation: -90
+  - type: LimitedCharges
+    maxCharges: 6 # same as it was on a medium cell
+  - type: ContainerContainer
+    containers:
+      signs: !type:Container
+  # End DeltaV Additions
   - type: Tag
     tags:
       - HolofanProjector
@@ -85,12 +125,13 @@
 - type: entity
   parent: HolofanProjector
   id: HolofanProjectorEmpty
+  categories: [ HideSpawnMenu ] # DeltaV - this is identical to the normal one
   suffix: Empty
-  components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
+  #components: # DeltaV - no cell slot for empty one
+  #- type: ItemSlots
+  #  slots:
+  #    cell_slot:
+  #      name: power-cell-slot-component-slot-name-default
 
 - type: entity
   parent: Holoprojector
@@ -128,7 +169,7 @@
   components:
     - type: HolosignProjector
       signProto: HolosignSecurity
-      chargeUse: 120
+      chargeUse: 90
     - type: Sprite
       sprite: Objects/Devices/Holoprojectors/security.rsi
       state: icon

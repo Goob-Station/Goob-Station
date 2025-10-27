@@ -1,0 +1,20 @@
+- type: entity
+  name: rogue king's tail
+  parent: BaseSword
+  id: RogueTailWeapon
+  description: The severed tail of the ancient Rogue Xeno King, a brutal trophy prized by only the boldest hunters. Grants its wielder the power to dash forward in relentless bursts.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/rogue_tail.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -60
+    damage:
+      types:
+        Slash: 20
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: MeleeDash
+  - type: UseDelay
+    delay: 1.5
+  - type: StaticPrice
+    price: 50000

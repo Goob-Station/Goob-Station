@@ -1,7 +1,19 @@
+# SPDX-FileCopyrightText: 2022 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: marking
   id: SlimeGradientLeftArm
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm
   speciesRestriction: [SlimePerson]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
@@ -10,7 +22,7 @@
 - type: marking
   id: SlimeGradientRightArm
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [SlimePerson]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
@@ -19,7 +31,7 @@
 - type: marking
   id: SlimeGradientLeftLeg
   bodyPart: LLeg
-  markingCategory: Legs
+  markingCategory: LeftLeg
   speciesRestriction: [SlimePerson]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
@@ -28,7 +40,7 @@
 - type: marking
   id: SlimeGradientRightLeg
   bodyPart: RLeg
-  markingCategory: Legs
+  markingCategory: RightLeg
   speciesRestriction: [SlimePerson]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
@@ -37,7 +49,7 @@
 - type: marking
   id: SlimeGradientLeftFoot
   bodyPart: LFoot
-  markingCategory: Legs
+  markingCategory: LeftFoot
   speciesRestriction: [SlimePerson]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
@@ -46,7 +58,7 @@
 - type: marking
   id: SlimeGradientRightFoot
   bodyPart: RFoot
-  markingCategory: Legs
+  markingCategory: RightFoot
   speciesRestriction: [SlimePerson]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
@@ -55,7 +67,7 @@
 - type: marking
   id: SlimeGradientLeftHand
   bodyPart: LHand
-  markingCategory: Arms
+  markingCategory: LeftHand
   speciesRestriction: [SlimePerson]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
@@ -64,7 +76,7 @@
 - type: marking
   id: SlimeGradientRightHand
   bodyPart: RHand
-  markingCategory: Arms
+  markingCategory: RightHand
   speciesRestriction: [SlimePerson]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi

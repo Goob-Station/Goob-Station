@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Content.Shared.Salvage;
 using Robust.Client.Graphics;
@@ -45,13 +51,13 @@ public sealed partial class StencilOverlay
         }, Color.Transparent);
 
         worldHandle.SetTransform(Matrix3x2.Identity);
-        worldHandle.UseShader(_protoManager.Index<ShaderPrototype>("StencilMask").Instance());
+        worldHandle.UseShader(_protoManager.Index(StencilMask).Instance());
         worldHandle.DrawTextureRect(_blep!.Texture, worldBounds);
         var curTime = _timing.RealTime;
         var sprite = _sprite.GetFrame(new SpriteSpecifier.Texture(new ResPath("/Textures/Parallaxes/noise.png")), curTime);
 
         // Draw the rain
-        worldHandle.UseShader(_protoManager.Index<ShaderPrototype>("StencilDraw").Instance());
+        worldHandle.UseShader(_protoManager.Index(StencilDraw).Instance());
         _parallax.DrawParallax(worldHandle, worldAABB, sprite, curTime, position, new Vector2(0.5f, 0f));
     }
 }

@@ -1,13 +1,27 @@
+# SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Just copypasta of some animal basic body parts for interaction,
 # It's basically as animals except a different torso with different organs
 - type: entity
-  id: TorsoRat
-  name: "animal torso"
-  parent: TorsoAnimal # Shitmed Change
+  id: ChestRat
+  name: "rat chest"
+  parent: ChestAnimal # Shitmed Change
   categories: [ HideSpawnMenu ]
   components:
   - type: BodyPart
-    partType: Torso
+    partType: Chest
   - type: Damageable
     damageContainer: Biological
   - type: Tag
@@ -17,7 +31,8 @@
   # currently their torso is just a small dead rat....
   - type: Sprite
     sprite: Mobs/Animals/mouse.rsi
-    state: splat-0
+    layers:
+    - state: "splat-0"
   - type: Icon # Shitmed Change
     sprite: Mobs/Animals/mouse.rsi
-    state: splat-0
+    state: "splat-0"

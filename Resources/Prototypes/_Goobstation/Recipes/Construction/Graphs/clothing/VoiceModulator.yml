@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: constructionGraph
   id: VoiceMaskCraftable
   start: start
@@ -6,17 +15,17 @@
       edges:
         - to: end
           steps:
-            - tag: GasMask
-              name: gas mask
+            - tag: GasMaskFullDefault
+              name: construction-graph-tag-gas-mask
               icon:
                 sprite: Clothing/Mask/gas.rsi
                 state: icon
 
             - tag: VoiceTrigger
+              name: construction-graph-tag-voice-trigger
               icon:
                 sprite: Objects/Devices/voice.rsi
                 state: voice
-              name: Voice Trigger
 
             - material: Cable
               amount: 5

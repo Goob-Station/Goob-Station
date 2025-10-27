@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Jackrost <jackrost@mail.ru>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -18,6 +27,24 @@ public sealed partial class SpiderComponent : Component
     public string WebAction = "ActionSpiderWeb";
 
     [DataField] public EntityUid? Action;
+
+    /// <summary>
+    /// Whether the spider will spawn webs when not controlled by a player.
+    /// </summary>
+    [DataField]
+    public bool SpawnsWebsAsNonPlayer = true;
+
+    /// <summary>
+    /// The cooldown in seconds between web spawns when not controlled by a player.
+    /// </summary>
+    [DataField]
+    public TimeSpan WebSpawnCooldown = TimeSpan.FromSeconds(45f);
+
+    /// <summary>
+    /// The next time the spider can spawn a web when not controlled by a player.
+    /// </summary>
+    [DataField]
+    public TimeSpan? NextWebSpawn;
 }
 
 public sealed partial class SpiderWebActionEvent : InstantActionEvent { }

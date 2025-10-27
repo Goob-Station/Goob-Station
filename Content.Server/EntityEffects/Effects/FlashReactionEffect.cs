@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.EntityEffects;
 using Content.Server.Flash;
 using Robust.Server.GameObjects;
@@ -32,7 +37,7 @@ public sealed partial class FlashReactionEffect : EntityEffect
     ///     The default is chosen to be better than the hand flash so it is worth using it for grenades etc.
     /// </summary>
     [DataField]
-    public float Duration = 4f;
+    public TimeSpan Duration = TimeSpan.FromSeconds(4f);
 
     /// <summary>
     ///     The prototype ID used for the visual effect.
@@ -63,7 +68,7 @@ public sealed partial class FlashReactionEffect : EntityEffect
             args.TargetEntity,
             null,
             range,
-            Duration * 1000,
+            Duration,
             slowTo: SlowTo,
             sound: Sound);
 

@@ -1,5 +1,14 @@
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.DeviceNetwork;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.SurveillanceCamera;
 
@@ -43,6 +52,9 @@ public sealed partial class SurveillanceCameraComponent : Component
     public bool NetworkSet { get; set; }
 
     // This has to be device network frequency prototypes.
-    [DataField("setupAvailableNetworks", customTypeSerializer:typeof(PrototypeIdListSerializer<DeviceFrequencyPrototype>))]
-    public List<string> AvailableNetworks { get; private set; } = new();
+    [DataField("setupAvailableNetworks")]
+    public List<ProtoId<DeviceFrequencyPrototype>> AvailableNetworks { get; private set; } = new();
+
+    [DataField]
+    public bool Mobile { get; set; } = false; // Goobstation - a value to differentiate stationary cameras from mobile like bodycams
 }

@@ -1,0 +1,65 @@
+- type: entity
+  id: AirlockFlock
+  parent: BaseStructure
+  name: weird imposing wall
+  description: It sounds like it is hollow.
+  suffix: featherzone
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Doors/flockzone.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+      animated: true
+  - type: AnimationPlayer
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49"
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - AirlockLayer
+  - type: Door
+    canCrush: false
+    closeTimeOne: 0.2
+    closeTimeTwo: 0.6
+    openTimeOne: 0.6
+    openTimeTwo: 0.2
+    openingAnimationTime: 1.2
+    closingAnimationTime: 1.2
+    openSound:
+      path: /Audio/_Goobstation/Flock/flockdrone_door.ogg
+    closeSound:
+      path: /Audio/_Goobstation/Flock/flockdrone_door.ogg
+  - type: NavMapDoor
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.DoorVisuals.State:
+        enum.DoorVisualLayers.Base:
+          Closed: { state: closed }
+          Closing: { state: closing }
+          Open: { state: open }
+          Opening: { state: opening }
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+  - type: Occluder
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StrongMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: BlockWeather

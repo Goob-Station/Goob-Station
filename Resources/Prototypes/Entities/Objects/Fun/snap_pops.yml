@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseItem
   id: SnapPop
@@ -5,8 +12,8 @@
   description: Throw it at the floor and listen to it POP!
   components:
   - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: snappop
+    sprite: Objects/Fun/snap_pops.rsi
+    state: icon
   - type: Item
     size: Tiny
   - type: Damageable
@@ -47,8 +54,8 @@
   - type: Item
     size: Normal
   - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: spbox
+    sprite: Objects/Fun/snap_pops.rsi
+    state: box
   - type: Storage
     grid:
     - 0,0,4,3
@@ -59,4 +66,3 @@
       - id: SnapPop
         amount: 5
   - type: Dumpable
-

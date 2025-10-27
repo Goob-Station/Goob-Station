@@ -1,3 +1,38 @@
+# SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2020 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
+# SPDX-FileCopyrightText: 2020 Metal Gear Sloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2020 peptron1 <57651027+peptron1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
+# SPDX-FileCopyrightText: 2021 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 ZeroDayDaemon <60460608+ZeroDayDaemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 fishfish458 <fishfish458>
+# SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Lamrr <96937466+Lamrr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
+# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+# SPDX-FileCopyrightText: 2022 ike709 <ike709@github.com>
+# SPDX-FileCopyrightText: 2022 ike709 <ike709@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: entity
   name: handcuff box
   parent: BoxCardboard
@@ -6,12 +41,27 @@
   components:
   - type: StorageFill
     contents:
-      - id: Handcuffs
-        amount: 4
+    - id: Handcuffs
+      amount: 4
   - type: Sprite
     layers:
-      - state: box_security
-      - state: handcuff
+    - state: box_security
+    - state: handcuff
+
+- type: entity
+  name: ziptie box
+  parent: BoxCardboard
+  id: BoxZiptie
+  description: A box full of zipties.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Zipties
+      amount: 9
+  - type: Sprite
+    layers:
+    - state: box_security
+    - state: ziptie
 
 - type: entity
   name: flashbang box
@@ -21,48 +71,87 @@
   components:
   - type: StorageFill
     contents:
-      - id: GrenadeFlashBang
-        amount: 4
+    - id: GrenadeFlashBang
+      amount: 4
   - type: Sprite
     layers:
-      - state: box_security
-      - state: flashbang
+    - state: box_security
+    - state: flashbang
+
+- type: entity
+  name: stinger grenade box
+  parent: BoxCardboard
+  id: BoxStinger
+  description: A box full of stinger grenades. Disperse!
+  components:
+  - type: StorageFill
+    contents:
+    - id: GrenadeStinger
+      amount: 4
+  - type: Sprite
+    layers:
+    - state: box_security
+    - state: flashbang
+
+- type: entity
+  name: tear gas grenade box
+  parent: BoxCardboard
+  id: BoxTearGas
+  description: A box full of tear gas grenades. Hold your breath.
+  components:
+  - type: StorageFill
+    contents:
+    - id: TearGasGrenade
+      amount: 4
+  - type: Sprite
+    layers:
+    - state: box_security
+    - state: flashbang
 
 - type: entity
   name: sechud box
   parent: BoxCardboard
   id: BoxSechud
+  description: A box of sechuds.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingEyesHudSecurity
+      amount: 4
+  - type: Sprite
+    layers:
+    - state: box_security
+    - state: sechud
+
+- type: entity
+  name: secglasses box
+  parent: BoxCardboard
+  id: BoxSecglasses
   description: A box of security glasses.
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesHudSecurity
-        amount: 4
+    - id: ClothingEyesGlassesSecurity
+      amount: 4
   - type: Sprite
     layers:
-      - state: box_security
-      - state: sechud
+    - state: box_security
+    - state: secglasses
 
 - type: entity
-  name: ziptie box
+  name: sunglasses box
   parent: BoxCardboard
-  id: BoxZiptie
-  description: A box full of zipties.
+  id: BoxSunglasses
+  description: A box of cool flash-proof sunglasses.
   components:
-  - type: Storage
-    grid:
-    - 0,0,4,3
-    whitelist:
-      components:
-      - Handcuff
   - type: StorageFill
     contents:
-      - id: Zipties
-        amount: 10
+    - id: ClothingEyesGlassesSunglasses
+      amount: 4
   - type: Sprite
     layers:
-      - state: box_security
-      - state: ziptie
+    - state: box_security
+    - state: sunglasses
 
 - type: entity
   name: forensic pad box
@@ -79,5 +168,5 @@
       amount: 9
   - type: Sprite
     layers:
-      - state: box_security
-      - state: forensic
+    - state: box_security
+    - state: forensic

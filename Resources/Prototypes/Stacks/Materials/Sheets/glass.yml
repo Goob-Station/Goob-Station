@@ -1,48 +1,61 @@
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2022 Chris V <HoofedEar@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 AsikKEsel <115815982+AsikKEsel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: stack
   id: Glass
-  name: glass
+  name: stack-glass
   icon: { sprite: /Textures/Objects/Materials/Sheets/glass.rsi, state: glass }
   spawn: SheetGlass1
   maxCount: 30
 
 - type: stack
   id: ReinforcedGlass
-  name: reinforced glass
+  name: stack-reinforced-glass
   icon: { sprite: /Textures/Objects/Materials/Sheets/glass.rsi, state: rglass }
   spawn: SheetRGlass1
   maxCount: 30
 
 - type: stack
   id: PlasmaGlass
-  name: plasma glass
+  name: stack-plasma-glass
   icon: { sprite: /Textures/Objects/Materials/Sheets/glass.rsi, state: pglass }
   spawn: SheetPGlass1
   maxCount: 30
 
 - type: stack
   id: ReinforcedPlasmaGlass
-  name: reinforced plasma glass
+  name: stack-reinforced-plasma-glass
   icon: { sprite: /Textures/Objects/Materials/Sheets/glass.rsi, state: rpglass }
   spawn: SheetRPGlass1
   maxCount: 30
 
 - type: stack
   id: UraniumGlass
-  name: uranium glass
+  name: stack-uranium-glass
   icon: { sprite: /Textures/Objects/Materials/Sheets/glass.rsi, state: uglass }
   spawn: SheetUGlass1
   maxCount: 30
 
 - type: stack
   id: ReinforcedUraniumGlass
-  name: reinforced uranium glass
+  name: stack-reinforced-uranium-glass
   icon: { sprite: /Textures/Objects/Materials/Sheets/glass.rsi, state: ruglass }
   spawn: SheetRUGlass1
   maxCount: 30
 
 - type: stack
   id: ClockworkGlass
-  name: clockwork glass
+  name: stack-clockwork-glass
   icon: { sprite: /Textures/Objects/Materials/Sheets/glass.rsi, state: cglass }
   spawn: SheetClockworkGlass1
   maxCount: 30

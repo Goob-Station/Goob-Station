@@ -1,4 +1,11 @@
-﻿using Content.Shared.Storage.EntitySystems;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -19,6 +26,12 @@ public sealed partial class BinComponent : Component
     /// </summary>
     [ViewVariables]
     public Container ItemContainer = default!;
+
+    /// <summary>
+    /// ID of the container used to hold the items in the bin.
+    /// </summary>
+    [DataField]
+    public string ContainerId = "bin-container";
 
     /// <summary>
     /// A list representing the order in which

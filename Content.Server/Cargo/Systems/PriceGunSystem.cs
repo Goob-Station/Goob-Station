@@ -1,4 +1,21 @@
+// SPDX-FileCopyrightText: 2022 CommieFlowers <rasmus.cedergren@hotmail.com>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 blueDev2 <89804215+blueDev2@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ike709 <ike709@github.com>
+// SPDX-FileCopyrightText: 2024 ike709 <ike709@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Dylan Hunter Whittingham <45404433+DylanWhittingham@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 dylanhunter <dylan2.whittingham@live.uwe.ac.uk>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Popups;
+using Content.Server.Salvage.JobBoard;
 using Content.Shared.Cargo.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Timing;
@@ -13,6 +30,7 @@ public sealed class PriceGunSystem : SharedPriceGunSystem
     [Dependency] private readonly PricingSystem _pricingSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly CargoSystem _bountySystem = default!;
+    [Dependency] private readonly SalvageJobBoardSystem _salvageJobBoard = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     protected override bool GetPriceOrBounty(Entity<PriceGunComponent> entity, EntityUid target, EntityUid user)
@@ -23,6 +41,10 @@ public sealed class PriceGunSystem : SharedPriceGunSystem
         if (_bountySystem.IsBountyComplete(target, out _))
         {
             _popupSystem.PopupEntity(Loc.GetString("price-gun-bounty-complete"), user, user);
+        }
+        else if (_salvageJobBoard.FulfillsSalvageJob(target, null, out _))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("price-gun-salvjob-complete"), user, user);
         }
         else // Otherwise appraise the price
         {

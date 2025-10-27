@@ -1,6 +1,13 @@
-﻿using Robust.Shared.Prototypes;
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 Jajsha <101492056+Zap527@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared.Silicons.Laws;
 
@@ -60,7 +67,7 @@ public sealed partial class SiliconLawset
 /// This is a prototype for a <see cref="SiliconLawPrototype"/> list.
 /// Cannot be used directly since it is a list of prototype ids rather than List<Siliconlaw>.
 /// </summary>
-[Prototype("siliconLawset"), Serializable, NetSerializable]
+[Prototype]
 public sealed partial class SiliconLawsetPrototype : IPrototype
 {
     /// <inheritdoc/>
@@ -70,8 +77,8 @@ public sealed partial class SiliconLawsetPrototype : IPrototype
     /// <summary>
     /// List of law prototype ids in this lawset.
     /// </summary>
-    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdListSerializer<SiliconLawPrototype>))]
-    public List<string> Laws = new();
+    [DataField(required: true)]
+    public List<ProtoId<SiliconLawPrototype>> Laws = new();
 
     /// <summary>
     /// What entity the lawset considers as a figure of authority.

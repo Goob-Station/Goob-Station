@@ -1,3 +1,33 @@
+# SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Plyush <121322002+toasterpm87@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 crasg <109207982+Scruq445@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Shy Bandit <92641277+rotundfan@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BasePlushie
   id: PlushieLouie
@@ -83,88 +113,6 @@
       path: /Audio/Effects/adminhelp.ogg
 
 - type: entity
-  parent: BasePlushie
-  id: PlushieBlackburn
-  name: Blackburn plushie
-  description: A "kitsune-like" human hybrid plushie made by Nanotrasen as charity for Blackburnians displaced by the Yukon Insurgency's tyrannical ways.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: plushie_blackburn
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Animals/fox1.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Animals/fox1.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Animals/fox1.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Animals/fox1.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Animals/fox1.ogg
-  - type: Food
-    requiresSpecialDigestion: false
-    useSound:
-      path: /Audio/Animals/fox1.ogg
-
-- type: entity
-  parent: PlushieBlackburn
-  id: PlushieBlackburnKobliska
-  name: Kobliska plushie
-  description: A slimmer Blackburn designed to clear out fox holes and trenches; scientists debate the maximum lifetime of "Kobliskins" as they are the Insurgency's first self-designed subspecies.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: plushie_kobliska
-
-- type: entity
-  parent: PlushieBlackburn
-  id: PlushieBlackburnMatryoskya
-  name: Matryoskya plushie
-  description: An urban legend told by Nanotrasen war veterans; a beast uncontrolled by both Yukon insurgents and Nanotrasen, now available as a plushie.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: plushie_matryoskya
-
-- type: entity
-  parent: PlushieBlackburn
-  id: PlushieDesislavaBlackburn
-  name: Desislava plushie
-  description: A tiny sub-species of the BKv1 blackburn designed to fit in tankettes and some tank variants, this one is in a "Darwin 6A2M C7 YKN."
-  components:
-  - type: RandomWalk
-    accumulatorRatio: 0
-    maxSpeed: 4
-    minSpeed: 2
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: plushie_desislava
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Machines/generator-tug-1.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/trayhit2.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Effects/explosion_small2.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/toolbox_drop.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Items/trayhit1.ogg
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/Effects/explosion4.ogg
-
-- type: entity
   name: Toy Wonderprod
   parent: BaseSword
   id: FoamWonderprod
@@ -197,36 +145,62 @@
 
 - type: entity
   parent: BasePlushie
+  id: BaseBinglePlushie
+  abstract: true
+  components:
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/falling.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/falling.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/falling.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/falling.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Effects/falling.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Effects/falling.ogg
+
+- type: entity
+  parent: BaseBinglePlushie
   id: PlushieBingle
   name: full size bingle plushie
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
-    norot: true
     sprite: _Goobstation/Mobs/Bingle/bingle.rsi
     state: alive
+    noRot: true
 
 - type: entity
-  parent: BasePlushie
+  parent: BaseBinglePlushie
   id: PlushieBingleSmall
   name: bingle plushie
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
-    norot: true
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: bingleing
+    noRot: true
 
 - type: entity
-  parent: BasePlushie
+  parent: BaseBinglePlushie
   id: PlushieBingleYakub
   name: yakub bingle plushie
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
-    norot: true
     sprite: _Goobstation/Objects/Fun/yakub_bingle.rsi
     state: yakubbingle
+    noRot: true
 
 - type: entity
   parent: BasePlushie
@@ -235,20 +209,55 @@
   description: A cute stuffed toy that resembles a red alien. You feel a strange compulsion to say bongle
   components:
   - type: Sprite
-    norot: true
+    noRot: true
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: bongle
 
 - type: entity
-  parent: BasePlushie
+  parent: BaseBinglePlushie
   id: PlushieBinglePony
   name: bingle pony plushie
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
-    norot: true
+    noRot: true
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: bingle_pony
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieAbductor
+  name: alien plush
+  description: Glorp Zap Zeeble Glarp "Plush" Bleeble
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_abductor
+  - type: UseDelay
+    delay: 15
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Shitmed/Misc/abducted.ogg
+  - type: EmitSoundOnLand
+    sound:
+      collection: ToyFall
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Shitmed/Misc/abducted.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Shitmed/Misc/abducted.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      collection: ToySqueak
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/_Shitmed/Misc/abductor.ogg
+  - type: MeleeWeapon
+    attackRate: 0.5
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/taser_hit.ogg
 
 - type: entity
   id: GrenadeToy
@@ -327,3 +336,491 @@
     proto: GrenadeToy
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
+## Admin plushies go above the rest of the chuds.
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSamantha
+  name: jane blueshield plushie
+  description: A cute stuffed toy that resembles a veteran blueshield officer. You feel a sudden urge for lollypops while holding it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_samantha
+  - type: Item
+    heldPrefix: plushiesamantha
+  - type: Clothing
+    quickEquip: false
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    equippedPrefix: plushiesamantha
+    slots:
+    - HEAD
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+    soundNoDamage:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: GibThisGuy # Death to myself. It'd be funny.
+    requireBoth: false
+    icNames:
+    - Samantha Withers
+    ocNames:
+    - SolsticeOfTheWinter
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: TableSalt # .... get it?
+        Quantity: 10
+      - ReagentId: Ice
+        Quantity: 10
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Ice
+          Quantity: 5
+        - ReagentId: TableSalt
+          Quantity: 5
+
+## Jvne goes here because she's cooler
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieJvne
+  name: jvne plushie
+  description: It's been a rough day...
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_jvne
+  - type: Item
+    heldPrefix: plushiejvne
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieFern
+  name: mystical lizard plushie
+  description: You feel as if something else is watching you... just out of sight, in the shadows.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_fern
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Goobstation/Wizard/charge.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Wizard/teleport_app.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Goobstation/Wizard/charge.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Goobstation/Wizard/charge.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieNigel
+  name: handsome plushie
+  description: Smells like greatness, and a distinct smell of adalamin brand perfume?
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_nigel
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/adminhelp.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/adminhelp.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/adminhelp.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/adminhelp.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/adminhelp.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Effects/adminhelp.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBrizby
+  name: Brizby plushie
+  description: Will always admit to being evil.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_brizby
+  - type: Item
+    heldPrefix: plushiebrizby
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Piercing
+        damage: 6
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Items/scissors.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PlushieBaldzby:
+            min: 1
+            max: 1
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBaldzby
+  name: Baldzby plushie
+  description: Now the truth is open for all to see.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_baldzby
+  - type: Item
+    heldPrefix: plushiebaldzby
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBoggle
+  name: Boggle plushie
+  description: You can feel money inside.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_boggle
+  - type: Item
+    heldPrefix: plushieboggle
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Effects/kaching.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieLehmin
+  name: Lehmin plushie
+  description: Smells like chemicals, you feel uneasy holding it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_lehmin
+  - type: Item
+    heldPrefix: plushielehmin
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieMnwaar
+  name: Mnwaar plush
+  description: "A plushie of a small, deep gray, semi-heterochromic Shadowkin wearing the outfit of a Chief Medical Officer.\nThe tag reads: \"Mnwaar: Medical's Muted Manager!™ Now with magnetically attaching Hypospray!\""
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_mnwaar
+  - type: Item
+    heldPrefix: plushiemnwaar
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/mar.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/mar.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/mar.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/mar.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/mar.ogg
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: BlueCuracao # mnwaar's favourite drink, or so i'm told.
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - bluecuracao
+      - fiber
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieXeve
+  name: Xeve Byrd plush
+  suffix: Voodoo
+  description: "That fucking byrd that I hate."
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_xeve
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: Appearance
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Voodoo
+    targetName: Xeve Byrd
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 90
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseItem
+  id: DiscoBeachBall
+  name: disco beach ball
+  description: A disco beach ball turns any beach trip into Studio 54.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/Balls/beach_ball.rsi
+    state: icon
+    color: "#FFFFFF"
+  - type: PointLight
+    radius: 8
+    energy: 6
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: RgbLightController
+    cycleRate: 0.3
+  - type: RotatingLight
+    speed: 70
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/Footsteps/bounce.ogg
+  - type: MultiHandedItem
+  - type: Item
+    size: Large
+    sprite: Objects/Fun/Balls/beach_ball.rsi
+  - type: Anchorable
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+          ShardCrystalGreen:
+            min: 1
+            max: 1
+          ShardCrystalBlue:
+            min: 1
+            max: 1
+          ShardCrystalRed:
+            min: 1
+            max: 1
+
+- type: entity
+  name: The Throngler
+  parent: ToyHammer
+  id: ThronglerToy
+  suffix: Toy
+  description: Why would you make this?
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Melee/Throngler2.rsi
+      state: icon
+    - type: StaminaDamageOnHit
+      damage: 0.8
+    - type: MeleeWeapon
+      animationRotation: -45 # WWDP
+      wideAnimationRotation: -135
+      attackRate: .1
+      damage:
+        types:
+          Blunt: 0
+      soundHit:
+        path: /Audio/Effects/explosion_small1.ogg
+      soundNoDamage:
+        path: /Audio/Effects/explosion_small1.ogg
+    - type: Item
+      size: Ginormous
+      sprite: Objects/Weapons/Melee/Throngler-in-hand.rsi
+    - type: DisarmMalus
+      malus: 0

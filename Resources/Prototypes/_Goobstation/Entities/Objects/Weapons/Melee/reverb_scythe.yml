@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: resonant scythe
+  description: The answer seems to be here… But the fruit isnt sweet enough just yet.
+  parent: BaseItem
+  id: ReverbScythe
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/breverb.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 65
+    attackRate: 1.25
+    damage:
+      types:
+        Slash: 65
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Objects/Weapons/Melee/breverb.rsi
+  - type: DisarmMalus
+  - type: Execution

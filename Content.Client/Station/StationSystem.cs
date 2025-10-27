@@ -1,11 +1,17 @@
-﻿using Content.Shared.Station;
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Station;
 
 namespace Content.Client.Station;
 
 /// <summary>
 /// This handles letting the client know stations are a thing. Only really used by an admin menu.
 /// </summary>
-public sealed class StationSystem : EntitySystem
+public sealed partial class StationSystem : SharedStationSystem
 {
     private readonly List<(string Name, NetEntity Entity)> _stations = new();
 
@@ -15,11 +21,14 @@ public sealed class StationSystem : EntitySystem
     /// <remarks>
     /// I'd have this just invoke an entity query, but we're on the client and the client barely knows about stations.
     /// </remarks>
+    // TODO: Stations have a global PVS override now, this can probably be changed into a query.
     public IReadOnlyList<(string Name, NetEntity Entity)> Stations => _stations;
 
     /// <inheritdoc/>
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeNetworkEvent<StationsUpdatedEvent>(StationsUpdated);
     }
 

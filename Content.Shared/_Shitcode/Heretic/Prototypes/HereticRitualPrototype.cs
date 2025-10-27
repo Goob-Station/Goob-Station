@@ -1,14 +1,23 @@
-using Content.Shared.Materials;
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Heretic.Prototypes;
 
-[Serializable, NetSerializable, DataDefinition]
 [Prototype("hereticRitual")]
-public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
+public sealed partial class HereticRitualPrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
 
@@ -55,21 +64,9 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
     /// </summary>
     [DataField] public SpriteSpecifier Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Heretic/amber_focus.rsi"), "icon");
 
-    /// <remarks> Please use this instead of editing the prototype. Shit WILL break if you don't. </remarks>
-    public object Clone()
-    {
-        return new HereticRitualPrototype()
-        {
-            ID = ID,
-            RequiredEntityNames = RequiredEntityNames,
-            RequiredTags = RequiredTags,
-            CustomBehaviors = CustomBehaviors,
-            Output = Output,
-            OutputEvent = OutputEvent,
-            OutputKnowledge = OutputKnowledge,
-            LocName = LocName,
-            LocDesc = LocDesc,
-            Icon = Icon
-        };
-    }
+    /// <summary>
+    ///     Whether rune should play success animation on ritual success.
+    /// </summary>
+    [DataField]
+    public bool RuneSuccessAnimation = true;
 }

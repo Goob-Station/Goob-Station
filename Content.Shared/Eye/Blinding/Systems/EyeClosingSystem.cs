@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Actions;
 using Content.Shared.Eye.Blinding.Components;
 using Robust.Shared.Audio.Systems;
@@ -15,7 +21,6 @@ public sealed class EyeClosingSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public override void Initialize()
     {
@@ -36,7 +41,7 @@ public sealed class EyeClosingSystem : EntitySystem
 
     private void OnShutdown(Entity<EyeClosingComponent> eyelids, ref ComponentShutdown args)
     {
-        _actionsSystem.RemoveAction(eyelids, eyelids.Comp.EyeToggleActionEntity);
+        _actionsSystem.RemoveAction(eyelids.Owner, eyelids.Comp.EyeToggleActionEntity);
 
         SetEyelids((eyelids.Owner, eyelids.Comp), false);
     }
@@ -120,7 +125,7 @@ public sealed class EyeClosingSystem : EntitySystem
         var ev = new GetBlurEvent(blindable.Comp.EyeDamage);
         RaiseLocalEvent(blindable.Owner, ev);
 
-        if (_entityManager.TryGetComponent<EyeClosingComponent>(blindable, out var eyelids) && !eyelids.NaturallyCreated)
+        if (EntityManager.TryGetComponent<EyeClosingComponent>(blindable, out var eyelids) && !eyelids.NaturallyCreated)
             return;
 
         if (ev.Blur < BlurryVisionComponent.MaxMagnitude || ev.Blur >= blindable.Comp.MaxDamage)
@@ -135,6 +140,4 @@ public sealed class EyeClosingSystem : EntitySystem
     }
 }
 
-public sealed partial class ToggleEyesActionEvent : InstantActionEvent
-{
-}
+public sealed partial class ToggleEyesActionEvent : InstantActionEvent;

@@ -1,4 +1,10 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
   id: BananiumHorn
   start: start
   graph:
@@ -7,7 +13,7 @@
         - to: bananiumHorn
           steps:
             - tag: Pipe
-              name: pipe
+              name: construction-graph-tag-pipe
               icon:
                 sprite: Structures/Piping/Atmospherics/pipe.rsi
                 state: pipeStraight
@@ -16,7 +22,7 @@
               amount: 4
               doAfter: 1
             - tag: BikeHorn
-              name: bike horn
+              name: construction-graph-tag-clown-bike-horn
               icon:
                 sprite: Objects/Fun/bikehorn.rsi
                 state: icon

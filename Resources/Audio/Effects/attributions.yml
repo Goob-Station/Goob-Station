@@ -1,3 +1,26 @@
+# SPDX-FileCopyrightText: 2022 Bright0 <55061890+Bright0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Chronophylos <nikolai@chronophylos.com>
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Hmeister-fake <144629361+Hmeister-fake@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 DEATHB4DEFEAT <77995199+DEATHB4DEFEAT@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 KISS <59531932+YuriyKiss@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Sphiral <145869023+SphiraI@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Yurii Kis <yurii.kis@smartteksas.com>
+# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Chaboricks <95505064+Chaboricks@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - files: ["balloon-pop"]
   license: "CC-BY-4.0"
   copyright: '"Balloon Pop" by Aesterial-Arts on Freesound.org. Cconverted to mono by EmoGarbage404 on GitHub.com'
@@ -241,3 +264,18 @@
   copyright: 'created by Vrymaa on Freesound and modified by Chaboricks'
   license: "CC0-1.0"
   source: https://freesound.org/people/Vrymaa/sounds/785128/
+
+- files: ["cig_light.ogg", "cig_snuff.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by mattroks101 for Bee Station. cig_snuff converted to mono"
+  source: "https://github.com/BeeStation/BeeStation-Hornet/pull/29"
+
+- files: [stealthoff.ogg]
+  copyright: 'TGStation at d4f678a1772007ff8d7eddd21cf7218c8e07bfc0'
+  license: "CC-BY-SA-3.0"
+  source: https://github.com/tgstation/tgstation/commit/d4f678a1772007ff8d7eddd21cf7218c8e07bfc0
+
+- files: ["soft_thump.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Clipped by FairlySadPanda (Github) from a sound created by CheChoDj (Freesound)"
+  source: "https://freesound.org/people/CheChoDj/sounds/609353/"

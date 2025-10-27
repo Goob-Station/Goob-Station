@@ -1,4 +1,11 @@
-﻿advertisement-cola-1 = Refreshing!
+# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+advertisement-cola-1 = Refreshing!
 advertisement-cola-2 = Hope you're thirsty!
 advertisement-cola-3 = Over 1 million drinks sold!
 advertisement-cola-4 = Thirsty? Why not cola?

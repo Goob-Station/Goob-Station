@@ -1,4 +1,20 @@
-﻿using Content.Goobstation.Shared.Blob;
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Shared.Blob;
 using Content.Goobstation.Shared.Blob.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Systems;
@@ -18,8 +34,10 @@ using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Physics;
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Tag;
 using Content.Shared.Zombies;
+using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
@@ -40,6 +58,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
     [Dependency] private readonly TriggerSystem _trigger = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     private const int ClimbingCollisionGroup = (int) (CollisionGroup.BlobImpassable);
 
@@ -116,8 +135,8 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         _faction.AddFaction(uid, "Blob");
         component.OldFactions = oldFactions;
 
-        var accent = EnsureComp<ReplacementAccentComponent>(uid);
-        accent.Accent = "genericAggressive";
+        // var accent = EnsureComp<ReplacementAccentComponent>(uid); // Languages - No need for accents.
+        // accent.Accent = "genericAggressive";
 
         _tagSystem.AddTag(uid, "BlobMob");
 
@@ -146,7 +165,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
                 });
             }*/
 
-            if (_mind.TryGetSession(mindComp.Mind, out var session))
+            if (_player.TryGetSessionByEntity(mindComp.Mind.Value, out var session))
             {
                 _chatMan.DispatchServerMessage(session, Loc.GetString("blob-zombie-greeting"));
                 _audio.PlayGlobal(component.GreetSoundNotification, session);
@@ -178,7 +197,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         RemComp<BlobSpeakComponent>(uid);
         RemComp<BlobMobComponent>(uid);
         RemComp<HTNComponent>(uid);
-        RemComp<ReplacementAccentComponent>(uid);
+        // RemComp<ReplacementAccentComponent>(uid); // Languages - No need for accents.
         RemComp<PressureImmunityComponent>(uid);
 
         if (TryComp<TemperatureComponent>(uid, out var temperatureComponent) && component.OldColdDamageThreshold != null)
@@ -224,7 +243,8 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
     {
         if (args.NewMobState == MobState.Dead)
         {
-            _tagSystem.RemoveTag(uid, component.TagAdded);
+            if (TryComp<CollectiveMindComponent>(uid, out var comp))
+                comp.Channels.Remove(component.CollectiveMindAdded);
             RemComp<ZombieBlobComponent>(uid);
         }
     }

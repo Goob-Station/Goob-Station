@@ -1,12 +1,12 @@
-﻿- type: construction
-  name: alien artifact
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: construction
   id: Artifact
   graph: Artifact
   startNode: start
   targetNode: done
   category: construction-category-misc
   objectType: Item
-  description: A strange alien artifact
-  icon:
-    sprite: Objects/Specific/Xenoarchaeology/item_artifacts.rsi
-    state: ano01

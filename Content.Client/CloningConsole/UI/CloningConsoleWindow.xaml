@@ -1,3 +1,12 @@
+<!--
+SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <DefaultWindow xmlns="https://spacestation14.io"
             Title="{Loc 'comp-pda-ui-menu-title'}"
             SetSize="400 400"

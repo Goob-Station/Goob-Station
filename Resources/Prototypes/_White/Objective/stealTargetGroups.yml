@@ -1,0 +1,8 @@
+# Thief Animal
+
+- type: stealTargetGroup
+  id: AnimalLamarr
+  name: steal-target-groups-animal-lamarr
+  sprite:
+    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+    state: facehugger

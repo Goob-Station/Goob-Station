@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.IntegrationTests.Tests.Interaction;
 using Robust.Shared.Map;
 
@@ -17,7 +26,7 @@ public sealed class TileConstructionTests : InteractionTest
         await SetTile(null);
         await InteractUsing(Rod);
         await AssertTile(Lattice);
-        Assert.That(Hands.ActiveHandEntity, Is.Null);
+        Assert.That(HandSys.GetActiveItem((SEntMan.GetEntity(Player), Hands)), Is.Null);
         await InteractUsing(Cut);
         await AssertTile(null);
         await AssertEntityLookup((Rod, 1));
@@ -49,7 +58,7 @@ public sealed class TileConstructionTests : InteractionTest
         AssertGridCount(1);
 
         // Cut lattice
-        Assert.That(Hands.ActiveHandEntity, Is.Null);
+        Assert.That(HandSys.GetActiveItem((SEntMan.GetEntity(Player), Hands)), Is.Null);
         await InteractUsing(Cut);
         await AssertTile(null);
         AssertGridCount(0);
@@ -82,14 +91,14 @@ public sealed class TileConstructionTests : InteractionTest
         AssertGridCount(1);
 
         // Lattice -> Plating
-        await InteractUsing(Steel);
-        Assert.That(Hands.ActiveHandEntity, Is.Null);
+        await InteractUsing(FloorItem);
+        Assert.That(HandSys.GetActiveItem((SEntMan.GetEntity(Player), Hands)), Is.Null);
         await AssertTile(Plating);
         AssertGridCount(1);
 
         // Plating -> Tile
         await InteractUsing(FloorItem);
-        Assert.That(Hands.ActiveHandEntity, Is.Null);
+        Assert.That(HandSys.GetActiveItem((SEntMan.GetEntity(Player), Hands)), Is.Null);
         await AssertTile(Floor);
         AssertGridCount(1);
 

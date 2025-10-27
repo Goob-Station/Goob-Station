@@ -1,3 +1,10 @@
+<!--
+SPDX-FileCopyrightText: 2024 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <Document>
 # Chef SOP
 This is the list of procedures, responsibilities, and duties of the [color=#388c34][bold]Chef[/bold][/color] of this station.
@@ -15,6 +22,6 @@ This is the list of procedures, responsibilities, and duties of the [color=#388c
 <Box>Exception is made if there are no ingredients, or if the Kitchen is unusable or is an active hazard zone.</Box>
 <Box>Exceptions also apply if there is an active emergency, such as Nuclear Operatives, Blob, and/or Delta Alert.</Box>
 
-5. The chef is permitted to use their Close Quarters Cooking (CQC) to defend their workplace and coworkers. Lethal force should only be used when necessary.
+5. The chef is permitted to use their [textlink="Close Quarters Cooking (CQC)" link="CQC"] to defend their workplace and coworkers. Lethal force should only be used when necessary.
 
 </Document>

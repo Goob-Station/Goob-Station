@@ -1,3 +1,19 @@
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Remuchi <72476615+Remuchi@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.Standing;
 using Content.Shared._Goobstation.Wizard.TimeStop;
@@ -100,7 +116,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
     private void OnRefreshMovementSpeed(EntityUid uid, LayingDownComponent component, RefreshMovementSpeedModifiersEvent args)
     {
         if (_standing.IsDown(uid))
-            args.ModifySpeed(component.SpeedModify, component.SpeedModify);
+            args.ModifySpeed(component.SpeedModify, component.SpeedModify, bypassImmunity: true);
         else
             args.ModifySpeed(1f, 1f);
     }
@@ -147,7 +163,10 @@ public abstract class SharedLayingDownSystem : EntitySystem
             standingState.CurrentState is not StandingState.Standing)
         {
             if (behavior == DropHeldItemsBehavior.AlwaysDrop)
-                RaiseLocalEvent(uid, new DropHandItemsEvent());
+            {
+                var ev = new DropHandItemsEvent();
+                RaiseLocalEvent(uid, ref ev);
+            }
 
             return false;
         }
@@ -162,7 +181,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
         {
             ent.Comp.AutoGetUp = false;
             Dirty(ent);
-           return;
+            return;
         }
 
         if (!TryComp(ent, out ActorComponent? actor))

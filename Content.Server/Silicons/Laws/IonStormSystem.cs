@@ -1,7 +1,30 @@
+// SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 BIGZi0348 <118811750+BIGZi0348@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mephisto72 <66994453+Mephisto72@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mephisto72 <Mephisto.Respectator@proton.me>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 ScarKy0 <scarky0@onet.eu>
+// SPDX-FileCopyrightText: 2024 The Canned One <greentopcan@gmail.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 valquaint <57813693+valquaint@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Dataset;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Silicons.Laws;
@@ -20,42 +43,24 @@ public sealed class IonStormSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
     // funny
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string Threats = "IonStormThreats";
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string Objects = "IonStormObjects";
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string Crew = "IonStormCrew";
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string Adjectives = "IonStormAdjectives";
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string Verbs = "IonStormVerbs";
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string NumberBase = "IonStormNumberBase";
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string NumberMod = "IonStormNumberMod";
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string Areas = "IonStormAreas";
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string Feelings = "IonStormFeelings";
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string FeelingsPlural = "IonStormFeelingsPlural";
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string Musts = "IonStormMusts";
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string Requires = "IonStormRequires";
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string Actions = "IonStormActions";
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string Allergies = "IonStormAllergies";
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string AllergySeverities = "IonStormAllergySeverities";
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string Concepts = "IonStormConcepts";
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string Drinks = "IonStormDrinks";
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string Foods = "IonStormFoods";
+    private static readonly ProtoId<DatasetPrototype> Threats = "IonStormThreats";
+    private static readonly ProtoId<DatasetPrototype> Objects = "IonStormObjects";
+    private static readonly ProtoId<DatasetPrototype> Crew = "IonStormCrew";
+    private static readonly ProtoId<DatasetPrototype> Adjectives = "IonStormAdjectives";
+    private static readonly ProtoId<DatasetPrototype> Verbs = "IonStormVerbs";
+    private static readonly ProtoId<DatasetPrototype> NumberBase = "IonStormNumberBase";
+    private static readonly ProtoId<DatasetPrototype> NumberMod = "IonStormNumberMod";
+    private static readonly ProtoId<DatasetPrototype> Areas = "IonStormAreas";
+    private static readonly ProtoId<DatasetPrototype> Feelings = "IonStormFeelings";
+    private static readonly ProtoId<DatasetPrototype> FeelingsPlural = "IonStormFeelingsPlural";
+    private static readonly ProtoId<DatasetPrototype> Musts = "IonStormMusts";
+    private static readonly ProtoId<DatasetPrototype> Requires = "IonStormRequires";
+    private static readonly ProtoId<DatasetPrototype> Actions = "IonStormActions";
+    private static readonly ProtoId<DatasetPrototype> Allergies = "IonStormAllergies";
+    private static readonly ProtoId<DatasetPrototype> AllergySeverities = "IonStormAllergySeverities";
+    private static readonly ProtoId<DatasetPrototype> Concepts = "IonStormConcepts";
+    private static readonly ProtoId<DatasetPrototype> Drinks = "IonStormDrinks";
+    private static readonly ProtoId<DatasetPrototype> Foods = "IonStormFoods";
 
     /// <summary>
     /// Randomly alters the laws of an individual silicon.
@@ -160,7 +165,7 @@ public sealed class IonStormSystem : EntitySystem
     }
 
     // for your own sake direct your eyes elsewhere
-    private string GenerateLaw()
+    public string GenerateLaw() // Goob edit: make it public
     {
         // pick all values ahead of time to make the logic cleaner
         var threats = Pick(Threats);
@@ -239,7 +244,7 @@ public sealed class IonStormSystem : EntitySystem
         return _robustRandom.Next(0, 40) switch // Goobstation
         {
             0  => Loc.GetString("ion-storm-law-on-station", ("joined", joined), ("subjects", triple)),
-            1  => Loc.GetString("ion-storm-law-no-shuttle", ("joined", joined), ("subjects", triple)),
+            1  => Loc.GetString("ion-storm-law-call-shuttle", ("joined", joined), ("subjects", triple)),
             2  => Loc.GetString("ion-storm-law-crew-are", ("who", crewAll), ("joined", joined), ("subjects", objectsThreats)),
             3  => Loc.GetString("ion-storm-law-subjects-harmful", ("adjective", adjective), ("subjects", triple)),
             4  => Loc.GetString("ion-storm-law-must-harmful", ("must", must)),

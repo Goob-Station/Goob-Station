@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 Bixkitts <72874643+Bixkitts@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Robust.Client.GameObjects;
 using Content.Shared.Smoking;
 
@@ -19,7 +24,6 @@ public sealed class BurnStateVisualizerSystem : VisualizerSystem<BurnStateVisual
             _ => component.UnlitIcon
         };
 
-        args.Sprite.LayerSetState(0, state);
+        SpriteSystem.LayerSetRsiState((uid, args.Sprite), 0, state);
     }
 }
-

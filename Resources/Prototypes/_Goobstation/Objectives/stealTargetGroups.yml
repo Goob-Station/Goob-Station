@@ -1,3 +1,22 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: stealTargetGroup
   id: SupermatterSliver
   name: steal-target-groups-cargo-supermatter-sliver
@@ -6,15 +25,36 @@
     state: icon
 
 - type: stealTargetGroup
-  id: WeaponEnergyGunMultiphase
-  name: steal-target-groups-weapon-multiphase
+  id: WeaponEnergyGunLawbringer
+  name: steal-target-groups-weapon-lawbringer
   sprite:
-    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
-    state: base
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
+    state: icon
+
+- type: stealTargetGroup
+  id: WeaponSecHeadSword
+  name: steal-target-groups-weapon-justice
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+    state: icon
 
 - type: stealTargetGroup
   id: RapidSyringeGun
   name: steal-target-groups-rapid-syringe-gun
   sprite:
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/rapid_syringe_gun.rsi
+    state: icon
+
+- type: stealTargetGroup
+  id: ExecutiveBriefcase
+  name: steal-target-groups-executive-briefcase
+  sprite:
+    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
+    state: icon
+
+- type: stealTargetGroup
+  id: ClothingBeltGeminiHoloProjector
+  name: steal-target-groups-gemini-projector
+  sprite:
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
     state: icon

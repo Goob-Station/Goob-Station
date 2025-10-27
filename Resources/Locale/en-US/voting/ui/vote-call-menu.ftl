@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 ui-vote-type-restart = Restart round
 ui-vote-type-gamemode = Next gamemode
 ui-vote-type-map = Next map
@@ -38,5 +50,5 @@ ui-vote-fluff = Powered by Robust™ Anti-Tamper Technology
 
 ## Vote menu command
 
-ui-vote-menu-command-description = Opens the voting menu
-ui-vote-menu-command-help-text = Usage: votemenu
+cmd-votemenu-desc = Opens the voting menu.
+cmd-votemenu-help = Usage: votemenu

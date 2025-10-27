@@ -1,8 +1,33 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 csqrb <56765288+CaptainSqrBeard@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Numerics;
+using Content.Client.DisplacementMap;
+using Content.Shared.CCVar;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Inventory;
 using Content.Shared.Preferences;
 using Robust.Client.GameObjects;
+using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -12,6 +37,9 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
+    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+    [Dependency] private readonly DisplacementMapSystem _displacement = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -22,62 +50,89 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
     private void OnHandleState(EntityUid uid, HumanoidAppearanceComponent component, ref AfterAutoHandleStateEvent args)
     {
-        UpdateSprite(component, Comp<SpriteComponent>(uid));
+        UpdateSprite((uid, component, Comp<SpriteComponent>(uid)));
     }
 
-    private void UpdateSprite(HumanoidAppearanceComponent component, SpriteComponent sprite)
+    private void OnCvarChanged(bool value)
     {
-        UpdateLayers(component, sprite);
-        ApplyMarkingSet(component, sprite);
+        var humanoidQuery = AllEntityQuery<HumanoidAppearanceComponent, SpriteComponent>();
+        while (humanoidQuery.MoveNext(out var uid, out var humanoidComp, out var spriteComp))
+        {
+            UpdateSprite((uid, humanoidComp, spriteComp));
+        }
+    }
 
-        sprite[sprite.LayerMapReserveBlank(HumanoidVisualLayers.Eyes)].Color = component.EyeColor;
+    private void UpdateSprite(Entity<HumanoidAppearanceComponent, SpriteComponent> entity)
+    {
+        UpdateLayers(entity);
+        ApplyMarkingSet(entity);
+
+        var humanoidAppearance = entity.Comp1;
+        var sprite = entity.Comp2;
+
+        // begin Goobstation: port EE height/width sliders
+        var speciesPrototype = _prototypeManager.Index<SpeciesPrototype>(humanoidAppearance.Species);
+
+        var height = Math.Clamp(humanoidAppearance.Height, speciesPrototype.MinHeight, speciesPrototype.MaxHeight);
+        var width = Math.Clamp(humanoidAppearance.Width, speciesPrototype.MinWidth, speciesPrototype.MaxWidth);
+        humanoidAppearance.Height = height;
+        humanoidAppearance.Width = width;
+
+        _sprite.SetScale((entity, sprite), new Vector2(width, height));
+        // end Goobstation: port EE height/width sliders
+
+        sprite[_sprite.LayerMapReserve((entity.Owner, sprite), HumanoidVisualLayers.Eyes)].Color = humanoidAppearance.EyeColor;
     }
 
     private static bool IsHidden(HumanoidAppearanceComponent humanoid, HumanoidVisualLayers layer)
-        => humanoid.HiddenLayers.Contains(layer) || humanoid.PermanentlyHidden.Contains(layer);
+        => humanoid.HiddenLayers.ContainsKey(layer) || humanoid.PermanentlyHidden.Contains(layer);
 
-    private void UpdateLayers(HumanoidAppearanceComponent component, SpriteComponent sprite)
+    private void UpdateLayers(Entity<HumanoidAppearanceComponent, SpriteComponent> entity)
     {
+        var component = entity.Comp1;
+        var sprite = entity.Comp2;
+
         var oldLayers = new HashSet<HumanoidVisualLayers>(component.BaseLayers.Keys);
         component.BaseLayers.Clear();
 
         // add default species layers
         var speciesProto = _prototypeManager.Index(component.Species);
-        var baseSprites = _prototypeManager.Index<HumanoidSpeciesBaseSpritesPrototype>(speciesProto.SpriteSet);
+        var baseSprites = _prototypeManager.Index(speciesProto.SpriteSet);
         foreach (var (key, id) in baseSprites.Sprites)
         {
             oldLayers.Remove(key);
             if (!component.CustomBaseLayers.ContainsKey(key))
-                SetLayerData(component, sprite, key, id, sexMorph: true);
+                SetLayerData(entity, key, id, sexMorph: true);
         }
 
         // add custom layers
         foreach (var (key, info) in component.CustomBaseLayers)
         {
             oldLayers.Remove(key);
-            // Shitmed Change: For whatever reason these weren't actually ignoring the skin color as advertised.
-            SetLayerData(component, sprite, key, info.Id, sexMorph: false, color: info.Color, overrideSkin: true);
+            SetLayerData(entity, key, info.Id, sexMorph: false, color: info.Color, overrideSkin: true);
         }
 
         // hide old layers
         // TODO maybe just remove them altogether?
         foreach (var key in oldLayers)
         {
-            if (sprite.LayerMapTryGet(key, out var index))
+            if (_sprite.LayerMapTryGet((entity.Owner, sprite), key, out var index, false))
                 sprite[index].Visible = false;
         }
     }
 
     private void SetLayerData(
-        HumanoidAppearanceComponent component,
-        SpriteComponent sprite,
+        Entity<HumanoidAppearanceComponent, SpriteComponent> entity,
         HumanoidVisualLayers key,
         string? protoId,
         bool sexMorph = false,
         Color? color = null,
         bool overrideSkin = false) // Shitmed Change
     {
-        var layerIndex = sprite.LayerMapReserveBlank(key);
+        var component = entity.Comp1;
+        var sprite = entity.Comp2;
+
+        var layerIndex = _sprite.LayerMapReserve((entity.Owner, sprite), key);
         var layer = sprite[layerIndex];
         layer.Visible = !IsHidden(component, key);
 
@@ -97,7 +152,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             layer.Color = component.SkinColor.WithAlpha(proto.LayerAlpha);
 
         if (proto.BaseSprite != null)
-            sprite.LayerSetSprite(layerIndex, proto.BaseSprite);
+            _sprite.LayerSetSprite((entity.Owner, sprite), layerIndex, proto.BaseSprite);
     }
 
     /// <summary>
@@ -191,7 +246,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
         humanoid.MarkingSet = markings;
         humanoid.PermanentlyHidden = new HashSet<HumanoidVisualLayers>();
-        humanoid.HiddenLayers = new HashSet<HumanoidVisualLayers>();
+        humanoid.HiddenLayers = new Dictionary<HumanoidVisualLayers, SlotFlags>();
         humanoid.CustomBaseLayers = customBaseLayers;
         humanoid.Sex = profile.Sex;
         humanoid.Gender = profile.Gender;
@@ -199,35 +254,45 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         humanoid.Species = profile.Species;
         humanoid.SkinColor = profile.Appearance.SkinColor;
         humanoid.EyeColor = profile.Appearance.EyeColor;
+        humanoid.Height = profile.Height; // Goobstation: port EE height/width sliders
+        humanoid.Width = profile.Width; // Goobstation: port EE height/width sliders
 
-        UpdateSprite(humanoid, Comp<SpriteComponent>(uid));
+        UpdateSprite((uid, humanoid, Comp<SpriteComponent>(uid)));
     }
 
-    private void ApplyMarkingSet(HumanoidAppearanceComponent humanoid, SpriteComponent sprite)
+    private void ApplyMarkingSet(Entity<HumanoidAppearanceComponent, SpriteComponent> entity)
     {
+        var humanoid = entity.Comp1;
+        var sprite = entity.Comp2;
+
         // I am lazy and I CBF resolving the previous mess, so I'm just going to nuke the markings.
         // Really, markings should probably be a separate component altogether.
-        ClearAllMarkings(humanoid, sprite);
+        ClearAllMarkings(entity);
 
         foreach (var markingList in humanoid.MarkingSet.Markings.Values)
         {
             foreach (var marking in markingList)
             {
                 if (_markingManager.TryGetMarking(marking, out var markingPrototype))
-                    ApplyMarking(markingPrototype, marking.MarkingColors, marking.Visible, humanoid, sprite);
+                {
+                    ApplyMarking(markingPrototype, marking.MarkingColors, marking.Visible, entity);
+                }
             }
         }
 
         humanoid.ClientOldMarkings = new MarkingSet(humanoid.MarkingSet);
     }
 
-    private void ClearAllMarkings(HumanoidAppearanceComponent humanoid, SpriteComponent sprite)
+    private void ClearAllMarkings(Entity<HumanoidAppearanceComponent, SpriteComponent> entity)
     {
+        var humanoid = entity.Comp1;
+        var sprite = entity.Comp2;
+
         foreach (var markingList in humanoid.ClientOldMarkings.Markings.Values)
         {
             foreach (var marking in markingList)
             {
-                RemoveMarking(marking, sprite);
+                RemoveMarking(marking, (entity, sprite));
             }
         }
 
@@ -237,12 +302,12 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         {
             foreach (var marking in markingList)
             {
-                RemoveMarking(marking, sprite);
+                RemoveMarking(marking, (entity, sprite));
             }
         }
     }
 
-    private void RemoveMarking(Marking marking, SpriteComponent spriteComp)
+    private void RemoveMarking(Marking marking, Entity<SpriteComponent> spriteEnt)
     {
         if (!_markingManager.TryGetMarking(marking, out var prototype))
         {
@@ -257,22 +322,24 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             }
 
             var layerId = $"{marking.MarkingId}-{rsi.RsiState}";
-            if (!spriteComp.LayerMapTryGet(layerId, out var index))
+            if (!_sprite.LayerMapTryGet(spriteEnt.AsNullable(), layerId, out var index, false))
             {
                 continue;
             }
 
-            spriteComp.LayerMapRemove(layerId);
-            spriteComp.RemoveLayer(index);
+            _sprite.LayerMapRemove(spriteEnt.AsNullable(), layerId);
+            _sprite.RemoveLayer(spriteEnt.AsNullable(), index);
         }
     }
     private void ApplyMarking(MarkingPrototype markingPrototype,
         IReadOnlyList<Color>? colors,
         bool visible,
-        HumanoidAppearanceComponent humanoid,
-        SpriteComponent sprite)
+        Entity<HumanoidAppearanceComponent, SpriteComponent> entity)
     {
-        if (!sprite.LayerMapTryGet(markingPrototype.BodyPart, out int targetLayer))
+        var humanoid = entity.Comp1;
+        var sprite = entity.Comp2;
+
+        if (!_sprite.LayerMapTryGet((entity.Owner, sprite), markingPrototype.BodyPart, out var targetLayer, false))
         {
             return;
         }
@@ -292,14 +359,23 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
             var layerId = $"{markingPrototype.ID}-{rsi.RsiState}";
 
-            if (!sprite.LayerMapTryGet(layerId, out _))
+            if (!_sprite.LayerMapTryGet((entity.Owner, sprite), layerId, out _, false))
             {
-                var layer = sprite.AddLayer(markingSprite, targetLayer + j + 1);
-                sprite.LayerMapSet(layerId, layer);
-                sprite.LayerSetSprite(layerId, rsi);
+                var layer = _sprite.AddLayer((entity.Owner, sprite), markingSprite, targetLayer + j + 1);
+                _sprite.LayerMapSet((entity.Owner, sprite), layerId, layer);
+                _sprite.LayerSetSprite((entity.Owner, sprite), layerId, rsi);
             }
 
-            sprite.LayerSetVisible(layerId, visible);
+
+            // impstation edit begin - check if there's a shader defined in the markingPrototype's shader datafield, and if there is...
+			if (markingPrototype.Shader != null)
+			{
+			// use spriteComponent's layersetshader function to set the layer's shader to that which is specified.
+				sprite.LayerSetShader(layerId, markingPrototype.Shader);
+			}
+			// impstation edit end
+
+            _sprite.LayerSetVisible((entity.Owner, sprite), layerId, visible);
 
             if (!visible || setting == null) // this is kinda implied
             {
@@ -311,11 +387,16 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             // So if that happens just default to white?
             if (colors != null && j < colors.Count)
             {
-                sprite.LayerSetColor(layerId, colors[j]);
+                _sprite.LayerSetColor((entity.Owner, sprite), layerId, colors[j]);
             }
             else
             {
-                sprite.LayerSetColor(layerId, Color.White);
+                _sprite.LayerSetColor((entity.Owner, sprite), layerId, Color.White);
+            }
+
+            if (humanoid.MarkingsDisplacement.TryGetValue(markingPrototype.BodyPart, out var displacementData) && markingPrototype.CanBeDisplaced)
+            {
+                _displacement.TryAddDisplacement(displacementData, (entity.Owner, sprite), targetLayer + j + 1, layerId, out _);
             }
         }
     }
@@ -335,28 +416,26 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             if (!spriteInfo.MatchSkin)
                 continue;
 
-            var index = sprite.LayerMapReserveBlank(layer);
+            var index = _sprite.LayerMapReserve((uid, sprite), layer);
             sprite[index].Color = skinColor.WithAlpha(spriteInfo.LayerAlpha);
         }
     }
 
-    protected override void SetLayerVisibility(
-        EntityUid uid,
-        HumanoidAppearanceComponent humanoid,
+    public override void SetLayerVisibility(
+        Entity<HumanoidAppearanceComponent> ent,
         HumanoidVisualLayers layer,
         bool visible,
-        bool permanent,
+        SlotFlags? slot,
         ref bool dirty)
     {
-        base.SetLayerVisibility(uid, humanoid, layer, visible, permanent, ref dirty);
+        base.SetLayerVisibility(ent, layer, visible, slot, ref dirty);
 
-        var sprite = Comp<SpriteComponent>(uid);
-        if (!sprite.LayerMapTryGet(layer, out var index))
+        var sprite = Comp<SpriteComponent>(ent);
+        if (!_sprite.LayerMapTryGet((ent.Owner, sprite), layer, out var index, false))
         {
             if (!visible)
                 return;
-            else
-                index = sprite.LayerMapReserveBlank(layer);
+            index = _sprite.LayerMapReserve((ent.Owner, sprite), layer);
         }
 
         var spriteLayer = sprite[index];
@@ -366,13 +445,14 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         spriteLayer.Visible = visible;
 
         // I fucking hate this. I'll get around to refactoring sprite layers eventually I swear
+        // Just a week away...
 
-        foreach (var markingList in humanoid.MarkingSet.Markings.Values)
+        foreach (var markingList in ent.Comp.MarkingSet.Markings.Values)
         {
             foreach (var marking in markingList)
             {
                 if (_markingManager.TryGetMarking(marking, out var markingPrototype) && markingPrototype.BodyPart == layer)
-                    ApplyMarking(markingPrototype, marking.MarkingColors, marking.Visible, humanoid, sprite);
+                    ApplyMarking(markingPrototype, marking.MarkingColors, marking.Visible, (ent, ent.Comp, sprite));
             }
         }
     }

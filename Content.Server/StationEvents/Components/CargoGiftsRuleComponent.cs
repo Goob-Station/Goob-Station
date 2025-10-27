@@ -1,4 +1,11 @@
-﻿using Content.Server.StationEvents.Events;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Server.StationEvents.Events;
 using Content.Shared.Cargo.Prototypes;
 using Robust.Shared.Prototypes;
 
@@ -33,6 +40,12 @@ public sealed partial class CargoGiftsRuleComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public LocId Dest = "cargo-gift-default-dest";
+
+    /// <summary>
+    /// Account the gifts are deposited into
+    /// </summary>
+    [DataField]
+    public ProtoId<CargoAccountPrototype> Account = "Cargo";
 
     /// <summary>
     /// Cargo that you would like gifted to the station, with the quantity for each

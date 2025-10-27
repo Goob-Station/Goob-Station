@@ -1,3 +1,17 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 #nullable enable
 using System.Collections.Generic;
 using Content.Server.VendingMachines;
@@ -20,6 +34,8 @@ namespace Content.IntegrationTests.Tests
     [TestOf(typeof(VendingMachineSystem))]
     public sealed class VendingMachineRestockTest : EntitySystem
     {
+        private static readonly ProtoId<DamageTypePrototype> TestDamageType = "Blunt";
+
         [TestPrototypes]
         private const string Prototypes = @"
 - type: entity
@@ -182,9 +198,9 @@ namespace Content.IntegrationTests.Tests
             var server = pair.Server;
             await server.WaitIdleAsync();
 
-            var mapManager = server.ResolveDependency<IMapManager>();
             var entityManager = server.ResolveDependency<IEntityManager>();
             var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
+            var mapSystem = server.System<SharedMapSystem>();
 
             EntityUid packageRight;
             EntityUid packageWrong;
@@ -255,7 +271,7 @@ namespace Content.IntegrationTests.Tests
                 Assert.That(systemMachine.GetAvailableInventory(machine, machineComponent), Has.Count.GreaterThan(0),
                     "Machine available inventory count is not greater than zero after restock.");
 
-                mapManager.DeleteMap(testMap.MapId);
+                mapSystem.DeleteMap(testMap.MapId);
             });
 
             await pair.CleanReturnAsync();
@@ -269,9 +285,9 @@ namespace Content.IntegrationTests.Tests
             await server.WaitIdleAsync();
 
             var prototypeManager = server.ResolveDependency<IPrototypeManager>();
-            var mapManager = server.ResolveDependency<IMapManager>();
             var entityManager = server.ResolveDependency<IEntityManager>();
             var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
+            var mapSystem = server.System<SharedMapSystem>();
 
             var damageableSystem = entitySystemManager.GetEntitySystem<DamageableSystem>();
 
@@ -293,7 +309,7 @@ namespace Content.IntegrationTests.Tests
                     "Did not start with zero ramen.");
 
                 restock = entityManager.SpawnEntity("TestRestockExplode", coordinates);
-                var damageSpec = new DamageSpecifier(prototypeManager.Index<DamageTypePrototype>("Blunt"), 100);
+                var damageSpec = new DamageSpecifier(prototypeManager.Index(TestDamageType), 100);
                 var damageResult = damageableSystem.TryChangeDamage(restock, damageSpec);
 
 #pragma warning disable NUnit2045
@@ -319,7 +335,7 @@ namespace Content.IntegrationTests.Tests
                 Assert.That(totalRamen, Is.EqualTo(2),
                     "Did not find enough ramen after destroying restock box.");
 
-                mapManager.DeleteMap(testMap.MapId);
+                mapSystem.DeleteMap(testMap.MapId);
             });
 
             await pair.CleanReturnAsync();

@@ -1,8 +1,32 @@
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Body.Organ;
+using Content.Shared.Body.Events;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
+using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -19,17 +43,28 @@ namespace Content.Server.Body.Systems
         {
             SubscribeLocalEvent<StomachComponent, MapInitEvent>(OnMapInit);
             SubscribeLocalEvent<StomachComponent, EntityUnpausedEvent>(OnUnpaused);
+            SubscribeLocalEvent<StomachComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
             SubscribeLocalEvent<StomachComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
         }
 
         private void OnMapInit(Entity<StomachComponent> ent, ref MapInitEvent args)
         {
-            ent.Comp.NextUpdate = _gameTiming.CurTime + ent.Comp.UpdateInterval;
+            ent.Comp.NextUpdate = _gameTiming.CurTime + ent.Comp.AdjustedUpdateInterval;
         }
 
         private void OnUnpaused(Entity<StomachComponent> ent, ref EntityUnpausedEvent args)
         {
             ent.Comp.NextUpdate += args.PausedTime;
+        }
+
+        private void OnEntRemoved(Entity<StomachComponent> ent, ref EntRemovedFromContainerMessage args)
+        {
+            // Make sure the removed entity was our contained solution
+            if (ent.Comp.Solution is not { } solution || args.Entity != solution.Owner)
+                return;
+
+            // Cleared our cached reference to the solution entity
+            ent.Comp.Solution = null;
         }
 
         public override void Update(float frameTime)
@@ -40,7 +75,7 @@ namespace Content.Server.Body.Systems
                 if (_gameTiming.CurTime < stomach.NextUpdate)
                     continue;
 
-                stomach.NextUpdate += stomach.UpdateInterval;
+                stomach.NextUpdate += stomach.AdjustedUpdateInterval;
 
                 // Get our solutions
                 if (!_solutionContainerSystem.ResolveSolution((uid, sol), DefaultSolutionName, ref stomach.Solution, out var stomachSolution))
@@ -54,7 +89,7 @@ namespace Content.Server.Body.Systems
                 var queue = new RemQueue<StomachComponent.ReagentDelta>();
                 foreach (var delta in stomach.ReagentDeltas)
                 {
-                    delta.Increment(stomach.UpdateInterval);
+                    delta.Increment(stomach.AdjustedUpdateInterval);
                     if (delta.Lifetime > stomach.DigestionDelay)
                     {
                         if (stomachSolution.TryGetReagent(delta.ReagentQuantity.Reagent, out var reagent))
@@ -82,18 +117,9 @@ namespace Content.Server.Body.Systems
             }
         }
 
-        private void OnApplyMetabolicMultiplier(
-            Entity<StomachComponent> ent,
-            ref ApplyMetabolicMultiplierEvent args)
+        private void OnApplyMetabolicMultiplier(Entity<StomachComponent> ent, ref ApplyMetabolicMultiplierEvent args)
         {
-            if (args.Apply)
-            {
-                ent.Comp.UpdateInterval *= args.Multiplier;
-                return;
-            }
-
-            // This way we don't have to worry about it breaking if the stasis bed component is destroyed
-            ent.Comp.UpdateInterval /= args.Multiplier;
+            ent.Comp.UpdateIntervalMultiplier = args.Multiplier;
         }
 
         public bool CanTransferSolution(

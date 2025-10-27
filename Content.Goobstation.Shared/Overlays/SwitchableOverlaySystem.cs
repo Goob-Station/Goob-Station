@@ -1,5 +1,14 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Shared.Flashbang;
 using Content.Shared.Actions;
+using Content.Shared.Flash;
 using Content.Shared.Inventory;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
@@ -93,12 +102,14 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem // t
         args.State = new SwitchableVisionOverlayComponentState
         {
             Color = component.Color,
+            IsEquipment = component.IsEquipment,
             IsActive = component.IsActive,
             FlashDurationMultiplier = component.FlashDurationMultiplier,
             ActivateSound = component.ActivateSound,
             DeactivateSound = component.DeactivateSound,
             ToggleAction = component.ToggleAction,
             LightRadius = component is ThermalVisionComponent thermal ? thermal.LightRadius : 0f,
+            DrawOverlay = component.DrawOverlay,
         };
     }
 
@@ -108,9 +119,11 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem // t
             return;
 
         component.Color = state.Color;
+        component.IsEquipment = state.IsEquipment;
         component.FlashDurationMultiplier = state.FlashDurationMultiplier;
         component.ActivateSound = state.ActivateSound;
         component.DeactivateSound = state.DeactivateSound;
+        component.DrawOverlay = state.DrawOverlay;
 
         if (component.ToggleAction != state.ToggleAction)
         {
@@ -180,6 +193,7 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem // t
         }
 
         component.IsActive = activate;
+        _actions.SetToggled(component.ToggleActionEntity, activate); // WD EDIT - it's white dream system but okay
         Dirty(uid, component);
     }
 

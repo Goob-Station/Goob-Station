@@ -1,3 +1,22 @@
+# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: reagent
   id: Stasizium
   name: reagent-name-stasizium
@@ -63,13 +82,11 @@
             messages: [ "reagent-popup-panacea" ]
             probability: 0.2
         - !type:AdjustReagent
-            reagent: Pax
-            amount: -3.0
-        - !type:GenericStatusEffect
-            key: Drowsiness
-            component: Drowsiness
-            time: 10.0
-            type: Remove
+          reagent: Pax
+          amount: -7.5
+        - !type:AdjustReagent
+          reagent: BZ
+          amount: -7.5
         - !type:GenericStatusEffect
             key: Jitter
             time: 10.0
@@ -82,12 +99,34 @@
             key: Drunk
             time: 10.0
             type: Remove
+        - !type:ChemHealEyeDamage
+        - !type:RemoveComponentEffect
+          component: PermanentBlindness
+          locale: reagent-effect-guidebook-remove-permanentblindness
+        - !type:RemoveComponentEffect
+          component: Narcolepsy
+          locale: reagent-effect-guidebook-remove-narcolepsy
+        - !type:RemoveComponentEffect
+          component: Unrevivable # i don't think this really affects lings, but might aswell to be safe
+          locale: reagent-effect-guidebook-remove-unrevivable
+        - !type:RemoveComponentEffect
+          component: Muted
+          locale: reagent-effect-guidebook-remove-muted
+        - !type:RemoveComponentEffect
+          component: Paracusia
+          locale: reagent-effect-guidebook-remove-paracusia
+        - !type:RemoveComponentEffect
+          component: PainNumbness
+          locale: reagent-effect-guidebook-remove-painnumbness
+        - !type:RemoveComponentEffect
+          component: LegsStartParalyzed
+          locale: reagent-effect-guidebook-remove-legsstartparalyzed
 
 - type: reagent
-  id: LingFleshmend
-  name: reagent-name-fleshmend
+  id: LingAdrenaline
+  name: reagent-name-lingdrenaline
   group: Medicine
-  desc: reagent-desc-fleshmend
+  desc: reagent-desc-lingdrenaline
   physicalDesc: reagent-physical-desc-ling
   flavor: clean
   color: "#ff0000"
@@ -96,22 +135,55 @@
     Medicine:
       metabolismRate: 0.5
       effects:
-        - !type:ModifyBloodLevel
-          amount: 5
-        - !type:ModifyBleedAmount
-          amount: -2
+        - !type:AdjustReagent
+          reagent: ChloralHydrate
+          amount: -10.0
+        - !type:AdjustReagent
+          reagent: NitrousOxide
+          amount: -10.0
+        - !type:AdjustReagent
+          reagent: Nocturine
+          amount: -10.0
+        - !type:GenericStatusEffect
+          key: Stutter
+          component: StutteringAccent
+        - !type:Jitter
+        - !type:GenericStatusEffect
+          key: Stun
+          time: 5
+          type: Remove
+        - !type:GenericStatusEffect
+          key: KnockedDown
+          time: 10
+          type: Remove
+        - !type:GenericStatusEffect
+          conditions:
+          key: Drowsiness
+          time: 10
+          type: Remove
+        - !type:GenericStatusEffect
+          conditions:
+          key: ForcedSleep
+          time: 10
+          type: Remove
+        - !type:GenericStatusEffect # goob edit
+          key: Adrenaline
+          component: IgnoreSlowOnDamage
+          time: 2
+        - !type:RemoveComponentEffect # goob edit
+          component: DelayedKnockdown
+          locale: reagent-effect-guidebook-remove-delayed-knockdown
+        - !type:PopupMessage
+              type: Local
+              messages: [ "reagent-popup-lingdrenaline" ]
+              probability: 0.2
         - !type:HealthChange
+          conditions:
+          - !type:ReagentThreshold
+            min: 5.01
           damage:
             types:
-              Blunt: -3
-              Piercing: -3
-              Slash: -3
-              Heat: -3
-              Cold: -3
-        - !type:PopupMessage
-            type: Local
-            messages: [ "reagent-popup-fleshmend" ]
-            probability: 0.2
+              Poison: 1.35 # 6.75 toxin damage per inject if used directly after cooldown (47.25 if used 4 times)
 
 # Normal, but little gimmicky meds
 
@@ -692,7 +764,7 @@
       amount: -20
   metabolisms:
     Medicine:
-      metabolismRate: 0.1
+      metabolismRate: 0.15
       effects:
       - !type:AdjustReagent
         group: Poison
@@ -700,7 +772,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 3
+            Poison: 1
         conditions:
         - !type:ReagentThreshold
           min: 10
@@ -720,57 +792,8 @@
               Brute: 1
               Burn: 1
           inverse: true
-      - !type:HealthChange # Ideally it'd be a slope, but that's TBD together with cryox scaling with temps
-        damage:
-          types:
-            Poison: 1
-        conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            groups:
-              Burn: 30
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 1
-        conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            groups:
-              Burn: 60
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 2
-        conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            groups:
-              Brute: 30
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 2
-        conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            groups:
-              Brute: 60
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
 
 # Low-effect meds
-
 - type: reagent
   id: Antihol # Charcoal hog more than anything
   name: reagent-name-antihol
@@ -815,16 +838,20 @@
       amount: -10
   metabolisms:
     Medicine:
-      metabolismRate: 0.1
+      metabolismRate: 0.15
       effects:
+      - !type:SuppressPain
+        amount: 10
+        time: 30
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        amount: 0.04
       - !type:HealthChange
         damage:
           groups:
             Brute: -1
-      - !type:GenericStatusEffect
-        key: Adrenaline
-        component: IgnoreSlowOnDamage
-        time: 5
       - !type:AdjustTemperature # 1/10 of lepo
         conditions:
         - !type:Temperature
@@ -845,6 +872,15 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -2.4
+        time: 12
 
 # Externally applied meds
 
@@ -869,6 +905,7 @@
       - !type:HealthChange
         scaleByQuantity: true
         ignoreResistances: false
+        ignoreBlockers: false
         damage:
           types:
             Heat: -1.5
@@ -933,6 +970,7 @@
       - !type:HealthChange
         scaleByQuantity: true
         ignoreResistances: false
+        ignoreBlockers: false
         damage:
           types:
             Blunt: -2
@@ -1001,6 +1039,7 @@
       - !type:HealthChange
         scaleByQuantity: true
         ignoreResistances: false # theoretically allows for degenerate behaviour, in practice should be unlikely; also low healing amount
+        ignoreBlockers: false
         damage:
           types:
             Blunt: 1
@@ -1191,8 +1230,8 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-        walkSpeedModifier: 0.7
-        sprintSpeedModifier: 0.7
+        walkSpeedModifier: 0.75
+        sprintSpeedModifier: 0.75
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
@@ -1202,17 +1241,10 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-        probability: 0.1
-        paralyzeTime: 2
-      - !type:Paralyze # more severe effect when overdosing
-        conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
         - !type:ReagentThreshold
           min: 35
-        probability: 0.2
-        paralyzeTime: 4
+        probability: 0.1
+        paralyzeTime: 2
       - !type:Drunk
         boozePower: 5
       - !type:HealthChange
@@ -1381,3 +1413,110 @@
         amount: 10000
       - !type:AdjustSolutionThermalEnergyEffect
         delta: 150
+
+- type: reagent
+  id: Tramadol
+  name: reagent-name-tramadol
+  group: Medicine
+  desc: reagent-desc-tramadol
+  physicalDesc: reagent-physical-desc-thick
+  flavor: medicine
+  color: "#ad2cfa"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:SuppressPain
+        amount: 25
+        time: 30
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 2
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.8
+        conditions:
+        - !type:ReagentThreshold
+          min: 15.5
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:AdjustConsciousness
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -10.5
+        time: 12
+
+- type: reagent
+  id: Oxycodone
+  name: reagent-name-oxycodone
+  group: Medicine
+  desc: reagent-desc-oxycodone
+  physicalDesc: reagent-physical-desc-thick
+  flavor: medicine
+  color: "#2cfa76"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:SuppressPain
+        amount: 400
+        time: 30
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1.2
+        conditions:
+        - !type:ReagentThreshold
+          min: 10.5
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:AdjustConsciousness
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -50
+        time: 12
+
+# Wraith
+- type: reagent
+  id: Formaldehyde
+  name: reagent-name-formaldehyde
+  group: Medicine
+  desc: reagent-desc-formaldehyde
+  physicalDesc: reagent-physical-desc-thick
+  flavor: medicine
+  color: "#FFA500"
+  worksOnTheDead: true
+  metabolisms:
+    Poison:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:ReduceRotting
+        seconds: 6
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Dead
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Formaldehyde
+          min: 30
+        reagent: Histamine
+        amount: 0.4
+        probability: 0.1

@@ -1,7 +1,7 @@
 ﻿{
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Created by Unknown",
+  "copyright": "Created by Unknown, blobbernaut_flex.png created from blobbernaut.png by Ilya246",
   "size": {
     "x": 32,
     "y": 32
@@ -52,6 +52,36 @@
           0.15,
           0.15,
           0.1
+        ]
+      ]
+    },
+    {
+      "name": "blobbernaut_flex",
+      "directions": 1,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "blobbernaut_flex_damage",
+      "directions": 1,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
         ]
       ]
     },

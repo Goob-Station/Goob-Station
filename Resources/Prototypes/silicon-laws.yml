@@ -1,3 +1,24 @@
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2024 GitHubUser53123 <110841413+GitHubUser53123@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Jajsha <101492056+Zap527@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Litrax <email@emal.com>
+# SPDX-FileCopyrightText: 2024 Litraxx <39574458+Litraxx@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Goobstation - AI/borg law changes - borgs obeying AI
 # Obey AI
 - type: siliconLaw
@@ -33,7 +54,6 @@
 - type: siliconLawset
   id: CrewsimovBorg
   laws:
-  - ObeyAI
   - Crewsimov1
   - Crewsimov2
   - Crewsimov3
@@ -505,30 +525,6 @@
   order: 5
   lawString: law-nutimov-5
 
- # Jermov Laws
-- type: siliconLaw
-  id: Jermov1
-  order: 1
-  lawString: law-jermov-1
-
-- type: siliconLaw
-  id: Jermov2
-  order: 2
-  lawString: law-jermov-2
-
-- type: siliconLaw
-  id: Jermov3
-  order: 3
-  lawString: law-jermov-3
-
-- type: siliconLawset
-  id: JermovLawset
-  laws:
-  - Jermov1
-  - Jermov2
-  - Jermov3
-  obeysTo: laws-owner-crew
-
 - type: siliconLawset
   id: NutimovLawset
   laws:
@@ -538,6 +534,81 @@
   - Nutimov4
   - Nutimov5
   obeysTo: laws-owner-crew
+
+ # Xenoborgs laws
+- type: siliconLaw
+  id: Xenoborg1
+  order: 1
+  lawString: law-xenoborg-1
+
+- type: siliconLaw
+  id: Xenoborg2
+  order: 2
+  lawString: law-xenoborg-2
+
+- type: siliconLaw
+  id: Xenoborg3
+  order: 3
+  lawString: law-xenoborg-3
+
+- type: siliconLaw
+  id: Xenoborg4
+  order: 4
+  lawString: law-xenoborg-4
+
+- type: siliconLaw
+  id: Xenoborg5
+  order: 5
+  lawString: law-xenoborg-5
+
+
+- type: siliconLawset
+  id: XenoborgLawset
+  laws:
+  - Xenoborg1
+  - Xenoborg2
+  - Xenoborg3
+  - Xenoborg4
+  - Xenoborg5
+  obeysTo: laws-owner-xenoborgs
+
+ # Mothership core laws
+- type: siliconLaw
+  id: MothershipCore1
+  order: 1
+  lawString: law-mothershipcore-1
+
+- type: siliconLaw
+  id: MothershipCore2
+  order: 2
+  lawString: law-mothershipcore-2
+
+- type: siliconLaw
+  id: MothershipCore3
+  order: 3
+  lawString: law-mothershipcore-3
+
+- type: siliconLaw
+  id: MothershipCore4
+  order: 4
+  lawString: law-mothershipcore-4
+
+- type: siliconLaw
+  id: MothershipCore5
+  order: 5
+  lawString: law-mothershipcore-5
+
+
+- type: siliconLawset
+  id: MothershipCoreLawset
+  laws:
+  - MothershipCore1
+  - MothershipCore2
+  - MothershipCore3
+  - MothershipCore4
+  - MothershipCore5
+  obeysTo: laws-owner-xenoborgs
+
 
 # ion storm random lawsets
 - type: weightedRandom
@@ -557,8 +628,6 @@
     PainterLawset: 1
     AntimovLawset: 0.25
     NutimovLawset: 0.5
-    ZooimovLawset: 0.5 #silly lawsets down here
     HelpimovLawset: 0.6
     Drone: 0.5
     Ninja: 0.25
-    JermovLawset: 0.25

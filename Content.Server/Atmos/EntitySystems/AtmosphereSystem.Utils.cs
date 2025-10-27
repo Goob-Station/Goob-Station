@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Runtime.CompilerServices;
 using Content.Server.Atmos.Components;
 using Content.Shared.Atmos;
@@ -25,7 +35,8 @@ public partial class AtmosphereSystem
 
         // Pay more for gas canisters that are more pure
         float purity = 1;
-        if (totalMoles > 0) {
+        if (totalMoles > 0)
+        {
             purity = maxComponent / totalMoles;
         }
 
@@ -85,7 +96,7 @@ public partial class AtmosphereSystem
 
             fixVacuum |= airtight.FixVacuum;
 
-            if(!airtight.AirBlocked)
+            if (!airtight.AirBlocked)
                 continue;
 
             blockedDirs |= airtight.AirBlockedDirection;
@@ -103,9 +114,9 @@ public partial class AtmosphereSystem
     /// </summary>
     /// <param name="mapGrid">The grid in question.</param>
     /// <param name="tile">The indices of the tile.</param>
-    private void PryTile(MapGridComponent mapGrid, Vector2i tile)
+    private void PryTile(Entity<MapGridComponent> mapGrid, Vector2i tile)
     {
-        if (!mapGrid.TryGetTileRef(tile, out var tileRef))
+        if (!_mapSystem.TryGetTileRef(mapGrid.Owner, mapGrid.Comp, tile, out var tileRef))
             return;
 
         _tile.PryTile(tileRef);

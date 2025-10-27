@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseCartridge
+  id: BaseCartridgeG8
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: SpentAmmoVisuals
+    state: "base"
+  - type: Appearance
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeG8
+
+- type: entity
+  parent: BaseCartridgeG8
+  id: CartridgeG8Demolishing
+  name: cartridge (G8 demolishing)
+  description: Shots "The Spear of Ares" bullet, demolishing whole lines of walls, dealing massive stamina damage to people and overcharging energy vortexes.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletG8Demolishing
+
+- type: entity
+  parent: BaseCartridgeG8
+  id: CartridgeG8Hypercharged
+  name: cartridge (G8 hypercharged)
+  description: Shots "The Bolt of Zeus" bullet, shocking everyone on its way and creating an energy vortex at its destination point, that creates a massive explosion on overcharge.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/anomalous_casing.rsi
+  - type: CartridgeAmmo
+    proto: BulletG8Hypercharged

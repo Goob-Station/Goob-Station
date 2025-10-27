@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Keer-Sar <144283718+Keer-Sar@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TheWaffleJesus <106146578+TheWaffleJesus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 icekot8 <93311212+icekot8@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 bounty-item-artifact = Alien artifact
 bounty-item-baseball-bat = Baseball bat
 bounty-item-box-hugs = Box of hugs
@@ -11,6 +26,7 @@ bounty-item-clown-shoes = Clown shoes
 bounty-item-corn = Ear of corn
 bounty-item-crayon = Crayon
 bounty-item-cuban-carp = Cuban carp
+bounty-item-diamond = Diamond
 bounty-item-donk-pocket = Donk-pocket
 bounty-item-donut = Donut
 bounty-item-figurine = Action figure
@@ -25,6 +41,11 @@ bounty-item-lime = Lime
 bounty-item-lung = Lung
 bounty-item-monkey-cube = Monkey cube
 bounty-item-mouse = Dead mouse
+bounty-item-ore-bananium = Bananium ore
+bounty-item-ore-gold = Gold ore
+bounty-item-ore-plasma = Plasma ore
+bounty-item-ore-silver = Silver ore
+bounty-item-ore-uranium = Uranium ore
 bounty-item-pancake = Pancake
 bounty-item-pen = Pen
 bounty-item-percussion = Percussion instrument
@@ -32,6 +53,7 @@ bounty-item-pie = Pie
 bounty-item-prison-uniform = Prison uniform
 bounty-item-radio = Radio or Headset
 bounty-item-research-disk = Research disk
+bounty-item-scrap = Scrap
 bounty-item-shiv = Shiv
 bounty-item-soap = Soap
 bounty-item-soup = Soup
@@ -68,6 +90,9 @@ bounty-item-microwave-machine-board = Microwave machine board
 bounty-item-flash = Flash
 bounty-item-tooth-space-carp = Space Carp Tooth
 bounty-item-tooth-sharkminnow = Sharkminnow Tooth
+bounty-item-ring = Ring
+bounty-item-remains = Hivelord Remains
+bounty-item-plates = Goliath Hide Plates
 
 bounty-description-artifact = NanoTrasen is in some hot water for stealing artifacts from non-spacefaring planets. Return one and we'll compensate you for it.
 bounty-description-baseball-bat = Baseball fever is going on at CentComm! Be a dear and ship them some baseball bats, so that management can live out their childhood dream.
@@ -79,7 +104,7 @@ bounty-description-carrot-fries = Night sight can mean life or death! A shipment
 bounty-description-carp = Admiral Pavlov has gone on strike ever since Central Command confiscated her "pet." She is demanding a space carp as a replacement, dead or alive.
 bounty-description-clown-costume = Due to a recent issue at a space carp petting zoo, we've unfortunately lost Bonobobonobo the Clown. Send us a new costume so the kids can see him once more.
 bounty-description-corn = After the recent destruction of Space Ohio, our corn imports are down 80%. Send us some so we can make up for it.
-bounty-description-crayon = Dr Jones' kid ate all our crayons again. Please send us yours.
+bounty-description-crayon = Dr Jones's kid ate all our crayons again. Please send us yours.
 bounty-description-cuban-carp = To celebrate the birth of Castro XXVII, ship one cuban carp to CentComm.
 bounty-description-donk-pocket = Consumer safety recall: Warning. Donk-Pockets manufactured in the past year contain hazardous lizard biomatter. Return units to CentComm immediately.
 bounty-description-donut = CentComm's security forces are facing heavy losses against the Syndicate. Ship donuts to raise morale.
@@ -136,5 +161,4 @@ bounty-description-wine = The new librarian and the Quartermaster are falling he
 bounty-description-cotton-boll = A massive swarm of mothroaches ate all the paper and cloth on the station. Send us some cotton to help keep our winged crewmembers fed.
 bounty-description-microwave-machine-board = Mr. Giggles thought it'd be funny to stick forks in all the kitchen microwaves. Help us replace them before the chefs start making clown burgers.
 bounty-description-flashes = GREETINGS \[Station] WE REQUIRE 6 FLASHES DUE TO A NORMAL \[TrainingExercise] WITH SECURITY. EVERYTHING IS \[Normal].
-bounty-description-tooth-space-carp = Some lads from "down unda" need some teeth to make their traditional apparel. Send them a few from some space carp.
-bounty-description-tooth-sharkminnow = The chef is claiming that the teeth of sharkminnows are some kind of high-quality knife. I don't know what they're on about, but they want a set. Send it to them.
+bounty-description-ring = On this EXTRAORDINARY day there will be a wedding between the Gelts, but Mr. Gelt has lost the rings, send a pair of rings.

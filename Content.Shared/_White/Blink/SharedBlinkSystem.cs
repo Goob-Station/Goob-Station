@@ -1,5 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Shared._White.Standing;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Physics;
@@ -48,6 +56,11 @@ public abstract class SharedBlinkSystem : EntitySystem
             return;
 
         var user = args.SenderSession.AttachedEntity.Value;
+
+        var ev = new TeleportAttemptEvent();
+        RaiseLocalEvent(user, ref ev);
+        if (ev.Cancelled)
+            return;
 
         if (!TryComp(user, out TransformComponent? xform))
             return;

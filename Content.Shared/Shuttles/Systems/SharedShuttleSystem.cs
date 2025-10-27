@@ -1,3 +1,21 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
+// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
+// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared._NF.Shuttles;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.UI.MapObjects;
@@ -7,6 +25,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared.Shuttles.Systems;
 
@@ -14,12 +33,15 @@ public abstract partial class SharedShuttleSystem : EntitySystem
 {
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] protected readonly FixtureSystem Fixtures = default!;
     [Dependency] protected readonly SharedMapSystem Maps = default!;
+    [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
     [Dependency] protected readonly SharedTransformSystem XformSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
-    public const float FTLRange = 256f;
+    public const float FTLRange = 64f; // Frontier edit
     public const float FTLBufferRange = 8f;
+    public const float TileDensityMultiplier = 0.5f;
 
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -30,9 +52,21 @@ public abstract partial class SharedShuttleSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<FixturesComponent, GridFixtureChangeEvent>(OnGridFixtureChange);
+
         _gridQuery = GetEntityQuery<MapGridComponent>();
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
+    }
+
+    private void OnGridFixtureChange(EntityUid uid, FixturesComponent manager, GridFixtureChangeEvent args)
+    {
+        foreach (var fixture in args.NewFixtures)
+        {
+            Physics.SetDensity(uid, fixture.Key, fixture.Value, TileDensityMultiplier, false, manager);
+            Fixtures.SetRestitution(uid, fixture.Key, fixture.Value, 0.1f, false, manager);
+        }
     }
 
     /// <summary>
@@ -40,7 +74,7 @@ public abstract partial class SharedShuttleSystem : EntitySystem
     /// </summary>
     public bool CanFTLTo(EntityUid shuttleUid, MapId targetMap, EntityUid consoleUid)
     {
-        var mapUid = _mapManager.GetMapEntityId(targetMap);
+        var mapUid = Maps.GetMapOrInvalid(targetMap);
         var shuttleMap = _xformQuery.GetComponent(shuttleUid).MapID;
 
         if (shuttleMap == targetMap)
@@ -154,7 +188,13 @@ public abstract partial class SharedShuttleSystem : EntitySystem
         return HasComp<MapComponent>(coordinates.EntityId);
     }
 
-    public float GetFTLRange(EntityUid shuttleUid) => FTLRange;
+    /// <summary>
+    /// Frontier edit
+    /// </summary>
+    public float GetFTLRange(EntityUid shuttleUid, FTLDriveComponent? ftl = null)
+    {
+        return !Resolve(shuttleUid, ref ftl) ? 0f : ftl.Data.Range;
+    }
 
     public float GetFTLBufferRange(EntityUid shuttleUid, MapGridComponent? grid = null)
     {
@@ -170,25 +210,33 @@ public abstract partial class SharedShuttleSystem : EntitySystem
     /// <summary>
     /// Returns true if the spot is free to be FTLd to (not close to any objects and in range).
     /// </summary>
-    public bool FTLFree(EntityUid shuttleUid, EntityCoordinates coordinates, Angle angle, List<ShuttleExclusionObject>? exclusionZones)
+    public bool FTLFree(EntityUid shuttleUid, EntityCoordinates coordinates, Angle angle, List<ShuttleExclusionObject>? exclusionZones, FTLDriveComponent? ftl = null) // Frontier edit - FTL drive
     {
         if (!_physicsQuery.TryGetComponent(shuttleUid, out var shuttlePhysics) ||
-            !_xformQuery.TryGetComponent(shuttleUid, out var shuttleXform))
+            !_xformQuery.TryGetComponent(shuttleUid, out var shuttleXform)
+            || !Resolve(shuttleUid, ref ftl, false))
         {
             return false;
         }
 
         // Just checks if any grids inside of a buffer range at the target position.
         _grids.Clear();
-        var mapCoordinates = coordinates.ToMap(EntityManager, XformSystem);
+        var mapCoordinates = XformSystem.ToMapCoordinates(coordinates);
 
         var ourPos = Maps.GetGridPosition((shuttleUid, shuttlePhysics, shuttleXform));
 
         // This is the already adjusted position
         var targetPosition = mapCoordinates.Position;
 
+        // Frontier edit start
+        // FTL on the same map won't work without a bluespace drive on board.
+        if (mapCoordinates.MapId == shuttleXform.MapID
+            && !ftl.Data.FTLToSameMap)
+            return false;
+        // Frontier edit end
+
         // Check range even if it's cross-map.
-        if ((targetPosition - ourPos).Length() > FTLRange)
+        if ((targetPosition - ourPos).Length() > GetFTLRange(shuttleUid, ftl)) // Frontier edit - FTL range
         {
             return false;
         }
@@ -254,4 +302,3 @@ public enum FTLState : byte
     Arriving = 1 << 3,
     Cooldown = 1 << 4,
 }
-

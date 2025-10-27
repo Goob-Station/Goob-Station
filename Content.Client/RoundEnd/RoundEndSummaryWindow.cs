@@ -1,7 +1,57 @@
+// SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 scuffedjays <yetanotherscuffed@gmail.com>
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 KIBORG04 <bossmira4@gmail.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Sailor <109166122+Equivocateur@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <slambamactionman@gmail.com>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ichaie <167008606+Ichaie@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MortalBaguette <169563638+MortalBaguette@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Panela <107573283+AgentePanela@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Poips <Hanakohashbrown@gmail.com>
+// SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
+// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 kamkoi <poiiiple1@gmail.com>
+// SPDX-FileCopyrightText: 2025 shibe <95730644+shibechef@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 tetra <169831122+Foralemes@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using System.Numerics;
 using Content.Client.Message;
 using Content.Shared.GameTicking;
+using Content.Goobstation.Common.StationReport;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Utility;
@@ -33,6 +83,7 @@ namespace Content.Client.RoundEnd
             var roundEndTabs = new TabContainer();
             roundEndTabs.AddChild(MakeRoundEndSummaryTab(gm, roundEnd, roundTimeSpan, roundId));
             roundEndTabs.AddChild(MakePlayerManifestTab(info));
+            roundEndTabs.AddChild(MakeStationReportTab()); //goob
 
             Contents.AddChild(roundEndTabs);
 
@@ -124,18 +175,16 @@ namespace Content.Client.RoundEnd
                     VerticalAlignment = VAlignment.Center,
                     VerticalExpand = true,
                 };
-                /* This causes so much lag holy fuck
                 if (playerInfo.PlayerNetEntity != null)
                 {
                     hBox.AddChild(new SpriteView(playerInfo.PlayerNetEntity.Value, _entityManager)
-                        {
-                            OverrideDirection = Direction.South,
-                            VerticalAlignment = VAlignment.Center,
-                            SetSize = new Vector2(32, 32),
-                            VerticalExpand = true,
-                        });
+                    {
+                        OverrideDirection = Direction.South,
+                        VerticalAlignment = VAlignment.Center,
+                        SetSize = new Vector2(32, 32),
+                        VerticalExpand = true,
+                    });
                 }
-                */
                 if (playerInfo.PlayerICName != null)
                 {
                     if (playerInfo.Observer)
@@ -167,6 +216,38 @@ namespace Content.Client.RoundEnd
 
             return playerManifestTab;
         }
+        private BoxContainer MakeStationReportTab() //Goob edit start
+        {
+            //gets the stationreport varibible and sets the station report tab text to it if the map doesn't have a tablet will say No station report submitted
+            var stationReportSystem = _entityManager.System<Content.Goobstation.Common.StationReport.StationReportSystem>();
+            string stationReportText = stationReportSystem.StationReportText ?? Loc.GetString("no-station-report-summited");
+            var stationReportTab = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Vertical,
+                Name = Loc.GetString("round-end-summary-window-station-report-tab-title")
+            };
+            var StationReportContainerScrollbox = new ScrollContainer
+            {
+                VerticalExpand = true,
+                Margin = new Thickness(10),
+                HScrollEnabled = false,
+            };
+            var StationReportContainer = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Vertical
+            };
+            var StationReportLabel = new RichTextLabel();
+            var StationReportmessage = new FormattedMessage();
+            StationReportmessage.AddMarkupOrThrow(stationReportText);
+            StationReportLabel.SetMessage(StationReportmessage);
+            StationReportContainer.AddChild(StationReportLabel);
+
+
+            StationReportContainerScrollbox.AddChild(StationReportContainer);
+            stationReportTab.AddChild(StationReportContainerScrollbox);
+            return stationReportTab;
+        }
+        //Goob edit end
     }
 
 }

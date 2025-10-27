@@ -1,4 +1,18 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Linq;
+using System.Numerics;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceNetwork;
@@ -14,6 +28,8 @@ namespace Content.Client.NetworkConfigurator;
 [GenerateTypedNameReferences]
 public sealed partial class NetworkConfiguratorLinkMenu : FancyWindow
 {
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
     private const string PanelBgColor = "#202023";
 
     private readonly LinksRender _links;
@@ -33,6 +49,7 @@ public sealed partial class NetworkConfiguratorLinkMenu : FancyWindow
     public NetworkConfiguratorLinkMenu()
     {
         RobustXamlLoader.Load(this);
+        IoCManager.InjectDependencies(this);
 
         var footerStyleBox = new StyleBoxFlat()
         {
@@ -61,7 +78,7 @@ public sealed partial class NetworkConfiguratorLinkMenu : FancyWindow
         ButtonContainerRight.RemoveAllChildren();
 
         _sources.Clear();
-        _sources.AddRange(linkState.Sources);
+        _sources.AddRange(linkState.Sources.Select(s => _prototypeManager.Index(s)));
         _links.SourceButtons.Clear();
         var i = 0;
         foreach (var source in _sources)
@@ -73,7 +90,7 @@ public sealed partial class NetworkConfiguratorLinkMenu : FancyWindow
         }
 
         _sinks.Clear();
-        _sinks.AddRange(linkState.Sinks);
+        _sinks.AddRange(linkState.Sinks.Select(s => _prototypeManager.Index(s)));
         _links.SinkButtons.Clear();
         i = 0;
         foreach (var sink in _sinks)

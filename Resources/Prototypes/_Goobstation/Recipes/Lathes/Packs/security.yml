@@ -1,9 +1,20 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 ## Static
 - type: latheRecipePack
   id: SecurityAmmoStaticGoob
   recipes:
-  - MagazineMagnumEmpty
-  - MagazineMagnum
   - MagazineBoxShotgunHighCaliber
   - MagazineBoxShotgunSlugHighCaliber
   - MagazineBoxShotgunPracticeHighCaliber
@@ -24,22 +35,61 @@
   - CartridgeSaline
   - SecHypo
 
+- type: latheRecipePack
+  id: SecurityWeaponsNonEmaggableStaticGoob # At some point Terminus should be mapped and not printable, at least without research.
+  recipes:
+  - Terminus
+
 ## Dynamic
 - type: latheRecipePack
   id: SecurityWeaponsGoob
   recipes:
   - WeaponSubMachineSmart
+  - WeaponEnergyRifle
+  - WeaponEnergyIonRifle
+  - WeaponLaserCellRevolver
+  - WeaponLaserCellSMG
+  - WeaponLaserCellSniper
+  - ClothingBackpackLMGBattery
 
 - type: latheRecipePack
   id: SecurityAmmoGoob
   recipes:
+  - EnergyMagRifleOverchargeLethal
+  - EnergyMagRifleIon
+  - EnergyMagRifleDisabler
+  - EnergyMagRifleLethal
   - MagazineSmart
   - MagazineBoxShotgunIncendiaryHighCaliber
   - MagazineBoxShotgunBeanbagHighCaliber
   - MagazineBoxShotgunUraniumHighCaliber
+  - PowerCellIRRevolver
+  - PowerCellIonRevolver
+  - PowerCellXrayRevolver
+  - PowerCellOverchargedRevolver
+  - PowerCellIRSMG
+  - PowerCellIonSMG
+  - PowerCellXraySMG
+  - PowerCellOverchargedSMG
+  - PowerCellIRSniper
+  - PowerCellIonSniper
+  - PowerCellXraySniper
+  - PowerCellOverchargedSniper
+  - MilitaryPowerCellLMG
+
+- type: latheRecipePack
+  id: SecurityEquipmentDynamicGoob
+  recipes:
+  - HoloprojectorSecurityAdvanced
 
 - type: latheRecipePack
   id: SecurityCybernetics
   parent: MedicalCybernetics
   recipes:
   - SecurityCyberneticEyes
+
+- type: latheRecipePack
+  id: RestraintTechnology
+  recipes:
+  - ClothingMaskMuzzleSecure
+  - ClothingMaskMuzzleShock

@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Heretic.Prototypes;
 
 namespace Content.Client._Shitcode.Heretic;
@@ -13,7 +26,23 @@ public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
 
 public sealed partial class RitualRustAscendBehavior : RitualSacrificeBehavior { }
 
+public sealed partial class RitualCosmosAscendBehavior : RitualSacrificeBehavior { }
+
 [Virtual] public partial class RitualSacrificeBehavior : RitualCustomBehavior
+{
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        // do nothing
+    }
+}
+
+public sealed partial class RitualPathBasedSpawnBehavior : RitualCustomBehavior
 {
     public override bool Execute(RitualData args, out string? outstr)
     {
@@ -56,6 +85,62 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 }
 
 public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
+{
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        // do nothing
+    }
+}
+
+public sealed partial class RitualCreateBladeBehavior : RitualCustomBehavior
+{
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        // do nothing
+    }
+}
+
+public sealed partial class RitualRecallBladeBehavior : RitualCustomBehavior
+{
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        // do nothing
+    }
+}
+
+public sealed partial class RitualFeastOfOwlsBehavior : RitualCustomBehavior
+{
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        // do nothing
+    }
+}
+
+public sealed partial class RitualCanAscend : RitualCustomBehavior
 {
     public override bool Execute(RitualData args, out string? outstr)
     {

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: constructionGraph
   id: HelmetJustice
   start: start
@@ -7,7 +12,7 @@
     - to: helmet
       steps:
       - tag: SecurityHelmet
-        name: security helmet
+        name: construction-graph-tag-security-helmet
         icon:
           sprite: Clothing/Head/Helmets/security.rsi
           state: icon
@@ -16,7 +21,7 @@
       - material: Glass
         amount: 1
       - tag: LightBulb
-        name: light bulb
+        name: construction-graph-tag-light-bulb
         icon:
           sprite: Objects/Power/light_bulb.rsi
           state: normal

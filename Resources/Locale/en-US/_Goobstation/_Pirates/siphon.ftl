@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 amogus <113782077+whateverusername0@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 data-siphon-activated = RESOURCE SIPHON HAS BEEN ACTIVATED. Please ensure it's operating at full capacity, meaning prevention of external damage and power loss.
 data-siphon-activated-announcement = Attention! Data theft signal detected! Traced source position is {$pos}! Secure our assets no matter what!
 

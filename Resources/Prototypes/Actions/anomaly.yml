@@ -1,9 +1,16 @@
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
+  parent: BaseAction
   id: ActionAnomalyPulse
   name: Anomaly pulse
   description: Release a pulse of energy of your abnormal nature
   components:
-  - type: InstantAction
-    icon: Structures/Specific/anomaly.rsi/anom1.png
-    event: !type:ActionAnomalyPulseEvent
+  - type: Action
     useDelay: 30
+    icon: Structures/Specific/anomaly.rsi/anom1.png
+  - type: InstantAction
+    event: !type:ActionAnomalyPulseEvent

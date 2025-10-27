@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Speebro <100388782+Speebr0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: constructionGraph
   id: ExplorerSuit
   start: start
@@ -8,7 +18,7 @@
       - to: reinforced1
         steps:
           - material: GoliathHide
-            amount: 5
+            amount: 1
             doAfter: 2
     - node: reinforced1
       entity: LavalandEquipmentExplorerSuitReinforced1
@@ -16,7 +26,7 @@
       - to: reinforced2
         steps:
           - material: GoliathHide
-            amount: 5
+            amount: 2
             doAfter: 2
     - node: reinforced2
       entity: LavalandEquipmentExplorerSuitReinforced2
@@ -24,7 +34,7 @@
       - to: reinforced3
         steps:
           - material: GoliathHide
-            amount: 5
+            amount: 3
             doAfter: 2
     - node: reinforced3
       entity: LavalandEquipmentExplorerSuitReinforced3

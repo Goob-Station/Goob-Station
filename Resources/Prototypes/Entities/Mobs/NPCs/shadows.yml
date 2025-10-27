@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: entity
   id: BaseShadowMob
   abstract: true
@@ -36,7 +41,7 @@
     speedModifierThresholds:
       60: 0.7
       80: 0.5
-      
+
 - type: entity
   name: shadow cat
   parent: BaseShadowMob
@@ -50,8 +55,11 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: cat
   - type: Physics
-  - type: ReplacementAccent
-    accent: cat
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Cat
+    understands:
+    - Cat
   - type: InteractionPopup
     successChance: 0.01 # you cant pet shadow cat... almost
     interactSuccessString: petting-success-cat

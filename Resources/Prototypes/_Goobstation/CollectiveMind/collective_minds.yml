@@ -1,10 +1,18 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: collectiveMind
   id: Dragonmind
   name: collective-mind-dragon
   keycode: 'f'
   color: "#787878"
-  requiredTags:
-  - DragonMind
 
 - type: collectiveMind
   id: Lingmind
@@ -12,8 +20,6 @@
   keycode: 'h'
   color: "#FFA000"
   showNames: false
-  requiredTags:
-  - LingMind
 
 - type: collectiveMind
   id: Tidemind
@@ -21,53 +27,63 @@
   keycode: 't'
   color: "#8C8C8C"
   showNames: false
-  requiredTags:
-  - TidemindMind
 
 - type: collectiveMind
   id: Blobmind
   name: collective-mind-blobmind
   keycode: 'e'
   color: "#637b19"
-  requiredTags:
-  - BlobMind
 
 - type: collectiveMind
   id: MansusLink
   name: collective-mind-mansus-link
   keycode: 'm'
   color: "#237500"
-  requiredTags:
-  - MansusLinkMind
 
 - type: collectiveMind
   id: Abductormind
   name: collective-mind-abductormind
   keycode: 'a'
   color: "#d600bd"
-  requiredTags:
-  - AbductorMind
 
 - type: collectiveMind
   id: Binary
   name: collective-mind-binary
   keycode: 'b'
   color: "#5ed7aa"
-  requiredTags:
-  - BinaryMind
 
 - type: collectiveMind
   id: Dronemind
   name: collective-mind-dronemind
   keycode: 'd'
   color: "#6e979a" # like binary but more gray
-  requiredTags:
-  - DroneMind
 
 - type: collectiveMind
   id: Mousemind
   name: collective-mind-mousemind
   keycode: 'p'
   color: "#c18851"
-  requiredTags:
-  - MouseMind
+
+- type: collectiveMind
+  id: Empathy
+  name: collective-mind-empathy
+  keycode: 's'
+  color: "#7f32a8"
+
+- type: collectiveMind
+  id: Binglemind
+  name: collective-mind-bingle
+  keycode: 'w'
+  color: "#386a9b"
+
+- type: collectiveMind
+  id: Shadowmind
+  name: collective-mind-shadow-mind
+  keycode: 'q'
+  color: "#77698d"
+
+- type: collectiveMind
+  id: Xenomorphivemind
+  name: collective-mind-xeno
+  keycode: 'z'
+  color: "#8c3986"

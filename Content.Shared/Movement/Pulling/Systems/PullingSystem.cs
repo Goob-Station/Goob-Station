@@ -1,3 +1,104 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
+// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
+// SPDX-FileCopyrightText: 2024 IgorAnt028 <118114530+IgorAnt028@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <shadowjjt@gmail.com>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 YourUsername <you@example.com>
+// SPDX-FileCopyrightText: 2024 Zealith-Gamer <61980908+Zealith-Gamer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Hagvan <22118902+Hagvan@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+// SPDX-FileCopyrightText: 2025 Verm <32827189+Vermidia@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Common.MartialArts;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared._White.Grab; // Goobstation
@@ -14,11 +115,12 @@ using Content.Shared.Damage.Systems; // Goobstation
 using Content.Shared.Database;
 using Content.Shared.Effects; // Goobstation
 using Content.Shared.Hands;
+using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
-using Content.Shared.Inventory.VirtualItem; // Goobstation
+using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components; // Goobstation
@@ -31,8 +133,11 @@ using Content.Shared.Popups;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech; // Goobstation
 using Content.Shared.Standing;
+using Content.Shared.StatusEffect;
 using Content.Shared.Throwing; // Goobstation
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio; // Goobstation
 using Robust.Shared.Audio.Systems; // Goobstation
 using Robust.Shared.Containers;
@@ -45,6 +150,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random; // Goobstation
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Movement.Pulling.Systems;
 
@@ -66,7 +172,7 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly HeldSpeedModifierSystem _clothingMoveSpeed = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _netManager = default!;
@@ -93,7 +199,7 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullableComponent, UpdateCanMoveEvent>(OnGrabbedMoveAttempt); // Goobstation
         SubscribeLocalEvent<PullableComponent, SpeakAttemptEvent>(OnGrabbedSpeakAttempt); // Goobstation
 
-        SubscribeLocalEvent<PullerComponent, UpdateMobStateEvent>(OnStateChanged);
+        SubscribeLocalEvent<PullerComponent, UpdateMobStateEvent>(OnStateChanged, after: [typeof(MobThresholdSystem)]);
         SubscribeLocalEvent<PullerComponent, AfterAutoHandleStateEvent>(OnAfterState);
         SubscribeLocalEvent<PullerComponent, EntGotInsertedIntoContainerMessage>(OnPullerContainerInsert);
         SubscribeLocalEvent<PullerComponent, EntityUnpausedEvent>(OnPullerUnpaused);
@@ -103,6 +209,10 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullerComponent, StopPullingAlertEvent>(OnStopPullingAlert);
         SubscribeLocalEvent<PullerComponent, VirtualItemThrownEvent>(OnVirtualItemThrown); // Goobstation - Grab Intent
         SubscribeLocalEvent<PullerComponent, AddCuffDoAfterEvent>(OnAddCuffDoAfterEvent); // Goobstation - Grab Intent
+        SubscribeLocalEvent<PullerComponent, AttackedEvent>(OnAttacked); // Goobstation
+
+        SubscribeLocalEvent<HandsComponent, PullStartedMessage>(HandlePullStarted);
+        SubscribeLocalEvent<HandsComponent, PullStoppedMessage>(HandlePullStopped);
 
         SubscribeLocalEvent<PullableComponent, StrappedEvent>(OnBuckled);
         SubscribeLocalEvent<PullableComponent, BuckledEvent>(OnGotBuckled);
@@ -111,7 +221,19 @@ public sealed class PullingSystem : EntitySystem
             .Bind(ContentKeyFunctions.ReleasePulledObject, InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))
             .Register<PullingSystem>();
     }
+
     // Goobstation - Grab Intent
+    private void OnAttacked(Entity<PullerComponent> ent, ref AttackedEvent args)
+    {
+        if (ent.Comp.Pulling != args.User
+            || ent.Comp.GrabStage < GrabStage.Soft
+            || !TryComp(args.User, out PullableComponent? pullable))
+            return;
+
+        if (_random.Prob(pullable.GrabEscapeChance))
+            TryLowerGrabStage((args.User, pullable), (ent.Owner, ent.Comp), true);
+    }
+
     private void OnAddCuffDoAfterEvent(Entity<PullerComponent> ent, ref AddCuffDoAfterEvent args)
     {
         if (args.Handled)
@@ -126,6 +248,37 @@ public sealed class PullingSystem : EntitySystem
         }
     }
     // Goobstation
+
+    private void HandlePullStarted(EntityUid uid, HandsComponent component, PullStartedMessage args)
+    {
+        if (args.PullerUid != uid)
+            return;
+
+        if (TryComp(args.PullerUid, out PullerComponent? pullerComp) && !pullerComp.NeedsHands)
+            return;
+
+        if (!_virtualSystem.TrySpawnVirtualItemInHand(args.PulledUid, uid))
+        {
+            DebugTools.Assert("Unable to find available hand when starting pulling??");
+        }
+    }
+
+    private void HandlePullStopped(EntityUid uid, HandsComponent component, PullStoppedMessage args)
+    {
+        if (args.PullerUid != uid)
+            return;
+
+        // Try find hand that is doing this pull.
+        // and clear it.
+        foreach (var held in _handsSystem.EnumerateHeld((uid, component)))
+        {
+            if (!TryComp(held, out VirtualItemComponent? virtualItem) || virtualItem.BlockingEntity != args.PulledUid)
+                continue;
+
+            _handsSystem.TryDrop((args.PullerUid, component), held);
+            break;
+        }
+    }
 
     private void OnStateChanged(EntityUid uid, PullerComponent component, ref UpdateMobStateEvent args)
     {
@@ -501,6 +654,16 @@ public sealed class PullingSystem : EntitySystem
         return Resolve(puller, ref component, false) && component.Pulling != null;
     }
 
+    public EntityUid? GetPuller(EntityUid puller, PullableComponent? component = null)
+    {
+        return !Resolve(puller, ref component, false) ? null : component.Puller;
+    }
+
+    public EntityUid? GetPulling(EntityUid puller, PullerComponent? component = null)
+    {
+        return !Resolve(puller, ref component, false) ? null : component.Pulling;
+    }
+
     private void OnReleasePulledObject(ICommonSession? session)
     {
         if (session?.AttachedEntity is not { Valid: true } player)
@@ -536,7 +699,7 @@ public sealed class PullingSystem : EntitySystem
             return false;
         }
 
-        if (!TryComp<PhysicsComponent>(pullableUid, out var physics)) // Goobstation
+        if (!TryComp<PhysicsComponent>(pullableUid, out var physics))
         {
             return false;
         }
@@ -591,8 +754,12 @@ public sealed class PullingSystem : EntitySystem
         return TogglePull((puller.Pulling.Value, pullable), pullerUid);
     }
 
-    public bool TryStartPull(EntityUid pullerUid, EntityUid pullableUid,
-        PullerComponent? pullerComp = null, PullableComponent? pullableComp = null, GrabStage? grabStageOverride = null, float escapeAttemptModifier = 1.0f)
+    public bool TryStartPull(EntityUid pullerUid,
+        EntityUid pullableUid,
+        PullerComponent? pullerComp = null,
+        PullableComponent? pullableComp = null,
+        GrabStage? grabStageOverride = null,
+        float escapeAttemptModifier = 1.0f)
     {
         if (!Resolve(pullerUid, ref pullerComp, false) ||
             !Resolve(pullableUid, ref pullableComp, false))
@@ -607,6 +774,10 @@ public sealed class PullingSystem : EntitySystem
             return false;
 
         if (!TryComp(pullerUid, out PhysicsComponent? pullerPhysics) || !TryComp(pullableUid, out PhysicsComponent? pullablePhysics))
+            return false;
+
+        if(TryComp<MeleeWeaponComponent>(pullerUid, out var meleeWeaponComponent)
+           && _timing.CurTime < meleeWeaponComponent.NextAttack)
             return false;
 
         // Ensure that the puller is not currently pulling anything.
@@ -624,33 +795,40 @@ public sealed class PullingSystem : EntitySystem
             if (!TryStopPull(pullableUid, pullableComp, pullableComp.Puller))
             {
                 // Not succeed to retake grabbed entity
-                if (_netManager.IsServer)
-                {
-                    _popup.PopupEntity(Loc.GetString("popup-grab-retake-fail",
-                            ("puller", Identity.Entity(pullableComp.Puller.Value, EntityManager)),
-                            ("pulled", Identity.Entity(pullableUid, EntityManager))),
-                        pullerUid, pullerUid, PopupType.MediumCaution);
-                    _popup.PopupEntity(Loc.GetString("popup-grab-retake-fail-puller",
-                            ("puller", Identity.Entity(pullerUid, EntityManager)),
-                            ("pulled", Identity.Entity(pullableUid, EntityManager))),
-                        pullableComp.Puller.Value, pullableComp.Puller.Value, PopupType.MediumCaution);
-                }
+                if (!_netManager.IsServer)
+                    return false;
+                _popup.PopupEntity(Loc.GetString("popup-grab-retake-fail",
+                        ("puller", Identity.Entity(pullableComp.Puller.Value, EntityManager)),
+                        ("pulled", Identity.Entity(pullableUid, EntityManager))),
+                    pullerUid,
+                    pullerUid,
+                    PopupType.MediumCaution);
+                _popup.PopupEntity(Loc.GetString("popup-grab-retake-fail-puller",
+                        ("puller", Identity.Entity(pullerUid, EntityManager)),
+                        ("pulled", Identity.Entity(pullableUid, EntityManager))),
+                    pullableComp.Puller.Value,
+                    pullableComp.Puller.Value,
+                    PopupType.MediumCaution);
                 return false;
             }
 
-            else if (pullableComp.GrabStage != GrabStage.No)
+            if (pullableComp.GrabStage != GrabStage.No)
             {
                 // Successful retake
                 if (_netManager.IsServer)
                 {
                     _popup.PopupEntity(Loc.GetString("popup-grab-retake-success",
-                            ("puller", Identity.Entity(pullableComp.Puller.Value, EntityManager)),
-                            ("pulled", Identity.Entity(pullableUid, EntityManager))),
-                        pullerUid, pullerUid, PopupType.MediumCaution);
+                        ("puller", Identity.Entity(pullableComp.Puller.Value, EntityManager)),
+                        ("pulled", Identity.Entity(pullableUid, EntityManager))),
+                        pullerUid,
+                        pullerUid,
+                        PopupType.MediumCaution);
                     _popup.PopupEntity(Loc.GetString("popup-grab-retake-success-puller",
-                            ("puller", Identity.Entity(pullerUid, EntityManager)),
-                            ("pulled", Identity.Entity(pullableUid, EntityManager))),
-                        pullableComp.Puller.Value, pullableComp.Puller.Value, PopupType.MediumCaution);
+                        ("puller", Identity.Entity(pullerUid, EntityManager)),
+                        ("pulled", Identity.Entity(pullableUid, EntityManager))),
+                        pullableComp.Puller.Value,
+                        pullableComp.Puller.Value,
+                        PopupType.MediumCaution);
                 }
             }
             // Goobstation
@@ -743,45 +921,60 @@ public sealed class PullingSystem : EntitySystem
         if (msg.Cancelled)
             return false;
 
-
         // Goobstation - Grab Intent
         if (!ignoreGrab)
-        {
-            if (_netManager.IsServer && user != null && user.Value == pullableUid)
-            {
-                var releaseAttempt = AttemptGrabRelease(pullableUid);
-                if (!releaseAttempt)
-                {
-                    _popup.PopupEntity(Loc.GetString("popup-grab-release-fail-self"),
-                        pullableUid,
-                        pullableUid,
-                        PopupType.SmallCaution);
-                    return false;
-                }
+            if (!TryGrabRelease(pullableUid, user, pullerUidNull.Value))
+                return false;
 
-                _popup.PopupEntity(Loc.GetString("popup-grab-release-success-self"),
-                    pullableUid,
-                    pullableUid,
-                    PopupType.SmallCaution);
-                _popup.PopupEntity(
-                    Loc.GetString("popup-grab-release-success-puller",
-                        ("target", Identity.Entity(pullableUid, EntityManager))),
-                    pullerUidNull.Value,
-                    pullerUidNull.Value,
-                    PopupType.MediumCaution);
-            }
-        }
-        // Goobstation
         StopPulling(pullableUid, pullable);
         return true;
     }
-
-    public void StopAllPulls(EntityUid uid) // Goobstation
+    private bool TryGrabRelease(EntityUid pullableUid, EntityUid? user, EntityUid pullerUid)
     {
-        if (TryComp<PullableComponent>(uid, out var pullable) && IsPulled(uid, pullable))
+        if (user == null || user.Value != pullableUid)
+            return true;
+
+        var releaseAttempt = AttemptGrabRelease(pullableUid);
+
+        if (!_netManager.IsServer)
+            return false;
+
+        switch (releaseAttempt)
+        {
+            case GrabResistResult.Failed:
+                _popup.PopupEntity(Loc.GetString("popup-grab-release-fail-self"),
+                                pullableUid,
+                                pullableUid,
+                                PopupType.SmallCaution);
+                return false;
+            case GrabResistResult.TooSoon:
+                _popup.PopupEntity(Loc.GetString("popup-grab-release-too-soon"),
+                                pullableUid,
+                                pullableUid,
+                                PopupType.SmallCaution);
+                return false;
+        }
+
+        _popup.PopupEntity(Loc.GetString("popup-grab-release-success-self"),
+            pullableUid,
+            pullableUid,
+            PopupType.SmallCaution);
+
+        _popup.PopupEntity(
+            Loc.GetString("popup-grab-release-success-puller",
+                ("target", Identity.Entity(pullableUid, EntityManager))),
+            pullerUid,
+            pullerUid,
+            PopupType.MediumCaution);
+
+        return true;
+    }
+    public void StopAllPulls(EntityUid uid, bool stopPullable = true, bool stopPuller = true) // Goobstation
+    {
+        if (stopPullable && TryComp<PullableComponent>(uid, out var pullable) && IsPulled(uid, pullable))
             TryStopPull(uid, pullable);
 
-        if (TryComp<PullerComponent>(uid, out var puller) &&
+        if (stopPuller && TryComp<PullerComponent>(uid, out var puller) &&
             TryComp(puller.Pulling, out PullableComponent? pullableEnt))
             TryStopPull(puller.Pulling.Value, pullableEnt);
     }
@@ -797,45 +990,49 @@ public sealed class PullingSystem : EntitySystem
     /// <param name="escapeAttemptModifier">if anything what to modify the escape chance by</param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     /// <returns></returns>
-    public bool TryGrab(Entity<PullableComponent?> pullable, Entity<PullerComponent?> puller, bool ignoreCombatMode = false, GrabStage? grabStageOverride = null, float escapeAttemptModifier = 1f)
+    private bool TryGrab(Entity<PullableComponent?> pullable, Entity<PullerComponent?> puller, bool ignoreCombatMode = false, GrabStage? grabStageOverride = null, float escapeAttemptModifier = 1f)
     {
-        if (!Resolve(pullable.Owner, ref pullable.Comp))
-            return false;
-
-        if (!Resolve(puller.Owner, ref puller.Comp))
+        if (!Resolve(pullable.Owner, ref pullable.Comp)
+            || !Resolve(puller.Owner, ref puller.Comp)
+            || HasComp<PacifiedComponent>(puller)
+            || !HasComp<MobStateComponent>(pullable)
+            || pullable.Comp.Puller != puller
+            || puller.Comp.Pulling != pullable
+            || !TryComp<MeleeWeaponComponent>(puller, out var meleeWeaponComponent))
             return false;
 
         // prevent you from grabbing someone else while being grabbed
         if (TryComp<PullableComponent>(puller, out var pullerAsPullable) && pullerAsPullable.Puller != null)
             return false;
 
-        if (HasComp<PacifiedComponent>(puller))
-            return false;
-
-        if (pullable.Comp.Puller != puller ||
-            puller.Comp.Pulling != pullable)
-            return false;
-
-        if (puller.Comp.NextStageChange > _timing.CurTime)
-            return true;
-
-        // You can't choke crates
-        if (!HasComp<MobStateComponent>(pullable))
-            return false;
-
-        // Delay to avoid spamming
-        puller.Comp.NextStageChange = _timing.CurTime + puller.Comp.StageChangeCooldown;
-        Dirty(puller);
-
         // Don't grab without grab intent
         if (!ignoreCombatMode)
             if (!_combatMode.IsInCombatMode(puller))
                 return false;
 
+        if (_timing.CurTime < meleeWeaponComponent.NextAttack)
+            return true;
+
+        var max = meleeWeaponComponent.NextAttack > _timing.CurTime ? meleeWeaponComponent.NextAttack : _timing.CurTime;
+        var attackRateEv = new GetMeleeAttackRateEvent(puller, meleeWeaponComponent.AttackRate, 1, puller);
+        RaiseLocalEvent(puller, ref attackRateEv);
+        meleeWeaponComponent.NextAttack = puller.Comp.StageChangeCooldown * attackRateEv.Multipliers + max;
+        Dirty(puller, meleeWeaponComponent);
+
+        var beforeEvent = new BeforeHarmfulActionEvent(puller, HarmfulActionType.Grab);
+        RaiseLocalEvent(pullable, beforeEvent);
+        if (beforeEvent.Cancelled)
+            return false;
+
         // It's blocking stage update, maybe better UX?
         if (puller.Comp.GrabStage == GrabStage.Suffocate)
         {
-            _stamina.TakeStaminaDamage(pullable, puller.Comp.SuffocateGrabStaminaDamage);
+            _stamina.TakeStaminaDamage(pullable, puller.Comp.SuffocateGrabStaminaDamage, applyResistances: true);
+
+            var comboEv = new ComboAttackPerformedEvent(puller.Owner, pullable.Owner, puller.Owner, ComboAttackType.Grab);
+            RaiseLocalEvent(puller.Owner, comboEv);
+            if (_netManager.IsServer)
+                _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), pullable);
 
             Dirty(pullable);
             Dirty(puller);
@@ -874,7 +1071,7 @@ public sealed class PullingSystem : EntitySystem
         return true;
     }
 
-    private bool TrySetGrabStages(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, GrabStage stage, float escapeAttemptModifier = 1f)
+    public bool TrySetGrabStages(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, GrabStage stage, float escapeAttemptModifier = 1f)
     {
         puller.Comp.GrabStage = stage;
         pullable.Comp.GrabStage = stage;
@@ -906,21 +1103,34 @@ public sealed class PullingSystem : EntitySystem
         _modifierSystem.RefreshMovementSpeedModifiers(puller);
 
         // I'm lazy to write client code
-        if (!_netManager.IsServer)
-            return true;
+        if (_netManager.IsServer)
+        {
+            _popup.PopupEntity(Loc.GetString($"popup-grab-{puller.Comp.GrabStage.ToString().ToLower()}-target",
+                    ("puller", Identity.Entity(puller, EntityManager))),
+                pullable,
+                pullable,
+                popupType);
+            _popup.PopupEntity(Loc.GetString($"popup-grab-{puller.Comp.GrabStage.ToString().ToLower()}-self",
+                    ("target", Identity.Entity(pullable, EntityManager))),
+                pullable,
+                puller,
+                PopupType.Medium);
+            _popup.PopupEntity(Loc.GetString($"popup-grab-{puller.Comp.GrabStage.ToString().ToLower()}-others",
+                    ("target", Identity.Entity(pullable, EntityManager)),
+                    ("puller", Identity.Entity(puller, EntityManager))),
+                pullable,
+                filter,
+                true,
+                popupType);
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), pullable);
+        }
 
-        _popup.PopupEntity(Loc.GetString($"popup-grab-{puller.Comp.GrabStage.ToString().ToLower()}-target", ("puller", Identity.Entity(puller, EntityManager))), pullable, pullable, popupType);
-        _popup.PopupEntity(Loc.GetString($"popup-grab-{puller.Comp.GrabStage.ToString().ToLower()}-self", ("target", Identity.Entity(pullable, EntityManager))), pullable, puller, PopupType.Medium);
-        _popup.PopupEntity(Loc.GetString($"popup-grab-{puller.Comp.GrabStage.ToString().ToLower()}-others", ("target", Identity.Entity(pullable, EntityManager)), ("puller", Identity.Entity(puller, EntityManager))), pullable, filter, true, popupType);
-
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), pullable);
 
         var comboEv = new ComboAttackPerformedEvent(puller.Owner, pullable.Owner, puller.Owner, ComboAttackType.Grab);
         RaiseLocalEvent(puller.Owner, comboEv);
 
         Dirty(pullable);
         Dirty(puller);
-
         return true;
     }
 
@@ -942,7 +1152,7 @@ public sealed class PullingSystem : EntitySystem
         {
             for (var i = 0; i < delta; i++)
             {
-                var emptyHand = _handsSystem.TryGetEmptyHand(puller, out _);
+                var emptyHand = _handsSystem.TryGetEmptyHand(puller.Owner, out _);
                 if (!emptyHand)
                 {
                     if (_netManager.IsServer)
@@ -985,20 +1195,18 @@ public sealed class PullingSystem : EntitySystem
     /// </summary>
     /// <param name="pullable">Grabbed entity</param>
     /// <returns></returns>
-    private bool AttemptGrabRelease(Entity<PullableComponent?> pullable)
+    private GrabResistResult AttemptGrabRelease(Entity<PullableComponent?> pullable)
     {
-        if (!Resolve(pullable.Owner, ref pullable.Comp))
-            return false;
-
-        if (_timing.CurTime < pullable.Comp.NextEscapeAttempt)  // No autoclickers! Mwa-ha-ha
-            return false;
+        if (!Resolve(pullable.Owner, ref pullable.Comp)
+            || _timing.CurTime < pullable.Comp.NextEscapeAttempt)
+            return GrabResistResult.TooSoon;
 
         if (_random.Prob(pullable.Comp.GrabEscapeChance))
-            return true;
+            return GrabResistResult.Succeeded;
 
-        pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(3));
+        pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(pullable.Comp.EscapeAttemptCooldown));
         Dirty(pullable.Owner, pullable.Comp);
-        return false;
+        return GrabResistResult.Failed;
     }
 
     private void OnGrabbedMoveAttempt(EntityUid uid, PullableComponent component, UpdateCanMoveEvent args)
@@ -1038,9 +1246,6 @@ public sealed class PullingSystem : EntitySystem
         if (pullable.Comp.Puller != puller.Owner ||
             puller.Comp.Pulling != pullable.Owner)
             return false;
-
-        if (_timing.CurTime < puller.Comp.NextStageChange)
-            return true;
 
         pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(1f));
         Dirty(pullable);

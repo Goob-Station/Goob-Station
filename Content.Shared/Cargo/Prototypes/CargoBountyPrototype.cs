@@ -1,6 +1,16 @@
-﻿using Content.Shared.Whitelist;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Cargo.Prototypes;
 
@@ -9,7 +19,7 @@ namespace Content.Shared.Cargo.Prototypes;
 /// that must be sold together in a labeled container in order
 /// to receive a monetary reward.
 /// </summary>
-[Prototype, Serializable, NetSerializable]
+[Prototype]
 public sealed partial class CargoBountyPrototype : IPrototype
 {
     /// <inheritdoc/>
@@ -39,6 +49,18 @@ public sealed partial class CargoBountyPrototype : IPrototype
     /// </summary>
     [DataField]
     public string IdPrefix = "NT";
+
+    /// <summary>
+    /// A group used for categorizing this bounty.
+    /// </summary>
+    [DataField]
+    public ProtoId<CargoBountyGroupPrototype> Group = "StationBounty";
+
+    /// <summary>
+    /// Optional sprite representing this bounty.
+    /// </summary>
+    [DataField]
+    public SpriteSpecifier? Sprite;
 }
 
 [DataDefinition, Serializable, NetSerializable]

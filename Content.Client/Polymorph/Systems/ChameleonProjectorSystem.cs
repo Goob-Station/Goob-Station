@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Client.Effects;
 using Content.Client.Smoking;
 using Content.Shared.Chemistry.Components;
@@ -10,6 +17,7 @@ namespace Content.Client.Polymorph.Systems;
 public sealed class ChameleonProjectorSystem : SharedChameleonProjectorSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     private EntityQuery<AppearanceComponent> _appearanceQuery;
     private EntityQuery<SpriteComponent> _spriteQuery;
@@ -46,13 +54,13 @@ public sealed class ChameleonProjectorSystem : SharedChameleonProjectorSystem
             return;
 
         ent.Comp.WasVisible = sprite.Visible;
-        sprite.Visible = false;
+        _sprite.SetVisible((ent.Owner, sprite), false);
     }
 
     private void OnShutdown(Entity<ChameleonDisguisedComponent> ent, ref ComponentShutdown args)
     {
         if (_spriteQuery.TryComp(ent, out var sprite))
-            sprite.Visible = ent.Comp.WasVisible;
+            _sprite.SetVisible((ent.Owner, sprite), ent.Comp.WasVisible);
     }
 
     private void OnGetFlashEffectTargetEvent(Entity<ChameleonDisguisedComponent> ent, ref GetFlashEffectTargetEvent args)

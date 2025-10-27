@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: dungeonConfig
   id: ChunkDebris
   # Floor generation
@@ -38,3 +44,44 @@
     # Generate biome
     - !type:BiomeDunGen
       biomeTemplate: SpaceDebris
+
+- type: dungeonConfig
+  id: ChunkDebrisSmall
+  # Floor generation
+  layers:
+  - !type:NoiseDunGen
+    tileCap: 150
+    capStd: 32
+    iterations: 3
+    layers:
+    - tile: FloorSteel
+      threshold: 0.50
+      noise:
+        frequency: 0.05
+        noiseType: OpenSimplex2
+        fractalType: FBm
+        octaves: 3
+        lacunarity: 3
+        gain: 0.5
+    - tile: Plating
+      threshold: 0.35
+      noise:
+        frequency: 0.05
+        noiseType: OpenSimplex2
+        fractalType: FBm
+        octaves: 3
+        lacunarity: 3
+        gain: 0.3
+    - tile: Lattice
+      threshold: 0.25
+      noise:
+        frequency: 0.05
+        noiseType: OpenSimplex2
+        fractalType: FBm
+        octaves: 3
+        lacunarity: 3
+        gain: 0.5
+
+  # Generate biome
+  - !type:BiomeDunGen
+    biomeTemplate: SpaceDebris

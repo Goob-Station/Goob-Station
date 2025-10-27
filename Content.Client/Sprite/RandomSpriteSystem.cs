@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Client.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Sprite;
@@ -11,6 +21,7 @@ public sealed class RandomSpriteSystem : SharedRandomSpriteSystem
 {
     [Dependency] private readonly IReflectionManager _reflection = default!;
     [Dependency] private readonly ClientClothingSystem _clothing = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -63,10 +74,10 @@ public sealed class RandomSpriteSystem : SharedRandomSpriteSystem
             int index;
             if (_reflection.TryParseEnumReference(layer.Key, out var @enum))
             {
-                if (!sprite.LayerMapTryGet(@enum, out index, logError: true))
+                if (!_sprite.LayerMapTryGet((uid, sprite), @enum, out index, logMissing: true))
                     continue;
             }
-            else if (!sprite.LayerMapTryGet(layer.Key, out index))
+            else if (!_sprite.LayerMapTryGet((uid, sprite), layer.Key, out index, false))
             {
                 if (layer.Key is not { } strKey || !int.TryParse(strKey, out index))
                 {
@@ -74,8 +85,8 @@ public sealed class RandomSpriteSystem : SharedRandomSpriteSystem
                     continue;
                 }
             }
-            sprite.LayerSetState(index, layer.Value.State);
-            sprite.LayerSetColor(index, layer.Value.Color ?? Color.White);
+            _sprite.LayerSetRsiState((uid, sprite), index, layer.Value.State);
+            _sprite.LayerSetColor((uid, sprite), index, layer.Value.Color ?? Color.White);
         }
     }
 }

@@ -1,4 +1,21 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 YourUsername <you@example.com>
+// SPDX-FileCopyrightText: 2024 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Linq;
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Shared.Ghost;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -62,6 +79,9 @@ public abstract class SharedPortalSystem : EntitySystem
                     return;
 
                 var ent = link.LinkedEntities.First();
+                if (TerminatingOrDeleted(ent)) // Goobstation edit
+                    return;
+
                 TeleportEntity(uid, args.User, Transform(ent).Coordinates, ent, false);
             },
             Disabled = disabled,
@@ -111,7 +131,7 @@ public abstract class SharedPortalSystem : EntitySystem
 
         if (TryComp<LinkedEntityComponent>(uid, out var link))
         {
-            if (!link.LinkedEntities.Any())
+            if (link.LinkedEntities.Count == 0)
                 return;
 
             // client can't predict outside of simple portal-to-portal interactions due to randomness involved
@@ -149,7 +169,7 @@ public abstract class SharedPortalSystem : EntitySystem
 
     private void OnEndCollide(EntityUid uid, PortalComponent component, ref EndCollideEvent args)
     {
-        if (!ShouldCollide(args.OurFixtureId, args.OtherFixtureId,args.OurFixture, args.OtherFixture))
+        if (!ShouldCollide(args.OurFixtureId, args.OtherFixtureId, args.OurFixture, args.OtherFixture))
             return;
 
         var subject = args.OtherEntity;
@@ -161,14 +181,14 @@ public abstract class SharedPortalSystem : EntitySystem
         }
     }
 
-    private void TeleportEntity(EntityUid portal, EntityUid subject, EntityCoordinates target, EntityUid? targetEntity=null, bool playSound=true,
+    private void TeleportEntity(EntityUid portal, EntityUid subject, EntityCoordinates target, EntityUid? targetEntity = null, bool playSound = true,
         PortalComponent? portalComponent = null)
     {
         if (!Resolve(portal, ref portalComponent))
             return;
 
         var ourCoords = Transform(portal).Coordinates;
-        var onSameMap = ourCoords.GetMapId(EntityManager) == target.GetMapId(EntityManager);
+        var onSameMap = _transform.GetMapId(ourCoords) == _transform.GetMapId(target);
         var distanceInvalid = portalComponent.MaxTeleportRadius != null
                               && ourCoords.TryDistance(EntityManager, target, out var distance)
                               && distance > portalComponent.MaxTeleportRadius;
@@ -192,6 +212,13 @@ public abstract class SharedPortalSystem : EntitySystem
 
             return;
         }
+
+        // Goobstation start
+        var ev = new TeleportAttemptEvent(false);
+        RaiseLocalEvent(subject, ref ev);
+        if (ev.Cancelled)
+            return;
+        // Goobstation end
 
         var arrivalSound = CompOrNull<PortalComponent>(targetEntity)?.ArrivalSound ?? portalComponent.ArrivalSound;
         var departureSound = portalComponent.DepartureSound;
@@ -227,7 +254,7 @@ public abstract class SharedPortalSystem : EntitySystem
         {
             var randVector = _random.NextVector2(component.MaxRandomRadius);
             newCoords = coords.Offset(randVector);
-            if (!_lookup.GetEntitiesIntersecting(newCoords.ToMap(EntityManager, _transform), LookupFlags.Static).Any())
+            if (!_lookup.AnyEntitiesIntersecting(_transform.ToMapCoordinates(newCoords), LookupFlags.Static))
             {
                 break;
             }

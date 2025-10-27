@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
 
 using Content.Shared.Actions;
 using Content.Shared.Clothing.Components;
@@ -65,13 +73,13 @@ public sealed partial class ToggleMaskEvent : InstantActionEvent { }
 ///     Event raised on the mask entity when it is toggled.
 /// </summary>
 [ByRefEvent]
-public readonly record struct ItemMaskToggledEvent(EntityUid Wearer, string? equippedPrefix, bool IsToggled, bool IsEquip);
+public readonly record struct ItemMaskToggledEvent(Entity<MaskComponent> Mask, EntityUid? Wearer);
 
 /// <summary>
 ///     Event raised on the entity wearing the mask when it is toggled.
 /// </summary>
 [ByRefEvent]
-public readonly record struct WearerMaskToggledEvent(bool IsToggled);
+public readonly record struct WearerMaskToggledEvent(Entity<MaskComponent> Mask);
 
 /// <summary>
 /// Raised on the clothing entity when it is equipped to a valid slot,

@@ -1,0 +1,29 @@
+<!--
+SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<DefaultWindow xmlns="https://spacestation14.io"
+            Title="{Loc 'disposal-router-window-title'}"
+            MinSize="500 110"
+            SetSize="500 110">
+    <BoxContainer Orientation="Vertical">
+        <Label Text="{Loc 'disposal-router-window-tags-label'}" />
+        <Control MinSize="0 10" />
+        <BoxContainer Orientation="Horizontal">
+            <LineEdit Name="TagInput"
+                      Access="Public"
+                      HorizontalExpand="True"
+                      MinSize="320 0"
+                      ToolTip="{Loc 'disposal-router-window-tag-input-tooltip'}" />
+            <Control MinSize="10 0" />
+            <Button Name="Confirm"
+                    Access="Public"
+                    Text="{Loc 'disposal-router-window-tag-input-confirm-button'}" />
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>

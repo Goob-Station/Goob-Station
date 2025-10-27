@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._Shitmed.Autodoc.Components;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
@@ -29,7 +37,7 @@ public abstract class SharedAutodocSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedLabelSystem _label = default!;
+    [Dependency] private readonly LabelSystem _label = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedSurgerySystem _surgery = default!;
     [Dependency] private readonly SleepingSystem _sleeping = default!;
@@ -241,10 +249,7 @@ public abstract class SharedAutodocSystem : EntitySystem
 
     public EntityUid GetHeldOrThrow(Entity<AutodocComponent, HandsComponent> ent)
     {
-        if (!_hands.TryGetHand(ent, ent.Comp1.ItemSlot, out var hand, ent.Comp2))
-            throw new AutodocError("item-unavailable");
-
-        if (hand.HeldEntity is not {} item)
+        if (_hands.GetHeldItem((ent.Owner, ent.Comp2), ent.Comp1.ItemSlot) is not {} item)
             throw new AutodocError("item-unavailable");
 
         return item;
@@ -296,26 +301,43 @@ public abstract class SharedAutodocSystem : EntitySystem
     }
 
     /// <summary>
-    /// Starts doing a surgery, returns true if successful.
+    /// Starts doing a surgery, throwing if it fails.
+    /// Returns true if there is no next step, i.e. the surgery is done.
     /// </summary>
-    public bool StartSurgery(Entity<AutodocComponent> ent, EntityUid patient, EntityUid part, EntProtoId surgery)
+    public bool StartSurgeryOrThrow(Entity<AutodocComponent> ent, EntityUid patient, EntityUid part, EntProtoId surgery)
     {
         if (ent.Comp.RequireSleeping && IsAwake(patient))
             throw new AutodocError("patient-unsedated");
 
         if (_surgery.GetSingleton(surgery) is not {} singleton)
-            return false;
+            throw new AutodocError("reality-breaking");
 
         if (_surgery.GetNextStep(patient, part, singleton) is not {} pair)
             return false;
 
         var nextSurgery = pair.Item1;
+        if (MetaData(nextSurgery).EntityPrototype?.ID is not {} surgeryId) // should never happen
+            throw new AutodocError("reality-breaking");
+
         var index = pair.Item2;
         var nextStep = nextSurgery.Comp.Steps[index];
-        if (!_surgery.TryDoSurgeryStep(patient, part, ent, MetaData(nextSurgery).EntityPrototype!.ID, nextStep))
-            return false;
+        if (!_surgery.TryDoSurgeryStep(patient, part, ent, surgeryId, nextStep, out var error))
+        {
+            // if the omnitool is held inserting organ etc will fail
+            // may need to swap hands to the selected item instead of omnitool
+            // if that works then it'll swap back automatically for the next step
+            if (error != StepInvalidReason.MissingTool && error != StepInvalidReason.ToolInvalid)
+                throw new AutodocError($"step-invalid-{error}");
 
-        Comp<ActiveAutodocComponent>(ent).CurrentSurgery = (patient, part, surgery);
+            var hands = Comp<HandsComponent>(ent);
+            _hands.SwapHands((ent.Owner, hands));
+            if (!_surgery.TryDoSurgeryStep(patient, part, ent, surgeryId, nextStep, out error))
+                throw new AutodocError($"step-invalid-{error}"); // no trying again just fail
+        }
+
+        var comp = Comp<ActiveAutodocComponent>(ent);
+        comp.CurrentSurgery = (patient, part, surgery);
+        comp.Waiting = true; // don't go onto next step until doafter finishes
         return true;
     }
 
@@ -452,32 +474,28 @@ public abstract class SharedAutodocSystem : EntitySystem
         if (ent.Comp2.Waiting)
             return false;
 
-        // stay on this AutodocSurgeryStep until every step of the surgery (and its dependencies) is complete
-        // if this was the last step, StartSurgery will fail and the next autodoc step will run
-        if (ent.Comp2.CurrentSurgery is {} args)
-        {
-            var (body, part, surgery) = args;
-            if (StartSurgery((ent.Owner, ent.Comp1), body, part, surgery))
-            {
-                ent.Comp2.Waiting = true;
-                return false;
-            }
-
-            // done with the surgery onto next step!!!
-            ent.Comp2.CurrentSurgery = null;
-            ent.Comp2.ProgramStep++;
-        }
-
-        var program = ent.Comp1.Programs[ent.Comp2.CurrentProgram];
-        var index = ent.Comp2.ProgramStep;
-        if (index >= program.Steps.Count)
-        {
-            Say(ent, Loc.GetString("autodoc-program-completed"));
-            return true;
-        }
-
         try
         {
+            // stay on this AutodocSurgeryStep until every step of the surgery (and its dependencies) is complete
+            // if this was the last step, StartSurgery will fail and the next autodoc step will run
+            if (ent.Comp2.CurrentSurgery is {} args)
+            {
+                var (body, part, surgery) = args;
+                if (StartSurgeryOrThrow((ent.Owner, ent.Comp1), body, part, surgery))
+                    return false;
+
+                // done with the surgery onto next step!!!
+                ent.Comp2.CurrentSurgery = null;
+                ent.Comp2.ProgramStep++;
+            }
+
+            var program = ent.Comp1.Programs[ent.Comp2.CurrentProgram];
+            var index = ent.Comp2.ProgramStep;
+            if (index >= program.Steps.Count)
+            {
+                Say(ent, Loc.GetString("autodoc-program-completed"));
+                return true;
+            }
             var step = program.Steps[index];
             if (step.Run((ent.Owner, ent.Comp1, Comp<HandsComponent>(ent)), this))
                 ent.Comp2.ProgramStep++;
@@ -487,6 +505,7 @@ public abstract class SharedAutodocSystem : EntitySystem
         catch (AutodocError e)
         {
             var error = Loc.GetString("autodoc-error-" + e.Message);
+            var program = ent.Comp1.Programs[ent.Comp2.CurrentProgram];
             if (program.SkipFailed)
             {
                 Say(ent, Loc.GetString("autodoc-error", ("error", error)));

@@ -1,7 +1,15 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
@@ -124,7 +132,7 @@ public abstract class SharedBindSoulSystem : EntitySystem
         var particle = Spawn(ParticlePrototype, coords);
         var direction = itemCoords.Position - coords.Position;
         _physics.SetLinearVelocity(particle, direction.Normalized());
-        EnsureComp<TimedDespawnComponent>(particle).Lifetime = 15f * (1 + ent.Comp.ResurrectionsCount);
+        EnsureComp<TimedDespawnComponent>(particle).Lifetime = 30f * (1 + ent.Comp.ResurrectionsCount);
         var homing = EnsureComp<HomingProjectileComponent>(particle);
         homing.Target = item.Value;
         Dirty(particle, homing);

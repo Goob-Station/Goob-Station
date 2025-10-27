@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: MaterialSilo
   parent: [ BaseMachinePowered, ConstructibleMachine ]
@@ -25,11 +31,14 @@
     ports:
       - MaterialSilo
   - type: Machine
-    board: MaterialSiloCircuitboard
+    board: MaterialSiloMachineCircuitboard
   - type: Appearance
   - type: MaterialStorage
     ignoreColor: true
   - type: Silo
+  - type: DeviceLinkSink
+    ports:
+      - FillbotAnyItem
 
 - type: entity
   id: BaseSiloUtilizer
@@ -41,6 +50,7 @@
     range: 1000
   - type: DeviceLinkSink
     ports:
+      - FillbotAnyItem
       - MaterialSiloUtilizer
   - type: SiloUtilizer
   - type: MaterialStorage

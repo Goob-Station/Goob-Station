@@ -1,3 +1,25 @@
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <jmaster9999@gmail.com>
+// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Wrexbe (Josh) <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 wrexbe <wrexbe@protonmail.com>
+// SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Client.Actions;
 using Content.Shared.Input;
@@ -28,14 +50,26 @@ public class ActionButtonContainer : GridContainer
         get => (ActionButton) GetChild(index);
     }
 
-    private void BuildActionButtons(int count)
+    public void SetActionData(ActionsSystem system, params EntityUid?[] actionTypes)
     {
+        var uniqueCount = Math.Min(system.GetClientActions().Count(), actionTypes.Length + 1);
         var keys = ContentKeyFunctions.GetHotbarBoundKeys();
 
-        Children.Clear();
-        for (var index = 0; index < count; index++)
+        for (var i = 0; i < uniqueCount; i++)
         {
-            Children.Add(MakeButton(index));
+            if (i >= ChildCount)
+            {
+                AddChild(MakeButton(i));
+            }
+
+            if (!actionTypes.TryGetValue(i, out var action))
+                action = null;
+            ((ActionButton) GetChild(i)).UpdateData(action, system);
+        }
+
+        for (var i = ChildCount - 1; i >= uniqueCount; i--)
+        {
+            RemoveChild(GetChild(i));
         }
 
         ActionButton MakeButton(int index)
@@ -52,20 +86,6 @@ public class ActionButtonContainer : GridContainer
             }
 
             return button;
-        }
-    }
-
-    public void SetActionData(ActionsSystem system, params EntityUid?[] actionTypes)
-    {
-        var uniqueCount = Math.Min(system.GetClientActions().Count(), actionTypes.Length + 1);
-        if (ChildCount != uniqueCount)
-            BuildActionButtons(uniqueCount);
-
-        for (var i = 0; i < uniqueCount; i++)
-        {
-            if (!actionTypes.TryGetValue(i, out var action))
-                action = null;
-            ((ActionButton) GetChild(i)).UpdateData(action, system);
         }
     }
 

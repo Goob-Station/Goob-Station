@@ -1,9 +1,14 @@
+# SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: marking
   id: PointyEarsStandard
   bodyPart: HeadSide
   markingCategory: HeadSide
   forcedColoring: true
-  speciesRestriction: [Oni]
+  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Customization/pointy_ears.rsi
     state: pointy_ears_standard
@@ -13,7 +18,7 @@
   bodyPart: HeadSide
   markingCategory: HeadSide
   forcedColoring: true
-  speciesRestriction: [Oni]
+  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Customization/pointy_ears.rsi
     state: pointy_ears_wide
@@ -23,7 +28,7 @@
   bodyPart: HeadSide
   markingCategory: HeadSide
   forcedColoring: true
-  speciesRestriction: [Oni]
+  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Customization/pointy_ears.rsi
     state: pointy_ears_small
@@ -33,7 +38,7 @@
   bodyPart: HeadSide
   markingCategory: HeadSide
   forcedColoring: true
-  speciesRestriction: [Oni]
+  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Customization/pointy_ears.rsi
     state: pointy_ears_upwards
@@ -43,7 +48,7 @@
   bodyPart: HeadSide
   markingCategory: HeadSide
   forcedColoring: true
-  speciesRestriction: [Oni]
+  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Customization/pointy_ears.rsi
     state: pointy_ears_tall
@@ -53,7 +58,7 @@
   bodyPart: HeadSide
   markingCategory: HeadSide
   forcedColoring: true
-  speciesRestriction: [Oni]
+  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Customization/pointy_ears.rsi
     state: pointy_ears_slanted
@@ -63,7 +68,7 @@
   bodyPart: HeadSide
   markingCategory: HeadSide
   forcedColoring: true
-  speciesRestriction: [Oni]
+  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Customization/pointy_ears.rsi
     state: pointy_ears_thin
@@ -73,7 +78,7 @@
   bodyPart: HeadSide
   markingCategory: HeadSide
   forcedColoring: true
-  speciesRestriction: [Oni]
+  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Customization/pointy_ears.rsi
     state: pointy_ears_large

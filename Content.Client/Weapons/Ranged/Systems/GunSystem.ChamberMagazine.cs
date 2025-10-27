@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2023 TaralGit <76408146+TaralGit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 and_a <and_a@DESKTOP-RJENGIR>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
@@ -21,7 +34,7 @@ public sealed partial class GunSystem
     private void OnChamberMagazineAppearance(EntityUid uid, ChamberMagazineAmmoProviderComponent component, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null ||
-            !args.Sprite.LayerMapTryGet(GunVisualLayers.Base, out var boltLayer) ||
+            !_sprite.LayerMapTryGet((uid, args.Sprite), GunVisualLayers.Base, out var boltLayer, false) ||
             !Appearance.TryGetData(uid, AmmoVisuals.BoltClosed, out bool boltClosed))
         {
             return;
@@ -30,11 +43,11 @@ public sealed partial class GunSystem
         // Maybe re-using base layer for this will bite me someday but screw you future sloth.
         if (boltClosed)
         {
-            args.Sprite.LayerSetState(boltLayer, "base");
+            _sprite.LayerSetRsiState((uid, args.Sprite), boltLayer, "base");
         }
         else
         {
-            args.Sprite.LayerSetState(boltLayer, "bolt-open");
+            _sprite.LayerSetRsiState((uid, args.Sprite), boltLayer, "bolt-open");
         }
     }
 

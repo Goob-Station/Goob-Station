@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2023 AJCM <AJCM@tutanota.com>
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Audio;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Damage.Systems;
@@ -43,7 +50,7 @@ public sealed class HotPotatoSystem : SharedHotPotatoSystem
             if (!TryComp<HandsComponent>(hitEntity, out var hands))
                 continue;
 
-            if (!_hands.IsHolding(hitEntity, uid, out _, hands) && _hands.TryForcePickupAnyHand(hitEntity, uid, handsComp: hands))
+            if (!_hands.IsHolding((hitEntity, hands), uid, out _) && _hands.TryForcePickupAnyHand(hitEntity, uid, handsComp: hands))
             {
                 _popup.PopupEntity(Loc.GetString("hot-potato-passed",
                     ("from", args.User), ("to", hitEntity)), uid, PopupType.Medium);

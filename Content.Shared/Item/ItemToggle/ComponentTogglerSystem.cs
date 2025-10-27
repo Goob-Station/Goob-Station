@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Item.ItemToggle.Components;
 
 namespace Content.Shared.Item.ItemToggle;
@@ -25,11 +35,27 @@ public sealed class ComponentTogglerSystem : EntitySystem
         if (!TryComp<ComponentTogglerComponent>(uid, out var component))
             return;
 
-        var target = component.Parent ? Transform(uid).ParentUid : uid;
 
         if (activate)
+        {
+            var target = component.Parent ? Transform(uid).ParentUid : uid;
+
+            if (TerminatingOrDeleted(target))
+                return;
+
+            component.Target = target;
+
             EntityManager.AddComponents(target, component.Components);
+        }
         else
-            EntityManager.RemoveComponents(target, component.RemoveComponents ?? component.Components);
+        {
+            if (component.Target == null)
+                return;
+
+            if (TerminatingOrDeleted(component.Target.Value))
+                return;
+
+            EntityManager.RemoveComponents(component.Target.Value, component.RemoveComponents ?? component.Components);
+        }
     }
 }

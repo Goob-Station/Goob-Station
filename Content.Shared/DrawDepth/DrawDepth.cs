@@ -1,3 +1,32 @@
+// SPDX-FileCopyrightText: 2020 ComicIronic <comicironic@gmail.com>
+// SPDX-FileCopyrightText: 2020 Hugal31 <hugo.laloge@gmail.com>
+// SPDX-FileCopyrightText: 2021 Daniel Castro Razo <eldanielcr@gmail.com>
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2021 Radrark <76271993+Radrark@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 ArthurMousatov <57199800+ArthurMousatov@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.co>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <slambamactionman@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 qwerltaz <msmarcinpl@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Shared.Serialization;
 using DrawDepthTag = Robust.Shared.GameObjects.DrawDepth;
 
@@ -9,13 +38,15 @@ namespace Content.Shared.DrawDepth
         /// <summary>
         ///     This is for sub-floors, the floors you see after prying off a tile.
         /// </summary>
-        LowFloors = DrawDepthTag.Default - 18,
+        LowFloors = DrawDepthTag.Default - 20,
 
         // various entity types that require different
         // draw depths, as to avoid hiding
         #region SubfloorEntities
-        ThickPipe = DrawDepthTag.Default - 17,
-        ThickWire = DrawDepthTag.Default - 16,
+        ThickPipe = DrawDepthTag.Default - 19,
+        ThickWire = DrawDepthTag.Default - 18,
+        ThinPipeAlt2 = DrawDepthTag.Default - 17,
+        ThinPipeAlt1 = DrawDepthTag.Default - 16,
         ThinPipe = DrawDepthTag.Default - 15,
         ThinWire = DrawDepthTag.Default - 14,
         #endregion
@@ -85,42 +116,46 @@ namespace Content.Shared.DrawDepth
         WallMountedItems = DrawDepthTag.Default + 2,
 
         /// <summary>
+        ///     To use for objects that would usually fall under SmallObjects, but appear taller than 1 tile. For example: Reagent Grinder
+        /// </summary>
+        LargeObjects = DrawDepthTag.Default + 3,
+
+        /// <summary>
         ///     Generic items. Things that should be above crates & tables, but underneath mobs.
         /// </summary>
-        Items = DrawDepthTag.Default + 3,
-
+        Items = DrawDepthTag.Default + 4,
         /// <summary>
         /// Stuff that should be drawn below mobs, but on top of items. Like muzzle flash.
         /// </summary>
-        BelowMobs = DrawDepthTag.Default + 4,
+        BelowMobs = DrawDepthTag.Default + 5,
 
-        Mobs = DrawDepthTag.Default + 5,
+        Mobs = DrawDepthTag.Default + 6,
 
-        OverMobs = DrawDepthTag.Default + 6,
+        OverMobs = DrawDepthTag.Default + 7,
 
-        Doors = DrawDepthTag.Default + 7,
+        Doors = DrawDepthTag.Default + 8,
 
         /// <summary>
         /// Blast doors and shutters which go over the usual doors.
         /// </summary>
-        BlastDoors = DrawDepthTag.Default + 8,
+        BlastDoors = DrawDepthTag.Default + 9,
 
         /// <summary>
         /// Stuff that needs to draw over most things, but not effects, like Kudzu.
         /// </summary>
-        Overdoors = DrawDepthTag.Default + 9,
+        Overdoors = DrawDepthTag.Default + 10,
 
         /// <summary>
         ///     Explosions, fire, melee swings. Whatever.
         /// </summary>
-        Effects = DrawDepthTag.Default + 10,
+        Effects = DrawDepthTag.Default + 11,
 
-        Ghosts = DrawDepthTag.Default + 11,
+        Ghosts = DrawDepthTag.Default + 12,
 
         /// <summary>
         ///    Use this selectively if it absolutely needs to be drawn above (almost) everything else. Examples include
         ///    the pointing arrow, the drag & drop ghost-entity, and some debug tools.
         /// </summary>
-        Overlays = DrawDepthTag.Default + 12,
+        Overlays = DrawDepthTag.Default + 13,
     }
 }

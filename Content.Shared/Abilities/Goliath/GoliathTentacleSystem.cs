@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Directions;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
@@ -28,7 +33,7 @@ public sealed class GoliathTentacleSystem : EntitySystem
 
     private void OnSummonAction(GoliathSummonTentacleAction args)
     {
-        if (args.Handled || args.Coords is not { } coords)
+        if (args.Handled)
             return;
 
         // TODO: animation
@@ -36,6 +41,7 @@ public sealed class GoliathTentacleSystem : EntitySystem
         _popup.PopupPredicted(Loc.GetString("tentacle-ability-use-popup", ("entity", args.Performer)), args.Performer, args.Performer, type: PopupType.SmallCaution);
         _stun.TryStun(args.Performer, TimeSpan.FromSeconds(0.8f), false);
 
+        var coords = args.Target;
         List<EntityCoordinates> spawnPos = new();
         spawnPos.Add(coords);
 
@@ -54,7 +60,7 @@ public sealed class GoliathTentacleSystem : EntitySystem
         foreach (var pos in spawnPos)
         {
             if (!_map.TryGetTileRef(grid, gridComp, pos, out var tileRef) ||
-                tileRef.IsSpace() ||
+                _turf.IsSpace(tileRef) ||
                 _turf.IsTileBlocked(tileRef, CollisionGroup.Impassable))
             {
                 continue;

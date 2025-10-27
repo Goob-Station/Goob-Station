@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: tile
   id: FloorBingle
   name: tiles-bingle-floor
@@ -14,7 +21,7 @@
   footstepSounds:
     collection: FootstepBlood
   itemDrop: FloorTileItemBingle
-  friction: 0.05 #slippy
+  friction: 1 #No longer slippy
   heatCapacity: 10000
   tileRipResistance: 80
 
@@ -35,6 +42,6 @@
 
 - type: stack
   id: FloorTileBingle
-  name: bingle floor
+  name: stack-bingle-tile
   spawn: FloorTileItemBingle
   maxCount: 30

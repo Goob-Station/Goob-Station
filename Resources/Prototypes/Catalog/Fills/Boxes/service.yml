@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 DenisShvalov <115770678+DenisShvalov@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 PraxisMapper <praxismapper@gmail.com>
+# SPDX-FileCopyrightText: 2024 drakewill-CRL <46307022+drakewill-CRL@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: cleanades box
   parent: BoxCardboard
@@ -23,11 +32,11 @@
     contents:
     - id: PaperAgrichemManual
     - id: ChemistryEmptyBottle01
-    - id: PotassiumChemistryBottle
-    - id: PhosphorusChemistryBottle
-    - id: NitrogenChemistryBottle
-    - id: HydrogenChemistryBottle
-    - id: EthanolChemistryBottle
+    - id: ChemistryBottlePotassium
+    - id: ChemistryBottlePhosphorus
+    - id: ChemistryBottleNitrogen
+    - id: ChemistryBottleHydrogen
+    - id: ChemistryBottleEthanol
     - id: RadiumChemistryVial
     - id: ChlorineChemistryVial
   - type: Sprite
@@ -38,3 +47,43 @@
     guides:
     - Botanical
     - Chemicals
+
+- type: entity
+  parent: BoxLightbulb
+  id: BoxLightbulbColorfulMixed
+  name: mixed colorful lightbulb box
+  components:
+  - type: StorageFill
+    contents:
+    - id: LightBulbCrystalCyan
+      amount: 2
+    - id: LightBulbCrystalBlue
+      amount: 2
+    - id: LightBulbCrystalGreen
+      amount: 2
+    - id: LightBulbCrystalPink
+      amount: 2
+    - id: LightBulbCrystalRed
+      amount: 2
+    - id: LightBulbCrystalOrange
+      amount: 2
+
+- type: entity
+  parent: BoxLighttube
+  id: BoxLighttubeColorfulMixed
+  name: mixed colorful lighttube box
+  components:
+  - type: StorageFill
+    contents:
+    - id: LightTubeCrystalCyan
+      amount: 2
+    - id: LightTubeCrystalBlue
+      amount: 2
+    - id: LightTubeCrystalGreen
+      amount: 2
+    - id: LightTubeCrystalPink
+      amount: 2
+    - id: LightTubeCrystalRed
+      amount: 2
+    - id: LightTubeCrystalOrange
+      amount: 2

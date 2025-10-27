@@ -1,7 +1,18 @@
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 TekuNut <13456422+TekuNut@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Client.Atmos.Components;
 using Content.Shared.Atmos;
 using Robust.Client.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Utility;
 
 namespace Content.Client.Atmos.EntitySystems;
 
@@ -10,6 +21,7 @@ namespace Content.Client.Atmos.EntitySystems;
 /// </summary>
 public sealed class FireVisualizerSystem : VisualizerSystem<FireVisualsComponent>
 {
+    [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly PointLightSystem _lights = default!;
 
     public override void Initialize()
@@ -31,9 +43,9 @@ public sealed class FireVisualizerSystem : VisualizerSystem<FireVisualsComponent
         // Need LayerMapTryGet because Init fails if there's no existing sprite / appearancecomp
         // which means in some setups (most frequently no AppearanceComp) the layer never exists.
         if (TryComp<SpriteComponent>(uid, out var sprite) &&
-            sprite.LayerMapTryGet(FireVisualLayers.Fire, out var layer))
+            _sprite.LayerMapTryGet((uid, sprite), FireVisualLayers.Fire, out var layer, false))
         {
-            sprite.RemoveLayer(layer);
+            _sprite.RemoveLayer((uid, sprite), layer);
         }
     }
 
@@ -42,11 +54,11 @@ public sealed class FireVisualizerSystem : VisualizerSystem<FireVisualsComponent
         if (!TryComp<SpriteComponent>(uid, out var sprite) || !TryComp(uid, out AppearanceComponent? appearance))
             return;
 
-        sprite.LayerMapReserveBlank(FireVisualLayers.Fire);
-        sprite.LayerSetVisible(FireVisualLayers.Fire, false);
+        _sprite.LayerMapReserve((uid, sprite), FireVisualLayers.Fire);
+        _sprite.LayerSetVisible((uid, sprite), FireVisualLayers.Fire, false);
         sprite.LayerSetShader(FireVisualLayers.Fire, "unshaded");
         if (component.Sprite != null)
-            sprite.LayerSetRSI(FireVisualLayers.Fire, component.Sprite);
+            _sprite.LayerSetRsi((uid, sprite), FireVisualLayers.Fire, new ResPath(component.Sprite));
 
         UpdateAppearance(uid, component, sprite, appearance);
     }
@@ -59,12 +71,12 @@ public sealed class FireVisualizerSystem : VisualizerSystem<FireVisualsComponent
 
     private void UpdateAppearance(EntityUid uid, FireVisualsComponent component, SpriteComponent sprite, AppearanceComponent appearance)
     {
-        if (!sprite.LayerMapTryGet(FireVisualLayers.Fire, out var index))
+        if (!_sprite.LayerMapTryGet((uid, sprite), FireVisualLayers.Fire, out var index, false))
             return;
 
         AppearanceSystem.TryGetData<bool>(uid, FireVisuals.OnFire, out var onFire, appearance);
         AppearanceSystem.TryGetData<float>(uid, FireVisuals.FireStacks, out var fireStacks, appearance);
-        sprite.LayerSetVisible(index, onFire);
+        _sprite.LayerSetVisible((uid, sprite), index, onFire);
 
         if (!onFire)
         {
@@ -78,9 +90,9 @@ public sealed class FireVisualizerSystem : VisualizerSystem<FireVisualsComponent
         }
 
         if (fireStacks > component.FireStackAlternateState && !string.IsNullOrEmpty(component.AlternateState))
-            sprite.LayerSetState(index, component.AlternateState);
+            _sprite.LayerSetRsiState((uid, sprite), index, component.AlternateState);
         else
-            sprite.LayerSetState(index, component.NormalState);
+            _sprite.LayerSetRsiState((uid, sprite), index, component.NormalState);
 
         component.LightEntity ??= Spawn(null, new EntityCoordinates(uid, default));
         var light = EnsureComp<PointLightComponent>(component.LightEntity.Value);

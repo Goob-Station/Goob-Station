@@ -1,3 +1,21 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Server.Popups;
 using Content.Shared.Access;
@@ -111,7 +129,7 @@ public sealed class AccessOverriderSystem : SharedAccessOverriderSystem
 
         if (component.TargetAccessReaderId is { Valid: true } accessReader)
         {
-            targetLabel = Loc.GetString("access-overrider-window-target-label") + " " + EntityManager.GetComponent<MetaDataComponent>(component.TargetAccessReaderId).EntityName;
+            targetLabel = Loc.GetString("access-overrider-window-target-label") + " " + Comp<MetaDataComponent>(component.TargetAccessReaderId).EntityName;
             targetLabelColor = Color.White;
 
             if (!_accessReader.GetMainAccessReader(accessReader, out var accessReaderEnt))
@@ -123,7 +141,7 @@ public sealed class AccessOverriderSystem : SharedAccessOverriderSystem
 
         if (component.PrivilegedIdSlot.Item is { Valid: true } idCard)
         {
-            privilegedIdName = EntityManager.GetComponent<MetaDataComponent>(idCard).EntityName;
+            privilegedIdName = Comp<MetaDataComponent>(idCard).EntityName;
 
             if (component.TargetAccessReaderId is { Valid: true })
             {
@@ -166,21 +184,6 @@ public sealed class AccessOverriderSystem : SharedAccessOverriderSystem
         return accessList;
     }
 
-    private List<HashSet<ProtoId<AccessLevelPrototype>>> ConvertAccessListToHashSet(List<ProtoId<AccessLevelPrototype>> accessList)
-    {
-        List<HashSet<ProtoId<AccessLevelPrototype>>> accessHashsets = new List<HashSet<ProtoId<AccessLevelPrototype>>>();
-
-        if (accessList != null && accessList.Any())
-        {
-            foreach (ProtoId<AccessLevelPrototype> access in accessList)
-            {
-                accessHashsets.Add(new HashSet<ProtoId<AccessLevelPrototype>>() { access });
-            }
-        }
-
-        return accessHashsets;
-    }
-
     /// <summary>
     /// Called whenever an access button is pressed, adding or removing that access requirement from the target access reader.
     /// </summary>
@@ -195,7 +198,7 @@ public sealed class AccessOverriderSystem : SharedAccessOverriderSystem
         if (!PrivilegedIdIsAuthorized(uid, component))
             return;
 
-        if (!_interactionSystem.InRangeUnobstructed(uid, component.TargetAccessReaderId))
+        if (!_interactionSystem.InRangeUnobstructed(player, component.TargetAccessReaderId))
         {
             _popupSystem.PopupEntity(Loc.GetString("access-overrider-out-of-range"), player, player);
 
@@ -239,15 +242,13 @@ public sealed class AccessOverriderSystem : SharedAccessOverriderSystem
         var addedTags = newAccessList.Except(oldTags).Select(tag => "+" + tag).ToList();
         var removedTags = oldTags.Except(newAccessList).Select(tag => "-" + tag).ToList();
 
-        _adminLogger.Add(LogType.Action, LogImpact.Medium,
+        _adminLogger.Add(LogType.Action, LogImpact.High,
             $"{ToPrettyString(player):player} has modified {ToPrettyString(accessReaderEnt.Value):entity} with the following allowed access level holders: [{string.Join(", ", addedTags.Union(removedTags))}] [{string.Join(", ", newAccessList)}]");
 
-        accessReaderEnt.Value.Comp.AccessLists = ConvertAccessListToHashSet(newAccessList);
+        _accessReader.SetAccesses(accessReaderEnt.Value, newAccessList);
 
         var ev = new OnAccessOverriderAccessUpdatedEvent(player);
         RaiseLocalEvent(component.TargetAccessReaderId, ref ev);
-
-        Dirty(accessReaderEnt.Value);
     }
 
     /// <summary>

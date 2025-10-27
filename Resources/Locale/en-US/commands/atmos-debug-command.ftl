@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 PrPleGoo <PrPleGoo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 cmd-atvrange-desc = Sets the atmos debug range (as two floats, start [red] and end [blue])
 cmd-atvrange-help = Usage: {$command} <start> <end>
 cmd-atvrange-error-start = Bad float START

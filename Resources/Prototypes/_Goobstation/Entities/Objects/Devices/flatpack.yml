@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Martynas6ha4 <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 Vrilly <tnjans@outlook.de>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 john git <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseFlatpack
   id: TimelineDisruptorFlatpack
@@ -19,7 +35,7 @@
   description: A flatpack used for constructing a contraband detector.
   components:
   - type: Flatpack
-    entity: ContrabandDetectorAnchored
+    entity: ContrabandDetectorSecure
   - type: Sprite
     layers:
     - state: fax-machine
@@ -70,3 +86,97 @@
   components:
   - type: Flatpack
     entity: MedicalBiofabricator
+
+- type: entity
+  parent: BaseFlatpack
+  id: ComputerNTRTasksFlatpack
+  name: ntr task computer flatpack
+  description: A flatpack used for constructing a NTR task computer.
+  components:
+  - type: Flatpack
+    entity: ComputerNTRTasks
+
+- type: entity
+  parent: BaseFlatpack
+  id: MachinePowerTransmissionLaserFlatpack
+  name: power transmision laser flatpack
+  description: A flatpack used for constructing a power transmission laser
+  components:
+  - type: Flatpack
+    entity: MachinePowerTransmissionLaser
+
+- type: entity
+  parent: BaseFlatpack
+  id: ComputerFundingAllocationFlatpack
+  name: funding allocation computer flatpack
+  description: A flatpack used for constructing a funding allocation computer
+  components:
+  - type: Flatpack
+    entity: ComputerFundingAllocation
+
+- type: entity
+  parent: BaseFlatpack
+  id: ComputerCargoRequestServiceFlatpack
+  name: service request computer flatpack
+  description: A flatpack used for constructing a service request computer
+  components:
+  - type: Flatpack
+    entity: ComputerCargoOrdersService
+
+- type: entity
+  parent: BaseFlatpack
+  id: ComputerCargoRequestMedicalFlatpack
+  name: medical request computer flatpack
+  description: A flatpack used for constructing a medical request computer
+  components:
+  - type: Flatpack
+    entity: ComputerCargoOrdersMedical
+
+- type: entity
+  parent: BaseFlatpack
+  id: ComputerCargoRequestScienceFlatpack
+  name: science request computer flatpack
+  description: A flatpack used for constructing a science request computer
+  components:
+  - type: Flatpack
+    entity: ComputerCargoOrdersScience
+
+- type: entity
+  parent: BaseFlatpack
+  id: ComputerCargoRequestSecurityFlatpack
+  name: security request computer flatpack
+  description: A flatpack used for constructing a security request computer
+  components:
+  - type: Flatpack
+    entity: ComputerCargoOrdersSecurity
+
+- type: entity
+  parent: BaseFlatpack
+  id: TegCirculatorFlatpack
+  name: circulator flatpack
+  description: A flatpack used for constructing a circulator for thermo-electric generator.
+  components:
+  - type: Flatpack
+    entity: TegCirculator
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/flatpack.rsi
+    layers:
+    - state: teg-circulator
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BaseFlatpack
+  id: TegMiddleFlatpack
+  name: thermo-electric generator flatpack
+  description: A flatpack used for constructing a thermo-electric generator.
+  components:
+  - type: Flatpack
+    entity: TegCenter
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/flatpack.rsi
+    layers:
+    - state: teg-middle
+  - type: StaticPrice
+    price: 500
+

@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
 # Selects a random pathfind point and tries to move there.
 - type: htnCompound
   id: MoveToPathfindPointCompound
@@ -15,7 +21,7 @@
   id: MobPathfindDummy
   name: pathfind dummy
   suffix: NPC
-  parent: MobXenoRouny
+  parent: MobSpiderAngryBase
   components:
   - type: HTN
     rootTask:

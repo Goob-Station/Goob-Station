@@ -1,0 +1,374 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from TG station at commit https://github.com/tgstation/tgstation/commit/a3849062b8756e3c2176fa0b9bd80aef9facc3ef modified by Skubman for Space Station 14",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "accent-icon"
+    },
+    {
+      "name": "accent-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "accent-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "accent-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "accent2-icon"
+    },
+    {
+      "name": "accent2-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "accent2-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "accent2-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "accent2_chestonly-icon"
+    },
+    {
+      "name": "accent2_chestonly-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "accent2_chestonly-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "accent2_chestonly-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "accent3-icon"
+    },
+    {
+      "name": "accent3-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "accent3-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "accent3-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "accent3_chestonly-icon"
+    },
+    {
+      "name": "accent3_chestonly-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "accent3_chestonly-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "accent3_chestonly-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "accentprisoner-icon"
+    },
+    {
+      "name": "accentprisoner-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "accentprisoner-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "accentprisoner-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "accenthighlight-icon"
+    },
+    {
+      "name": "accenthighlight-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "accenthighlight-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "accenthighlight-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "accentalt-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "accentalt_noback-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "backaccent-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "loweraccent-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "loweraccent2-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "loweraccent2_bottom-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "loweraccent2_top-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "pin-icon"
+    },
+    {
+      "name": "pin-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "pin-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "pin-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "buttons-icon"
+    },
+    {
+      "name": "buttons-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "buttons-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "buttons-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "plaintop-icon"
+    },
+    {
+      "name": "plaintop-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "plaintop-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "plaintop-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "tie-icon"
+    },
+    {
+      "name": "tie-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "tie-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "tie-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "tieclip-icon"
+    },
+    {
+      "name": "tieclip-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "tieclip-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "tieclip-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "clip-icon"
+    },
+    {
+      "name": "clip-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "clip-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "clip-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "clip_right-icon"
+    },
+    {
+      "name": "clip_right-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "clip_right-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "clip_right-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "heart-icon"
+    },
+    {
+      "name": "heart-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "heart-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "heart-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "corneraccent-icon"
+    },
+    {
+      "name": "corneraccent-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "corneraccent-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "corneraccent-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "pants-icon"
+    },
+    {
+      "name": "pants-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "pants-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "pants-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "belt-icon"
+    },
+    {
+      "name": "belt-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "belt-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "belt-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "beltbuckle-icon"
+    },
+    {
+      "name": "beltbuckle-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "beltbuckle-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "beltbuckle-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "beltbuckle_small-icon"
+    },
+    {
+      "name": "beltbuckle_small-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "beltbuckle_small-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "beltbuckle_small-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "cuffs-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "cuffs_upper-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "shoes-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "shoesdark-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "soles-equipped-INNERCLOTHING",
+      "directions": 4
+    }
+  ]
+}

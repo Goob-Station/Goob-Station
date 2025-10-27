@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: constructionGraph
   id: GlassesMedHUD
   start: start
@@ -7,13 +14,13 @@
         - to: glassesMed
           steps:
             - tag: Sunglasses
-              name: sun glasses
+              name: construction-graph-tag-sun-glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/sunglasses.rsi
                 state: icon
               doAfter: 5
             - tag: HudMedical
-              name: medical hud
+              name: construction-graph-tag-medical-hud
               icon:
                 sprite: Clothing/Eyes/Hud/med.rsi
                 state: icon

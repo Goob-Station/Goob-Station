@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: ImprovisedShotgunShellGraph
   start: start
@@ -8,66 +14,66 @@
           steps:
             - material: Steel
               amount: 1
-              doAfter: 0.5 
+              doAfter: 0.5
             - material: Plastic
               amount: 1
-              doAfter: 0.5 
+              doAfter: 0.5
             - tag: GlassShard
-              name: glass shard
+              name: construction-graph-tag-glass-shard
               icon:
                 sprite: Objects/Materials/Shards/shard.rsi
                 state: shard1
-              doAfter: 0.5 
+              doAfter: 0.5
             - tag: GlassShard
-              name: glass shard
+              name: construction-graph-tag-glass-shard
               icon:
                 sprite: Objects/Materials/Shards/shard.rsi
                 state: shard2
-              doAfter: 0.5 
+              doAfter: 0.5
             - tag: GlassShard
-              name: glass shard
+              name: construction-graph-tag-glass-shard
               icon:
                 sprite: Objects/Materials/Shards/shard.rsi
                 state: shard1
-              doAfter: 0.5 
+              doAfter: 0.5
             - tag: GlassShard
-              name: glass shard
+              name: construction-graph-tag-glass-shard
               icon:
                 sprite: Objects/Materials/Shards/shard.rsi
                 state: shard3
-              doAfter: 0.5 
+              doAfter: 0.5
             - tag: Matchstick
-              name: match stick
+              name: construction-graph-tag-match-stick
               icon:
                 sprite: Objects/Tools/matches.rsi
                 state: match_unlit
-              doAfter: 0.5 
+              doAfter: 0.5
             - tag: Matchstick
-              name: match stick
+              name: construction-graph-tag-match-stick
               icon:
                 sprite: Objects/Tools/matches.rsi
                 state: match_unlit
-              doAfter: 0.5 
+              doAfter: 0.5
             - tag: Matchstick
-              name: match stick
+              name: construction-graph-tag-match-stick
               icon:
                 sprite: Objects/Tools/matches.rsi
                 state: match_unlit
-              doAfter: 0.5 
+              doAfter: 0.5
             - tag: Matchstick
-              name: match stick
+              name: construction-graph-tag-match-stick
               icon:
                 sprite: Objects/Tools/matches.rsi
                 state: match_unlit
-              doAfter: 0.5 
+              doAfter: 0.5
             - tag: Matchstick
-              name: match stick
+              name: construction-graph-tag-match-stick
               icon:
                 sprite: Objects/Tools/matches.rsi
                 state: match_unlit
-              doAfter: 0.5 
+              doAfter: 0.5
             - tag: Matchstick
-              name: match stick
+              name: construction-graph-tag-match-stick
               icon:
                 sprite: Objects/Tools/matches.rsi
                 state: match_unlit

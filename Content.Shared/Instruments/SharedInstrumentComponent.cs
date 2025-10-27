@@ -1,4 +1,32 @@
+// SPDX-FileCopyrightText: 2020 Tyler Young <tyler.young@impromptu.ninja>
+// SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 krusti <43324723+Topicranger@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 krusti <krusti@fluffytech.xyz>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Collections;
+using System.Text;
 using Robust.Shared.Audio.Midi;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -22,7 +50,7 @@ public abstract partial class SharedInstrumentComponent : Component
     public bool AllowPercussion { get; set; }
 
     [DataField("allowProgramChange"), ViewVariables(VVAccess.ReadWrite)]
-    public bool AllowProgramChange { get ; set; }
+    public bool AllowProgramChange { get; set; }
 
     [DataField("respectMidiLimits"), ViewVariables(VVAccess.ReadWrite)]
     public bool RespectMidiLimits { get; set; } = true;
@@ -32,6 +60,18 @@ public abstract partial class SharedInstrumentComponent : Component
 
     [ViewVariables]
     public BitArray FilteredChannels { get; set; } = new(RobustMidiEvent.MaxChannels, true);
+}
+
+/// <summary>
+/// Component that indicates that musical instrument was activated (ui opened).
+/// </summary>
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState(true)]
+public sealed partial class ActiveInstrumentComponent : Component
+{
+    [DataField]
+    [AutoNetworkedField]
+    public MidiTrack?[] Tracks = [];
 }
 
 [Serializable, NetSerializable]
@@ -137,4 +177,98 @@ public sealed class InstrumentMidiEventEvent : EntityEventArgs
 public enum InstrumentUiKey
 {
     Key,
+}
+
+/// <summary>
+/// Sets the MIDI channels on an instrument.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class InstrumentSetChannelsEvent : EntityEventArgs
+{
+    public NetEntity Uid { get; }
+    public MidiTrack?[] Tracks { get; set; }
+
+    public InstrumentSetChannelsEvent(NetEntity uid, MidiTrack?[] tracks)
+    {
+        Uid = uid;
+        Tracks = tracks;
+    }
+}
+
+/// <summary>
+/// Represents a single midi track with the track name, instrument name and bank instrument name extracted.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class MidiTrack
+{
+    /// <summary>
+    /// The first specified Track Name
+    /// </summary>
+    public string? TrackName;
+    /// <summary>
+    /// The first specified instrument name
+    /// </summary>
+    public string? InstrumentName;
+
+    /// <summary>
+    /// The first program change resolved to the name.
+    /// </summary>
+    public string? ProgramName;
+
+    public override string ToString()
+    {
+        return $"Track Name: {TrackName}; Instrument Name: {InstrumentName}; Program Name: {ProgramName}";
+    }
+
+    /// <summary>
+    /// Truncates the fields based on the limit inputted into this method.
+    /// </summary>
+    public void TruncateFields(int limit)
+    {
+        if (InstrumentName != null)
+            InstrumentName = Truncate(InstrumentName, limit);
+
+        if (TrackName != null)
+            TrackName = Truncate(TrackName, limit);
+
+        if (ProgramName != null)
+            ProgramName = Truncate(ProgramName, limit);
+    }
+
+    public void SanitizeFields()
+    {
+        if (InstrumentName != null)
+            InstrumentName = Sanitize(InstrumentName);
+
+        if (TrackName != null)
+            TrackName = Sanitize(TrackName);
+
+        if (ProgramName != null)
+            ProgramName = Sanitize(ProgramName);
+    }
+
+    private const string Postfix = "…";
+    // TODO: Make a general method to use in RT? idk if we have that.
+    private string Truncate(string input, int limit)
+    {
+        if (string.IsNullOrEmpty(input) || limit <= 0 || input.Length <= limit)
+            return input;
+
+        var truncatedLength = limit - Postfix.Length;
+
+        return input.Substring(0, truncatedLength) + Postfix;
+    }
+
+    private static string Sanitize(string input)
+    {
+        var sanitized = new StringBuilder(input.Length);
+
+        foreach (char c in input)
+        {
+            if (!char.IsControl(c) && c <= 127) // no control characters, only ASCII
+                sanitized.Append(c);
+        }
+
+        return sanitized.ToString();
+    }
 }

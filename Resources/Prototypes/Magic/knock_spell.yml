@@ -1,9 +1,23 @@
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PoTeletubby <108604614+PoTeletubby@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
+  parent: BaseAction
   id: ActionKnock
   name: Knock
   description: Opens nearby doors and lockers. # Goob edit
   components:
-  - type: InstantAction
+  - type: Action
     raiseOnUser: true # Goobstation
     checkCanInteract: false # Goobstation
     useDelay: 10
@@ -13,9 +27,9 @@
     icon:
       sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: knock
+  - type: InstantAction
     event: !type:KnockSpellEvent
       range: 3 # Goob edit
-      speech: action-speech-spell-knock
   - type: Magic # Goobstation
     requiresSpeech: true
     school: Transmutation
@@ -23,3 +37,5 @@
     effectedLevels:
       2: ActionKnockII
       3: ActionKnockIII
+  - type: SpeakOnAction
+    sentence: action-speech-spell-knock

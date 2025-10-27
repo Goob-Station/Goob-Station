@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Magic.Components;
 using Content.Shared.Physics;
 using Robust.Shared.Containers;
@@ -40,7 +48,7 @@ public sealed class AnimateSpellSystem : EntitySystem
         _container.AttachParentToContainerOrGrid((ent, xform)); // Items animated inside inventory now exit, they can't be picked up and so can't escape otherwise
 
         var ev = new AnimateSpellEvent();
-        RaiseLocalEvent(ref ev);
+        RaiseLocalEvent(ent, ref ev);
     }
 }
 

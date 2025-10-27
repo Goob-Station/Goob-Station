@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2023 Darkie <darksaiyanis@gmail.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -15,24 +22,24 @@ public sealed partial class ItemToggleSizeComponent : Component
     /// <summary>
     ///     Item's size when activated
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public ProtoId<ItemSizePrototype>? ActivatedSize = null;
 
     /// <summary>
     ///     Item's shape when activated
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [DataField, AutoNetworkedField]
     public List<Box2i>? ActivatedShape = null;
 
     /// <summary>
     ///     Item's size when deactivated. If none is mentioned, it uses the item's default size instead.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public ProtoId<ItemSizePrototype>? DeactivatedSize = null;
 
     /// <summary>
     ///     Item's shape when deactivated. If none is mentioned, it uses the item's default shape instead.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [DataField, AutoNetworkedField]
     public List<Box2i>? DeactivatedShape = null;
 }

@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Administration.Logs;
@@ -15,6 +25,7 @@ using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Atmos;
 using Content.Shared.Chat;
 using Content.Shared.Cloning;
+using Content.Shared.Cloning.Events;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
@@ -73,18 +84,18 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 
     private void OnApprenticeClone(Entity<ApprenticeComponent> ent, ref CloningEvent args)
     {
-        EnsureComp<ApprenticeComponent>(args.Target);
-        RemCompDeferred<ApprenticeComponent>(args.Source);
-        _faction.ClearFactions(args.Target, false);
-        _faction.AddFaction(args.Target, Faction);
+        EnsureComp<ApprenticeComponent>(args.CloneUid);
+        RemCompDeferred<ApprenticeComponent>(ent);
+        _faction.ClearFactions(args.CloneUid, false);
+        _faction.AddFaction(args.CloneUid, Faction);
     }
 
     private void OnWizardClone(Entity<WizardComponent> ent, ref CloningEvent args)
     {
-        EnsureComp<WizardComponent>(args.Target);
-        RemCompDeferred<WizardComponent>(args.Source);
-        _faction.ClearFactions(args.Target, false);
-        _faction.AddFaction(args.Target, Faction);
+        EnsureComp<WizardComponent>(args.CloneUid);
+        RemCompDeferred<WizardComponent>(ent);
+        _faction.ClearFactions(args.CloneUid, false);
+        _faction.AddFaction(args.CloneUid, Faction);
     }
 
     public EntityUid? GetTargetMap()

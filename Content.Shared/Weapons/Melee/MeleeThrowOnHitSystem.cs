@@ -1,12 +1,25 @@
-using Content.Shared.Construction.Components;
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
+// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Systems;
 using System.Numerics;
 
 namespace Content.Shared.Weapons.Melee;
@@ -17,7 +30,6 @@ namespace Content.Shared.Weapons.Melee;
 public sealed class MeleeThrowOnHitSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
@@ -26,6 +38,29 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
     {
         SubscribeLocalEvent<MeleeThrowOnHitComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<MeleeThrowOnHitComponent, ThrowDoHitEvent>(OnThrowHit);
+        SubscribeLocalEvent<MeleeThrowOnHitComponent, ThrownEvent>(OnThrow);
+        SubscribeLocalEvent<MeleeThrowOnHitComponent, LandEvent>(OnLand);
+    }
+
+    private void OnThrow(Entity<MeleeThrowOnHitComponent> ent, ref ThrownEvent args)
+    {
+        if (_delay.IsDelayed(ent.Owner))
+            return;
+
+        ent.Comp.HitWhileThrown = false;
+        ent.Comp.ThrowOnCooldown = false;
+
+        DirtyField(ent, ent.Comp, nameof(MeleeThrowOnHitComponent.HitWhileThrown));
+        DirtyField(ent, ent.Comp, nameof(MeleeThrowOnHitComponent.ThrowOnCooldown));
+    }
+
+    private void OnLand(Entity<MeleeThrowOnHitComponent> ent, ref LandEvent args)
+    {
+        if (ent.Comp.HitWhileThrown && !_delay.IsDelayed(ent.Owner))
+            _delay.TryResetDelay(ent.Owner);
+
+        ent.Comp.ThrowOnCooldown = true;
+        DirtyField(ent, ent.Comp, nameof(MeleeThrowOnHitComponent.ThrowOnCooldown));
     }
 
     private void OnMeleeHit(Entity<MeleeThrowOnHitComponent> weapon, ref MeleeHitEvent args)
@@ -34,7 +69,8 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
         if (!args.IsHit)
             return;
 
-        if (_delay.IsDelayed(weapon.Owner))
+        if (!weapon.Comp.ThrowWhileOnDelay // Goobstation edit
+            && _delay.IsDelayed(weapon.Owner))
             return;
 
         if (args.HitEntities.Count == 0)
@@ -54,8 +90,14 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
         if (!weapon.Comp.ActivateOnThrown)
             return;
 
+        if (weapon.Comp.ThrowOnCooldown)
+            return;
+
         if (!TryComp<PhysicsComponent>(args.Thrown, out var weaponPhysics))
             return;
+
+        weapon.Comp.HitWhileThrown = true;
+        DirtyField(weapon, weapon.Comp, nameof(MeleeThrowOnHitComponent.HitWhileThrown));
 
         ThrowOnHitHelper(weapon, args.Component.Thrower, args.Target, weaponPhysics.LinearVelocity);
     }

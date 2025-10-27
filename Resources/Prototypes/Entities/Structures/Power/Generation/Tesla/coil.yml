@@ -1,5 +1,20 @@
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 holorain <scratchysenior@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: TeslaCoil
+  parent: ConstructibleMachine # Goobstation
   name: tesla coil
   description: A machine that converts lightning strikes into an electric current.
   placement:
@@ -56,19 +71,19 @@
     sprite: Structures/Power/Generation/Tesla/coil.rsi
     state: coil
   - type: Battery
-    maxCharge: 1000000
+    maxCharge: 5000000
     startingCharge: 0
   - type: BatteryDischarger
   - type: TeslaCoil
-    chargeFromLightning: 2000000
+    chargeFromLightning: 5000000
   - type: LightningTarget
     priority: 4
     hitProbability: 0.5
     lightningResistance: 10
     lightningExplode: false
   - type: PowerNetworkBattery
-    maxSupply: 1000000
-    supplyRampTolerance: 1000000
+    maxSupply: 350000
+    supplyRampTolerance: 350000
   - type: Anchorable
   - type: Rotatable
   - type: Pullable
@@ -87,6 +102,15 @@
       sprite: Structures/Power/Generation/Tesla/coil_cracks.rsi
   - type: Destructible
     thresholds:
+      - trigger: # Excess damage, don't spawn entities
+          !type:DamageTrigger
+          damage: 400
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
       - trigger:
           !type:DamageTrigger
           damage: 225
@@ -101,6 +125,8 @@
               SheetSteel1:
                 min: 2
                 max: 4
+  - type: Machine # Goobstation
+    board: TeslaCoilCircuitboard # Goobstation
   - type: GuideHelp
     guides:
     - TeslaEngine
@@ -173,6 +199,15 @@
       sprite: Structures/Power/Generation/Tesla/groundingrod_cracks.rsi
   - type: Destructible
     thresholds:
+      - trigger: # Excess damage, don't spawn entities
+          !type:DamageTrigger
+          damage: 600
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
       - trigger:
           !type:DamageTrigger
           damage: 300

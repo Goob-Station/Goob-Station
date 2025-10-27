@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server._Goobstation.Wizard.Store;
@@ -10,9 +17,11 @@ using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Random;
+using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -27,6 +36,7 @@ public sealed class SpellsGrantSystem : EntitySystem
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly ObjectivesSystem _objectives = default!;
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     public override void Initialize()
     {
@@ -129,7 +139,10 @@ public sealed class SpellsGrantSystem : EntitySystem
         comp.Granted = true;
 
         if (comp.AntagProfile != null)
-            _antag.ForceMakeAntag<SpellsGrantComponent>(args.Mind.Comp.Session, comp.AntagProfile);
+        {
+            _player.TryGetSessionById(args.Mind.Comp.UserId, out var session);
+            _antag.ForceMakeAntag<SpellsGrantComponent>(session, comp.AntagProfile);
+        }
 
         var container = EnsureComp<ActionsContainerComponent>(args.Mind.Owner);
 

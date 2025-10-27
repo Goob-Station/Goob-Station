@@ -1,4 +1,12 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2023 Henry <sigma1198@gmail.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
   id: OrganDwarfHeart
   parent: OrganHumanHeart
   name: dwarf heart
@@ -22,6 +30,12 @@
   - type: Sprite
     state: stomach
   - type: Organ
+    intCap: 38
+    integrity: 38
+    integrityThresholds:
+      Normal: 38
+      Damaged: 22
+      Destroyed: 0
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -34,5 +48,5 @@
   - type: Stomach
   - type: Metabolizer
     # mm very yummy
-    maxReagents: 5
+    maxPoisonsProcessable: 5
     metabolizerTypes: [Dwarf]

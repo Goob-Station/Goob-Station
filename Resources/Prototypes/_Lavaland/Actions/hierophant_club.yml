@@ -1,67 +1,96 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Place teleport marker
 - type: entity
+  parent: BaseAction
   id: ActionHierophantPlaceMarker
-  name: action-hierophant-place-marker
-  description: action-hierophant-place-marker-desc
+  name: Place teleportation marker
+  description: Let's you place a point where you can always teleport to.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
       state: icon
     itemIconStyle: BigAction
-    event: !type:HierophantClubPlaceMarkerEvent
     useDelay: 30
+  - type: InstantAction
+    event: !type:HierophantClubPlaceMarkerEvent
 
 # Teleportation
 - type: entity
+  parent: BaseAction
   id: ActionHierophantTeleport
-  name: action-hierophant-teleport
-  description: action-hierophant-teleport-desc
+  name: Hierophant blink
+  description: Teleports you to already placed marker.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
       state: icon
     itemIconStyle: NoItem
-    event: !type:HierophantClubTeleportToMarkerEvent
     useDelay: 60
+  - type: InstantAction
+    event: !type:HierophantClubTeleportToMarkerEvent
 
 # Spawn cross
 - type: entity
+  parent: BaseAction
   id: ActionHierophantSpawnCross
-  name: action-hierophant-spawn-cross
-  description: action-hierophant-spawn-cross-desc
+  name: Cross
+  description: Spawns a cross that deals minor damage to the target.
   components:
-  - type: WorldTargetAction
+  - type: Action
     icon:
       sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
       state: icon
     itemIconStyle: NoItem
-    event: !type:HierophantClubActivateCrossEvent
-    checkCanAccess: true
-    range: 8
     priority: -21
     useDelay: 1
+  - type: TargetAction
+    checkCanAccess: true
+    range: 8
+  - type: WorldTargetAction
+    event: !type:HierophantClubActivateCrossEvent    
 
 # Tile Movement
 - type: entity
+  parent: BaseAction
   id: ActionHierophantTileMovement
-  name: action-hierophant-tile-movement
-  description: action-hierophant-tile-movement-desc
-  categories: [ HideSpawnMenu ]
+  name: Grant tile movement
+  description: Grants a given target tile movement and a speed buff.
   components:
-  - type: EntityTargetAction
+  - type: Action
     icon:
       sprite: /Textures/_Lavaland/Interface/Alerts/hierophantbeat.rsi
       state: hierophant
     itemIconStyle: NoItem
+    useDelay: 60
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:HierophantClubToggleTileMovementEvent
     whitelist:
       requireAll: true
       components:
       - MobState
       - Body
       - MindContainer
-    event: !type:HierophantClubToggleTileMovementEvent
-    useDelay: 60

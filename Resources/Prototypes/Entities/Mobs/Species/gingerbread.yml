@@ -1,3 +1,23 @@
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YoungThug <ramialanbagy@gmail.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   save: false
   name: Urist McCookie
@@ -16,13 +36,17 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Gingerbread
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#896e55"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+  - type: Temperature
+    coldDamage:
+      types:
+        Cold: 0.0 #per second, scales with temperature & other constants
+#  - type: DamageVisuals
+#    damageOverlayGroups:
+#      Brute:
+#        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+#        color: "#896e55"
+#      Burn:
+#        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -34,6 +58,7 @@
     groups:
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
+      Acidic: [Touch, Ingestion, Eyes] # Goobstation
     reactions:
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
@@ -68,6 +93,8 @@
           - MobMask
         layer:
           - MobLayer
+  - type: TypingIndicator
+    proto: gingerbread
   - type: Inventory
     femaleDisplacements:
       jumpsuit:

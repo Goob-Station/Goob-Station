@@ -1,10 +1,16 @@
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Spreader;
 using Content.Shared.Audio;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Maps;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
@@ -67,6 +73,7 @@ public sealed partial class AreaReactionEffect : EntityEffect
             var mapSys = reagentArgs.EntityManager.System<MapSystem>();
             var spreaderSys = args.EntityManager.System<SpreaderSystem>();
             var sys = args.EntityManager.System<TransformSystem>();
+            var turfSys = args.EntityManager.System<TurfSystem>();
             var mapCoords = sys.GetMapCoordinates(reagentArgs.TargetEntity, xform: transform);
 
             if (!mapManager.TryFindGridAt(mapCoords, out var gridUid, out var grid) ||
@@ -75,7 +82,7 @@ public sealed partial class AreaReactionEffect : EntityEffect
                 return;
             }
 
-            if (spreaderSys.RequiresFloorToSpread(_prototypeId) && tileRef.Tile.IsSpace())
+            if (spreaderSys.RequiresFloorToSpread(_prototypeId) && turfSys.IsSpace(tileRef.Tile))
                 return;
 
             var coords = mapSys.MapToGrid(gridUid, mapCoords);
@@ -85,7 +92,7 @@ public sealed partial class AreaReactionEffect : EntityEffect
             smoke.StartSmoke(ent, splitSolution, _duration, spreadAmount);
 
             var audio = reagentArgs.EntityManager.System<SharedAudioSystem>();
-            audio.PlayPvs(_sound, reagentArgs.TargetEntity, AudioHelpers.WithVariation(0.125f));
+            audio.PlayPvs(_sound, reagentArgs.TargetEntity, AudioParams.Default.WithVariation(0.25f));
             return;
         }
 

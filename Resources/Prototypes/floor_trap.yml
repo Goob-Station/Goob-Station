@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 Nim <128169402+Nimfar11@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: entity
   id: CollideFloorTrap
   abstract: true
@@ -91,26 +96,4 @@
       fixtureID: floortrap
     - type: SpawnOnTrigger
       proto: MobKangarooSpace
-    - type: DeleteOnTrigger
-
-- type: entity
-  parent: CollideFloorTrapSpawn
-  id: SpawnFloorTrapXenoDrone
-  suffix: Xeno. Drone
-  components:
-    - type: TriggerOnCollide
-      fixtureID: floortrap
-    - type: SpawnOnTrigger
-      proto: MobXenoDrone
-    - type: DeleteOnTrigger
-
-- type: entity
-  parent: CollideFloorTrapSpawn
-  id: SpawnFloorTrapXenoBurrower
-  suffix: Xeno. Burrower
-  components:
-    - type: TriggerOnCollide
-      fixtureID: floortrap
-    - type: SpawnOnTrigger
-      proto: MobXeno
     - type: DeleteOnTrigger

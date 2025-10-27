@@ -1,4 +1,20 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2020 Julian Giebel <j.giebel@netrocks.info>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Numerics;
 using System.Text.RegularExpressions;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -11,10 +27,10 @@ namespace Content.Client.Configurable.UI
 {
     public sealed class ConfigurationMenu : DefaultWindow
     {
-        private readonly BoxContainer _column;
-        private readonly BoxContainer _row;
+        public readonly BoxContainer Column;
+        public readonly BoxContainer Row;
 
-        private readonly List<(string  name, LineEdit input)> _inputs;
+        public readonly List<(string name, LineEdit input)> Inputs;
 
         [ViewVariables]
         public Regex? Validation { get; internal set; }
@@ -25,7 +41,7 @@ namespace Content.Client.Configurable.UI
         {
             MinSize = SetSize = new Vector2(300, 250);
 
-            _inputs = new List<(string name, LineEdit input)>();
+            Inputs = new List<(string name, LineEdit input)>();
 
             Title = Loc.GetString("configuration-menu-device-title");
 
@@ -36,14 +52,14 @@ namespace Content.Client.Configurable.UI
                 HorizontalExpand = true
             };
 
-            _column = new BoxContainer
+            Column = new BoxContainer
             {
                 Orientation = LayoutOrientation.Vertical,
                 Margin = new Thickness(8),
                 SeparationOverride = 16,
             };
 
-            _row = new BoxContainer
+            Row = new BoxContainer
             {
                 Orientation = LayoutOrientation.Horizontal,
                 SeparationOverride = 16,
@@ -66,61 +82,20 @@ namespace Content.Client.Configurable.UI
                 ModulateSelfOverride = Color.FromHex("#202025")
             };
 
-            outerColumn.AddChild(_column);
+            outerColumn.AddChild(Column);
             baseContainer.AddChild(outerColumn);
             baseContainer.AddChild(confirmButton);
             Contents.AddChild(baseContainer);
         }
 
-        public void Populate(ConfigurationBoundUserInterfaceState state)
-        {
-            _column.Children.Clear();
-            _inputs.Clear();
-
-            foreach (var field in state.Config)
-            {
-                var label = new Label
-                {
-                    Margin = new Thickness(0, 0, 8, 0),
-                    Name = field.Key,
-                    Text = field.Key + ":",
-                    VerticalAlignment = VAlignment.Center,
-                    HorizontalExpand = true,
-                    SizeFlagsStretchRatio = .2f,
-                    MinSize = new Vector2(60, 0)
-                };
-
-                var input = new LineEdit
-                {
-                    Name = field.Key + "-input",
-                    Text = field.Value ?? "",
-                    IsValid = Validate,
-                    HorizontalExpand = true,
-                    SizeFlagsStretchRatio = .8f
-                };
-
-                _inputs.Add((field.Key, input));
-
-                var row = new BoxContainer
-                {
-                    Orientation = LayoutOrientation.Horizontal
-                };
-                CopyProperties(_row, row);
-
-                row.AddChild(label);
-                row.AddChild(input);
-                _column.AddChild(row);
-            }
-        }
-
         private void OnConfirm(ButtonEventArgs args)
         {
-            var config = GenerateDictionary(_inputs, "Text");
+            var config = GenerateDictionary(Inputs, "Text");
             OnConfiguration?.Invoke(config);
             Close();
         }
 
-        private bool Validate(string value)
+        public bool Validate(string value)
         {
             return Validation?.IsMatch(value) != false;
         }
@@ -137,7 +112,7 @@ namespace Content.Client.Configurable.UI
             return dictionary;
         }
 
-        private static void CopyProperties<T>(T from, T to) where T : Control
+        public static void CopyProperties<T>(T from, T to) where T : Control
         {
             foreach (var property in from.AllAttachedProperties)
             {

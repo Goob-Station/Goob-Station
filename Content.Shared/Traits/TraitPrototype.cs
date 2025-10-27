@@ -1,5 +1,21 @@
+// SPDX-FileCopyrightText: 2022 CommieFlowers <rasmus.cedergren@hotmail.com>
+// SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 forkeyboards <91704530+forkeyboards@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
+using Content.Shared.Humanoid.Prototypes; // Goob: Ported from DeltaV - Species specific trait support.
 
 namespace Content.Shared.Traits;
 
@@ -60,4 +76,42 @@ public sealed partial class TraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public ProtoId<TraitCategoryPrototype>? Category;
+
+    /// <summary>
+    /// Goob: Ported from DeltaV - Hides traits from specific species
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<SpeciesPrototype>> ExcludedSpecies = new();
+
+    /// <summary>
+    /// Goob: Only shows traits to specific species
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<SpeciesPrototype>> IncludedSpecies = new();
+
+    // Einstein Engines - Language begin (remove this if trait system refactor)
+    /// <summary>
+    ///     The list of all Spoken Languages that this trait adds.
+    /// </summary>
+    [DataField]
+    public List<string>? LanguagesSpoken { get; private set; } = default!;
+
+    /// <summary>
+    ///     The list of all Understood Languages that this trait adds.
+    /// </summary>
+    [DataField]
+    public List<string>? LanguagesUnderstood { get; private set; } = default!;
+
+    /// <summary>
+    ///     The list of all Spoken Languages that this trait removes.
+    /// </summary>
+    [DataField]
+    public List<string>? RemoveLanguagesSpoken { get; private set; } = default!;
+
+    /// <summary>
+    ///     The list of all Understood Languages that this trait removes.
+    /// </summary>
+    [DataField]
+    public List<string>? RemoveLanguagesUnderstood { get; private set; } = default!;
+    // Einstein Engines - Language end
 }

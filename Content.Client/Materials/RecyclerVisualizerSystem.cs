@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Conveyor;
 using Content.Shared.Materials;
 using Robust.Client.GameObjects;
@@ -8,7 +13,7 @@ public sealed class RecyclerVisualizerSystem : VisualizerSystem<RecyclerVisualsC
 {
     protected override void OnAppearanceChange(EntityUid uid, RecyclerVisualsComponent component, ref AppearanceChangeEvent args)
     {
-        if (args.Sprite == null || !args.Sprite.LayerMapTryGet(RecyclerVisualLayers.Main, out var layer))
+        if (args.Sprite == null || !SpriteSystem.LayerMapTryGet((uid, args.Sprite), RecyclerVisualLayers.Main, out var layer, false))
             return;
 
         AppearanceSystem.TryGetData<ConveyorState>(uid, ConveyorVisuals.State, out var running);
@@ -22,6 +27,6 @@ public sealed class RecyclerVisualizerSystem : VisualizerSystem<RecyclerVisualsC
         var bloodyKey = bloody ? component.BloodyKey : string.Empty;
 
         var state = $"{component.BaseKey}{activityState}{bloodyKey}";
-        args.Sprite.LayerSetState(layer, state);
+        SpriteSystem.LayerSetRsiState((uid, args.Sprite), layer, state);
     }
 }

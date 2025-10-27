@@ -1,13 +1,31 @@
+# SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # This is the only way I could get it to work, but its still broken
 # The right foot always takes priority over the left foot no matter what I do so I'm just leaving it like this
 # The players can make weird monstrosities with their feet if they really want to
 # Feel free to fix this if you really want to, but I'm going to end up scrapping this if I don't just move on from this
 
+# - type: marking
+#   id: YowieFur
+#   bodyPart: [ Chest, LArm, RArm, LHand, RHand ]
+#   markingCategory: Overlay
+#   speciesRestriction: [Yowie]
+#   coloring:
+#     default:
+#       type:
+#         !type:SimpleColoring
+#           color: "#FFFFFF"
+#   sprites:
+#   - sprite: _Goobstation/Mobs/Customization/yowie_fur.rsi
+#     state: yowie_fur
+
 - type: marking
-  id: YowieFur
-  bodyPart: Chest, LArm, RArm, LHand, RHand
+  id: YowieFurHead
+  bodyPart: Head
   markingCategory: Overlay
-  speciesRestriction: [Yowie] 
+  speciesRestriction: [Yowie]
   coloring:
     default:
       type:
@@ -15,13 +33,97 @@
           color: "#FFFFFF"
   sprites:
   - sprite: _Goobstation/Mobs/Customization/yowie_fur.rsi
-    state: yowie_fur
-    
+    state: yowie_fur_head
+
+- type: marking
+  id: YowieFurChest
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [Yowie]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/yowie_fur.rsi
+    state: yowie_fur_chest
+
+- type: marking
+  id: YowieFurGroin
+  bodyPart: Groin
+  markingCategory: Overlay
+  speciesRestriction: [Yowie]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/yowie_fur.rsi
+    state: yowie_fur_groin
+
+- type: marking
+  id: YowieFurArmRight
+  bodyPart: RArm
+  markingCategory: Overlay
+  speciesRestriction: [Yowie]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/yowie_fur.rsi
+    state: yowie_fur_arm_right
+
+- type: marking
+  id: YowieFurArmLeft
+  bodyPart: LArm
+  markingCategory: Overlay
+  speciesRestriction: [Yowie]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/yowie_fur.rsi
+    state: yowie_fur_arm_left
+
+- type: marking
+  id: YowieFurLegRight
+  bodyPart: RLeg
+  markingCategory: Overlay
+  speciesRestriction: [Yowie]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/yowie_fur.rsi
+    state: yowie_fur_leg_right
+
+- type: marking
+  id: YowieFurLegLeft
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Yowie]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/yowie_fur.rsi
+    state: yowie_fur_leg_left
+
 - type: marking
   id: YowieFurFeetRight
   bodyPart: RFoot
   markingCategory: Overlay
-  speciesRestriction: [Yowie] 
+  speciesRestriction: [Yowie]
   coloring:
     default:
       type:
@@ -30,12 +132,12 @@
   sprites:
   - sprite: _Goobstation/Mobs/Customization/yowie_fur.rsi
     state: yowie_fur_feet_right
-    
+
 - type: marking
   id: YowieFurFeetLeft
   bodyPart: LFoot
   markingCategory: Overlay
-  speciesRestriction: [Yowie] 
+  speciesRestriction: [Yowie]
   coloring:
     default:
       type:

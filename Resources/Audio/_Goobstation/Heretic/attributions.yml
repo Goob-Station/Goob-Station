@@ -1,7 +1,28 @@
-- files: ["blind.ogg", "castsummon.ogg", "disintegrate.ogg", "hereticknock.ogg", "repulse.ogg", "voidblink.ogg"]
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["blind.ogg", "castsummon.ogg", "disintegrate.ogg", "hereticknock.ogg", "voidblink.ogg", "cosmic_energy.ogg", "cosmic_expansion.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station. hereticknock.ogg and voidblink.ogg converted to mono by @deltanedas (github)"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/magic"
+
+- files: ["repluse.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station, modified by Aviu00"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/magic/repulse.ogg"
+
+- files: ["ice_shovel.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from /tg/station"
-  source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/magic"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/ice_shovel.ogg"
 
 - files: ["constructform.ogg"]
   license: "CC-BY-SA-3.0"
@@ -22,6 +43,16 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from /tg/station"
   source: "https://github.com/tgstation/tgstation/tree/master/sound/items/sheath.ogg"
+
+- files: ["eatfood.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/items/eatfood.ogg"
+
+- files: ["parry.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/items/weapons/parry.ogg"
 
 - files: ["demon_attack1.ogg"]
   license: "CC-BY-SA-3.0"

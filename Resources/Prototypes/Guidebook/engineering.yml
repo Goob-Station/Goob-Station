@@ -1,3 +1,26 @@
+# SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Aru Moon <anton17082003@gmail.com>
+# SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
+# SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Naive817 <31364560+Naive817@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 end <72604018+laok233@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ben Velie <veliebm@gmail.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GrownSamoyedDog <61863648+GrownSamoyedDog@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: guideEntry
   id: Engineering
   name: guide-entry-engineering
@@ -8,6 +31,7 @@
   - Power
   - ShuttleCraft
   - Networking
+  - Automation # Goobstation
 
 - type: guideEntry
   id: Construction
@@ -120,6 +144,7 @@
   - SignalValve
   - PneumaticValve
   - PassiveGate
+  - PressureRegulator
 
 - type: guideEntry
   id: ManualValve
@@ -140,6 +165,11 @@
   id: PassiveGate
   name: guide-entry-passivegate
   text: "/ServerInfo/Guidebook/Engineering/PassiveGate.xml"
+
+- type: guideEntry
+  id: PressureRegulator
+  name: guide-entry-ressureregulator
+  text: "/ServerInfo/Guidebook/Engineering/PressureRegulator.xml"
 
 - type: guideEntry
   id: MixingAndFiltering
@@ -304,8 +334,7 @@
   - TEG
   - RTG
   - SolarPanels
-  # Goobstation - Supermatter
-  - Supermatter
+  - Supermatter # Goobstation
 
 - type: guideEntry
   id: AME

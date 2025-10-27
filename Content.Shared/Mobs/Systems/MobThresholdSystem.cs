@@ -1,11 +1,50 @@
+// SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
+// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitmed.Body;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Events;
 using Robust.Shared.GameStates;
+
+// Shitmed Change
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
+using Robust.Shared.Serialization;
+using Robust.Shared.Network;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Mobs.Systems;
 
@@ -13,7 +52,9 @@ public sealed class MobThresholdSystem : EntitySystem
 {
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
-
+    [Dependency] private readonly WoundSystem _wound = default!; // Shitmed Change
+    [Dependency] private readonly SharedBodySystem _body = default!; // Shitmed Change
+    [Dependency] private readonly INetManager _net = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<MobThresholdsComponent, ComponentGetState>(OnGetState);
@@ -24,6 +65,7 @@ public sealed class MobThresholdSystem : EntitySystem
         SubscribeLocalEvent<MobThresholdsComponent, DamageChangedEvent>(OnDamaged);
         SubscribeLocalEvent<MobThresholdsComponent, UpdateMobStateEvent>(OnUpdateMobState);
         SubscribeLocalEvent<MobThresholdsComponent, MobStateChangedEvent>(OnThresholdsMobState);
+        SubscribeLocalEvent<MobThresholdsComponent, WoundableIntegrityChangedOnBodyEvent>(OnWoundableDamage); // Shitmed Change
     }
 
     private void OnGetState(EntityUid uid, MobThresholdsComponent component, ref ComponentGetState args)
@@ -122,7 +164,7 @@ public sealed class MobThresholdSystem : EntitySystem
         MobThresholdsComponent? thresholdComponent = null)
     {
         threshold = null;
-        if (!Resolve(target, ref thresholdComponent))
+        if (!Resolve(target, ref thresholdComponent, false)) // Goobstation
             return false;
 
         foreach (var pair in thresholdComponent.Thresholds)
@@ -251,9 +293,13 @@ public sealed class MobThresholdSystem : EntitySystem
     /// <param name="target1">The entity whose damage will be scaled</param>
     /// <param name="target2">The entity whose health the damage will scale to</param>
     /// <param name="damage">The newly scaled damage. Can be null</param>
-    public bool GetScaledDamage(EntityUid target1, EntityUid target2, out DamageSpecifier? damage)
+    public bool GetScaledDamage(EntityUid target1,
+        EntityUid target2,
+        out DamageSpecifier? damage,
+        out Dictionary<TargetBodyPart, DamageSpecifier>? woundableDamage)
     {
         damage = null;
+        woundableDamage = null;
 
         if (!TryComp<DamageableComponent>(target1, out var oldDamage))
             return false;
@@ -268,7 +314,36 @@ public sealed class MobThresholdSystem : EntitySystem
         if (!TryGetThresholdForState(target2, MobState.Dead, out var ent2DeadThreshold, threshold2))
             ent2DeadThreshold = 0;
 
-        damage = (oldDamage.Damage / ent1DeadThreshold.Value) * ent2DeadThreshold.Value;
+        // Shitmed Change Start
+        Dictionary<TargetBodyPart, DamageSpecifier> entWoundablesDamage = new();
+
+        // If the receiver is a simplemob, we don't care about any of this. Just grab the damage and go.
+        if (TryComp<BodyComponent>(target2, out var body)
+            && body.BodyType == BodyType.Complex)
+        {
+            // However if they are valid for woundmed, we first check if the sender is also valid for it to build a dict.
+            if (TryComp<BodyComponent>(target1, out var oldBody)
+                && oldBody.BodyType == BodyType.Complex
+                && _body.TryGetRootPart(target1, out var parentRootPart))
+            {
+                foreach (var woundable in _wound.GetAllWoundableChildren(parentRootPart.Value))
+                {
+                    if (woundable.Comp.WoundableIntegrity >= woundable.Comp.IntegrityCap
+                        || !TryComp<DamageableComponent>(parentRootPart.Value, out var damageable)
+                        || damageable.Damage.GetTotal() == 0)
+                        continue;
+
+                    var bodyPart = _body.GetTargetBodyPart(woundable);
+                    var modifiedDamage = damageable.Damage / ent1DeadThreshold.Value * ent2DeadThreshold.Value;
+                    if (!entWoundablesDamage.TryAdd(bodyPart, modifiedDamage))
+                        entWoundablesDamage[bodyPart] += modifiedDamage;
+                }
+                woundableDamage = entWoundablesDamage;
+            }
+        }
+
+        damage = oldDamage.Damage / ent1DeadThreshold.Value * ent2DeadThreshold.Value;
+        // Shitmed Change End
         return true;
     }
 
@@ -299,7 +374,7 @@ public sealed class MobThresholdSystem : EntitySystem
     }
 
     /// <summary>
-    /// Checks to see if we should change states based on thresholds.
+    /// Shitmed Change: Checks to see if we should change states based on thresholds.
     /// Call this if you change the amount of damagable without triggering a damageChangedEvent or if you change
     /// </summary>
     /// <param name="target">Target Entity</param>
@@ -307,16 +382,17 @@ public sealed class MobThresholdSystem : EntitySystem
     /// <param name="mobState">MobState Component owned by the Target</param>
     /// <param name="damageable">Damageable Component owned by the Target</param>
     public void VerifyThresholds(EntityUid target, MobThresholdsComponent? threshold = null,
-        MobStateComponent? mobState = null, DamageableComponent? damageable = null)
+        MobStateComponent? mobState = null, DamageableComponent? damageable = null, BodyComponent? body = null)
     {
         if (!Resolve(target, ref mobState, ref threshold, ref damageable))
             return;
 
         CheckThresholds(target, mobState, threshold, damageable);
 
-        var ev = new MobThresholdChecked(target, mobState, threshold, damageable);
-        RaiseLocalEvent(target, ref ev, true);
-        UpdateAlerts(target, mobState.CurrentState, threshold, damageable);
+        if (_net.IsServer)
+            RaiseNetworkEvent(new MobThresholdChecked(GetNetEntity(target)), target);
+
+        UpdateAlerts(target, mobState.CurrentState, threshold, damageable, body);
     }
 
     public void SetAllowRevives(EntityUid uid, bool val, MobThresholdsComponent? component = null)
@@ -368,9 +444,9 @@ public sealed class MobThresholdSystem : EntitySystem
     }
 
     private void UpdateAlerts(EntityUid target, MobState currentMobState, MobThresholdsComponent? threshold = null,
-        DamageableComponent? damageable = null)
+        DamageableComponent? damageable = null, BodyComponent? body = null) // Shitmed Change
     {
-        if (!Resolve(target, ref threshold, ref damageable))
+        if (!Resolve(target, ref threshold, ref damageable)) // Shitmed Change
             return;
 
         // don't handle alerts if they are managed by another system... BobbySim (soon TM)
@@ -379,7 +455,7 @@ public sealed class MobThresholdSystem : EntitySystem
 
         if (!threshold.StateAlertDict.TryGetValue(currentMobState, out var currentAlert))
         {
-            Log.Error($"No alert alert for mob state {currentMobState} for entity {ToPrettyString(target)}");
+            Log.Warning($"No alert alert for mob state {currentMobState} for entity {ToPrettyString(target)}");
             return;
         }
 
@@ -425,11 +501,28 @@ public sealed class MobThresholdSystem : EntitySystem
     {
         if (!TryComp<MobStateComponent>(target, out var mobState))
             return;
+
         CheckThresholds(target, mobState, thresholds, args.Damageable, args.Origin);
-        var ev = new MobThresholdChecked(target, mobState, thresholds, args.Damageable);
-        RaiseLocalEvent(target, ref ev, true);
+
+        if (_net.IsServer)
+            RaiseNetworkEvent(new MobThresholdChecked(GetNetEntity(target)), target);
+
         UpdateAlerts(target, mobState.CurrentState, thresholds, args.Damageable);
     }
+
+    // Shitmed Change Start
+    private void OnWoundableDamage(EntityUid body, MobThresholdsComponent thresholds, WoundableIntegrityChangedOnBodyEvent args)
+    {
+        if (!TryComp<MobStateComponent>(body, out var mobState))
+            return;
+
+        // mob states are handled by consciousness. so we fine here
+        if (_net.IsServer)
+            RaiseNetworkEvent(new MobThresholdChecked(GetNetEntity(body)), body);
+
+        UpdateAlerts(body, mobState.CurrentState, thresholds, null, Comp<BodyComponent>(body));
+    }
+    // Shitmed Change End
 
     private void MobThresholdStartup(EntityUid target, MobThresholdsComponent thresholds, ComponentStartup args)
     {
@@ -457,17 +550,18 @@ public sealed class MobThresholdSystem : EntitySystem
         }
     }
 
-    private void UpdateAllEffects(Entity<MobThresholdsComponent, MobStateComponent?, DamageableComponent?> ent, MobState currentState)
+    // Shitmed Change Start
+    private void UpdateAllEffects(Entity<MobThresholdsComponent, MobStateComponent?, DamageableComponent?, BodyComponent?> ent, MobState currentState)
     {
-        var (_, thresholds, mobState, damageable) = ent;
-        if (Resolve(ent, ref thresholds, ref mobState, ref damageable))
+        var (_, thresholds, mobState, damageable, bodyComponent) = ent;
+        if (Resolve(ent, ref thresholds, ref mobState) && _net.IsServer)
         {
-            var ev = new MobThresholdChecked(ent, mobState, thresholds, damageable);
-            RaiseLocalEvent(ent, ref ev, true);
+            RaiseNetworkEvent(new MobThresholdChecked(GetNetEntity(ent.Owner)), ent.Owner);
         }
 
-        UpdateAlerts(ent, currentState, thresholds, damageable);
+        UpdateAlerts(ent, currentState, thresholds, damageable, bodyComponent);
     }
+    // Shitmed Change End
 
     private void OnThresholdsMobState(Entity<MobThresholdsComponent> ent, ref MobStateChangedEvent args)
     {
@@ -478,12 +572,14 @@ public sealed class MobThresholdSystem : EntitySystem
 }
 
 /// <summary>
-/// Event that triggers when an entity with a mob threshold is checked
+/// Shitmed Change: Event that triggers when an entity with a mob threshold is checked
 /// </summary>
-/// <param name="Target">Target entity</param>
-/// <param name="Threshold">Threshold Component owned by the Target</param>
-/// <param name="MobState">MobState Component owned by the Target</param>
-/// <param name="Damageable">Damageable Component owned by the Target</param>
-[ByRefEvent]
-public readonly record struct MobThresholdChecked(EntityUid Target, MobStateComponent MobState,
-    MobThresholdsComponent Threshold, DamageableComponent Damageable);
+[Serializable, NetSerializable]
+public sealed class MobThresholdChecked : EntityEventArgs
+{
+    public NetEntity Uid { get; }
+    public MobThresholdChecked(NetEntity uid)
+    {
+        Uid = uid;
+    }
+}

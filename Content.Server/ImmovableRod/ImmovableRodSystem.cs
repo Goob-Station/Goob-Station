@@ -1,4 +1,27 @@
+// SPDX-FileCopyrightText: 2022 Andreas K�mper <andreas.kaemper@5minds.de>
+// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 SpaceManiac <tad@platymuus.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Body.Systems;
+using Content.Server.Destructible;
+using Content.Server.Examine;
 using Content.Server.Polymorph.Components;
 using Content.Server.Popups;
 using Content.Server.Storage.Components;
@@ -29,6 +52,7 @@ public sealed class ImmovableRodSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly DestructibleSystem _destructible = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly EntityStorageSystem _entityStorage = default!; // Goobstation
@@ -42,7 +66,7 @@ public sealed class ImmovableRodSystem : EntitySystem
         base.Update(frameTime);
 
         // we are deliberately including paused entities. rod hungers for all
-        foreach (var (rod, trans) in EntityManager.EntityQuery<ImmovableRodComponent, TransformComponent>(true))
+        foreach (var (rod, trans) in EntityQuery<ImmovableRodComponent, TransformComponent>(true))
         {
             if (!rod.DestroyTiles)
                 continue;
@@ -65,7 +89,7 @@ public sealed class ImmovableRodSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, ImmovableRodComponent component, MapInitEvent args)
     {
-        if (EntityManager.TryGetComponent(uid, out PhysicsComponent? phys))
+        if (TryComp(uid, out PhysicsComponent? phys))
         {
             _physics.SetLinearDamping(uid, phys, 0f);
             _physics.SetFriction(uid, phys, 0f);
@@ -150,7 +174,7 @@ public sealed class ImmovableRodSystem : EntitySystem
 
         _entityStorage.EmptyContents(ent); // Goobstation
 
-        QueueDel(ent);
+        _destructible.DestroyEntity(ent);
     }
 
     private void OnExamined(EntityUid uid, ImmovableRodComponent component, ExaminedEvent args)

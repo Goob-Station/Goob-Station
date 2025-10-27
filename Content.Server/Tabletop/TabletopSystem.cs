@@ -1,3 +1,24 @@
+// SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2023 eclips_e <67359748+Just-a-Unity-Dev@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Server.Tabletop.Components;
 using Content.Shared.CCVar;
@@ -12,7 +33,6 @@ using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
-using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using Content.Server.Chat.Managers;
@@ -22,8 +42,9 @@ namespace Content.Server.Tabletop
     [UsedImplicitly]
     public sealed partial class TabletopSystem : SharedTabletopSystem
     {
-        [Dependency] private readonly IMapManager _mapManager = default!;
+        [Dependency] private readonly SharedMapSystem _map = default!;
         [Dependency] private readonly EyeSystem _eye = default!;
+        [Dependency] private readonly HandsSystem _hands = default!;
         [Dependency] private readonly ViewSubscriberSystem _viewSubscriberSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly IChatManager _chat = default!;
@@ -81,19 +102,14 @@ namespace Content.Server.Tabletop
             if (!_cfg.GetCVar(CCVars.GameTabletopPlace))
                 return;
 
-            if (!EntityManager.TryGetComponent(args.User, out HandsComponent? hands))
+            if (!TryComp(args.User, out HandsComponent? hands))
                 return;
 
             if (component.Session is not { } session)
                 return;
 
-            if (hands.ActiveHand == null)
+            if (!_hands.TryGetActiveItem(uid, out var handEnt))
                 return;
-
-            if (hands.ActiveHand.HeldEntity == null)
-                return;
-
-            var handEnt = hands.ActiveHand.HeldEntity.Value;
 
             if (!TryComp<ItemComponent>(handEnt, out var item))
                 return;
@@ -107,7 +123,8 @@ namespace Content.Server.Tabletop
             }
             else
                 component.HologramsSpawned++;
-            var meta = MetaData(handEnt);
+
+            var meta = MetaData(handEnt.Value);
             var protoId = meta.EntityPrototype?.ID;
 
             var hologram = Spawn(protoId, session.Position.Offset(-1, 0));
@@ -143,7 +160,7 @@ namespace Content.Server.Tabletop
             if (!args.CanAccess || !args.CanInteract)
                 return;
 
-            if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
+            if (!TryComp(args.User, out ActorComponent? actor))
                 return;
 
             var playVerb = new ActivationVerb()
@@ -162,7 +179,7 @@ namespace Content.Server.Tabletop
                 return;
 
             // Check that a player is attached to the entity.
-            if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
+            if (!TryComp(args.User, out ActorComponent? actor))
                 return;
 
             OpenSessionFor(actor.PlayerSession, uid);
@@ -186,7 +203,7 @@ namespace Content.Server.Tabletop
 
         private void OnGamerShutdown(EntityUid uid, TabletopGamerComponent component, ComponentShutdown args)
         {
-            if (!EntityManager.TryGetComponent(uid, out ActorComponent? actor))
+            if (!TryComp(uid, out ActorComponent? actor))
                 return;
 
             if(component.Tabletop.IsValid())
@@ -205,7 +222,7 @@ namespace Content.Server.Tabletop
 
                 if (!TryComp(uid, out ActorComponent? actor))
                 {
-                    EntityManager.RemoveComponent<TabletopGamerComponent>(uid);
+                    RemComp<TabletopGamerComponent>(uid);
                     return;
                 }
 

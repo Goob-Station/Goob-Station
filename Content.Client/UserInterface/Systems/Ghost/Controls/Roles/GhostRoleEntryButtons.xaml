@@ -1,4 +1,16 @@
-﻿<BoxContainer xmlns="https://spacestation14.io"
+<!--
+SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Ray <vigersray@gmail.com>
+SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<BoxContainer xmlns="https://spacestation14.io"
               Orientation="Horizontal"
               HorizontalAlignment="Stretch">
     <Button Name="RequestButton"

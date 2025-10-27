@@ -1,13 +1,36 @@
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 a.rudenko <creadth@gmail.com>
+// SPDX-FileCopyrightText: 2020 creadth <creadth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Content.Client.Message;
 using Content.Client.Resources;
 using Content.Client.Stylesheets;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos.EntitySystems;
+using Content.Shared.Timing;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
+using Robust.Shared.Timing;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
 namespace Content.Client.UserInterface.Systems.Atmos.GasTank;
@@ -15,6 +38,7 @@ namespace Content.Client.UserInterface.Systems.Atmos.GasTank;
 public sealed class GasTankWindow
     : BaseWindow
 {
+    [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IResourceCache _cache = default!;
 
     private readonly RichTextLabel _lblPressure;
@@ -22,6 +46,8 @@ public sealed class GasTankWindow
     private readonly RichTextLabel _lblInternals;
     private readonly Button _btnInternals;
     private readonly Label _topLabel;
+
+    public EntityUid Entity;
 
     public event Action<float>? OnOutputPressure;
     public event Action? OnToggleInternals;
@@ -194,12 +220,32 @@ public sealed class GasTankWindow
     public void UpdateState(GasTankBoundUserInterfaceState state)
     {
         _lblPressure.SetMarkup(Loc.GetString("gas-tank-window-tank-pressure-text", ("tankPressure", $"{state.TankPressure:0.##}")));
-        _btnInternals.Disabled = !state.CanConnectInternals;
+    }
+
+    public void Update(bool canConnectInternals, bool internalsConnected, float outputPressure)
+    {
+        _btnInternals.Disabled = !canConnectInternals;
         _lblInternals.SetMarkup(Loc.GetString("gas-tank-window-internal-text",
-            ("status", Loc.GetString(state.InternalsConnected ? "gas-tank-window-internal-connected" : "gas-tank-window-internal-disconnected"))));
-        if (state.OutputPressure.HasValue)
+            ("status", Loc.GetString(internalsConnected ? "gas-tank-window-internal-connected" : "gas-tank-window-internal-disconnected"))));
+        if (!_spbPressure.HasKeyboardFocus())
+            // Don't update release pressure if we're currently editing it
+            _spbPressure.Value = outputPressure;
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+
+        // Easier than managing state on any ent changes. Previously this was just ticked on server's GasTankSystem.
+        if (_entManager.TryGetComponent(Entity, out GasTankComponent? tank))
         {
-            _spbPressure.Value = state.OutputPressure.Value;
+            var canConnectInternals = _entManager.System<SharedGasTankSystem>().CanConnectToInternals((Entity, tank));
+            _btnInternals.Disabled = !canConnectInternals;
+        }
+
+        if (!_btnInternals.Disabled)
+        {
+            _btnInternals.Disabled = _entManager.System<UseDelaySystem>().IsDelayed(Entity, id: SharedGasTankSystem.GasTankDelay);
         }
     }
 

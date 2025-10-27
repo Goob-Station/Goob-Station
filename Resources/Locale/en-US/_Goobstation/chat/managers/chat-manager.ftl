@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 ## Speech verbs for chat
 
 chat-speech-verb-name-gondola = Gondola
@@ -21,3 +31,15 @@ chat-speech-verb-VoiceModulator-2 = buzzes
 chat-speech-verb-VoiceModulator-3 = drones
 chat-speech-verb-VoiceModulator-4 = hums
 chat-speech-verb-VoiceModulator-5 = crackles
+
+chat-speech-verb-name-holier-than-thou = Holier Than Thou
+chat-speech-verb-holier-than-thou-1 = commands
+chat-speech-verb-holier-than-thou-2 = lectures
+chat-speech-verb-holier-than-thou-3 = articulates
+chat-speech-verb-holier-than-thou-4 = proclaims
+chat-speech-verb-holier-than-thou-5 = announces
+chat-speech-verb-holier-than-thou-6 = recites
+chat-speech-verb-holier-than-thou-7 = declares
+chat-speech-verb-holier-than-thou-8 = pronounces
+
+chat-manager-entity-say-bolded-language-wrap-message = [BubbleHeader][bold][Name]{$entityName}[/Name][/bold][/BubbleHeader] {$verb}, [font={$fontType} size={$fontSize}]"[BubbleContent][font="{$boldFontType}" size={$fontSize}][color={$color}]{$message}[/color][/font][/BubbleContent]"[/font]

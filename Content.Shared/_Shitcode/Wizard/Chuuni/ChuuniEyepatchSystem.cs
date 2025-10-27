@@ -1,7 +1,14 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Magic.Components;
 using Content.Shared.Verbs;
@@ -26,7 +33,7 @@ public sealed class ChuuniEyepatchSystem : EntitySystem
         SubscribeLocalEvent<ChuuniEyepatchComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<ChuuniEyepatchComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<ChuuniEyepatchComponent, InventoryRelayedEvent<GetSpellInvocationEvent>>(OnGetInvocation);
-        SubscribeLocalEvent<ChuuniEyepatchComponent, InventoryRelayedEvent<GetMessagePostfixEvent>>(OnGetPostfix);
+        SubscribeLocalEvent<ChuuniEyepatchComponent, InventoryRelayedEvent<GetMessageColorOverrideEvent>>(OnGetPostfix);
     }
 
     public override void Update(float frameTime)
@@ -50,9 +57,9 @@ public sealed class ChuuniEyepatchSystem : EntitySystem
     }
 
     private void OnGetPostfix(Entity<ChuuniEyepatchComponent> ent,
-        ref InventoryRelayedEvent<GetMessagePostfixEvent> args)
+        ref InventoryRelayedEvent<GetMessageColorOverrideEvent> args)
     {
-        args.Args.Postfix = ent.Comp.MessagePostfix;
+        args.Args.Color = ent.Comp.Color;
     }
 
     private void OnGetInvocation(Entity<ChuuniEyepatchComponent> ent,
@@ -135,9 +142,9 @@ public sealed class GetSpellInvocationEvent(MagicSchool school, EntityUid perfor
     public LocId? Invocation;
 }
 
-public sealed class GetMessagePostfixEvent : EntityEventArgs, IInventoryRelayEvent
+public sealed class GetMessageColorOverrideEvent : EntityEventArgs, IInventoryRelayEvent
 {
     public SlotFlags TargetSlots => SlotFlags.EYES;
 
-    public string Postfix = string.Empty;
+    public Color? Color = null;
 }

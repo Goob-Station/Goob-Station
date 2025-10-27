@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Map; // Goobstation
+
 namespace Content.Server.SurveillanceCamera;
 
 [RegisterComponent]
@@ -29,16 +40,25 @@ public sealed partial class SurveillanceCameraMonitorComponent : Component
     // Set of viewers currently looking at this monitor.
     public HashSet<EntityUid> Viewers { get; } = new();
 
-    // Current active subnet.
-    [ViewVariables]
-    public string ActiveSubnet { get; set; } = default!;
-
     // Known cameras in this subnet by address with name values.
     // This is cleared when the subnet is changed.
     [ViewVariables]
-    public Dictionary<string, string> KnownCameras { get; } = new();
+    public Dictionary<string, (string, (NetEntity, NetCoordinates))> KnownCameras { get; } = new(); //Goobstation
+
+    // The same as KnownCameras but for MobileCameras only: sec bodycams, no pro, dragable wireless camera
+    [ViewVariables]
+    public Dictionary<string, (string, (NetEntity, NetCoordinates))> KnownMobileCameras { get; } = new(); //Goobstation
+
+    // Mobile cameras should receive a heartbeat as they constantly stream their location
+    [ViewVariables]
+    public Dictionary<string, float> KnownMobileCamerasLastHeartbeat { get; } = new(); //Goobstation
+
+    // Mobile cameras should receive a heartbeat as they constantly stream their location
+    [ViewVariables]
+    public Dictionary<string, float> KnownMobileCamerasLastHeartbeatSent { get; } = new(); //Goobstation
 
     [ViewVariables]
     // The subnets known by this camera monitor.
     public Dictionary<string, string> KnownSubnets { get; } = new();
+
 }

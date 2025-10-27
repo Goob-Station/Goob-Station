@@ -1,3 +1,18 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Client._Shitmed.Choice.UI;
 using Content.Client.Administration.UI.CustomControls;
 using Content.Shared._Shitmed.Medical.Surgery;
@@ -124,14 +139,15 @@ public sealed class SurgeryBui : BoundUserInterface
                 return partType switch
                 {
                     BodyPartType.Head => 1,
-                    BodyPartType.Torso => 2,
-                    BodyPartType.Arm => 3,
-                    BodyPartType.Hand => 4,
-                    BodyPartType.Leg => 5,
-                    BodyPartType.Foot => 6,
-                    // BodyPartType.Tail => 7, No tails yet!
-                    BodyPartType.Other => 8,
-                    _ => 9
+                    BodyPartType.Chest => 2,
+                    BodyPartType.Groin => 3,
+                    BodyPartType.Arm => 4,
+                    BodyPartType.Hand => 5,
+                    BodyPartType.Leg => 6,
+                    BodyPartType.Foot => 7,
+                    // BodyPartType.Tail => 8, No tails yet!
+                    BodyPartType.Other => 9,
+                    _ => 10
                 };
             }
 
@@ -177,7 +193,7 @@ public sealed class SurgeryBui : BoundUserInterface
         var stepName = new FormattedMessage();
         stepName.AddText(_entities.GetComponent<MetaDataComponent>(step).EntityName);
         var stepButton = new SurgeryStepButton { Step = step };
-        stepButton.Button.OnPressed += _ => SendMessage(new SurgeryStepChosenBuiMsg(netPart, surgeryId, stepId, _isBody));
+        stepButton.Button.OnPressed += _ => SendPredictedMessage(new SurgeryStepChosenBuiMsg(netPart, surgeryId, stepId, _isBody));
 
         _window.Steps.AddChild(stepButton);
     }
@@ -303,7 +319,7 @@ public sealed class SurgeryBui : BoundUserInterface
                 stepButton.Button.Modulate = Color.White;
                 if (_player.LocalEntity is { } player
                     && status == StepStatus.Next
-                    && !_system.CanPerformStep(player, Owner, _part.Value, stepButton.Step, false, out var popup, out var reason, out _))
+                    && !_system.CanPerformStepWithHeld(player, Owner, _part.Value, stepButton.Step, false, out var popup))
                     stepButton.ToolTip = popup;
             }
 

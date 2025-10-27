@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 jellygato <aly.jellygato@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Atmos;
+using Content.Shared.Atmos.Prototypes;
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -12,11 +23,23 @@ namespace Content.Goobstation.Shared.Emoting;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class FartComponent : Component
 {
-    [DataField] public ProtoId<EmotePrototype>? Emote;
-    [DataField] public bool FartTimeout = false;
-    [DataField] public bool FartInhale = false;
-    [DataField] public bool SuperFarted = false;
-    [DataField] public float MolesAmmoniaPerFart = 5f;
+    [DataField]
+    public ProtoId<EmotePrototype>? Emote;
+
+    [DataField]
+    public bool FartTimeout;
+
+    [DataField]
+    public bool FartInhale;
+
+    [DataField]
+    public bool SuperFarted;
+
+    [DataField]
+    public float MolesAmmoniaPerFart = 5f;
+
+    [DataField]
+    public Gas GasToFart = Gas.Ammonia;
 
     /// <summary>
     ///     Path to the sound when you get bible smited

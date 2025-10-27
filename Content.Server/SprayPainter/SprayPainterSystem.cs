@@ -1,27 +1,212 @@
-using Content.Server.Atmos.Piping.Components;
-using Content.Server.Atmos.Piping.EntitySystems;
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
+// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
+// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Magnus Larsen <i.am.larsenml@gmail.com>
+// SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos.EntitySystems;
+using Content.Server.Charges;
+using Content.Server.Decals;
+using Content.Server.Destructible;
+using Content.Server.Popups;
+using Content.Shared.Atmos.Piping.Unary.Components;
+using Content.Shared.Charges.Components;
+using Content.Shared.Coordinates.Helpers;
+using Content.Shared.Database;
+using Content.Shared.Decals;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.SprayPainter;
 using Content.Shared.SprayPainter.Components;
+using Robust.Server.Audio;
+using Robust.Server.GameObjects;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.SprayPainter;
 
 /// <summary>
-/// Handles spraying pipes using a spray painter.
-/// Airlocks are handled in shared.
+/// Handles spraying pipes and decals using a spray painter.
+/// Other paintable objects are handled in shared.
 /// </summary>
 public sealed class SprayPainterSystem : SharedSprayPainterSystem
 {
     [Dependency] private readonly AtmosPipeColorSystem _pipeColor = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly DecalSystem _decals = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly ChargesSystem _charges = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<SprayPainterComponent, SprayPainterPipeDoAfterEvent>(OnPipeDoAfter);
-
+        SubscribeLocalEvent<SprayPainterComponent, AfterInteractEvent>(OnFloorAfterInteract);
         SubscribeLocalEvent<AtmosPipeColorComponent, InteractUsingEvent>(OnPipeInteract);
+        SubscribeLocalEvent<GasCanisterComponent, EntityPaintedEvent>(OnCanisterPainted);
+    }
+
+    /// <summary>
+    /// Handles drawing decals when a spray painter is used to interact with the floor.
+    /// Spray painter must have decal painting enabled and enough charges of paint to paint on the floor.
+    /// </summary>
+    private void OnFloorAfterInteract(Entity<SprayPainterComponent> ent, ref AfterInteractEvent args)
+    {
+        if (args.Handled || !args.CanReach || args.Target != null)
+            return;
+
+        // Includes both off and all other don't cares
+        if (ent.Comp.DecalMode != DecalPaintMode.Add && ent.Comp.DecalMode != DecalPaintMode.Remove)
+            return;
+
+        args.Handled = true;
+        if (TryComp(ent, out LimitedChargesComponent? charges) && charges.LastCharges < ent.Comp.DecalChargeCost)
+        {
+            _popup.PopupEntity(Loc.GetString("spray-painter-interact-no-charges"), args.User, args.User);
+            return;
+        }
+
+        var position = args.ClickLocation;
+        if (ent.Comp.SnapDecals)
+            position = position.SnapToGrid(EntityManager);
+
+        if (ent.Comp.DecalMode == DecalPaintMode.Add)
+        {
+            // Offset painting for adding decals
+            position = position.Offset(new(-0.5f));
+
+            if (!_decals.TryAddDecal(ent.Comp.SelectedDecal, position, out _, ent.Comp.SelectedDecalColor, Angle.FromDegrees(ent.Comp.SelectedDecalAngle), 0, false))
+                return;
+        }
+        else
+        {
+            var gridUid = _transform.GetGrid(args.ClickLocation);
+            if (gridUid is not { } grid || !TryComp<DecalGridComponent>(grid, out var decalGridComp))
+            {
+                _popup.PopupEntity(Loc.GetString("spray-painter-interact-nothing-to-remove"), args.User, args.User);
+                return;
+            }
+
+            var decals = _decals.GetDecalsInRange(grid, position.Position, validDelegate: IsDecalRemovable);
+            if (decals.Count <= 0)
+            {
+                _popup.PopupEntity(Loc.GetString("spray-painter-interact-nothing-to-remove"), args.User, args.User);
+                return;
+            }
+
+            foreach (var decal in decals)
+            {
+                _decals.RemoveDecal(grid, decal.Index, decalGridComp);
+            }
+        }
+
+        _audio.PlayPvs(ent.Comp.SpraySound, ent);
+
+        _charges.TryUseCharges((ent, charges), ent.Comp.DecalChargeCost);
+
+        AdminLogger.Add(LogType.CrayonDraw, LogImpact.Low, $"{EntityManager.ToPrettyString(args.User):user} painted a {ent.Comp.SelectedDecal}");
+    }
+
+    /// <summary>
+    /// Handles drawing decals when a spray painter is used to interact with the floor.
+    /// Spray painter must have decal painting enabled and enough charges of paint to paint on the floor.
+    /// </summary>
+    private bool IsDecalRemovable(Decal decal)
+    {
+        if (!Proto.TryIndex<DecalPrototype>(decal.Id, out var decalProto))
+            return false;
+
+        return (decalProto.Tags.Contains("station")
+            || decalProto.Tags.Contains("markings"))
+            && !decalProto.Tags.Contains("dirty");
+    }
+
+    /// <summary>
+    /// Event handler when gas canisters are painted.
+    /// The canister's color should not change when it's destroyed.
+    /// </summary>
+    private void OnCanisterPainted(Entity<GasCanisterComponent> ent, ref EntityPaintedEvent args)
+    {
+        var dummy = Spawn(args.Prototype);
+
+        var destructibleComp = EnsureComp<DestructibleComponent>(dummy);
+        CopyComp(dummy, ent, destructibleComp);
+
+        Del(dummy);
     }
 
     private void OnPipeDoAfter(Entity<SprayPainterComponent> ent, ref SprayPainterPipeDoAfterEvent args)
@@ -29,15 +214,18 @@ public sealed class SprayPainterSystem : SharedSprayPainterSystem
         if (args.Handled || args.Cancelled)
             return;
 
-        if (args.Args.Target is not {} target)
+        if (args.Args.Target is not { } target)
             return;
 
         if (!TryComp<AtmosPipeColorComponent>(target, out var color))
             return;
 
-        Audio.PlayPvs(ent.Comp.SpraySound, ent);
+        if (TryComp<LimitedChargesComponent>(ent, out var charges) &&
+            !_charges.TryUseCharges((ent, charges), ent.Comp.PipeChargeCost))
+            return;
 
-        _pipeColor.SetColor(target, color, args.Color);
+        Audio.PlayPvs(ent.Comp.SpraySound, ent);
+        _pipeColor.SetColor((target, color), args.Color);
 
         args.Handled = true;
     }
@@ -47,13 +235,28 @@ public sealed class SprayPainterSystem : SharedSprayPainterSystem
         if (args.Handled)
             return;
 
-        if (!TryComp<SprayPainterComponent>(args.Used, out var painter) || painter.PickedColor is not {} colorName)
+        if (!TryComp<SprayPainterComponent>(args.Used, out var painter) ||
+            painter.PickedColor is not { } colorName)
             return;
 
         if (!painter.ColorPalette.TryGetValue(colorName, out var color))
             return;
 
-        var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, painter.PipeSprayTime, new SprayPainterPipeDoAfterEvent(color), args.Used, target: ent, used: args.Used)
+        if (TryComp<LimitedChargesComponent>(args.Used, out var charges)
+            && charges.LastCharges < painter.PipeChargeCost)
+        {
+            var msg = Loc.GetString("spray-painter-interact-no-charges");
+            _popup.PopupEntity(msg, args.User, args.User);
+            return;
+        }
+
+        var doAfterEventArgs = new DoAfterArgs(EntityManager,
+            args.User,
+            painter.PipeSprayTime,
+            new SprayPainterPipeDoAfterEvent(color),
+            args.Used,
+            target: ent,
+            used: args.Used)
         {
             BreakOnMove = true,
             BreakOnDamage = true,

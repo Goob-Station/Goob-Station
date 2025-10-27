@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: constructionGraph
   id: Modsuit
   start: start
@@ -8,7 +18,7 @@
     - to: shell-core
       steps:
       - tag: ModsuitCore
-        name: MOD core
+        name: construction-graph-tag-mod-core
         store: core-container
         completed:
         - !type:PlaySound
@@ -36,7 +46,7 @@
     - to: shell-helmet
       steps:
       - tag: ModsuitHelmet
-        name: MOD helmet
+        name: construction-graph-tag-mod-helmet
         doAfter: 1
         completed:
         - !type:PlaySound
@@ -49,7 +59,7 @@
     - to: shell-chestplate
       steps:
       - tag: ModsuitChestplate
-        name: MOD chestplate
+        name: construction-graph-tag-mod-chestplate
         doAfter: 1
         completed:
         - !type:PlaySound
@@ -62,7 +72,7 @@
     - to: shell-gauntlets
       steps:
       - tag: ModsuitGauntlets
-        name: MOD gauntlets
+        name: construction-graph-tag-mod-gauntlets
         doAfter: 1
         completed:
         - !type:PlaySound
@@ -75,7 +85,7 @@
     - to: shell-boots
       steps:
       - tag: ModsuitBoots
-        name: MOD boots
+        name: construction-graph-tag-mod-boots
         doAfter: 1
         completed:
         - !type:PlaySound
@@ -100,7 +110,7 @@
     - to: standard
       steps:
         - tag: ModsuitPlatingExternal
-          name: any MOD plating
+          name: construction-graph-tag-mod-plating
           doAfter: 1
           completed:
           - !type:PlaySound
@@ -111,3 +121,24 @@
 
   - node: standard
     entity: ClothingModsuitStandard
+
+  - node: security
+    entity: ClothingModsuitSecurity
+
+  - node: paramedic
+    entity: ClothingModsuitParamedic
+
+  - node: headofsecurity
+    entity: ClothingModsuitHeadOfSecurity
+
+  - node: engineer
+    entity: ClothingModsuitEngineer
+
+  - node: atmostech
+    entity: ClothingModsuitAtmostech
+
+  - node: rd
+    entity: ClothingModsuitResearchDirector
+
+  - node: captain
+    entity: ClothingModsuitCaptain

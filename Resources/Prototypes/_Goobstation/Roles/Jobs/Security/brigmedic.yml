@@ -1,0 +1,55 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: job
+  id: Brigmedic
+  name: job-name-brigmedic
+  description: job-description-brigmedic
+  playTimeTracker: JobBrigmedic
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 36000 # 10 hrs
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 # 10 hrs
+  startingGear: BrigmedicGear
+  icon: "JobIconBrigmedic"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  goobcoins: 35
+  access: # EE parity, make corpsman able function.
+  - Security
+  - Brig
+  - Medical
+  - Maintenance
+  - Service
+  - External
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: SecurityStaff
+  - !type:AddComponentSpecial
+    components:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.25 # Same as Paramedic
+
+- type: chameleonOutfit
+  id: BrigmedicChameleonOutfit
+  job: Brigmedic
+  equipment:
+    eyes: ClothingEyesGlassesMedSec
+    mask: ClothingMaskBreathMedicalSecurity
+    ears: ClothingHeadsetBrigmedic
+    outerClothing: ClothingOuterCoatAMG
+    gloves: ClothingHandsGlovesColorWhite
+    jumpsuit: ClothingUniformJumpsuitBrigmedic
+    id: BrigmedicPDA
+    back: ClothingBackpackBrigmedic
+    shoes: ClothingShoesBootsJack
+    head: ClothingHeadHatBeretBrigmedic

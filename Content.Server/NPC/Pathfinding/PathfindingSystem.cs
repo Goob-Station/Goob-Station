@@ -1,3 +1,39 @@
+// SPDX-FileCopyrightText: 2020 Clyybber <darkmine956@gmail.com>
+// SPDX-FileCopyrightText: 2020 ColdAutumnRain <73938872+ColdAutumnRain@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 ScalyChimp <72841710+scaly-chimp@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Buffers;
 using System.Linq;
 using System.Numerics;
@@ -188,8 +224,8 @@ namespace Content.Server.NPC.Pathfinding
         /// </summary>
         public bool TryCreatePortal(EntityCoordinates coordsA, EntityCoordinates coordsB, out int handle)
         {
-            var mapUidA = coordsA.GetMapUid(EntityManager);
-            var mapUidB = coordsB.GetMapUid(EntityManager);
+            var mapUidA = _transform.GetMap(coordsA);
+            var mapUidB = _transform.GetMap(coordsB);
             handle = -1;
 
             if (mapUidA != mapUidB || mapUidA == null)
@@ -197,8 +233,8 @@ namespace Content.Server.NPC.Pathfinding
                 return false;
             }
 
-            var gridUidA = coordsA.GetGridUid(EntityManager);
-            var gridUidB = coordsB.GetGridUid(EntityManager);
+            var gridUidA = _transform.GetGrid(coordsA);
+            var gridUidB = _transform.GetGrid(coordsB);
 
             if (!TryComp<GridPathfindingComponent>(gridUidA, out var gridA) ||
                 !TryComp<GridPathfindingComponent>(gridUidB, out var gridB))
@@ -236,8 +272,8 @@ namespace Content.Server.NPC.Pathfinding
 
             _portals.Remove(handle);
 
-            var gridUidA = portal.CoordinatesA.GetGridUid(EntityManager);
-            var gridUidB = portal.CoordinatesB.GetGridUid(EntityManager);
+            var gridUidA = _transform.GetGrid(portal.CoordinatesA);
+            var gridUidB = _transform.GetGrid(portal.CoordinatesB);
 
             if (!TryComp<GridPathfindingComponent>(gridUidA, out var gridA) ||
                 !TryComp<GridPathfindingComponent>(gridUidB, out var gridB))
@@ -397,7 +433,7 @@ namespace Content.Server.NPC.Pathfinding
         /// </summary>
         public PathPoly? GetPoly(EntityCoordinates coordinates)
         {
-            var gridUid = coordinates.GetGridUid(EntityManager);
+            var gridUid = _transform.GetGrid(coordinates);
 
             if (!TryComp<GridPathfindingComponent>(gridUid, out var comp) ||
                 !TryComp(gridUid, out TransformComponent? xform))
@@ -405,14 +441,14 @@ namespace Content.Server.NPC.Pathfinding
                 return null;
             }
 
-            var localPos = Vector2.Transform(coordinates.ToMapPos(EntityManager, _transform), _transform.GetInvWorldMatrix(xform));
+            var localPos = Vector2.Transform(_transform.ToMapCoordinates(coordinates).Position, _transform.GetInvWorldMatrix(xform));
             var origin = GetOrigin(localPos);
 
             if (!TryGetChunk(origin, comp, out var chunk))
                 return null;
 
             var chunkPos = new Vector2(MathHelper.Mod(localPos.X, ChunkSize), MathHelper.Mod(localPos.Y, ChunkSize));
-            var polys = chunk.Polygons[(int) chunkPos.X * ChunkSize + (int) chunkPos.Y];
+            var polys = chunk.Polygons[(int)chunkPos.X * ChunkSize + (int)chunkPos.Y];
 
             foreach (var poly in polys)
             {

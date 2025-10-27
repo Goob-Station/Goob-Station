@@ -1,3 +1,28 @@
+# SPDX-FileCopyrightText: 2024 Archylle <81660513+Archylle@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 inquisitor-star <81660513+inquisitor-star@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 inquisitor-star <thecatankha@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entityTable
   id: SalvageScrapSpawnerCommon
   table: !type:GroupSelector
@@ -236,8 +261,7 @@
     - !type:NestedSelector
       tableId: MaintFluffTable
       weight: 5
-      rolls: !type:RangeNumberSelector
-        range: 1, 2
+      rolls: 1, 2
 
 - type: entity
   parent: MarkerBase
@@ -266,16 +290,16 @@
       children:
       - !type:NestedSelector
         tableId: SalvageEquipmentCommon
-        weight: 50
+        weight: 20
       - !type:NestedSelector
         tableId: SalvageEquipmentUncommon
         weight: 35
       - !type:NestedSelector
         tableId: SalvageEquipmentRare
-        weight: 14
+        weight: 35
       - !type:NestedSelector
         tableId: SalvageEquipmentLegendary
-        weight: 1
+        weight: 10
     # 5% chance of decent-ish treasure
     - !type:GroupSelector
       weight: 5
@@ -325,16 +349,16 @@
       children:
       - !type:NestedSelector
         tableId: SalvageEquipmentCommon
-        weight: 15
+        weight: 5
       - !type:NestedSelector
         tableId: SalvageEquipmentUncommon
-        weight: 40
+        weight: 25
       - !type:NestedSelector
         tableId: SalvageEquipmentRare
-        weight: 35
+        weight: 45
       - !type:NestedSelector
         tableId: SalvageEquipmentLegendary
-        weight: 10
+        weight: 25
     # 5% chance of decent-ish treasure
     - !type:GroupSelector
       weight: 5
@@ -407,20 +431,34 @@
   id: SalvageMagnetMobTable
   table: !type:GroupSelector
     children:
-    - id: MobCarpSalvage
-      weight: 80
-    - id: MobCarpSalvage
-      weight: 15
-      amount: !type:RangeNumberSelector
-        range: 1, 3
-    - !type:AllSelector
+    - !type:GroupSelector # normal theats
+      weight: 95
+      children:
+      - id: MobCarpSalvage
+        weight: 2
+      - !type:AllSelector
+        weight: 1
+        children:
+        - id: LandMineExplosive
+        - !type:NestedSelector # what's that thing underneath the scrap?
+          prob: 0.33
+          tableId: SalvageScrapSpawnerCommon
+    - !type:GroupSelector # scary monsters
       weight: 5
       children:
-      - id: MobSharkSalvage
-      - id: MobCarpSalvage
-        amount: !type:ConstantNumberSelector
-          value: 2
-    # - id: MobHivebot (solo hivebot spawn)
+      - !type:AllSelector
+        children:
+        - id: MobSharkSalvage
+        - id: MobCarpSalvage
+          amount: 2
+        - !type:NestedSelector
+          rolls: 1, 3
+          tableId: SalvageTreasureSpawnerValuable
+        - !type:NestedSelector
+          rolls: 7, 10
+          tableId: TreasureCoinPileRare
+      #- id: MobHivebot (solo hivebot spawn)
+
 
 - type: entity
   parent: MarkerBase
@@ -460,6 +498,42 @@
 
 - type: entity
   parent: MarkerBase
+  id: SalvageSpawnerStructuresVarious
+  name: Space Debris Structure Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Structures/Storage/tanks.rsi
+      state: fueltank-2
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: WeldingFuelTankFull
+        weight: 0.5
+      - !type:GroupSelector
+        children:
+        - id: Table
+          weight: 2
+        - id: TableFrame
+      - id: SalvageCanisterSpawner
+      - id: Rack
+      - !type:NestedSelector
+        weight: 0.5
+        tableId: LowValueCrateTable
+      - id: ComputerBroken
+        weight: 0.1
+      - id: CrateGeneric
+        weight: 0.25
+      - id: ClosetMaintenanceFilledRandom
+        weight: 2
+      - !type:GroupSelector
+        children:
+        - id: Thruster
+        - id: Gyroscope
+
+- type: entity
+  parent: MarkerBase
   id: SalvageSpawnerMobShark
   name: Salvage Sharkminnow Spawner
   components:
@@ -473,8 +547,7 @@
       children:
       - id: MobSharkSalvage
       - id: MobCarpSalvage
-        amount: !type:ConstantNumberSelector
-          value: 3
+        amount: 3
 
 - type: entity
   parent: MarkerBase
@@ -490,10 +563,8 @@
     table: !type:GroupSelector
       children:
       - id: MobGoliath
-        weight: 35
+        weight: 45
       - id: MobHivelord
-        weight: 30
-      #- id: MobArgocyteLeviathing #goobstation
-      #  weight: 10
-      #- id: MobArgocyteFounder
-      #  weight: 25
+        weight: 35
+      - id: MobBasilisk
+        weight: 20

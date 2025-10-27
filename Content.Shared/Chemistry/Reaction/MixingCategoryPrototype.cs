@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -6,7 +12,7 @@ namespace Content.Shared.Chemistry.Reaction;
 /// <summary>
 /// This is a prototype for a method of chemical mixing, to be used by <see cref="ReactionMixerComponent"/>
 /// </summary>
-[Prototype("mixingCategory")]
+[Prototype]
 public sealed partial class MixingCategoryPrototype : IPrototype
 {
     /// <inheritdoc/>

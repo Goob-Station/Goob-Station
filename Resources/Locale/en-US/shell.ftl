@@ -1,3 +1,21 @@
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 moonheart08 <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Morber <14136326+Morb0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 ### for technical and/or system messages
 
 ## General
@@ -8,6 +26,7 @@ shell-invalid-command-specific = Invalid {$commandName} command.
 shell-cannot-run-command-from-server = You cannot run this command from the server.
 shell-only-players-can-run-this-command = Only players can run this command.
 shell-must-be-attached-to-entity = You must be attached to an entity to run this command.
+shell-must-have-body = You must have a body to run this command.
 
 ## Arguments
 
@@ -19,11 +38,13 @@ shell-wrong-arguments-number = Wrong number of arguments.
 shell-need-between-arguments = Need {$lower} to {$upper} arguments!
 shell-need-minimum-arguments = Need at least {$minimum} arguments!
 shell-need-minimum-one-argument = Need at least one argument!
+shell-need-exactly-zero-arguments = This command takes zero arguments.
 
 shell-argument-uid = EntityUid
 
 ## Guards
 
+shell-missing-required-permission = You need {$perm} for this command!
 shell-entity-is-not-mob = Target entity is not a mob!
 shell-invalid-entity-id = Invalid entity ID.
 shell-invalid-grid-id = Invalid grid ID.
@@ -34,6 +55,7 @@ shell-entity-uid-must-be-number = EntityUid must be a number.
 shell-could-not-find-entity = Could not find entity {$entity}
 shell-could-not-find-entity-with-uid = Could not find entity with uid {$uid}
 shell-entity-with-uid-lacks-component = Entity with uid {$uid} doesn't have {INDEFINITE($componentName)} {$componentName} component
+shell-entity-target-lacks-component = Target entity doesn't have {INDEFINITE($componentName)} {$componentName} component
 shell-invalid-color-hex = Invalid color hex!
 shell-target-player-does-not-exist = Target player does not exist!
 shell-target-entity-does-not-have-message = Target entity does not have {INDEFINITE($missing)} {$missing}!

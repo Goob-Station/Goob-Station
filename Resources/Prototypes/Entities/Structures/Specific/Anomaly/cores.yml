@@ -1,3 +1,24 @@
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 PursuitInAshes <91865152+PursuitInAshes@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 August Sun <45527070+august-sun@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 august-sun <45527070+august.sun@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 yglop <95057024+yglop@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseItem
   id: BaseAnomalyCore
@@ -34,11 +55,12 @@
     startPrice: 10000
     endPrice: 200
   - type: MovedByPressure #Goob - space wind moment
-    enabled: false 
+    enabled: false
 
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCorePyroclastic
+  name: pyroclastic anomaly core # Goobstation - anomaly core names
   suffix: Pyroclastic
   components:
   - type: Sprite
@@ -51,10 +73,16 @@
   - type: IgnitionSource
     temperature: 400
     ignited: true
+  - type: Enchanter # Goobstation
+    maxLevel: 2 # Non-inert cores can roll max level
+    enchants:
+    - EnchantFireAspect
+    - EnchantLavaforged
 
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreGravity
+  name: gravity anomaly core # Goobstation - anomaly core names
   suffix: Gravity
   components:
   - type: Sprite
@@ -64,10 +92,15 @@
     energy: 10
     color: "#1e070e"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 2 # Non-inert cores can roll max level
+    enchants:
+    - EnchantKnockback
 
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreIce
+  name: ice anomaly core # Goobstation - anomaly core names
   suffix: Ice
   components:
   - type: Sprite
@@ -77,10 +110,15 @@
     energy: 1.5
     color: "#befaff"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 4 # Non-inert cores can roll max level
+    enchants:
+    - EnchantProtFire
 
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreFlesh
+  name: flesh anomaly core # Goobstation - anomaly core names
   description: The core of a destroyed flesh anomaly. Pulsates sickeningly, but might be a hearty meal if cooked.
   suffix: Flesh
   components:
@@ -91,10 +129,15 @@
     energy: 3.5
     color: "#cb5b7e"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 5 # Non-inert cores can roll max level
+    enchants:
+    - EnchantSharpness
 
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreRock
+  name: rock anomaly core # Goobstation - anomaly core names
   suffix: Rock
   components:
   - type: Sprite
@@ -104,10 +147,16 @@
     energy: 3.5
     color: "#5ca8cb"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 3 # Non-inert cores can roll max level
+    enchants:
+    - EnchantProtection
+    - EnchantUnbreaking
 
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreLiquid
+  name: liquid anomaly core # Goobstation - anomaly core names
   suffix: Liquid
   components:
   - type: Sprite
@@ -117,10 +166,16 @@
     energy: 3.5
     color: "#ffffff"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 4 # Non-inert cores can roll max level
+    enchants:
+    - EnchantSlippery
+    - EnchantUnslippable
 
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreBluespace
+  name: bluespace anomaly core # Goobstation - anomaly core names
   suffix: Bluespace
   components:
   - type: Sprite
@@ -134,6 +189,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreElectricity
+  name: electricity anomaly core # Goobstation - anomaly core names
   suffix: Electricity
   components:
   - type: Sprite
@@ -144,10 +200,14 @@
     color: "#ffffaa"
     castShadows: false
   - type: Electrified
+  - type: Enchanter # Goobstation
+    enchants:
+    - EnchantInsulated
 
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreFlora
+  name: flora anomaly core # Goobstation - anomaly core names
   suffix: Flora
   components:
   - type: Seed
@@ -159,10 +219,15 @@
     energy: 2.0
     color: "#6270bb"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 3 # Non-inert cores can roll max level
+    enchants:
+    - EnchantThorns
 
 - type: entity
   parent: [ BaseAnomalyCore, BaseShadow ]
   id: AnomalyCoreShadow
+  name: shadow anomaly core # Goobstation - anomaly core names
   suffix: Shadow
   components:
   - type: Sprite
@@ -176,6 +241,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreTech
+  name: tech anomaly core # Goobstation - anomaly core names
   suffix: Tech
   components:
   - type: Sprite
@@ -189,6 +255,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreSanta
+  name: santa anomaly core # Goobstation - anomaly core names
   suffix: Santa
   components:
   - type: Sprite
@@ -198,6 +265,11 @@
     energy: 2.0
     color: "#fc0303"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 3 # Non-inert cores can roll max level
+    enchants:
+    - EnchantFortune
+
 
 # Inert cores
 
@@ -219,6 +291,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCorePyroclasticInert
+  name: pyroclastic anomaly core # Goobstation - anomaly core names
   suffix: Pyroclastic, Inert
   components:
   - type: Sprite
@@ -228,10 +301,16 @@
     energy: 1.5
     color: "#fca3c0"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 1
+    enchants:
+    - EnchantFireAspect
+    - EnchantLavaforged
 
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreGravityInert
+  name: gravity anomaly core # Goobstation - anomaly core names
   suffix: Gravity, Inert
   components:
   - type: Sprite
@@ -241,10 +320,15 @@
     energy: 10
     color: "#1e070e"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 1
+    enchants:
+    - EnchantKnockback
 
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreIceInert
+  name: ice anomaly core # Goobstation - anomaly core names
   suffix: Ice, Inert
   components:
   - type: Sprite
@@ -254,10 +338,15 @@
     energy: 1.5
     color: "#befaff"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 2
+    enchants:
+    - EnchantProtFire
 
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreFleshInert # Can be microwaved to turn it into a massive piece of meat
+  name: flesh anomaly core # Goobstation - anomaly core names
   description: The inert core of a destroyed flesh anomaly. Pulsates sickeningly, but might be good food in the right hands?
   suffix: Flesh, Inert
   components:
@@ -268,10 +357,15 @@
     energy: 3.5
     color: "#cb5b7e"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 3
+    enchants:
+    - EnchantSharpness
 
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreRockInert
+  name: rock anomaly core # Goobstation - anomaly core names
   suffix: Rock, Inert
   components:
   - type: Sprite
@@ -281,10 +375,16 @@
     energy: 3.5
     color: "#5ca8cb"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 1
+    enchants:
+    - EnchantProtection
+    - EnchantUnbreaking
 
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreLiquidInert
+  name: liquid anomaly core # Goobstation - anomaly core names
   suffix: Liquid, Inert
   components:
   - type: Sprite
@@ -294,10 +394,16 @@
     energy: 3.5
     color: "#ffffff"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 2 # Non-inert cores can roll max level
+    enchants:
+    - EnchantSlippery
+    - EnchantUnslippable
 
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreBluespaceInert
+  name: bluespace anomaly core # Goobstation - anomaly core names
   suffix: Bluespace, Inert
   components:
   - type: Sprite
@@ -311,6 +417,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreElectricityInert
+  name: electricity anomaly core # Goobstation - anomaly core names
   suffix: Electricity, Inert
   components:
   - type: Sprite
@@ -320,10 +427,15 @@
     energy: 2.0
     color: "#ffffaa"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 4 # Insuls rolling
+    enchants:
+    - EnchantBudgetInsulated
 
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreFloraInert #Turns into a seed that grows into artifexium
+  name: flora anomaly core # Goobstation - anomaly core names
   suffix: Flora, Inert
   components:
   - type: Seed
@@ -335,10 +447,15 @@
     energy: 2.0
     color: "#6270bb"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 2
+    enchants:
+    - EnchantThorns
 
 - type: entity
   parent: [ BaseAnomalyInertCore, BaseShadow ]
   id: AnomalyCoreShadowInert
+  name: shadow anomaly core # Goobstation - anomaly core names
   suffix: Shadow, Inert
   components:
   - type: Sprite
@@ -352,6 +469,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreTechInert
+  name: tech anomaly core # Goobstation - anomaly core names
   suffix: Tech, Inert
   components:
   - type: Sprite
@@ -365,6 +483,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreSantaInert
+  name: santa anomaly core # Goobstation - anomaly core names
   suffix: Santa, Inert
   components:
   - type: Sprite
@@ -374,3 +493,7 @@
     energy: 2.0
     color: "#fc0303"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 2
+    enchants:
+    - EnchantFortune

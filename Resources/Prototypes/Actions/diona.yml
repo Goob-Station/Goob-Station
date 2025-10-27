@@ -1,24 +1,35 @@
+# SPDX-FileCopyrightText: 2024 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Wrexbe (Josh) <81056464+wrexbe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 wrexbe <wrexbe@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
+  parent: BaseSuicideAction
   id: DionaGibAction
   name: Gib Yourself!
   description: Split apart into 3 nymphs.
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: Mobs/Species/Diona/organs.rsi
       state: brain
+  - type: InstantAction
     event: !type:GibActionEvent {}
-    checkCanInteract: false
-    checkConsciousness: false
 
 - type: entity
+  parent: BaseAction
   id: DionaReformAction
   name: Reform
   description: Reform back into a whole Diona.
   components:
-  - type: InstantAction
+  - type: Action
+    useDelay: 600 # Once every 10 minutes. Keep them dead for a fair bit before reforming
     icon:
       sprite: Mobs/Species/Diona/parts.rsi
       state: full
+  - type: InstantAction
     event: !type:ReformEvent {}
-    useDelay: 600 # Once every 10 minutes. Keep them dead for a fair bit before reforming

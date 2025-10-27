@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Dragon;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameStates;
@@ -7,6 +12,7 @@ namespace Content.Client.Dragon;
 public sealed class DragonSystem : EntitySystem
 {
     [Dependency] private readonly SharedPointLightSystem _lights = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -31,7 +37,7 @@ public sealed class DragonSystem : EntitySystem
         switch (state.State)
         {
             case DragonRiftState.Charging:
-                sprite?.LayerSetColor(0, Color.FromHex("#569fff"));
+                _sprite.LayerSetColor((uid, sprite), 0, Color.FromHex("#569fff"));
 
                 if (light != null)
                 {
@@ -39,7 +45,7 @@ public sealed class DragonSystem : EntitySystem
                 }
                 break;
             case DragonRiftState.AlmostFinished:
-                sprite?.LayerSetColor(0, Color.FromHex("#cf4cff"));
+                _sprite.LayerSetColor((uid, sprite), 0, Color.FromHex("#cf4cff"));
 
                 if (light != null)
                 {
@@ -47,7 +53,7 @@ public sealed class DragonSystem : EntitySystem
                 }
                 break;
             case DragonRiftState.Finished:
-                sprite?.LayerSetColor(0, Color.FromHex("#edbc36"));
+                _sprite.LayerSetColor((uid, sprite), 0, Color.FromHex("#edbc36"));
 
                 if (light != null)
                 {

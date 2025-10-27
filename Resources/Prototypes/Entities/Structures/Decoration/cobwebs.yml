@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
 #BaseCobweb doesn't really need to exist since, as of writing, these only have 2 sprite states & obviously have no need for variation beyond that.
 
 - type: entity

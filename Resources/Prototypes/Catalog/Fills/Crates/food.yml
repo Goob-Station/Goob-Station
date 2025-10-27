@@ -1,3 +1,31 @@
+# SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2022 Abregado <rasti_farian@hotmail.com>
+# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 KIBORG04 <bossmira4@gmail.com>
+# SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
+# SPDX-FileCopyrightText: 2022 ZeroDayDaemon <60460608+ZeroDayDaemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2023 Checkraze <71046427+Cheackraze@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 EnDecc <33369477+Endecc@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Jeff <velcroboy333@hotmail.com>
+# SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
+# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
+# SPDX-FileCopyrightText: 2024 SolStar <44028047+ewokswagger@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: CrateFoodPizza
   parent: CratePlastic
@@ -84,12 +112,12 @@
       amount: 1
     - id: DrinkGlass
       amount: 4
+    - id: FoodPlateMuffinTin
+      amount: 4
     - id: FoodPlateTin
       amount: 4
-    - id: Fork
-      amount: 2
-    - id: Spoon
-      amount: 2
+    - id: BoxUtensil
+      amount: 1
 
 - type: entity
   id: CrateFoodBarSupply
@@ -166,3 +194,84 @@
       - id: DrinkFourteenLokoCan
         amount: 4
 
+- type: entity
+  id: CrateFoodGetMore
+  parent: CratePlastic
+  name: Getmore Bakemore crate
+  description: Getmore branded snacks and baking supplies for the creative chef, all without the need of emptying your station's Getmore machines!
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodSnackRaisins
+      amount: 4
+    - id: FoodSnackChocolate
+      amount: 6
+    - id: FoodSnackPistachios
+      amount: 4
+    - id: ReagentContainerFlour
+      amount: 3
+    - id: ReagentContainerSugar
+      amount: 2
+    - id: FoodCondimentPacketSalt
+      amount: 3
+    - id: DrinkMilkCarton
+      amount: 2
+    - id: FoodContainerEgg
+      amount: 2
+    - id: FoodBoxCloth
+      amount: 1
+
+- type: entity
+  id: CrateFoodIceCream
+  parent: CrateFreezer
+  name: ice cream delivery
+  description: An assortment of ice cream delights for any occasion! Includes 16 frozen treats.
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodFrozenSandwich
+      amount: 3
+    - id: FoodFrozenSandwichStrawberry
+      amount: 2
+    - id: FoodFrozenPopsicleOrange
+      amount: 2
+    - id: FoodFrozenPopsicleBerry
+      amount: 2
+    - id: FoodFrozenPopsicleJumbo
+      amount: 3
+    - id: FoodFrozenCornuto
+      amount: 2
+    - id: FoodFrozenSundae
+      amount: 2
+
+- type: entity
+  id: CrateFoodSnowcone
+  parent: CrateFreezer
+  name: snowcone delivery
+  description: A freezer packed with refreshing snowcones for a hard working crew, or even a lazy one! Includes 16 snowcones.
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodFrozenSnowconeBase
+      amount: 3
+    - id: FoodFrozenSnowconeBerry
+      amount: 3
+    - id: FoodFrozenSnowconeFruit
+      amount: 3
+    - id: FoodFrozenSnowconeRainbow
+      amount: 3
+    - id: FoodFrozenSnowconeClown
+      amount: 2
+    - id: FoodFrozenSnowconeMime
+      amount: 2
+
+- type: entity
+  id: CrateFoodHappyHonkBigBite
+  parent: CratePlastic
+  name: Happy Honk meal delivery
+  description: Two fully loaded Happy Honk Big Bite burger meals, complete with cheesy fries, a bottle of Space Cola, a slice of apple pie and a toy!
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodMealHappyHonkBigBite
+      amount: 2

@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 mail-recipient-mismatch = Recipient name or job does not match.
 mail-invalid-access = Recipient name and job match, but access isn't as expected.
 mail-locked = The anti-tamper lock hasn't been removed. Tap the recipient's ID.
@@ -12,7 +18,6 @@ mail-unlocked-reward = Anti-tamper system unlocked. {$bounty} spesos have been a
 mail-penalty-lock = ANTI-TAMPER LOCK BROKEN. LOGISTICS BANK ACCOUNT PENALIZED BY {$credits} SPESOS.
 mail-penalty-fragile = INTEGRITY COMPROMISED. LOGISTICS BANK ACCOUNT PENALIZED BY {$credits} SPESOS.
 mail-penalty-expired = DELIVERY PAST DUE. LOGISTICS BANK ACCOUNT PENALIZED BY {$credits} SPESOS.
-mail-item-name-unaddressed = mail
 mail-item-name-addressed = mail ({$recipient})
 
 command-mailto-description = Queue a parcel to be delivered to an entity. Example usage: `mailto 1234 5678 false false`. The target container's contents will be transferred to an actual mail parcel.

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
@@ -19,6 +24,13 @@ namespace Content.Shared.Camera;
 /// </remarks>
 [ByRefEvent]
 public record struct GetEyePvsScaleEvent(float Scale);
+
+/// <summary>
+///     Raised before the <see cref="GetEyePvsScaleEvent"/> and <see cref="GetEyePvsScaleRelayedEvent"/>, to check if any on the subscribed
+///     systems want to cancel PVS changes.
+/// </summary>
+[ByRefEvent]
+public record struct GetEyePvsScaleAttemptEvent(bool Cancelled);
 
 /// <summary>
 ///     Raised on any equipped and in-hand items that may modify the eye offset.

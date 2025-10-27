@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2021 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <slambamactionman@gmail.com>
+// SPDX-FileCopyrightText: 2025 qwerltaz <msmarcinpl@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.SubFloor;
@@ -18,6 +31,7 @@ public sealed class TrayScannerSystem : SharedTrayScannerSystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly TrayScanRevealSystem _trayScanReveal = default!;
 
     private const string TRayAnimationKey = "trays";
@@ -67,11 +81,15 @@ public sealed class TrayScannerSystem : SharedTrayScannerSystem
 
         foreach (var hand in _hands.EnumerateHands(player.Value))
         {
-            if (!scannerQuery.TryGetComponent(hand.HeldEntity, out var heldScanner) || !heldScanner.Enabled)
+            if (!_hands.TryGetHeldItem(player.Value, hand, out var heldEntity))
+                continue;
+
+            if (!scannerQuery.TryGetComponent(heldEntity, out var heldScanner) || !heldScanner.Enabled)
                 continue;
 
             range = MathF.Max(heldScanner.Range, range);
             canSee = true;
+            break;
         }
 
         inRange = new HashSet<Entity<SubFloorHideComponent>>();
@@ -101,7 +119,7 @@ public sealed class TrayScannerSystem : SharedTrayScannerSystem
                 if ((!_appearance.TryGetData(uid, SubFloorVisuals.ScannerRevealed, out bool value) || !value) &&
                     sprite.Color.A > SubfloorRevealAlpha)
                 {
-                    sprite.Color = sprite.Color.WithAlpha(0f);
+                    _sprite.SetColor((uid, sprite), sprite.Color.WithAlpha(0f));
                 }
 
                 SetRevealed(uid, true);
@@ -135,7 +153,7 @@ public sealed class TrayScannerSystem : SharedTrayScannerSystem
                 {
                     SetRevealed(uid, false);
                     RemCompDeferred<TrayRevealedComponent>(uid);
-                    sprite.Color = sprite.Color.WithAlpha(1f);
+                    _sprite.SetColor((uid, sprite), sprite.Color.WithAlpha(1f));
                     continue;
                 }
 

@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Popups;
 using Content.Shared.Smoking;
@@ -26,7 +33,7 @@ public sealed class SurgeryToolConditionsSystem : EntitySystem
 
     private void OnToggleUsed(Entity<ItemToggleComponent> ent, ref SurgeryToolUsedEvent args)
     {
-        if (ent.Comp.Activated)
+        if (ent.Comp.Activated || args.IgnoreToggle)
             return;
 
         _popup.PopupEntity(Loc.GetString("surgery-tool-turn-on"), ent, args.User);

@@ -1,3 +1,21 @@
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using System.Numerics;
 using System.Threading;
@@ -37,13 +55,11 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
 {
     private readonly IEntityManager _entManager;
     private readonly IGameTiming _timing;
-    private readonly IMapManager _mapManager;
     private readonly IPrototypeManager _prototypeManager;
     private readonly AnchorableSystem _anchorable;
     private readonly BiomeSystem _biome;
     private readonly DungeonSystem _dungeon;
     private readonly MetaDataSystem _metaData;
-    private readonly SharedTransformSystem _xforms;
     private readonly SharedMapSystem _map;
 
     public readonly EntityUid Station;
@@ -57,13 +73,11 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
         IEntityManager entManager,
         IGameTiming timing,
         ILogManager logManager,
-        IMapManager mapManager,
         IPrototypeManager protoManager,
         AnchorableSystem anchorable,
         BiomeSystem biome,
         DungeonSystem dungeon,
         MetaDataSystem metaData,
-        SharedTransformSystem xform,
         SharedMapSystem map,
         EntityUid station,
         EntityUid? coordinatesDisk,
@@ -72,13 +86,11 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
     {
         _entManager = entManager;
         _timing = timing;
-        _mapManager = mapManager;
         _prototypeManager = protoManager;
         _anchorable = anchorable;
         _biome = biome;
         _dungeon = dungeon;
         _metaData = metaData;
-        _xforms = xform;
         _map = map;
         Station = station;
         CoordinatesDisk = coordinatesDisk;
@@ -102,7 +114,7 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
         destComp.Enabled = true;
         _metaData.SetEntityName(
             mapUid,
-            _entManager.System<SharedSalvageSystem>().GetFTLName(_prototypeManager.Index<LocalizedDatasetPrototype>("NamesBorer"), _missionParams.Seed));
+            _entManager.System<SharedSalvageSystem>().GetFTLName(_prototypeManager.Index(SalvageSystem.PlanetNames), _missionParams.Seed));
         _entManager.AddComponent<FTLBeaconComponent>(mapUid);
 
         // Saving the mission mapUid to a CD is made optional, in case one is somehow made in a process without a CD entity
@@ -153,8 +165,8 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
             }
         }
 
-        _mapManager.DoMapInitialize(mapId);
-        _mapManager.SetMapPaused(mapId, true);
+        _map.InitializeMap(mapId);
+        _map.SetPaused(mapUid, true);
 
         // Setup expedition
         var expedition = _entManager.AddComponent<SalvageExpeditionComponent>(mapUid);
@@ -174,7 +186,7 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
         dungeonOffset = dungeonRotation.RotateVec(dungeonOffset);
         var dungeonMod = _prototypeManager.Index<SalvageDungeonModPrototype>(mission.Dungeon);
         var dungeonConfig = _prototypeManager.Index(dungeonMod.Proto);
-        var dungeons = await WaitAsyncTask(_dungeon.GenerateDungeonAsync(dungeonConfig, mapUid, grid, (Vector2i) dungeonOffset,
+        var dungeons = await WaitAsyncTask(_dungeon.GenerateDungeonAsync(dungeonConfig, mapUid, grid, (Vector2i)dungeonOffset,
             _missionParams.Seed));
 
         var dungeon = dungeons.First();
@@ -210,7 +222,14 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
             if (!lootProto.Guaranteed)
                 continue;
 
-            await SpawnDungeonLoot(lootProto, mapUid);
+            try
+            {
+                await SpawnDungeonLoot(lootProto, mapUid);
+            }
+            catch (Exception e)
+            {
+                _sawmill.Error($"Failed to spawn guaranteed loot {lootProto.ID}: {e}");
+            }
         }
 
         // Handle boss loot (when relevant).
@@ -240,10 +259,17 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
             if (entry == null)
                 break;
 
-            await SpawnRandomEntry(grid, entry, dungeon, random);
+            try
+            {
+                await SpawnRandomEntry((mapUid, grid), entry, dungeon, random);
+            }
+            catch (Exception e)
+            {
+                _sawmill.Error($"Failed to spawn mobs for {entry.Proto}: {e}");
+            }
         }
 
-        var allLoot = _prototypeManager.Index<SalvageLootPrototype>(SharedSalvageSystem.ExpeditionsLootProto);
+        var allLoot = _prototypeManager.Index(SharedSalvageSystem.ExpeditionsLootProto);
         var lootBudget = difficultyProto.LootBudget;
 
         foreach (var rule in allLoot.LootRules)
@@ -267,7 +293,7 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
                             break;
 
                         _sawmill.Debug($"Spawning dungeon loot {entry.Proto}");
-                        await SpawnRandomEntry(grid, entry, dungeon, random);
+                        await SpawnRandomEntry((mapUid, grid), entry, dungeon, random);
                     }
                     break;
                 default:
@@ -278,7 +304,7 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
         return true;
     }
 
-    private async Task SpawnRandomEntry(MapGridComponent grid, IBudgetEntry entry, Dungeon dungeon, Random random)
+    private async Task SpawnRandomEntry(Entity<MapGridComponent> grid, IBudgetEntry entry, Dungeon dungeon, Random random)
     {
         await SuspendIfOutOfTime();
 
@@ -296,13 +322,13 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
             {
                 var tile = availableTiles.RemoveSwap(random.Next(availableTiles.Count));
 
-                if (!_anchorable.TileFree(grid, tile, (int) CollisionGroup.MachineLayer,
-                        (int) CollisionGroup.MachineLayer))
+                if (!_anchorable.TileFree(grid, tile, (int)CollisionGroup.MachineLayer,
+                        (int)CollisionGroup.MachineLayer))
                 {
                     continue;
                 }
 
-                var uid = _entManager.SpawnAtPosition(entry.Proto, grid.GridTileToLocal(tile));
+                var uid = _entManager.SpawnAtPosition(entry.Proto, _map.GridTileToLocal(grid, grid, tile));
                 _entManager.RemoveComponent<GhostRoleComponent>(uid);
                 _entManager.RemoveComponent<GhostTakeoverAvailableComponent>(uid);
                 return;

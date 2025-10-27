@@ -1,0 +1,30 @@
+- type: gamePreset
+  id: CosmicCult
+  alias:
+    - cosmic
+  name: cosmiccult-title
+  description: cosmiccult-description
+  showInVote: false
+  #cooldown: 1
+  rules:
+    - CosmicCult
+    - SubGamemodesRule
+    #- MeteorSwarmScheduler - Goob Edit
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+    - BasicStationEventScheduler
+
+- type: gamePreset #Runs Cosmic Cult but shows "Secret" in lobby.
+  id: SecretCosmicCult
+  alias:
+    - secretcosmic
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - CosmicCult
+    - SubGamemodesRule
+    #- MeteorSwarmScheduler - Goob Edit
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+    - BasicStationEventScheduler

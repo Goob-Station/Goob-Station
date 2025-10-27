@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: startingGear
   id: CluwneGear
   equipment:
@@ -14,3 +19,14 @@
   equipment:
     pocket1: BikeHorn
 
+- type: chameleonOutfit
+  id: CluwneChameleonOutfit
+  name: job-title-cluwne
+  startingGear: CluwneGear
+  icon: JobIconCluwne
+  equipment:
+    head: ClothingHeadHatXmasCrown
+    eyes: ClothingEyesBlindfold
+    ears: ClothingHeadsetGrey
+    neck: ClothingHeadHatFlowerWreath
+    outerClothing: ClothingOuterClownPriest

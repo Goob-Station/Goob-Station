@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -63,47 +70,47 @@ public sealed class ArcaneBarrageSystem : EntitySystem
         if (!TryComp(user, out HandsComponent? hands))
             return;
 
-        var oldHand = hands.ActiveHand;
-        Hand? otherHand = null;
+        var oldHand = _hands.GetActiveHand((user, hands));
+        string? otherHand = null;
 
-        foreach (var hand in _hands.EnumerateHands(user, hands))
+        foreach (var hand in _hands.EnumerateHands((user, hands)))
         {
             if (hand == oldHand)
                 continue;
 
             otherHand = hand;
 
-            if (hand.HeldEntity == null)
+            if (_hands.GetHeldItem((user, hands), hand) == null)
                 break;
         }
 
         if (otherHand != null)
-            _hands.SetActiveHand(user, otherHand, hands);
+            _hands.SetActiveHand((user, hands), otherHand);
         else
         {
             ResetDelays(ent);
             return;
         }
 
-        if (otherHand.HeldEntity != null)
+        if (_hands.GetHeldItem((user, hands), otherHand) != null)
         {
             ResetDelays(ent);
             return;
         }
 
-        if (oldHand == null || oldHand.HeldEntity != ent)
+        if (oldHand == null || _hands.GetHeldItem((user, hands), oldHand) != ent)
         {
             ResetDelays(ent);
             return;
         }
 
         ent.Comp.Unremoveable = false;
-        if (!_hands.TryDrop(user, oldHand, null, false, false, hands))
+        if (!_hands.TryDrop((user, hands), oldHand, null, false, false))
         {
             ResetDelays(ent);
             return;
         }
-        if (!_hands.TryPickup(user, ent, otherHand, false, false, hands) && _net.IsServer)
+        if (!_hands.TryPickup(user, ent, otherHand, false) && _net.IsServer)
             QueueDel(ent);
         ent.Comp.Unremoveable = true;
     }

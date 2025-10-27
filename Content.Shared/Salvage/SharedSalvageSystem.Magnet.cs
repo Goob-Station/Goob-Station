@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.DungeonLayers;
@@ -50,12 +57,8 @@ public abstract partial class SharedSalvageSystem
                 var configProto =_proto.Index(configId);
                 var layers = new Dictionary<string, int>();
 
-                var data = new DungeonData();
-                data.Apply(configProto.Data);
-
                 var config = new DungeonConfig
                 {
-                    Data = data,
                     Layers = new(configProto.Layers),
                     MaxCount = configProto.MaxCount,
                     MaxOffset = configProto.MaxOffset,

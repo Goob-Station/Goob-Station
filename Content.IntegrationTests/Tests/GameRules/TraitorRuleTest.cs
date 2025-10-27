@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ducks <97200673+TwoDucksOnnaPlane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Server.Antag.Components;
 using Content.Server.GameTicking;
@@ -8,6 +17,7 @@ using Content.Server.Roles;
 using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
+using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.GameObjects;
@@ -20,6 +30,8 @@ public sealed class TraitorRuleTest
 {
     private const string TraitorGameRuleProtoId = "Traitor";
     private const string TraitorAntagRoleName = "Traitor";
+    private static readonly ProtoId<NpcFactionPrototype> SyndicateFaction = "Syndicate";
+    private static readonly ProtoId<NpcFactionPrototype> NanotrasenFaction = "NanoTrasen";
 
     [Test]
     public async Task TestTraitorObjectives()
@@ -108,8 +120,8 @@ public sealed class TraitorRuleTest
         // Make sure the player is a traitor.
         var mind = mindSys.GetMind(player)!.Value;
         Assert.That(roleSys.MindIsAntagonist(mind));
-        Assert.That(factionSys.IsMember(player, "Syndicate"), Is.True);
-        Assert.That(factionSys.IsMember(player, "NanoTrasen"), Is.False);
+        Assert.That(factionSys.IsMember(player, SyndicateFaction), Is.True);
+        Assert.That(factionSys.IsMember(player, NanotrasenFaction), Is.False);
         Assert.That(traitorRule.TotalTraitors, Is.EqualTo(1));
         Assert.That(traitorRule.TraitorMinds[0], Is.EqualTo(mind));
 

@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: creature
   id: MobCreature
@@ -172,6 +178,7 @@
   - type: Buckle
   - type: StandingState
   - type: Body
+    bodyType: Simple
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: MeleeWeapon
@@ -188,5 +195,5 @@
   suffix: Temporary
   components:
   - type: FadingTimedDespawn
-    lifetime: 12
+    lifetime: 60
     fadeOutTime: 3

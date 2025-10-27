@@ -1,3 +1,115 @@
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <jmaster9999@gmail.com>
+// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <wrexbe@protonmail.com>
+// SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 12rabbits <53499656+12rabbits@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Dimastra <65184747+Dimastra@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Dimastra <dimastra@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
+// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
+// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
+// SPDX-FileCopyrightText: 2024 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
+// SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
+// SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
+// SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using System.Numerics;
 using Content.Client._Shitcode.Wizard.Systems;
@@ -16,6 +128,9 @@ using Content.Shared._Goobstation.Wizard.Components;
 using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
+using Content.Shared.Actions.Components;
+using Content.Shared.Charges.Systems;
+using Content.Shared.Heretic;
 using Content.Shared.Input;
 using Content.Shared.Mobs.Components;
 using Robust.Client.GameObjects;
@@ -47,7 +162,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [Dependency] private readonly IOverlayManager _overlays = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IInputManager _input = default!;
     [Dependency] private readonly IEyeManager _eye = default!; // Goobstation
 
@@ -185,149 +299,33 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (_playerManager.LocalEntity is not { } user)
             return false;
 
-        if (!EntityManager.TryGetComponent(user, out ActionsComponent? comp))
+        if (!EntityManager.TryGetComponent<ActionsComponent>(user, out var comp))
             return false;
 
-        if (!_actionsSystem.TryGetActionData(actionId, out var baseAction) ||
-            baseAction is not BaseTargetActionComponent action)
+        if (_actionsSystem.GetAction(actionId) is not {} action ||
+            !EntityManager.TryGetComponent<TargetActionComponent>(action, out var target))
         {
             return false;
         }
 
         // Is the action currently valid?
-        if (!action.Enabled
-            || action is { Charges: 0, RenewCharges: false }
-            || action.Cooldown.HasValue && action.Cooldown.Value.End > _timing.CurTime)
+        if (!_actionsSystem.ValidAction(action))
         {
             // The user is targeting with this action, but it is not valid. Maybe mark this click as
             // handled and prevent further interactions.
-            return !action.InteractOnMiss;
+            return !target.InteractOnMiss;
         }
 
-        switch (action)
+        var ev = new ActionTargetAttemptEvent(args, (user, comp), action);
+        EntityManager.EventBus.RaiseLocalEvent(action, ref ev);
+        if (!ev.Handled)
         {
-            case WorldTargetActionComponent mapTarget:
-                return TryTargetWorld(args, actionId, mapTarget, user, comp) || !mapTarget.InteractOnMiss;
-
-            case EntityTargetActionComponent entTarget:
-                return TryTargetEntity(args, actionId, entTarget, user, comp) || !entTarget.InteractOnMiss;
-
-            case EntityWorldTargetActionComponent entMapTarget:
-                return TryTargetEntityWorld(args, actionId, entMapTarget, user, comp) || !entMapTarget.InteractOnMiss;
-
-            default:
-                Logger.Error($"Unknown targeting action: {actionId.GetType()}");
-                return false;
-        }
-    }
-
-    private bool TryTargetWorld(in PointerInputCmdArgs args, EntityUid actionId, WorldTargetActionComponent action, EntityUid user, ActionsComponent actionComp)
-    {
-        if (_actionsSystem == null)
-            return false;
-
-        var coords = args.Coordinates;
-
-        if (!_actionsSystem.ValidateWorldTarget(user, coords, (actionId, action)))
-        {
-            // Invalid target.
-            if (action.DeselectOnMiss)
-                StopTargeting();
-
+            Log.Error($"Action {EntityManager.ToPrettyString(actionId)} did not handle ActionTargetAttemptEvent!");
             return false;
         }
 
-        if (action.ClientExclusive)
-        {
-            if (action.Event != null)
-            {
-                action.Event.Target = coords;
-            }
-
-            _actionsSystem.PerformAction(user, actionComp, actionId, action, action.Event, _timing.CurTime);
-        }
-        else
-            EntityManager.RaisePredictiveEvent(new RequestPerformActionEvent(EntityManager.GetNetEntity(actionId), EntityManager.GetNetCoordinates(coords)));
-
-        if (!action.Repeat)
-            StopTargeting();
-
-        return true;
-    }
-
-    private bool TryTargetEntity(in PointerInputCmdArgs args, EntityUid actionId, EntityTargetActionComponent action, EntityUid user, ActionsComponent actionComp)
-    {
-        if (_actionsSystem == null)
-            return false;
-
-        var entity = args.EntityUid;
-
-        if (!_actionsSystem.ValidateEntityTarget(user, entity, (actionId, action)))
-        {
-            if (action.DeselectOnMiss)
-                StopTargeting();
-
-            return false;
-        }
-
-        if (action.ClientExclusive)
-        {
-            if (action.Event != null)
-            {
-                action.Event.Target = entity;
-            }
-
-            _actionsSystem.PerformAction(user, actionComp, actionId, action, action.Event, _timing.CurTime);
-        }
-        else
-            EntityManager.RaisePredictiveEvent(new RequestPerformActionEvent(EntityManager.GetNetEntity(actionId), EntityManager.GetNetEntity(args.EntityUid)));
-
-        if (!action.Repeat)
-            StopTargeting();
-
-        return true;
-    }
-
-    private bool TryTargetEntityWorld(in PointerInputCmdArgs args,
-        EntityUid actionId,
-        EntityWorldTargetActionComponent action,
-        EntityUid user,
-        ActionsComponent actionComp)
-    {
-        if (_actionsSystem == null)
-            return false;
-
-        var entity = args.EntityUid;
-        var coords = args.Coordinates;
-
-        // Goobstation start
-        if (_entMan.HasComponent<LockOnMarkActionComponent>(actionId) && _mark != null &&
-            _entMan.EntityExists(_mark.Target))
-            entity = _mark.Target.Value;
-        // Goobstation end
-
-        if (!_actionsSystem.ValidateEntityWorldTarget(user, entity, coords, (actionId, action)))
-        {
-            if (action.DeselectOnMiss)
-                StopTargeting();
-
-            return false;
-        }
-
-        if (action.ClientExclusive)
-        {
-            if (action.Event != null)
-            {
-                action.Event.Entity = entity;
-                action.Event.Coords = coords;
-            }
-
-            _actionsSystem.PerformAction(user, actionComp, actionId, action, action.Event, _timing.CurTime);
-        }
-        else
-            EntityManager.RaisePredictiveEvent(new RequestPerformActionEvent(EntityManager.GetNetEntity(actionId), EntityManager.GetNetEntity(entity), EntityManager.GetNetCoordinates(coords))); // Goob edit
-
-        if (!action.Repeat)
+        // stop targeting when needed
+        if (ev.FoundTarget ? !target.Repeat : target.DeselectOnMiss)
             StopTargeting();
 
         return true;
@@ -335,36 +333,26 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     public void UnloadButton()
     {
-        if (ActionButton == null)
-        {
-            return;
-        }
-
-        ActionButton.OnPressed -= ActionButtonPressed;
+        if (ActionButton != null)
+            ActionButton.OnPressed -= ActionButtonPressed;
     }
 
     public void LoadButton()
     {
-        if (ActionButton == null)
-        {
-            return;
-        }
-
-        ActionButton.OnPressed += ActionButtonPressed;
+        if (ActionButton != null)
+            ActionButton.OnPressed += ActionButtonPressed;
     }
 
     private void OnWindowOpened()
     {
-        if (ActionButton != null)
-            ActionButton.SetClickPressed(true);
+        ActionButton?.SetClickPressed(true);
 
         SearchAndDisplay();
     }
 
     private void OnWindowClosed()
     {
-        if (ActionButton != null)
-            ActionButton.SetClickPressed(false);
+        ActionButton?.SetClickPressed(false);
     }
 
     public void OnStateExited(GameplayState state)
@@ -388,17 +376,17 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     private void TriggerAction(int index)
     {
-        if (_actionsSystem == null ||
-            !_actions.TryGetValue(index, out var actionId) ||
-            !_actionsSystem.TryGetActionData(actionId, out var baseAction))
+        if (!_actions.TryGetValue(index, out var actionId) ||
+            _actionsSystem?.GetAction(actionId) is not {} action)
         {
             return;
         }
 
-        if (baseAction is BaseTargetActionComponent action)
-            ToggleTargeting(actionId.Value, action);
+        // TODO: probably should have a clientside event raised for flexibility
+        if (EntityManager.TryGetComponent<TargetActionComponent>(action, out var target))
+            ToggleTargeting((action, action, target));
         else
-            _actionsSystem?.TriggerAction(actionId.Value, baseAction);
+            _actionsSystem?.TriggerAction(action);
     }
 
     // Goobstation start
@@ -410,29 +398,24 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (_playerManager.LocalEntity is not { } user)
             return false;
 
-        if (!EntityManager.TryGetComponent(user, out ActionsComponent? comp))
+        if (_actionsSystem.GetAction(actionId) is not { } action)
             return false;
 
-        if (!_actionsSystem.TryGetActionData(actionId, out var baseAction) ||
-            baseAction is not BaseTargetActionComponent action)
-        {
+        if (!EntityManager.TryGetComponent(actionId, out TargetActionComponent? targetComp))
             return false;
-        }
 
         // Is the action currently valid?
-        if (!action.Enabled
-            || action is { Charges: 0, RenewCharges: false }
-            || action.Cooldown.HasValue && action.Cooldown.Value.End > _timing.CurTime)
+        if (!_actionsSystem.ValidAction(action))
         {
             // The user is targeting with this action, but it is not valid. Maybe mark this click as
             // handled and prevent further interactions.
-            return !action.InteractOnMiss;
+            return !targetComp.InteractOnMiss;
         }
 
-        if (action is not EntityTargetActionComponent entityTarget)
+        if (!EntityManager.TryGetComponent(actionId, out EntityTargetActionComponent? entityTarget))
             return false;
 
-        if (!_entMan.TryGetComponent(actionId, out SwapSpellComponent? swap))
+        if (!EntityManager.TryGetComponent(actionId, out SwapSpellComponent? swap))
             return false;
 
         if (!swap.AllowSecondaryTarget)
@@ -445,7 +428,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         if (!_actionsSystem.ValidateEntityTarget(user, entity, (actionId, entityTarget)))
         {
-            if (entityTarget.DeselectOnMiss)
+            if (targetComp.DeselectOnMiss)
                 StopTargeting();
 
             return false;
@@ -485,22 +468,13 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             return;
         if (savedActions.Count == 0 || _actions.Count == 0 || _actions.SequenceEqual(savedActions))
             return;
-        var metaQuery = _entMan.GetEntityQuery<MetaDataComponent>();
-        var instantActionQuery = _entMan.GetEntityQuery<InstantActionComponent>();
-        var entityTargetActionQuery = _entMan.GetEntityQuery<EntityTargetActionComponent>();
-        var worldTargetActionQuery = _entMan.GetEntityQuery<WorldTargetActionComponent>();
-        var entityWorldTargetActionQuery = _entMan.GetEntityQuery<EntityWorldTargetActionComponent>();
+        var metaQuery = EntityManager.GetEntityQuery<MetaDataComponent>();
+        var actionQuery = EntityManager.GetEntityQuery<ActionComponent>();
 
         (EntityUid?, Type)? GetActionContainerAndType(EntityUid action)
         {
-            if (instantActionQuery.TryComp(action, out var instantAction))
-                return (instantAction.Container, typeof(InstantActionComponent));
-            if (entityTargetActionQuery.TryComp(action, out var entityTargetAction))
-                return (entityTargetAction.Container, typeof(EntityTargetActionComponent));
-            if (worldTargetActionQuery.TryComp(action, out var worldTargetAction))
-                return (worldTargetAction.Container, typeof(WorldTargetActionComponent));
-            if (entityWorldTargetActionQuery.TryComp(action, out var entityWorldTargetAction))
-                return (entityWorldTargetAction.Container, typeof(EntityWorldTargetActionComponent));
+            if (actionQuery.TryComp(action, out var actionComp))
+                return (actionComp.Container, typeof(ActionComponent));
             return null;
         }
 
@@ -555,20 +529,18 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     private void OnActionAdded(EntityUid actionId)
     {
-        if (_actionsSystem == null ||
-            !_actionsSystem.TryGetActionData(actionId, out var action))
-        {
+        if (_actionsSystem?.GetAction(actionId) is not {} action)
             return;
-        }
 
+        // TODO: event
         // if the action is toggled when we add it, start targeting
-        if (action is BaseTargetActionComponent targetAction && action.Toggled)
-            StartTargeting(actionId, targetAction);
+        if (action.Comp.Toggled && EntityManager.TryGetComponent<TargetActionComponent>(actionId, out var target))
+            StartTargeting((action, action, target));
 
-        if (_actions.Contains(actionId))
+        if (_actions.Contains(action))
             return;
 
-        _actions.Add(actionId);
+        _actions.Add(action);
     }
 
     private void OnActionRemoved(EntityUid actionId)
@@ -626,15 +598,16 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         }
     }
 
-    private bool MatchesFilter(BaseActionComponent action, Filters filter)
+    private bool MatchesFilter(Entity<ActionComponent> ent, Filters filter)
     {
+        var (uid, comp) = ent;
         return filter switch
         {
-            Filters.Enabled => action.Enabled,
-            Filters.Item => action.Container != null && action.Container != _playerManager.LocalEntity,
-            Filters.Innate => action.Container == null || action.Container == _playerManager.LocalEntity,
-            Filters.Instant => action is InstantActionComponent,
-            Filters.Targeted => action is BaseTargetActionComponent,
+            Filters.Enabled => comp.Enabled,
+            Filters.Item => comp.Container != null && comp.Container != _playerManager.LocalEntity,
+            Filters.Innate => comp.Container == null || comp.Container == _playerManager.LocalEntity,
+            Filters.Instant => EntityManager.HasComponent<InstantActionComponent>(uid),
+            Filters.Targeted => EntityManager.HasComponent<TargetActionComponent>(uid),
             _ => throw new ArgumentOutOfRangeException(nameof(filter), filter, null)
         };
     }
@@ -645,7 +618,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             _window.ResultsGrid.RemoveAllChildren();
     }
 
-    private void PopulateActions(IEnumerable<(EntityUid Id, BaseActionComponent Comp)> actions)
+    private void PopulateActions(IEnumerable<Entity<ActionComponent>> actions)
     {
         if (_window is not { Disposed: false, IsOpen: true })
             return;
@@ -667,15 +640,15 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         {
             if (i < existing.Count)
             {
-                existing[i++].UpdateData(action.Id, _actionsSystem);
+                existing[i++].UpdateData(action, _actionsSystem);
                 continue;
             }
 
-            var button = new ActionButton(_entMan, _spriteSystem, this) {Locked = true};
+            var button = new ActionButton(EntityManager, _spriteSystem, this) {Locked = true};
             button.ActionPressed += OnWindowActionPressed;
             button.ActionUnpressed += OnWindowActionUnPressed;
             button.ActionFocusExited += OnWindowActionFocusExisted;
-            button.UpdateData(action.Id, _actionsSystem);
+            button.UpdateData(action, _actionsSystem);
             _window.ResultsGrid.AddChild(button);
         }
 
@@ -714,13 +687,13 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         actions = actions.Where(action =>
         {
-            if (filters.Count > 0 && filters.Any(filter => !MatchesFilter(action.Comp, filter)))
+            if (filters.Count > 0 && filters.Any(filter => !MatchesFilter(action, filter)))
                 return false;
 
             if (action.Comp.Keywords.Any(keyword => search.Contains(keyword, StringComparison.OrdinalIgnoreCase)))
                 return true;
 
-            var name = EntityManager.GetComponent<MetaDataComponent>(action.Id).EntityName;
+            var name = EntityManager.GetComponent<MetaDataComponent>(action).EntityName;
             if (name.Contains(search, StringComparison.OrdinalIgnoreCase))
                 return true;
 
@@ -770,7 +743,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     private void DragAction()
     {
-        if (_menuDragHelper.Dragged is not {ActionId: {} action} dragged)
+        if (_menuDragHelper.Dragged is not {Action: {} action} dragged)
         {
             _menuDragHelper.EndDrag();
             return;
@@ -780,7 +753,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         var currentlyHovered = UIManager.MouseGetControl(_input.MouseScreenPosition);
         if (currentlyHovered is ActionButton button)
         {
-            swapAction = button.ActionId;
+            swapAction = button.Action;
             SetAction(button, action, false);
         }
 
@@ -820,8 +793,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (args.Function != EngineKeyFunctions.UIClick && args.Function != EngineKeyFunctions.Use)
             return;
 
-        _menuDragHelper.MouseDown(action);
-        args.Handle();
+        HandleActionPressed(args, action);
     }
 
     private void OnWindowActionUnPressed(GUIBoundKeyEventArgs args, ActionButton dragged)
@@ -829,8 +801,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (args.Function != EngineKeyFunctions.UIClick && args.Function != EngineKeyFunctions.Use)
             return;
 
-        DragAction();
-        args.Handle();
+        HandleActionUnpressed(args, dragged);
     }
 
     private void OnWindowActionFocusExisted(ActionButton button)
@@ -850,22 +821,32 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (args.Function != EngineKeyFunctions.UIClick)
             return;
 
+        HandleActionPressed(args, button);
+    }
+
+    private void HandleActionPressed(GUIBoundKeyEventArgs args, ActionButton button)
+    {
         args.Handle();
-        if (button.ActionId != null)
+        if (button.Action != null)
         {
             _menuDragHelper.MouseDown(button);
             return;
         }
 
-        var ev = new FillActionSlotEvent();
-        EntityManager.EventBus.RaiseEvent(EventSource.Local, ev);
-        if (ev.Action != null)
-            SetAction(button, ev.Action);
+        // good job
     }
 
     private void OnActionUnpressed(GUIBoundKeyEventArgs args, ActionButton button)
     {
-        if (args.Function != EngineKeyFunctions.UIClick || _actionsSystem == null)
+        if (args.Function != EngineKeyFunctions.UIClick)
+            return;
+
+        HandleActionUnpressed(args, button);
+    }
+
+    private void HandleActionUnpressed(GUIBoundKeyEventArgs args, ActionButton button)
+    {
+        if (_actionsSystem == null)
             return;
 
         args.Handle();
@@ -878,12 +859,13 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         _menuDragHelper.EndDrag();
 
-        if (!_actionsSystem.TryGetActionData(button.ActionId, out var baseAction))
+        if (button.Action is not {} action)
             return;
 
-        if (baseAction is not BaseTargetActionComponent action)
+        // TODO: make this an event
+        if (!EntityManager.TryGetComponent<TargetActionComponent>(action, out var target))
         {
-            _actionsSystem?.TriggerAction(button.ActionId.Value, baseAction);
+            _actionsSystem?.TriggerAction(action);
             return;
         }
 
@@ -892,7 +874,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         // if we're clicking the same thing we're already targeting for, then we simply cancel
         // targeting
-        ToggleTargeting(button.ActionId.Value, action);
+        ToggleTargeting((action, action.Comp, target));
     }
 
     private bool OnMenuBeginDrag()
@@ -900,16 +882,16 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         // TODO ACTIONS
         // The dragging icon shuld be based on the entity's icon style. I.e. if the action has a large icon texture,
         // and a small item/provider sprite, then the dragged icon should be the big texture, not the provider.
-        if (_actionsSystem != null && _actionsSystem.TryGetActionData(_menuDragHelper.Dragged?.ActionId, out var action))
+        if (_menuDragHelper.Dragged?.Action is {} action)
         {
-            if (EntityManager.TryGetComponent(action.EntityIcon, out SpriteComponent? sprite)
+            if (EntityManager.TryGetComponent(action.Comp.EntityIcon, out SpriteComponent? sprite)
                 && sprite.Icon?.GetFrame(RsiDirection.South, 0) is {} frame)
             {
                 _dragShadow.Texture = frame;
             }
-            else if (action.Icon != null)
+            else if (action.Comp.Icon is {} icon)
             {
-                _dragShadow.Texture = _spriteSystem.Frame0(action.Icon);
+                _dragShadow.Texture = _spriteSystem.Frame0(icon);
             }
             else
             {
@@ -1038,13 +1020,13 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             SearchAndDisplay();
 
         // Goobstation start
-        if (_entMan.HasComponent<SwapSpellComponent>(SelectingTargetFor))
-            return;
-
         if (_mark == null)
             return;
 
-        if (!_entMan.TryGetComponent(SelectingTargetFor, out LockOnMarkActionComponent? lockOnMark))
+        if (EntityManager.HasComponent<SwapSpellComponent>(SelectingTargetFor))
+            return;
+
+        if (!EntityManager.TryGetComponent(SelectingTargetFor, out LockOnMarkActionComponent? lockOnMark))
         {
             _mark.SetMark(null);
             return;
@@ -1054,8 +1036,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         var targets =
             _lookup.GetEntitiesInRange<MobStateComponent>(coords, lockOnMark.LockOnRadius, LookupFlags.Dynamic);
-        var xformQuery = _entMan.GetEntityQuery<TransformComponent>();
-        var damageableQuery = _entMan.GetEntityQuery<DamageableComponent>();
+        var xformQuery = EntityManager.GetEntityQuery<TransformComponent>();
+        var damageableQuery = EntityManager.GetEntityQuery<DamageableComponent>();
         List<(float range, EntityUid target)> selectedTargets = new();
         foreach (var (target, _) in targets)
         {
@@ -1120,33 +1102,40 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     /// If currently targeting with no slot or a different slot, switches to
     /// targeting with the specified slot.
     /// </summary>
-    private void ToggleTargeting(EntityUid actionId, BaseTargetActionComponent action)
+    private void ToggleTargeting(Entity<ActionComponent, TargetActionComponent> ent)
     {
-        if (SelectingTargetFor == actionId)
+        if (SelectingTargetFor == ent)
         {
             StopTargeting();
             return;
         }
 
-        StartTargeting(actionId, action);
+        StartTargeting(ent);
     }
 
     /// <summary>
     /// Puts us in targeting mode, where we need to pick either a target point or entity
     /// </summary>
-    private void StartTargeting(EntityUid actionId, BaseTargetActionComponent action)
+    private void StartTargeting(Entity<ActionComponent, TargetActionComponent> ent)
     {
+        var (uid, action, target) = ent;
+
         // If we were targeting something else we should stop
         StopTargeting();
 
-        SelectingTargetFor = actionId;
+        // Goobstation
+        if (EntityManager.TryGetComponent(ent, out WorldTargetActionComponent? worldTarget) &&
+            worldTarget.Event is InstantWorldTargetActionEvent)
+            _actionsSystem?.TriggerAction(ent, true); // We just perform it and hope for the best :godo:
+
+        SelectingTargetFor = uid;
         // TODO inform the server
-        action.Toggled = true;
+        _actionsSystem?.SetToggled(uid, true);
 
         // override "held-item" overlay
         var provider = action.Container;
 
-        if (action.TargetingIndicator && _overlays.TryGetOverlay<ShowHandItemOverlay>(out var handOverlay))
+        if (target.TargetingIndicator && _overlays.TryGetOverlay<ShowHandItemOverlay>(out var handOverlay))
         {
             if (action.ItemIconStyle == ItemActionIconStyle.BigItem && action.Container != null)
             {
@@ -1162,7 +1151,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         {
             foreach (var button in _container.GetButtons())
             {
-                if (button.ActionId == actionId)
+                if (button.Action?.Owner == uid)
                     button.UpdateIcons();
             }
         }
@@ -1172,22 +1161,22 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         // - Add a yes/no checkmark where the HandItemOverlay usually is
 
         // Highlight valid entity targets
-        if (action is not EntityTargetActionComponent entityAction)
+        if (!EntityManager.TryGetComponent<EntityTargetActionComponent>(uid, out var entity))
             return;
 
-        if (_entMan.HasComponent<SwapSpellComponent>(actionId) && _playerManager.LocalEntity != null) // Goobstation
-            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, actionId);
+        if (EntityManager.HasComponent<SwapSpellComponent>(uid) && _playerManager.LocalEntity != null) // Goobstation
+            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, uid);
 
         Func<EntityUid, bool>? predicate = null;
-        var attachedEnt = entityAction.AttachedEntity;
+        var attachedEnt = action.AttachedEntity;
 
-        if (!entityAction.CanTargetSelf)
+        if (!entity.CanTargetSelf)
             predicate = e => e != attachedEnt;
 
-        var range = entityAction.CheckCanAccess ? action.Range : -1;
+        var range = target.CheckCanAccess ? target.Range : -1;
 
         _interactionOutline?.SetEnabled(false);
-        _targetOutline?.Enable(range, entityAction.CheckCanAccess, predicate, entityAction.Whitelist, entityAction.Blacklist, null);
+        _targetOutline?.Enable(range, target.CheckCanAccess, predicate, entity.Whitelist, entity.Blacklist, null);
     }
 
     /// <summary>
@@ -1201,14 +1190,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             return;
 
         var oldAction = SelectingTargetFor;
-        if (_actionsSystem != null && _actionsSystem.TryGetActionData(oldAction, out var action))
-        {
-            // TODO inform the server
-            action.Toggled = false;
-        }
+        // TODO inform the server
+        _actionsSystem?.SetToggled(oldAction, false);
 
         // Goobstation
-        if (_entMan.HasComponent<SwapSpellComponent>(oldAction.Value) && _playerManager.LocalEntity != null)
+        if (EntityManager.HasComponent<SwapSpellComponent>(oldAction.Value) && _playerManager.LocalEntity != null)
             _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, oldAction.Value);
 
         SelectingTargetFor = null;
@@ -1220,7 +1206,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         {
             foreach (var button in _container.GetButtons())
             {
-                if (button.ActionId == oldAction)
+                if (button.Action?.Owner == oldAction)
                     button.UpdateIcons();
             }
         }

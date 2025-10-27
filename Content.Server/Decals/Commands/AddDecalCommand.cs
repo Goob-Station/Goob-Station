@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
+// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Server.Administration;
 using Content.Shared.Administration;
@@ -54,8 +65,9 @@ namespace Content.Server.Decals.Commands
             }
 
             var mapSystem = _entManager.System<MapSystem>();
+            var turfSystem = _entManager.System<TurfSystem>();
             var coordinates = new EntityCoordinates(gridIdRaw.Value, new Vector2(x, y));
-            if (mapSystem.GetTileRef(gridIdRaw.Value, grid, coordinates).IsSpace())
+            if (turfSystem.IsSpace(mapSystem.GetTileRef(gridIdRaw.Value, grid, coordinates)))
             {
                 shell.WriteError($"Cannot create decal on space tile at {coordinates}.");
                 return;

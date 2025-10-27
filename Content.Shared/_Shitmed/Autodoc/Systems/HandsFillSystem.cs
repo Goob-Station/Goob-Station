@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._Shitmed.Autodoc.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -23,7 +29,7 @@ public sealed class HandsFillSystem : EntitySystem
         var coords = Transform(ent).Coordinates;
         foreach (var (name, fill) in ent.Comp.Hands)
         {
-            _hands.AddHand(ent, name, HandLocation.Middle, hands);
+            _hands.AddHand((ent, hands), name, HandLocation.Middle);
 
             if (fill is not {} id)
                 continue;

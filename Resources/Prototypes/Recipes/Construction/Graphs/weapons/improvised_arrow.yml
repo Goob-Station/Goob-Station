@@ -1,4 +1,11 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
   id: ImprovisedArrow
   start: start
   graph:
@@ -13,7 +20,7 @@
         amount: 1
         doAfter: 0.5
       - tag: GlassShard
-        name: glass shard
+        name: construction-graph-tag-glass-shard
         icon:
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1
@@ -37,7 +44,7 @@
         amount: 1
         doAfter: 0.5
       - tag: PlasmaGlassShard
-        name: plasma glass shard
+        name: construction-graph-tag-plasma-glass-shard
         icon:
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1
@@ -61,7 +68,7 @@
         amount: 1
         doAfter: 0.5
       - tag: UraniumGlassShard
-        name: uranium glass shard
+        name: construction-graph-tag-uranium-glass-shard
         icon:
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1
@@ -69,3 +76,24 @@
 
   - node: ImprovisedArrowUranium
     entity: ArrowImprovisedUranium
+
+- type: constructionGraph
+  id: ImprovisedArrowCarp
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ImprovisedArrowCarp
+      steps:
+      - material: MetalRod
+        amount: 1
+        doAfter: 0.5
+      - material: Cloth
+        amount: 1
+        doAfter: 0.5
+      - material: SpaceCarpTooth
+        amount: 1
+        doAfter: 0.5
+
+  - node: ImprovisedArrowCarp
+    entity: ArrowImprovisedCarp

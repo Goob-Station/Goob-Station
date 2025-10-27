@@ -1,3 +1,112 @@
+# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 SweptWasTaken <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
+# SPDX-FileCopyrightText: 2022 CrudeWax <75271456+CrudeWax@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Greenrock64 <greenrock64@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Radosvik <65792927+Radosvik@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 ZeroDayDaemon <60460608+ZeroDayDaemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Colin-Tel <113523727+Colin-Tel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Jeff <velcroboy333@hotmail.com>
+# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2023 Kit0vras <123590995+Kit0vras@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Timothy Teakettle <59849408+timothyteakettle@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 August Sun <45527070+august-sun@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
+# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Luiz Costa <33888056+luizwritescode@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PoorMansDreams <150595537+PoorMansDreams@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 august-sun <45527070+august.sun@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
+# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+# SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 hyphenationc <36931471+hyphenationc@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Base
 
 - type: entity
@@ -109,6 +218,13 @@
   - type: Tag
     tags:
     - Meat
+    - Raw
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-inhand-left
+      right:
+      - state: plain-inhand-right
   - type: FoodSequenceElement
     sprite:
       sprite: Objects/Consumable/Food/meat.rsi
@@ -136,6 +252,12 @@
   - type: SliceableFood
     count: 3
     slice: FoodMeatCutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-inhand-left
+      right:
+      - state: plain-inhand-right
 
 - type: entity
   name: raw carp fillet
@@ -173,6 +295,12 @@
       reagents:
       - ReagentId: CarpoToxin
         Quantity: 5
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+      right:
+      - state: generic-pink-inhand-right
 
 - type: entity
   name: raw bacon
@@ -212,6 +340,12 @@
         name: food-sequence-burger-content-meat
       taco:
         name: food-sequence-content-meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+      right:
+      - state: generic-pink-inhand-right
 
 - type: entity
   name: raw bear meat
@@ -245,6 +379,14 @@
         name: food-sequence-burger-content-bear
       taco:
         name: food-sequence-content-bear
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: "#934C64"
+      right:
+      - state: generic-pink-inhand-right
+        color: "#934C64"
 
 - type: entity
   name: raw penguin meat
@@ -278,6 +420,13 @@
         name: food-sequence-burger-content-penguin
       taco:
         name: food-sequence-content-penguin
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+      right:
+      - state: generic-pink-inhand-right
+
 - type: entity
   name: raw chicken meat
   parent: FoodMeatRawBase
@@ -317,6 +466,12 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+      right:
+      - state: generic-pink-inhand-right
 
 - type: entity
   name: raw duck meat
@@ -350,6 +505,12 @@
         name: food-sequence-content-duck
       taco:
         name: food-sequence-content-duck
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+      right:
+      - state: generic-pink-inhand-right
 
 - type: entity
   name: prime-cut corgi meat
@@ -384,6 +545,12 @@
         name: food-sequence-burger-content-corgi
       taco:
         name: food-sequence-content-corgi
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: corgi-inhand-left
+      right:
+      - state: corgi-inhand-right
 
 - type: entity
   name: raw crab meat
@@ -449,6 +616,12 @@
         name: food-sequence-burger-content-goliath
       taco:
         name: food-sequence-content-goliath
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-inhand-left
+      right:
+      - state: plain-inhand-right
 
 - type: entity
   name: dragon flesh
@@ -485,6 +658,19 @@
         name: food-sequence-content-dragon
       taco:
         name: food-sequence-content-dragon
+  - type: SliceableFood
+    count: 3
+    slice: FoodMeatDragonCutlet
+  - type: Construction
+    graph: DragonSteak
+    node: start
+    defaultTarget: dragon steak
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: dragon-inhand-left
+      right:
+      - state: dragon-inhand-right
 
 - type: entity
   name: raw rat meat
@@ -514,6 +700,12 @@
         name: food-sequence-burger-content-rat
       taco:
         name: food-sequence-content-rat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-inhand-left
+      right:
+      - state: plain-inhand-right
 
 - type: entity
   name: raw lizard meat
@@ -552,6 +744,14 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-tail
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-inhand-left
+        color: "#6EFF41"
+      right:
+      - state: plain-inhand-right
+        color: "#6EFF41"
 
 - type: entity
   name: raw plant meat
@@ -604,6 +804,12 @@
         name: food-sequence-burger-content-rotten
       taco:
         name: food-sequence-content-rotten
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: rotten-inhand-left
+      right:
+      - state: rotten-inhand-right
 
 - type: entity
   name: raw spider meat
@@ -633,6 +839,8 @@
         name: food-sequence-burger-content-spider
       taco:
         name: food-sequence-content-spider
+  - type: Item
+    heldPrefix: spider
 
 - type: entity
   name: raw spider leg
@@ -659,6 +867,14 @@
         name: food-sequence-burger-content-spider
       taco:
         name: food-sequence-content-spider
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: snake-inhand-left
+        color: "#333333"
+      right:
+      - state: snake-inhand-right
+        color: "#333333"
 
 - type: entity
   name: meatwheat clump
@@ -686,6 +902,14 @@
         name: food-sequence-content-clump
       taco:
         name: food-sequence-content-clump
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: "#934C64"
+      right:
+      - state: generic-pink-inhand-right
+        color: "#934C64"
 
 - type: entity
   name: raw snake meat
@@ -721,6 +945,12 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-snake
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: snake-inhand-left
+      right:
+      - state: snake-inhand-right
 
 - type: entity
   name: raw xeno meat
@@ -757,6 +987,14 @@
         name: food-sequence-content-xeno
       taco:
         name: food-sequence-content-xeno
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-inhand-left
+        color: "#6EFF41"
+      right:
+      - state: plain-inhand-right
+        color: "#6EFF41"
 
 - type: entity
   name: raw rouny meat
@@ -795,6 +1033,12 @@
         name: food-sequence-content-rouny
       taco:
         name: food-sequence-content-rouny
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-inhand-left
+      right:
+      - state: plain-inhand-right
 
 - type: entity
   name: killer tomato meat
@@ -823,6 +1067,12 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-tomato
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: tomato-inhand-left
+      right:
+      - state: tomato-inhand-right
 
 - type: entity
   name: salami
@@ -899,6 +1149,9 @@
     - Meat
   - type: Sprite
     state: meatball
+  - type: Construction
+    graph: MeatMeatballCooked
+    node: start
   - type: FoodSequenceElement
     sprite:
       sprite: Objects/Consumable/Food/meat.rsi
@@ -908,6 +1161,29 @@
         name: food-sequence-burger-content-raw-meat
       taco:
         name: food-sequence-content-raw-meat
+
+# meat patty - grillin' time
+
+- type: entity
+  name: meat patty
+  parent: FoodMeatBase
+  id: FoodMeatPatty
+  description: A flat slab of ground meat. Ready for grillin'.
+  components:
+  - type: Tag
+    tags:
+    - Raw
+    - Meat
+  - type: Sprite
+    state: raw_patty
+  - type: InternalTemperature
+    conductivity: 0.43
+  - type: Construction
+    graph: CookedPatty
+    node: start
+    defaultTarget: cooked meat patty
+  - type: Item
+    heldPrefix: generic-pink
 
 - type: entity
   name: slimeball
@@ -938,6 +1214,12 @@
         name: food-sequence-content-slime
       taco:
         name: food-sequence-content-slime
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: slime-inhand-left
+      right:
+      - state: slime-inhand-right
 
 - type: entity
   name: raw snail meat
@@ -967,6 +1249,14 @@
           Quantity: 3
         - ReagentId: Water
           Quantity: 4 #It makes saline if you add salt!
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: "#E2AE7C"
+      right:
+      - state: generic-pink-inhand-right
+        color: "#E2AE7C"
 
 - type: entity
   name: anomalous meat mass
@@ -997,6 +1287,12 @@
   - type: Tag
     tags:
     - Meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-inhand-left
+      right:
+      - state: plain-inhand-right
 
 # Cooked
 
@@ -1074,6 +1370,12 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-cooked-inhand-left
+      right:
+      - state: plain-cooked-inhand-right
 
 - type: entity
   name: bacon
@@ -1119,6 +1421,14 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: "#5B3E2A"
+      right:
+      - state: generic-pink-inhand-right
+        color: "#5B3E2A"
 
 - type: entity
   name: cooked bear
@@ -1157,6 +1467,8 @@
         name: food-sequence-burger-content-bear
       taco:
         name: food-sequence-content-bear
+  - type: Item
+    heldPrefix: meatball
 
 - type: entity
   name: penguin filet
@@ -1194,6 +1506,14 @@
         name: food-sequence-burger-content-penguin
       taco:
         name: food-sequence-content-penguin
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-cooked-inhand-left
+        color: "#F7E3A3"
+      right:
+      - state: plain-cooked-inhand-right
+        color: "#F7E3A3"
 
 - type: entity
   name: cooked chicken
@@ -1236,6 +1556,14 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-cooked-inhand-left
+        color: "#F7E3A3"
+      right:
+      - state: plain-cooked-inhand-right
+        color: "#F7E3A3"
 
 - type: entity
   name: fried chicken
@@ -1278,6 +1606,14 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-cooked-inhand-left
+        color: "#F7E3A3"
+      right:
+      - state: plain-cooked-inhand-right
+        color: "#F7E3A3"
 
 - type: entity
   name: cooked duck
@@ -1320,6 +1656,14 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-cooked-inhand-left
+        color: "#F7E3A3"
+      right:
+      - state: plain-cooked-inhand-right
+        color: "#F7E3A3"
 
 - type: entity
   name: cooked crab
@@ -1357,6 +1701,12 @@
         name: food-sequence-content-crab
       taco:
         name: food-sequence-content-crab
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-cooked-inhand-left
+      right:
+      - state: plain-cooked-inhand-right
 
 - type: entity
   name: goliath steak
@@ -1392,6 +1742,12 @@
         name: food-sequence-burger-content-goliath
       taco:
         name: food-sequence-content-goliath
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-cooked-inhand-left
+      right:
+      - state: plain-cooked-inhand-right
 
 - type: entity
   name: rouny steak
@@ -1431,6 +1787,12 @@
         name: food-sequence-content-rouny
       taco:
         name: food-sequence-content-rouny
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-cooked-inhand-left
+      right:
+      - state: plain-cooked-inhand-right
 
 - type: entity
   name: lizard steak
@@ -1474,6 +1836,12 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-tail-cooked
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-cooked-inhand-left
+      right:
+      - state: plain-cooked-inhand-right
 
 - type: entity
   name: boiled spider leg
@@ -1505,6 +1873,14 @@
         name: food-sequence-burger-content-spider
       taco:
         name: food-sequence-content-spider
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: snake-inhand-left
+        color: "#44201A"
+      right:
+      - state: snake-inhand-right
+        color: "#44201A"
 
 - type: entity
   name: meatball
@@ -1540,6 +1916,52 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-meat
+  - type: Construction
+    graph: MeatMeatballCooked
+    node: meatball cooked
+  - type: Item
+    heldPrefix: meatball
+
+- type: entity
+  name: cooked meat patty
+  parent: FoodMeatBase
+  id: FoodMeatPattyCooked
+  description: A cooked meat patty.
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+    - Steak
+  - type: Sprite
+    state: patty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7.5
+        - ReagentId: Protein
+          Quantity: 7.5
+  - type: Construction
+    graph: CookedPatty
+    node: cooked meat patty
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Consumable/Food/meat.rsi
+      state: meatball-cooked
+    entries:
+      burger:
+        name: food-sequence-burger-content-meat
+      taco:
+        name: food-sequence-content-meat
+      skewer:
+        name: food-sequence-content-meat
+        sprite:
+          sprite: Objects/Consumable/Food/skewer.rsi
+          state: skewer-meat
+  - type: Item
+    heldPrefix: meatball
 
 - type: entity
   name: boiled snail
@@ -1574,6 +1996,14 @@
           Quantity: 3
         - ReagentId: Water
           Quantity: 4 # makes saline if you add salt!
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: "#5B3E2A"
+      right:
+      - state: generic-pink-inhand-right
+        color: "#5B3E2A"
 
 - type: entity
   name: anomalous steak
@@ -1603,6 +2033,58 @@
   - type: Construction
     graph: AnomalyMeatSteak
     node: anomaly steak
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-cooked-inhand-left
+      right:
+      - state: plain-cooked-inhand-right
+
+- type: entity
+  name: dragon steak
+  parent: FoodMeatBase
+  id: FoodMeatDragonCooked
+  description: Pouring ketchup on this is considered a capital crime on most stations.
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+    - Steak
+  - type: Sprite
+    layers:
+    - state: dragon-cooked
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Ichor
+          Quantity: 6
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Protein
+          Quantity: 6
+  - type: SliceableFood
+    count: 3
+    slice: FoodMeatDragonCutletCooked
+  - type: Construction
+    graph: DragonSteak
+    node: dragon steak
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Consumable/Food/meat.rsi
+      state: dragon-cooked
+    entries:
+      burger:
+        name: food-sequence-content-dragon
+      taco:
+        name: food-sequence-content-dragon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: dragon-cooked-inhand-left
+      right:
+      - state: dragon-cooked-inhand-right
 
 # Cutlets
 
@@ -1647,6 +2129,12 @@
     graph: Cutlet
     node: start
     defaultTarget: cutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+      right:
+      - state: generic-pink-inhand-right
 
 - type: entity
   name: raw bear cutlet
@@ -1686,6 +2174,14 @@
     graph: BearCutlet
     node: start
     defaultTarget: bear cutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: brown
+      right:
+      - state: generic-pink-inhand-right
+        color: brown
 
 - type: entity
   name: raw penguin cutlet
@@ -1723,6 +2219,14 @@
     graph: PenguinCutlet
     node: start
     defaultTarget: penguin cutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: white
+      right:
+      - state: generic-pink-inhand-right
+        color: white
 
 - type: entity
   name: raw chicken cutlet
@@ -1765,6 +2269,12 @@
     graph: ChickenCutlet
     node: start
     defaultTarget: chicken cutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+      right:
+      - state: generic-pink-inhand-right
 
 - type: entity
   name: raw duck cutlet
@@ -1807,6 +2317,12 @@
     graph: DuckCutlet
     node: start
     defaultTarget: duck cutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+      right:
+      - state: generic-pink-inhand-right
 
 - type: entity
   name: raw lizard cutlet
@@ -1852,6 +2368,14 @@
     graph: LizardCutlet
     node: start
     defaultTarget: lizard cutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: green
+      right:
+      - state: generic-pink-inhand-right
+        color: green
 
 - type: entity
   name: raw spider cutlet
@@ -1887,6 +2411,14 @@
     graph: SpiderCutlet
     node: start
     defaultTarget: spider cutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: green
+      right:
+      - state: generic-pink-inhand-right
+        color: green
 
 - type: entity
   name: raw xeno cutlet
@@ -1924,6 +2456,14 @@
     graph: XenoCutlet
     node: start
     defaultTarget: xeno cutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: green
+      right:
+      - state: generic-pink-inhand-right
+        color: green
 
 - type: entity
   name: raw killer tomato cutlet
@@ -1981,6 +2521,41 @@
       taco:
         name: food-sequence-content-salami
 
+- type: entity
+  name: raw dragon cutlet
+  parent: FoodMeatBase
+  id: FoodMeatDragonCutlet
+  description: A raw dragon meat cutlet.
+  components:
+  - type: Tag
+    tags:
+    - Raw
+    - Cutlet
+    - Meat
+  - type: Sprite
+    layers:
+    - state: dragoncutlet
+    - state: dragoncutlet_veins
+      shader: unshaded
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Ichor
+          Quantity: 3
+  - type: Construction
+    graph: DragonCutlet
+    node: start
+    defaultTarget: dragon cutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: "#D127A7"
+      right:
+      - state: generic-pink-inhand-right
+        color: "#D127A7"
+
 # Cooked
 
 - type: entity
@@ -2016,6 +2591,14 @@
   - type: Construction
     graph: Cutlet
     node: cutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: "#5B3614"
+      right:
+      - state: generic-pink-inhand-right
+        color: "#5B3614"
 
 - type: entity
   name: bear cutlet
@@ -2053,6 +2636,14 @@
   - type: Construction
     graph: BearCutlet
     node: bear cutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: "#5B3614"
+      right:
+      - state: generic-pink-inhand-right
+        color: "#5B3614"
 
 - type: entity
   name: penguin cutlet
@@ -2088,6 +2679,14 @@
   - type: Construction
     graph: PenguinCutlet
     node: penguin cutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: "#5B3614"
+      right:
+      - state: generic-pink-inhand-right
+        color: "#5B3614"
 
 - type: entity
   name: chicken cutlet
@@ -2128,6 +2727,14 @@
   - type: Construction
     graph: ChickenCutlet
     node: chicken cutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: "#5B3614"
+      right:
+      - state: generic-pink-inhand-right
+        color: "#5B3614"
 
 - type: entity
   name: duck cutlet
@@ -2168,6 +2775,14 @@
   - type: Construction
     graph: DuckCutlet
     node: duck cutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: "#5B3614"
+      right:
+      - state: generic-pink-inhand-right
+        color: "#5B3614"
 
 - type: entity
   name: lizard cutlet
@@ -2209,6 +2824,14 @@
   - type: Construction
     graph: LizardCutlet
     node: lizard cutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: "#153F06"
+      right:
+      - state: generic-pink-inhand-right
+        color: "#153F06"
 
 - type: entity
   name: spider cutlet
@@ -2241,6 +2864,14 @@
   - type: Construction
     graph: SpiderCutlet
     node: spider cutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: "#153F06"
+      right:
+      - state: generic-pink-inhand-right
+        color: "#153F06"
 
 - type: entity
   name: xeno cutlet
@@ -2273,3 +2904,53 @@
   - type: Construction
     graph: XenoCutlet
     node: xeno cutlet
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: "#153F06"
+      right:
+      - state: generic-pink-inhand-right
+        color: "#153F06"
+
+- type: entity
+  name: dragon cutlet
+  parent: FoodMeatBase
+  id: FoodMeatDragonCutletCooked
+  description: It's a meal for kings!
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Cutlet
+    - Meat
+  - type: Sprite
+    state: dragoncutlet-cooked
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Ichor
+          Quantity: 2
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 2
+  - type: Construction
+    graph: DragonCutlet
+    node: dragon cutlet
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Consumable/Food/meat.rsi
+      state: dragoncutlet-cooked
+    entries:
+      burger:
+        name: food-sequence-content-dragon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+        color: "#7A1763"
+      right:
+      - state: generic-pink-inhand-right
+        color: "#7A1763"

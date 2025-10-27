@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.GhostKick;
@@ -10,7 +19,7 @@ namespace Content.Server.GhostKick;
 
 // Handles logic for "ghost kicking".
 // Basically we boot the client off the server without telling them, so the game shits itself.
-// Hilariously isn't it?
+// Hilarious, isn't it?
 
 public sealed class GhostKickManager
 {
@@ -45,32 +54,30 @@ public sealed class GhostKickManager
 }
 
 [AdminCommand(AdminFlags.Moderator)]
-public sealed class GhostKickCommand : IConsoleCommand
+public sealed class GhostKickCommand : LocalizedEntityCommands
 {
-    public string Command => "ghostkick";
-    public string Description => "Kick a client from the server as if their network just dropped.";
-    public string Help => "Usage: ghostkick <Player> [Reason]";
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly GhostKickManager _ghostKick = default!;
 
-    public void Execute(IConsoleShell shell, string argStr, string[] args)
+    public override string Command => "ghostkick";
+
+    public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (args.Length < 1)
         {
-            shell.WriteError("Need at least one argument");
+            shell.WriteError(Loc.GetString($"shell-need-exactly-one-argument"));
             return;
         }
 
         var playerName = args[0];
-        var reason = args.Length > 1 ? args[1] : "Ghost kicked by console";
+        var reason = args.Length > 1 ? args[1] : Loc.GetString($"cmd-ghostkick-default-reason");
 
-        var players = IoCManager.Resolve<IPlayerManager>();
-        var ghostKick = IoCManager.Resolve<GhostKickManager>();
-
-        if (!players.TryGetSessionByUsername(playerName, out var player))
+        if (!_playerManager.TryGetSessionByUsername(playerName, out var player))
         {
-            shell.WriteError($"Unable to find player: '{playerName}'.");
+            shell.WriteError(Loc.GetString($"shell-target-player-does-not-exist"));
             return;
         }
 
-        ghostKick.DoDisconnect(player.Channel, reason);
+        _ghostKick.DoDisconnect(player.Channel, reason);
     }
 }

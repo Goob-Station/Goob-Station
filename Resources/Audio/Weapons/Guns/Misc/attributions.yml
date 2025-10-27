@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 RieBi <42877671+RieBi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - files: ["arrow_nock.ogg"]
   license: "CC-BY-NC-4.0"
   copyright: "Created by LiamG_SFX, converted to ogg by mirrorcult"

@@ -1,3 +1,25 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 yahay505 <58685802+yahay505@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System;
 using System.Linq;
 using System.Text;
@@ -14,7 +36,10 @@ using Content.Server.Kitchen.Components;
 using Content.Server.Lightning;
 using Content.Server.Popups;
 using Content.Server.Station.Systems;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Atmos;
+using Content.Shared.Chat;
+using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
@@ -22,6 +47,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Tag;
+using Content.Shared.Throwing;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -49,6 +75,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
 
     private DelamType _delamType = DelamType.Explosion;
 
@@ -221,7 +248,10 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         //Radiate stuff
         if (TryComp<RadiationSourceComponent>(uid, out var rad))
-            rad.Intensity = sm.Power * Math.Max(0, 1f + transmissionBonus / 10f) * 0.003f;
+        {
+            var transmittedpower = sm.Power * Math.Max(0, 1f + transmissionBonus / 10f);
+            rad.Intensity = transmittedpower * sm.RadiationOutputFactor;
+        }
 
         //Power * 0.55 * a value between 1 and 0.8
         var energy = sm.Power * sm.ReactionPowerModifier;
@@ -557,7 +587,22 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     private void OnCollideEvent(EntityUid uid, SupermatterComponent sm, ref StartCollideEvent args)
     {
         if (!sm.Activated)
+        {
+            // Extra logging for supermatter
+            var activator = ToPrettyString(args.OtherEntity);
+            var isMob = HasComp<MobStateComponent>(args.OtherEntity);
+            var impact = isMob ? LogImpact.Extreme : LogImpact.High;
+
+            // Original log entry
+            _adminLog.Add(LogType.Supermatter, impact,
+                $"{activator:actor} activated Supermatter {ToPrettyString(uid):subject}");
+
+            // New admin alert
+            _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                $"SUPERMATTER ACTIVATED BY {activator} AT {Transform(uid).Coordinates}");
+
             sm.Activated = true;
+        }
 
         var target = args.OtherEntity;
         if (args.OtherBody.BodyType == BodyType.Static
@@ -576,6 +621,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         if (!HasComp<ProjectileComponent>(target))
         {
+            _adminLog.Add(LogType.Supermatter, LogImpact.Medium, $"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");
             EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
             _audio.PlayPvs(sm.DustSound, uid);
         }

@@ -1,3 +1,32 @@
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Shaddap1 <106589956+Shaddap1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lanse12 <cloudability.ez@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ExponentialWizard <38435756+ExponentialWizard@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 august-sun <45527070+august.sun@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: BaseMobAsteroid
   parent:
@@ -25,7 +54,6 @@
     - Electrocution
     - TemporaryBlindness
     - RadiationProtection
-    - Drowsiness
     - Adrenaline
   - type: StandingState
   - type: Tag
@@ -34,7 +62,7 @@
 
 - type: entity
   id: MobGoliath
-  parent: BaseMobAsteroid
+  parent: [ BaseMobAsteroid, MobBloodstream ]
   name: goliath
   description: A massive beast that uses long tentacles to ensnare its prey, threatening them is not advised under any conditions.
   components:
@@ -59,6 +87,9 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 1.5 # Goob - accounts for decreased range, more likely to catch up to you when stunned by tendrils
     baseSprintSpeed : 1.5
+  - type: Bloodstream
+    bloodMaxVolume: 350
+    chemicalMaxVolume: 0
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -76,8 +107,9 @@
     range: 1.12 # Goob - Allows kinetic crushers to fight them without taking guaranteed damage.
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Lavafauna
   - type: HTN
+    constantlyReplan: false
     rootTask:
       task: GoliathCompound
     blackboard:
@@ -85,6 +117,8 @@
         6
       AggroVisionRadius: !type:Single
         7
+      NavSmash: !type:Bool
+        true
   - type: NPCUseActionOnTarget
     actionId: ActionGoliathTentacle
   - type: Tag
@@ -102,11 +136,12 @@
   - type: Fauna # Lavaland Change
 
 - type: entity
+  parent: BaseAction
   id: ActionGoliathTentacle
   name: "[color=red]Tentacle Slam[/color]"
   description: Use your tentacles to grab and stun a target player!
   components:
-  - type: EntityWorldTargetAction
+  - type: Action
     raiseOnUser: true
     icon:
       sprite: Mobs/Aliens/Asteroid/goliath.rsi
@@ -116,9 +151,11 @@
       state: goliath_tentacle_wiggle
     sound:
       path: "/Audio/Weapons/slash.ogg"
-    event: !type:GoliathSummonTentacleAction
     useDelay: 8
+  - type: TargetAction
     range: 10
+  - type: WorldTargetAction
+    event: !type:GoliathSummonTentacleAction
 
 - type: entity
   id: GoliathTentacle
@@ -237,7 +274,7 @@
     count: 1
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Lavafauna # Goobedit - Lavaland
   - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound
@@ -246,6 +283,8 @@
         4
       AggroVisionRadius: !type:Single
         7
+      NavSmash: !type:Bool
+        true
   - type: Butcherable
     spawned:
     - id: FoodHivelordRemains
@@ -299,6 +338,8 @@
         15
       AggroVisionRadius: !type:Single
         15
+      NavSmash: !type:Bool
+        true
   - type: TimedDespawn
     lifetime: 45
 
@@ -329,6 +370,9 @@
     stage: 1
   - type: StaticPrice
     price: 5000
+  - type: Tag
+    tags:
+    - HivelordRemains
 
 - type: entity
   id: FoodHivelordRemainsInert
@@ -345,3 +389,81 @@
     size: Normal
   - type: StaticPrice
     price: 1000
+  - type: Tag
+    tags:
+    - HivelordRemains
+
+
+- type: entity
+  id: MobBasilisk
+  parent: [ BaseMobAsteroid, MobBloodstream ]
+  name: basilisk
+  description: A territorial beast, covered in a thick shell that absorbs energy. Its stare causes victims to freeze from the inside.
+  components:
+  - type: Sprite
+    sprite: Mobs/Aliens/Asteroid/basilisk.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: basilisk
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: basilisk
+      Dead:
+        Base: basilisk_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2
+    baseSprintSpeed : 3
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      45: Dead
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Slash: 7
+        Piercing: 5
+  - type: Gun
+    fireRate: 0.75
+    projectileSpeed: 10.0 # When we get predicted guns and projectiles this should be raised to like 15, 15 mis-predicts too much right now unfortunately.
+    selectedMode: SemiAuto
+    showExamineText: false
+    availableModes: [ SemiAuto ]
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/syringe_gun.ogg
+  - type: RechargeBasicEntityAmmo
+    showExamineText: false
+    rechargeCooldown: 0
+    rechargeSound: null
+  - type: BasicEntityAmmoProvider
+    proto: BasiliskRay
+    capacity: 1
+    count: 1
+  - type: Bloodstream
+    bloodMaxVolume: 200
+    chemicalMaxVolume: 0
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: BasiliskCompound
+    blackboard:
+      VisionRadius: !type:Single
+        7
+      AggroVisionRadius: !type:Single
+        12
+      NavSmash: !type:Bool
+        true
+  - type: Reflect
+    reflectProb: 1
+    reflects:
+    - Energy
+  - type: Butcherable
+    spawned:
+    - id: DiamondOre1
+      amount: 1
+      maxAmount: 3

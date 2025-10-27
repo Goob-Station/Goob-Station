@@ -1,7 +1,23 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;
@@ -48,15 +64,18 @@ public abstract partial class SharedMartialArtsSystem
             case KravMagaMoves.LegSweep:
                 if(_netManager.IsClient)
                     return;
+
+                if (_standingState.IsDown(hitEntity))
+                    break;
                 _stun.TryKnockdown(hitEntity, TimeSpan.FromSeconds(4), true); // okay buddy
-                _stamina.TryTakeStamina(hitEntity, 25f);
+                // _stamina.TakeStaminaDamage(hitEntity, moveComp.StaminaDamage, applyResistances: true);
                 break;
             case KravMagaMoves.NeckChop:
                 var comp = EnsureComp<KravMagaSilencedComponent>(hitEntity);
                 comp.SilencedTime = _timing.CurTime + TimeSpan.FromSeconds(moveComp.EffectTime);
                 break;
             case KravMagaMoves.LungPunch:
-                _stamina.TakeStaminaDamage(hitEntity, moveComp.StaminaDamage);
+                _stamina.TakeStaminaDamage(hitEntity, moveComp.StaminaDamage, applyResistances: true);
                 var blockedBreathingComponent = EnsureComp<KravMagaBlockedBreathingComponent>(hitEntity);
                 blockedBreathingComponent.BlockedTime = _timing.CurTime + TimeSpan.FromSeconds(moveComp.EffectTime);
                 break;
@@ -81,6 +100,8 @@ public abstract partial class SharedMartialArtsSystem
         if (!TryComp<KravMagaActionComponent>(actionEnt, out var kravActionComp))
             return;
 
+        args.Handled = true;
+
         _popupSystem.PopupClient(Loc.GetString("krav-maga-ready", ("action", kravActionComp.Name)), ent, ent);
         ent.Comp.SelectedMove = kravActionComp.Configuration;
         ent.Comp.SelectedMoveComp = kravActionComp;
@@ -88,8 +109,9 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnMapInit(Entity<KravMagaComponent> ent, ref MapInitEvent args)
     {
-        if (HasComp<MartialArtsKnowledgeComponent>(ent))
+        if (HasComp<MartialArtsKnowledgeComponent>(ent) || HasComp<ChangelingIdentityComponent>(ent))
             return;
+
         foreach (var actionId in ent.Comp.BaseKravMagaMoves)
         {
             var actions = _actions.AddAction(ent, actionId);
@@ -100,9 +122,6 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnKravMagaShutdown(Entity<KravMagaComponent> ent, ref ComponentShutdown args)
     {
-        if (!TryComp<KravMagaComponent>(ent, out var kravMaga))
-            return;
-
         foreach (var action in ent.Comp.KravMagaMoveEntities)
         {
             _actions.RemoveAction(action);

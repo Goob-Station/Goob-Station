@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["vox_deathgasp.ogg", "scream4.ogg", "scream3.ogg", "vox_cough.ogg", "vox_cry.ogg", "vox_gasp.ogg",  "vox_sigh.ogg", "vox_sneeze.ogg", "vox_snore.ogg", "vox_yawn.ogg"]
+  license: "CC0-1.0"
+  copyright: "Shartmok made this dogwater, Prehistoric bird sounds by Mastersoundboy2005"
+  source: "https://freesound.org/s/733528/"

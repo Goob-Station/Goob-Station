@@ -1,6 +1,16 @@
+// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
+// SPDX-FileCopyrightText: 2024 Menshin <Menshin@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.Projectiles;
+using Content.Server.Machines.EntitySystems;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
@@ -19,13 +29,12 @@ public sealed partial class ParticleAcceleratorSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
+    [Dependency] private readonly MultipartMachineSystem _multipartMachine = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         InitializeControlBoxSystem();
-        InitializePartSystem();
         InitializePowerBoxSystem();
     }
 }

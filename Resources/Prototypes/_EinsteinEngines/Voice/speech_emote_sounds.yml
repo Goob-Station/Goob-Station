@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: emoteSounds
   id: UnisexIPC
   params:
@@ -63,5 +71,103 @@
         variation: 0.125
     Whirr:
       collection: IPCWhirrs
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
       params:
         variation: 0
+    Surprised: # Goob
+      path: /Audio/_Goobstation/Voice/surprised.ogg
+      params:
+        variation: 0
+
+- type: emoteSounds
+  id: MaleShadowkin
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: SlimeMaleScreams
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hiss:
+      collection: FelinidHisses
+    Meow:
+      collection: FelinidMeows
+    Mew:
+      collection: FelinidMews
+    Growl:
+      collection: FelinidGrowls
+    Purr:
+      collection: FelinidPurrs
+    Mars:
+      collection: Mars
+    Wurble:
+      collection: Wurble
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    Surprised: # Goob
+      path: /Audio/_Goobstation/Voice/surprised.ogg
+
+- type: emoteSounds
+  id: FemaleShadowkin
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: SlimeFemaleScreams
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: FemaleCry
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hiss:
+      collection: FelinidHisses
+    Meow:
+      collection: FelinidMeows
+    Mew:
+      collection: FelinidMews
+    Growl:
+      collection: FelinidGrowls
+    Purr:
+      collection: FelinidPurrs
+    Mars:
+      collection: Mars
+    Wurble:
+      collection: Wurble
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    Surprised: # Goob
+      path: /Audio/_Goobstation/Voice/surprised.ogg

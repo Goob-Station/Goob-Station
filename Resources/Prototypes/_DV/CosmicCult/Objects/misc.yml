@@ -1,0 +1,50 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: ascendant's dendrite
+  parent: BaseAnimalOrgan
+  id: AscendedDendrite
+  description: A bundle of semi-ephemeral tissue extracted from the unravelling husk of an astral ascendant. A faint malign light pulses within.
+  components:
+  - type: RogueAscendedDendrite
+  - type: Item
+    size: Normal
+  - type: Food
+  - type: FlavorProfile
+    flavors:
+      - entropic
+  - type: Tag
+    tags:
+    - Raw
+    - Meat
+  - type: Sprite
+    sprite: _DV/CosmicCult/Objects/ascendantorgan.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Entropy
+          Quantity: 10
+
+- type: entity
+  id: CosmicCultLawBoard
+  parent: BaseElectronics
+  name: malign law board
+  description: An eerie circuit board, suited for slotting into an AI law upload console. Its circuitry is interwoven with phantasmal dendritic strands that twitch of their own accord.
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Objects/lawboard.rsi
+    state: icon
+  - type: SiliconLawProvider
+    lawUploadSound: /Audio/_DV/CosmicCult/antag_cosmic_briefing.ogg
+    subverted: true
+    laws: CosmicCultLaws

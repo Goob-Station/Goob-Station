@@ -1,3 +1,35 @@
+# SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Jessica M <jessica@jessicamaybe.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2023 Alekshhh <44923899+Alekshhh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Duke <112821543+DukeVanity@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
+# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2023 liltenhead <104418166+liltenhead@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DeusMaldPr <dusanduski@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 NazrinNya <137837419+NazrinNya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Victor Shen <71985089+Vexerot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: BaseKudzu
   abstract: true
@@ -15,6 +47,8 @@
     - type: ActiveEdgeSpreader
     - type: EdgeSpreader
       id: Kudzu
+    - type: SpeedModifierContacts
+      affectAirborne: true
 
 - type: entity
   id: Kudzu
@@ -63,7 +97,7 @@
       fireSpread: true #If you walk into incredibly dense, flaming vines, you can expect to burn.
       damage:
         types:
-          Heat: 3
+          Heat: 1.5
     - type: Reactive
       groups:
         Flammable: [Touch]
@@ -80,7 +114,7 @@
     - type: AtmosExposed
     - type: Kudzu
       growthTickChance: 0.3
-      spreadChance: 0.4
+      spreadChance: 0.2
     - type: SpeedModifierContacts
       walkSpeedModifier: 0.2
       sprintSpeedModifier: 0.2
@@ -106,7 +140,7 @@
   suffix: Weak
   components:
     - type: Kudzu
-      spreadChance: 0.3
+      spreadChance: 0.1
 
 - type: entity
   id: KudzuFlowerFriendly
@@ -150,7 +184,7 @@
   parent: KudzuFlowerFriendly
   components:
     - type: Kudzu
-      spreadChance: 0.2
+      spreadChance: 0.1
     - type: RandomSpawner
       chance: 0.05
       rarePrototypes:
@@ -210,7 +244,7 @@
         - Flesh
     - type: Kudzu
       growthTickChance: 0.1
-      spreadChance: 0.4
+      spreadChance: 0.2
       # Heals each time it manages to do a growth tick:
       damageRecovery:
         types:
@@ -233,7 +267,7 @@
       fireSpread: true
       damage:
        types:
-         Heat: 3
+         Heat: 1.5
     - type: AtmosExposed
     - type: SpeedModifierContacts
       walkSpeedModifier: 0.3

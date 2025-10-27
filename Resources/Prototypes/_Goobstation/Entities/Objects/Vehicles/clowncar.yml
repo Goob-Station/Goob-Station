@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseVehicle
   id: VehicleClowncarBase
@@ -23,7 +29,7 @@
     acceleration: 1
     friction: 1
     baseWalkSpeed: 4.5
-    baseSprintSpeed: 7
+    baseSprintSpeed: 10
   - type: ItemSlots
     slots:
       key_slot:
@@ -80,7 +86,6 @@
       - HumanoidAppearance
       - KnockedDown
       - Item
-      - SlowContacts
       - Puddle
       - Airlock
       - Door
@@ -116,6 +121,13 @@
   - type: Damageable
     damageContainer: ClowncarDamageContainer
     damageModifierSet: Metallic
+  - type: Jukebox
+  - type: ActivatableUI
+    key: enum.JukeboxUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.JukeboxUiKey.Key:
+        type: JukeboxBoundUserInterface
 
 - type: entity
   parent: VehicleClowncarBase

@@ -1,0 +1,194 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseStructure
+  id: BaseAutosurgeon
+  description: A single-use autosurgeon for replacing or upgrading your parts with cybernetic implants. Rip that station apart and make it a part of you.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/autosurgeon.rsi
+    state: icon
+    noRot: true
+  - type: Item
+    size: Huge
+  - type: ItemToggle
+    onUse: false
+  - type: DoAfter
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.05"
+        density: 190
+        mask:
+        - TableMask
+  - type: Strap
+    position: Down
+    rotation: -90
+    buckleOffset: 0.05,-0.15
+  - type: Transform
+    anchored: false
+    noRot: true
+  - type: Anchorable
+  - type: Pullable
+
+- type: entity
+  parent: BaseAutosurgeon
+  id: BaseAutosurgeonSingle
+  description: A single-use autosurgeon for replacing or upgrading your parts with cybernetic implants. Rip that station apart and make it a part of you.
+  abstract: true
+  components:
+  - type: AutoSurgeon
+
+- type: entity
+  parent: BaseAutosurgeon
+  id: BaseAutosurgeonMultiple
+  description: A single-use autosurgeon for replacing or upgrading your parts with cybernetic implants. Rip that station apart and make it a part of you.
+  abstract: true
+  components:
+  - type: AutoSurgeonMultiple
+
+- type: entity
+  parent: [BaseAutosurgeonSingle, BaseSyndicateContraband]
+  id: BaseAutosurgeonSyndicateSingle
+  abstract: true
+  components:
+  - type: Sprite
+    state: icon-syndie
+
+- type: entity
+  parent: [BaseAutosurgeonMultiple, BaseSyndicateContraband]
+  id: BaseAutosurgeonSyndicateMultiple
+  abstract: true
+  components:
+  - type: Sprite
+    state: icon-syndie
+
+# CREW (currently not used, use for testing purposes admeme etc.)
+
+- type: entity
+  parent: BaseAutosurgeonSingle
+  id: AutosurgeonRightSpeedLeg
+  name: autosurgeon (right S.P.E.E.D leg)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Groin
+    newPartProto: SpeedRightLeg
+
+- type: entity
+  parent: BaseAutosurgeonSingle
+  id: AutosurgeonLeftSpeedLeg
+  name: autosurgeon (left S.P.E.E.D leg)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Groin
+    newPartProto: SpeedLeftLeg
+
+# SYNDICATE
+
+- type: entity
+  parent: BaseAutosurgeonSyndicateSingle
+  id: AutosurgeonRightMantisBlade
+  name: syndicate autosurgeon (right mantis blade)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Right
+    componentsToPart:
+    - type: MantisBladeArm
+      actionProto: ActionToggleRightMantisBlade
+
+- type: entity
+  parent: BaseAutosurgeonSyndicateSingle
+  id: AutosurgeonLeftMantisBlade
+  name: syndicate autosurgeon (left mantis blade)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Left
+    componentsToPart:
+    - type: MantisBladeArm
+      actionProto: ActionToggleLeftMantisBlade
+
+- type: entity
+  parent: BaseAutosurgeonSyndicateSingle
+  id: AutosurgeonSandevistan
+  name: syndicate autosurgeon (sandevistan)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Chest
+    targetOrgan: Skibidi
+    newPartProto: OrganHeartSandevistan
+
+- type: entity
+  parent: BaseAutosurgeonSyndicateMultiple
+  id: AutosurgeonSmartLink
+  name: syndicate autosurgeon (smartlink arms)
+  components:
+  - type: AutoSurgeonMultiple
+    entries:
+    - targetBodyPart: Arm
+      targetBodyPartSymmetry: Right
+      newPartProto: SmartlinkRightHand
+    - targetBodyPart: Arm
+      targetBodyPartSymmetry: Left
+      newPartProto: SmartlinkLeftHand
+
+    - targetBodyPart: Arm
+      targetBodyPartSymmetry: Right
+      componentsToPart:
+      - type: SmartLinkArm
+    - targetBodyPart: Arm
+      targetBodyPartSymmetry: Left
+      componentsToPart:
+      - type: SmartLinkArm
+
+- type: entity
+  parent: BaseAutosurgeonSyndicateMultiple
+  id: AutosurgeonRecoilAbsorber
+  name: syndicate autosurgeon (recoil absorbing arms)
+  components:
+  - type: AutoSurgeonMultiple
+    entries:
+    - targetBodyPart: Arm
+      targetBodyPartSymmetry: Right
+      newPartProto: RecoilAbsorberRightHand
+    - targetBodyPart: Arm
+      targetBodyPartSymmetry: Left
+      newPartProto: RecoilAbsorberLeftHand
+
+    - targetBodyPart: Arm
+      targetBodyPartSymmetry: Right
+      componentsToPart:
+      - type: RecoilAbsorberArm
+    - targetBodyPart: Arm
+      targetBodyPartSymmetry: Left
+      componentsToPart:
+      - type: RecoilAbsorberArm
+
+- type: entity
+  parent: BaseAutosurgeonSyndicateSingle
+  id: AutosurgeonBerserker
+  name: syndicate autosurgeon (berserker heart)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Chest
+    targetOrgan: heart
+    newPartProto: SyndicateBerserkerHeart
+
+- type: entity
+  parent: BaseAutosurgeonSyndicateSingle
+  id: AutosurgeonJumpstarter
+  name: syndicate autosurgeon (jumpstarter heart)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Chest
+    targetOrgan: heart
+    newPartProto: SyndicateJumpstarterHeart

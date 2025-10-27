@@ -1,4 +1,13 @@
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Explosion.EntitySystems;
+using Content.Shared.Chat;
 using Content.Shared.Timing;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -34,6 +43,10 @@ public sealed class SpeakOnTriggerSystem : EntitySystem
             return;
 
         var message = Loc.GetString(_random.Pick(messagePack.Values));
+        // Chatcode moment: messages starting with "." are considered radio messages.
+        // Prepending ">" forces the message to be spoken instead.
+        // TODO chat refactor: remove this
+        message = '>' + message;
         _chat.TrySendInGameICMessage(ent.Owner, message, InGameICChatType.Speak, true);
 
         if (useDelay != null)

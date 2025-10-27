@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Entity Prototypes
 
 - type: entity
@@ -21,6 +33,7 @@
     nameSegments:
       - AbductorScientistPrefix
       - AbductorNames
+    nameFormat: name-format-standard
   - type: Tag
     tags:
       - Abductor
@@ -37,6 +50,8 @@
   - type: GhostRole
     name: abductor-lone-ghost-role-name
     description: abductor-lone-ghost-role-desc
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
     requirements:
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
@@ -63,6 +78,8 @@
   - type: GhostRole
     name: abductor-scientist-ghost-role-name
     description: abductor-scientist-ghost-role-desc
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     requirements:
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
@@ -86,6 +103,8 @@
   - type: GhostRole
     name: abductor-agent-ghost-role-name
     description: abductor-agent-ghost-role-desc
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     requirements:
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
@@ -122,6 +141,7 @@
     pocket1: AbductorGizmo
     pocket2: WeaponAlien
     suitstorage: Wonderprod
+    id: AgentIDCard
 
 - type: startingGear
   id: AbductorScientistGear
@@ -135,6 +155,7 @@
     back: ClothingBackpackDuffelAbductor
     pocket1: AbductorGizmo
     suitstorage: WeaponDecloner
+    id: AgentIDCard
 
 - type: startingGear
   id: AbductorAgentGear
@@ -149,6 +170,7 @@
     pocket1: Silencer
     pocket2: WeaponAlien
     suitstorage: Wonderprod
+    id: AgentIDCard
 
 # Spawners
 
@@ -174,6 +196,8 @@
     name: abductor-lone-ghost-role-name
     description: abductor-lone-ghost-role-desc
     rules: abductors-ghost-role-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
     requirements:
@@ -214,6 +238,8 @@
     name: abductor-agent-ghost-role-name
     description: abductor-agent-ghost-role-desc
     rules: abductors-ghost-role-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
     requirements:
@@ -251,6 +277,8 @@
     name: abductor-scientist-ghost-role-name
     description: abductor-scientist-ghost-role-desc
     rules: abductors-ghost-role-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
     requirements:

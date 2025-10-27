@@ -1,0 +1,47 @@
+# SPDX-FileCopyrightText: 2024 dustylens <54123313+dustylens@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingNeckBase # Frontier - Change to neck
+  id: ClothingNeckClassicPonchoWeb
+  name: classic web poncho
+  description: All of the charm of the desert highlands as imagined by the glands of a spider. It agreeably sticky!
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Neck/Misc/classic_poncho_web.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Neck/Misc/classic_poncho_web.rsi
+  - type: Construction
+    graph: ClothingNeckClassicPonchoWeb
+    node: end
+
+- type: entity
+  parent: ClothingNeckBase # Frontier - Change to neck
+  id: ClothingNeckPonchoWeb
+  name: web poncho
+  description: It is like you were trapped in a cocoon and they added holes for your extremities. You are born again into fashion.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Neck/Misc/poncho_web.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Neck/Misc/poncho_web.rsi
+  - type: Construction
+    graph: ClothingNeckPonchoWeb
+    node: end
+
+- type: entity
+  parent: ClothingNeckBase # Frontier - Change to neck
+  id: ClothingNeckCloakWeb
+  name: web cloak
+  description: This dapper cloak surely identifies you as a friend of spider kind. Surely.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Neck/Cloaks/cloak_web.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Neck/Cloaks/cloak_web.rsi
+  - type: Construction
+    graph: ClothingNeckCloakWeb
+    node: end

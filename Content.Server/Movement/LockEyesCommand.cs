@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Movement.Systems;
@@ -6,16 +11,17 @@ using Robust.Shared.Console;
 namespace Content.Server.Movement;
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class LockEyesCommand : IConsoleCommand
+public sealed class LockEyesCommand : LocalizedEntityCommands
 {
-    public string Command => $"lockeyes";
-    public string Description => Loc.GetString("lockeyes-command-description");
-    public string Help => Loc.GetString("lockeyes-command-help");
-    public void Execute(IConsoleShell shell, string argStr, string[] args)
+    [Dependency] private readonly SharedMoverController _controller = default!;
+
+    public override string Command => $"lockeyes";
+
+    public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (args.Length != 1)
         {
-            shell.WriteError(Loc.GetString("shell-wrong-arguments-number"));
+            shell.WriteError(Loc.GetString("shell-need-exactly-one-argument"));
             return;
         }
 
@@ -25,7 +31,6 @@ public sealed class LockEyesCommand : IConsoleCommand
             return;
         }
 
-        var system = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<SharedMoverController>();
-        system.CameraRotationLocked = value;
+        _controller.CameraRotationLocked = value;
     }
 }

@@ -1,3 +1,25 @@
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 J. Brown <DrMelon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 ImWeax <59857479+ImWeax@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Weax <59857479+ImWeax@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: BaseEnergyBall
   abstract: true
@@ -31,11 +53,13 @@
     shootMaxInterval: 10
     shootRange: 3
     lightningPrototype: Lightning
+  # Goobstation
+  - type: ContainmentFieldIgnore # to replace the cursed mass threshold system
 
 - type: entity
   id: TeslaEnergyBall
   parent: BaseEnergyBall
-  name: ball lightning
+  name: tesla orb
   description: A giant ball of pure energy. The space around it is humming and melting.
   components:
   - type: Fixtures
@@ -70,6 +94,11 @@
     consumerFixtureId: EventHorizonConsumer
     consumeTiles: false
     consumeEntities: false
+  # <Goobstation>
+  - type: Tag
+    tags:
+    - Tesla
+  # </Goobstation>
   - type: TeslaEnergyBall
     spawnProto: TeslaMiniEnergyBall
     soundCollapse:
@@ -95,9 +124,9 @@
   - type: Sprite
     drawdepth: Effects
     sprite: Structures/Power/Generation/Tesla/energy_ball.rsi
-    shader: unshaded
     layers:
     - state: energy_ball
+      shader: unshaded
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/Effects/tesla_collapse.ogg
@@ -109,11 +138,6 @@
     interactFailureString: petting-failure-tesla
     interactSuccessSpawn: EffectHearts
   - type: SupermatterImmune # Goobstation
-  - type: MetaData # Goobstation
-  - type: RandomMetadata # Goobstation
-    nameSegments:
-    - goob_generators_names_first
-    - goob_generators_names_tesla_last
   - type: GuideHelp # For the curious among the brave.
     guides:
     - TeslaEngine
@@ -123,7 +147,7 @@
 - type: entity
   id: TeslaMiniEnergyBall
   parent: BaseEnergyBall
-  name: mini ball lightning
+  name: mini tesla orb
   description: The cub of a destructive energy cage. Not as dangerous, but still not worth touching with bare hands.
   components:
   - type: ChasingWalk
@@ -149,8 +173,8 @@
   - type: Sprite
     drawdepth: Effects
     sprite: Structures/Power/Generation/Tesla/energy_miniball.rsi
-    shader: unshaded
     layers:
     - state: tesla_projectile
+      shader: unshaded
   - type: Electrified
     requirePower: false

@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2024 August Eymann <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 
 ### UI
 
@@ -20,6 +32,8 @@ rcd-component-tile-indestructible-message = That tile can't be destructed!
 rcd-component-deconstruct-target-not-on-whitelist-message = You can't deconstruct that!
 rcd-component-nothing-to-deconstruct-message = There's nothing to deconstruct!
 rcd-component-tile-obstructed-message = You can't deconstruct tiles when there's something on top of them!
+rcd-component-deconstruct-target-no-access = You don't have access to deconstruct that!
+rcd-component-deconstruct-target-is-bolted = Mechanism's bolts prevent deconstruction!
 
 # Construction
 rcd-component-no-valid-grid = You're too far into open space to build here!
