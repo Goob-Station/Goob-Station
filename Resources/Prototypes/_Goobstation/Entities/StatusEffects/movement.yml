@@ -47,7 +47,7 @@
   - type: MovementModStatusEffect
     walkSpeedModifier: 0.7
     sprintSpeedModifier: 0.7
-    
+
 - type: entity # todo move this
   parent: StatusEffectSpeed
   id: NitriumStatusEffect

@@ -19,6 +19,9 @@ namespace Content.Client.Administration.UI.CustomControls;
 [GenerateTypedNameReferences]
 public sealed partial class PlayerListEntry : BoxContainer
 {
+    private readonly ResPath _pinnedResPath = new("/Textures/Interface/Bwoink/pinned.png");
+    private readonly ResPath _unPinnedResPath = new("/Textures/Interface/Bwoink/un_pinned.png");
+
     public PlayerListEntry()
     {
         RobustXamlLoader.Load(this);
@@ -52,15 +55,6 @@ public sealed partial class PlayerListEntry : BoxContainer
 
     private void UpdatePinButtonTexture(bool isPinned)
     {
-        if (isPinned)
-        {
-            PlayerEntryPinButton?.RemoveStyleClass(StyleNano.StyleClassPinButtonUnpinned);
-            PlayerEntryPinButton?.AddStyleClass(StyleNano.StyleClassPinButtonPinned);
-        }
-        else
-        {
-            PlayerEntryPinButton?.RemoveStyleClass(StyleNano.StyleClassPinButtonPinned);
-            PlayerEntryPinButton?.AddStyleClass(StyleNano.StyleClassPinButtonUnpinned);
-        }
+        PlayerEntryPinButton.TexturePath = isPinned ? _pinnedResPath.CanonPath : _unPinnedResPath.CanonPath;
     }
 }
