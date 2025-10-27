@@ -127,10 +127,10 @@ public sealed partial class SharedSpiritCandleSystem : EntitySystem
             return;
 
         if (!area.EntitiesInside.Any())
-            return; // dont use charge if no entities inside  -popup here
+            return;
 
         if (_charges.IsEmpty(ent.Owner))
-            return; // popup here
+            return;
 
         foreach (var ghost in area.EntitiesInside)
         {
