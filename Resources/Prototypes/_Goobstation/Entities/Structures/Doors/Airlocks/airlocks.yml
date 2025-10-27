@@ -72,5 +72,6 @@
     sprite: _Goobstation/Structures/Doors/Airlocks/Glass/robotics.rsi
   - type: PaintableAirlock
     department: Science
+    group: Glass
   - type: Wires
     layoutId: AirlockScience
