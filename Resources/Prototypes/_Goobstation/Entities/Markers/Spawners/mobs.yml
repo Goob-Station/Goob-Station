@@ -76,6 +76,7 @@
 - type: entity
   name: Baby Grey Slime Spawner
   id: SpawnMobGreySlime
+  parent: MarkerBase
   components:
   - type: Sprite
     layers:
