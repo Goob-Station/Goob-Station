@@ -88,6 +88,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 #
@@ -105,6 +106,10 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 36000 # 10h Goobstation
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -122,6 +127,10 @@
   - !type:RoleTimeRequirement
     role: JobChemist
     time: 18000 # 5h Goobstation
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -139,7 +148,11 @@
   - !type:DepartmentTimeRequirement
     department: Command
     time: 18000 # 5h Goobstation
-  # should be changed to nukie playtime when thats tracked (wyci)
+# should be changed to nukie playtime when thats tracked (wyci)
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
   guides: [ NuclearOperatives ]
 
 - type: startingGear
@@ -186,6 +199,7 @@
     neck: SyndicateWhistle
     pocket2: BaseUplinkRadio350TC # goobstation - im rich :fire::fire:
     #outerClothing: ClothingOuterHardsuitSyndieCommander # goobstation - duke nukies
+    ears: ClothingHeadsetAltSyndicateCommander # goob - loudspeaker
   inhand:
   - NukeOpsDeclarationOfWar
 
@@ -238,4 +252,4 @@
   parent: SyndicateOperativeGearFull
   equipment:
     # Goobstation - Telecrystal rework
-    pocket2: BaseUplinkRadio350TC
+    pocket2: LoneOpsUplink350TC #Goobstation

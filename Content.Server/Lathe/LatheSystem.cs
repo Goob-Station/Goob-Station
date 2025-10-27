@@ -133,6 +133,7 @@ namespace Content.Server.Lathe
         [Dependency] private readonly StackSystem _stack = default!;
         [Dependency] private readonly TransformSystem _transform = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!; // Goobstation - New recipes message
+        [Dependency] private readonly IComponentFactory _factory = default!; // Goobstation - Output to material storage
 
         /// <summary>
         /// Per-tick cache
@@ -306,10 +307,19 @@ namespace Content.Server.Lathe
                 var currentRecipe = _proto.Index(comp.CurrentRecipe.Value);
                 if (currentRecipe.Result is { } resultProto)
                 {
-                    var result = Spawn(resultProto, Transform(uid).Coordinates);
-                    _stack.TryMergeToContacts(result);
-                    if (TryComp<ScannableForPointsComponent>(result, out var scannable)) // Goobstation
-                        scannable.Points = 0; // Goobstation, this thing is to prevent ntr duping points via an emagged lathe
+                    // Goobstation, output to material storage instead of spawning
+                    var prototype = _proto.Index(resultProto);
+                    if (comp.OutputToStorage && prototype.TryGetComponent<PhysicalCompositionComponent>(out var composition, _factory))
+                    {
+                        _materialStorage.TryChangeMaterialAmount(uid, composition.MaterialComposition);
+                    }
+                    else
+                    {
+                        var result = Spawn(resultProto, Transform(uid).Coordinates);
+                        _stack.TryMergeToContacts(result);
+                        if (TryComp<ScannableForPointsComponent>(result, out var scannable)) // Goobstation
+                            scannable.Points = 0; // Goobstation, this thing is to prevent ntr duping points via an emagged lathe
+                    }
                 }
 
                 if (currentRecipe.ResultReagents is { } resultReagents &&

@@ -62,7 +62,7 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
-        damage: 60
+        damage: 100
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -72,7 +72,7 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Heat
-        damage: 25
+        damage: 60
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawnInContainer: true
@@ -90,4 +90,4 @@
     closingSpriteState: closed_unlit
   - type: AccessReader
     access: [["Xenomorph"]]
-
+    breakOnAccessBreaker: false # Goobstation

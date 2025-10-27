@@ -87,6 +87,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
+using System.Linq; // Goob Edit
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -177,6 +178,7 @@ namespace Content.Shared.Containers.ItemSlots
             {
                 slot.ContainerSlot = _containers.EnsureContainer<ContainerSlot>(uid, id);
             }
+            itemSlots.Slots = itemSlots.Slots.OrderByDescending((pair => pair.Value.Priority)).ToDictionary(); //Goob Edit - Ordered lists are good.
         }
 
         /// <summary>
@@ -320,6 +322,7 @@ namespace Content.Shared.Containers.ItemSlots
                 if (CanInsert(uid, args.Used, args.User, slot, slot.Swap))
                 {
                     slots.Add(slot);
+                    break; //Goobstation: If an item has multiple ItemSlots, stick with the highest priority and stop looking.
                 }
                 else
                 {

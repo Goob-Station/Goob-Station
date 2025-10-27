@@ -70715,17 +70715,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: GatfruitSeeds
-  entities:
-  - uid: 10444
-    components:
-    - type: Transform
-      parent: 10443
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: Gauze
   entities:
   - uid: 10445
@@ -77936,46 +77925,6 @@ entities:
     - type: Transform
       pos: -59.5,40.5
       parent: 2
-- proto: LockerBotanistLoot
-  entities:
-  - uid: 10443
-    components:
-    - type: Transform
-      pos: -41.5,5.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 10444
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: LockerBrigmedicFilled
   entities:
   - uid: 7009

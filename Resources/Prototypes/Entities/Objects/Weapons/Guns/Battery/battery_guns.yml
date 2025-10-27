@@ -196,6 +196,8 @@
     wideAnimationRotation: 90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
     soundHit:
       collection: MetalThud # Goobstation ^
+  - type: BatteryDrinkerSource # Goobstation - Energycrit
+    maxAmount: 180 # you probably don't want to drain your entire gun charging in battle
   - type: Multishot # Goobstation V
     missChance: 0.4
     spreadMultiplier: 3
@@ -329,6 +331,13 @@
       shader: unshaded
   - type: Item
     sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -352,6 +361,13 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 62.5
@@ -375,6 +391,13 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -717,6 +740,13 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   # Goobstation
   - type: Tag
     tags:
@@ -952,6 +982,13 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 30
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   - type: MagazineVisuals
     magState: mag
     steps: 5
