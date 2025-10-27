@@ -16,5 +16,5 @@
     chaosScore: 100
   - type: RandomMultipleSpawnRule
     prototype: SpawnPointGhostCorticalBorer
-    minCount: 1
-    maxCount: 2
+    minAmount: 1
+    maxAmount: 2
