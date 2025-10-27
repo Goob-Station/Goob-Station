@@ -16976,3 +16976,11 @@ Entries:
       message: Adjusted Balloon layer cash drop
   id: 1901
   time: '2025-10-27T04:06:19.0000000+00:00'
+- author: XWASHERE
+  changes:
+    - type: Fix
+      message: >-
+        Dragging players while they're carrying a person no longer causes the
+        carried player to get stuck to the carrying player
+  id: 1902
+  time: '2025-10-27T04:06:33.0000000+00:00'
