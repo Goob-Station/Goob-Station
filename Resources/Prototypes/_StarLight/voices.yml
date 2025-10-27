@@ -1,0 +1,20 @@
+- type: voice
+  id: j9jfwdrw7BRfcR43Qohk
+  name: Frederick Surrey
+  sex: Male
+  silicon: false
+  voice: 1
+
+- type: voice
+  id: EiNlNiXeDU1pqqOPrYMO
+  name: John Doe
+  sex: Male
+  silicon: false
+  voice: 2
+
+- type: voice
+  id: 7NsaqHdLuKNFvEfjpUno
+  name: Seer Morganna
+  sex: Female
+  silicon: false
+  voice: 3
