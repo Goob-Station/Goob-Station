@@ -14,7 +14,7 @@
     eventType: Chaotic
   - type: GameRule
     chaosScore: 100
-  - type: RandomSpawnRule
+  - type: RandomMultipleSpawnRule
     prototype: SpawnPointGhostCorticalBorer
     minCount: 1
     maxCount: 2

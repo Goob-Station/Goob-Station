@@ -244,7 +244,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
 
             _mind.TransferTo(controledMind, dummy);
 
-            Popup.PopupEntity(Loc.GetString("cortical-borer-lost-control"), dummy, dummy, PopupType.LargeCaution);
+            Popup.PopupEntity(Loc.GetString("racortical-borer-lost-control"), dummy, dummy, PopupType.LargeCaution);
         }
         else
         {

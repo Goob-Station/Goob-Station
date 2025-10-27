@@ -113,8 +113,8 @@
           reagent: Nutriment
           min: 0.1
         factor: 1
-      - !type:GenericStatusEffect # Mono change
-        key: CorticalBorerProtection
+      - !type:ModifyStatusEffect # Mono change
+        effectProto: CorticalBorerProtection
         type: Add
         time: 3 # May be too much, needs testing
         refresh: false
