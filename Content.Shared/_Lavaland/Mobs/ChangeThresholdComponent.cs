@@ -1,7 +1,7 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Mobs;
+namespace Content.Shared._Lavaland.Mobs;
 
 /// <summary>
 /// This is used for changing mob therholds values, and stores old values to revet them back

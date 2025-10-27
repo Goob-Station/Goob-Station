@@ -1,6 +1,6 @@
 using Content.Goobstation.Maths.FixedPoint;
 
-namespace Content.Goobstation.Server.Damage;
+namespace Content.Server._Lavaland.Damage;
 
 /// <summary>
 /// This is used for prevents damage if that damage is above death threshold.

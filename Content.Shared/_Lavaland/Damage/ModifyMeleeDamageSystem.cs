@@ -1,6 +1,6 @@
 using Content.Shared.Weapons.Melee.Events;
 
-namespace Content.Goobstation.Shared.Damage;
+namespace Content.Shared._Lavaland.Damage;
 
 /// <summary>
 /// This handles modifying melee Damage of an entity
@@ -10,6 +10,7 @@ public sealed class ModifyMeleeDamageSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<ModifyMeleeDamageComponent,GetUserMeleeDamageEvent>(OnGetMeleeDamage);
     }
 

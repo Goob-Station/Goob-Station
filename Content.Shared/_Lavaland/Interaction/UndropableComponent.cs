@@ -1,4 +1,4 @@
-namespace Content.Goobstation.Shared.Interaction;
+namespace Content.Shared._Lavaland.Interaction;
 
 /// <summary>
 /// This is used for itms that cant be let go

@@ -1,4 +1,3 @@
-using Content.Goobstation.Shared.Clothing.Components;
 using Content.Shared.Actions;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Inventory;
@@ -8,7 +7,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Clothing.Systems;
+namespace Content.Shared._Lavaland.Clothing;
 
 /// <summary>
 /// This is used for the immortality talisman item
@@ -26,12 +25,12 @@ public sealed class ImmortalityTalismanSystem : EntitySystem
 
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<ImmortalityTalismanComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<ImmortalityTalismanComponent, GotUnequippedEvent>(OnUnequip);
         SubscribeLocalEvent<ImmortalityTalismanComponent, GotEquippedEvent>(OnEquip);
 
         SubscribeLocalEvent<ActivateImmortalityTalismanActionEvent>(OnActivate);
-
         SubscribeLocalEvent<ImmortalityTalismanComponent, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnModifierRefresh);
     }
 

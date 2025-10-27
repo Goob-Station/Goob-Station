@@ -1,6 +1,6 @@
 using Robust.Shared.Audio;
 
-namespace Content.Goobstation.Shared.Clothing.Components;
+namespace Content.Shared._Lavaland.Clothing;
 
 /// <summary>
 /// This is used for clothing that ash the wearer when removed

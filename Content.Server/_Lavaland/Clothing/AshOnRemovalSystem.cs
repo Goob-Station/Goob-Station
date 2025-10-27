@@ -1,11 +1,10 @@
-using Content.Goobstation.Shared.Clothing.Components;
 using Content.Shared.Clothing;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Goobstation.Server.Clothing.Systems;
+namespace Content.Server._Lavaland.Clothing;
 
 /// <summary>
 /// This handles cremating of wearer when clothing gets removed
@@ -19,10 +18,10 @@ public sealed class AshOnRemovalSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<AshOnRemovalComponent,ClothingGotUnequippedEvent>(OnUnequip);
+        SubscribeLocalEvent<Shared._Lavaland.Clothing.AshOnRemovalComponent,ClothingGotUnequippedEvent>(OnUnequip);
     }
 
-    private void OnUnequip(Entity<AshOnRemovalComponent> ent,ref ClothingGotUnequippedEvent args)
+    private void OnUnequip(Entity<Shared._Lavaland.Clothing.AshOnRemovalComponent> ent,ref ClothingGotUnequippedEvent args)
     {
         if (!ent.Comp.Enabled)
             return;

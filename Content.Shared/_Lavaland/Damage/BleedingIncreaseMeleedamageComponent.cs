@@ -1,4 +1,4 @@
-namespace Content.Goobstation.Shared.Damage;
+namespace Content.Shared._Lavaland.Damage;
 
 /// <summary>
 /// This is used for increasing melee damage depending on bleed amount

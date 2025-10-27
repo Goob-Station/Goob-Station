@@ -4,7 +4,7 @@ using Content.Shared.Throwing;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Interaction;
+namespace Content.Shared._Lavaland.Interaction;
 
 /// <summary>
 /// This handles items that cant be dropped
@@ -17,10 +17,10 @@ public sealed class UndroppableSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<UndroppableComponent, DropItemAttemptEvent>(OnDrop);
         SubscribeLocalEvent<UndroppableComponent, ThrowItemAttemptEvent>(OnThrow);
         SubscribeLocalEvent<UndroppableComponent, ContainerGettingRemovedAttemptEvent>(OnInsert);
-
     }
 
     private void OnDrop(Entity<UndroppableComponent> ent, ref  DropItemAttemptEvent arg)

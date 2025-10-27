@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Weapons;
+namespace Content.Shared._Lavaland.Weapons;
 
 /// <summary>
 /// This is used for anyone who has this component cant fire guns.

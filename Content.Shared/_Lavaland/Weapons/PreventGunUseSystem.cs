@@ -2,7 +2,7 @@ using Content.Shared.Popups;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Weapons;
+namespace Content.Shared._Lavaland.Weapons;
 
 /// <summary>
 /// This handles Prevention of usage of guns.
@@ -14,6 +14,7 @@ public sealed class PreventGunUseSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<PreventGunUseComponent,ShotAttemptedEvent>(OnGunUse);
     }
 

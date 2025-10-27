@@ -2,7 +2,7 @@ using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 
-namespace Content.Goobstation.Server.Damage;
+namespace Content.Server._Lavaland.Damage;
 
 /// <summary>
 /// This stops a mob from taking damage if that damge leads to its death

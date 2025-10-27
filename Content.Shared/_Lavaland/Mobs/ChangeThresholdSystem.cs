@@ -2,7 +2,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 
-namespace Content.Goobstation.Shared.Mobs;
+namespace Content.Shared._Lavaland.Mobs;
 
 /// <summary>
 /// This handles on compnent create it changes the mobstate thresholds

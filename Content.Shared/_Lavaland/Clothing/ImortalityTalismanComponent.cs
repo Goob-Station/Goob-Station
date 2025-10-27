@@ -1,7 +1,7 @@
 using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Clothing.Components;
+namespace Content.Shared._Lavaland.Clothing;
 
 /// <summary>
 /// This is used for imortality talisman item

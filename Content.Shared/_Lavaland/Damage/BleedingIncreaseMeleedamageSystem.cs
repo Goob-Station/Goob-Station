@@ -1,11 +1,7 @@
-using System.Diagnostics;
-using Content.Goobstation.Shared.Damage;
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Weapons.Melee.Events;
 
-namespace Content.Goobstation.Server;
+namespace Content.Shared._Lavaland.Damage;
 
 /// <summary>
 /// This handles increses the Melee damage depending not how mutch its bleeding
