@@ -311,10 +311,10 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 18 #same as plasma spear
+        Piercing: 20 #goobedit - buff spear variant, nerf tooth.
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 25 #throw dmg enough to two-shot carp
+        Piercing: 30 #goobedit - buff spear variant, nerf tooth.
   - type: Construction
     graph: SpearSharkMinnow

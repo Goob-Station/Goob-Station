@@ -5,13 +5,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System;
 using System.Numerics;
 using Robust.Shared.Audio;
-using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.Manager.Attributes;
 
 namespace Content.Goobstation.Common.Weapons.MeleeDash;
 
@@ -36,16 +33,10 @@ public sealed partial class MeleeDashComponent : Component
     [DataField, AutoNetworkedField]
     public SoundSpecifier? DashSound = new SoundPathSpecifier("/Audio/_Goobstation/Weapons/Effects/throwhard.ogg");
 
-    /// <summary>
-    /// How fast should the dash be
-    /// </summary>
-    [DataField]
+    [DataField("force")]
     public float DashForce = 15f;
 
-    /// <summary>
-    /// How far should the dash go
-    /// </summary>
-    [DataField]
+    [DataField("length")]
     public float MaxDashLength = 4f;
 
     /// <summary>

@@ -1,14 +1,30 @@
 # station
 - type: listing
+  id: NTRExecutiveCargoBingle
+  name: Call a cargo bingle
+  description: After capture, pitless bingles have their sharp teeth removed and are transported through stations to assist with heavy cargo lifting. Their emotional well-being is disregarded.
+  productEntity: SpawnPodCargoBingle
+  icon:
+    sprite: _Goobstation/Mobs/Bingle/cargo-bingle.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 5 # go my cargo tech without hands nor the ability to speak, only drag items.
+  categories:
+  - NTRstation
+  restockTime: 600
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 600 # 10 min, cadet who doesnt know about friendly bingles vs cargo bingle:
+
+- type: listing
   id: NTRExecutiveCrateEVA
   name: EVA crate
   description: A crate containing 3 pairs of EVA hardsuits, to keep you and your people alive in a catastrophic situation.
   productEntity: SpawnPodEvaKit
   icon:
-    sprite: Structures/Storage/Crates/command.rsi
+    sprite: Clothing/OuterClothing/Suits/eva.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 15
+    NTLoyaltyPoint: 5
   categories:
   - NTRstation
   restockTime: 300 # if the station is fucked up in 5 minutes, thats unfortunate lol, 5min tho
@@ -21,10 +37,10 @@
   description: A crate containing 3 mindshield implants. Corporate advises you to buy them in cargo anyway.
   productEntity: SpawnPodMindshield
   icon:
-    sprite: Structures/Storage/Crates/command.rsi
-    state: icon
+    sprite: Objects/Specific/Medical/implanter.rsi
+    state: implanter0
   cost:
-    NTLoyaltyPoint: 25
+    NTLoyaltyPoint: 15
   categories:
   - NTRstation
   restockTime: 1200 # give them revs some time man
@@ -55,8 +71,8 @@
   description: ntr-executive-spesos-small-desc
   productEntity: SpawnPodSpesos
   icon:
-    sprite: Structures/Storage/Crates/privatecrate_secure.rsi
-    state: icon
+    sprite: Objects/Economy/cash.rsi
+    state: cash
   cost:
     NTLoyaltyPoint: 15
   categories:
@@ -71,7 +87,7 @@
   description: ntr-executive-disk-small-desc
   productEntity: SpawnPodDisks
   icon:
-    sprite: Structures/Storage/Crates/scicrate_secure.rsi
+    sprite: Objects/Specific/Research/researchdisk.rsi
     state: icon
   cost:
     NTLoyaltyPoint: 10
@@ -87,10 +103,10 @@
   description: ntr-executive-emergency-meds-desc
   productEntity: SpawnPodEmergencyMed
   icon:
-    sprite: Structures/Storage/Crates/medicalcrate_secure.rsi
-    state: icon
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: firstaid
   cost:
-    NTLoyaltyPoint: 20 # woundmd ahhhh
+    NTLoyaltyPoint: 10 # woundmd ahhhh
   categories:
   - NTRstation
   restockTime: 300 # 5 min
@@ -103,8 +119,8 @@
   description: ntr-executive-disablers-desc
   productEntity: SpawnPodDisablers
   icon:
-    sprite: Structures/Storage/Crates/command.rsi
-    state: icon
+    sprite: Objects/Weapons/Guns/Battery/disabler_smg.rsi
+    state: base
   cost:
     NTLoyaltyPoint: 10
   categories:
@@ -119,10 +135,10 @@
   description: ntr-executive-tools-small-desc
   productEntity: SpawnPodTools
   icon:
-    sprite: Structures/Storage/Crates/engicrate_secure.rsi
+    sprite: Objects/Tools/crowbar.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 5
+    NTLoyaltyPoint: 3
   categories:
   - NTRstation
   restockTime: 300 # 5 min
@@ -130,71 +146,89 @@
   restockAfterPurchase: 300
 
 # personal
-- type: listing
-  id: NTRExecutiveInternCall
-  name: Call intern squad
-  description: Calls in a lead intern with special summoning coins, that are calling more interns.
-  productEntity: SpawnPodInterns
-  icon:
-    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
-    state: icon_alt
-  cost:
-    NTLoyaltyPoint: 50
-  categories:
-  - NTRpersonal
-  restockTime: 600 # 10 mins
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1 # if ntr wants more intern, he should buy one-at-the-time
 
 - type: listing
-  id: NTRExecutiveDagger
-  name: Phoron dagger
-  description: A fancy and expensive phoron dagger, used by elite CentComm fighters and important people.
-  productEntity: SpawnPodDagger
+  id: NTRExecutiveWaterCoolerGold
+  name: premium water (?) cooler
+  description: Made from the finest 24-karat hardened whiskey in the sector. Its shiny and golden, just like its insides. Comes with 500u of whiskey. Every fine executive has one of these in their room.
+  productEntity: SpawnPodWaterCoolerGold
   icon:
-    sprite: _Goobstation/Objects/Weapons/Melee/e_daggerntr.rsi
-    state: icon
+    sprite: _Goobstation/Structures/Storage/watercooler.rsi
+    state: watercooler-2
   cost:
-    NTLoyaltyPoint: 20 # its a bit better than a cc pen, but still.
+    NTLoyaltyPoint: 6 # 6 points for something like this is fine, just a meme item lol
   categories:
   - NTRpersonal
-  restockTime: 900 # 15 min
-  resetRestockOnPurchase: true
-  restockAfterPurchase: 1200 # 20 min
+  restockTime: 0
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# - type: listing
+#  id: NTRExecutiveInternCall
+#  name: Call intern squad
+#  description: Calls in a lead intern with special summoning coins, that are calling more interns.
+#  productEntity: SpawnPodInterns
+#  icon:
+#    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
+#    state: icon_alt
+#  cost:
+#    NTLoyaltyPoint: 50
+#  categories:
+#  - NTRpersonal
+#  restockTime: 600 # 10 mins
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1 # if ntr wants more intern, he should buy one-at-the-time
+
+#- type: listing
+#  id: NTRExecutiveDagger
+#  name: Phoron dagger
+#  description: A fancy and expensive phoron dagger, used by elite CentComm fighters and important people.
+#  productEntity: SpawnPodDagger
+#  icon:
+#    sprite: _Goobstation/Objects/Weapons/Melee/e_daggerntr.rsi
+#    state: icon
+#  cost:
+#    NTLoyaltyPoint: 20 # its a bit better than a cc pen, but still.
+#  categories:
+#  - NTRpersonal
+#  restockTime: 900 # 15 min
+#  resetRestockOnPurchase: true
+#  restockAfterPurchase: 1200 # 20 min
 
 - type: listing
   id: NTRExecutiveSingleIntern
   name: single Intern Coin
-  description: Summons one basic intern.
+  description: Summons one basic intern. Interns are on your full command, order them to complete tasks instead of you doing it by yourself, or play cards with them.
   productEntity: SpawnPodCoin
   icon:
     sprite: Objects/Misc/coins.rsi
     state: coin_gold
   cost:
-    NTLoyaltyPoint: 15
+    NTLoyaltyPoint: 10
   categories:
   - NTRpersonal
   restockTime: 300
   resetRestockOnPurchase: true
-  restockAfterPurchase: 600 # 10 mins
+  restockAfterPurchase: 900 # 15 mins
 
-- type: listing
-  id: NTRExecutiveBSDCall
-  name: ntr-executive-bsd-name
-  description: ntr-executive-bsd-desc
-  productEntity: SpawnPodBsd
-  icon:
-    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
-    state: icon_alt
-  cost:
-    NTLoyaltyPoint: 50
-  categories:
-  - NTRpersonal
-  restockTime: 1800 # 3o min
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1 # we dont want NTR to buy 3 BSDs in one shift so
+#- type: listing
+#  id: NTRExecutiveBSDCall
+#  name: ntr-executive-bsd-name
+#  description: ntr-executive-bsd-desc
+#  productEntity: SpawnPodBsd
+#  icon:
+#    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
+#    state: icon_alt
+#  cost:
+#    NTLoyaltyPoint: 40
+#  categories:
+#  - NTRpersonal
+#  restockTime: 1800 # 3o min
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1 # we dont want NTR to buy 3 BSDs in one shift so
 
 #- type: listing
 #  id: NTRExecutiveHardsuit
@@ -253,7 +287,7 @@
     sprite: _Goobstation/Clothing/Eyes/Glasses/centcommglasses.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 2
+    NTLoyaltyPoint: 5
   categories:
   - NTRpersonal
   restockTime: 120
@@ -276,21 +310,21 @@
   resetRestockOnPurchase: true
   restockAfterPurchase: 600 # 10 mins cuz ntr shouldn't spam these if he wanted to give it to the interns or some shit
 
-- type: listing
-  id: NTRExecutiveDeckard
-  name: ntr-executive-1984-name # we dont talk about this locale string name anymore
-  description: ntr-executive-1984-desc
-  productEntity: SpawnPodDeckard
-  icon:
-    sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
-    state: base
-  cost:
-    NTLoyaltyPoint: 15
-  categories:
-  - NTRpersonal
-  restockTime: 600 # 10 mins
-  resetRestockOnPurchase: true
-  restockAfterPurchase: 1800 #30mins, the reason above.
+# - type: listing
+#  id: NTRExecutiveDeckard
+#  name: ntr-executive-1984-name # we dont talk about this locale string name anymore
+#  description: ntr-executive-1984-desc
+#  productEntity: SpawnPodDeckard
+#  icon:
+#    sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
+#    state: base
+#  cost:
+#    NTLoyaltyPoint: 15
+#  categories:
+#  - NTRpersonal
+#  restockTime: 600 # 10 mins
+#  resetRestockOnPurchase: true
+#  restockAfterPurchase: 1800 #30mins, the reason above.
 
 - type: listing
   id: NTRExecutiveCombatKit
@@ -307,6 +341,56 @@
   restockTime: 300
   resetRestockOnPurchase: true
   restockAfterPurchase: 1800 #30mins, you shouldnt spam this
+
+- type: listing
+  id: NTRExecutiveMarlen
+  name: Marlen
+  description: A stylish Centcomm umbrella, made by "NanoFashion" for the rich people of central command. Surprisingly durable.
+  productEntity: SpawnPodMarlen
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
+    state: icon-on
+  cost:
+    NTLoyaltyPoint: 8
+  categories:
+  - NTRpersonal
+  restockTime: 60 # idk
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1800 #30min
+
+- type: listing
+  id: NTRExecutiveCigsDeluxe
+  name: Executive cig vendor
+  description: For those who know that lung cancer is non-existent, Nanotrasen made this, a vendor full of ciggaretes and expensive flippos for you to smoke.
+  productEntity: SpawnPodNTRCigs
+  icon:
+    sprite: _Goobstation/Structures/Machines/cigvend.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 15
+  categories:
+  - NTRpersonal
+  restockTime: 0
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: NTRExecutiveSoap
+  name: centcomm soap
+  description: An expensive soap made with our finest... who am i kidding its just a soap covered in lube with a print.
+  productEntity: SpawnPodNTRSoap
+  icon:
+    sprite: _Goobstation/Objects/Fun/soap.rsi
+    state: soap_cc
+  cost:
+    NTLoyaltyPoint: 10
+  categories:
+  - NTRpersonal
+  restockTime: 0
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
 
 # Machine boards
 

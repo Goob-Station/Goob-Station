@@ -68,6 +68,7 @@
     - type: SurveillanceCamera
       networkSet: true
       nameSet: True
+      mobile: True  # Goobstation - mobile cameras fix
       id: NoPro Camera
     - type: Eye
     - type: WirelessNetworkConnection

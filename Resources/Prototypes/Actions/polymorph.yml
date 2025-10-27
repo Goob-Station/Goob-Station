@@ -27,6 +27,7 @@
   id: BaseActionPolymorph
   components:
   - type: Action
+    checkCanInteract: false # Goobstation
     itemIconStyle: NoItem
     useDelay: 60
   - type: InstantAction
@@ -53,11 +54,12 @@
   description: Take on the form of an immovable rod, destroying everything in your path.
   components:
   - type: Action
+    useDelay: 25 # Goob edit
     icon:
-      sprite: Objects/Fun/immovable_rod.rsi
-      state: icon
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      state: immrod # Goob edit
   - type: InstantAction
-    event: !type:PolymorphActionEvent
+    event: !type:PolymorphSpellEvent # Goob edit
       protoId: WizardRod
   - type: SpeakOnAction
     sentence: action-speech-spell-rod-form # Goobstation
@@ -91,7 +93,7 @@
       sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: jaunt
   - type: InstantAction
-    event: !type:PolymorphActionEvent
+    event: !type:PolymorphSpellEvent # Goob edit
       protoId: Jaunt
     # TODO: Effect ECS (from cardboard box)
   - type: ActionUpgrade
