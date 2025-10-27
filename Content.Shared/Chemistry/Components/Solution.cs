@@ -123,15 +123,15 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Collections;
+using System.Linq;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
 using Content.Goobstation.Maths.FixedPoint;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
-using System.Collections;
-using System.Linq;
-using Content.Shared.Chemistry.Components.SolutionManager;
 
 namespace Content.Shared.Chemistry.Components
 {
@@ -708,6 +708,7 @@ namespace Content.Shared.Chemistry.Components
         /// <summary>
         /// Splits a solution without the specified reagent prototypes.
         /// </summary>
+        [Obsolete("Use SplitSolutionWithout with params ProtoId<ReagentPrototype>")]
         public Solution SplitSolutionWithout(FixedPoint2 toTake, params string[] excludedPrototypes)
         {
             // First remove the blacklisted prototypes
@@ -738,7 +739,39 @@ namespace Content.Shared.Chemistry.Components
         }
 
         /// <summary>
-        /// splits the solution taking the specified amount of reagents proportionally to their quantity.
+        /// Splits a solution without the specified reagent prototypes.
+        /// </summary>
+        public Solution SplitSolutionWithout(FixedPoint2 toTake, params ProtoId<ReagentPrototype>[] excludedPrototypes)
+        {
+            // First remove the blacklisted prototypes
+            List<ReagentQuantity> excluded = new();
+            foreach (var id in excludedPrototypes)
+            {
+                foreach (var tuple in Contents)
+                {
+                    if (tuple.Reagent.Prototype != id)
+                        continue;
+
+                    excluded.Add(tuple);
+                    RemoveReagent(tuple);
+                    break;
+                }
+            }
+
+            // Then split the solution
+            var sol = SplitSolution(toTake);
+
+            // Then re-add the excluded reagents to the original solution.
+            foreach (var reagent in excluded)
+            {
+                AddReagent(reagent);
+            }
+
+            return sol;
+        }
+
+        /// <summary>
+        /// Splits a solution with only the specified reagent prototypes.
         /// </summary>
         /// <param name="toTake">The total amount of solution to remove and return.</param>
         /// <returns>a new solution of equal proportions to the original solution</returns>
@@ -976,31 +1009,31 @@ namespace Content.Shared.Chemistry.Components
                     Contents.Add(new ReagentQuantity(otherReagent, otherQuantity));
                 }
             }
-			// Goobstation Start
+            // Goobstation Start
 
-			// Find the maximum freshness for each unique DNA string in the other solution.
-			// This is done by flattening the nested lists, filtering for DnaData objects,
-			// grouping them by the DNA string, and creating a dictionary with the max freshness for each.
-			var freshestDnasFromOther = otherSolution.Contents
-			    .SelectMany(content => content.Reagent.Data ?? Enumerable.Empty<object>())
-			    .OfType<DnaData>()
-			    .GroupBy(dna => dna.DNA)
-			    .ToDictionary(
-			        group => group.Key,
-			        group => group.Max(dna => dna.Freshness));
+            // Find the maximum freshness for each unique DNA string in the other solution.
+            // This is done by flattening the nested lists, filtering for DnaData objects,
+            // grouping them by the DNA string, and creating a dictionary with the max freshness for each.
+            var freshestDnasFromOther = otherSolution.Contents
+                .SelectMany(content => content.Reagent.Data ?? Enumerable.Empty<object>())
+                .OfType<DnaData>()
+                .GroupBy(dna => dna.DNA)
+                .ToDictionary(
+                    group => group.Key,
+                    group => group.Max(dna => dna.Freshness));
 
-			// Get all DnaData objects in the current solution to be updated.
-			var allCurrentDna = Contents
-			    .SelectMany(content => content.Reagent.Data ?? Enumerable.Empty<object>())
-			    .OfType<DnaData>();
+            // Get all DnaData objects in the current solution to be updated.
+            var allCurrentDna = Contents
+                .SelectMany(content => content.Reagent.Data ?? Enumerable.Empty<object>())
+                .OfType<DnaData>();
 
-			// Iterate through the current solution's DNA and update its freshness
-			// if a fresher version exists in the other solution.
-			foreach (var dna in allCurrentDna)
-			    if (freshestDnasFromOther.TryGetValue(dna.DNA, out var fresherFreshness) && fresherFreshness > dna.Freshness)
-			        dna.Freshness = fresherFreshness;
+            // Iterate through the current solution's DNA and update its freshness
+            // if a fresher version exists in the other solution.
+            foreach (var dna in allCurrentDna)
+                if (freshestDnasFromOther.TryGetValue(dna.DNA, out var fresherFreshness) && fresherFreshness > dna.Freshness)
+                    dna.Freshness = fresherFreshness;
 
-			// Goobstation End
+            // Goobstation End
 
             _heatCapacity += otherSolution._heatCapacity;
             CheckRecalculateHeatCapacity();

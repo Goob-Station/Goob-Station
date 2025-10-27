@@ -1036,6 +1036,8 @@
     outerClothing: ClothingOuterPlagueSuit
     pocket1: PlushieSharkGrey
     pocket2: FoodSnackEnergy
+  inhand:                 #goobstation
+  - Nullrod               #goobstation
 
 - type: startingGear
   id: VisitorChaplainAlt
@@ -1049,6 +1051,8 @@
     outerClothing: ClothingOuterNunRobe
     pocket1: PlushiePenguin
     pocket2: DrinkCoconutWaterCarton
+  inhand:                 #goobstation
+  - Nullrod               #goobstation
 
 - type: startingGear
   id: VisitorChef
@@ -1065,7 +1069,7 @@
     pocket1: ButchCleaver
     pocket2: BookHowToCookForFortySpaceman
   inhand:
-  - ClothingMaskItalianMoustache
+  #- ClothingMaskItalianMoustache         #Chefs now start with the space italian implant.
   - DrinkWineBottleFull
 
 - type: startingGear
@@ -1079,11 +1083,11 @@
     back: ClothingBackpack
     belt: ClothingBeltChefFilled
     ears: ClothingHeadsetService
-    outerClothing: ClothingOuterWinterChef
+    outerClothing: ClothingOuterWinterChef 
     pocket1: RollingPin
     pocket2: BookHowToCookForFortySpaceman
   inhand:
-  - ClothingMaskItalianMoustache
+  #- ClothingMaskItalianMoustache        #Chefs now start with the space italian implant.
   - FoodCheese
 
 - type: startingGear

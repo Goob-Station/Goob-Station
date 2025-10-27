@@ -350,6 +350,7 @@
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container
+  - type: GunExecutionBlacklist # Goobstation
 
 - type: entity
   parent: RevolverCapGun
@@ -410,10 +411,10 @@
         - ItemMask
         restitution: 0.8 # bouncy
         friction: 0.2
-#  - type: Catchable
-#    catchChance: 0.8
-#    catchSuccessSound:
-#      path: /Audio/Effects/Footsteps/bounce.ogg
+  - type: Catchable
+    catchChance: 0.8
+    catchSuccessSound:
+      path: /Audio/Effects/Footsteps/bounce.ogg
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Effects/Footsteps/bounce.ogg
@@ -442,10 +443,10 @@
         - ItemMask
         restitution: 0.5 # a little bouncy
         friction: 0.2
-#  - type: Catchable
-#    catchChance: 0.8
-#    catchSuccessSound:
-#      path: /Audio/Effects/Footsteps/bounce.ogg
+  - type: Catchable
+    catchChance: 0.8
+    catchSuccessSound:
+      path: /Audio/Effects/Footsteps/bounce.ogg
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Effects/Footsteps/bounce.ogg
@@ -473,10 +474,10 @@
         - ItemMask
         restitution: 0.1 # not bouncy
         friction: 0.2
-#  - type: Catchable
-#    catchChance: 0.8
-#    catchSuccessSound:
-#      path: /Audio/Effects/Footsteps/bounce.ogg
+  - type: Catchable
+    catchChance: 0.8
+    catchSuccessSound:
+      path: /Audio/Effects/Footsteps/bounce.ogg
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Effects/Footsteps/bounce.ogg

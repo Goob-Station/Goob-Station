@@ -246,6 +246,8 @@ public sealed partial class PolymorphSystem : EntitySystem
         {
             _actions.SetEntityIcon((component.Action.Value, action), component.Parent);
             _actions.SetUseDelay(component.Action.Value, TimeSpan.FromSeconds(component.Configuration.Delay));
+            if (component.Configuration.SkipRevertConfirmation) // Goobstation
+                RemComp<ConfirmableActionComponent>(component.Action.Value);
         }
     }
 

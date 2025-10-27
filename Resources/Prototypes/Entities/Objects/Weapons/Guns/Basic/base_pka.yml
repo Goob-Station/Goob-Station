@@ -54,8 +54,10 @@
     lightActionPrototype: ActionTogglePKALight
   - type: PressureDamageChange
     applyToMelee: false
-  - type: Multishot
-    missChance: 0.3
+  - type: Multishot # Goobstation V
+    missChance: 0.4
+    spreadMultiplier: 3
+    spreadAddition: 20
   - type: UpgradeableGun
     whitelist:
       tags:

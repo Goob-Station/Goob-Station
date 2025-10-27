@@ -26,7 +26,7 @@ public sealed partial class InternalResourcesComponent : Component
 
         foreach (var type in CurrentInternalResources)
         {
-            if (type.InternalResourcesType.Id == protoId)
+            if (type.InternalResourcesType == protoId)
             {
                 data = type;
                 return true;
