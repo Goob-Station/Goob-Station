@@ -17083,3 +17083,15 @@ Entries:
       message: All capoeira combos except for kick up regenerate user stamina again.
   id: 1912
   time: '2025-10-27T17:36:37.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: >-
+        plamamen can now equipt gastanks in suitstorage slot whitout the need of
+        vests/ hardsuits
+    - type: Tweak
+      message: >-
+        plamamen can no longer equipt wepons and other non gastank item in
+        suitstorage slot
+  id: 1913
+  time: '2025-10-27T17:51:52.0000000+00:00'
