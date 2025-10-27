@@ -1,0 +1,18 @@
+- type: entity
+  id: BaseSlotMachine
+  parent: BaseMachinePowered
+  name: SlotMachineBase
+  description: An exercise aid and nutrition supplement vendor that preys on your inadequacy.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Structures/Machines/GamblingMachines/slotmachine.rsi
+    state: slotmachine
+  - type: Transform
+    noRot: true
+  - type: PointLight
+    radius: 2
+    energy: 1.6
+    color: "#9dc5c9"
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
