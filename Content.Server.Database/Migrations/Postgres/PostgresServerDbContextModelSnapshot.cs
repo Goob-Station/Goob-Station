@@ -26,6 +26,43 @@ namespace Content.Server.Database.Migrations.Postgres
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("Content.Server.Database.Achievement", b =>
+                {
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_id");
+
+                    b.Property<string>("AchievementId")
+                        .HasColumnType("text")
+                        .HasColumnName("achievement_id");
+
+                    b.Property<DateTime>("LastUpdatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("last_updated_at");
+
+                    b.Property<int>("PlayerId1")
+                        .HasColumnType("integer")
+                        .HasColumnName("player_id1");
+
+                    b.Property<float>("Progress")
+                        .HasColumnType("real")
+                        .HasColumnName("progress");
+
+                    b.HasKey("PlayerId", "AchievementId")
+                        .HasName("PK_achievements");
+
+                    b.HasIndex("AchievementId")
+                        .HasDatabaseName("IX_achievements_achievement_id");
+
+                    b.HasIndex("PlayerId")
+                        .HasDatabaseName("IX_achievements_player_id");
+
+                    b.HasIndex("PlayerId1")
+                        .HasDatabaseName("IX_achievements_player_id1");
+
+                    b.ToTable("achievements", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
                 {
                     b.Property<Guid>("UserId")
@@ -1660,6 +1697,18 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("player_round", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.Achievement", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithMany("Achievement")
+                        .HasForeignKey("PlayerId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_achievements_player_player_id1");
+
+                    b.Navigation("Player");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
                 {
                     b.HasOne("Content.Server.Database.AdminRank", "AdminRank")
@@ -2348,6 +2397,8 @@ namespace Content.Server.Database.Migrations.Postgres
 
             modelBuilder.Entity("Content.Server.Database.Player", b =>
                 {
+                    b.Navigation("Achievement");
+
                     b.Navigation("AdminLogs");
 
                     b.Navigation("AdminMessagesCreated");
