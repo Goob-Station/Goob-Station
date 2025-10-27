@@ -13,8 +13,7 @@
   - type: ItemToggle
     onUse: false
     predictable: false
-    TurnOnOnWielded: true
-    TurnOffOnUnwielded: true
+    wieldToggle: true
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/_Goobstation/Weapons/Swords/tigersclaw/tigersclawwielded.ogg
