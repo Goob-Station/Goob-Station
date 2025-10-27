@@ -17020,3 +17020,19 @@ Entries:
       message: All instruments should have their correct sounds again.
   id: 1907
   time: '2025-10-27T12:21:20.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: Added Marlen the Umbrella to the Executive Store for 8LP.
+    - type: Add
+      message: >-
+        Added SUPER PREMIUM SHADYCIGS ULTRA DLC DELUXE for 15LP to the executive
+        store.
+    - type: Add
+      message: Added centcomm soap to the executive store for 10LP.
+    - type: Tweak
+      message: >-
+        Changed icons of everything in the station category to be more
+        appealing. 
+  id: 1908
+  time: '2025-10-27T12:23:51.0000000+00:00'
