@@ -161,7 +161,6 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
         var newBiomass = ent.Comp.Biomass -= ent.Comp.DrainAmount;
         ent.Comp.Biomass = Math.Clamp(newBiomass, 0, ent.Comp.MaxBiomass);
 
-        Dirty(ent, ent.Comp);
         _alerts.ShowAlert(ent, ent.Comp.AlertId);
     }
 
