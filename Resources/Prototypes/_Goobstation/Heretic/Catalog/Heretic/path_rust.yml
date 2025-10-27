@@ -33,6 +33,7 @@
     - Lock
     - Void
     - Rust
+    - Cosmos
 
 - type: listing
   id: HereticRustPath2

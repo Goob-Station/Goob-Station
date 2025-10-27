@@ -222,12 +222,13 @@
     price: 75
   - type: BlockWeather
   - type: SunShadowCast
-  # Goobstation
+  # <Goobstation>
   - type: Penetratable
     penetrateDamage: 50
     damagePenalty: 0.1
   - type: ExaminableDamage
     messages: WindowMessages
+  # </Goobstation>
 
 - type: entity
   abstract: true
@@ -870,11 +871,22 @@
         layer:
         - WallLayer
         density: 2000
-  - type: RustRequiresPathStage # Goobstation
+  # <Goobstation>
+  - type: RustRequiresPathStage
     pathStage: 7 # Toxic blade
-  - type: Penetratable # Goobstation - Better snipers
+  - type: Penetratable
     penetrateDamage: 100
     damagePenalty: 0.25
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Iron
+          Quantity: 33
+        - ReagentId: Carbon
+          Quantity: 7
+  # </Goobstation>
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
 
@@ -1274,6 +1286,15 @@
     base: solid
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
+  - type: SolutionContainerManager # Goobstation
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Iron
+          Quantity: 28
+        - ReagentId: Carbon
+          Quantity: 2
 
 - type: entity
   parent: WallDiagonalBase
