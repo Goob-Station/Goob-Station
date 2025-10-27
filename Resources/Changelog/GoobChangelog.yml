@@ -16992,3 +16992,13 @@ Entries:
       message: janitors keys now has a range requirement
   id: 1903
   time: '2025-10-27T04:06:41.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Add
+      message: >-
+        More dismemberment, you can get dismembered even if your bone is
+        healthy. A healthy bone is better!
+    - type: Remove
+      message: Slime bones! Slimes are now boneless
+  id: 1904
+  time: '2025-10-27T04:07:35.0000000+00:00'
