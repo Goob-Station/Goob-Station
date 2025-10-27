@@ -286,7 +286,6 @@ public sealed class AreaEchoSystem : EntitySystem
                 var delta = currentOriginLocalPosition - previousRayOriginLocalPosition;
                 if (delta.LengthSquared() <= float.Epsilon + float.Epsilon)
                 {
-                    Log.Warning($"Echo-ray has the same origin position as its hit position! At: {_mapSystem.WorldToLocal(gridRoofEntity, gridRoofEntity, currentOriginLocalPosition)}, on entity: {ToPrettyString(gridRoofEntity.Owner)}");
                     break;
                 }
 
