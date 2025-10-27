@@ -10,6 +10,16 @@
   - type: Item
     size: Normal
     sprite: _Goobstation/Objects/Weapons/Melee/tigers_claw_inhand.rsi
+  - type: ItemToggle
+    onUse: false
+    predictable: false
+    TurnOnOnWielded: true
+    TurnOffOnUnwielded: true
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_Goobstation/Weapons/Swords/tigersclaw/tigersclawwielded.ogg
+      params:
+        volume: -4
   - type: Sharp
   - type: DisarmMalus
     malus: 0.6
