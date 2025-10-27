@@ -2,6 +2,7 @@
 
 using Content.Shared.Construction;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.Construction.Completions;
 

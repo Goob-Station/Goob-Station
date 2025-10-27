@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Shared.NPC.Prototypes;
 using Content.Server.Actions;
 using Content.Server.Body.Systems;
@@ -8,13 +7,12 @@ using Content.Server.Chat;
 using Content.Server.Chat.Systems;
 using Content.Server.Emoting.Systems;
 using Content.Server.Speech.EntitySystems;
-using Content.Server.Roles;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Armor;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Chat;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Mind;
@@ -25,7 +23,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
-using Content.Shared.Roles;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Zombies;
 using Content.Shared.Blocking; // Goobstation
@@ -162,7 +159,7 @@ namespace Content.Server.Zombies
             var curTime = _timing.CurTime;
 
             // Hurt the living infected
-            var query = EntityQueryEnumerator<PendingZombieComponent, DamageableComponent, MobStateComponent>();
+            var query = EntityQueryEnumerator<PendingZombieComponent, Shared.Damage.Components.DamageableComponent, MobStateComponent>();
             while (query.MoveNext(out var uid, out var comp, out var damage, out var mobState))
             {
                 // Process only once per second
@@ -182,17 +179,16 @@ namespace Content.Server.Zombies
                     ? comp.CritDamageMultiplier
                     : 1f;
 
-                _damageable.TryChangeDamage(uid,
+                _damageable.ChangeDamage((uid, damage),
                     comp.Damage * multiplier,
                     true,
                     false,
-                    damage,
                     targetPart: TargetBodyPart.All, // Shitmed Change
                     splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
             }
 
             // Heal the zombified
-            var zombQuery = EntityQueryEnumerator<ZombieComponent, DamageableComponent, MobStateComponent>();
+            var zombQuery = EntityQueryEnumerator<ZombieComponent, Shared.Damage.Components.DamageableComponent, MobStateComponent>();
             while (zombQuery.MoveNext(out var uid, out var comp, out var damage, out var mobState))
             {
                 // Process only once per second
@@ -209,11 +205,10 @@ namespace Content.Server.Zombies
                     : 1f;
 
                 // Gradual healing for living zombies.
-                _damageable.TryChangeDamage(uid,
+                _damageable.ChangeDamage((uid, damage),
                     comp.PassiveHealing * multiplier,
                     true,
                     false,
-                    damage,
                     ignoreBlockers: true, // Shitmed Change
                     targetPart: TargetBodyPart.All, // Shitmed Change
                     splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change

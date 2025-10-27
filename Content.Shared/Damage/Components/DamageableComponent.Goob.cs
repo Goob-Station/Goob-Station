@@ -1,4 +1,4 @@
-namespace Content.Shared.Damage;
+namespace Content.Shared.Damage.Components;
 
 public sealed partial class DamageableComponent
 {

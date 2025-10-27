@@ -1,6 +1,10 @@
 using Content.IntegrationTests.Tests.Movement;
 using Content.Server.NPC.HTN;
+<<<<<<< HEAD
 using Content.Shared.Damage;
+=======
+using Content.Shared.Damage.Components;
+>>>>>>> cdbe92d37d6 (Update DamageableSystem to modern standards (#39417))
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Mobs;

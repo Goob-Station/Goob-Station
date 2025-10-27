@@ -69,6 +69,8 @@ using Content.Shared.Cuffs.Components;
 using Content.Server.Cuffs;
 using Content.Shared.Light.Components;
 using Content.Shared.Roles.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server._DV.CosmicCult;
 

@@ -1,9 +1,11 @@
 ﻿using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.EntityEffects.Effects;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Localizations;
 using Content.Shared.Temperature.Components;
 using Robust.Shared.Prototypes;
@@ -20,6 +22,7 @@ public sealed partial class EvenHealthChangeEntityEffectSystem : EntityEffectSys
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
+    // TODO SHITMED - shit's fucked
     protected override void Effect(Entity<DamageableComponent> entity, ref EntityEffectEvent<EvenHealthChange> args)
     {
         foreach (var (group, amount) in args.Effect.Damage)
@@ -40,8 +43,8 @@ public sealed partial class EvenHealthChangeEntityEffectSystem : EntityEffectSys
                 spec.DamageDict[type] = healing / groupProto.DamageTypes.Count;
             }
 
-            _damageable.TryChangeDamage(
-                    entity,
+            _damageable.ChangeDamage(
+                    entity.AsNullable(),
                     spec,
                     ignoreResistances: args.Effect.IgnoreResistances,
                     interruptsDoAfters: false,

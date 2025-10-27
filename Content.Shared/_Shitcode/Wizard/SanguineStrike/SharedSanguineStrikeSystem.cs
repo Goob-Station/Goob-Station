@@ -14,7 +14,9 @@ using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
-using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems; // Shitmed Change
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components; // Shitmed Change
 
 namespace Content.Shared._Goobstation.Wizard.SanguineStrike;
 
@@ -126,11 +128,10 @@ public abstract class SharedSanguineStrikeSystem : EntitySystem
         else
             toHeal = damageable.Damage;
 
-        _damageable.TryChangeDamage(uid,
+        _damageable.ChangeDamage(uid,
             -toHeal,
             true,
             false,
-            damageable,
             null,
             false,
             targetPart: TargetBodyPart.All,

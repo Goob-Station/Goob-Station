@@ -2,7 +2,8 @@
 
 using Content.Shared._Lavaland.Damage.Components;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map.Components;
@@ -91,7 +92,6 @@ public sealed class DamageSquareSystem : EntitySystem
                 _audio.PlayPvs(field.Comp.Sound, target);
                 _damage.TryChangeDamage(target,
                     field.Comp.Damage,
-                    damageable: damageable,
                     origin: field.Owner,
                     targetPart: TargetBodyPart.All);
             }

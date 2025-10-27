@@ -12,7 +12,13 @@ using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
+<<<<<<< HEAD
+=======
+using Content.Shared.Damage.Systems;
+using Content.Shared.FixedPoint;
+>>>>>>> cdbe92d37d6 (Update DamageableSystem to modern standards (#39417))
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Players;
@@ -156,6 +162,7 @@ public sealed partial class MindTests
             var damageable = entMan.GetComponent<DamageableComponent>(entity);
             var prototype = protoMan.Index(BluntDamageType);
 
+<<<<<<< HEAD
             // Goob start
 
             if (entMan.TryGetComponent(entity, out BodyComponent? body) &&
@@ -176,6 +183,9 @@ public sealed partial class MindTests
 
             // Goob End
             damageableSystem.SetDamage(entity, damageable, new DamageSpecifier(prototype, FixedPoint2.New(401)));
+=======
+            damageableSystem.SetDamage((entity, damageable), new DamageSpecifier(prototype, FixedPoint2.New(401)));
+>>>>>>> cdbe92d37d6 (Update DamageableSystem to modern standards (#39417))
             Assert.That(mindSystem.GetMind(entity, mindContainerComp), Is.EqualTo(mindId));
         });
 

@@ -11,6 +11,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Wieldable;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server._Lavaland.Pressure;
 

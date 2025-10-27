@@ -9,12 +9,13 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Shared.Damage;
+namespace Content.Shared.Damage.Systems;
 
 public sealed partial class DamageableSystem
 {
@@ -105,8 +106,8 @@ public sealed partial class DamageableSystem
                 // Goob edit end
 
                 // Apply damage to this part
-                var partDamageResult = TryChangeDamage(partId, modifiedDamage, ignoreResistances,
-                    interruptsDoAfters, partDamageable, origin, ignoreBlockers: ignoreBlockers);
+                var partDamageResult = ChangeDamage((partId, partDamageable), modifiedDamage, ignoreResistances,
+                    interruptsDoAfters, origin, ignoreBlockers: ignoreBlockers);
 
                 if (partDamageResult != null && !partDamageResult.Empty)
                 {
@@ -177,8 +178,8 @@ public sealed partial class DamageableSystem
             if (!_damageableQuery.TryComp(chosenTarget.Id, out var partDamageable))
                 return null;
 
-            totalAppliedDamage = TryChangeDamage(chosenTarget.Id, adjustedDamage, ignoreResistances,
-                interruptsDoAfters, partDamageable, origin, ignoreBlockers: ignoreBlockers);
+            totalAppliedDamage = ChangeDamage((chosenTarget.Id, partDamageable), adjustedDamage, ignoreResistances,
+                interruptsDoAfters, origin, ignoreBlockers: ignoreBlockers);
         }
 
         return totalAppliedDamage;
@@ -188,28 +189,27 @@ public sealed partial class DamageableSystem
     /// Applies damage directly to an entity without routing through body parts.
     /// </summary>
     private DamageSpecifier? ApplyDamageToEntity(
-        EntityUid uid,
+        Entity<DamageableComponent> ent,
         DamageSpecifier? damage,
         bool ignoreResistances,
         bool interruptsDoAfters,
         EntityUid? origin,
-        DamageableComponent? damageable = null,
         bool ignoreBlockers = false)
     {
-        if (!Resolve(uid, ref damageable) || damage == null)
+        if (damage == null)
             return null;
 
         // Apply resistances
         if (!ignoreResistances)
         {
-            if (damageable.DamageModifierSetId != null &&
-                _prototypeManager.Resolve(damageable.DamageModifierSetId, out var modifierSet)) // Shitmed Change
+            if (ent.Comp.DamageModifierSetId != null &&
+                _prototypeManager.Resolve(ent.Comp.DamageModifierSetId, out var modifierSet)) // Shitmed Change
             {
                 damage = DamageSpecifier.ApplyModifierSet(damage,
                     DamageSpecifier.PenetrateArmor(modifierSet, damage.ArmorPenetration)); // Goob edit
             }
 
-            if (TryComp(uid, out BodyPartComponent? bodyPart))
+            if (TryComp(ent, out BodyPartComponent? bodyPart))
             {
                 TargetBodyPart? target = _body.GetTargetBodyPart(bodyPart);
                 if (bodyPart.Body != null)
@@ -221,15 +221,15 @@ public sealed partial class DamageableSystem
                 }
 
                 // Then raise on the part itself for any part-specific modifiers
-                var ev = new DamageModifyEvent(uid, damage, origin, target);
-                RaiseLocalEvent(uid, ev);
+                var ev = new DamageModifyEvent(ent, damage, origin, target);
+                RaiseLocalEvent(ent, ev);
                 damage = ev.Damage;
             }
             else
             {
                 // Not a body part, just apply modifiers normally
-                var ev = new DamageModifyEvent(uid, damage, origin);
-                RaiseLocalEvent(uid, ev);
+                var ev = new DamageModifyEvent(ent, damage, origin);
+                RaiseLocalEvent(ent);
                 damage = ev.Damage;
             }
 
@@ -244,19 +244,19 @@ public sealed partial class DamageableSystem
             damage.PartDamageVariation,
             damage.WoundSeverityMultipliers); // Goob edit
         delta.DamageDict.EnsureCapacity(damage.DamageDict.Count);
-        var dict = damageable.Damage.DamageDict;
+        var dict = ent.Comp.Damage.DamageDict;
 
         // Check for integrity cap on body parts
         bool isWoundable = false;
         FixedPoint2? damageCap = null;
-        if (_woundableQuery.TryComp(uid, out var woundable))
+        if (_woundableQuery.TryComp(ent, out var woundable))
         {
             isWoundable = true;
             damageCap = woundable.IntegrityCap;
         }
 
         // Apply damage
-        var currentTotalDamage = damageable.TotalDamage.Float();
+        var currentTotalDamage = ent.Comp.TotalDamage.Float();
         FixedPoint2? remainingCap = damageCap.HasValue ? damageCap.Value - currentTotalDamage : null;
 
         foreach (var (type, value) in damage.DamageDict)
@@ -305,20 +305,18 @@ public sealed partial class DamageableSystem
             }
         }
 
-        // Goob edit start
-        DamageChanged(uid, damageable, delta, interruptsDoAfters, origin, ignoreBlockers, damage);
+        OnEntityDamageChanged(ent, delta, interruptsDoAfters, origin, ignoreBlockers, damage);
 
-        // Shitmed Change: This means that the damaged part was a woundable
+        // This means that the damaged part was a woundable
         // which also means we send that shit to refresh the body.
         if (delta.DamageDict.Count > 0 && isWoundable)
         {
-            UpdateParentDamageFromBodyParts(uid,
+            UpdateParentDamageFromBodyParts(ent,
                 delta,
                 interruptsDoAfters,
                 origin,
                 ignoreBlockers: ignoreBlockers);
         }
-        // Goob edit end
 
         return delta;
     }
@@ -368,8 +366,7 @@ public sealed partial class DamageableSystem
         }
 
         // Raise the damage changed event on the parent
-        DamageChanged(body,
-            parentDamageable,
+        OnEntityDamageChanged((body, parentDamageable),
             appliedDamage,
             interruptsDoAfters,
             origin,
@@ -463,7 +460,7 @@ public sealed partial class DamageableSystem
                     continue;
 
                 // I LOVE RECURSION!!!
-                SetAllDamage(part, partDamageable, newValue);
+                SetAllDamage((part, partDamageable), newValue);
             }
         }
 
@@ -599,12 +596,19 @@ public sealed partial class DamageableSystem
 public sealed partial class DamageChangedEvent
 {
     /// <summary>
-    ///     Shitmed - Damage before clamp of excessive heal and damage cap was applied
-    /// </summary>
-    public readonly DamageSpecifier? UncappedDamage;
-
-    /// <summary>
     ///     Shitmed - Whether or not the damage change should be blocked due to traumas or wounds
     /// </summary>
     public readonly bool IgnoreBlockers;
+
+    /// <summary>
+    ///     Shitmed - Damage before clamp of excessive heal and damage cap was applied
+    /// </summary>
+    public readonly DamageSpecifier? UncappedDamage;
+}
+
+public sealed partial class DamageModifyEvent
+{
+    public readonly EntityUid Target; // Goob - need this for some bullshit i think
+    public readonly TargetBodyPart? TargetPart; // Goob - Shitmed
+    public readonly EntityUid? Origin; // Upstream but temporarily in goob because broke in #39417, fixed in #41250 ( will prevent compile because goobcode relies on it )
 }

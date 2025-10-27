@@ -1,3 +1,14 @@
+
+// TRAVELERS BEWARE:
+// They are lying.
+// They are lying.
+// They are lying.
+// They are lying. 
+// They are lying.
+// They are lying.
+// They are lying.
+// They are lying.
+
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;

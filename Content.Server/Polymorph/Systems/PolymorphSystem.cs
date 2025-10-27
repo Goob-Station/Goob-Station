@@ -12,7 +12,8 @@ using Content.Shared.Actions.Components;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Coordinates;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -278,6 +279,10 @@ public sealed partial class PolymorphSystem : EntitySystem
             _mobThreshold.GetScaledDamage(uid, child, out var damage, out var woundableDamage) &&
             damage != null)
         {
+            // Goob start - shitmed
+            // TODO: i am pretty sure this is broken, people have been ending up with 2k damage for some reason
+            // when unpolymorphing. i also think the damage sometimes just doesnt transfer such as with zombies
+            // TODO: also this code can be better or have a helper function and moved
             if (TryComp<BodyComponent>(child, out var childBody)
                 && childBody.BodyType == Shared._Shitmed.Body.BodyType.Complex // Too lazy to come up with a new name lmfao
                 && _body.TryGetRootPart(child, out var rootPart, childBody))
@@ -291,16 +296,17 @@ public sealed partial class PolymorphSystem : EntitySystem
                     if (woundableDamage is not null)
                     {
                         if (woundableDamage.TryGetValue(target, out var wounds))
-                            _damageable.SetDamage(woundable, woundable.Comp2, wounds);
+                            _damageable.SetDamage((woundable, woundable.Comp2), wounds);
                     }
                     else
                     {
-                        _damageable.SetDamage(woundable, woundable.Comp2, damage / count);
+                        _damageable.SetDamage((woundable, woundable.Comp2), damage / count);
                     }
                 }
-
             }
-            _damageable.SetDamage(child, damageChild, damage);
+            // Goob end
+
+            _damageable.SetDamage((child, damageChild), damage);
         }
 
         // DeltaV - Drop MindContainer entities on polymorph
@@ -463,6 +469,10 @@ public sealed partial class PolymorphSystem : EntitySystem
             _mobThreshold.GetScaledDamage(uid, parent, out var damage, out var woundableDamage) &&
             damage != null)
         {
+            // Goob start - shitmed
+            // TODO: i am pretty sure this is broken, people have been ending up with 2k damage for some reason
+            // when unpolymorphing. i also think the damage sometimes just doesnt transfer such as with zombies
+            // TODO: also this code can be better or have a helper function and moved
             if (TryComp<BodyComponent>(parent, out var parentBody)
                 && parentBody.BodyType == Shared._Shitmed.Body.BodyType.Complex // Too lazy to come up with a new name lmfao
                 && _body.TryGetRootPart(parent, out var rootPart, parentBody))
@@ -476,16 +486,17 @@ public sealed partial class PolymorphSystem : EntitySystem
                     if (woundableDamage is not null)
                     {
                         if (woundableDamage.TryGetValue(target, out var wounds))
-                            _damageable.SetDamage(woundable, woundable.Comp2, wounds);
+                            _damageable.SetDamage((woundable, woundable.Comp2), wounds);
                     }
                     else
                     {
-                        _damageable.SetDamage(woundable, woundable.Comp2, damage / count);
+                        _damageable.SetDamage((woundable, woundable.Comp2), damage / count);
                     }
                 }
-
             }
-            _damageable.SetDamage(parent, damageParent, damage);
+            // Goob end
+
+            _damageable.SetDamage((parent, damageParent), damage);
         }
 
         if (component.Configuration.Inventory == PolymorphInventoryChange.Transfer)

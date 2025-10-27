@@ -6,7 +6,7 @@ using Content.Server.Atmos.Components;
 using Content.Server.Explosion.Components;
 using Content.Server.Destructible;
 using Content.Shared.Atmos;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Explosion;
 using Robust.Shared.Collections;
 using Content.Goobstation.Maths.FixedPoint;

@@ -31,7 +31,8 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Nutrition.Components; // Goobstation end
-using Content.Goobstation.Shared.Xenomorph; // Omu
+using Content.Goobstation.Shared.Xenomorph;
+using Content.Shared.Damage.Systems; // Omu
 
 namespace Content.Server._White.Xenomorphs.FaceHugger;
 
