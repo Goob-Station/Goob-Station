@@ -17008,3 +17008,9 @@ Entries:
       message: Cyborgs can now claim miningpoints
   id: 1905
   time: '2025-10-27T04:32:44.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Assistants have been released from their chronic wasting disease.
+  id: 1906
+  time: '2025-10-27T10:30:36.0000000+00:00'
