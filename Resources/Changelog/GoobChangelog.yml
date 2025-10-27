@@ -16984,3 +16984,11 @@ Entries:
         carried player to get stuck to the carrying player
   id: 1902
   time: '2025-10-27T04:06:33.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: janitors keys will give less wrong popups
+    - type: Fix
+      message: janitors keys now has a range requirement
+  id: 1903
+  time: '2025-10-27T04:06:41.0000000+00:00'
