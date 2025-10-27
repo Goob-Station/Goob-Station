@@ -97,7 +97,7 @@ public sealed class TentacleHookSystem : EntitySystem
         ent.Comp.Target = args.Target;
         Dirty(ent);
 
-        _movementMod.TryUpdateMovementSpeedModDuration(args.Target, MovementModStatusSystem.FlashSlowdown, ent.Comp.DurationSlow, 0.3f);
+        _movementMod.TryUpdateMovementSpeedModDuration(args.Target, SharedStunSystem.StunId, ent.Comp.DurationSlow, 0.3f);
 
         var tentacle = EnsureComp<TentacleHookedComponent>(args.Target);
         tentacle.ThrowTowards = args.Shooter;

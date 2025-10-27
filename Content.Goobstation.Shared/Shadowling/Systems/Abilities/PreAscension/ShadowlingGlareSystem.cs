@@ -104,7 +104,7 @@ public sealed class ShadowlingGlareSystem : EntitySystem
         if (TryComp<StatusEffectsComponent>(target, out var statComp))
         {
             _effects.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(comp.MuteTime), true);
-            _movementMod.TryUpdateMovementSpeedModDuration(target, MovementModStatusSystem.FlashSlowdown, TimeSpan.FromSeconds(comp.SlowTime), 0.5f, 0.5f);
+            _movementMod.TryUpdateMovementSpeedModDuration(target, SharedStunSystem.StunId, TimeSpan.FromSeconds(comp.SlowTime), 0.5f, 0.5f);
         }
 
         var effectEnt = PredictedSpawnAtPosition(comp.EffectGlare, Transform(uid).Coordinates);

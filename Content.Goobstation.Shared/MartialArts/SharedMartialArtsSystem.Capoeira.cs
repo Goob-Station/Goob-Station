@@ -15,6 +15,7 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Physics.Components;
@@ -161,7 +162,7 @@ public abstract partial class SharedMartialArtsSystem
             return;
 
         var speedMultiplier = 1f / MathF.Max(1f, power);
-        _movementMod.TryUpdateMovementSpeedModDuration(target, MovementModStatusSystem.TaserSlowdown, args.SlowDownTime * power, speedMultiplier, speedMultiplier);
+        _movementMod.TryUpdateMovementSpeedModDuration(target, SharedStunSystem.StunId, args.SlowDownTime * power, speedMultiplier, speedMultiplier);
         _modifier.RefreshMovementSpeedModifiers(target);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
         _audio.PlayPvs(args.Sound, target);

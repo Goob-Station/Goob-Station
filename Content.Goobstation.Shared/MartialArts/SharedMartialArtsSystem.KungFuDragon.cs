@@ -12,6 +12,7 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Goobstation.Shared.MartialArts;
@@ -94,7 +95,7 @@ public abstract partial class SharedMartialArtsSystem
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
-        _movementMod.TryUpdateMovementSpeedModDuration (target, MovementModStatusSystem.VomitingSlowdown, args.SlowdownTime, args.WalkSpeedModifier, args.SprintSpeedModifier);
+        _movementMod.TryUpdateMovementSpeedModDuration (target, SharedStunSystem.StunId, args.SlowdownTime, args.WalkSpeedModifier, args.SprintSpeedModifier);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(args.Sound, target);

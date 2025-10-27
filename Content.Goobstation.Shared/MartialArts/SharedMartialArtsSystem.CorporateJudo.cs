@@ -25,6 +25,7 @@ using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 
@@ -90,7 +91,7 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out _)
             || !TryComp(target, out StatusEffectsComponent? status))
             return;
-        _movementMod.TryUpdateMovementSpeedModDuration(target, MovementModStatusSystem.TaserSlowdown, TimeSpan.FromSeconds(5), 0.5f, 0.5f);
+        _movementMod.TryUpdateMovementSpeedModDuration(target, SharedStunSystem.StunId, TimeSpan.FromSeconds(5), 0.5f, 0.5f);
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
