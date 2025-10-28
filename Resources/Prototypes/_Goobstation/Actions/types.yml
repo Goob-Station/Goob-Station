@@ -246,3 +246,15 @@
       path: /Audio/_Goobstation/Misc/berserker-implant-activate.ogg
   - type: InstantAction
     event: !type:ActivateBerserkerImplantActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionFungalGrowth
+  name: Fungal Growth
+  description:
+  components:
+  - type: Action
+    useDelay: 1
+    icon: Interface/Actions/scream.png
+  - type: InstantAction
+    event: !type:FungalGrowthEvent

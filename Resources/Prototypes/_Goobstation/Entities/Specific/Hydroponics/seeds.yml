@@ -1,0 +1,9 @@
+- type: entity
+  parent: SeedBase
+  name: packet of mass mushroom organism
+  id: MassMushroomOrganismSeeds
+  components:
+  - type: Seed
+    seedId: massMushroomOrganism
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/chanterelle.rsi

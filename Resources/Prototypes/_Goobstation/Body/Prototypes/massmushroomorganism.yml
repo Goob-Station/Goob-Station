@@ -1,0 +1,55 @@
+- type: body
+  id: MassMushroomOrganism
+  name: "mass mushroom organism"
+  root: chest
+  slots:
+    head:
+      part: HeadMassMushroomOrganism
+      connections:
+      - chest
+      organs:
+        brain: OrganMassMushroomOrganismBrain
+        eyes: OrganMassMushroomOrganismEyes
+    chest:
+      part: ChestMassMushroomOrganism
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed
+      organs:
+        heart: OrganMassMushroomOrganismHeart
+        lungs: OrganMassMushroomOrganismLungs
+    groin:
+      part: GroinMassMushroomOrganism
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganMassMushroomOrganismStomach
+        liver: OrganMassMushroomOrganismLiver
+        kidneys: OrganMassMushroomOrganismKidneys
+    right arm:
+      part: RightArmMassMushroomOrganism
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmMassMushroomOrganism
+      connections:
+      - left hand
+    right hand:
+      part: RightHandMassMushroomOrganism
+    left hand:
+      part: LeftHandMassMushroomOrganism
+    right leg:
+      part: RightLegMassMushroomOrganism
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegMassMushroomOrganism
+      connections:
+      - left foot
+    right foot:
+      part: RightFootMassMushroomOrganism
+    left foot:
+      part: LeftFootMassMushroomOrganism

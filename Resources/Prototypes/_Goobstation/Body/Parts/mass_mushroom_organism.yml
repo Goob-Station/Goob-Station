@@ -1,0 +1,141 @@
+- type: entity
+  id: PartMassMushroomOrganism
+  parent: [BaseItem, BasePart]
+  name: "MassMushroomOrganism body part"
+  abstract: true
+  components:
+  - type: Icon # Shitmed Change
+    sprite: Mobs/Species/Human/parts.rsi
+  - type: BodyPart # Shitmed Change
+    species: Human
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  id: ChestMassMushroomOrganism
+  name: "human chest"
+  parent: [PartMassMushroomOrganism, BaseChest]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "chest_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  id: GroinMassMushroomOrganism
+  name: "human groin"
+  parent: [PartMassMushroomOrganism, BaseGroin]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "groin_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  id: HeadMassMushroomOrganism
+  name: "MassMushroomOrganism head"
+  parent: [PartMassMushroomOrganism, BaseHead]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "head_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  id: LeftArmMassMushroomOrganism
+  name: "left MassMushroomOrganism arm"
+  parent: [PartMassMushroomOrganism, BaseLeftArm]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmMassMushroomOrganism
+  name: "right MassMushroomOrganism arm"
+  parent: [PartMassMushroomOrganism, BaseRightArm]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandMassMushroomOrganism
+  name: "left MassMushroomOrganism hand"
+  parent: [PartMassMushroomOrganism, BaseLeftHand]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_hand"
+  - type: DoAfterDelayMultiplier # Goobstation
+    multiplier: 0.9
+
+- type: entity
+  id: RightHandMassMushroomOrganism
+  name: "right MassMushroomOrganism hand"
+  parent: [PartMassMushroomOrganism, BaseRightHand]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_hand"
+  - type: DoAfterDelayMultiplier # Goobstation
+    multiplier: 0.9
+
+- type: entity
+  id: LeftLegMassMushroomOrganism
+  name: "left MassMushroomOrganism leg"
+  parent: [PartMassMushroomOrganism, BaseLeftLeg]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  id: RightLegMassMushroomOrganism
+  name: "right MassMushroomOrganism leg"
+  parent: [PartMassMushroomOrganism, BaseRightLeg]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootMassMushroomOrganism
+  name: "left MassMushroomOrganism foot"
+  parent: [PartMassMushroomOrganism, BaseLeftFoot]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootMassMushroomOrganism
+  name: "right MassMushroomOrganism foot"
+  parent: [PartMassMushroomOrganism, BaseRightFoot]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_foot"

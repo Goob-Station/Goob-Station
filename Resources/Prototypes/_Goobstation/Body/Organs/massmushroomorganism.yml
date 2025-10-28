@@ -1,0 +1,414 @@
+- type: entity
+  id: BaseMassMushroomOrganismOrganUnGibbable
+  parent: BaseItem
+  abstract: true
+  components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: OrganInteraction
+  - type: EmitSoundOnDrop
+    sound:
+      collection: OrganInteraction
+  - type: EmitSoundOnLand
+    sound:
+      collection: OrganInteraction
+  # Goobstation edit end
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+  - type: Organ
+    intCap: 15
+    integrity: 15
+    integrityThresholds:
+      Normal: 15
+      Damaged: 6
+      Destroyed: 0
+  - type: Food
+  - type: Extractable
+    grindableSolutionName: organ
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+    - people
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+
+- type: entity
+  id: BaseMassMushroomOrganismOrgan
+  parent: BaseMassMushroomOrganismOrganUnGibbable
+  abstract: true
+  components:
+  - type: Gibbable
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Biomass: 5
+
+- type: entity
+  id: OrganMassMushroomOrganismBrain
+  parent: BaseMassMushroomOrganismOrganUnGibbable
+  name: brain
+  description: "The source of incredible, unending intelligence. Honk."
+  components:
+  - type: MindContainer
+    showExamineInfo: true
+  - type: Speech
+    enabled: false
+  - type: TypingIndicator
+    proto: empty
+  - type: Emoting
+    enabled: false
+  - type: Sprite
+    state: brain
+  - type: Organ
+    slotId: brain # Shitmed Change
+  - type: Input
+    context: "ghost"
+  - type: Brain
+  - type: InputMover
+  - type: Examiner
+  - type: BlockMovement
+  - type: BadFood
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Brain
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Cognizine # goob edit
+          Quantity: 5 # goob edit
+      food:
+        maxVol: 10 # goob edit
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
+        - ReagentId: Cognizine # goob edit
+          Quantity: 5 # goob edit
+  - type: FlavorProfile
+    flavors:
+    - people
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Mobs/Species/Human/organs.rsi
+      state: brain
+    entries:
+      burger:
+        name: food-sequence-content-brain
+      taco:
+        name: food-sequence-content-brain
+  - type: Item
+    size: Small
+    heldPrefix: brain
+  - type: NerveSystem
+  - type: ConsciousnessRequired
+    identifier: "nerveSystem"
+
+- type: entity
+  id: OrganMassMushroomOrganismEyes
+  parent: BaseMassMushroomOrganismOrgan
+  name: eyes
+  description: "I see you!"
+  components:
+  - type: Organ # Shitmed Change
+    intCap: 12
+    integrity: 12
+    integrityThresholds:
+      Normal: 12
+      Damaged: 4
+      Destroyed: 0
+    slotId: eyes # Shitmed Change
+  - type: Eyes # Shitmed Change
+  - type: Sprite
+    layers:
+    - state: eyeball-l
+    - state: eyeball-r
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Eyes
+  - type: Item
+    size: Small
+    heldPrefix: eyeballs
+
+- type: entity
+  id: OrganMassMushroomOrganismTongue
+  parent: BaseMassMushroomOrganismOrgan
+  name: tongue
+  description: "A fleshy muscle mostly used for lying."
+  components:
+  - type: Sprite
+    state: tongue
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Mobs/Species/Human/organs.rsi
+      state: tongue
+    entries:
+      burger:
+        name: food-sequence-content-tongue
+      taco:
+        name: food-sequence-content-tongue
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Tongue
+
+- type: entity
+  id: OrganMassMushroomOrganismAppendix
+  parent: BaseMassMushroomOrganismOrgan
+  name: appendix
+  components:
+  - type: Sprite
+    layers:
+    - state: appendix
+    - state: appendix-inflamed
+      visible: false
+
+- type: entity
+  id: OrganMassMushroomOrganismEars
+  parent: BaseMassMushroomOrganismOrgan
+  name: ears
+  description: "There are three parts to the ear. Inner, middle and outer. Only one of these parts should normally be visible."
+  components:
+  - type: Sprite
+    state: ears
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Mobs/Species/Human/organs.rsi
+      state: ears
+    entries:
+      burger:
+        name: food-sequence-content-ears
+      taco:
+        name: food-sequence-content-ears
+  - type: Ears # Shitmed Change
+
+- type: entity
+  id: OrganMassMushroomOrganismLungs
+  parent: BaseMassMushroomOrganismOrgan
+  name: lungs
+  description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
+  components:
+  - type: Organ # Shitmed Change
+    intCap: 17
+    integrity: 17
+    integrityThresholds:
+      Normal: 17
+      Damaged: 9
+      Destroyed: 0
+    slotId: lungs # Shitmed Change
+  - type: Sprite
+    layers:
+    - state: lung-l
+    - state: lung-r
+  - type: Item
+    size: Small
+    heldPrefix: lungs
+  - type: Lung
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ MassMushroomOrganism ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      Lung:
+        maxVol: 100.0
+        canReact: false
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Lungs
+
+- type: entity
+  id: OrganMassMushroomOrganismHeart
+  parent: BaseMassMushroomOrganismOrgan
+  name: heart
+  description: "I feel bad for the heartless bastard who lost this."
+  components:
+  - type: Heart # Shitmed Change
+  - type: Organ # Shitmed Change
+    intCap: 17
+    integrity: 17
+    integrityThresholds:
+      Normal: 17
+      Damaged: 9
+      Destroyed: 0
+    slotId: heart # Shitmed Change
+  - type: Sprite
+    state: heart-on
+  # The heart 'metabolizes' medicines and poisons that aren't filtered out by other organs.
+  # This is done because these chemicals need to have some effect even if they aren't being filtered out of your body.
+  # You're technically 'immune to poison' without a heart, but.. uhh, you'll have bigger problems on your hands.
+  - type: Metabolizer
+    maxPoisonsProcessable: 2
+    metabolizerTypes: [Human]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Heart
+  - type: Item
+    size: Small
+    heldPrefix: heart
+
+- type: entity
+  id: OrganMassMushroomOrganismStomach
+  parent: BaseMassMushroomOrganismOrgan
+  name: stomach
+  description: "Gross. This is hard to stomach."
+  components:
+  - type: Organ # Shitmed Change
+    intCap: 44 # consists of a lot of pieces, thus is incredibly hard to easily destroy
+    integrity: 44
+    integrityThresholds:
+      Normal: 44
+      Damaged: 17
+      Destroyed: 0
+    slotId: stomach # Shitmed Change
+  - type: Sprite
+    state: stomach
+  - type: Item
+    size: Small
+    heldPrefix: stomach
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Stomach
+  # The stomach metabolizes stuff like foods and drinks.
+  # TODO: Have it work off of the ent's solution container, and move this
+  # to intestines instead.
+  - type: Metabolizer
+    # mm yummy
+    maxPoisonsProcessable: 3
+    metabolizerTypes: [Human]
+    groups:
+    - id: Food
+    - id: Drink
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Mobs/Species/Human/organs.rsi
+      state: stomach
+    entries:
+      burger:
+        name: food-sequence-content-stomach
+      taco:
+        name: food-sequence-content-stomach
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Stomach
+
+- type: entity
+  id: OrganMassMushroomOrganismLiver
+  parent: BaseMassMushroomOrganismOrgan
+  name: liver
+  description: "Pairing suggestion: chianti and fava beans."
+  components:
+  - type: Liver # Shitmed Change
+  - type: Organ # Shitmed Change
+    intCap: 21
+    integrity: 21
+    integrityThresholds:
+      Normal: 21
+      Damaged: 12
+      Destroyed: 0
+    slotId: liver # Shitmed Change
+  - type: Sprite
+    state: liver
+  - type: Item
+    size: Small
+    heldPrefix: liver
+  - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
+    maxPoisonsProcessable: 1
+    metabolizerTypes: [Human]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Mobs/Species/Human/organs.rsi
+      state: liver
+    entries:
+      burger:
+        name: food-sequence-content-liver
+      taco:
+        name: food-sequence-content-liver
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Liver
+
+- type: entity
+  id: OrganMassMushroomOrganismKidneys
+  parent: BaseMassMushroomOrganismOrgan
+  name: kidneys
+  description: "Filters toxins from the bloodstream."
+  components:
+  - type: Organ # Shitmed
+    intCap: 21
+    integrity: 21
+    integrityThresholds:
+      Normal: 21
+      Damaged: 12
+      Destroyed: 0
+    slotId: kidneys
+  - type: Sprite
+    layers:
+    - state: kidney-l
+    - state: kidney-r
+  - type: Item
+    size: Small
+    heldPrefix: kidneys
+  # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
+  - type: Metabolizer
+    maxPoisonsProcessable: 5
+    metabolizerTypes: [Human]
+    removeEmpty: true
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Kidneys

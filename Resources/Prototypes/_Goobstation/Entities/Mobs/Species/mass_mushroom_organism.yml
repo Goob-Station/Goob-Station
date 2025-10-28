@@ -1,0 +1,38 @@
+- type: entity
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobMassMushroomOrganism
+  name: Urist McMushroom
+  abstract: true
+  components:
+  - type: Hunger
+  - type: Icon
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: full
+  - type: Thirst
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMassMushroomOrganism
+      amount: 5
+  - type: Body
+    prototype: MassMushroomOrganism
+    requiredLegs: 2
+  - type: HumanoidAppearance
+    species: Human
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+  - type: Bloodstream
+    bloodReagent: Nutriment
+  - type: Inventory
+    templateId: human
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobMassMushroomOrganismDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Human
+  - type: Inventory
+    templateId: human

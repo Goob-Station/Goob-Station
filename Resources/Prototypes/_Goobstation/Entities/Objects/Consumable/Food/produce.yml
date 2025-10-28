@@ -68,3 +68,49 @@
           Quantity: 5
         - ReagentId: Fiber
           Quantity: 4
+
+- type: entity
+  name: mass mushroom organism
+  parent: FoodProduceBase
+  id: FoodMassMushroomOrganism
+  description:
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/chanterelle.rsi
+  - type: Item
+    heldPrefix: produce
+  - type: Produce
+    seedId: MassMushroomOrganismSeeds
+  - type: Tag
+    tags:
+    - Vegetable
+    - Mushroom
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/chanterelle.rsi
+      state: produce
+    entries:
+      burger:
+        name: food-sequence-content-mushroom
+      taco:
+        name: food-sequence-content-mushroom
+      skewer:
+        name: food-sequence-content-mushroom
+        sprite:
+          sprite: Objects/Consumable/Food/skewer.rsi
+          state: skewer-mushroom
+  - type: Clothing
+    slots:
+    - HEAD
+  - type: MassMushroomOrganism
+  - type: ClothingGrantComponent
+    component:
+    - type: ActionGrant
+      actions:
+      - ActionFungalGrowth

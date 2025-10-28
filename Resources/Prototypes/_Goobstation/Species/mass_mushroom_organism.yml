@@ -1,0 +1,151 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: species
+  id: MassMushroomOrganism
+  name: species-name-bananamen
+  roundStart: false
+  prototype: MobMassMushroomOrganism
+  sprites: MobBananaMenSprites
+  markingLimits: MobHumanMarkingLimits
+  dollPrototype: MobMassMushroomOrganismDummy
+  skinColoration: NoColor
+
+#- type: speciesBaseSprites
+#  id: MobBananaMenSprites
+#  sprites:
+#    Head: MobBananaMenHead
+#    Hair: MobHumanoidAnyMarking
+#    FacialHair: MobHumanoidAnyMarking
+#    Snout: MobHumanoidAnyMarking
+#    Chest: MobBananaMenChest
+#    Groin: MobBananaMenGroin
+#    Eyes: MobHumanoidEyes
+#    LArm: MobBananaMenLArm
+#    RArm: MobBananaMenRArm
+#    LHand: MobBananaMenLHand
+#    RHand: MobBananaMenRHand
+#    LLeg: MobBananaMenLLeg
+#    RLeg: MobBananaMenRLeg
+#    LFoot: MobBananaMenLFoot
+#    RFoot: MobBananaMenRFoot
+#    Tail: MobHumanoidAnyMarking
+#    HeadTop: MobHumanoidAnyMarking
+
+#- type: humanoidBaseSprite
+#  id: MobBananaMenEyes
+#  baseSprite:
+#    sprite: Mobs/Customization/eyes.rsi
+#    state: eyes
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenAnyMarking
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenMarkingMatchSkin
+#  markingsMatchSkin: true
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenHead
+#  baseSprite:
+#    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+#    state: head_m
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenHeadMale
+#  baseSprite:
+#    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+#    state: head_m
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenHeadFemale
+#  baseSprite:
+#    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+#    state: head_f
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenChest
+#  baseSprite:
+#    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+#    state: chest_m
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenChestMale
+#  baseSprite:
+#    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+#    state: chest_m
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenChestFemale
+#  baseSprite:
+#    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+#    state: chest_f
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenGroin
+#  baseSprite:
+#    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+#    state: groin_m
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenGroinMale
+#  baseSprite:
+#    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+#    state: groin_m
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenGroinFemale
+#  baseSprite:
+#    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+#    state: groin_f
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenLLeg
+#  baseSprite:
+#    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+#    state: l_leg
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenLArm
+#  baseSprite:
+#    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+#    state: l_arm
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenLHand
+#  baseSprite:
+#    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+#    state: l_hand
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenLFoot
+#  baseSprite:
+#    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+#    state: l_foot
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenRLeg
+#  baseSprite:
+#    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+#    state: r_leg
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenRArm
+#  baseSprite:
+#    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+#    state: r_arm
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenRHand
+#  baseSprite:
+#    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+#    state: r_hand
+#
+#- type: humanoidBaseSprite
+#  id: MobBananaMenRFoot
+#  baseSprite:
+#    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+#    state: r_foot
