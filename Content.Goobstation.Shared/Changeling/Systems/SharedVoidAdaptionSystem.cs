@@ -8,6 +8,7 @@ using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using System.Linq;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
@@ -41,6 +42,15 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         _alerts.ClearAlert(
             ent,
             ent.Comp.Alert);
+
+        if (!_lingQuery.TryComp(ent, out var ling)
+            || !ent.Comp.AdaptingLowPressure
+            && !ent.Comp.AdaptingLowTemp)
+            return;
+
+        ling.ChemicalRegenMultiplier += ent.Comp.ChemModifierValue;
+        Dirty(ent, ling);
+
     }
 
     #region Event Handlers
@@ -85,7 +95,7 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
             return;
 
         var compareT = GetTempThreshold(ent);
-        var safeT = GetTempThreshold(ent) + 1f;
+        var safeT = compareT + 1f;
 
         var newTemp = args.CurrentTemperature;
         var lastTemp = args.LastTemperature;
@@ -113,9 +123,6 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         if (!FireValidCheck(ent))
             return;
 
-        if (_netManager.IsClient)
-            return;
-
         var safeThreshold = GetTempThreshold(ent) + 1;
 
         if (args.CurrentTemperature < safeThreshold)
@@ -134,11 +141,23 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
 
     #region Helper Methods
 
+    public readonly ProtoId<AlertPrototype> LowPressureAlert = "LowPressure";
+    public readonly ProtoId<AlertPrototype> LowTempAlert = "Cold";
     private bool FireValidCheck(Entity<VoidAdaptionComponent> ent)
     {
         if (!OnFire(ent))
         {
             ent.Comp.FirePopupSent = false;
+
+            // void adaption recovering from fire can have these alerts show up (mainly when in space/vacuum)
+            _alerts.ClearAlert(
+            ent,
+            LowPressureAlert);
+
+            _alerts.ClearAlert(
+            ent,
+            LowTempAlert);
+
             return true;
         }
 
