@@ -17123,3 +17123,9 @@ Entries:
       message: 'Tweak: Devils require now a higher player count to spawn.'
   id: 1916
   time: '2025-10-28T23:38:10.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Plasmamen can no longer become ninjas, nukies or wizards.
+  id: 1917
+  time: '2025-10-28T23:38:52.0000000+00:00'
