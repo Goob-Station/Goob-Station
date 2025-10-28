@@ -46,3 +46,10 @@
   sex: Male
   silicon: false
   voice: 7
+
+- type: voice
+  id: z7wMPf69rWg11Lj1NqjR
+  name: Flying Dutchman
+  sex: Male
+  silicon: false
+  voice: 8
