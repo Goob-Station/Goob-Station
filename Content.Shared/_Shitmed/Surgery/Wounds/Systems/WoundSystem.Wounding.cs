@@ -71,6 +71,9 @@ public sealed partial class WoundSystem
 
     private void OnWoundableMapInit(EntityUid uid, WoundableComponent comp, MapInitEvent args)
     {
+        if (HasComp<BonelessComponent>(uid))
+            return;
+
         var bone = Spawn(comp.BoneEntity);
         if (!TryComp<BoneComponent>(bone, out var boneComp))
             return;
