@@ -1,0 +1,13 @@
+<Button xmlns="https://spacestation14.io"
+        MinHeight="30" >
+    <BoxContainer Orientation="Horizontal" Margin="5 0">
+        <TextureRect Name="EntryIcon"
+                     VerticalAlignment="Center"
+                     Stretch="KeepAspectCentered"
+                     MinSize="30 30"/>
+        <Label Name="NameableLabel"
+               VerticalAlignment="Center"
+               Margin="5 0 0 0"
+               Text="Gps Entry"/>
+    </BoxContainer>
+</Button>
