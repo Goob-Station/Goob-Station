@@ -180,7 +180,7 @@
     wpConsume: 300
   - type: Action
     itemIconStyle: BigAction
-    # useDelay: 150
+    useDelay: 150
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: possess_object
