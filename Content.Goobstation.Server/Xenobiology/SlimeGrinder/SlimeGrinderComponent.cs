@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Audio;
-using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Xenobiology.SlimeGrinder;
 
@@ -28,10 +28,7 @@ public sealed partial class SlimeGrinderComponent : Component
     /// The entity being ground.
     /// </summary>
     [ViewVariables]
-    public EntityUid? EntityGrinded;
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public Container GrindedContainer;
+    public Dictionary<EntProtoId, float> YieldQueue;
 
     /// <summary>
     /// The time it takes to process a mob, per mass.
