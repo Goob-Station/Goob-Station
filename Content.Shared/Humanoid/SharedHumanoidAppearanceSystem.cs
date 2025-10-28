@@ -650,6 +650,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         humanoid.BarkVoice = barkvoiceId ?? DefaultBarkVoice;
         comp.VoicePrototypeId = barkvoiceId;
+        Dirty(uid, comp);
     }
     // Corvax-Frontier-Barks-end
 

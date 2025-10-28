@@ -1,43 +1,64 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Zekins <zekins3366@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Corvax.Speech.Synthesis;
 
-/// <summary>
-/// A prototype for the available barges.
-/// </summary>
 [Prototype("bark")]
-public sealed class BarkPrototype : IPrototype
+public sealed partial class BarkPrototype : IPrototype
 {
-    [IdDataField]
-    public string ID { get; } = default!;
+    [IdDataField] public string ID { get; private set; } = default!;
 
     /// <summary>
-    /// The name of the voice.
-    /// </summary>
-    [DataField]
-    public string Name { get; } = string.Empty;
-
-    /// <summary>
-    /// A set of sounds used for speech.
+    /// A list of sound files that are used for barks.
     /// </summary>
     [DataField(required: true)]
-    public List<string> SoundFiles { get; } = new();
+    public string Name = string.Empty;
 
     /// <summary>
-    /// Volume for sounds.
+    /// A list of sound files that are used for barks.
+    /// </summary>
+    [DataField(required: true)]
+    public SoundCollectionSpecifier? SoundCollection;
+
+    /// <summary>
+    /// The lower bound of the pitch variation.
     /// </summary>
     [DataField]
-    public float Volume;
+    public float MinPitch = 0.9f;
 
     /// <summary>
-    /// Whether it is available for selection.
+    /// The upper bound of the pitch variation.
+    /// </summary>
+    [DataField]
+    public float MaxPitch = 1.1f;
+
+    /// <summary>
+    /// The volume of the bark.
+    /// </summary>
+    [DataField]
+    public float Volume = 1;
+
+    /// <summary>
+    /// How often to play a sound.
+    /// </summary>
+    [DataField]
+    public float Frequency = 0.5f;
+
+    /// <summary>
+    /// Stop the currently playing sound before playing a new one.
+    /// </summary>
+    [DataField]
+    public bool Stop = false;
+
+    /// <summary>
+    /// Makes the audio predictable via hashing.
+    /// </summary>
+    [DataField]
+    public bool Predictable = true;
+
+    /// <summary>
+    /// Whether it is available for selection in the character editor.
     /// </summary>
     [DataField("roundstart")]
     public bool RoundStart { get; } = true;

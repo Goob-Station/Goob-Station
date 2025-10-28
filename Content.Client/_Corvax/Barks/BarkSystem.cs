@@ -1,96 +1,158 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Zekins <zekins3366@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-using Content.Client.Audio;
+using Content.Shared._Corvax.Speech.Synthesis.Components;
 using Content.Shared._Corvax.Speech.Synthesis;
-using Content.Shared.Chat;
 using Content.Shared.Corvax.CorvaxVars;
-using Robust.Client.Audio;
-using Robust.Client.Player;
-using Robust.Client.ResourceManagement;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
+using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Client._Corvax.Speech.Synthesis.System;
 
-/// <summary>
-/// The system responsible for the sound transmission for each subscriber
-/// </summary>
 public sealed class BarkSystem : EntitySystem
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedAudioSystem _sharedAudio = default!;
 
-    private const float MinimalVolume = -10f;
-    private const float WhisperFade = 4f;
+    private readonly Dictionary<NetEntity, EntityUid> _playingSounds = new();
+    private static readonly char[] Characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".ToCharArray();
 
-    public override void Initialize() =>
+    public override void Initialize()
+    {
+        base.Initialize();
         SubscribeNetworkEvent<PlayBarkEvent>(OnPlayBark);
+    }
 
-    public void RequestPreviewBark(string barkVoiceId) =>
-        RaiseNetworkEvent(new RequestPreviewBarkEvent(barkVoiceId));
+    public void RequestPreviewBark(string barkId)
+    {
+        if (!_prototypeManager.TryIndex<BarkPrototype>(barkId, out var proto))
+            return;
+
+        var messageLength = _random.Next(5, 20);
+        var message = new char[messageLength];
+        for (var i = 0; i < messageLength; i++)
+        {
+            message[i] = _random.Pick(Characters);
+        }
+        PlayBark(null, new string(message), false, proto);
+    }
 
     private void OnPlayBark(PlayBarkEvent ev)
     {
         var sourceEntity = _entityManager.GetEntity(ev.SourceUid);
-        if (!_entityManager.EntityExists(sourceEntity)
-            || _entityManager.Deleted(sourceEntity) ||
-            !HasComp<TransformComponent>(sourceEntity))
+        if (!TryComp<SpeechSynthesisComponent>(sourceEntity, out var comp)
+            || comp.VoicePrototypeId is null
+            || !_prototypeManager.TryIndex<BarkPrototype>(comp.VoicePrototypeId, out var proto))
             return;
 
-        if (_player.LocalEntity != null
-            && HasComp<TransformComponent>(_player.LocalEntity.Value))
+        PlayBark(sourceEntity, ev.Message, ev.Whisper, proto);
+    }
+
+    private void PlayBark(EntityUid? source, string message, bool whisper, BarkPrototype proto)
+    {
+        if (proto.SoundCollection is null)
+            return;
+
+        if (message.Length > 50)
+            message = message[..50];
+
+        var isPreview = source == null;
+        var volume = GetVolume(whisper, proto);
+        if (volume <= -10f)
+            return;
+
+        var upperCount = 0;
+        foreach (var c in message)
+            if (char.IsUpper(c))
+                upperCount++;
+
+        if (upperCount > message.Length / 2
+            || message.EndsWith("!!"))
+            volume += 5;
+
+        var messageLength = message.Length;
+        var totalDuration = Math.Max(0.1f, messageLength * 0.05f);
+        var soundInterval = 0.08f / proto.Frequency;
+        var soundCount = (int) Math.Max(1, totalDuration / soundInterval);
+
+        for (var i = 0; i < soundCount; i++)
         {
-            var sourceTransform = Transform(sourceEntity);
-            var playerTransform = Transform(_player.LocalEntity.Value);
+            var character = message[i % messageLength];
 
-            if (sourceTransform.Coordinates.TryDistance(EntityManager, playerTransform.Coordinates, out var distance)
-                && distance > SharedChatSystem.VoiceRange)
-                return;
-        }
+            if (character == ' ' || character == '-')
+                continue;
 
-        var userVolume = _cfg.GetCVar(CorvaxVars.BarksVolume);
-        var baseVolume = SharedAudioSystem.GainToVolume(userVolume * ContentAudioSystem.BarksMultiplier);
-
-        var volume = MinimalVolume + baseVolume + ev.Volume;
-        if (ev.Obfuscated) volume -= WhisperFade;
-
-        var audioParams = new AudioParams
-        {
-            Volume = volume,
-            Variation = 0.15f,
-        };
-
-        int messageLength = ev.Message.Length;
-        float totalDuration = messageLength * 0.05f;
-        float soundInterval = 0.15f / ev.PlaybackSpeed;
-
-        int soundCount = (int)(totalDuration / soundInterval);
-        soundCount = Math.Max(soundCount, 1);
-
-        var audioResource = new AudioResource();
-        audioResource.Load(IoCManager.Instance!, new ResPath(ev.SoundPath));
-
-        var soundSpecifier = new ResolvedPathSpecifier(ev.SoundPath);
-
-        for (int i = 0; i < soundCount; i++)
-        {
             Timer.Spawn(TimeSpan.FromSeconds(i * soundInterval), () =>
             {
-                if (!_entityManager.EntityExists(sourceEntity)
-                    || _entityManager.Deleted(sourceEntity))
+                if (!isPreview && TerminatingOrDeleted(source!.Value))
                     return;
 
-                _audio.PlayEntity(audioResource.AudioStream, sourceEntity, soundSpecifier, audioParams);
+                var sound = _sharedAudio.ResolveSound(proto.SoundCollection);
+                var audioParams = proto.SoundCollection.Params;
+
+                if (proto.Predictable)
+                {
+                    var hashCode = character.GetHashCode();
+
+                    if (sound is ResolvedCollectionSpecifier collection && collection.Collection != null)
+                    {
+                        var soundCollection = _prototypeManager.Index<SoundCollectionPrototype>(collection.Collection);
+                        var index = hashCode % soundCollection.PickFiles.Count;
+                        sound = new ResolvedCollectionSpecifier(collection.Collection, index);
+                    }
+
+                    var minPitchInt = (int) (proto.MinPitch * 100);
+                    var maxPitchInt = (int) (proto.MaxPitch * 100);
+                    var pitchRangeInt = maxPitchInt - minPitchInt;
+                    if (pitchRangeInt != 0)
+                    {
+                        var predictablePitchInt = hashCode % pitchRangeInt + minPitchInt;
+                        var predictablePitch = predictablePitchInt / 100f;
+                        audioParams = audioParams.WithPitchScale(predictablePitch);
+                    }
+                    else
+                    {
+                        audioParams = audioParams.WithPitchScale(proto.MinPitch);
+                    }
+                }
+                else
+                {
+                    audioParams = audioParams.WithPitchScale(_random.NextFloat(proto.MinPitch, proto.MaxPitch));
+                }
+
+                audioParams = audioParams.WithVolume(volume);
+
+                var filter = Filter.Local();
+                var soundEntity = isPreview
+                    ? _sharedAudio.PlayGlobal(sound, filter, false, audioParams)
+                    : _sharedAudio.PlayEntity(sound, filter, source!.Value, false, audioParams);
+
+                if (!isPreview && proto.Stop)
+                {
+                    if (_playingSounds.TryGetValue(GetNetEntity(source!.Value), out var playing))
+                        _sharedAudio.Stop(playing);
+                }
+
+                if (!isPreview && soundEntity is not null)
+                    _playingSounds[GetNetEntity(source!.Value)] = soundEntity.Value.Entity;
             });
         }
     }
+
+    private float GetVolume(bool whisper, BarkPrototype proto)
+    {
+        var volume = _cfg.GetCVar(CorvaxVars.BarksVolume);
+        var finalVolume = SharedAudioSystem.GainToVolume(volume);
+
+        finalVolume += SharedAudioSystem.GainToVolume(proto.Volume);
+
+        finalVolume += whisper ? -10f : 0f;
+        return finalVolume;
+    }
+
 }
