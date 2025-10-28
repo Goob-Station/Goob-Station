@@ -16,6 +16,7 @@
 // SPDX-FileCopyrightText: 2024 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 RichardBlonski <48651647+RichardBlonski@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -150,6 +151,7 @@ public sealed partial class ElectrifiedComponent : Component
     [DataField, AutoNetworkedField]
     public bool IsWireCut = false;
 
+    #region Goobstation
     /// <summary>
     /// Goobstation
     /// Whether this will ignore target insulation
@@ -163,4 +165,18 @@ public sealed partial class ElectrifiedComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public EntityUid? IgnoredEntity;
+
+    /// <summary>
+    /// Cooldown between shocks
+    /// </summary>
+    [DataField]
+    public TimeSpan ShockCooldown { get; set; } = TimeSpan.FromSeconds(0.3f);
+
+    /// <summary>
+    /// Last time this entity was shocked
+    /// </summary>
+    [DataField]
+    public TimeSpan LastShockTime { get; set; } = TimeSpan.Zero;
+
+    #endregion
 }
