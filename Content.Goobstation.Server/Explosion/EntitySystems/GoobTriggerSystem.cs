@@ -14,7 +14,6 @@
 
 using Content.Goobstation.Server.Explosion.Components;
 using Content.Goobstation.Server.Explosion.Components.OnTrigger;
-using Content.Server._EinsteinEngines.Language;
 using Content.Server.Explosion.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Hands.Components;
@@ -29,13 +28,10 @@ public sealed class GoobTriggerSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly TriggerSystem _trigger = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;
-
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<DeleteParentOnTriggerComponent, TriggerEvent>(HandleDeleteParentTrigger);
-        SubscribeLocalEvent<GrantLanguagesOnTriggerComponent,TriggerEvent>(HandleGrantLanguageTrigger);
         SubscribeLocalEvent<DropOnTriggerComponent, TriggerEvent>(HandleDropOnTrigger);
         SubscribeLocalEvent<TriggerOnMeleeComponent, MeleeHitEvent>(OnMeleeHit);
     }
@@ -44,17 +40,6 @@ public sealed class GoobTriggerSystem : EntitySystem
     {
         EntityManager.QueueDeleteEntity(Transform(entity).ParentUid); // cleanedup - goob mudles
         args.Handled = true;
-    }
-
-    private void HandleGrantLanguageTrigger(Entity<GrantLanguagesOnTriggerComponent> entity, ref TriggerEvent args)
-    {
-        if (args.User is null)
-            return;
-
-        foreach (var languages in entity.Comp.Languages)
-        {
-            _language.AddLanguage(args.User.Value, languages);
-        }
     }
 
     private void HandleDropOnTrigger(Entity<DropOnTriggerComponent> entity, ref TriggerEvent args)
