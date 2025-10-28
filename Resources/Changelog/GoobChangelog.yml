@@ -17095,3 +17095,15 @@ Entries:
         suitstorage slot
   id: 1913
   time: '2025-10-27T17:51:52.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 'Added new hardlight bow arrow: ion.'
+    - type: Tweak
+      message: Hardlight bow cost reduced 75 -> 60.
+    - type: Tweak
+      message: Disabler and freeze hardlight arrows were buffed.
+    - type: Fix
+      message: You can now play with radial menu open.
+  id: 1914
+  time: '2025-10-28T20:27:44.0000000+00:00'
