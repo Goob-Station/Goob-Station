@@ -459,7 +459,8 @@ namespace Content.Server.Forensics
             {
                 if (TryComp<FiberComponent>(gloves, out var fiber) && !string.IsNullOrEmpty(fiber.FiberMaterial))
                     component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial)) : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
-                if (TryComp<FingerprintComponent>(user, out var fingerprintFromGloves))
+                if (TryComp<FingerprintComponent>(user, out var fingerprintFromGloves) && (
+                        TryComp<FiberComponent>(gloves, out var fiberEmpty) && !string.IsNullOrEmpty(fiberEmpty.FiberMaterial)))
                 {
                     var full = fingerprintFromGloves.Fingerprint ?? "";
                     if (string.IsNullOrEmpty(full))
