@@ -16962,3 +16962,136 @@ Entries:
       message: Brigmed now has new glasses and headset, as well as medical access.
   id: 1900
   time: '2025-10-27T01:23:12.0000000+00:00'
+- author: Arraydeess14
+  changes:
+    - type: Add
+      message: Added 3 new Moab class balloons
+    - type: Add
+      message: Added Carp balloons
+    - type: Add
+      message: Added Premium Balloon Warrior's Package
+    - type: Tweak
+      message: Adjusted Balloon Popper's Package price
+    - type: Tweak
+      message: Adjusted Balloon layer cash drop
+  id: 1901
+  time: '2025-10-27T04:06:19.0000000+00:00'
+- author: XWASHERE
+  changes:
+    - type: Fix
+      message: >-
+        Dragging players while they're carrying a person no longer causes the
+        carried player to get stuck to the carrying player
+  id: 1902
+  time: '2025-10-27T04:06:33.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: janitors keys will give less wrong popups
+    - type: Fix
+      message: janitors keys now has a range requirement
+  id: 1903
+  time: '2025-10-27T04:06:41.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Add
+      message: >-
+        More dismemberment, you can get dismembered even if your bone is
+        healthy. A healthy bone is better!
+    - type: Remove
+      message: Slime bones! Slimes are now boneless
+  id: 1904
+  time: '2025-10-27T04:07:35.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Cyborgs can now claim miningpoints
+  id: 1905
+  time: '2025-10-27T04:32:44.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Assistants have been released from their chronic wasting disease.
+  id: 1906
+  time: '2025-10-27T10:30:36.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Fix
+      message: All instruments should have their correct sounds again.
+  id: 1907
+  time: '2025-10-27T12:21:20.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: Added Marlen the Umbrella to the Executive Store for 8LP.
+    - type: Add
+      message: >-
+        Added SUPER PREMIUM SHADYCIGS ULTRA DLC DELUXE for 15LP to the executive
+        store.
+    - type: Add
+      message: Added centcomm soap to the executive store for 10LP.
+    - type: Tweak
+      message: >-
+        Changed icons of everything in the station category to be more
+        appealing. 
+  id: 1908
+  time: '2025-10-27T12:23:51.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: rdp migth be fixed now
+  id: 1909
+  time: '2025-10-27T12:27:31.0000000+00:00'
+- author: John John
+  changes:
+    - type: Add
+      message: You can now suicide and execute people with guns!
+    - type: Add
+      message: >-
+        The bartender now has a russian revolver in his booze cabinet, it cannot
+        be used as a normal gun but it has no ammo ui making it perfect for
+        russian roulette games!
+    - type: Fix
+      message: Fixed pacifists being able to use laser rifles
+  id: 1910
+  time: '2025-10-27T12:28:27.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Tweak
+      message: 'Wraith can now spawn naturally. '
+    - type: Add
+      message: >-
+        Added Spirit Candles. Spirit Candles can be obtained by crafting a skull
+        with a candle. They reveal Wraith roaming around you in a 12x12 area. If
+        you activate the Spirit Candle, Wraith will become corporeal and
+        weakened!
+    - type: Add
+      message: >-
+        Added Salt Lines. You can use a salt shaker or salt packet to create
+        salt lines. They take 1u to make.
+    - type: Add
+      message: Piety Vend has a skull now.
+  id: 1911
+  time: '2025-10-27T17:34:27.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Capoeira grab now denies target sprint temporarily.
+    - type: Tweak
+      message: Slightly increased capoeira power scale from movespeed.
+    - type: Add
+      message: All capoeira combos except for kick up regenerate user stamina again.
+  id: 1912
+  time: '2025-10-27T17:36:37.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: >-
+        plamamen can now equipt gastanks in suitstorage slot whitout the need of
+        vests/ hardsuits
+    - type: Tweak
+      message: >-
+        plamamen can no longer equipt wepons and other non gastank item in
+        suitstorage slot
+  id: 1913
+  time: '2025-10-27T17:51:52.0000000+00:00'
