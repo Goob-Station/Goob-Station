@@ -783,7 +783,6 @@ public sealed partial class ChatSystem : SharedChatSystem
             );
 
         var ev = new EntitySpokeEvent(source, message, null, false, language); // Einstein Engines - Language
-        _sawmill.Debug($"EntitySpoke event on {source}; HasTTS: {HasComp<TextToSpeechComponent>(source)}");
         RaiseLocalEvent(source, ev, true);
 
         // To avoid logging any messages sent by entities that are not players, like vendors, cloning, etc.

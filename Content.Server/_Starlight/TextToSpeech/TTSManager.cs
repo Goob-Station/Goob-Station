@@ -61,7 +61,6 @@ public sealed class TTSManager : ITTSManager
         _cfg.OnValueChanged(StarlightCCVars.TTSApiUrl, x => _apiUrl = x, true);
         _cfg.OnValueChanged(StarlightCCVars.TTSApiToken, x => _apiToken = x, true);
         _cfg.OnValueChanged(StarlightCCVars.TTSApiTimeout, x => _timeout = x, true);
-        _sawmill.Debug("YEAH TTSMANAGER WORKS");
     }
 
     public async Task<byte[]?> ConvertTextToSpeechStandard(string elevenId, string text)
