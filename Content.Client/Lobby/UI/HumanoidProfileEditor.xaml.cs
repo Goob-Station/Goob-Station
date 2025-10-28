@@ -166,6 +166,7 @@ using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
+using Content.Shared.Corvax.CorvaxVars; // Corvax-Frontier-Barks
 using Content.Shared.GameTicking;
 using Content.Shared.Guidebook;
 using Content.Shared.Humanoid;
@@ -377,6 +378,18 @@ namespace Content.Client.Lobby.UI
             };
 
             #endregion Gender
+
+            // Corvax-Frontier-Barks-start
+            #region Barks
+
+            if (configurationManager.GetCVar(CorvaxVars.BarksEnabled))
+            {
+                BarksContainer.Visible = true;
+                InitializeBarkVoice();
+            }
+
+            #endregion
+            // Corvax-Frontier-Barks-end
 
             RefreshSpecies();
 
@@ -960,6 +973,7 @@ namespace Content.Client.Lobby.UI
             UpdateEyePickers();
             UpdateSaveButton();
             UpdateMarkings();
+            UpdateBarkVoicesControls(); // Corvax-Frontier-Barks
             UpdateHairPickers();
             UpdateCMarkingsHair();
             UpdateCMarkingsFacialHair();
@@ -1486,6 +1500,13 @@ namespace Content.Client.Lobby.UI
             IsDirty = true;
         }
         // end Goobstation: port EE height/width sliders
+        // Corvax-Frontier-Barks-start
+        private void SetBarkVoice(string newVoice)
+        {
+            Profile = Profile?.WithBarkVoice(newVoice);
+            IsDirty = true;
+        }
+        // Corvax-Frontier-Barks-end
 
         public bool IsDirty
         {
