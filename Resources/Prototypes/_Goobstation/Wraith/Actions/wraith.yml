@@ -139,7 +139,7 @@
   description: Command a few objects to hurl themselves at the target location.
   components:
   - type: Action
-    useDelay: 20
+    useDelay: 40
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
