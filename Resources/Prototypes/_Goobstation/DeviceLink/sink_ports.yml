@@ -118,3 +118,10 @@
   id: AutomationSlotGasTank
   name: signal-port-name-automation-slot-gas-tank
   description: signal-port-description-automation-slot-gas-tank
+
+# Lathe
+
+- type: sinkPort
+  id: LathePrint
+  name: signal-port-name-lathe-print
+  description: signal-port-description-lathe-print

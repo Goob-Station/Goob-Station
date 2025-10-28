@@ -1,12 +1,30 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "sprites taken from TG station, edited by whateverusername0 and blooodyspy. ascension_rust made by Armok. ice_spear taken from Yogstation and modified.",
+    "copyright": "sprites taken from TG station, edited by whateverusername0 and blooodyspy. ascension_rust made by Armok. ice_spear taken from Yogstation and modified. gazer_beam_charge taken from https://github.com/tgstation/tgstation/pull/92119/files",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
+        {
+            "name": "gazer_beam_charge"
+        },
+        {
+            "name": "stargazer"
+        },
+        {
+            "name": "cosmic_domain"
+        },
+        {
+            "name": "star_touch"
+        },
+        {
+            "name": "star_blast"
+        },
+        {
+            "name": "cosmic_rune"
+        },
         {
             "name": "god_transmit"
         },

@@ -352,14 +352,14 @@ namespace Content.Client.Actions
             CommandBinds.Unregister<ActionsSystem>();
         }
 
-        public void TriggerAction(Entity<ActionComponent> action)
+        public void TriggerAction(Entity<ActionComponent> action, bool force = false) // Goob edit
         {
             if (_playerManager.LocalEntity is not { } user)
                 return;
 
             // TODO: unhardcode this somehow
 
-            if (!HasComp<InstantActionComponent>(action))
+            if (!force && !HasComp<InstantActionComponent>(action)) // Goob edit
                 return;
 
             if (action.Comp.ClientExclusive)
