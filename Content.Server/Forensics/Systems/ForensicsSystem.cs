@@ -472,7 +472,7 @@ namespace Content.Server.Forensics
 
                     if (existing != default)
                     {
-                        visible = MergePartialFingerprint(existing.Visible, full);
+                        visible = MergePartialFingerprintRandomly(existing.Visible, full);
                         component.Fingerprints.Remove(existing);
                     }
                     else
@@ -510,14 +510,11 @@ namespace Content.Server.Forensics
         private string GenerateMaskedFingerprint(string full)
         {
             var chars = full.ToCharArray();
-            for (int i = 0; i < chars.Length; i++)
-            {
-                    chars[i] = '#';
-            }
+            Array.Fill(chars, '#');
             return new string(chars);
         }
         //tries to merge a partial fingerprint with a full one, revealing some more characters
-        private string MergePartialFingerprint(string existingVisible, string full)
+        private string MergePartialFingerprintRandomly(string existingVisible, string full)
         {
             var merged = existingVisible.ToCharArray();
             for (int i = 0; i < merged.Length && i < full.Length; i++)
