@@ -504,7 +504,6 @@ private string GenerateMaskedFingerprint(string full)
     var chars = full.ToCharArray();
     for (int i = 0; i < chars.Length; i++)
     {
-        if (_random.Next(10) != 0)
             chars[i] = '#';
     }
     return new string(chars);
