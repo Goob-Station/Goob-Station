@@ -68,6 +68,8 @@
     - id: DrinkShaker
     - id: ClothingEyesHudBeer
     - id: HandLabeler
+    - id: WeaponRussianRevolver # Goobstation
+    - id: MagazineBoxMagnumPractice # Goobstation
     - id: DrinkBottleBeer
       amount: !type:BinomialNumberSelector
         trials: 3

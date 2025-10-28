@@ -345,9 +345,10 @@ public abstract class SharedAbsorbentSystem : EntitySystem
 
         SolutionContainer.AddSolution(absorberSoln, puddleSplit);
 
-        _audio.PlayPredicted(absorber.PickupSound, isRemoved ? absorbEnt : target, user);
+        // Goobstation fix mopping sounds
+        // Always play the sound at the puddle's coordinates to prevent cutoff when entity is deleted
+        _audio.PlayPredicted(absorber.PickupSound, Transform(target).Coordinates, user);
 
-        _audio.PlayPvs(absorber.PickupSound, Transform(target).Coordinates); // Goobstation - Footsteps Change - Play sound on footstep to puddle replacement
         if (useDelay != null)
             _useDelay.TryResetDelay((absorbEnt, useDelay));
 
