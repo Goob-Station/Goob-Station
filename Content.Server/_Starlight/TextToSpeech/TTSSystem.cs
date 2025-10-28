@@ -57,28 +57,28 @@ public sealed partial class TTSSystem : EntitySystem
         SubscribeLocalEvent<RadioSpokeEvent>(OnRadioReceiveEvent);
         SubscribeLocalEvent<CollectiveMindSpokeEvent>(OnCollectiveMindReceiveEvent);
         SubscribeLocalEvent<AnnouncementSpokeEvent>(OnAnnouncementSpoke);
-        SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
+    //    SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
     }
 
-    private void OnPlayerAttached(PlayerAttachedEvent ev)
-    {
-        var uid = ev.Entity;
-        // Ensure the body has the TTS component
-        var comp = EnsureComp<TextToSpeechComponent>(uid);
-
-        // If mind has voice metadata, copy it in (optional but useful)
-        if (TryComp<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind &&
-            TryComp<MindComponent>(mindContainer.Mind, out var mind))
-        {
-            // Mind.Voice & Mind.SiliconVoice are strings in Starlight; adjust naming if needed
-            if (!string.IsNullOrEmpty(mind.Voice))
-                comp.VoicePrototypeId = comp.VoicePrototypeId ?? mind.Voice;
-            if (!string.IsNullOrEmpty(mind.SiliconVoice))
-                comp.VoicePrototypeId = comp.VoicePrototypeId ?? mind.SiliconVoice;
-        }
-
-        Logger.Info($"[TTS] Attached/Ensured TTS on {ToPrettyString(uid)}; voice={comp.VoicePrototypeId}");
-    }
+    // private void OnPlayerAttached(PlayerAttachedEvent ev)
+    // {
+    //     var uid = ev.Entity;
+    //     // Ensure the body has the TTS component
+    //     var comp = EnsureComp<TextToSpeechComponent>(uid);
+    //
+    //     // If mind has voice metadata, copy it in (optional but useful)
+    //     if (TryComp<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind &&
+    //         TryComp<MindComponent>(mindContainer.Mind, out var mind))
+    //     {
+    //         // Mind.Voice & Mind.SiliconVoice are strings in Starlight; adjust naming if needed
+    //         if (!string.IsNullOrEmpty(mind.Voice))
+    //             comp.VoicePrototypeId = comp.VoicePrototypeId ?? mind.Voice;
+    //         if (!string.IsNullOrEmpty(mind.SiliconVoice))
+    //             comp.VoicePrototypeId = comp.VoicePrototypeId ?? mind.SiliconVoice;
+    //     }
+    //
+    //     Logger.Info($"[TTS] Attached/Ensured TTS on {ToPrettyString(uid)}; voice={comp.VoicePrototypeId}");
+    // }
 
     private async void OnRequestPreviewTTS(PreviewTTSRequestEvent ev, EntitySessionEventArgs args)
     {
