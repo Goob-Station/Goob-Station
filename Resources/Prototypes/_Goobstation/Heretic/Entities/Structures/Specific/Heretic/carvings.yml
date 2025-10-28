@@ -16,7 +16,7 @@
   - type: Sprite
     drawdepth: FloorEffects
     sprite: _Goobstation/Heretic/carvings.rsi
-    color: '#FFFFFF2a'
+    color: '#FFFFFF14'
   - type: Fixtures
     fixtures:
       fix1:
@@ -95,12 +95,12 @@
   parent: BaseCarving
   id: AlertCarving
   name: alert carving
-  description: A nearly invisible rune that, when stepped on, alerts the carver who triggered it and where.
+  description: A nearly invisible rune that, when stepped on, alerts the carver who triggered it and where and allows them to teleport to carving location.
   placement:
     mode: SnapgridCenter
   components:
   - type: Sprite
-    color: '#FFFFFF0e'
+    color: '#FFFFFF0a'
     state: alert_rune
   - type: WizardTrap
     sparks: false
@@ -132,7 +132,7 @@
 
 - type: runeCarving
   id: AlertCarving
-  desc: Alert Carving. A nearly invisible rune that, when stepped on, alerts the carver who triggered it and where.
+  desc: Alert Carving. A nearly invisible rune that, when stepped on, alerts the carver who triggered it and where, also allowing them to teleport to rune location.
   icon:
     sprite: _Goobstation/Heretic/carvings.rsi
     state: alert_rune

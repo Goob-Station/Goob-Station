@@ -18,3 +18,10 @@
   name: star touched
   components:
   - type: StarTouchedStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: CarvingAlertedStatusEffect
+  name: alerted
+  components:
+  - type: CarvingAlertedStatusEffect
