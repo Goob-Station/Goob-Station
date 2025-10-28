@@ -973,7 +973,7 @@ namespace Content.Client.Lobby.UI
             UpdateEyePickers();
             UpdateSaveButton();
             UpdateMarkings();
-            UpdateBarkVoicesControls(); // Corvax-Frontier-Barks
+            UpdateBarkVoice(); // Goob Station - Barks
             UpdateHairPickers();
             UpdateCMarkingsHair();
             UpdateCMarkingsFacialHair();
@@ -1460,6 +1460,7 @@ namespace Content.Client.Lobby.UI
             UpdateSexControls(); // update sex for new species
             UpdateSpeciesGuidebookIcon();
             ReloadPreview();
+            UpdateBarkVoice(); // Goob Station - Barks
             // begin Goobstation: port EE height/width sliders
             // Changing species provides inaccurate sliders without these
             UpdateHeightWidthSliders();

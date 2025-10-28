@@ -49,7 +49,7 @@ public sealed partial class HumanoidAppearanceComponent : Component
     [DataField, AutoNetworkedField]
     public int Age = 18;
 
-    [DataField("barkvoice")] // Corvax-Frontier-Barks
+    [DataField] // Goob Station - Barks
     public ProtoId<BarkPrototype> BarkVoice { get; set; } = SharedHumanoidAppearanceSystem.DefaultBarkVoice; // Corvax-Frontier-Barks
 
     /// <summary>

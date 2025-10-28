@@ -71,6 +71,8 @@
   volume: 1
   soundCollection:
     collection: ArachnidBark
+  speciesWhitelist:
+    - Arachnid
 
 # lizard
 - type: soundCollection
@@ -86,6 +88,9 @@
   volume: 0.4
   soundCollection:
     collection: LizardBark
+  speciesWhitelist:
+    - Reptilian
+    - Kobold
 
 # slime
 - type: soundCollection
@@ -98,9 +103,11 @@
 - type: bark
   id: Slime
   name: Slime
-  volume: -3
+  volume: 0.2
   soundCollection:
     collection: SlimeBark
+  speciesWhitelist:
+    - SlimePerson
 
 # vox
 - type: soundCollection
@@ -113,9 +120,11 @@
 - type: bark
   id: Vox
   name: Vox
-  volume: -3
+  volume: 0.15
   soundCollection:
     collection: VoxBark
+  speciesWhitelist:
+    - Vox
 
 # harpy
 - type: soundCollection
@@ -129,6 +138,8 @@
   volume: 1
   soundCollection:
     collection: HarpyBark
+  speciesWhitelist:
+    - Harpy
 
 # Vulpkanin
 - type: soundCollection
@@ -144,6 +155,8 @@
   volume: 1
   soundCollection:
     collection: VulpkaninBark
+  speciesWhitelist:
+    - Vulpkanin
 
 # Squeak
 - type: soundCollection
@@ -159,6 +172,8 @@
   maxPitch: 1.1
   soundCollection:
     collection: SqueakBark
+  speciesWhitelist:
+    - Rodentia
 
 # MaleAvali
 - type: soundCollection
@@ -175,6 +190,8 @@
   volume: 0.7
   soundCollection:
     collection: MaleAvaliBark
+  speciesWhitelist:
+    - Resomi
 
 # FemaleAvali
 - type: soundCollection
@@ -191,6 +208,8 @@
   frequency: 0.5
   soundCollection:
     collection: FemaleAvaliBark
+  speciesWhitelist:
+    - Resomi
 
 # Pai
 - type: soundCollection
@@ -207,6 +226,8 @@
   frequency: 0.4
   soundCollection:
     collection: PaiBark
+  speciesWhitelist:
+    - IPC
 
 # Borg
 - type: soundCollection
@@ -223,6 +244,8 @@
   frequency: 0.35
   soundCollection:
     collection: BorgBark
+  speciesWhitelist:
+    - IPC
 
 # BorgSyndie
 - type: soundCollection
@@ -235,7 +258,7 @@
 - type: bark
   id: BorgSyndie
   name: BorgSyndie
-  roundstart: false
+  roundStart: false
   volume: 0.5
   frequency: 0.35
   soundCollection:
@@ -255,7 +278,6 @@
 - type: bark
   id: Durk
   name: Durk
-  roundstart: true
   volume: 1
   frequency: 0.9
   minPitch: 0.9

@@ -8,52 +8,55 @@ using System.Linq;
 using Content.Shared._Corvax.Speech.Synthesis;
 using Content.Client._Corvax.Speech.Synthesis.System;
 
-namespace Content.Client.Lobby.UI; // No, it doesn't need to be changed. It will break the logic.
+namespace Content.Client.Lobby.UI;
 
 public sealed partial class HumanoidProfileEditor
 {
-    private List<BarkPrototype> _barkVoiceList = new();
+    private List<BarkPrototype> _barkPrototypes = new();
 
     private void InitializeBarkVoice()
     {
-        _barkVoiceList = _prototypeManager
-            .EnumeratePrototypes<BarkPrototype>()
-            .Where(o => o.RoundStart)
-            .OrderBy(o => Loc.GetString(o.Name))
-            .ToList();
 
         BarkVoiceButton.OnItemSelected += args =>
         {
             BarkVoiceButton.SelectId(args.Id);
-            SetBarkVoice(_barkVoiceList[args.Id].ID);
+            SetBarkVoice(_barkPrototypes[args.Id].ID);
+            PlayPreviewBark();
         };
 
         BarkVoicePlayButton.OnPressed += _ => PlayPreviewBark();
     }
 
-    private void UpdateBarkVoicesControls()
+    private void UpdateBarkVoice()
     {
         if (Profile is null)
             return;
 
+        _barkPrototypes = _prototypeManager
+            .EnumeratePrototypes<BarkPrototype>()
+            .Where(o => o.RoundStart &&
+                        (o.SpeciesWhitelist is null ||
+                         o.SpeciesWhitelist.Contains(Profile.Species)))
+            .OrderBy(o => Loc.GetString(o.ID))
+            .ToList();
+
         BarkVoiceButton.Clear();
 
-        var firstVoiceChoiceId = 1;
-        for (var i = 0; i < _barkVoiceList.Count; i++)
+        var selectedBarkId = -1;
+        for (var i = 0; i < _barkPrototypes.Count; i++)
         {
-            var voice = _barkVoiceList[i];
+            var bark = _barkPrototypes[i];
+            if (bark.ID == Profile.BarkVoice)
+                selectedBarkId = i;
 
-            var name = Loc.GetString(voice.Name);
-            BarkVoiceButton.AddItem(name, i);
-
-            if (firstVoiceChoiceId == 1)
-                firstVoiceChoiceId = i;
+            BarkVoiceButton.AddItem(Loc.GetString(bark.Name), i);
         }
 
-        var voiceChoiceId = _barkVoiceList.FindIndex(x => x.ID == Profile.BarkVoice);
-        if (!BarkVoiceButton.TrySelectId(voiceChoiceId)
-            && BarkVoiceButton.TrySelectId(firstVoiceChoiceId))
-            SetBarkVoice(_barkVoiceList[firstVoiceChoiceId].ID);
+        if (selectedBarkId == -1)
+            selectedBarkId = 0;
+
+        BarkVoiceButton.SelectId(selectedBarkId);
+        SetBarkVoice(_barkPrototypes[selectedBarkId].ID);
     }
 
     private void PlayPreviewBark()

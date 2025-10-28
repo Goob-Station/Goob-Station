@@ -642,17 +642,31 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             Dirty(uid, humanoid);
     }
 
-    // Corvax-Frontier-Barks-start
+    //  Goob Station - Barks Start
     public void SetBarkVoice(EntityUid uid, string? barkvoiceId, HumanoidAppearanceComponent humanoid)
     {
         if (!TryComp<SpeechSynthesisComponent>(uid, out var comp))
             return;
 
-        humanoid.BarkVoice = barkvoiceId ?? DefaultBarkVoice;
-        comp.VoicePrototypeId = barkvoiceId;
+        if (barkvoiceId != null &&
+            _proto.TryIndex<BarkPrototype>(barkvoiceId, out var bark) &&
+            (bark.SpeciesWhitelist == null || bark.SpeciesWhitelist.Contains(humanoid.Species)))
+        {
+            comp.VoicePrototypeId = barkvoiceId;
+        }
+        else
+        {
+            var barks = _proto.EnumeratePrototypes<BarkPrototype>()
+                .Where(o => o.RoundStart && (o.SpeciesWhitelist is null || o.SpeciesWhitelist.Contains(humanoid.Species)))
+                .ToList();
+
+            comp.VoicePrototypeId = _proto.Index<BarkPrototype>(barks.Count > 0 ? barks[0].ID : DefaultBarkVoice).ID;
+        }
+
+        humanoid.BarkVoice = comp.VoicePrototypeId;
         Dirty(uid, comp);
     }
-    // Corvax-Frontier-Barks-end
+    // Goob Station - Barks End
 
     /// <summary>
     /// Takes ID of the species prototype, returns UI-friendly name of the species.

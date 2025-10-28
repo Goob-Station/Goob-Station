@@ -1,6 +1,7 @@
 
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Content.Shared.Humanoid.Prototypes;
 
 namespace Content.Shared._Corvax.Speech.Synthesis;
 
@@ -20,6 +21,12 @@ public sealed partial class BarkPrototype : IPrototype
     /// </summary>
     [DataField(required: true)]
     public SoundCollectionSpecifier? SoundCollection;
+
+    /// <summary>
+    /// A list of species that can use this bark.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<SpeciesPrototype>>? SpeciesWhitelist;
 
     /// <summary>
     /// The lower bound of the pitch variation.
@@ -60,6 +67,6 @@ public sealed partial class BarkPrototype : IPrototype
     /// <summary>
     /// Whether it is available for selection in the character editor.
     /// </summary>
-    [DataField("roundstart")]
+    [DataField]
     public bool RoundStart { get; } = true;
 }

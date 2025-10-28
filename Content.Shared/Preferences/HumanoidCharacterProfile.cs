@@ -315,13 +315,13 @@ namespace Content.Shared.Preferences
                 width = random.NextFloat(speciesPrototype.MinWidth, speciesPrototype.MaxWidth); // Goobstation: port EE height/width sliders
             }
 
-            // Corvax-Frontier-Barks-start
+            // Goob Station - Barks Start
             var barkvoiceId = random.Pick(prototypeManager
                 .EnumeratePrototypes<BarkPrototype>()
+                .Where(o => o.RoundStart && (o.SpeciesWhitelist is null || o.SpeciesWhitelist.Contains(species)))
                 .ToArray()
-            )
-                .ID;
-            // Corvax-Frontier-Barks-end
+            ).ID;
+            //  Goob Station - Barks End
 
             var gender = Gender.Epicene;
 
