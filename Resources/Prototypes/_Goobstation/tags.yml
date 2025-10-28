@@ -398,6 +398,9 @@
   id: MechThruster
 
 - type: Tag
+  id: MechUnGrabbable
+
+- type: Tag
   id: MedicalPatch
 
 - type: Tag
@@ -681,6 +684,12 @@
 
 - type: Tag
   id: MidroundAntag
+
+- type: Tag
+  id: FoodTinMRE
+
+- type: Tag
+  id: EmergencyWaterVaporTank
 
 - type: Tag
   id: DisposableBattery
