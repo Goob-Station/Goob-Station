@@ -119,7 +119,8 @@ using Content.Shared.Inventory.Events;
 using Robust.Shared.Timing; // Goobstation
 using Content.Goobstation.Common.CCVar; // Goobstation
 using Robust.Shared.Configuration; // Goobstation
-namespace Content.Server.Forensics
+namespace Content.Server.Forensics.Systems
+
 {
     public sealed class ForensicsSystem : EntitySystem
     {
@@ -459,6 +460,7 @@ namespace Content.Server.Forensics
             {
                 if (TryComp<FiberComponent>(gloves, out var fiber) && !string.IsNullOrEmpty(fiber.FiberMaterial))
                     component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial)) : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
+                //Goobstation start
                 if (TryComp<FingerprintComponent>(user, out var fingerprintFromGloves) && (
                         TryComp<FiberComponent>(gloves, out var fiberEmpty) && !string.IsNullOrEmpty(fiberEmpty.FiberMaterial)))
                 {
@@ -483,14 +485,15 @@ namespace Content.Server.Forensics
                     component.Fingerprints.Add((full, visible));
                     return;
                 }
+                //Goobstation end
             }
 
             if (TryComp<FingerprintComponent>(user, out var fingerprint) && CanAccessFingerprint(user, out _))
             {
                 var full = fingerprint.Fingerprint ?? "";
+                // Goobstation start
                 // Look for an existing partial from the same person
                 var existing = component.Fingerprints.FirstOrDefault(f => f.Full == full);
-
                 if (existing != default)
                 {
                     // Upgrade: replace the partial with a full-visibility entry
@@ -502,6 +505,7 @@ namespace Content.Server.Forensics
                     // First time: just add full
                     component.Fingerprints.Add((full, full));
                 }
+                // Goobstation end
                 Dirty(target, component);
             }
         }
