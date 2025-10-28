@@ -28,10 +28,6 @@ namespace Content.Shared.Hands
     {
         public readonly EntityUid Uid;
     }
-    // Goobstation - start
-    [ByRefEvent]
-    public record struct DropItemAttemptEvent(EntityUid User, bool Cancelled = false);
-    //Goobstation end
 
     /// <summary>
     ///     Raised directed at an item that needs to update its in-hand sprites/layers.

@@ -237,20 +237,12 @@ namespace Content.Shared.ActionBlocker
             return !ev.Cancelled;
         }
 
-        public bool CanDrop(EntityUid uid, EntityUid itemUid) // goobstation - drop check for item
+        public bool CanDrop(EntityUid uid)
         {
             var ev = new DropAttemptEvent();
             RaiseLocalEvent(uid, ev);
 
-            //Goobstation - start
-            if (ev.Cancelled)
-                return false;
-
-            var itemEv = new DropItemAttemptEvent(uid);
-            RaiseLocalEvent(itemUid, ref itemEv);
-
-            return !itemEv.Cancelled;
-            //Goobstation - end
+            return !ev.Cancelled;
         }
 
         public bool CanPickup(EntityUid user, EntityUid item)

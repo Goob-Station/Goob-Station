@@ -92,7 +92,8 @@
   name: Rod of Asclepius
   description: Something about it seems to inspire in you the responsibility and duty to help others.
   components:
-  - type: Undroppable
+  - type: Unremoveable
+    deleteOnDrop: false
   - type: HeldGrantComponent
     components:
     - type: Pacified # pick it up you become a pacifist
