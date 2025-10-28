@@ -17107,3 +17107,9 @@ Entries:
       message: You can now play with radial menu open.
   id: 1914
   time: '2025-10-28T20:27:44.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Remove
+      message: Removed moab class bloons due to performance issues.
+  id: 1915
+  time: '2025-10-28T23:36:16.0000000+00:00'
