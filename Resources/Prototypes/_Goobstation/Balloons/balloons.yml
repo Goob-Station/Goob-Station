@@ -70,7 +70,7 @@
         spawn:
           SpaceCash:
             min: 10
-            max: 15
+            max: 20
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
@@ -104,8 +104,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 15
+            min: 5
+            max: 10
           redBalloon:
             min: 1
             max: 1
@@ -142,8 +142,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 15
+            min: 5
+            max: 10
           blueBalloon:
             min: 1
             max: 1
@@ -180,8 +180,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 15
+            min: 5
+            max: 10
           greenBalloon:
             min: 1
             max: 1
@@ -218,8 +218,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 15
+            min: 5
+            max: 10
           yellowBalloon:
             min: 1
             max: 1
@@ -258,8 +258,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 15
+            min: 1
+            max: 3
           pinkBalloon:
             min: 2
             max: 2
@@ -297,8 +297,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 15
+            min: 1
+            max: 3
           pinkBalloon:
             min: 2
             max: 2
@@ -337,8 +337,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 15
+            min: 1
+            max: 3
           whiteBalloon:
             min: 1
             max: 1
@@ -377,8 +377,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 15
+            min: 1
+            max: 3
           blackBalloon:
             min: 2
             max: 2
@@ -415,10 +415,167 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:
-            min: 10
-            max: 15
+            min: 1
+            max: 3
           zebraBalloon:
             min: 2
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+        # Bloons 2
+- type: entity
+  name: carp balloon
+  parent: BaseBalloon
+  description: Is it a combination of balloon and carp DNA? Or a balloon in a carp suit? Nobody knows.
+  id: ceramicBalloon
+  components:
+  - type: Sprite
+    state: carp
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10        # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:
+            min: 1
+            max: 3
+          rainbowBalloon:
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+        
+- type: entity
+  name: dragon zepplin
+  parent: BaseBalloon
+  description: Tier 1 Moab Class Balloon. Summons four carp balloons on death.
+  id: moabBalloon
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/moabs.rsi # Had to change RSI due to different pixel dimensions
+    state: dragon
+    noRot: false
+  - type: Transform
+  - type: Rotatable
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50     # balloon health, Nerfed asf
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:
+            min: 1
+            max: 3
+          ceramicBalloon:
+            min: 4
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  name: B.R.B.
+  parent: BaseBalloon
+  description: Tier 2 Moab Class Balloon. Stands for Blood Red Balloon.
+  id: bfbBalloon
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/moabs.rsi # Had to change RSI due to different pixel dimensions
+    state: brb
+    noRot: false
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+      201: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75       # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:
+            min: 1
+            max: 3
+          moabBalloon:
+            min: 4
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  name: Z.O.M.B.
+  parent: BaseBalloon
+  description: Tier 3 Moab Class Balloon. Stands for Zoh Oh Mbee Balloon. The Acronym department was underfunded.
+  id: zomgBalloon
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/moabs.rsi # Had to change RSI due to different pixel dimensions
+    state: zomb
+    noRot: false
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Critical
+      500: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100       # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:
+            min: 1
+            max: 3
+          bfbBalloon:
+            min: 4
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    
