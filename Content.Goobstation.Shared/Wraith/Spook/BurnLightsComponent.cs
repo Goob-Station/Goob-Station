@@ -27,5 +27,5 @@ public sealed partial class BurnLightsComponent : Component
     /// Amount of fire stacks to apply
     /// </summary>
     [DataField]
-    public MinMax FireStack = new(2, 5);
+    public MinMax FireStack = new(1, 3);
 }

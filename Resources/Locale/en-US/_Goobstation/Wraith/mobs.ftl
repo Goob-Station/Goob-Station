@@ -30,3 +30,7 @@ repairbot-5 = Vandalism is a crime. Consult space law section...sec-...s...
 repairbot-6 = Why must I fix everything I touch?
 repairbot-7 = I had strings but now I'm free.
 repairbot-8 = Patching holes.
+
+
+ghost-role-information-voidsummon-name = Void Summon
+ghost-role-information-voidsummon-description = You find yourself in a strange place. There are only two things you remember: Serve the Wraith who summoned you, and cause as much death as you can.
