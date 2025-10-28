@@ -127,7 +127,6 @@ namespace Content.Server.Forensics
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly IGameTiming _timing = default!; // Goobstation
-
         public override void Initialize()
         {
             SubscribeLocalEvent<HandsComponent, ContactInteractionEvent>(OnInteract);
@@ -452,10 +451,25 @@ namespace Content.Server.Forensics
             {
                 if (TryComp<FiberComponent>(gloves, out var fiber) && !string.IsNullOrEmpty(fiber.FiberMaterial))
                     component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial)) : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
+                if (TryComp<FingerprintComponent>(user, out var fingerprintFromGloves))
+                {
+                    var fingerprintPartial = (fingerprintFromGloves.Fingerprint ?? "").ToCharArray();
+                    for (int i = 0; i < fingerprintPartial.Length; i++)
+                    {
+                        if (_random.Next(10) != 0)
+                        {
+                            fingerprintPartial[i] = '#';
+                        }
+                    }
+                    return;
+                }
             }
 
             if (TryComp<FingerprintComponent>(user, out var fingerprint) && CanAccessFingerprint(user, out _))
-                component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
+            {
+                    component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
+            }
+
         }
 
         private void ApplyScent(EntityUid user, EntityUid target) // Einstein Engines
