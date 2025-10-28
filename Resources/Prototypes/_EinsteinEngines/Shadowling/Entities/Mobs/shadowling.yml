@@ -50,6 +50,7 @@
     deactivateSound: null
   - type: PressureImmunity
   - type: BreathingImmunity
+  - type: SpecialLowTempImmunity
   - type: ThermalVision
     color: "#BF40BF"
     activateSound: null
