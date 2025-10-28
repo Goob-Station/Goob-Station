@@ -179,3 +179,4 @@
     - state: teg-middle
   - type: StaticPrice
     price: 500
+
