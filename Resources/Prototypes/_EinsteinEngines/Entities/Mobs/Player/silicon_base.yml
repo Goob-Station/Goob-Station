@@ -351,4 +351,3 @@
     - type: CombatMode
       canDisarm: true
     - type: ExaminableCharacter # WWDP
-    - type: SpeechSynthesis # Corvax-Frontier-Barks

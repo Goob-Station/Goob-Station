@@ -645,14 +645,13 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     //  Goob Station - Barks Start
     public void SetBarkVoice(EntityUid uid, string? barkvoiceId, HumanoidAppearanceComponent humanoid)
     {
-        if (!TryComp<SpeechSynthesisComponent>(uid, out var comp))
-            return;
+        var voicePrototypeId = DefaultBarkVoice;
 
         if (barkvoiceId != null &&
             _proto.TryIndex<BarkPrototype>(barkvoiceId, out var bark) &&
             (bark.SpeciesWhitelist == null || bark.SpeciesWhitelist.Contains(humanoid.Species)))
         {
-            comp.VoicePrototypeId = barkvoiceId;
+            voicePrototypeId = barkvoiceId;
         }
         else
         {
@@ -660,10 +659,12 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
                 .Where(o => o.RoundStart && (o.SpeciesWhitelist is null || o.SpeciesWhitelist.Contains(humanoid.Species)))
                 .ToList();
 
-            comp.VoicePrototypeId = _proto.Index<BarkPrototype>(barks.Count > 0 ? barks[0].ID : DefaultBarkVoice).ID;
+            voicePrototypeId = _proto.Index<BarkPrototype>(barks.Count > 0 ? barks[0].ID : DefaultBarkVoice).ID;
         }
 
-        humanoid.BarkVoice = comp.VoicePrototypeId;
+        EnsureComp<SpeechSynthesisComponent>(uid, out var comp);
+        comp.VoicePrototypeId = voicePrototypeId;
+        humanoid.BarkVoice = voicePrototypeId;
         Dirty(uid, comp);
     }
     // Goob Station - Barks End
