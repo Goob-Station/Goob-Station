@@ -69,7 +69,7 @@
         - !type:ReagentThreshold
           min: 15
           max: 15
-        newSpecies: SlimePerson
+        sex: SlimePerson
 
 - type: reagent
   id: XenoHumanToxin
@@ -83,7 +83,7 @@
         - !type:ReagentThreshold
           min: 15
           max: 15
-        newSpecies: Human
+        sex: Human
 
 - type: reagent
   id: XenoLizardToxin
@@ -97,7 +97,7 @@
         - !type:ReagentThreshold
           min: 15
           max: 15
-        newSpecies: Reptilian
+        sex: Reptilian
 # End Species Morphchems
 
 - type: reagent

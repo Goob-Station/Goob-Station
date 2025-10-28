@@ -19,6 +19,7 @@ public sealed partial class SpeciesChange : EntityEffect
     /// <summary>
     ///     What sex is the consumer changed to? If not set then swap between male/female.
     /// </summary>
+    // bro.
     [DataField("sex")]
     public ProtoId<SpeciesPrototype>? NewSpecies;
 

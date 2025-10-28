@@ -55,8 +55,8 @@
     walkSpeedModifier: 0.5
     sprintSpeedModifier: 0.5
   - type: SpamEmitSound
-    minInterval: 8
-    maxInterval: 18
+    minInterval: 20
+    maxInterval: 60
     sound:
       collection: SlimeMaleScreams
       params:
@@ -74,54 +74,20 @@
   - type: RandomSpawner
     prototypes:
     - MobAngryBee
-    - MobHomunculus
     - MobBrullbar
-    - MobBrullbarKing
-    - MobBearGoon
     - MobWhiteWolf
-    - MobBoxingKangaroo
-    - MobClownSpider
-    - MobCorgiNarsi
-    - MobBearSpace
-    - MobKangarooSpace
     - MobSpiderSpace
     - MobCobraSpace
-    - MobArgocyteSlurva
-    - MobArgocyteBarrier
-    - MobArgocyteSkitter
-    - MobArgocyteSwiper
-    - MobArgocyteMolder
-    - MobArgocytePouncer
-    - MobArgocyteGlider
-    - MobArgocyteHarvester
-    - MobArgocyteCrawler
-    - MobArgocyteEnforcer
-    - MobArgocyteLeviathing
-    - MobGoliath
-    - MobHivelord
-    - MobBasilisk
-    - MobBehonkerElectrical
-    - MobBehonkerPyro
-    - MobBehonkerGrav
-    - MobBehonkerIce
     - MobCarp
     - MobCarpMagic
     - MobCarpHolo
     - MobCarpRainbow
-    - MobShark
-    - MobIronCrab
-    - MobQuartzCrab
-    - MobCoalCrab
-    - MobUraniumCrab
-    - MobSilverCrab
-    - MobGoldCrab
+    - MobGhoulStalker
+    - MobGhoulProphet
+    - MobGhoulFireShark
+    - MobGhoulRustWalker
     - ReagentSlimeSpawner
-    - MobFleshJared
-    - MobFleshGolem
-    - MobFleshClamp
-    - MobFleshLover
     - MobAbomination
-    - MobHellspawn
     - MobHivebot
     - MobHivebotRanged
     - MobHivebotStrong
@@ -136,16 +102,12 @@
     - MobLaserRaptor
     - MobTomatoKiller
     - MobRatKing
-    - MobRatKingBuff
     - MobTick
-    - MobXeno
-    - MobXenoPraetorian
-    - MobXenoDrone
-    - MobXenoQueen
-    - MobXenoRavager
-    - MobXenoRunner
-    - MobXenoRouny
-    - MobXenoSpitter
+    - MobXenomorphDrone
+    - MobXenomorphHunter
+    - MobXenomorphSentinel
+    - MobXenomorphLarva
+    - MobXenomorphFaceHugger # trollage
     - MobPurpleSnake
     - MobSmallPurpleSnake
     - MobBingle
@@ -176,6 +138,7 @@
     - MobSnail
     - MobSnailSpeed
     - MobSnailMoth
+    - MobXenomorphMaid
     offset: 0.0
 
 - type: entity

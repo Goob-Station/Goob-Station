@@ -135,7 +135,7 @@
         ents: []
   - type: ActionGrant
     actions:
-    - SlimeLatch
+    - ActionSlimeLatch
   - type: HTN
     rootTask:
       task: XenoSlimeCompound
