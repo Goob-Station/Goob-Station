@@ -479,7 +479,7 @@ namespace Content.Server.Forensics.Systems
                     }
                     else
                     {
-                        visible = GenerateMaskedFingerprint(full);
+                        visible = new string('#', full.Length);
                     }
 
                     component.Fingerprints.Add((full, visible));
@@ -509,26 +509,6 @@ namespace Content.Server.Forensics.Systems
                 Dirty(target, component);
             }
         }
-        #region Goobstation Fingerprint Methods
-        //generates a masked fingerprint from a full one, hiding some characters
-        private string GenerateMaskedFingerprint(string full)
-        {
-            var chars = full.ToCharArray();
-            Array.Fill(chars, '#');
-            return new string(chars);
-        }
-        //tries to merge a partial fingerprint with a full one, revealing some more characters
-        private string MergePartialFingerprintRandomly(string existingVisible, string full)
-        {
-            var merged = existingVisible.ToCharArray();
-            for (int i = 0; i < merged.Length && i < full.Length; i++)
-            {
-                if (merged[i] == '#' && _random.Next(_revealChance) == 0)
-                    merged[i] = full[i];
-            }
-            return new string(merged);
-        }
-        #endregion
         private void ApplyScent(EntityUid user, EntityUid target) // Einstein Engines
         {
             if (HasComp<ScentComponent>(target))
@@ -553,6 +533,22 @@ namespace Content.Server.Forensics.Systems
 
         #region Public API
 
+        #region Goobstation Fingerprint Methods
+
+        //tries to merge a partial fingerprint with a full one, revealing some more characters
+        private string MergePartialFingerprintRandomly(string existingVisible, string full)
+        {
+            var merged = existingVisible.ToCharArray();
+            for (int i = 0; i < merged.Length && i < full.Length; i++)
+            {
+                if (merged[i] == '#' && _random.Next(_revealChance) == 0)
+                    merged[i] = full[i];
+            }
+
+            return new string(merged);
+        }
+
+        #endregion
         /// <summary>
         /// Give the entity a new, random DNA string and call an event to notify other systems like the bloodstream that it has been changed.
         /// Does nothing if it does not have the DnaComponent.
