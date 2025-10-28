@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/11/2025 16:26:16
-  entityCount: 18671
+  time: 10/28/2025 16:03:07
+  entityCount: 18657
 maps:
 - 1
 grids:
@@ -7624,6 +7624,12 @@ entities:
             id: arrow
           decals:
             8302: 75.85828,5.956644
+        - node:
+            cleanable: True
+            color: '#FFFFFFFF'
+            id: body
+          decals:
+            11706: 36.61852,82.67043
         - node:
             color: '#FFFFFFFF'
             id: burnt1
@@ -48276,6 +48282,13 @@ entities:
     - type: Transform
       pos: 25.506002,9.444837
       parent: 2
+- proto: ClothingHeadHatHardhatYellow
+  entities:
+  - uid: 77
+    components:
+    - type: Transform
+      pos: 37.46057,83.006905
+      parent: 2
 - proto: ClothingHeadHatHoodCulthood
   entities:
   - uid: 6802
@@ -56139,7 +56152,7 @@ entities:
     - type: Label
       currentLabel: кофейный ликёр
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.1772374
+      sprayFizzinessThresholdRoll: 0.9334492
     - type: NameModifier
       baseName: бутылка кофейного ликёра
     - type: ContainerContainer
@@ -56425,7 +56438,7 @@ entities:
     - type: Label
       currentLabel: ром
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.77889955
+      sprayFizzinessThresholdRoll: 0.497531
     - type: NameModifier
       baseName: кубинский пряный ром капитана Пита
     - type: ContainerContainer
@@ -56467,7 +56480,7 @@ entities:
     - type: Label
       currentLabel: текила
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.21532714
+      sprayFizzinessThresholdRoll: 0.21665196
     - type: NameModifier
       baseName: бутылка текилы Каккаво гарантированного качества
     - type: ContainerContainer
@@ -56508,7 +56521,7 @@ entities:
     - type: Label
       currentLabel: вермут
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.4220706
+      sprayFizzinessThresholdRoll: 0.69640756
     - type: NameModifier
       baseName: бутылка вермута Золотой глаз
     - type: ContainerContainer
@@ -56531,7 +56544,7 @@ entities:
     - type: Label
       currentLabel: водка
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.8750568
+      sprayFizzinessThresholdRoll: 0.42329
     - type: NameModifier
       baseName: бутылка водки
     - type: ContainerContainer
@@ -56581,7 +56594,7 @@ entities:
     - type: Label
       currentLabel: вино
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.41170478
+      sprayFizzinessThresholdRoll: 0.73789275
     - type: NameModifier
       baseName: особое двухбородое бородатое вино
     - type: ContainerContainer
@@ -60358,7 +60371,7 @@ entities:
       pos: 39.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -75141.94
+      secondsUntilStateChange: -75325.39
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -62952,29 +62965,6 @@ entities:
     - type: Transform
       pos: 32.5,77.5
       parent: 2
-  - uid: 14393
-    components:
-    - type: Transform
-      pos: 35.5,83.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#947507FF'
-  - uid: 14997
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 37.5,81.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#947507FF'
-  - uid: 15264
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 35.5,81.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#947507FF'
 - proto: GasMinerCarbonDioxide
   entities:
   - uid: 9075
@@ -63999,29 +63989,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#4169E1FF'
-  - uid: 13757
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 36.5,83.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
-  - uid: 13758
-    components:
-    - type: Transform
-      pos: 37.5,82.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
-  - uid: 13759
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 36.5,81.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
   - uid: 13842
     components:
     - type: Transform
@@ -64030,28 +63997,12 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF4040FF'
-  - uid: 13860
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 35.5,82.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
   - uid: 14510
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -4.5,-7.5
       parent: 2
-  - uid: 14705
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 37.5,83.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
   - uid: 16394
     components:
     - type: Transform
@@ -64387,13 +64338,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF4040FF'
-  - uid: 11027
-    components:
-    - type: Transform
-      pos: 36.5,82.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
 - proto: GasPipeSensorMixedAir
   entities:
   - uid: 3661
@@ -79293,13 +79237,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 16.5,-7.5
       parent: 2
-  - uid: 8411
-    components:
-    - type: Transform
-      pos: 35.5,84.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#947507FF'
   - uid: 8929
     components:
     - type: Transform
@@ -79388,46 +79325,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 4.5,-8.5
       parent: 2
-  - uid: 15295
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 34.5,83.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#947507FF'
-  - uid: 15427
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 34.5,81.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#947507FF'
-  - uid: 15508
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 35.5,80.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#947507FF'
-  - uid: 15561
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 37.5,80.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#947507FF'
-  - uid: 15562
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 38.5,81.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#947507FF'
 - proto: GasPressurePump
   entities:
   - uid: 8851
@@ -125244,12 +125141,12 @@ entities:
     - type: Transform
       pos: 6.3476887,-12.2819605
       parent: 2
-- proto: WeaponSniperHristov
+- proto: WeaponSniperUncleStyopa
   entities:
-  - uid: 17897
+  - uid: 80
     components:
     - type: Transform
-      pos: 61.576393,31.55321
+      pos: 61.514893,31.524101
       parent: 2
 - proto: WeaponTurretSyndicateBroken
   entities:
