@@ -10,6 +10,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: MovementIgnoreGravity
+    weightless: true
+  - type: GravityAffected
   - type: Sprite
     sprite: _Goobstation/Heretic/Effects/effects160x160.rsi
     layers:
