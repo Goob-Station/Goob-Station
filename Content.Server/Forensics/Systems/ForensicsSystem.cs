@@ -90,6 +90,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server._EinsteinEngines.Forensics.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -453,25 +454,73 @@ namespace Content.Server.Forensics
                     component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial)) : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
                 if (TryComp<FingerprintComponent>(user, out var fingerprintFromGloves))
                 {
-                    var fingerprintPartial = (fingerprintFromGloves.Fingerprint ?? "").ToCharArray();
-                    for (int i = 0; i < fingerprintPartial.Length; i++)
+                    var full = fingerprintFromGloves.Fingerprint ?? "";
+                    if (string.IsNullOrEmpty(full))
+                        return;
+
+                    // Try to find existing fingerprint for the same person
+                    var existing = component.Fingerprints.FirstOrDefault(f => f.Full == full);
+                    string visible;
+
+                    if (existing != default)
                     {
-                        if (_random.Next(10) != 0)
-                        {
-                            fingerprintPartial[i] = '#';
-                        }
+                        visible = MergePartialFingerprint(existing.Visible, full);
+                        component.Fingerprints.Remove(existing);
                     }
+                    else
+                    {
+                        visible = GenerateMaskedFingerprint(full);
+                    }
+
+                    component.Fingerprints.Add((full, visible));
                     return;
                 }
             }
 
             if (TryComp<FingerprintComponent>(user, out var fingerprint) && CanAccessFingerprint(user, out _))
             {
-                    component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
+                var full = fingerprint.Fingerprint ?? "";
+                // Look for an existing partial from the same person
+                var existing = component.Fingerprints.FirstOrDefault(f => f.Full == full);
+
+                if (existing != default)
+                {
+                    // Upgrade: replace the partial with a full-visibility entry
+                    component.Fingerprints.Remove(existing);
+                    component.Fingerprints.Add((full, full));
+                }
+                else
+                {
+                    // First time: just add full
+                    component.Fingerprints.Add((full, full));
+                }
+                Dirty(target, component);
             }
-
         }
-
+//goobstation start
+//generates a masked fingerprint from a full one, hiding some characters
+private string GenerateMaskedFingerprint(string full)
+{
+    var chars = full.ToCharArray();
+    for (int i = 0; i < chars.Length; i++)
+    {
+        if (_random.Next(10) != 0)
+            chars[i] = '#';
+    }
+    return new string(chars);
+}
+//tries to merge a partial fingerprint with a full one, revealing some more characters
+private string MergePartialFingerprint(string existingVisible, string full)
+{
+    var merged = existingVisible.ToCharArray();
+    for (int i = 0; i < merged.Length && i < full.Length; i++)
+    {
+        if (merged[i] == '#' && _random.Next(10) == 0)
+            merged[i] = full[i];
+    }
+    return new string(merged);
+}
+//goobstation end
         private void ApplyScent(EntityUid user, EntityUid target) // Einstein Engines
         {
             if (HasComp<ScentComponent>(target))

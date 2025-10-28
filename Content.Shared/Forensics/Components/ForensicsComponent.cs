@@ -13,6 +13,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using System.Linq;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Forensics.Components // Goob/Einstein Engins - Shared Forensics Component
@@ -20,9 +21,11 @@ namespace Content.Shared.Forensics.Components // Goob/Einstein Engins - Shared F
     [RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Einstein Engines - Network that shit
     public sealed partial class ForensicsComponent : Component
     {
-        [DataField, AutoNetworkedField] // Einstein Engines - Network that shit
-        public HashSet<string> Fingerprints = new();
+        // Stores both the full and visible fingerprint versions
+        [DataField("fingerprints"), AutoNetworkedField]
+        public HashSet<(string Full, string Visible)> Fingerprints = new();
 
+        // Only for admin/debug viewing, or the scanner to read visible data
         [DataField, AutoNetworkedField] // Einstein Engines - Network that shit
         public HashSet<string> Fibers = new();
 
