@@ -27,6 +27,7 @@ public abstract partial class SharedHereticAbilitySystem
         SubscribeLocalEvent<StarGazerComponent, EventHereticCosmicExpansion>(OnStarGazerExpansion);
 
         SubscribeLocalEvent<StarBlastComponent, ProjectileHitEvent>(OnHit);
+        SubscribeLocalEvent<StarBlastComponent, EntityTerminatingEvent>(OnEntityTerminating);
     }
 
     protected virtual void OnAscension(Entity<HereticComponent> ent, ref HereticAscensionCosmosEvent args)
@@ -132,7 +133,19 @@ public abstract partial class SharedHereticAbilitySystem
             args.ProjectileSpeed,
             args.Entity);
         EnsureComp<CosmicTrailComponent>(starBlast.Projectile).Strength = strength;
+        EnsureComp<StarBlastComponent>(starBlast.Projectile).Action = args.Action;
         Dirty(args.Action, starBlast);
+    }
+
+
+    private void OnEntityTerminating(Entity<StarBlastComponent> ent, ref EntityTerminatingEvent args)
+    {
+        if (ent.Comp.Action == EntityUid.Invalid || TerminatingOrDeleted(ent.Comp.Action) ||
+            !TryComp(ent.Comp.Action, out StarBlastActionComponent? action))
+            return;
+
+        action.Projectile = EntityUid.Invalid;
+        Dirty(ent.Comp.Action, action);
     }
 
     private void OnHit(Entity<StarBlastComponent> ent, ref ProjectileHitEvent args)
