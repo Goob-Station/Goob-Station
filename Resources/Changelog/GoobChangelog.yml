@@ -17113,3 +17113,13 @@ Entries:
       message: Removed moab class bloons due to performance issues.
   id: 1915
   time: '2025-10-28T23:36:16.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Remove
+      message: Disabled Zombie kit from Nukie uplink.
+    - type: Remove
+      message: Disabled the Devour Devil Clause.
+    - type: Tweak
+      message: 'Tweak: Devils require now a higher player count to spawn.'
+  id: 1916
+  time: '2025-10-28T23:38:10.0000000+00:00'
