@@ -121,11 +121,13 @@
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
-    allowedEmotes: ['Squish']
   - type: TypingIndicator
     proto: slime
-  - type: ReplacementAccent
-    accent: slimes
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Bubblish
+    understands:
+    - Bubblish
   - type: NpcFactionMember
     factions:
     - SimpleHostile
