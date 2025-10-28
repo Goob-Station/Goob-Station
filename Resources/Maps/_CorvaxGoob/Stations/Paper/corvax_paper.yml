@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/28/2025 16:03:07
-  entityCount: 18657
+  time: 10/28/2025 18:29:56
+  entityCount: 18663
 maps:
 - 1
 grids:
@@ -42251,6 +42251,24 @@ entities:
       parent: 2
 - proto: CarpetGreen
   entities:
+  - uid: 87
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 74.5,52.5
+      parent: 2
+  - uid: 88
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 75.5,52.5
+      parent: 2
+  - uid: 89
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 76.5,52.5
+      parent: 2
   - uid: 5851
     components:
     - type: Transform
@@ -48414,21 +48432,21 @@ entities:
   - uid: 6818
     components:
     - type: Transform
-      pos: 74.30056,52.60349
+      pos: 74.77026,51.446774
       parent: 2
 - proto: ClothingHeadPyjamaSyndicatePink
   entities:
   - uid: 6820
     components:
     - type: Transform
-      pos: 75.36306,52.60349
+      pos: 75.8017,51.380737
       parent: 2
 - proto: ClothingHeadPyjamaSyndicateRed
   entities:
   - uid: 6822
     components:
     - type: Transform
-      pos: 76.159935,52.556614
+      pos: 76.72996,51.422432
       parent: 2
 - proto: ClothingHeadRastaHat
   entities:
@@ -49059,12 +49077,12 @@ entities:
   - uid: 6937
     components:
     - type: Transform
-      pos: 76.59434,53.742016
+      pos: 76.751755,52.611645
       parent: 2
   - uid: 6938
     components:
     - type: Transform
-      pos: 76.42246,53.94514
+      pos: 76.44968,52.8097
       parent: 2
   - uid: 6939
     components:
@@ -50616,23 +50634,43 @@ entities:
       parent: 2
 - proto: CryogenicSleepUnitSpawner
   entities:
-  - uid: 7105
+  - uid: 81
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 74.5,52.5
+      pos: 76.5,53.5
       parent: 2
-  - uid: 7106
+  - uid: 82
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 75.5,52.5
+      pos: 75.5,53.5
       parent: 2
-  - uid: 7107
+  - uid: 83
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 76.5,52.5
+      pos: 74.5,53.5
+      parent: 2
+- proto: CryogenicSleepUnitSpawnerLateJoin
+  entities:
+  - uid: 84
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 74.5,51.5
+      parent: 2
+  - uid: 85
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 75.5,51.5
+      parent: 2
+  - uid: 86
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 76.5,51.5
       parent: 2
 - proto: CryoPod
   entities:
@@ -56152,7 +56190,7 @@ entities:
     - type: Label
       currentLabel: кофейный ликёр
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.9334492
+      sprayFizzinessThresholdRoll: 0.43715888
     - type: NameModifier
       baseName: бутылка кофейного ликёра
     - type: ContainerContainer
@@ -56438,7 +56476,7 @@ entities:
     - type: Label
       currentLabel: ром
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.497531
+      sprayFizzinessThresholdRoll: 0.7763754
     - type: NameModifier
       baseName: кубинский пряный ром капитана Пита
     - type: ContainerContainer
@@ -56480,7 +56518,7 @@ entities:
     - type: Label
       currentLabel: текила
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.21665196
+      sprayFizzinessThresholdRoll: 0.17238155
     - type: NameModifier
       baseName: бутылка текилы Каккаво гарантированного качества
     - type: ContainerContainer
@@ -56521,7 +56559,7 @@ entities:
     - type: Label
       currentLabel: вермут
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.69640756
+      sprayFizzinessThresholdRoll: 0.4951799
     - type: NameModifier
       baseName: бутылка вермута Золотой глаз
     - type: ContainerContainer
@@ -56544,7 +56582,7 @@ entities:
     - type: Label
       currentLabel: водка
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.42329
+      sprayFizzinessThresholdRoll: 0.11500817
     - type: NameModifier
       baseName: бутылка водки
     - type: ContainerContainer
@@ -56594,7 +56632,7 @@ entities:
     - type: Label
       currentLabel: вино
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.73789275
+      sprayFizzinessThresholdRoll: 0.40982467
     - type: NameModifier
       baseName: особое двухбородое бородатое вино
     - type: ContainerContainer
@@ -60371,7 +60409,7 @@ entities:
       pos: 39.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -75325.39
+      secondsUntilStateChange: -77144.93
       state: Closing
     - type: DeviceNetwork
       deviceLists:
