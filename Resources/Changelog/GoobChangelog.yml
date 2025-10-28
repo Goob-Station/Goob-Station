@@ -17055,3 +17055,55 @@ Entries:
       message: Fixed pacifists being able to use laser rifles
   id: 1910
   time: '2025-10-27T12:28:27.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Tweak
+      message: 'Wraith can now spawn naturally. '
+    - type: Add
+      message: >-
+        Added Spirit Candles. Spirit Candles can be obtained by crafting a skull
+        with a candle. They reveal Wraith roaming around you in a 12x12 area. If
+        you activate the Spirit Candle, Wraith will become corporeal and
+        weakened!
+    - type: Add
+      message: >-
+        Added Salt Lines. You can use a salt shaker or salt packet to create
+        salt lines. They take 1u to make.
+    - type: Add
+      message: Piety Vend has a skull now.
+  id: 1911
+  time: '2025-10-27T17:34:27.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Capoeira grab now denies target sprint temporarily.
+    - type: Tweak
+      message: Slightly increased capoeira power scale from movespeed.
+    - type: Add
+      message: All capoeira combos except for kick up regenerate user stamina again.
+  id: 1912
+  time: '2025-10-27T17:36:37.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: >-
+        plamamen can now equipt gastanks in suitstorage slot whitout the need of
+        vests/ hardsuits
+    - type: Tweak
+      message: >-
+        plamamen can no longer equipt wepons and other non gastank item in
+        suitstorage slot
+  id: 1913
+  time: '2025-10-27T17:51:52.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 'Added new hardlight bow arrow: ion.'
+    - type: Tweak
+      message: Hardlight bow cost reduced 75 -> 60.
+    - type: Tweak
+      message: Disabler and freeze hardlight arrows were buffed.
+    - type: Fix
+      message: You can now play with radial menu open.
+  id: 1914
+  time: '2025-10-28T20:27:44.0000000+00:00'
