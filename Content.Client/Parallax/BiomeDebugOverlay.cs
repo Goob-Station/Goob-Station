@@ -69,7 +69,7 @@ public sealed class BiomeDebugOverlay : Overlay
             sb.AppendLine(text);
         }
 
-        if (_biomes.TryGetDecals(nodePos, biomeComp.Layers, biomeComp.Seed, (mapUid, grid), out var decals))
+        if (_biomes.TryGetDecals(nodePos, biomeComp.Layers, biomeComp.LayerNoises, biomeComp.Seed, (mapUid, grid), out var decals))
         {
             var text = $"Decals: {decals.Count}";
             sb.AppendLine(text);
@@ -81,7 +81,7 @@ public sealed class BiomeDebugOverlay : Overlay
             }
         }
 
-        if (_biomes.TryGetBiomeTile(nodePos, biomeComp.Layers, biomeComp.Seed, (mapUid, grid), out var tile))
+        if (_biomes.TryGetBiomeTile(nodePos, biomeComp.Layers, biomeComp.LayerNoises, biomeComp.Seed, (mapUid, grid), out var tile))
         {
             var tileText = $"Tile: {_tileDefManager[tile.Value.TypeId].ID}";
             sb.AppendLine(tileText);
