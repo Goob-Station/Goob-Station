@@ -53,3 +53,38 @@
   sex: Male
   silicon: false
   voice: 8
+
+- type: voice
+  id: ZF6FPAbjXT4488VcRRnw
+  name: Amelia
+  sex: Female
+  silicon: false
+  voice: 9
+
+- type: voice
+  id: vO7hjeAjmsdlGgUdvPpe
+  name: Amrut
+  sex: Female
+  silicon: false
+  voice: 10
+
+- type: voice
+  id: CHPhef6gfFNOkEUe49Yz
+  name: Bramble
+  sex: Male
+  silicon: false
+  voice: 11
+
+- type: voice
+  id: sIiRahyxBt2egNH9gWXf
+  name: Leslie
+  sex: Female
+  silicon: false
+  voice: 12
+
+- type: voice
+  id: P1z1v1qQU22zZKAwS1Up
+  name: Christopher
+  sex: Male
+  silicon: false
+  voice: 13

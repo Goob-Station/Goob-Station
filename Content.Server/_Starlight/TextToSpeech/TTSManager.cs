@@ -85,19 +85,7 @@ public sealed class TTSManager : ITTSManager
         _sawmill.Verbose($"Generate new audio for '{text}' speech by voice ID '{elevenId}'");
         var stopwatch = Stopwatch.StartNew();
 
-        // Build ElevenLabs Endpoint and Body
-        //voiceId = "7p1Ofvcwsv7UBPoFNcpI"; // hard coded voice
         var requestUrl = $"https://api.elevenlabs.io/v1/text-to-speech/{elevenId}/stream";
-
-        //var jsonBody = JsonSerializer.Serialize(new TTSRequest
-        //{
-        //    VoiceId = voiceId,
-        //    Text = text,
-        //    PitchShift = 1.0,
-        //    SpeedMultiplier = 1.0,
-        //    Effect = isRadio ? Effect.Radio : 0,
-        //});
-
 
         var payload = new
         {
