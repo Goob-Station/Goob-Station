@@ -57,8 +57,6 @@ public sealed partial class TTSSystem : EntitySystem
         SubscribeLocalEvent<RadioSpokeEvent>(OnRadioReceiveEvent);
         SubscribeLocalEvent<CollectiveMindSpokeEvent>(OnCollectiveMindReceiveEvent);
         SubscribeLocalEvent<AnnouncementSpokeEvent>(OnAnnouncementSpoke);
-        _sawmill.Debug("Yeah it works");
-
         SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
     }
 
@@ -106,7 +104,6 @@ public sealed partial class TTSSystem : EntitySystem
 
     private void OnRadioReceiveEvent(RadioSpokeEvent args)
     {
-        _sawmill.Debug("Radio event received");
         if (!_isEnabled
             || args.Message.Length > MaxChars)
             return;
@@ -145,7 +142,6 @@ public sealed partial class TTSSystem : EntitySystem
 
     private async void OnAnnouncementSpoke(AnnouncementSpokeEvent args)
     {
-        _sawmill.Warning("Announcement Success");
         if (!_isEnabled
             || args.Message.Length > MaxChars * 2)
             return;
@@ -165,7 +161,6 @@ public sealed partial class TTSSystem : EntitySystem
 
     private async void OnEntitySpoke(EntityUid uid, TextToSpeechComponent component, EntitySpokeEvent args)
     {
-        _sawmill.Debug("Fired Entity Speak"); // For whatever reason, this won't fire off. Investigate this
         if (!_isEnabled || args.Message.Length > MaxChars) return;
         var voice = DefaultAnnounceVoice;
         if (!_prototypeManager.TryIndex(component.VoicePrototypeId ?? "", out VoicePrototype? proto))
