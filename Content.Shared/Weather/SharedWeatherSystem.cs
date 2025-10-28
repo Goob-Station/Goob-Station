@@ -101,6 +101,7 @@ public abstract class SharedWeatherSystem : EntitySystem
             if (weather.EndTime != null)
                 weather.EndTime = weather.EndTime.Value + args.PausedTime;
         }
+        component.NextUpdate += args.PausedTime; // DeltaV
     }
 
     public bool CanWeatherAffect(EntityUid uid, MapGridComponent grid, TileRef tileRef, RoofComponent? roofComp = null)
