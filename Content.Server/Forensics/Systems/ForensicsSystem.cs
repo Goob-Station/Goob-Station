@@ -117,7 +117,8 @@ using Robust.Shared.Utility;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Timing; // Goobstation
-
+using Content.Goobstation.Common.CCVar; // Goobstation
+using Robust.Shared.Configuration; // Goobstation
 namespace Content.Server.Forensics
 {
     public sealed class ForensicsSystem : EntitySystem
@@ -128,6 +129,8 @@ namespace Content.Server.Forensics
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly IGameTiming _timing = default!; // Goobstation
+        [Dependency] private readonly IConfigurationManager _configuration = default!;
+        private int _revealChance;
         public override void Initialize()
         {
             SubscribeLocalEvent<HandsComponent, ContactInteractionEvent>(OnInteract);
@@ -145,6 +148,10 @@ namespace Content.Server.Forensics
             SubscribeLocalEvent<DnaComponent, TransferDnaEvent>(OnTransferDnaEvent);
             SubscribeLocalEvent<DnaSubstanceTraceComponent, SolutionContainerChangedEvent>(OnSolutionChanged);
             SubscribeLocalEvent<CleansForensicsComponent, GetVerbsEvent<UtilityVerb>>(OnUtilityVerb);
+            Subs.CVar(_configuration,
+                GoobCVars.RevealChance,
+                value => _revealChance = value,
+                true);
         }
 
         private void OnSolutionChanged(Entity<DnaSubstanceTraceComponent> ent, ref SolutionContainerChangedEvent ev)
@@ -442,7 +449,7 @@ namespace Content.Server.Forensics
             return DNA;
         }
 
-        private void ApplyEvidence(EntityUid user, EntityUid target)
+        private void ApplyEvidence(EntityUid user, EntityUid target) // Heavily modified for Goobstation
         {
             if (HasComp<IgnoresFingerprintsComponent>(target))
                 return;
@@ -497,29 +504,29 @@ namespace Content.Server.Forensics
                 Dirty(target, component);
             }
         }
-//goobstation start
-//generates a masked fingerprint from a full one, hiding some characters
-private string GenerateMaskedFingerprint(string full)
-{
-    var chars = full.ToCharArray();
-    for (int i = 0; i < chars.Length; i++)
-    {
-            chars[i] = '#';
-    }
-    return new string(chars);
-}
-//tries to merge a partial fingerprint with a full one, revealing some more characters
-private string MergePartialFingerprint(string existingVisible, string full)
-{
-    var merged = existingVisible.ToCharArray();
-    for (int i = 0; i < merged.Length && i < full.Length; i++)
-    {
-        if (merged[i] == '#' && _random.Next(10) == 0)
-            merged[i] = full[i];
-    }
-    return new string(merged);
-}
-//goobstation end
+        #region Goobstation Fingerprint Methods
+        //generates a masked fingerprint from a full one, hiding some characters
+        private string GenerateMaskedFingerprint(string full)
+        {
+            var chars = full.ToCharArray();
+            for (int i = 0; i < chars.Length; i++)
+            {
+                    chars[i] = '#';
+            }
+            return new string(chars);
+        }
+        //tries to merge a partial fingerprint with a full one, revealing some more characters
+        private string MergePartialFingerprint(string existingVisible, string full)
+        {
+            var merged = existingVisible.ToCharArray();
+            for (int i = 0; i < merged.Length && i < full.Length; i++)
+            {
+                if (merged[i] == '#' && _random.Next(_revealChance) == 0)
+                    merged[i] = full[i];
+            }
+            return new string(merged);
+        }
+        #endregion
         private void ApplyScent(EntityUid user, EntityUid target) // Einstein Engines
         {
             if (HasComp<ScentComponent>(target))
