@@ -84,16 +84,16 @@ public sealed class SlipperySystem : EntitySystem
         SubscribeLocalEvent<SlowedOverSlipperyComponent, InventoryRelayedEvent<GetSlowedOverSlipperyModifierEvent>>(OnGetSlowedOverSlipperyModifier);
         SubscribeLocalEvent<SlipperyComponent, EndCollideEvent>(OnEntityExit);
 
-        SubscribeLocalEvent<SlipperyComponent, ProjectileHitEvent>(OnProjectileHit); // Omu - Deslippler
-        SubscribeLocalEvent<SlipperyComponent, ThrowDoHitEvent>(OnThrowHit); // Omu - Deslippler
+        SubscribeLocalEvent<SlipperyComponent, ProjectileHitEvent>(OnProjectileHit); // Goob - Deslippler
+        SubscribeLocalEvent<SlipperyComponent, ThrowDoHitEvent>(OnThrowHit); // Goob - Deslippler
     }
 
-    private void OnProjectileHit(EntityUid uid, SlipperyComponent component, ref ProjectileHitEvent args) // Omu - Deslippler
+    private void OnProjectileHit(EntityUid uid, SlipperyComponent component, ref ProjectileHitEvent args) // Goob - Deslippler
     {
         TrySlip(uid, component, args.Target);
     }
 
-    private void OnThrowHit(EntityUid uid, SlipperyComponent component, ThrowDoHitEvent args) // Omu - Deslippler
+    private void OnThrowHit(EntityUid uid, SlipperyComponent component, ThrowDoHitEvent args) // Goob - Deslippler
     {
         TrySlip(uid, component, args.Target);
     }

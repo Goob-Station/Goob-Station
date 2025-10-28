@@ -1,0 +1,24 @@
+- files: ["ghostbreath.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/effects/ghostbreath.ogg"
+
+- files: ["werewolf_attack1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/animal/werewolf_attack1.ogg"
+  
+- files: ["werewolf_attack2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/animal/werewolf_attack2.ogg"
+  
+- files: ["werewolf_attack3.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/animal/werewolf_attack3.ogg"
+
+- files: ["mechmonstrositylaugh.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/mechmonstrositylaugh.ogg"

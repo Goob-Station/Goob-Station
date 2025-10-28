@@ -32,3 +32,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from TG Station"
   source: "https://github.com/tgstation/tgstation/commit/ce933a1a97dbc50e4bc57bc5a40707c91a5f63cf"
+
+- files: ["berserker-implant-activate.ogg"]
+  license: "Custom"
+  copyright: "No copyright - ai generated sound"
+  source: "https://goida.zip/unknown" # keeping up this tradition
