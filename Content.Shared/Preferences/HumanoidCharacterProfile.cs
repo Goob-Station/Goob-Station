@@ -116,10 +116,10 @@ namespace Content.Shared.Preferences
         public string Name { get; set; } = "John Doe";
 
         [DataField]
-        public string Voice { get; set; } = "";
+        public string Voice { get; set; } = ""; // 🌟Starlight🌟
 
         [DataField]
-        public string SiliconVoice { get; set; } = "";
+        public string SiliconVoice { get; set; } = ""; // 🌟Starlight🌟
 
 
         /// <summary>
@@ -191,8 +191,8 @@ namespace Content.Shared.Preferences
             PreferenceUnavailableMode.SpawnAsOverflow;
         public HumanoidCharacterProfile(
             string name,
-            string voice,
-            string siliconVoice,
+            string voice, // 🌟Starlight🌟
+            string siliconVoice, // 🌟Starlight🌟
             string flavortext,
             string species,
             float height, // Goobstation: port EE height/width sliders
@@ -210,8 +210,8 @@ namespace Content.Shared.Preferences
 
         {
             Name = name;
-            Voice = voice;
-            SiliconVoice = siliconVoice;
+            Voice = voice; // 🌟Starlight🌟
+            SiliconVoice = siliconVoice; // 🌟Starlight🌟
             FlavorText = flavortext;
             Species = species;
             Height = height; // Goobstation: port EE height/width sliders
@@ -245,8 +245,8 @@ namespace Content.Shared.Preferences
         /// <summary>Copy constructor</summary>
         public HumanoidCharacterProfile(HumanoidCharacterProfile other)
             : this(other.Name,
-                other.Voice,
-                other.SiliconVoice,
+                other.Voice, // 🌟Starlight🌟
+                other.SiliconVoice, // 🌟Starlight🌟
                 other.FlavorText,
                 other.Species,
                 other.Height, // Goobstation: port EE height/width sliders
@@ -375,14 +375,14 @@ namespace Content.Shared.Preferences
             return new(this) { Gender = gender };
         }
 
-        public HumanoidCharacterProfile WithVoice(string id)
+        public HumanoidCharacterProfile WithVoice(string id) // 🌟Starlight🌟
         {
             return new(this) { Voice = id };
         }
 
-        public HumanoidCharacterProfile WithSiliconVoice(string id)
+        public HumanoidCharacterProfile WithSiliconVoice(string id) // 🌟Starlight🌟
         {
-            return new(this) { Voice = id };
+            return new(this) { SiliconVoice = id };
         }
 
         public HumanoidCharacterProfile WithSpecies(string species)

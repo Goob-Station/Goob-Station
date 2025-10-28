@@ -92,8 +92,9 @@ public sealed class TTSManager : ITTSManager
             model_id = "eleven_multilingual_v2",
             voice_settings = new
             {
-                stability = 0.4,
-                similarity_boost = 0.8
+                stability = 0.5,
+                similarity_boost = 0.75,
+                style_exaggeration = 2.0
             },
             output_format = "opus_48khz_192kbps"
         };
@@ -119,10 +120,8 @@ public sealed class TTSManager : ITTSManager
             var audio = await response.Content.ReadAsByteArrayAsync(cts.Token);
 
             // .opus audio file to .ogg file conversion because ElevenLabs only outputs .opus
-            _sawmill.Debug("Converting ElevenLabs audio to OGG via FFmpeg...");
             audio = AudioConverter.ConvertToOgg(audio);
 
-            _sawmill.Debug($"Generated new audio for '{text}' speech by voice ID '{elevenId}' ({audio.Length} bytes)");
             RequestTime.WithLabels("Success").Observe(stopwatch.Elapsed.TotalSeconds);
 
             return audio;

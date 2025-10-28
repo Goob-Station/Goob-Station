@@ -711,7 +711,6 @@ public sealed partial class ChatSystem : SharedChatSystem
         Color? colorOverride = null // Goobstation
         )
     {
-        _sawmill.Debug("Sending entity speak");
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
             return;
 
