@@ -221,6 +221,8 @@
   - type: ClothingGrantComponent
     component:
     - type: ChangeThreshold
+      newCriticalMultiplyer: 1.5
+      newDeadMultiplyer: 1.5
   - type: Sprite
     sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
     state: life_force
