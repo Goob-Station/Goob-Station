@@ -17135,3 +17135,13 @@ Entries:
       message: You can no longer kill yourself with a water pistol
   id: 1918
   time: '2025-10-29T01:14:47.0000000+00:00'
+- author: Speebro
+  changes:
+    - type: Tweak
+      message: >-
+        Opporozidone (anti-rot cryo chem) now uses Phalanxamine instead of
+        Cognizine. It's strength has been halved to compensate.
+    - type: Tweak
+      message: Formaldehyde no longer reverts rotting, only pausing it.
+  id: 1919
+  time: '2025-10-29T01:16:45.0000000+00:00'
