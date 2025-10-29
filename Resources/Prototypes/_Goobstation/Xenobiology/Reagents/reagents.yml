@@ -1,0 +1,114 @@
+- type: reagent
+  id: PurpleXenoJelly
+  parent: Slime
+  name: reagent-name-purple-xeno-jelly
+  metabolisms:
+    Food:
+      effects:
+      - !type:ModifySlimeComponent
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+          max: 1
+        extractBonus: 1
+
+- type: reagent
+  id: BlueXenoJelly
+  parent: Slime
+  name: reagent-name-blue-xeno-jelly
+  metabolisms:
+    Food:
+      effects:
+      - !type:ModifySlimeComponent
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+          max: 1
+        chanceModifier: 0.25
+        shouldSubtract: true
+
+- type: reagent
+  id: CeruleanXenoJelly
+  parent: Slime
+  name: reagent-name-cerulean-xeno-jelly
+  metabolisms:
+    Food:
+      effects:
+      - !type:ModifySlimeComponent
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+          max: 1
+        offspringBonus: 2
+
+- type: reagent
+  id: RedXenoJelly
+  parent: Slime
+  name: reagent-name-red-xeno-jelly
+  metabolisms:
+    Food:
+      effects:
+      - !type:ModifySlimeComponent
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+          max: 1
+        chanceModifier: 0.25
+        shouldSubtract: false
+
+# Species Morphchems
+- type: reagent
+  id: GreenXenoJelly
+  parent: Slime
+  name: reagent-name-green-xeno-jelly
+  metabolisms:
+    Food:
+      effects:
+      - !type:SpeciesChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+          max: 15
+        newSpecies: SlimePerson
+
+- type: reagent
+  id: XenoHumanToxin
+  parent: Slime
+  name: reagent-name-human-mutation-toxin
+  metabolisms:
+    Food:
+      effects:
+      - !type:SpeciesChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+          max: 15
+        newSpecies: Human
+
+- type: reagent
+  id: XenoLizardToxin
+  parent: Slime
+  name: reagent-name-lizard-mutation-toxin
+  metabolisms:
+    Food:
+      effects:
+      - !type:SpeciesChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+          max: 15
+        newSpecies: Reptilian
+# End Species Morphchems
+
+- type: reagent
+  id: XenoGenderFluid
+  parent: Slime
+  name: reagent-name-xeno-gender-fluid
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:SexChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+          max: 15

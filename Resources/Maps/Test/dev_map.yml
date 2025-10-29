@@ -1188,21 +1188,25 @@ entities:
           10,5:
             0: 61440
           10,6:
-            0: 36608
+            0: 1792
           10,7:
             1: 60928
-            0: 136
           10,8:
             1: 238
             0: 34816
           11,5:
             0: 61440
           11,6:
-            0: 3840
+            1: 65535
           11,7:
-            1: 13056
+            1: 13071
           11,8:
             1: 51
+          12,6:
+            1: 61422
+          12,7:
+            0: 16
+            1: 14
           13,0:
             1: 65520
           13,1:
@@ -1237,10 +1241,6 @@ entities:
             0: 3840
           12,5:
             1: 36076
-          12,6:
-            1: 61166
-          12,7:
-            1: 12
           13,6:
             1: 65535
           13,7:
@@ -1797,9 +1797,9 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 293.15
+          temperature: 5000
           moles:
-          - 0
+          - 6666.982
           - 0
           - 0
           - 6666.982
@@ -1816,9 +1816,9 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 5000
+          temperature: 293.15
           moles:
-          - 6666.982
+          - 0
           - 0
           - 0
           - 6666.982
@@ -2180,6 +2180,12 @@ entities:
     components:
     - type: Transform
       pos: 59.5,26.5
+      parent: 1
+  - uid: 831
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 48.5,26.5
       parent: 1
 - proto: AirSensor
   entities:
@@ -3553,10 +3559,10 @@ entities:
       parent: 1
 - proto: BorgCharger
   entities:
-  - uid: 789
+  - uid: 759
     components:
     - type: Transform
-      pos: 49.5,25.5
+      pos: 49.5,24.5
       parent: 1
 - proto: BoxMagazineShotgun
   entities:
@@ -10296,11 +10302,10 @@ entities:
       parent: 1
 - proto: ComputerRoboticsControl
   entities:
-  - uid: 146
+  - uid: 791
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 49.5,27.5
+      pos: 49.5,28.5
       parent: 1
   - uid: 2635
     components:
@@ -12000,6 +12005,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 56.5,37.5
+      parent: 1
+  - uid: 3196
+    components:
+    - type: Transform
+      pos: 48.5,27.5
       parent: 1
 - proto: FireAxeCabinetFilled
   entities:
@@ -18704,6 +18714,14 @@ entities:
     - type: Transform
       pos: 56.54457,43.173195
       parent: 1
+- proto: SignXenobio
+  entities:
+  - uid: 3175
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 48.5,25.5
+      parent: 1
 - proto: SinkStemlessWater
   entities:
   - uid: 927
@@ -19478,14 +19496,14 @@ entities:
   - uid: 24
     components:
     - type: Transform
-      pos: 33.5,18.5
+      pos: 31.5,18.5
       parent: 1
-- proto: SpawnPointLatejoin
+- proto: SpawnPointNanotrasenRepresentative
   entities:
-  - uid: 2669
+  - uid: 10024
     components:
     - type: Transform
-      pos: 31.5,18.5
+      pos: 33.5,18.5
       parent: 1
 - proto: SpawnPointNanotrasenRepresentative
   entities:
@@ -20583,7 +20601,25 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 51.5,28.5
+      pos: 45.5,25.5
+      parent: 1
+  - uid: 3184
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 45.5,24.5
+      parent: 1
+  - uid: 3185
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 46.5,24.5
+      parent: 1
+  - uid: 3186
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 46.5,25.5
       parent: 1
 - proto: VendingBarDrobe
   entities:
@@ -20693,10 +20729,11 @@ entities:
       parent: 1
 - proto: VendingMachineRobotics
   entities:
-  - uid: 791
+  - uid: 3160
     components:
     - type: Transform
-      pos: 49.5,26.5
+      rot: -1.5707963267948966 rad
+      pos: 51.5,26.5
       parent: 1
 - proto: VendingMachineSalvage
   entities:
@@ -21094,6 +21131,11 @@ entities:
     - type: Transform
       pos: 56.5,21.5
       parent: 1
+  - uid: 146
+    components:
+    - type: Transform
+      pos: 48.5,29.5
+      parent: 1
   - uid: 147
     components:
     - type: Transform
@@ -21103,11 +21145,6 @@ entities:
     components:
     - type: Transform
       pos: 50.5,29.5
-      parent: 1
-  - uid: 151
-    components:
-    - type: Transform
-      pos: 49.5,28.5
       parent: 1
   - uid: 152
     components:
@@ -21233,12 +21270,6 @@ entities:
     - type: Transform
       pos: 58.5,19.5
       parent: 1
-  - uid: 759
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 48.5,26.5
-      parent: 1
   - uid: 760
     components:
     - type: Transform
@@ -21295,6 +21326,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 74.5,22.5
+      parent: 1
+  - uid: 789
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 46.5,23.5
       parent: 1
   - uid: 795
     components:
