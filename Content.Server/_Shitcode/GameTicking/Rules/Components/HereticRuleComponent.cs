@@ -20,7 +20,7 @@ namespace Content.Server.GameTicking.Rules.Components;
 public sealed partial class HereticRuleComponent : Component
 {
     [DataField]
-    public MinMax RealityShiftPerHeretic = new(3, 4);
+    public MinMax RealityShiftPerHeretic = new(4, 6);
 
     [DataField]
     public EntProtoId RealityShift = "EldritchInfluence";

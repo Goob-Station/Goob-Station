@@ -142,6 +142,9 @@
   id: ClownEmergencyOxygenTank
 
 - type: Tag
+  id: CodexCicatrix
+
+- type: Tag
   id: CombatMech
 
 - type: Tag
@@ -615,7 +618,7 @@
 
 - type: Tag
   id: Vial
-  
+
 - type: Tag
   id: WallLight
 

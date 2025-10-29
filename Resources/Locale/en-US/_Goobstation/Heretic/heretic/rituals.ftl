@@ -29,7 +29,7 @@ heretic-ritual-basic-codex-desc =
     The occult leaves fragments of knowledge and power anywhere and everywhere. The Codex Cicatrix is one such example. Within the leather-bound faces and age old pages, a path into the Mansus is revealed.
 
     Allows you to transmute a book, any pen, and any piece of meat or non-silicon organ to create a Codex Cicatrix.
-    The Codex Cicatrix can be used when draining influences to gain additional knowledge, but comes at greater risk of being noticed. It can also be used to draw and remove transmutation runes easier, and as a spell focus in a pinch.
+    The Codex Cicatrix can be used to draining influences. It can also be used to enchant items, draw and remove transmutation runes, and as a spell focus in a pinch.
 
 heretic-ritual-basic-reminiscence = Reminiscence
 heretic-ritual-basic-reminiscence-desc = Transmute a chair to instantly return one of your lost blades.
@@ -39,6 +39,14 @@ heretic-ritual-basic-owls-desc =
     Under the soft glow of unreason there is a beast that stalks the night. I shall bring it forth and let it enter my presence. It will feast upon my amibitions and leave knowledge in its wake.
 
     Allows you to undergo a ritual that gives you 5 knowledge points but locks you out of ascension. This can only be done once and cannot be reverted.
+
+heretic-ritual-basic-phylactery = Phylactery of Damnation
+heretic-ritual-basic-phylactery-desc =
+    A tincture twisted into the shape of a bloodsucker vermin.
+    Whether it chose the shape for itself, or this is the humor of the sickened mind that conjured this vile implement into being is something best not pondered.
+
+    Allows you to transmute a beaker and a pool of blood into a Phylactery that can instantly draw blood, even from long distances.
+    Be warned, your target may still feel a prick.
 
 heretic-ritual-fail-sacrifice = There is no corpse to sacrifice.
 heretic-ritual-fail-sacrifice-ineligible = The rune refuses to accept this sacrifice.

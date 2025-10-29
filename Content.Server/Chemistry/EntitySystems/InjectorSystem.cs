@@ -42,7 +42,8 @@ using Content.Shared.Stacks;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Timing; // Goobstation
 using System.Linq; // Goobstation
-using Content.Shared.Chemistry.Reagent; // Goobstation
+using Content.Shared.Chemistry.Reagent;
+using Robust.Server.Audio; // Goobstation
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -51,6 +52,8 @@ public sealed class InjectorSystem : SharedInjectorSystem
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
     [Dependency] private readonly OpenableSystem _openable = default!;
+    [Dependency] private readonly AudioSystem _audio = default!; // Goobstation
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!; // Goobstation
     [Dependency] private readonly IGameTiming _timing = default!; // Goobstation
 
     public override void Initialize()
@@ -87,7 +90,17 @@ public sealed class InjectorSystem : SharedInjectorSystem
             if (TryComp<BloodstreamComponent>(target, out var stream) &&
                 SolutionContainers.ResolveSolution(target, stream.BloodSolutionName, ref stream.BloodSolution))
             {
-                return TryDraw(injector, (target, stream), stream.BloodSolution.Value, user);
+                // Goob edit start
+                if (!TryDraw(injector, (target, stream), stream.BloodSolution.Value, user))
+                    return false;
+
+                if (injector.Comp.TargetAfterDrawMessage != null)
+                    Popup.PopupEntity(Loc.GetString(injector.Comp.TargetAfterDrawMessage.Value), target, target);
+
+                _audio.PlayPvs(injector.Comp.DrawSound, target);
+
+                return true;
+                // Goob edit end
             }
 
             // Draw from an object (food, beaker, etc)
@@ -111,8 +124,19 @@ public sealed class InjectorSystem : SharedInjectorSystem
 
     private void OnInjectorAfterInteract(Entity<InjectorComponent> entity, ref AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach)
+        // Goob edit start
+        if (args.Handled)
             return;
+
+        if (!args.CanReach)
+        {
+            if (!entity.Comp.IgnoreAccessChecks)
+                return;
+
+            if (!_interaction.InRangeUnobstructed(args.User, args.ClickLocation, 16f))
+                return;
+        }
+        // Goob edit end
 
         //Make sure we have the attacking entity
         if (args.Target is not { Valid: true } target || !HasComp<SolutionContainerManagerComponent>(entity))
@@ -138,9 +162,15 @@ public sealed class InjectorSystem : SharedInjectorSystem
     /// </summary>
     private void InjectDoAfter(Entity<InjectorComponent> injector, EntityUid target, EntityUid user)
     {
-        if (HasComp<BlockInjectionComponent>(target)) // DeltaV
+        if (!injector.Comp.BypassInjectionBlock && HasComp<BlockInjectionComponent>(target)) // DeltaV
         {
             Popup.PopupEntity(Loc.GetString("injector-component-deny-user"), target, user);
+            return;
+        }
+
+        if (injector.Comp.Instant)
+        {
+            TryUseInjector(injector, target, user);
             return;
         }
 

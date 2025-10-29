@@ -68,6 +68,11 @@
   ritualPrototypes:
   - FeastOfOwls
 
+- type: hereticKnowledge
+  id: PhylacteryOfDamnation
+  ritualPrototypes:
+  - PhylacteryOfDamnation
+
 ### ash path
 - type: hereticKnowledge
   id: NightwatcherSecret
@@ -534,6 +539,13 @@
   stage: 6
   ritualPrototypes:
   - CarvingKnife
+
+- type: hereticKnowledge
+  id: CodexMorbus
+  sideKnowledge: true
+  stage: 6
+  ritualPrototypes:
+  - CodexMorbus
 
 ## stage 8
 - type: hereticKnowledge

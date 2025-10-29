@@ -140,6 +140,22 @@
     stage: 5
 
 - type: listing
+  id: HereticSidePath6CMorbus
+  name: knowledge-path-side-s6-morbus-name
+  description: knowledge-path-side-s6-morbus-desc
+  icon: { sprite: _Goobstation/Heretic/book_morbus.rsi, state: icon-on }
+  productHereticKnowledge: CodexMorbus
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
   id: HereticSidePath8Cleave
   name: knowledge-path-side-s8-cleave-name
   description: knowledge-path-side-s8-cleave-desc

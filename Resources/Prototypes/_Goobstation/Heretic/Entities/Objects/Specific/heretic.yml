@@ -41,7 +41,6 @@
     components:
     - type: HereticMagicItem
     - type: EldritchInfluenceDrainer
-    - type: TransmutationRuneScriber
     - type: EnchantingTool
   - type: ItemToggleSize
     activatedSize: Normal
@@ -49,6 +48,113 @@
   - type: Tag
     tags:
     - HereticItem
+    - CodexCicatrix
+  - type: TransmutationRuneScriber
+
+- type: entity
+  parent: CodexCicatrix
+  id: CodexMorbus
+  name: codex morbus
+  description: A hideous, ragged book covered in separately-blinking eyes, all of them staring at you. You have no idea how to hold this thing, and to be honest you're not sure if you want to.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/book_morbus.rsi
+    layers:
+    - state: icon
+      map: [ "base" ]
+  - type: ComponentToggler
+    components:
+    - type: HereticMagicItem
+    - type: EldritchInfluenceDrainer
+      time: 2.5
+    - type: EnchantingTool
+  - type: ToggleAnimation
+    toggleOnTime: 1.0
+    toggleOffTime: 1.9
+  - type: Tag
+    tags:
+    - HereticItem
+  - type: TransmutationRuneScriber
+    time: 5
+    RuneDrawingEntity: HereticRuneRitualDrawAnimationMorbus
+  - type: HereticCurseProvider
+    cursePrototypes:
+      StatusEffectCurseOfCorrosion:
+        time: 90
+      StatusEffectCurseOfParalysis:
+        time: 150
+      StatusEffectCurseOfFlames:
+        time: 90
+      StatusEffectCurseOfAmok:
+        time: 90
+      StatusEffectCurseOfBlindness:
+        time: 150
+      StatusEffectCurseOfFragility:
+        time: 300
+        silent: true
+  - type: UserInterface
+    interfaces:
+      enum.HereticCurseUiKey.Key:
+        type: CurseBoundUserInterface
+
+- type: entity
+  parent: [ BaseItem, BaseMagicalContraband ]
+  id: HereticPhylactery
+  name: phylactery of damnation
+  description: Used to steal blood from soon-to-be victims.
+  components:
+  - type: UnholyItem
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Entities/phylactery.rsi
+    layers:
+      - state: phylactery
+        map: [ "enum.SolutionContainerLayers.Base" ]
+      - state: phylactery1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+  - type: Icon
+    sprite: _Goobstation/Heretic/items.rsi
+    state: phylactery
+  - type: Appearance
+  - type: Tag
+    tags:
+    - HereticItem
+  - type: Injector
+    minTransferAmount: 5
+    maxTransferAmount: 5
+    injectOnly: true # It's actually draw only
+    toggleState: Draw
+    solutionName: injector
+    ignoreMobs: false
+    delay: 0
+    delayPerVolume: 0
+    bypassInjectionBlock: true
+    instant: true
+    targetAfterDrawMessage: hypospray-component-feel-prick-message
+    drawSound:
+      path: /Audio/Items/hypospray.ogg
+    ignoreAccessChecks: true
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: phylactery
+    metamorphic: false
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 10
+  - type: MixableSolution
+    solution: injector
+  - type: ExaminableSolution
+    solution: injector
+  - type: Spillable
+    solution: injector
+  - type: DrawableSolution
+    solution: injector
+  - type: RefillableSolution
+    solution: injector
+  - type: DrainableSolution
+    solution: injector
+  - type: DnaSubstanceTrace
 
 - type: entity
   parent: [ DrinkBase, BaseMagicalContraband ]
