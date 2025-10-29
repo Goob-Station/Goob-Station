@@ -58,6 +58,7 @@
       - ArrowExplosive
       - ArrowXray
       - ArrowBee
+      - ArrowIon
   - type: FoldingWeapon
   - type: UserInterface
     interfaces:
@@ -81,6 +82,7 @@
   - type: ItemToggleSize
     activatedSize: Huge
   - type: ItemTogglePointLight
+    toggleableVisualsColorModulatesLights: true
   - type: ComponentToggler
     components:
     - type: DisarmMalus

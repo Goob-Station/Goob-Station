@@ -85,6 +85,11 @@
           - !type:PlaySoundBehavior
             sound:
               path: /Audio/Effects/bone_rattle.ogg
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              HeadSkeleton:
+                min: 1
+                max: 1
   - type: NightVision # Goobstation - Nigthvision
     color: white
     activateSound: null
