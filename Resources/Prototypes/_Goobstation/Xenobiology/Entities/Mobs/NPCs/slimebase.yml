@@ -1,8 +1,8 @@
 - type: entity
-  name: basic slime
-  id: BaseMobXenoSlime
-  parent: [ SimpleMobBase, MobCombat ]
   abstract: true
+  parent: [ SimpleMobBase, MobCombat ]
+  id: BaseMobSlimeXenobio
+  name: basic slime
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: Appearance
@@ -145,9 +145,10 @@
 # Begin Slimes
 
 - type: entity
-  name: grey slime
-  id: MobXenoSlime
-  parent: BaseMobXenoSlime
+  parent: BaseMobSlimeXenobio
+  id: MobSlimeXenobioBaby
+  categories: [ HideSpawnMenu ]
+  name: slime
   suffix: Baby
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
@@ -157,7 +158,7 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: base
-      color: "#828282"
+      color: "#FFFFFF"
   - type: MobGrowth
     hungerRequired: 100
     currentStage: baby
@@ -169,21 +170,12 @@
       adult:
         sprite: _Goobstation/Xenobiology/Mobs/slimesAdult.rsi
         displayName: adult
-  - type: Slime
-    breed: GreyMutation
-    slimeColor: "#828282"
-    maxOffspring: 4
-    mutationChance: 0.45
-    potentialMutations:
-    - OrangeMutation
-    - PurpleMutation
-    - BlueMutation
-    - MetalMutation
 
 - type: entity
-  name: grey slime
-  id: MobXenoSlimeAdult
-  parent: MobXenoSlime
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioAdult
+  categories: [ HideSpawnMenu ]
+  name: slime
   suffix: Adult
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
@@ -198,3 +190,23 @@
       adult:
         sprite: _Goobstation/Xenobiology/Mobs/slimesAdult.rsi
         displayName: adult
+
+# Pending slimes
+# They only exist to provide as base parent for all the other ones
+# it's shitcode!!!
+
+- type: entity
+  abstract: true
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioBabyPending
+  name: undetermined slime
+  components:
+  - type: PendingSlimeSpawn
+
+- type: entity
+  abstract: true
+  parent: MobSlimeXenobioAdult
+  id: MobSlimeXenobioAdultPending
+  name: undetermined slime
+  components:
+  - type: PendingSlimeSpawn

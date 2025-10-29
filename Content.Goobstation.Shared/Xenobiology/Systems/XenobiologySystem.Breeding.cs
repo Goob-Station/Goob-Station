@@ -15,20 +15,32 @@ using Robust.Shared.Random;
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
 /// <summary>
-/// This handles slime breeding and mutation.
+///     This handles slime breeding and mutation.
 /// </summary>
 public partial class XenobiologySystem
 {
-    private void InitializeBreeding() =>
-        SubscribeLocalEvent<SlimeComponent, MapInitEvent>(OnSlimeInit);
-
-    private void OnSlimeInit(Entity<SlimeComponent> slime, ref MapInitEvent args)
+    private void InitializeBreeding()
     {
-        Subs.CVar(_configuration, GoobCVars.BreedingInterval, val => slime.Comp.UpdateInterval = TimeSpan.FromSeconds(val), true);
-        slime.Comp.NextUpdateTime = _gameTiming.CurTime + slime.Comp.UpdateInterval;
+        SubscribeLocalEvent<SlimeComponent, MapInitEvent>(OnSlimeMapInit);
     }
 
-    // Checks slime entity hunger threshholds, if the threshhold required by SlimeComponent is met -> DoMitosis.
+    private void OnSlimeMapInit(Entity<SlimeComponent> ent, ref MapInitEvent args)
+    {
+        Subs.CVar(_configuration, GoobCVars.BreedingInterval, val => ent.Comp.UpdateInterval = TimeSpan.FromSeconds(val), true);
+        ent.Comp.NextUpdateTime = _gameTiming.CurTime + ent.Comp.UpdateInterval;
+
+        // just respawn it and toggle a switch
+        // it fucking sucks but it works and now y*ml warriors can rest in grease
+        if (HasComp<PendingSlimeSpawnComponent>(ent))
+        {
+            SpawnSlime(ent, ent.Comp.DefaultSlimeProto, ent.Comp.Breed);
+            QueueDel(ent);
+        }
+    }
+
+    /// <summary>
+    ///     Checks slime entity hunger threshholds, if the threshhold required by SlimeComponent is met -> DoMitosis.
+    /// </summary>
     private void UpdateMitosis()
     {
         var eligibleSlimes = new HashSet<Entity<SlimeComponent, MobGrowthComponent, HungerComponent>>();
@@ -60,29 +72,35 @@ public partial class XenobiologySystem
     #region Helpers
 
     /// <summary>
-    /// Spawns a slime with a given mutation
+    ///     Spawns a slime with a given mutation
     /// </summary>
     /// <param name="parent">The original entity.</param>
     /// <param name="newEntityProto">The proto of the entity being spawned.</param>
     /// <param name="selectedBreed">The selected breed of the entity.</param>
-    private void DoBreeding(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
+    private Entity<SlimeComponent>? SpawnSlime(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
     {
-        if (!_prototypeManager.TryIndex(selectedBreed, out var newBreed)
-            || _net.IsClient)
-            return;
+        if (!_prototypeManager.TryIndex(selectedBreed, out var newBreed) || _net.IsClient)
+            return null;
 
         var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent, null, newBreed.Components);
         if (!_slimeQuery.TryComp(newEntityUid, out var slime))
-            return;
+            return null;
 
-        if (slime is { ShouldHaveShader: true, Shader: not null })
+        if (slime.ShouldHaveShader && slime.Shader != null)
             _appearance.SetData(newEntityUid, XenoSlimeVisuals.Shader, slime.Shader);
 
         _appearance.SetData(newEntityUid, XenoSlimeVisuals.Color, slime.SlimeColor);
         _metaData.SetEntityName(newEntityUid, newBreed.BreedName);
+
+        return new Entity<SlimeComponent>(newEntityUid, slime);
     }
 
-    //Handles slime mitosis, for each offspring, a mutation is selected from their potential mutations - if mutation is successful, the products of mitosis will have the new mutation.
+    /// <summary>
+    ///     Handles slime mitosis.
+    ///     For each offspring, a mutation is selected from their potential mutations.
+    ///     If mutation is successful, the products of mitosis will have the new mutation.
+    /// </summary>
+    /// <param name="ent"></param>
     private void DoMitosis(Entity<SlimeComponent> ent)
     {
         if (_net.IsClient)
@@ -98,7 +116,7 @@ public partial class XenobiologySystem
             if (_random.Prob(ent.Comp.MutationChance) && ent.Comp.PotentialMutations.Count > 0)
                 selectedBreed = _random.Pick(ent.Comp.PotentialMutations);
 
-            DoBreeding(ent, ent.Comp.DefaultSlimeProto, selectedBreed);
+            SpawnSlime(ent, ent.Comp.DefaultSlimeProto, selectedBreed);
         }
 
         _containerSystem.EmptyContainer(ent.Comp.Stomach);

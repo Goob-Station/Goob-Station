@@ -11,9 +11,6 @@ using Content.Server.Power.Components;
 using Content.Shared.Audio;
 using Content.Shared.Climbing.Events;
 using Content.Shared.Construction.Components;
-using Content.Shared.Containers;
-using Content.Shared.DoAfter;
-using Content.Shared.Interaction;
 using Content.Shared.Jittering;
 using Content.Shared.Medical;
 using Content.Shared.Mobs;
@@ -22,13 +19,15 @@ using Content.Shared.Power;
 using Content.Shared.Throwing;
 using Robust.Server.Containers;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Xenobiology.SlimeGrinder;
 
+// oh my goida this is just a biomass reclaimer rewrite
+// someone nuke it if ever hurts your eyes
+// i can't bother doing it
+// -js
 public sealed partial class SlimeGrinderSystem : EntitySystem
 {
     [Dependency] private readonly XenobiologySystem _xenobio = default!;
@@ -38,8 +37,6 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedJointSystem _jointSystem = default!;
 
     public override void Initialize()
     {
@@ -48,8 +45,6 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         SubscribeLocalEvent<ActiveSlimeGrinderComponent, ComponentInit>(OnActiveInit);
         SubscribeLocalEvent<ActiveSlimeGrinderComponent, ComponentRemove>(OnActiveShutdown);
         SubscribeLocalEvent<ActiveSlimeGrinderComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
-
-        SubscribeLocalEvent<SlimeGrinderComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<SlimeGrinderComponent, ClimbedOnEvent>(OnClimbedOn);
         SubscribeLocalEvent<SlimeGrinderComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<SlimeGrinderComponent, ReclaimerDoAfterEvent>(OnDoAfter);
@@ -64,12 +59,18 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         {
             grinder.ProcessingTimer = Math.Clamp(grinder.ProcessingTimer - frameTime, 0, grinder.ProcessingTimer);
 
-            if (grinder.ProcessingTimer <= 0 && grinder.YieldQueue.Count > 0)
-                foreach (var yield in grinder.YieldQueue)
-                    for (int i = 0; i < yield.Value; i++)
-                        SpawnNextToOrDrop(yield.Key, uid);
+            if (grinder.ProcessingTimer > 0)
+                return;
 
-            RemCompDeferred<ActiveSlimeGrinderComponent>(uid);
+            foreach (var yield in grinder.YieldQueue)
+            {
+                for (int i = 0; i < yield.Value; i++)
+                    SpawnNextToOrDrop(yield.Key, uid);
+                grinder.YieldQueue.Remove(yield.Key);
+            }
+
+            if (HasComp<ActiveSlimeGrinderComponent>(uid))
+                RemCompDeferred<ActiveSlimeGrinderComponent>(uid);
         }
     }
 
@@ -91,46 +92,24 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         _ambientSoundSystem.SetAmbience(activeGrinder, false);
     }
 
-    private void OnUnanchorAttempt(Entity<ActiveSlimeGrinderComponent> activeGrinder, ref UnanchorAttemptEvent args) =>
+    private void OnUnanchorAttempt(Entity<ActiveSlimeGrinderComponent> activeGrinder, ref UnanchorAttemptEvent args)
+    {
         args.Cancel();
+    }
 
     private void OnPowerChanged(Entity<SlimeGrinderComponent> grinder, ref PowerChangedEvent args)
     {
-        if (args.Powered)
-        {
-            if (grinder.Comp.ProcessingTimer > 0)
-                EnsureComp<ActiveSlimeGrinderComponent>(grinder);
-        }
-        else
-        {
-            RemCompDeferred<ActiveSlimeGrinderComponent>(grinder);
-        }
+        if (args.Powered && grinder.Comp.ProcessingTimer > 0)
+            EnsureComp<ActiveSlimeGrinderComponent>(grinder);
+        else RemCompDeferred<ActiveSlimeGrinderComponent>(grinder);
     }
 
     #endregion
 
-    private void OnAfterInteractUsing(Entity<SlimeGrinderComponent> grinder, ref AfterInteractUsingEvent args)
-    {
-        if (!args.CanReach || args.Target == null || !TryComp<PhysicsComponent>(args.Used, out var physics) || !CanGrind(grinder, args.Used))
-            return;
-
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager,
-            args.User,
-            grinder.Comp.BaseInsertionDelay,
-            new ReclaimerDoAfterEvent(),
-            grinder,
-            target: args.Target,
-            used: args.Used)
-        {
-            NeedHand = true,
-            BreakOnMove = true,
-        });
-    }
-
     private void OnClimbedOn(Entity<SlimeGrinderComponent> grinder, ref ClimbedOnEvent args)
     {
         if (CanGrind(grinder, args.Climber))
-            TryProcess(args.Climber, grinder);
+            QueueProcess(args.Climber, grinder);
     }
 
     private void OnDoAfter(Entity<SlimeGrinderComponent> grinder, ref ReclaimerDoAfterEvent args)
@@ -138,11 +117,11 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         if (args.Handled || args.Cancelled || args.Args.Used is not { } toProcess)
             return;
 
-        TryProcess(toProcess, grinder);
+        QueueProcess(toProcess, grinder);
         args.Handled = true;
     }
 
-    private void TryProcess(EntityUid toProcess, Entity<SlimeGrinderComponent> grinder, PhysicsComponent? physics = null, SlimeComponent? slime = null)
+    private void QueueProcess(EntityUid toProcess, Entity<SlimeGrinderComponent> grinder, PhysicsComponent? physics = null, SlimeComponent? slime = null)
     {
         if (!Resolve(toProcess, ref physics, ref slime))
             return;
@@ -153,7 +132,9 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         var extractProto = _xenobio.GetProducedExtract((toProcess, slime));
         var extractQuantity = slime.ExtractsProduced;
 
-        grinder.Comp.YieldQueue.Add(extractProto, extractQuantity);
+        if (!grinder.Comp.YieldQueue.ContainsKey(extractProto))
+            grinder.Comp.YieldQueue.Add(extractProto, extractQuantity);
+        else grinder.Comp.YieldQueue[extractProto] += extractQuantity;
 
         foreach (var ent in _container.EmptyContainer(slime.Stomach)) // spew everything out jic
         {
@@ -165,11 +146,9 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
 
     private bool CanGrind(Entity<SlimeGrinderComponent> grinder, EntityUid dragged)
     {
-        if (HasComp<ActiveSlimeGrinderComponent>(grinder)
-            || !Transform(grinder).Anchored
-            || !HasComp<SlimeComponent>(dragged)
-            || !TryComp<MobStateComponent>(dragged, out var mobState)
-            || mobState.CurrentState != MobState.Dead)
+        if (!Transform(grinder).Anchored
+        || !HasComp<SlimeComponent>(dragged)
+        || (TryComp<MobStateComponent>(dragged, out var mobState) && mobState.CurrentState != MobState.Dead))
             return false;
 
         return !TryComp<ApcPowerReceiverComponent>(grinder, out var power) || power.Powered;

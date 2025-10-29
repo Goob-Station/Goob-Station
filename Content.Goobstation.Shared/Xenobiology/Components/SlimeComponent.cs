@@ -22,13 +22,13 @@ public sealed partial class SlimeComponent : Component
     /// Default slime.
     /// </summary>
     [DataField]
-    public EntProtoId DefaultSlimeProto = "MobXenoSlime";
+    public EntProtoId DefaultSlimeProto = "MobSlimeXenobioBaby";
 
     /// <summary>
     /// What color is the slime?
     /// </summary>
     [DataField, AutoNetworkedField]
-    public Color SlimeColor = Color.FromHex("#828282");
+    public Color SlimeColor = Color.FromHex("#FFFFFF");
 
     /// <summary>
     /// What is the current slime's current breed?

@@ -19,22 +19,16 @@ public sealed partial class SlimeGrinderComponent : Component
     public float ProcessingTimer = default;
 
     /// <summary>
-    /// How many seconds to take to insert an entity per unit of its mass.
-    /// </summary>
-    [DataField]
-    public float BaseInsertionDelay = 0.1f;
-
-    /// <summary>
     /// The entity being ground.
     /// </summary>
     [ViewVariables]
-    public Dictionary<EntProtoId, float> YieldQueue;
+    public Dictionary<EntProtoId, float> YieldQueue = new();
 
     /// <summary>
     /// The time it takes to process a mob, per mass.
     /// </summary>
     [DataField]
-    public float ProcessingTimePerUnitMass = 0.5f;
+    public float ProcessingTimePerUnitMass = 0.1f;
 
     [DataField]
     public SoundSpecifier GrindSound = new SoundPathSpecifier("/Audio/Machines/reclaimer_startup.ogg");
