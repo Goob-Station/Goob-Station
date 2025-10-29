@@ -17189,3 +17189,13 @@ Entries:
       message: Salt lines getting destroyed by ghosts
   id: 1923
   time: '2025-10-29T15:24:19.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: End of round manifest now shows what antagonists have purchased.
+    - type: Add
+      message: Added detonate nuke objective for nukeops.
+    - type: Remove
+      message: Bso protect command objective.
+  id: 1924
+  time: '2025-10-29T15:30:00.0000000+00:00'
