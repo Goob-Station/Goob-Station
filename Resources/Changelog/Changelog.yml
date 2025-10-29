@@ -4091,3 +4091,11 @@ Entries:
   id: 9169
   time: '2025-10-28T19:58:20.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41167
+- author: SirWarock
+  changes:
+  - message: Certain low-capacity weapons, like Mosin, Shotguns and Handguns will
+      have their ammo counter UI enlargened to have an easier time gauging your ammo.
+    type: Tweak
+  id: 9170
+  time: '2025-10-29T03:05:55.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40570
