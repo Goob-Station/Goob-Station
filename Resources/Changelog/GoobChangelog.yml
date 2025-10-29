@@ -17129,3 +17129,9 @@ Entries:
       message: Plasmamen can no longer become ninjas, nukies or wizards.
   id: 1917
   time: '2025-10-28T23:38:52.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: You can no longer kill yourself with a water pistol
+  id: 1918
+  time: '2025-10-29T01:14:47.0000000+00:00'
