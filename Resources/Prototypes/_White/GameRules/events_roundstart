@@ -1,0 +1,28 @@
+- type: entity
+  parent: BaseGameRule
+  id: XenomorphsInfestationRoundstart
+  components:
+  - type: GameRule
+    chaosScore: 400
+    # Optional: enforce same min player requirement as the midround event.
+    # If the key name doesn't match your GameRule prototype, remove or rename it to match your codebase.
+    minPlayers: 50
+  - type: VentSpawnRule
+  - type: AntagSpawner
+    prototype: MobXenomorphLarva
+  - type: XenomorphsRule
+  - type: AntagObjectives
+    objectives:
+    - XenomorphSurviveObjective
+  - type: AntagSelection
+    agentName: xenomorph-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostXenomorph
+      min: 2
+      max: 4
+      pickPlayer: false
+      briefing:
+        text: xenomorph-role-greeting
+        color: "#8c3986"
+      mindRoles:
+      - MindRoleXenomorph
