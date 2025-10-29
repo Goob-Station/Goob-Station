@@ -133,6 +133,7 @@
     - type: Stealth
       enabledOnDeath: false
       enabledOnCrit: false
+      thermalsImmune: true # Goobstation
   - type: FlashImmunity
   - type: FlashSoundSuppression
 
@@ -171,7 +172,7 @@
   - type: FlashImmunity
   - type: FlashSoundSuppression
   - type: SpeechSoundsReplacer
-    speechSounds: Chrono # why? its badass.
+    speechSounds: Chrono
 
 # Security
 - type: entity
@@ -242,3 +243,18 @@
         Caustic: 0.5
   - type: FlashImmunity
   - type: FlashSoundSuppression
+
+# ntr
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitNanorep
+  name: nanorep hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Helmets/ntr_helmet.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Helmets/ntr_helmet.rsi
+  - type: PointLight
+    color: green
+  - type: PressureProtection
+    highPressureMultiplier: 0.525

@@ -18,6 +18,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -36,6 +37,10 @@ namespace Content.Client.Silicons.StationAi;
 
 public sealed class StationAiOverlay : Overlay
 {
+    private static readonly ProtoId<ShaderPrototype> CameraStaticShader = "CameraStatic";
+    private static readonly ProtoId<ShaderPrototype> StencilMaskShader = "StencilMask";
+    private static readonly ProtoId<ShaderPrototype> StencilDrawShader = "StencilDraw";
+
     [Dependency] private readonly IClyde _clyde = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -51,6 +56,8 @@ public sealed class StationAiOverlay : Overlay
 
     private float _updateRate = 1f / 30f;
     private float _accumulator;
+
+    private EntityUid _lastGridUid = EntityUid.Invalid; // goobstation - off grid vision fix
 
     public StationAiOverlay()
     {
@@ -87,11 +94,27 @@ public sealed class StationAiOverlay : Overlay
         _entManager.TryGetComponent(gridUid, out MapGridComponent? grid);
         _entManager.TryGetComponent(gridUid, out BroadphaseComponent? broadphase);
 
+        // begin goobstation - off grid vision fix
+        // If our current entity isn't on a valid grid/broadphase, reuse the last known valid grid so vision doesn't go black.
+        if ((grid == null || broadphase == null) && _lastGridUid != EntityUid.Invalid)
+        {
+            if (_entManager.TryGetComponent(_lastGridUid, out MapGridComponent? lastGrid)
+                && _entManager.TryGetComponent(_lastGridUid, out BroadphaseComponent? lastBroadphase))
+            {
+                grid = lastGrid;
+                broadphase = lastBroadphase;
+                gridUid = _lastGridUid;
+            }
+        }
+        // end goobstation - off grid vision fix
+
         var invMatrix = args.Viewport.GetWorldToLocalMatrix();
         _accumulator -= (float) _timing.FrameTime.TotalSeconds;
 
         if (grid != null && broadphase != null)
         {
+            _lastGridUid = gridUid; // goobstation - off grid vision fix
+
             var lookups = _entManager.System<EntityLookupSystem>();
             var xforms = _entManager.System<SharedTransformSystem>();
 
@@ -123,7 +146,7 @@ public sealed class StationAiOverlay : Overlay
             () =>
             {
                 worldHandle.SetTransform(invMatrix);
-                var shader = _proto.Index<ShaderPrototype>("CameraStatic").Instance();
+                var shader = _proto.Index(CameraStaticShader).Instance();
                 worldHandle.UseShader(shader);
                 worldHandle.DrawRect(worldBounds, Color.White);
             },
@@ -146,11 +169,11 @@ public sealed class StationAiOverlay : Overlay
         }
 
         // Use the lighting as a mask
-        worldHandle.UseShader(_proto.Index<ShaderPrototype>("StencilMask").Instance());
+        worldHandle.UseShader(_proto.Index(StencilMaskShader).Instance());
         worldHandle.DrawTextureRect(_stencilTexture!.Texture, worldBounds);
 
         // Draw the static
-        worldHandle.UseShader(_proto.Index<ShaderPrototype>("StencilDraw").Instance());
+        worldHandle.UseShader(_proto.Index(StencilDrawShader).Instance());
         worldHandle.DrawTextureRect(_staticTexture!.Texture, worldBounds);
 
         worldHandle.SetTransform(Matrix3x2.Identity);

@@ -74,6 +74,19 @@
     wideAnimationRotation: 90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
     soundHit:
       collection: MetalThud # Goobstation ^
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
+  - type: BatteryDrinkerSource # Goobstation - Energycrit
+    maxAmount: 180
+  - type: Multishot # Goobstation V
+    missChance: 0.4
+    spreadMultiplier: 3
+    spreadAddition: 50 #very hard to hold two of these steady let alone steady while shooting them
 
 - type: entity
   id: BaseWeaponCustomCellSmall
@@ -135,6 +148,8 @@
   - type: Multishot
     missChance: 0
     spreadAddition: 10
+  - type: MeleeWeapon
+    resetOnHandSelected: false
 
 - type: entity
   name: plasma rifle
@@ -222,6 +237,13 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -232,60 +254,6 @@
         whitelist:
           tags:
             - EnergySpeedloader
-
-- type: entity
-  name: temperature gun
-  parent: [BaseWeaponBattery, BaseSecurityContraband]
-  id: WeaponTemperatureGun
-  description: An energy-efficient gun capable of modifying the temperature of creatures. Just point and click!
-  components:
-  - type: Appearance
-  - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi
-    layers:
-    - state: base
-      map: [ "enum.GunVisualLayers.Base" ]
-    - state: mode-cooling
-      shader: unshaded
-      map: [ "Firemode" ]
-    - state: mag-unshaded-4
-      map: [ "enum.GunVisualLayers.MagUnshaded" ]
-      shader: unshaded
-  - type: Item
-    size: Large
-  - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi
-  - type: Gun
-    fireRate: 2
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-    soundEmpty:
-      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletTemperatureHot
-  - type: EnergyGun
-    fireModes:
-    - proto: BulletTemperatureCold
-      fireCost: 100
-      name: cooling
-      state: cooling
-    - proto: BulletTemperatureHot
-      fireCost: 100
-      name: heating
-      state: heating
-  - type: GenericVisualizer
-    visuals:
-      enum.EnergyGunFireModeVisuals.State:
-        Firemode:
-          Cooling: { state: mode-cooling }
-          Heating: { state: mode-heating }
-  - type: Battery
-    maxCharge: 2500
-    startingCharge: 2500
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
 
 - type: entity
   name: centcomm disabler
@@ -399,6 +367,13 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   - type: ItemSlots
     slots:
       gun_magazine:

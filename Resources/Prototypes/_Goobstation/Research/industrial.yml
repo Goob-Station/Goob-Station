@@ -64,3 +64,33 @@
   position: 1,-2
   technologyPrerequisites:
   - PowerGeneration
+
+- type: technology
+  id: BluespaceConstructionStorage
+  name: research-technology-bluespace-construction-storage
+  icon:
+    sprite: _NF/Objects/Specific/Engineering/construction_bag.rsi
+    state: icon
+  discipline: Industrial
+  tier: 3
+  cost: 5000
+  recipeUnlocks:
+  - ConstructionBagOfHolding
+  technologyPrerequisites:
+  - AdvancedToolsTechnology
+  position: 3, -5
+
+- type: technology
+  id: Plumbing
+  name: research-technology-plumbing
+  icon:
+    sprite: _Goobstation/Structures/Machines/Plumbing/liquid_pump.rsi
+    state: icon
+  discipline: Industrial
+  tier: 1
+  cost: 6500
+  recipeUnlocks:
+  - PlumbingPumpCircuitboard
+  position: 1,-7
+  technologyPrerequisites:
+  - IndustrialEngineering

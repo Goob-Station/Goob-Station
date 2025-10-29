@@ -85,8 +85,8 @@
     noRot: true
     drawdepth: Mobs
     layers:
-      - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Groin" ]
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
@@ -135,6 +135,10 @@
     understands:
     - TauCetiBasic
     - Moffic
+  - type: ItemCougher
+    item: Chitzite
+    action: ActionChitzite
+    coughPopup: chitzite-cough
 
 - type: entity
   parent: BaseSpeciesDummy

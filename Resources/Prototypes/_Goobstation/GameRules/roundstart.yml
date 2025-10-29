@@ -284,7 +284,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StationEvent
-    weight: 10
+    weight: 1
     duration: 1
     earliestStart: 50
     minimumPlayers: 20
@@ -394,7 +394,7 @@
     definitions:
     - prefRoles: [ Devil ]
       max: 1
-      playerRatio: 20
+      playerRatio: 40 # from 20 --> 40 , makes it less likely to spawn (Fuck devils)
       chaosScore: 150
       jobBlacklist: [ Chaplain, Mime, ChiefEngineer, ResearchDirector, Quartermaster ] #chaplain is obvious, mime can't write.
       mindRoles:

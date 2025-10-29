@@ -1,3 +1,15 @@
+signal-port-name-powered = Powered
+signal-port-description-powered = This port is invoked with HIGH or LOW depending on the machine's power being switched on or off.
+
+signal-port-name-plumbing-input = Plumbing: Input
+signal-port-description-plumbing-input = A plumbing automation slot to pump liquids into.
+
+signal-port-name-plumbing-output = Plumbing: Output
+signal-port-description-plumbing-output = A plumbing automation slot to pump liquids out of.
+
+signal-port-name-plumbing-dispenser = Plumbing: Dispenser
+signal-port-description-plumbing-dispenser = A plumbing automation slot to pump liquids into or out of a dispenser's beaker.
+
 # Robotic Arm
 
 signal-port-name-input-machine = Item: Input Machine
@@ -85,10 +97,18 @@ signal-port-description-automation-slot-tool = An automation slot for an interac
 signal-port-name-automation-slot-autodoc-hand = Item: Autodoc Hand
 signal-port-description-automation-slot-autodoc-hand = An automation slot for an autodoc's held organ/part/etc from STORE ITEM / GRAB ITEM instructions.
 
+signal-port-name-alt-interact = Alt Interact Mode
+signal-port-description-alt-interact = Signal port to toggle alt interact mode, or set it to a HIGH/LOW value.
+
 # Gas Canister
 
 signal-port-name-automation-slot-gas-tank = Item: Gas Tank
 signal-port-description-automation-slot-gas-tank = An automation slot for a gas tank.
+
+# ChemMaster
+
+signal-port-name-automation-slot-bottles = Item: Bottles Slot
+signal-port-description-automation-slot-bottles = An automation slot for a ChemMaster's pill or liquid bottle.
 
 # Radiation Collector
 
@@ -100,3 +120,7 @@ signal-port-description-rad-low = Signal port set to HIGH if the tank is below 6
 
 signal-port-name-rad-full = Full
 signal-port-description-rad-full = Signal port set to HIGH if the tank is above 66% pressure, LOW otherwise.
+
+# Lathe
+signal-port-name-lathe-print = Print last recipe
+signal-port-description-lathe-print = Signal port that prints the last set recipe when pulsed.
