@@ -7,8 +7,8 @@ ghost-role-information-xenomorph-hunter-description = You're a xenomorph hunter.
 ghost-role-information-xenomorph-larva-name = xenomorph larva
 ghost-role-information-xenomorph-larva-description = You're a xenomorph larva. Help your hive expand and evolve into a higher caste.
 
-ghost-role-information-xenomorph-maid-name = lusty xenomorph maid
-ghost-role-information-xenomorph-maid-description = You're a xeno-maid. Be lustful. Do the most important job in your hive - seduce astronauts.
+ghost-role-information-xenomorph-maid-name = xenomorph maid
+ghost-role-information-xenomorph-maid-description = You're a xeno-maid. Do the most important job in your hive - clean the hive.
 
 ghost-role-information-xenomorph-praetorian-name = xenomorph praetorian
 ghost-role-information-xenomorph-praetorian-description = You're a xenomorph praetorian. Protect the hive and the queen. Strike fear into your enemies.

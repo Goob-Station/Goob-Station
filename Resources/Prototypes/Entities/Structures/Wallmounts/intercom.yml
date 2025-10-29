@@ -54,6 +54,10 @@
     toggleOnInteract: false
   - type: RadioSpeaker
     toggleOnInteract: false
+  - type: ListenBlacklist # Goobstation - its annoying as shit
+    blacklist:
+      components:
+      - Advertise
   - type: Intercom
   - type: Speech
     speechVerb: Robotic

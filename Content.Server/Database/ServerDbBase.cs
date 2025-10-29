@@ -92,7 +92,6 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -111,11 +110,8 @@
 // SPDX-FileCopyrightText: 2025 Poips <Hanakohashbrown@gmail.com>
 // SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 Sara Aldrete's Top Guy <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 YotaXP <yotaxp@gmail.com>
 // SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -2050,9 +2046,8 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             await db.DbContext.SaveChangesAsync();
         }
 
-        public async Task<(string Message, string User)?> GetRandomLobbyMessage()
+        public async Task<List<(string Message, string User)>> GetLobbyMessages()
         {
-            // TODO RMC14 the random row is evaluated outside the DB, if we have that many patrons I guess we have better problems!
             await using var db = await GetDb();
             var messages = await db.DbContext.RMCPatronLobbyMessages
                 .Include(p => p.Patron)
@@ -2060,18 +2055,14 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 .Where(p => p.Patron.Tier.LobbyMessage)
                 .Where(p => !string.IsNullOrWhiteSpace(p.Message))
                 .Select(p => new { p.Message, p.Patron.Player.LastSeenUserName })
+                .Select(p => new ValueTuple<string, string>(p.Message, p.LastSeenUserName))
                 .ToListAsync();
 
-            if (messages.Count == 0)
-                return null;
-
-            var random = messages[Random.Shared.Next(messages.Count)];
-            return (random.Message, random.LastSeenUserName);
+            return messages;
         }
 
-        public async Task<string?> GetRandomShoutout()
+        public async Task<List<string>> GetShoutouts()
         {
-            // TODO RMC14 the random row is evaluated outside the DB, if we have that many patrons I guess we have better problems!
             await using var db = await GetDb();
             var ntNames = await db.DbContext.RMCPatronRoundEndNTShoutouts
                 .Include(p => p.Patron)
@@ -2080,12 +2071,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 .Select(p => p.Name)
                 .ToListAsync();
 
-            var ntName = ntNames.Count == 0 ? null : ntNames[Random.Shared.Next(ntNames.Count)];
-
-            if (ntName == null)
-                ntName = "John Nanotrasen";
-
-            return (ntName);
+            return ntNames;
         }
 
         #endregion
@@ -2155,25 +2141,6 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return true;
         }
 
-        #endregion
-
-        #region Comedy
-
-        public async Task<List<Guid>> GetAllSpiderFriends()
-        {
-            await using var db = await GetDb();
-            return await db.DbContext.GoobMisandrySpiderFriends
-                .Select(p => p.Guid)
-                .ToListAsync();
-        }
-
-        public async Task AddSpiderFriend(SpiderFriend friend)
-        {
-            await using var db = await GetDb();
-            db.DbContext.GoobMisandrySpiderFriends.Add(friend);
-
-            await db.DbContext.SaveChangesAsync();
-        }
         #endregion
 
         public abstract Task SendNotification(DatabaseNotification notification);

@@ -24,6 +24,8 @@ namespace Content.Client.SurveillanceCamera.UI;
 [GenerateTypedNameReferences]
 public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goobstation
 {
+    private static readonly ProtoId<ShaderPrototype> CameraStaticShader = "CameraStatic";
+
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
     [Dependency] private IEntityManager _entManager = default!; // Goobstation
@@ -39,6 +41,8 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
     private readonly FixedEye _defaultEye = new();
     private readonly SpriteSystem _spriteSystem; // Goobstation
     private readonly Dictionary<NetEntity, string> _reverseCameras = new(); // Goobstation
+    private readonly Dictionary<string, string> _resolveCameraName = new(); // Goobstation
+    private Texture? _blipTexture; // Goobstation
 
     public SurveillanceCameraMonitorWindow()
     {
@@ -49,7 +53,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
 
         // This could be done better. I don't want to deal with stylesheets at the moment.
         var texture = _resourceCache.GetTexture("/Textures/Interface/Nano/square_black.png");
-        var shader = _prototypeManager.Index<ShaderPrototype>("CameraStatic").Instance().Duplicate();
+        var shader = _prototypeManager.Index(CameraStaticShader).Instance().Duplicate();
 
         CameraView.ViewportSize = new Vector2i(770, 770);
         CameraView.Eye = _defaultEye; // sure
@@ -66,7 +70,6 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
     }
 
     // Goobstation start
-    // 
     // need to translate entity to string and then call the same method the list does
     private void SetTrackedEntityFromNavMap(NetEntity? netEntity)
     {
@@ -101,6 +104,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
             msg.AddMarkupOrThrow(Loc.GetString("surveillance-camera-monitor-ui-station-name", ("stationName", stationName)));
 
             StationName.SetMessage(msg);
+            _blipTexture = _spriteSystem.Frame0(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/NavMap/beveled_circle.png")));
         }
 
         else
@@ -111,7 +115,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
     }
 
     // Add a particular camera
-    private void AddTrackedEntityToNavMap(NetEntity ent, NetCoordinates coordinates, bool selected)
+    private void AddTrackedEntityToNavMap(NetEntity ent, NetCoordinates coordinates, bool selected, bool mobile)
     {
         var coords = _entManager.GetCoordinates(coordinates);
         var texture = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/NavMap/beveled_square.png"));
@@ -119,28 +123,44 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
         var blink = false;
         var modulator = Color.White;
 
+        if (mobile)
+            color = selected ? Color.Green : Color.Orange;
+        else
+            color = selected ? Color.Green : Color.Red;
+
         var blip = new NavMapBlip(coords, _spriteSystem.Frame0(texture), color * modulator, blink);
         NavMap.TrackedEntities[ent] = blip;
     }
+    // Goobstation End
 
     // The UI class should get the eye from the entity, and then
     // pass it here so that the UI can change its view.
-    public void UpdateState(IEye? eye, string activeAddress, Dictionary<string, (NetEntity, NetCoordinates)> cameras) // Goobstation
+    public void UpdateState(IEye? eye, string activeAddress, Dictionary<string, (string, (NetEntity, NetCoordinates))> cameras, Dictionary<string, (string, (NetEntity, NetCoordinates))> mobileCameras, EntityUid monitor, EntityCoordinates? monitorCoords) // Goobstation
     {
         _currentAddress = activeAddress;
         SetCameraView(eye);
-
-        // Goobstation Start
+        // Goobstation start
         _reverseCameras.Clear();
+        _resolveCameraName.Clear();
         NavMap.TrackedEntities.Clear();
-        foreach (var (camera, (ent, coordinates)) in cameras)
+        foreach (var (camera, (name, (ent, coordinates))) in cameras)
         {
             _reverseCameras[ent] = camera;
-            AddTrackedEntityToNavMap(ent, coordinates, camera.Equals(_currentAddress) ? true : false);
+            _resolveCameraName[camera] = name;
+            AddTrackedEntityToNavMap(ent, coordinates, camera.Equals(_currentAddress) ? true : false, false);
         }
+        foreach (var (camera, (name, (ent, coordinates))) in mobileCameras)
+        {
+            _reverseCameras[ent] = camera;
+            _resolveCameraName[camera] = name;
+            AddTrackedEntityToNavMap(ent, coordinates, camera.Equals(_currentAddress) ? true : false, true);
+        }
+        // Show monitor on nav map
+        if (monitorCoords != null && _blipTexture != null)
+            NavMap.TrackedEntities[_entManager.GetNetEntity(monitor)] = new NavMapBlip(monitorCoords.Value, _blipTexture, Color.Cyan, true, false);
+        // Goobstation end
     }
 
-    // Goobstation End
 
     private void SetCameraView(IEye? eye)
     {
@@ -158,9 +178,16 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
 
             _isSwitching = true;
             CameraViewBackground.Visible = true;
-            CameraStatus.Text = Loc.GetString("surveillance-camera-monitor-ui-status",
-                ("status", Loc.GetString("surveillance-camera-monitor-ui-status-connecting")),
-                ("address", _currentAddress));
+            // Goobstation start
+            if (_resolveCameraName.TryGetValue(_currentAddress, out var name))
+                CameraStatus.Text = Loc.GetString("surveillance-camera-monitor-ui-status",
+                    ("status", Loc.GetString("surveillance-camera-monitor-ui-status-connecting")),
+                    ("address", _currentAddress)) + " - " + name;
+            else
+                CameraStatus.Text = Loc.GetString("surveillance-camera-monitor-ui-status",
+                    ("status", Loc.GetString("surveillance-camera-monitor-ui-status-connecting")),
+                    ("address", _currentAddress));
+            // Goobstation end
             CameraSwitchTimer!();
         }
         else
@@ -175,8 +202,15 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
         _isSwitching = false;
         CameraView.Visible = CameraView.Eye != _defaultEye;
         CameraViewBackground.Visible = CameraView.Eye == _defaultEye;
-        CameraStatus.Text = Loc.GetString("surveillance-camera-monitor-ui-status",
+        // Goobstation start
+        if (_resolveCameraName.TryGetValue(_currentAddress, out var name))
+            CameraStatus.Text = Loc.GetString("surveillance-camera-monitor-ui-status",
+                            ("status", Loc.GetString("surveillance-camera-monitor-ui-status-connected")),
+                            ("address", _currentAddress)) + " - " + name;
+        else
+            CameraStatus.Text = Loc.GetString("surveillance-camera-monitor-ui-status",
                             ("status", Loc.GetString("surveillance-camera-monitor-ui-status-connected")),
                             ("address", _currentAddress));
+        // Goobstation end
     }
 }

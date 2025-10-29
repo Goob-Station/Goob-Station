@@ -25,3 +25,49 @@
   category: construction-category-structures
   objectType: Structure
   placementMode: SnapgridCenter
+
+# Barricades
+
+- type: construction
+  id: BarricadeSteel
+  graph: BarricadeSteel
+  startNode: start
+  targetNode: base
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true
+
+- type: construction
+  id: BarricadeSteelFolding
+  graph: BarricadeSteel
+  startNode: start
+  targetNode: folding
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true
+
+- type: construction
+  id: BarricadePlasteel
+  graph: BarricadePlasteel
+  startNode: start
+  targetNode: base
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true
+
+- type: construction
+  id: BarricadePlasteelFolding
+  graph: BarricadePlasteel
+  startNode: start
+  targetNode: folding
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true

@@ -15,6 +15,7 @@ using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.Stunnable;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._White.Standing;
+using Content.Shared.Flash;
 using Content.Shared.Heretic;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
@@ -35,7 +36,7 @@ public partial class GoobInventorySystem
         SubscribeLocalEvent<InventoryComponent, FlashDurationMultiplierEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GetStandingUpTimeMultiplierEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GetSpellInvocationEvent>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, GetMessagePostfixEvent>(RelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, GetMessageColorOverrideEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, ClothingAutoInjectRelayedEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, ModifyStunTimeEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, IsEyesCoveredCheckEvent>(RelayInventoryEvent);

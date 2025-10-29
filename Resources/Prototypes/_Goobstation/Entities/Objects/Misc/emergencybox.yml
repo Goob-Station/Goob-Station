@@ -59,6 +59,7 @@
           tags:
           - FoodSnack
           - BreadEmergency
+          - FoodTinMRE
       flare:
         ejectOnInteract: false
         whitelist:
@@ -75,6 +76,7 @@
           - ExtendedEmergencyNitrogenTank
           - EmergencyPlasmaTank
           - ExtendedEmergencyPlasmaTank
+          - EmergencyWaterVaporTank
       mask:
         ejectOnInteract: false
         whitelist:
@@ -115,6 +117,7 @@
           tags:
           - FoodSnack
           - BreadEmergency
+          - FoodTinMRE
       flare:
         whitelist:
           tags:
@@ -159,6 +162,22 @@
         whitelist:
           tags:
           - EmergencyNitrogenTank
+      vapor:
+        whitelist:
+          tags:
+          - EmergencyWaterVaporTank
+      battery:
+        whitelist:
+          tags:
+          - DisposableBattery
+      welder:
+        whitelist:
+          tags:
+          - WeldingTool
+      cable:
+        whitelist:
+          tags:
+          - CableCoil
 
 
 - type: entity
@@ -533,7 +552,7 @@
       flare:
       - Flare
       tank:
-      - EmergencyPlasmaTankFilled
+      - DoubleEmergencyPlasmaTankFilled
       mask:
       - ClothingMaskBreath
       emergencypen:
@@ -557,7 +576,7 @@
       flare:
       - Flare
       tank:
-      - ExtendedEmergencyPlasmaTankFilled
+      - DoubleEmergencyPlasmaTankFilled
       mask:
       - ClothingMaskBreath
       emergencypen:
@@ -583,7 +602,7 @@
       flare:
       - Flare
       tank:
-      - ExtendedEmergencyPlasmaTankFilled
+      - DoubleEmergencyPlasmaTankFilled
       mask:
       - ClothingMaskGasSecurity
       emergencypen:
@@ -609,7 +628,7 @@
       flare:
       - Flare
       tank:
-      - EmergencyPlasmaTankFilled
+      - DoubleEmergencyPlasmaTankFilled
       mask:
       - ClothingMaskBreathMedical
       emergencypen:
@@ -635,7 +654,7 @@
       flare:
       - Flare
       tank:
-      - EmergencyPlasmaTankFilled
+      - DoubleEmergencyPlasmaTankFilled
       mask:
       - ClothingMaskBreath
       emergencypen:
@@ -659,7 +678,7 @@
       flare:
       - Flare
       tank:
-      - ExtendedEmergencyPlasmaTankFilled
+      - DoubleEmergencyPlasmaTankFilled
       mask:
       - ClothingMaskGasSyndicate
       emergencypen:
@@ -685,7 +704,7 @@
       flare:
       - Flare
       tank:
-      - EmergencyPlasmaTankFilled
+      - DoubleEmergencyPlasmaTankFilled
       mask:
       - ClothingMaskBreath
       emergencypen:
@@ -694,3 +713,50 @@
       - SpaceMedipen
   - type: Label
     currentLabel: reagent-name-plasma
+
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxSurvivalSlotsSilicon
+  name: silicon survival box
+  description: It's a box with basic tools for self-repair inside.
+  components:
+  - type: ContainerContainer
+    containers:
+      battery: !type:ContainerSlot
+      flare: !type:ContainerSlot
+      welder: !type:ContainerSlot
+      cable: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      battery:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - DisposableBattery
+      flare:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - Flare
+      welder:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - WeldingTool
+      cable:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - CableCoil
+  - type: ContainerFill
+    containers:
+      battery:
+      - BatteryDisposable
+      flare:
+      - Flare
+      welder:
+      - WelderMini
+      cable:
+      - CableApcStack10
+  - type: Sprite
+    state: box_silicon

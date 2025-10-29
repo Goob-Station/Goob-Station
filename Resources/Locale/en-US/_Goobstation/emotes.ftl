@@ -19,6 +19,7 @@ chat-emote-name-tweak = Tweak
 chat-emote-name-flex = Flex muscles
 chat-emote-name-gulp = Gulp
 chat-emote-name-surprised = look surprised
+chat-emote-name-bagawk = Bagawk
 
 chat-emote-msg-flip = does a flip!
 chat-emote-msg-spin = spins!

@@ -55,6 +55,9 @@
       types:
         Heat: 3
   - type: XenomorphEgg
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0.0
   - type: RequireProjectileTarget
   - type: Fixtures
     fixtures:
@@ -65,6 +68,23 @@
         density: 190
         layer:
         - BulletImpassable
+
+- type: entity
+  parent: XenomorphEgg
+  id: XenomorphEggGrown
+  suffix: Grown
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Furniture/xenomorph_egg.rsi
+    noRot: true
+    layers:
+    - state: egg_grown
+      map: [ "status" ]
+  - type: Icon
+    sprite: _White/Structures/Furniture/xenomorph_egg.rsi
+    state: egg_grown
+  - type: XenomorphEgg
+    status: Grown
 
 - type: entity
   parent: XenomorphEgg

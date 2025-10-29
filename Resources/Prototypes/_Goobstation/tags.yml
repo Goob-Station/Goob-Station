@@ -91,6 +91,9 @@
   id: BreathMask
 
 - type: Tag
+  id: Bulwark
+
+- type: Tag
   id: CartridgeHighCaliber
 
 - type: Tag
@@ -140,6 +143,9 @@
 
 - type: Tag
   id: CombatMech
+
+- type: Tag
+  id: CorporateOverride
 
 - type: Tag
   id: ContrabandDetectorCircuitboard
@@ -319,7 +325,13 @@
   id: IgnoreImmovableRod
 
 - type: Tag
+  id: IPCDrinkBlacklist
+
+- type: Tag
   id: ItemPickaxe
+
+- type: Tag
+  id: ImprovisedShotgun
 
 - type: Tag
   id: IndustrialMech
@@ -329,6 +341,9 @@
 
 - type: Tag
   id: Justice
+
+- type: Tag
+  id: Keyring
 
 - type: Tag
   id: Kidneys
@@ -381,6 +396,9 @@
 
 - type: Tag
   id: MechThruster
+
+- type: Tag
+  id: MechUnGrabbable
 
 - type: Tag
   id: MedicalPatch
@@ -491,6 +509,9 @@
   id: ShadowCloakAction
 
 - type: Tag
+  id: SheetPlasma
+
+- type: Tag
   id: ShowWizardIcons
 
 - type: Tag
@@ -498,6 +519,9 @@
 
 - type: Tag
   id: SnapPop
+
+- type: Tag
+  id: SolarAssemblyFlatpack # stupid upstream thing used it in a construction graph
 
 - type: Tag
   id: SoulTapped
@@ -530,6 +554,9 @@
   id: ShellShotgunHeavier
 
 - type: Tag
+  id: SheetGlass
+
+- type: Tag
   id: ShellShotgunHeavy
 
 - type: Tag
@@ -560,6 +587,9 @@
   id: ToySword
 
 - type: Tag
+  id: MakeshiftShield
+
+- type: Tag
   id: MolotovConstruction
 
 - type: Tag
@@ -572,10 +602,19 @@
   id: UristHand
 
 - type: Tag
+  id: Ushanka
+
+- type: Tag
   id: VehicleKey
 
 - type: Tag
   id: VulpEmotes
+
+- type: Tag
+  id: Vial
+  
+- type: Tag
+  id: WallLight
 
 - type: Tag
   id: WaterTank
@@ -584,10 +623,19 @@
   id: WeaponDisabler
 
 - type: Tag
+  id: Flash
+
+- type: Tag
+  id: RevFlash
+
+- type: Tag
   id: WeaponPistolDualetta
 
 - type: Tag
   id: WeaponEnergyGunLawbringer
+
+- type: Tag
+  id: WideSwingIgnore
 
 - type: Tag
   id: WeaponPistolCasul
@@ -603,6 +651,9 @@
 
 - type: Tag
   id: WizardHat
+
+- type: Tag # These tags are NOT alphabetical!!
+  id: Xenomorph
 
 - type: Tag
   id: HudMedicalSecurity
@@ -633,3 +684,12 @@
 
 - type: Tag
   id: MidroundAntag
+
+- type: Tag
+  id: FoodTinMRE
+
+- type: Tag
+  id: EmergencyWaterVaporTank
+
+- type: Tag
+  id: DisposableBattery

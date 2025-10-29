@@ -1,3 +1,12 @@
+# Misc
+- type: loadout
+  id: JanitorHeadSenior
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorJanitorial
+  equipment:
+    head: ClothingHeadHatJanitorCap
+
 - type: loadout
   id: JanitorEnvirosuit
   equipment:

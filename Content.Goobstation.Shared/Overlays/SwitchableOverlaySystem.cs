@@ -8,6 +8,7 @@
 
 using Content.Goobstation.Shared.Flashbang;
 using Content.Shared.Actions;
+using Content.Shared.Flash;
 using Content.Shared.Inventory;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
@@ -101,12 +102,14 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem // t
         args.State = new SwitchableVisionOverlayComponentState
         {
             Color = component.Color,
+            IsEquipment = component.IsEquipment,
             IsActive = component.IsActive,
             FlashDurationMultiplier = component.FlashDurationMultiplier,
             ActivateSound = component.ActivateSound,
             DeactivateSound = component.DeactivateSound,
             ToggleAction = component.ToggleAction,
             LightRadius = component is ThermalVisionComponent thermal ? thermal.LightRadius : 0f,
+            DrawOverlay = component.DrawOverlay,
         };
     }
 
@@ -116,9 +119,11 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem // t
             return;
 
         component.Color = state.Color;
+        component.IsEquipment = state.IsEquipment;
         component.FlashDurationMultiplier = state.FlashDurationMultiplier;
         component.ActivateSound = state.ActivateSound;
         component.DeactivateSound = state.DeactivateSound;
+        component.DrawOverlay = state.DrawOverlay;
 
         if (component.ToggleAction != state.ToggleAction)
         {

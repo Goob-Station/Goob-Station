@@ -174,8 +174,9 @@
     - id: VentClog
     - id: TidemindDevelop # Goobstation - Tidemind
     - id: MothroachSpawn # DeltaV
-    - id: XenoVents # DeltaV
     - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
+    - id: MalignRiftSpawn # DeltaV
+    - id: FloorGoblinMidRound # Goobstation
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -186,7 +187,7 @@
     - id: KingRatMigration
     - id: NinjaSpawn
     - id: ParadoxCloneSpawn
-    - id: RevenantSpawn
+    #- id: RevenantSpawn  # GoobStation - removed till rework
     - id: SleeperAgents
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
@@ -195,7 +196,9 @@
     - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
     - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
     - id: BingleSpawn #Goobstation - Bingle
+    - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
+    - id: WraithMidround # Goobstation - Wraith
 
 - type: entity
   id: BaseStationEvent
@@ -350,10 +353,11 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 3
-    earliestStart: 45
-    reoccurrenceDelay: 20
-    minimumPlayers: 60
+    weight: 2 # Goobstation - was 3
+    earliestStart: 30 # Goobstation was 45
+    #recorruenceDelay: 20 # Goobstation - no longer needed
+    maxOccurrences: 1 # Goobstation
+    minimumPlayers: 50
     duration: null
     chaos: # Goobstation
       Hostile: 20
@@ -389,10 +393,11 @@
   id: NinjaSpawn
   components:
   - type: StationEvent
-    weight: 6
+    weight: 3 # Goobstation - was 6
     duration: null
-    earliestStart: 45
-    reoccurrenceDelay: 20
+    earliestStart: 30 # Goobstation - was 45
+    #reoccurrenceDelay: 20 # Goobstation - no longer needed
+    maxOccurrences: 1 # Goobstation
     minimumPlayers: 30
     chaos: # Goobstation
       Hostile: 20
@@ -414,6 +419,7 @@
     - Diona
     - Abductor
     - Harpy
+    - Plasmaman # EE
     # Goobstation end
   - type: AntagObjectives
     objectives:
@@ -499,27 +505,27 @@
       mindRoles:
       - MindRoleParadoxClone
 
-- type: entity
-  parent: BaseGameRule
-  id: RevenantSpawn
-  components:
-  - type: StationEvent
-    weight: 3.5
-    duration: 1
-    earliestStart: 30
-    minimumPlayers: 20
-    chaos: # Goobstation
-      Hostile: 20
-      Friend: 20
-      Combat: 40
-      Death: 100
-      Medical: 100
-    eventType: HostilesSpawn # Goobstation
-  # Goobstation
-  - type: GameRule
-    chaosScore: 450
-  - type: RandomSpawnRule
-    prototype: MobRevenant
+#- type: entity   Goobstaion start - disabled until rework
+#  parent: BaseGameRule
+#  id: RevenantSpawn
+#  components:
+#  - type: StationEvent
+#    weight: 3.5
+#    duration: 1
+#    earliestStart: 30
+#    minimumPlayers: 20
+#    chaos: # Goobstation
+#      Hostile: 20
+#      Friend: 20
+#      Combat: 40
+#      Death: 100
+#      Medical: 100
+#    eventType: HostilesSpawn # Goobstation
+#  # Goobstation
+#  - type: GameRule
+#    chaosScore: 450
+#  - type: RandomSpawnRule
+#    prototype: MobRevenant      goobstation end
 
 # Goob - wiz of our own
 #- type: entity
@@ -692,7 +698,7 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
+    weight: 7 # Goobstation - was 5
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
       Hostile: 20
@@ -718,7 +724,7 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
+    weight: 7 # Goobstation - was 5
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
       Hostile: 20
@@ -744,7 +750,7 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
+    weight: 7 # Goobstation - was 5
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
       Hostile: 20
@@ -767,7 +773,7 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 45 # DeltaV - was 20
     minimumPlayers: 30 # DeltaV - was 20
-    weight: 1 # DeltaV - was 1.5
+    weight: 3 # Goobstation - was 1.5
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
       Hostile: 20
@@ -786,7 +792,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 90
+    earliestStart: 60 # Goobstation - was 90 (impossible on goob)
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
@@ -829,13 +835,13 @@
   components:
   - type: StationEvent
     earliestStart: 35
-    weight: 5.5
-    minimumPlayers: 20
+    weight: 2.5 # Goobstation - was 5.5
+    minimumPlayers: 50 # Goobstation - was 20
     duration: 1
     chaos: # Goobstation
-      Hostile: 60
-      Medical: 75
-      Death: 100
+      Hostile: 200
+      Medical: 200
+      Death: 200
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
@@ -865,9 +871,6 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
-      - type: AutoImplant
-        implants:
-        - DeathAcidifierImplant # Goobstation
       mindRoles:
       - MindRoleNukeops
   - type: AntagLoadProfileRule # Goobstation
@@ -1035,24 +1038,3 @@
       min: 1
       max: 1
       pickPlayer: false
-
-- type: entity
-  id: AncientRogueKingSpawn
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    earliestStart: 20
-    weight: 8
-    duration: 10
-    minimumPlayers: 45
-    chaos: # Goobstation
-      Hostile: 100
-      Friend: 20
-      Combat: 100
-      Death: 100
-      Medical: 100
-    eventType: HostilesSpawn
-  - type: GameRule
-    chaosScore: 400
-  - type: RandomSpawnRule
-    prototype: CMMobXenoRogueKingSentient

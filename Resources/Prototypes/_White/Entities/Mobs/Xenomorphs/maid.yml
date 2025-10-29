@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseMobXenomorphAdult
   id: MobXenomorphMaid
-  name: lusty xenomorph maid
-  description: Don't ask it to lay eggs in you.
+  name: xenomorph maid
+  description: I mean, I guess it is kinda cute?
   components:
   - type: Sprite
     sprite: _White/Mobs/Aliens/Xenomorphs/maid.rsi
@@ -18,10 +18,10 @@
       visible: false
   - type: Xenomorph
     caste: Maid
-  - type: ActionGrant
-    actions:
-    - ActionTransferPlasma
-    - ActionSpawnResinWeedNode
+  #- type: ActionGrant # Goobstation - moved to organ
+  #  actions:
+  #  - ActionTransferPlasma
+  #  - ActionSpawnResinWeedNode
   - type: Cuffable
   - type: MobThresholds
     thresholds:

@@ -20,7 +20,6 @@
 # SPDX-FileCopyrightText: 2023 Jeff <velcroboy333@hotmail.com>
 # SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
 # SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Veritius <veritiusgaming@gmail.com>
@@ -41,6 +40,15 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Jajsha <101492056+Zap527@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -55,16 +63,53 @@
   recognizable: true
   metabolisms:
     Drink:
+      metabolismRate: 0.05 # Goobstation: Very slow metabolism
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:GenericStatusEffect
-        key: Drowsiness
-        time: 2.0
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 2
         type: Remove
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      - !type:Jitter # Goobstation: Coffee causes jitteriness and alters speed
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Coffee
+          min: 25
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.1
+        sprintSpeedModifier: 1.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Coffee
+          min: 25
+          max: 99
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Coffee
+          min: 75
+      - !type:MovespeedModifier # Goobstation: Drinking too much causes chest pain and slows you down
+        walkSpeedModifier: 0.70
+        sprintSpeedModifier: 0.70
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Coffee
+          min: 100
+      - !type:PopupMessage
+        visualType: Medium
+        messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
+        type: Local
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Coffee
+          min: 100
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coffeeglass.rsi
     state: icon_empty
@@ -151,9 +196,9 @@
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:GenericStatusEffect
-        key: Drowsiness
-        time: 2.0
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 2
         type: Remove
 
 - type: reagent
@@ -207,9 +252,9 @@
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:GenericStatusEffect
-        key: Drowsiness
-        time: 2.0
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 2
         type: Remove
 
 - type: reagent
@@ -403,9 +448,9 @@
       effects:
       - !type:SatiateThirst
         factor: 6
-      - !type:GenericStatusEffect
-        key: Drowsiness
-        time: 3.0
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 3
         type: Remove
     Poison:
       effects:
@@ -448,9 +493,9 @@
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:GenericStatusEffect
-        key: Drowsiness
-        time: 2.0
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 2
         type: Remove
 
 - type: reagent
@@ -512,7 +557,7 @@
       effects:
       - !type:SatiateThirst
         factor: 4
-    Gas:
+    Gas: # DeltaV - Feroxi get to breathe with this too!
       effects:
       - !type:HealthChange
         scaleByQuantity: true
@@ -524,6 +569,39 @@
         damage:
           types:
             Heat: 3
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Feroxi
+      - !type:SatiateThirst
+        conditions:
+        - !type:OrganType
+          type: Feroxi
+        factor: 2
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: FeroxiDehydrated
+      - !type:SatiateThirst
+        conditions:
+        - !type:OrganType
+          type: FeroxiDehydrated
+        factor: 2
+      # DeltaV Converts H2O into CO2 for Feroxi
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Feroxi
+        ratios: # DeltaV no duplicating O2 >:3
+          CarbonDioxide: 0.5
+          WaterVapor: -1.0
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: FeroxiDehydrated
+        ratios: # DeltaV no duplicating O2 >:3
+          CarbonDioxide: 0.5
+          WaterVapor: -1.0
 
 - type: reagent
   id: Ice

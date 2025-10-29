@@ -1,0 +1,76 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [PartAnimalBase, ChestAnimal]
+  id: ChestSlaughter
+  name: slaughter chest
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Woundable
+    integrity: 500
+    integrityCap: 500
+    thresholds:
+      Minor: 450
+      Moderate: 350
+      Severe: 200
+      Critical: 100
+      Mangled: 0
+
+- type: entity
+  parent: [PartAnimalBase, GroinAnimal]
+  id: GroinSlaughter
+  name: slaughter groin
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Woundable
+    integrity: 500
+    integrityCap: 500
+    thresholds:
+      Minor: 450
+      Moderate: 350
+      Severe: 200
+      Critical: 100
+      Mangled: 0
+
+- type: entity
+  parent: [PartAnimalBase, BaseRightArm]
+  id: RightArmSlaughter
+  name: "right arm slaughter"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/SlaughterDemon/body_parts.rsi
+    state: r_arm
+
+- type: entity
+  parent: [PartAnimalBase, BaseLeftArm]
+  id: LeftArmSlaughter
+  name: "left arm slaughter"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/SlaughterDemon/body_parts.rsi
+    state: l_arm
+
+- type: entity
+  parent: [PartAnimalBase, BaseRightHand]
+  id: RightHandSlaughter
+  name: "right hand slaughter"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/SlaughterDemon/body_parts.rsi
+    state: r_hand
+
+- type: entity
+  parent: [PartAnimalBase, BaseLeftHand]
+  id: LeftHandSlaughter
+  name: "left hand slaughter"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/SlaughterDemon/body_parts.rsi
+    state: l_hand
