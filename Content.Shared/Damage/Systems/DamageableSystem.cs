@@ -787,8 +787,16 @@ namespace Content.Shared.Damage
 
                 // Create wounds if damage was applied
                 if (newValue > 0 && woundable.AllowWounds)
+                {
                     foreach (var (type, value) in component.Damage.DamageDict)
-                        _wounds.TryInduceWound(uid, type, value, out _, woundable);
+                    {
+                        _wounds.TryInduceWound(uid,
+                            type,
+                            value * component.Damage.WoundSeverityMultipliers.GetValueOrDefault(type, 1),
+                            out _,
+                            woundable);
+                    }
+                }
             }
         }
 

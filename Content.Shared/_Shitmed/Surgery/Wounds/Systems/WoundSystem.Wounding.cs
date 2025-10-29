@@ -279,7 +279,8 @@ public sealed partial class WoundSystem
                 if (!IsWoundPrototypeValid(damageType))
                     continue;
 
-                TryInduceWound(uid, damageType, damageValue, out _, component);
+                TryInduceWound(uid, damageType, damageValue *
+                    args.DamageDelta.WoundSeverityMultipliers.GetValueOrDefault(damageType, 1), out _, component);
             }
         }
 
@@ -346,7 +347,8 @@ public sealed partial class WoundSystem
 
         foreach (var woundToInduce in damage.DamageDict)
         {
-            if (!TryInduceWound(uid, woundToInduce.Key, woundToInduce.Value, out var woundInduced, woundable))
+            if (!TryInduceWound(uid, woundToInduce.Key, woundToInduce.Value *
+                damage.WoundSeverityMultipliers.GetValueOrDefault(woundToInduce.Key, 1), out var woundInduced, woundable))
                 return false;
 
             woundsInduced.Add(woundInduced.Value);

@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
@@ -112,13 +113,13 @@ public sealed partial class WoundableComponent : Component
     /// Can the woundable heal damage?
     /// </summary>
     [ViewVariables]
-    public bool CanHealDamage => WoundableIntegrity < DamageThreshold;
+    public bool CanHealDamage => true; // Fuck this
 
     /// <summary>
     /// Can the woundable heal bleeds?
     /// </summary>
     [ViewVariables]
-    public bool CanHealBleeds => Bleeds > 0 && Bleeds < BleedsThreshold;
+    public bool CanHealBleeds => Bleeds > 0; // Fuck this
 
     /// <summary>
     /// Multipliers of severity applied to this wound.
@@ -177,6 +178,12 @@ public sealed partial class WoundableComponent : Component
     /// </summary>
     [DataField]
     public DamageSpecifier? DamageOnAmputate;
+
+    [DataField]
+    public Dictionary<TraumaType, FixedPoint2> TraumaDeductions = new()
+    {
+        {TraumaType.Dismemberment, 0.2f},
+    };
 }
 
 [Serializable, NetSerializable]

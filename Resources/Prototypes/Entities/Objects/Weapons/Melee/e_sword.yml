@@ -194,6 +194,9 @@
         Slash: 15
         Heat: 15
         Structural: 20
+      woundSeverityMultipliers:
+        Slash: 3
+        Heat: 3
   - type: MeleeWeapon
     animationRotation: -45 # WWDP
     heavyStaminaCost: 2.5 # goob edit
@@ -294,6 +297,8 @@
         types:
             Slash: 10
             Heat: 10
+        woundSeverityMultipliers:
+          Slash: 1
     deactivatedSecret: true
   - type: ItemToggleActiveSound
     activeSound:
@@ -368,6 +373,8 @@
       types:
         Slash: 10
         Heat: 10
+      woundSeverityMultipliers:
+        Slash: 1
   - type: ComponentToggler
     components:
     - type: Sharp

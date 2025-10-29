@@ -39,9 +39,9 @@
     - VeinsDamage
     - NerveDamage
     traumasChances:
-      Dismemberment: -0.17
+      Dismemberment: -2.0
       OrganDamage: 0.17
-      BoneDamage: 0.34
+      BoneDamage: 0.8
       VeinsDamage: 0
       NerveDamage: 0
     mangledMultipliers:
@@ -74,7 +74,7 @@
     allowArmourDeduction:
     - Dismemberment
     traumasChances:
-      Dismemberment: 0.01
+      Dismemberment: -2.0
       OrganDamage: 0.08
       BoneDamage: 0.14
       VeinsDamage: -0.4 # goes through rather easy.
@@ -125,7 +125,7 @@
     woundType: External
     woundVisibility: Always
     scarWound: SlashScar
-    integrityMultiplier: 0.17
+    integrityMultiplier: 0.25
     mangleSeverity: Severe
   - type: TraumaInflicter
     severityThreshold: 9
@@ -159,7 +159,7 @@
     woundType: External
     woundVisibility: Always
     scarWound: BurnScar
-    integrityMultiplier: 0.34 # boiling people
+    integrityMultiplier: 0.4 # boiling people
   - type: TraumaInflicter
     severityThreshold: 17
     allowedTraumas:
