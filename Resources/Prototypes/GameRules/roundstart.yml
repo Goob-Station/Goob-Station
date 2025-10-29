@@ -240,6 +240,7 @@
     #Balance concerns are not a valid reason to disable a species, except for high-impact Nukie-specific exploits.
     #- Vox
     - Yowie # Goobstation
+    - Plasmaman # EE
 
 - type: entity
   parent: BaseNukeopsRule

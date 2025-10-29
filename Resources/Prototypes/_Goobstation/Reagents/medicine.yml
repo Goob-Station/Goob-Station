@@ -1498,17 +1498,17 @@
   worksOnTheDead: true
   metabolisms:
     Poison:
-      metabolismRate: 0.1
+      metabolismRate: 0.05
       effects:
       - !type:HealthChange
         damage:
           types:
-            Poison: 1
+            Poison: 0.5
     Medicine:
-      metabolismRate: 0.1
+      metabolismRate: 0.05
       effects:
       - !type:ReduceRotting
-        seconds: 6
+        seconds: 1
         conditions:
         - !type:MobStateCondition
           mobstate: Dead
@@ -1518,5 +1518,5 @@
           reagent: Formaldehyde
           min: 30
         reagent: Histamine
-        amount: 0.4
+        amount: 0.2
         probability: 0.1
