@@ -15,6 +15,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.DoAfter;
 using Content.Goobstation.Maths.FixedPoint;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -102,6 +103,23 @@ public sealed partial class InjectorComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan DelayPerVolume = TimeSpan.FromSeconds(0.1);
+
+    // Goobstation start
+    [DataField]
+    public bool BypassInjectionBlock;
+
+    [DataField]
+    public bool Instant;
+
+    [DataField]
+    public bool IgnoreAccessChecks;
+
+    [DataField]
+    public LocId? TargetAfterDrawMessage;
+
+    [DataField]
+    public SoundSpecifier? DrawSound;
+    /// Goobstation end
 
     /// <summary>
     /// The state of the injector. Determines it's attack behavior. Containers must have the
