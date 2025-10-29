@@ -76,12 +76,12 @@ public abstract class SharedShopVendorSystem : EntitySystem
 
     private void OnPointsBalance(Entity<PointsVendorComponent> ent, ref ShopVendorBalanceEvent args)
     {
-        args.Balance = _points.TryFindIdCard(args.User)?.Comp?.Points ?? 0;
+        args.Balance = _points.GetPointComp(args.User)?.Comp?.Points ?? 0; // Goobstation - borg Miningpoints
     }
 
     private void OnPointsPurchase(Entity<PointsVendorComponent> ent, ref ShopVendorPurchaseEvent args)
     {
-        if (_points.TryFindIdCard(args.User) is {} idCard && _points.RemovePoints(idCard, args.Cost))
+        if (_points.GetPointComp(args.User) is {} idCard && _points.RemovePoints(idCard, args.Cost)) // Goobstation - borg Miningpoints
             args.Paid = true;
     }
 

@@ -17,7 +17,7 @@ public sealed class ShadowlingShadowWalkSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] private  readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
 
@@ -95,6 +95,7 @@ public sealed class ShadowlingShadowWalkSystem : EntitySystem
         _transform.SetParent(effectEnt, uid);
 
         var stealth = EnsureComp<StealthComponent>(uid);
+        _stealth.SetThermalsImmune(uid, true, stealth);
         _stealth.SetVisibility(uid, -1.5f, stealth);
 
         args.Handled = true;

@@ -19,6 +19,7 @@ research-technology-ripley-mkii = Ripley MK-II
 research-technology-clarke = Clarke
 research-technology-gygax = Gygax (Requires Centcomm intervention)
 research-technology-durand = Durand (Requires Centcomm intervention)
+research-technology-plumbing = Plumbing Technologies
 research-technology-explosive-mech-ammunition = Explosive Mech Ammunition
 research-technology-honk-weapons = Bananium Weapons
 research-technology-modsuits = Modular Technologies
