@@ -246,6 +246,10 @@
       - type: Hands
       - type: CanEscapeInventory
       - type: MobCollision
+      - type: LanguageSpeaker
+      - type: UniversalLanguageSpeaker
+      - type: Speech
+        speechVerb: Ghost
       toRemove:
       - RequireProjectileTarget
       - BlockMovement
