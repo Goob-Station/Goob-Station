@@ -8,6 +8,8 @@
   name: Wraith
   description: A VERY spooky ghostie.
   components:
+  - type: MindContainer
+    showExamineInfo: true #show that its dead
   - type: PassiveDamage #passive Healing
     allowedStates:
     - Alive

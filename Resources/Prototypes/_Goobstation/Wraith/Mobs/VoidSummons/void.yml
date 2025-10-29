@@ -105,6 +105,8 @@
   id: MobVoidSpiker
   description: Standing still is probably not a good idea.
   components:
+  - type: MindContainer
+    showExamineInfo: true
   - type: CollectiveMind
     defaultChannel: Wraithmind
     channels:
@@ -202,6 +204,8 @@
   id: MobVoidHound
   description: You probably shouldn't be staring at this thing.
   components:
+  - type: MindContainer
+    showExamineInfo: true
   - type: CollectiveMind
     defaultChannel: Wraithmind
     channels:

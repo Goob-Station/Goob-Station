@@ -242,6 +242,8 @@
   parent: [ BaseMob, MobCombat ]
   description: A severely disfigured human torso which is forcibly kept alive by the mechanical parts...
   components:
+  - type: MindContainer
+    showExamineInfo: true
   - type: SpamEmitSound
     minInterval: 5
     maxInterval: 25
@@ -311,6 +313,8 @@
         volume: -1
         maxDistance: 12
         variation: 0.01
+  - type: MindContainer
+    showExamineInfo: true
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -394,6 +398,8 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Bingle
+  - type: MindContainer
+    showExamineInfo: true
   - type: MobState
   - type: MobThresholds
     thresholds:
