@@ -20,7 +20,7 @@ using Robust.Shared.Physics.Components;
 
 namespace Content.Goobstation.Server.Morph;
 
-public sealed partial class MorphSystem : SharedMorphSystem
+public sealed class MorphSystem : SharedMorphSystem
 {
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
@@ -127,11 +127,6 @@ public sealed partial class MorphSystem : SharedMorphSystem
     # endregion
 
     # region Morph Disguise
-
-    private void TryMorph(Entity<ChameleonProjectorComponent> ent, ref MorphEvent arg)
-    {
-        _chamleon.TryDisguise(ent, arg.Performer, arg.Target);
-    }
 
     private void TryUnMorph(Entity<ChameleonDisguisedComponent> ent, ref UnMorphEvent arg)
     {
