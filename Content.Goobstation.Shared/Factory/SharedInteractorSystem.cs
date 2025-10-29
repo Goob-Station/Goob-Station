@@ -75,7 +75,7 @@ public abstract class SharedInteractorSystem : EntitySystem
 
     public bool IsValidTarget(Entity<InteractorComponent> ent, EntityUid target)
         => !_thrownQuery.HasComp(target) // thrown items move too fast to be "clicked" on...
-            || _filter.IsAllowed(_filter.GetSlot(ent), target); // ignore non-filtered entities
+            && _filter.IsAllowed(_filter.GetSlot(ent), target); // ignore non-filtered entities
 
     private void OnItemModified<T>(Entity<InteractorComponent> ent, ref T args) where T: ContainerModifiedMessage
     {
