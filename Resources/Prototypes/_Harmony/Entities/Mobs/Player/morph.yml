@@ -106,8 +106,9 @@
       components:
         - Anchorable
         - Item
-        #- MobState # for now cant become mobs.
         - Supermatter # needs to be here.
+      tags:
+        - VimPilot # used to morph into animals
     blacklist:
       components:
         - Morph # cant copy another morph
