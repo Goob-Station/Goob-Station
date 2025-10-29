@@ -69,9 +69,11 @@ public sealed class ManifestListingsSystem : EntitySystem
                 }
             }
 
-            info = info.Where(x => !ignoredIds.Contains(x.Key)).ToDictionary();
             foreach (var (dataId, count) in info)
             {
+                if (ignoredIds.Contains(dataId))
+                    continue;
+
                 var data = list.FirstOrDefault(x => x.ID == dataId);
                 if (data == null)
                     continue;
@@ -164,21 +166,11 @@ public sealed class ManifestListingsSystem : EntitySystem
                 information = information.Replace("\"", ""); // Fuck this
                 information = information.Replace("\'", ""); // Fuck this
 
-                if (count == 1)
-                {
-                    storeSb.Append(Loc.GetString("manifest-listing-entry-listing-singular",
-                        ("sprite", sprite),
-                        ("state", state),
-                        ("info", information)));
-                }
-                else
-                {
-                    storeSb.Append(Loc.GetString("manifest-listing-entry-listing-multiple",
-                        ("sprite", sprite),
-                        ("state", state),
-                        ("info", information),
-                        ("amount", count)));
-                }
+                storeSb.Append(Loc.GetString("manifest-listing-entry-listing",
+                    ("sprite", sprite),
+                    ("state", state),
+                    ("info", information),
+                    ("amount", count)));
             }
 
             sb2.Append(storeSb.ToString());
