@@ -108,11 +108,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
-using System.Net;
 using System.Numerics;
-using Content.Goobstation.Common.Movement;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Bed.Sleep;
 using Content.Shared.CCVar;
 using Content.Shared.Friction;
 using Content.Shared.Gravity;
@@ -121,6 +118,7 @@ using Content.Shared.Maps;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
+using Content.Shared._DV.StepTrigger.Components; // DeltaV - NoShoesSilentFootstepsComponent
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -131,7 +129,6 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Controllers;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -177,6 +174,7 @@ public abstract partial class SharedMoverController : VirtualController
     protected EntityQuery<RelayInputMoverComponent> RelayQuery;
     protected EntityQuery<PullableComponent> PullableQuery;
     protected EntityQuery<TransformComponent> XformQuery;
+    protected EntityQuery<NoShoesSilentFootstepsComponent> NoShoesSilentQuery; // DeltaV - NoShoesSilentFootstepsComponent
 
     private static readonly ProtoId<TagPrototype> FootstepSoundTag = "FootstepSound";
 
@@ -196,6 +194,7 @@ public abstract partial class SharedMoverController : VirtualController
 
     public override void Initialize()
     {
+        UpdatesBefore.Add(typeof(TileFrictionController));
         base.Initialize();
 
         MoverQuery = GetEntityQuery<InputMoverComponent>();
@@ -212,6 +211,7 @@ public abstract partial class SharedMoverController : VirtualController
         MapGridQuery = GetEntityQuery<MapGridComponent>();
         FixturesQuery = GetEntityQuery<FixturesComponent>(); // Tile Movement Change
         TileMovementQuery = GetEntityQuery<TileMovementComponent>(); // Tile Movement Change
+        NoShoesSilentQuery = GetEntityQuery<NoShoesSilentFootstepsComponent>(); // DeltaV - NoShoesSilentFootstepsComponent
         MapQuery = GetEntityQuery<MapComponent>();
 
         SubscribeLocalEvent<MovementSpeedModifierComponent, TileFrictionEvent>(OnTileFriction);
@@ -223,7 +223,6 @@ public abstract partial class SharedMoverController : VirtualController
         Subs.CVar(_configManager, CCVars.MinFriction, value => _minDamping = value, true);
         Subs.CVar(_configManager, CCVars.AirFriction, value => _airDamping = value, true);
         Subs.CVar(_configManager, CCVars.OffgridFriction, value => _offGridDamping = value, true);
-        UpdatesBefore.Add(typeof(TileFrictionController));
     }
 
     public override void Shutdown()
@@ -316,10 +315,6 @@ public abstract partial class SharedMoverController : VirtualController
             || !PhysicsQuery.TryComp(uid, out var physicsComponent)
             || PullableQuery.TryGetComponent(uid, out var pullable) && pullable.BeingPulled)
         {
-            // Goobstation start
-            var cantMoveEvent = new MoverControllerCantMoveEvent();
-            RaiseLocalEvent(uid, ref cantMoveEvent);
-            // Goobstation end
             UsedMobMovement[uid] = false;
             return;
         }
@@ -397,7 +392,7 @@ public abstract partial class SharedMoverController : VirtualController
 
             // If we're not on a grid, and not able to move in space check if we're close enough to a grid to touch.
             if (!touching && MobMoverQuery.TryComp(uid, out var mobMover))
-                touching |= IsAroundCollider(PhysicsSystem, xform, mobMover, uid, physicsComponent);
+                touching |= IsAroundCollider(_lookup, (uid, physicsComponent, mobMover, xform));
 
             // If we're touching then use the weightless values
             if (touching)
@@ -421,7 +416,7 @@ public abstract partial class SharedMoverController : VirtualController
             if (MapGridQuery.TryComp(xform.GridUid, out var gridComp)
                 && _mapSystem.TryGetTileRef(xform.GridUid.Value, gridComp, xform.Coordinates, out var tile)
                 && physicsComponent.BodyStatus == BodyStatus.OnGround)
-                tileDef = (ContentTileDefinition) _tileDefinitionManager[tile.Tile.TypeId];
+                tileDef = (ContentTileDefinition)_tileDefinitionManager[tile.Tile.TypeId];
 
             var walkSpeed = moveSpeedComponent?.CurrentWalkSpeed ?? MovementSpeedModifierComponent.DefaultBaseWalkSpeed;
             var sprintSpeed = moveSpeedComponent?.CurrentSprintSpeed ?? MovementSpeedModifierComponent.DefaultBaseSprintSpeed;
@@ -442,11 +437,6 @@ public abstract partial class SharedMoverController : VirtualController
             accel = moveSpeedComponent?.Acceleration ?? MovementSpeedModifierComponent.DefaultAcceleration;
             accel *= tileDef?.MobAcceleration ?? 1f;
         }
-
-        // Goobstation start
-        var getTileEvent = new MoverControllerGetTileEvent(tileDef);
-        RaiseLocalEvent(uid, ref getTileEvent);
-        // Goobstation end
 
         // This way friction never exceeds acceleration when you're trying to move.
         // If you want to slow down an entity with "friction" you shouldn't be using this system.
@@ -613,23 +603,27 @@ public abstract partial class SharedMoverController : VirtualController
     }
 
     /// <summary>
-    ///     Used for weightlessness to determine if we are near a wall.
+    /// Used for weightlessness to determine if we are near a wall.
     /// </summary>
-    private bool IsAroundCollider(SharedPhysicsSystem broadPhaseSystem, TransformComponent transform, MobMoverComponent mover, EntityUid physicsUid, PhysicsComponent collider)
+    private bool IsAroundCollider(EntityLookupSystem lookupSystem, Entity<PhysicsComponent, MobMoverComponent, TransformComponent> entity)
     {
-        var enlargedAABB = _lookup.GetWorldAABB(physicsUid, transform).Enlarged(mover.GrabRangeVV);
+        var (uid, collider, mover, transform) = entity;
+        var enlargedAABB = _lookup.GetWorldAABB(entity.Owner, transform).Enlarged(mover.GrabRange);
 
-        foreach (var otherCollider in broadPhaseSystem.GetCollidingEntities(transform.MapID, enlargedAABB))
+        foreach (var otherEntity in lookupSystem.GetEntitiesIntersecting(transform.MapID, enlargedAABB))
         {
-            if (otherCollider == collider)
+            if (otherEntity == uid)
                 continue; // Don't try to push off of yourself!
+
+            if (!PhysicsQuery.TryComp(otherEntity, out var otherCollider))
+                continue;
 
             // Only allow pushing off of anchored things that have collision.
             if (otherCollider.BodyType != BodyType.Static ||
                 !otherCollider.CanCollide ||
                 ((collider.CollisionMask & otherCollider.CollisionLayer) == 0 &&
                 (otherCollider.CollisionMask & collider.CollisionLayer) == 0) ||
-                (TryComp(otherCollider.Owner, out PullableComponent? pullable) && pullable.BeingPulled))
+                (TryComp(otherEntity, out PullableComponent? pullable) && pullable.BeingPulled))
             {
                 continue;
             }
@@ -688,6 +682,14 @@ public abstract partial class SharedMoverController : VirtualController
 
         mobMover.StepSoundDistance -= distanceNeeded;
 
+        // DeltaV - Don't play the sound if they have no shoes and the component
+        if (NoShoesSilentQuery.HasComp(uid) &&
+            !_inventory.TryGetSlotEntity(uid, "shoes", out var _))
+        {
+            return false;
+        }
+        // End DeltaV code
+
         if (FootstepModifierQuery.TryComp(uid, out var moverModifier))
         {
             sound = moverModifier.FootstepSoundCollection;
@@ -724,7 +726,7 @@ public abstract partial class SharedMoverController : VirtualController
             return sound != null;
         }
 
-        var position = grid.LocalToTile(xform.Coordinates);
+        var position = _mapSystem.LocalToTile(xform.GridUid.Value, grid, xform.Coordinates);
         var soundEv = new GetFootstepSoundEvent(uid);
 
         // If the coordinates have a FootstepModifier component
@@ -751,9 +753,9 @@ public abstract partial class SharedMoverController : VirtualController
         // Walking on a tile.
         // Tile def might have been passed in already from previous methods, so use that
         // if we have it
-        if (tileDef == null && grid.TryGetTileRef(position, out var tileRef))
+        if (tileDef == null && _mapSystem.TryGetTileRef(xform.GridUid.Value, grid, position, out var tileRef))
         {
-            tileDef = (ContentTileDefinition) _tileDefinitionManager[tileRef.Tile.TypeId];
+            tileDef = (ContentTileDefinition)_tileDefinitionManager[tileRef.Tile.TypeId];
         }
 
         if (tileDef == null)

@@ -14,7 +14,7 @@
     sprite: _Goobstation/Objects/Weapons/Melee/stasisbaton.rsi
     layers:
     - state: stunbaton_off
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Stunbaton
     energyPerUse: 10
   - type: ItemToggle

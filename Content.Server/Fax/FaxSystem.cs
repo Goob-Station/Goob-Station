@@ -114,32 +114,35 @@ using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.DeviceNetwork.Systems;
+using Content.Server.Explosion.EntitySystems; // Goobstation
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Tools;
-using Content.Shared.UserInterface;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Fax;
-using Content.Shared.Fax.Systems;
 using Content.Shared.Fax.Components;
+using Content.Shared.Fax.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Labels.Components;
 using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Mobs.Components;
+using Content.Shared.NameModifier.Components;
 using Content.Shared.Paper;
+using Content.Shared.Power;
+using Content.Shared.Tools;
+using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
-using Content.Shared.NameModifier.Components;
-using Content.Shared.Power;
-using Content.Shared.DeviceNetwork.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Fax;
 
@@ -163,6 +166,9 @@ public sealed class FaxSystem : EntitySystem
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!; // Goobstation
     [Dependency] private readonly TransformSystem _transform = default!; // Goobstation
+    [Dependency] private readonly ExplosionSystem _explosion = default!; // Goobstation
+
+    private static readonly ProtoId<ToolQualityPrototype> ScrewingQuality = "Screwing";
 
     private const string PaperSlotId = "Paper";
 
@@ -328,7 +334,7 @@ public sealed class FaxSystem : EntitySystem
     {
         if (args.Handled ||
             !TryComp<ActorComponent>(args.User, out var actor) ||
-            !_toolSystem.HasQuality(args.Used, "Screwing")) // Screwing because Pulsing already used by device linking
+            !_toolSystem.HasQuality(args.Used, ScrewingQuality)) // Screwing because Pulsing already used by device linking
             return;
 
         _quickDialog.OpenDialog(actor.PlayerSession,
@@ -455,6 +461,8 @@ public sealed class FaxSystem : EntitySystem
     {
         if (HasComp<MobStateComponent>(component.PaperSlot.Item))
             _faxecute.Faxecute(uid, component); // when button pressed it will hurt the mob.
+        else if (component.PaperSlot.Item != null && TryComp<FaxableObjectComponent>(component.PaperSlot.Item, out var faxcomp) && !faxcomp.Copyable) // goobstation
+            _explosion.QueueExplosion(uid, "Default", 20, 65, 3.4f, 1f, 0, false, uid);
         else
             Copy(uid, component, args);
     }
@@ -473,6 +481,8 @@ public sealed class FaxSystem : EntitySystem
 
         if (HasComp<MobStateComponent>(component.PaperSlot.Item))
             _faxecute.Faxecute(uid, component); // when button pressed it will hurt the mob.
+        else if (component.PaperSlot.Item != null && TryComp<FaxableObjectComponent>(component.PaperSlot.Item, out var faxcomp) && !faxcomp.Copyable) // goobstation
+            _explosion.QueueExplosion(uid, "Default", 20, 65, 3.4f, 1f, 0, false, uid);
         else
             Send(uid, component, args);
     }
@@ -740,7 +750,7 @@ public sealed class FaxSystem : EntitySystem
 
         var entityToSpawn = printout.PrototypeId.Length == 0 ? component.PrintPaperId.ToString() : printout.PrototypeId;
         var coordinates = _transform.GetMapCoordinates(uid); // Goobstation
-        var printed = EntityManager.SpawnEntity(entityToSpawn, coordinates);
+        var printed = Spawn(entityToSpawn, coordinates);
 
         if (TryComp<PaperComponent>(printed, out var paper))
         {

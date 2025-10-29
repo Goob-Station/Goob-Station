@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -38,7 +39,7 @@ public sealed partial class SprinterComponent : Component
     ///     How much stamina is drained per second?
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float StaminaDrainRate = 10f;
+    public float StaminaDrainRate = 9f;
 
     /// <summary>
     ///     By how much do we multiply stamina recovery while sprinting?
@@ -54,13 +55,13 @@ public sealed partial class SprinterComponent : Component
     ///     How much do we multiply stamina drains while theres a StaminaModifierComponent?
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float StaminaDrainMultiplier = 1.3f;
+    public float StaminaDrainMultiplier = 1.4f;
 
     /// <summary>
     ///     How much do we multiply sprint speed?
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float SprintSpeedMultiplier = 1.6f;
+    public float SprintSpeedMultiplier = 1.45f;
 
     /// <summary>
     ///     How long do we have to wait between sprints?
@@ -91,7 +92,7 @@ public sealed partial class SprinterComponent : Component
     /// </summary>
     [ViewVariables]
     public TimeSpan LastStep = TimeSpan.Zero;
-    
+
     /// <summary>
     ///     What entity do we use for stepping visuals?
     /// </summary>
@@ -118,9 +119,21 @@ public sealed partial class SprinterComponent : Component
     {
         DamageDict = new Dictionary<string, FixedPoint2>
         {
-            { "Blunt", 6.5 }, // real
+            { "Blunt", 10 },
         }
     };
+
+    /// <summary>
+    ///     For how long does entity get knocked down on collision with another sprinting entity?
+    /// </summary>
+    [DataField]
+    public TimeSpan KnockdownDurationOnInterrupt = TimeSpan.FromSeconds(2f);
+
+    /// <summary>
+    ///     How much extra stamina damage entity takes for being broken out of sprint with a shove?
+    /// </summary>
+    [DataField]
+    public float StaminaPenaltyOnShove = 25f;
 }
 
 [Serializable, NetSerializable]

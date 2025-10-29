@@ -48,7 +48,6 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -66,9 +65,7 @@
 // SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 YotaXP <yotaxp@gmail.com>
 // SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -443,9 +440,9 @@ namespace Content.Server.Database
 
         Task SetNTShoutout(Guid player, string name);
 
-        Task<(string Message, string User)?> GetRandomLobbyMessage();
+        Task<List<(string, string)>> GetLobbyMessages();
 
-        Task<string?> GetRandomShoutout();
+        Task<List<string>> GetShoutouts();
 
         #endregion
 
@@ -475,14 +472,6 @@ namespace Content.Server.Database
         /// </remarks>
         /// <param name="notification">The notification to send.</param>
         Task SendNotification(DatabaseNotification notification);
-
-        #endregion
-
-        #region Comedy
-
-        Task<List<Guid>> GetAllSpiderUserIds();
-
-        Task AddPermanentSpiderFriend(NetUserId player);
 
         #endregion
     }
@@ -1236,16 +1225,16 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.SetNTShoutout(player, name));
         }
 
-        public Task<(string Message, string User)?> GetRandomLobbyMessage()
+        public Task<List<(string, string)>> GetLobbyMessages()
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetRandomLobbyMessage());
+            return RunDbCommand(() => _db.GetLobbyMessages());
         }
 
-        public Task<string?> GetRandomShoutout()
+        public Task<List<string>> GetShoutouts()
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetRandomShoutout());
+            return RunDbCommand(() => _db.GetShoutouts());
         }
 
         #endregion
@@ -1265,21 +1254,6 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.CleanIPIntelCache(range));
-        }
-
-        public Task<List<Guid>> GetAllSpiderUserIds()
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetAllSpiderFriends());
-        }
-
-        public Task AddPermanentSpiderFriend(NetUserId player)
-        {
-            DbWriteOpsMetric.Inc();
-            SpiderFriend friend = new SpiderFriend();
-            friend.Guid = player.UserId;
-
-            return RunDbCommand(() => _db.AddSpiderFriend(friend));
         }
 
         public void SubscribeToNotifications(Action<DatabaseNotification> handler)

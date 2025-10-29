@@ -21,6 +21,13 @@
   - chat-speech-verb-gondola-1
   - chat-speech-verb-gondola-2
 
+- type: speechVerb
+  id: HorseVerb
+  name: chat-speech-verb-name-horse
+  speechVerbStrings:
+  - chat-speech-verb-horse-1
+  - chat-speech-verb-horse-2
+
 - type: speechSounds
   id: Chrono
   saySound:
@@ -47,6 +54,15 @@
     path: /Audio/_Goobstation/Heretic/hiss/hiss3.ogg
   exclaimSound:
     path: /Audio/_Goobstation/Heretic/hiss/hiss4.ogg
+
+- type: speechSounds
+  id: Loudspeaker
+  saySound:
+    path: /Audio/_Goobstation/Loudspeaker/megaphone.ogg
+  askSound:
+    path: /Audio/_Goobstation/Loudspeaker/megaphone.ogg
+  exclaimSound:
+    path: /Audio/_Goobstation/Loudspeaker/megaphone.ogg
 
 - type: speechVerb
   id: Hiss
@@ -99,3 +115,18 @@
   - chat-speech-verb-holier-than-thou-6
   - chat-speech-verb-holier-than-thou-7
   - chat-speech-verb-holier-than-thou-8
+
+- type: speechVerb
+  id: Horse
+  name: chat-speech-verb-name-horse
+  speechVerbStrings:
+  - chat-speech-verb-horse-1
+  - chat-speech-verb-horse-2
+
+- type: speechVerb
+  id: FloorGoblin
+  name: chat-speech-verb-name-floor-goblin
+  speechVerbStrings:
+  - chat-speech-verb-floor-goblin-1
+  - chat-speech-verb-floor-goblin-2
+  - chat-speech-verb-floor-goblin-3

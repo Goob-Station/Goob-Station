@@ -17,6 +17,7 @@ using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Random;

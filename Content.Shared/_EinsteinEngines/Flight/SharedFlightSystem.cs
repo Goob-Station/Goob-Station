@@ -115,7 +115,7 @@ public abstract class SharedFlightSystem : EntitySystem
         component.TimeUntilFlap = 0f;
         _actionsSystem.SetToggled(component.ToggleActionEntity, component.On);
         RaiseLocalEvent(uid, new FlightEvent(uid, component.On, component.IsAnimated));
-        _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, active, false, component.StaminaDrainKey);
+        _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, active, false, component.StaminaDrainKey, uid);
         _movementSpeed.RefreshWeightlessModifiers(uid);
         ToggleCollisionMasks(uid, component);
         UpdateHands(uid, active);
@@ -199,19 +199,19 @@ public abstract class SharedFlightSystem : EntitySystem
     private void BlockHands(EntityUid uid, HandsComponent handsComponent)
     {
         var freeHands = 0;
-        foreach (var hand in _hands.EnumerateHands(uid, handsComponent))
+        foreach (var hand in _hands.EnumerateHands((uid, handsComponent)))
         {
-            if (hand.HeldEntity == null)
+            if (!_hands.TryGetHeldItem((uid, handsComponent), hand, out var held))
             {
                 freeHands++;
                 continue;
             }
 
             // Is this entity removable? (they might have handcuffs on)
-            if (HasComp<UnremoveableComponent>(hand.HeldEntity) && hand.HeldEntity != uid)
+            if (HasComp<UnremoveableComponent>(held) && held != uid)
                 continue;
 
-            _hands.DoDrop(uid, hand, true, handsComponent);
+            _hands.DoDrop((uid, handsComponent), hand);
             freeHands++;
             if (freeHands == 2)
                 break;

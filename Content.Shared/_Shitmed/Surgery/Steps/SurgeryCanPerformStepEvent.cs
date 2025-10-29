@@ -8,6 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Shitmed.Medical.Surgery.Tools;
 using Content.Shared.Inventory;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Steps;
@@ -20,5 +21,9 @@ public record struct SurgeryCanPerformStepEvent(
     SlotFlags TargetSlots,
     string? Popup = null,
     StepInvalidReason Invalid = StepInvalidReason.None,
-    Dictionary<EntityUid, float>? ValidTools = null
-) : IInventoryRelayEvent;
+    ISurgeryToolComponent? ValidTool = null
+) : IInventoryRelayEvent
+{
+    public bool IsValid => Invalid == StepInvalidReason.None;
+    public bool IsInvalid => !IsValid;
+}

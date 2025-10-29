@@ -25,3 +25,38 @@
       !type:DepartmentTimeRequirement
       department: Security
       time: 198000 # 55 hrs
+  id: CaptainEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitCaptain
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: CaptainEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmCaptain
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: CaptainEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesCaptain
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: CaptainGloves
+  equipment:
+    gloves: ClothingHandsGlovesCaptain
+
+- type: loadout
+  id: CaptainSummerShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCaptainSummer

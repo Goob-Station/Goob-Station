@@ -1,4 +1,4 @@
-﻿// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -57,6 +57,7 @@ public sealed partial class WoundSystem
         SubscribeLocalEvent<WoundableComponent, GetDoAfterDelayMultiplierEvent>(OnGetDoAfterDelayMultiplier);
         SubscribeLocalEvent<WoundableComponent, AttemptHandsMeleeEvent>(OnAttemptHandsMelee);
         SubscribeLocalEvent<WoundableComponent, AttemptHandsShootEvent>(OnAttemptHandsShoot);
+        SubscribeLocalEvent<TraumaInflicterComponent, TraumaBeingRemovedEvent>(OnTraumaBeingRemoved);
     }
 
     #region Event Handling
@@ -70,6 +71,9 @@ public sealed partial class WoundSystem
 
     private void OnWoundableMapInit(EntityUid uid, WoundableComponent comp, MapInitEvent args)
     {
+        if (HasComp<BonelessComponent>(uid))
+            return;
+
         var bone = Spawn(comp.BoneEntity);
         if (!TryComp<BoneComponent>(bone, out var boneComp))
             return;
@@ -208,7 +212,7 @@ public sealed partial class WoundSystem
 
     private void HealWoundsOnWoundableAttempt(Entity<WoundableComponent> woundable, ref WoundHealAttemptOnWoundableEvent args)
     {
-        if (woundable.Comp.WoundableSeverity == WoundableSeverity.Mangled)
+        if (woundable.Comp.WoundableSeverity == WoundableSeverity.Severed)
             args.Cancelled = true;
     }
 
@@ -217,7 +221,7 @@ public sealed partial class WoundSystem
         if (args.NewSeverity != WoundSeverity.Healed)
             return;
 
-        TryMakeScar(wound, out _, woundComponent);
+        //TryMakeScar(wound, out _, woundComponent); // disabled as there is no way to heal scars currently?
         RemoveWound(wound, woundComponent);
     }
 
@@ -372,7 +376,8 @@ public sealed partial class WoundSystem
             out woundInduced,
             (from @group in _prototype.EnumeratePrototypes<DamageGroupPrototype>()
                 where @group.DamageTypes.Contains(woundId)
-                select @group).FirstOrDefault(),
+                select @group).FirstOrDefault()
+                ?.ID,
             woundable);
         return wound;
     }
@@ -391,7 +396,7 @@ public sealed partial class WoundSystem
         string woundProtoId,
         FixedPoint2 severity,
         [NotNullWhen(true)] out Entity<WoundComponent>? woundCreated,
-        DamageGroupPrototype? damageGroup,
+        ProtoId<DamageGroupPrototype>? damageGroup,
         WoundableComponent? woundable = null)
     {
         woundCreated = null;
@@ -502,8 +507,10 @@ public sealed partial class WoundSystem
 
         var bodyPart = Comp<BodyPartComponent>(wound.HoldingWoundable);
         var old = wound.WoundSeverityPoint;
+
+        var upperLimit = wound.WoundSeverityPoint + woundable.WoundableIntegrity;
         wound.WoundSeverityPoint =
-            FixedPoint2.Clamp(ApplySeverityModifiers(wound.HoldingWoundable, severity), 0, woundable.IntegrityCap);
+        FixedPoint2.Clamp(ApplySeverityModifiers(wound.HoldingWoundable, severity), 0, upperLimit);
 
         if (wound.WoundSeverityPoint != old)
         {
@@ -560,7 +567,8 @@ public sealed partial class WoundSystem
             ? old + ApplySeverityModifiers(wound.HoldingWoundable, severity)
             : old + severity;
 
-        wound.WoundSeverityPoint = FixedPoint2.Clamp(rawValue, 0, woundable.IntegrityCap);
+        var upperLimit = wound.WoundSeverityPoint + woundable.WoundableIntegrity;
+        wound.WoundSeverityPoint = FixedPoint2.Clamp(rawValue, 0, upperLimit);
         Dirty(uid, wound);
         if (wound.WoundSeverityPoint != old || rawValue > wound.WoundSeverityPoint)
         {
@@ -1088,7 +1096,7 @@ public sealed partial class WoundSystem
         EntityUid target,
         EntityUid wound,
         FixedPoint2 woundSeverity,
-        DamageGroupPrototype? damageGroup,
+        ProtoId<DamageGroupPrototype>? damageGroup,
         WoundableComponent? woundableComponent = null,
         WoundComponent? woundComponent = null)
     {
@@ -1142,6 +1150,16 @@ public sealed partial class WoundSystem
         _container.Remove(woundEntity, woundable.Wounds!, false, true);
 
         return true;
+    }
+
+    private void OnTraumaBeingRemoved(Entity<TraumaInflicterComponent> ent, ref TraumaBeingRemovedEvent args)
+    {
+        if (TryComp<WoundComponent>(ent, out var woundComp))
+        {
+            if (woundComp.WoundSeverity != WoundSeverity.Healed)
+                return;
+            RemoveWound(ent); // Remove wound method will perform the check on if there are any other wounds pending treatment
+        }
     }
 
     protected void InternalAddWoundableToParent(
@@ -1705,13 +1723,13 @@ public sealed partial class WoundSystem
         if (healable)
         {
             return GetWoundableWounds(targetEntity, targetWoundable)
-                .Where(wound => wound.Comp.DamageGroup?.ID == damageGroup || damageGroup == null)
+                .Where(wound => _prototype.Index(wound.Comp.DamageGroup)?.ID == damageGroup || damageGroup == null)
                 .Where(wound => CanHealWound(wound, wound.Comp, ignoreBlockers))
                 .Aggregate(FixedPoint2.Zero, (current, wound) => current + wound.Comp.WoundSeverityPoint);
         }
 
         return GetWoundableWounds(targetEntity, targetWoundable)
-            .Where(wound => wound.Comp.DamageGroup?.ID == damageGroup || damageGroup == null)
+            .Where(wound => _prototype.Index(wound.Comp.DamageGroup)?.ID == damageGroup || damageGroup == null)
             .Aggregate(FixedPoint2.Zero, (current, wound) => current + wound.Comp.WoundSeverityPoint);
     }
 
@@ -1738,13 +1756,13 @@ public sealed partial class WoundSystem
         if (healable)
         {
             return GetWoundableWounds(targetEntity, targetWoundable)
-                .Where(wound => wound.Comp.DamageGroup?.ID == damageGroup || damageGroup == null)
+                .Where(wound => _prototype.Index(wound.Comp.DamageGroup)?.ID == damageGroup || damageGroup == null)
                 .Where(wound => CanHealWound(wound, wound.Comp, ignoreBlockers))
                 .Aggregate(FixedPoint2.Zero, (current, wound) => current + wound.Comp.WoundIntegrityDamage);
         }
 
         return GetWoundableWounds(targetEntity, targetWoundable)
-            .Where(wound => wound.Comp.DamageGroup?.ID == damageGroup || damageGroup == null)
+            .Where(wound => _prototype.Index(wound.Comp.DamageGroup)?.ID == damageGroup || damageGroup == null)
             .Aggregate(FixedPoint2.Zero, (current, wound) => current + wound.Comp.WoundIntegrityDamage);
     }
 

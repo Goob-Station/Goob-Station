@@ -343,6 +343,7 @@
   - BluespaceBeaker
   - SyringeBluespace
   - MedkitCombat # Goobstation - remove medkitcombat from static to research
+  - VialBluespace # goob edit - bluespace vials
   # Goobstation R&D Console rework start
   position: 2,6
   technologyPrerequisites:

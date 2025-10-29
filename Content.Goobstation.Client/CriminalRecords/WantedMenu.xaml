@@ -12,8 +12,8 @@
                StyleClasses="LabelBig"/>
         <BoxContainer Orientation="Horizontal"
                       Margin="0 0 0 5">
-            <Label Text="{Loc 'crew-monitoring-user-interface-job'}"
-                   FontColorOverride="DarkGray" />
+            <RichTextLabel Text="{Loc 'crew-monitoring-user-interface-job'}"
+                   StyleClasses="StatusFieldTitle" />
             <TextureRect Name="PersonJobIcon"
                          TextureScale="2 2"
                          Margin="6 0"
@@ -25,10 +25,9 @@
         <BoxContainer Orientation="Horizontal"
                       Margin="0 5 0 5">
             <Label Name="StatusLabel"
-                   Text="{Loc 'criminal-records-console-status'}"
-                   FontColorOverride="DarkGray" />
+                   Text="{Loc 'criminal-records-console-status'}"/>
             <Label Text=":"
-                   FontColorOverride="DarkGray" />
+                   StyleClasses="StatusFieldTitle" />
             <AnimatedTextureRect Name="PersonStatusTX"
                                  Margin="8 0" />
             <OptionButton Name="StatusOptionButton"
@@ -36,6 +35,6 @@
         </BoxContainer>
         <RichTextLabel Name="WantedReason"
                        Visible="False"
-                       MaxWidth="425" />
+                       MaxWidth="425"/>
     </BoxContainer>
 </controls:FancyWindow>

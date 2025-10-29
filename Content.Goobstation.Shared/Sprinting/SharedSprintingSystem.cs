@@ -1,12 +1,16 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Movement;
-using Content.Shared._EinsteinEngines.Flight;
+using Content.Shared.Damage.Events;
+using Content.Shared._EinsteinEngines.Flight.Events;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Buckle.Components;
+using Content.Shared.CombatMode;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -15,6 +19,8 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Gravity;
 using Content.Shared.Input;
+using Content.Shared.Mech.Components;
+using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
@@ -25,9 +31,9 @@ using Content.Shared.Zombies;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using Robust.Shared.Network;
 using System.Numerics;
 
 namespace Content.Goobstation.Shared.Sprinting;
@@ -53,13 +59,18 @@ public abstract class SharedSprintingSystem : EntitySystem
         SubscribeLocalEvent<SprinterComponent, MobStateChangedEvent>(OnMobStateChangedEvent);
         SubscribeLocalEvent<SprinterComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
         SubscribeLocalEvent<SprinterComponent, SleepStateChangedEvent>(OnSleep);
+        SubscribeLocalEvent<SprinterComponent, FlightEvent>(OnFlight);
+        SubscribeLocalEvent<SprinterComponent, MechEntryEvent>(OnMechEntry);
         SubscribeLocalEvent<SprinterComponent, ToggleWalkEvent>(OnToggleWalk);
         SubscribeLocalEvent<SprinterComponent, KnockedDownEvent>(OnSprintDisablingEvent);
         SubscribeLocalEvent<SprinterComponent, StunnedEvent>(OnSprintDisablingEvent);
         SubscribeLocalEvent<SprinterComponent, DownedEvent>(OnSprintDisablingEvent);
         SubscribeLocalEvent<CuffableComponent, SprintAttemptEvent>(OnCuffableSprintAttempt);
+        SubscribeLocalEvent<MechPilotComponent, SprintAttemptEvent>(OnMechPilotSprintAttempt);
         SubscribeLocalEvent<StandingStateComponent, SprintAttemptEvent>(OnStandingStateSprintAttempt);
+        SubscribeLocalEvent<BuckleComponent, SprintAttemptEvent>(OnBuckleSprintAttempt);
         SubscribeLocalEvent<SprinterComponent, EntityZombifiedEvent>(OnZombified);
+        SubscribeLocalEvent<SprinterComponent, DisarmedEvent>(OnDisarm);
     }
 
     #region Core Functions
@@ -127,22 +138,25 @@ public abstract class SharedSprintingSystem : EntitySystem
     private void OnSprintToggle(EntityUid uid, SprinterComponent component, ref SprintToggleEvent args) =>
         ToggleSprint(uid, component, args.IsSprinting);
 
-    private void ToggleSprint(EntityUid uid, SprinterComponent component, bool isSprinting, bool gracefulStop = true)
+    public void ToggleSprint(EntityUid uid, SprinterComponent component, bool newSprintState, bool gracefulStop = true)
     {
         // Breaking these into two separate if's for better readability
-        if (isSprinting == component.IsSprinting)
+        if (newSprintState == component.IsSprinting)
             return;
 
-
-        if (isSprinting
+        if (newSprintState
             && (!CanSprint(uid, component)
             || _timing.CurTime - component.LastSprint < component.TimeBetweenSprints))
             return;
 
         component.LastSprint = _timing.CurTime;
-        component.IsSprinting = isSprinting;
+        component.IsSprinting = newSprintState;
 
-        if (isSprinting)
+        // Raise the stamina-specific event (for `SharedStaminaSystem.cs`)
+        var staminaEv = new SprintingStateChangedEvent(uid, newSprintState);
+        RaiseLocalEvent(uid, ref staminaEv);
+
+        if (newSprintState)
         {
             RaiseLocalEvent(uid, new SprintStartEvent());
             _audio.PlayPredicted(component.SprintStartupSound, uid, uid);
@@ -152,7 +166,7 @@ public abstract class SharedSprintingSystem : EntitySystem
             _damageable.TryChangeDamage(uid, component.SprintDamageSpecifier);
 
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
-        _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, isSprinting, true, component.StaminaDrainKey);
+        _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, newSprintState, true, component.StaminaDrainKey, uid);
         Dirty(uid, component);
     }
 
@@ -193,6 +207,25 @@ public abstract class SharedSprintingSystem : EntitySystem
         args.Cancel();
     }
 
+    private void OnBuckleSprintAttempt(EntityUid uid, BuckleComponent component, ref SprintAttemptEvent args)
+    {
+        if (component.BuckledTo == null
+            || !TryComp<SprinterComponent>(component.BuckledTo, out var sprinterComponent)
+            || sprinterComponent.IsSprinting)
+            return;
+
+        args.Cancel();
+    }
+
+    private void OnMechPilotSprintAttempt(EntityUid uid, MechPilotComponent component, ref SprintAttemptEvent args)
+    {
+        if (!TryComp<SprinterComponent>(component.Mech, out var sprinterComponent)
+            || sprinterComponent.IsSprinting)
+            return;
+
+        args.Cancel();
+    }
+
     #endregion
 
     #region Misc.Handlers
@@ -223,6 +256,23 @@ public abstract class SharedSprintingSystem : EntitySystem
         ToggleSprint(uid, component, false, gracefulStop: false);
     }
 
+    private void OnFlight(EntityUid uid, SprinterComponent component, ref FlightEvent args)
+    {
+        if (!component.IsSprinting
+            || args.IsFlying)
+            return;
+
+        ToggleSprint(uid, component, false);
+    }
+
+    private void OnMechEntry(EntityUid uid, SprinterComponent component, ref MechEntryEvent args)
+    {
+        if (!component.IsSprinting)
+            return;
+
+        ToggleSprint(uid, component, false);
+    }
+
     private void OnToggleWalk(EntityUid uid, SprinterComponent component, ref ToggleWalkEvent args)
     {
         if (!component.IsSprinting)
@@ -240,6 +290,15 @@ public abstract class SharedSprintingSystem : EntitySystem
     }
     private void OnZombified(EntityUid uid, SprinterComponent component, ref EntityZombifiedEvent args) =>
         component.SprintSpeedMultiplier *= 0.5f; // We dont want super fast zombies do we?
+
+    private void OnDisarm(EntityUid uid, SprinterComponent sprinter, ref DisarmedEvent args)
+    {
+        if (!sprinter.IsSprinting)
+            return;
+
+        _staminaSystem.TakeStaminaDamage(uid, sprinter.StaminaPenaltyOnShove, applyResistances: true);
+        ToggleSprint(uid, sprinter, false, gracefulStop: true);
+    }
 
     #endregion
 }

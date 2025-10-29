@@ -46,6 +46,7 @@
     species: Rodentia
   - type: Hunger
     baseDecayRate: 0.0467 # 33% faster than usual
+  - type: Thirst # // Goob Station //
   - type: Carriable # Carrying system from nyanotrasen.
   - type: Inventory
     speciesId: rodentia
@@ -79,12 +80,12 @@
         layer:
         - MobLayer
   - type: ScaleData # Goobstation
-    scale: 0.8, 0.8
+    # scale: 0.8, 0.8 # Goobstation: port EE height/width sliders
   - type: Sprite
-    scale: 0.8, 0.8
+    # scale: 0.8, 0.8 # Goobstation: port EE height/width sliders
     layers:
-      - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Groin" ]
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]

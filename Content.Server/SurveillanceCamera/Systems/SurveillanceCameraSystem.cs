@@ -70,6 +70,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
     [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly TransformSystem _transformSystem = default!; // Goobstation
 
     // Pings a surveillance camera subnet. All cameras will always respond
     // with a data message if they are on the same subnet.
@@ -97,6 +98,8 @@ public sealed class SurveillanceCameraSystem : EntitySystem
     public const string CameraAddressData = "surveillance_camera_data_origin";
     public const string CameraNameData = "surveillance_camera_data_name";
     public const string CameraSubnetData = "surveillance_camera_data_subnet";
+    public const string CameraNetEntity = "surveillance_camera_net_entity"; // Goobstation
+    public const string CameraMobile = "surveillance_camera_mobile"; // Goobstation - Is the camera mobile? Needed for pvs sorting as well as the icon in the camera monitor
 
     public const int CameraNameLimit = 32;
 
@@ -162,9 +165,18 @@ public sealed class SurveillanceCameraSystem : EntitySystem
                     {
                         return;
                     }
-
                     dest = args.SenderAddress;
                     payload[CameraSubnetData] = subnet;
+                    // Goobstation start
+                    if (TryComp(uid, out TransformComponent? transformComponent))
+                    {
+                        // Decoupling the bodycam/nopro from the wearer, otherwise we'll just keep seeing the last known owner move around on the map
+                        payload[CameraNetEntity] = component.Mobile ?
+                            (GetNetEntity(uid), GetNetCoordinates(_transformSystem.ToCoordinates(uid, _transformSystem.ToMapCoordinates(transformComponent.Coordinates)))) :
+                            (GetNetEntity(uid), GetNetCoordinates(transformComponent.Coordinates));
+                        payload[CameraMobile] = component.Mobile;
+                    }
+                    // Goobstation end
                     payload[DeviceNetworkConstants.Command] = CameraDataMessage;
                     break;
             }
@@ -178,7 +190,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
 
     private void AddVerbs(EntityUid uid, SurveillanceCameraComponent component, GetVerbsEvent<AlternativeVerb> verbs)
     {
-        if (!_actionBlocker.CanInteract(verbs.User, uid))
+        if (!_actionBlocker.CanInteract(verbs.User, uid) || !_actionBlocker.CanComplexInteract(verbs.User))
         {
             return;
         }

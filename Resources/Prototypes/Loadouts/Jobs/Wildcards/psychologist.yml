@@ -78,7 +78,9 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitPsychologist
 
+
 - type: loadout
   id: PsychologistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtPsychologist
+

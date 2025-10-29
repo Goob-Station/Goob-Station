@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 vorpuscl <198003781+vorpuscl@users.noreply.github.com>
@@ -135,10 +137,10 @@
     netsync: false
     noRot: true
     drawdepth: Mobs
-    scale: 0.85, 0.85
+    # scale: 0.85, 0.85 # Goobstation: port EE height/width sliders
     layers:
-      - map: ["enum.HumanoidVisualLayers.Chest"]
       - map: ["enum.HumanoidVisualLayers.Groin"]
+      - map: ["enum.HumanoidVisualLayers.Chest"]
       - map: ["enum.HumanoidVisualLayers.Head"]
       - map: ["enum.HumanoidVisualLayers.Snout"]
       - map: ["enum.HumanoidVisualLayers.Eyes"]
@@ -147,11 +149,11 @@
       - map: ["enum.HumanoidVisualLayers.LArm"]
       - map: ["enum.HumanoidVisualLayers.RLeg"]
       - map: ["enum.HumanoidVisualLayers.LLeg"]
-#     - shader: StencilClear
-#      sprite: Mobs/Species/Human/parts.rsi
-#      state: l_leg
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+        state: l_leg
       - shader: StencilMask
-        map: ["enum.HumanoidVisualLayers.StencilMask"]
+      - map: ["enum.HumanoidVisualLayers.StencilMask"]
         sprite: Mobs/Customization/masking_helpers.rsi
         state: full
         visible: false
@@ -179,6 +181,7 @@
       - map: ["belt"]
       - map: ["neck"]
       - map: ["back"]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
       - map: ["enum.HumanoidVisualLayers.FacialHair"]
       - map: ["enum.HumanoidVisualLayers.Hair"]
       - map: ["enum.HumanoidVisualLayers.HeadSide"]
@@ -219,7 +222,6 @@
     - DoorBumpOpener
     - AnomalyHost
     - ShadowkinEmotes
-    - FlashVulnerable # Can't protect against flashes
 
 - type: entity
   save: false
@@ -234,7 +236,7 @@
       netsync: false
       noRot: true
       drawdepth: Mobs
-      scale: 0.85, 0.85 # Small
+      # scale: 0.85, 0.85 # Small # Goobstation: port EE height/width sliders
       layers:
         - map: ["enum.HumanoidVisualLayers.Chest"]
         - map: ["enum.HumanoidVisualLayers.Groin"]
@@ -246,9 +248,9 @@
         - map: ["enum.HumanoidVisualLayers.LArm"]
         - map: ["enum.HumanoidVisualLayers.RLeg"]
         - map: ["enum.HumanoidVisualLayers.LLeg"]
-#     - shader: StencilClear
-#      sprite: Mobs/Species/Human/parts.rsi
-#      state: l_leg
+        - shader: StencilClear
+          sprite: Mobs/Species/Human/parts.rsi
+          state: l_leg
         - shader: StencilMask
           map: ["enum.HumanoidVisualLayers.StencilMask"]
           sprite: Mobs/Customization/masking_helpers.rsi
@@ -278,6 +280,7 @@
         - map: ["belt"]
         - map: ["neck"]
         - map: ["back"]
+        - map: [ "enum.HumanoidVisualLayers.Face" ]
         - map: ["enum.HumanoidVisualLayers.FacialHair"]
         - map: ["enum.HumanoidVisualLayers.Hair"]
         - map: ["enum.HumanoidVisualLayers.HeadSide"]

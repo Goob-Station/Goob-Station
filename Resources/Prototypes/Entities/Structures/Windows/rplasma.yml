@@ -49,7 +49,7 @@
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
   - type: RadiationBlocker
-    resistance: 10
+    resistance: 10 # Goobstation - Radiation Overhaul
   - type: Destructible
     thresholds:
     - trigger:
@@ -119,8 +119,10 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
+  - type: Damageable
+    damageModifierSet: RGlass
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 5 # Goobstation - Radiation Overhaul
   - type: Destructible
     thresholds:
     - trigger:

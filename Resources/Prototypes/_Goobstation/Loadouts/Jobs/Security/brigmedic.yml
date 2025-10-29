@@ -10,15 +10,18 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitBrigmedic
 
+
 - type: loadout
   id: BrigmedicJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtBrigmedic
 
+
 - type: loadout
   id: BrigmedicBeret
   equipment:
     head: ClothingHeadHatBeretBrigmedic
+
 
 - type: loadout
   id: BrigmedicAMG
@@ -55,3 +58,19 @@
       !type:DepartmentTimeRequirement
       department: Security
       time: 198000 # 55 hrs
+  id: BrigmedicEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitBrigmedic
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: BrigmedicEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmBrigmedic
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

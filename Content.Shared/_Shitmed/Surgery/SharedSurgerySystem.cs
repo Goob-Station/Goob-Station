@@ -1,10 +1,12 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
 // SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
@@ -24,7 +26,6 @@ using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
-//using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
@@ -40,12 +41,15 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Prototypes;
+using Content.Shared.Stacks;
 using Content.Shared.Standing;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.Body.Organ;
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
 
@@ -65,12 +69,17 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly RotateToFaceSystem _rotateToFace = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly WoundSystem _wounds = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
     [Dependency] private readonly PainSystem _pain = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] protected readonly StatusEffectsSystem Status = default!;
+
+    private EntityQuery<BodyComponent> _bodyQuery;
+    private EntityQuery<StackComponent> _stackQuery;
 
     /// <summary>
     /// Cache of all surgery prototypes' singleton entities.
@@ -90,13 +99,15 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     {
         base.Initialize();
 
+        _bodyQuery = GetEntityQuery<BodyComponent>();
+        _stackQuery = GetEntityQuery<StackComponent>();
+
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup);
 
         SubscribeLocalEvent<SurgeryTargetComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SurgeryTargetComponent, DoAfterAttemptEvent<SurgeryDoAfterEvent>>(OnBeforeTargetDoAfter);
         SubscribeLocalEvent<SurgeryTargetComponent, SurgeryDoAfterEvent>(OnTargetDoAfter);
         SubscribeLocalEvent<SurgeryCloseIncisionConditionComponent, SurgeryValidEvent>(OnCloseIncisionValid);
-        //SubscribeLocalEvent<SurgeryLarvaConditionComponent, SurgeryValidEvent>(OnLarvaValid);
         SubscribeLocalEvent<SurgeryHasBodyConditionComponent, SurgeryValidEvent>(OnHasBodyConditionValid);
         SubscribeLocalEvent<SurgeryPartConditionComponent, SurgeryValidEvent>(OnPartConditionValid);
         SubscribeLocalEvent<SurgeryOrganConditionComponent, SurgeryValidEvent>(OnOrganConditionValid);
@@ -111,10 +122,10 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         SubscribeLocalEvent<SurgeryBodyComponentConditionComponent, SurgeryValidEvent>(OnBodyComponentConditionValid);
         SubscribeLocalEvent<SurgeryPartComponentConditionComponent, SurgeryValidEvent>(OnPartComponentConditionValid);
         SubscribeLocalEvent<SurgeryOrganOnAddConditionComponent, SurgeryValidEvent>(OnOrganOnAddConditionValid);
-        //SubscribeLocalEvent<SurgeryRemoveLarvaComponent, SurgeryCompletedEvent>(OnRemoveLarva);
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
 
         InitializeSteps();
+        InitializeStart();
 
         LoadPrototypes();
     }
@@ -133,7 +144,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     private void OnBeforeTargetDoAfter(Entity<SurgeryTargetComponent> ent,
         ref DoAfterAttemptEvent<SurgeryDoAfterEvent> args)
     {
-        if (!_net.IsServer
+        if (_net.IsClient
             || !args.Event.Repeat) // We only wanna do this laggy shit on repeatables. One-time stuff idc.
             return;
 
@@ -155,11 +166,12 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             return;
         }
 
+        var tool = _hands.GetActiveItemOrSelf(args.User);
         if (args.Handled
             || args.Target is not { } target
             || !IsSurgeryValid(ent, target, args.Surgery, args.Step, args.User, out var surgery, out var part, out var step)
             || !PreviousStepsComplete(ent, part, surgery, args.Step)
-            || !CanPerformStep(args.User, ent, part, step, false))
+            || !CanPerformStep(args.User, ent, part, step, tool, false))
         {
             Log.Warning($"{ToPrettyString(args.User)} tried to start invalid surgery.");
             return;
@@ -167,9 +179,19 @@ public abstract partial class SharedSurgerySystem : EntitySystem
 
         var complete = IsStepComplete(ent, part, args.Step, surgery);
         args.Repeat = HasComp<SurgeryRepeatableStepComponent>(step) && !complete;
-        var ev = new SurgeryStepEvent(args.User, ent, part, _hands.GetActiveItemOrSelf(args.User), surgery, step, complete);
+        var ev = new SurgeryStepEvent(args.User, ent, part, tool, surgery, step, complete);
         RaiseLocalEvent(step, ref ev);
         RaiseLocalEvent(args.User, ref ev);
+
+        // consume the tool if it's something like using LV cable as stitches
+        if (args.ToolUsed)
+        {
+            if (_stackQuery.TryComp(tool, out var stack))
+                _stack.Use(tool, 1, stack);
+            else
+                PredictedQueueDel(tool);
+        }
+
         RefreshUI(ent);
     }
 
@@ -196,16 +218,6 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             args.Cancelled = true;
     }
 
-    /*private void OnLarvaValid(Entity<SurgeryLarvaConditionComponent> ent, ref SurgeryValidEvent args)
-    {
-        if (!TryComp(args.Body, out VictimInfectedComponent? infected))
-            args.Cancelled = true;
-
-        // The larva has fully developed and surgery is now impossible
-        if (infected != null && infected.SpawnedLarva != null)
-            args.Cancelled = true;
-    }*/
-
     private void OnBodyComponentConditionValid(Entity<SurgeryBodyComponentConditionComponent> ent, ref SurgeryValidEvent args)
     {
         var present = true;
@@ -229,8 +241,8 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             if (!HasComp(args.Part, compType))
                 present = false;
         }
-        if (ent.Comp.Inverse ? present : !present)
-            args.Cancelled = true;
+
+        args.Cancelled |= present == ent.Comp.Inverse;
     }
 
     // This is literally a duplicate of the checks in OnToolCheck for SurgeryStepComponent.AddOrganOnAdd
@@ -314,6 +326,11 @@ public abstract partial class SharedSurgerySystem : EntitySystem
                     || ent.Comp.Reattaching
                     && !organs.Any(organ => HasComp<OrganReattachedComponent>(organ.Id))))
                     args.Cancelled = true;
+                // Start of DeltaV Additions - Checks if any organ has the removable component set to true, hiding it from the surgery UI
+                if (!organs.Any(organ => !TryComp<OrganComponent>(organ.Id, out var organComp)
+                    || organComp.Removable))
+                    args.Cancelled = true;
+                // End of DeltaV Additions
             }
             else if (!ent.Comp.Inverse)
                 args.Cancelled = true;
@@ -322,8 +339,8 @@ public abstract partial class SharedSurgerySystem : EntitySystem
 
     private void OnBodyConditionValid(Entity<SurgeryBodyConditionComponent> ent, ref SurgeryValidEvent args)
     {
-        if (TryComp<BodyComponent>(args.Body, out var body) && body.Prototype is {} bodyId)
-            args.Cancelled |= ent.Comp.Accepted.Contains(bodyId) ^ !ent.Comp.Inverse;
+        if (_bodyQuery.CompOrNull(args.Body)?.Prototype is {} bodyId)
+            args.Cancelled |= ent.Comp.Accepted.Contains(bodyId) == ent.Comp.Inverse;
     }
 
     private void OnOrganSlotConditionValid(Entity<SurgeryOrganSlotConditionComponent> ent, ref SurgeryValidEvent args)
@@ -359,12 +376,10 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        // inverted = not cancelled (no trauma present), not inverted = cancelled (trauma present)
-        args.Cancelled = !ent.Comp.Inverted;
-        if (_trauma.HasWoundableTrauma(args.Part, ent.Comp.TraumaType))
-            args.Cancelled = ent.Comp.Inverted;
-        // if trauma is present and inverted - cancelled; if trauma is NOT present and inverted - not cancelled
-        // if trauma is NOT present and NOT inverted = cancelled; if trauma is present and NOT inverted = not cancelled
+        // not inverted = cancel if no trauma present
+        // inverted = cancel if trauma present
+        if (_trauma.HasWoundableTrauma(args.Part, ent.Comp.TraumaType) == ent.Comp.Inverted)
+            args.Cancelled = true;
     }
 
     private void OnBleedsPresentConditionValid(Entity<SurgeryBleedsPresentConditionComponent> ent, ref SurgeryValidEvent args)
@@ -392,11 +407,6 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             args.Cancelled = true;
     }
 
-    /*private void OnRemoveLarva(Entity<SurgeryRemoveLarvaComponent> ent, ref SurgeryCompletedEvent args)
-    {
-        RemCompDeferred<VictimInfectedComponent>(ent);
-    }*/
-
     protected bool IsSurgeryValid(EntityUid body, EntityUid targetPart, EntProtoId surgery, EntProtoId stepId,
         EntityUid user, out Entity<SurgeryComponent> surgeryEnt, out EntityUid part, out EntityUid step)
     {
@@ -411,7 +421,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             !surgeryComp.Steps.Contains(stepId) ||
             GetSingleton(stepId) is not { } stepEnt
             || !HasComp<BodyPartComponent>(targetPart)
-            && !HasComp<BodyComponent>(targetPart))
+            && !_bodyQuery.HasComp(targetPart))
             return false;
 
 
@@ -419,7 +429,8 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         if (_timing.IsFirstTimePredicted)
         {
             RaiseLocalEvent(stepEnt, ref ev);
-            RaiseLocalEvent(surgeryEntId, ref ev);
+            if (!ev.Cancelled)
+                RaiseLocalEvent(surgeryEntId, ref ev);
         }
 
         if (ev.Cancelled)
@@ -448,21 +459,28 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         return ent;
     }
 
+    /// <summary>
+    /// Checks if someone is lying down (and is able to)
+    /// Shows a popup if this is run on the user's client.
+    /// </summary>
     public bool IsLyingDown(EntityUid entity, EntityUid user)
     {
         if (_standing.IsDown(entity))
             return true;
 
-        if (TryComp(entity, out BuckleComponent? buckle) &&
-            TryComp(buckle.BuckledTo, out StrapComponent? strap))
+        // you can't otherwise operate on something with no buckle
+        // just let people do surgery on goliaths and shit
+        if (!TryComp<BuckleComponent>(entity, out var buckle))
+            return true;
+
+        if (TryComp<StrapComponent>(buckle.BuckledTo, out var strap))
         {
             var rotation = strap.Rotation;
             if (rotation.GetCardinalDir() is Direction.West or Direction.East)
                 return true;
         }
 
-        _popup.PopupEntity(Loc.GetString("surgery-error-laying"), user, user);
-
+        _popup.PopupClient(Loc.GetString("surgery-error-laying"), user, user);
         return false;
     }
 

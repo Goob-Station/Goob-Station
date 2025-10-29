@@ -54,6 +54,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Utility;
+using Content.Shared.Projectiles;
 
 namespace Content.Shared.Slippery;
 
@@ -82,8 +83,20 @@ public sealed class SlipperySystem : EntitySystem
         SubscribeLocalEvent<SlowedOverSlipperyComponent, InventoryRelayedEvent<SlipAttemptEvent>>((e, c, ev) => OnSlowedOverSlipAttempt(e, c, ev.Args));
         SubscribeLocalEvent<SlowedOverSlipperyComponent, InventoryRelayedEvent<GetSlowedOverSlipperyModifierEvent>>(OnGetSlowedOverSlipperyModifier);
         SubscribeLocalEvent<SlipperyComponent, EndCollideEvent>(OnEntityExit);
+
+        SubscribeLocalEvent<SlipperyComponent, ProjectileHitEvent>(OnProjectileHit); // Goob - Deslippler
+        SubscribeLocalEvent<SlipperyComponent, ThrowDoHitEvent>(OnThrowHit); // Goob - Deslippler
     }
 
+    private void OnProjectileHit(EntityUid uid, SlipperyComponent component, ref ProjectileHitEvent args) // Goob - Deslippler
+    {
+        TrySlip(uid, component, args.Target);
+    }
+
+    private void OnThrowHit(EntityUid uid, SlipperyComponent component, ThrowDoHitEvent args) // Goob - Deslippler
+    {
+        TrySlip(uid, component, args.Target);
+    }
     private void HandleStepTrigger(EntityUid uid, SlipperyComponent component, ref StepTriggeredOffEvent args)
     {
         TrySlip(uid, component, args.Tripper);

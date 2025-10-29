@@ -133,7 +133,7 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> MaxDrunkTime =
         CVarDef.Create("goob.max_drunk_time", 1500f, CVar.SERVER | CVar.REPLICATED);
 
-    #region MisandryBox
+    #region Player Listener
 
     /// <summary>
     ///     Is sprint enabled.
@@ -187,15 +187,7 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<string> PlayerRageQuitDiscordWebhook =
         CVarDef.Create("ragequit.discord_webhook", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
-    /// <summary>
-    /// User has opted in to adopt a spider friend!
-    /// Will persist across goob codebases that support spiders
-    /// Will be set if client receives a permanent spider msg.
-    /// </summary>
-    public static readonly CVarDef<bool> SpiderFriend =
-        CVarDef.Create("spider.enable", false, CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    #endregion MisandryBox
+    #endregion PlayerListener
 
     #region Discord AHelp Reply System
 
@@ -238,6 +230,12 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> UseAdminOOCColorInBwoinks =
         CVarDef.Create("admin.bwoink_use_admin_ooc_color", true, CVar.SERVERONLY);
 
+    /// <summary>
+    ///     Discord Webhook for the station report
+    /// </summary>
+    public static readonly CVarDef<string> StationReportDiscordWebHook =
+        CVarDef.Create("stationreport.discord_webhook", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
+
     #endregion
 
     /// <summary>
@@ -251,6 +249,12 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> AutoGetUp =
         CVarDef.Create("white.auto_get_up", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED); // WD EDIT
+
+    /// <summary>
+    ///     Sets the size of the hitbox where projectile/laser will hit any entity regardless of crawling
+    /// </summary>
+    public static readonly CVarDef<float> CrawlHitzoneSize =
+        CVarDef.Create("goob.crawl_hitzone_size", 0.4f, CVar.SERVER | CVar.REPLICATED);
 
     #region Blob
     public static readonly CVarDef<int> BlobMax =
@@ -340,6 +344,10 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> MinimumTimeUntilFirstEvent =
         CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
 
+    // used by secret+
+    public static readonly CVarDef<float> RoundstartChaosScoreMultiplier =
+        CVarDef.Create("gamedirector.roundstart_chaos_score_multiplier", 1f, CVar.SERVERONLY);
+
     public static readonly CVarDef<int> GameDirectorDebugPlayerCount =
         CVarDef.Create("gamedirector.debug_player_count", 80, CVar.SERVERONLY);
 
@@ -417,24 +425,6 @@ public sealed partial class GoobCVars
     #endregion
 
     #region Chat
-
-    /// <summary>
-    /// A string containing a list of newline-separated words to be highlighted in the chat.
-    /// </summary>
-    public static readonly CVarDef<string> ChatHighlights =
-        CVarDef.Create("chat.highlights", "", CVar.CLIENTONLY | CVar.ARCHIVE, "A list of newline-separated words to be highlighted in the chat.");
-
-    /// <summary>
-    /// An option to toggle the automatic filling of the highlights with the character's info, if available.
-    /// </summary>
-    public static readonly CVarDef<bool> ChatAutoFillHighlights =
-        CVarDef.Create("chat.auto_fill_highlights", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Toggles automatically filling the highlights with the character's information.");
-
-    /// <summary>
-    /// The color in which the highlights will be displayed.
-    /// </summary>
-    public static readonly CVarDef<string> ChatHighlightsColor =
-        CVarDef.Create("chat.highlights_color", "#17FFC1FF", CVar.CLIENTONLY | CVar.ARCHIVE, "The color in which the highlights will be displayed.");
 
     /// <summary>
     /// Whether or not to log actions in the chat.
@@ -544,6 +534,36 @@ public sealed partial class GoobCVars
 
     #endregion
 
+    #region Movement
+
+    public static readonly CVarDef<float> MaxSpeed =
+        CVarDef.Create("movement.max_speed", 2.7f, CVar.SERVER | CVar.REPLICATED);
+
+    #endregion
+
+    #region LightDetection
+
+    /// <summary>
+    /// Lookup range for LightDetectionSystem to use. Normally should be the same value as the strongest light source.
+    /// </summary>
+    public static readonly CVarDef<float> LightDetectionRange =
+        CVarDef.Create("light.detection_range", 10f, CVar.SERVER);
+
+    /// <summary>
+    /// How often will light detection update its value, in seconds.
+    /// </summary>
+    public static readonly CVarDef<float> LightUpdateFrequency =
+        CVarDef.Create("light.detection_update_frequency", 1f, CVar.SERVER);
+
+    /// <summary>
+    /// Maximum light level for light detection system to check.
+    /// </summary>
+    public static readonly CVarDef<float> LightMaximumLevel =
+        CVarDef.Create("light.maximum_light_level", 10f, CVar.SERVER);
+
+
+    #endregion
+
     #region Misc
 
     /// <summary>
@@ -563,6 +583,12 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> UseDynamicHostname =
         CVarDef.Create("hub.use_dynamic_hostname", false, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Determines minimum amount of solution you have to step into for footprints to be created.
+    /// </summary>
+    public static readonly CVarDef<float> MinimumPuddleSizeForFootprints =
+        CVarDef.Create("footprints.minimum_puddle_size", 6f, CVar.SERVERONLY);
 
     #endregion
 }

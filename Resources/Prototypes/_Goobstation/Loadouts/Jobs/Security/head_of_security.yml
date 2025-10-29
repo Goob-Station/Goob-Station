@@ -46,3 +46,24 @@
       time: 198000 # 55 hrs
   - !type:GroupLoadoutEffect
     proto: MasterHoS
+  id: HeadofSecurityEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitHoS
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: HeadofSecurityEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmHoS
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: HoSSummerShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoSSummer

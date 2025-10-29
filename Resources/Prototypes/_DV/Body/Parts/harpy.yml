@@ -14,7 +14,6 @@
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -79,8 +78,7 @@
       layer: "/Textures/_EinsteinEngines/Mobs/Customization/Harpy/harpy_wings.rsi"
       animationKey: "Flap"
       # Buffed to account for sprinting. Gets to about the same distance as everyone else's sprint, but with faster acceleration.
-      # In practice when running on a straight hallway of about 30-40 tiles such as Meta, you have 2-3s of advantage vs a running urist.
-      speedModifier: 3
+      speedModifier: 2.6
 
 - type: entity
   parent: [ PartHarpyBase, BaseLeftHand ]

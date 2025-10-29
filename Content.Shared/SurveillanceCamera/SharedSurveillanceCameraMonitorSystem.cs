@@ -4,6 +4,9 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Robust.Shared.Map; // Goobstation
+using Content.Shared.DeviceNetwork;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.SurveillanceCamera;
@@ -19,23 +22,20 @@ public sealed class SurveillanceCameraMonitorUiState : BoundUserInterfaceState
 
     // Currently available subnets. Does not send the entirety of the possible
     // cameras to view because that could be really, really large
-    public HashSet<string> Subnets { get; }
 
     public string ActiveAddress;
 
-    // Currently active subnet.
-    public string ActiveSubnet { get; }
-
     // Known cameras, by address and name.
-    public Dictionary<string, string> Cameras { get; }
+    public Dictionary<string, (string, (NetEntity, NetCoordinates))> Cameras { get; } // Goobstation
 
-    public SurveillanceCameraMonitorUiState(NetEntity? activeCamera, HashSet<string> subnets, string activeAddress, string activeSubnet, Dictionary<string, string> cameras)
+    public Dictionary<string, (string, (NetEntity, NetCoordinates))> MobileCameras { get; } // Goobstation
+
+    public SurveillanceCameraMonitorUiState(NetEntity? activeCamera, string activeAddress, Dictionary<string, (string, (NetEntity, NetCoordinates))> cameras, Dictionary<string, (string, (NetEntity, NetCoordinates))> mobileCameras) // Goobstation
     {
         ActiveCamera = activeCamera;
-        Subnets = subnets;
         ActiveAddress = activeAddress;
-        ActiveSubnet = activeSubnet;
         Cameras = cameras;
+        MobileCameras = mobileCameras; // Goobstation
     }
 }
 
@@ -89,11 +89,11 @@ public sealed class SurveillanceCameraSetupBoundUiState : BoundUserInterfaceStat
 {
     public string Name { get; }
     public uint Network { get; }
-    public List<string> Networks { get; }
+    public List<ProtoId<DeviceFrequencyPrototype>> Networks { get; }
     public bool NameDisabled { get; }
     public bool NetworkDisabled { get; }
 
-    public SurveillanceCameraSetupBoundUiState(string name, uint network, List<string> networks, bool nameDisabled, bool networkDisabled)
+    public SurveillanceCameraSetupBoundUiState(string name, uint network, List<ProtoId<DeviceFrequencyPrototype>> networks, bool nameDisabled, bool networkDisabled)
     {
         Name = name;
         Network = network;

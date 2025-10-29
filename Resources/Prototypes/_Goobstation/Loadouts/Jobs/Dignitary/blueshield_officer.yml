@@ -11,6 +11,7 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 Androidonator <33227516+Androidonator@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -29,20 +30,33 @@
   equipment:
     head: ClothingHeadHelmetSwat
 
+
 - type: loadout
   id: BlueshieldOfficerBeret
   equipment:
     head: ClothingHeadHatBeretBlueshield # Here's your beret back Gallagin.
+
 
 - type: loadout
   id: BlueshieldOfficerHeadCowboy
   equipment:
     head: ClothingHeadHatCowboyBlueshield
 
+
 - type: loadout
   id: BlueshieldOfficerGoidaHelmet
   equipment:
     head: ClothingHeadHatUshankaBlueshield
+
+
+- type: loadout
+  id: BlueshieldOfficerEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmBlueshield
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
 
 # Jumpsuits
 - type: loadout
@@ -50,15 +64,43 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtBlueshieldOfficer
 
+
 - type: loadout
   id: BlueshieldOfficerInnerBlueshieldSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitBlueshieldOfficer
 
+
 - type: loadout
   id: BlueshieldOfficerInnerBlueshieldShirt
   equipment:
     jumpsuit: ClothingUniformJumpsuitBlueshieldShirt
+
+
+- type: loadout
+  id: BlueshieldOfficerEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitBlueshield
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+# Gloves
+- type: loadout
+  id: CombatEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesCombat
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: CombatGloves
+  equipment:
+    gloves: ClothingHandsGlovesCombat
+
 
 # Outer
 - type: loadout
@@ -124,9 +166,9 @@
 - type: loadout
   id: BlackCowboyBoots
   equipment:
-    shoes: ClothingShoesBootsCowboyBlackFilled
+    shoes: ClothingShoesBootsCowboyBlack
 
 - type: loadout
   id: SnowjacksBso
   equipment:
-    shoes: ClothingShoesBootsWinterSnowjackBsoFilled
+    shoes: ClothingShoesBootsWinterSnowjackBso

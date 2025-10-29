@@ -91,6 +91,7 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.Religion;
 using Content.Shared._Goobstation.Wizard;
@@ -171,11 +172,11 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!; // Goobstation
     [Dependency] private readonly NpcFactionSystem _faction = default!; // Goobstation
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     public override void Initialize()
     {
@@ -339,7 +340,7 @@ public abstract class SharedMagicSystem : EntitySystem
         return !ev.Cancelled;
     }
 
-    private bool IsTouchSpellDenied(EntityUid target) // Goob edit
+    public bool IsTouchSpellDenied(EntityUid target) // Goob edit
     {
         var ev = new BeforeCastTouchSpellEvent(target);
         RaiseLocalEvent(target, ev, true);
@@ -383,7 +384,7 @@ public abstract class SharedMagicSystem : EntitySystem
 
                 if (!TryComp<MapGridComponent>(casterXform.GridUid, out var mapGrid))
                     return new List<EntityCoordinates>();
-                if (!directionPos.TryGetTileRef(out var tileReference, EntityManager, _mapManager))
+                if (!_turf.TryGetTileRef(directionPos, out var tileReference))
                     return new List<EntityCoordinates>();
 
                 var tileIndex = tileReference.Value.GridIndices;
@@ -396,7 +397,7 @@ public abstract class SharedMagicSystem : EntitySystem
                 if (!TryComp<MapGridComponent>(casterXform.GridUid, out var mapGrid))
                     return new List<EntityCoordinates>();
 
-                if (!directionPos.TryGetTileRef(out var tileReference, EntityManager, _mapManager))
+                if (!_turf.TryGetTileRef(directionPos, out var tileReference))
                     return new List<EntityCoordinates>();
 
                 var tileIndex = tileReference.Value.GridIndices;
@@ -491,9 +492,6 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer)) // Goob edit
             return;
 
-        if (ev.Coords == null) // Goob edit
-            return;
-
         ev.Handled = true;
 
         if (_net.IsClient) // Goobstation
@@ -501,7 +499,6 @@ public abstract class SharedMagicSystem : EntitySystem
 
         var xform = Transform(ev.Performer);
         var fromCoords = xform.Coordinates;
-        var toCoords = ev.Coords.Value; // Goob edit
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
         var fromMap = _transform.ToMapCoordinates(fromCoords);
@@ -512,7 +509,7 @@ public abstract class SharedMagicSystem : EntitySystem
         var userVelocity = _physics.GetMapLinearVelocity(spawnCoords); // Goob edit
 
         var ent = Spawn(ev.Prototype, fromMap);
-        var direction = _transform.ToMapCoordinates(toCoords).Position -
+        var direction = _transform.ToMapCoordinates(ev.Target).Position -
                         fromMap.Position;
         _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, ev.Speed); // Goob edit
 
@@ -551,6 +548,13 @@ public abstract class SharedMagicSystem : EntitySystem
     {
         if (args.Handled || !PassesSpellPrerequisites(args.Action, args.Performer))
             return;
+
+        // Goobstation start
+        var ev = new TeleportAttemptEvent();
+        RaiseLocalEvent(args.Performer, ref ev);
+        if (ev.Cancelled)
+            return;
+        // Goobstation end
 
         var transform = Transform(args.Performer);
 
@@ -594,7 +598,7 @@ public abstract class SharedMagicSystem : EntitySystem
             var component = (Component)Factory.GetComponent(name);
             var temp = (object)component;
             _seriMan.CopyTo(data.Component, ref temp);
-            EntityManager.AddComponent(target, (Component)temp!);
+            AddComp(target, (Component)temp!);
         }
     }
 
@@ -676,7 +680,7 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         EntityUid? wand = null;
-        foreach (var item in _hands.EnumerateHeld(ev.Performer, handsComp))
+        foreach (var item in _hands.EnumerateHeld((ev.Performer, handsComp)))
         {
             if (!_tag.HasTag(item, ev.WandTag))
                 continue;

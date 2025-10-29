@@ -135,6 +135,7 @@
   - IPC # Goobstation - Your EMP (when you're nukie, DS or ninja) can easily kill you. TODO: Make EMPImmune component for these roles?
   - Diona # Goobstation - Lack of legs makes it weaker than other species in combat
   - Harpy # Goobstation - Same with Diona
+  - Plasmaman # Goobstation - Do i need to fucking say it?
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
@@ -145,7 +146,9 @@
   id: EventHumanoidMindShielded
   parent: EventHumanoid
   components:
-    - type: MindShield
+    - type: AutoImplant
+      implants:
+      - MindShieldImplant
     - type: AntagImmune
 
 # Goobstation start
@@ -158,6 +161,23 @@
   id: EventHumanMindShielded
   parent: EventHumanoidMindShielded
   speciesWhitelist: Human
+
+- type: randomHumanoidSettings
+  id: EventHumanoidLibrarian
+  parent: EventHumanoid
+  components:
+  - type: AutoImplant
+    implants:
+    - LibrarianTranslatorImplant      #Librarians should speak most languages
+
+- type: randomHumanoidSettings
+  id: EventHumanoidChef
+  parent: EventHumanoid
+  components:
+  - type: AutoImplant
+    implants:
+    - SpaceItalianTranslatorImplant   #chefs should speak space italian
+  - type: GrantCqc                    #Chefs should have CqC
 # Goobstation end
 
 - type: randomHumanoidSettings
@@ -167,6 +187,7 @@
   components:
   - type: AutoImplant
     implants:
+    - MindShieldImplant
     - DeathRattleImplantCentcomm
 
 ## Death Squad

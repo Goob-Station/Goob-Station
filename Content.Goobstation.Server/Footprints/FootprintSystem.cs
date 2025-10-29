@@ -2,8 +2,11 @@
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Hagvan <22118902+Hagvan@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -23,6 +26,8 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Server.Gravity;
+using Content.Goobstation.Common.CCVar;
+using Robust.Shared.Configuration;
 
 namespace Content.Goobstation.Server.Footprints;
 
@@ -34,6 +39,9 @@ public sealed class FootprintSystem : EntitySystem
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
     [Dependency] private readonly GravitySystem _gravity = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IConfigurationManager _configuration = default!;
+
+    private EntityQuery<NoFootprintsComponent> _noFootprintsQuery = default!;
 
     public static readonly FixedPoint2 MaxFootprintVolumeOnTile = 50;
 
@@ -45,6 +53,8 @@ public sealed class FootprintSystem : EntitySystem
 
     public const string PuddleSolution = "puddle";
 
+    private float _minimumPuddleSize;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<FootprintComponent, FootprintCleanEvent>(OnFootprintClean);
@@ -52,6 +62,10 @@ public sealed class FootprintSystem : EntitySystem
         SubscribeLocalEvent<FootprintOwnerComponent, MoveEvent>(OnMove);
 
         SubscribeLocalEvent<PuddleComponent, MapInitEvent>(OnMapInit);
+
+        _noFootprintsQuery = GetEntityQuery<NoFootprintsComponent>();
+
+        Subs.CVar(_configuration, GoobCVars.MinimumPuddleSizeForFootprints, value => _minimumPuddleSize = value, true);
     }
 
     private void OnFootprintClean(Entity<FootprintComponent> entity, ref FootprintCleanEvent e)
@@ -61,6 +75,9 @@ public sealed class FootprintSystem : EntitySystem
 
     private void OnMove(Entity<FootprintOwnerComponent> entity, ref MoveEvent e)
     {
+        if (_noFootprintsQuery.HasComp(entity))
+            return;
+
         if (_gravity.IsWeightless(entity) || !e.OldPosition.IsValid(EntityManager) || !e.NewPosition.IsValid(EntityManager))
             return;
 
@@ -133,6 +150,14 @@ public sealed class FootprintSystem : EntitySystem
 
         _solution.TryTransferSolution(puddleSolution.Value, solution.Value.Comp.Solution, GetFootprintVolume(entity, solution.Value));
 
+        // only make footprints if a puddle contains enough of a reagent that can form footprints
+        if (puddleSolSol.Volume < _minimumPuddleSize)
+        {
+            // add back whatever we temporarily took out
+            puddleSolSol.AddSolution(addBack, _prototype);
+            return false;
+        }
+
         _solution.TryTransferSolution(solution.Value, puddleSolSol, FixedPoint2.Max(0, (standing ? entity.Comp.MaxFootVolume : entity.Comp.MaxBodyVolume) - solution.Value.Comp.Solution.Volume));
 
         // add back whatever we temporarily took out
@@ -151,7 +176,14 @@ public sealed class FootprintSystem : EntitySystem
         var volume = standing ? GetFootprintVolume(entity, solution.Value) : GetBodyprintVolume(entity, solution.Value);
 
         if (volume < entity.Comp.MinFootprintVolume)
+        {
+            // Goobstation start
+            // after footprints stop, some of the solution remains forever which causes some unexpected behavior
+            // removing all solution once footprints stop helps resolve this issue, the amount of reagent lost is negligible
+            _solution.RemoveAllSolution(solution.Value);
+            // Goobstation end
             return;
+        }
 
         if (!TryGetAnchoredEntity<FootprintComponent>(grid, tile, out var footprint))
         {

@@ -15,7 +15,7 @@ public abstract partial class SharedSkinnableSystem : EntitySystem
         if (!TryComp<AppearanceComponent>(ent, out var appearance))
             return;
 
-        _appearance.SetData(ent, ToggleVisuals.Toggled, true, appearance);
+        _appearance.SetData(ent, ToggleableVisuals.Enabled, true, appearance);
     }
 
 

@@ -1,0 +1,17 @@
+- type: alert
+  id: LowPlasma
+  category: Breathing
+  icons:
+    - sprite: /Textures/Interface/Alerts/breathing.rsi
+      state: not_enough_tox
+  name: alerts-low-plasma-name
+  description: alerts-low-plasma-desc
+
+- type: alert
+  id: HighOxygen
+  category: Breathing
+  icons:
+    - sprite: /Textures/Interface/Alerts/breathing.rsi
+      state: too_much_oxy
+  name: alerts-high-oxygen-name
+  description: alerts-high-oxygen-desc

@@ -1,0 +1,19 @@
+- type: cargoProduct
+  id: EmergencyPlasmaInternals
+  icon:
+    sprite: _EinsteinEngines/Objects/Tanks/plasmaman.rsi
+    state: icon
+  product: CratePlasmaInternals
+  cost: 750 # Plasma is expensive!
+  category: cargoproduct-category-name-emergency
+  group: market
+
+- type: cargoProduct
+  id: EmergencyPlasmamanEnvirosuit
+  icon:
+    sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/plain.rsi
+    state: icon
+  product: CratePlasmamanEnvirosuit
+  cost: 600
+  category: cargoproduct-category-name-emergency
+  group: market

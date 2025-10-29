@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Concepts by: https://github.com/ElusiveCoin",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "default",
+            "directions": 4
+        },
+        {
+            "name": "curly",
+            "directions": 4
+        },
+        {
+            "name": "gray",
+            "directions": 4
+        },
+        {
+            "name": "slick",
+            "directions": 4
+        },
+        {
+            "name": "short",
+            "directions": 4
+        },
+        {
+            "name": "long",
+            "directions": 4
+        },
+        {
+            "name": "bee",
+            "directions": 4
+        },
+        {
+            "name": "firefly_primary",
+            "directions": 4
+        },
+        {
+            "name": "firefly_secondary",
+            "directions": 4
+        },
+        {
+            "name": "radar",
+            "directions": 4
+        },
+       {
+            "name": "speed",
+            "directions": 4
+        }
+    ]
+}

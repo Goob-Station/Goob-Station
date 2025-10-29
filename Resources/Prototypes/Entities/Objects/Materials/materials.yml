@@ -541,6 +541,10 @@
     tags:
     - RawMaterial
     - Diamond
+  - type: Enchanter # Goobstation
+    maxLevel: 3
+    enchants:
+    - EnchantFortune
 
 - type: entity
   parent: MaterialDiamond
@@ -859,7 +863,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 15
+        Slash: 12 #goobedit - buff spear variant, nerf tooth.
   - type: Sprite
     sprite: Objects/Materials/Mob/sharktooth.rsi
     layers:

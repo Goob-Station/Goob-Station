@@ -20,6 +20,7 @@
 using Content.Server.Wires;
 using Content.Shared.Access;
 using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.Wires;
 
 namespace Content.Server.Access;
@@ -42,23 +43,21 @@ public sealed partial class AccessWireAction : ComponentWireAction<AccessReaderC
     public override bool Cut(EntityUid user, Wire wire, AccessReaderComponent comp)
     {
         WiresSystem.TryCancelWireAction(wire.Owner, PulseTimeoutKey.Key);
-        comp.Enabled = false;
-        EntityManager.Dirty(wire.Owner, comp);
+        EntityManager.System<AccessReaderSystem>().SetActive((wire.Owner, comp), false);
+
         return true;
     }
 
     public override bool Mend(EntityUid user, Wire wire, AccessReaderComponent comp)
     {
-        comp.Enabled = true;
-        EntityManager.Dirty(wire.Owner, comp);
+        EntityManager.System<AccessReaderSystem>().SetActive((wire.Owner, comp), true);
 
         return true;
     }
 
     public override void Pulse(EntityUid user, Wire wire, AccessReaderComponent comp)
     {
-        comp.Enabled = false;
-        EntityManager.Dirty(wire.Owner, comp);
+        EntityManager.System<AccessReaderSystem>().SetActive((wire.Owner, comp), false);
         WiresSystem.StartWireAction(wire.Owner, _pulseTimeout, PulseTimeoutKey.Key, new TimedWireEvent(AwaitPulseCancel, wire));
     }
 
@@ -76,8 +75,7 @@ public sealed partial class AccessWireAction : ComponentWireAction<AccessReaderC
         {
             if (EntityManager.TryGetComponent<AccessReaderComponent>(wire.Owner, out var access))
             {
-                access.Enabled = true;
-                EntityManager.Dirty(wire.Owner, access);
+                EntityManager.System<AccessReaderSystem>().SetActive((wire.Owner, access), true);
             }
         }
     }

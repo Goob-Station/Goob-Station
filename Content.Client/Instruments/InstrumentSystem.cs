@@ -13,9 +13,14 @@
 // SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 krusti <43324723+Topicranger@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 krusti <krusti@fluffytech.xyz>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -31,7 +36,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.Instruments;
 
-public sealed class InstrumentSystem : SharedInstrumentSystem
+public sealed partial class InstrumentSystem : SharedInstrumentSystem
 {
     [Dependency] private readonly IClientNetManager _netManager = default!;
     [Dependency] private readonly IMidiManager _midiManager = default!;
@@ -41,6 +46,8 @@ public sealed class InstrumentSystem : SharedInstrumentSystem
     public readonly TimeSpan OneSecAgo = TimeSpan.FromSeconds(-1);
     public int MaxMidiEventsPerBatch { get; private set; }
     public int MaxMidiEventsPerSecond { get; private set; }
+
+    public event Action? OnChannelsUpdated;
 
     public override void Initialize()
     {
@@ -57,6 +64,26 @@ public sealed class InstrumentSystem : SharedInstrumentSystem
 
         SubscribeLocalEvent<InstrumentComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<InstrumentComponent, ComponentHandleState>(OnHandleState);
+        SubscribeLocalEvent<ActiveInstrumentComponent, AfterAutoHandleStateEvent>(OnActiveInstrumentAfterHandleState);
+    }
+
+    private bool _isUpdateQueued = false;
+
+    private void OnActiveInstrumentAfterHandleState(Entity<ActiveInstrumentComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        // Called in the update loop so that the components update client side for resolving them in TryComps.
+        _isUpdateQueued = true;
+    }
+
+    public override void FrameUpdate(float frameTime)
+    {
+        base.FrameUpdate(frameTime);
+
+        if (!_isUpdateQueued)
+            return;
+
+        _isUpdateQueued = false;
+        OnChannelsUpdated?.Invoke();
     }
 
     private void OnHandleState(EntityUid uid, SharedInstrumentComponent component, ref ComponentHandleState args)
@@ -97,8 +124,8 @@ public sealed class InstrumentSystem : SharedInstrumentSystem
         if (!TryComp(uid, out InstrumentComponent? instrument))
             return;
 
-        if(value)
-            instrument.Renderer?.SendMidiEvent(RobustMidiEvent.AllNotesOff((byte)channel, 0), false);
+        if (value)
+            instrument.Renderer?.SendMidiEvent(RobustMidiEvent.AllNotesOff((byte) channel, 0), false);
 
         RaiseNetworkEvent(new InstrumentSetFilteredChannelEvent(GetNetEntity(uid), channel, value));
     }
@@ -169,8 +196,8 @@ public sealed class InstrumentSystem : SharedInstrumentSystem
 
         for (int i = 0; i < RobustMidiEvent.MaxChannels; i++)
         {
-            if(instrument.FilteredChannels[i])
-                instrument.Renderer.SendMidiEvent(RobustMidiEvent.AllNotesOff((byte)i, 0));
+            if (instrument.FilteredChannels[i])
+                instrument.Renderer.SendMidiEvent(RobustMidiEvent.AllNotesOff((byte) i, 0));
         }
 
         if (!instrument.AllowProgramChange)
@@ -248,7 +275,7 @@ public sealed class InstrumentSystem : SharedInstrumentSystem
 
         instrument.MidiEventBuffer.Clear();
 
-        var tick = instrument.Renderer.SequencerTick-1;
+        var tick = instrument.Renderer.SequencerTick - 1;
 
         instrument.MidiEventBuffer.Add(RobustMidiEvent.SystemReset(tick));
         instrument.Renderer.PlayerTick = playerTick;
@@ -271,7 +298,13 @@ public sealed class InstrumentSystem : SharedInstrumentSystem
 
     }
 
+    [Obsolete("Use overload that takes in byte[] instead.")]
     public bool OpenMidi(EntityUid uid, ReadOnlySpan<byte> data, InstrumentComponent? instrument = null)
+    {
+        return OpenMidi(uid, data.ToArray(), instrument);
+    }
+
+    public bool OpenMidi(EntityUid uid, byte[] data, InstrumentComponent? instrument = null)
     {
         if (!Resolve(uid, ref instrument))
             return false;
@@ -282,7 +315,8 @@ public sealed class InstrumentSystem : SharedInstrumentSystem
             return false;
 
         SetMaster(uid, null);
-        instrument.MidiEventBuffer.Clear();
+        TrySetChannels(uid, data);
+
         instrument.Renderer.OnMidiEvent += instrument.MidiEventBuffer.Add;
         return true;
     }
@@ -358,7 +392,7 @@ public sealed class InstrumentSystem : SharedInstrumentSystem
             instrument.SequenceStartTick = midiEv.MidiEvent.Min(x => x.Tick) - 1;
         }
 
-        var sqrtLag = MathF.Sqrt((_netManager.ServerChannel?.Ping ?? 0)/ 1000f);
+        var sqrtLag = MathF.Sqrt((_netManager.ServerChannel?.Ping ?? 0) / 1000f);
         var delay = (uint) (renderer.SequencerTimeScale * (.2 + sqrtLag));
         var delta = delay - instrument.SequenceStartTick;
 
@@ -381,7 +415,7 @@ public sealed class InstrumentSystem : SharedInstrumentSystem
         for (uint i = 0; i < midiEvents.Count; i++)
         {
             // I am surprised this doesn't take uint...
-            var ev = midiEvents[(int)i];
+            var ev = midiEvents[(int) i];
 
             var scheduled = ev.Tick + instrument.SequenceDelay;
 
@@ -393,7 +427,7 @@ public sealed class InstrumentSystem : SharedInstrumentSystem
 
             // The order of events with the same timestamp is undefined in Fluidsynth's sequencer...
             // Therefore we add the event index to the scheduled time to ensure every event has an unique timestamp.
-            instrument.Renderer?.ScheduleMidiEvent(ev, scheduled+i, true);
+            instrument.Renderer?.ScheduleMidiEvent(ev, scheduled + i, true);
         }
     }
 

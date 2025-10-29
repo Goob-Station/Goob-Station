@@ -5,43 +5,52 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Actions
 - type: entity
+  parent: BaseMentalAction
   id: ActionExitConsole
   name: Exit console
   description: Exit console.
   components:
-  - type: InstantAction
+  - type: Action
+    checkCanInteract: false
     priority: -20
     itemIconStyle: BigAction
     icon:
       sprite: _Shitmed/Interface/Actions/actions_abductor.rsi
       state: exit
+  - type: InstantAction
     event: !type:ExitConsoleEvent
 
 - type: entity
+  parent: BaseMentalAction
   id: ActionSendYourself
   name: Send yourself
   description: You need to FTL to the same map as the station to use this ability!
   components:
-  - type: WorldTargetAction
-    useDelay: 10
-    priority: -19
-    range: -1
-    checkCanAccess: false
+  - type: Action
     itemIconStyle: BigAction
+    checkCanInteract: false
     icon:
       sprite: _Shitmed/Interface/Actions/actions_abductor.rsi
       state: send-yourself
+    useDelay: 10
+    priority: -19
+  - type: TargetAction
+    checkCanAccess: false
+    range: -1
+  - type: WorldTargetAction
     event: !type:SendYourselfEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionReturnToShip
   name: return
   description: return to the ship.
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 30
     icon:
       sprite: _Shitmed/Interface/Actions/actions_abductor.rsi
       state: take
     priority: -12
+  - type: InstantAction
     event: !type:AbductorReturnToShipEvent

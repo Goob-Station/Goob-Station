@@ -37,6 +37,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using System.Numerics;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mind.Components;
 
 namespace Content.Shared._DV.Carrying;
@@ -54,6 +55,7 @@ public sealed class CarryingSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly SharedVirtualItemSystem  _virtualItem = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -134,7 +136,11 @@ public sealed class CarryingSystem : EntitySystem
     /// </summary>
     private void OnVirtualItemDeleted(Entity<CarryingComponent> ent, ref VirtualItemDeletedEvent args)
     {
-        if (HasComp<CarriableComponent>(args.BlockingEntity))
+        // Goobstation - VirtualItemDeletedEvent is raised on both the blocking entity and the user,
+        //               so we need to check that the item being deleted is the carried person item and
+        //               not something unrelated like the virtual item for pulling another player.
+        //               See https://github.com/Goob-Station/Goob-Station/issues/2121
+        if (args.BlockingEntity == ent.Comp.Carried && HasComp<CarriableComponent>(args.BlockingEntity))
             DropCarried(ent, args.BlockingEntity);
     }
 
@@ -349,8 +355,7 @@ public sealed class CarryingSystem : EntitySystem
             !HasComp<BeingCarriedComponent>(carrier) &&
             !HasComp<BeingCarriedComponent>(carried) &&
             // finally check that there are enough free hands
-            TryComp<HandsComponent>(carrier, out var hands) &&
-            hands.CountFreeHands() >= carried.Comp.FreeHandsRequired;
+            _hands.CountFreeHands(carrier) >= carried.Comp.FreeHandsRequired;
     }
 
     private float MassContest(EntityUid roller, EntityUid target)

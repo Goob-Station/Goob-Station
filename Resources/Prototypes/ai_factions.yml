@@ -20,12 +20,18 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+# SPDX-FileCopyrightText: 2025 Arraydeess14 <87253287+Arraydeess14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Ethan_k <eknowles27@dtechhs.org>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 amogus <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -42,9 +48,11 @@
     - AllHostile
     - Heretic # goob edit - heretics
     - Blob # Goobstation - Blob
+    - Shadowling # Einstein Engines - Shadowlings
   friendly: # Goobstation
     - Wizard
     - PirateFaction # goob - pirates
+    - Lavafauna # Goob - Lavaland
 
 - type: npcFaction
   id: NanoTrasen
@@ -59,9 +67,12 @@
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Shadowling # Einstein Engines - Shadowlings
   - Wizard
   - PirateFaction # goob - pirates
   - Xenoborg
+  - Wraith # Goobstation - Wraith
+  - Lavafauna # Goob - Lavaland
 
 - type: npcFaction
   id: Mouse
@@ -82,6 +93,7 @@
   - Wizard
   - Dragon
   - Blob # Goobstation - Blob
+  - Lavafauna # Goob - Lavaland
 
 - type: npcFaction
   id: SimpleHostile
@@ -99,8 +111,11 @@
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - PirateFaction # goob - pirates
+  - Lavafauna # Goob - Lavaland
   friendly: # Goobstation
-    - Wizard
+  - Wizard
+  - Shadowling # Einstein Engines - Shadowlings
+  - Wraith # Goobstation - Wraith
 
 - type: npcFaction
   id: SimpleNeutral
@@ -121,6 +136,9 @@
   - Blob # Goobstation - Blob
   - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
+  - Shadowling # Einstein Engines - Shadowlings
+  - Wraith # Goobstation - Wraith
+  - Lavafauna # Goob - Lavaland
 
 - type: npcFaction
   id: Xeno
@@ -138,6 +156,8 @@
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - PirateFaction # goob - pirates
+  - Wraith # Goobstation - Wraith
+  - Lavafauna # Goob - Lavaland
   friendly: # Goobstation
     - Wizard
 
@@ -156,9 +176,12 @@
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Shadowling # Einstein Engines - Shadowlings
   - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
   - Xenoborg
+  - Wraith # Goobstation - Wraith
+  - Lavafauna # Goob - Lavaland
 
 - type: npcFaction
   id: Revolutionary
@@ -169,9 +192,11 @@
   - Dragon
   - AllHostile
   - Blob # Goobstation - Blob
+  - Shadowling # Einstein Engines - Shadowlings
   - Wizard # Goobstation - wizard
   - PirateFaction # goob - pirates
   - Xenoborg
+  - Lavafauna # Goob - Lavaland
 
 - type: npcFaction
   id: AllHostile
@@ -190,9 +215,12 @@
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Shadowling # Einstein Engines - Shadowlings
   - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
-  
+  - Wraith # Goobstation - Wraith
+  - Lavafauna # Goob - Lavaland
+
 # Balloons Factions Edit:
 - type: npcFaction  
   id: Balloon
@@ -222,3 +250,47 @@
   - SimpleHostile 
   - AllHostile
   - Blob # Goobstation - Blob
+  - Shadowling # Einstein Engines - Shadowlings
+
+- type: npcFaction
+  id: Wraith # Goobstation
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - Passive
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - Dragon
+  - Xeno
+  - AllHostile
+  - Xenoborg
+  - Heretic # goob edit - heretics
+  - Blob # Goobstation - Blob
+  - PirateFaction # goob - pirates
+  friendly: # Goobstation
+  - Wraith # Goobstation
+  - Lavafauna # Lavaland
+
+# Lavaland mob faction to stop gang wars
+- type: npcFaction
+  id: Lavafauna
+  hostile:
+  - NanoTrasen
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Changeling # goob edit - changelings
+  - Heretic # goob edit - heretics
+  - Blob # Goobstation - Blob
+  - Shadowling # Einstein Engines - Shadowlings
+  - Wizard # goob edit - wizard
+  - PirateFaction # goob - pirates
+  friendly:
+  - Dragon

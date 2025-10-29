@@ -9,19 +9,67 @@
   equipment:
     head: ClothingHeadMailCarrier
 
+
 # Jumpsuit
 - type: loadout
   id: CargoTechnicianJumpsuitMail
   equipment:
     jumpsuit: ClothingUniformMailCarrier
 
+
 - type: loadout
   id: CargoTechnicianJumpskirtMail
   equipment:
     jumpsuit: ClothingUniformSkirtMailCarrier
+
 
 # OuterClothing
 - type: loadout
   id: CargoTechnicianWintercoatMail
   equipment:
     outerClothing: ClothingOuterWinterCoatMail
+
+- type: loadout
+  id: CargoTechnicianEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitCargo
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: CargoTechnicianEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmCargo
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: CargoTechnicianEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesCargo
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: MailCarrierEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitMailCarrier
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: MailCarrierEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmMailCarrier
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

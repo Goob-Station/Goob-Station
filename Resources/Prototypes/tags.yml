@@ -279,6 +279,9 @@
   id: AppraisalTool
 
 - type: Tag
+  id: Apron
+
+- type: Tag
   id: Arrow
 
 - type: Tag
@@ -286,6 +289,9 @@
 
 - type: Tag
   id: ATVKeys
+
+- type: Tag
+  id: Backpack
 
 - type: Tag
   id: Balloon
@@ -462,9 +468,6 @@
   id: CanPilot
 
 - type: Tag
-  id: CapacitorStockPart
-
-- type: Tag
   id: CaptainSabre
 
 - type: Tag
@@ -591,6 +594,9 @@
 
 - type: Tag
   id: CoordinatesDisk
+
+- type: Tag # designed to let corgis wear things; at present only for SmartCorgi.  View PR 33737 on upstream for more dog wearables
+  id: CorgiWearable
 
 - type: Tag #Ohioans die happy
   id: Corn
@@ -869,6 +875,9 @@
   id: Goat
 
 - type: Tag
+  id: GoldenPlunger
+
+- type: Tag
   id: Goliath
 
 - type: Tag
@@ -1061,6 +1070,9 @@
   id: Lime
 
 - type: Tag
+  id: LoneOpsUplink # Goob
+
+- type: Tag
   id: Machete
 
 - type: Tag
@@ -1159,6 +1171,9 @@
 
 - type: Tag
   id: MimeHappyHonk
+
+- type: Tag
+  id: FakeMindShieldImplant
 
 - type: Tag
   id: MindTransferTarget
@@ -1269,6 +1284,9 @@
   id: PercussionInstrument
 
 - type: Tag
+  id: PetOnly
+
+- type: Tag
   id: PetWearable
 
 - type: Tag
@@ -1315,6 +1333,12 @@
 
 - type: Tag
   id: PlushieCarp
+
+- type: Tag
+  id: PlushieCarpHolo
+
+- type: Tag
+  id: PlushieCarpMagi
 
 - type: Tag
   id: PlushieGhost
@@ -1375,6 +1399,9 @@
   id: ReinforcedGlassShard
 
 - type: Tag
+  id: RemoteSignaller
+
+- type: Tag
   id: ReptilianFood
 
 - type: Tag
@@ -1425,6 +1452,9 @@
 - type: Tag
   id: Screwdriver
 
+- type: Tag # Flags items that scurrets can wear in their back and outerwear slots.
+  id: ScurretWearable
+
 - type: Tag
   id: SecBeltEquip
 
@@ -1468,6 +1498,9 @@
   id: SilentStorageUser # used in SharedStorageSystem, so the entity will do all silently
 
 - type: Tag
+  id: SiliconEmotes
+
+- type: Tag
   id: SkeletonMotorcycleKeys
 
 - type: Tag
@@ -1484,8 +1517,6 @@
 
 - type: Tag
   id: Smokable
-
-
 
 - type: Tag
   id: SnowyLabs
@@ -1638,6 +1669,9 @@
   id: UraniumGlassShard
 
 - type: Tag
+  id: UtilityBelt
+
+- type: Tag
   id: Vegetable
 
 - type: Tag
@@ -1695,6 +1729,9 @@
   id: Wine
 
 - type: Tag
+  id: WireBrush
+
+- type: Tag
   id: Wirecutter
 
 - type: Tag
@@ -1735,5 +1772,4 @@
 
 - type: Tag
   id: XenoborgModuleStealth
-
 # ALPHABETICAL
