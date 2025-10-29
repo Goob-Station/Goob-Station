@@ -17199,3 +17199,9 @@ Entries:
       message: Bso protect command objective.
   id: 1924
   time: '2025-10-29T15:30:00.0000000+00:00'
+- author: joaofernandez
+  changes:
+    - type: Tweak
+      message: Added focus to the Search Input whenever the build menu is opened
+  id: 1925
+  time: '2025-10-29T15:57:09.0000000+00:00'
