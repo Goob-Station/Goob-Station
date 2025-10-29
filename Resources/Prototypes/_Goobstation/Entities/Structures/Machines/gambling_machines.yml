@@ -58,6 +58,13 @@
     price: 100
   - type: DatasetVocalizer
     dataset: CondimentVendAds
+  - type: ItemSlots
+    slots:
+      money:
+        name: spesos
+        whitelist:
+          components:
+          - Cash
   - type: LanguageSpeaker # Einstein Engines - Languages
   - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
@@ -66,3 +73,10 @@
     understands:
     - TauCetiBasic
     - RobotTalk
+
+- type: entity
+  id: SlotMachine
+  parent: BaseSlotMachine
+  name: slot machine
+  description: Gambling for the antisocial.
+  
