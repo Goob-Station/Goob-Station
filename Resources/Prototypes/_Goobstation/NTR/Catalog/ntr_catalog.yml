@@ -376,7 +376,7 @@
   resetRestockOnPurchase: false
   restockAfterPurchase: 2400 # 40 mins, you dont want to buy 2 suits in one shift, but if you do, then wait lol
 
-  - type: listing
+- type: listing
   id: NTRExecutiveMarlen
   name: Marlen
   description: A stylish Centcomm umbrella, made by "NanoFashion" for the rich people of central command. Surprisingly durable.
