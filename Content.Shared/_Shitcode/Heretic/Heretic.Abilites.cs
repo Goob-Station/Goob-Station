@@ -201,7 +201,7 @@ public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent
     {
         DamageDict =
         {
-            {"Cold", 40},
+            {"Cold", 20},
         },
     };
 
