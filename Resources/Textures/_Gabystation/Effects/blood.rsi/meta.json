@@ -44,6 +44,13 @@
       "directions": 4
     },
     {
+      "name": "outerclothingapron",
+      "directions": 4
+    },
+    {
+      "name": "outerclothinghelmeticon"
+    },
+    {
       "name": "itemblood"
     },
     {

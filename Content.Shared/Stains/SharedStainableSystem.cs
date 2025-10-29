@@ -45,6 +45,7 @@ public abstract partial class SharedStainableSystem : EntitySystem
         SubscribeLocalEvent<StainableComponent, WashingMachineIsBeingWashed>(OnWashed);
 
         SubscribeLocalEvent<StainableComponent, GetVerbsEvent<Verb>>(AddWringVerb); // Gaby
+        SubscribeLocalEvent<ContainerManagerComponent, GetVerbsEvent<Verb>>(AddWringVerbContainer); // Gaby
         SubscribeLocalEvent<StainableComponent, WringStainDoAfterEvent>(OnWringDoAfter); // Gaby
     }
 
@@ -173,8 +174,8 @@ public abstract partial class SharedStainableSystem : EntitySystem
         var user = args.User;
         var verb = new Verb
         {
-            Text = Loc.GetString("stain-verb-wring"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/bubbles.svg.192dpi.png")),
+            Text = Loc.GetString("stain-verb-wring", ("target", ent.Owner)),
+            Category = VerbCategory.Wring,
             Act = () =>
             {
                 var doAfterArgs = new DoAfterArgs(EntityManager, user, ent.Comp.CleanseDelay, new WringStainDoAfterEvent(), ent.Owner, target: ent.Owner)
@@ -188,6 +189,45 @@ public abstract partial class SharedStainableSystem : EntitySystem
             },
         };
         args.Verbs.Add(verb);
+    }
+
+    private void AddWringVerbContainer(Entity<ContainerManagerComponent> ent, ref GetVerbsEvent<Verb> args)
+    {
+        if (args.Using != ent.Owner)
+            return;
+        if (!args.CanAccess || !args.CanInteract)
+            return;
+
+        foreach (var container in ent.Comp.Containers.Values)
+        {
+            foreach (var containedId in container.ContainedEntities)
+            {
+                if (!TryComp<StainableComponent>(containedId, out var stainable))
+                    continue;
+
+                if (!Solution.TryGetSolution(containedId, stainable.SolutionId, out _, out var stainSolution) || stainSolution.Volume <= 0)
+                    continue;
+
+                var user = args.User;
+                var verb = new Verb
+                {
+                    Text = Loc.GetString("stain-verb-wring", ("target", containedId)),
+                    Category = VerbCategory.Wring,
+                    Act = () =>
+                    {
+                        var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(stainable.CleanseDelay), new WringStainDoAfterEvent(), containedId, target: containedId)
+                        {
+                            BreakOnMove = true,
+                            BreakOnDamage = true,
+                            NeedHand = true,
+                            DuplicateCondition = DuplicateConditions.SameTool | DuplicateConditions.SameTarget
+                        };
+                        _doAfter.TryStartDoAfter(doAfterArgs);
+                    },
+                };
+                args.Verbs.Add(verb);
+            }
+        }
     }
 
     private void OnWringDoAfter(Entity<StainableComponent> ent, ref WringStainDoAfterEvent args)

@@ -1,2 +1,3 @@
-stain-verb-wring = torcer a roupa
-stain-verb-wring-success = Você torceu a roupa e o líquido caiu no chão.
+stain-verb-wring = Torcer {$target}
+stain-verb-wring-success = Você torce {$item}, derramando o líquido no chão.
+verb-categories-wring = Torcer roupa

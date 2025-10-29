@@ -1,2 +1,3 @@
-stain-verb-wring = wring out clothes
-stain-verb-wring-success = You wrung out the clothes and the liquid fell on the floor.
+stain-verb-wring = Wring out {$target}
+stain-verb-wring-success = You wring out {$item}, spilling the liquid onto the floor.
+verb-categories-wring = Wring out clothes

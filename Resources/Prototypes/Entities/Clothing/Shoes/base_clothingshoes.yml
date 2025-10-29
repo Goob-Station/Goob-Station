@@ -68,6 +68,11 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+    stain:
+      temperature: 293.15
+      canReact: False
+      maxVol: 10
+      reagents: []
   - type: Tag
     tags:
     - ClothMade
