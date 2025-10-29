@@ -17107,3 +17107,47 @@ Entries:
       message: You can now play with radial menu open.
   id: 1914
   time: '2025-10-28T20:27:44.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Remove
+      message: Removed moab class bloons due to performance issues.
+  id: 1915
+  time: '2025-10-28T23:36:16.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Remove
+      message: Disabled Zombie kit from Nukie uplink.
+    - type: Remove
+      message: Disabled the Devour Devil Clause.
+    - type: Tweak
+      message: 'Tweak: Devils require now a higher player count to spawn.'
+  id: 1916
+  time: '2025-10-28T23:38:10.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Plasmamen can no longer become ninjas, nukies or wizards.
+  id: 1917
+  time: '2025-10-28T23:38:52.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: You can no longer kill yourself with a water pistol
+  id: 1918
+  time: '2025-10-29T01:14:47.0000000+00:00'
+- author: Speebro
+  changes:
+    - type: Tweak
+      message: >-
+        Opporozidone (anti-rot cryo chem) now uses Phalanxamine instead of
+        Cognizine. It's strength has been halved to compensate.
+    - type: Tweak
+      message: Formaldehyde no longer reverts rotting, only pausing it.
+  id: 1919
+  time: '2025-10-29T01:16:45.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Added Roboticist Role, still needs mapping and some spriting.
+  id: 1920
+  time: '2025-10-29T14:10:58.0000000+00:00'
