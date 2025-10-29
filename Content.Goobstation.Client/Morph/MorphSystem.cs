@@ -1,7 +1,5 @@
 using Content.Goobstation.Shared.Morph;
 using Content.Shared.Alert.Components;
-using Content.Shared.Polymorph.Components;
-using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Goobstation.Client.Morph;
 
