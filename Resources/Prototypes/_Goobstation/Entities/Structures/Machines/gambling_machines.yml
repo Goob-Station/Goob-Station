@@ -5,10 +5,6 @@
   abstract: true
   description: Gambling for the antisocial.
   components:
-  - type: Sprite
-    noRot: true
-    sprite: _Goobstation/Structures/Machines/GamblingMachines/slotmachine.rsi
-    state: slotmachine
   - type: StationAiWhitelist
   - type: AmbientOnPowered
   - type: AmbientSound
@@ -73,10 +69,15 @@
     understands:
     - TauCetiBasic
     - RobotTalk
+  - type: SlotMachine
 
 - type: entity
   id: SlotMachine
   parent: BaseSlotMachine
   name: slot machine
   description: Gambling for the antisocial.
-  
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Structures/Machines/GamblingMachines/slotmachine.rsi
+    state: slotmachine
