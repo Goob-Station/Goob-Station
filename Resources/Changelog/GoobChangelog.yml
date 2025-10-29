@@ -17151,3 +17151,9 @@ Entries:
       message: Added Roboticist Role, still needs mapping and some spriting.
   id: 1920
   time: '2025-10-29T14:10:58.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Buff fake spesos by 5X
+  id: 1921
+  time: '2025-10-29T14:17:26.0000000+00:00'
