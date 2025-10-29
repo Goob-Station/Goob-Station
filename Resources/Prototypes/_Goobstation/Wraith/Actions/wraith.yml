@@ -139,7 +139,7 @@
   description: Command a few objects to hurl themselves at the target location.
   components:
   - type: Action
-    useDelay: 20
+    useDelay: 40
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
@@ -164,12 +164,12 @@
   - type: Action
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wraith/wraithlivingobject.ogg
-    useDelay: 30
+    useDelay: 60
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: anim_object
   - type: ActionWraithPoints
-    wpConsume: 100
+    wpConsume: 200
 
 - type: entity
   id: ActionPossessObject
@@ -180,7 +180,7 @@
     wpConsume: 300
   - type: Action
     itemIconStyle: BigAction
-    # useDelay: 150
+    useDelay: 150
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: possess_object
@@ -246,6 +246,10 @@
       - type: Hands
       - type: CanEscapeInventory
       - type: MobCollision
+      - type: LanguageSpeaker
+      - type: UniversalLanguageSpeaker
+      - type: Speech
+        speechVerb: Ghost
       toRemove:
       - RequireProjectileTarget
       - BlockMovement
