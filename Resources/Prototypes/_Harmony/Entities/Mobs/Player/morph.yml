@@ -91,6 +91,13 @@
       components:
       - MobState
       - Item
+    stomachStorageWhitelist:
+      components:
+      - MobState
+      - Item
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidAppearance
   - type: Morph
     biomassWhitelist:
       components:
