@@ -19,7 +19,7 @@ public sealed partial class StarlightCCVars
     /// Auth token of the TTS server API.
     /// </summary>
     public static readonly CVarDef<string> TTSApiToken =
-        CVarDef.Create("tts.api_token", "d6a48cda36f91c7513facc6740479c1e521e3df67ff8c798fa41c715bfdd836c", CVar.SERVERONLY | CVar.CONFIDENTIAL);
+        CVarDef.Create("tts.api_token", "sk_696b695da67c626bc29e423f28ca6d28a53e8fd62f5d8371", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
     /// <summary>
     /// Amount of seconds before timeout for API
@@ -41,13 +41,13 @@ public sealed partial class StarlightCCVars
 
     public static readonly CVarDef<float> TTSRadioVolume =
         CVarDef.Create("tts.radio_volume", 0.50f, CVar.CLIENTONLY | CVar.ARCHIVE);
-    
+
     public static readonly CVarDef<bool> TTSRadioQueueEnabled =
         CVarDef.Create("tts.radio_queue_enabled", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     public static readonly CVarDef<float> TTSAnnounceVolume =
         CVarDef.Create("tts.announce_volume", 0.50f, CVar.CLIENTONLY | CVar.ARCHIVE);
-        
+
     /// <summary>
     /// Option to mute radio chime sounds
     /// </summary>

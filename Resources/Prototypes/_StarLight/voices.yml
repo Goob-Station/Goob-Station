@@ -1,90 +1,146 @@
 - type: voice
-  id: j9jfwdrw7BRfcR43Qohk
-  name: Frederick Surrey
-  sex: Male
+  id: OYTbf65OHHFELVut7v2H
+  name: Hope
+  sex: Female
   silicon: false
   voice: 1
 
 - type: voice
-  id: EiNlNiXeDU1pqqOPrYMO
-  name: John Doe
+  id: Z7HhYXzYeRsQk3RnXqiG
+  name: Attank
   sex: Male
   silicon: false
   voice: 2
 
 - type: voice
-  id: 7NsaqHdLuKNFvEfjpUno
-  name: Seer Morganna
-  sex: Female
+  id: DwwuoY7Uz8AP8zrY5TAo
+  name: Sean
+  sex: Male
   silicon: false
   voice: 3
 
 - type: voice
-  id: SEmKibXJ2YxXNjWwBbs9
+  id: B0BFLY35A1svZSmJ26Wr
   name: TF2 Announcer
   sex: Female
   silicon: false
   voice: 4
 
 - type: voice
-  id: fhG2HtuDNaqdXajIyLnq
+  id: Ea8HCzIaIzlENBR55SlR
   name: Hatsune Miku (lol)
   sex: Female
   silicon: false
   voice: 5
 
 - type: voice
-  id: RRrV00jn9iL01fWhVCrp
+  id: RF3OhbuBrrSHzv0meOUi
   name: Johnny Silverhand
   sex: Male
   silicon: false
   voice: 6
 
 - type: voice
-  id: WKgwwCtVqZG2hSmj5qI7
+  id: uLYc4HXkWAZA9M6zp2im
   name: Billy Herrington
   sex: Male
   silicon: false
   voice: 7
 
 - type: voice
-  id: z7wMPf69rWg11Lj1NqjR
+  id: nsbzQicrxdKoIKAquMCn
   name: Flying Dutchman
   sex: Male
   silicon: false
   voice: 8
 
 - type: voice
-  id: ZF6FPAbjXT4488VcRRnw
-  name: Amelia
+  id: XcXEQzuLXRU9RcfWzEJt
+  name: Veda Sky
   sex: Female
   silicon: false
   voice: 9
 
 - type: voice
-  id: vO7hjeAjmsdlGgUdvPpe
-  name: Amrut
-  sex: Female
+  id: DTKMou8ccj1ZaWGBiotd
+  name: Jamal
+  sex: Male
   silicon: false
   voice: 10
 
 - type: voice
-  id: CHPhef6gfFNOkEUe49Yz
-  name: Bramble
-  sex: Male
+  id: exsUS4vynmxd379XN4yO
+  name: Blondie
+  sex: Female
   silicon: false
   voice: 11
 
 - type: voice
-  id: sIiRahyxBt2egNH9gWXf
-  name: Leslie
+  id: 6JsmTroalVewG1gA6Jmw
+  name: Sia
   sex: Female
   silicon: false
   voice: 12
 
 - type: voice
-  id: P1z1v1qQU22zZKAwS1Up
-  name: Christopher
-  sex: Male
+  id: AAcsG2GKDfpmaiNOamMe
+  name: Francesca
+  sex: Female
   silicon: false
   voice: 13
+
+- type: voice
+  id: Jvf6TAXwMUVTSR20U0f9
+  name: Klaus
+  sex: Male
+  silicon: false
+  voice: 14
+
+- type: voice
+  id: nzeAacJi50IvxcyDnMXa
+  name: Marshal
+  sex: Male
+  silicon: false
+  voice: 15
+
+- type: voice
+  id: Dt2jDzhoZC0pZw5bmy2S
+  name: Emilia
+  sex: Female
+  silicon: false
+  voice: 16
+
+- type: voice
+  id: ouL9IsyrSnUkCmfnD02u
+  name: Grimblewood
+  sex: Male
+  silicon: false
+  voice: 17
+
+- type: voice
+  id: BBfN7Spa3cqLPH1xAS22
+  name: Beezle
+  sex: Male
+  silicon: false
+  voice: 18
+
+- type: voice
+  id: xYWUvKNK6zWCgsdAK7Wi
+  name: Argonian
+  sex: Male
+  silicon: false
+  voice: 19
+
+- type: voice
+  id: qhH5VOAvpCwvNpmn2srO
+  name: Feargol
+  sex: Female
+  silicon: false
+  voice: 20
+
+- type: voice
+  id: MKlLqCItoCkvdhrxgtLv
+  name: Grampa
+  sex: Male
+  silicon: false
+  voice: 21
