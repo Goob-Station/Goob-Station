@@ -110151,13 +110151,6 @@ entities:
     - type: Transform
       pos: 0.45826632,21.69703
       parent: 2
-    - type: GasTank
-      toggleActionEntity: invalid
-    - type: Jetpack
-      toggleActionEntity: invalid
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
   - uid: 16530
     components:
     - type: Transform

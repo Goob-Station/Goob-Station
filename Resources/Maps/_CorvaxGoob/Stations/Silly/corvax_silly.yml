@@ -8498,34 +8498,6 @@ entities:
     - type: Transform
       pos: 23.682198,-23.5179
       parent: 2
-- proto: ActionToggleInternals
-  entities:
-  - uid: 23
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 22
-  - uid: 26
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 25
-- proto: ActionToggleJetpack
-  entities:
-  - uid: 27
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 25
-- proto: ActionToggleSuitPiece
-  entities:
-  - uid: 6
-    components:
-    - type: Transform
-      parent: 4
 - proto: AdminInstantEffectFlash
   entities:
   - uid: 6345
@@ -24426,33 +24398,8 @@ entities:
     components:
     - type: Transform
       parent: 3
-    - type: ContainerContainer
-      containers:
-        toggleable-clothing: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        solution@food: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-    - type: ToggleableClothing
-      actionEntity: 6
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - food
     - type: Physics
       canCollide: False
-    - type: ActionsContainer
     - type: InsideEntityStorage
 - proto: ClothingShoesBling
   entities:
@@ -37479,20 +37426,9 @@ entities:
     components:
     - type: Transform
       parent: 24
-    - type: GasTank
-      toggleActionEntity: 26
-    - type: Jetpack
-      toggleActionEntity: 27
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 27
-          - 26
 - proto: JetpackMiniFilled
   entities:
   - uid: 3875
@@ -39267,13 +39203,6 @@ entities:
     - type: Transform
       pos: 0.6011148,12.374124
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 23
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents: []
 - proto: NodeScanner
   entities:
   - uid: 4006

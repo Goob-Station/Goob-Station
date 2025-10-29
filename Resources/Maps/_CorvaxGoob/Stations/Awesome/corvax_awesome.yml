@@ -115954,19 +115954,6 @@ entities:
     - type: Transform
       pos: -3.5870948,-3.3489125
       parent: 2
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 277
-    - type: Physics
-      canCollide: True
   - uid: 1471
     components:
     - type: Transform
@@ -116027,19 +116014,6 @@ entities:
     - type: Transform
       pos: -2.616333,46.237305
       parent: 15658
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 23586
-    - type: Physics
-      canCollide: True
   - uid: 21854
     components:
     - type: Transform
@@ -116145,17 +116119,6 @@ entities:
       rot: 1.5184364492350666 rad
       pos: 20.363422,45.489143
       parent: 2
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 13415
 - proto: LedLightBulb
   entities:
   - uid: 2667

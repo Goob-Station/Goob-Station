@@ -7541,28 +7541,6 @@ entities:
     - type: Transform
       pos: -50.45833,-8.258059
       parent: 2
-- proto: ActionToggleLight
-  entities:
-  - uid: 5
-    components:
-    - type: Transform
-      parent: 4
-    - type: InstantAction
-      container: 4
-      originalIconColor: '#FFFFFFFF'
-  - uid: 7
-    components:
-    - type: Transform
-      parent: 6
-    - type: InstantAction
-      container: 6
-  - uid: 9
-    components:
-    - type: Transform
-      parent: 8
-    - type: InstantAction
-      container: 8
-      originalIconColor: '#FFFFFFFF'
 - proto: AirAlarm
   entities:
   - uid: 10
@@ -42986,20 +42964,6 @@ entities:
     - type: Transform
       pos: -42.855858,-7.1805997
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 5
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 5
-    - type: ActionsContainer
 - proto: ClothingHeadHatHolyWatermelon
   entities:
   - uid: 5433
@@ -77882,47 +77846,11 @@ entities:
     - type: Transform
       pos: 24.580408,-19.166311
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 7
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 7
-    - type: Physics
-      canCollide: True
-    - type: ActionsContainer
   - uid: 8
     components:
     - type: Transform
       pos: -28.458933,-5.183518
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 9
-    - type: ContainerContainer
-      containers:
-        cellslot_cell_container: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 9
-    - type: Physics
-      canCollide: True
-    - type: ActionsContainer
   - uid: 9904
     components:
     - type: Transform

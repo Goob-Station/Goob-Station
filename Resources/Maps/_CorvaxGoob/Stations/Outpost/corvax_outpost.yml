@@ -21083,8 +21083,6 @@ entities:
       containerName: food
       container: 17
   - uid: 18676
-    mapInit: true
-    paused: true
     components:
     - type: MetaData
       name: solution - food
@@ -21119,17 +21117,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 12.424086,-61.87117
       parent: 2
-- proto: ActionToggleLight
-  entities:
-  - uid: 21151
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 17150
-    - type: Action
-      container: 17150
-      originalIconColor: '#FFFFFFFF'
 - proto: AirAlarm
   entities:
   - uid: 22
@@ -57637,22 +57624,8 @@ entities:
     components:
     - type: Transform
       parent: 5737
-    - type: HandheldLight
-      toggleActionEntity: 21151
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 21151
     - type: Physics
       canCollide: False
-    - type: ActionsContainer
     - type: InsideEntityStorage
 - proto: ClothingHeadHatHardhatYellow
   entities:
@@ -100848,8 +100821,6 @@ entities:
         solution@food: !type:ContainerSlot
           ent: 18
   - uid: 382
-    mapInit: true
-    paused: true
     components:
     - type: MetaData
       name: Обращение
