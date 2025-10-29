@@ -17145,3 +17145,9 @@ Entries:
       message: Formaldehyde no longer reverts rotting, only pausing it.
   id: 1919
   time: '2025-10-29T01:16:45.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Added Roboticist Role, still needs mapping and some spriting.
+  id: 1920
+  time: '2025-10-29T14:10:58.0000000+00:00'
