@@ -40,6 +40,7 @@ using System.Numerics;
 using Content.Client.Lobby;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.MenuBar.Widgets;
+using Content.Goobstation.Common.CCVar; // Goobstation
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Whitelist;
 using Robust.Client.GameObjects;
@@ -48,6 +49,7 @@ using Robust.Client.Placement;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Configuration; // Goobstation
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
@@ -71,13 +73,14 @@ namespace Content.Client.Construction.UI
 
         private readonly IConstructionMenuView _constructionView;
         private readonly EntityWhitelistSystem _whitelistSystem;
+        private readonly IConfigurationManager _cfg; // Goobstation
 
         private ConstructionSystem? _constructionSystem;
         private ConstructionPrototype? _selected;
         private List<ConstructionPrototype> _favoritedRecipes = [];
         private readonly Dictionary<string, ContainerButton> _recipeButtons = new();
         private string _selectedCategory = string.Empty;
-
+        private bool _autoFocusSearch = false; // Goobstation
         private const string FavoriteCatName = "construction-category-favorites";
         private const string ForAllCategoryName = "construction-category-all";
 
@@ -127,6 +130,7 @@ namespace Content.Client.Construction.UI
             _constructionView = new ConstructionMenu();
             _whitelistSystem = _entManager.System<EntityWhitelistSystem>();
             _spriteSystem = _entManager.System<SpriteSystem>();
+            _cfg = IoCManager.Resolve<IConfigurationManager>(); // Goobstation
 
             // This is required so that if we load after the system is initialized, we can bind to it immediately
             if (_systemManager.TryGetEntitySystem<ConstructionSystem>(out var constructionSystem))
@@ -157,7 +161,14 @@ namespace Content.Client.Construction.UI
 
             SetFavorites(_preferencesManager.Preferences?.ConstructionFavorites ?? []);
             OnViewPopulateRecipes(_constructionView, (string.Empty, string.Empty));
+
+            // Goobstation EDIT START
+            _autoFocusSearch = _cfg.GetCVar(GoobCVars.AutoFocusSearchOnBuildMenu);
+            _cfg.OnValueChanged(GoobCVars.AutoFocusSearchOnBuildMenu, UpdateAutoFocus, false);
+            // Goobstation EDIT END
         }
+
+        private void UpdateAutoFocus(bool value) { _autoFocusSearch = value; } // Goobstation EDIT
 
         public void OnHudCraftingButtonToggled(BaseButton.ButtonToggledEventArgs args)
         {
@@ -622,6 +633,12 @@ namespace Content.Client.Construction.UI
         private void SystemOnToggleMenu(object? sender, EventArgs eventArgs)
         {
             ToggleMenu();
+            // Goobstation EDIT START
+            if (_autoFocusSearch)
+            {
+                _constructionView.SearchBar.GrabKeyboardFocus();
+            }
+            // Goobstation EDIT END
         }
 
         public void ToggleMenu()
