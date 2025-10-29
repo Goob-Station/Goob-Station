@@ -91,6 +91,7 @@ public partial class SharedMartialArtsSystem
                 userReflect.Examinable = false; // no doxxing scarp users by examining lmao
                 userReflect.ReflectProb = 1;
                 userReflect.Spread = 60;
+                Dirty(args.User, userReflect);
                 _popupSystem.PopupEntity(
                     Loc.GetString("carp-scroll-complete"),
                     ent,

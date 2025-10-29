@@ -45,6 +45,12 @@
       components:
       - type: Wizard
       - type: CanEnchant
+      - type: LanguageKnowledge
+        speaks: []
+        understands: []
+      - type: UniversalLanguageSpeaker
+      - type: TowerOfBabel
+      - type: LanguageSpeaker
       - type: RandomMetadata
         nameSegments:
         - WizardFirst
@@ -57,6 +63,7 @@
     speciesOverride: Human
     speciesOverrideBlacklist:
     - Yowie # Penalized by wearing robes, still should be possible to select them in magic mirror.
+    - Plasmaman # EE
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/wizden.yml
@@ -101,6 +108,12 @@
       - type: Wizard
       - type: RandomMetadata
       - type: CanEnchant
+      - type: LanguageKnowledge
+        speaks: []
+        understands: []
+      - type: UniversalLanguageSpeaker
+      - type: TowerOfBabel
+      - type: LanguageSpeaker
         nameSegments:
         - WizardFirst
         - WizardLast
@@ -132,6 +145,12 @@
       components:
       - type: Apprentice
       - type: CanEnchant
+      - type: LanguageKnowledge
+        speaks: []
+        understands: []
+      - type: UniversalLanguageSpeaker
+      - type: TowerOfBabel
+      - type: LanguageSpeaker
       - type: NpcFactionMember
         factions:
         - Wizard
@@ -187,4 +206,3 @@
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - SubGamemodesRule
-    - LavalandStormScheduler # Lavaland Change

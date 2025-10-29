@@ -134,7 +134,7 @@ public sealed partial class ReflectComponent : Component
     /// <summary>
     /// Goobstation - Lets you prevent the reflect examine from showing.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool Examinable = true;
 
     // WD START

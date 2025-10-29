@@ -91,6 +91,13 @@
       availableJobs: {}
     - type: StationSpawning
 
+- type: entity # Goobstation - NTR
+  id: BaseStationNtrTasks
+  abstract: true
+  components:
+  - type: NtrTaskDatabase
+  - type: NtrBankAccount
+
 - type: entity
   id: BaseStationRecords
   abstract: true

@@ -1,0 +1,173 @@
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# used by weapon testing
+- type: startingGear
+  id: BrigmedicGearDebug
+  parent: BrigmedicGear
+  equipment:
+    head: ClothingHeadHatBeretBrigmedic
+    outerClothing: ClothingOuterCoatAMG
+    jumpsuit: ClothingUniformJumpsuitBrigmedic
+    gloves: ClothingHandsGlovesNitrile
+    shoes: ClothingShoesBootsJack
+
+- type: startingGear
+  id: WardenGearDebug
+  parent: WardenGear
+  equipment:
+    head: ClothingHeadHatWarden
+    outerClothing: ClothingOuterCoatWarden
+    jumpsuit: ClothingUniformJumpsuitWarden
+    gloves: ClothingHandsGlovesKravMaga
+    shoes: ClothingShoesBootsJack
+
+- type: startingGear
+  id: HoSGearDebug
+  parent: HoSGear
+  equipment:
+    head: ClothingHeadHatHoshat
+    outerClothing: ClothingOuterCoatHoSTrench
+    jumpsuit: ClothingUniformJumpsuitHoS
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsJack
+
+- type: startingGear
+  id: SecurityOfficerGearDebug
+  parent: SecurityOfficerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSec
+    gloves: ClothingHandsGlovesColorBlack
+    shoes: ClothingShoesBootsJack
+    outerClothing: ClothingOuterArmorBasic
+    head: ClothingHeadHelmetBasicAlt
+
+- type: startingGear
+  id: SecurityOfficerSuit
+  parent: SecurityOfficerGearDebug
+  equipment:
+    outerClothing: ClothingOuterVoidsuitSecurity
+    head: ClothingHeadHelmetVoidsuitSecurity
+
+- type: startingGear
+  id: SecurityOfficerModSuit
+  parent: SecurityOfficerGearDebug
+  equipment:
+    head: ClothingModsuitHelmetSecurity
+    shoes: ClothingModsuitBootsSecurity
+    gloves: ClothingModsuitGauntletsSecurity
+    outerClothing: ClothingModsuitChestplateSecurity
+    back: ClothingModsuitSecurityPowerCell
+
+- type: startingGear
+  id: SecurityHoSModSuit
+  parent: HoSGearDebug
+  equipment:
+    head: ClothingModsuitHelmetHeadOfSecurity
+    shoes: ClothingModsuitBootsHeadOfSecurity
+    gloves: ClothingModsuitGauntletsHeadOfSecurity
+    outerClothing: ClothingModsuitChestplateHeadOfSecurity
+    back: ClothingModsuitHeadOfSecurityPowerCell
+
+
+- type: startingGear
+  id: SecurityHoSSuit
+  parent: HoSGearDebug
+  equipment:
+    outerClothing: ClothingOuterHardsuitSecurityRed
+    head: ClothingHeadHelmetHardsuitSecurityRed
+
+- type: startingGear
+  id: SecurityWardenSuit
+  parent: WardenGearDebug
+  equipment:
+    outerClothing: ClothingOuterHardsuitWarden
+    head: ClothingHeadHelmetHardsuitWarden
+
+- type: startingGear
+  id: SecurityBrigmedicSuit
+  parent: BrigmedicGearDebug
+  equipment:
+    outerClothing: ClothingOuterHardsuitBrigmedic
+    head: ClothingHeadHelmetHardsuitBrigmedic
+
+- type: startingGear
+  id: SecurityOfficerRiotArmorHelmet
+  parent: SecurityOfficerGearDebug
+  equipment:
+    outerClothing: ClothingOuterArmorRiot
+    head: ClothingHeadHelmetRiot
+
+- type: startingGear
+  id: SecurityOfficerBulletproofArmorHelmet
+  parent: SecurityOfficerGearDebug
+  equipment:
+    outerClothing: ClothingOuterArmorBulletproof
+    head: ClothingHeadHelmetBasicAlt
+
+- type: startingGear
+  id: SecurityOfficerReflectiveArmorHelmet
+  parent: SecurityOfficerGearDebug
+  equipment:
+    outerClothing: ClothingOuterArmorReflective
+    head: ClothingHeadHelmetBasicAlt
+
+- type: startingGear
+  id: BlueShieldOfficerGearDebug
+  parent: BlueshieldOfficerGear
+  equipment:
+    outerClothing: ClothingBlueshieldArmourVest
+    head: ClothingHeadHatBeretBlueshield
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsJack
+    jumpsuit: ClothingUniformJumpsuitBlueshieldShirt
+
+- type: startingGear
+  id: BlueShieldOfficerGearSuit
+  parent: BlueShieldOfficerGearDebug
+  equipment:
+    outerClothing: ClothingOuterHardsuitBlueshieldLight
+    head: ClothingHeadHelmetHardsuitBlueshield
+
+- type: startingGear
+  id: BlueShieldOfficerGearModSuit
+  parent: BlueShieldOfficerGearDebug
+  equipment:
+    outerClothing: ClothingModsuitChestplatePraetorian
+    head: ClothingModsuitHelmetPraetorian
+    back: ClothingModsuitPraetorian
+    gloves: ClothingModsuitGauntletsPraetorian
+
+- type: startingGear
+  id: WizardHardsuitGearDebug
+  parent: WizardHardsuitGear
+  equipment:
+    head: ClothingHeadHelmetHardsuitWizard
+
+- type: startingGear
+  id: ChangelingArmor
+  equipment:
+    outerClothing: ChangelingClothingOuterArmor
+    head: ChangelingClothingHeadHelmet
+
+- type: startingGear
+  id: HereticArmor
+  equipment:
+    outerClothing: ClothingOuterArmorHeretic
+    head: ClothingHeadHatHoodHeretic
+
+- type: startingGear
+  id: CaptainHardsuit
+  parent: VisitorCaptain
+  equipment:
+    outerClothing: ClothingOuterHardsuitCap
+    head: ClothingHeadHelmetHardsuitCap
+
+- type: startingGear
+  id: CaptainModsuit
+  parent: VisitorCaptain
+  equipment:
+    back: ClothingModsuitCaptainPowerCell
+    outerClothing: ClothingModsuitChestplateCaptain
+    gloves: ClothingModsuitGauntletsCaptain
+    shoes: ClothingModsuitBootsCaptain
+    head: ClothingModsuitHelmetCaptain

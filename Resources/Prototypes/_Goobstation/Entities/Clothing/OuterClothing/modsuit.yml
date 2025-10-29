@@ -46,7 +46,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateStandard
-  name: standard hardsuit chestplate
+  name: standard modsuit chestplate
   description: A special modular suit spaceproof cover designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
@@ -75,7 +75,7 @@
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
-      - state: equipped-OUTERCLOTHING-sealed-resomi
+      - state: equipped-OUTERCLOTHING-sealed-resomi   
   - type: StaminaResistance
     damageCoefficient: 0.9
   - type: Armor
@@ -115,7 +115,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateSecurity
-  name: soldat hardsuit chestplate
+  name: soldat modsuit chestplate
   description: A robust modular suit cover with ceramic inserts for extra protection.
   categories: [ HideSpawnMenu ]
   components:
@@ -145,6 +145,8 @@
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: ModifyDelayedKnockdown
@@ -190,7 +192,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateHeadOfSecurity
-  name: bulwark hardsuit chestplate
+  name: bulwark modsuit chestplate
   description: A robust modular suit cover with EXTRA ceramic inserts for slightly more protection.
   categories: [ HideSpawnMenu ]
   components:
@@ -220,6 +222,8 @@
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox     
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: ModifyDelayedKnockdown
@@ -271,7 +275,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateParamedic
-  name: sanitater hardsuit chestplate
+  name: sanitater modsuit chestplate
   description: A white and blue-ish-grey steel plate for keeping out the harsh void of space and the occasional bullet.
   categories: [ HideSpawnMenu ]
   components:
@@ -301,6 +305,8 @@
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox     
   - type: ExplosionResistance
     damageCoefficient: 0.85
   - type: Armor
@@ -346,7 +352,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateEngineer
-  name: sapper hardsuit chestplate
+  name: sapper modsuit chestplate
   description: A tough armor plate to defend against harsh atmospheric conditions and shockwaves.
   categories: [ HideSpawnMenu ]
   components:
@@ -376,6 +382,8 @@
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox     
   - type: ExplosionResistance
     damageCoefficient: 0.35
   - type: Armor
@@ -422,7 +430,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateAtmostech
-  name: aeolus hardsuit chestplate
+  name: aeolus modsuit chestplate
   description: A fire-proof armor plate to defend against harsh atmospheric conditions.
   categories: [ HideSpawnMenu ]
   components:
@@ -452,6 +460,8 @@
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox     
   - type: ExplosionResistance
     damageCoefficient: 0.45
   - type: Armor
@@ -496,7 +506,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateResearchDirector
-  name: minerva hardsuit chestplate
+  name: minerva modsuit chestplate
   description: A bulky bomb and bat proof chunk of steel.
   categories: [ HideSpawnMenu ]
   components:
@@ -526,6 +536,8 @@
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox     
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: Armor
@@ -573,7 +585,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateCaptain
-  name: magnate hardsuit chestplate
+  name: magnate modsuit chestplate
   description: This shit is made out of DIAMONDS, man, this armor was forged with GEMS.
   categories: [ HideSpawnMenu ]
   components:
@@ -604,6 +616,8 @@
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox     
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor

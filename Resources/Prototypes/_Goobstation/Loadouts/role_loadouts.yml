@@ -165,7 +165,7 @@
   - BrigmedicOuterClothing
   - MedicalGloves
   - BrigmedicBackpack
-  #- SecurityMelee # Brigmed probably doesn't need this roundstart
+  - SecurityMelee # EE parity, make corpsman able to carry weapons like the rest of security
   - SecurityShoes
   - SecurityNeck
   - SurvivalSecurity

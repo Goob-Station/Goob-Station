@@ -88,7 +88,7 @@ public sealed partial class SurgeryAutodocStep : IAutodocStep
         if (autodoc.FindPart(patient, Part, Symmetry) is not {} part)
             throw new AutodocError("body-part");
 
-        if (!autodoc.StartSurgery((ent.Owner, ent.Comp1), patient, part, Surgery))
+        if (!autodoc.StartSurgeryOrThrow((ent.Owner, ent.Comp1), patient, part, Surgery))
             throw new AutodocError("surgery-impossible");
 
         return false; // wait for the surgery to be completed before going onto the next program step

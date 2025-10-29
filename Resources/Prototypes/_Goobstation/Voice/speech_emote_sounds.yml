@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -41,3 +42,15 @@
       collection: HissGasp
     DefaultDeathgasp:
       path: /Audio/_Goobstation/Heretic/hiss/lowHiss1.ogg
+
+- type: emoteSounds
+  id: Duende
+  params:
+    variation: 0.125
+  sound:
+    collection: DuendeSounds
+    params:
+      variation: 0.125
+  sounds:
+    Laugh:
+      path: /Audio/_Goobstation/FloorGoblin/laugh.ogg

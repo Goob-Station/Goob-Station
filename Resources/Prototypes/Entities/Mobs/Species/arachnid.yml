@@ -128,8 +128,8 @@
     - Chittin # Until they have a species-specific
   - type: Sprite # I'd prefer if these maps were better. Insert map pun here.
     layers:
-      - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Groin" ]
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
@@ -147,9 +147,9 @@
       - map: [ "enum.HumanoidVisualLayers.Face" ]
       - map: [ "gloves" ]
       - map: [ "shoes" ]
-      - map: [ "belt" ]
       - map: [ "id" ]
       - map: [ "outerClothing" ]
+      - map: [ "belt" ] #Goobedit - Belts over outerwear
       - map: [ "enum.HumanoidVisualLayers.Tail" ] # Mentioned in moth code: This needs renaming lol.
       - map: [ "back" ]
       - map: [ "neck" ]
@@ -175,6 +175,7 @@
         visible: false
   - type: Inventory
     templateId: arachnid
+    speciesId: arachnid #Goobedit - Fix Arachnid specific textures
   - type: IgnoreSpiderWeb # Goobstation
 
 - type: entity

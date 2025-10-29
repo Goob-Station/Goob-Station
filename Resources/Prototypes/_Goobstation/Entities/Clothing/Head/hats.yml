@@ -363,6 +363,18 @@
     sprite: _Goobstation/Clothing/Head/Hats/sanabi.rsi
 
 - type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadLehmin
+  name: top CMO headgear
+  suffix: ADMIN
+  description: Chemistry. Adminning. Something else.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/lehmin.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/lehmin.rsi
+
+- type: entity
   parent: [ ClothingHeadBase, BaseJanitorContraband ]
   id: ClothingHeadHatJanitorCap
   name: janitorial cap

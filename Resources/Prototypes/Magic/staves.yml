@@ -52,12 +52,12 @@
   id: AnimationStaff
   parent: BaseItem
   name: staff of animation
-  description: Brings inanimate objects to life!
+  description: An artefact that spits bolts of life-force which causes objects which are hit by it to animate and come to life!
   components:
   - type: LimitedCharges
-    maxCharges: 5
+    maxCharges: 6
   - type: AutoRecharge
-    rechargeDuration: 30
+    rechargeDuration: 8
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/staves.rsi
     layers:
@@ -67,7 +67,7 @@
     actions:
     - ActionAnimateSpell
   - type: Item
-    size: Normal
+    size: Huge
     inhandVisuals:
       left:
       - state: animation-inhand-left
@@ -75,7 +75,22 @@
       - state: animation-inhand-right
   - type: Tag
     tags:
-    - WizardWand
+    - WizardStaff
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Objects/Weapons/Staves/animation.rsi
+    quickEquip: false
+    slots:
+      - Back
+      - suitStorage
+    clothingVisuals:
+      back:
+      - sprite: _Goobstation/Wizard/Objects/Weapons/Staves/animation.rsi
+        state: equipped-BACKPACK
+      suitstorage:
+      - sprite: _Goobstation/Wizard/Objects/Weapons/Staves/animation.rsi
+        state: equipped-BACKPACK
+  - type: StaticPrice
+    price: 50000
 
 - type: entity
   parent: BaseAction
