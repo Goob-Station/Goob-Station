@@ -34,6 +34,4 @@ public sealed class MorphRuleSystem : GameRuleSystem<MorphRuleComponent>
                 args.AddLine(Loc.GetString("morph-name-user-lone", ("name", name), ("username", data.UserName), ("count", count)));
         }
     }
-
-
 }

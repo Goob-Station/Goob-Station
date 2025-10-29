@@ -16,9 +16,7 @@ public sealed class MorphSystem : SharedMorphSystem
         base.Initialize();
 
         SubscribeLocalEvent<MorphComponent, GetGenericAlertCounterAmountEvent>(OnUpdateAlert);
-
     }
-
 
     private void OnUpdateAlert(Entity<MorphComponent> ent, ref GetGenericAlertCounterAmountEvent args)
     {
@@ -30,5 +28,4 @@ public sealed class MorphSystem : SharedMorphSystem
 
         args.Amount = ent.Comp.Biomass.Int();
     }
-
 }

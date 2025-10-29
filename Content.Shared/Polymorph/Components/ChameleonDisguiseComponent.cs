@@ -43,11 +43,11 @@ public sealed partial class ChameleonDisguiseComponent : Component
     [DataField, AutoNetworkedField]
     public EntProtoId? SourceProto;
 
-    // Harmony Start
+    // Goobstation Start
     /// <summary>
     /// Decides whether all actions should be removed or chameleon disguise actions
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool RemoveActions = true;
-    // Harmony end
+    // Goobstation end
 }

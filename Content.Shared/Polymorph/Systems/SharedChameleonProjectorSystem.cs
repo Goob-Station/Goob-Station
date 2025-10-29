@@ -25,12 +25,6 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared.Clothing.Components; // Goobstation  - added for morph
-using Content.Shared.Clothing.EntitySystems; // Goobstation  - added for morph
-using Content.Shared.Humanoid; // Goobstation  - added for morph
-using Content.Shared.Interaction.Components; // Goobstation  - added for morph
-using Content.Shared.Inventory; // Goobstation - added for morph
-using Content.Shared.Inventory.VirtualItem; // Goobstation - added for morph
 
 namespace Content.Shared.Polymorph.Systems;
 
@@ -51,9 +45,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
-    [Dependency] private readonly SharedVirtualItemSystem _virtual = default!; // Goobstation
-    [Dependency] private readonly ClothingSystem _clothing = default!; // Goobstation
+
     public override void Initialize()
     {
         base.Initialize();
@@ -261,48 +253,10 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
         comp.SourceProto = Prototype(entity)?.ID;
         Dirty(disguise, comp);
 
-        _appearance.CopyData(entity, disguise);
-
         // item disguises can be picked up to be revealed, also makes sure their examine size is correct
         CopyComp<ItemComponent>((disguise, comp));
 
-        // Goobstation - start added for morph
-      /*  if (HasComp<HumanoidAppearanceComponent>(entity))
-            CopyComp<HumanoidAppearanceComponent>((disguise, comp));
-
-        if (TryComp<InventoryComponent>(entity, out var inventory))
-        {
-            CopyComp<InventoryComponent>((disguise, comp));
-
-            if (!TryComp<ContainerManagerComponent>(entity,out var originalcontainer))
-                return;
-            EnsureComp <ContainerManagerComponent>(disguise);
-
-            foreach (var container in originalcontainer.Containers)
-            {
-                _container.EnsureContainer<ContainerSlot>(disguise,container.Value.ID);
-            }
-
-            foreach (var slot in inventory.Slots)
-            {
-                if(!_inventory.TryGetSlotEntity(entity, slot.Name,out var slotEntity))
-                    continue;
-
-                if(!TryComp<ClothingComponent>(slotEntity, out var clothing))
-                    continue; // item dont have clothing aka, nothing visual
-
-                var item = Spawn("MorphClothing", Transform(ent.Owner).Coordinates);
-                var morphClothing = EnsureComp<ClothingComponent>(item);
-
-                //_clothing.CopyVisuals(item,clothing,morphClothing);
-
-                TryCopyComponent(slotEntity.Value, item,ref clothing,out var _);
-
-                if (!_inventory.TryEquip(disguise, item, slot.Name,true,true))
-                    Del(item);
-            }
-        }*/
-        //goob end
+        _appearance.CopyData(entity, disguise);
     }
 
     /// <summary>

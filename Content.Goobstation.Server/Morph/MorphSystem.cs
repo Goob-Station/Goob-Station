@@ -14,7 +14,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Polymorph.Components;
 using Content.Shared.Polymorph.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
@@ -31,6 +30,7 @@ public sealed partial class MorphSystem : SharedMorphSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly MobStateSystem _mobstate= default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -39,13 +39,9 @@ public sealed partial class MorphSystem : SharedMorphSystem
         SubscribeLocalEvent<MorphComponent, MorphReplicateEvent>(OnMorphReplicate);
         SubscribeLocalEvent<MorphComponent, ReplicateDoAfterEvent>(OnMorphReplicateDoAfter);
         SubscribeLocalEvent<MorphComponent, MapInitEvent>(OnMapInit);
-
-        //SubscribeLocalEvent<ChameleonProjectorComponent, MorphEvent>(TryMorph);
         SubscribeLocalEvent<ChameleonDisguisedComponent, UnMorphEvent>(TryUnMorph);
-
         SubscribeLocalEvent<MorphComponent, TransformSpeakerNameEvent>(OnTransformSpeakerName);
         SubscribeLocalEvent<MorphDisguiseComponent, ExaminedEvent>(AddMorphExamine);
-       // SubscribeLocalEvent<MorphComponent, AttemptMeleeEvent>(OnAtack);
         SubscribeLocalEvent<MorphComponent, DamageChangedEvent>(OnTakeDamage);
         SubscribeLocalEvent<MorphComponent, MobStateChangedEvent>(OnDeath);
     }
@@ -57,7 +53,6 @@ public sealed partial class MorphSystem : SharedMorphSystem
         _action.AddAction(uid, component.UnMorph);
 
         _alerts.ShowAlert(uid, component.BiomassAlert);
-
     }
 
     # region Actions
@@ -89,7 +84,6 @@ public sealed partial class MorphSystem : SharedMorphSystem
 
         if (TryComp<MobStateComponent>(arg.Target, out var mob) && mob.CurrentState == MobState.Critical)
            _mobstate.ChangeMobState(arg.Target.Value, MobState.Dead); // kill the food upon devour if not dead
-
     }
 
     private void OnMorphReplicate(EntityUid uid , MorphComponent component, MorphReplicateEvent arg)
@@ -107,7 +101,6 @@ public sealed partial class MorphSystem : SharedMorphSystem
             MovementThreshold = 0.5f,
         };
 
-
         _doAfterSystem.TryStartDoAfter(doafterArgs);
 
         _popupSystem.PopupEntity(Loc.GetString("morph-reproduce-start"), uid, arg.Performer, PopupType.Medium);
@@ -122,7 +115,6 @@ public sealed partial class MorphSystem : SharedMorphSystem
 
         var userCoords = Transform(arg.User);
         var morphSpawnCoords = userCoords.Coordinates;
-
 
         arg.Handled = true;
 
@@ -167,25 +159,13 @@ public sealed partial class MorphSystem : SharedMorphSystem
 
         if (TryComp<ChameleonDisguisedComponent>(uid, out var comp))
             _chamleon.TryReveal((uid,comp));
-
     }
-
-    /*private void OnAtack(EntityUid uid, MorphComponent component, ref AttemptMeleeEvent args)
-    {
-        //abort attack if morphed
-        if (HasComp<ChameleonDisguisedComponent>(uid))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("morph-attack-failure"),uid,uid);
-            args.Cancelled = true;
-        }
-    }*/
 
     private void OnDeath(Entity<MorphComponent> ent,ref  MobStateChangedEvent args)
     {
         //remove disguise in case morph dies while in disguise
         if (args.NewMobState is MobState.Dead && TryComp<ChameleonDisguisedComponent>(ent.Owner, out var comp))
             _chamleon.TryReveal((ent.Owner,comp));
-
     }
 
     private void OnTransformSpeakerName(Entity<MorphComponent> ent, ref TransformSpeakerNameEvent arg)
@@ -195,12 +175,6 @@ public sealed partial class MorphSystem : SharedMorphSystem
 
         arg.VoiceName = MetaData(comp.Disguise).EntityName;
         arg.Sender = comp.Disguise;
-
     }
-
     # endregion
-
 }
-
-
-

@@ -106,7 +106,7 @@
       components:
         - Anchorable
         - Item
-        - MobState
+        #- MobState # for now cant become mobs.
         - Supermatter # needs to be here.
     blacklist:
       components:
@@ -232,13 +232,13 @@
   - type: ChameleonDisguise
     removeActions: false
   - type: MorphDisguise
-  - type: Inventory
-  - type: InventorySlots
-  - type: ContainerContainer
-  - type: Appearance
-  - type: RotationVisuals
-    defaultRotation: 0
-    horizontalRotation: 0
+  #- type: Inventory # goobstation removed in wait of crewmember copy
+  #- type: InventorySlots
+  #- type: ContainerContainer
+  #- type: Appearance
+  #- type: RotationVisuals
+  #  defaultRotation: 0
+  #  horizontalRotation: 0
 
 # guidebook dummy
 
