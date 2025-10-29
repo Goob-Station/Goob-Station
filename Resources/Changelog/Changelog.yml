@@ -4099,3 +4099,11 @@ Entries:
   id: 9170
   time: '2025-10-29T03:05:55.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40570
+- author: Hitlinemoss
+  changes:
+  - message: Department heads are now legally able to approve the use of their departmentally-restricted
+      items without requiring Captain/HoS oversight.
+    type: Tweak
+  id: 9171
+  time: '2025-10-29T05:50:43.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40565
