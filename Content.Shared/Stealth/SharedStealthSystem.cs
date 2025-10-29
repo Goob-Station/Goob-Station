@@ -229,4 +229,13 @@ public abstract class SharedStealthSystem : EntitySystem
             FlatModifier = flatModifier;
         }
     }
+
+    // Goobstation start
+    public void SetThermalsImmune(EntityUid uid, bool value, StealthComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+        comp.ThermalsImmune = value;
+    }
+    // Goobstation end
 }

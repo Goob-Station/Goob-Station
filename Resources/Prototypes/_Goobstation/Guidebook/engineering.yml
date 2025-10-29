@@ -14,3 +14,10 @@
   id: Automation
   name: guide-entry-automation
   text: "/ServerInfo/_Goobstation/Guidebook/Engineering/Automation.xml"
+  children:
+  - Plumbing
+
+- type: guideEntry
+  id: Plumbing
+  name: guide-entry-plumbing
+  text: "/ServerInfo/_Goobstation/Guidebook/Engineering/Plumbing.xml"

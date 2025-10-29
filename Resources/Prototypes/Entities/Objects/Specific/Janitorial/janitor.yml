@@ -423,6 +423,7 @@
   components:
   - type: Tag
     tags:
+    - Plunger #Goobedit
     - GoldenPlunger
   - type: Sprite
     sprite: Objects/Specific/Janitorial/golden_plunger.rsi
