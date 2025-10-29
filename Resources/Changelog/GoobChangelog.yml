@@ -17165,3 +17165,27 @@ Entries:
         Read the guidebook!
   id: 1922
   time: '2025-10-29T14:29:39.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Tweak
+      message: Wraith Animate Object cd from 30s -> 60s and WP cost from 100 -> 200
+    - type: Tweak
+      message: Wraith Rot Hulk has bigger search range
+    - type: Tweak
+      message: Diseased Rat from Wraith no longer injects insane amounts of poison
+    - type: Tweak
+      message: Wraith Blood Crayon WP cost from 2 -> 5
+    - type: Tweak
+      message: 'Wraith Command cd from 20s -> 40s and it can no longer throw jugs '
+    - type: Tweak
+      message: Wraith Possessed objects can talk now
+    - type: Tweak
+      message: Spirit Candle drops the skull back once it melts
+    - type: Fix
+      message: Rosary no longer damages incorporeal ghosts like Wraith
+    - type: Fix
+      message: Wraith Haunt no longer works on dead bodies
+    - type: Fix
+      message: Salt lines getting destroyed by ghosts
+  id: 1923
+  time: '2025-10-29T15:24:19.0000000+00:00'
