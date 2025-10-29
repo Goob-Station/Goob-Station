@@ -24,9 +24,9 @@
     - Chest
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.8
+        Blunt: 0.25
+        Slash: 0.2
+        Piercing: 0.2
+        Heat: 0.5
         Caustic: 0.1
   - type: Caposoutfit
