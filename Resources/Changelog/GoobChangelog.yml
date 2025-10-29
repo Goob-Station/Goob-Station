@@ -17157,3 +17157,11 @@ Entries:
       message: Buff fake spesos by 5X
   id: 1921
   time: '2025-10-29T14:17:26.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Science can now research liquid pumps to move reagents between machines.
+        Read the guidebook!
+  id: 1922
+  time: '2025-10-29T14:29:39.0000000+00:00'
