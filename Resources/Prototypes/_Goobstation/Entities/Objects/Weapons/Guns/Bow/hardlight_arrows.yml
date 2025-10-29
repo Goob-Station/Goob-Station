@@ -87,6 +87,7 @@
         Heat: 0
   - type: StaminaDamageOnCollide
     damage: 60
+    overtime: 30
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
@@ -120,7 +121,7 @@
       types:
         Cold: 10
   - type: ChangeTemperatureOnCollide
-    heat: -300000
+    heat: -600000
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
@@ -200,3 +201,24 @@
     - MobAngryBee
     - MobSyndieAngryBee
     - MobAngryBeeWeak
+
+- type: entity
+  parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
+  id: ArrowIon
+  name: ion arrow
+  description: An arrow made from hardlight. causes EMP on hit.
+  components:
+  - type: Sprite
+    color: silver
+  - type: PointLight
+    color: silver
+  - type: Projectile
+    damage:
+      types:
+        Ion: 60
+  - type: TriggerOnCollide
+    fixtureID: projectile
+  - type: EmpOnTrigger
+    range: 1
+    energyConsumption: 360
+    disableDuration: 5

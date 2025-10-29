@@ -23,9 +23,9 @@ spellbook-everfull-mug-name = Everfull Mug
 spellbook-everfull-mug-desc =
     A magical mug that can be filled with omnizine at will. Great source of healing.
 
-spellbook-cryo-katana-name = Cryo Katana
-spellbook-cryo-katana-desc =
-    Modified Spider Clan energy katana, imbued with frost magic. Freezes the targets on hit, slowing them down. Able to dash a short distance, slicing anyone on your path. Can't dash while lying down.
+spellbook-echo-katana-name = Echo Katana
+spellbook-echo-katana-desc =
+    Modified Spider Clan energy katana, imbued with hyper-sonic magic. Able to dash a decent distance, slicing anyone on your path. Can't dash while lying down.
 
 spellbook-skates-name = Wizard Skates
 spellbook-skates-desc =

@@ -5,12 +5,12 @@
 
 using System.Diagnostics.CodeAnalysis;
 using Robust.Client.UserInterface;
-using Robust.Shared.Prototypes;
+using Robust.Client.UserInterface.RichText;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.UIKit.UserInterface.RichText;
 
-public sealed class EntityTextureTag : BaseTextureTag
+public sealed class EntityTextureTag : BaseTextureTag, IMarkupTagHandler
 {
     public string Name => "enttex";
 
@@ -18,7 +18,7 @@ public sealed class EntityTextureTag : BaseTextureTag
     {
         control = null;
 
-        if (!node.Attributes.TryGetValue("id", out var entProtoId))
+        if (!node.Attributes.TryGetValue("id", out var idParameter) || !idParameter.TryGetLong(out var id))
             return false;
 
         if (!node.Attributes.TryGetValue("size", out var size) || !size.TryGetLong(out var sizeValue))
@@ -26,7 +26,7 @@ public sealed class EntityTextureTag : BaseTextureTag
             sizeValue = 32;
         }
 
-        if (!TryDrawIconEntity((EntProtoId) entProtoId.ToString(), sizeValue.Value, out var texture))
+        if (!TryDrawIconEntity(new NetEntity((int) id), sizeValue.Value, out var texture))
             return false;
 
         control = texture;
