@@ -138,3 +138,15 @@
   - type: TriggerOnSpeak
   - type: ActiveListener
     range: 4
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskMercenaryBalaclava
+  name: Mercenary balaclava
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Mask/balaclava.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Mask/balaclava.rsi
+  - type: FlashImmunity
+  - type: EyeProtection

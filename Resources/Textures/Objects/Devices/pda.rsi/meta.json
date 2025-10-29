@@ -118,7 +118,10 @@
       "name": "pda-mime"
     },
     {
-      "name": "pda-miner"
+        "name": "pda-miner"
+    },
+    {
+        "name": "pda-mercenary"
     },
     {
       "name": "pda-pirate"

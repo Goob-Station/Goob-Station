@@ -305,5 +305,17 @@
       Epinephrine: 10
       Bicaridine: 10
       TranexamicAcid: 5
-  - type: Item
-    size: Huge
+
+- type: entity
+  parent: ClothingOuterVoidsuitSecurity
+  id: ClothingOuterVoidsuitMercenary
+  name: Mercenary hardsuit
+  description: A voidsuit commonly worn by private military contractors.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Voidsuits/mercenary.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Voidsuits/mercenary.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetVoidsuitMercenary

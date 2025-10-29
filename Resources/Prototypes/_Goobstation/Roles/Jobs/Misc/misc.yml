@@ -201,3 +201,51 @@
     - EncryptionKeyStationMaster # Depends on who yer working for.
     - EncryptionKeyCentCom
     - EncryptionKeySyndie
+
+# Mercenary
+
+- type: job
+  id: Mercenary
+  name: job-name-mercenary
+  description: job-description-mercenary
+  playTimeTracker: JobMercenary
+  setPreference: false
+  startingGear: MercenaryCaptainGear
+  icon: "JobIconMercenary"
+  supervisors: job-supervisors-null
+  canBeAntag: true
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 18
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+  - NuclearOperative
+  - SyndicateAgent
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - AllHostile
+
+- type: startingGear
+  id: MercenaryGearFull
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndieFormal
+    back: ClothingBackpackMercenary
+    mask: ClothingMaskMercenaryBalaclava
+    head: ClothingHeadHatBeret
+    eyes: ClothingEyesGlassesMercenaryHeavy
+    ears: ClothingHeadsetAltSyndicate
+    gloves: ClothingHandsGlovesMercenary
+    outerClothing: ClothingOuterVoidsuitMercenary
+    shoes: ClothingShoesBootsSyndieFilled
+    id: MercenaryPDA
+    belt: ClothingBeltMercenary
+  storage:
+    back:
+    - BoxMRE

@@ -244,6 +244,18 @@
   - type: FlashImmunity
   - type: FlashSoundSuppression
 
+- type: entity
+  parent: ClothingHeadHelmetVoidsuitSecurity
+  id: ClothingHeadHelmetVoidsuitMercenary
+  name: mercenary hardsuit helmet
+  description: A voidsuit helmet commonly worn by private military contractors.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Voidsuits/Mercenary.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Voidsuits/Mercenary.rsi
+
 # ntr
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase

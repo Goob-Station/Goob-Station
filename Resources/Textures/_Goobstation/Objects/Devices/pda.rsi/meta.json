@@ -20,7 +20,10 @@
       "name": "light_overlay"
     },
     {
-      "name": "pda-blueshield"
+        "name": "pda-blueshield"
+    },
+    {
+        "name": "pda-mercenary"
     },
 	{
 	  "name": "pda-deathsquad"

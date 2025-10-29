@@ -149,6 +149,9 @@
           Quantity: 50
   - type: TrashOnSolutionEmpty
     solution: drink
+  - type: Tag # Goobstation
+    tags:
+      - MRE
 
 - type: entity
   parent: [FlaskBase, DrinkFlaskVisualsOpenable]

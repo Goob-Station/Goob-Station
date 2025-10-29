@@ -25,3 +25,12 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Backpacks/blueshield.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackMercenary
+  name: Mercenary backpack
+  description: Has all the space you need to do your job and get paid.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Backpacks/merc.rsi
