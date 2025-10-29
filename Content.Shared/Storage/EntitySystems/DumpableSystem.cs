@@ -213,6 +213,7 @@ public sealed class DumpableSystem : EntitySystem
         });
     }
 
+    //todo marty check for dv dump system here.
     private void OnDoAfter(EntityUid uid, DumpableComponent component, DumpableDoAfterEvent args)
     {
         if (args.Handled || args.Cancelled || !TryComp<StorageComponent>(uid, out var storage) || storage.Container.ContainedEntities.Count == 0 || args.Args.Target is not { } target)
@@ -238,7 +239,7 @@ public sealed class DumpableSystem : EntitySystem
 
         if (evt.PlaySound)
         {
-            _audio.PlayPredicted(component.DumpSound, uid, user);
+            _audio.PlayPredicted(component.DumpSound, uid, args.User);
         }
     }
 }
