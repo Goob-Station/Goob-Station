@@ -144,3 +144,66 @@
   sex: Male
   silicon: false
   voice: 21
+
+- type: voice
+  id: H2frWuM5F7ZTtQvnKIrM
+  name: Obi-Wan
+  sex: Male
+  silicon: false
+  voice: 22
+
+- type: voice
+  id: sf49GiI1dX7isB9tLTPA
+  name: Dwarf
+  sex: Male
+  silicon: false
+  voice: 23
+
+- type: voice
+  id: sf49GiI1dX7isB9tLTPA
+  name: Dwarf
+  sex: Male
+  silicon: false
+  voice: 24
+
+- type: voice
+  id: 8Y5EDuVTklsKMd5HXmdn
+  name: Simaris
+  sex: Male
+  silicon: false
+  voice: 25
+
+- type: voice
+  id: 8Y5EDuVTklsKMd5HXmdn
+  name: Simaris
+  sex: Male
+  silicon: true
+  voice: 26
+
+- type: voice
+  id: 86S0VAdpAL0Cw9pW1jKt
+  name: KAY/O
+  sex: Male
+  silicon: false
+  voice: 27
+
+- type: voice
+  id: 86S0VAdpAL0Cw9pW1jKt
+  name: KAY/O
+  sex: Male
+  silicon: true
+  voice: 28
+
+- type: voice
+  id: bnhJC0pwbuG1ZmsjRSwQ
+  name: GLaDOS
+  sex: Male
+  silicon: false
+  voice: 29
+
+- type: voice
+  id: bnhJC0pwbuG1ZmsjRSwQ
+  name: GLaDOS
+  sex: Female
+  silicon: true
+  voice: 30
