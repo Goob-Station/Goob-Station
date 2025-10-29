@@ -28,7 +28,7 @@
     damage: 20
   - type: MeleeThrowOnHit
     distance: 1.5
-    speed: 15
+    speed: 10
   - type: Item
     size: Large
     storedRotation: 45
@@ -83,3 +83,56 @@
   - type: Reflect
     reflectProb: 0.3
     spread: 30
+
+- type: entity
+  name: The Wind of the Steppes
+  parent: [BaseItem, BaseGrandTheftContraband]
+  id: HosOniBlade
+  description: As the winds of the highlands cut through the lands, and wear them to dust, so does our peoples blade.
+  components:
+  - type: RestrictedMelee # Omu, its made for Oni, so only Oni can use it.
+    whitelist:
+      tags:
+      - Oni
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Melee/oniglaive.rsi
+    state: base
+  - type: Clothing
+    quickEquip: true
+    sprite: _Omu/Objects/Weapons/Melee/oniglaive.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: MeleeWeapon
+    range: 2.5
+    attackRate: 2.0
+    animationRotation: -135
+    heavyStaminaCost: 15
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 10
+        Structural: 15
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 10
+  - type: Item
+    size: Huge #should be ok at this size
+    storedRotation: 45
+  - type: DisarmMalus
+    malus: 0.50 # maybe too much, also might not matter at because in melee range you die
+  - type: Tool
+    qualities:
+    - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Prying
+    speedModifier: 1.50
+  - type: UseDelay
+    delay: 0.25
+  - type: StealTarget
+    stealGroup: WeaponSecHeadSword

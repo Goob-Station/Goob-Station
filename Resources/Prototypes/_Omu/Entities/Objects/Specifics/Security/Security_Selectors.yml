@@ -33,6 +33,7 @@
     - HosJusticeSet
     - HosCQCSet
     - HosIrelanderSet
+    - HosOniGlaiveSet
     maxSelectedSets: 1
   - type: StealTarget
     stealGroup: WeaponSecHeadSword
