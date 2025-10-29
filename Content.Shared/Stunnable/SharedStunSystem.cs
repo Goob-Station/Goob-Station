@@ -91,7 +91,6 @@ using Content.Shared.Jittering;
 using Content.Shared.Speech.EntitySystems;
 using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Common.Stunnable;
-using Content.Shared._White.Standing;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Stunnable;
@@ -107,8 +106,6 @@ public abstract partial class SharedStunSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly SharedLayingDownSystem _layingDown = default!; // WD EDIT
-    [Dependency] private readonly SharedContainerSystem _container = default!; // WD EDIT
     [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
     [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
 
@@ -218,28 +215,12 @@ public abstract partial class SharedStunSystem : EntitySystem
 
     private void OnKnockInit(EntityUid uid, KnockedDownComponent component, ComponentInit args)
     {
-        _layingDown.UpdateSpriteRotation(uid); // Goobstation
-        RaiseLocalEvent(uid, new CheckAutoGetUpEvent()); // WD EDIT
-        _layingDown.TryLieDown(uid, null, null, component.DropHeldItemsBehavior); // WD EDIT
+        _layingDown.UpdateSpriteRotation(uid); // Goobstation - todo marty goobstation - 325777eff18552be60aa8d3bb1adfe062db58f40
     }
 
     private void OnKnockShutdown(EntityUid uid, KnockedDownComponent component, ComponentShutdown args)
     {
-        // WD EDIT START
-        if (!TryComp(uid, out StandingStateComponent? standing))
-            return;
-
-        if (TryComp(uid, out LayingDownComponent? layingDown)
-            && component.StandOnRemoval) // Shitmed Change
-        {
-            if (layingDown.AutoGetUp && !_container.IsEntityInContainer(uid))
-                _layingDown.TryStandUp(uid, layingDown);
-            return;
-        }
-
-        if (component.StandOnRemoval) // Shitmed Change
-            _standingState.Stand(uid, standing);
-        // WD EDIT END
+        _standingState.Stand(uid);
     }
 
     private void OnStandAttempt(EntityUid uid, KnockedDownComponent component, StandAttemptEvent args)
