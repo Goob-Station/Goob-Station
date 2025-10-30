@@ -163,7 +163,7 @@ public sealed partial class DevilSystem : EntitySystem
         devil.Comp.Souls += args.Amount;
         _popup.PopupEntity(Loc.GetString("contract-soul-added"), args.User, args.User, PopupType.MediumCaution);
 // todo: unhard code this and make it configurable in the component. stuff like thresholds, min and max, ectetera.
-        if (devil.Comp.Souls is > 1 and < 7 && devil.Comp.Souls % 2 == 0) // someone should kill me for coding it like this
+        if (devil.Comp.Souls > 1 && devil.Comp.Souls < 7 && devil.Comp.Souls % 2 == 0)
         {
             devil.Comp.PowerLevel = (DevilPowerLevel)(devil.Comp.Souls / 2);
 
