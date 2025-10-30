@@ -116,7 +116,8 @@ using Robust.Shared.Utility;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Timing; // Goobstation
-using Content.Goobstation.Common.CCVar; // Goobstation
+using Content.Goobstation.Common.CCVar;
+using Prometheus; // Goobstation
 using Robust.Shared.Configuration; // Goobstation
 namespace Content.Server.Forensics
 
@@ -129,8 +130,8 @@ namespace Content.Server.Forensics
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly IGameTiming _timing = default!; // Goobstation
-        [Dependency] private readonly IConfigurationManager _configuration = default!;
-        private int _revealChance;
+        [Dependency] private readonly IConfigurationManager _configuration = default!; // Goobstation cvar dependency
+        private int _revealChance; // Goobstation revealchance cvar
         public override void Initialize()
         {
             SubscribeLocalEvent<HandsComponent, ContactInteractionEvent>(OnInteract);
@@ -266,7 +267,7 @@ namespace Content.Server.Forensics
                 dest.Fibers.Add(fiber);
             }
 
-            foreach (var (full,visible) in src.Fingerprints)
+            foreach (var (full,visible) in src.Fingerprints) //copies keys and values correctly
             {
                 dest.Fingerprints[full] = visible;
             }
@@ -461,42 +462,34 @@ namespace Content.Server.Forensics
                     component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial))
                         : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
                 //Goobstation start
-                if (TryComp<FingerprintComponent>(user, out var fingerprintUnderGloves) && (
-                        TryComp<FiberComponent>(gloves, out var fiberEmpty) && !string.IsNullOrEmpty(fiberEmpty.FiberMaterial)))
+                //Check user for gloves component and fingerprint component and retrieve fingerprints and fibers (check those if they are empty or not eg. forensic gloves or error)
+                if (TryComp<FingerprintComponent>(user, out var fingerprintG) &&
+                    !string.IsNullOrEmpty(fingerprintG.Fingerprint) &&
+                    TryComp<FiberComponent>(gloves, out var fiberEmpty) &&
+                    !string.IsNullOrEmpty(fiberEmpty.FiberMaterial))
                 {
-                    var full = fingerprintUnderGloves.Fingerprint ?? "";
-                    if (string.IsNullOrEmpty(full))
-                        return;
-                    // Try to find existing fingerprint for the same person
+                    var full = fingerprintG.Fingerprint ?? ""; //asign the fingerprint to new variable
                     string visible;
-                    if (component.Fingerprints.TryGetValue(full, out var existing))
-                    {
+                    if (component.Fingerprints.TryGetValue(full, out var existing)) // Try to find existing fingerprint for the same person
                         visible = MergePartialFingerprintRandomly(existing, full);
-                    }
                     else
-                    {
                         visible = new string('#', full.Length);
-                    }
 
                     component.Fingerprints[full] = visible;
-
                     Dirty(target, component);
-
                     return;
                 }
                 //Goobstation end
             }
 
-            if (TryComp<FingerprintComponent>(user, out var fingerprint) && CanAccessFingerprint(user, out _))
+            if (TryComp<FingerprintComponent>(user, out var fingerprint) && CanAccessFingerprint(user, out _) &&
+                !string.IsNullOrEmpty(fingerprint.Fingerprint))
             {
                 var full = fingerprint.Fingerprint ?? "";
                 // Goobstation start
                 // Look for an existing partial from the same person
 
-                if (string.IsNullOrEmpty(full))
-                    return;
-
-                component.Fingerprints[full]=full;
+                component.Fingerprints[full] = full;
 
                 // Goobstation end
                 Dirty(target, component);
@@ -528,15 +521,19 @@ namespace Content.Server.Forensics
 
         #region Goobstation Fingerprint Methods
 
-        //tries to merge a partial fingerprint with a full one, revealing some more characters
+        /// <summary>
+        /// Merges an existing partial fingerprint with a full fingerprint, revealing some characters randomly based on the reveal
+        /// chance.
+        /// </summary>
         private string MergePartialFingerprintRandomly(string existingVisible, string full)
         {
             var merged = existingVisible.ToCharArray();
-            for (int i = 0; i < merged.Length && i < full.Length; i++)
+            for (var i = 0; i < merged.Length && i < full.Length; i++)
             {
                 if (merged[i] == '#' && _random.Next(_revealChance) == 0)
                     merged[i] = full[i];
             }
+
             return new string(merged);
         }
 
