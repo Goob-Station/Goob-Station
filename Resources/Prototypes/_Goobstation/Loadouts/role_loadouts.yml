@@ -157,6 +157,23 @@
   - GroupPocketTankDouble
 
 - type: roleLoadout
+  id: JobRoboticist
+  groups:
+  - GroupTankHarness
+  - ScientistHead
+  - ScientistNeck
+  - ScientistJumpsuit
+  - ScientistBackpack
+  - ScientistOuterClothing
+  - ScientistGloves
+  - ScientistShoes
+  - ScientistPDA
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
   id: JobBrigmedic
   groups:
   - BrigmedicHead

@@ -68,3 +68,12 @@
     state: icon
   color: yellow
   protoId: ArrowBee
+
+- type: selectableAmmo
+  id: ArrowIon
+  desc: Ion hardlight arrow. Deals massive damage to silicons as well as causing small EMP in the area.
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: shield
+  color: silver
+  protoId: ArrowIon
