@@ -4121,3 +4121,10 @@ Entries:
   id: 9174
   time: '2025-10-30T19:30:57.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41029
+- author: rumaks-xyz
+  changes:
+  - message: Changed the recipe for licoxide to require lithium instead of lead.
+    type: Tweak
+  id: 9175
+  time: '2025-10-30T20:04:05.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40991
