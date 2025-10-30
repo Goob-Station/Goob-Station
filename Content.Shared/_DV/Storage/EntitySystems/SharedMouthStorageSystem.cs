@@ -69,7 +69,7 @@ public abstract class SharedMouthStorageSystem : EntitySystem
         if (component.MouthId == null)
             return;
 
-        _dumpableSystem.DumpContents(component.MouthId.Value, uid, uid);
+        //_dumpableSystem.DumpContents(component.MouthId.Value, uid, uid); //todo marty goobcode adjust
     }
 
     private void DropAllContentsByRef(EntityUid uid, MouthStorageComponent component, ref DisarmedEvent args)
@@ -77,7 +77,7 @@ public abstract class SharedMouthStorageSystem : EntitySystem
         if (component.MouthId == null)
             return;
 
-        _dumpableSystem.DumpContents(component.MouthId.Value, uid, uid);
+        //_dumpableSystem.DumpContents(component.MouthId.Value, uid, uid); //todo marty goobcode adjust
     }
 
     private void OnDamageModified(EntityUid uid, MouthStorageComponent component, DamageChangedEvent args)

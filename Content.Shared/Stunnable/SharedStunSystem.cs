@@ -115,7 +115,6 @@ public abstract partial class SharedStunSystem : EntitySystem
     [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
     [Dependency] protected readonly SharedStaminaSystem Stamina = default!;
     [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _status = default!;
-    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
     [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
 
@@ -228,8 +227,11 @@ public abstract partial class SharedStunSystem : EntitySystem
     {
         //todo marty check placement of this
         // goob edit
-        _jitter.DoJitter(uid, time, refresh);
-        _stutter.DoStutter(uid, time, refresh);
+        if (duration.HasValue)
+        {
+            _jitter.DoJitter(uid, duration.Value, false);
+            _stutter.DoStutter(uid, duration.Value, false);
+        }
         // goob edit end
 
         var ev = new StunnedEvent();
@@ -277,9 +279,9 @@ public abstract partial class SharedStunSystem : EntitySystem
             return false;
 
         var component = _componentFactory.GetComponent<KnockedDownComponent>();
-        component.DropHeldItemsBehavior = behavior;
+        //component.DropHeldItemsBehavior = behavior; //todo marty dropped item behaviour
         component.StandOnRemoval = standOnRemoval;
-        if (!_statusEffect.TryAddStatusEffect(uid, "KnockedDown", time, refresh, component, status))
+        if (!_status.TryAddStatusEffect(uid, KnockdownId, out _, time))
             return false;
 
         var ev = new KnockedDownEvent();
@@ -305,8 +307,8 @@ public abstract partial class SharedStunSystem : EntitySystem
         RaiseLocalEvent(modifierEv);
         time *= modifierEv.Modifier;
 
-        if (!HasComp<CrawlerComponent>(entity)) // Goobstation - only knockdown mobs that can lie down //todo marty crawlercomp - also doublecheck the stunmeta shit here
-            return false;
+        //if (!HasComp<CrawlerComponent>(entity)) // Goobstation - only knockdown mobs that can lie down //todo marty crawlercomp - also doublecheck the stunmeta shit here
+        //    return false;
 
         if (time <= TimeSpan.Zero)
             return false;
@@ -410,22 +412,6 @@ public abstract partial class SharedStunSystem : EntitySystem
 
     private void OnStunEndAttempt(Entity<StunnedStatusEffectComponent> entity, ref StatusEffectRelayedEvent<StunEndAttemptEvent> args)
     {
-
-        //todo marty check this shit what the fuck
-        if (args.Args.Cancelled)
-        // goob edit - stunmeta
-        // no slowdown because funny
-        // Choose bigger of speed modifiers (usually sprint) and use it to scale Crowd Control effect time
-        var cCFactor = Math.Clamp(1 - Math.Min(walkSpeedModifier, runSpeedModifier), 0, 1);
-        var cCTime = TimeSpan.FromSeconds(10f);
-        if (visual
-            && 0 <= ent.Comp.ActiveDrains.Aggregate((float) 0, (current, modifier) => current + modifier.Value.DrainRate)) // Goob edit // Goob edit 2 - So stamina regenerating effects doesn't cause jittering
-        {
-            _jitter.DoJitter(ent, cCFactor * cCTime, true);
-            _stutter.DoStutter(ent, cCFactor * cCTime, true);
-        }
-        // end marty stunmeta
-
         var ev = args.Args;
         ev.Cancelled = true;
         args.Args = ev;
@@ -458,8 +444,9 @@ public abstract partial class SharedStunSystem : EntitySystem
         // Set it to half the help interval so helping is actually useful...
         knocked.HelpTimer = knocked.HelpInterval / 2f;
 
-        _statusEffect.TryRemoveTime(uid, "KnockedDown", TimeSpan.FromSeconds(knocked.HelpInterval));
-        _audio.PlayPredicted(knocked.StunAttemptSound, uid, args.User);
+        _status.TryGetTime(uid, "StatusEffectStunned", out var timer);
+        _status.TryUpdateStatusEffectDuration(uid, "StatusEffectStunned",  timer.EndEffectTime - TimeSpan.FromSeconds(knocked.HelpInterval));
+        _audio.PlayPredicted(knocked.StunAttemptSound , uid, args.User);
         Dirty(uid, knocked);
 
         args.Handled = true;

@@ -38,7 +38,7 @@ namespace Content.Server.Speech.EntitySystems
             if (!Resolve(uid, ref status, false))
                 return;
 
-            _statusEffectsSystem.TryAddStatusEffect<StutteringAccentComponent>(uid, StutterKey, time, refresh, status);
+            _statusEffectsSystem.TryAddStatusEffect<StutteringAccentComponent>(uid, StutterKey, time, refresh, status); //todo marty migrate stutter.
         }
 
         private void OnAccent(EntityUid uid, StutteringAccentComponent component, AccentGetEvent args)
