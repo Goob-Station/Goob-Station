@@ -23,7 +23,7 @@ namespace Content.Shared.Forensics.Components // Goob/Einstein Engins - Shared F
     {
         // Stores both the full and visible fingerprint versions
         [DataField("fingerprints"), AutoNetworkedField]
-        public HashSet<(string Full, string Visible)> Fingerprints = new();
+        public Dictionary<string, string> Fingerprints = new();
 
         // Only for admin/debug viewing, or the scanner to read visible data
         [DataField, AutoNetworkedField] // Einstein Engines - Network that shit

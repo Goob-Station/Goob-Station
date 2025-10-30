@@ -267,9 +267,10 @@ namespace Content.Server.Forensics
                 dest.Fibers.Add(fiber);
             }
 
-            foreach (var print in src.Fingerprints)
+            foreach (var (full, visible) in src.Fingerprints)
             {
-                dest.Fingerprints.Add(print);
+                dest.Fingerprints[full] = full;
+                dest.Fingerprints[visible] = visible;
             }
 
             foreach (var residue in src.Residues)
