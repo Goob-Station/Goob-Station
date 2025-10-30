@@ -87,7 +87,7 @@ using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 using System.Linq;
-using Content.Shared.Hands;
+using Content.Shared.Hands; // Goobstation
 
 namespace Content.Client.Overlays;
 

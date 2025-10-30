@@ -245,7 +245,8 @@ public sealed class ToggleableClothingSystem : EntitySystem
         UnequipClothing(wearer, new Entity<ToggleableClothingComponent>(attachedComp.AttachedUid, toggleableComp), attached.Owner, slot);
     }
 
-    public bool IsToggled(Entity<ToggleableClothingComponent> ent, EntityUid clothing)
+    public bool IsToggled(Entity<ToggleableClothingComponent> ent, EntityUid clothing) // Goobstation
+///
     {
         return !ent.Comp.Container.Contains(clothing);
     }
@@ -630,7 +631,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         if (storedClothing != null)
             _inventorySystem.TryEquip(parent, storedClothing.Value, slot, force: true, triggerHandContact: true, silent:true);
     }
-    public bool EquipClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable, EntityUid clothing, string slot, bool silent = false)
+    public bool EquipClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable, EntityUid clothing, string slot, bool silent = false) // Goobstation
     {
         var parent = Transform(toggleable.Owner).ParentUid;
         var comp = toggleable.Comp;
@@ -641,12 +642,12 @@ public sealed class ToggleableClothingSystem : EntitySystem
             if (!TryComp<AttachedClothingComponent>(clothing, out var attachedComp) || !comp.ReplaceCurrentClothing)
             {
                 _popupSystem.PopupClient(Loc.GetString("toggleable-clothing-remove-first", ("entity", currentClothing)), user, user);
-                return false;
+                return false; // Goobstation
             }
 
             // Check if attached clothing have container or this container not empty
             if (attachedComp.ClothingContainer == null || attachedComp.ClothingContainer.ContainedEntity != null)
-                return false;
+                return false; // Goobstation
 
             if (_inventorySystem.TryUnequip(user, parent, slot))
                 _containerSystem.Insert(currentClothing.Value, attachedComp.ClothingContainer);
