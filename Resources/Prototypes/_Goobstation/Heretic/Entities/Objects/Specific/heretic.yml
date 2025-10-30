@@ -155,7 +155,6 @@
   - type: DrainableSolution
     solution: injector
   - type: SolutionTransfer
-    canReceive: false
   - type: Forensics
     canStoreDNA: false
   - type: UseDelay
