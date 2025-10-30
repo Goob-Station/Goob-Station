@@ -53,7 +53,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: GuideHelp
-    guides: [ Wraith ]
+    guides: [ Chaplain ]
 
 
 
