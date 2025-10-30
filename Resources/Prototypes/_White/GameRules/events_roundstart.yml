@@ -1,6 +1,6 @@
 - type: Tag
     tags:
-    - RoundstartAntag
+      - RoundstartAntag
 
 - type: entity
   parent: XenomorphsInfestation
