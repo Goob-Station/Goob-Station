@@ -112,11 +112,8 @@ public abstract partial class SharedStaminaSystem : EntitySystem
     [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _status = default!;
     [Dependency] protected readonly SharedStunSystem StunSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!; // goob edit
     [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
     [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
     [Dependency] private readonly IRobustRandom _random = default!; // Goob - Shove
@@ -567,7 +564,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
         if (!hardStun)
         {
-            if (!_statusEffect.HasStatusEffect(uid, "KnockedDown"))
+            if (!_status.HasStatusEffect(uid, "KnockedDown"))
                 StunSystem.TryKnockdown(uid, component.StunTime, true);
             return;
         }
