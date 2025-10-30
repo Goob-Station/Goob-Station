@@ -77,6 +77,7 @@ using Content.Server.NPC.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Heretic.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Body.Components;
@@ -133,6 +134,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly HTNSystem _htn = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _modifier = default!;
 
     private static readonly ProtoId<HereticRitualPrototype> BladeBladeRitual = "BladeBlade";
 
@@ -452,7 +454,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             if (!bloodQuery.TryComp(uid, out var blood))
                 continue;
 
-            var bloodHeal = -realMult * flesh.BloodHealMultiplier;
+            var bloodHeal = realMult * flesh.BloodHealMultiplier;
             var bleedHeal = -realMult * flesh.BleedReductionMultiplier;
 
             if (blood.BleedAmount > 0f)

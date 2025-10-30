@@ -78,9 +78,8 @@ public sealed partial class HereticAbilitySystem
         if (!TryComp(ent, out HereticComponent? heretic) || heretic.PathStage <= 0)
             return;
 
-        var multiplier =
-            1f + GetMultiplier((ent.Owner, ent.Comp, heretic), ref args, out var stage, out var shouldReturn);
-        if (shouldReturn)
+        var multiplier = GetMultiplier((ent.Owner, ent.Comp, heretic), ref args, out var stage, out var multipliersApplied);
+        if (!multipliersApplied)
             return;
 
         var time = TimeSpan.FromSeconds(30) * stage;
@@ -90,6 +89,7 @@ public sealed partial class HereticAbilitySystem
         ApplyMultiplier(ent, multiplier * ent.Comp.BaseHealingPerFlesh, time, MartialArtModifierType.Healing);
         ApplyMultiplier(ent, multiplier * ent.Comp.BaseAttackRatePerFlesh, time, MartialArtModifierType.AttackRate);
         ApplyMultiplier(ent, multiplier * ent.Comp.BaseMoveSpeedPerFlesh, time, MartialArtModifierType.MoveSpeed);
+        _modifier.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
     private float GetMultiplier(Entity<FleshPassiveComponent, HereticComponent> ent,
@@ -97,7 +97,7 @@ public sealed partial class HereticAbilitySystem
         out float stage,
         out bool multipliersApplied)
     {
-        stage = (float) Math.Sqrt(ent.Comp2.PathStage);
+        stage = (float) Math.Pow((float) ent.Comp2.PathStage, 0.3f);
         var multiplier = args.Volume.Float() * stage;
         var oldMult = multiplier;
 
@@ -123,14 +123,14 @@ public sealed partial class HereticAbilitySystem
     // Martial arts cuz yeah
     private void ApplyMultiplier(EntityUid uid, float multiplier, TimeSpan time, MartialArtModifierType type)
     {
-        if (Math.Abs(multiplier - 1f) < 0.001f || time <= TimeSpan.Zero)
+        if (Math.Abs(multiplier) < 0.01f || time <= TimeSpan.Zero)
             return;
 
         var multComp = EnsureComp<MartialArtModifiersComponent>(uid);
         multComp.Data.Add(new MartialArtModifierData
         {
             Type = type,
-            Multiplier = multiplier,
+            Multiplier = multiplier + 1f,
             EndTime = Timing.CurTime + time,
         });
 
