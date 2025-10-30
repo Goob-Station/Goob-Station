@@ -8,9 +8,31 @@
   - type: HappinessPreferences
 
 - type: entity
-  name: Chicken Feed
-  id: ChickenFeed
-  parent: BaseFoodCondiment
-  description: Food
+  name: Feed Producer
+  id: FeedProducer
+  description: It converts food and reagents into usable feed for chickens. Alt-Click the machine in order to produce feed
+  parent: BaseMachine # Powered
   components:
-  - type: ChickenFood
+  - type: Sprite
+    sprite: _Goobstation/Ranching/structures.rsi
+    state: feed_producer
+  - type: Storage
+    grid:
+    - 0,0,5,2
+    whitelist:
+      components:
+        - Food
+  - type: ContainerContainer
+    containers:
+      beakerSlot: !type:ContainerSlot
+      entity_storage: !type:Container
+  - type: ItemSlots
+    slots:
+      beakerSlot:
+        whitelist:
+          components:
+          - FitsInDispenser
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
