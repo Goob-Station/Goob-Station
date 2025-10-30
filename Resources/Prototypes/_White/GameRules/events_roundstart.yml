@@ -7,7 +7,7 @@
     minPlayers: 50
   - type: VentSpawnRule
   - type: AntagSpawner
-    prototype: RoundstartMobXenomorphLarva
+    prototype: MobXenomorphLarva
   - type: XenomorphsRule
   - type: AntagObjectives
     objectives:
