@@ -108,7 +108,7 @@ public sealed partial class HereticCurseSystem
         var corrosionQuery = EntityQueryEnumerator<CurseOfCorrosionStatusEffectComponent, StatusEffectComponent>();
         while (corrosionQuery.MoveNext(out _, out var corrosion, out var status))
         {
-            if (corrosion.NextVomit > curTime || status.AppliedTo == null)
+            if (corrosion.NextVomit > curTime || status.AppliedTo == null || status.EndEffectTime < curTime)
                 continue;
 
             var next = _random.NextFloat(corrosion.MinMaxSecondsBetweenVomits.X,
@@ -129,7 +129,7 @@ public sealed partial class HereticCurseSystem
         var flamesQuery = EntityQueryEnumerator<CurseOfFlamesStatusEffectComponent, StatusEffectComponent>();
         while (flamesQuery.MoveNext(out _, out var flames, out var status))
         {
-            if (flames.NextIgnition > curTime || status.AppliedTo == null)
+            if (flames.NextIgnition > curTime || status.AppliedTo == null || status.EndEffectTime < curTime)
                 continue;
 
             flames.NextIgnition = curTime + flames.Delay;

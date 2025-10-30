@@ -43,6 +43,7 @@ using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Timing; // Goobstation
 using System.Linq; // Goobstation
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Timing;
 using Robust.Server.Audio; // Goobstation
 
 namespace Content.Server.Chemistry.EntitySystems;
@@ -54,6 +55,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
     [Dependency] private readonly OpenableSystem _openable = default!;
     [Dependency] private readonly AudioSystem _audio = default!; // Goobstation
     [Dependency] private readonly SharedInteractionSystem _interaction = default!; // Goobstation
+    [Dependency] private readonly UseDelaySystem _delay = default!; // Goobstation
     [Dependency] private readonly IGameTiming _timing = default!; // Goobstation
 
     public override void Initialize()
@@ -66,6 +68,9 @@ public sealed class InjectorSystem : SharedInjectorSystem
 
     private bool TryUseInjector(Entity<InjectorComponent> injector, EntityUid target, EntityUid user)
     {
+        // Goobstation
+        if (TryComp(injector, out UseDelayComponent? delay) && !_delay.TryResetDelay((injector.Owner, delay), true))
+            return false;
         var isOpenOrIgnored = injector.Comp.IgnoreClosed || !_openable.IsClosed(target);
         // Handle injecting/drawing for solutions
         if (injector.Comp.ToggleState == InjectorToggleMode.Inject)
@@ -126,6 +131,9 @@ public sealed class InjectorSystem : SharedInjectorSystem
     {
         // Goob edit start
         if (args.Handled)
+            return;
+
+        if (_delay.IsDelayed(entity.Owner))
             return;
 
         if (!args.CanReach)

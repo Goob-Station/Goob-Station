@@ -18,7 +18,7 @@ public sealed partial class CurseOfCorrosionStatusEffectComponent : Component
     {
         DamageDict =
         {
-            { "Poison", 0.2f },
+            { "Poison", 0.3f },
         },
     };
 }

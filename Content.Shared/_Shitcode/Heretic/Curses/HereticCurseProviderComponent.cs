@@ -8,7 +8,10 @@ namespace Content.Shared._Shitcode.Heretic.Curses;
 public sealed partial class HereticCurseProviderComponent : Component
 {
     [DataField]
-    public float BloodTimeMultiplier = 4f;
+    public float MaxBloodMultiplier = 4f;
+
+    [DataField]
+    public float MaxBloodAmount = 10f;
 
     [DataField(required: true)]
     public Dictionary<EntProtoId, CurseProviderData> CursePrototypes;

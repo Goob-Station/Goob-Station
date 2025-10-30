@@ -23,7 +23,8 @@ using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Verbs;
-using Robust.Shared.Network;
+using Content.Goobstation.Maths.FixedPoint;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -32,7 +33,7 @@ namespace Content.Server._Shitcode.Heretic.Curses;
 
 public sealed partial class HereticCurseSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IAdminLogManager _log = default!;
@@ -86,9 +87,6 @@ public sealed partial class HereticCurseSystem : EntitySystem
 
     private void OnCurseSelected(Entity<HereticCurseProviderComponent> ent, ref CurseSelectedMessage args)
     {
-        if (_net.IsClient)
-            return;
-
         if (!HasComp<HereticComponent>(args.Actor) && !HasComp<GhoulComponent>(args.Actor))
         {
             CloseUi(ent);
@@ -137,7 +135,7 @@ public sealed partial class HereticCurseSystem : EntitySystem
             return;
         }
 
-        var dnaDict = GetDnaDict(ent, rune, dna.DNA);
+        var dnaDict = GetDnaDict(rune, dna.DNA);
 
         if (!dnaDict.TryGetValue(dna.DNA, out var tuple))
         {
@@ -146,8 +144,9 @@ public sealed partial class HereticCurseSystem : EntitySystem
             return;
         }
 
-        var (multiplier, set) = tuple;
-        var totalTime = curseData.Time * multiplier;
+        var (amount, set) = tuple;
+        var totalTime =
+            curseData.Time * GetBloodCurseMultiplier(amount, ent.Comp.MaxBloodAmount, ent.Comp.MaxBloodMultiplier);
 
         if (!curseData.Silent)
         {
@@ -172,12 +171,19 @@ public sealed partial class HereticCurseSystem : EntitySystem
         {
             if (TryComp(source, out PuddleComponent? puddle))
             {
-                if (_soln.ResolveSolution(source, puddle.SolutionName, ref puddle.Solution))
+                if (!_soln.ResolveSolution(source, puddle.SolutionName, ref puddle.Solution))
+                    continue;
+
+                puddle.Solution.Value.Comp.Solution.Contents.RemoveAll(x =>
+                    x.Reagent.EnsureReagentData().Any(y => y is DnaData dnaData && dnaData.DNA == dna.DNA));
+
+                if (puddle.Solution.Value.Comp.Solution.Contents.Count == 0)
+                    QueueDel(source);
+                else
                 {
-                    puddle.Solution.Value.Comp.Solution.Contents.RemoveAll(x =>
-                        x.Reagent.EnsureReagentData().Any(y => y is DnaData dnaData && dnaData.DNA == dna.DNA));
-                    if (puddle.Solution.Value.Comp.Solution.Contents.Count == 0)
-                        QueueDel(source);
+                    puddle.Solution.Value.Comp.Solution.Volume =
+                        puddle.Solution.Value.Comp.Solution.Contents.Select(x => x.Quantity).Sum();
+                    puddle.Solution.Value.Comp.Solution.HeatCapacityDirty = true;
                 }
             }
             else if (TryComp(source, out ForensicsComponent? forensics))
@@ -192,7 +198,7 @@ public sealed partial class HereticCurseSystem : EntitySystem
 
     private void OnGetVerbs(Entity<HereticRitualRuneComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!args.CanInteract || !args.CanInteract)
+        if (!args.CanInteract || !args.CanAccess)
             return;
 
         if (!HasComp<HereticComponent>(args.User) && !HasComp<GhoulComponent>(args.User))
@@ -212,7 +218,7 @@ public sealed partial class HereticCurseSystem : EntitySystem
         {
             Text = Loc.GetString("heretic-curse-provider-curse"),
             Icon = new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Heretic/book_morbus.rsi"), "icon-on"),
-            Act = () => CurseCrewmember((item, provider), ent, user),
+            Act = () => CurseCrewmember((item, provider), ent, user, true),
         };
 
         args.Verbs.Add(verb);
@@ -221,11 +227,8 @@ public sealed partial class HereticCurseSystem : EntitySystem
     private void CurseCrewmember(Entity<HereticCurseProviderComponent> provider,
         EntityUid rune,
         EntityUid user,
-        bool popup = true)
+        bool popup)
     {
-        if (_net.IsClient)
-            return;
-
         var targets = GetTargets(provider, rune, user);
         if (targets.Count == 0)
         {
@@ -244,7 +247,7 @@ public sealed partial class HereticCurseSystem : EntitySystem
         EntityUid user)
     {
         var set = new HashSet<CurseData>();
-        var dnaDict = GetDnaDict(provider, rune);
+        var dnaDict = GetDnaDict(rune);
 
         if (dnaDict.Count == 0)
             return set;
@@ -258,7 +261,8 @@ public sealed partial class HereticCurseSystem : EntitySystem
             if (!dnaDict.TryGetValue(dna.DNA, out var tuple))
                 continue;
 
-            var multiplier = tuple.Item1;
+            var multiplier =
+                GetBloodCurseMultiplier(tuple.Item1, provider.Comp.MaxBloodAmount, provider.Comp.MaxBloodMultiplier);
 
             if (!CanCurse((uid, mobState)))
                 multiplier = 0f;
@@ -274,9 +278,7 @@ public sealed partial class HereticCurseSystem : EntitySystem
         return set;
     }
 
-    private Dictionary<string, (float, HashSet<EntityUid>)> GetDnaDict(Entity<HereticCurseProviderComponent> provider,
-        EntityUid rune,
-        string? lookDna = null)
+    private Dictionary<string, (float, HashSet<EntityUid>)> GetDnaDict(EntityUid rune, string? lookDna = null)
     {
         var forensicsQuery = GetEntityQuery<ForensicsComponent>();
         var puddleQuery = GetEntityQuery<PuddleComponent>();
@@ -287,14 +289,14 @@ public sealed partial class HereticCurseSystem : EntitySystem
         {
             if (puddleQuery.TryComp(ent, out var puddle))
             {
-                if (IsPuddleValid(ent, puddle, lookDna) is { } dna)
+                foreach (var (dna, amount) in GetPuddleData(ent, puddle, lookDna))
                 {
                     if (!dnaDict.TryGetValue(dna, out var tuple))
-                        dnaDict[dna] = (provider.Comp.BloodTimeMultiplier, [ent]);
+                        dnaDict[dna] = (amount, [ent]);
                     else
                     {
                         tuple.Item2.Add(ent);
-                        dnaDict[dna] = (MathF.Max(provider.Comp.BloodTimeMultiplier, tuple.Item1), tuple.Item2);
+                        dnaDict[dna] = (tuple.Item1 + amount, tuple.Item2);
                     }
                 }
                 continue;
@@ -309,22 +311,19 @@ public sealed partial class HereticCurseSystem : EntitySystem
                     continue;
 
                 if (!dnaDict.TryGetValue(dna.Item1, out var tuple))
-                    dnaDict[dna.Item1] = (1f, [ent]);
+                    dnaDict[dna.Item1] = (0f, [ent]);
                 else
-                {
                     tuple.Item2.Add(ent);
-                    dnaDict[dna.Item1] = (MathF.Max(1f, tuple.Item1), tuple.Item2);
-                }
             }
         }
 
         return dnaDict;
     }
 
-    private string? IsPuddleValid(EntityUid uid, PuddleComponent puddle, string? lookDna)
+    private IEnumerable<(string, float)> GetPuddleData(EntityUid uid, PuddleComponent puddle, string? lookDna)
     {
         if (!_soln.ResolveSolution(uid, puddle.SolutionName, ref puddle.Solution))
-            return null;
+            yield break;
 
         foreach (var reagent in puddle.Solution.Value.Comp.Solution.Contents)
         {
@@ -336,16 +335,23 @@ public sealed partial class HereticCurseSystem : EntitySystem
                 if (lookDna != null && dna.DNA != lookDna)
                     continue;
 
-                return dna.DNA;
+                yield return (dna.DNA, reagent.Quantity.Float());
             }
         }
-
-        return null;
     }
 
     private bool CanCurse(Entity<MobStateComponent?> uid)
     {
         return !_mobState.IsDead(uid) && !HasComp<HereticComponent>(uid) && !HasComp<GhoulComponent>(uid) &&
                !HasComp<WizardComponent>(uid) && !HasComp<ApprenticeComponent>(uid);
+    }
+
+    private static float GetBloodCurseMultiplier(float amount, float maxAmount, float maxMultiplier)
+    {
+        DebugTools.Assert(maxMultiplier >= 1f);
+        DebugTools.Assert(maxAmount >= 0f);
+        var multiplier = 1f + (maxMultiplier - 1f) / (1f + MathF.Exp(maxAmount / 2f - amount));
+        multiplier = Math.Clamp(multiplier, 1f, maxMultiplier);
+        return MathF.Round(multiplier, 1, MidpointRounding.ToPositiveInfinity);
     }
 }
