@@ -89,12 +89,12 @@
   #  minInterval: 8
   #  maxInterval: 12
   #  popUp: "silicon-power-low"
-  - type: Lock
-    locked: true
-    lockOnClick: false
-    unlockOnClick: false
-    lockTime: 5
-    unlockTime: 5
+  #- type: Lock
+  #  locked: true
+  #  lockOnClick: false
+  #  unlockOnClick: false
+  #  lockTime: 5
+  #  unlockTime: 5
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic
