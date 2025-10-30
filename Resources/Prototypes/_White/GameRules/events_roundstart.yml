@@ -3,6 +3,7 @@
   id: XenomorphsInfestationRoundstart
   components:
   - type: GameRule
+  earliestStart: 0
     chaosScore: 400
     minPlayers: 50
   - type: VentSpawnRule
@@ -13,6 +14,7 @@
     objectives:
     - XenomorphSurviveObjective
   - type: AntagSelection
+  selectionTime: PrePlayerSpawn
     agentName: xenomorph-round-end-agent-name
     definitions:
     - spawnerPrototype: SpawnPointGhostXenomorph
