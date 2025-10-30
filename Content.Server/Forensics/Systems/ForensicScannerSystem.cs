@@ -148,7 +148,7 @@ namespace Content.Server.Forensics
         private void UpdateUserInterface(EntityUid uid, ForensicScannerComponent component)
         {
             var state = new ForensicScannerBoundUserInterfaceState(
-                component.Fingerprints.Select(f => f.Visible).ToList(),
+                component.Fingerprints,
                 component.Fibers,
                 component.TouchDNAs,
                 component.SolutionDNAs,
@@ -179,7 +179,7 @@ namespace Content.Server.Forensics
                 }
                 else
                 {
-                    scanner.Fingerprints = forensics.Fingerprints.ToList();
+                    scanner.Fingerprints = forensics.Fingerprints.Values.ToList();
                     scanner.Fibers = forensics.Fibers.ToList();
                     scanner.TouchDNAs = forensics.DNAs.ToList();
                     scanner.Residues = forensics.Residues.ToList();
@@ -253,7 +253,7 @@ namespace Content.Server.Forensics
                 }
             }
 
-            foreach (var fingerprint in component.Fingerprints.Select(f => f.Visible).ToList())
+            foreach (var fingerprint in component.Fingerprints)
             {
                 if (fingerprint == pad.Sample)
                 {
@@ -308,7 +308,7 @@ namespace Content.Server.Forensics
             text.AppendLine(Loc.GetString("forensic-scanner-interface-fingerprints"));
             foreach (var fingerprint in component.Fingerprints)
             {
-                text.AppendLine(fingerprint.Visible);
+                text.AppendLine(fingerprint);
             }
             text.AppendLine();
             text.AppendLine(Loc.GetString("forensic-scanner-interface-fibers"));

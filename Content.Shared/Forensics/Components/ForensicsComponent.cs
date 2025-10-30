@@ -22,7 +22,7 @@ namespace Content.Shared.Forensics.Components // Goob/Einstein Engins - Shared F
     public sealed partial class ForensicsComponent : Component
     {
         // Stores both the full and visible fingerprint versions
-        [DataField("fingerprints"), AutoNetworkedField]
+        [DataField, AutoNetworkedField]
         public Dictionary<string, string> Fingerprints = new();
 
         // Only for admin/debug viewing, or the scanner to read visible data

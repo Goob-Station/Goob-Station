@@ -90,7 +90,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Server._EinsteinEngines.Forensics.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -267,10 +266,9 @@ namespace Content.Server.Forensics
                 dest.Fibers.Add(fiber);
             }
 
-            foreach (var (full, visible) in src.Fingerprints)
+            foreach (var (full,visible) in src.Fingerprints)
             {
-                dest.Fingerprints[full] = full;
-                dest.Fingerprints[visible] = visible;
+                dest.Fingerprints[full] = visible;
             }
 
             foreach (var residue in src.Residues)
@@ -460,30 +458,30 @@ namespace Content.Server.Forensics
             if (_inventory.TryGetSlotEntity(user, "gloves", out var gloves))
             {
                 if (TryComp<FiberComponent>(gloves, out var fiber) && !string.IsNullOrEmpty(fiber.FiberMaterial))
-                    component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial)) : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
+                    component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial))
+                        : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
                 //Goobstation start
-                if (TryComp<FingerprintComponent>(user, out var fingerprintFromGloves) && (
+                if (TryComp<FingerprintComponent>(user, out var fingerprintUnderGloves) && (
                         TryComp<FiberComponent>(gloves, out var fiberEmpty) && !string.IsNullOrEmpty(fiberEmpty.FiberMaterial)))
                 {
-                    var full = fingerprintFromGloves.Fingerprint ?? "";
+                    var full = fingerprintUnderGloves.Fingerprint ?? "";
                     if (string.IsNullOrEmpty(full))
                         return;
-
                     // Try to find existing fingerprint for the same person
-                    var existing = component.Fingerprints.FirstOrDefault(f => f.Full == full);
                     string visible;
-
-                    if (existing != default)
+                    if (component.Fingerprints.TryGetValue(full, out var existing))
                     {
-                        visible = MergePartialFingerprintRandomly(existing.Visible, full);
-                        component.Fingerprints.Remove(existing);
+                        visible = MergePartialFingerprintRandomly(existing, full);
                     }
                     else
                     {
                         visible = new string('#', full.Length);
                     }
 
-                    component.Fingerprints.Add((full, visible));
+                    component.Fingerprints[full] = visible;
+
+                    Dirty(target, component);
+
                     return;
                 }
                 //Goobstation end
@@ -494,18 +492,12 @@ namespace Content.Server.Forensics
                 var full = fingerprint.Fingerprint ?? "";
                 // Goobstation start
                 // Look for an existing partial from the same person
-                var existing = component.Fingerprints.FirstOrDefault(f => f.Full == full);
-                if (existing != default)
-                {
-                    // Upgrade: replace the partial with a full-visibility entry
-                    component.Fingerprints.Remove(existing);
-                    component.Fingerprints.Add((full, full));
-                }
-                else
-                {
-                    // First time: just add full
-                    component.Fingerprints.Add((full, full));
-                }
+
+                if (string.IsNullOrEmpty(full))
+                    return;
+
+                component.Fingerprints[full]=full;
+
                 // Goobstation end
                 Dirty(target, component);
             }
@@ -545,7 +537,6 @@ namespace Content.Server.Forensics
                 if (merged[i] == '#' && _random.Next(_revealChance) == 0)
                     merged[i] = full[i];
             }
-
             return new string(merged);
         }
 
