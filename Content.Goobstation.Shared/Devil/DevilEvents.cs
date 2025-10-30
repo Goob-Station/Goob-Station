@@ -31,9 +31,6 @@ public record struct SoulAmountChangedEvent(EntityUid User, EntityUid Victim, in
 /// Raised on an entity to see if their eyes are covered.
 /// This just checks for the identity blocker comp.
 /// </summary>
-/// <remarks>
-/// this is slop
-/// </remarks>
 /// <param name="Target"></param>
 public sealed class IsEyesCoveredCheckEvent : EntityEventArgs, IInventoryRelayEvent
 {
