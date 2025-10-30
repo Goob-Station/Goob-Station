@@ -244,3 +244,17 @@
   - DuoAbductorRoundstart
   - SubGamemodesRule
   - SecretPlusRampingMid
+
+- type: gamePreset
+  id: Xenomorphs
+  alias:
+  - ayyliens
+  name: xenomorph-title
+  description: xenomorph-description
+  showInVote: false
+  minPlayers: 50
+  rules:
+  - XenomorphsInfestationRoundstart
+  - SubGamemodesRule
+  - SecretPlusRampingMid
+  - LavalandStormScheduler
