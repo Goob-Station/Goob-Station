@@ -104,11 +104,11 @@ public sealed partial class HereticAbilitySystem
         if (HasComp<MobStateComponent>(args.Food))
             multiplier *= ent.Comp1.MobMultiplier;
         if (HasComp<BrainComponent>(args.Food))
-            multiplier += ent.Comp1.BrainMultiplier;
+            multiplier *= ent.Comp1.BrainMultiplier;
         if (HasComp<BodyPartComponent>(args.Food))
-            multiplier += ent.Comp1.BodyPartMultiplier;
+            multiplier *= ent.Comp1.BodyPartMultiplier;
         if (HasComp<OrganComponent>(args.Food))
-            multiplier += ent.Comp1.OrganMultiplier;
+            multiplier *= ent.Comp1.OrganMultiplier;
         if (HasComp<HumanOrganComponent>(args.Food))
             multiplier *= ent.Comp1.HumanMultiplier;
         if (_tag.HasTag(args.Food, ent.Comp1.MeatTag))
