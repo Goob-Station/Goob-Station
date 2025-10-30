@@ -19,7 +19,6 @@ public sealed class TelefragSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly SharedLayingDownSystem _layingDown = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
 
     public void DoTelefrag(EntityUid uid,
@@ -38,8 +37,8 @@ public sealed class TelefragSystem : EntitySystem
             if (knockdownTime > TimeSpan.Zero && _stun.TryKnockdown(ent, knockdownTime, true, behavior))
                 continue;
 
-            if (_layingDown.TryLieDown(ent, behavior: behavior) && autoStandUp)
-                _layingDown.TryStandUp(ent);
+            //if (_layingDown.TryLieDown(ent, behavior: behavior) && autoStandUp) //todo marty goobcode adjust
+            //    _layingDown.TryStandUp(ent);
         }
     }
 }

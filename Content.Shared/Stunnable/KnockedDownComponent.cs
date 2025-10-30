@@ -74,6 +74,12 @@ public sealed partial class KnockedDownComponent : Component
     [ViewVariables, AutoNetworkedField]
     public float HelpTimer = 0f;
 
+    /// <summary>
+    /// Goobstation old stun Datafield, currently used for EE interaction verbs.
+    /// </summary>
+    [DataField("helpAttemptSound")]
+    public SoundSpecifier StunAttemptSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg");
+
     // Shitmed Change: ANNOYING WITH THE GOD DAMN PAIN PROCS.
     [DataField, AutoNetworkedField]
     public bool StandOnRemoval = true;

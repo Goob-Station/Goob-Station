@@ -132,7 +132,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                 // small stun if the person is looking away or laying down
                 if (_backstab.TryBackstab(target, performer, Angle.FromDegrees(45d)))
                 {
-                    _stun.TryParalyze(target, TimeSpan.FromSeconds(1.5f), true);
+                    //_stun.TryParalyze(target, TimeSpan.FromSeconds(1.5f), true); //todo marty goobcode adjust
                     _damage.TryChangeDamage(target,
                         new DamageSpecifier(_proto.Index<DamageTypePrototype>("Slash"), 10),
                         ignoreResistances: true,

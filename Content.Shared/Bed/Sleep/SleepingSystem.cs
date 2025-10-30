@@ -276,7 +276,7 @@ public sealed partial class SleepingSystem : EntitySystem
 
 
         if (args.DamageDelta.GetTotal() >= ent.Comp.WakeThreshold
-            && !_statusEffectNew.HasEffectComp<ForcedSleepingStatusEffectComponent>(ent))
+            && !_statusEffect.HasEffectComp<ForcedSleepingStatusEffectComponent>(ent))
             TryWaking((ent, ent.Comp));
 
         // Shitmed Change End

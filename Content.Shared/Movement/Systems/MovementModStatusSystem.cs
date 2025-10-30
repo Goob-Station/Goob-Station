@@ -1,5 +1,9 @@
+using System.Linq;
+using Content.Shared.Damage.Components;
+using Content.Shared.Jittering;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
+using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Prototypes;
 
@@ -26,6 +30,8 @@ public sealed class MovementModStatusSystem : EntitySystem
 
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
+    [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
 
     public override void Initialize()
     {
@@ -161,7 +167,8 @@ public sealed class MovementModStatusSystem : EntitySystem
         EntityUid uid,
         Entity<MovementModStatusEffectComponent?> status,
         float walkSpeedModifier,
-        float sprintSpeedModifier
+        float sprintSpeedModifier,
+        bool visual = true // Goobstation edit.
     )
     {
         if (!Resolve(status, ref status.Comp))
@@ -171,6 +178,25 @@ public sealed class MovementModStatusSystem : EntitySystem
         status.Comp.WalkSpeedModifier = walkSpeedModifier;
 
         _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+
+        // Goob edit start
+        // specifically mostly john station moved here from sharedstunsystem
+        if (!TryComp<StaminaComponent>(uid, out var staminaComp))
+            return true; // look all the other code ran if they have no stamina im gonna say they dont need to jitter and its fine.
+
+        //todo marty check this shit what the fuck - Done readding it now test if work
+        // goob edit - stunmeta
+        // no slowdown because funny
+        // Choose bigger of speed modifiers (usually sprint) and use it to scale Crowd Control effect time
+        var cCFactor = Math.Clamp(1 - Math.Min(walkSpeedModifier, sprintSpeedModifier), 0, 1);
+        var cCTime = TimeSpan.FromSeconds(10f);
+        if (visual
+            && 0 <= staminaComp.ActiveDrains.Aggregate((float) 0, (current, modifier) => current + modifier.Value.DrainRate)) // Goob edit // Goob edit 2 - So stamina regenerating effects doesn't cause jittering
+        {
+            _jitter.DoJitter(uid, cCFactor * cCTime, true);
+            _stutter.DoStutter(uid, cCFactor * cCTime, true);
+        }
+        // Goobstation edit end.
 
         return true;
     }

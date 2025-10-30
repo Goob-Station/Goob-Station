@@ -132,7 +132,8 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
             return;
 
         if (comp.StunTime > TimeSpan.Zero)
-            _stun.TryParalyze(args.OtherEntity, comp.StunTime, true);
+            return; //todo marty goobcode adjust
+            //_stun.TryParalyze(args.OtherEntity, comp.StunTime, true);
 
         RaiseLocalEvent(uid, new TrapTriggeredEvent(args.OtherEntity));
 

@@ -850,7 +850,7 @@ public partial class PainSystem
                 var agonySpecifier = nerveSys.Comp.AgonyScreams[sex];
                 PlayPainSound(body, nerveSys, agonySpecifier, AudioParams.Default.WithVolume(12f), screamString: shockAgonyString);
 
-                _stun.TryParalyze(body, nerveSys.Comp.PainShockStunTime * 1.4, true, standOnRemoval: false);
+                //_stun.TryParalyze(body, nerveSys.Comp.PainShockStunTime * 1.4, true, standOnRemoval: false); //todo marty goobcode adjust
                 _jitter.DoJitter(body, nerveSys.Comp.PainShockStunTime * 1.4, true, 20f, 7f);
 
                 _consciousness.ForceConscious(body, nerveSys.Comp.PainShockStunTime * 1.4);

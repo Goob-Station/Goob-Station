@@ -141,7 +141,7 @@ public abstract class SharedShadowCloakSystem : EntitySystem
         {
             _stun.KnockdownOrStun(ent, ent.Comp.KnockdownTime, true);
             var (walk, sprint) = ent.Comp.EarlyRemoveMoveSpeedModifiers;
-            _stun.TrySlowdown(ent, ent.Comp.SlowdownTime, true, walk, sprint);
+            //_stun.TrySlowdown(ent, ent.Comp.SlowdownTime, true, walk, sprint); //todo marty goobcode adjust
         }
 
         ResetAbilityCooldown(ent, ent.Comp.ForceRevealCooldown);

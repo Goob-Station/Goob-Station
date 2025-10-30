@@ -26,6 +26,12 @@
   id: Stun
   alert: Stun
 
+# Goobstation start - if you're reading this you should probably fix this. // todo marty status effect
+- type: statusEffect
+  id: KnockedDown
+  alert: KnockedDown
+# Goobstation end
+
 - type: statusEffect
   id: SlowedDown
 
