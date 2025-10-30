@@ -20,35 +20,35 @@
   voice: 3
 
 - type: voice
-  id: B0BFLY35A1svZSmJ26Wr
+  id: zivSusn5qzUCwUt6QjpB
   name: TF2 Announcer
   sex: Female
   silicon: false
   voice: 4
 
 - type: voice
-  id: Ea8HCzIaIzlENBR55SlR
+  id: ZpEnBU3mMzqhneXZogUg
   name: Hatsune Miku (lol)
   sex: Female
   silicon: false
   voice: 5
 
 - type: voice
-  id: RF3OhbuBrrSHzv0meOUi
+  id: VE3RfMa6Q7vF5IwPnK3S
   name: Johnny Silverhand
   sex: Male
   silicon: false
   voice: 6
 
 - type: voice
-  id: uLYc4HXkWAZA9M6zp2im
+  id: FbAm3IW9MzH1AobSIqtC
   name: Billy Herrington
   sex: Male
   silicon: false
   voice: 7
 
 - type: voice
-  id: nsbzQicrxdKoIKAquMCn
+  id: xsDz6O71i70l4osGAueZ
   name: Flying Dutchman
   sex: Male
   silicon: false
@@ -62,7 +62,7 @@
   voice: 9
 
 - type: voice
-  id: DTKMou8ccj1ZaWGBiotd
+  id: Ybqj6CIlqb6M85s9Bl4n
   name: Jamal
   sex: Male
   silicon: false
@@ -98,13 +98,13 @@
 
 - type: voice
   id: nzeAacJi50IvxcyDnMXa
-  name: Marshal
+  name: Spy
   sex: Male
   silicon: false
   voice: 15
 
 - type: voice
-  id: Dt2jDzhoZC0pZw5bmy2S
+  id: ghgFyr7gmpr57xyTgX9q
   name: Emilia
   sex: Female
   silicon: false
@@ -146,63 +146,63 @@
   voice: 21
 
 - type: voice
-  id: H2frWuM5F7ZTtQvnKIrM
+  id: E0nbmUf8FE9IVDWEHwT4
   name: Obi-Wan
   sex: Male
   silicon: false
   voice: 22
 
 - type: voice
-  id: sf49GiI1dX7isB9tLTPA
+  id: VQnzEUbUShj0y1sCBYUp
   name: Dwarf
   sex: Male
   silicon: false
   voice: 23
 
 - type: voice
-  id: sf49GiI1dX7isB9tLTPA
+  id: VQnzEUbUShj0y1sCBYUp
   name: Dwarf
   sex: Male
   silicon: false
   voice: 24
 
 - type: voice
-  id: 8Y5EDuVTklsKMd5HXmdn
+  id: 1m6xdKrZeGCax4LY0o0u
   name: Simaris
   sex: Male
   silicon: false
   voice: 25
 
 - type: voice
-  id: 8Y5EDuVTklsKMd5HXmdn
+  id: 1m6xdKrZeGCax4LY0o0u
   name: Simaris
   sex: Male
   silicon: true
   voice: 26
 
 - type: voice
-  id: 86S0VAdpAL0Cw9pW1jKt
+  id: 3XYpe0f9yh11mIP1OJkT
   name: KAY/O
   sex: Male
   silicon: false
   voice: 27
 
 - type: voice
-  id: 86S0VAdpAL0Cw9pW1jKt
+  id: 3XYpe0f9yh11mIP1OJkT
   name: KAY/O
   sex: Male
   silicon: true
   voice: 28
 
 - type: voice
-  id: bnhJC0pwbuG1ZmsjRSwQ
+  id: RwRWdLRorRSdilxUqs26
   name: GLaDOS
   sex: Male
   silicon: false
   voice: 29
 
 - type: voice
-  id: bnhJC0pwbuG1ZmsjRSwQ
+  id: RwRWdLRorRSdilxUqs26
   name: GLaDOS
   sex: Female
   silicon: true
