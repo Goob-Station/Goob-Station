@@ -154,8 +154,11 @@
     solution: injector
   - type: DrainableSolution
     solution: injector
+  - type: SolutionTransfer
+    canReceive: false
   - type: Forensics
     canStoreDNA: false
+  - type: UseDelay
 
 - type: entity
   parent: [ DrinkBase, BaseMagicalContraband ]
