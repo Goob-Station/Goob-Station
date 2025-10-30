@@ -17241,3 +17241,9 @@ Entries:
   changes: []
   id: 1931
   time: '2025-10-30T14:01:40.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Updated heretic guidebook.
+  id: 1932
+  time: '2025-10-30T14:24:39.0000000+00:00'
