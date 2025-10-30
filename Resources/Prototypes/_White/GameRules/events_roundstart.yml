@@ -1,3 +1,7 @@
+- type: Tag
+    tags:
+    - RoundstartAntag
+
 - type: entity
   parent: XenomorphsInfestation
   id: XenomorphsInfestationRoundstart
