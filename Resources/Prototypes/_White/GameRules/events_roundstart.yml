@@ -18,7 +18,7 @@
     - spawnerPrototype: SpawnPointGhostXenomorph
       min: 2
       max: 4
-      pickPlayer: false
+      pickPlayer: true
       briefing:
         text: xenomorph-role-greeting
         color: "#8c3986"
