@@ -89,6 +89,18 @@ knowledge-path-side-s6-knife-desc =
     The Carving Knife allows you to etch difficult to see traps that trigger on heathens who walk overhead.
     Also makes for a handy throwing weapon.
 
+knowledge-path-side-s6-morbus-name = Codex Morbus
+knowledge-path-side-s6-morbus-desc =
+    The spine of this leather-bound tome creaks with an eerily pained sigh.
+    To ply page from place takes considerable effort, and I dare not linger on the suggestions the book makes for longer than necessary.
+    It speaks of coming plagues, of waiting supplicants of dead and forgotten gods, and the undoing of mortal kind.
+    It speaks of needles to peel the skin of the world back and leaving it to fester. And it speaks to me by name.
+
+    Allows you to to combine a codex cicatrix, and a body into a Codex Morbus.
+    It draws runes and siphons essences faster.
+    Alt-Click on a rune with open codex to curse crewmembers, the target's blood or DNA (blood has better effect) is required to be on the rune for a curse to take effect (Best combined with Phylactery Of Damnation).
+
+
 ## stage 7
 knowledge-path-side-s7-uncuff-name = Wave of Desperation
 knowledge-path-side-s7-uncuff-desc =

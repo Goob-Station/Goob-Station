@@ -44,7 +44,7 @@ public abstract class SharedInjectorSystem : EntitySystem
 
     private void AddSetTransferVerbs(Entity<InjectorComponent> entity, ref GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract || args.Hands == null)
+        if (!args.CanAccess && !entity.Comp.IgnoreAccessChecks || !args.CanInteract || args.Hands == null) // Goob edit
             return;
 
         var user = args.User;
@@ -161,6 +161,9 @@ public abstract class SharedInjectorSystem : EntitySystem
 
     public void SetMode(Entity<InjectorComponent> injector, InjectorToggleMode mode)
     {
+        if (injector.Comp.InjectOnly) // Goobstation
+            return;
+
         injector.Comp.ToggleState = mode;
         Dirty(injector);
     }

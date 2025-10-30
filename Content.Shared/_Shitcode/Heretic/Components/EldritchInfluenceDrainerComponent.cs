@@ -16,7 +16,7 @@ public sealed partial class EldritchInfluenceDrainerComponent : Component
     public float Time = 8f;
 
     [DataField]
-    public float KnowledgePerInfluence = 2f;
+    public float KnowledgePerInfluence = 1f;
 
     [DataField]
     public bool Hidden;

@@ -8,6 +8,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 heretic-influence-start = Draining influence...
+heretic-influence-require-drainer = You need a codex to drain influences.
 
 heretic-ritualrune-examine = Current selected ritual: [color=yellow]{$rit}[/color]
 

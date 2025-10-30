@@ -35,6 +35,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
+using Content.Shared.Item.ItemToggle;
 using Content.Shared.Maps;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
@@ -67,6 +68,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
     [Dependency] private readonly HereticAbilitySystem _ability = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly ItemToggleSystem _toggle = default!;
 
     public static readonly SoundSpecifier DefaultSound = new SoundPathSpecifier("/Audio/Items/welder.ogg");
 
@@ -257,24 +259,30 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         var runeProto = "HereticRuneRitualDrawAnimation";
         float time = 14;
 
+        var canScribe = true;
         if (TryComp(ent, out TransmutationRuneScriberComponent? scriber)) // if it is special rune scriber
         {
-            runeProto = scriber.RuneDrawingEntity;
-            time = scriber.Time;
+            canScribe = _toggle.IsActivated(ent.Owner);
+            runeProto = scriber.RuneDrawingEntity ?? runeProto;
+            time = scriber.Time ?? time;
         }
         else if (heretic.MansusGrasp == EntityUid.Invalid // no grasp - not special
                  || !tags.Contains("Write") || !tags.Contains("Pen")) // not a pen
             return;
 
-        args.Handled = true;
-
         // remove our rune if clicked
         if (args.Target != null && HasComp<HereticRitualRuneComponent>(args.Target))
         {
+            args.Handled = true;
             // todo: add more fluff
             QueueDel(args.Target);
             return;
         }
+
+        if (!canScribe)
+            return;
+
+        args.Handled = true;
 
         // spawn our rune
         var rune = Spawn(runeProto, args.ClickLocation);

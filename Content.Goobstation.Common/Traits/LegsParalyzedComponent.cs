@@ -16,6 +16,6 @@ namespace Content.Goobstation.Common.Traits;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class LegsParalyzedComponent : Component
 {
-    [DataField] public float CrawlMoveSpeed = 2;
-    [DataField] public float CrawlMoveAcceleration = 2;
+    [DataField]
+    public float CrawlSpeedModifier = 0.5f;
 };

@@ -32,14 +32,22 @@ public sealed class EldritchInfluenceSystem : EntitySystem
         SubscribeLocalEvent<EldritchInfluenceComponent, EldritchInfluenceDoAfterEvent>(OnDoAfter);
     }
 
-    public bool CollectInfluence(Entity<EldritchInfluenceComponent> influence, Entity<HereticComponent> user, EntityUid? used = null)
+    public bool CollectInfluence(Entity<EldritchInfluenceComponent> influence,
+        Entity<HereticComponent> user,
+        EntityUid? used = null)
     {
         if (influence.Comp.Spent)
             return false;
 
-        var (time, hidden) = TryComp<EldritchInfluenceDrainerComponent>(used, out var drainer)
-            ? (drainer.Time, drainer.Hidden)
-            : (10f, true);
+        var (time, hidden, canCollect) = TryComp<EldritchInfluenceDrainerComponent>(used, out var drainer)
+            ? (drainer.Time, drainer.Hidden, true)
+            : (10f, true, !influence.Comp.RequireDrainer);
+
+        if (!canCollect)
+        {
+            _popup.PopupEntity(Loc.GetString("heretic-influence-require-drainer"), influence, user);
+            return false;
+        }
 
         var doAfter = new EldritchInfluenceDoAfterEvent();
         var dargs = new DoAfterArgs(EntityManager, user, time, doAfter, influence, influence, used)
@@ -58,16 +66,14 @@ public sealed class EldritchInfluenceSystem : EntitySystem
 
     private void OnInteract(Entity<EldritchInfluenceComponent> ent, ref InteractHandEvent args)
     {
-        if (args.Handled
-        || !TryComp<HereticComponent>(args.User, out var heretic))
+        if (args.Handled || !TryComp<HereticComponent>(args.User, out var heretic))
             return;
 
         args.Handled = CollectInfluence(ent, (args.User, heretic));
     }
     private void OnInteractUsing(Entity<EldritchInfluenceComponent> ent, ref InteractUsingEvent args)
     {
-        if (args.Handled
-        || !TryComp<HereticComponent>(args.User, out var heretic))
+        if (args.Handled || !TryComp<HereticComponent>(args.User, out var heretic))
             return;
 
         args.Handled = CollectInfluence(ent, (args.User, heretic), args.Used);

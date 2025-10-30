@@ -20,6 +20,18 @@ public sealed class EntropicPlumeSystem : SharedEntropicPlumeSystem
 
         SubscribeLocalEvent<EntropicPlumeAffectedComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<EntropicPlumeAffectedComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<EntropicPlumeAffectedComponent, AfterAutoHandleStateEvent>(OnState);
+    }
+
+    private void OnState(Entity<EntropicPlumeAffectedComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        var (uid, comp) = ent;
+
+        if (!TryComp<SpriteComponent>(uid, out var sprite))
+            return;
+
+        RemoveSprite((uid, sprite));
+        AddSprite((uid, comp, sprite));
     }
 
     private void OnShutdown(Entity<EntropicPlumeAffectedComponent> ent, ref ComponentShutdown args)
@@ -29,10 +41,7 @@ public sealed class EntropicPlumeSystem : SharedEntropicPlumeSystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        if (!sprite.LayerMapTryGet(EntropicPlumeKey.Key, out var layer))
-            return;
-
-        sprite.RemoveLayer(layer);
+        RemoveSprite((uid, sprite));
     }
 
     private void OnStartup(Entity<EntropicPlumeAffectedComponent> ent, ref ComponentStartup args)
@@ -40,6 +49,26 @@ public sealed class EntropicPlumeSystem : SharedEntropicPlumeSystem
         var (uid, comp) = ent;
 
         if (!TryComp<SpriteComponent>(uid, out var sprite))
+            return;
+
+        AddSprite((uid, comp, sprite));
+    }
+
+    private void RemoveSprite(Entity<SpriteComponent> ent)
+    {
+        var (uid, sprite) = ent;
+
+        if (!sprite.LayerMapTryGet(EntropicPlumeKey.Key, out var layer))
+            return;
+
+        sprite.RemoveLayer(layer);
+    }
+
+    private void AddSprite(Entity<EntropicPlumeAffectedComponent, SpriteComponent> ent)
+    {
+        var (uid, comp, sprite) = ent;
+
+        if (comp.Sprite == null)
             return;
 
         if (sprite.LayerMapTryGet(EntropicPlumeKey.Key, out _))

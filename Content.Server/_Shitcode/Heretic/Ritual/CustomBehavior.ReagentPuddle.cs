@@ -8,6 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Heretic.Prototypes;
@@ -19,7 +20,21 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 {
     protected EntityLookupSystem _lookup = default!;
 
-    [DataField] public ProtoId<ReagentPrototype>? Reagent;
+    [DataField]
+    public List<ProtoId<ReagentPrototype>> Reagents = new()
+    {
+      "Blood",
+      "AmmoniaBlood",
+      "InsectBlood",
+      "CopperBlood",
+      "ZombieBlood",
+      "AlienBlood",
+      "BlackBlood",
+      "BloodChangeling",
+    };
+
+    [DataField]
+    public LocId ReagentLoc = "reagent-name-blood";
 
     private List<EntityUid> uids = new();
 
@@ -27,7 +42,7 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
     {
         outstr = null;
 
-        if (Reagent == null)
+        if (Reagents.Count == 0)
             return true;
 
         _lookup = args.EntityManager.System<EntityLookupSystem>();
@@ -44,7 +59,7 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 
             var soln = puddle.Solution.Value;
 
-            if (!soln.Comp.Solution.ContainsPrototype(Reagent))
+            if (!soln.Comp.Solution.Any(x => Reagents.Contains(x.Reagent.Prototype)))
                 continue;
 
             uids.Add(ent);
@@ -52,7 +67,7 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 
         if (uids.Count == 0)
         {
-            outstr = Loc.GetString("heretic-ritual-fail-reagentpuddle", ("reagentname", Reagent!));
+            outstr = Loc.GetString("heretic-ritual-fail-reagentpuddle", ("reagentname", Loc.GetString(ReagentLoc)));
             return false;
         }
 

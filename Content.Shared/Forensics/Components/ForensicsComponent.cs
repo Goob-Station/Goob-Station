@@ -35,6 +35,10 @@ namespace Content.Shared.Forensics.Components // Goob/Einstein Engins - Shared F
         [DataField, AutoNetworkedField] // Einstein Engines - Network that shit
         public HashSet<string> Residues = new();
 
+        // Goobstation
+        [DataField]
+        public bool CanStoreDNA = true;
+
         /// <summary>
         /// How close you must be to wipe the prints/blood/etc. off of this entity
         /// </summary>

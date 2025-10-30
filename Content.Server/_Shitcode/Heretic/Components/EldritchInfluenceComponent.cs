@@ -17,5 +17,11 @@ namespace Content.Server.Heretic.Components;
 [RegisterComponent, Access(typeof(EldritchInfluenceSystem))]
 public sealed partial class EldritchInfluenceComponent : Component
 {
+    /// <summary>
+    /// Can the influence be collected by hand or does it require special item?
+    /// </summary>
+    [DataField]
+    public bool RequireDrainer = true;
+
     [DataField] public bool Spent = false;
 }

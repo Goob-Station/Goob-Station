@@ -142,6 +142,9 @@
   id: ClownEmergencyOxygenTank
 
 - type: Tag
+  id: CodexCicatrix
+
+- type: Tag
   id: CombatMech
 
 - type: Tag
@@ -194,6 +197,9 @@
 
 - type: Tag
   id: EmergencyPlasmaTank
+
+- type: Tag
+  id: EnchantSkipWhitelistCheck
 
 - type: Tag
   id: EnergySpeedloader
@@ -612,7 +618,7 @@
 
 - type: Tag
   id: Vial
-  
+
 - type: Tag
   id: WallLight
 

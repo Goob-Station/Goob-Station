@@ -211,6 +211,13 @@ namespace Content.Shared.Chemistry.Components
         /// </summary>
         [ViewVariables] private bool _heatCapacityDirty = true;
 
+        // Goobstation
+        public bool HeatCapacityDirty
+        {
+            get => _heatCapacityDirty;
+            set => _heatCapacityDirty = value;
+        }
+
         [ViewVariables(VVAccess.ReadWrite)]
         private int _heatCapacityUpdateCounter;
 

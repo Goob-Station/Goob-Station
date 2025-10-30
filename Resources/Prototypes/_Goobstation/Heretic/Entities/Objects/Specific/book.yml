@@ -1,0 +1,151 @@
+- type: entity
+  parent: BookRandom
+  id: BookRandomCrewmember
+  description: Their soul now belongs to The Mansus. The only thing left is the book which contains their story.
+  suffix: random visual, heretic sacrifice
+  components:
+  - type: MindContainer
+    showExamineInfo: true
+  - type: Input
+    context: "ghost"
+  - type: InputMover
+  - type: BlockMovement
+  - type: Examiner
+  - type: Enchanted
+    tierOnTransferSuccess: 2
+  - type: IsDeadIC
+  - type: GhostOnMove
+  - type: Tag
+    tags:
+    - Book
+    - EnchantSkipWhitelistCheck
+  - type: RandomEnchantFill
+    fake: true
+    minMaxTier:
+      min: 1
+      max: 2
+    enchants:
+      EnchantInsulated:
+        minMaxLevel:
+          min: 1
+          max: 1
+        weight: 1
+      EnchantBudgetInsulated:
+        minMaxLevel:
+          min: 1
+          max: 4
+        weight: 1
+      EnchantUnslippable:
+        minMaxLevel:
+          min: 1
+          max: 1
+        weight: 1
+      EnchantFortune:
+        minMaxLevel:
+          min: 1
+          max: 3
+        weight: 0.1
+      EnchantFireAspect:
+        minMaxLevel:
+          min: 1
+          max: 2
+        weight: 1
+      EnchantSharpness:
+        minMaxLevel:
+          min: 1
+          max: 3
+        weight: 1
+      EnchantUnbreaking:
+        minMaxLevel:
+          min: 1
+          max: 3
+        weight: 0.5
+      EnchantProtection:
+        minMaxLevel:
+          min: 1
+          max: 2
+        weight: 1
+      EnchantProtFire:
+        minMaxLevel:
+          min: 1
+          max: 3
+        weight: 1
+      EnchantKnockback:
+        minMaxLevel:
+          min: 1
+          max: 2
+        weight: 1
+      EnchantSlippery:
+        minMaxLevel:
+          min: 1
+          max: 4
+        weight: 0.1
+      EnchantThorns:
+        minMaxLevel:
+          min: 1
+          max: 2
+        weight: 1
+      EnchantLavaForged:
+        minMaxLevel:
+          min: 1
+          max: 1
+        weight: 0.1
+
+# Has better enchantments
+- type: entity
+  parent: BookRandomCrewmember
+  id: BookRandomCrewmemberSpecial
+  suffix: random visual, heretic sacrifice, special
+  components:
+  - type: Enchanted
+    tierOnTransferSuccess: 3
+  - type: RandomEnchantFill
+    minMaxTier:
+      min: 2
+      max: 3
+    enchants:
+      EnchantInsulated:
+        minMaxLevel:
+          min: 1
+          max: 1
+        weight: 1
+      EnchantUnslippable:
+        minMaxLevel:
+          min: 1
+          max: 1
+        weight: 1
+      EnchantFireAspect:
+        minMaxLevel:
+          min: 1
+          max: 2
+        weight: 1
+      EnchantSharpness:
+        minMaxLevel:
+          min: 2
+          max: 5
+        weight: 1
+      EnchantUnbreaking:
+        minMaxLevel:
+          min: 1
+          max: 3
+        weight: 0.1
+      EnchantProtection:
+        minMaxLevel:
+          min: 2
+          max: 4
+        weight: 1
+      EnchantProtFire:
+        minMaxLevel:
+          min: 2
+          max: 3
+        weight: 1
+      EnchantKnockback:
+        minMaxLevel:
+          min: 1
+          max: 2
+        weight: 1
+      EnchantThorns:
+        minMaxLevel:
+          min: 2
+          max: 3
+        weight: 1

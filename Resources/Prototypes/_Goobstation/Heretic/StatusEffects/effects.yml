@@ -1,5 +1,52 @@
 - type: entity
   parent: MobStatusEffectBase
+  id: StatusEffectCursed
+  name: cursed
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectCurseOfCorrosion
+  name: curse of corrosion
+  components:
+  - type: CurseOfCorrosionStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectCurseOfParalysis
+  name: curse of paralysis
+  components:
+  - type: CurseOfParalysisStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectCurseOfFlames
+  name: curse of flames
+  components:
+  - type: CurseOfFlamesStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectCurseOfAmok
+  name: curse of amok
+  components:
+  - type: CurseOfAmokStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectCurseOfBlindness
+  name: curse of blindness
+  components:
+  - type: CurseOfBlindnessStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectCurseOfFragility
+  name: curse of fragility
+  components:
+  - type: CurseOfFragilityStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
   id: StatusEffectFireBlasted
   name: fire blasted
   components:

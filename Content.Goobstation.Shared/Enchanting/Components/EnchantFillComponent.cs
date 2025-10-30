@@ -19,4 +19,10 @@ public sealed partial class EnchantFillComponent : Component
     /// </summary>
     [DataField(required: true)]
     public Dictionary<EntProtoId<EnchantComponent>, int> Enchants = new();
+
+    /// <summary>
+    /// Whether this will apply real enchantments or fake ones (used for enchanted books)
+    /// </summary>
+    [DataField]
+    public bool Fake;
 }
