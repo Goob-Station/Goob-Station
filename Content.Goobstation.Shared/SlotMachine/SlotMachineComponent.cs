@@ -1,10 +1,11 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using Robust.Shared.Audio;
 
 namespace Content.Goobstation.Shared.SlotMachine;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SlotMachineComponent : Component
 {
     /// <summary>
@@ -18,7 +19,7 @@ public sealed partial class SlotMachineComponent : Component
     public SoundSpecifier LoseSound = new SoundPathSpecifier("/Audio/Machines/buzz-two.ogg");
 
     [DataField]
-    public SoundSpecifier SmallWinSound = new SoundPathSpecifier("/Audio/Effect/Cargo/ping.ogg");
+    public SoundSpecifier SmallWinSound = new SoundPathSpecifier("/Audio/Effects/Cargo/ping.ogg");
 
     [DataField]
     public SoundSpecifier MediumWinSound = new SoundPathSpecifier("/Audio/Effects/Arcade/win.ogg");
@@ -36,54 +37,60 @@ public sealed partial class SlotMachineComponent : Component
     /// Chances
     /// </summary>
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float SmallWinChance = .20f;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float MediumWinChance = .10f;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float BigWinChance = .05f;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float JackPotWinChance = .01f;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float GodPotWinChance = .001f;
 
     /// <summary>
     /// Prizes
     /// </summary>
 
-    [DataField]
-    public EntProtoId Prize = "spaceCash";
-
-    [DataField]
-    public EntProtoId GodPotPrize = "WeaponLauncherHydra";
+    [DataField, AutoNetworkedField]
+    public EntProtoId GodPotPrize = "WeaponShotgunHeavy";
 
     /// <summary>
     /// Prize Amounts
     /// </summary>
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int SpinCost = 50;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int SmallPrizeAmount = 100;
 
-    [DataField]
-    public int MediumPrizeAmount = 150;
+    [DataField, AutoNetworkedField]
+    public int MediumPrizeAmount = 500;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int BigPrizeAmount = 1500;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int JackPotPrizeAmount = 10000;
 
     /// <summary>
     /// DoAfter
     /// </summary>
 
-    [DataField]
-    public float DoAfterTime = 3.7f;
+    [DataField, AutoNetworkedField]
+    public float DoAfterTime = 3.8f;
+
+    [DataField, AutoNetworkedField]
+    public bool IsSpinning;
+}
+
+[Serializable, NetSerializable]
+public enum SlotMachineVisuals : byte
+{
+    Spinning
 }

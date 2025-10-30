@@ -70,6 +70,7 @@
     - TauCetiBasic
     - RobotTalk
   - type: SlotMachine
+  - type: DoAfter
 
 - type: entity
   id: SlotMachine
@@ -79,5 +80,27 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: _Goobstation/Structures/Machines/GamblingMachines/slotmachine.rsi
-    state: slotmachine
+    sprite: _Goobstation/Structures/Machines/slotmachine.rsi
+    layers:
+      - state: slotmachine
+      - state: slotmachine_spin
+        visible: false
+        map: ["slotmachine_spin"]
+      - state: panel
+        map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Wires
+    layoutId: SlotMachine
+    boardName: wires-board-name-slot-machine
+  - type: GenericVisualizer # I have NO idea how this works
+    visuals:
+      enum.SlotMachineVisuals.Spinning:
+        slotmachine_spin:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
