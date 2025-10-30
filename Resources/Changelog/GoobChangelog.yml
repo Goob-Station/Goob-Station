@@ -17223,3 +17223,21 @@ Entries:
       message: Scubbing floor now transfers reagents to the scubbing item
   id: 1928
   time: '2025-10-30T13:42:25.0000000+00:00'
+- author: Loltart, ZarathushtraSpitama
+  changes:
+    - type: Add
+      message: Vox's now have a unique slot for storing their nitrogen tanks.
+  id: 1929
+  time: '2025-10-30T13:53:07.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Add
+      message: >-
+        Fireaxe will now ~~decapitation~~ rapidly amputates the head if used to
+        execute somone
+  id: 1930
+  time: '2025-10-30T13:54:31.0000000+00:00'
+- author: '-'
+  changes: []
+  id: 1931
+  time: '2025-10-30T14:01:40.0000000+00:00'
