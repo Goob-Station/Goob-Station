@@ -179,7 +179,7 @@ namespace Content.Server.Forensics
                 }
                 else
                 {
-                    scanner.Fingerprints = forensics.Fingerprints.Values.ToList();
+                    scanner.Fingerprints = forensics.Fingerprints.Values.ToList(); //goobstation modified so it can access values in a dictionary
                     scanner.Fibers = forensics.Fibers.ToList();
                     scanner.TouchDNAs = forensics.DNAs.ToList();
                     scanner.Residues = forensics.Residues.ToList();
