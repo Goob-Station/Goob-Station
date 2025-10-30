@@ -1,0 +1,16 @@
+- type: entity
+  name: White Chicken
+  id: MobChickenRanching
+  parent: MobChicken
+  description: Hello cro.
+  components:
+  - type: HappinessContainer
+  - type: HappinessPreferences
+
+- type: entity
+  name: Chicken Feed
+  id: ChickenFeed
+  parent: BaseFoodCondiment
+  description: Food
+  components:
+  - type: ChickenFood
