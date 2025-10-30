@@ -17247,3 +17247,11 @@ Entries:
       message: Updated heretic guidebook.
   id: 1932
   time: '2025-10-30T14:24:39.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Reality fractures are visible to crew again.
+    - type: Fix
+      message: Fix being able to put markup tags in chat messages.
+  id: 1933
+  time: '2025-10-30T14:26:57.0000000+00:00'
