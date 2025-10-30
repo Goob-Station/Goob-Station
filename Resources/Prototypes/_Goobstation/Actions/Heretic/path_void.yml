@@ -35,9 +35,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    predicted: false
     checkCanInteract: false
-    useDelay: 25
+    useDelay: 20
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
@@ -46,7 +45,7 @@
       path: /Audio/_Goobstation/Heretic/voidblink.ogg
   - type: TargetAction
     checkCanAccess: false
-    range: 9
+    range: 16
   - type: WorldTargetAction
     event: !type:HereticVoidBlinkEvent
   - type: HereticAction
@@ -55,15 +54,41 @@
 
 - type: entity
   parent: BaseAction
+  id: ActionHereticVoidPrison
+  name: Void Prison
+  description: Sends a heathen into the void for 10 seconds. They will be unable to perform any actions for the duration. Afterwards, they will be chilled and returned to the mortal plane.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    predicted: false
+    checkCanInteract: false
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: voidball
+  - type: TargetAction
+    range: 3
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - MobState
+    canTargetSelf: false
+    event: !type:HereticVoidPrisonEvent
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-void-prison
+
+- type: entity
+  parent: BaseAction
   id: ActionHereticVoidPull
   name: Void Pull
-  description: Calls the void, damaging, knocking down, and stunning people nearby. Distant foes are also pulled closer to you (but not damaged).
+  description: Calls the void, damaging, knocking down, pulling people closer, and stunning people nearby.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
     useDelay: 30
     itemIconStyle: NoItem
-    predicted: false
     checkCanInteract: false
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
@@ -75,3 +100,23 @@
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-void-pull
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticVoidConduit
+  name: Void Conduit
+  description: Opens a gate to the Void; it releases an intermittent pulse that damages windows and airlocks, while afflicting Heathens with void chill. Affected Heretics instead receive low pressure resistance.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 60
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: void_rift
+  - type: InstantAction
+    event: !type:HereticVoidConduitEvent
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-void-conduit

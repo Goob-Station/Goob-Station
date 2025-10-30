@@ -60,6 +60,7 @@
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 1, 3 ]
             Reporter: [ 1, 1 ]
+            RadioHost: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 2 ]

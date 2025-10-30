@@ -26,3 +26,6 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  - type: Tag # Goobstation
+    tags:
+      - Holosign

@@ -1,0 +1,206 @@
+- type: reagent
+  parent: Slime
+  id: XenobioJellyPurple
+  name: xenobio-reagent-jelly-purple-name
+  desc: xenobio-reagent-jelly-purple-desc
+  color: "#BF77F6"
+  metabolisms:
+    Food:
+      metabolismRate: 1
+      effects:
+      - !type:ModifySlimeComponent
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        extractBonus: 1
+
+- type: reagent
+  parent: Slime
+  id: XenobioJellyBlue
+  name: xenobio-reagent-jelly-blue-name
+  desc: xenobio-reagent-jelly-blue-desc
+  color: "#79F6FC"
+  metabolisms:
+    Food:
+      metabolismRate: 1
+      effects:
+      - !type:ModifySlimeComponent
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        chanceModifier: -0.25
+
+- type: reagent
+  parent: Slime
+  id: XenobioJellyDarkBlue
+  name: xenobio-reagent-jelly-darkblue-name
+  desc: xenobio-reagent-jelly-darkblue-desc
+  color: "#1E8CFA"
+  metabolisms:
+    Food:
+      metabolismRate: 1
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectFireImmune
+        time: 60
+        refresh: false
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectWeatherImmune
+        time: 60
+        refresh: false
+
+- type: reagent
+  parent: Slime
+  id: XenobioJellyCerulean
+  name: xenobio-reagent-jelly-cerulean-name
+  desc: xenobio-reagent-jelly-cerulean-desc
+  color: "#2A52BE"
+  metabolisms:
+    Food:
+      metabolismRate: 1
+      effects:
+      - !type:ModifySlimeComponent
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        offspringBonus: 2
+
+- type: reagent
+  parent: Slime
+  id: XenobioJellyRed
+  name: xenobio-reagent-jelly-red-name
+  desc: xenobio-reagent-jelly-red-desc
+  color: "#FF3333"
+  metabolisms:
+    Food:
+      metabolismRate: 1
+      effects:
+      - !type:ModifySlimeComponent
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        chanceModifier: 0.25
+
+- type: reagent
+  parent: Slime
+  id: XenobioJellyGreen
+  name: xenobio-reagent-jelly-green-name
+  desc: xenobio-reagent-jelly-green-desc
+  color: "#4DFF4D"
+  metabolisms:
+    Poison:
+      metabolismRate: 5 # hello hypospray users!
+      effects:
+      - !type:SpeciesChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        newSpecies: SlimePerson
+      - !type:AdjustReagent
+        reagent: XenobioJellyGreen
+        amount: -50.0
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+
+- type: reagent
+  parent: Slime
+  id: XenobioHumanToxin
+  name: xenobio-reagent-toxin-human-name
+  desc: xenobio-reagent-toxin-human-desc
+  color: "#000000"
+  metabolisms:
+    Poison:
+      metabolismRate: 5 # hello hypospray users!
+      effects:
+      - !type:SpeciesChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        newSpecies: Human
+      - !type:AdjustReagent
+        reagent: XenobioHumanToxin
+        amount: -50.0
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+
+- type: reagent
+  parent: Slime
+  id: XenobioJellyPink
+  name: xenobio-reagent-jelly-pink-name
+  desc: xenobio-reagent-jelly-pink-desc
+  color: "#FF4DD2"
+  metabolisms:
+    Poison:
+      metabolismRate: 1
+      effects:
+      - !type:ChangeFactionEntityEffect
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+        newFaction: Passive
+
+- type: reagent
+  parent: Slime
+  id: AdvancedMutationToxin
+  name: xenobio-reagent-toxin-advanced-name
+  desc: xenobio-reagent-toxin-advanced-desc
+  color: "#000000"
+  metabolisms:
+    Poison:
+      metabolismRate: 5 # hello hypospray users!
+      effects:
+      - !type:RandomSpeciesChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+      - !type:AdjustReagent
+        reagent: AdvancedMutationToxin
+        amount: -50.0
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+
+- type: reagent
+  parent: Slime
+  id: XenobioFelinidToxin
+  name: xenobio-reagent-toxin-felinid-name
+  desc: xenobio-reagent-toxin-felinid-desc
+  color: "#000000"
+  metabolisms:
+    Poison:
+      metabolismRate: 5 # hello hypospray users!
+      effects:
+      - !type:SpeciesChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        newSpecies: Felinid
+      - !type:AdjustReagent
+        reagent: XenobioFelinidToxin
+        amount: -50.0
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+
+- type: reagent
+  parent: Slime
+  id: XenobioGenderFluid
+  name: xenobio-reagent-genderfluid-name
+  desc: xenobio-reagent-genderfluid-desc
+  color: "#FF4DD2"
+  metabolisms:
+    Narcotic:
+      metabolismRate: 1
+      effects:
+      - !type:SexChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+      - !type:AdjustReagent
+        reagent: XenobioGenderFluid
+        amount: -50.0
+        conditions:
+        - !type:ReagentThreshold
+          min: 5

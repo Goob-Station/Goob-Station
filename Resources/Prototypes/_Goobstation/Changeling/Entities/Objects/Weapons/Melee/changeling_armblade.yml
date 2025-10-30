@@ -35,6 +35,8 @@
       types:
         Slash: 20
         Structural: 20
+      woundSeverityMultipliers:
+        Slash: 2.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item

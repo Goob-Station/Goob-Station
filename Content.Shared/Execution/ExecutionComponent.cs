@@ -84,4 +84,13 @@ public sealed partial class ExecutionComponent : Component
     /// </summary>
     [DataField]
     public bool Executing = false;
+
+    // Goobstation start
+
+    /// <summary>
+    /// if when this is used for execution then the head be removed from the shoulders
+    /// </summary>
+    [DataField]
+    public bool Decapitation = false;
+    // Goobstation end
 }

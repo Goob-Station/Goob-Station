@@ -114,11 +114,13 @@ public sealed partial class DevilSystem
         if (devil.Comp.PowerLevel != DevilPowerLevel.None)
             devil.Comp.PossessionDuration *= (int)devil.Comp.PowerLevel;
 
-        if (_possession.TryPossessTarget(args.Target, args.Performer, devil.Comp.PossessionDuration, true, polymorphPossessor: true))
-        {
-            Spawn(devil.Comp.JauntAnimationProto, Transform(args.Target).Coordinates);
-            Spawn(devil.Comp.PentagramEffectProto, Transform(args.Target).Coordinates);
-        }
+        // Only mark as handled if possession succeeds to avoid wasting the cooldown.
+        if (!_possession.TryPossessTarget(args.Target, args.Performer, devil.Comp.PossessionDuration, true, polymorphPossessor: true))
+            return;
 
+        Spawn(devil.Comp.JauntAnimationProto, Transform(args.Target).Coordinates);
+        Spawn(devil.Comp.PentagramEffectProto, Transform(args.Target).Coordinates);
+
+        args.Handled = true;
     }
 }

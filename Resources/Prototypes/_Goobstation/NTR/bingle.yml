@@ -96,6 +96,10 @@
     - Cargo
   - type: Puller
     needsHands: false
+  - type: PointLight
+    radius: 1.2
+    energy: 2
+    color: "#4faffb"
 
 - type: entity
   id: CargoBingleSpawnCoin

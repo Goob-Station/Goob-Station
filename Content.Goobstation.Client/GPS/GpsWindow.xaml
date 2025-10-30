@@ -1,0 +1,80 @@
+<ui:GpsWindow xmlns="https://spacestation14.io"
+            xmlns:ui="clr-namespace:Content.Goobstation.Client.GPS"
+            xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+            SetWidth="400" SetHeight="670"
+            Resizable="False"
+            MouseFilter="Stop">
+
+    <PanelContainer Name="Background" StyleClasses="PdaBackgroundRect" ModulateSelfOverride="#505060" />
+    <PanelContainer Name="Border" StyleClasses="PdaBorderRect" />
+
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="8 2">
+		<!-- Header -->
+        <BoxContainer SetHeight="26" Margin="4 2 8 0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextureButton Name="CloseButton" StyleClasses="windowCloseButton" Modulate="#646464" VerticalAlignment="Center" Margin="0 4 4 0"/>
+        </BoxContainer>
+
+		<!-- Content -->
+		<Control Margin="10 0" RectClipContent="True" VerticalExpand="true" HorizontalExpand="True">
+			<PanelContainer Name="ContentBorder" StyleClasses="PdaBackground"/>
+			<Control Name="ContentsContainer" Margin="3 3" Modulate="#e6b933ff">
+
+				<!-- Screen Background -->
+				<PanelContainer Name="ContentBackground" StyleClasses="PdaContentBackground"/>
+
+				<!-- Screen foreground -->
+				<BoxContainer Orientation="Vertical" Margin="5 5">
+                    <Label Text="{Loc 'gps-window-title'}" StyleClasses="ConsoleHeading"
+                            HorizontalAlignment="Center" Margin="0 5 0 0" />
+
+                    <!-- Coordinates Section -->
+                    <BoxContainer Orientation="Horizontal" Margin="0 5 0 0">
+                        <PanelContainer MinSize="120 0">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BorderColor="#A4A4A4" BorderThickness="1" />
+                            </PanelContainer.PanelOverride>
+                            <BoxContainer Orientation="Vertical" Margin="5 5">
+                                <Label Text="{Loc 'gps-window-gps-position-label'}" HorizontalAlignment="Center" />
+                                <Label Name="GpsPositionLabel" Text="{Loc 'gps-window-position-unknown'}" HorizontalAlignment="Center" />
+                            </BoxContainer>
+                        </PanelContainer>
+
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                            <LineEdit Name="GpsName" MinSize="100 0" HorizontalExpand="True" HorizontalAlignment="Center" PlaceHolder="{Loc 'gps-window-name-label'}"/>
+                        </BoxContainer>
+
+                        <PanelContainer  MinSize="120 0">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BorderColor="#A4A4A4" BorderThickness="1" />
+                            </PanelContainer.PanelOverride>
+                            <BoxContainer Orientation="Vertical" Margin="5 5">
+                                <Label Text="{Loc 'gps-window-tracked-position-label'}" HorizontalAlignment="Center" />
+                                <Label Name="TrackedPositionLabel" Text="{Loc 'gps-window-position-none'}" HorizontalAlignment="Center" />
+                            </BoxContainer>
+                        </PanelContainer>
+                    </BoxContainer>
+
+
+
+                    <!-- Compass Section -->
+                    <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" Margin="0 5 0 0">
+                        <ui:CompassControl Name="CompassContainer" Modulate="#FAFAFA" MinSize="250 250" />
+                    </BoxContainer>
+
+                    <ScrollContainer VerticalExpand="True" Margin="0 5 0 5">
+                        <GridContainer Name="GpsList" Columns="2" HorizontalAlignment="Center" />
+                    </ScrollContainer>
+                    <BoxContainer Orientation="Horizontal">
+                        <Button Name="DistressButton" Text="⚠" StyleClasses="ButtonCaution" ToolTip="{Loc 'gps-window-alarm-tooltip'}"/>
+                        <Button Name="EnabledButton" StyleClasses="ButtonCaution" ToolTip="{Loc 'gps-window-visibility-tooltip'}"/>
+                        <Control HorizontalExpand="true" />
+                        <Button Name="ClearButton" Text="{Loc 'gps-window-clear-tracking-button'}" ToolTip="{Loc 'gps-window-clear-tooltip'}"/>
+                    </BoxContainer>
+				</BoxContainer>
+			</Control>
+		</Control>
+        <BoxContainer Orientation="Horizontal" SetHeight="24">
+            <Label Text="{Loc 'gps-window-footer-text'}" StyleClasses="PdaWindowFooterText" Margin="16 0 0 6"/>
+        </BoxContainer>
+    </BoxContainer>
+</ui:GpsWindow>

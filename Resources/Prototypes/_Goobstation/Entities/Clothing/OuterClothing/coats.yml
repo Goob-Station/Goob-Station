@@ -105,7 +105,18 @@
     sprite: _Goobstation/Clothing/OuterClothing/Coats/rdaltcoat.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Coats/rdaltcoat.rsi
-    
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Caustic: 0.6
+        Radiation: 0.6
+
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRD]

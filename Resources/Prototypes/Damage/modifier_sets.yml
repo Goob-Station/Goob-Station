@@ -217,8 +217,8 @@
   id: Slime
   coefficients:
     Blunt: 0.6
-    Slash: 1.2
-    Piercing: 1.2
+    Slash: 1.15 # Goob edit
+    Piercing: 1.15 # Goob edit
     Cold: 1.5
     Poison: 0.8
   ignoreArmorPierceFlags: All # Goobstation

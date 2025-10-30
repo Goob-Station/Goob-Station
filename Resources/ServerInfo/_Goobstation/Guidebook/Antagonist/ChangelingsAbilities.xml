@@ -190,14 +190,28 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   # Utility Abilities
 
+  ## Awakened Instinct
+  <Box>
+    [color=#999999][italic] Free [italic][/color]
+  </Box>
+  - Gain a flat 25% boost to chemical regeneration.
+  - The user will require biomass to sustain themselves.
+  - Biomass is replenished by absorbing compatible humanoids.
+  - Maximum biomass capacity can be increased by absorbing other changelings.
+  - Running out of biomass will cause the user to be absorbed, and permanently killed.
+
   ## Anatomic Panacea
   <Box>
     [color=#999999][italic] 2 Evolution Points / 30 Chems [italic][/color]
   </Box>
-  - Produces 10 units of Ling Panacea within the changeling.
-  - Heals 60 genetic, radiation and poison damage.
-  - Cures disabilities (permanent blindness, narcolepsy, leg paralysis ect)
-  - Can be used while cuffed or in lesser form.
+  - User is given the "Anatomic panacea" status effect, lasting 10 seconds.
+  - Treats eye damage
+  - Sobers the user, removing the influence of drugs and alcohol.
+  - Removes any present disabilities from the user.
+  - Removes and destroys any present xenomorph embryos in the user.
+  - Cleanses 25u of chemicals from the bloodstream per tick (250 in total).
+  - Heals 10 overall toxin damage per tick (100 in total).
+  - Heals 10 cellular damage per tick (100 in total).
 
   ## Last Resort
   <Box>
@@ -257,10 +271,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   <Box>
     [color=#999999][italic] 4 Evolution Points / 25 Chems [italic][/color]
   </Box>
-  - Changeling produces 5 units of Changeling Adrenaline.
-  - Deals 6.75 poison damage to changeling upon immediate second use.
-  - Removes stuns, knockdown times, and makes you impervious to most forms of fatigue.
-  - Can be used while cuffed or in lesser form.
+  - User is given the "Adrenaline reserves" status effect, lasting for 10 seconds.
+  - Renders the user completely immune to stuns, stamina damage, damage slowdown and most incapacitation methods.
+  - Regenerates 10 stamina per tick (100 in total).
+  - Deals 1.5 poison damage to the user per tick (15 in total).
   - Can be used while on fire.
 
   ## Hivemind Access
@@ -273,13 +287,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   ## Void Adaption
   <Box>
-    [color=#999999][italic] 4 Evolution Points / 0 Chems / 2 Absorbed Organics [italic][/color]
+    [color=#999999][italic] 4 Evolution Points / Automatic  [italic][/color]
   </Box>
-  - Renders you immune to barotrauma (spacing) damage if active.
-  - Immune to freezing temperatures and its effects if active.
-  - Does not protect from cold damage.
-  - Changeling no longer needs to breathe if active.
-  - Slows down chem regen rate by 25%.
+  - Will automatically protect you from low pressure or temperature.
+  - Removes the need for the presence of air to breathe. Can still be affected by breathing in dangerous gases.
+  - Will not protect from cold damage from other sources.
+  - While active against low pressure or temperature, chem regen rate is decreased by 25%
 
   ## Fleshmend
   <Box>

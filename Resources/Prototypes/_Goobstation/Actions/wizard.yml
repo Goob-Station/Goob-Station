@@ -231,6 +231,15 @@
       5: ActionRepulseV
 
 - type: entity
+  parent: ActionRepulse
+  id: ActionRepulseNoRobes
+  components:
+  - type: Magic
+    requiresClothes: false
+    requiresSpeech: true
+    school: Evocation
+
+- type: entity
   parent: BaseAction
   id: ActionStopTime
   name: Stop Time
@@ -370,6 +379,7 @@
     sentence: action-speech-spell-bind-soul
   - type: Magic
     requiresSpeech: true
+    blockedBySpectral: false
     school: Necromancy
   - type: Tag
     tags:

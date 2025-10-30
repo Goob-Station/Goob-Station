@@ -204,6 +204,15 @@ public sealed class RequestPerformActionEvent : EntityEventArgs
         EntityTarget = entityTarget;
         EntityCoordinatesTarget = entityCoordinatesTarget;
     }
+
+    // Goobstation start
+    public RequestPerformActionEvent(NetEntity action, NetEntity? entityTarget, NetCoordinates? entityCoordinatesTarget)
+    {
+        Action = action;
+        EntityTarget = entityTarget;
+        EntityCoordinatesTarget = entityCoordinatesTarget;
+    }
+    // Goobstation end
 }
 
 /// <summary>

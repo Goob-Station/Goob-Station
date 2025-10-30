@@ -547,3 +547,27 @@
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: Admin
   allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCommandMaid #Goobstation
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: CommandMaid
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPartyMaker #Goobstation
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: PartyMaker
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSecurityClown #Goobstation
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SecurityClown
+  allowSelection: false

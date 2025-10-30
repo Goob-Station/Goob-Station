@@ -1,0 +1,85 @@
+- type: entity
+  id: SpawnArmamentsCursader
+  categories: [ HideSpawnMenu ]
+  name: crusader armour
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototypes:
+    - ClothingOuterArmorTemplar
+    - ClothingHeadHatHelmetTemplar
+
+- type: entity
+  id: SpawnArmamentsStudent
+  categories: [ HideSpawnMenu ]
+  name: student robe
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototypes:
+    - ClothingOuterArmorStudent
+    - ClothingHeadHatHelmetCage
+
+- type: entity
+  id: SpawnArmamentsAncient
+  categories: [ HideSpawnMenu ]
+  name: ancient armour
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototypes:
+    - ClothingOuterArmorAncient
+    - ClothingHeadHatHelmetAncient
+
+- type: entity
+  id: SpawnArmamentsWitchhunter
+  categories: [ HideSpawnMenu ]
+  name: witch hunter garb
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototypes:
+    - ClothingOuterArmorWitchhunter
+    - ClothingHeadHatHelmetWitchhunter
+
+- type: entity
+  id: SpawnArmamentsAdept
+  categories: [ HideSpawnMenu ]
+  name: adept robes
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototypes:
+    - ClothingOuterArmorAdept
+
+- type: entity
+  id: SpawnArmamentsClock
+  categories: [ HideSpawnMenu ]
+  name: forgotten armour
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototypes:
+    - ClothingOuterArmorClock
+    - ClothingHeadHatHelmetClock
+
+- type: entity
+  id: SpawnArmamentsMonk
+  categories: [ HideSpawnMenu ]
+  name: monk's habit
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototypes:
+    - ClothingOuterArmorMonk
+
+- type: entity
+  id: SpawnArmamentsBishop
+  categories: [ HideSpawnMenu ]
+  name: bishop's robes
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototypes:
+    - ClothingOuterArmorBishop
+    - ClothingHeadHatHelmetBishop

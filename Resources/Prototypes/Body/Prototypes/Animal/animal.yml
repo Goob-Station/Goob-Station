@@ -54,6 +54,7 @@
         stomach: OrganMouseStomach
         liver: OrganAnimalLiver
         kidneys: OrganAnimalKidneys
+        egg_sack: OrganMouseEggSack # Trauma
     legs:
       part: LegsAnimal
       connections:

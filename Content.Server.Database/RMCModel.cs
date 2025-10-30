@@ -75,6 +75,8 @@ public sealed class RMCPatronTier
 
     public string Name { get; set; } = default!;
 
+    public string? Icon { get; set; }
+
     public ulong DiscordRole { get; set; }
 
     public int Priority { get; set; }

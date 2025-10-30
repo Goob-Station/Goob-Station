@@ -28,6 +28,8 @@
         Slash: 10
         Piercing: 4
         Structural: 15
+      woundSeverityMultipliers:
+        Slash: 2.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Tag

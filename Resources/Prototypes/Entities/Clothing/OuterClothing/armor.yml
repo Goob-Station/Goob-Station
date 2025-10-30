@@ -169,6 +169,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     traumaDeductions:
       Dismemberment: 0.2
       OrganDamage: 0.2
@@ -557,6 +558,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     traumaDeductions:
       Dismemberment: 0.2
       OrganDamage: 0.2

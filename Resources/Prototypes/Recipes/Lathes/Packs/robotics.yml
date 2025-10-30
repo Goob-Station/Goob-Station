@@ -49,7 +49,7 @@
   recipes:
   - BorgModuleAdvancedCleaning
   - BorgModuleAdvancedTool
-  - BorgModuleAdvancedChemical
+  # - BorgModuleAdvancedChemical # Goob edit
   - BorgModuleAdvancedMining
 
 - type: latheRecipePack

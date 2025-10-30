@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["beep1.ogg", "beep2.ogg", "beep3.ogg","beep4.ogg", "beep6.ogg", "beep8.ogg", "buzz.ogg", "buzz2.ogg", "hum1.ogg","hum2.ogg", "scroll1.ogg", "scroll_start.ogg", "startup.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "NSV-13"
+  source: "https://github.com/BeeStation/NSV13/tree/master"

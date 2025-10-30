@@ -117,15 +117,15 @@
     {
       "name": "boots"
     },
-	{
+    {
       "name": "equipped-HEAD-sealed-vox",
       "directions": 4
     },
-	{
+    {
       "name": "equipped-HEAD-sealed-unshaded-vox",
       "directions": 4
     },
-	{
+    {
       "name": "equipped-HEAD-vox",
       "directions": 4
     },
@@ -151,6 +151,18 @@
     },
     {
       "name": "equipped-FEET-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed-unshaded-vulpkanin",
       "directions": 4
     }
   ]

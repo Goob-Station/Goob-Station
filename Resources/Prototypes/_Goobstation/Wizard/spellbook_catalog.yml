@@ -722,6 +722,22 @@
   - SpellbookEquipment
 
 - type: listing
+  id: SpellbookGreyTide
+  name: uplink-grey-tide-name
+  description: uplink-grey-tide-desc
+  productEntity: SpearGreyTide
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellTiderBundle
+
+- type: listing
   id: SpellbookStaffHealing
   name: spellbook-staff-healing-name
   description: spellbook-staff-healing-desc
@@ -794,6 +810,36 @@
   categories:
   - SpellbookEquipment
   disableRefund: true
+
+- type: listing
+  id: SpellbookHellRipScroll
+  name: spellbook-hell-rip-name
+  description: spellbook-hell-rip-desc
+  productEntity: HellRipScroll
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+  disableRefund: true
+
+- type: listing
+  id: SpellOrganMagicSlaughterHeart
+  name: spellbook-demon-heart-name
+  description: spellbook-demon-heart-desc
+  productEntity: OrganMagicSlaughterHeart
+  cost:
+    WizCoin: 6
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookHellRipScroll
+    - SpellbookBottleOfBlood
+  disableRefund: true
+  blockRefundListings:
+  - SpellbookHellRipScroll
+  - SpellbookBottleOfBlood
 
 # Summons
 - type: listing
@@ -1024,6 +1070,10 @@
   name: spellbook-tider-bundle-name
   description: spellbook-tider-bundle-desc
   productEntity: ToolboxTiderFilled
+  raiseProductEventOnUser: true
+  productEvent: !type:GrantFactionsEvent
+    factions:
+    - Assistant
   cost:
     WizCoin: 0
   categories:

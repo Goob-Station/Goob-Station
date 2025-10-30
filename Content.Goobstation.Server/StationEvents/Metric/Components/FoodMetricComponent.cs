@@ -14,7 +14,7 @@ namespace Content.Goobstation.Server.StationEvents.Metric.Components;
 [RegisterComponent, Access(typeof(FoodMetricSystem))]
 public sealed partial class FoodMetricComponent : Component
 {
-    [DataField("thirstScores", customTypeSerializer: typeof(DictionarySerializer<ThirstThreshold, FixedPoint2>))]
+    [DataField(customTypeSerializer: typeof(DictionarySerializer<ThirstThreshold, FixedPoint2>))]
     public Dictionary<ThirstThreshold, FixedPoint2> ThirstScores =
         new()
         {
@@ -22,7 +22,7 @@ public sealed partial class FoodMetricComponent : Component
             { ThirstThreshold.Parched, 5.0f },
         };
 
-    [DataField("hungerScores", customTypeSerializer: typeof(DictionarySerializer<HungerThreshold, FixedPoint2>))]
+    [DataField(customTypeSerializer: typeof(DictionarySerializer<HungerThreshold, FixedPoint2>))]
     public Dictionary<HungerThreshold, FixedPoint2> HungerScores =
         new()
         {
@@ -30,7 +30,7 @@ public sealed partial class FoodMetricComponent : Component
             { HungerThreshold.Starving, 5.0f },
         };
 
-    [DataField("chargeScores", customTypeSerializer: typeof(DictionarySerializer<float, FixedPoint2>))]
+    [DataField(customTypeSerializer: typeof(DictionarySerializer<float, FixedPoint2>))]
     public Dictionary<float, FixedPoint2> ChargeScores =
         new()
         {

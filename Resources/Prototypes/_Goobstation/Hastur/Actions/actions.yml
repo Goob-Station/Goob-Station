@@ -1,0 +1,116 @@
+- type: entity
+  id: ActionHasturDevour
+  name: Devour
+  description: Instantly devour a human...
+  components:
+  - type: Action
+    useDelay: 150
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Hastur/actions.rsi
+      state: devour
+  - type: TargetAction
+    range: 2
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidAppearance
+      - Body
+    event: !type:HasturDevourEvent
+
+- type: entity
+  id: ActionHasturLash
+  name: Lash
+  description: Lash a target from a distance, bringing them to their knees.
+  components:
+  - type: Action
+    useDelay: 25
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Hastur/actions.rsi
+      state: ranged_tentacle
+  - type: TargetAction
+    range: 10
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidAppearance
+    event: !type:HasturLashEvent
+
+- type: entity
+  id: ActionInsanityAura
+  name: Insanity Aura
+  description: Causes everyone to go a bit mad around you...
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Misc/Hastur/Void_Song.ogg
+    useDelay: 60
+    icon:
+      sprite: _Goobstation/Hastur/actions.rsi
+      state: insanity_aura
+  - type: InstantAction
+    event: !type:InsanityAuraEvent
+
+- type: entity
+  id: ActionMassWhisper
+  name: Mass Whisper
+  description: Reach into the mind of all beings and whisper them into madness...
+  components:
+  - type: Action
+    useDelay: 360
+    icon:
+      sprite: _Goobstation/Hastur/actions.rsi
+      state: mass_whisper
+  - type: InstantAction
+    event: !type:MassWhisperEvent
+
+- type: entity
+  id: ActionVeilOfTheVoid
+  name: Veil of the void
+  description: Vanish/Manifest back from the void to hunt your prey...
+  components:
+  - type: Action
+    useDelay: 25
+    icon:
+      sprite: _Goobstation/Hastur/actions.rsi
+      state: veil_void
+  - type: InstantAction
+    event: !type:VeilOfTheVoidEvent
+
+- type: entity
+  id: ActionOmnipresence
+  name: Omnipresence
+  description: Choose everywhere to be.
+  components:
+  - type: Action
+    useDelay: 60
+    icon:
+      sprite: _Goobstation/Hastur/actions.rsi
+      state: omnipresence
+  - type: InstantAction
+    event: !type:OmnipresenceEvent
+
+- type: entity
+  id: ActionHasturClone
+  name: Clone
+  description: Split yourself into two, leaving a temporary shadow of your presence behind.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 30
+    icon:
+      sprite: _Goobstation/Hastur/actions.rsi
+      state: clone
+  - type: TargetAction
+    range: 5
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: MobHasturClone
+        amount: 1
+      offset: 0, 1

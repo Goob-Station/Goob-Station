@@ -29,3 +29,86 @@
       - AlienBlood
       - BlackBlood
       - BloodChangeling
+  - type: StaticPrice
+    price: 10000
+
+- type: entity
+  parent: OrganSlaughterHeart
+  id: OrganMagicSlaughterHeart
+  suffix: Wizard
+  components:
+  - type: Organ
+    onAdd:
+    - type: BloodCrawl
+      blood:
+      - Blood
+      - AmmoniaBlood
+      - InsectBlood
+      - CopperBlood
+      - ZombieBlood
+      - AlienBlood
+      - BlackBlood
+      - BloodChangeling
+    - type: SlaughterDevour # allows the demon to devour
+      toHeal: # Healing done when eating someone
+        groups:
+          Brute: -100
+          Burn: -100
+          Airloss: -100
+          Toxin: -100
+          Genetic: -100
+          Metaphysical: -100
+      toHealNonCrew: # Healing done when eating a robot
+        groups:
+          Brute: -50
+          Burn: -50
+          Airloss: -50
+          Toxin: -50
+          Genetic: -50
+          Metaphysical: -50
+      toHealAnythingElse:  # Healing when previous conditions weren't met
+        groups:
+          Brute: -25
+          Burn: -25
+          Airloss: -25
+          Toxin: -25
+          Genetic: -25
+          Metaphysical: -25
+      doAfterDelay: 2
+    - type: WeakToHoly
+      alwaysTakeHoly: true
+    - type: MeleeWeapon
+      soundHit:
+        path: /Audio/Effects/demon_attack1.ogg
+      animation: WeaponArcPunch
+      damage:
+        types:
+          Slash: 25
+          Structural: 50
+    - type: DemonicWhisper # allows the demon to demonic whisper
+    - type: DemonicAccent # the accent
+    - type: Puller
+      stageChangeCooldown: 0.5
+      grabThrowDamageModifier: 6.0
+      throwingDistance: 30
+      needsHands: false
+    - type: Speech
+      speechVerb: SlaughterDemon
+      speechSounds: SlaughterDemon
+    - type: TypingIndicator
+      proto: guardian
+    - type: Vocal
+      sounds:
+        Male: SlaughterDemon
+        Female: SlaughterDemon
+        Unsexed: SlaughterDemon
+  - type: OrganActions
+    actions:
+    - DemonicWhisperAction
+  - type: OrganInsertOnUse
+    slotId: heart
+    partType: Chest
+  - type: Food
+    requiredStomachs: 666 # So you can't just eat it on use lmao
+  - type: StaticPrice
+    price: 50000

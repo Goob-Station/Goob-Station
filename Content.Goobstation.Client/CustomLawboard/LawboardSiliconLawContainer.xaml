@@ -1,0 +1,42 @@
+<!--
+SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<BoxContainer
+    xmlns="https://spacestation14.io"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    HorizontalExpand="True"
+    Orientation="Vertical"
+    >
+    <BoxContainer>
+        <RichTextLabel StyleClasses="LabelKeyText" Name="LawNumberLabel"></RichTextLabel>
+        <BoxContainer>
+            <PanelContainer
+                Margin="20 10 10 0"
+                MinHeight="128"
+            >
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1B"></gfx:StyleBoxFlat>
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Horizontal" SeparationOverride="5">
+                    <TextEdit Name="LawContent" HorizontalExpand="True" Editable="True" MinWidth="500" MinHeight="80"></TextEdit>
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+    </BoxContainer>
+    <BoxContainer Orientation="Horizontal" Margin="0 5 0 0" MaxHeight="64">
+        <BoxContainer Orientation="Horizontal" Margin="0 5 0 0" MaxHeight="64" Align="Begin" HorizontalExpand="True">
+            <Button Name="MoveUp" Text="{Loc custom-lawboard-up-arrow}" StyleClasses="OpenRight"></Button>
+            <Button Name="MoveDown" Text="{Loc custom-lawboard-down-arrow}" StyleClasses="OpenLeft"></Button>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Horizontal" Margin="0 5 0 0" MaxHeight="64" Align="End">
+            <Button Name="Delete" Text="{Loc silicon-law-ui-delete}" ModulateSelfOverride="Firebrick"></Button>
+        </BoxContainer>
+    </BoxContainer>
+    <PanelContainer StyleClasses="HighDivider" Margin="0,1,0,2"/>
+</BoxContainer>

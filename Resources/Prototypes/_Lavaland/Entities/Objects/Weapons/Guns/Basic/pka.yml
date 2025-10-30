@@ -29,9 +29,9 @@
   description: Fires a spread of low-damage kinetic bolts that are half as effective for mining.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_shotgun.rsi
     layers:
-    - state: shotgun
+    - state: icon
       map: [ "enum.WeaponVisualLayers.Base" ]
     - state: bayonet
       map: [ "enum.WeaponVisualLayers.Bayonet" ]
@@ -42,9 +42,11 @@
     - state: flight-on
       map: [ "enum.WeaponVisualLayers.FlightOn" ]
       visible: false
-    - state: animation-shotgun
+    - state: animation-icon
       visible: false
       map: [ "empty-icon" ]
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_shotgun.rsi
   - type: BasicEntityAmmoProvider
     proto: PelletKineticSpread
     capacity: 1
@@ -56,6 +58,7 @@
       - PKAUpgrade
   - type: GunRequiresWield
   - type: Item
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_shotgun.rsi
     shape:
     - 0,0,4,0
 
@@ -66,9 +69,9 @@
   description: Fires a barrage of medium-damage kinetic bolts at a short range.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
     layers:
-    - state: repeater
+    - state: icon
       map: [ "enum.WeaponVisualLayers.Base" ]
     - state: bayonet
       map: [ "enum.WeaponVisualLayers.Bayonet" ]
@@ -79,9 +82,11 @@
     - state: flight-on
       map: [ "enum.WeaponVisualLayers.FlightOn" ]
       visible: false
-    - state: animation-repeater
+    - state: animation-icon
       visible: false
       map: [ "empty-icon" ]
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
   - type: Gun
     selectedMode: Burst
     minAngle: 10
@@ -102,6 +107,7 @@
       tags:
       - PKAUpgrade
   - type: Item
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
     shape:
     - 0,0,2,1
 
@@ -112,9 +118,9 @@
   description: Fires low-damage kinetic bolts, has a higher mod capacity.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_pistol.rsi
     layers:
-    - state: pistol
+    - state: icon
       map: [ "enum.WeaponVisualLayers.Base" ]
     - state: bayonet
       map: [ "enum.WeaponVisualLayers.Bayonet" ]
@@ -125,9 +131,11 @@
     - state: flight-on
       map: [ "enum.WeaponVisualLayers.FlightOn" ]
       visible: false
-    - state: animation-pistol
+    - state: animation-icon
       visible: false
       map: [ "empty-icon" ]
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_pistol.rsi
   - type: BasicEntityAmmoProvider
     proto: WeakBulletKinetic
     capacity: 1
@@ -142,6 +150,7 @@
     - FullAuto
     - SemiAuto
   - type: Item
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_pistol.rsi
     size: Small
     shape:
     - 0,0,1,0

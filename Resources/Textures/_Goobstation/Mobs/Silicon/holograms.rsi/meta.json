@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Scurret sprite by Very-Soft and Hannah 'FairlySadPanda' Dawson (see scurret.rsi). Original creature concept by VIDEOCULT, and used with kind permission. AI hologram edit by SabreML.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ai_scurret"
+        }
+    ]
+}

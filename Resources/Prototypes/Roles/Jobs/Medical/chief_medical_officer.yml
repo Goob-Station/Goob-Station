@@ -138,10 +138,10 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 9000 #2.5 hrs
+      time: 18000 #5 hrs
     - !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 18000 #5 hrs
+      time: 28000 #8 hrs
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 36000 #10 hrs
@@ -153,6 +153,13 @@
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain
   canBeAntag: false
+  guides: # goobstation
+  - Medical
+  - ChiefMedicalOfficer SOP
+  - Medical SOP
+  - Command
+  - Chemicals
+  - Virology
   goobcoins: 40 #Goob content
   weight: 10 #Goob Edit
   access:

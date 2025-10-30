@@ -19,6 +19,7 @@
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Timing;
 
 namespace Content.Server.EntityEffects.Effects;
 
@@ -43,11 +44,18 @@ public sealed partial class CreateEntityReactionEffect : EntityEffect
             ("entname", IoCManager.Resolve<IPrototypeManager>().Index<EntityPrototype>(Entity).Name),
             ("amount", Number));
 
+    // goob edit - moved Effect contents to DoSpawn method and added delay support
     public override void Effect(EntityEffectBaseArgs args)
+    {
+        if (Delay > 0f) Timer.Spawn((int) (Delay * 1000f), () => DoSpawn(args));
+        else DoSpawn(args);
+    }
+
+    private void DoSpawn(EntityEffectBaseArgs args)
     {
         var transform = args.EntityManager.GetComponent<TransformComponent>(args.TargetEntity);
         var transformSystem = args.EntityManager.System<SharedTransformSystem>();
-        var quantity = (int)Number;
+        var quantity = (int) Number;
         if (args is EntityEffectReagentArgs reagentArgs)
             quantity *= reagentArgs.Quantity.Int();
 

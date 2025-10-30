@@ -715,7 +715,7 @@
       types:
         Heat: 0
   - type: StaminaDamageOnCollide
-    damage: 60
+    damage: 90
   - type: Trail
     lerpTime: 0.05
     frequency: 0.02

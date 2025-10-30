@@ -50,4 +50,6 @@
     Screwdriver: 2
     Crowbar: 2
   contrabandInventory:
-    FoodBurgerRobot: 1  
+    FoodBurgerRobot: 1
+  emaggedInventory: # goob
+    JawsOfLife: 1

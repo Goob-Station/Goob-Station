@@ -8,6 +8,15 @@
     },
     "states": [
         {
+            "name": "void_rift"
+        },
+        {
+            "name": "voidball"
+        },
+        {
+            "name": "shapeshift"
+        },
+        {
             "name": "gazer_beam_charge"
         },
         {

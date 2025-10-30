@@ -156,3 +156,18 @@
       storagebase: !type:Container
         ents: []
 
+- type: entity
+  parent: LauncherCreamPieRegenerating
+  id: SantaCannonRegenerating
+  name: Santa's merry pneumatic cannon
+  suffix: DO NOT MAP
+  description: The only thing you'll need to spread christmas cheer!
+  components:
+  - type: BasicEntityAmmoProvider
+    proto: PresentRandomUnsafe
+    capacity: 2
+    count: 2
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 5
+    rechargeSound:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/merrychristmas.ogg

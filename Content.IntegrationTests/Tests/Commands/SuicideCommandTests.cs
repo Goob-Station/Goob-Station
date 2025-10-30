@@ -196,6 +196,7 @@ public sealed class SuicideCommandTests
         var damageableSystem = entManager.System<DamageableSystem>();
         var mindSystem = entManager.System<SharedMindSystem>();
         var mobStateSystem = entManager.System<MobStateSystem>();
+        var mobThresholdSystem = entManager.System<MobThresholdSystem>(); // Goobstation
 
         // We need to know the player and whether they can be hurt, killed, and whether they have a mind
         var player = playerMan.Sessions.First().AttachedEntity!.Value;
@@ -231,7 +232,7 @@ public sealed class SuicideCommandTests
                 Assert.That(mobStateSystem.IsDead(player, mobStateComp));
                 Assert.That(entManager.TryGetComponent<GhostComponent>(mindComponent.CurrentEntity, out var ghostComp) &&
                             !ghostComp.CanReturnToBody);
-                Assert.That(damageableComp.Damage.GetTotal(), Is.EqualTo(lethalDamageThreshold));
+                Assert.That(mobThresholdSystem.CheckVitalDamage(player, damageableComp), Is.EqualTo(lethalDamageThreshold)); // Goobstation
             });
         });
 

@@ -150,10 +150,10 @@
       time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 14400 # 4 hours
+      time: 21600 # 6 hours
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 14400 # 4 hours
+      time: 28000 # 8 hours
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:
@@ -161,6 +161,11 @@
       #any MRP using our code might eventually want to use it
     # - !type:SaturationRequirement # MisandryBox - no neon hair on captain
     #   hairColorSaturation: 0.30
+  guides: # goobstation
+  - Command
+  - Succession
+  - StandardProcedures SOP
+  - Captain SOP
   goobcoins: 50 #Goob content
   weight: 20
   startingGear: CaptainGear

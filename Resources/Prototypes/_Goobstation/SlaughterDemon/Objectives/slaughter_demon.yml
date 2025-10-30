@@ -41,12 +41,12 @@
   id: SlaughterKillEveryoneObjective
   components:
   - type: Objective
-    issuer: objective-condition-kill-everyone-else
+    issuer: objective-issuer-slaughter-satan
     icon:
       sprite: Structures/Furniture/Altars/Cults/fangs.rsi
       state: blood
   - type: SlaughterKillEveryoneCondition
-    title: objective-condition-kill-everyone-else-title
+    title: objective-condition-kill-everyone-title
     description: objective-kill-everyone-desc
 
 # laughter objectives

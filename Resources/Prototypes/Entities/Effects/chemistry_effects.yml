@@ -87,7 +87,7 @@
     sprite: Effects/chemsmoke.rsi
     state: chemsmoke
   - type: TimedDespawn
-    lifetime: 10
+    lifetime: 5 # goob edit - faster foam
   - type: Tag
     tags:
     - HideContextMenu
@@ -102,7 +102,7 @@
     sprite: Effects/chemsmoke.rsi
     state: chemsmoke
   - type: TimedDespawn
-    lifetime: 10
+    lifetime: 5 # goob edit - faster foam
   - type: Tag
     tags:
     - HideContextMenu

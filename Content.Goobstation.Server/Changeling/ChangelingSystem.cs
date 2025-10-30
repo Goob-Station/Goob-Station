@@ -32,21 +32,18 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
-using System.Numerics;
 using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
-using Content.Goobstation.Shared.Flashbang;
+using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
+using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Server.Actions;
-using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
@@ -78,14 +75,12 @@ using Content.Shared.Flash.Components;
 using Content.Shared.Fluids;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Medical;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -95,9 +90,6 @@ using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
-using Content.Shared.Revolutionary.Components;
-using Content.Shared.Store.Components;
-using Content.Shared.Tag;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -106,6 +98,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
+using System.Linq;
+using System.Numerics;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -148,9 +142,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuv = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
@@ -176,15 +168,26 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, ComponentRemove>(OnComponentRemove);
         SubscribeLocalEvent<ChangelingIdentityComponent, TargetBeforeDefibrillatorZapsEvent>(OnDefibZap);
         SubscribeLocalEvent<ChangelingIdentityComponent, RejuvenateEvent>(OnRejuvenate);
+        SubscribeLocalEvent<ChangelingIdentityComponent, PolymorphedEvent>(OnPolymorphed);
+        SubscribeLocalEvent<ChangelingComponent, PolymorphedEvent>(OnPolymorphedTakeTwo);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
 
         SubscribeLocalEvent<ChangelingDartComponent, ProjectileHitEvent>(OnDartHit);
 
+        SubscribeLocalEvent<ChangelingIdentityComponent, AwakenedInstinctPurchasedEvent>(OnAwakenedInstinctPurchased);
         SubscribeLocalEvent<ChangelingIdentityComponent, AugmentedEyesightPurchasedEvent>(OnAugmentedEyesightPurchased);
+        SubscribeLocalEvent<ChangelingIdentityComponent, VoidAdaptionPurchasedEvent>(OnVoidAdaptionPurchased);
 
         SubscribeAbilities();
     }
+
+    private void OnPolymorphed(Entity<ChangelingIdentityComponent> ent, ref PolymorphedEvent args)
+        => _polymorph.CopyPolymorphComponent<ChangelingIdentityComponent>(ent, args.NewEntity);
+
+    // we really should get rid of it.
+    private void OnPolymorphedTakeTwo(Entity<ChangelingComponent> ent, ref PolymorphedEvent args)
+        => _polymorph.CopyPolymorphComponent<ChangelingComponent>(ent, args.NewEntity);
 
     private void OnDartHit(Entity<ChangelingDartComponent> ent, ref ProjectileHitEvent args)
     {
@@ -207,9 +210,19 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             flashImmunity.Enabled = active;
     }
 
+    private void OnAwakenedInstinctPurchased(Entity<ChangelingIdentityComponent> ent, ref AwakenedInstinctPurchasedEvent args)
+    {
+        EnsureComp<ChangelingBiomassComponent>(ent);
+    }
+
     private void OnAugmentedEyesightPurchased(Entity<ChangelingIdentityComponent> ent, ref AugmentedEyesightPurchasedEvent args)
     {
         InitializeAugmentedEyesight(ent);
+    }
+
+    private void OnVoidAdaptionPurchased(Entity<ChangelingIdentityComponent> ent, ref VoidAdaptionPurchasedEvent args)
+    {
+        EnsureComp<VoidAdaptionComponent>(ent);
     }
 
     public void InitializeAugmentedEyesight(EntityUid uid)
@@ -622,28 +635,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         return true;
     }
-
-    private ChangelingIdentityComponent? CopyChangelingComponent(EntityUid target, ChangelingIdentityComponent comp)
-    {
-        EnsureComp<ChangelingComponent>(target);
-
-        var newComp = EnsureComp<ChangelingIdentityComponent>(target);
-        newComp.AbsorbedHistory = comp.AbsorbedHistory;
-        newComp.AbsorbedDNA = comp.AbsorbedDNA;
-        newComp.AbsorbedDNAIndex = comp.AbsorbedDNAIndex;
-
-        newComp.Chemicals = comp.Chemicals;
-        newComp.MaxChemicals = comp.MaxChemicals;
-
-        newComp.IsInLesserForm = comp.IsInLesserForm;
-        newComp.IsInLastResort = comp.IsInLastResort;
-        newComp.CurrentForm = comp.CurrentForm;
-
-        newComp.TotalAbsorbedEntities = comp.TotalAbsorbedEntities;
-        newComp.TotalStolenDNA = comp.TotalStolenDNA;
-
-        return comp;
-    }
     private EntityUid? TransformEntity(
         EntityUid uid,
         TransformData? data = null,
@@ -665,6 +656,10 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             pid = protoId;
         else return null;
 
+        if (data != null
+            && comp != null)
+            comp.AbsorbedDNA.Remove(data); // discard the DNA
+
         var config = new PolymorphConfiguration
         {
             Entity = (EntProtoId) pid,
@@ -674,7 +669,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             RevertOnCrit = false,
             RevertOnDeath = false
         };
-
 
         var newUid = _polymorph.PolymorphEntity(uid, config);
 
@@ -693,57 +687,33 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             _popup.PopupEntity(message, newEnt, newEnt);
         }
 
+        // otherwise we can only transform once
         RemCompDeferred<PolymorphedEntityComponent>(newEnt);
 
-        if (comp != null)
-        {
-            // copy our stuff
-            var newLingComp = CopyChangelingComponent(newEnt, comp);
-            if (!persistentDna && data != null)
-                newLingComp?.AbsorbedDNA.Remove(data);
-            RemCompDeferred<ChangelingIdentityComponent>(uid);
-        }
-
-        //    if (TryComp<StoreComponent>(uid, out var storeComp))
-        //    {
-        //        var storeCompCopy = _serialization.CreateCopy(storeComp, notNullableOverride: true);
-        //        RemComp<StoreComponent>(newUid.Value);
-        //        EntityManager.AddComponent(newUid.Value, storeCompCopy);
-        //    }
-        //}
-
         // exceptional comps check
-        // there's no foreach for types i believe so i gotta thug it out yandev style.
+        // TODO make PolymorphedEvent handlers for all
         List<Type> types = new()
         {
-            typeof(HeadRevolutionaryComponent),
-            typeof(RevolutionaryComponent),
-            typeof(GhoulComponent),
-            typeof(HereticComponent),
-            typeof(StoreComponent),
             typeof(FlashImmunityComponent),
             typeof(EyeProtectionComponent),
             typeof(Shared.Overlays.NightVisionComponent),
             typeof(Shared.Overlays.ThermalVisionComponent),
-            // ADD MORE TYPES HERE
+            typeof(VoidAdaptionComponent),
         };
         foreach (var type in types)
-        {
-            if (EntityManager.TryGetComponent(uid, type, out var icomp))
-            {
-                var newComp = (Component) _compFactory.GetComponent(_compFactory.GetComponentName(type));
-                var temp = (object) newComp;
-                _serialization.CopyTo(icomp, ref temp, notNullableOverride: true);
-                EntityManager.AddComponent(newEnt, (Component) temp!);
-            }
-        }
+            _polymorph.CopyPolymorphComponent(uid, newEnt, nameof(type));
+
+        // CopyPolymorphComponent fails to copy the HumanoidAppearanceComponent in TransformData
+        // outside of the first list item so this has to be done manually unfortunately
+        if (TryComp<ChangelingIdentityComponent>(newEnt, out var newComp)
+            && comp != null)
+            newComp.AbsorbedDNA = comp.AbsorbedDNA;
 
         RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(uid)), newEnt);
 
-        Timer.Spawn(300, () => { QueueDel(uid); });
-
         return newUid;
     }
+
     public bool TryTransform(EntityUid target, ChangelingIdentityComponent comp, bool sting = false, bool persistentDna = false)
     {
         if (HasComp<AbsorbedComponent>(target))
@@ -767,12 +737,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         var locName = Identity.Entity(target, EntityManager);
         EntityUid? newUid = null;
-        if (sting)
-            newUid = TransformEntity(target, data: data, persistentDna: persistentDna);
+        if (sting) newUid = TransformEntity(target, data: data, persistentDna: persistentDna);
         else
         {
             comp.IsInLesserForm = false;
             newUid = TransformEntity(target, data: data, comp: comp, persistentDna: persistentDna);
+            RemoveAllChangelingEquipment(target, comp);
         }
 
         if (newUid != null)

@@ -7,55 +7,32 @@ using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Goobstation.UIKit.UserInterface.Controls;
 using Robust.Client.GameObjects;
+using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
-using Robust.Client.UserInterface.Controls;
-using Robust.Client.UserInterface.RichText;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Goobstation.UIKit.UserInterface.RichText;
 
-public abstract class BaseTextureTag : IMarkupTagHandler
+public abstract class BaseTextureTag
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] protected readonly IEntitySystemManager EntitySystemManager = default!;
 
-    public virtual string Name => "example";
-
-    public abstract bool TryGetControl(MarkupNode node, [NotNullWhen(true)] out Control? control);
-
-    protected static bool TryDrawIcon(string rawPath, long scaleValue, [NotNullWhen(true)] out Control? control)
+    protected static bool TryDrawIcon(Texture tex,
+        long scaleValue,
+        Vector2 offset,
+        string? tooltip,
+        [NotNullWhen(true)] out Control? control)
     {
-        var texture = new TextureRect();
+        var texture = new TooltipTextureRect(tooltip, offset);
 
-        rawPath = ClearString(rawPath);
-
-        texture.TexturePath = rawPath;
+        texture.Texture = tex;
         texture.TextureScale = new Vector2(scaleValue, scaleValue);
 
         control = texture;
         return true;
     }
 
-    protected bool TryDrawIcon(EntProtoId entProtoId, long scaleValue, [NotNullWhen(true)] out Control? control)
-    {
-        control = null;
-        var texture = new TextureRect();
-
-        entProtoId = ClearString(entProtoId);
-
-        if (!_prototypeManager.TryIndex(entProtoId, out var prototype))
-            return false;
-
-        var spriteSystem = _entitySystemManager.GetEntitySystem<SpriteSystem>();
-        texture.Texture = spriteSystem.Frame0(prototype);
-        texture.TextureScale = new Vector2(scaleValue, scaleValue);
-
-        control = texture;
-        return true;
-    }
-
-    protected static bool TryDrawIconEntity(string stringUid, long spriteSize, [NotNullWhen(true)] out Control? control)
+    protected static bool TryDrawIconEntity(NetEntity netEntity, long spriteSize, [NotNullWhen(true)] out Control? control)
     {
         control = null;
         var spriteView = new StaticSpriteView()
@@ -63,11 +40,6 @@ public abstract class BaseTextureTag : IMarkupTagHandler
             OverrideDirection = Direction.South,
             SetSize = new Vector2(spriteSize * 2, spriteSize * 2),
         };
-
-        stringUid = ClearString(stringUid);
-
-        if (!NetEntity.TryParse(stringUid, out var netEntity))
-            return false;
 
         spriteView.SetEntity(netEntity);
         spriteView.Scale = new Vector2(2, 2);

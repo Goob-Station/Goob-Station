@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 262.0.0
+  engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/04/2025 15:19:09
-  entityCount: 15860
+  time: 11/23/2025 08:43:02
+  entityCount: 15873
 maps:
 - 1
 grids:
@@ -335,6 +335,11 @@ entities:
       fixtures: {}
     - type: OccluderTree
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -11271,6 +11276,7 @@ entities:
     - type: SpreaderGrid
     - type: GridPathfinding
     - type: ImplicitRoof
+    - type: FTLDrive
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3
@@ -40309,8 +40315,8 @@ entities:
       pos: 14.5,-4.5
       parent: 2
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
   - uid: 5334
     components:
     - type: Transform
@@ -40897,55 +40903,22 @@ entities:
       parent: 2
     - type: StorageFill
       contents:
-      - maxAmount: 1
-        amount: 1
-        orGroup: null
-        prob: 0.01
+      - prob: 0.01
         id: WeaponPistolMk58
-      - maxAmount: 1
-        amount: 2
-        orGroup: null
-        prob: 1
+      - amount: 2
         id: MopItem
-      - maxAmount: 1
-        amount: 2
-        orGroup: null
-        prob: 1
+      - amount: 2
         id: BoxMousetrap
-      - maxAmount: 1
-        amount: 3
-        orGroup: null
-        prob: 1
+      - amount: 3
         id: WetFloorSign
-      - maxAmount: 1
-        amount: 2
-        orGroup: null
-        prob: 1
+      - amount: 2
         id: TrashBag
-      - maxAmount: 1
-        amount: 1
-        orGroup: null
-        prob: 1
-        id: LightReplacer
-      - maxAmount: 1
-        amount: 1
-        orGroup: null
-        prob: 1
-        id: BoxLightMixed
-      - maxAmount: 1
-        amount: 1
-        orGroup: null
-        prob: 1
-        id: Holoprojector
-      - maxAmount: 1
-        amount: 2
-        orGroup: null
-        prob: 1
+      - id: LightReplacer
+      - id: BoxLightMixed
+      - id: Holoprojector
+      - amount: 2
         id: SoapNT
-      - maxAmount: 1
-        amount: 2
-        orGroup: null
-        prob: 1
+      - amount: 2
         id: FlashlightLantern
     - type: EntityStorage
       air:
@@ -42197,6 +42170,13 @@ entities:
     - type: Transform
       pos: -5.8370404,44.632416
       parent: 2
+- proto: ClothingMultipleHeadphones
+  entities:
+  - uid: 5431
+    components:
+    - type: Transform
+      pos: -53.41692,13.576396
+      parent: 2
 - proto: ClothingNeckAromanticPin
   entities:
   - uid: 5429
@@ -42210,13 +42190,6 @@ entities:
     components:
     - type: Transform
       pos: -22.564632,53.645256
-      parent: 2
-- proto: ClothingNeckHeadphones
-  entities:
-  - uid: 5431
-    components:
-    - type: Transform
-      pos: -53.41692,13.576396
       parent: 2
 - proto: ClothingNeckIntersexPin
   entities:
@@ -42697,6 +42670,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -3.5,0.5
+      parent: 2
+- proto: ComputerScienceXenobiologyBounty
+  entities:
+  - uid: 9143
+    components:
+    - type: Transform
+      pos: -11.5,-16.5
       parent: 2
 - proto: ComputerShuttleCargo
   entities:
@@ -50864,7 +50844,7 @@ entities:
       pos: -2.5,38.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6873.3047
+      secondsUntilStateChange: -6963.312
       state: Closing
   - uid: 6681
     components:
@@ -75721,11 +75701,6 @@ entities:
       parent: 2
 - proto: KitchenReagentGrinder
   entities:
-  - uid: 9144
-    components:
-    - type: Transform
-      pos: -12.5,-16.5
-      parent: 2
   - uid: 10246
     components:
     - type: Transform
@@ -76735,6 +76710,13 @@ entities:
         - 0
         - 0
         - 0
+- proto: LockerScienceFilledXenobiology
+  entities:
+  - uid: 11159
+    components:
+    - type: Transform
+      pos: -13.5,-16.5
+      parent: 2
 - proto: LockerSecurityFilled
   entities:
   - uid: 10321
@@ -88336,6 +88318,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -31.5,44.5
       parent: 2
+- proto: SlimeGrinder
+  entities:
+  - uid: 9144
+    components:
+    - type: Transform
+      pos: -12.5,-16.5
+      parent: 2
 - proto: SMESAdvanced
   entities:
   - uid: 1979
@@ -89361,6 +89350,13 @@ entities:
     components:
     - type: Transform
       pos: -64.5,31.5
+      parent: 2
+- proto: SpawnPointVirologist
+  entities:
+  - uid: 91430
+    components:
+    - type: Transform
+      pos: 8.5,16.5
       parent: 2
 - proto: SpawnPointWarden
   entities:
@@ -91127,18 +91123,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -56.5,51.5
-      parent: 2
-  - uid: 12301
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -12.5,-16.5
-      parent: 2
-  - uid: 12558
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -11.5,-16.5
       parent: 2
   - uid: 12585
     components:
@@ -108409,5 +108393,72 @@ entities:
     components:
     - type: Transform
       pos: -24.486898,29.543127
+      parent: 2
+- proto: XenobioSlimeBabySpawner
+  entities:
+  - uid: 10186
+    components:
+    - type: Transform
+      pos: -15.5,-16.5
+      parent: 2
+  - uid: 12301
+    components:
+    - type: Transform
+      pos: -16.5,-16.5
+      parent: 2
+  - uid: 12558
+    components:
+    - type: Transform
+      pos: -17.5,-17.5
+      parent: 2
+  - uid: 14233
+    components:
+    - type: Transform
+      pos: -14.5,-18.5
+      parent: 2
+  - uid: 14235
+    components:
+    - type: Transform
+      pos: -14.5,-19.5
+      parent: 2
+  - uid: 14295
+    components:
+    - type: Transform
+      pos: -13.5,-19.5
+      parent: 2
+  - uid: 14298
+    components:
+    - type: Transform
+      pos: -13.5,-20.5
+      parent: 2
+  - uid: 15684
+    components:
+    - type: Transform
+      pos: -12.5,-19.5
+      parent: 2
+  - uid: 15869
+    components:
+    - type: Transform
+      pos: -12.5,-18.5
+      parent: 2
+  - uid: 15870
+    components:
+    - type: Transform
+      pos: -13.5,-18.5
+      parent: 2
+  - uid: 15871
+    components:
+    - type: Transform
+      pos: -15.5,-17.5
+      parent: 2
+  - uid: 15872
+    components:
+    - type: Transform
+      pos: -16.5,-17.5
+      parent: 2
+  - uid: 15873
+    components:
+    - type: Transform
+      pos: -17.5,-16.5
       parent: 2
 ...

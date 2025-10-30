@@ -68,6 +68,7 @@
     staminaDrainRate: 8
   - type: Puller
     needsHands: false
+  - type: Targeting
 
 - type: entity
   name: monkey

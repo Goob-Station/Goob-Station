@@ -27,6 +27,7 @@ public abstract partial class SharedHereticAbilitySystem
         SubscribeLocalEvent<StarGazerComponent, EventHereticCosmicExpansion>(OnStarGazerExpansion);
 
         SubscribeLocalEvent<StarBlastComponent, ProjectileHitEvent>(OnHit);
+        SubscribeLocalEvent<StarBlastComponent, EntityTerminatingEvent>(OnEntityTerminating);
     }
 
     protected virtual void OnAscension(Entity<HereticComponent> ent, ref HereticAscensionCosmosEvent args)
@@ -132,7 +133,19 @@ public abstract partial class SharedHereticAbilitySystem
             args.ProjectileSpeed,
             args.Entity);
         EnsureComp<CosmicTrailComponent>(starBlast.Projectile).Strength = strength;
+        EnsureComp<StarBlastComponent>(starBlast.Projectile).Action = args.Action;
         Dirty(args.Action, starBlast);
+    }
+
+
+    private void OnEntityTerminating(Entity<StarBlastComponent> ent, ref EntityTerminatingEvent args)
+    {
+        if (ent.Comp.Action == EntityUid.Invalid || TerminatingOrDeleted(ent.Comp.Action) ||
+            !TryComp(ent.Comp.Action, out StarBlastActionComponent? action))
+            return;
+
+        action.Projectile = EntityUid.Invalid;
+        Dirty(ent.Comp.Action, action);
     }
 
     private void OnHit(Entity<StarBlastComponent> ent, ref ProjectileHitEvent args)
@@ -148,7 +161,7 @@ public abstract partial class SharedHereticAbilitySystem
     {
         foreach (var mob in GetNearbyPeople(user, 2f, "Cosmos", coords))
         {
-            if (_starMark.TryApplyStarMark(mob!, user))
+            if (_starMark.TryApplyStarMark(mob.AsNullable()))
                 _throw.TryThrow(mob, coords);
         }
         _starMark.SpawnCosmicFields(coords, 1, strength);
@@ -156,40 +169,11 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnStarTouch(Entity<HereticComponent> ent, ref EventHereticStarTouch args)
     {
-        if (!TryUseAbility(ent, args))
+        var touch = GetTouchSpell<EventHereticStarTouch, StarTouchComponent>(ent, ref args);
+        if (touch == null)
             return;
 
-        if (!TryComp(ent, out HandsComponent? hands) || hands.Hands.Count < 1)
-            return;
-
-        args.Handled = true;
-
-        if (_net.IsClient)
-            return;
-
-        var hadStarTouch = false;
-
-        foreach (var held in _hands.EnumerateHeld((ent, hands)))
-        {
-            if (!HasComp<StarTouchComponent>(held))
-                continue;
-
-            hadStarTouch = true;
-            QueueDel(held);
-        }
-
-        if (hadStarTouch || !_hands.TryGetEmptyHand((ent, hands), out var emptyHand))
-            return;
-
-        var touch = Spawn(args.StarTouch, Transform(ent).Coordinates);
-
-        if (!_hands.TryPickup(ent, touch, emptyHand, animate: false, handsComp: hands))
-        {
-            QueueDel(touch);
-            return;
-        }
-
-        EnsureComp<StarTouchComponent>(touch).StarTouchAction = args.Action.Owner;
+        EnsureComp<StarTouchComponent>(touch.Value).Action = args.Action.Owner;
     }
 
     private void OnCosmicRune(Entity<HereticComponent> ent, ref EventHereticCosmicRune args)

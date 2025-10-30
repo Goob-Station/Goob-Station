@@ -11,14 +11,18 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Medical
-    time: 36000 # 10 hrs
+    time: 18000 # 5 hrs
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 36000 # 10 hrs
+    time: 18000 # 5 hrs
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
   canBeAntag: false
+  guides:
+  - MedicalDoctor
+  - Brigmedic SOP
+  - Medicine
   goobcoins: 35
   access: # EE parity, make corpsman able function.
   - Security

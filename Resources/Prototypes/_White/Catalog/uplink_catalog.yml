@@ -63,7 +63,7 @@
   description: uplink-night-vision-desc
   productEntity: ClothingEyesNightVisionGogglesNukie
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 15 # goob
   categories:
   - UplinkWearables
   conditions:
@@ -80,7 +80,7 @@
   description: uplink-thermal-vision-desc
   productEntity: ClothingEyesThermalVisionGogglesSyndie
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 15 # goob
   categories:
   - UplinkWearables
   conditions:
@@ -95,7 +95,7 @@
   description: uplink-thermal-vision-desc
   productEntity: ClothingEyesThermalVisionGogglesNukie
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 20 # goob
   categories:
   - UplinkWearables
   conditions:

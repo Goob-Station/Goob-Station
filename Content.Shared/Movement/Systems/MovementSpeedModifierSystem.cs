@@ -275,6 +275,7 @@ namespace Content.Shared.Movement.Systems
         ///    Goobstation Change: Whether or not this entity is immune to most movement speed modifiers.
         ///    Bypassable by setting bypassImmunity to true.
         /// </summary
+        // what the fuck is this?
         private bool _isImmune = false;
 
         // <Goobstation Change>

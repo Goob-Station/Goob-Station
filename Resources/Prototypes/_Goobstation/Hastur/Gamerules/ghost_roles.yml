@@ -1,0 +1,19 @@
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostHastur
+  components:
+  - type: GhostRole
+    name: ghost-role-information-hastur-name
+    description: ghost-role-information-hastur-description
+    rules: ghost-role-information-hastur-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15 hours.
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: _Goobstation/Hastur/actions.rsi # I don't want to add an icon
+    state: devour

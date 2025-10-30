@@ -139,7 +139,7 @@ public abstract partial class SharedDoorSystem
 
     public bool IsBolted(EntityUid uid, DoorBoltComponent? component = null)
     {
-        if (!Resolve(uid, ref component))
+        if (!Resolve(uid, ref component, false))
         {
             return false;
         }
@@ -152,7 +152,7 @@ public abstract partial class SharedDoorSystem
     {
         // Can't bolt interact with powered door
         if (args.Handled
-            || entity.Comp.Powered 
+            || entity.Comp.Powered
             && !entity.Comp.BoltWireCut
             || !TryComp(args.Used, out ToolComponent? toolComp)
             || !_toolsSystem.HasQuality(args.Used, entity.Comp.UnboltToolQuality)

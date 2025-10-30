@@ -143,6 +143,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Goobstation.Maths.FixedPoint;
 using System.Linq;
+using Content.Shared.Mobs.Systems; // Goobstation
 
 namespace Content.Server.Medical;
 
@@ -160,6 +161,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly WoundSystem _woundSystem = default!; // Shitmed Change
     [Dependency] private readonly TraumaSystem _trauma = default!; // Shitmed Change
+    [Dependency] private readonly MobThresholdSystem _threshold = default!; // Goobstation
+
     public override void Initialize()
     {
         SubscribeLocalEvent<HealthAnalyzerComponent, AfterInteractEvent>(OnAfterInteract);
@@ -391,6 +394,12 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         var bodyStatus = _woundSystem.GetDamageableStatesOnBody(target);
         Dictionary<TargetBodyPart, bool> bleeding; // Goobstation - removed unnecessary allocation
 
+        // Goobstation start
+        var vitalDamage = FixedPoint2.Zero;
+        if (TryComp<DamageableComponent>(target, out var damageableComponent))
+            vitalDamage = _threshold.CheckVitalDamage(target, damageableComponent);
+        // Goobstation end
+
         switch (mode)
         {
             case HealthAnalyzerMode.Body:
@@ -407,6 +416,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                     unrevivable,
                     bodyStatus,
                     bleeding,
+                    vitalDamage, // Goobstation
                     traumas,
                     pain,
                     part != null ? GetNetEntity(part) : null
@@ -422,6 +432,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                     bloodAmount,
                     scanMode,
                     bleeding,
+                    vitalDamage, // Goobstation
                     bodyStatus,
                     organs
                 ));
@@ -436,6 +447,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                     bloodAmount,
                     scanMode,
                     bleeding,
+                    vitalDamage, // Goobstation
                     bodyStatus,
                     chemicals
                 ));

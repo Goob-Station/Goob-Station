@@ -20,6 +20,7 @@ public sealed partial class TheManWhoSoldTheWorldComponent : Component
     [ViewVariables]
     public EntityUid? HoloCigarEntity = null;
 
+    [DataField("deathAudio")]
     [ViewVariables]
     public SoundSpecifier DeathAudio = new SoundPathSpecifier("/Audio/_Goobstation/Items/TheManWhoSoldTheWorld/ouchies.ogg");
 

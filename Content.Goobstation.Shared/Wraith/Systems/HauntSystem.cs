@@ -6,6 +6,7 @@ using Robust.Shared.Timing;
 using Content.Shared.Actions;
 using Content.Shared.Flash.Components;
 using Content.Shared.Humanoid;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Revenant.Components;
 using Content.Shared.StatusEffect;
@@ -21,6 +22,7 @@ public sealed partial class HauntSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     private EntityQuery<HauntedComponent> _hauntQuery;
     private EntityQuery<WraithAbsorbableComponent> _wraithAbsorbableQuery;
@@ -75,7 +77,7 @@ public sealed partial class HauntSystem : EntitySystem
                 foreach (var entity in _humanoid)
                 {
                     // skip if we are already haunted, or if we cant be haunted
-                    if (_hauntQuery.HasComp(entity) || !_wraithAbsorbableQuery.HasComp(entity))
+                    if (_hauntQuery.HasComp(entity) || !_wraithAbsorbableQuery.HasComp(entity) || _mobState.IsDead(entity))
                         continue;
 
                     if (!_interact.InRangeUnobstructed(uid, entity.Owner, 10f))

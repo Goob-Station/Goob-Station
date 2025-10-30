@@ -24,6 +24,11 @@
   - BioGenLeft4Zed
   - BioGenEZNutrient
   - BioGenRobustHarvest
+  - BioGenDylo #Goobstation Change
+  - BioGenPhalanx #Goobstation Change
+  - BioGenDiethyl #Goobstation Change
+  - BioGenMuta #Goobstation Change
+  - BioGenEgg #Goobstation Change
 
 - type: latheRecipePack
   id: BioGenMaterialsStatic

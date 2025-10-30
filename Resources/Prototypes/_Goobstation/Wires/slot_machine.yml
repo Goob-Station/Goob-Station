@@ -1,0 +1,11 @@
+- type: wireLayout
+  id: SlotMachine
+  dummyWires: 15 # DRM is crazy in 2565
+  wires:
+  - !type:PowerWireAction
+  - !type:PowerWireAction
+  - !type:PowerWireAction
+  - !type:PowerWireAction
+  - !type:AiInteractWireAction
+  - !type:AiInteractWireAction
+  - !type:AiInteractWireAction

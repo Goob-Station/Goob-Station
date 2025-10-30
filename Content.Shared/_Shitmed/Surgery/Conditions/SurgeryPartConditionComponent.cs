@@ -12,7 +12,7 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Conditions;
 public sealed partial class SurgeryPartConditionComponent : Component
 {
     [DataField]
-    public BodyPartType Part;
+    public HashSet<BodyPartType> Parts;
 
     [DataField]
     public BodyPartSymmetry? Symmetry;

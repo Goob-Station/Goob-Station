@@ -25,11 +25,15 @@
 // SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Chemistry;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reaction;
@@ -39,6 +43,8 @@ using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Shared.Chemistry;
 
@@ -48,6 +54,7 @@ public sealed class ReactiveSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly EntityEffectSystem _effects = default!; // goob edit
 
     public void DoEntityReaction(EntityUid uid, Solution solution, ReactionMethod method)
     {
@@ -67,7 +74,7 @@ public sealed class ReactiveSystem : EntitySystem
     public void ReactionEntity(EntityUid uid, ReactionMethod method, ReagentPrototype proto,
         ReagentQuantity reagentQuantity, Solution? source)
     {
-        if (!TryComp(uid, out ReactiveComponent? reactive))
+        if (!TryComp<ReactiveComponent>(uid, out var reactive))
             return;
 
         // custom event for bypassing reactivecomponent stuff
@@ -76,6 +83,9 @@ public sealed class ReactiveSystem : EntitySystem
 
         // If we have a source solution, use the reagent quantity we have left. Otherwise, use the reaction volume specified.
         var args = new EntityEffectReagentArgs(uid, EntityManager, null, source, source?.GetReagentQuantity(reagentQuantity.Reagent) ?? reagentQuantity.Quantity, proto, method, 1f);
+
+        if (reactive.OneUnitReaction) // goob edit
+            args.Quantity = 1;
 
         // First, check if the reagent wants to apply any effects.
         if (proto.ReactiveEffects != null && reactive.ReactiveGroups != null)
@@ -91,6 +101,16 @@ public sealed class ReactiveSystem : EntitySystem
                 if (!reactive.ReactiveGroups[key].Contains(method))
                     continue;
 
+                // Goobstation - Start
+
+                var beforeReact = new BeforeSolutionReactEvent();
+                RaiseLocalEvent(uid, ref beforeReact);
+
+                if (beforeReact.Cancelled)
+                    continue;
+
+                // Goobstation - End
+
                 foreach (var effect in val.Effects)
                 {
                     if (!effect.ShouldApply(args, _robustRandom))
@@ -103,7 +123,7 @@ public sealed class ReactiveSystem : EntitySystem
                             $"Reactive effect {effect.GetType().Name:effect} of reagent {proto.ID:reagent} with method {method} applied on entity {ToPrettyString(entity):entity} at {Transform(entity).Coordinates:coordinates}");
                     }
 
-                    effect.Effect(args);
+                    _effects.Effect(effect, args); // goob edit - use system instead
                 }
             }
         }
@@ -131,7 +151,7 @@ public sealed class ReactiveSystem : EntitySystem
                             $"Reactive effect {effect.GetType().Name:effect} of {ToPrettyString(entity):entity} using reagent {proto.ID:reagent} with method {method} at {Transform(entity).Coordinates:coordinates}");
                     }
 
-                    effect.Effect(args);
+                    _effects.Effect(effect, args); // goob edit - use system instead
                 }
             }
         }
@@ -139,10 +159,10 @@ public sealed class ReactiveSystem : EntitySystem
 }
 public enum ReactionMethod
 {
-Touch,
-Injection,
-Ingestion,
-Eyes,
+    Touch,
+    Injection,
+    Ingestion,
+    Eyes,
 }
 
 [ByRefEvent]

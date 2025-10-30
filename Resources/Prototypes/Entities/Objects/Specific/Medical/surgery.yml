@@ -92,6 +92,7 @@
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/cautery2.ogg
   - type: Cautery
+  - type: AlwaysHot # Goob
 
 # Drill
 

@@ -181,7 +181,7 @@
 - type: marking
   id: ChitinidLLegCharred
   bodyPart: LLeg
-  markingCategory: Legs
+  markingCategory: LeftLeg # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -190,7 +190,7 @@
 - type: marking
   id: ChitinidRLegCharred
   bodyPart: RLeg
-  markingCategory: Legs
+  markingCategory: RightLeg # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -199,7 +199,7 @@
 - type: marking
   id: ChitinidLArmCharred
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -208,7 +208,7 @@
 - type: marking
   id: ChitinidRArmCharred
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -227,7 +227,7 @@
 - type: marking
   id: ChitinidLArmPlated
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -236,7 +236,7 @@
 - type: marking
   id: ChitinidRArmPlated
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -264,7 +264,7 @@
 - type: marking
   id: ChitinidLLegStripes
   bodyPart: LLeg
-  markingCategory: Legs
+  markingCategory: LeftLeg # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -273,7 +273,7 @@
 - type: marking
   id: ChitinidRLegStripes
   bodyPart: RLeg
-  markingCategory: Legs
+  markingCategory: RightLeg # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -282,7 +282,7 @@
 - type: marking
   id: ChitinidLArmStripes
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -291,7 +291,7 @@
 - type: marking
   id: ChitinidRArmStripes
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -319,7 +319,7 @@
 - type: marking
   id: ChitinidLLegRadiant
   bodyPart: LLeg
-  markingCategory: Legs
+  markingCategory: LeftLeg # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -328,7 +328,7 @@
 - type: marking
   id: ChitinidRLegRadiant
   bodyPart: RLeg
-  markingCategory: Legs
+  markingCategory: RightLeg # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -337,7 +337,7 @@
 - type: marking
   id: ChitinidLArmRadiant
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -346,7 +346,7 @@
 - type: marking
   id: ChitinidRArmRadiant
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: LeftArm # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -374,7 +374,7 @@
 - type: marking
   id: ChitinidLLegToxic
   bodyPart: LLeg
-  markingCategory: Legs
+  markingCategory: LeftLeg # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -383,7 +383,7 @@
 - type: marking
   id: ChitinidRLegToxic
   bodyPart: RLeg
-  markingCategory: Legs
+  markingCategory: RightLeg # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -392,7 +392,7 @@
 - type: marking
   id: ChitinidLArmToxic
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -401,7 +401,7 @@
 - type: marking
   id: ChitinidRArmToxic
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -429,7 +429,7 @@
 - type: marking
   id: ChitinidLLegSpotted
   bodyPart: LLeg
-  markingCategory: Legs
+  markingCategory: LeftLeg # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -438,7 +438,7 @@
 - type: marking
   id: ChitinidRLegSpotted
   bodyPart: RLeg
-  markingCategory: Legs
+  markingCategory: RightLeg # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -447,7 +447,7 @@
 - type: marking
   id: ChitinidLArmSpotted
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
@@ -456,7 +456,7 @@
 - type: marking
   id: ChitinidRArmSpotted
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm # Goob
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi

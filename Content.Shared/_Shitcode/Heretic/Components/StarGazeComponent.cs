@@ -42,13 +42,16 @@ public sealed partial class StarGazeComponent : Component
     };
 
     [DataField]
-    public float LaserThickness = 0.4f;
+    public float BeamScale = 2f;
 
     [DataField]
-    public float GravityPullSizeModifier = 1f;
+    public float LaserThickness = 0.9f;
 
     [DataField]
-    public Vector2 MinMaxLaserRange = new(4f, 16f);
+    public float GravityPullSizeModifier = 2f;
+
+    [DataField]
+    public Vector2 MinMaxLaserRange = new(4f, 14f);
 
     [DataField]
     public float LaserSpeed = 0.05f;

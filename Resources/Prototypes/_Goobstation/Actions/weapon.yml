@@ -6,7 +6,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 3
+    useDelay: 0.5
     icon:
       sprite: _Goobstation/Actions/kravmaga.rsi
       state: legsweep
@@ -27,7 +27,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 3
+    useDelay: 0.5
     icon:
       sprite: _Goobstation/Actions/kravmaga.rsi
       state: neckchop
@@ -49,7 +49,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 3
+    useDelay: 0.5
     icon:
       sprite: _Goobstation/Actions/kravmaga.rsi
       state: lungpunch

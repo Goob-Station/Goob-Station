@@ -162,10 +162,12 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Numerics;
+using Content.Shared._White.Grab;
 
 namespace Content.Server.Hands.Systems
 {
@@ -179,6 +181,8 @@ namespace Content.Server.Hands.Systems
         [Dependency] private readonly PullingSystem _pullingSystem = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
         [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
+        [Dependency] private readonly GrabThrownSystem _grabThrown = default!; // Goobstation
+        [Dependency] private readonly SharedPhysicsSystem _physics = default!; // Goobstation
 
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -334,8 +338,6 @@ namespace Content.Server.Hands.Systems
         /// </summary>
         public bool ThrowHeldItem(EntityUid player, EntityCoordinates coordinates, float minDistance = 0.1f)
         {
-            var holderVelocity = _physicsQuery.TryComp(player, out var physics) ? physics.LinearVelocity : Vector2.Zero; // Goobstation
-
             if (ContainerSystem.IsEntityInContainer(player) ||
                 !TryComp(player, out HandsComponent? hands) ||
                 !TryGetActiveItem((player, hands), out var throwEnt) ||
@@ -379,8 +381,13 @@ namespace Content.Server.Hands.Systems
 
             // Let other systems change the thrown entity (useful for virtual items)
             // or the throw strength.
-            var ev = new BeforeThrowEvent(throwEnt.Value, direction + holderVelocity, throwSpeed, player); // Goobstation - added thrower's velocity for inertia
+            // Goobstation start - added thrower's velocity for inertia
+            var holderVelocity = _physics.GetMapLinearVelocity(player);
+            var modifier = MathF.Max(0f, Vector2.Dot(direction.Normalized(), holderVelocity));
+            var ev = new BeforeThrowEvent(throwEnt.Value, direction * (1f + modifier * 0.1f), throwSpeed * (1f + modifier * 0.05f), player);
+            // Goobstation end
             RaiseLocalEvent(player, ref ev);
+            RaiseLocalEvent(throwEnt.Value, ref ev); // Goobstation
 
             if (ev.Cancelled)
                 return true;
@@ -389,13 +396,21 @@ namespace Content.Server.Hands.Systems
             if (IsHolding((player, hands), throwEnt, out _) && !TryDrop(player, throwEnt.Value))
                 return false;
 
-            _throwingSystem.TryThrow(ev.ItemUid, ev.Direction, ev.ThrowSpeed, ev.PlayerUid, compensateFriction: !HasComp<LandAtCursorComponent>(ev.ItemUid));
+            // Goob edit start
+            if (!ev.GrabThrow)
+                _throwingSystem.TryThrow(ev.ItemUid, ev.Direction, ev.ThrowSpeed, ev.PlayerUid, compensateFriction: !HasComp<LandAtCursorComponent>(ev.ItemUid));
+            else
+                _grabThrown.Throw(ev.ItemUid, player, ev.Direction, ev.ThrowSpeed);
+            // Goob edit end
 
             return true;
         }
 
         private void OnDropHandItems(Entity<HandsComponent> entity, ref DropHandItemsEvent args)
         {
+            if (args.Handled) // Goobstation
+                return;
+
             // If the holder doesn't have a physics component, they ain't moving
             var holderVelocity = _physicsQuery.TryComp(entity, out var physics) ? physics.LinearVelocity : Vector2.Zero;
             var spreadMaxAngle = Angle.FromDegrees(DropHeldItemsSpread);

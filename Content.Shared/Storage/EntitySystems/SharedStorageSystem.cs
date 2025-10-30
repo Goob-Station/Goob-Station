@@ -120,7 +120,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
-using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Lock;
 using Content.Shared.Materials;
 using Content.Shared.Popups;
@@ -142,7 +141,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Rounding;
 using Robust.Shared.Collections;
@@ -1813,6 +1811,9 @@ public abstract class SharedStorageSystem : EntitySystem
 
     private void RemoveOccupiedEntity(Entity<StorageComponent> storageEnt, Entity<ItemComponent?> itemEnt, ItemStorageLocation location)
     {
+        if (!Resolve(itemEnt, ref itemEnt.Comp, false)) // Goobstation - fix error from resomi
+            return;
+
         var adjustedShape = ItemSystem.GetAdjustedItemShape((itemEnt.Owner, itemEnt.Comp), location);
 
         RemoveOccupied(adjustedShape, storageEnt.Comp.OccupiedGrid);

@@ -135,6 +135,7 @@
     - id: ClothingHandsGlovesLatex
     - id: ClothingHeadsetMedical
     - id: ClothingMaskSterile
+    - id: portableChemicalMixer # Goob, until chemmaster rework
     - id: HandLabeler
       prob: 0.5
 

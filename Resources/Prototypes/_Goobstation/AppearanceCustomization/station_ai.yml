@@ -1,0 +1,9 @@
+# Slugcat AI hologram (iterator??)
+- type: stationAiCustomization
+  id: StationAiHologramScurret
+  name: station-ai-hologram-scurret
+  previewKey: Hologram
+  layerData:
+    Hologram:
+      sprite: _Goobstation/Mobs/Silicon/holograms.rsi
+      state: ai_scurret

@@ -14,6 +14,7 @@
         Base: goliath
       Dead:
         Base: goliath_dead
+  - type: WeatherImmune
 
 - type: entity
   id: MobLavalandGoliathAncient
@@ -21,6 +22,7 @@
   name: ancient goliath
   suffix: Lavaland
   components:
+  - type: WeatherImmune
   - type: Sprite
     sprite: _Lavaland/Mobs/goliath.rsi
     layers:

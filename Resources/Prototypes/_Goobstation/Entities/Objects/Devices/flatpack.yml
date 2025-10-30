@@ -180,3 +180,65 @@
   - type: StaticPrice
     price: 500
 
+- type: entity
+  parent: BaseFlatpack
+  id: SlotMachineFlatpack
+  name: slot machine flatpack
+  description: A flatpack used for constructing a slot machine
+  components:
+  - type: Flatpack
+    entity: SlotMachine
+
+- type: entity
+  parent: BaseFlatpack
+  id: SlotMachineHighRollerFlatPack
+  name: high roller slot machine flatpack
+  description: A flatpack used for constructing a high roller slot machine
+  components:
+  - type: Flatpack
+    entity: SlotMachineHighRoller
+
+- type: entity
+  parent: BaseFlatpack
+  id: CoinFlipperFlatPack
+  name: coin flipper flatpack
+  description: A flatpack used for constructing a coin flipper
+  components:
+  - type: Flatpack
+    entity: CoinFlipper
+
+- type: entity
+  parent: BaseFlatpack
+  id: ClawMachineFlatPack
+  name: claw machine flat pack
+  description: A flatpack used for constructing a claw machine
+  components:
+  - type: Flatpack
+    entity: ClawMachine
+
+- type: entity
+  parent: BaseFlatpack
+  id: ChemistryHotplateFlatPack
+  name: hotplate flat pack
+  description: A flatpack used for constructing a hotplate.
+  components:
+  - type: Flatpack
+    entity: ChemistryHotplate
+
+- type: entity
+  parent: BaseFlatpack
+  id: DiseaseDiagnoserFlatPack
+  name: disease diagnoser flat pack
+  description: A flatpack used for constructing a disease diagnoser.
+  components:
+  - type: Flatpack
+    entity: DiseaseDiagnoser
+
+- type: entity
+  parent: BaseFlatpack
+  id: VaccinatorFlatPack
+  name: vaccinator machine flat pack
+  description: A flatpack used for constructing a vaccinator.
+  components:
+  - type: Flatpack
+    entity: Vaccinator

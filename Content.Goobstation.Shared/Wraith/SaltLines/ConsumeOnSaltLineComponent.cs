@@ -17,4 +17,5 @@ public sealed partial class ConsumeOnSaltLineComponent : Component
 /// Raised when attempting to place a salt line
 /// </summary>
 [ByRefEvent]
-public record struct AttemptSaltLineEvent(bool Cancelled = false);
+public record struct AttemptSaltLineEvent(EntityUid User,bool Cancelled = false);
+

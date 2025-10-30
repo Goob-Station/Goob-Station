@@ -19,5 +19,6 @@ public sealed partial class ActionsContainerComponent : Component
     public const string ContainerId = "actions";
 
     [ViewVariables]
+    [Access(Other = AccessPermissions.ReadWriteExecute)] // Goobstation
     public Container Container = default!;
 }

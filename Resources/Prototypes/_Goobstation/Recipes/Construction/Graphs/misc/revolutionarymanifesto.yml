@@ -1,6 +1,5 @@
 - type: constructionGraph
   id: RevolutionaryManifesto
-  start: start
   graph:
     - node: start
       edges:

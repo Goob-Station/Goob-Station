@@ -12,3 +12,63 @@
   cost: 1000
   category: cargoproduct-category-name-service
   group: market
+
+- type: cargoProduct
+  id: SlotMachineCargo
+  icon:
+    sprite: _Goobstation/Structures/Machines/slotmachines/slotmachine.rsi
+    state: slotmachine
+  product: CrateSlotMachine
+  cost: 1000
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: CoinFlipperCargo
+  icon:
+    sprite: _Goobstation/Structures/Machines/slotmachines/coinflipper.rsi
+    state: Coinflipper
+  product: CrateCoinFlipper
+  cost: 5000
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: ClawMachineCargo
+  icon:
+    sprite: _Goobstation/Structures/Machines/slotmachines/claw_machine.rsi
+    state: clawmachine
+  product: CrateClawMachine
+  cost: 1000
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: ForkliftCrateCargo
+  icon:
+    sprite: _Goobstation/Objects/Vehicles/forklift.rsi
+    state: forklift
+  product: CrateCargoForklift
+  cost: 6000
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: RadioAdsCrateCargo
+  icon:
+    sprite: Objects/Misc/cd.rsi
+    state: icon
+  product: CrateRadioStationAds
+  cost: 3000
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: RadioVinylCrateCargo
+  icon:
+    sprite: _Goobstation/Objects/Misc/RadioStation/vinyls.rsi
+    state: red-vinyl-disk
+  product: CrateRadioStationVinyls
+  cost: 3000
+  category: cargoproduct-category-name-service
+  group: market

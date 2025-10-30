@@ -283,31 +283,41 @@ public abstract class SharedSealableClothingSystem : EntitySystem
     /// </summary>
     private void OnSealClothingDoAfter(Entity<SealableClothingControlComponent> control, ref SealClothingDoAfterEvent args)
     {
-        var (uid, comp) = control;
-
         if (args.Cancelled || args.Handled || args.Target == null)
             return;
 
         var part = args.Target;
 
-        if (!TryComp<SealableClothingComponent>(part, out var sealableComponet))
-            return;
+        if (SealPart(part.Value, control, false))
+            NextSealProcess(control);
+    }
+
+    public bool SealPart(Entity<SealableClothingComponent?> ent, Entity<SealableClothingControlComponent> control, bool silent)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return false;
+
+        var (uid, comp) = control;
+        var (part, sealableComponet) = (ent.Owner, ent.Comp);
 
         sealableComponet.IsSealed = !comp.IsCurrentlySealed;
 
-        Dirty(part.Value, sealableComponet);
+        Dirty(part, sealableComponet);
 
-        if (sealableComponet.IsSealed)
-            _audioSystem.PlayPvs(sealableComponet.SealUpSound, uid);
-        else
-            _audioSystem.PlayPvs(sealableComponet.SealUpSound, uid);
+        if (!silent)
+        {
+            if (sealableComponet.IsSealed)
+                _audioSystem.PlayPvs(sealableComponet.SealUpSound, uid);
+            else
+                _audioSystem.PlayPvs(sealableComponet.SealUpSound, uid);
+        }
 
-        _appearanceSystem.SetData(part.Value, SealableClothingVisuals.Sealed, sealableComponet.IsSealed);
+        _appearanceSystem.SetData(part, SealableClothingVisuals.Sealed, sealableComponet.IsSealed);
 
         var ev = new ClothingPartSealCompleteEvent(sealableComponet.IsSealed);
-        RaiseLocalEvent(part.Value, ref ev);
+        RaiseLocalEvent(part, ref ev);
 
-        NextSealProcess(control);
+        return true;
     }
 
     /// <summary>
@@ -498,7 +508,7 @@ public abstract class SharedSealableClothingSystem : EntitySystem
     /// <summary>
     ///     Finishes sealing process on control
     /// </summary>
-    private void EndSealProcess(Entity<SealableClothingControlComponent> control)
+    public void EndSealProcess(Entity<SealableClothingControlComponent> control, bool silent = false)
     {
         var (uid, comp) = control;
         // if this system was more foolproof we could swap it around as we did
@@ -522,9 +532,12 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         if (comp.WearerEntity is not { Valid: true })
             return;
 
-        _audioSystem.PlayEntity(comp.IsCurrentlySealed ? comp.SealCompleteSound : comp.UnsealCompleteSound,
-            comp.WearerEntity.Value,
-            uid);
+        if (!silent)
+        {
+            _audioSystem.PlayEntity(comp.IsCurrentlySealed ? comp.SealCompleteSound : comp.UnsealCompleteSound,
+                comp.WearerEntity.Value,
+                uid);
+        }
 
         var ev = new ClothingControlSealCompleteEvent(comp.IsCurrentlySealed);
         RaiseLocalEvent(control, ref ev);

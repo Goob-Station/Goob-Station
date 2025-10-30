@@ -822,3 +822,108 @@
       280: 0.6
       260: 0.4
 
+- type: entity
+  parent: SimpleMobBase
+  id: MobClownGoblin
+  name: clown goblin
+  description: Little walking clown mask and shoes. You want to honk their nose!
+  components:
+  - type: WaddleAnimation
+  - type: Hunger
+    baseDecayRate: 0
+  - type: Thirst
+    baseDecayRate: 0
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-clown-goblin-name
+    description: ghost-role-information-clown-goblin-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: Speech
+    speechSounds: BikeHorn
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Animals/clown_goblin.rsi
+    state: goblin
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: Physics
+  - type: HTN
+    rootTask:
+      task: MouseCompound
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ClothingShoesClown:
+            min: 1
+            max: 1
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ClothingMaskClown:
+            min: 1
+            max: 1
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3.5
+    baseSprintSpeed : 5
+  - type: Appearance
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - FootstepSound
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.25
+    damageRecovery:
+      types:
+        Asphyxiation: -0.25
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.1
+  - type: Bloodstream
+    bloodMaxVolume: 50
+    bloodReagent: Honk
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepClown
+  - type: CombatMode
+  - type: MeleeWeapon
+    attackRate: 2
+    damage:
+      types:
+        Blunt: 0.5
+    soundHit:
+      collection: BikeHorn
+    animation: WeaponArcFist
+  - type: Vocal
+    sounds:
+      Male: ClownGoblin
+      Female: ClownGoblin
+      Unsexed: ClownGoblin

@@ -29,6 +29,8 @@
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
   - type: BodyPart
     species: Harpy
+  - type: Woundable # Goobstation
+    boneEntity: BoneWeak
   - type: Damageable # Shitmed
     damageModifierSet: Harpy
 
@@ -60,6 +62,9 @@
   parent: [ PartHarpyBase, BaseHead ]
   id: HeadHarpy
   name: "harpy head"
+  components:
+  - type: Woundable # Goobstation
+    boneEntity: BoneNeckWeak
 
 - type: entity
   parent: [ PartHarpyBase, BaseLeftArm ]

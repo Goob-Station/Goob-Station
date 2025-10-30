@@ -194,6 +194,15 @@
 - type: damageModifierSet
   id: BlobMob # Blob mobs
   coefficients:
+    Blunt: 1
+    Slash: 1
+    Piercing: 1
+    Heat: 1.5
+  ignoreArmorPierceFlags: All
+
+- type: damageModifierSet
+  id: BlobBlobbernaut
+  coefficients:
     Blunt: 0.5
     Slash: 0.5
     Piercing: 0.5

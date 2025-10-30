@@ -127,11 +127,6 @@
   - type: Tag
     tags:
       - DroneUsable # Goobstation
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible

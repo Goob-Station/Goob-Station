@@ -29,6 +29,7 @@ spellbook-tider-bundle-name = Tider Wizard Bundle
 spellbook-tider-bundle-desc =
     Contains an ancient jumpsuit, a pair of insulated gloves, a gas mask, gray winter coat and mantle as well as assistant PDA.
     Cannot be refunded.
+    Buying this gives you Assistant faction and unlocks purchasing a special Grey Tide spear.
     Warning: Purchasing this blocks the refund of Homing Toolbox spell!
 
 spellbook-full-random-name = Full Random
@@ -79,6 +80,7 @@ spellbook-bottle-blood-desc =
     and you yourself may become a victim.
 
     You need to shatter the bottle to unleash the slaughter demon.
+    Buying this and Hell Ripte Scroll unlocks purchasing a special slaughter demon heart.
 
 spellbook-bottle-tickles-name = Bottle of Tickles
 spellbook-bottle-tickles-desc =

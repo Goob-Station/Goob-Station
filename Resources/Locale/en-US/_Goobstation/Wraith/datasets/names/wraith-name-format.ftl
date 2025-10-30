@@ -1,1 +1,1 @@
-name-format-wraith = {$part0} the {$part1}
+name-format-wraith = {$part0} {$part1}

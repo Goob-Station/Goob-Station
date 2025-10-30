@@ -487,6 +487,7 @@
   id: HairPadovana
   bodyPart: Hair
   markingCategory: Hair
+  canBeDisplaced: false
   speciesRestriction: [ Vox ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
@@ -496,6 +497,7 @@
   id: HijabSimpleVox
   bodyPart: Hair
   markingCategory: Hair
+  canBeDisplaced: false
   speciesRestriction: [ Vox ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
@@ -505,6 +507,7 @@
   id: HijabFashionableVox
   bodyPart: Hair
   markingCategory: Hair
+  canBeDisplaced: false
   speciesRestriction: [ Vox ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
@@ -523,6 +526,7 @@
   id: TichelSimpleVox
   bodyPart: Hair
   markingCategory: Hair
+  canBeDisplaced: false
   speciesRestriction: [ Vox ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
@@ -532,6 +536,7 @@
   id: TichelFashionableVox
   bodyPart: Hair
   markingCategory: Hair
+  canBeDisplaced: false
   speciesRestriction: [ Vox ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
@@ -541,6 +546,7 @@
   id: VoxBald
   bodyPart: Hair
   markingCategory: Hair
+  canBeDisplaced: false
   speciesRestriction: [ Vox ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
@@ -550,6 +556,7 @@
   id: VoxEmover
   bodyPart: Hair
   markingCategory: Hair
+  canBeDisplaced: false
   speciesRestriction: [ Vox ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
@@ -559,6 +566,7 @@
   id: VoxPolish
   bodyPart: Hair
   markingCategory: Hair
+  canBeDisplaced: false
   speciesRestriction: [ Vox ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
@@ -568,6 +576,7 @@
   id: VoxWindswept
   bodyPart: Hair
   markingCategory: Hair
+  canBeDisplaced: false
   speciesRestriction: [ Vox ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi

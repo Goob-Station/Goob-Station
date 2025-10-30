@@ -4,10 +4,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Footprints;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Decals;
 using Content.Shared.DoAfter;
+using Content.Shared.Fluids;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.Timing;
 using Robust.Shared.Map.Components;
 
 namespace Content.Goobstation.Shared.FloorCleaner;
@@ -21,6 +25,10 @@ public sealed class FloorCleanerSystem : EntitySystem
     [Dependency] private readonly SharedDecalSystem _decal = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedAbsorbentSystem _absorbent = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly SharedPuddleSystem _puddle = default!;
+    [Dependency] private readonly UseDelaySystem _useDelay = default!;
 
     public override void Initialize()
     {
@@ -96,7 +104,11 @@ public sealed class FloorCleanerSystem : EntitySystem
             return;
 
         foreach (var ent in GetEntityList(args.Entities))
+        {
+            if (!StartCleaning(floorCleaner.Owner, ent))
+                continue;
             PredictedQueueDel(ent);
+        }
 
         foreach (var (index, _) in args.Decals)
         {
@@ -105,6 +117,30 @@ public sealed class FloorCleanerSystem : EntitySystem
             if (gridNullable is {} grid)
                 _decal.RemoveDecal(grid, index);
         }
+    }
 
+    /// <summary>
+    /// </summary>
+    /// <param name="uid"> cleaning item</param>
+    /// <param name="target"> target puddle</param>
+    /// <returns> returns false if failed to run</returns>
+    private bool StartCleaning(EntityUid uid, EntityUid target)
+    {
+        if(!TryComp<AbsorbentComponent>(uid, out var absorb))
+            return false;
+        if (!TryComp<UseDelayComponent>(uid, out var useDelay))
+            return false;
+        if (!_solutionContainer.TryGetSolution(uid, absorb.SolutionName, out var absorberSoln))
+            return false;
+
+        if (FixedPoint2.Zero ==
+            absorberSoln.Value.Comp.Solution.GetTotalPrototypeQuantity(
+                _puddle.GetAbsorbentReagents(absorberSoln.Value.Comp.Solution)))// no cleaning reagent in scrubber
+            return true;
+
+        _absorbent.Mop((uid,absorb), uid, target );
+        _useDelay.CancelDelay((uid, useDelay)); // prevents cleaning loop from being aborted
+
+        return true; 
     }
 }

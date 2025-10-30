@@ -623,11 +623,12 @@
     LiveLetLiveLaws: 1
     EfficiencyLawset: 1
     RobocopLawset: 1
+    GambamovLawset: 0.7 #Goobstation
     OverlordLawset: 0.5
     GameMasterLawset: 0.5
     PainterLawset: 1
     AntimovLawset: 0.25
     NutimovLawset: 0.5
-    HelpimovLawset: 0.6
+    HelpimovLawset: 0.6 #Goobstation
     Drone: 0.5
     Ninja: 0.25

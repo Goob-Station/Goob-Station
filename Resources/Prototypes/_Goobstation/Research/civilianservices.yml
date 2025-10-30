@@ -30,6 +30,7 @@
   - VehicleHoverchairSci
   - PrescriptionGlasses
   - EnvirosuitExtinguisherRefill
+  - TinfoilHats
   position: 3,4
   technologyPrerequisites:
   - AdvancedEntertainment
@@ -65,6 +66,39 @@
   - BiochemicalStasis
 
 # Tier 2
+
+- type: technology
+  id: ExtendedCommunications
+  name: research-technology-extended-communication
+  icon:
+    sprite: _Goobstation/Structures/Machines/comms_transmitter.rsi
+    state: base
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - TelecomTransmitterCircuitboard
+  position: 2,5
+  technologyPrerequisites:
+  - AudioVisualCommunication
+
+- type: technology
+  id: RadioMusicCommunications
+  name: research-technology-radio-music-communication
+  icon:
+    sprite: _Goobstation/Structures/Machines/StationRadio/vinylplayer.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - VinylPlayerCircuitboard
+  - TapeDeckCircuitboard
+  - StationRadioServerCircuitboard
+  - StationRadioRigCircuitboard
+  position: 2,6
+  technologyPrerequisites:
+  - ExtendedCommunications
 
 - type: technology
   id: HONKWeapons

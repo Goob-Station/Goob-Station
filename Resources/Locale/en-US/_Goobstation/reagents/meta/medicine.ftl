@@ -10,14 +10,6 @@
 reagent-name-stasizium = Stasizium
 reagent-desc-stasizium = An unstable fluid of future capable of restoring the patient's body to its original state. However, an overdose can tear the body apart.
 
-reagent-name-panacea = Changeling Panacea
-reagent-desc-panacea = Tons of singlecell organisms focused soley on purging the changeling of toxic chemicals.
-reagent-popup-panacea = Our cells reconstruct.
-
-reagent-name-lingdrenaline = Changeling Adrenaline
-reagent-desc-lingdrenaline = A reserve of potent adrenaline stored in a gland capable of immediately recovering a changeling from any fatigue.
-reagent-popup-lingdrenaline = Our entire body violently jitters and shakes.
-
 reagent-name-probital = probital
 reagent-desc-probital = Forces patient's body to spend its energy creating more healing compounds. Overdose exhausts body, forcing what effectively amounts to power naps.
 
@@ -104,3 +96,12 @@ reagent-desc-hercuri = Strong coolant, both serviceable for internal and externa
 
 reagent-name-herignis = herignis
 reagent-desc-herignis = Can thaw out most chilled of lizardmen, recommended to only use in small doses, as it can quickly heat up its metaboliser to dangerous levels.
+
+reagent-name-immurin = immurin
+reagent-desc-immurin = A chemical that boosts your immune system, making it work faster and harder. The boost remains for some time even after the chemical has metabolised. Tastes terrible.
+
+reagent-name-spaceacilin = spaceacilin
+reagent-desc-spaceacilin = Commonly used and effective anti-bacterial medicine. Slightly weakens your immunity.
+
+reagent-name-devirate = devirate
+reagent-desc-devirate = Anti-viral medicine. Slightly toxic.

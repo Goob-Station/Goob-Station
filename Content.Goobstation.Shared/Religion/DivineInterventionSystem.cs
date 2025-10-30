@@ -5,11 +5,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Religion;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Religion;
 
@@ -22,6 +22,8 @@ public sealed class DivineInterventionSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+
     [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
@@ -38,10 +40,32 @@ public sealed class DivineInterventionSystem : EntitySystem
     /// </summary>
     private bool ShouldDeny(EntityUid target, out EntityUid? denyingItem)
     {
-        denyingItem = _inventory.GetHandOrInventoryEntities(target, SlotFlags.WITHOUT_POCKET)
-            .FirstOrNull(HasComp<DivineInterventionComponent>);
+        denyingItem = null;
+        var divineQuery = GetEntityQuery<DivineInterventionComponent>();
 
-        return denyingItem != null;
+        foreach (var held in _hands.EnumerateHeld(target))
+        {
+            if (!divineQuery.HasComp(held))
+                continue;
+
+            denyingItem = held;
+            return true;
+        }
+
+        var slots = _inventory.GetSlotEnumerator(target, SlotFlags.WITHOUT_POCKET);
+        while (slots.NextItem(out var item, out var slot))
+        {
+            if (!divineQuery.TryComp(item, out var comp))
+                continue;
+
+            if ((slot.SlotFlags & comp.ValidSpellDenialSlots) == 0x0)
+                continue;
+
+            denyingItem = item;
+            return true;
+        }
+
+        return false;
     }
     //Overload Method
     public bool ShouldDeny(EntityUid target) => ShouldDeny(target, out _);

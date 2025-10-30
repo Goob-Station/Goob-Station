@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -55,6 +56,9 @@ public sealed partial class ComplexJointVisualsData(
 
     [DataField]
     public TimeSpan? CreationTime = creationTime;
+
+    [DataField]
+    public Vector2 Scale = Vector2.One;
 
     // TODO: add support for joint offsets
 }

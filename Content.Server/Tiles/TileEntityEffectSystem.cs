@@ -12,6 +12,7 @@ namespace Content.Server.Tiles;
 
 public sealed class TileEntityEffectSystem : EntitySystem
 {
+    [Dependency] private readonly EntityEffectSystem _effect = default!; // goob edit - use system instead
 
     public override void Initialize()
     {
@@ -19,6 +20,7 @@ public sealed class TileEntityEffectSystem : EntitySystem
         SubscribeLocalEvent<TileEntityEffectComponent, StepTriggeredOffEvent>(OnTileStepTriggered);
         SubscribeLocalEvent<TileEntityEffectComponent, StepTriggerAttemptEvent>(OnTileStepTriggerAttempt);
     }
+
     private void OnTileStepTriggerAttempt(Entity<TileEntityEffectComponent> ent, ref StepTriggerAttemptEvent args)
     {
         args.Continue = true;
@@ -31,7 +33,7 @@ public sealed class TileEntityEffectSystem : EntitySystem
 
         foreach (var effect in ent.Comp.Effects)
         {
-            effect.Effect(effectArgs);
+            _effect.Effect(effect, effectArgs); // goob edit - use system instead
         }
     }
 }

@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using System.Numerics;
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Damage.Components;
 using Content.Shared.Throwing;
@@ -23,6 +24,13 @@ public sealed class ItemThrowingTest : InteractionTest
     {
         // Setup entities
         var egg = await PlaceInHands("FoodEgg");
+        // Goobstation start
+        TargetCoords =
+            SEntMan.GetNetCoordinates(
+                Transform.WithEntityId(SEntMan.GetCoordinates(PlayerCoords).Offset(new Vector2(5f, 0f)),
+                    MapData.MapUid));
+
+        // Goobstation end
         await SpawnTarget("WallSolid");
         await RunTicks(5);
         AssertExists(egg);

@@ -318,7 +318,6 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
-  - type: ThermalVision # Goobstation - Thermal vision
   - type: CombatPower # Goobstation
     factor: 4 # times more dangerous than a crew-member
   - type: Fauna # Lavaland Change
@@ -328,6 +327,13 @@
     speedModifier: 2.5 # fast because dragon strong
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: LanguageKnowledge # goob edit - carp language (keeping basic as an option because the space monster gloating is funny)
+    speaks:
+    - TauCetiBasic
+    - Carptongue
+    understands:
+    - TauCetiBasic
+    - Carptongue
 
 - type: entity
   parent: BaseMobDragon

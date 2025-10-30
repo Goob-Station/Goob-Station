@@ -74,3 +74,14 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/trainer.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/trainer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtCommandMaid
+  name: command maid uniform
+  description: A stylish maid uniform specially designed for elite Command Maids. Combines professionalism with a touch of elegance.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Other/command_maid.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Other/command_maid.rsi

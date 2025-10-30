@@ -1,0 +1,5 @@
+# Used by virology servers to send data over to receivers
+- type: deviceFrequency
+  id: VirologyServer
+  name: device-frequency-prototype-name-virology-console
+  frequency: 1330

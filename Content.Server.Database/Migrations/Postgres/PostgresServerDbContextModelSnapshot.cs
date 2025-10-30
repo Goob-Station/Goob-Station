@@ -790,6 +790,144 @@ namespace Content.Server.Database.Migrations.Postgres
                         });
                 });
 
+            modelBuilder.Entity("Content.Server.Database.Poll", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("polls_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("boolean")
+                        .HasColumnName("active");
+
+                    b.Property<bool>("AllowMultipleChoices")
+                        .HasColumnType("boolean")
+                        .HasColumnName("allow_multiple_choices");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<Guid?>("CreatedById")
+                        .HasColumnType("uuid")
+                        .HasColumnName("created_by_id");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("character varying(2000)")
+                        .HasColumnName("description");
+
+                    b.Property<DateTime?>("EndTime")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("end_time");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("start_time");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)")
+                        .HasColumnName("title");
+
+                    b.HasKey("Id")
+                        .HasName("PK_polls");
+
+                    b.HasIndex("Active")
+                        .HasDatabaseName("IX_polls_active");
+
+                    b.HasIndex("CreatedById")
+                        .HasDatabaseName("IX_polls_created_by_id");
+
+                    b.HasIndex("EndTime")
+                        .HasDatabaseName("IX_polls_end_time");
+
+                    b.HasIndex("StartTime")
+                        .HasDatabaseName("IX_polls_start_time");
+
+                    b.ToTable("polls", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PollOption", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("poll_options_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("DisplayOrder")
+                        .HasColumnType("integer")
+                        .HasColumnName("display_order");
+
+                    b.Property<string>("OptionText")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)")
+                        .HasColumnName("option_text");
+
+                    b.Property<int>("PollId")
+                        .HasColumnType("integer")
+                        .HasColumnName("poll_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_poll_options");
+
+                    b.HasIndex("PollId")
+                        .HasDatabaseName("IX_poll_options_poll_id");
+
+                    b.ToTable("poll_options", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PollVote", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("poll_votes_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<Guid>("PlayerUserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_user_id");
+
+                    b.Property<int>("PollId")
+                        .HasColumnType("integer")
+                        .HasColumnName("poll_id");
+
+                    b.Property<int>("PollOptionId")
+                        .HasColumnType("integer")
+                        .HasColumnName("poll_option_id");
+
+                    b.Property<DateTime>("VotedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("voted_at");
+
+                    b.HasKey("Id")
+                        .HasName("PK_poll_votes");
+
+                    b.HasIndex("PlayerUserId")
+                        .HasDatabaseName("IX_poll_votes_player_user_id");
+
+                    b.HasIndex("PollId")
+                        .HasDatabaseName("IX_poll_votes_poll_id");
+
+                    b.HasIndex("PollOptionId")
+                        .HasDatabaseName("IX_poll_votes_poll_option_id");
+
+                    b.HasIndex("PollId", "PlayerUserId", "PollOptionId")
+                        .IsUnique();
+
+                    b.ToTable("poll_votes", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Preference", b =>
                 {
                     b.Property<int>("Id")
@@ -838,6 +976,11 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Property<int>("Age")
                         .HasColumnType("integer")
                         .HasColumnName("age");
+
+                    b.Property<string>("BarkVoice")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("bark_voice");
 
                     b.Property<string>("CharacterName")
                         .IsRequired()
@@ -1183,6 +1326,10 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Property<bool>("GhostColor")
                         .HasColumnType("boolean")
                         .HasColumnName("ghost_color");
+
+                    b.Property<string>("Icon")
+                        .HasColumnType("text")
+                        .HasColumnName("icon");
 
                     b.Property<bool>("LobbyMessage")
                         .HasColumnType("boolean")
@@ -1962,6 +2109,61 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("LastSeenHWId");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.Poll", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedById")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_polls_player_created_by_id");
+
+                    b.Navigation("CreatedBy");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PollOption", b =>
+                {
+                    b.HasOne("Content.Server.Database.Poll", "Poll")
+                        .WithMany("Options")
+                        .HasForeignKey("PollId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_poll_options_polls_poll_id");
+
+                    b.Navigation("Poll");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PollVote", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerUserId")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_poll_votes_player_player_user_id");
+
+                    b.HasOne("Content.Server.Database.Poll", "Poll")
+                        .WithMany("Votes")
+                        .HasForeignKey("PollId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_poll_votes_polls_poll_id");
+
+                    b.HasOne("Content.Server.Database.PollOption", "PollOption")
+                        .WithMany("Votes")
+                        .HasForeignKey("PollOptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_poll_votes_poll_options_poll_option_id");
+
+                    b.Navigation("Player");
+
+                    b.Navigation("Poll");
+
+                    b.Navigation("PollOption");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Profile", b =>
                 {
                     b.HasOne("Content.Server.Database.Preference", "Preference")
@@ -2391,6 +2593,18 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("LinkingCodes");
 
                     b.Navigation("Patron");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.Poll", b =>
+                {
+                    b.Navigation("Options");
+
+                    b.Navigation("Votes");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PollOption", b =>
+                {
+                    b.Navigation("Votes");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Preference", b =>

@@ -2,53 +2,53 @@
   id: Gruntish
   isVisibleLanguage: true
   speech:
-    fontSize: 18
-    color: "#721f1f"
+    fontSize: 14
+    color: "#8C5353"
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
     maxSyllables: 3
     replacement:
-    - drugo
-    - cuntu
-    - mimi
-    - moe
-    - mofu
-    - fuwa
-    - brugna
-    - ugna
-    - poka
-    - munya
-    - puni
-    - munyu
-    - Rescunt
-    - icha
-    - doki
-    - kyun
-    - kusu
-    - fuckin'
-    - oath
-    - kilatu
-    - kis
-    - ama
-    - chuu
-    - baka
-    - Gormo
-    - boop
-    - trashin
-    - kit
-    - sune
-    - yori
-    - sou
+    - bah
+    - gaagh
+    - grr
+    - ugh
+    - bunga
+    - agh
+    - brugh
+    - unga
+    - ooga
+    - hooh
+    - grog
+    - hmph
+    - hmm
+    - aargh
+    - ooga
+    - haaa!
+    - pffft
+    - ahh-ugh'
+    - tch'
+    - waa!
+    - chk'
+    - eh
+    - oop
+    - rah
+    - hrrgn
+    - snrr
+    - blugh
+    - guh
+    - boog
+    - ugga
+    - rah
     - Ough
     - ye'
-    - san
-    - kun
-    - mahou
-    - yatta
-    - suki
-    - usagh
-    - fent
-    - ori
-    - uwa
-    - zaazaa
+    - oof
+    - yagh!
+    - maha
+    - huh
+    - yagh
+    - oomph
+    - ehhh
+    - oooh
+    - uhhh!
+    - rah!

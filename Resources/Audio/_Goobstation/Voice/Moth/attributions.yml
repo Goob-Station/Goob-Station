@@ -4,7 +4,12 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- files: ["moth_flap.ogg"] 
+- files: ["moth_flap.ogg"]
   license: "CC0-1.0"
   copyright: "taken from https://freesound.org/people/Godowan/sounds/240476/ and converted to mono by @deltanedas (github)"
   source: "https://freesound.org/people/Godowan/sounds/240476/"
+
+- files: ["moth_sax.ogg"]
+  license: "CC0-1.0"
+  copyright: "Created by freesound_community, modified by loltart."
+  source: "https://pixabay.com/sound-effects/sax-jazz-77053/"

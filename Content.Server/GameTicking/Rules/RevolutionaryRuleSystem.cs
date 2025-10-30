@@ -74,7 +74,6 @@ using Content.Shared.Stunnable;
 using Content.Shared.Speech.Muting;
 using Content.Shared.Zombies;
 using Content.Shared.Heretic;
-using Content.Goobstation.Common.Changeling;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Cuffs.Components;
@@ -86,6 +85,7 @@ using Content.Server.Antag.Components;
 using Content.Server.Chat.Systems;
 using Content.Shared._EinsteinEngines.Revolutionary;
 using Robust.Shared.Player;
+using Content.Goobstation.Shared.Changeling.Components;
 
 
 namespace Content.Server.GameTicking.Rules;
@@ -249,7 +249,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             !_mobState.IsAlive(ev.Target) ||
             HasComp<ZombieComponent>(ev.Target) ||
             HasComp<HereticComponent>(ev.Target) ||
-            HasComp<ChangelingComponent>(ev.Target) || // goob edit - no more ling or heretic revs
+            HasComp<ChangelingIdentityComponent>(ev.Target) || // goob edit - no more ling or heretic revs
             HasComp<AntagImmuneComponent>(ev.Target)) // Antag immune MEANS antag immune.
         {
             if (ev.User != null)

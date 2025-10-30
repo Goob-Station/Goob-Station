@@ -68,11 +68,17 @@
     Chest:
       points: 1
       required: false
-    Legs:
-      points: 6
+    RightLeg:
+      points: 3
       required: false
-    Arms:
-      points: 6
+    LeftLeg:
+      points: 3
+      required: false
+    RightArm:
+      points: 3
+      required: false
+    LeftArm:
+      points: 3
       required: false
 
 - type: humanoidBaseSprite

@@ -136,7 +136,7 @@
     duration: 8
 
 - type: entity
-  parent: [ BaseSurgeryStepXeno, SurgeryStepMendRibcage ]
+  parent: [ BaseSurgeryStepXeno, SurgeryStepSealRibcage ]
   id: SurgeryStepXenoMendEndoskeleton
   name: Mend the endoskeleton
   components:

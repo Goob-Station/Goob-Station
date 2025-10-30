@@ -5,6 +5,7 @@ objective-condition-kill-wizard-first = [color=#FF0000]FIRST,[/color]
 objective-condition-kill-everyone-else = [color=#FF0000]SECOND,[/color]
 objective-condition-kill-wizard-title = KILL THE WIZARD WHO SUMMONED YOU
 objective-condition-kill-everyone-else-title = KILL EVERYONE ELSE
+objective-condition-kill-everyone-title = KILL EVERYONE
 
 objective-condition-hug-and-tickle-title = HUG THEM ALL
 objective-condition-hug-and-tickle-desc = The crew love it so much they spread ketchup everywhere! Good thing you love ketchup! Yupeee!

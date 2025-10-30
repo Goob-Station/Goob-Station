@@ -136,10 +136,10 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 9000 #2.5 hrs
+      time: 18000 #5 hrs
     - !type:RoleTimeRequirement
       role: JobStationEngineer
-      time: 18000 #5 hrs
+      time: 21600 #6 hrs
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 36000 #10 hrs
@@ -153,6 +153,12 @@
   supervisors: job-supervisors-captain
   #canBeAntag: false
   antagAdvantage: 75 # Goobstation
+  guides: # goobstation
+  - Engineering
+  - ChiefEngineer SOP
+  - Engineering SOP
+  - Command
+  - Emergencies SOP
   goobcoins: 40 #Goob content
   access:
   - Maintenance

@@ -82,3 +82,13 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpsuitQMSummer
   result: ClothingUniformJumpsuitQMSummer
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitReporterGoob
+  result: ClothingUniformJumpsuitReporter
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtReporterGoob
+  result: ClothingUniformJumpskirtReporter

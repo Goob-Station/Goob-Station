@@ -12,8 +12,14 @@
             "name": "MindShield-broken",
             "delays":
             [
-                [1.0,1.0]
+                [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]
             ]
+        },
+        {
+            "name": "hud_contraband"
+        },
+        {   
+            "name": "hud_none"
         }
     ]
 }

@@ -4,9 +4,11 @@ using Content.Shared.Charges.Systems;
 using Content.Shared.Eye;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Popups;
 using Content.Shared.Revenant.Components;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Whitelist;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
@@ -28,6 +30,8 @@ public sealed partial class SharedSpiritCandleSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -127,7 +131,10 @@ public sealed partial class SharedSpiritCandleSystem : EntitySystem
             return;
 
         if (!area.EntitiesInside.Any())
+        {
+            _popup.PopupEntity(Loc.GetString("spirit-candle-fail"), args.User, args.User, PopupType.MediumCaution);
             return;
+        }
 
         if (_charges.IsEmpty(ent.Owner))
             return;
@@ -140,6 +147,9 @@ public sealed partial class SharedSpiritCandleSystem : EntitySystem
             _oldStatusEffects.TryAddStatusEffect<CorporealComponent>(ghostUid, ent.Comp.Corporeal, ent.Comp.CorporealDuration, true);
             _statusEffects.TryAddStatusEffectDuration(ghostUid, ent.Comp.Weakened, out _, ent.Comp.WeakenedDuration);
         }
+
+        _popup.PopupEntity(Loc.GetString("spirit-candle-caught-wraith"), args.User, args.User, PopupType.LargeCaution);
+        _audio.PlayPvs(ent.Comp.SuccessSound, args.User);
 
         _charges.TryUseCharge(ent.Owner);
         _appearance.SetData(ent.Owner, SpiritCandleVisuals.Layer, _charges.GetCurrentCharges(ent.Owner));

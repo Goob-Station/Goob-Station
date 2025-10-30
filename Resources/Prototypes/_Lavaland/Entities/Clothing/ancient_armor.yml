@@ -1,0 +1,81 @@
+- type: entity
+  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCargoContraband ]
+  id: LavalandEquipmentAncientArmor
+  name: predecessor armor
+  description: Ancient armor that is fully made out of strong goliath plates. 
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Clothing/OuterClothing/Hardsuits/ancient_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Lavaland/Clothing/OuterClothing/Hardsuits/ancient_armor.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Leg
+    - Tail
+    - Hand
+    - Foot
+    traumaDeductions:
+      Dismemberment: 0.25
+      OrganDamage: 0.25
+      BoneDamage: 0.25
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.5
+        Heat: 0.3
+        Caustic: 0.3
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: FireProtection
+    reduction: 0.7
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:Container {}
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: LavalandEquipmentAncientArmorHood
+  - type: PressureArmorChange
+
+- type: entity
+  parent: ClothingHeadBase
+  id: LavalandEquipmentAncientArmorHood
+  name: predecessor helmet
+  description: Armored helmet that resembles some pagan deity. Eye holes are covered with durable resin. Looks like it's hard to breath inside.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Clothing/Head/Hardsuits/ancient_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Lavaland/Clothing/Head/Hardsuits/ancient_armor.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.25
+      OrganDamage: 0.25
+      BoneDamage: 0.25
+      VeinsDamage: 0
+      NerveDamage: 0
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.7
+        Heat: 0.65
+        Caustic: 0.65
+  - type: PressureArmorChange

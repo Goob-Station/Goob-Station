@@ -57,6 +57,7 @@
   - CellRechargerCircuitboard
   - WeaponCapacitorRechargerCircuitboard
   - FreezerElectronics
+  - CameraElectronics # goob
 
 - type: latheRecipePack
   id: EngineeringBoardsStatic

@@ -41,7 +41,7 @@
   - Fulton
   - Fulton
   - FultonBeacon
-  # TODO: 30 marker beacons
+  - BoxMarkerBeacons
 
 # TODO: resonator
 #- type: thiefBackpackSet
@@ -65,6 +65,7 @@
   content:
   - ClothingBeltSalvageWebbing
   - ShelterCapsule
+  - DeathRattleLavalandImplanter
 
 # TODO: mining drone
 #- type: thiefBackpackSet

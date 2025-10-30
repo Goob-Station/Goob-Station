@@ -129,6 +129,14 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                     <Label Name="WeightLabel" />
                                 </BoxContainer>
                                 <!-- end Goobstation: port EE height/width sliders -->
+                                <!-- Corvax-Frontier-Barks-Start -->
+                                <BoxContainer HorizontalExpand="True" Visible="False" Name="BarksContainer">
+                                    <Label Text="{Loc 'humanoid-profile-editor-voice-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="BarkVoiceButton" HorizontalAlignment="Right" />
+                                    <Button Name="BarkVoicePlayButton" Text="{Loc 'humanoid-profile-editor-voice-play'}" MaxWidth="80" />
+                                </BoxContainer>
+                                <!-- Corvax-Frontier-Barks-End -->
                             </BoxContainer>
                             <!-- Skin -->
                             <BoxContainer Margin="10" HorizontalExpand="True" Orientation="Vertical">

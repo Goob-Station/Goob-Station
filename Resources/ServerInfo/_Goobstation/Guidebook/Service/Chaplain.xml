@@ -8,6 +8,7 @@ As a chaplain, you would ideally proselytize whatever crazy religion you've made
   <Box>
     <GuideEntityEmbed Entity="Bible"/>
     <GuideEntityEmbed Entity="Nullrod"/>
+    <GuideEntityEmbed Entity="ArmamentsBeacon"/>
   </Box>
 
 ## Religions:
@@ -19,6 +20,7 @@ If you don't already have one, build an altar and find an offering to place on-t
     <GuideEntityEmbed Entity="AltarBananium"/>
     <GuideEntityEmbed Entity="AltarChaos"/>
     <GuideEntityEmbed Entity="AltarDruid"/>
+    <GuideEntityEmbed Entity="AltarClock"/>
   </Box>
   <Box>
     <GuideEntityEmbed Entity="AltarFangs"/>
@@ -44,16 +46,31 @@ These altars can be constructed by placing the following offerings atop your bas
 - Space-Christian Altar: 1 x Nun Hood
 - Technology Altar: 1 x Capacitor
 - Toolbox Altar: 1 x Toolbox
+- Clockwork Altar: 1 x Small Power Cell
 
 ## Holy Artefacts
 
-### Crusader Armour
-A dated suit of plate armour that was previously used as part of a holy crusade. Provides decent armour. Wearing this armour will slightly slow your movement speed.
+### Armaments Beacon
+Allows you to choose a set of armor. All armors have identical stats.
 
 ### Null Rod
 The obsidian rod will be your defense against the forces of evil. [color=blue][bold] Having it in your hands will make you completely immune to the effects of magic. [/bold][/color]
 
 You can transform it into a holy weapon of choice by placing it on an altar!
+
+### Enchanting
+
+You can use your Bible and any Altar of your choosing to [textlink="enchant items." link="Enchanting"]
+
+### Spirit Candles
+You can craft a spirit candle by putting a candle on a skull. Spirit Candles are useful against evil spirits like Wraith.
+
+When they are ignited, they create a 12x12 tile area that reveals evil spirits. It also has a special function when you use it in-hand.
+By using it [bold]when an evil spirit is within(!!) your 12x12 area[/bold], it will make them corporeal.
+
+It has 2 charges per spirit candle, and [bold]it only consumes a charge when you reveal the evil spirit[/bold].
+
+It drops the skull once the candle has melted, so you can craft another one.
 
 ## Duties
 
@@ -66,5 +83,5 @@ You can transform it into a holy weapon of choice by placing it on an altar!
 As Chaplain you are the first line of defence against metaphysical threats, [bold] ready your Null Rod - the time is now. [/bold]
 
 [color=red][bold] Use of excessive force against targets which you cannot confirm are metaphysical threats may land you in trouble with the law, use caution and investigate carefully. [/bold][/color]
-  
+
 </Document>

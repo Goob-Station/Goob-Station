@@ -30,6 +30,8 @@ using Content.Shared.Body.Part;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Goobstation.Shared.MartialArts;
 
@@ -44,20 +46,19 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, HellRipHeadRipPerformedEvent>(OnHellRipHeadRip);
         SubscribeLocalEvent<CanPerformComboComponent, HellRipTearDownPerformedEvent>(OnHellRipTearDown);
 
-        SubscribeLocalEvent<GrantHellRipComponent, ComponentStartup>(OnGrantHellRip);
+        SubscribeLocalEvent<GrantHellRipComponent, MapInitEvent>(OnGrantHellRip);
         SubscribeLocalEvent<GrantHellRipComponent, ComponentShutdown>(OnRemoveHellRip);
+        SubscribeLocalEvent<GrantHellRipComponent, UseInHandEvent>(OnGrantCQCUse);
     }
 
     #region Generic Methods
 
-    private void OnGrantHellRip(Entity<GrantHellRipComponent> ent, ref ComponentStartup args)
+    private void OnGrantHellRip(Entity<GrantHellRipComponent> ent, ref MapInitEvent args)
     {
-        if (_netManager.IsClient)
+        if (!HasComp<MobStateComponent>(ent))
             return;
 
         TryGrantMartialArt(ent.Owner, ent.Comp);
-
-        RevertToOriginalDamage(ent.Owner);
     }
 
 
@@ -146,7 +147,7 @@ public partial class SharedMartialArtsSystem
         var targetPos = _transform.GetMapCoordinates(target).Position;
         var direction = targetPos - entPos; // vector from ent to target
 
-        _grabThrowing.Throw(target, ent, direction, 25);
+        _grabThrowing.Throw(target, ent, direction, 25, behavior: proto.DropHeldItemsBehavior);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg"), ent);
         ComboPopup(ent, target, proto.Name);
@@ -170,21 +171,4 @@ public partial class SharedMartialArtsSystem
 
     }
     #endregion
-
-    /// <summary>
-    /// Reverts to original melee weapon damage instead of modifying it
-    /// </summary>
-    private void RevertToOriginalDamage(EntityUid uid)
-    {
-        if (!TryComp<MartialArtsKnowledgeComponent>(uid, out var martialArtsKnowledge))
-            return;
-
-        if (!TryComp<MeleeWeaponComponent>(uid, out var meleeWeaponComponent))
-            return;
-
-        var originalDamage = new DamageSpecifier();
-        originalDamage.DamageDict[martialArtsKnowledge.OriginalFistDamageType]
-            = FixedPoint2.New(martialArtsKnowledge.OriginalFistDamage);
-        meleeWeaponComponent.Damage = originalDamage;
-    }
 }

@@ -34,7 +34,8 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using System.Numerics; // Goobstation
+using System.Numerics;
+using Robust.Shared.Map; // Goobstation
 
 namespace Content.Shared.Projectiles;
 

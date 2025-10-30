@@ -110,6 +110,9 @@
         Radiation: 5
         Structural: 5
       armorPenetration: 0.8
+      woundSeverityMultipliers:
+        Slash: 2.5
+        Piercing: 2.5
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
   - type: Wieldable
@@ -209,6 +212,8 @@
       types:
         Slash: 5
         Structural: 10
+      woundSeverityMultipliers:
+        Slash: 2
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
     animation: WeaponArcHighFreq
@@ -256,6 +261,8 @@
     damage:
       types:
         Slash: 30
+      woundSeverityMultipliers:
+        Slash: 2
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
   - type: Clothing
@@ -323,10 +330,10 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 20
-        Holy: 5
+        Slash: 25
+      woundSeverityMultipliers:
+        Slash: 3 # Epic delimbing
   - type: MeleeDash
-    force: 20 # Higher force will damage the user
     length: 5.5
   - type: UseDelay
-    delay: 4
+    delay: 1.5

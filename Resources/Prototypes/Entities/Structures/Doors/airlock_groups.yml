@@ -96,6 +96,7 @@
     science:     Structures/Doors/Airlocks/Standard/science.rsi
     security:    Structures/Doors/Airlocks/Standard/security.rsi
     virology:    Structures/Doors/Airlocks/Standard/virology.rsi
+    roboticist: _Goobstation/Structures/Doors/Airlocks/Glass/robotics.rsi # Goobstation - Roboticist
 
 - type: AirlockGroup
   id: Glass
@@ -161,6 +162,7 @@
     glass: Civilian
     hydroponics: Civilian
     janitor: Civilian # Goobstation - Sweet new jani door
+    roboticist: Science # Goobstation
     maintenance: Civilian
     medical: Medical
     salvage: Cargo

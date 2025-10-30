@@ -5,8 +5,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 marking-MobIPCHeadDefault = Standard Operational Monitor
-marking-MobIPCChestDefault = Standard Robotic Chassis
-marking-MobIPCChestFemaleDefault = Standard Robotic Chassis
+# Goob - Added 'Masculine' and 'Feminine' to differentiate the options
+marking-MobIPCChestDefault = Standard Robotic Chassis (Masculine)
+marking-MobIPCChestFemaleDefault = Standard Robotic Chassis (Feminine)
 marking-MobIPCLArmDefault = Standard Left Robotic Arm
 marking-MobIPCLHandDefault = Standard Left Robotic Hand
 marking-MobIPCLLegDefault  = Standard Left Robotic Leg

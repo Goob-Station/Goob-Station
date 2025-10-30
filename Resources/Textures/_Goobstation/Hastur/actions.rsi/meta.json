@@ -1,0 +1,32 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Goonstation 13. https://github.com/goonstation/goonstation/blob/c39687a0c042e06cf7718fbd180a3147902a1485/icons/mob/critter_ui.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "devour"
+        },
+        {
+            "name": "insanity_aura"
+        },
+        {
+            "name": "mass_whisper"
+        },
+        {
+            "name": "omnipresence"
+        },
+        {
+            "name": "ranged_tentacle"
+        },
+        {
+            "name": "veil_void"
+        },
+        {
+            "name": "clone"
+        }
+    ]
+}

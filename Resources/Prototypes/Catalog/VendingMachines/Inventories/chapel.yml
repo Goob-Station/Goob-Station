@@ -58,10 +58,7 @@
     BoxCandleSmall: 2
     Urn: 5
     SpectralLocator: 1
-    TemplarArmor: 1 #goob
-    ClothingHeadHelmetTemplar: 2 #goob
-    ClothingOuterClownPriest: 1 #goob
-    MonkRobes: 1 #goob
+    ClothingHeadHelmetTemplar: 1 #goob
     ClothingHeadHatImam: 1 #goob
     HeadSkeleton: 1 #goob
   contrabandInventory:

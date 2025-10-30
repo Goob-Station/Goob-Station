@@ -135,7 +135,7 @@ public sealed partial class PickSurgeryWindow : FancyWindow
                 continue;
             }
 
-            var partOk = comp.Part == part;
+            var partOk = comp.Parts.Contains(part);
             var symmetryOk = (comp.Symmetry == null || _symmetry == null) ? true : comp.Symmetry == _symmetry;
 
             var passesFilter = (partOk && symmetryOk) ^ comp.Inverse;

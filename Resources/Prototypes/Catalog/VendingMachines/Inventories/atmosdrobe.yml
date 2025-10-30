@@ -32,3 +32,6 @@
     ClothingNeckScarfStripedLightBlue: 3
   contrabandInventory:
     ToyFigurineAtmosTech: 1
+  emaggedInventory: # goob
+    ClothingOuterSuitAtmosFire: 1
+    ClothingHeadHelmetAtmosFire: 1

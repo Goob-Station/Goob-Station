@@ -11,6 +11,7 @@
   roundstartCombos: SleepingCarpMoves
   randomDamageModifier: True
   baseDamageModifier: 5
+  damageModifierType: Slash
   randomSayings:
   - carp-saying-huah
   - carv-vaying-hya

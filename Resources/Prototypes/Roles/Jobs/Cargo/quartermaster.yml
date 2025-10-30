@@ -149,6 +149,11 @@
   supervisors: job-supervisors-captain
   #canBeAntag: false
   antagAdvantage: 75 # Goobstation
+  guides: # goobstation
+  - Cargo
+  - Quartermaster SOP
+  - Cargo SOP
+  - Command
   goobcoins: 40 #Goob content
   access:
   - Cargo
@@ -166,6 +171,7 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+      - type: QuartermasterTraining
 
 - type: startingGear
   id: QuartermasterGear

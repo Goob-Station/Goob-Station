@@ -262,26 +262,33 @@
   metabolisms:
     Drink:
       effects:
-      - !type:SatiateThirst
-        factor: 1.5
-    # Dragon doesn't require airloss healing, so omnizine is still best for humans.
-      - !type:ModifyBloodLevel
-        amount: 3
-      - !type:HealthChange
+      - !type:SuppressPain
+        amount: 4
+        time: 28
+      - !type:HealthChange # Goobstation - Make Ichor less shit
         damage:
-          groups:
-            Burn: -5
-            Brute: -5
-            Toxin: -2
-          types:
+          types: 
+            Heat: -5
+            Shock: -5
+            Cold: -5
+            Caustic: -5
+            Poison: -5
+            Radiation: -5
+            Asphyxiation: -5
             Bloodloss: -5
-            Holy: -10
+            Blunt: -5
+            Slash: -5
+            Piercing: -5 
+   
+      - !type:ModifyBloodLevel
+            amount: 3
+  
       - !type:ModifyBleedAmount
-        amount: -1.5
-  # Just in case you REALLY want to water your plants
+            amount: -1.5
+  # Goobstation, just in case you REALLY  REALLY want to water your plants
   plantMetabolism:
   - !type:PlantAdjustWater
-    amount: 0.5
+    amount: 1
   footstepSound:
     collection: FootstepBlood
     params:

@@ -50,11 +50,6 @@
   - type: Stack
     count: 100
     stackType: Telecrystal
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: StaticPrice
     price: 0
   - type: StackPrice

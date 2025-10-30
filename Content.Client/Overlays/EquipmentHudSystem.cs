@@ -11,6 +11,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.GameTicking;
+using Content.Shared.Hands; // Goobstation
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Client.Player;
@@ -29,6 +30,7 @@ public abstract class EquipmentHudSystem<T> : EntitySystem where T : IComponent
     [ViewVariables]
     protected bool IsActive;
     protected virtual SlotFlags TargetSlots => ~SlotFlags.POCKET;
+    protected virtual bool WorksInHands => false; // Goobstation
 
     public override void Initialize()
     {
@@ -45,6 +47,7 @@ public abstract class EquipmentHudSystem<T> : EntitySystem where T : IComponent
 
         SubscribeLocalEvent<T, RefreshEquipmentHudEvent<T>>(OnRefreshComponentHud);
         SubscribeLocalEvent<T, InventoryRelayedEvent<RefreshEquipmentHudEvent<T>>>(OnRefreshEquipmentHud);
+        SubscribeLocalEvent<T, HeldRelayedEvent<RefreshEquipmentHudEvent<T>>>(OnRefreshEquipmentHud); // Goobstation
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
     }
@@ -104,6 +107,16 @@ public abstract class EquipmentHudSystem<T> : EntitySystem where T : IComponent
         Deactivate();
     }
 
+    // Goobstation
+    protected virtual void OnRefreshEquipmentHud(Entity<T> ent, ref HeldRelayedEvent<RefreshEquipmentHudEvent<T>> args)
+    {
+        if (!args.Args.WorksInHands)
+            return;
+
+        args.Args.Active = true;
+        args.Args.Components.Add(ent.Comp);
+    }
+
     protected virtual void OnRefreshEquipmentHud(Entity<T> ent, ref InventoryRelayedEvent<RefreshEquipmentHudEvent<T>> args)
     {
         // Goobstation edit
@@ -122,7 +135,7 @@ public abstract class EquipmentHudSystem<T> : EntitySystem where T : IComponent
         if (_player.LocalSession?.AttachedEntity is not { } entity)
             return;
 
-        var ev = new RefreshEquipmentHudEvent<T>(TargetSlots);
+        var ev = new RefreshEquipmentHudEvent<T>(TargetSlots, WorksInHands); // Goob edit
         RaiseLocalEvent(entity, ref ev);
 
         if (ev.Active)

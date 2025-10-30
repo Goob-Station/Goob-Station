@@ -264,3 +264,11 @@
     toggleAction: PulseThermalVision
   - type: IdentityBlocker
     coverage: EYES
+
+- type: entity
+  parent: [ClothingEyesGlassesSecurity, BaseSecurityContraband]
+  id: ClothingEyesGlassesSecurityContraDetect
+  name: contraband detector security glasses
+  description: A set of glasses that provide flash protection, a security HUD, and a built in contraband detector.
+  components:
+  - type: ShowContrabandIcons

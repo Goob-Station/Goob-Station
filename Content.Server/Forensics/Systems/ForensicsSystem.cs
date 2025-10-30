@@ -239,7 +239,7 @@ namespace Content.Server.Forensics
         private void OnRehydrated(Entity<ForensicsComponent> ent, ref GotRehydratedEvent args)
         {
             CopyForensicsFrom(ent.Comp, args.Target);
-            Dirty(args.Target, ent.Comp); // Einstein Engines
+            Dirty(args.Target, Comp<ForensicsComponent>(args.Target)); // Einstein Engines
         }
 
         /// <summary>

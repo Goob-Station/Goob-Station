@@ -10,4 +10,7 @@ public sealed partial class StarBlastComponent : Component
 
     [DataField]
     public TimeSpan KnockdownTime = TimeSpan.FromSeconds(4);
+
+    [DataField]
+    public EntityUid Action;
 }

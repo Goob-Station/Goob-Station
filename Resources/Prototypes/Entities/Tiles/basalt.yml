@@ -94,6 +94,8 @@
     - type: Tag
       tags:
         - HideContextMenu
+    - type: RadiationBlocker
+      resistance: 5
 
 - type: entity
   id: BasaltTwo

@@ -12,6 +12,7 @@ job-name-salvagediver = Salvage Diver
 job-name-ntr = Nanotrasen Representative
 job-name-bs = Blueshield
 job-name-overall = Overall
+job-name-tider = Tider
 
 job-name-exec = Executive Access
 
@@ -37,6 +38,7 @@ job-name-governmentman = The G-Man
 
 job-name-conquest = Conquest
 job-name-mercenarycaptain = Mercenary Captain
+job-name-radiohost = Radio Host
 
 # Role timers - Make these alphabetical or I cut you (dont listen to upstream, i copied and pasted this, make it very un-alphabetical :godo:)
 
@@ -52,3 +54,6 @@ JobGovernmentMan = The G-Man
 JobConquest = Conquest
 JobInspector = Central Command Auditor
 JobMercenaryCaptain = Mercenary Captain
+JobRoboticist = Roboticist
+JobRadioHost = Radio Host
+JobVirologist = Virologist

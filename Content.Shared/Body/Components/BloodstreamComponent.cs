@@ -209,10 +209,4 @@ public sealed partial class BloodstreamComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<AlertPrototype> BleedingAlert = "Bleed";
-
-    /// <summary>
-    /// Goobstation - Prevents this entity from absorbing reagents from smoke/foam.
-    /// </summary>
-    [DataField]
-    public bool SmokeImmune;
 }

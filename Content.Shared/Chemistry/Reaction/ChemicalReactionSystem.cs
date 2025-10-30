@@ -61,6 +61,7 @@ namespace Content.Shared.Chemistry.Reaction
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+        [Dependency] private readonly EntityEffectSystem _effect = default!; // goob edit - use system instead
 
         /// <summary>
         /// A cache of all reactions indexed by at most ONE of their required reactants.
@@ -254,7 +255,7 @@ namespace Content.Shared.Chemistry.Reaction
                         $"Reaction effect {effect.GetType().Name:effect} of reaction {reaction.ID:reaction} applied on entity {ToPrettyString(entity):entity} at Pos:{(posFound ? $"{gridPos:coordinates}" : "[Grid or Map not Found")}");
                 }
 
-                effect.Effect(args);
+                _effect.Effect(effect, args); // goob edit - use system instead
             }
 
             // Someday, some brave soul will thread through an optional actor

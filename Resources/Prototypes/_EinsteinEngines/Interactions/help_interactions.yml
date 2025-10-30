@@ -21,10 +21,18 @@
   cooldown: 0.5
   hideByRequirement: true
   requirement:
-    !type:StandingStateRequirement
-    allowLaying: true
-    allowKnockedDown: true
-    allowSleep: false
+    # Goob edit - No sleeping borgs and stuff
+    !type:ComplexRequirement
+    requirements:
+    - !type:StandingStateRequirement
+      allowLaying: true
+      allowKnockedDown: true
+      allowSleep: false
+    - !type:EntityWhitelistRequirement
+      whitelist:
+        components:
+        - LayingDown
+    # Goob end
   action:
     !type:ComplexAction
     requireAll: false
@@ -44,8 +52,16 @@
   delay: 4.5
   hideByRequirement: true
   requirement:
-    !type:StandingStateRequirement
-    allowStanding: true
+    # Goob edit - No sleeping borgs and stuff
+    !type:ComplexRequirement
+    requirements:
+    - !type:StandingStateRequirement
+      allowStanding: true
+    - !type:EntityWhitelistRequirement
+      whitelist:
+        components:
+        - LayingDown
+    # Goob end
   action:
     !type:ChangeStandingStateAction
     makeLaying: true

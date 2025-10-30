@@ -70,3 +70,5 @@
     ClothingBackpackMessengerSalvage: 2
     ClothingHeadsetMining: 2
     ClothingOuterWinterMiner: 2
+  emaggedInventory:
+    PKAUpgradeDamage: 1

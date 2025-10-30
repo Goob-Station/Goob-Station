@@ -37,7 +37,7 @@
     types:
       Heat: 5
       Blunt: 5
-      Piercing: 5
+      Slash: 5 # Goob edit
   tileBreakChance: [0, 0.5, 1]
   tileBreakIntensity: [0, 10, 30]
   tileBreakRerollReduction: 20
@@ -51,7 +51,7 @@
     types:
       Heat: 3
       Blunt: 3
-      Piercing: 3
+      Slash: 3 # Goob edit
       Structural: 50
   tileBreakChance: [ 0, 0.5, 1 ]
   tileBreakIntensity: [ 0, 10, 30 ]
@@ -66,7 +66,7 @@
     types:
       Heat: 6
       Blunt: 6
-      Piercing: 6
+      Slash: 6 # Goob edit
       Structural: 20
   tileBreakChance: [ 0, 0.5, 1 ]
   tileBreakIntensity: [ 1, 10, 15 ]
@@ -83,7 +83,7 @@
       Radiation: 5
       Heat: 4
       Blunt: 3
-      Piercing: 3
+      Slash: 3 # Goob edit
   lightColor: Green
   fireColor: Green
   texturePath: /Textures/Effects/fire_greyscale.rsi
@@ -107,9 +107,9 @@
   id: Minibomb
   damagePerIntensity:
     types:
-      Heat: 4
-      Blunt: 7
-      Piercing: 4
+      Heat: 8 # Goob edit
+      Blunt: 14 # Goob edit
+      Slash: 8 # Goob edit
   tileBreakChance: [0, 0.5, 1]
   tileBreakIntensity: [0, 10, 30]
   tileBreakRerollReduction: 20
@@ -121,9 +121,9 @@
   id: PowerSink
   damagePerIntensity:
     types:
-      Heat: 12
-      Blunt: 12
-      Piercing: 12
+      Heat: 24 # Goob edit
+      Blunt: 24 # Goob edit
+      Slash: 24 # Goob edit
       Structural: 30
   tileBreakChance: [ 0, 0.5, 1 ]
   tileBreakIntensity: [ 1, 5, 10 ]
@@ -137,9 +137,9 @@
   id: HardBomb
   damagePerIntensity:
     types:
-      Heat: 15
-      Blunt: 15
-      Piercing: 6
+      Heat: 30 # Goob edit
+      Blunt: 30 # Goob edit
+      Slash: 12 # Goob edit
       Structural: 40
   tileBreakChance: [ 0, 0.5, 1 ]
   tileBreakIntensity: [ 0, 10, 30 ]
@@ -155,7 +155,7 @@
     types:
       Heat: 1
       Blunt: 2
-      Piercing: 3
+      Slash: 3 # Goob edit
   lightColor: Orange
   texturePath: /Textures/Effects/fire.rsi
   fireStates: 3

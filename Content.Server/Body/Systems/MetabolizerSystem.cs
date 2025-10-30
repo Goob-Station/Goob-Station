@@ -59,6 +59,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Administration.Logs;
@@ -71,6 +72,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Collections;
@@ -89,6 +91,7 @@ namespace Content.Server.Body.Systems
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+        [Dependency] private readonly EntityEffectSystem _effect = default!; // goob edit
 
         private EntityQuery<OrganComponent> _organQuery;
         private EntityQuery<SolutionContainerManagerComponent> _solutionQuery;
@@ -225,7 +228,12 @@ namespace Content.Server.Body.Systems
                 if (ent.Comp1.MetabolismGroups is null)
                     continue;
 
-                foreach (var group in ent.Comp1.MetabolismGroups)
+                // Goob edit start
+                var ev = new ExcludeMetabolismGroupsEvent(ent.Owner);
+                RaiseLocalEvent(solutionEntityUid.Value, ref ev);
+                var exclude = ev.Groups ?? new();
+
+                foreach (var group in ent.Comp1.MetabolismGroups.ExceptBy(exclude, x => x.Id)) // Goob edit end
                 {
                     if (!proto.Metabolisms.TryGetValue(group.Id, out var entry))
                         continue;
@@ -276,7 +284,7 @@ namespace Content.Server.Body.Systems
                             );
                         }
 
-                        effect.Effect(args);
+                        _effect.Effect(effect, args); // goob edit - use system instead
                     }
                 }
 
