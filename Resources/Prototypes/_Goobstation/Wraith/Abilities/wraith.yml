@@ -40,6 +40,9 @@
       - Food
       - EntityStorage
       - Solution
+      - ReagentDispenser
+      tags:
+      - ChemDispensable
     searchRange: 7
     stunDuration: 5
   - type: Evolve
@@ -87,7 +90,7 @@
   components:
   - type: SummonPlagueRat
   - type: SummonRotHulk
-    searchRadius: 7
+    searchRadius: 9
   - type: Defile
     reagents:
       BuzzochloricBees: 10

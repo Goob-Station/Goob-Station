@@ -16956,3 +16956,288 @@ Entries:
         packs and ointments in each respective vendor.
   id: 1899
   time: '2025-10-25T17:14:42.0000000+00:00'
+- author: Cygnye
+  changes:
+    - type: Tweak
+      message: Brigmed now has new glasses and headset, as well as medical access.
+  id: 1900
+  time: '2025-10-27T01:23:12.0000000+00:00'
+- author: Arraydeess14
+  changes:
+    - type: Add
+      message: Added 3 new Moab class balloons
+    - type: Add
+      message: Added Carp balloons
+    - type: Add
+      message: Added Premium Balloon Warrior's Package
+    - type: Tweak
+      message: Adjusted Balloon Popper's Package price
+    - type: Tweak
+      message: Adjusted Balloon layer cash drop
+  id: 1901
+  time: '2025-10-27T04:06:19.0000000+00:00'
+- author: XWASHERE
+  changes:
+    - type: Fix
+      message: >-
+        Dragging players while they're carrying a person no longer causes the
+        carried player to get stuck to the carrying player
+  id: 1902
+  time: '2025-10-27T04:06:33.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: janitors keys will give less wrong popups
+    - type: Fix
+      message: janitors keys now has a range requirement
+  id: 1903
+  time: '2025-10-27T04:06:41.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Add
+      message: >-
+        More dismemberment, you can get dismembered even if your bone is
+        healthy. A healthy bone is better!
+    - type: Remove
+      message: Slime bones! Slimes are now boneless
+  id: 1904
+  time: '2025-10-27T04:07:35.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Cyborgs can now claim miningpoints
+  id: 1905
+  time: '2025-10-27T04:32:44.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Assistants have been released from their chronic wasting disease.
+  id: 1906
+  time: '2025-10-27T10:30:36.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Fix
+      message: All instruments should have their correct sounds again.
+  id: 1907
+  time: '2025-10-27T12:21:20.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: Added Marlen the Umbrella to the Executive Store for 8LP.
+    - type: Add
+      message: >-
+        Added SUPER PREMIUM SHADYCIGS ULTRA DLC DELUXE for 15LP to the executive
+        store.
+    - type: Add
+      message: Added centcomm soap to the executive store for 10LP.
+    - type: Tweak
+      message: >-
+        Changed icons of everything in the station category to be more
+        appealing. 
+  id: 1908
+  time: '2025-10-27T12:23:51.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: rdp migth be fixed now
+  id: 1909
+  time: '2025-10-27T12:27:31.0000000+00:00'
+- author: John John
+  changes:
+    - type: Add
+      message: You can now suicide and execute people with guns!
+    - type: Add
+      message: >-
+        The bartender now has a russian revolver in his booze cabinet, it cannot
+        be used as a normal gun but it has no ammo ui making it perfect for
+        russian roulette games!
+    - type: Fix
+      message: Fixed pacifists being able to use laser rifles
+  id: 1910
+  time: '2025-10-27T12:28:27.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Tweak
+      message: 'Wraith can now spawn naturally. '
+    - type: Add
+      message: >-
+        Added Spirit Candles. Spirit Candles can be obtained by crafting a skull
+        with a candle. They reveal Wraith roaming around you in a 12x12 area. If
+        you activate the Spirit Candle, Wraith will become corporeal and
+        weakened!
+    - type: Add
+      message: >-
+        Added Salt Lines. You can use a salt shaker or salt packet to create
+        salt lines. They take 1u to make.
+    - type: Add
+      message: Piety Vend has a skull now.
+  id: 1911
+  time: '2025-10-27T17:34:27.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Capoeira grab now denies target sprint temporarily.
+    - type: Tweak
+      message: Slightly increased capoeira power scale from movespeed.
+    - type: Add
+      message: All capoeira combos except for kick up regenerate user stamina again.
+  id: 1912
+  time: '2025-10-27T17:36:37.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: >-
+        plamamen can now equipt gastanks in suitstorage slot whitout the need of
+        vests/ hardsuits
+    - type: Tweak
+      message: >-
+        plamamen can no longer equipt wepons and other non gastank item in
+        suitstorage slot
+  id: 1913
+  time: '2025-10-27T17:51:52.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 'Added new hardlight bow arrow: ion.'
+    - type: Tweak
+      message: Hardlight bow cost reduced 75 -> 60.
+    - type: Tweak
+      message: Disabler and freeze hardlight arrows were buffed.
+    - type: Fix
+      message: You can now play with radial menu open.
+  id: 1914
+  time: '2025-10-28T20:27:44.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Remove
+      message: Removed moab class bloons due to performance issues.
+  id: 1915
+  time: '2025-10-28T23:36:16.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Remove
+      message: Disabled Zombie kit from Nukie uplink.
+    - type: Remove
+      message: Disabled the Devour Devil Clause.
+    - type: Tweak
+      message: 'Tweak: Devils require now a higher player count to spawn.'
+  id: 1916
+  time: '2025-10-28T23:38:10.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Plasmamen can no longer become ninjas, nukies or wizards.
+  id: 1917
+  time: '2025-10-28T23:38:52.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: You can no longer kill yourself with a water pistol
+  id: 1918
+  time: '2025-10-29T01:14:47.0000000+00:00'
+- author: Speebro
+  changes:
+    - type: Tweak
+      message: >-
+        Opporozidone (anti-rot cryo chem) now uses Phalanxamine instead of
+        Cognizine. It's strength has been halved to compensate.
+    - type: Tweak
+      message: Formaldehyde no longer reverts rotting, only pausing it.
+  id: 1919
+  time: '2025-10-29T01:16:45.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Added Roboticist Role, still needs mapping and some spriting.
+  id: 1920
+  time: '2025-10-29T14:10:58.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Buff fake spesos by 5X
+  id: 1921
+  time: '2025-10-29T14:17:26.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Science can now research liquid pumps to move reagents between machines.
+        Read the guidebook!
+  id: 1922
+  time: '2025-10-29T14:29:39.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Tweak
+      message: Wraith Animate Object cd from 30s -> 60s and WP cost from 100 -> 200
+    - type: Tweak
+      message: Wraith Rot Hulk has bigger search range
+    - type: Tweak
+      message: Diseased Rat from Wraith no longer injects insane amounts of poison
+    - type: Tweak
+      message: Wraith Blood Crayon WP cost from 2 -> 5
+    - type: Tweak
+      message: 'Wraith Command cd from 20s -> 40s and it can no longer throw jugs '
+    - type: Tweak
+      message: Wraith Possessed objects can talk now
+    - type: Tweak
+      message: Spirit Candle drops the skull back once it melts
+    - type: Fix
+      message: Rosary no longer damages incorporeal ghosts like Wraith
+    - type: Fix
+      message: Wraith Haunt no longer works on dead bodies
+    - type: Fix
+      message: Salt lines getting destroyed by ghosts
+  id: 1923
+  time: '2025-10-29T15:24:19.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: End of round manifest now shows what antagonists have purchased.
+    - type: Add
+      message: Added detonate nuke objective for nukeops.
+    - type: Remove
+      message: Bso protect command objective.
+  id: 1924
+  time: '2025-10-29T15:30:00.0000000+00:00'
+- author: joaofernandez
+  changes:
+    - type: Tweak
+      message: Added focus to the Search Input whenever the build menu is opened
+  id: 1925
+  time: '2025-10-29T15:57:09.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: NTR experimental hardsuit to the catalogue for 100 points.
+  id: 1926
+  time: '2025-10-29T20:39:54.0000000+00:00'
+- author: TytosB
+  changes:
+    - type: Tweak
+      message: bridge has a second door and external access from sec
+  id: 1927
+  time: '2025-10-30T13:06:39.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Scubbing floor now transfers reagents to the scubbing item
+  id: 1928
+  time: '2025-10-30T13:42:25.0000000+00:00'
+- author: Loltart, ZarathushtraSpitama
+  changes:
+    - type: Add
+      message: Vox's now have a unique slot for storing their nitrogen tanks.
+  id: 1929
+  time: '2025-10-30T13:53:07.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Add
+      message: >-
+        Fireaxe will now ~~decapitation~~ rapidly amputates the head if used to
+        execute somone
+  id: 1930
+  time: '2025-10-30T13:54:31.0000000+00:00'
+- author: '-'
+  changes: []
+  id: 1931
+  time: '2025-10-30T14:01:40.0000000+00:00'
