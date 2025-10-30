@@ -5,6 +5,3 @@
   setPreference: true
   objective: roles-antag-xenomorph-objective
   guides: [ Xenomorphs ]
-  requirements:
-  - !type:OverallPlaytimeRequirement
-  time: 18000 # 5h # Goobstation-RoleTime
