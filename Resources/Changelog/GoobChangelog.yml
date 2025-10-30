@@ -17255,3 +17255,11 @@ Entries:
       message: Fix being able to put markup tags in chat messages.
   id: 1933
   time: '2025-10-30T14:26:57.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        The undetermined crate now has a new western bundle. Only for real
+        cowboy's.
+  id: 1934
+  time: '2025-10-30T14:28:28.0000000+00:00'
