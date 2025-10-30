@@ -13,7 +13,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System.Linq;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Forensics.Components // Goob/Einstein Engins - Shared Forensics Component
