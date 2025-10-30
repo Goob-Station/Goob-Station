@@ -111,7 +111,6 @@ namespace Content.Shared.Damage
     /// </remarks>
     [RegisterComponent]
     [NetworkedComponent]
-    [AutoGenerateComponentPause] // Goobstation
     [Access(typeof(DamageableSystem), Other = AccessPermissions.ReadExecute)]
     public sealed partial class DamageableComponent : Component
     {
@@ -181,7 +180,7 @@ namespace Content.Shared.Damage
         [DataField]
         public FixedPoint2? HealthBarThreshold;
 
-        [ViewVariables, AutoPausedField]
+        [ViewVariables]
         public TimeSpan LastModifiedTime = TimeSpan.Zero;
     }
 
