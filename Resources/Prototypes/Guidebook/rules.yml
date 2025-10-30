@@ -287,6 +287,7 @@
   priority: 16
   text: "/ServerInfo/Guidebook/ServerRules/RoleplayRules/RuleR16AtmosTech.xml"
 
+# Goobstation - Devil
 - type: guideEntry
   id: RuleR17
   name: guide-entry-rules-r17
