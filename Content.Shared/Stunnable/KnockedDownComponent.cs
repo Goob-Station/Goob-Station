@@ -62,7 +62,15 @@ public sealed partial class KnockedDownComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan GetUpDoAfter = TimeSpan.FromSeconds(1);
 
-    //todo marty EE verbs (this)
+    /// <summary>
+    /// Goobstation old WD crawling Datafield, currently used for EE interaction verbs.
+    /// </summary>
+    [DataField("helpInterval"), AutoNetworkedField]
+    public float HelpInterval = 1f;
+
+    /// <summary>
+    /// Goobstation old WD crawling Datafield, currently used for EE interaction verbs.
+    /// </summary>
     [ViewVariables, AutoNetworkedField]
     public float HelpTimer = 0f;
 

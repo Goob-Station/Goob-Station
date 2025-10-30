@@ -90,6 +90,9 @@ using Content.Shared.Jittering;
 using Content.Shared.Speech.EntitySystems;
 using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Common.Stunnable;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Interaction;
+using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -105,16 +108,14 @@ public abstract partial class SharedStunSystem : EntitySystem
     [Dependency] protected readonly AlertsSystem Alerts = default!;
     [Dependency] protected readonly IGameTiming GameTiming = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] protected readonly ActionBlockerSystem Blocker = default!;
-    [Dependency] protected readonly AlertsSystem Alerts = default!;
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
     [Dependency] protected readonly SharedStaminaSystem Stamina = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _status = default!;
+    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
     [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
 
@@ -276,7 +277,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         RaiseLocalEvent(uid, modifierEv, true);
         time *= modifierEv.Modifier;
 
-        if (!HasComp<LayingDownComponent>(uid)) // Goobstation - only knockdown mobs that can lie down
+        if (!HasComp<KnockedDownComponent>(uid)) // Goobstation - only knockdown mobs that can lie down
             return false;
 
         if (time <= TimeSpan.Zero || !Resolve(uid, ref status, false))
@@ -307,7 +308,7 @@ public abstract partial class SharedStunSystem : EntitySystem
     /// </summary>
     public bool KnockdownOrStun(EntityUid uid, TimeSpan time, bool refresh, StatusEffectsComponent? status = null)
     {
-        return TryKnockdown(uid, time, refresh, status) || TryStun(uid, time, refresh, status);
+        return TryKnockdown(uid, time, refresh) || TryUpdateStunDuration(uid, time);
     }
 
     /// <summary>
@@ -315,11 +316,11 @@ public abstract partial class SharedStunSystem : EntitySystem
     /// </summary>
     public bool TryKnockdown(Entity<StandingStateComponent?> entity, TimeSpan? time, bool refresh, bool autoStand = true, bool drop = true, bool force = false)
     {
-        var modifierEv = new GetClothingStunModifierEvent(uid);
-        RaiseLocalEvent(uid, modifierEv, true);
+        var modifierEv = new GetClothingStunModifierEvent(entity);
+        RaiseLocalEvent( entity, modifierEv, true);
         time *= modifierEv.Modifier;
 
-        if (!HasComp<LayingDownComponent>(uid)) // Goobstation - only knockdown mobs that can lie down
+        if (!HasComp<CrawlerComponent>(entity)) // Goobstation - only knockdown mobs that can lie down //todo marty crawlercomp - also doublecheck the stunmeta shit here
             return false;
 
         if (time <= TimeSpan.Zero)
