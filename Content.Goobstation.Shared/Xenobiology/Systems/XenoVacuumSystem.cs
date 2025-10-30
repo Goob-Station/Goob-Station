@@ -8,25 +8,60 @@
 
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Goobstation.Shared.Xenobiology.Components.Equipment;
+using Content.Shared.ActionBlocker;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Coordinates;
+using Content.Shared.Damage;
+using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
+using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory;
+using Content.Shared.Jittering;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Popups;
+using Content.Shared.Stunnable;
+using Content.Shared.Throwing;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
+using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
 /// <summary>
 /// This handles the XenoVacuum and it's interactions.
 /// </summary>
-public partial class XenobiologySystem
+public sealed partial class XenoVacuumSystem : EntitySystem
 {
-    private void InitializeVacuum()
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly ThrowingSystem _throw = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+
+    private ISawmill _sawmill = default!;
+
+    private EntityQuery<HumanoidAppearanceComponent> _humanoidQuery;
+    private EntityQuery<MobStateComponent> _mobQuery;
+
+    public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<XenoVacuumTankComponent, ComponentInit>(OnTankInit);
         SubscribeLocalEvent<XenoVacuumTankComponent, ExaminedEvent>(OnTankExamined);
 
@@ -36,6 +71,11 @@ public partial class XenobiologySystem
         SubscribeLocalEvent<XenoVacuumComponent, GotUnequippedHandEvent>(OnUnequippedHand);
 
         SubscribeLocalEvent<XenoVacuumComponent, AfterInteractEvent>(OnXenoVacuum);
+
+        _sawmill = Logger.GetSawmill("Xenobiology");
+
+        _humanoidQuery = GetEntityQuery<HumanoidAppearanceComponent>();
+        _mobQuery = GetEntityQuery<MobStateComponent>();
     }
 
     private void OnTankInit(Entity<XenoVacuumTankComponent> tank, ref ComponentInit args) =>

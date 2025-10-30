@@ -12,24 +12,20 @@ using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
-using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
-/// <summary>
-/// This handles any actions that slime mobs may have.
-/// </summary>
+// This handles any actions that slime mobs may have.
 public partial class XenobiologySystem
 {
-    private void InitializeActions()
+    private void SubscribeActions()
     {
         SubscribeLocalEvent<SlimeLatchEvent>(OnLatchAttempt);
         SubscribeLocalEvent<SlimeComponent, SlimeLatchDoAfterEvent>(OnStartLatch);
 
         SubscribeLocalEvent<SlimeComponent, ComponentStartup>(OnComponentInit);
-        SubscribeLocalEvent<SlimeComponent, ExaminedEvent>(OnExamined);
 
         SubscribeLocalEvent<SlimeComponent, EntRemovedFromContainerMessage>(OnEntityEscape);
         SubscribeLocalEvent<SlimeComponent, MobStateChangedEvent>(OnEntityDied);
@@ -62,17 +58,9 @@ public partial class XenobiologySystem
         }
     }
 
-    private void OnComponentInit(Entity<SlimeComponent> slime, ref ComponentStartup args) =>
-        slime.Comp.Stomach = _containerSystem.EnsureContainer<Container>(slime, "Stomach");
-
-    private void OnExamined(Entity<SlimeComponent> slime, ref ExaminedEvent args)
+    private void OnComponentInit(Entity<SlimeComponent> slime, ref ComponentStartup args)
     {
-        if (!args.IsInDetailsRange
-            || slime.Comp.Stomach.Count <= 0)
-            return;
-
-        var text = Loc.GetString("slime-examined-text", ("num", slime.Comp.Stomach.Count));
-        args.PushMarkup(text);
+        slime.Comp.Stomach = _containerSystem.EnsureContainer<Container>(slime, "Stomach");
     }
 
     #region Events

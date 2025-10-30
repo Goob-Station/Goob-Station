@@ -11,27 +11,33 @@ using Content.Shared.Interaction.Events;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
-/// <summary>
-/// This handles slime taming, likely to be expanded in the future.
-/// </summary>
+// This handles slime taming, likely to be expanded in the future.
 public partial class XenobiologySystem
 {
-    private void InitializeTaming() =>
-        SubscribeLocalEvent<SlimeComponent, InteractionSuccessEvent>(OnTame);
-
-    private void OnTame(Entity<SlimeComponent> ent, ref InteractionSuccessEvent args)
+    private void SubscribeTaming()
     {
-        if (ent.Comp.Tamer.HasValue
-            || _net.IsClient)
+        SubscribeLocalEvent<SlimeComponent, InteractionSuccessEvent>(OnInteractionSuccess);
+    }
+
+    private void OnInteractionSuccess(Entity<SlimeComponent> ent, ref InteractionSuccessEvent args)
+    {
+        if (_net.IsClient) return;
+
+        if (ent.Comp.Tamer.HasValue)
+        {
+            _popup.PopupEntity(Loc.GetString("slime-interaction-tame-fail"), args.User, args.User);
             return;
+        }
 
         var (slime, comp) = ent;
         var coords = Transform(slime).Coordinates;
-        var user = args.User;
 
         // Hearts VFX - Slime taming is seperate to core Pettable Component/System
         Spawn(ent.Comp.TameEffect, coords);
-        comp.Tamer = user;
+        comp.Tamer = args.User;
+
+        _popup.PopupEntity(Loc.GetString("slime-interaction-tame"), args.User, args.User);
+
         Dirty(ent);
     }
 }

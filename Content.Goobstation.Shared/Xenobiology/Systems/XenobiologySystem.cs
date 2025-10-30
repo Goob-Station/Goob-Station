@@ -10,17 +10,13 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
-using Content.Shared.Emag.Systems;
-using Content.Shared.Humanoid;
-using Content.Shared.Inventory;
+using Content.Shared.Examine;
 using Content.Shared.Jittering;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
-using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
@@ -32,7 +28,8 @@ using Robust.Shared.Timing;
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
 /// <summary>
-/// This handles the server-side of Xenobiology.
+///     This handles the server-side of Xenobiology.
+///     Why is it in shared again if it handles the server-side part?
 /// </summary>
 public sealed partial class XenobiologySystem : EntitySystem
 {
@@ -44,8 +41,6 @@ public sealed partial class XenobiologySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
@@ -53,7 +48,6 @@ public sealed partial class XenobiologySystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
-    [Dependency] private readonly ThrowingSystem _throw = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly IConfigurationManager _configuration = default!;
@@ -61,24 +55,22 @@ public sealed partial class XenobiologySystem : EntitySystem
     private ISawmill _sawmill = default!;
 
     private EntityQuery<SlimeComponent> _slimeQuery;
-    private EntityQuery<HumanoidAppearanceComponent> _humanoidQuery;
-    private EntityQuery<MobStateComponent> _mobQuery;
     private EntityQuery<HungerComponent> _hungerQuery;
 
     public override void Initialize()
     {
-        InitializeTaming();
-        InitializeGrowth();
-        InitializeBreeding();
-        InitializeVacuum();
-        InitializeActions();
-        InitializeExtracts();
+        base.Initialize();
+
+        SubscribeTaming();
+        SubscribeBreeding();
+        SubscribeActions();
+        SubscribeExtracts();
+
+        SubscribeLocalEvent<SlimeComponent, ExaminedEvent>(OnExamined);
 
         _sawmill = Logger.GetSawmill("Xenobiology");
 
         _slimeQuery = GetEntityQuery<SlimeComponent>();
-        _humanoidQuery = GetEntityQuery<HumanoidAppearanceComponent>();
-        _mobQuery = GetEntityQuery<MobStateComponent>();
         _hungerQuery = GetEntityQuery<HungerComponent>();
     }
 
@@ -86,8 +78,19 @@ public sealed partial class XenobiologySystem : EntitySystem
     {
         base.Update(frameTime);
         UpdateMitosis();
-        UpdateMobGrowth();
         UpdateHunger();
+    }
+
+    private void OnExamined(Entity<SlimeComponent> slime, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange || _net.IsClient)
+            return;
+
+        if (slime.Comp.Tamer == args.Examiner)
+            args.PushMarkup(Loc.GetString("slime-examined-tamer"));
+
+        if (slime.Comp.Stomach.Count > 0)
+            args.PushMarkup(Loc.GetString("slime-examined-stomach"));
     }
 
     /// <summary>

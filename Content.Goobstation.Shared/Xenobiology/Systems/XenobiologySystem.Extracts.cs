@@ -13,12 +13,10 @@ using Content.Shared.Examine;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
-/// <summary>
-/// This handles slime extracts.
-/// </summary>
+// This handles slime extracts.
 public partial class XenobiologySystem
 {
-    private void InitializeExtracts()
+    private void SubscribeExtracts()
     {
         SubscribeLocalEvent<SlimeExtractComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<SlimeExtractComponent, BeforeSolutionReactEvent>(BeforeSolutionReact);

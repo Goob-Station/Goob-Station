@@ -6,17 +6,34 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Xenobiology.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
+using Robust.Shared.Network;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
-/// <summary>
-/// This handles mob growth between development stages.
-/// </summary>
-public partial class XenobiologySystem
+// This handles mob growth between development stages.
+public sealed partial class MobGrowthSystem : EntitySystem
 {
-    private void InitializeGrowth() =>
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly HungerSystem _hunger = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly INetManager _net = default!;
+
+    private ISawmill _sawmill = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
         SubscribeLocalEvent<MobGrowthComponent, ComponentInit>(OnMobGrowthInit);
+
+        _sawmill = Logger.GetSawmill("MobGrowth");
+    }
 
     private void OnMobGrowthInit(Entity<MobGrowthComponent> ent, ref ComponentInit args)
     {
@@ -31,9 +48,12 @@ public partial class XenobiologySystem
 
         UpdateAppearance(ent);
     }
+
     // Checks entity hunger thresholds, if the threshold required by MobGrowth is met -> grow.
-    private void UpdateMobGrowth()
+    public override void Update(float frameTime)
     {
+        base.Update(frameTime);
+
         var query = EntityQueryEnumerator<MobGrowthComponent, HungerComponent>();
         while (query.MoveNext(out var uid, out var growth, out var hungerComp))
         {
@@ -49,7 +69,6 @@ public partial class XenobiologySystem
                 continue;
 
             DoGrowth((uid, growth, hungerComp));
-
         }
     }
 

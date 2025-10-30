@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseItem
+  id: SlimeScannerXenobio
+  name: slime scanner
+  description: Using it on a slime will give you all the necessary info you've ever wanted.
+  components:
+  - type: SlimeScanner
+  - type: Sprite # todo change
+    sprite: Objects/Specific/Medical/healthanalyzer.rsi
+    state: icon

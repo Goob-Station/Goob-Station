@@ -14,12 +14,10 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
-/// <summary>
-///     This handles slime breeding and mutation.
-/// </summary>
+// This handles slime breeding and mutation.
 public partial class XenobiologySystem
 {
-    private void InitializeBreeding()
+    private void SubscribeBreeding()
     {
         SubscribeLocalEvent<SlimeComponent, MapInitEvent>(OnSlimeMapInit);
     }
@@ -30,7 +28,7 @@ public partial class XenobiologySystem
         ent.Comp.NextUpdateTime = _gameTiming.CurTime + ent.Comp.UpdateInterval;
 
         // just respawn it and toggle a switch
-        // it fucking sucks but it works and now y*ml warriors can rest in grease
+        // it sucks but it works and now y*ml warriors can add more slimes 500% faster
         if (HasComp<PendingSlimeSpawnComponent>(ent))
         {
             SpawnSlime(ent, ent.Comp.DefaultSlimeProto, ent.Comp.Breed);
@@ -69,38 +67,11 @@ public partial class XenobiologySystem
         }
     }
 
-    #region Helpers
-
-    /// <summary>
-    ///     Spawns a slime with a given mutation
-    /// </summary>
-    /// <param name="parent">The original entity.</param>
-    /// <param name="newEntityProto">The proto of the entity being spawned.</param>
-    /// <param name="selectedBreed">The selected breed of the entity.</param>
-    private Entity<SlimeComponent>? SpawnSlime(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
-    {
-        if (!_prototypeManager.TryIndex(selectedBreed, out var newBreed) || _net.IsClient)
-            return null;
-
-        var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent, null, newBreed.Components);
-        if (!_slimeQuery.TryComp(newEntityUid, out var slime))
-            return null;
-
-        if (slime.ShouldHaveShader && slime.Shader != null)
-            _appearance.SetData(newEntityUid, XenoSlimeVisuals.Shader, slime.Shader);
-
-        _appearance.SetData(newEntityUid, XenoSlimeVisuals.Color, slime.SlimeColor);
-        _metaData.SetEntityName(newEntityUid, newBreed.BreedName);
-
-        return new Entity<SlimeComponent>(newEntityUid, slime);
-    }
-
     /// <summary>
     ///     Handles slime mitosis.
     ///     For each offspring, a mutation is selected from their potential mutations.
     ///     If mutation is successful, the products of mitosis will have the new mutation.
     /// </summary>
-    /// <param name="ent"></param>
     private void DoMitosis(Entity<SlimeComponent> ent)
     {
         if (_net.IsClient)
@@ -123,5 +94,31 @@ public partial class XenobiologySystem
         QueueDel(ent);
     }
 
-    #endregion
+    /// <summary>
+    ///     Spawns a slime with a given mutation
+    /// </summary>
+    /// <param name="parent">The original entity.</param>
+    /// <param name="newEntityProto">The proto of the entity being spawned.</param>
+    /// <param name="selectedBreed">The selected breed of the entity.</param>
+    private Entity<SlimeComponent>? SpawnSlime(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
+    {
+        if (!_prototypeManager.TryIndex(selectedBreed, out var newBreed) || _net.IsClient)
+            return null;
+
+        var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent, null, newBreed.Components);
+        if (!_slimeQuery.TryComp(newEntityUid, out var newSlime))
+            return null;
+
+        // we transfer the tamer too
+        if (_slimeQuery.TryComp(parent, out var slime))
+            newSlime.Tamer = slime.Tamer;
+
+        if (newSlime.ShouldHaveShader && newSlime.Shader != null)
+            _appearance.SetData(newEntityUid, XenoSlimeVisuals.Shader, newSlime.Shader);
+
+        _appearance.SetData(newEntityUid, XenoSlimeVisuals.Color, newSlime.SlimeColor);
+        _metaData.SetEntityName(newEntityUid, newBreed.BreedName);
+
+        return new Entity<SlimeComponent>(newEntityUid, newSlime);
+    }
 }
