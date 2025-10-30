@@ -252,7 +252,7 @@
   name: xenomorph-title
   description: xenomorph-description
   showInVote: false
-  minPlayers: 50
+  minPlayers: 1
   rules:
   - XenomorphsInfestationRoundstart
   - SubGamemodesRule
