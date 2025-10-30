@@ -462,7 +462,6 @@
     metabolizerTypes: [Human]
     groups:
     - id: Alcohol
-      rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
   - type: Tag # goob edit
     tags:
     - Meat

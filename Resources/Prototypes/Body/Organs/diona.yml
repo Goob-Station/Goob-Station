@@ -188,7 +188,6 @@
       - id: Poison
       - id: Narcotic
       - id: Alcohol
-        rateModifier: 0.1
   - type: Tag # goob edit
     tags:
     - Meat
