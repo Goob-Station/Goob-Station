@@ -30,6 +30,13 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 4
     baseSprintSpeed: 4
+  - type: Vocal
+    wilhelm: "/Audio/_Goobstation/Voice/badtothebone.ogg"
+    wilhelmProbability: 0.1
+    sounds:
+      Male: Skeleton
+      Female: Skeleton
+      Unsexed: Skeleton
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Wraith/Mobs/skeletoncommander.rsi
@@ -73,7 +80,10 @@
     - ActionRally
     - ActionSummonLesserSkeleton
   - type: Speech
-    speechVerb: Ghost
+    speechVerb: Skeleton
+  - type: SkeletonAccent
+  - type: TypingIndicator
+    proto: skeleton
   - type: Destructible
     thresholds:
       - trigger:
@@ -105,6 +115,8 @@
   id: MobVoidSpiker
   description: Standing still is probably not a good idea.
   components:
+  - type: MindContainer
+    showExamineInfo: true
   - type: CollectiveMind
     defaultChannel: Wraithmind
     channels:
@@ -202,6 +214,8 @@
   id: MobVoidHound
   description: You probably shouldn't be staring at this thing.
   components:
+  - type: MindContainer
+    showExamineInfo: true
   - type: CollectiveMind
     defaultChannel: Wraithmind
     channels:

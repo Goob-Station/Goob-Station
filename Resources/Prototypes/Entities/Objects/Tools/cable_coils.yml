@@ -75,11 +75,6 @@
     - DroneUsable # Goobstation
   - type: Stack
     stackType: Cable
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     sprite: Objects/Tools/cable-coils.rsi
   - type: Item

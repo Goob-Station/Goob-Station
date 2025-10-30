@@ -172,6 +172,7 @@
     tags:
     - Meat
     - Organ
+  - type: HumanOrgan # Goobstation
 
 - type: entity
   id: BaseHumanOrgan

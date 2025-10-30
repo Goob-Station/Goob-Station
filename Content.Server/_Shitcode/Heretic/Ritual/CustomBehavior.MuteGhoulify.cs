@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Speech.Muting;
@@ -17,8 +18,15 @@ public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
 {
     public override void Finalize(RitualData args)
     {
-        foreach (var uid in uids)
+        if (!args.EntityManager.TryGetComponent(args.Performer, out HereticComponent? heretic))
+            return;
+
+        if (args is { Limit: > 0, Limited: not null } && args.Limited.Count >= args.Limit)
+            return;
+
+        for (var i = 0; i < Math.Min(uids.Count, Max); i++)
         {
+            var uid = uids[i];
             var ghoul = new GhoulComponent
             {
                 TotalHealth = 100f,
@@ -27,6 +35,15 @@ public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
             };
             args.EntityManager.AddComponent(uid, ghoul, overwrite: true);
             args.EntityManager.EnsureComponent<MutedComponent>(uid);
+            args.EntityManager.EnsureComponent<HereticBladeUserBonusDamageComponent>(uid);
+
+            if (args.Limited == null)
+                continue;
+
+            args.Limited.Add(uid);
+
+            if (args.Limit > 0 && args.Limited.Count >= args.Limit)
+                break;
         }
     }
 }

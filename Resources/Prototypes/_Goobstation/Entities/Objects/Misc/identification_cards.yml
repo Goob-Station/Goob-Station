@@ -291,3 +291,17 @@
     job: SyndicateHighCommander
   - type: Emag
     emagType: Access
+
+# Crew
+
+- type: entity
+  parent: IDCardStandard
+  id: RoboticistIDCard
+  name: roboticist ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idroboticist
+  - type: PresetIdCard
+    job: Roboticist

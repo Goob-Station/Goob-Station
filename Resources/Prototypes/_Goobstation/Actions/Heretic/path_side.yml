@@ -52,25 +52,3 @@
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-cleave
-
-- type: entity
-  parent: BaseAction
-  id: ActionHereticRustCharge
-  name: Rust Charge
-  description: A charge that must be started on a rusted tile and will destroy any rusted objects you come into contact with, will deal high damage to others and rust around you during the charge. As it is the rust that empowers you with this ability, no focus is needed.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Action
-    checkCanInteract: false
-    useDelay: 45
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
-      state: rust_charge
-  - type: TargetAction
-    range: 0
-    checkCanAccess: false
-  - type: WorldTargetAction
-    event: !type:EventHereticRustCharge
-  - type: HereticAction
-    requireMagicItem: false

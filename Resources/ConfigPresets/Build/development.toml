@@ -56,6 +56,9 @@ see_own_notes = true
 [lavaland] # Lavaland Change
 enabled = false
 
+[heretic] # Goobstation
+ascension_requires_objectives = false
+
 [ic]
 random_characters = false
 random_species_weights = ""

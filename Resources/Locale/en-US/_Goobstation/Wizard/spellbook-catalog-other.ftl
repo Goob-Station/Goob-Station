@@ -79,6 +79,7 @@ spellbook-bottle-blood-desc =
     and you yourself may become a victim.
 
     You need to shatter the bottle to unleash the slaughter demon.
+    Buying this and Hell Ripte Scroll unlocks purchasing a special slaughter demon heart.
 
 spellbook-bottle-tickles-name = Bottle of Tickles
 spellbook-bottle-tickles-desc =

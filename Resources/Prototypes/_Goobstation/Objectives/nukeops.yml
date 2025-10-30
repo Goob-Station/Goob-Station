@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseObjective
+  id: NukeopsDetonateObjective
+  name: Destroy the station with a nuclear device.
+  description: Deliver the payload and get out before the payload detonates.
+  components:
+  - type: Objective
+    issuer: objective-issuer-syndicate
+    unique: true
+    difficulty: 1
+    icon:
+      sprite: Objects/Devices/nuke.rsi
+      state: nuclearbomb_base
+  - type: RoleRequirement
+    roles:
+    - NukeopsRole
+  - type: DetonateNukeCondition

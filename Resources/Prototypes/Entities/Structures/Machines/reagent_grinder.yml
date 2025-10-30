@@ -74,6 +74,12 @@
     layers:
     - map: [ "grinder" ]
       state: "grinder_empty"
+    - map: [ "enum.SolutionContainerLayers.Fill" ]
+      state: beakerSlot1
+  - type: SolutionContainerVisuals # Goobstation
+    maxFillLevels: 4
+    insertedItemSlotID: beakerSlot
+    fillBaseName: beakerSlot
   - type: ApcPowerReceiver
     powerLoad: 300
   - type: ItemSlots
@@ -96,6 +102,9 @@
         - Extractable # shitcode doesnt require this with container attempt events just in interaction
       containerId: inputContainer
       maxItems: 6 # manually have to sync it with ReagentGrinderComponent :)
+    - !type:AutomatedBeakerSlot
+      input: PlumbingDispenser
+      output: PlumbingDispenser
   - type: Machine
     board: ReagentGrinderMachineCircuitboard
   - type: ContainerContainer
@@ -129,6 +138,11 @@
     sprite: Structures/Machines/recycling.rsi
     layers:
       - state: grinder-b0
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedSolution
+      output: PlumbingOutput
+      solutionName: output
   - type: Machine
     board: ReagentGrinderIndustrialMachineCircuitboard
   - type: GenericVisualizer

@@ -109,6 +109,15 @@ public sealed partial class StaminaSystem : SharedStaminaSystem
 
     private void PlayAnimation(Entity<StaminaComponent, SpriteComponent> entity)
     {
+        // Goobstation start
+        // Last-stand sanity check to prevent clients from dying from dividing by 0
+        if (entity.Comp1.CritThreshold <= entity.Comp1.AnimationThreshold)
+        {
+            Log.Warning($"Entity {ToPrettyString(entity)} has invalid StaminaComponent: it's {nameof(StaminaComponent.CritThreshold)} lower or equal to {nameof(StaminaComponent.AnimationThreshold)}. Canceling playing the animation.");
+            return;
+        }
+        // Goobstation end
+
         var step = Math.Clamp((entity.Comp1.StaminaDamage - entity.Comp1.AnimationThreshold) /
                               (entity.Comp1.CritThreshold - entity.Comp1.AnimationThreshold),
             0f,

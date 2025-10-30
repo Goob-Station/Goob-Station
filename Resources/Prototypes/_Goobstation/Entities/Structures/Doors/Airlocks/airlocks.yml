@@ -59,3 +59,19 @@
     occludes: false
   - type: Occluder
     enabled: false
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockRobotics
+  suffix: Robotics
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsRobotics ]
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doors/Airlocks/Glass/robotics.rsi
+  - type: PaintableAirlock
+    department: Science
+    group: Glass
+  - type: Wires
+    layoutId: AirlockScience

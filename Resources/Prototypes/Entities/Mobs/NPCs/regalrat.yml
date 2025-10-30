@@ -443,6 +443,7 @@
         recursive: false
   - type: Stamina
     critThreshold: 60
+    animationThreshold: 30 # Goob edit
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg

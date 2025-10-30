@@ -1006,7 +1006,7 @@
           shouldHave: false
 
 - type: reagent
-  id: Synthflesh # synthflesh is somewhat mid in SS14 due to topicals, so it's mostly a reference here
+  id: Synthflesh
   name: reagent-name-synthflesh
   desc: reagent-desc-synthflesh
   physicalDesc: reagent-physical-desc-pulpy
@@ -1017,6 +1017,36 @@
       amount: 10
     - !type:PlantAdjustHealth
       amount: 10
+  worksOnTheDead: true
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        ignoreBlockers: false
+        damage: #1/4th of the brute healing of Styptic Powder and 1/4th the burn healing of Silver Sulfide, so 1/2 of the overall healing of either chem
+          types:
+            Blunt: -0.5
+            Piercing: -0.25
+            Slash: -0.5
+            Heat: -0.38
+            Cold: -0.38
+            Shock: -0.25
+            Caustic: -0.25 
+        conditions:
+        - !type:HasComponentOnEquipmentCondition
+          components:
+          - type: PressureProtection # can't get through this to reach the bodyparts! (copy pasted comment)
+          invert: true
+      - !type:ModifyBleedAmount
+        amount: -2
+        conditions:
+        - !type:HasComponentOnEquipmentCondition
+          components:
+          - type: PressureProtection
+          invert: true
 
 - type: reagent
   id: Synthcells
@@ -1042,7 +1072,7 @@
         ignoreBlockers: false
         damage:
           types:
-            Blunt: 1
+            Blunt: 0.25
             Poison: -2
             Radiation: -1
         conditions:

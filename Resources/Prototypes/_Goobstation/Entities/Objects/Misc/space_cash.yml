@@ -24,14 +24,14 @@
 
 - type: entity
   parent: SpaceCashCounterfeit
-  id: SpaceCashCounterfeit50
-  suffix: 50
+  id: SpaceCashCounterfeit250
+  suffix: 250
   components:
   - type: Icon
     sprite: Objects/Economy/cash.rsi
     state: cash_10
   - type: Stack
-    count: 50
+    count: 250
   - type: Construction
     graph: SpesosCounterfeit
     node: spesos

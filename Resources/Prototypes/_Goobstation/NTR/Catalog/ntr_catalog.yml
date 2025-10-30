@@ -230,22 +230,6 @@
 #  - !type:ListingLimitedStockCondition
 #    stock: 1 # we dont want NTR to buy 3 BSDs in one shift so
 
-#- type: listing
-#  id: NTRExecutiveHardsuit
-#  name: ntr-executive-hardsuit-name
-#  description: ntr-executive-hardsuit-desc
-#  productEntity: SpawnPodHardsuit
-#  icon:
-#    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr.rsi
-#    state: icon
-#  cost:
-#    NTLoyaltyPoint: 35
-#  categories:
-#  - NTRpersonal
-#  restockTime: 600 # 10 mins
-#  resetRestockOnPurchase: true
-#  restockAfterPurchase: 2400 # 40 mins, you dont want to buy 2 suits in one shift, but if you do, then wait lol
-
 - type: listing
   id: NTRExecutiveCigar
   name: ntr-executive-cigar-name
@@ -343,22 +327,6 @@
   restockAfterPurchase: 1800 #30mins, you shouldnt spam this
 
 - type: listing
-  id: NTRExecutiveMarlen
-  name: Marlen
-  description: A stylish Centcomm umbrella, made by "NanoFashion" for the rich people of central command. Surprisingly durable.
-  productEntity: SpawnPodMarlen
-  icon:
-    sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
-    state: icon-on
-  cost:
-    NTLoyaltyPoint: 8
-  categories:
-  - NTRpersonal
-  restockTime: 60 # idk
-  resetRestockOnPurchase: true
-  restockAfterPurchase: 1800 #30min
-
-- type: listing
   id: NTRExecutiveCigsDeluxe
   name: Executive cig vendor
   description: For those who know that lung cancer is non-existent, Nanotrasen made this, a vendor full of ciggaretes and expensive flippos for you to smoke.
@@ -391,6 +359,38 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 2
+
+- type: listing
+  id: NTRExperimentalHardsuit
+  name: ntr-experimental-hardsuit-name
+  description: ntr-experimental-hardsuit-desc
+  productEntity: SpawnPodHardsuitExperimental
+  icon:
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr_experimental.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 30
+  categories:
+  - NTRpersonal
+  restockTime: 1200 # 20 mins
+  resetRestockOnPurchase: false
+  restockAfterPurchase: 2400 # 40 mins, you dont want to buy 2 suits in one shift, but if you do, then wait lol
+
+- type: listing
+  id: NTRExecutiveMarlen
+  name: Marlen
+  description: A stylish Centcomm umbrella, made by "NanoFashion" for the rich people of central command. Surprisingly durable.
+  productEntity: SpawnPodMarlen
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
+    state: icon-on
+  cost:
+    NTLoyaltyPoint: 8
+  categories:
+  - NTRpersonal
+  restockTime: 60 # idk
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1800 #30min
 
 # Machine boards
 

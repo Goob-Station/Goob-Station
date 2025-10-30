@@ -38,7 +38,7 @@ public abstract class SharedConstructorSystem : EntitySystem
             return;
 
         var msg = ent.Comp.Construction is {} id
-            ? Loc.GetString("constructor-examine", ("name", Proto.Index(id)))
+            ? Loc.GetString("constructor-examine", ("name", Proto.Index(id).Name ?? id))
             : Loc.GetString("constructor-examine-unset");
         args.PushMarkup(msg);
     }

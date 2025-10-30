@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Goobstation.Common.Physics;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems.Abilities;
@@ -6,6 +7,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -25,6 +27,7 @@ public abstract class SharedStarGazerSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
 
     protected const string JointId = "stargaze";
 
@@ -34,6 +37,7 @@ public abstract class SharedStarGazerSystem : EntitySystem
 
         SubscribeLocalEvent<StarGazerComponent, StarGazeEvent>(OnStarGaze);
         SubscribeLocalEvent<StarGazerComponent, AttackAttemptEvent>(OnStarGazerAttackAttempt);
+        SubscribeLocalEvent<StarGazerComponent, MeleeHitEvent>(OnStarGazerHit);
 
         SubscribeLocalEvent<StarGazeComponent, StarGazeDoAfterEvent>(OnStarGazeDoAfter);
         SubscribeLocalEvent<StarGazeComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
@@ -44,9 +48,18 @@ public abstract class SharedStarGazerSystem : EntitySystem
         SubscribeAllEvent<LaserBeamEndpointPositionEvent>(OnGetPosition);
     }
 
+    private void OnStarGazerHit(Entity<StarGazerComponent> ent, ref MeleeHitEvent args)
+    {
+        foreach (var uid in args.HitEntities)
+        {
+            _starMark.TryApplyStarMark(uid);
+        }
+    }
+
     private void OnStarGazerAttackAttempt(Entity<StarGazerComponent> ent, ref AttackAttemptEvent args)
     {
-        if (args.Target == ent.Comp.Summoner)
+        if (args.Target == ent.Comp.Summoner || HasComp<ShadowCloakEntityComponent>(args.Target) &&
+            Transform(args.Target.Value).ParentUid == ent.Comp.Summoner)
             args.Cancel();
     }
 
@@ -130,8 +143,11 @@ public abstract class SharedStarGazerSystem : EntitySystem
             EnsureComp<LaserBeamEndpointComponent>(endpoint);
             EnsureComp<TimedDespawnComponent>(endpoint).Lifetime = comp.LaserDuration;
             var beam = EnsureComp<ComplexJointVisualsComponent>(uid);
-            beam.Data[GetNetEntity(endpoint)] =
-                new ComplexJointVisualsData(JointId, comp.Beam1, comp.Start1, comp.End1, Timing.CurTime);
+            var data = new ComplexJointVisualsData(JointId, comp.Beam1, comp.Start1, comp.End1, Timing.CurTime)
+            {
+                Scale = new Vector2(comp.BeamScale),
+            };
+            beam.Data[GetNetEntity(endpoint)] = data;
 
             comp.BeamSoundEnt = _audio.PlayEntity(ent.Comp.BeamSound,
                     Filter.Empty().AddInMap(comp.CursorPosition.Value.MapId, EntityManager),

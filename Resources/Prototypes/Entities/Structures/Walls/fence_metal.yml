@@ -88,9 +88,11 @@
     cost: 2
     delay: 2
     fx: EffectRCDDeconstruct2
-  - type: InteractionVerbs # EE: Interaction Verbs
-    allowedVerbs:
-    - Rattle
+  - type: InteractionPopup
+    interactSuccessString: fence-rattle-success
+    messagePerceivedByOthers: fence-rattle-success
+    interactSuccessSound:
+      collection: FenceRattle
 
 - type: entity
   parent: BaseFenceMetal

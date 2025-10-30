@@ -55,7 +55,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </Box>
   <Box HorizontalAlignment="Stretch">
     In the event an IPC dies, after being fully repaired, it should be restarted using the [color=yellow]"Restart"[/color] button (located by right-clicking).
-
+  </Box>
+  <Box HorizontalAlignment="Stretch">
     [color=red]NEVER ELECTROCUTE AN IPC with a defibrillator or in any other way while it is dead, as this will cause the battery to discharge energy rays outward![/color]
   </Box>
 

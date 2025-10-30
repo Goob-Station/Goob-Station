@@ -307,3 +307,45 @@
       TranexamicAcid: 5
   - type: Item
     size: Huge
+
+# Nanorep catalog Hardsuit
+
+- type: entity
+  parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
+  id: ClothingOuterHardsuitExperimentalNanorep
+  name: "NTX5-Mirrorduss"
+  description: A crude, reinforced exosuit of dark composite plating, its surface etched with faint Bluespace circuitry that pulses with a dim, shifting glow.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr_experimental.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr_experimental.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.75
+        Heat: 0.7
+        Radiation: 0.9
+        Caustic: 0.9
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.93
+    walkModifier: 0.93
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitExperimentalNanorep
+  - type: FireProtection
+    reduction: 0.4
