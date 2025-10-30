@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/28/2025 18:29:56
-  entityCount: 18663
+  time: 10/30/2025 08:44:40
+  entityCount: 18665
 maps:
 - 1
 grids:
@@ -8853,7 +8853,8 @@ entities:
           22,6:
             1: 7
           23,5:
-            1: 51
+            1: 49
+            2: 2
           24,4:
             1: 51
           21,9:
@@ -56190,7 +56191,7 @@ entities:
     - type: Label
       currentLabel: кофейный ликёр
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.43715888
+      sprayFizzinessThresholdRoll: 0.28658924
     - type: NameModifier
       baseName: бутылка кофейного ликёра
     - type: ContainerContainer
@@ -56476,7 +56477,7 @@ entities:
     - type: Label
       currentLabel: ром
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.7763754
+      sprayFizzinessThresholdRoll: 0.92758155
     - type: NameModifier
       baseName: кубинский пряный ром капитана Пита
     - type: ContainerContainer
@@ -56518,7 +56519,7 @@ entities:
     - type: Label
       currentLabel: текила
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.17238155
+      sprayFizzinessThresholdRoll: 0.22141388
     - type: NameModifier
       baseName: бутылка текилы Каккаво гарантированного качества
     - type: ContainerContainer
@@ -56559,7 +56560,7 @@ entities:
     - type: Label
       currentLabel: вермут
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.4951799
+      sprayFizzinessThresholdRoll: 0.39096254
     - type: NameModifier
       baseName: бутылка вермута Золотой глаз
     - type: ContainerContainer
@@ -56582,7 +56583,7 @@ entities:
     - type: Label
       currentLabel: водка
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.11500817
+      sprayFizzinessThresholdRoll: 0.160998
     - type: NameModifier
       baseName: бутылка водки
     - type: ContainerContainer
@@ -56632,7 +56633,7 @@ entities:
     - type: Label
       currentLabel: вино
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.40982467
+      sprayFizzinessThresholdRoll: 0.9088441
     - type: NameModifier
       baseName: особое двухбородое бородатое вино
     - type: ContainerContainer
@@ -60409,7 +60410,7 @@ entities:
       pos: 39.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -77144.93
+      secondsUntilStateChange: -81366.586
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -87427,6 +87428,37 @@ entities:
       parent: 2
 - proto: HighSecCommandLocked
   entities:
+  - uid: 90
+    components:
+    - type: Transform
+      pos: 59.5,48.5
+      parent: 2
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PolygonShape
+            radius: 0.01
+            vertices:
+            - -0.49,-0.49
+            - 0.49,-0.49
+            - 0.49,0.49
+            - -0.49,0.49
+          mask:
+          - Impassable
+          - MidImpassable
+          - HighImpassable
+          - LowImpassable
+          - InteractImpassable
+          layer:
+          - MidImpassable
+          - HighImpassable
+          - BulletImpassable
+          - InteractImpassable
+          - Opaque
+          density: 100
+          hard: True
+          restitution: 0
+          friction: 0.4
   - uid: 226
     components:
     - type: Transform
@@ -87438,6 +87470,32 @@ entities:
     - type: Transform
       pos: 22.5,-32.5
       parent: 2
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PolygonShape
+            radius: 0.01
+            vertices:
+            - -0.49,-0.49
+            - 0.49,-0.49
+            - 0.49,0.49
+            - -0.49,0.49
+          mask:
+          - Impassable
+          - MidImpassable
+          - HighImpassable
+          - LowImpassable
+          - InteractImpassable
+          layer:
+          - MidImpassable
+          - HighImpassable
+          - BulletImpassable
+          - InteractImpassable
+          - Opaque
+          density: 100
+          hard: True
+          restitution: 0
+          friction: 0.4
   - uid: 12169
     components:
     - type: Transform
@@ -87457,11 +87515,6 @@ entities:
     components:
     - type: Transform
       pos: 53.5,50.5
-      parent: 2
-  - uid: 12173
-    components:
-    - type: Transform
-      pos: 59.5,48.5
       parent: 2
   - uid: 12174
     components:
@@ -87708,13 +87761,11 @@ entities:
       currentLabel: Инженерная стойка
 - proto: HolopadEngineeringTechVault
   entities:
-  - uid: 18212
+  - uid: 7106
     components:
     - type: Transform
-      pos: 60.5,49.5
+      pos: 61.5,49.5
       parent: 2
-    - type: Label
-      currentLabel: Техническое хранилище
 - proto: HolopadEngineeringTelecoms
   entities:
   - uid: 18213
@@ -90169,6 +90220,28 @@ entities:
     - type: Transform
       pos: 93.5,20.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 12410
     components:
     - type: Transform
@@ -96879,6 +96952,11 @@ entities:
     - type: Transform
       pos: 32.5,16.5
       parent: 2
+  - uid: 5805
+    components:
+    - type: Transform
+      pos: 60.5,49.5
+      parent: 2
   - uid: 8879
     components:
     - type: Transform
@@ -102205,8 +102283,7 @@ entities:
   - uid: 12291
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 60.50674,49.50274
+      pos: 60.45033,49.782158
       parent: 2
   - uid: 14383
     components:
@@ -102279,8 +102356,7 @@ entities:
   - uid: 12288
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 60.491116,49.596554
+      pos: 60.590954,49.65707
       parent: 2
   - uid: 14394
     components:
@@ -102336,8 +102412,7 @@ entities:
   - uid: 12290
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 60.41299,49.50274
+      pos: 60.372204,49.829067
       parent: 2
 - proto: SheetSteel
   entities:
@@ -102361,8 +102436,7 @@ entities:
   - uid: 12289
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 60.459866,49.518375
+      pos: 60.528454,49.735252
       parent: 2
   - uid: 14402
     components:
@@ -105334,17 +105408,20 @@ entities:
       parent: 2
 - proto: SpawnMobDrone
   entities:
-  - uid: 5805
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 61.5,48.5
-      parent: 2
   - uid: 6334
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 60.5,48.5
+      pos: 61.5,48.5
+      parent: 2
+  - uid: 7105
+    components:
+    - type: Transform
+      pos: 21.5,-42.5
+      parent: 2
+  - uid: 7107
+    components:
+    - type: Transform
+      pos: 23.5,-42.5
       parent: 2
 - proto: SpawnMobFoxRenault
   entities:
