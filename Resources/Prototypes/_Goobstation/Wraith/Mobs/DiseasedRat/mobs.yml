@@ -87,7 +87,7 @@
           Quantity: 100
   - type: MeleeChemicalInjector
     solution: melee
-    transferAmount: 4
+    transferAmount: 0.25
   - type: InputMover
   - type: MobMover
   - type: HTN
@@ -249,7 +249,7 @@
           Quantity: 100
   - type: MeleeChemicalInjector
     solution: melee
-    transferAmount: 4
+    transferAmount: 0.25
   - type: InputMover
   - type: MobMover
   - type: HTN
