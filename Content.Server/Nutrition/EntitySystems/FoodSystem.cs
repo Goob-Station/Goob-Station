@@ -145,7 +145,7 @@ using Robust.Server.GameObjects;
 using Content.Shared.Whitelist;
 using Content.Shared.Destructible;
 using Content.Shared.Clothing.EntitySystems;
-using Content.Shared.Heretic;
+using Content.Shared.Heretic; // Goobstation
 
 namespace Content.Server.Nutrition.EntitySystems;
 

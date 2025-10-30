@@ -11,7 +11,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.GameTicking;
-using Content.Shared.Hands;
+using Content.Shared.Hands; // Goobstation
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Client.Player;
@@ -30,7 +30,7 @@ public abstract class EquipmentHudSystem<T> : EntitySystem where T : IComponent
     [ViewVariables]
     protected bool IsActive;
     protected virtual SlotFlags TargetSlots => ~SlotFlags.POCKET;
-    protected virtual bool WorksInHands => false;
+    protected virtual bool WorksInHands => false; // Goobstation
 
     public override void Initialize()
     {

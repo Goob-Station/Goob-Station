@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Goobstation.Heretic.Components; // Goobstation
 using Content.Shared.Species.Components;
 using Content.Shared.Actions;
 using Content.Shared.Body.Systems;
