@@ -17223,3 +17223,9 @@ Entries:
       message: Scubbing floor now transfers reagents to the scubbing item
   id: 1928
   time: '2025-10-30T13:42:25.0000000+00:00'
+- author: Loltart, ZarathushtraSpitama
+  changes:
+    - type: Add
+      message: Vox's now have a unique slot for storing their nitrogen tanks.
+  id: 1929
+  time: '2025-10-30T13:53:07.0000000+00:00'
