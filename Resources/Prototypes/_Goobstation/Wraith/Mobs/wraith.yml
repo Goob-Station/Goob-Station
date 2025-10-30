@@ -73,7 +73,6 @@
     disableExplosionRecursion: true
   - type: ExplosionResistance
     damageCoefficient: 0.0
-    examine: ""
   - type: LanguageSpeaker # Einstein Engines - Languages
   - type: UniversalLanguageSpeaker # Einstein Engines - Languages
   - type: Reactive

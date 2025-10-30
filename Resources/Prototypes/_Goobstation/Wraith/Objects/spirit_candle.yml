@@ -11,13 +11,6 @@
       - state: inhand-left
       right:
       - state: inhand-right
-  - type: ExtinguishOnInteract
-    extinguishAttemptSound:
-      path: /Audio/Items/candle_blowing.ogg
-      params:
-        variation: 0.05
-        volume: 10
-    extinguishFailed: ""
   - type: Sprite
     sprite: _Goobstation/Wraith/Objects/spirit_candle.rsi
     layers:
