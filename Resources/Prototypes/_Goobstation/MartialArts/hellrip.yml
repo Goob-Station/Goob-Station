@@ -10,7 +10,6 @@
   martialArtsForm: HellRip
   roundstartCombos: HellRipMoves
   randomDamageModifier: True
-  baseDamageModifier: 10
   damageModifierType: Slash
 
 - type: comboList
