@@ -17211,3 +17211,9 @@ Entries:
       message: NTR experimental hardsuit to the catalogue for 100 points.
   id: 1926
   time: '2025-10-29T20:39:54.0000000+00:00'
+- author: TytosB
+  changes:
+    - type: Tweak
+      message: bridge has a second door and external access from sec
+  id: 1927
+  time: '2025-10-30T13:06:39.0000000+00:00'
