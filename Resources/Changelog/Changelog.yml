@@ -4114,3 +4114,10 @@ Entries:
   id: 9172
   time: '2025-10-30T01:08:06.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41184
+- author: kontakt
+  changes:
+  - message: Wires will once again break randomly at roundstart.
+    type: Fix
+  id: 9173
+  time: '2025-10-30T02:30:28.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41191
