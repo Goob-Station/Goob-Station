@@ -87,7 +87,7 @@
   id: Licoxide
   maxTemp: 265 # goob edit
   reactants:
-    Lead:
+    Lithium:
       amount: 1
     Zinc:
       amount: 1
