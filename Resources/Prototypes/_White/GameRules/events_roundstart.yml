@@ -6,7 +6,7 @@
   parent: XenomorphsInfestation
   id: XenomorphsInfestationRoundstart
   components:
-  - type: StationEvent
+  - type: GameRule
   earliestStart: 0
     chaosScore: 400
     minPlayers: 50
