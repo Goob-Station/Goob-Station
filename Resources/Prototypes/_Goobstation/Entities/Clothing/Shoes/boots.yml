@@ -318,3 +318,17 @@
         Piercing: 0.95
         Heat: 0.95
   - type: Caposoutfit
+
+# Western Undetermined Set
+- type: entity
+  parent: [ClothingShoesMilitaryBase, BaseMajorContraband]
+  id: ClothingShoesBootsCowboyBrownRobust
+  name: authentic brown cowboy boots
+  description: For a real cowboy.
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/cowboybootsbrown.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/cowboybootsbrown.rsi
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
