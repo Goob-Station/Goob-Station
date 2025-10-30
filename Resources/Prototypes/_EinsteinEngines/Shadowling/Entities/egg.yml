@@ -65,7 +65,7 @@
     bodyType: Dynamic
   - type: ShadowlingAscensionEgg
   - type: Damageable
-    damageContainer: Biological
+    damageContainer: Biological # goob
   - type: Destructible
     thresholds:
     - trigger:
