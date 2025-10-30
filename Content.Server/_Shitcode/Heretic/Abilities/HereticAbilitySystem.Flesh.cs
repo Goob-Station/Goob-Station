@@ -78,60 +78,52 @@ public sealed partial class HereticAbilitySystem
         if (!TryComp(ent, out HereticComponent? heretic) || heretic.PathStage <= 0)
             return;
 
-        var stage = (float) Math.Sqrt(heretic.PathStage);
-
-        var multiplier = args.Volume.Float() * stage;
-        var oldMult = multiplier;
-
-        if (HasComp<MobStateComponent>(args.Food))
-            multiplier *= ent.Comp.MobMultiplier;
-        if (HasComp<BrainComponent>(args.Food))
-            multiplier += ent.Comp.BrainMultiplier;
-        if (HasComp<BodyPartComponent>(args.Food))
-            multiplier += ent.Comp.BodyPartMultiplier;
-        if (HasComp<OrganComponent>(args.Food))
-            multiplier += ent.Comp.OrganMultiplier;
-        if (HasComp<HumanOrganComponent>(args.Food))
-            multiplier *= ent.Comp.HumanMultiplier;
-        if (_tag.HasTag(args.Food, ent.Comp.MeatTag))
-            multiplier *= ent.Comp.MeatMultiplier;
-        if (heretic.Ascended)
-            multiplier *= ent.Comp.AscensionMultiplier;
-
-        if (oldMult >= multiplier)
+        var multiplier =
+            1f + GetMultiplier((ent.Owner, ent.Comp, heretic), ref args, out var stage, out var shouldReturn);
+        if (shouldReturn)
             return;
 
         var time = TimeSpan.FromSeconds(30) * stage;
         if (heretic.Ascended)
             time += TimeSpan.FromMinutes(1);
 
-        ApplyMultiplier(ent,
-            1 + multiplier * ent.Comp.BaseHealingPerFlesh,
-            0f,
-            time,
-            MartialArtModifierType.Healing);
-        ApplyMultiplier(ent,
-            1f + multiplier * ent.Comp.BaseAttackRatePerFlesh,
-            0f,
-            time,
-            MartialArtModifierType.AttackRate);
-        ApplyMultiplier(ent,
-            1f + multiplier * ent.Comp.BaseMoveSpeedPerFlesh,
-            0f,
-            time,
-            MartialArtModifierType.MoveSpeed);
+        ApplyMultiplier(ent, multiplier * ent.Comp.BaseHealingPerFlesh, time, MartialArtModifierType.Healing);
+        ApplyMultiplier(ent, multiplier * ent.Comp.BaseAttackRatePerFlesh, time, MartialArtModifierType.AttackRate);
+        ApplyMultiplier(ent, multiplier * ent.Comp.BaseMoveSpeedPerFlesh, time, MartialArtModifierType.MoveSpeed);
+    }
+
+    private float GetMultiplier(Entity<FleshPassiveComponent, HereticComponent> ent,
+        ref ConsumingFoodEvent args,
+        out float stage,
+        out bool multipliersApplied)
+    {
+        stage = (float) Math.Sqrt(ent.Comp2.PathStage);
+        var multiplier = args.Volume.Float() * stage;
+        var oldMult = multiplier;
+
+        if (HasComp<MobStateComponent>(args.Food))
+            multiplier *= ent.Comp1.MobMultiplier;
+        if (HasComp<BrainComponent>(args.Food))
+            multiplier += ent.Comp1.BrainMultiplier;
+        if (HasComp<BodyPartComponent>(args.Food))
+            multiplier += ent.Comp1.BodyPartMultiplier;
+        if (HasComp<OrganComponent>(args.Food))
+            multiplier += ent.Comp1.OrganMultiplier;
+        if (HasComp<HumanOrganComponent>(args.Food))
+            multiplier *= ent.Comp1.HumanMultiplier;
+        if (_tag.HasTag(args.Food, ent.Comp1.MeatTag))
+            multiplier *= ent.Comp1.MeatMultiplier;
+        if (ent.Comp2.Ascended)
+            multiplier *= ent.Comp1.AscensionMultiplier;
+
+        multipliersApplied = oldMult < multiplier;
+        return multiplier;
     }
 
     // Martial arts cuz yeah
-    private void ApplyMultiplier(EntityUid uid,
-        float multiplier,
-        float modifier,
-        TimeSpan time,
-        MartialArtModifierType type)
+    private void ApplyMultiplier(EntityUid uid, float multiplier, TimeSpan time, MartialArtModifierType type)
     {
-        if (Math.Abs(multiplier - 1f) < 0.001f
-            && Math.Abs(modifier) < 0.001f
-            || time <= TimeSpan.Zero)
+        if (Math.Abs(multiplier - 1f) < 0.001f || time <= TimeSpan.Zero)
             return;
 
         var multComp = EnsureComp<MartialArtModifiersComponent>(uid);
@@ -139,7 +131,6 @@ public sealed partial class HereticAbilitySystem
         {
             Type = type,
             Multiplier = multiplier,
-            Modifier = modifier,
             EndTime = Timing.CurTime + time,
         });
 

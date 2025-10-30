@@ -656,7 +656,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
             toggleable.Comp.EquippedPrefixes.TryGetValue(slot, out var prefix))
             _clothing.SetEquippedPrefix(toggleable, toggleable.Comp.EquippedPrefixes.GetValueOrDefault(slot, prefix));
 
-        return true;
+        return true; // Goobstation
     }
 
     private void OnGetActions(Entity<ToggleableClothingComponent> toggleable, ref GetItemActionsEvent args)

@@ -79,12 +79,8 @@ public partial class WoundSystem
             if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
                 continue;
 
-            bleeds.BleedingAmountRaw = 0;
             bleeds.IsBleeding = false;
-            bleeds.Scaling = 0;
         }
-
-        component.Bleeds = FixedPoint2.Zero;
 
         return true;
     }

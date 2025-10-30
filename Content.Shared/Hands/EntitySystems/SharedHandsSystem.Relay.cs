@@ -7,17 +7,19 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Shitmed.Surgery;
 using Content.Shared.Atmos;
 using Content.Shared.Camera;
-using Content.Shared.Cuffs;
 using Content.Shared.Hands.Components;
-using Content.Shared.Heretic;
-using Content.Shared.Inventory.Events;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Overlays;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Events;
+
+// Goobstation using
+using Content.Shared._Shitmed.Surgery;
+using Content.Shared.Cuffs;
+using Content.Shared.Heretic;
+using Content.Shared.Inventory.Events;
+using Content.Shared.Overlays;
 
 namespace Content.Shared.Hands.EntitySystems;
 
