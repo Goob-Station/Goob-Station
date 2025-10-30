@@ -17217,3 +17217,9 @@ Entries:
       message: bridge has a second door and external access from sec
   id: 1927
   time: '2025-10-30T13:06:39.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Scubbing floor now transfers reagents to the scubbing item
+  id: 1928
+  time: '2025-10-30T13:42:25.0000000+00:00'
