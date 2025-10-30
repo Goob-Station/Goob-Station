@@ -5,7 +5,7 @@
   components:
     - type: GameRule
       chaosScore: 400
-      minPlayers: 50
+      minPlayers: 30
     - type: VentSpawnRule
     - type: AntagSpawner
       prototype: MobXenomorphLarva
