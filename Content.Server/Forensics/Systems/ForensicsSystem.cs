@@ -466,16 +466,17 @@ namespace Content.Server.Forensics
                 if (TryComp<FingerprintComponent>(user, out var fingerprintG) &&
                     !string.IsNullOrEmpty(fingerprintG.Fingerprint) &&
                     TryComp<FiberComponent>(gloves, out var fiberEmpty) &&
-                    !string.IsNullOrEmpty(fiberEmpty.FiberMaterial))
+                    !string.IsNullOrEmpty(fiberEmpty.FiberMaterial)
+                    && _revealChance != 0)
                 {
                     var full = fingerprintG.Fingerprint ?? ""; //asign the fingerprint to new variable
-                    string visible;
-                    if (component.Fingerprints.TryGetValue(full, out var existing)) // Try to find existing fingerprint for the same person
-                        visible = MergePartialFingerprintRandomly(existing, full);
+                    string updated;
+                    if (component.Fingerprints.TryGetValue(full, out var value)) // Try to find existing fingerprint for the same person
+                        updated = MergePartialFingerprintRandomly(full, value);
                     else
-                        visible = new string('#', full.Length);
+                        updated = new string('#', full.Length);
 
-                    component.Fingerprints[full] = visible;
+                    component.Fingerprints[full] = updated;
                     Dirty(target, component);
                     return;
                 }
@@ -525,12 +526,12 @@ namespace Content.Server.Forensics
         /// Merges an existing partial fingerprint with a full fingerprint, revealing some characters randomly based on the reveal
         /// chance.
         /// </summary>
-        private string MergePartialFingerprintRandomly(string existingVisible, string full)
+        private string MergePartialFingerprintRandomly(string full, string value)
         {
-            var merged = existingVisible.ToCharArray();
-            for (var i = 0; i < merged.Length && i < full.Length; i++)
+            var merged = value.ToCharArray();
+            for (var i = 0; i < merged.Length; i++)
             {
-                if (merged[i] == '#' && _random.Next(_revealChance) == 0)
+                if (merged[i] == '#' && _random.Next(_revealChance) == 1)
                     merged[i] = full[i];
             }
 
