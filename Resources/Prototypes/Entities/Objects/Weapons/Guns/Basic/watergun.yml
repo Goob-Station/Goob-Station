@@ -59,6 +59,7 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 150
+  - type: PacifismAllowedGun
 
 - type: entity
   id: WeaponWaterPistol
