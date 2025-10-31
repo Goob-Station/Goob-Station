@@ -17279,3 +17279,9 @@ Entries:
       message: Fixed the formatting in the IPC guidebook.
   id: 1936
   time: '2025-10-31T08:09:07.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Remove
+      message: Pain effects including pain sounds and pain paralyzing are disabled.
+  id: 1937
+  time: '2025-10-31T10:42:08.0000000+00:00'
