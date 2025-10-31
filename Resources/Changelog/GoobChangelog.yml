@@ -17263,3 +17263,9 @@ Entries:
         cowboy's.
   id: 1934
   time: '2025-10-30T14:28:28.0000000+00:00'
+- author: ShieldAcrados
+  changes:
+    - type: Fix
+      message: Ended the facehugger torment nexus
+  id: 1935
+  time: '2025-10-30T23:49:08.0000000+00:00'
