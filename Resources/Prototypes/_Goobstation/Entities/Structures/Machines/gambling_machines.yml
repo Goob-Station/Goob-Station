@@ -55,6 +55,11 @@
   - type: DatasetVocalizer
     dataset: CondimentVendAds
   - type: ContainerContainer
+    containers:
+      money: !type:ContainerSlot
+        showEnts: false
+        occludes: true
+        ent: null
   - type: ItemSlots
     slots:
       money:
