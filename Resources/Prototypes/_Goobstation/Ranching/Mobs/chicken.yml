@@ -1,13 +1,4 @@
 - type: entity
-  name: White Chicken
-  id: MobChickenRanching
-  parent: MobChicken
-  description: Hello cro.
-  components:
-  - type: HappinessContainer
-  - type: HappinessPreferences
-
-- type: entity
   name: Feed Producer
   id: FeedProducer
   description: It converts food and reagents into usable feed for chickens. Alt-Click the machine in order to produce feed
@@ -16,6 +7,7 @@
   - type: Sprite
     sprite: _Goobstation/Ranching/structures.rsi
     state: feed_producer
+  - type: FoodProducer
   - type: Storage
     grid:
     - 0,0,5,2
@@ -25,7 +17,6 @@
   - type: ContainerContainer
     containers:
       beakerSlot: !type:ContainerSlot
-      entity_storage: !type:Container
   - type: ItemSlots
     slots:
       beakerSlot:

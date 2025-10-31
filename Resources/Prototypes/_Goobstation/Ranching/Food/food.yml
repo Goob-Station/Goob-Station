@@ -1,0 +1,40 @@
+- type: entity
+  id: ChickenFeedSack
+  name: Chicken Feed Sack
+  description: Includes chicken feed.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Ranching/chicken_feed_sack.rsi
+    layers:
+    - state: feed_sack
+    - state: feed_seed
+      map: [ "feedSeed" ]
+      shader: unshaded
+
+- type: entity
+  id: ChickenFeed
+  name: Chicken Feed
+  description: Feed it to the chickens.
+  parent: EdibleBase
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Ranching/chicken_feed.rsi
+    layers:
+    - state: feed_1
+      shader: unshaded
+
+- type: entity
+  id: ChickenFeedRandom
+  name: Chicken Feed
+  description: Feed it to the chickens.
+  suffix: Random
+  parent: ChickenFeed
+  components:
+  - type: RandomSprite
+    available:
+    - 0:
+        feed_1: ""
+        feed_2: ""
+        feed_3: ""
+        feed_4: ""
