@@ -179,6 +179,7 @@
     - id: FloorGoblinSpawn # Goobstation
     - id: HellGooseSpawn # Goobstation halloween
     - id: HellGooseJeremySpawn # Goobstation halloween
+    - id: FloorGoblinMidRound # Goobstation
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -202,6 +203,7 @@
     - id: XenomorphsInfestation # WD EDIT
     - id: HellGooseSpawn # Goobstation halloween
     - id: HellGooseJeremySpawn # Goobstation halloween
+    - id: WraithMidround # Goobstation - Wraith
 
 - type: entity
   id: BaseStationEvent
@@ -422,6 +424,7 @@
     - Diona
     - Abductor
     - Harpy
+    - Plasmaman # EE
     # Goobstation end
   - type: AntagObjectives
     objectives:
