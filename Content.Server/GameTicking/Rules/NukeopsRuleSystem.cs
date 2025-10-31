@@ -190,6 +190,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             args.AddLine(text);
         }
 
+        /* Goob edit - nukie objective
         args.AddLine(Loc.GetString($"{component.LocalePrefix}list-start"));
 
         var antags =_antag.GetAntagIdentifiers(uid);
@@ -197,7 +198,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         foreach (var (_, sessionData, name) in antags)
         {
             args.AddLine(Loc.GetString($"{component.LocalePrefix}list-name-user", ("name", name), ("user", sessionData.UserName)));
-        }
+        } */
     }
 
     private void OnNukeExploded(NukeExplodedEvent ev)

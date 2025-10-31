@@ -52,7 +52,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   Sacrificing a Head of Staff or member of security will reward you 3 knowledge points, sacrificing any other crewmember will reward 2. You cannot sacrifice regular non-target crewmembers.
 
-  Follow your [color=red]Living Heart[/color] to your target of choice and incapacitate them through any means necessary. If your target's in critical condition or dead they're ready to sacrifice.
+  Other heretics are an exception. You can always sacrifice another heretic and get 3 knowledge points for doing so.
+
+  Follow your [color=red]Living Heart[/color] to your target of choice and incapacitate them through any means necessary. If your target is dead, they're ready to sacrifice.
   Drag them over a transmutation rune and invoke the [color=yellow]Heartbeat of the Mansus[/color] to sacrifice them.
 
   You can reroll your targets by invoking [color=yellow]Relentless Heartbeat[/color] ritual.
@@ -80,24 +82,24 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   [color=yellow]Ascension[/color] disables the need for a focus.
 
   ## Starting Knowledge
-  - \[ [color=red]Mansus Grasp[/color] \] - A short range spell that channels eldritch power straight to your palm. Upon contact, knocks down and confuses unsuspecting targets.
-  - \[ [color=red]Heartbeat of the Mansus[/color] \] - Allows you to sacrifice targets who are in critical or worse condition to the Mansus, gibbing them and rewarding you with one knowledge point; two if your victim was a head of staff.
+  - \[ [color=red]Mansus Grasp[/color] \] - A short range spell that channels eldritch power straight to your palm. Upon contact, knocks down and confuses unsuspecting targets. It can be used as a surgical tool for obtaining organs.
+  - \[ [color=red]Heartbeat of the Mansus[/color] \] - Allows you to sacrifice targets who are dead to the Mansus, gibbing them and rewarding you with two knowledge point; three if your victim was a head of staff, security, or another heretic.
   - \[ [color=red]Amber Focus[/color] \] - Allows you to transmute a sheet of glass and a pair of eyes into an Amber Focus. This is a small neck-worn item that allows you to cast advanced spells while worn.
   - \[ [color=red]Living Heart[/color] \] - Allows you to pinpoint your targets. Plays an audible heartbeat sound, so use it carefully.
   - \[ [color=red]Relentless Heartbeat[/color] \] - Allows you to transmute a heart, a pen and paper to reroll your target selection, in case you've run out of bodies or want a different approach.
-  - \[ [color=red]Codex Cicatrix[/color] \] - Allows you to transmute a book, any pen, and any piece of meat or non-silicon organ to create a Codex Cicatrix. The Codex Cicatrix can be used when draining influences to gain additional knowledge, but comes at greater risk of being noticed. It can also be used to draw and remove transmutation runes easier, and as a spell focus in a pinch.
+  - \[ [color=red]Codex Cicatrix[/color] \] - Allows you to transmute a book, any pen, and any piece of meat or non-silicon organ to create a Codex Cicatrix. The Codex Cicatrix can be used when draining influences to gain additional knowledge, but comes at greater risk of being noticed. It can also be used to draw and remove transmutation runes faster, and as a spell focus in a pinch.
   - \[ [color=red]Cloak of Shadow[/color] \] - A spell, which will conceal your identity in an obvious purple smoke, making you move faster but interact slower. Requires a focus to cast.
-  - \[ [color=red]Feast of Owls[/color] \] - Allows you to perform a ritual that grants you 5 knowledge points but locks you out of ascension. A small sacrifice to gain power quickly. There are no refunds.
+  - \[ [color=red]Feast of Owls[/color] \] - Allows you to perform a ritual that grants you 5 knowledge points but locks you out of ascension. A small sacrifice to gain power quickly. There is no going back.
   - \[ [color=red]Reminiscence[/color] \] - Heretic blades are limited. You can only create up to 2-4 blades depending on your path by performing stage 2 blade creation ritual. Reminiscence ritual allows you to transmute a chair to recall your lost blade that you have previously created to the transmutation rune.
 
   ## Tips
-  - On Ashen Path, always carry a fire extinguisher or a bottle of water with you! While you can spew out fireballs, you are not immune to them until you ascend!
-  - As a [color=purple]Raw Prophet[/color], your [color=green]Mansus Link[/color] ability is extremely useful for communication. When you use it on someone, they gain a radio channel similar to changelings with :z key to talk privately.
+  - Be wary of other heretics. They worship false gods, and will sacrifice you for knowledge just as easily as they would any other heathen. However, you can sacrifice them to the Mansus as well. Let the strongest god win.
+  - On Ashen Path, always carry a fire extinguisher or a bottle of water with you! While you can spew out fireballs, you are not immune to them until you ascend or wear a Mask of Madness!
+  - As a [color=purple]Raw Prophet[/color], your [color=green]Mansus Link[/color] ability is extremely useful for communication. When you use it on someone, they gain a hivemind similar to changelings with +m key to talk privately.
   - Your Mansus Grasp will temporarily garble the speech of people who you use it on. This can let you get away with murder while comms are online, but be careful - it's not foolproof.
   - [color=purple]Influences[/color] can spawn in almost any location on the station, ranging from the main hallways and public restrooms to [color=cyan]Command staff offices[/color] and [color=red]restricted security areas[/color] in the Brig. It's best to check every area you can access, public and department.
   - Monkeys and other animals make for great, usually non-suspicious sources of organs or corpses for your heretical rituals.
   - Most summoned ghouls will drop the components used to create them on death. While having them to die is not ideal, you can easily grab the parts and summon another.
   - [color=yellow]Eldritch Flask[/color], a stage 3 side path knowledge acts like a cryostasis beaker and has a total capacity of 100 units, meaning you can create deadly mixes that are easily triggered.
-  - Rusted tiles cause vomiting and other negative effects to organics standing on them and deal massive damage to silicons. It is highly advised to stay away from rust if you are not a heretic, ghoul or summoned creature. On the other hand, you can always take advantage of the rust as heretic, no matter what path you choose.
   - [color=yellow]Eldritch Essence[/color], contained in eldritch flask is able to rust tiles upon splashing on them. Contrariwise, [color=yellow]Space Cola[/color] clears tile rusting, which is useful for crew when fighting Rusted Path heretic.
 </Document>

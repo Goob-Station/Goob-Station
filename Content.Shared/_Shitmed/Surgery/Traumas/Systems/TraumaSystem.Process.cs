@@ -513,17 +513,9 @@ public partial class TraumaSystem
         if (deduction == 1)
             return false;
 
-        var bonePenalty = FixedPoint2.New(0.1);
-
-        // Broken bones increase the chance of your limb getting delimbed
-        var bone = target.Comp.Bone.ContainedEntities.FirstOrNull();
-        if (bone != null && TryComp<BoneComponent>(bone, out var boneComp))
-        {
-            if (boneComp.BoneSeverity < BoneSeverity.Cracked)
-                return false;
-
-            bonePenalty = 1 - boneComp.BoneIntegrity / boneComp.IntegrityCap;
-        }
+        var bonePenalty = FixedPoint2.New(1); // higher means less chance to delimb
+        if (TryComp<BonelessComponent>(target.Owner, out var bonelessComp))
+            bonePenalty = bonelessComp.BonePenalty;
 
         var chance =
             FixedPoint2.Clamp(
@@ -531,6 +523,29 @@ public partial class TraumaSystem
                 - deduction + woundInflicter.Comp.TraumasChances[TraumaType.Dismemberment],
                 0,
                 0.7); // Maximum 70% chance to dismember, because it's a bit too free otherwise
+
+        // Healthy bones decrease the chance of your limb getting delimbed
+        var bone = target.Comp.Bone.ContainedEntities.FirstOrNull();
+        if (bone != null && TryComp<BoneComponent>(bone, out var boneComp))
+        {
+            switch (boneComp.BoneSeverity)
+            {
+                case BoneSeverity.Normal:
+                    chance *= 0.5; // decreases delimb chance by 50%
+                    break;
+                case BoneSeverity.Damaged:
+                    chance *= 0.8; // 20%
+                    break;
+                case BoneSeverity.Cracked:
+                    chance *= 1.1; // increases by 10%
+                    break;
+                case BoneSeverity.Broken:
+                    chance *= 1.3;
+                    break;
+                default:
+                    break;
+            }
+        }
 
         var result = _random.Prob((float) chance);
         return result;
