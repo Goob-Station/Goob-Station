@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Ko4erga",
+  "copyright": "Made by Ko4erga; chimp, anomalylocator, anomalylocatorwide, anomalyscanner sprited by catbg(Discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -76,6 +76,18 @@
     {
       "name": "sawElectric-equipped-BELT",
       "directions": 4
+    },
+    {
+      "name": "anomalylocator"
+    },
+    {
+      "name": "anomalylocatorwide"
+    },
+    {
+      "name": "anomalyscanner"
+    },
+    {
+      "name": "chimp"
     }
   ]
 }

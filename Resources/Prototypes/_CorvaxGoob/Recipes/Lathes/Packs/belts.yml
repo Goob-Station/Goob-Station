@@ -1,0 +1,41 @@
+- type: latheRecipePack
+  id: WorkBeltsSharedDynamic
+  recipes:
+  - UtilityBelt
+
+- type: latheRecipePack
+  id: WorkBeltsSerDynamic
+  recipes:
+  - PlantBelt
+  - ChefBelt
+  - JanitorBelt
+
+- type: latheRecipePack
+  id: WorkBeltsMedDynamic
+  recipes:
+  - MedicalBelt
+  - MedicalEMTBelt
+  - SurgicalBoard
+  - MilitaryWebbingCMO
+
+- type: latheRecipePack
+  id: WorkBeltsSecDynamic
+  recipes:
+  - SecurityBelt
+  - SecurityWebbing
+  - HolsterBelt
+
+- type: latheRecipePack
+  id: WorkBeltsSalDynamic
+  recipes:
+  - SalvageWebbing
+
+- type: latheRecipePack
+  id: WokrBeltsEngDynamic
+  recipes:
+  - ChiefEngineerBelt
+
+- type: latheRecipePack
+  id: WokrBeltsSciDynamic
+  recipes:
+  - ScienceBelt

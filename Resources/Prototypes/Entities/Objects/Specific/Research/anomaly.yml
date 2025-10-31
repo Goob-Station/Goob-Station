@@ -124,6 +124,9 @@
     materialComposition:
       Steel: 100
       Glass: 25
+  - type: Tag # CorvaxGoob-WorkBelts-Techfab
+    tags:
+    - ScienceTool
 
 - type: entity
   id: AnomalyLocatorUnpowered
@@ -166,6 +169,10 @@
     materialComposition:
       Steel: 100
       Glass: 25
+  - type: Tag # CorvaxGoob-WorkBelts-Techfab
+    tags:
+    - ScienceTool
+    - Locator
 
 - type: entity
   id: AnomalyLocator
@@ -201,6 +208,9 @@
     maxBeepInterval: 0.5
   - type: ProximityDetector
     range: 40
+  - type: Tag # CorvaxGoob-WorkBelts-Techfab
+    tags:
+    - LocatorWide
 
 - type: entity
   id: AnomalyLocatorWide
@@ -275,3 +285,6 @@
       Glass: 125
       Plasma: 125
       Silver: 62
+  - type: Tag # CorvaxGoob-WorkBelts-Techfab
+    tags:
+    - ScienceTool

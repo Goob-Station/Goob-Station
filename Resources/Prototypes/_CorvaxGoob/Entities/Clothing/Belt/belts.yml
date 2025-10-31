@@ -99,3 +99,73 @@
       - id: Drill
       - id: SawElectric
       - id: Bonesetter
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltScience
+  name: science belt
+  description: A enlarged belt for various tools that can also support weight G.O.R.I.L.L.A. gauntlet.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Belt/science.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Belt/science.rsi
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,9,1
+    whitelist:
+      tags:
+        - Powerdrill
+        - Wirecutter
+        - Crowbar
+        - Screwdriver
+        - Flashlight
+        - Wrench
+        - GeigerCounter
+        - Flare
+        - CableCoil
+        - CigPack
+        - Radio
+        - HolofanProjector
+        - Multitool
+        - AppraisalTool
+        - JawsOfLife
+        - GPS
+        - WeldingMask
+        - Hammer # Goobstation
+        - Nailgun # Goobstation
+        - MagazineNailgun # Goobstation
+        - ScienceTool
+      components:
+        - StationMap
+        - SprayPainter
+        - NetworkConfigurator
+        - RCD
+        - RCDAmmo
+        - Welder
+        - PowerCell
+        - Geiger
+        - TrayScanner
+        - GasAnalyzer
+        - HandLabeler
+  - type: ItemMapper
+    mapLayers:
+      anomalyscanner:
+        whitelist:
+          components:
+          - AnomalyScanner
+      anomalylocator:
+        whitelist:
+          tags:
+          - Locator
+      anomalylocatorwide:
+        whitelist:
+          tags:
+          - LocatorWide
+      chimp:
+        whitelist:
+          tags:
+          - CHIMP
+    sprite: _CorvaxGoob/Clothing/Belt/belt_overlay.rsi
+  - type: Appearance

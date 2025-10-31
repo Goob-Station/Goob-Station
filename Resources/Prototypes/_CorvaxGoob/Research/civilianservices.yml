@@ -1,3 +1,31 @@
+# Tier 1
+- type: technology
+  id: WokrBelts
+  name: research-technology-work-belts
+  icon:
+    sprite: Clothing/Belt/utility.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 1
+  position: 0, 2
+  cost: 5000
+  recipeUnlocks:
+  - UtilityBelt
+  - PlantBelt
+  - ChefBelt
+  - JanitorBelt
+  - MedicalBelt
+  - MedicalEMTBelt
+  - SurgicalBoard
+  - MilitaryWebbingCMO
+  - SecurityBelt
+  - SecurityWebbing
+  - HolsterBelt
+  - SalvageWebbing
+  - ChiefEngineerBelt
+  - ScienceBelt
+
+# Tier 2
 - type: technology
   id: MedipenFilling
   name: research-technology-injectors-filling
@@ -14,6 +42,7 @@
   - FillableMedipen
   - MachineMedipenRefillerCircuitboard
 
+# Tier 3
 - type: technology
   id: Cloning
   name: research-technology-cloning

@@ -16,6 +16,9 @@
   id: Cautery
 
 - type: Tag
+  id: CHIMP
+
+- type: Tag
   id: Drill
 
 - type: Tag
@@ -40,6 +43,12 @@
   id: LightTubeCrystalRed
 
 - type: Tag
+  id: Locator
+
+- type: Tag
+  id: LocatorWide
+
+- type: Tag
   id: MagazineLargeCaliber
 
 - type: Tag
@@ -53,6 +62,9 @@
 
 - type: Tag
   id: ScalpelLaser
+
+- type: Tag
+  id: ScienceTool
 
 - type: Tag
   id: Skills

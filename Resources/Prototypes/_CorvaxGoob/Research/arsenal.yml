@@ -1,6 +1,6 @@
 - type: technology
   id: SecurityCaptureDevice
-  name: research-technology-security-capture-device
+  name: research-technology-capture-device
   icon:
     sprite: _CorvaxGoob/Objects/Weapons/Guns/Launchers/grappling_gun.rsi
     state: lathe

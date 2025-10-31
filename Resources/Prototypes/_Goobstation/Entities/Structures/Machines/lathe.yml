@@ -74,6 +74,9 @@
     - BluespaceTheory
     - ScienceClothing
     - UpgradeKits
+    # CorvaxGoob Packs
+    - WorkBeltsSharedDynamic # WorkBelts-Techfab
+    - WokrBeltsEngDynamic # WorkBelts-Techfab
   - type: EmagLatheRecipes
     emagStaticPacks:
     - NailgunEvilStatic
@@ -139,6 +142,9 @@
     - BluespaceTheory
     - ScienceClothing
     - ConstructionBagOfHolding
+    # CorvaxGoob Packs
+    - WorkBeltsSharedDynamic # WorkBelts-Techfab
+    - WorkBeltsSalDynamic # WorkBelts-Techfab
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SalvageExplosivesStatic # Seismic charges - they're pretty cheap in salvage vendor anyway so why not
@@ -223,6 +229,10 @@
     # Einstein Engines Packs
     - Translators
     - TranslatorImplanters
+    # CorvaxGoob Packs
+    - AdvancedRoboticsBoards # MutableLaws
+    - WorkBeltsSharedDynamic # WorkBelts-Techfab
+    - WokrBeltsSciDynamic # WorkBelts-Techfab
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - MechBoardsSecurity
@@ -282,6 +292,8 @@
     - ServiceTools
     # Einstein Engines Packs
     - Translators
+    # CorvaxGoob Packs
+    - WorkBeltsSerDynamic # WorkBelts-Techfab
   - type: EmagLatheRecipes
     emagStaticPacks:
     - ServiceBoardsEvilStatic # Donk Co microwave circiutboard

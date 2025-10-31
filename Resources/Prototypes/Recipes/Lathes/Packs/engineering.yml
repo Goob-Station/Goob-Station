@@ -26,7 +26,7 @@
   - FlashlightLantern
   - HandheldGPSBasic
   - TRayScanner
-  - UtilityBelt
+  # - UtilityBelt # CorvaxGoob-WorkBelts-Techfab
   - ClothingOuterVestTank
   - HandheldStationMap
   - ClothingHeadHatWelding
