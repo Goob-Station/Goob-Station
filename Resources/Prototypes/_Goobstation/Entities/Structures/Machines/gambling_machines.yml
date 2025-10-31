@@ -54,6 +54,7 @@
     price: 100
   - type: DatasetVocalizer
     dataset: CondimentVendAds
+  - type: ContainerContainer
   - type: ItemSlots
     slots:
       money:
