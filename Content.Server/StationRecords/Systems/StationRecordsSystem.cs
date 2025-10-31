@@ -463,7 +463,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
     private List<(string, int)> ApplyWildcard(string filter)
     {
         var filterList = new List<(string, int)>();
-        string currentValue = "";
+        string filterlet = "";
         int segmentStart = 0;
         int index = 0;
 
@@ -472,28 +472,28 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
 
             if (c == '#')
             {
-                if (!string.IsNullOrEmpty(currentValue)) // The current filterlet string is finished, so-
+                if (!string.IsNullOrEmpty(filterlet)) // The current filterlet string is finished, so-
                 {
-                    filterList.Add((currentValue, segmentStart)); // -save the filterlet-
-                    currentValue = ""; // -and start search for a new one
+                    filterList.Add((filterlet, segmentStart)); // -save the filterlet-
+                    filterlet = ""; // -and start search for a new one
                 }
             }
             else
             {
-                if (string.IsNullOrEmpty(currentValue))
+                if (string.IsNullOrEmpty(filterlet))
                 {
                     // This is the start of a new segment
                     segmentStart = index;
                 }
-                currentValue += c;
+                filterlet += c;
             }
             index++;
         }
 
         // Don't forget the last segment
-        if (!string.IsNullOrEmpty(currentValue))
+        if (!string.IsNullOrEmpty(filterlet))
         {
-            filterList.Add((currentValue, segmentStart));
+            filterList.Add((filterlet, segmentStart));
         }
         return filterList;
     } // Good edit end - Partial Prints Feature
