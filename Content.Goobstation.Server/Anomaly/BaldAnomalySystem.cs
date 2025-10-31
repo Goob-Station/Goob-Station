@@ -3,7 +3,6 @@ using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Humanoid;
 using Content.Server.Physics.Components;
-using Content.Shared.Anomaly;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Chat;
 using Content.Shared.Humanoid;
@@ -13,7 +12,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Map;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Anomaly;
@@ -32,7 +30,7 @@ public sealed class BaldAnomalySystem : EntitySystem
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly AnomalySystem _anomaly = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -62,11 +60,11 @@ public sealed class BaldAnomalySystem : EntitySystem
         {
             if (MakeBald(anomaly, ent, comp))
                 continue;
-            if (_random.Next(1, 100) > anomaly.Comp.SpeakChance)
+            if (_random.Next(100) < anomaly.Comp.SpeakChance)
                 continue;
 
-            //TODO make more lines and random them
-            _chatSystem.TrySendInGameICMessage(ent,"Bald is Awesome", InGameICChatType.Speak,true);
+            var line = Loc.GetString("anomaly-bald-say-"+ _random.Next(anomaly.Comp.SayLines));
+            _chatSystem.TrySendInGameICMessage(ent,line, InGameICChatType.Speak,true);
         }
     }
 
@@ -98,7 +96,7 @@ public sealed class BaldAnomalySystem : EntitySystem
             if (potentialTargets.Count > 0)
             {
                 var victim = potentialTargets[_random.Next(potentialTargets.Count)];
-                _chatSystem.TrySendInGameICMessage(victim,"Just a little off the top", InGameICChatType.Speak,false);
+                _chatSystem.TrySendInGameICMessage(victim,Loc.GetString("anomaly-bald-cri"), InGameICChatType.Speak,false);
                 _bodySystem.GibBody(victim);
             }
         }
@@ -170,5 +168,4 @@ public sealed class BaldAnomalySystem : EntitySystem
         RemCompDeferred<PullableComponent>(anomaly.Owner);
         RemCompDeferred<RandomWalkComponent>(anomaly.Owner);
     }
-
 }

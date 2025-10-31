@@ -22,4 +22,10 @@ public sealed partial class BaldAnomalyComponent : Component
 
     [DataField]
     public int SpeakChance = 50;
+
+    /// <summary>
+    /// numbers of lines in the ftl
+    /// </summary>
+    [DataField]
+    public int SayLines = 6;
 }
