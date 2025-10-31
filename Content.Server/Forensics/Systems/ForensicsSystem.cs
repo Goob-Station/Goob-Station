@@ -267,7 +267,7 @@ namespace Content.Server.Forensics
                 dest.Fibers.Add(fiber);
             }
 
-            foreach (var (full,visible) in src.Fingerprints) //copies keys and values correctly
+            foreach (var (full,visible) in src.Fingerprints) // Goobstation copies keys and values correctly
             {
                 dest.Fingerprints[full] = visible;
             }
