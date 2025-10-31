@@ -93,6 +93,6 @@
   cost: 15000
   recipeUnlocks:
   - XenoCompatibilityImplanter
-  position: -5,0
+  position: -6,0 # CorvaxGoob-fix-research
   technologyPrerequisites:
   - ExperimentalScience

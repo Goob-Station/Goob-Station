@@ -20,7 +20,8 @@
       outerClothing:
       - state: Pilot-equipped-OUTERCLOTHING
   - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterPilot
+    clothingPrototypes:
+      head: ClothingHeadHatHoodWinterPilot
   - type: Armor
     modifiers:
       coefficients:

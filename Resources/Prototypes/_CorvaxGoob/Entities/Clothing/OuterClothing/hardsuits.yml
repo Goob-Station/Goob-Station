@@ -105,4 +105,5 @@
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetCBURNLeader
+    clothingPrototypes:
+      head: ClothingHeadHelmetCBURNLeader
