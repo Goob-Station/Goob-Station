@@ -439,14 +439,14 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
     private bool IsFilterWithSomeCodeValue(string value, string filter)
     {
         // Goob edit start - Partial Prints Feature
-        var adjustedFilters = ApplyWildcard(filter);
+        List<(string, int)> filterletList = ApplyWildcard(filter);
 
         //NOTE TO SELF: IF TRUE, FILTER THIS ENTRY
         //SECOND NOTE TO SELF: ALL FILTERS NEED TO RETURN TRUE, THEN FINALLY RETURN FALSE
-        var allFiltersPassed = true;
-        foreach (var (adjustedFilter,cutoff) in adjustedFilters)
+        bool allFiltersPassed = true;
+        foreach (var (filterlet,cutoff) in filterletList)
         {
-            allFiltersPassed = allFiltersPassed && value.Substring(cutoff).ToLower().StartsWith(adjustedFilter);
+            allFiltersPassed = allFiltersPassed && value.Substring(cutoff).ToLower().StartsWith(filterlet);
         }
         return !allFiltersPassed;
 
@@ -485,7 +485,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
                     // This is the start of a new segment
                     segmentStart = index;
                 }
-                filterlet += c;
+                filterlet += c; // ###F##D8
             }
             index++;
         }
