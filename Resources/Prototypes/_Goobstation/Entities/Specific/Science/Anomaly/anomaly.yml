@@ -1,0 +1,36 @@
+- type: entity
+  id: AnomalyBald
+  parent: BaseAnomaly
+  suffix: Bald
+  components:
+  - type: Anomaly
+    corePrototype: null
+    coreInertPrototype: null
+    supercriticalSoundAtAnimationStart:
+      collection: AnomalyGravitySupercritical
+    supercriticalDuration: 10s
+  - type: Sprite
+    sprite: _Goobstation/Structures/Specific/anomality.rsi
+    layers:
+    - state: anom
+      map: [ "enum.AnomalyVisualLayers.Base","Safe" ]
+    - state: anom-2
+      map: [ "Unsafe" ]
+      visible: false
+    - state: anom-3
+      map: [ "Danger" ]
+      visible: false
+    - state: pulse
+      map: [ "enum.AnomalyVisualLayers.Animated" ]
+      visible: false
+  - type: PointLight
+    radius: 5.0
+    energy: 20
+    color: "#6270bb"
+    castShadows: false
+  - type: Physics
+    bodyType: Dynamic
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  - type: RandomWalk
+  - type: BaldAnomaly
