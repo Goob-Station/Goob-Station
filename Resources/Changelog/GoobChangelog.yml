@@ -17291,3 +17291,9 @@ Entries:
       message: Gruntish actually sounds gruntish. Also fixed colour and font size.
   id: 1938
   time: '2025-10-31T13:38:58.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix game breaking in compat mode.
+  id: 1939
+  time: '2025-10-31T14:33:30.0000000+00:00'
