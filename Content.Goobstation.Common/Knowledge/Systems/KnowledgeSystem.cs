@@ -20,21 +20,12 @@ public sealed partial class KnowledgeSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<KnowledgeContainerComponent, ComponentInit>(OnKnowledgeContainerInit);
         SubscribeLocalEvent<KnowledgeContainerComponent, ComponentShutdown>(OnKnowledgeContainerShutdown);
         SubscribeLocalEvent<KnowledgeContainerComponent, EntInsertedIntoContainerMessage>(OnEntityInserted);
         SubscribeLocalEvent<KnowledgeContainerComponent, EntRemovedFromContainerMessage>(OnEntityRemoved);
 
         _knowledgeQuery = GetEntityQuery<KnowledgeComponent>();
         _containerQuery = GetEntityQuery<KnowledgeContainerComponent>();
-    }
-
-    private void OnKnowledgeContainerInit(Entity<KnowledgeContainerComponent> ent, ref ComponentInit args)
-    {
-        ent.Comp.KnowledgeContainer =
-            _container.EnsureContainer<Container>(ent.Owner, KnowledgeContainerComponent.ContainerId);
-        // We show the contents of the container to allow knowledge to have visible sprites. I mean, if you really need to show some big brains.
-        ent.Comp.KnowledgeContainer.ShowContents = true;
     }
 
     private void OnKnowledgeContainerShutdown(Entity<KnowledgeContainerComponent> ent, ref ComponentShutdown args)
@@ -45,10 +36,8 @@ public sealed partial class KnowledgeSystem : EntitySystem
 
     private void OnEntityInserted(Entity<KnowledgeContainerComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
-        if (args.Container.ID != KnowledgeContainerComponent.ContainerId)
-            return;
-
-        if (!_knowledgeQuery.TryComp(args.Entity, out var statusComp))
+        if (args.Container.ID != KnowledgeContainerComponent.ContainerId
+            || !_knowledgeQuery.TryComp(args.Entity, out var statusComp))
             return;
 
         // Make sure AppliedTo is set correctly so events can rely on it
@@ -64,10 +53,8 @@ public sealed partial class KnowledgeSystem : EntitySystem
 
     private void OnEntityRemoved(Entity<KnowledgeContainerComponent> ent, ref EntRemovedFromContainerMessage args)
     {
-        if (args.Container.ID != KnowledgeContainerComponent.ContainerId)
-            return;
-
-        if (!_knowledgeQuery.TryComp(args.Entity, out var statusComp))
+        if (args.Container.ID != KnowledgeContainerComponent.ContainerId
+            || !_knowledgeQuery.TryComp(args.Entity, out var statusComp))
             return;
 
         var ev = new KnowledgeUnitRemovedEvent(ent);

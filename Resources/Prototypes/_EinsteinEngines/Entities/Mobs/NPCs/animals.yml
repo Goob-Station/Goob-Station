@@ -115,7 +115,7 @@
       amount: 2
   - type: Extractable
     grindableSolutionName: food
-  - type: LanguageKnowledge
+  - type: LanguageGrant
     speaks:
     - ValyrianStandard
     understands:

@@ -218,7 +218,7 @@
         - SecretStash
         - WrappedParcel
   # Einstein Engines - Language begin
-  - type: LanguageKnowledge
+  - type: LanguageGrant
     speaks:
     - TauCetiBasic # Add individual languages so they can speak in said language for privacy.
     - Canilunzt

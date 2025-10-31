@@ -235,7 +235,7 @@
           Off: { state: shell }
           On: { state: drone }
   - type: LanguageSpeaker # Einstein Engines - Language
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - DroneTalk
     understands:

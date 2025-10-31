@@ -95,7 +95,7 @@
   - type: ContentEye
     maxZoom: 1.5, 1.5
     targetZoom: 1.5, 1.5
-  - type: LanguageKnowledge
+  - type: LanguageGrant
     speaks: []
     understands: []
   - type: UniversalLanguageSpeaker

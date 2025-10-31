@@ -108,6 +108,7 @@
     - DoorBumpOpener
   - type: StatusIcon # Goobstation
     bounds: -0.5,-0.5,0.5,0.5
+  - type: KnowledgeContainer # Goobstation edit
 
 - type: entity
   abstract: true

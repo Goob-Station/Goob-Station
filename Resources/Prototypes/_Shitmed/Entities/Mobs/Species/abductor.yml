@@ -47,7 +47,7 @@
     defaultChannel: Abductormind
     channels:
     - Abductormind
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Xeeplian
     understands:

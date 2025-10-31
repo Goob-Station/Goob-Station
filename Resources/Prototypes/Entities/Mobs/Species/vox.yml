@@ -357,7 +357,7 @@
         32:
           sprite: Mobs/Species/Vox/displacement.rsi
           state: hand_r
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
       - TauCetiBasic
       - NewKinPidgin        # Vox language from Floofstation

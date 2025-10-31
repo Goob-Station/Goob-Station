@@ -227,7 +227,7 @@
   - type: ProtectedFromStepTriggers
   - type: NoSlip
   - type: Insulated
-  - type: LanguageKnowledge # Einstein Engines - Languages # Goob moved to MobRobotic since it is parent for MobSiliconBase
+  - type: LanguageGrant # Einstein Engines - Languages # Goob moved to MobRobotic since it is parent for MobSiliconBase
     speaks:
     - TauCetiBasic
     - RobotTalk

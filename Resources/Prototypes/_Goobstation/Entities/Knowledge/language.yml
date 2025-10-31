@@ -1,0 +1,8 @@
+- type: entity
+  parent: BaseKnowledge
+  id: LanguageKnowledge
+  name: Language knowledge
+  components:
+  - type: Knowledge
+    memoryLevel: Language
+  - type: LanguageKnowledge

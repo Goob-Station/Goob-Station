@@ -18,7 +18,7 @@ public sealed class TowerOfBabelSystem : EntitySystem
 
     private void OnInit(Entity<TowerOfBabelComponent> ent, ref MapInitEvent args)
     {
-        if (!TryComp(ent, out LanguageKnowledgeComponent? knowledge) ||
+        if (!TryComp(ent, out LanguageGrantComponent? knowledge) ||
             !TryComp(ent, out LanguageSpeakerComponent? speaker))
             return;
 

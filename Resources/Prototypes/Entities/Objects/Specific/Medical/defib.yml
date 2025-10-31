@@ -70,8 +70,9 @@
     - type: GuideHelp
       guides:
       - MedicalDoctor
+    - type: KnowledgeContainer # Goobstation - knowledge
     - type: LanguageSpeaker # Einstein Engines - Language
-    - type: LanguageKnowledge # Einstein Engines - Language
+    - type: LanguageGrant # Einstein Engines - Language
       speaks:
       - TauCetiBasic
       understands:

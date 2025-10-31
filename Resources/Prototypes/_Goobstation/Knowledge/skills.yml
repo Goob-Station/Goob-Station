@@ -26,11 +26,18 @@
   level: 500
   color: "#0b30a8"
 
+# Languages are technically skills, but they're unique since they are harder to forget.
+- type: knowledgeMemory
+  id: Language
+  category: Skills
+  level: 800
+  hidden: true # We already have a menu for languages
+
 # Skill that was implanted into the character from elsewhere, for example from implants.
 - type: knowledgeMemory
   id: BrainwashedSkill
   category: Skills
-  level: 500
+  level: 1000
   color: "#572480"
 
 # Skills that can't be removed by any means.
