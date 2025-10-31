@@ -1,4 +1,6 @@
-﻿using Robust.Shared.GameStates;
+﻿using Content.Goobstation.Common.Knowledge.Prototypes;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Common.Knowledge.Components;
 
@@ -14,4 +16,10 @@ public sealed partial class KnowledgeComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? AppliedTo;
+
+    /// <summary>
+    /// Memory level of that knowledge, also controls visibility in the character menu.
+    /// </summary>
+    [DataField(required: true), AutoNetworkedField]
+    public ProtoId<KnowledgeMemoryPrototype> MemoryLevel;
 }

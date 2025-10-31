@@ -1,6 +1,7 @@
 ﻿using Content.Goobstation.Common.Knowledge;
 using Content.Goobstation.Common.Knowledge.Components;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Knowledge.Systems;
 
@@ -9,6 +10,7 @@ namespace Content.Goobstation.Shared.Knowledge.Systems;
 /// </summary>
 public sealed partial class KnowledgeSystem : EntitySystem
 {
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
 
     private EntityQuery<KnowledgeComponent> _knowledgeQuery;
@@ -32,7 +34,7 @@ public sealed partial class KnowledgeSystem : EntitySystem
     {
         ent.Comp.KnowledgeContainer =
             _container.EnsureContainer<Container>(ent.Owner, KnowledgeContainerComponent.ContainerId);
-        // We show the contents of the container to allow knowledge to have visible sprites. I mean, if you really need to.
+        // We show the contents of the container to allow knowledge to have visible sprites. I mean, if you really need to show some big brains.
         ent.Comp.KnowledgeContainer.ShowContents = true;
     }
 

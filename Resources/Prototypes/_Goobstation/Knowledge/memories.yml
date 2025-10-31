@@ -1,0 +1,52 @@
+# Memory that the character just have learned, and it will get
+# forgotten soon if some actions to remember it again are not taken.
+- type: knowledgeMemory
+  id: ShortMemory
+  category: Memories
+  level: 100
+  color: "#7c7c7c"
+
+# Memory that the character just have learned, but it still haven't settled.
+- type: knowledgeMemory
+  id: ObtainedRecentMemory
+  category: Memories
+  level: 300
+  color: "#eee9bc"
+
+# Memory that had "settled" in character's mind, but only during the round.
+- type: knowledgeMemory
+  id: ObtainedSettledMemory
+  category: Memories
+  level: 400
+  color: "#ffeb32"
+
+# Roundstart memory that the character knew before the round started.
+- type: knowledgeMemory
+  id: JobMemory
+  category: Memories
+  level: 500
+  color: "#ff9d1d"
+
+# For the most lucid memories that can be obtained during the round
+# without antag interferance, for example psychological traumas.
+- type: knowledgeMemory
+  id: BrightMemory
+  category: Memories
+  level: 700
+  color: "#fd0303"
+
+# Used for memories that were "brainwashed" into someone's brain, they are basically impossible to remove,
+# for example a memory about being abducted by aliens. 
+- type: knowledgeMemory
+  id: BrainwashedMemory
+  category: Memories
+  level: 1000
+  color: "#fd03dc"
+
+# Memory that can't be removed by any means.
+- type: knowledgeMemory
+  id: DebugMemory
+  category: Memories
+  level: 0
+  unremoveable: true
+  hidden: true

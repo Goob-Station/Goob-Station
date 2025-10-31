@@ -1,0 +1,11 @@
+- type: knowledgeCategory
+  id: None
+
+- type: knowledgeCategory
+  id: Skills
+
+- type: knowledgeCategory
+  id: Memories
+
+- type: knowledgeCategory
+  id: Debug
