@@ -40,7 +40,7 @@
   id: Bananamen
   configuration:
     entity: MobBananaMen
-    forced: true
+    forced: false # CorvaxGoob-debaf-honk // true -> false
     transferName: true
     transferHumanoidAppearance: false
     revertOnDeath: false
