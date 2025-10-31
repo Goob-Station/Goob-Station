@@ -18,12 +18,7 @@ public sealed class VentSpawnRule : StationEventSystem<VentSpawnRuleComponent>
 
         SubscribeLocalEvent<VentSpawnRuleComponent, AntagSelectLocationEvent>(OnSelectLocation);
     }
-
-    protected override void
-    {
-
-    }
-
+    
     private void OnSelectLocation(Entity<VentSpawnRuleComponent> ent, ref AntagSelectLocationEvent args)
     {
         var comp = Comp<GameRuleComponent>(args.GameRule);
