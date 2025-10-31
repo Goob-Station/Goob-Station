@@ -11,6 +11,10 @@
     - state: feed_seed
       map: [ "feedSeed" ]
       shader: unshaded
+  - type: LimitedCharges
+    maxCharges: 5
+  - type: PreferencesHolder
+  - type: FeedSack
 
 - type: entity
   id: ChickenFeed
@@ -23,6 +27,7 @@
     layers:
     - state: feed_1
       shader: unshaded
+  - type: PreferencesHolder
 
 - type: entity
   id: ChickenFeedRandom
@@ -38,3 +43,16 @@
         feed_2: ""
         feed_3: ""
         feed_4: ""
+
+#testing
+- type: entity
+  name: BBQ Blud
+  parent: FoodBurgerMcrib
+  id: BBQBlud
+  components:
+    - type: HappinessPreference
+      preference: BBQRib
+
+
+- type: happinessPreference
+  id: BBQRib

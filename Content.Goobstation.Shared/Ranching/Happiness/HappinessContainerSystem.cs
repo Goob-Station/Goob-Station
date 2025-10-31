@@ -2,6 +2,7 @@ using Content.Goobstation.Common.Ranching;
 using Content.Goobstation.Shared.Ranching.Food;
 using Content.Shared.Nutrition;
 using JetBrains.Annotations;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Ranching.Happiness;
 
@@ -10,12 +11,6 @@ namespace Content.Goobstation.Shared.Ranching.Happiness;
 /// </summary>
 public sealed class HappinessContainerSystem : EntitySystem
 {
-    /// <inheritdoc/>
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
-
     #region Public API
 
     [PublicAPI]
@@ -58,6 +53,15 @@ public sealed class HappinessContainerSystem : EntitySystem
             return 0;
 
         return ent.Comp.Happiness;
+    }
+
+    [PublicAPI]
+    public IReadOnlyList<ProtoId<HappinessPreferencePrototype>> GetPreferences(Entity<PreferencesHolderComponent?> ent)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp))
+            return Array.Empty<ProtoId<HappinessPreferencePrototype>>();
+
+        return ent.Comp.Preferences;
     }
 
     #endregion

@@ -1,5 +1,6 @@
 using Content.Shared.DoAfter;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Ranching.Food;
@@ -15,6 +16,9 @@ public sealed partial class FoodProducerComponent : Component
 
     [DataField]
     public int MaxFood = 4;
+
+    [ViewVariables]
+    public EntProtoId FeedSack = "ChickenFeedSack";
 }
 
 [Serializable, NetSerializable]

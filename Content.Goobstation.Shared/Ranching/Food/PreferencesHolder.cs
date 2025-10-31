@@ -4,18 +4,16 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Ranching.Food;
 
+/// <summary>
+/// Use this on entities that hold preferences
+/// Currently used on feed sack and chicken food.
+/// Feed sack passes down its Preferences to chicken food Preferences
+/// </summary>
 [RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState]
-public sealed partial class ChickenFoodComponent : Component
+public sealed partial class PreferencesHolderComponent : Component
 {
     /// <summary>
-    /// How much food can you place before it gets deleted
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public int PlacementsLeft = 5;
-
-    /// <summary>
-    /// Holds the preferences this chicken food has
+    /// Holds the preferences this entity has
     /// </summary>
     [DataField]
     public List<ProtoId<HappinessPreferencePrototype>> Preferences = new();
