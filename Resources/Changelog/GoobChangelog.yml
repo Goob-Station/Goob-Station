@@ -17317,3 +17317,9 @@ Entries:
       message: Trevor now has the access of the rider
   id: 1942
   time: '2025-10-31T17:26:44.0000000+00:00'
+- author: Fin55Fin
+  changes:
+    - type: Tweak
+      message: Added cutting property to plant clippers
+  id: 1943
+  time: '2025-10-31T17:34:12.0000000+00:00'
