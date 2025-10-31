@@ -2,7 +2,7 @@
   id: Gruntish
   isVisibleLanguage: true
   speech:
-    fontSize: 18
+    fontSize: 14
     color: "#8C5353"
   obfuscation:
     !type:SyllableObfuscation
