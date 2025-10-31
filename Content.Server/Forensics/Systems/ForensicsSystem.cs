@@ -131,7 +131,7 @@ namespace Content.Server.Forensics
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly IGameTiming _timing = default!; // Goobstation
         [Dependency] private readonly IConfigurationManager _configuration = default!; // Goobstation cvar dependency
-        private int _revealChance; // Goobstation revealchance cvar
+        private float _revealChance; // Goobstation revealchance cvar
         public override void Initialize()
         {
             SubscribeLocalEvent<HandsComponent, ContactInteractionEvent>(OnInteract);
@@ -467,7 +467,7 @@ namespace Content.Server.Forensics
                     !string.IsNullOrEmpty(fingerprintG.Fingerprint) &&
                     TryComp<FiberComponent>(gloves, out var fiberEmpty) &&
                     !string.IsNullOrEmpty(fiberEmpty.FiberMaterial)
-                    && _revealChance != 0)
+                    && _revealChance > 0f)
                 {
                     var full = fingerprintG.Fingerprint ?? ""; //asign the fingerprint to new variable
                     string updated;
@@ -531,7 +531,7 @@ namespace Content.Server.Forensics
             var merged = value.ToCharArray();
             for (var i = 0; i < merged.Length; i++)
             {
-                if (merged[i] == '#' && _random.Next(_revealChance) == 1)
+                if (value[i] == '#' && _random.Prob(_revealChance))
                     merged[i] = full[i];
             }
 
