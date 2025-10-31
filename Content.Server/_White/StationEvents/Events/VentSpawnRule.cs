@@ -21,11 +21,16 @@ public sealed class VentSpawnRule : StationEventSystem<VentSpawnRuleComponent>
 
     protected override void Added(EntityUid uid, VentSpawnRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
-        base.Added(uid, component, gameRule, args);
+
+    }
+
+    private void OnSelectLocation(Entity<VentSpawnRuleComponent> ent, ref AntagSelectLocationEvent args)
+    {
+        var comp = Comp<GameRuleComponent>(args.GameRule);
 
         if (!TryGetRandomStation(out var station))
         {
-            ForceEndSelf(uid, gameRule);
+            ForceEndSelf(ent, comp);
             return;
         }
 
@@ -41,16 +46,13 @@ public sealed class VentSpawnRule : StationEventSystem<VentSpawnRuleComponent>
 
         if (validLocations.Count == 0)
         {
-            ForceEndSelf(uid, gameRule);
+            ForceEndSelf(ent, comp);
             return;
         }
 
-        component.Coords = validLocations;
-    }
-
-    private void OnSelectLocation(Entity<VentSpawnRuleComponent> ent, ref AntagSelectLocationEvent args)
-    {
-        if (ent.Comp.Coords is {} coords)
+        if (validLocations is { } coords)
+        {
             args.Coordinates.AddRange(coords);
+        }
     }
 }
