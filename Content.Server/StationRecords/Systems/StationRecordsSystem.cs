@@ -438,21 +438,59 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
 
     private bool IsFilterWithSomeCodeValue(string value, string filter)
     {
-        return !value.ToLower().StartsWith(filter);
+        // Goob edit start - Partial Prints Feature
+        var adjustedFilters = ApplyWildcard(value, filter);
+
+        //NOTE TO SELF: IF TRUE, FILTER THIS ENTRY
+        //SECOND NOTE TO SELF: ALL FILTERS NEED TO RETURN TRUE, THEN FINALLY RETURN FALSE
+        var allFiltersPassed = true;
+        foreach (var (adjustedFilter,cutoff) in adjustedFilters)
+        {
+            allFiltersPassed = allFiltersPassed && value.Substring(cutoff).ToLower().StartsWith(adjustedFilter);
+        }
+        return !allFiltersPassed;
+
+        //OG Logic
+        //return !value.ToLower().StartsWith(filter);
     }
 
-    private (string, string) ApplyWildcard(string value, string filter)
+    private List<(string, int)> ApplyWildcard(string value, string filter)
     {
-        var wildcardCount = 0;
-        foreach (var c in filter)
+        var filterList = new List<(string, int)>();
+        string currentValue = "";
+        int segmentStart = 0;
+        int index = 0;
+
+        foreach (char c in filter)
         {
+
             if (c == '#')
-                wildcardCount++;
+            {
+                if (!string.IsNullOrEmpty(currentValue)) // The current filterlet string is finished, so-
+                {
+                    filterList.Add((currentValue, segmentStart)); // -save the filterlet-
+                    currentValue = ""; // -and start search for a new one
+                }
+            }
             else
-                break;
+            {
+                if (string.IsNullOrEmpty(currentValue))
+                {
+                    // This is the start of a new segment
+                    segmentStart = index;
+                }
+                currentValue += c;
+            }
+            index++;
         }
-        return (value.Substring(wildcardCount),filter.Substring(wildcardCount));
-    }
+
+        // Don't forget the last segment
+        if (!string.IsNullOrEmpty(currentValue))
+        {
+            filterList.Add((currentValue, segmentStart));
+        }
+        return filterList;
+    } // Good edit end - Partial Prints Feature
 
     /// <summary>
     /// Build a record listing of id to name for a station and filter.
