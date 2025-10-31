@@ -2,4 +2,4 @@
 
 station-event-genomic-pulse = Attention! Enemy Bio awakening pulsations detected. Security level elevated.
 
-station-event-unholy-wave = Attention! Emissions from a long dead star have been -0-&@* near the station. Security level elevated.
+station-event-unholy-wave = Attention! Emissions from Solar System have been -0-&@* near the station. Security level elevated.

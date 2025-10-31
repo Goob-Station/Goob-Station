@@ -13,7 +13,7 @@
   - type: StationEvent
     weight: 6
     duration: 1
-    maxOccurrences: 1
+    maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
     startAudio:
       path: /Audio/Announcements/attention.ogg
     chaos: # Goobstation

@@ -57,7 +57,7 @@
     - id: SlaughterDemonMidroundHermit # Goobstation - Slaughter Demon
     - id: XenomorphsInfestationHermit # WD EDIT
     - id: WraithMidroundHermit # GHOSTS
-    
+
 - type: entity
   parent: DerelictCyborgSyndicateSpawn
   id: DerelictCyborgSyndicateSpawnHermit
@@ -103,8 +103,8 @@
   components:
   - type: StationEvent
     earliestStart: 20
-  - type: GameRule
     weight: 4.5 #increased by 1.5
+  - type: GameRule
     chaosScore: 270 #decreased by 30
 
 - type: entity

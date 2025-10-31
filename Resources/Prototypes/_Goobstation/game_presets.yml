@@ -258,4 +258,3 @@
   showInVote: true
   rules:
     - SecretPlusHermit
-    - LavalandStormScheduler
