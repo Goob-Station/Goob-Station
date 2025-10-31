@@ -20,35 +20,35 @@
   voice: 3
 
 - type: voice
-  id: zivSusn5qzUCwUt6QjpB
+  id: IMJF2iheYddhTs9SsQag
   name: TF2 Announcer
   sex: Female
   silicon: false
   voice: 4
 
 - type: voice
-  id: ZpEnBU3mMzqhneXZogUg
+  id: gHtxOv0zWflP8Fkt7oJ6
   name: Hatsune Miku (lol)
   sex: Female
   silicon: false
   voice: 5
 
 - type: voice
-  id: VE3RfMa6Q7vF5IwPnK3S
+  id: AAGYUBLEaLMgNDOa78hA
   name: Johnny Silverhand
   sex: Male
   silicon: false
   voice: 6
 
 - type: voice
-  id: FbAm3IW9MzH1AobSIqtC
+  id: Ir4joamaphNKb0t3Mq6v
   name: Billy Herrington
   sex: Male
   silicon: false
   voice: 7
 
 - type: voice
-  id: xsDz6O71i70l4osGAueZ
+  id: tUXaswOrqMfmw8CzG6jb
   name: Flying Dutchman
   sex: Male
   silicon: false
@@ -76,7 +76,7 @@
   voice: 11
 
 - type: voice
-  id: 6JsmTroalVewG1gA6Jmw
+  id: nLiZs38w2b9S5WVDWipV
   name: Sia
   sex: Female
   silicon: false
@@ -104,7 +104,7 @@
   voice: 15
 
 - type: voice
-  id: ghgFyr7gmpr57xyTgX9q
+  id: Dt2jDzhoZC0pZw5bmy2S
   name: Emilia
   sex: Female
   silicon: false
@@ -146,63 +146,63 @@
   voice: 21
 
 - type: voice
-  id: E0nbmUf8FE9IVDWEHwT4
+  id: vL8WtDawgZvWdIBTgvsB
   name: Obi-Wan
   sex: Male
   silicon: false
   voice: 22
 
 - type: voice
-  id: VQnzEUbUShj0y1sCBYUp
+  id: MagX1RqeCPUGDLvFYbtQ
   name: Dwarf
   sex: Male
   silicon: false
   voice: 23
 
 - type: voice
-  id: VQnzEUbUShj0y1sCBYUp
+  id: MagX1RqeCPUGDLvFYbtQ
   name: Dwarf
   sex: Male
   silicon: false
   voice: 24
 
 - type: voice
-  id: 1m6xdKrZeGCax4LY0o0u
+  id: oxrJ5cJFgNwOSam6RBnL
   name: Simaris
   sex: Male
   silicon: false
   voice: 25
 
 - type: voice
-  id: 1m6xdKrZeGCax4LY0o0u
+  id: oxrJ5cJFgNwOSam6RBnL
   name: Simaris
   sex: Male
   silicon: true
   voice: 26
 
 - type: voice
-  id: 3XYpe0f9yh11mIP1OJkT
+  id: yxyjU7BBIjX7YkttSriR
   name: KAY/O
   sex: Male
   silicon: false
   voice: 27
 
 - type: voice
-  id: 3XYpe0f9yh11mIP1OJkT
+  id: yxyjU7BBIjX7YkttSriR
   name: KAY/O
   sex: Male
   silicon: true
   voice: 28
 
 - type: voice
-  id: RwRWdLRorRSdilxUqs26
+  id: Fenx3FUS2RqLyP1nIvLq
   name: GLaDOS
   sex: Male
   silicon: false
   voice: 29
 
 - type: voice
-  id: RwRWdLRorRSdilxUqs26
+  id: Fenx3FUS2RqLyP1nIvLq
   name: GLaDOS
   sex: Female
   silicon: true
