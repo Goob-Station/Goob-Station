@@ -441,6 +441,19 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         return !value.ToLower().StartsWith(filter);
     }
 
+    private (string, string) ApplyWildcard(string value, string filter)
+    {
+        var wildcardCount = 0;
+        foreach (var c in filter)
+        {
+            if (c == '#')
+                wildcardCount++;
+            else
+                break;
+        }
+        return (value.Substring(wildcardCount),filter.Substring(wildcardCount));
+    }
+
     /// <summary>
     /// Build a record listing of id to name for a station and filter.
     /// </summary>
