@@ -231,6 +231,7 @@
 - type: entity
   parent: WraithMidround
   id: WraithMidroundHermit
+  components:
   - type: StationEvent
     weight: 2 #decreased by 2
   - type: GameRule
