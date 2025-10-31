@@ -79,6 +79,6 @@ namespace Content.Shared.Chemistry.Components
         /// Optional, visuals will be calculated based on item inserted into insertedItemSlotID instead of item itself Goobstation
         /// </summary>
         [DataField]
-        public string? InsertedItemSlotID = null;
+        public string? InsertedItemSlotID = null; // Goobstation
     }
 }

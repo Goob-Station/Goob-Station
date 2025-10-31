@@ -127,7 +127,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Power;
-using Content.Shared.Storage;
+using Content.Shared.Storage; // Goobstation
 using Content.Shared.Throwing;
 using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
@@ -172,10 +172,10 @@ namespace Content.Server.Medical.BiomassReclaimer
 
                 if (reclaimer.RandomMessTimer <= 0)
                 {
-                    if (_robustRandom.Prob(0.2f) && reclaimer.BloodReagents.Count > 0)
+                    if (_robustRandom.Prob(0.2f) && reclaimer.BloodReagents.Count > 0) // Goobstation
                     {
                         Solution blood = new();
-                        blood.AddReagent(_robustRandom.Pick(reclaimer.BloodReagents), 50);
+                        blood.AddReagent(_robustRandom.Pick(reclaimer.BloodReagents), 50); // Goobstation
                         _puddleSystem.TrySpillAt(uid, blood, out _);
                     }
                     if (_robustRandom.Prob(0.03f) && reclaimer.SpawnedEntities.Count > 0)
@@ -196,8 +196,8 @@ namespace Content.Server.Medical.BiomassReclaimer
                 reclaimer.CurrentExpectedYield = reclaimer.CurrentExpectedYield - actualYield; // store non-integer leftovers
                 _material.SpawnMultipleFromMaterial(actualYield, BiomassPrototype, Transform(uid).Coordinates);
 
-                reclaimer.ProcessingTimer = 0;
-                reclaimer.BloodReagents.Clear();
+                reclaimer.ProcessingTimer = 0; // Goobstation
+                reclaimer.BloodReagents.Clear(); // Goobstation
                 reclaimer.SpawnedEntities.Clear();
                 RemCompDeferred<ActiveBiomassReclaimerComponent>(uid);
             }
@@ -265,16 +265,18 @@ namespace Content.Server.Medical.BiomassReclaimer
         {
             if (!args.CanReach || args.Target == null)
                 return;
-
+            // Goobstation start
             TryComp<StorageComponent>(args.Used, out var storage);
 
             bool canProcess = CanGib(reclaimer, args.Used);
             if (!canProcess && storage == null)
                 return;
+            // Goobstation end
 
             if (!TryComp<PhysicsComponent>(args.Used, out var physics))
                 return;
 
+            // Goobstation start
             float massToInsert = physics.FixturesMass;
 
             if (storage != null)
@@ -283,6 +285,7 @@ namespace Content.Server.Medical.BiomassReclaimer
                         massToInsert += itemPhysics.FixturesMass;
 
             var delay = reclaimer.Comp.BaseInsertionDelay * massToInsert;
+            // Goobstation end
             _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, delay, new ReclaimerDoAfterEvent(), reclaimer, target: args.Target, used: args.Used)
             {
                 NeedHand = true,
@@ -346,6 +349,8 @@ namespace Content.Server.Medical.BiomassReclaimer
                 return;
 
             var component = ent.Comp;
+
+            // Goobstation start
             component.ProcessingTimer = 0;
 
             bool canProcess = CanGib(ent, toProcess);
@@ -368,6 +373,7 @@ namespace Content.Server.Medical.BiomassReclaimer
             if (component.ProcessingTimer > 0)
                 AddComp<ActiveBiomassReclaimerComponent>(ent);
         }
+        // Goobstation end
 
         // Called once for each entity or content of an entity that is about to be processed
         private void AddToStartingProcess(EntityUid toProcess, Entity<BiomassReclaimerComponent> ent, PhysicsComponent physics)
@@ -376,11 +382,11 @@ namespace Content.Server.Medical.BiomassReclaimer
 
             if (TryComp<BloodstreamComponent>(toProcess, out var stream))
             {
-                component.BloodReagents.Add((string)stream.BloodReagent);
+                component.BloodReagents.Add((string)stream.BloodReagent); // Goobstation
             }
             if (TryComp<ButcherableComponent>(toProcess, out var butcherableComponent))
             {
-                component.SpawnedEntities.AddRange(butcherableComponent.SpawnedEntities);
+                component.SpawnedEntities.AddRange(butcherableComponent.SpawnedEntities); // Goobstation
             }
 
             var expectedYield = physics.FixturesMass * component.YieldPerUnitMass;
@@ -388,7 +394,7 @@ namespace Content.Server.Medical.BiomassReclaimer
                 expectedYield *= component.ProduceYieldMultiplier;
             component.CurrentExpectedYield += expectedYield;
 
-            component.ProcessingTimer += physics.FixturesMass * component.ProcessingTimePerUnitMass;
+            component.ProcessingTimer += physics.FixturesMass * component.ProcessingTimePerUnitMass; // Goobstation
 
             var inventory = _inventory.GetHandOrInventoryEntities(toProcess);
             foreach (var item in inventory)
