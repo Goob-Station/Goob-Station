@@ -15,13 +15,13 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
-    maxCharge: 40000
-    startingCharge: 40000
+    maxCharge: 20000 #CorvaxGoob-ShuttleGuns-Rebalance
+    startingCharge: 20000 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 3
+    fireRate: 2 #CorvaxGoob-ShuttleGuns-Rebalance
     projectileSpeed: 50
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
@@ -37,7 +37,7 @@
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
     proto: ShipMissileASM417
-    fireCost: 867
+    fireCost: 2000 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: RadarBlip
     radarColor: "#FCBA03"
     scale: 2
@@ -116,7 +116,7 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 0.8
+    fireRate: 0.2 #CorvaxGoob-ShuttleGuns-Rebalance
     projectileSpeed: 50
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
