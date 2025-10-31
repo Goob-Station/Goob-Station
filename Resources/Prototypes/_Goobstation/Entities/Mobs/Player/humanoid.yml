@@ -259,6 +259,18 @@
     nameSegments:
     - NamesChitinidFirstMale
 
+- type: entity
+  parent: MobFeroxi
+  id: MobFeroxiRandom
+  name: Urist McFin
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFeroxiFirstMale
+    - NamesFeroxiLast
+    nameFormat: name-format-standard
 ### No hour requirement ERT roles.
 
 ## Death Squad
@@ -310,7 +322,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVANoReq
   parent: RandomHumanoidSpawnerERTLeaderNoReq
-  name: ERT Leader Stand-in 
+  name: ERT Leader Stand-in
   suffix: ERTRole, Armored EVA, No Requirements
   components:
     - type: RandomHumanoidSpawner
