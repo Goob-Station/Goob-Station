@@ -177,6 +177,8 @@
     - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
     - id: MalignRiftSpawn # DeltaV
     - id: FloorGoblinSpawn # Goobstation
+    - id: HellGooseSpawn # Goobstation halloween
+    - id: HellGooseJeremySpawn # Goobstation halloween
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -198,6 +200,8 @@
     - id: BingleSpawn #Goobstation - Bingle
     - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
+    - id: HellGooseSpawn # Goobstation halloween
+    - id: HellGooseJeremySpawn # Goobstation halloween
 
 - type: entity
   id: BaseStationEvent

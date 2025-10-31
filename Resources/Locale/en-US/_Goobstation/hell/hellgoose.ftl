@@ -24,3 +24,5 @@ hell-goose-statue-not-worthy = You are not worthy
 
 ghost-role-information-jeremy-name = Jeremy
 ghost-role-information-jeremy-description = Be the only form of entertainment in hell! 
+
+goose-reverted = Goose hell was reverted

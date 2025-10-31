@@ -36,20 +36,36 @@
     table:
       id: MobFloorGoblin
 
-# The geese need to be reworked
-# - type: entity 
-#   parent: BaseGameRule
-#   id: HellGooseSpawn
-#   components:
-#   - type: StationEvent
-#     earliestStart: 30
-#     minimumPlayers: 30
-#     weight: 5
-#     reoccurrenceDelay: 60
-#     eventType: Neutral
-#   - type: GameRule
-#     chaosScore: 0
-#   - type: VentCrittersRule
-#     max: 1
-#     table:
-#       id: MobHellGoose
+- type: entity 
+  parent: BaseGameRule
+  id: HellGooseSpawn
+  components:
+    - type: StationEvent
+      earliestStart: 30
+      minimumPlayers: 30
+      weight: 20
+      reoccurrenceDelay: 60
+      eventType: Neutral
+    - type: GameRule
+      chaosScore: 0
+    - type: VentCrittersRule
+      max: 3
+      table:
+        id: MobHellGoose
+
+- type: entity 
+  parent: BaseGameRule
+  id: HellGooseJeremySpawn
+  components:
+    - type: StationEvent
+      earliestStart: 30
+      minimumPlayers: 30
+      weight: 20
+      reoccurrenceDelay: 60
+      eventType: Neutral
+    - type: GameRule
+      chaosScore: 0
+    - type: VentCrittersRule
+      max: 3
+      table:
+        id: MobJeremy
