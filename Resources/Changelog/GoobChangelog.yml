@@ -17311,3 +17311,9 @@ Entries:
       message: You can now knock on windows and rattle on fences normally again
   id: 1941
   time: '2025-10-31T17:18:18.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Trevor now has the access of the rider
+  id: 1942
+  time: '2025-10-31T17:26:44.0000000+00:00'
