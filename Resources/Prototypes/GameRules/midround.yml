@@ -55,19 +55,13 @@
       multiAntagSetting: NotExclusive
       startingGear: ThiefGear
       jobBlacklist: [ Chaplain ] # GOOBSTATION
+      skills: # CorvaxGoob-Skills
+      - All
       blacklist:
         components:
         - CommandStaff
       components:
       # - type: Pacified # Commented by CorvaxGoob : MRP
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
       - type: Thieving
         stripTimeReduction: 2
         stealthy: true

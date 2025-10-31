@@ -73,6 +73,9 @@
   icon: "JobIconTechnicalAssistant"
   supervisors: job-supervisors-engineering
   #goobcoins: 20 #Goob content Corvax-Goob-coins
+  skills: # CorvaxGoob-Skills
+  - ShuttleControl
+  - AdvancedBuilding
   access:
   - Maintenance
   - Engineering
@@ -81,10 +84,6 @@
   - !type:AddComponentSpecial
     components:
     - type: EngineeringStaff
-    - type: Skills # CorvaxGoob-Skills
-      skills:
-      - ShuttleControl
-      - AdvancedBuilding
 
 - type: startingGear
   id: TechnicalAssistantGear

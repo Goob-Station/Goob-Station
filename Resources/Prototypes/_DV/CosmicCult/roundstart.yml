@@ -31,6 +31,8 @@
       max: 6
       playerRatio: 10
       jobBlacklist: [ Chaplain ] # GOOBSTATION
+      skills: # CorvaxGoob-Skills
+      - All
       blacklist:
         components:
         - CommandStaff # GOOBSTATION
@@ -39,13 +41,5 @@
       components:
       - type: CosmicCult
       - type: WeakToHoly # GOOBSTATION
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
       mindRoles:
       - MindRoleCosmicCult

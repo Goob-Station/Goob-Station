@@ -55,19 +55,12 @@
       playerRatio: 12
       chaosScore: 200
       jobBlacklist: [ Chaplain ] # GOOBSTATION
+      skills: # CorvaxGoob-Skills
+      - All
       blacklist:
         components:
         - CommandStaff
       lateJoinAdditional: true
-      components:
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
       mindRoles:
       - MindRoleChangeling
   - type: Tag
@@ -349,18 +342,12 @@
       fallbackRoles: [ Nukeops, NukeopsCommander ]
       spawnerPrototype: SpawnPointNukeopsMedic
       startingGear: SyndicateOperativeMedicFullHonkops
+      skills: # CorvaxGoob-Skills
+      - All
       roleLoadout:
       - RoleSurvivalNukieHonkops
       components:
       - type: NukeOperative
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
       - type: RandomMetadata
         nameSegments:
         - NamesHonkopsPrefix
@@ -413,16 +400,9 @@
       max: 1
       playerRatio: 20
       chaosScore: 150
+      skills: # CorvaxGoob-Skills
+      - All
       jobBlacklist: [ Chaplain, Mime, ChiefEngineer, ResearchDirector, Quartermaster ] #chaplain is obvious, mime can't write.
-      components:
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
       mindRoles:
       - DevilMindRole
       startingGear: DevilStartingGear

@@ -47,6 +47,8 @@
       max: 1
       pickPlayer: false
       startingGear: LoneAbductorGear
+      skills: # CorvaxGoob-Skills
+      - All
       briefing:
         text: abductor-role-greeting
         color: Green
@@ -74,14 +76,6 @@
           department: Security
           time: 7200 #2 hours
       - type: GhostTakeoverAvailable
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
       - type: NpcFactionMember
         factions:
           - SimpleHostile
@@ -155,20 +149,14 @@
       max: 1
       pickPlayer: false
       startingGear: AbductorScientistGear
+      skills: # CorvaxGoob-Skills
+      - All
       briefing:
         text: abductor-role-greeting
         color: Green
         sound: /Audio/_Shitmed/Misc/abductor.ogg
       components:
       - type: Abductor
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
       - type: ActionGrant
         actions:
           - ActionReturnToShip
@@ -214,20 +202,14 @@
       max: 1
       pickPlayer: false
       startingGear: AbductorAgentGear
+      skills: # CorvaxGoob-Skills
+      - All
       briefing:
         text: abductor-role-greeting
         color: Green
         sound: /Audio/_Shitmed/Misc/abductor.ogg
       components:
       - type: Abductor
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
       - type: ActionGrant
         actions:
           - ActionReturnToShip

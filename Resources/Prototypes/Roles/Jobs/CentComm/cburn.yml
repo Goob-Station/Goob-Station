@@ -19,6 +19,8 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  skills: # CorvaxGoob-Skills
+  - All
   accessGroups:
   - AllAccess
   access:
@@ -29,16 +31,6 @@
   special: # Goobstation
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
-  - !type:AddComponentSpecial
-    components:
-    - type: Skills # CorvaxGoob-Skills
-      skills:
-      - ShuttleControl
-      - Shooting
-      - AdvancedBuilding
-      - Surgery
-      - MedicalEquipment
-      - Butchering
 
 - type: startingGear # Goobstation - Start - Sol
   id: CBURNGear

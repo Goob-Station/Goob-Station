@@ -2,9 +2,10 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._CorvaxGoob.Skills;
 
-[Serializable, NetSerializable]
+[Serializable]
 public enum Skills
 {
+    All,
     ShuttleControl,
     Shooting,
     AdvancedBuilding,

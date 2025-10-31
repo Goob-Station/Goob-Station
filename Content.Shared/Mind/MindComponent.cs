@@ -48,6 +48,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._CorvaxGoob.Skills;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind.Components;
 using Robust.Shared.GameStates;
@@ -166,4 +167,7 @@ public sealed partial class MindComponent : Component
     /// </summary>
     [DataField]
     public LocId? Subtype;
+
+    [DataField]
+    public HashSet<Skills> Skills = []; // CorvaxGoob-Skills
 }

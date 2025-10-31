@@ -1,15 +1,16 @@
 using Content.Shared._CorvaxGoob.CCCVars;
-using Content.Shared._CorvaxGoob.Skills;
 using Content.Shared.Implants;
+using Content.Shared.Mind;
 using Content.Shared.Tag;
 using Robust.Shared.Configuration;
 
 namespace Content.Server._CorvaxGoob.Skills;
 
-public sealed class SkillsSystem : SharedSkillsSystem
+public sealed class SkillsSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
 
     [ValidatePrototypeId<TagPrototype>]
     public const string SkillsTag = "Skills";
@@ -42,14 +43,65 @@ public sealed class SkillsSystem : SharedSkillsSystem
         return _skillsEnabled;
     }
 
-    public bool HasSkill(EntityUid entity, Shared._CorvaxGoob.Skills.Skills skill, SkillsComponent? component = null)
+    public bool HasSkill(EntityUid entity, Shared._CorvaxGoob.Skills.Skills skill)
     {
         if (!_skillsEnabled)
             return true;
 
-        if (!Resolve(entity, ref component, false))
+        if (HasComp<IgnoreSkillsComponent>(entity))
+            return true;
+
+        if (!_mind.TryGetMind(entity, out _, out var mind))
             return false;
 
-        return component.Skills.Contains(skill);
+        if (mind.Skills.Contains(Shared._CorvaxGoob.Skills.Skills.All))
+            return true;
+
+        return mind.Skills.Contains(skill);
+    }
+
+    public void GrantAllSkills(EntityUid entity)
+    {
+        if (!_mind.TryGetMind(entity, out _, out var mind))
+            return;
+
+        mind.Skills.Clear();
+        mind.Skills.Add(Shared._CorvaxGoob.Skills.Skills.All);
+    }
+
+    public void GrantSkill(EntityUid entity, HashSet<Shared._CorvaxGoob.Skills.Skills> skills)
+    {
+        if (!_mind.TryGetMind(entity, out _, out var mind))
+            return;
+
+        if (skills.Contains(Shared._CorvaxGoob.Skills.Skills.All))
+        {
+            mind.Skills.Clear();
+            mind.Skills.Add(Shared._CorvaxGoob.Skills.Skills.All);
+        }
+        else
+            mind.Skills.UnionWith(skills);
+    }
+
+    /// <summary>
+    /// Revokes all skills and grant new on target mind.
+    /// </summary>
+    public void UpdateSkills(EntityUid entity, HashSet<Shared._CorvaxGoob.Skills.Skills> skills)
+    {
+        if (_mind.TryGetMind(entity, out _, out var mind))
+            UpdateSkills((entity, mind), skills);
+    }
+
+    public void UpdateSkills(Entity<MindComponent> entity, HashSet<Shared._CorvaxGoob.Skills.Skills>? skills)
+    {
+        entity.Comp.Skills.Clear();
+
+        if (skills is null)
+            return;
+
+        if (entity.Comp.Skills.Contains(Shared._CorvaxGoob.Skills.Skills.All))
+            entity.Comp.Skills.Add(Shared._CorvaxGoob.Skills.Skills.All);
+        else
+            entity.Comp.Skills.UnionWith(skills);
     }
 }

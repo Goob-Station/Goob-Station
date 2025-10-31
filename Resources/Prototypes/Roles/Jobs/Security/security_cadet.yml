@@ -111,6 +111,8 @@
   supervisors: job-supervisors-security
   canBeAntag: false
   #goobcoins: 30 #Goob content Corvax-Goob-coins
+  skills: # CorvaxGoob-Skills
+  - Shooting
   access:
   - Security
   - Brig
@@ -124,9 +126,6 @@
   - !type:AddComponentSpecial # goobstation
     components:
       - type: SecurityStaff
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - Shooting
 
 - type: startingGear
   id: SecurityCadetGear

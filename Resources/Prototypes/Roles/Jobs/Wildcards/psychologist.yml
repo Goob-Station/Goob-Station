@@ -107,17 +107,13 @@
   icon: "JobIconPsychologist"
   supervisors: job-supervisors-cmo
   #goobcoins: 15 #Goob content Corvax-Goob-coins
+  skills: # CorvaxGoob-Skills
+  - MedicalEquipment
   access:
   - Medical
   - Maintenance
   extendedAccess:
   - Chemistry
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: Skills # CorvaxGoob-Skills
-      skills:
-      - MedicalEquipment
 
 - type: startingGear
   id: PsychologistGear

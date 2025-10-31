@@ -153,6 +153,9 @@
   supervisors: job-supervisors-captain
   canBeAntag: false
   #goobcoins: 40 #Goob content Corvax-Goob-coins
+  skills: # CorvaxGoob-Skills
+  - ShuttleControl
+  - AdvancedBuilding
   access:
   - Maintenance
   - Engineering
@@ -169,10 +172,6 @@
     components:
       - type: CommandStaff
       - type: EngineeringStaff # Goobstation
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - AdvancedBuilding
 
 - type: startingGear
   id: ChiefEngineerGear

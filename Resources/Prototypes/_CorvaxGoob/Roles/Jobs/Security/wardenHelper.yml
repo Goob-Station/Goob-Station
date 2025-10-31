@@ -12,6 +12,8 @@
   supervisors: job-supervisors-hos
   weight: 5
   canBeAntag: false
+  skills: # CorvaxGoob-Skills
+  - Shooting
   access:
   - Security
   - Brig
@@ -24,11 +26,6 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-  - !type:AddComponentSpecial
-    components:
-      - type: Skills # Corvax-Next-Skills
-        skills:
-        - Shooting
 
 - type: startingGear
   id: WardenHelperGear

@@ -80,6 +80,8 @@
   icon: "JobIconCargoTechnician"
   supervisors: job-supervisors-qm
   #goobcoins: 20 #Goob content Corvax-Goob-coins
+  skills: # CorvaxGoob-Skills
+  - ShuttleControl
   access:
   - Cargo
   - Maintenance
@@ -90,11 +92,6 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: BoxingDay
     prototype: BoxCardboard
-  - !type:AddComponentSpecial
-    components:
-    - type: Skills # CorvaxGoob-Skills
-      skills:
-      - ShuttleControl
 
 - type: startingGear
   id: CargoTechGear

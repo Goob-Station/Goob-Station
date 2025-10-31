@@ -1,7 +1,8 @@
 using System.Linq;
 using Content.Server.Administration;
-using Content.Shared._CorvaxGoob.Skills;
+using Content.Server.Mind;
 using Content.Shared.Administration;
+using Content.Shared.Mind;
 using Robust.Shared.Console;
 
 namespace Content.Server._CorvaxGoob.Skills.Commands;
@@ -38,18 +39,19 @@ public sealed class RevokeSkillCommand : IConsoleCommand
             return;
         }
 
+        if (!_entity.System<MindSystem>().TryGetMind(entity.Value, out _, out var mind))
+        {
+            shell.WriteError(_localization.GetString("shell-invalid-entity-id"));
+            return;
+        }
+
         if (!Enum.TryParse<Shared._CorvaxGoob.Skills.Skills>(args[1], out var skill))
         {
             shell.WriteError("No such skill.");
             return;
         }
 
-        if (!_entity.TryGetComponent<SkillsComponent>(entity.Value, out var component))
-            return;
-
-        component.Skills.Remove(skill);
-
-        _entity.Dirty(entity.Value, component);
+        mind.Skills.Remove(skill);
     }
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
@@ -58,7 +60,7 @@ public sealed class RevokeSkillCommand : IConsoleCommand
         {
             var component = int.TryParse(args[0], out var id)
                 ? _entity.TryGetEntity(new(id), out var entity)
-                    ? _entity.TryGetComponent<SkillsComponent>(entity, out var comp)
+                    ? _entity.System<MindSystem>().TryGetMind(entity.Value, out _, out var comp)
                         ? comp
                         : null
                     : null

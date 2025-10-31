@@ -143,14 +143,6 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
-  - type: Skills # CorvaxGoob-Skills
-    skills:
-    - ShuttleControl
-    - Shooting
-    - AdvancedBuilding
-    - Surgery
-    - MedicalEquipment
-    - Butchering
 
 - type: entity
   parent: MobHumanSyndicateAgentBase
@@ -211,14 +203,6 @@
   components:
   - type: NukeOperative
   - type: RandomHumanoidAppearance
-  - type: Skills # CorvaxGoob-Skills
-    skills:
-    - ShuttleControl
-    - Shooting
-    - AdvancedBuilding
-    - Surgery
-    - MedicalEquipment
-    - Butchering
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -240,11 +224,3 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
-  - type: Skills # CorvaxGoob-Skills
-    skills:
-    - ShuttleControl
-    - Shooting
-    - AdvancedBuilding
-    - Surgery
-    - MedicalEquipment
-    - Butchering

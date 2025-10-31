@@ -83,6 +83,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._CorvaxGoob.Skills;
 using Content.Shared.Antag;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Preferences.Loadouts;
@@ -326,6 +327,12 @@ public partial struct AntagSelectionDefinition()
     /// </summary>
     [DataField]
     public float? ChaosScore = null;
+
+    /// <summary>
+    /// Skills that will be given on make antag.
+    /// </summary>
+    [DataField]
+    public HashSet<Skills> Skills = [];
 }
 
 /// <summary>

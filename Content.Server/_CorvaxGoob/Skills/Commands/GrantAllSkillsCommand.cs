@@ -1,5 +1,4 @@
 using Content.Server.Administration;
-using Content.Shared._CorvaxGoob.Skills;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 
@@ -37,6 +36,6 @@ public sealed class GrantAllSkillsCommand : IConsoleCommand
             return;
         }
 
-        _entity.System<SharedSkillsSystem>().GrantAllSkills(entity.Value);
+        _entity.System<SkillsSystem>().GrantAllSkills(entity.Value);
     }
 }

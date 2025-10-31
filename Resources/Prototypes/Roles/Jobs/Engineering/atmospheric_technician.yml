@@ -72,6 +72,9 @@
   icon: "JobIconAtmosphericTechnician"
   supervisors: job-supervisors-ce
   #goobcoins: 20 #Goob content Corvax-Goob-coins
+  skills: # CorvaxGoob-Skills
+  - ShuttleControl
+  - Shooting
   access:
   - Maintenance
   - Engineering
@@ -84,10 +87,6 @@
   - !type:AddComponentSpecial # Goobstation
     components:
     - type: EngineeringStaff
-    - type: Skills # CorvaxGoob-Skills
-      skills:
-      - ShuttleControl
-      - AdvancedBuilding
 
 - type: startingGear
   id: AtmosphericTechnicianGear

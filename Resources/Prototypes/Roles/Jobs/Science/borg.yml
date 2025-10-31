@@ -40,6 +40,8 @@
     time: 18000  # 5 hrs
   canBeAntag: false
   #goobcoins: 40 #Goob content Corvax-Goob-coins
+  skills: # CorvaxGoob-Skills
+  - All
   weight: 10 # Goob Edit
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
@@ -57,18 +59,9 @@
       time: 36000 # 10 hrs
   canBeAntag: false
   #goobcoins: 20 #Goob content Corvax-Goob-coins
+  skills: # CorvaxGoob-Skills
+  - All
   icon: JobIconBorg
   supervisors: job-supervisors-rd
   jobEntity: PlayerBorgBattery
   applyTraits: true
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: Skills # CorvaxGoob-Skills
-      skills:
-      - ShuttleControl
-      - Shooting
-      - AdvancedBuilding
-      - Surgery
-      - MedicalEquipment
-      - Butchering

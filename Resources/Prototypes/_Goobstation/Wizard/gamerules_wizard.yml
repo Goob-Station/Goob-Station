@@ -39,18 +39,12 @@
       mindRoles:
       - MindRoleWizard
       startingGear: WizardGear
+      skills: # CorvaxGoob-Skills
+      - All
       unequipOldGear: true
       roleLoadout:
       - RoleSurvivalEVA
       components:
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
       - type: Wizard
       - type: CanEnchant
       - type: LanguageKnowledge
@@ -109,17 +103,11 @@
       - MindRoleWizard
       startingGear: WizardGear
       unequipOldGear: true
+      skills: # CorvaxGoob-Skills
+      - All
       roleLoadout:
       - RoleSurvivalEVA
       components:
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
       - type: Wizard
       - type: RandomMetadata
       - type: CanEnchant

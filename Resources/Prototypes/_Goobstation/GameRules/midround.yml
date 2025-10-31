@@ -43,15 +43,8 @@
     - prefRoles: [ Traitor ]
       max: 1
       playerRatio: 10
-      components:
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
+      skills: # CorvaxGoob-Skills
+      - All
       blacklist:
         components:
         - AntagImmune
@@ -95,15 +88,8 @@
     - prefRoles: [ Changeling ]
       max: 1
       playerRatio: 10
-      components:
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
+      skills: # CorvaxGoob-Skills
+      - All
       blacklist:
         components:
         - CommandStaff
@@ -155,17 +141,10 @@
         - BibleUser
       lateJoinAdditional: true
       jobBlacklist: [ Chaplain ] # GOOBSTATION
+      skills: # CorvaxGoob-Skills
+      - All
       mindRoles:
       - MindRoleHeretic
-      components:
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
   - type: Tag
     tags:
       - MidroundAntag
@@ -204,17 +183,11 @@
         color: CornflowerBlue
         sound: "/Audio/Ambience/Antag/headrev_start.ogg"
       startingGear: HeadRevGear
+      skills: # CorvaxGoob-Skills
+      - All
       components:
       - type: Revolutionary
       - type: HeadRevolutionary
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
       mindRoles:
       - MindRoleHeadRevolutionary
   - type: Tag

@@ -72,6 +72,8 @@
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine
   #goobcoins: 20 #Goob content Corvax-Goob-coins
+  skills: # CorvaxGoob-Skills
+  - MedicalEquipment
   access:
   - Medical
   - Maintenance
@@ -81,9 +83,6 @@
     components:
     - type: SurgerySpeedModifier
       speedModifier: 1.25
-    - type: Skills # CorvaxGoob-Skills
-      skills:
-      - MedicalEquipment
 
 - type: startingGear
   id: MedicalInternGear

@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Server.Administration;
-using Content.Shared._CorvaxGoob.Skills;
+using Content.Server.Mind;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 
@@ -44,11 +44,10 @@ public sealed class GrantSkillCommand : IConsoleCommand
             return;
         }
 
-        var component = _entity.EnsureComponent<SkillsComponent>(entity.Value);
+        if (!_entity.System<MindSystem>().TryGetMind(entity.Value, out _, out var mind))
+            return;
 
-        component.Skills.Add(skill);
-
-        _entity.Dirty(entity.Value, component);
+        mind.Skills.Add(skill);
     }
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
@@ -57,7 +56,7 @@ public sealed class GrantSkillCommand : IConsoleCommand
         {
             var component = int.TryParse(args[0], out var id)
                 ? _entity.TryGetEntity(new(id), out var entity)
-                    ? _entity.TryGetComponent<SkillsComponent>(entity, out var comp)
+                    ? _entity.System<MindSystem>().TryGetMind(entity.Value, out _, out var comp)
                         ? comp
                         : null
                     : null

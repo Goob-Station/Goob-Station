@@ -16,13 +16,9 @@
   icon: JobIconVisitor
   setPreference: false
   overrideConsoleVisibility: true
+  skills: # CorvaxGoob-Skills
+  - ShuttleControl
   access:
   - Maintenance
   extendedAccess:
   - External
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: Skills # CorvaxGoob-Skills
-      skills:
-      - ShuttleControl

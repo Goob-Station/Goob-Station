@@ -150,14 +150,6 @@
       implants:
       - MindShieldImplant
     - type: AntagImmune
-    - type: Skills # CorvaxGoob-Skills
-      skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
 
 # Goobstation start
 - type: randomHumanoidSettings

@@ -81,19 +81,15 @@
   startingGear: SalvageSpecialistGear
   #goobcoins: 20 #Goob content Corvax-Goob-coins
   supervisors: job-supervisors-qm
+  skills: # CorvaxGoob-Skills
+  - ShuttleControl
+  - Shooting
+  - Butchering
   access:
   - Cargo
   - Salvage
   - Maintenance
   - External
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: Skills # CorvaxGoob-Skills
-      skills:
-      - ShuttleControl
-      - Shooting
-      - Butchering
 
 - type: startingGear
   id: SalvageSpecialistGear

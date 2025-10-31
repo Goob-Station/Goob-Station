@@ -10,6 +10,10 @@
   startingGear: SurgeonGear
   icon: "JobIconSurgeon"
   supervisors: job-supervisors-cmo
+  skills: # CorvaxGoob-Skills
+  - Surgery
+  - MedicalEquipment
+  - Butchering
   access:
   - Medical
   - Maintenance
@@ -20,11 +24,6 @@
     components:
     - type: SurgerySpeedModifier
       speedModifier: 2.5
-    - type: Skills # Corvax-Next-Skills
-      skills:
-      - Surgery
-      - MedicalEquipment
-      - Butchering
 
 - type: startingGear
   id: SurgeonGear

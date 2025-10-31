@@ -88,6 +88,9 @@
   icon: "JobIconParamedic"
   supervisors: job-supervisors-cmo
   #goobcoins: 20 #Goob content Corvax-Goob-coins
+  skills: # CorvaxGoob-Skills
+  - Surgery
+  - MedicalEquipment
   access:
   - Medical
   - Maintenance
@@ -99,11 +102,7 @@
   - !type:AddComponentSpecial
     components:
     - type: SurgerySpeedModifier
-      speedModifier: 1.25
-    - type: Skills # CorvaxGoob-Skills
-      skills:
-      - Surgery
-      - MedicalEquipment
+      speedModifier: 1.25     
 
 - type: startingGear
   id: ParamedicGear

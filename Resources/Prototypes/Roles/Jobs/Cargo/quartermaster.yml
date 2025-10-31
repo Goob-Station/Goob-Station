@@ -149,6 +149,8 @@
   supervisors: job-supervisors-captain
   canBeAntag: false
   #goobcoins: 40 #Goob content Corvax-Goob-coins
+  skills: # CorvaxGoob-Skills
+  - ShuttleControl
   access:
   - Cargo
   - Salvage
@@ -165,9 +167,6 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
 
 - type: startingGear
   id: QuartermasterGear

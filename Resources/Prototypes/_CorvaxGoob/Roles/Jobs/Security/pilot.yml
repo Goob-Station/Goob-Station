@@ -15,6 +15,9 @@
   icon: "JobIconPilot"
   supervisors: job-supervisors-hos
   canBeAntag: false
+  skills: # CorvaxGoob-Skills
+  - ShuttleControl
+  - Shooting
   access:
   - Security
   - Brig
@@ -25,12 +28,6 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-  - !type:AddComponentSpecial
-    components:
-    - type: Skills # Corvax-Next-Skills
-      skills:
-      - ShuttleControl
-      - Shooting
 
 - type: startingGear
   id: PilotGear

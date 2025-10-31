@@ -55,6 +55,11 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-ntr-centcom
   canBeAntag: false
+  skills: # CorvaxGoob-Skills
+  - ShuttleControl
+  - Shooting
+  - MedicalEquipment
+  - Surgery
   access:
   - Security
   - Brig
@@ -78,12 +83,6 @@
       - type: CommandStaff
       - type: Condemned
         soulOwnedNotDevil: true
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - Shooting
-        - MedicalEquipment
-        - Surgery
   - !type:AddObjectiveSpecial
     objectives:
     - BlueshieldRandomCommandAliveObjective

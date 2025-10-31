@@ -39,6 +39,8 @@
       chaosScore: 250
       lateJoinAdditional: true
       jobBlacklist: [ Chaplain, ] # GOOBSTATION
+      skills: # CorvaxGoob-Skills
+      - All
       blacklist:
         components:
         - CommandStaff
@@ -47,14 +49,6 @@
       components:
       - type: WeakToHoly
       - type: CanEnchant
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
   - type: Tag
     tags:
       - RoundstartAntag
@@ -80,6 +74,8 @@
       playerRatio: 20
       lateJoinAdditional: true
       jobBlacklist: [ Chaplain ] # GOOBSTATION
+      skills: # CorvaxGoob-Skills
+      - All
       blacklist:
         components:
         - CommandStaff
@@ -88,14 +84,6 @@
       components:
       - type: WeakToHoly
       - type: CanEnchant
-      - type: Skills # CorvaxGoob-Skills
-        skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
   - type: Tag
     tags:
       - CalmAntag

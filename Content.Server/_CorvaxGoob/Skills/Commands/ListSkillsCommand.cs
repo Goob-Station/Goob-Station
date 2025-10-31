@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Text;
 using Content.Server.Administration;
-using Content.Shared._CorvaxGoob.Skills;
+using Content.Server.Mind;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 
@@ -39,7 +39,7 @@ public sealed class ListSkillsCommand : IConsoleCommand
             return;
         }
 
-        if (!_entity.TryGetComponent<SkillsComponent>(entity.Value, out var component))
+        if (!_entity.System<MindSystem>().TryGetMind(entity.Value, out _, out var mind))
         {
             shell.WriteLine("");
             return;
@@ -47,7 +47,7 @@ public sealed class ListSkillsCommand : IConsoleCommand
 
         StringBuilder builder = new();
 
-        builder.AppendJoin('\n', component.Skills.Order());
+        builder.AppendJoin('\n', mind.Skills.Order());
 
         builder.Append('\n');
 

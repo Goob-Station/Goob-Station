@@ -20,6 +20,10 @@
   supervisors: job-supervisors-hos
   canBeAntag: false
   #goobcoins: 35 Corvax-Goob-coins
+  skills: # CorvaxGoob-Skills
+  - Shooting
+  - Surgery
+  - MedicalEquipment
   access: # intentionally no medical access, not even hos has it, ask chemists instead of silently stealing meds
   - Security
   - Brig
@@ -37,11 +41,6 @@
     #Corvax-Goob-brigmedic-loadout-update-start
     - type: SurgerySpeedModifier
       speedModifier: 1.5
-    - type: Skills # Corvax-Goob-Skills
-      skills:
-      - Shooting
-      - Surgery
-      - MedicalEquipment
     #Corvax-Goob-brigmedic-loadout-update-end
 
 - type: chameleonOutfit

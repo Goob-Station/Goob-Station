@@ -63,15 +63,11 @@
   icon: "JobIconResearchAssistant"
   supervisors: job-supervisors-science
   #goobcoins: 20 #Goob content Corvax-Goob-coins
+  skills: # CorvaxGoob-Skills
+  - AdvancedBuilding
   access:
   - Research
   - Maintenance
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: Skills # CorvaxGoob-Skills
-      skills:
-      - AdvancedBuilding
 
 - type: startingGear
   id: ResearchAssistantGear

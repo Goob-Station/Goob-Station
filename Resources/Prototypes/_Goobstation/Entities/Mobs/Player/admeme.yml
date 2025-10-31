@@ -45,6 +45,8 @@
   - type: Speech
     speechVerb: HolierThanThou
   - type: GhostRole
+    skills: # CorvaxGoob-Skills
+    - All
     requirements:
     - !type:DepartmentTimeRequirement
       department: Security
@@ -52,14 +54,6 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 108000 # Thirty hours. Fuck you.
-  - type: Skills # CorvaxGoob-Skills
-    skills:
-      - ShuttleControl
-      - Shooting
-      - AdvancedBuilding
-      - Surgery
-      - MedicalEquipment
-      - Butchering
 
 # Navy Officer
 
