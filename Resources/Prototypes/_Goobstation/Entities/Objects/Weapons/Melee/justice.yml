@@ -49,7 +49,7 @@
       types:
         Slash: 12
       woundSeverityMultipliers:
-        Slash: 1.5
+        Slash: 2
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
     angle: 60
@@ -91,7 +91,7 @@
             types:
               Slash: 12
             woundSeverityMultipliers:
-              Slash: 1.5
+              Slash: 2
           soundHit:
             path: /Audio/Weapons/bladeslice.ogg
           angle: 60
@@ -160,7 +160,7 @@
               Slash: 6
               Heat: 12
             woundSeverityMultipliers:
-              Slash: 1.5
+              Slash: 2
           angle: 60
           animation: WeaponArcThrust
           soundHit:

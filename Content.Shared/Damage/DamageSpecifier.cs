@@ -70,6 +70,10 @@ namespace Content.Shared.Damage
         public float ArmorPenetration { get; set; }
 
         // Goobstation
+        [DataField]
+        public float PartDamageVariation { get; set; }
+
+        // Goobstation
         [DataField(customTypeSerializer: typeof(PrototypeIdDictionarySerializer<FixedPoint2, DamageTypePrototype>))]
         public Dictionary<string, FixedPoint2> WoundSeverityMultipliers { get; set; } = new();
 
@@ -124,9 +128,12 @@ namespace Content.Shared.Damage
         public DamageSpecifier() { }
 
         // Goobstation
-        public DamageSpecifier(float armorPenetration, Dictionary<string, FixedPoint2> severityMultipliers)
+        public DamageSpecifier(float armorPenetration,
+            float partVariation,
+            Dictionary<string, FixedPoint2> severityMultipliers)
         {
             ArmorPenetration = armorPenetration;
+            PartDamageVariation = partVariation;
             WoundSeverityMultipliers = new (severityMultipliers);
         }
 
@@ -137,6 +144,7 @@ namespace Content.Shared.Damage
         {
             DamageDict = new(damageSpec.DamageDict);
             ArmorPenetration = damageSpec.ArmorPenetration; // Goobstation
+            PartDamageVariation = damageSpec.PartDamageVariation; // Goobstation
             WoundSeverityMultipliers = new(damageSpec.WoundSeverityMultipliers);
         }
 
@@ -179,7 +187,7 @@ namespace Content.Shared.Damage
             // Make a copy of the given data. Don't modify the one passed to this function. I did this before, and weapons became
             // duller as you hit walls. Neat, but not FixedPoint2ended. And confusing, when you realize your fists don't work no
             // more cause they're just bloody stumps.
-            DamageSpecifier newDamage = new(damageSpec.ArmorPenetration, damageSpec.WoundSeverityMultipliers); // Goob edit
+            DamageSpecifier newDamage = new(damageSpec.ArmorPenetration, damageSpec.PartDamageVariation, damageSpec.WoundSeverityMultipliers); // Goob edit
             newDamage.DamageDict.EnsureCapacity(damageSpec.DamageDict.Count);
 
             foreach (var (key, value) in damageSpec.DamageDict)
@@ -434,7 +442,7 @@ namespace Content.Shared.Damage
         #region Operators
         public static DamageSpecifier operator *(DamageSpecifier damageSpec, FixedPoint2 factor)
         {
-            DamageSpecifier newDamage = new(damageSpec.ArmorPenetration, damageSpec.WoundSeverityMultipliers); // Goob edit
+            DamageSpecifier newDamage = new(damageSpec.ArmorPenetration, damageSpec.PartDamageVariation, damageSpec.WoundSeverityMultipliers); // Goob edit
             foreach (var entry in damageSpec.DamageDict)
             {
                 newDamage.DamageDict.Add(entry.Key, entry.Value * factor);
@@ -444,7 +452,7 @@ namespace Content.Shared.Damage
 
         public static DamageSpecifier operator *(DamageSpecifier damageSpec, float factor)
         {
-            DamageSpecifier newDamage = new(damageSpec.ArmorPenetration, damageSpec.WoundSeverityMultipliers); // Goob edit
+            DamageSpecifier newDamage = new(damageSpec.ArmorPenetration, damageSpec.PartDamageVariation, damageSpec.WoundSeverityMultipliers); // Goob edit
             foreach (var entry in damageSpec.DamageDict)
             {
                 newDamage.DamageDict.Add(entry.Key, entry.Value * factor);
@@ -454,7 +462,7 @@ namespace Content.Shared.Damage
 
         public static DamageSpecifier operator /(DamageSpecifier damageSpec, FixedPoint2 factor)
         {
-            DamageSpecifier newDamage = new(damageSpec.ArmorPenetration, damageSpec.WoundSeverityMultipliers); // Goob edit
+            DamageSpecifier newDamage = new(damageSpec.ArmorPenetration, damageSpec.PartDamageVariation, damageSpec.WoundSeverityMultipliers); // Goob edit
             foreach (var entry in damageSpec.DamageDict)
             {
                 newDamage.DamageDict.Add(entry.Key, entry.Value / factor);
@@ -464,7 +472,7 @@ namespace Content.Shared.Damage
 
         public static DamageSpecifier operator /(DamageSpecifier damageSpec, float factor)
         {
-            DamageSpecifier newDamage = new(damageSpec.ArmorPenetration, damageSpec.WoundSeverityMultipliers); // Goob edit
+            DamageSpecifier newDamage = new(damageSpec.ArmorPenetration, damageSpec.PartDamageVariation, damageSpec.WoundSeverityMultipliers); // Goob edit
 
             foreach (var entry in damageSpec.DamageDict)
             {

@@ -216,7 +216,7 @@
         Asphyxiation: 45
         Slash: 45
     traumaDeductions:
-      Dismemberment: 0.4
+      Dismemberment: 0.5
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     occupiedLayer: Head

@@ -26,7 +26,7 @@
         Blunt: 10
         Structural: 10
       woundSeverityMultipliers:
-        Blunt: 3
+        Blunt: 2
     soundHit:
       collection: MetalThud
   - type: Wieldable
@@ -67,7 +67,7 @@
         Blunt: 10 # GoobStation Edit
         Structural: 10 # GoobStation Edit
       woundSeverityMultipliers:
-        Blunt: 3
+        Blunt: 2
     soundHit:
       path: /Audio/Effects/tesla_consume.ogg
       params:
@@ -83,7 +83,7 @@
         Blunt: 15
         Structural: 15
       woundSeverityMultipliers:
-        Blunt: 3
+        Blunt: 2
   - type: Item
     size: Ginormous
   - type: Boomerang # Goobstation
@@ -122,7 +122,7 @@
         Blunt: 5
         Structural: 5
       woundSeverityMultipliers:
-        Blunt: 3
+        Blunt: 2
     soundHit:
       path: /Audio/Effects/radpulse5.ogg
       params:

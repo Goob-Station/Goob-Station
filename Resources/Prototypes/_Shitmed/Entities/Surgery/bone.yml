@@ -31,8 +31,8 @@
   description: A bone from the neck. Contains a lot of calcium.
   components:
   - type: Bone
-    integrityCap: 120
-    boneIntegrity: 120
+    integrityCap: 100 # Goob edit
+    boneIntegrity: 100 # Goob edit
   - type: Sprite
     sprite: Objects/Materials/materials.rsi
     state: bones

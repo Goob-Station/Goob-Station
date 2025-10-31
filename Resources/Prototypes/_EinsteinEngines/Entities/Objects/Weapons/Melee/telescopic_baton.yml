@@ -44,7 +44,7 @@
       types:
         Blunt: 12
       woundSeverityMultipliers:
-        Blunt: 4
+        Blunt: 4 # IT HURTS
   - type: ItemToggleSize
     activatedSize: Normal
     activatedShape: # Goobstation

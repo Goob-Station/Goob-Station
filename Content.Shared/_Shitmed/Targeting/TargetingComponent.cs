@@ -21,6 +21,14 @@ public sealed partial class TargetingComponent : Component
     public TargetBodyPart Target = TargetBodyPart.Chest;
 
     /// <summary>
+    /// Goobstation
+    /// Chance to miss and hit torso instead of the targeted part on heavy attacks
+    /// Applies to prone targets as well
+    /// </summary>
+    [DataField]
+    public float HeavyAttackMissChance = 0.5f;
+
+    /// <summary>
     /// What odds are there for every part targeted to be hit?
     /// </summary>
     [DataField]
@@ -29,8 +37,8 @@ public sealed partial class TargetingComponent : Component
         {
             TargetBodyPart.Head, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.Head, 0.3f },
-                { TargetBodyPart.Chest, 0.7f },
+                { TargetBodyPart.Head, 0.5f },
+                { TargetBodyPart.Chest, 0.5f },
             }
         },
         {
@@ -49,65 +57,65 @@ public sealed partial class TargetingComponent : Component
         {
             TargetBodyPart.RightArm, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.RightArm, 0.33f },
-                { TargetBodyPart.Chest, 0.65f },
-                { TargetBodyPart.RightHand, 0.02f },
+                { TargetBodyPart.RightArm, 0.7f },
+                { TargetBodyPart.Chest, 0.2f },
+                { TargetBodyPart.RightHand, 0.1f },
             }
         },
         {
             TargetBodyPart.LeftArm, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.LeftArm, 0.33f },
-                { TargetBodyPart.Chest, 0.65f },
-                { TargetBodyPart.LeftHand, 0.02f },
+                { TargetBodyPart.LeftArm, 0.7f },
+                { TargetBodyPart.Chest, 0.2f },
+                { TargetBodyPart.LeftHand, 0.1f },
             }
         },
         {
             TargetBodyPart.RightHand, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.RightHand, 0.1f },
-                { TargetBodyPart.Chest, 0.7f },
-                { TargetBodyPart.RightArm, 0.2f },
+                { TargetBodyPart.RightHand, 0.3f },
+                { TargetBodyPart.Chest, 0.4f },
+                { TargetBodyPart.RightArm, 0.3f },
             }
         },
         {
             TargetBodyPart.LeftHand, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.LeftHand, 0.1f },
-                { TargetBodyPart.Chest, 0.7f },
-                { TargetBodyPart.LeftArm, 0.2f },
+                { TargetBodyPart.LeftHand, 0.3f },
+                { TargetBodyPart.Chest, 0.4f },
+                { TargetBodyPart.LeftArm, 0.3f },
             }
         },
         {
             TargetBodyPart.RightLeg, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.RightLeg, 0.33f },
-                { TargetBodyPart.Chest, 0.65f },
-                { TargetBodyPart.RightFoot, 0.02f },
+                { TargetBodyPart.RightLeg, 0.7f },
+                { TargetBodyPart.Chest, 0.2f },
+                { TargetBodyPart.RightFoot, 0.1f },
             }
         },
         {
             TargetBodyPart.LeftLeg, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.LeftLeg, 0.33f },
-                { TargetBodyPart.Chest, 0.65f },
-                { TargetBodyPart.LeftFoot, 0.02f },
+                { TargetBodyPart.LeftLeg, 0.7f },
+                { TargetBodyPart.Chest, 0.2f },
+                { TargetBodyPart.LeftFoot, 0.1f },
             }
         },
         {
             TargetBodyPart.RightFoot, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.RightFoot, 0.1f },
-                { TargetBodyPart.Chest, 0.7f },
-                { TargetBodyPart.RightLeg, 0.2f },
+                { TargetBodyPart.RightFoot, 0.3f },
+                { TargetBodyPart.Chest, 0.4f },
+                { TargetBodyPart.RightLeg, 0.3f },
             }
         },
         {
             TargetBodyPart.LeftFoot, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.LeftFoot, 0.1f },
-                { TargetBodyPart.Chest, 0.7f },
-                { TargetBodyPart.LeftLeg, 0.2f },
+                { TargetBodyPart.LeftFoot, 0.3f },
+                { TargetBodyPart.Chest, 0.4f },
+                { TargetBodyPart.LeftLeg, 0.3f },
             }
         },
     };

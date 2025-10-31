@@ -113,13 +113,13 @@ public sealed partial class WoundableComponent : Component
     /// Can the woundable heal damage?
     /// </summary>
     [ViewVariables]
-    public bool CanHealDamage => true; // Fuck this
+    public bool CanHealDamage => WoundableIntegrity < DamageThreshold;
 
     /// <summary>
     /// Can the woundable heal bleeds?
     /// </summary>
     [ViewVariables]
-    public bool CanHealBleeds => Bleeds > 0; // Fuck this
+    public bool CanHealBleeds => Bleeds > 0 && Bleeds < BleedsThreshold;
 
     /// <summary>
     /// Multipliers of severity applied to this wound.
@@ -182,7 +182,7 @@ public sealed partial class WoundableComponent : Component
     [DataField]
     public Dictionary<TraumaType, FixedPoint2> TraumaDeductions = new()
     {
-        {TraumaType.Dismemberment, 0.2f},
+        {TraumaType.Dismemberment, 0.3f},
     };
 }
 

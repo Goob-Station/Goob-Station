@@ -195,8 +195,8 @@
         Heat: 15
         Structural: 20
       woundSeverityMultipliers:
-        Slash: 3
-        Heat: 3
+        Slash: 4
+        Heat: 4
   - type: MeleeWeapon
     animationRotation: -45 # WWDP
     heavyStaminaCost: 2.5 # goob edit
@@ -494,9 +494,12 @@
         variation: 0.250
     activatedDamage:
         types:
-          Slash: 20   #Goob Station rebalance, was originally 12
-          Heat: 20    #Goob Station rebalance, was originally 12
+          Slash: 15   #Goob Station rebalance, was originally 12
+          Heat: 15    #Goob Station rebalance, was originally 12
           Structural: 40 # Goob edit
+        woundSeverityMultipliers:
+          Slash: 6
+          Heat: 6
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg

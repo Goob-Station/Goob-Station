@@ -182,7 +182,7 @@
       types:
         Slash: 16
       woundSeverityMultipliers:
-        Slash: 2
+        Slash: 2.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -209,7 +209,7 @@
       types:
         Slash: 15
       woundSeverityMultipliers:
-        Slash: 1.5
+        Slash: 2
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -243,7 +243,7 @@
       types:
         Slash: 19 #cmon, it has to be at least BETTER than the rest. # Goob edit
       woundSeverityMultipliers:
-        Slash: 2.5
+        Slash: 3
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -278,7 +278,7 @@
       types:
         Slash: 15
       woundSeverityMultipliers:
-        Slash: 2
+        Slash: 2.5
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -308,7 +308,7 @@
       types:
         Slash: 30
       woundSeverityMultipliers:
-        Slash: 1.5
+        Slash: 2
   - type: Item
     storedSprite:
       state: storage
@@ -345,7 +345,7 @@
       types:
         Slash: 20
       woundSeverityMultipliers:
-        Slash: 2
+        Slash: 2.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
