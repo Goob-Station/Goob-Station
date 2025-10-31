@@ -4,7 +4,7 @@
   components:
   - type: GameRule
     chaosScore: 400
-    minPlayers: 1
+    minPlayers: 30
   - type: AntagObjectives
     objectives:
     - XenomorphSurviveObjective
