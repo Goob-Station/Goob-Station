@@ -19,7 +19,7 @@ public sealed class VentSpawnRule : StationEventSystem<VentSpawnRuleComponent>
         SubscribeLocalEvent<VentSpawnRuleComponent, AntagSelectLocationEvent>(OnSelectLocation);
     }
 
-    protected override void Added(EntityUid uid, VentSpawnRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
+    protected override void
     {
 
     }
