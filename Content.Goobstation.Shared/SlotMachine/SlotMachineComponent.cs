@@ -50,7 +50,7 @@ public sealed partial class SlotMachineComponent : Component
     public float JackPotWinChance = .01f;
 
     [DataField, AutoNetworkedField]
-    public float GodPotWinChance = .001f;
+    public float GodPotWinChance = .0001f;
 
     /// <summary>
     /// Prizes
