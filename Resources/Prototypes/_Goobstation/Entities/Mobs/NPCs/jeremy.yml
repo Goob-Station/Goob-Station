@@ -13,7 +13,6 @@
         sprite: _Goobstation/Mobs/Hell/jeremy.rsi
     - type: Hands
     - type: Input
-      enabled: true
     - type: InputMover
     - type: Puller
       needsHands: false
