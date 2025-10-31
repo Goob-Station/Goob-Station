@@ -17305,3 +17305,9 @@ Entries:
       message: Shuttles can FTL to the station grid consistently.
   id: 1940
   time: '2025-10-31T17:07:10.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: You can now knock on windows and rattle on fences normally again
+  id: 1941
+  time: '2025-10-31T17:18:18.0000000+00:00'
