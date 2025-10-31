@@ -1,9 +1,8 @@
-﻿using Content.Goobstation.Common.Knowledge;
-using Content.Goobstation.Common.Knowledge.Components;
+﻿using Content.Goobstation.Common.Knowledge.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Knowledge.Systems;
+namespace Content.Goobstation.Common.Knowledge.Systems;
 
 /// <summary>
 /// This handles all knowledge related entities.
