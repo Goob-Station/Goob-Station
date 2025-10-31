@@ -138,6 +138,16 @@
     - Chitinid # DeltaV
     - Shadowkin
 
+# Goobstation start
+- type: loadoutEffectGroup
+  id: HarnessWearers
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Vox
+    - Plasmaman
+# Goobstation end
+
 - type: loadoutEffectGroup
   id: EffectSpeciesVox
   effects:
@@ -325,7 +335,8 @@
   - !type:GroupLoadoutEffect
     proto: EffectSpeciesVox
   equipment:
-    suitstorage: NitrogenTankFilled
+    tankstorage: NitrogenTankFilled # Funkystation - Vox Tank Harness
+    neck: ClothingNeckTankHarness # Funkystation - Vox Tank Harness
 
 # Full EVA Tank, Any Species
 - type: loadout
@@ -366,9 +377,9 @@
   id: LoadoutTankHarness
   effects:
   - !type:GroupLoadoutEffect
-    proto: EffectSpeciesVox
+    proto: HarnessWearers # Goobstation edit
   equipment:
-    outerClothing: ClothingOuterVestTank
+    neck: ClothingNeckTankHarness # Funkystation - Vox Tank Harness
 
 # Breath Tool On Face
 - type: loadout

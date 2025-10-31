@@ -7,39 +7,49 @@ using System.Numerics;
 using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Atmos.Components;
 using Content.Shared._Lavaland.Procedural.Prototypes;
-using Content.Shared.Atmos;
 using Content.Shared.Gravity;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
 using Robust.Shared.Map;
-using Robust.Shared.Utility;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Lavaland.Procedural.Systems;
 
 public sealed partial class LavalandSystem
 {
     public bool SetupLavalandPlanet(
+        ProtoId<LavalandMapPrototype> mapProto,
         out Entity<LavalandMapComponent>? lavaland,
-        LavalandMapPrototype prototype,
         int? seed = null,
         Entity<LavalandPreloaderComponent>? preloader = null)
     {
         lavaland = null;
 
+        if (!LavalandEnabled)
+            return true;
+
         if (preloader == null)
         {
             preloader = GetPreloaderEntity();
             if (preloader == null)
+            {
+                Log.Warning("Failed to find a preloader entity when generating a new planet!");
                 return false;
+            }
         }
+
+        var proto = _proto.Index(mapProto);
+        var prototype = _proto.Index(proto.Planet);
+        var layout = _proto.Index(proto.Layout);
+        var ruinPool = _proto.Index(proto.Ruins);
 
         // Basic setup.
         var lavalandMap = _map.CreateMap(out var lavalandMapId, runMapInit: false);
         var mapComp = EnsureComp<LavalandMapComponent>(lavalandMap);
         lavaland = (lavalandMap, mapComp);
 
-        // If specified, force new seed
+        // If not specified already, create new seed
         seed ??= _random.Next();
 
         var lavalandPrototypeId = prototype.ID;
@@ -49,19 +59,15 @@ public sealed partial class LavalandSystem
         // Ensure that it's paused
         _map.SetPaused(lavalandMapId, true);
 
-        if (!SetupOutpost(lavalandMap, lavalandMapId, prototype.OutpostPath, out var outpost))
-            return false;
+        SetupLayout(lavalandMap, lavalandMapId, layout, out mapComp.SpawnedGrids);
 
         var loadBox = Box2.CentredAroundZero(new Vector2(prototype.RestrictedRange, prototype.RestrictedRange));
 
-        mapComp.Outpost = outpost;
         mapComp.Seed = seed.Value;
         mapComp.PrototypeId = lavalandPrototypeId;
         mapComp.LoadArea = loadBox;
 
-        // Setup Ruins.
-        var pool = _proto.Index(prototype.RuinPool);
-        SetupRuins(pool, lavaland.Value, preloader.Value);
+        SetupRuins(ruinPool, lavaland.Value, preloader.Value);
 
         // Hide all grids from the mass scanner.
         foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
@@ -75,26 +81,25 @@ public sealed partial class LavalandSystem
             _shuttle.AddIFFFlag(grid, flag);
         }
 
-        // Start!!1!!!
         _map.InitializeMap(lavalandMapId);
 
-        // also preload the planet itself
-        _biome.Preload(lavalandMap, Comp<BiomeComponent>(lavalandMap), loadBox);
+        // Assign all other components to the map
+        if (prototype.AddComponents != null)
+            EntityManager.AddComponents(lavalandMap, prototype.AddComponents);
 
-        // Finally add destination
-        var dest = AddComp<FTLDestinationComponent>(lavalandMap);
-        dest.Whitelist = prototype.ShuttleWhitelist;
+        // Preload here to prevent biome entities from overlaying with everything else
+        _biome.Preload(lavalandMap, Comp<BiomeComponent>(lavalandMap), loadBox);
 
         return true;
     }
 
-    private void PlanetBasicSetup(EntityUid lavalandMap, LavalandMapPrototype prototype, int seed)
+    private void PlanetBasicSetup(EntityUid lavalandMap, LavalandPlanetPrototype prototype, int seed)
     {
         // Name
         _metaData.SetEntityName(lavalandMap, Loc.GetString(prototype.Name));
 
         // Biomes
-        _biome.EnsurePlanet(lavalandMap, _proto.Index(prototype.BiomePrototype), seed, mapLight: prototype.PlanetColor);
+        _biome.EnsurePlanet(lavalandMap, _proto.Index(prototype.BiomePrototype), seed, mapLight: prototype.MapLight);
 
         // Marker Layers
         var biome = EnsureComp<BiomeComponent>(lavalandMap);
@@ -109,45 +114,34 @@ public sealed partial class LavalandSystem
         gravity.Enabled = true;
         Dirty(lavalandMap, gravity);
 
-        // Atmos
-        var air = prototype.Atmosphere;
-        // copy into a new array since the yml deserialization discards the fixed length
-        var moles = new float[Atmospherics.AdjustedNumberOfGases];
-        air.CopyTo(moles, 0);
-
         var atmos = EnsureComp<MapAtmosphereComponent>(lavalandMap);
-        _atmos.SetMapGasMixture(lavalandMap, new GasMixture(moles, prototype.Temperature), atmos);
+        _atmos.SetMapGasMixture(lavalandMap, prototype.Atmosphere, atmos);
 
         // Restricted Range
-        var restricted = new RestrictedRangeComponent
-        {
-            Range = prototype.RestrictedRange,
-        };
-        AddComp(lavalandMap, restricted);
-
+        var restricted = EnsureComp<RestrictedRangeComponent>(lavalandMap);
+        restricted.Range = prototype.RestrictedRange;
     }
 
-    private bool SetupOutpost(EntityUid lavaland, MapId lavalandMapId, ResPath path, out EntityUid outpost)
+    private void SetupLayout(EntityUid lavaland, MapId lavalandMapId, LavalandLayoutPrototype? proto, out List<EntityUid> spawned)
     {
-        outpost = EntityUid.Invalid;
+        spawned = new();
 
-        // Setup Outpost
-        if (!_mapLoader.TryLoadGrid(lavalandMapId, path, out var outpostGrid))
+        if (proto == null)
+            return; // nothing to spawn
+
+        foreach (var layout in proto.Layouts)
         {
-            Log.Error("Failed to load Lavaland outpost!");
-            return false;
+            if (!_mapLoader.TryLoadGrid(lavalandMapId, layout.GridPath, out var result))
+            {
+                Log.Error($"Failed to load grid {layout.GridPath} on planet {ToPrettyString(lavaland)}!");
+                continue;
+            }
+
+            _transform.SetCoordinates(result.Value, new EntityCoordinates(lavaland, layout.Position));
+            _metaData.SetEntityName(result.Value, Loc.GetString(layout.Name));
+
+            Log.Debug($"Spawned {ToPrettyString(result.Value)} grid on planet {ToPrettyString(lavaland)}.");
+            spawned.Add(result.Value);
         }
-
-        outpost = outpostGrid.Value;
-
-        // Align outpost to planet
-        _transform.SetCoordinates(outpost, new EntityCoordinates(lavaland, 0, 0));
-
-        // Name it
-        _metaData.SetEntityName(outpost, Loc.GetString("lavaland-planet-outpost"));
-        var member = EnsureComp<LavalandMemberComponent>(outpost);
-        member.SignalName = Loc.GetString("lavaland-planet-outpost");
-
-        return true;
     }
 }

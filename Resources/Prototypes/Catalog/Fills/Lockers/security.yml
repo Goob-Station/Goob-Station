@@ -129,6 +129,7 @@
     - id: Multitool # Goobstation
     - id: Wrench # Goobstation
     - id: ContrabandDetectorFlatpack # Goobstation
+    - id: SecurityMegaphone # goob - loudspeakers
 
 - type: entityTable
   id: FillLockerWardenHarduit
@@ -179,9 +180,9 @@
     - !type:GroupSelector
       children:
       - id: ClothingBeltSecurityFilled
-        weight: 0.5
+        weight: 0.7
       - id: ClothingBeltCorporateJudoFilled
-        weight: 0.5
+        weight: 0.3
     # Goobstation - Martial Arts - end
 
 - type: entity
@@ -208,6 +209,8 @@
       prob: 0.1
     - id: MedkitOxygenFilled
     - id: MedkitAdvancedFilled
+    - id: BoxSyringe
+    - id: BoxBodyBag # Goob Station
 
 - type: entity
   id: LockerDetectiveFilled
