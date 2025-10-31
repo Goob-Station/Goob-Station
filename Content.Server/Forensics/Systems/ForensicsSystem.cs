@@ -467,7 +467,7 @@ namespace Content.Server.Forensics
                     !string.IsNullOrEmpty(fingerprintG.Fingerprint) &&
                     TryComp<FiberComponent>(gloves, out var fiberEmpty) &&
                     !string.IsNullOrEmpty(fiberEmpty.FiberMaterial)
-                    && _revealChance > 0f)
+                    && _revealChance is < 1f and > 0f) // only do partial fingerprints if reveal chance is between 0 and 1
                 {
                     var full = fingerprintG.Fingerprint ?? ""; //asign the fingerprint to new variable
                     string updated;
