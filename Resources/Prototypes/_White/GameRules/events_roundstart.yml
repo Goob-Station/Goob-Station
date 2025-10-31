@@ -23,5 +23,5 @@
       mindRoles:
       - MindRoleXenomorph
       briefing:
-      text: xenomorph-role-greeting
-      color: "#8c3986"
+        text: xenomorph-role-greeting
+        color: "#8c3986"
