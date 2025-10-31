@@ -64,7 +64,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
