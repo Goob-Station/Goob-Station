@@ -15,6 +15,7 @@ using Content.Shared._EinsteinEngines.Silicon.DeadStartupButton;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Electrocution;
+using Content.Shared.Medical; // Goobstation - Energycrit: Fix IPC shock loops
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -41,7 +42,7 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
     {
         base.Initialize();
         SubscribeLocalEvent<DeadStartupButtonComponent, OnDoAfterButtonPressedEvent>(OnDoAfter);
-        SubscribeLocalEvent<DeadStartupButtonComponent, ElectrocutedEvent>(OnElectrocuted);
+        SubscribeLocalEvent<DeadStartupButtonComponent, TargetDefibrillatedEvent>(OnElectrocuted); // Goobstation - Energycrit: Fix IPC shock loops.
         SubscribeLocalEvent<DeadStartupButtonComponent, MobStateChangedEvent>(OnMobStateChanged);
 
     }
@@ -76,7 +77,8 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
         Spawn("EffectSparks", Transform(uid).Coordinates);
     }
 
-    private void OnElectrocuted(EntityUid uid, DeadStartupButtonComponent comp, ElectrocutedEvent args)
+    // Goobstation - Energycrit: Fix IPC shock loops - Adjusted signature to use TargetDefibrillatedEvent instead of ElectrocutedEvent
+    private void OnElectrocuted(EntityUid uid, DeadStartupButtonComponent comp, ref TargetDefibrillatedEvent args)
     {
         if (!TryComp<MobStateComponent>(uid, out var mobStateComponent)
             || !_mobState.IsDead(uid, mobStateComponent)
