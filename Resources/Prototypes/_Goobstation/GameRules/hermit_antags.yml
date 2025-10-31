@@ -103,6 +103,7 @@
   components:
   - type: StationEvent
     earliestStart: 20
+  - type: GameRule
     weight: 4.5 #increased by 1.5
     chaosScore: 270 #decreased by 30
 
