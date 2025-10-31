@@ -17285,3 +17285,9 @@ Entries:
       message: Pain effects including pain sounds and pain paralyzing are disabled.
   id: 1937
   time: '2025-10-31T10:42:08.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Gruntish actually sounds gruntish. Also fixed colour and font size.
+  id: 1938
+  time: '2025-10-31T13:38:58.0000000+00:00'
