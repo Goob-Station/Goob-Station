@@ -10,12 +10,12 @@ using Content.Server.Lightning;
 using Content.Server.Popups;
 using Content.Server.PowerCell;
 using Content.Server._EinsteinEngines.Silicon.Charge;
+using Content.Server.Lightning.Components; // Goobstation - Fix IPC shock loops
 using Content.Server.Power.EntitySystems; // Goobstation - Energycrit
 using Content.Shared._EinsteinEngines.Silicon.DeadStartupButton;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Electrocution;
-using Content.Shared.Medical; // Goobstation - Energycrit: Fix IPC shock loops
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -42,7 +42,7 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
     {
         base.Initialize();
         SubscribeLocalEvent<DeadStartupButtonComponent, OnDoAfterButtonPressedEvent>(OnDoAfter);
-        SubscribeLocalEvent<DeadStartupButtonComponent, TargetDefibrillatedEvent>(OnElectrocuted); // Goobstation - Energycrit: Fix IPC shock loops.
+        SubscribeLocalEvent<DeadStartupButtonComponent, ElectrocutedEvent>(OnElectrocuted);
         SubscribeLocalEvent<DeadStartupButtonComponent, MobStateChangedEvent>(OnMobStateChanged);
 
     }
@@ -77,10 +77,10 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
         Spawn("EffectSparks", Transform(uid).Coordinates);
     }
 
-    // Goobstation - Energycrit: Fix IPC shock loops - Adjusted signature to use TargetDefibrillatedEvent instead of ElectrocutedEvent
-    private void OnElectrocuted(EntityUid uid, DeadStartupButtonComponent comp, ref TargetDefibrillatedEvent args)
+    private void OnElectrocuted(EntityUid uid, DeadStartupButtonComponent comp, ElectrocutedEvent args)
     {
-        if (!TryComp<MobStateComponent>(uid, out var mobStateComponent)
+        if (HasComp<LightningComponent>(args.SourceUid) // Goobstation - Fix IPC shock loops.
+            || !TryComp<MobStateComponent>(uid, out var mobStateComponent)
             || !_mobState.IsDead(uid, mobStateComponent)
             || !_siliconChargeSystem.TryGetSiliconBattery(uid, out var bateria, out var batteryEnt) // Goobstation - Added batteryEnt argument
             || bateria.CurrentCharge <= 0)
