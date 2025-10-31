@@ -56,7 +56,8 @@
     - id: BingleSpawnHermit #Goobstation - Bingle
     - id: SlaughterDemonMidroundHermit # Goobstation - Slaughter Demon
     - id: XenomorphsInfestationHermit # WD EDIT
-
+    - id: WraithMidroundHermit # GHOSTS
+    
 - type: entity
   parent: DerelictCyborgSyndicateSpawn
   id: DerelictCyborgSyndicateSpawnHermit
@@ -226,3 +227,11 @@
     weight: 3.5 #decreased by 1.5
   - type: GameRule
     chaosScore: 100 #increased by 20
+
+- type: entity
+  parent: WraithMidround
+  id: WraithMidroundHermit
+  - type: StationEvent
+    weight: 2 #decreased by 2
+  - type: GameRule
+    chaosScore: 600 #increased by 100
