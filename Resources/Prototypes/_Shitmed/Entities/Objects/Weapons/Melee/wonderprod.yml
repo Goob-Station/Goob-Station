@@ -114,7 +114,7 @@
           animation: WeaponArcThrust
         - type: InjectOnHit
           reagents:
-          - ReagentId: NocturineWonderprod
+          - ReagentId: Nocturine
             Quantity: 5
           limit: 20
           needsRestrain: true
