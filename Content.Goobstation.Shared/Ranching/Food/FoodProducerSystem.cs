@@ -24,6 +24,7 @@ public sealed class FoodProducerSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly SolutionTransferSystem _solutionTransfer = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
@@ -203,8 +204,12 @@ public sealed class FoodProducerSystem : EntitySystem
             if (!_solutionContainer.TryGetSolution(uid, "sack", out var sackSolution) )
                 return;
 
-            _solutionContainer.TryTransferSolution(sackSolution.Value, solution.Value.Comp.Solution, solution.Value.Comp.Solution.Volume);
-            _solutionContainer.UpdateChemicals(solution.Value);
+            _solutionTransfer.Transfer(uid,
+                beakerEnt,
+                solution.Value,
+                uid,
+                sackSolution.Value,
+                solution.Value.Comp.Solution.Volume);
         }
 
         _appearance.SetData(uid, SeedColor.Color, color);

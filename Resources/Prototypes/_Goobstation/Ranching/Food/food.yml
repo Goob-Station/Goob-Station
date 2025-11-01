@@ -22,13 +22,6 @@
     solutions:
       sack:
         maxVol: 50
-  - type: SolutionTransfer
-    maxTransferAmount: 50
-    canChangeTransferAmount: true
-  - type: MixableSolution
-    solution: sack
-  - type: DrainableSolution
-    solution: sack
   - type: ExaminableSolution
     solution: sack
 
@@ -46,6 +39,12 @@
       shader: unshaded
   - type: PreferencesHolder
   - type: FoodSeedVisuals
+  - type: SolutionContainerManager
+    solutions:
+      seed:
+        maxVol: 10
+  - type: ExaminableSolution
+    solution: seed
 
 - type: entity
   id: ChickenFeedRandom

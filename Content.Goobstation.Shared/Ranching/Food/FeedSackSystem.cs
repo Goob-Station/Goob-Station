@@ -1,5 +1,7 @@
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Ranching.Happiness;
 using Content.Shared.Charges.Systems;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
@@ -17,6 +19,8 @@ public sealed class FeedSackSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly HappinessContainerSystem _happiness = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SolutionTransferSystem _solutionTransfer = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -69,5 +73,24 @@ public sealed class FeedSackSystem : EntitySystem
             return;
 
         _appearance.SetData(chickenFeed, SeedColor.Color, color);
+        TransferSolutions(args.User, ent.Owner, chickenFeed, _charges.GetCurrentCharges(ent.Owner));
+    }
+
+    private void TransferSolutions(EntityUid user, EntityUid sack, EntityUid food, int chargesLeft)
+    {
+        if (!_solutionContainer.TryGetSolution(sack, "sack", out var sackSolution)
+            || !_solutionContainer.TryGetSolution(food, "seed", out var seedSolution))
+            return;
+
+        if (sackSolution.Value.Comp.Solution.Volume <= 0)
+            return;
+
+        _solutionTransfer.Transfer(
+            user,
+            sack,
+            sackSolution.Value,
+            food,
+            seedSolution.Value,
+            sackSolution.Value.Comp.Solution.Volume / chargesLeft);
     }
 }
