@@ -1,0 +1,79 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseObsessionObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-obsession
+
+- type: entity
+  parent: BaseObsessionObjective
+  id: ObsessionHugsObjective
+  description: lelele
+  components:
+  - type: Objective
+    icon:
+      sprite: Effects/hearts.rsi
+      state: hearts
+    difficulty: 1
+    unique: true
+  - type: ObsessionInteractCondition
+    name: obsessed-hugs-objective-name
+    desc: obsessed-hugs-objective-desc
+    nextObjective: ObsessionGrabsObjective
+    interaction: Touch
+
+- type: entity
+  parent: BaseObsessionObjective
+  id: ObsessionGrabsObjective
+  description: lelele
+  components:
+  - type: Objective
+    icon:
+      sprite: /Textures/_White/Interface/Alerts/pull.rsi
+      state: grabbed-soft
+    difficulty: 1
+    unique: true
+  - type: ObsessionInteractCondition
+    name: obsessed-grabs-objective-name
+    desc: obsessed-grabs-objective-desc
+    nextObjective: ObsessionPhotosObjective
+    interaction: Grab
+    limits:
+      min: 8
+      max: 15
+
+- type: entity
+  parent: BaseObsessionObjective
+  id: ObsessionPhotosObjective
+  description: lelele
+  components:
+  - type: Objective
+    icon:
+      sprite: _Goobstation/Objects/Devices/camera.rsi
+      state: camera
+    difficulty: 1
+    unique: true
+  - type: ObsessionInteractCondition
+    name: obsessed-photos-objective-name
+    desc: obsessed-photos-objective-desc
+    nextObjective: ObsessionKillObjective
+    interaction: Photo
+    limits:
+      min: 6
+      max: 9
+
+- type: entity
+  parent: BaseObsessionObjective
+  id: ObsessionKillObjective
+  description: lelele
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Melee/cleaver.rsi
+      state: butch
+    difficulty: 1
+    unique: true
+  - type: ObsessionKillCondition
+    name: obsessed-kill-objective-name
+    desc: obsessed-kill-objective-desc
