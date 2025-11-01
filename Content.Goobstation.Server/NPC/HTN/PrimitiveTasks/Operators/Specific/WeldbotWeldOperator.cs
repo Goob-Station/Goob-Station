@@ -6,7 +6,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Silicon.Bots;
 using Content.Server.Chat.Systems;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
@@ -22,12 +21,21 @@ using Robust.Shared.Prototypes;
 using System.Linq;
 using Content.Shared.Repairable;
 
+// [WOUNDMED]
+using Content.Goobstation.Shared.Silicon.Bots;
+using Content.Goobstation.Shared.WoundMed.Systems;
+
+
 namespace Content.Goobstation.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
 public sealed partial class WeldbotWeldOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
+    // [WOUNDMED]
+    private IPCRepairableSystem _ipcRepairableSystem = default!;
+
     private RepairableSystem _repairableSystem = default!;
     private ChatSystem _chat = default!;
     private WeldbotSystem _weldbot = default!;
@@ -83,7 +91,8 @@ public sealed partial class WeldbotWeldOperator : HTNOperator
         }
         else
         {
-            _repairableSystem.ApplyRepairs((target, repairComp), owner);
+            // [WOUNDMED] _repairableSystem --> _ipcRepairableSystem
+            _ipcRepairableSystem.ApplyRepairs((target, repairComp), owner);
         }
 
         _audio.PlayPvs(botComp.WeldSound, target);
