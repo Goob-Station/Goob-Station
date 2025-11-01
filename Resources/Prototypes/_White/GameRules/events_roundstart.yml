@@ -25,6 +25,3 @@
       briefing:
         text: xenomorph-role-greeting
         color: "#8c3986"
-
-      - type: OverallPlaytimeRequirement
-        time: 180000
