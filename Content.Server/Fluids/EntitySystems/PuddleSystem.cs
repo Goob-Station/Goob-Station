@@ -142,6 +142,7 @@ using Robust.Shared.Timing;
 using Content.Shared.Standing; // Gaby
 using Content.Shared.DoAfter; // Gaby
 using Content.Goobstation.Common.Standing; // Gaby
+using Content.Shared.Atmos.EntitySystems; // Gaby
 
 namespace Content.Server.Fluids.EntitySystems;
 
@@ -164,7 +165,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     [Dependency] private readonly TileFrictionController _tile = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private readonly SharedAtmosphereSystem _atmos = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!; // Gaby
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!; // Gaby
 
