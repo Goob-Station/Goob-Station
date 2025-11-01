@@ -17355,3 +17355,81 @@ Entries:
       message: Banana phone has a new sprite (AsnDen)
   id: 1947
   time: '2025-11-01T17:31:55.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Fix
+      message: Recyclers can no longer be animated by wizard or wraith
+    - type: Fix
+      message: Wraith doesn't take explosion damage anymore
+    - type: Fix
+      message: >-
+        Fixed token version of Wraith having missing features from the midround
+        version
+    - type: Fix
+      message: Some wraith mobs now have indicators on whether they died or not
+    - type: Tweak
+      message: Spirit Candle has more feedback on use
+    - type: Add
+      message: New section in chaplain guidebook
+    - type: Remove
+      message: Wraith Command
+    - type: Remove
+      message: Wraith Animate
+  id: 1948
+  time: '2025-11-01T18:37:08.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Star gazer can no longer harm its master by attacking shadow form.
+    - type: Fix
+      message: Star gazer no longer blocks projectiles and lasers.
+    - type: Add
+      message: Star gazer now star marks people on melee attack.
+    - type: Tweak
+      message: Star gazer laser is 2x thicker.
+    - type: Tweak
+      message: Star gazer melee dps tuned down.
+  id: 1949
+  time: '2025-11-01T18:38:35.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fixed rust charging into disposal bin deleting you.
+    - type: Remove
+      message: Removed leeching walk knowledge, merged it with rust grasp knowledge.
+    - type: Add
+      message: Rust charge is now rust main knowledge.
+    - type: Add
+      message: >-
+        Rust passive healing is now: 2/s after researching grasp, 3/s after
+        researching toxic blade, 4/s on ascension.
+    - type: Add
+      message: >-
+        You now purge chems except for eldritch essence when standing on rust as
+        rust heretic.
+    - type: Add
+      message: You regenerate lost limbs on rust as ascended rust heretic.
+  id: 1950
+  time: '2025-11-01T18:38:58.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: >-
+        Synthflesh now has a "weak" heal on splash like silver sulfide or
+        styptic powder, beg botany to make it
+    - type: Tweak
+      message: Synthcells deal less brute damage
+  id: 1951
+  time: '2025-11-01T18:41:02.0000000+00:00'
+- author: lambdatiger
+  changes:
+    - type: Add
+      message: TG station BZ catalyzed nitrous oxide production.
+  id: 1952
+  time: '2025-11-01T18:42:45.0000000+00:00'
+- author: XWASHERE
+  changes:
+    - type: Fix
+      message: Facehuggers no longer attack skeletons.
+  id: 1953
+  time: '2025-11-01T18:43:20.0000000+00:00'
