@@ -158,10 +158,14 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
     public void ApplySpecialEffect(EntityUid performer, EntityUid target, MeleeHitEvent args)
     {
-        if (!TryComp<HereticComponent>(performer, out var hereticComp))
+        var path = HasComp<HereticBladeUserBonusDamageComponent>(performer) ? "Flesh" : null;
+        if (TryComp<HereticComponent>(performer, out var hereticComp))
+            path = hereticComp.CurrentPath;
+
+        if (path == null)
             return;
 
-        switch (hereticComp.CurrentPath)
+        switch (path)
         {
             case "Ash":
                 ApplyAshBladeEffect(target);
@@ -234,10 +238,22 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         if (!args.IsHit || string.IsNullOrWhiteSpace(ent.Comp.Path))
             return;
 
-        if (ent.Comp.Path == "Flesh" && HasComp<GhoulComponent>(args.User))
-            args.BonusDamage += args.BaseDamage * 0.5f; // "ghouls can use bloody blades effectively... so real..."
+        TryComp<HereticComponent>(args.User, out var hereticComp);
 
-        if (!TryComp<HereticComponent>(args.User, out var hereticComp))
+        if (TryComp(args.User, out HereticBladeUserBonusDamageComponent? bonus) &&
+            (bonus.Path == null || bonus.Path == ent.Comp.Path))
+        {
+            args.BonusDamage += args.BaseDamage * bonus.BonusMultiplier; // "ghouls can use bloody blades effectively... so real..."
+            if (hereticComp == null)
+            {
+                foreach (var hit in args.HitEntities)
+                {
+                    ApplySpecialEffect(args.User, hit, args);
+                }
+            }
+        }
+
+        if (hereticComp == null)
             return;
 
         if (ent.Comp.Path != hereticComp.CurrentPath)

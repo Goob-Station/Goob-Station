@@ -22,6 +22,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Common.Weapons.DelayedKnockdown;
 using Content.Goobstation.Shared.Overlays;
 using Content.Server.Atmos.EntitySystems;
@@ -36,13 +37,14 @@ using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Store.Components;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Random;
 using Content.Shared.Body.Systems;
-using Content.Server.Medical;
 using Robust.Server.GameObjects;
+using Robust.Server.GameStates;
 using Content.Shared.Stunnable;
 using Robust.Shared.Map;
 using Content.Shared.StatusEffect;
@@ -68,14 +70,20 @@ using Content.Shared._Shitcode.Heretic.Systems.Abilities;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Damage.Components;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Server.Cloning;
+using Content.Server.NPC.HTN;
+using Content.Server.NPC.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Heretic.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Body.Components;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
+using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Tag;
 using Robust.Server.Containers;
 
@@ -97,7 +105,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly VomitSystem _vomit = default!;
     [Dependency] private readonly PhysicsSystem _phys = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
@@ -122,6 +129,14 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly MansusGraspSystem _mansusGrasp = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
+    [Dependency] private readonly PvsOverrideSystem _pvs = default!;
+    [Dependency] private readonly CloningSystem _cloning = default!;
+    [Dependency] private readonly HTNSystem _htn = default!;
+    [Dependency] private readonly NPCSystem _npc = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _modifier = default!;
+
+    private static readonly ProtoId<HereticRitualPrototype> BladeBladeRitual = "BladeBlade";
 
     private const float LeechingWalkUpdateInterval = 1f;
     private float _accumulator;
@@ -141,9 +156,20 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         SubscribeLocalEvent<GhoulComponent, EventHereticMansusLink>(OnMansusLink);
         SubscribeLocalEvent<GhoulComponent, HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
 
-        SubscribeFlesh();
         SubscribeVoid();
         SubscribeLock();
+    }
+
+    public override void InvokeTouchSpell<T>(Entity<T> ent, EntityUid user)
+    {
+        base.InvokeTouchSpell(ent, user);
+
+        _chat.TrySendInGameICMessage(user, Loc.GetString(ent.Comp.Speech), InGameICChatType.Speak, false);
+
+        if (Exists(ent.Comp.Action))
+            _actions.SetCooldown(ent.Comp.Action.Value, ent.Comp.Cooldown);
+
+        QueueDel(ent);
     }
 
     protected override void SpeakAbility(EntityUid ent, HereticActionComponent actionComp)
@@ -210,13 +236,16 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         bool InfuseOurBlades()
         {
+            if (!ent.Comp.LimitedTransmutations.TryGetValue(BladeBladeRitual, out var blades))
+                return false;
+
             var xformQuery = GetEntityQuery<TransformComponent>();
             var containerEnt = ent.Owner;
             if (_container.TryGetOuterContainer(ent, xformQuery.Comp(ent), out var container, xformQuery))
                 containerEnt = container.Owner;
 
             var success = false;
-            foreach (var blade in ent.Comp.OurBlades)
+            foreach (var blade in blades)
             {
                 if (!EntityManager.EntityExists(blade))
                     continue;
@@ -371,9 +400,74 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         RaiseLocalEvent(ent, toggleEvent);
     }
 
+    private (float mult, float mod) GetFleshHealMultiplierModifier(Entity<MartialArtModifiersComponent> ent)
+    {
+        var mult = 1f;
+        var mod = 0f;
+        const MartialArtModifierType type = MartialArtModifierType.Healing;
+        foreach (var data in ent.Comp.Data.Where(x => (x.Type & type) != 0))
+        {
+            mult *= data.Multiplier;
+            mod += data.Modifier;
+        }
+
+        foreach (var (_, limit) in ent.Comp.MinMaxModifiersMultipliers.Where(x => (x.Key & type) != 0))
+        {
+            mult = Math.Clamp(mult, limit.X, limit.Y);
+            mod = Math.Clamp(mod, limit.Z, limit.W);
+        }
+
+        return (mult, mod);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        var bloodQuery = GetEntityQuery<BloodstreamComponent>();
+        var solutionQuery = GetEntityQuery<SolutionContainerManagerComponent>();
+
+        var fleshQuery = EntityQueryEnumerator<FleshPassiveComponent, MartialArtModifiersComponent, DamageableComponent>();
+        while (fleshQuery.MoveNext(out var uid, out var flesh, out var modifiers, out var dmg))
+        {
+            flesh.Accumulator += frameTime;
+
+            if (flesh.Accumulator < flesh.HealInterval)
+                continue;
+
+            flesh.Accumulator = 0f;
+
+            var (mult, _) = GetFleshHealMultiplierModifier((uid, modifiers));
+
+            var realMult = mult - 1;
+
+            if (realMult <= 0f)
+                continue;
+
+            var toHeal = -realMult * AllDamage;
+            var boneHeal = -realMult * flesh.BoneHealMultiplier;
+            var painHeal = -realMult * flesh.PainHealMultiplier;
+            var woundHeal = -realMult * flesh.WoundHealMultiplier;
+
+            IHateWoundMed((uid, dmg, null, null), toHeal, boneHeal, painHeal, woundHeal);
+
+            if (!bloodQuery.TryComp(uid, out var blood))
+                continue;
+
+            var bloodHeal = realMult * flesh.BloodHealMultiplier;
+            var bleedHeal = -realMult * flesh.BleedReductionMultiplier;
+
+            if (blood.BleedAmount > 0f)
+                _blood.TryModifyBleedAmount((uid, blood), bleedHeal);
+
+            if (solutionQuery.TryComp(uid, out var sol) &&
+                _solution.ResolveSolution((uid, sol), blood.BloodSolutionName, ref blood.BloodSolution) &&
+                blood.BloodSolution.Value.Comp.Solution.Volume < blood.BloodMaxVolume)
+            {
+                _blood.TryModifyBloodLevel((uid, blood),
+                    FixedPoint2.Min(bloodHeal, blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume));
+            }
+        }
 
         var rustChargeQuery = EntityQueryEnumerator<RustObjectsInRadiusComponent, TransformComponent>();
         while (rustChargeQuery.MoveNext(out var uid, out var rust, out var xform))
@@ -413,8 +507,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         _accumulator = 0f;
 
         var damageableQuery = GetEntityQuery<DamageableComponent>();
-        var bloodQuery = GetEntityQuery<BloodstreamComponent>();
-        var solutionQuery = GetEntityQuery<SolutionContainerManagerComponent>();
         var temperatureQuery = GetEntityQuery<TemperatureComponent>();
         var staminaQuery = GetEntityQuery<StaminaComponent>();
         var statusQuery = GetEntityQuery<StatusEffectsComponent>();
@@ -465,9 +557,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             var toHeal = leech.ToHeal * multiplier;
 
             if (shouldHeal && damageable != null)
-            {
-                IHateWoundMed((uid, damageable, null, null), toHeal, boneHeal, otherHeal);
-            }
+                IHateWoundMed((uid, damageable, null, null), toHeal, boneHeal, otherHeal, otherHeal);
 
             if (bloodQuery.TryComp(uid, out var blood))
             {

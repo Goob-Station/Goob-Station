@@ -5,22 +5,22 @@ using Robust.Shared.Utility;
 namespace Content.Shared._Shitcode.Heretic.Components;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class StarTouchComponent : Component
+public sealed partial class StarTouchComponent : Component, ITouchSpell
 {
     [DataField]
-    public EntityUid? StarTouchAction;
+    public EntityUid? Action { get; set; }
 
     [DataField]
-    public TimeSpan Cooldown = TimeSpan.FromSeconds(15);
+    public TimeSpan Cooldown { get; set; } = TimeSpan.FromSeconds(15);
 
     [DataField]
     public TimeSpan DrowsinessTime = TimeSpan.FromSeconds(8);
 
     [DataField]
-    public LocId Speech = "heretic-speech-star-touch";
+    public LocId Speech { get; set; } = "heretic-speech-star-touch";
 
     [DataField]
-    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Items/welder.ogg");
+    public SoundSpecifier? Sound { get; set; } = new SoundPathSpecifier("/Audio/Items/welder.ogg");
 
     [DataField]
     public SpriteSpecifier BeamSprite = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Heretic/Effects/effects.rsi"), "cosmic_beam");

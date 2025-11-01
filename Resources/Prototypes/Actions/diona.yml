@@ -19,6 +19,7 @@
       state: brain
   - type: InstantAction
     event: !type:GibActionEvent {}
+  - type: MansusGraspBlockTrigger
 
 - type: entity
   parent: BaseAction

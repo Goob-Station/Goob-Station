@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Common.Physics;
 using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared._Shitcode.Heretic.Systems.Abilities;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
@@ -17,17 +18,17 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Shitcode.Heretic.Systems;
 
-public abstract class SharedStarTouchSystem : EntitySystem
+public sealed class SharedStarTouchSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMagicSystem _magic = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly SharedStarGazerSystem _starGazer = default!;
+    [Dependency] private readonly SharedHereticAbilitySystem _heretic = default!;
 
     public static readonly EntProtoId StarTouchStatusEffect = "StatusEffectStarTouched";
     public static readonly EntProtoId DrowsinessStatusEffect = "StatusEffectDrowsiness";
@@ -52,7 +53,7 @@ public abstract class SharedStarTouchSystem : EntitySystem
 
         args.Handled = true;
 
-        InvokeSpell(ent, args.User);
+        _heretic.InvokeTouchSpell(ent, args.User);
 
         if (spawned)
             return;
@@ -210,7 +211,7 @@ public abstract class SharedStarTouchSystem : EntitySystem
 
         if (_magic.IsTouchSpellDenied(target))
         {
-            InvokeSpell(ent, args.User);
+            _heretic.InvokeTouchSpell(ent, args.User);
             return;
         }
 
@@ -226,7 +227,7 @@ public abstract class SharedStarTouchSystem : EntitySystem
         if (!HasComp<StarMarkComponent>(target))
         {
             _starMark.TryApplyStarMark((target, mobState));
-            InvokeSpell(ent, args.User);
+            _heretic.InvokeTouchSpell(ent, args.User);
             return;
         }
 
@@ -244,11 +245,6 @@ public abstract class SharedStarTouchSystem : EntitySystem
             trail.Strength = hereticComp.PathStage;
         }
 
-        InvokeSpell(ent, args.User);
-    }
-
-    public virtual void InvokeSpell(Entity<StarTouchComponent> ent, EntityUid user)
-    {
-        _audio.PlayPredicted(ent.Comp.Sound, user, user);
+        _heretic.InvokeTouchSpell(ent, args.User);
     }
 }

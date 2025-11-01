@@ -51,20 +51,20 @@ public sealed partial class HereticAbilitySystem
 
     private void OnJaunt(Entity<HereticComponent> ent, ref EventHereticAshenShift args)
     {
-        if (TryUseAbility(ent, args) && TryDoJaunt(ent))
+        if (TryUseAbility(ent, args) && TryDoJaunt(ent, args.Jaunt))
             args.Handled = true;
     }
 
     private void OnJauntGhoul(Entity<GhoulComponent> ent, ref EventHereticAshenShift args)
     {
-        if (TryUseAbility(ent, args) && TryDoJaunt(ent))
+        if (TryUseAbility(ent, args) && TryDoJaunt(ent, args.Jaunt))
             args.Handled = true;
     }
 
-    private bool TryDoJaunt(EntityUid ent)
+    private bool TryDoJaunt(EntityUid ent, string proto)
     {
         Spawn("PolymorphAshJauntAnimation", Transform(ent).Coordinates);
-        var urist = _poly.PolymorphEntity(ent, "AshJaunt");
+        var urist = _poly.PolymorphEntity(ent, proto);
         if (urist == null)
             return false;
 
@@ -104,7 +104,7 @@ public sealed partial class HereticAbilitySystem
 
         // heals everything by base + power for each burning target
         _stam.TryTakeStamina(ent, toHeal);
-        IHateWoundMed(ent.Owner, args.ToHeal * toHeal, toHeal, toHeal);
+        IHateWoundMed(ent.Owner, AllDamage * toHeal, toHeal, toHeal, toHeal);
     }
 
     private void OnFlames(Entity<HereticComponent> ent, ref EventHereticFlames args)
