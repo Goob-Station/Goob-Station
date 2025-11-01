@@ -1,0 +1,44 @@
+- type: job
+  id: CommandMaid
+  name: job-name-command-maid
+  description: job-description-command-maid
+  playTimeTracker: JobCommandMaid
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hrs
+    - !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 3600 #1 hr
+  startingGear: CommandMaidGear
+  icon: "JobIconCommandMaid"
+  supervisors: job-supervisors-command
+  setPreference: false
+  access:
+  - Service
+  - Janitor
+  - Maintenance
+  - Command
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: GarbageDay
+    prototype: WeaponRevolverInspector
+
+- type: startingGear
+  id: CommandMaidGear
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtJanimaid
+    id: CommandMaidPDA
+    gloves: ClothingHandsGlovesJanitor
+    ears: ClothingHeadsetCommandService
+    belt: ClothingBeltJanitorFilled
+    shoes: ClothingShoesGaloshes
+
+- type: chameleonOutfit
+  id: CommandMaidChameleonOutfit
+  job: CommandMaid
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtJanimaid
+    id: CommandMaidPDA
+    gloves: ClothingHandsGlovesJanitor
+    ears: ClothingHeadsetCommandService
+    shoes: ClothingShoesGaloshes
