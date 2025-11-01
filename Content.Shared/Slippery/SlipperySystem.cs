@@ -27,11 +27,17 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Doctor-Cpu <77215380+Doctor-Cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GabyChangelog <agentepanela2@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Panela <107573283+AgentePanela@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Will-Oliver-Br <164823659+Will-Oliver-Br@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 //
@@ -153,7 +159,10 @@ public sealed class SlipperySystem : EntitySystem
 
         if (!force)
         {
-            var attemptEv = new SlipAttemptEvent(uid);
+            var attemptEv = new SlipAttemptEvent(component.SlipData.SuperSlippery)
+            {
+                SlipCausingEntity = uid
+            };
             RaiseLocalEvent(other, attemptEv);
             if (attemptEv.SlowOverSlippery)
                 _speedModifier.AddModifiedEntity(other);
@@ -170,8 +179,11 @@ public sealed class SlipperySystem : EntitySystem
         var hardStun = component.SlipData.SuperSlippery; // Goobstation
         // Goob edit end
 
-        var ev = new SlipEvent(other);
-        RaiseLocalEvent(uid, ref ev);
+        var slipEv = new SlipEvent(other);
+        RaiseLocalEvent(uid, ref slipEv);
+
+        var slippedEv = new SlippedEvent(uid, component.SlipData.SuperSlippery);
+        RaiseLocalEvent(other, slippedEv);
 
         if (TryComp(other, out PhysicsComponent? physics) && !HasComp<SlidingComponent>(other))
         {
@@ -226,6 +238,13 @@ public sealed class SlipAttemptEvent : EntityEventArgs, IInventoryRelayEvent
     {
         SlipCausingEntity = slipCausingEntity;
     }
+
+    public bool SuperSlippery;
+
+    public SlipAttemptEvent(bool superSlippery)
+    {
+        SuperSlippery = superSlippery;
+    }
 }
 
 /// <summary>
@@ -239,3 +258,20 @@ public record struct SlipCausingAttemptEvent (bool Cancelled);
 /// <param name="Slipped">The entity being slipped</param>
 [ByRefEvent]
 public readonly record struct SlipEvent(EntityUid Slipped);
+
+/// Raised on the entity that got slipped
+/// <param name="Slipper">The entity being slipped</param>
+/// <param name="SuperSlippery">Was whatever slipped us super slippery</param>
+public sealed class SlippedEvent : EntityEventArgs, IInventoryRelayEvent
+{
+    public SlotFlags TargetSlots { get; } = SlotFlags.WITHOUT_POCKET;
+
+    public EntityUid Slipper;
+    public bool SuperSlippery;
+
+    public SlippedEvent(EntityUid slipper, bool superSlippery)
+    {
+        Slipper = slipper;
+        SuperSlippery = superSlippery;
+    }
+}
