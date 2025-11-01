@@ -286,6 +286,7 @@
     defaultChannel: Binary
     channels:
     - Binary
+    canUseInCrit: true # Goobstation
   - type: ZombieImmune
   - type: Repairable
     doAfterDelay: 10
