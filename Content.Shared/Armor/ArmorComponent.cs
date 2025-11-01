@@ -72,13 +72,13 @@ public sealed partial class ArmorComponent : Component
     /// <summary>
     /// Shitmed Change: thankfully all the armor in the game is symmetrical.
     /// </summary>
-    [DataField("coverage")]
+    [DataField("coverage"), Access(Other = AccessPermissions.ReadExecute)] // Goob edit
     public List<BodyPartType> ArmorCoverage = new();
 
     /// <summary>
     /// Shitmed Change: The amount of dismemberment chance deduction.
     /// </summary>
-    [DataField]
+    [DataField, Access(Other = AccessPermissions.ReadExecute)] // Goob edit
     public Dictionary<TraumaType, FixedPoint2> TraumaDeductions = new()
     {
         { TraumaType.Dismemberment, 0 },

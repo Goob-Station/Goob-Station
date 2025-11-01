@@ -129,10 +129,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ MobBloodstream, MobRespirator, MobAtmosStandard, MobFlammable, BaseMobSpecies ] # Goobstation - unperishable voxes
+  parent: [ MobBloodstream, MobRespirator, MobAtmosStandard, MobFlammable, BaseMobSpecies, BaseMobDisgust ] # Goobstation - unperishable voxes
   id: BaseMobVox
   abstract: true
   components:
+  - type: Disgust
+    reductionRate: 3 # Vox are better at handling disgust
   - type: Hunger
   - type: Thirst
   - type: Icon

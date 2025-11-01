@@ -43,6 +43,8 @@
     activatedDamage:
       types:
         Blunt: 12
+      woundSeverityMultipliers:
+        Blunt: 2
   - type: ItemToggleSize
     activatedSize: Normal
     activatedShape: # Goobstation
