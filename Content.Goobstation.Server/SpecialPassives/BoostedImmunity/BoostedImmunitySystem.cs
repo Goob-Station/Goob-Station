@@ -1,9 +1,9 @@
+using Content.Goobstation.Shared.Medical;
 using Content.Goobstation.Shared.SpecialPassives.BoostedImmunity.Components;
 using Content.Server._White.Xenomorphs.Infection;
 using Content.Server.Body.Systems;
 using Content.Server.GameTicking;
 using Content.Shared.Body.Part;
-using Content.Shared.Traits;
 using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -27,27 +27,13 @@ public sealed class BoostedImmunitySystem : SharedBoostedImmunitySystem
 
     }
 
-    public readonly ProtoId<TraitCategoryPrototype> DisabilityProto = "Disabilities";
+    public readonly ProtoId<DisabilityListPrototype> DisabilityProto = "AllDisabilities";
     protected override void RemoveDisabilities(Entity<BoostedImmunityComponent> ent)
     {
-        _playerManager.TryGetSessionByEntity(ent, out var session);
-
-        if (session == null)
+        if (!_protoManager.TryIndex(DisabilityProto, out var disabilityList))
             return;
 
-        var profile = _ticker.GetPlayerProfile(session);
-
-        foreach (var trait in profile.TraitPreferences)
-        {
-            if (!_protoManager.TryIndex(trait, out var traitProto))
-                continue;
-
-            if (traitProto.Category != DisabilityProto)
-                continue;
-
-            var comps = traitProto.Components;
-            EntityManager.RemoveComponents(ent, comps);
-        }
+        EntityManager.RemoveComponents(ent, disabilityList.Components);
     }
 
     protected override void RemoveAlienEmbryo(Entity<BoostedImmunityComponent> ent)
