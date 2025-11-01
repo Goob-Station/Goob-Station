@@ -53,7 +53,6 @@ using Robust.Shared.Audio;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Server.Heretic.EntitySystems;
-using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Actions;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -74,7 +73,6 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Standing;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Body.Components;
-using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Tag;
 using Robust.Server.Containers;
@@ -108,7 +106,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly ProtectiveBladeSystem _pblade = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
@@ -121,7 +118,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly MansusGraspSystem _mansusGrasp = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
 
     private const float LeechingWalkUpdateInterval = 1f;
     private float _accumulator;
@@ -142,7 +138,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         SubscribeLocalEvent<GhoulComponent, HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
 
         SubscribeFlesh();
-        SubscribeVoid();
         SubscribeLock();
     }
 
@@ -363,9 +358,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         thermalVision.FlashDurationMultiplier = 1f;
         thermalVision.ActivateSound = null;
         thermalVision.DeactivateSound = null;
-        thermalVision.ToggleAction = null;
 
-        AddComp(ent, thermalVision);
+        AddComp(ent, thermalVision, true);
 
         var toggleEvent = new ToggleThermalVisionEvent();
         RaiseLocalEvent(ent, toggleEvent);
