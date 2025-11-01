@@ -9,7 +9,7 @@ using Robust.Shared.Network;
 namespace Content.Goobstation.Shared.Ranching.Food;
 
 
-public sealed class FeedSackSystem : EntitySystem
+public abstract class SharedFeedSackSystem : EntitySystem
 {
     [Dependency] private readonly TurfSystem _turfSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -63,5 +63,9 @@ public sealed class FeedSackSystem : EntitySystem
         {
             preferences.Preferences.Add(pref);
         }
+
+        ChangeFeedColour(ent.Comp.SeedColor, chickenFeed);
     }
+
+    protected virtual void ChangeFeedColour(Color color, EntityUid feedUid) {}
 }

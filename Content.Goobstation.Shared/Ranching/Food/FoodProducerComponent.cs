@@ -19,6 +19,9 @@ public sealed partial class FoodProducerComponent : Component
 
     [ViewVariables]
     public EntProtoId FeedSack = "ChickenFeedSack";
+
+    [ViewVariables]
+    public bool IsActive;
 }
 
 [Serializable, NetSerializable]
