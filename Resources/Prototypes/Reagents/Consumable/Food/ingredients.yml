@@ -165,9 +165,9 @@
   metabolisms:
     Food:
       effects:
-      - !type:AdjustReagent
-        reagent: Water
-        amount: 0.4
+      # - !type:AdjustReagent - Goob
+      #   reagent: Water
+      #   amount: 0.4
       - !type:AdjustReagent
         reagent: Vitamin
         amount: 0.1
