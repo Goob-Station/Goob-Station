@@ -58,7 +58,6 @@
   name: Sleeper Changeling Role
   components:
   - type: MindRole
-    antagPrototype: Changelingmidround
     exclusiveAntag: false           #  bastard experiment
 
 - type: entity
@@ -67,13 +66,9 @@
   name: Sleeper Heretic Role
   components:
   - type: MindRole
-    antagPrototype: Heretic
     exclusiveAntag: false   # bastard experiment
 
 - type: entity
   parent: DevilMindRole
   id: DevilMindRolemidround
   name: Sleeper Devil Role
-  components:
-  - type: MindRole
-    antagPrototype: Devil
