@@ -532,21 +532,21 @@ namespace Content.Server.Forensics
             var valueX = value ?? new string('#', full.Length);
             var merged = string.Empty;
             var ix = 0;
-            var proced = false;
+            var proc = false;
             foreach (var i in valueX)
             {
                 if (i != '#') //if already revealed
                     merged += i; // keep revealed
                 else if (_random.Prob(_revealChance)) // reveal based on chance
-                    {
-                        merged += full[ix]; // reveal
-                        proced = true;
-                    }
+                {
+                    merged += full[ix]; // reveal
+                    proc = true;
+                }
                 else
                     merged += '#'; // hide them all if they are not revealed
                 ix++;
             }
-            return proced ? new string(merged) : string.Empty; // return empty value if  nothing was revealed
+            return proc ? new string(merged) : string.Empty; // return empty value if  nothing was revealed
         }
 
         #endregion
