@@ -62,7 +62,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         }
     }
 
-    private void UpdateSprite(Entity<HumanoidAppearanceComponent, SpriteComponent> entity)
+     void UpdateSprite(Entity<HumanoidAppearanceComponent, SpriteComponent> entity)
     {
         UpdateLayers(entity);
         ApplyMarkingSet(entity);
@@ -87,7 +87,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
     private static bool IsHidden(HumanoidAppearanceComponent humanoid, HumanoidVisualLayers layer)
         => humanoid.HiddenLayers.ContainsKey(layer) || humanoid.PermanentlyHidden.Contains(layer);
 
-    private void UpdateLayers(Entity<HumanoidAppearanceComponent, SpriteComponent> entity)
+    public void UpdateLayers(Entity<HumanoidAppearanceComponent, SpriteComponent> entity) // Goob edit - made public
     {
         var component = entity.Comp1;
         var sprite = entity.Comp2;
@@ -109,7 +109,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         foreach (var (key, info) in component.CustomBaseLayers)
         {
             oldLayers.Remove(key);
-            SetLayerData(entity, key, info.Id, sexMorph: false, color: info.Color, overrideSkin: true);
+            SetLayerData(entity, key, info.Id, sexMorph: false, color: info.Color, overrideSkin: true, shader: info.Shader);
         }
 
         // hide old layers
@@ -127,7 +127,8 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         string? protoId,
         bool sexMorph = false,
         Color? color = null,
-        bool overrideSkin = false) // Shitmed Change
+        bool overrideSkin = false,
+        string? shader = null) // Shitmed Change // Goob edit
     {
         var component = entity.Comp1;
         var sprite = entity.Comp2;
@@ -138,6 +139,11 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
         if (color != null)
             layer.Color = color.Value;
+
+        if (shader != null) // Goobstation
+            sprite.LayerSetShader(layerIndex, shader);
+        else
+            sprite.LayerSetShader(layerIndex, null, null);
 
         if (protoId == null)
             return;

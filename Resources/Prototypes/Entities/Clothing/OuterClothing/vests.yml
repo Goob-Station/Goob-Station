@@ -40,7 +40,7 @@
 
 #Web vest
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSyndicateContraband]
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSyndicateContraband, BaseSecondSkinHolder] # Goob edit
   id: ClothingOuterVestWeb
   name: web vest
   description: A synthetic armor vest. This one has added webbing and ballistic plates.
@@ -61,10 +61,10 @@
     - Groin
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.2
-        Heat: 0.8
+        Blunt: 0.6 #ballistic plates = better protection
+        Slash: 0.6
+        Piercing: 0.3
+        Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -75,7 +75,7 @@
 
 #Elite web vest
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSyndicateContraband]
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSyndicateContraband, BaseSecondSkinHolder] # Goob edit
   id: ClothingOuterVestWebElite
   name: elite web vest
   description: A synthetic armor vest. This one has added webbing and heat resistant fibers.
@@ -99,12 +99,12 @@
     - Groin
     modifiers:
       coefficients:
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.55
-        Heat: 0.2
-        Radiation: 0.3
-        Caustic: 0.3
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.7
+        Heat: 0.3
+        Radiation: 0.5
+        Caustic: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: FireProtection
@@ -138,10 +138,10 @@
     - Groin
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.55
-        Piercing: 0.3
-        Heat: 0.8
+        Blunt: 0.7 #slightly better overall protection but slightly worse than bulletproof armor against bullets seems sensible
+        Slash: 0.7
+        Piercing: 0.5
+        Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -152,7 +152,7 @@
 
 #Detective's vest
 - type: entity
-  parent: [ClothingOuterArmorBase, BaseSecurityContraband]
+  parent: [ClothingOuterArmorBase, BaseSecurityContraband, BaseSecondSkinHolder] # Goob edit
   id: ClothingOuterVestDetective
   name: detective's vest
   description: A hard-boiled private investigator's armored vest.

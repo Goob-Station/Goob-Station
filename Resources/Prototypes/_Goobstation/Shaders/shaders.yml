@@ -17,3 +17,10 @@
   id: ColorTint
   kind: source
   path: "/Textures/_Goobstation/Shaders/color_tint.swsl"
+
+- type: shader
+  id: SecondSkin
+  kind: source
+  path: "/Textures/Nyanotrasen/Shaders/holographic2.swsl"
+  params:
+    pixelSize: 32.0
