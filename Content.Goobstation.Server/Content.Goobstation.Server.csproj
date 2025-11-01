@@ -31,6 +31,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
       <ProjectReference Include="..\Content.Server\Content.Server.csproj" />
       <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
     </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Ranching\Food\" />
+    </ItemGroup>
 
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
 </Project>

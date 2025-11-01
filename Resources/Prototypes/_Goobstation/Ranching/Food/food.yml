@@ -1,0 +1,75 @@
+- type: entity
+  id: ChickenFeedSack
+  name: Chicken Feed Sack
+  description: Includes chicken feed.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Ranching/chicken_feed_sack.rsi
+    layers:
+    - state: feed_seed
+      map: [ "enum.SeedColor.Color" ]
+      shader: unshaded
+    - state: feed_sack
+  - type: LimitedCharges
+    maxCharges: 5
+  - type: PreferencesHolder
+  - type: FeedSack
+    chickenFeed: ChickenFeed
+  - type: FoodSeedVisuals
+  - type: Appearance
+  - type: SolutionContainerManager
+    solutions:
+      sack:
+        maxVol: 50
+  - type: ExaminableSolution
+    solution: sack
+
+- type: entity
+  id: ChickenFeed
+  name: Chicken Feed
+  parent: ChickenFeedBase
+  description: Feed it to the chickens.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Ranching/chicken_feed.rsi
+    layers:
+    - state: feed_1
+      map: [ "enum.SeedColor.Color" ]
+      shader: unshaded
+  - type: PreferencesHolder
+  - type: FoodSeedVisuals
+  - type: SolutionContainerManager
+    solutions:
+      seed:
+        maxVol: 10
+  - type: ExaminableSolution
+    solution: seed
+
+- type: entity
+  id: ChickenFeedRandom
+  name: Chicken Feed
+  description: Feed it to the chickens.
+  suffix: Random
+  parent: ChickenFeed
+  components:
+  - type: RandomSprite
+    available:
+    - 0:
+        feed_1: ""
+        feed_2: ""
+        feed_3: ""
+        feed_4: ""
+
+#testing
+- type: entity
+  name: BBQ Blud
+  parent: FoodBurgerMcrib
+  id: BBQBlud
+  components:
+    - type: HappinessPreference
+      preference: BBQRib
+
+
+- type: happinessPreference
+  id: BBQRib

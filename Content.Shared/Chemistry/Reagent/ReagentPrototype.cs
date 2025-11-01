@@ -117,6 +117,7 @@ using System.Collections.Frozen;
 using System.Linq;
 using Content.Goobstation.Maths.FixedPoint;
 using System.Text.Json.Serialization;
+using Content.Goobstation.Common.Ranching;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Prototypes;
 using Content.Shared.Chemistry.Components;
@@ -273,6 +274,12 @@ namespace Content.Shared.Chemistry.Reagent
         /// </summary>
         [DataField]
         public bool? WorksOnUnconscious;
+
+        /// <summary>
+        /// Goobstation - Chicken preference tag
+        /// </summary>
+        [DataField]
+        public ProtoId<HappinessPreferencePrototype>? Preference;
 
         [DataField(serverOnly: true)]
         public FrozenDictionary<ProtoId<MetabolismGroupPrototype>, ReagentEffectsEntry>? Metabolisms;
