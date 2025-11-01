@@ -24,8 +24,6 @@ namespace Content.Goobstation.Shared.Inventory;
 
 public partial class GoobInventorySystem
 {
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-
     public void InitializeRelays()
     {
         base.Initialize();

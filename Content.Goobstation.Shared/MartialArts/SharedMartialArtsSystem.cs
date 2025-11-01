@@ -375,9 +375,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (!martialArtsPrototype.RandomDamageModifier)
             return;
 
-        var randomDamage = _random.Next(martialArtsPrototype.MinRandomDamageModifier, martialArtsPrototype.MaxRandomDamageModifier);
+        var randomDamage = _random.Next(martialArtsPrototype.MinRandomDamageModifier, martialArtsPrototype.MaxRandomDamageModifier + 1);
         var bonusDamageSpec = new DamageSpecifier();
-        bonusDamageSpec.DamageDict.Add("Blunt", randomDamage);
+        bonusDamageSpec.DamageDict.Add(martialArtsPrototype.DamageModifierType, randomDamage);
         args.BonusDamage += bonusDamageSpec;
     }
 
@@ -535,7 +535,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         }
 
         var newDamage = new DamageSpecifier();
-        newDamage.DamageDict.Add("Blunt", martialArtsPrototype.BaseDamageModifier);
+        newDamage.DamageDict.Add(martialArtsPrototype.DamageModifierType, martialArtsPrototype.BaseDamageModifier);
         meleeWeaponComponent.Damage += newDamage;
 
         Dirty(user, canPerformComboComponent);
