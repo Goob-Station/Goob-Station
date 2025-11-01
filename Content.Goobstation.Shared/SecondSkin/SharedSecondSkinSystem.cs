@@ -22,7 +22,6 @@ public abstract class SharedSecondSkinSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -30,6 +29,7 @@ public abstract class SharedSecondSkinSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
 
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
+    [Dependency] protected readonly SharedContainerSystem Container = default!;
 
     public override void Initialize()
     {
@@ -299,15 +299,15 @@ public abstract class SharedSecondSkinSystem : EntitySystem
 
     private void OnMapInit(Entity<SecondSkinHolderComponent> ent, ref MapInitEvent args)
     {
-        ent.Comp.Container = _container.EnsureContainer<ContainerSlot>(ent, ent.Comp.ContainerId);
+        ent.Comp.Container = Container.EnsureContainer<ContainerSlot>(ent, ent.Comp.ContainerId);
         _actionContainer.EnsureAction(ent, ref ent.Comp.SecondSkinAction, ent.Comp.SecondSkinActionId);
         Dirty(ent);
     }
 
     private void OnShutdown(Entity<SecondSkinHolderComponent> ent, ref ComponentShutdown args)
     {
-        if (ent.Comp.Container != default)
-            _container.ShutdownContainer(ent.Comp.Container);
+        if (ent.Comp.Container != default!)
+            Container.ShutdownContainer(ent.Comp.Container);
         _actionContainer.RemoveAction(ent.Comp.SecondSkinAction);
     }
 

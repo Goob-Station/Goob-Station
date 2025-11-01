@@ -2,6 +2,7 @@ using Content.Client.Humanoid;
 using Content.Goobstation.Shared.SecondSkin;
 using Content.Shared.Humanoid;
 using Robust.Client.GameObjects;
+using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Client.SecondSkin;
 
@@ -15,6 +16,7 @@ public sealed class SecondSkinSystem : SharedSecondSkinSystem
         base.Initialize();
 
         SubscribeLocalEvent<SecondSkinHolderComponent, AppearanceChangeEvent>(OnAppearanceChange);
+        SubscribeLocalEvent<SecondSkinHolderComponent, ComponentStartup>(OnStartup);
     }
 
     protected override void UpdateSprite(Entity<HumanoidAppearanceComponent> ent)
@@ -23,6 +25,11 @@ public sealed class SecondSkinSystem : SharedSecondSkinSystem
             return;
 
         _humanoid.UpdateSprite((ent, ent.Comp, sprite));
+    }
+
+    private void OnStartup(Entity<SecondSkinHolderComponent> ent, ref ComponentStartup args)
+    {
+        ent.Comp.Container = Container.EnsureContainer<ContainerSlot>(ent, ent.Comp.ContainerId);
     }
 
     private void OnAppearanceChange(Entity<SecondSkinHolderComponent> ent, ref AppearanceChangeEvent args)
