@@ -59,6 +59,11 @@
   copyright: "Taken from /tg/station"
   source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/magic/demon_attack1.ogg"
 
+- files: ["curse.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/magic/curse.ogg"
+
 - files: ["heartbeat.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "made by whateverusername0"
