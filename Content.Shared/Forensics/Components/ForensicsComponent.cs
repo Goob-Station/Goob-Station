@@ -20,8 +20,8 @@ namespace Content.Shared.Forensics.Components // Goob/Einstein Engins - Shared F
     [RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Einstein Engines - Network that shit
     public sealed partial class ForensicsComponent : Component
     {
-        [DataField, AutoNetworkedField] // Einstein Engines - Network that shit
-        public HashSet<string> Fingerprints = new();
+        [DataField, AutoNetworkedField]
+        public Dictionary<string, string> Fingerprints = new(); // goobstation Stores both the full and visible fingerprint versions
 
         [DataField, AutoNetworkedField] // Einstein Engines - Network that shit
         public HashSet<string> Fibers = new();
