@@ -107,9 +107,9 @@
   id: Minibomb
   damagePerIntensity:
     types:
-      Heat: 4
-      Blunt: 7
-      Slash: 4 # Goob edit
+      Heat: 8 # Goob edit
+      Blunt: 14 # Goob edit
+      Slash: 8 # Goob edit
   tileBreakChance: [0, 0.5, 1]
   tileBreakIntensity: [0, 10, 30]
   tileBreakRerollReduction: 20
@@ -121,9 +121,9 @@
   id: PowerSink
   damagePerIntensity:
     types:
-      Heat: 12
-      Blunt: 12
-      Slash: 12 # Goob edit
+      Heat: 24 # Goob edit
+      Blunt: 24 # Goob edit
+      Slash: 24 # Goob edit
       Structural: 30
   tileBreakChance: [ 0, 0.5, 1 ]
   tileBreakIntensity: [ 1, 5, 10 ]
@@ -137,9 +137,9 @@
   id: HardBomb
   damagePerIntensity:
     types:
-      Heat: 15
-      Blunt: 15
-      Slash: 6 # Goob edit
+      Heat: 30 # Goob edit
+      Blunt: 30 # Goob edit
+      Slash: 12 # Goob edit
       Structural: 40
   tileBreakChance: [ 0, 0.5, 1 ]
   tileBreakIntensity: [ 0, 10, 30 ]
