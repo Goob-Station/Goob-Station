@@ -17411,3 +17411,13 @@ Entries:
       message: You regenerate lost limbs on rust as ascended rust heretic.
   id: 1950
   time: '2025-11-01T18:38:58.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: >-
+        Synthflesh now has a "weak" heal on splash like silver sulfide or
+        styptic powder, beg botany to make it
+    - type: Tweak
+      message: Synthcells deal less brute damage
+  id: 1951
+  time: '2025-11-01T18:41:02.0000000+00:00'
