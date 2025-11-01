@@ -1,0 +1,112 @@
+- type: quickPhrase
+  id: BaseCrewSpeciesPhrase
+  parent: BaseSpeciesPhrase
+  group: Crew
+  abstract: true
+
+- type: quickPhrase
+  id: SpeciesHumanPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-human
+
+- type: quickPhrase
+  id: SpeciesDionaPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-diona
+
+- type: quickPhrase
+  id: SpeciesArachnidPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-arachnid
+
+- type: quickPhrase
+  id: SpeciesMothPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-moth
+
+- type: quickPhrase
+  id: SpeciesReptilianPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-reptilian
+
+- type: quickPhrase
+  id: SpeciesSlimePersonPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-slime
+
+- type: quickPhrase
+  id: SpeciesVulpkaninPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-vulpkanin
+
+- type: quickPhrase
+  id: SpeciesFelinidPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-felinid
+
+- type: quickPhrase
+  id: SpeciesHarpyPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-harpy
+
+- type: quickPhrase
+  id: SpeciesOniPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-oni
+
+- type: quickPhrase
+  id: SpeciesSkeletonPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-skeleton
+
+- type: quickPhrase
+  id: SpeciesVoxPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-vox
+
+- type: quickPhrase
+  id: SpeciesRodentiaPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-rodentia
+
+#- type: quickPhrase #Uncomment when feroxi here - Goob
+#  id: SpeciesFeroxiPhrase
+#  parent: BaseCrewSpeciesPhrase
+#  text: species-name-feroxi
+
+- type: quickPhrase
+  id: SpeciesIPCPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-ipc
+
+- type: quickPhrase
+  id: SpeciesChitnidePhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-chitinid
+
+#Goob start
+
+- type: quickPhrase
+  id: SpeciesResomiPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-resomi
+
+- type: quickPhrase
+  id: SpeciesPlasmamanPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-plasmaman
+
+- type: quickPhrase
+  id: SpeciesShadowkinPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-shadowkin
+
+- type: quickPhrase
+  id: SpeciesYowiePhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-yowie
+
+- type: quickPhrase
+  id: SpeciesTajaranPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-tajaran

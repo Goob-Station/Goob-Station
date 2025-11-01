@@ -1,0 +1,116 @@
+- type: quickPhrase
+  id: BaseSecuritySubjectPhrase
+  parent: [ BaseSubjectPhrase, BaseSecurityPhrase ]
+  abstract: true
+
+- type: quickPhrase
+  id: HandcuffsPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-handcuffs
+
+- type: quickPhrase
+  id: StunBatonPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-stun-baton
+
+- type: quickPhrase
+  id: DisablerPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-disabler
+
+- type: quickPhrase
+  id: FlashPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-flash
+
+- type: quickPhrase
+  id: FlashbangPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-flashbang
+
+- type: quickPhrase
+  id: ArrestPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-arrest
+
+- type: quickPhrase
+  id: WarrantPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-warrant
+
+- type: quickPhrase
+  id: wantedPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-wanted
+
+- type: quickPhrase
+  id: SearchPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-search
+
+- type: quickPhrase
+  id: DetainPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-detain
+
+- type: quickPhrase
+  id: SuspectPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-suspect
+
+- type: quickPhrase
+  id: ForensicScannerPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-forensic-scanner
+
+- type: quickPhrase
+  id: ForensicPadPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-forensic-pad
+
+- type: quickPhrase
+  id: LogProbePhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-log-probe
+
+- type: quickPhrase
+  id: ReleasePhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-release
+
+- type: quickPhrase
+  id: ParolePhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-parole
+
+#Goob start
+
+- type: quickPhrase
+  id: MarkedPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-marked
+
+- type: quickPhrase
+  id: SuspiciousPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-suspicious
+
+- type: quickPhrase
+  id: SusPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-sus
+
+- type: quickPhrase
+  id: ChudPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-chud
+
+- type: quickPhrase
+  id: DangerousPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-dangerous
+
+- type: quickPhrase
+  id: ShitsecPhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-shitsec
