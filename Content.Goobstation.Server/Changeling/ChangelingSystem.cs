@@ -181,6 +181,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         SubscribeLocalEvent<ChangelingDartComponent, ProjectileHitEvent>(OnDartHit);
 
+        SubscribeLocalEvent<ChangelingIdentityComponent, AwakenedInstinctPurchasedEvent>(OnAwakenedInstinctPurchased);
         SubscribeLocalEvent<ChangelingIdentityComponent, AugmentedEyesightPurchasedEvent>(OnAugmentedEyesightPurchased);
 
         SubscribeAbilities();
@@ -205,6 +206,11 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     {
         if (TryComp(uid, out FlashImmunityComponent? flashImmunity))
             flashImmunity.Enabled = active;
+    }
+
+    private void OnAwakenedInstinctPurchased(Entity<ChangelingIdentityComponent> ent, ref AwakenedInstinctPurchasedEvent args)
+    {
+        EnsureComp<ChangelingBiomassComponent>(ent);
     }
 
     private void OnAugmentedEyesightPurchased(Entity<ChangelingIdentityComponent> ent, ref AugmentedEyesightPurchasedEvent args)
@@ -644,6 +650,17 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         return comp;
     }
+    private void CopyBiomassComponent(EntityUid target, ChangelingBiomassComponent comp)
+    {
+        var newComp = EnsureComp<ChangelingBiomassComponent>(target);
+
+        newComp.MaxBiomass = comp.MaxBiomass;
+        newComp.Biomass = comp.Biomass;
+
+        newComp.FirstWarnReached = comp.FirstWarnReached;
+        newComp.SecondWarnReached = comp.SecondWarnReached;
+        newComp.ThirdWarnReached = comp.ThirdWarnReached;
+    }
     private EntityUid? TransformEntity(
         EntityUid uid,
         TransformData? data = null,
@@ -702,6 +719,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             if (!persistentDna && data != null)
                 newLingComp?.AbsorbedDNA.Remove(data);
             RemCompDeferred<ChangelingIdentityComponent>(uid);
+
+            if (TryComp<ChangelingBiomassComponent>(uid, out var bioComp))
+            {
+                CopyBiomassComponent(newEnt, bioComp);
+                RemCompDeferred<ChangelingBiomassComponent>(uid);
+            }
         }
 
         //    if (TryComp<StoreComponent>(uid, out var storeComp))
