@@ -47,6 +47,7 @@
       weight: 0.4 # Make more common in December
     - id: RandomAnomalyInjectorSpawner # formerly rareChance 0.3, 30% chance of spawning. keep similar
       weight: 3.97 # (1/12*3.97)-(0.4/13) is very close to 30%
+    - id: AnomalyBald # Goobstation - You are bald
 
 - type: entity
   id: RandomRockAnomalySpawner
