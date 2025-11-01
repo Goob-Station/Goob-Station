@@ -3,15 +3,27 @@ using Robust.Client.GameObjects;
 
 namespace Content.Goobstation.Client.Ranching.Food;
 
-public sealed class FeedSackSystem : SharedFeedSackSystem
+public sealed class FoodSeedVisualsSystem : EntitySystem
 {
     [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
 
-    protected override void ChangeFeedColour(Color color, EntityUid feedUid)
+    public override void Initialize()
     {
-        base.ChangeFeedColour(color, feedUid);
+        base.Initialize();
 
-        var map = _sprite.LayerMapGet(feedUid, SeedColor.Color);
-        _sprite.LayerSetColor(feedUid, map, color);
+        SubscribeLocalEvent<FoodSeedVisualsComponent, AppearanceChangeEvent>(OnAppearanceChange);
+    }
+
+    private void OnAppearanceChange(Entity<FoodSeedVisualsComponent> ent, ref AppearanceChangeEvent args)
+    {
+        if (args.Sprite == null)
+            return;
+
+        if (!_appearance.TryGetData<Color>(ent.Owner, SeedColor.Color, out var color)
+            || !_sprite.LayerMapTryGet((ent.Owner, args.Sprite), SeedColor.Color, out var layer, false))
+            return;
+
+        _sprite.LayerSetColor(ent.Owner, layer, color);
     }
 }

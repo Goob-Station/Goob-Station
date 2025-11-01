@@ -7,20 +7,36 @@
   - type: Sprite
     sprite: _Goobstation/Ranching/chicken_feed_sack.rsi
     layers:
-    - state: feed_sack
     - state: feed_seed
       map: [ "enum.SeedColor.Color" ]
       shader: unshaded
+    - state: feed_sack
   - type: LimitedCharges
     maxCharges: 5
   - type: PreferencesHolder
   - type: FeedSack
+    chickenFeed: ChickenFeed
+  - type: FoodSeedVisuals
+  - type: Appearance
+  - type: SolutionContainerManager
+    solutions:
+      sack:
+        maxVol: 50
+  - type: SolutionTransfer
+    maxTransferAmount: 50
+    canChangeTransferAmount: true
+  - type: MixableSolution
+    solution: sack
+  - type: DrainableSolution
+    solution: sack
+  - type: ExaminableSolution
+    solution: sack
 
 - type: entity
   id: ChickenFeed
   name: Chicken Feed
+  parent: ChickenFeedBase
   description: Feed it to the chickens.
-  parent: EdibleBase
   components:
   - type: Sprite
     sprite: _Goobstation/Ranching/chicken_feed.rsi
@@ -29,6 +45,7 @@
       map: [ "enum.SeedColor.Color" ]
       shader: unshaded
   - type: PreferencesHolder
+  - type: FoodSeedVisuals
 
 - type: entity
   id: ChickenFeedRandom

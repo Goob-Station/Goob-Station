@@ -8,8 +8,7 @@ using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Ranching.Food;
 
-
-public abstract class SharedFeedSackSystem : EntitySystem
+public sealed class FeedSackSystem : EntitySystem
 {
     [Dependency] private readonly TurfSystem _turfSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -17,6 +16,7 @@ public abstract class SharedFeedSackSystem : EntitySystem
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly HappinessContainerSystem _happiness = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -52,6 +52,7 @@ public abstract class SharedFeedSackSystem : EntitySystem
             return;
 
         var chickenFeed = SpawnAtPosition(ent.Comp.ChickenFeed, args.ClickLocation);
+
         if (!TryComp<PreferencesHolderComponent>(chickenFeed, out var preferences))
         {
             Log.Warning("Chicken food must always have PreferencesHolderComponent");
@@ -64,8 +65,9 @@ public abstract class SharedFeedSackSystem : EntitySystem
             preferences.Preferences.Add(pref);
         }
 
-        ChangeFeedColour(ent.Comp.SeedColor, chickenFeed);
-    }
+        if (!_appearance.TryGetData<Color>(ent.Owner, SeedColor.Color, out var color))
+            return;
 
-    protected virtual void ChangeFeedColour(Color color, EntityUid feedUid) {}
+        _appearance.SetData(chickenFeed, SeedColor.Color, color);
+    }
 }

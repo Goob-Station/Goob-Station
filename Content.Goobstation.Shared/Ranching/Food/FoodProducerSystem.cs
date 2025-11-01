@@ -2,8 +2,12 @@ using System.Linq;
 using Content.Goobstation.Shared.Ranching.Happiness;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.DoAfter;
 using Content.Shared.Popups;
+using Content.Shared.Storage.Components;
 using Content.Shared.Verbs;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -14,7 +18,7 @@ namespace Content.Goobstation.Shared.Ranching.Food;
 /// <summary>
 /// This handles producing procedural food.
 /// </summary>
-public sealed class SharedFoodProducerSystem : EntitySystem
+public sealed class FoodProducerSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -22,6 +26,8 @@ public sealed class SharedFoodProducerSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     private EntityQuery<PreferencesHolderComponent> _preferencesQuery;
     private EntityQuery<HappinessPreferenceComponent> _happinessPreferenceQuery;
@@ -35,6 +41,10 @@ public sealed class SharedFoodProducerSystem : EntitySystem
         _happinessPreferenceQuery = GetEntityQuery<HappinessPreferenceComponent>();
 
         SubscribeLocalEvent<FoodProducerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<FoodProducerComponent, FoodProducerDoAfterEvent>(OnDoAfter);
+
+        SubscribeLocalEvent<FoodProducerComponent, ContainerIsRemovingAttemptEvent>(StorageOpenAttempt);
+        SubscribeLocalEvent<FoodProducerComponent, ItemSlotEjectAttemptEvent>(OnItemSlotEjectAttempt);
     }
 
     private void OnGetVerbs(Entity<FoodProducerComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
@@ -42,7 +52,7 @@ public sealed class SharedFoodProducerSystem : EntitySystem
         if (!args.CanAccess || !args.CanInteract || args.Hands == null || ent.Comp.IsActive)
             return;
 
-        args.Verbs.Add(new AlternativeVerb()
+        args.Verbs.Add(new AlternativeVerb
         {
             Text = Loc.GetString("food-producer-verb"),
             IconEntity = GetNetEntity(ent.Owner),
@@ -55,14 +65,7 @@ public sealed class SharedFoodProducerSystem : EntitySystem
 
     private void ProduceFood(Entity<FoodProducerComponent> ent)
     {
-        // doafter here
-        // audiostream here
-
-        GrabFood(ent);
-    }
-
-    private void GrabFood(Entity<FoodProducerComponent> ent)
-    {
+        // first, check if those containers exist in our entity
         if (!_container.TryGetContainer(ent.Owner, ent.Comp.StorageContainer, out var foodContainer)
             || !_container.TryGetContainer(ent.Owner, ent.Comp.BeakerContainer, out var beakerContainer))
         {
@@ -70,30 +73,98 @@ public sealed class SharedFoodProducerSystem : EntitySystem
             return;
         }
 
-        if (foodContainer.Count > ent.Comp.MaxFood)
-        {
-            _popup.PopupPredicted(
-                Loc.GetString("food-producer-max-food", ("maxFood", ent.Comp.MaxFood)),
-                ent.Owner,
-                ent.Owner,
-                PopupType.Medium);
+        // check if the food container has more food than allowed, or no food at all
+        if (!CanMakeFood(ent, foodContainer))
+            return;
 
+        var doAfterArgs = new DoAfterArgs(
+            EntityManager,
+            ent.Owner,
+            ent.Comp.Duration,
+            new FoodProducerDoAfterEvent(),
+            ent.Owner)
+        {
+            Hidden = true,
+            BreakOnDamage = true,
+            BreakOnMove = true,
+        };
+
+        var stream = _audio.PlayPredicted(ent.Comp.GrindSound, ent.Owner, null);
+        ent.Comp.Audio = stream?.Entity;
+
+        if (!_doAfter.TryStartDoAfter(doAfterArgs))
+        {
+            ent.Comp.Audio = _audio.Stop(ent.Comp.Audio);
+            ent.Comp.IsActive = false;
+            Dirty(ent);
             return;
         }
 
-        if (foodContainer.Count <= 0)
+        ent.Comp.IsActive = true;
+        Dirty(ent);
+    }
+
+    private void OnDoAfter(Entity<FoodProducerComponent> ent, ref FoodProducerDoAfterEvent args)
+    {
+        if (args.Cancelled || args.Handled)
         {
-            _popup.PopupPredicted(Loc.GetString("food-producer-no-food"), ent.Owner, ent.Owner, PopupType.Medium);
+            ent.Comp.Audio = _audio.Stop(ent.Comp.Audio);
             return;
         }
 
+        ent.Comp.Audio = _audio.Stop(ent.Comp.Audio);
+        Dirty(ent);
+
+        if (!_container.TryGetContainer(ent.Owner, ent.Comp.StorageContainer, out var foodContainer)
+            || !_container.TryGetContainer(ent.Owner, ent.Comp.BeakerContainer, out var beakerContainer))
+        {
+            Log.Warning("Containers not found. Make sure the food producer has storagebase and beakerSlot");
+            return;
+        }
+
+        MakeFood(ent, foodContainer, beakerContainer);
+        args.Handled = true;
+    }
+
+    private void StorageOpenAttempt(Entity<FoodProducerComponent> ent, ref ContainerIsRemovingAttemptEvent args)
+    {
+        if (!ent.Comp.IsActive)
+            return;
+
+        _popup.PopupPredicted(Loc.GetString("food-producer-storage-fail"), ent.Owner, ent.Owner, PopupType.Medium);
+        args.Cancel();
+    }
+
+    private void OnItemSlotEjectAttempt(Entity<FoodProducerComponent> ent, ref ItemSlotEjectAttemptEvent args)
+    {
+        if (!ent.Comp.IsActive || args.User == null)
+            return;
+
+        _popup.PopupClient(Loc.GetString("food-producer-storage-fail"), args.User.Value, args.User.Value, PopupType.Medium);
+        args.Cancelled = true;
+    }
+
+    #region Helpers
+    private void MakeFood(Entity<FoodProducerComponent> ent, BaseContainer foodContainer, BaseContainer beakerContainer)
+    {
         if (_net.IsClient)
             return;
 
         var feedSack = SpawnAtPosition(ent.Comp.FeedSack, Transform(ent.Owner).Coordinates);
+
+        var foodList = foodContainer.ContainedEntities.ToList();
         var beaker = beakerContainer.ContainedEntities.FirstOrNull();
 
-        PrepareFeedSack(feedSack, foodContainer.ContainedEntities.ToList(), beaker);
+        PrepareFeedSack(feedSack, foodList, beaker);
+
+        foreach (var food in foodList)
+        {
+            _container.Remove(food, foodContainer);
+            QueueDel(food);
+        }
+
+        ent.Comp.IsActive = false;
+        Dirty(ent);
     }
 
     private void PrepareFeedSack(EntityUid uid, List<EntityUid> food, EntityUid? beaker)
@@ -101,8 +172,7 @@ public sealed class SharedFoodProducerSystem : EntitySystem
         if (!_preferencesQuery.TryComp(uid, out var preferencesHolder) || !TryComp<FeedSackComponent>(uid, out var feedSackComponent))
             return;
 
-        Color color = feedSackComponent.SeedColor;
-
+        var color = feedSackComponent.SeedColor;
         // first gather the preferences off the foods
         foreach (var foodEntity in food)
         {
@@ -128,8 +198,38 @@ public sealed class SharedFoodProducerSystem : EntitySystem
 
                 preferencesHolder.Preferences.Add(reagentEnt.Preference.Value);
             }
+
+            // transfer the solution
+            if (!_solutionContainer.TryGetSolution(uid, "sack", out var sackSolution) )
+                return;
+
+            _solutionContainer.TryTransferSolution(sackSolution.Value, solution.Value.Comp.Solution, solution.Value.Comp.Solution.Volume);
+            _solutionContainer.UpdateChemicals(solution.Value);
         }
 
         _appearance.SetData(uid, SeedColor.Color, color);
     }
+
+    private bool CanMakeFood(Entity<FoodProducerComponent> ent, BaseContainer foodContainer)
+    {
+        if (foodContainer.Count > ent.Comp.MaxFood)
+        {
+            _popup.PopupPredicted(
+                Loc.GetString("food-producer-max-food", ("maxFood", ent.Comp.MaxFood)),
+                ent.Owner,
+                ent.Owner,
+                PopupType.Medium);
+
+            return false;
+        }
+
+        if (foodContainer.Count <= 0)
+        {
+            _popup.PopupPredicted(Loc.GetString("food-producer-no-food"), ent.Owner, ent.Owner, PopupType.Medium);
+            return false;
+        }
+
+        return true;
+    }
+    #endregion
 }

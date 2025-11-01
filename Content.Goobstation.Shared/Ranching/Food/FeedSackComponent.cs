@@ -1,7 +1,5 @@
-using Content.Goobstation.Common.Ranching;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Ranching.Food;
 
@@ -12,11 +10,5 @@ public sealed partial class FeedSackComponent : Component
     public EntProtoId ChickenFeed = "ChickenFeedRandom";
 
     [DataField]
-    public Color SeedColor = Color.LightYellow;
-}
-
-[Serializable, NetSerializable]
-public enum SeedColor : byte
-{
-    Color,
+    public Color SeedColor = Color.FromHex("#E29D1D");
 }
