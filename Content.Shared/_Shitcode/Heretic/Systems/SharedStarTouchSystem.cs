@@ -125,7 +125,7 @@ public sealed class SharedStarTouchSystem : EntitySystem
                 _status.TryUpdateStatusEffectDuration(target,
                     SleepingSystem.StatusEffectForcedSleeping,
                     ent.Comp.SleepTime);
-                _starMark.TryApplyStarMark(target, heretic.Value);
+                _starMark.TryApplyStarMark(target);
             });
     }
 
@@ -226,7 +226,7 @@ public sealed class SharedStarTouchSystem : EntitySystem
 
         if (!HasComp<StarMarkComponent>(target))
         {
-            _starMark.TryApplyStarMark((target, mobState), args.User);
+            _starMark.TryApplyStarMark((target, mobState));
             _heretic.InvokeTouchSpell(ent, args.User);
             return;
         }
