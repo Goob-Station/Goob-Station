@@ -138,8 +138,10 @@ public sealed class CosmicRunesSystem : EntitySystem
         EntityUid? pulling = null;
         var grabStage = GrabStage.No;
         PullerComponent? puller = null;
+
         var isUserCosmosHeretic = HasComp<StarGazerComponent>(user) ||
                                   TryComp(user, out HereticComponent? heretic) && heretic.CurrentPath == "Cosmos";
+
         if (isUserCosmosHeretic && TryComp(user, out puller) && puller.Pulling != null)
         {
             pulling = puller.Pulling.Value;
@@ -151,10 +153,8 @@ public sealed class CosmicRunesSystem : EntitySystem
         {
             _pulling.StopAllPulls(entity);
             _transform.SetCoordinates(entity, xform.Coordinates);
+            _starMark.TryApplyStarMark(entity);
         }
-
-        if (!isUserCosmosHeretic)
-            _starMark.TryApplyStarMark(user, null, true);
 
         if (pulling != null)
             _pulling.TryStartPull(user, pulling.Value, puller, null, grabStage);
