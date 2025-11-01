@@ -17427,3 +17427,9 @@ Entries:
       message: TG station BZ catalyzed nitrous oxide production.
   id: 1952
   time: '2025-11-01T18:42:45.0000000+00:00'
+- author: XWASHERE
+  changes:
+    - type: Fix
+      message: Facehuggers no longer attack skeletons.
+  id: 1953
+  time: '2025-11-01T18:43:20.0000000+00:00'
