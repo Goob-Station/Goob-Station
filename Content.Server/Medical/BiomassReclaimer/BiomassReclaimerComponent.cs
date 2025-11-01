@@ -49,7 +49,7 @@ namespace Content.Server.Medical.BiomassReclaimer
         /// The reagents that will be spilled while processing.
         /// </summary>
         [ViewVariables]
-        public List<string> BloodReagents = new();
+        public List<string> BloodReagents = new(); // Goobstation, updated to List.
 
         /// <summary>
         /// Entities that can be randomly spawned while processing.
