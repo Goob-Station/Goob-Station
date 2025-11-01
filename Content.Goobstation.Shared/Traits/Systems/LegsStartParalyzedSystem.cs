@@ -38,7 +38,7 @@ public sealed class LegsStartParalyzedSystem : EntitySystem
 
     private void OnRemoved(EntityUid uid, LegsStartParalyzedComponent component, ComponentRemove args)
     {
-        if (!_entMan.TryGetComponent<BodyComponent>(uid, out var body))
+        if (!TryComp<BodyComponent>(uid, out var body))
             return;
 
         foreach (var legEntity in body.LegEntities)
