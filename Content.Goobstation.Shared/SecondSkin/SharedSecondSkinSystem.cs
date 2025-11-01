@@ -34,7 +34,7 @@ public abstract class SharedSecondSkinSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SecondSkinHolderComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<SecondSkinHolderComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SecondSkinHolderComponent, EntInsertedIntoContainerMessage>(OnInsert);
         SubscribeLocalEvent<SecondSkinHolderComponent, EntRemovedFromContainerMessage>(OnRemove);
         SubscribeLocalEvent<SecondSkinHolderComponent, GetItemActionsEvent>(OnGetActions);
@@ -295,7 +295,7 @@ public abstract class SharedSecondSkinSystem : EntitySystem
         _itemSys.VisualsChanged(ent);
     }
 
-    private void OnStartup(Entity<SecondSkinHolderComponent> ent, ref ComponentStartup args)
+    private void OnMapInit(Entity<SecondSkinHolderComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.Container = _container.EnsureContainer<ContainerSlot>(ent, ent.Comp.ContainerId);
         _actions.AddAction(ent, ref ent.Comp.SecondSkinAction, ent.Comp.SecondSkinActionId);
