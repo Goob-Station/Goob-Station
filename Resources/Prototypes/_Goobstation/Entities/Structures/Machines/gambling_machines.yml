@@ -150,7 +150,7 @@
     bigPrizeAmount: 100000
     jackPotPrizeAmount: 1000000
     godPotPrize: Throngler
-    SmallWinChance: 0.1
+    SmallWinChance: .1
     mediumWinChance: .05
     bigWinChance: .01
     jackPotWinChance: .001
