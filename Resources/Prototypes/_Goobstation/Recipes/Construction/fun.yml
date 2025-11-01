@@ -25,3 +25,36 @@
   targetNode: boomerangFinish
   category: construction-category-weapons
   objectType: Item
+
+- type: construction
+  name: welder energy sword
+  id: WelderSword
+  graph: WelderSword
+  startNode: start
+  targetNode: welderSword
+  category: construction-category-weapons
+  description: Roughly converted from a welding tool, this energy sword hums an unstable flame. It looks like it's about to fall apart.
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: industrial welder energy sword
+  id: WelderSwordIndustrial
+  graph: WelderSwordIndustrial
+  startNode: start
+  targetNode: welderSwordIndustrial
+  category: construction-category-weapons
+  description: Roughly converted from a welding tool, this energy sword hums an unstable flame. It looks like it's about to fall apart.
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: experimental welder energy sword
+  id: WelderSwordExperimental
+  graph: WelderSwordExperimental
+  startNode: start
+  targetNode: welderSwordExperimental
+  category: construction-category-weapons
+  description: Roughly converted from a welding tool, this energy sword hums an unstable flame. It looks like it's about to fall apart.
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi, state: icon }
+  objectType: Item
