@@ -35,7 +35,7 @@ public abstract class SharedSecondSkinSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SecondSkinHolderComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<SecondSkinHolderComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SecondSkinHolderComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<SecondSkinHolderComponent, EntInsertedIntoContainerMessage>(OnInsert);
         SubscribeLocalEvent<SecondSkinHolderComponent, EntRemovedFromContainerMessage>(OnRemove);
@@ -297,7 +297,7 @@ public abstract class SharedSecondSkinSystem : EntitySystem
         _itemSys.VisualsChanged(ent);
     }
 
-    private void OnStartup(Entity<SecondSkinHolderComponent> ent, ref ComponentStartup args)
+    private void OnMapInit(Entity<SecondSkinHolderComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.Container = _container.EnsureContainer<ContainerSlot>(ent, ent.Comp.ContainerId);
         _actionContainer.EnsureAction(ent, ref ent.Comp.SecondSkinAction, ent.Comp.SecondSkinActionId);
@@ -306,7 +306,9 @@ public abstract class SharedSecondSkinSystem : EntitySystem
 
     private void OnShutdown(Entity<SecondSkinHolderComponent> ent, ref ComponentShutdown args)
     {
-        _container.ShutdownContainer(ent.Comp.Container);
+        if (ent.Comp.Container != default)
+            _container.ShutdownContainer(ent.Comp.Container);
+        _actionContainer.RemoveAction(ent.Comp.SecondSkinAction);
     }
 
     protected virtual void UpdateSprite(Entity<HumanoidAppearanceComponent> ent) { }

@@ -452,7 +452,6 @@
         whitelist:
           components:
           - SecondSkin
-  - type: ContainerContainer
   - type: Appearance
   - type: SecondSkinHolder
 
