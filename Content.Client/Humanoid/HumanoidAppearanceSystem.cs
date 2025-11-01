@@ -62,7 +62,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         }
     }
 
-     void UpdateSprite(Entity<HumanoidAppearanceComponent, SpriteComponent> entity)
+    public void UpdateSprite(Entity<HumanoidAppearanceComponent, SpriteComponent> entity) // Goob edit - made public
     {
         UpdateLayers(entity);
         ApplyMarkingSet(entity);
@@ -87,7 +87,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
     private static bool IsHidden(HumanoidAppearanceComponent humanoid, HumanoidVisualLayers layer)
         => humanoid.HiddenLayers.ContainsKey(layer) || humanoid.PermanentlyHidden.Contains(layer);
 
-    public void UpdateLayers(Entity<HumanoidAppearanceComponent, SpriteComponent> entity) // Goob edit - made public
+    private void UpdateLayers(Entity<HumanoidAppearanceComponent, SpriteComponent> entity)
     {
         var component = entity.Comp1;
         var sprite = entity.Comp2;
@@ -365,20 +365,27 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
             var layerId = $"{markingPrototype.ID}-{rsi.RsiState}";
 
-            if (!_sprite.LayerMapTryGet((entity.Owner, sprite), layerId, out _, false))
+            if (!_sprite.LayerMapTryGet((entity.Owner, sprite), layerId, out var layer, false)) // Goob edit
             {
-                var layer = _sprite.AddLayer((entity.Owner, sprite), markingSprite, targetLayer + j + 1);
+                layer = _sprite.AddLayer((entity.Owner, sprite), markingSprite, targetLayer + j + 1); // Goob edit
                 _sprite.LayerMapSet((entity.Owner, sprite), layerId, layer);
                 _sprite.LayerSetSprite((entity.Owner, sprite), layerId, rsi);
             }
 
-
+            var hasInfo = humanoid.CustomBaseLayers.TryGetValue(markingPrototype.BodyPart, out var info); // Goobstation
             // impstation edit begin - check if there's a shader defined in the markingPrototype's shader datafield, and if there is...
 			if (markingPrototype.Shader != null)
 			{
 			// use spriteComponent's layersetshader function to set the layer's shader to that which is specified.
-				sprite.LayerSetShader(layerId, markingPrototype.Shader);
+				sprite.LayerSetShader(layer, markingPrototype.Shader); // Goob edit
 			}
+            else // Goobstation
+            {
+                if (hasInfo && info.Shader != null)
+                    sprite.LayerSetShader(layer, info.Shader);
+                else
+                    sprite.LayerSetShader(layer, null, null);
+            }
 			// impstation edit end
 
             _sprite.LayerSetVisible((entity.Owner, sprite), layerId, visible);
@@ -393,11 +400,21 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             // So if that happens just default to white?
             if (colors != null && j < colors.Count)
             {
-                _sprite.LayerSetColor((entity.Owner, sprite), layerId, colors[j]);
+                // Goob edit start
+                var color = colors[j];
+                if (hasInfo && info.Color != null)
+                    color = Color.InterpolateBetween(color, info.Color.Value, 0.5f);
+                _sprite.LayerSetColor((entity.Owner, sprite), layerId, color);
+                // Goob edit end
             }
             else
             {
-                _sprite.LayerSetColor((entity.Owner, sprite), layerId, Color.White);
+                // Goob edit start
+                var color = Color.White;
+                if (hasInfo && info.Color != null)
+                    color = info.Color.Value;
+                _sprite.LayerSetColor((entity.Owner, sprite), layerId, color);
+                // Goob edit end
             }
 
             if (humanoid.MarkingsDisplacement.TryGetValue(markingPrototype.BodyPart, out var displacementData) && markingPrototype.CanBeDisplaced)

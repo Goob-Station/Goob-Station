@@ -159,6 +159,7 @@
   abstract: true
   parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseSecurityContraband]
   id: ClothingOuterArmorBase
+
   name: armor vest
   description: A standard Type I armored vest that provides decent protection against most types of damage.
   components:
@@ -175,7 +176,6 @@
       BoneDamage: 0.2
       VeinsDamage: 0
       NerveDamage: 0
-  - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.70

@@ -21,6 +21,7 @@
 - type: shader
   id: SecondSkin
   kind: source
-  path: "/Textures/Nyanotrasen/Shaders/holographic2.swsl"
+  path: "/Textures/_Goobstation/Shaders/secondskin.swsl"
   params:
     pixelSize: 32.0
+    amount: 0.5

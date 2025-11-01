@@ -303,7 +303,7 @@ uplink-belt-rig-name = Grenadier Belt
 uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
 
 uplink-second-skin-name = Second Skin
-uplink-second-skin-name =
+uplink-second-skin-desc =
     An improved version of Nanotrasen security second skin device that doesn't cause disgust and doesn't corrode silicon matter.
     Attached directly to your armor vest, this device can encover your body with protective liquid-like substance that reduces incoming damage and traumas.
     Doesn't cover your head.

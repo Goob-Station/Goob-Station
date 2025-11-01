@@ -45,7 +45,7 @@ public sealed class SecondSkinSystem : SharedSecondSkinSystem
             if (godmodeQuery.HasComp(skin.User.Value))
                 continue;
 
-            if (siliconQuery.HasComp(skin.User.Value) && !skin.DamageToSilicons.Empty)
+            if (!skin.DamageToSilicons.Empty && siliconQuery.HasComp(skin.User.Value))
             {
                 _dmg.TryChangeDamage(skin.User.Value,
                     skin.DamageToSilicons,

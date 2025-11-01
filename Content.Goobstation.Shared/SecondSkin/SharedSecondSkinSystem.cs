@@ -14,11 +14,14 @@ using Content.Shared.Item;
 using Content.Shared.Mobs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.SecondSkin;
 
 public abstract class SharedSecondSkinSystem : EntitySystem
 {
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -138,6 +141,9 @@ public abstract class SharedSecondSkinSystem : EntitySystem
 
     protected void DisableSecondSkin(Entity<SecondSkinComponent> secondSkin, EntityUid performer, bool predicted = true)
     {
+        if (secondSkin.Comp.User != performer)
+            return;
+
         secondSkin.Comp.User = null;
         _audio.PlayPredicted(secondSkin.Comp.SoundUnequip, secondSkin, predicted ? performer : null);
         RemComp<SecondSkinUserComponent>(performer);
@@ -160,13 +166,19 @@ public abstract class SharedSecondSkinSystem : EntitySystem
         if (!TryComp(user, out HumanoidAppearanceComponent? appearance))
             return;
 
+        var species = _proto.Index(appearance.Species);
+        var spriteSet = _proto.Index(species.SpriteSet);
+
         foreach (var layer in user.Comp.Layers)
         {
-            appearance.CustomBaseLayers[layer] = new CustomBaseLayerInfo(null, secondSkin.Comp.Color, user.Comp.Shader);
+            string? id = null;
+            if (spriteSet.Sprites.TryGetValue(layer, out var spriteLayer))
+                id = spriteLayer;
+            appearance.CustomBaseLayers[layer] = new CustomBaseLayerInfo(id, secondSkin.Comp.Color, user.Comp.Shader);
         }
 
         Dirty(user.Owner, appearance);
-        UpdateLayers((user.Owner, appearance));
+        UpdateSprite((user.Owner, appearance));
     }
 
     private void OnUserShutdown(Entity<SecondSkinUserComponent> ent, ref ComponentShutdown args)
@@ -183,7 +195,7 @@ public abstract class SharedSecondSkinSystem : EntitySystem
         }
 
         Dirty(ent.Owner, appearance);
-        UpdateLayers((ent.Owner, appearance));
+        UpdateSprite((ent.Owner, appearance));
     }
 
     private void OnGetActions(Entity<SecondSkinHolderComponent> ent, ref GetItemActionsEvent args)
@@ -263,8 +275,8 @@ public abstract class SharedSecondSkinSystem : EntitySystem
                 State = ent.Comp1.State,
             };
 
-            if (ent.Comp2.ClothingVisuals.ContainsKey(ent.Comp1.Slot))
-                ent.Comp2.ClothingVisuals[ent.Comp1.Slot].Add(layer);
+            if (ent.Comp2.ClothingVisuals.TryGetValue(ent.Comp1.Slot, out var value))
+                value.Add(layer);
             else
             {
                 var defaultLayer = new PrototypeLayerData()
@@ -289,5 +301,5 @@ public abstract class SharedSecondSkinSystem : EntitySystem
         _actions.AddAction(ent, ref ent.Comp.SecondSkinAction, ent.Comp.SecondSkinActionId);
     }
 
-    protected virtual void UpdateLayers(Entity<HumanoidAppearanceComponent> ent) { }
+    protected virtual void UpdateSprite(Entity<HumanoidAppearanceComponent> ent) { }
 }

@@ -17,12 +17,12 @@ public sealed class SecondSkinSystem : SharedSecondSkinSystem
         SubscribeLocalEvent<SecondSkinHolderComponent, AppearanceChangeEvent>(OnAppearanceChange);
     }
 
-    protected override void UpdateLayers(Entity<HumanoidAppearanceComponent> ent)
+    protected override void UpdateSprite(Entity<HumanoidAppearanceComponent> ent)
     {
         if (!TryComp(ent, out SpriteComponent? sprite))
             return;
 
-        _humanoid.UpdateLayers((ent, ent.Comp, sprite));
+        _humanoid.UpdateSprite((ent, ent.Comp, sprite));
     }
 
     private void OnAppearanceChange(Entity<SecondSkinHolderComponent> ent, ref AppearanceChangeEvent args)

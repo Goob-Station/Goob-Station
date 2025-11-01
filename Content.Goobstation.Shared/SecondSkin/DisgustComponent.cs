@@ -20,7 +20,7 @@ public sealed partial class DisgustComponent : Component
     [ViewVariables]
     public float Accumulator;
 
-    [DataField]
+    [DataField(serverOnly: true), NonSerialized]
     public Dictionary<float, List<EntityEffect>> EffectsThresholds = new();
 
     [DataField]
@@ -30,7 +30,7 @@ public sealed partial class DisgustComponent : Component
     public Dictionary<float, short> SeverityLevels = new()
     {
         { 5f, 1 },
-        { 20f, 2 },
+        { 30f, 2 },
         { 60f, 3 },
     };
 }

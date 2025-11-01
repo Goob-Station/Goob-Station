@@ -1,4 +1,5 @@
 uniform highp float pixelSize;
+uniform highp float amount;
 
 //
 // Description : Array and textureless GLSL 2D simplex noise function.
@@ -98,12 +99,12 @@ void fragment()
 		discard;
 	}
 
-    highp float x = floor(UV2.x * pixelSize) / pixelSize;
-    highp float y = floor(UV2.y * pixelSize) / pixelSize;
-    highp float noise = 1.0 - 0.5 * snoise(TIME + vec2(x, y) * pixelSize);
+    highp float x = floor(UV2.x * pixelSize);
+    highp float y = floor(UV2.y * pixelSize);
+    highp float noise = 1.0 - 0.5 * snoise(TIME + vec2(x, y));
 
     highp vec3 hsv = vec3(0.0, 0.0, noise);
     highp vec3 col = hsv2rgb(hsv);
 
-    COLOR = vec4(mix(color.xyz, col, 0.5), color.a);
+    COLOR = vec4(mix(color.xyz, col, amount), color.a);
 }

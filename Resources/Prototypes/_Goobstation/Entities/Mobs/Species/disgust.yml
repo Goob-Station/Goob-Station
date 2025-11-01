@@ -14,27 +14,32 @@
         visualType: SmallCaution
         messages:
         - disgust-effect-message
-      20:
+      30:
       - !type:GenericStatusEffect
-        probability: 0.06
+        probability: 0.03
         key: BlurryVision
         component: BlurryVision
         time: 6.0
-      21:
+      31:
       - !type:MovespeedModifier
-        probability: 0.06
+        probability: 0.03
         walkSpeedModifier: 0.7
         sprintSpeedModifier: 0.7
         statusLifetime: 6.0
-      23:
+      32:
+      - !type:TakeStaminaDamage
+        probability: 0.06
+        amount: 10
+        immediate: false
+      33:
       - !type:HealthChange
         probability: 0.12
         damage:
-          groups:
-            Poison: -1
+          types:
+            Poison: 1
       60:
       - !type:ChemVomit
-        probability: 0.05
+        probability: 0.06
         thirstAmount: -50
         hungerAmount: -50
       - !type:GenericStatusEffect
