@@ -437,7 +437,8 @@
     guides:
     - Cyborgs
     - Robotics
-  - type: LanguageKnowledge # Einstein Engines - Languages
+  - type: KnowledgeContainer # Goobstation edit - Knowledge (maybe should be reworked with borgs?)
+  - type: LanguageGrant # Einstein Engines - Languages
     speaks:
     - TauCetiBasic
     - RobotTalk

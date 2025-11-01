@@ -20,6 +20,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server.Body.Components;
 using Content.Server.Ghost.Components;
 using Content.Shared.Body.Components;
@@ -32,6 +33,9 @@ using Content.Shared.Pointing;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Body.Systems;
 using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Common.Knowledge;
+using Content.Server.Silicons.Borgs;
+using Content.Shared.Silicons.Borgs.Components;
 
 
 namespace Content.Server.Body.Systems
@@ -48,6 +52,7 @@ namespace Content.Server.Body.Systems
         // Shitmed Change Start
             SubscribeLocalEvent<BrainComponent, OrganRemovedFromBodyEvent>(HandleRemoval);
             SubscribeLocalEvent<BrainComponent, PointAttemptEvent>(OnPointAttempt);
+            SubscribeLocalEvent<BrainComponent, KnowledgeContainerRelayEvent>(HandleKnowledge); // Goobstation edit
         }
 
         private void HandleRemoval(EntityUid uid, BrainComponent brain, ref OrganRemovedFromBodyEvent args)
@@ -129,5 +134,30 @@ namespace Content.Server.Body.Systems
         {
             args.Cancel();
         }
+
+        // Goobstation edit start
+        private void HandleKnowledge(Entity<BrainComponent> ent, ref KnowledgeContainerRelayEvent args)
+        {
+            if (args.Handled)
+                return;
+
+            // Check for a brain that is inside MMI because borg system is trash
+            if (HasComp<MMIComponent>(Transform(ent.Owner).ParentUid))
+            {
+                args.Found = ent.Owner;
+                args.Handled = true;
+                return;
+            }
+
+            // Check that the brain is inserted into the right entity
+            var organs = _bodySystem.GetBodyOrgans(args.Target).Select(x => x.Id).ToList();
+            if (!organs.Contains(ent.Owner))
+                return;
+
+            // We are in a right place.
+            args.Found = ent.Owner;
+            args.Handled = true;
+        }
+        // Goobstation edit end
     }
 }

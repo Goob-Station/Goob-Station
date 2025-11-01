@@ -16,6 +16,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Knowledge;
+using Content.Goobstation.Common.Knowledge.Systems;
 using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
@@ -23,6 +25,7 @@ using Content.Shared.CharacterInfo;
 using Content.Shared.Objectives;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Objectives.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.CharacterInfo;
 
@@ -32,6 +35,8 @@ public sealed class CharacterInfoSystem : EntitySystem
     [Dependency] private readonly MindSystem _minds = default!;
     [Dependency] private readonly RoleSystem _roles = default!;
     [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
+    [Dependency] private readonly KnowledgeSystem _knowledge = default!; // Goobstation edit
+    [Dependency] private readonly IPrototypeManager _proto = default!; // Goobstation edit
 
     public override void Initialize()
     {
@@ -74,6 +79,24 @@ public sealed class CharacterInfoSystem : EntitySystem
             briefing = _roles.MindGetBriefing(mindId);
         }
 
-        RaiseNetworkEvent(new CharacterInfoEvent(GetNetEntity(entity), jobTitle, objectives, briefing), args.SenderSession);
+        // Goobstation edit start
+        var knowledge = new Dictionary<string, List<KnowledgeInfo>>();
+        if (_knowledge.TryGetAllKnowledgeUnits(entity, out var found))
+        {
+            foreach (var unit in found)
+            {
+                if (_proto.Index(unit.Comp.MemoryLevel).Hidden)
+                    continue;
+
+                var (category, info) = _knowledge.GetKnowledgeInfo(unit);
+
+                if (!knowledge.ContainsKey(category))
+                    knowledge[category] = new List<KnowledgeInfo>();
+                knowledge[category].Add(info);
+            }
+        }
+        // Goobstation edit end
+
+        RaiseNetworkEvent(new CharacterInfoEvent(GetNetEntity(entity), jobTitle, objectives, briefing, knowledge), args.SenderSession);  // Goobstation edit - added knowledge
     }
 }

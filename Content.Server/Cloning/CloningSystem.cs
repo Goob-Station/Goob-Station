@@ -87,6 +87,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Common.Knowledge.Components;
+using Content.Goobstation.Common.Knowledge.Systems;
 using Content.Goobstation.Shared.CloneProjector.Clone;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Radio.Components; // Goobstation
@@ -110,6 +112,7 @@ public sealed partial class CloningSystem : EntitySystem
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedSubdermalImplantSystem _subdermalImplant = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
+    [Dependency] private readonly KnowledgeSystem _knowledge = default!; // Goobstation
 
     /// <summary>
     ///     Spawns a clone of the given humanoid mob at the specified location or in nullspace.
@@ -154,6 +157,11 @@ public sealed partial class CloningSystem : EntitySystem
         // copy implants and their storage contents
         if (settings.CopyImplants)
             CopyImplants(original, clone.Value, settings.CopyInternalStorage, settings.Whitelist, settings.Blacklist);
+
+        // Goobstation start
+        if (settings.CopyKnowledge)
+            CopyKnowledge(original, clone.Value);
+        // Goobstation end
 
         var originalName = _nameMod.GetBaseName(original);
 
@@ -379,5 +387,29 @@ public sealed partial class CloningSystem : EntitySystem
                 CopyStorage(originalImplant, targetImplant.Value, whitelist, blacklist); // only needed for storage implants
         }
 
+    }
+
+    public void CopyKnowledge(EntityUid original, EntityUid target)
+    {
+        if (!_knowledge.TryGetAllKnowledgeUnits(original, out var found))
+            return; // No knowledge to copy!
+
+        foreach (var originalKnowledge in found)
+        {
+            if (!HasComp<KnowledgeComponent>(originalKnowledge))
+                continue;
+
+            var knowledgeId = MetaData(originalKnowledge).EntityPrototype?.ID;
+
+            if (knowledgeId == null)
+                continue;
+
+            if (!_knowledge.TryAddKnowledgeUnit(target, knowledgeId, out var targetKnowledge))
+                continue;
+
+            // copy over important component data
+            var ev = new CloningItemEvent(targetKnowledge.Value);
+            RaiseLocalEvent(targetKnowledge.Value, ref ev);
+        }
     }
 }

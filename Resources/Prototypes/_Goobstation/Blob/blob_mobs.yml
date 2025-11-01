@@ -71,7 +71,7 @@
     # - type: BlobSpeak
     # Einstein Engines - Language begin
     - type: LanguageSpeaker
-    - type: LanguageKnowledge
+    - type: LanguageGrant
       speaks:
       - Blob
       understands:
@@ -165,7 +165,7 @@
     # - type: BlobSpeak
     # Einstein Engines - Language begin
     - type: LanguageSpeaker
-    - type: LanguageKnowledge
+    - type: LanguageGrant
       speaks:
       - Blob
       understands:
@@ -256,7 +256,7 @@
     # Einstein Engines - Language begin
     - type: LanguageSpeaker
       currentLanguage: Blob
-    - type: LanguageKnowledge
+    - type: LanguageGrant
       speaks:
       - Blob
       understands:
@@ -317,3 +317,4 @@
       defaultChannel: Blobmind
       channels:
       - Blobmind
+    - type: KnowledgeContainer # Goobstation - Knowledge

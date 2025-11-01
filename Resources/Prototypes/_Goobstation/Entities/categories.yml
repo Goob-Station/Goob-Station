@@ -2,3 +2,8 @@
   id: Enchants
   name: entity-category-name-enchants
   hideSpawnMenu: true
+
+- type: entityCategory
+  id: Knowledge
+  name: entity-category-name-knowledge
+  hideSpawnMenu: true

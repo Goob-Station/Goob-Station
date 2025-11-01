@@ -135,7 +135,7 @@
     deactivateSound: null
   - type: TileMovement
   - type: VentCrawler
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Xeno
     understands:
