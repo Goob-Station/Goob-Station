@@ -3,8 +3,10 @@ using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Humanoid;
 using Content.Server.Physics.Components;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Chat;
+using Content.Shared.Database;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Interaction;
@@ -30,6 +32,7 @@ public sealed class BaldAnomalySystem : EntitySystem
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly AnomalySystem _anomaly = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
     public override void Initialize()
     {
@@ -76,30 +79,32 @@ public sealed class BaldAnomalySystem : EntitySystem
     /// <param name="args"></param>
     private void OnSupercritical(Entity<BaldAnomalyComponent> anomaly, ref AnomalySupercriticalEvent args)
     {
-        // gib one random non-bald crew member
-        if (args.PowerModifier >= 1)//does not trigger if it's a weak anomaly
+        if (args.PowerModifier < 1) //does not trigger if it's a weak anomaly
+            return;
+
+        var range = anomaly.Comp.BaseRange * 10;
+        var crew = _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(Transform(anomaly).Coordinates, range);
+        var potentialTargets = new List<EntityUid>();
+
+        foreach (var (ent, comp) in crew)
         {
-            var range = anomaly.Comp.BaseRange * 10;
-            var crew = _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(Transform(anomaly).Coordinates, range);
-            var potentialTargets = new List<EntityUid>();
-            foreach (var (ent, comp) in crew)
-            {
-               if ( _mobState.IsDead(ent))
-                   continue;// dont count the dead
-               if (!comp.MarkingSet.TryGetCategory(MarkingCategories.Hair, out var hair) || hair.Count <= 0)
-                   continue; // is already bald  or cant have hair
-               //TODO  probably have a check that someone that is fresh off the boat dont get gibed
+           if ( _mobState.IsDead(ent))
+               continue;// dont count the dead
+           if (!comp.MarkingSet.TryGetCategory(MarkingCategories.Hair, out var hair) || hair.Count <= 0)
+               continue; // is already bald  or cant have hair
+           //TODO  probably have a check that someone that is fresh off the boat dont get gibed
 
-               potentialTargets.Add(ent);
-            }
-
-            if (potentialTargets.Count > 0)
-            {
-                var victim = potentialTargets[_random.Next(potentialTargets.Count)];
-                _chatSystem.TrySendInGameICMessage(victim,Loc.GetString("anomaly-bald-cri"), InGameICChatType.Speak,false);
-                _bodySystem.GibBody(victim);
-            }
+           potentialTargets.Add(ent);
         }
+
+        if (potentialTargets.Count <= 0)
+            return; // no targets found
+
+        var victim = potentialTargets[_random.Next(potentialTargets.Count)];
+        _chatSystem.TrySendInGameICMessage(victim,Loc.GetString("anomaly-bald-cri"), InGameICChatType.Speak,false);
+        _adminLogger.Add(LogType.Anomaly, $"{ToPrettyString(victim):target} was gibed by bald anomaly {ToPrettyString(anomaly.Owner):user)}");
+
+        _bodySystem.GibBody(victim);
     }
 
     /// <summary>
@@ -152,20 +157,21 @@ public sealed class BaldAnomalySystem : EntitySystem
     {
         var severity = args.Severity*100;
 
-        if (severity < 50)
+        switch (severity)
         {
-            RemCompDeferred<RandomWalkComponent>(anomaly.Owner);
-            EnsureComp<PullableComponent>(anomaly.Owner);
-            return;
+            case < 50:
+                RemCompDeferred<RandomWalkComponent>(anomaly.Owner);
+                EnsureComp<PullableComponent>(anomaly.Owner);
+                break;
+            case > 80:
+                _pulling.StopAllPulls(anomaly.Owner);
+                EnsureComp<RandomWalkComponent>(anomaly.Owner);
+                break;
+            default:
+                _pulling.StopAllPulls(anomaly.Owner);
+                RemCompDeferred<PullableComponent>(anomaly.Owner);
+                RemCompDeferred<RandomWalkComponent>(anomaly.Owner);
+                break;
         }
-        if (80 < severity)
-        {
-            _pulling.StopAllPulls(anomaly.Owner);
-            EnsureComp<RandomWalkComponent>(anomaly.Owner);
-            return;
-        }
-        _pulling.StopAllPulls(anomaly.Owner);
-        RemCompDeferred<PullableComponent>(anomaly.Owner);
-        RemCompDeferred<RandomWalkComponent>(anomaly.Owner);
     }
 }

@@ -24,10 +24,9 @@
       map: [ "enum.AnomalyVisualLayers.Animated" ]
       visible: false
   - type: PointLight
-    radius: 5.0
-    energy: 20
-    color: "#6270bb"
-    castShadows: false
+    radius: 2.0
+    energy: 10
+    color: "#333333"
   - type: Physics
     bodyType: Dynamic
     bodyStatus: InAir
