@@ -161,17 +161,14 @@
     price: 70
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WindowCosmicCult
-  - type: InteractionVerbs
-    allowedVerbs:
-    - KnockOn
-  - type: ToggleableOccluder
-  - type: DeviceLinkSink
+  - type: ToggleableOccluder # Goob
+  - type: DeviceLinkSink # Goob
     ports:
     - On
     - Off
     - Toggle
 
-- type: entity
+- type: entity # Goob
   parent: TintedWindow
   id: TintedWindowTransparent
   suffix: Transparent
