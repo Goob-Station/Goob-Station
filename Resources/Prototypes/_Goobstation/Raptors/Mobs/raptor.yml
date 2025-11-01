@@ -1,0 +1,199 @@
+- type: entity
+  id: BaseRaptor
+  name: Raptor
+  description: The base raptor.
+  parent: LavalandMobBase
+  abstract: true
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Raptors/raptoricebox.rsi
+    layers:
+      - state: raptor_red
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: raptor_red
+      Dead:
+        Base: dead_raptor_red
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 80
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      270: Dead
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Resomi
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 15
+  - type: NoSlip
+  - type: Pullable
+  - type: InputMover
+  - type: SpamEmitSound
+    minInterval: 15
+    maxInterval: 90
+    sound:
+      collection: RaptorIdle
+      params:
+        volume: -8
+        maxDistance: 10
+        variation: 0.05
+  - type: MobMover
+  - type: NPCRetaliation
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Passive # They are just chill little fellas.
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: Hardclaw
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+
+# ───────────────────────────────
+# Raptor Variants
+# ───────────────────────────────
+
+- type: entity
+  id: RaptorRed
+  parent: BaseRaptor
+  name: red raptor
+  description: A red-scaled raptor that looks particularly aggressive.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Raptors/raptoricebox.rsi
+    layers:
+      - state: raptor_red
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: raptor_red
+      Dead:
+        Base: dead_raptor_red
+
+- type: entity
+  id: RaptorBlue
+  parent: BaseRaptor
+  name: blue raptor
+  description: A blue raptor with sleek scales and sharp eyes.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Raptors/raptoricebox.rsi
+    layers:
+      - state: raptor_blue
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: raptor_blue
+      Dead:
+        Base: dead_raptor_blue
+
+- type: entity
+  id: RaptorGreen
+  parent: BaseRaptor
+  name: green raptor
+  description: A verdant green raptor that blends with the jungle.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Raptors/raptoricebox.rsi
+    layers:
+      - state: raptor_green
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: raptor_green
+      Dead:
+        Base: dead_raptor_green
+
+- type: entity
+  id: RaptorYellow
+  parent: BaseRaptor
+  name: yellow raptor
+  description: A bright yellow raptor that looks deceptively friendly.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Raptors/raptoricebox.rsi
+    layers:
+      - state: raptor_yellow
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: raptor_yellow
+      Dead:
+        Base: dead_raptor_yellow
+
+- type: entity
+  id: RaptorPurple
+  parent: BaseRaptor
+  name: purple raptor
+  description: A mysterious purple raptor with an unnerving stare.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Raptors/raptoricebox.rsi
+    layers:
+      - state: raptor_purple
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: raptor_purple
+      Dead:
+        Base: dead_raptor_purple
+
+- type: entity
+  id: RaptorWhite
+  parent: BaseRaptor
+  name: white raptor
+  description: A rare white raptor with pristine feathers and cold eyes.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Raptors/raptoricebox.rsi
+    layers:
+      - state: raptor_white
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: raptor_white
+      Dead:
+        Base: dead_raptor_white
+
+- type: entity
+  id: RaptorBlack
+  parent: BaseRaptor
+  name: black raptor
+  description: A dark-scaled raptor that moves like a shadow.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Raptors/raptoricebox.rsi
+    layers:
+      - state: raptor_black
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: raptor_black
+      Dead:
+        Base: dead_raptor_black
