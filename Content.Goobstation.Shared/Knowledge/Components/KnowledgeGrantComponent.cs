@@ -1,11 +1,12 @@
-﻿using Robust.Shared.Prototypes;
+﻿using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Common.Knowledge.Components;
+namespace Content.Goobstation.Shared.Knowledge.Components;
 
 /// <summary>
 /// Grants knowledge to the entity automatically on mapinit, then removes itself.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class KnowledgeGrantComponent : Component
 {
     /// <summary>

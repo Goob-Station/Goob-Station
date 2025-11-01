@@ -24,8 +24,6 @@ public sealed partial class KnowledgeSystem : EntitySystem
         SubscribeLocalEvent<KnowledgeContainerComponent, EntInsertedIntoContainerMessage>(OnEntityInserted);
         SubscribeLocalEvent<KnowledgeContainerComponent, EntRemovedFromContainerMessage>(OnEntityRemoved);
 
-        SubscribeLocalEvent<KnowledgeGrantComponent, MapInitEvent>(OnKnowledgeGrantInit);
-
         _knowledgeQuery = GetEntityQuery<KnowledgeComponent>();
         _containerQuery = GetEntityQuery<KnowledgeContainerComponent>();
     }
@@ -71,12 +69,6 @@ public sealed partial class KnowledgeSystem : EntitySystem
         // to another. That might be good to have for polymorphs or something.
         statusComp.AppliedTo = null;
         Dirty(args.Entity, statusComp);
-    }
-
-    private void OnKnowledgeGrantInit(Entity<KnowledgeGrantComponent> ent, ref MapInitEvent args)
-    {
-        AddKnowledgeUnits(ent.Owner, ent.Comp.ToAdd);
-        RemComp(ent.Owner, ent.Comp);
     }
 
     public (string Category, KnowledgeInfo Info) GetKnowledgeInfo(Entity<KnowledgeComponent> knowledge)
