@@ -467,16 +467,17 @@ namespace Content.Server.Forensics
                     !string.IsNullOrEmpty(fingerprintG.Fingerprint) &&
                     TryComp<FiberComponent>(gloves, out var fiberEmpty) &&
                     !string.IsNullOrEmpty(fiberEmpty.FiberMaterial)
-                    && _revealChance is < 1f and > 0f) // only do partial fingerprints if reveal chance is between 0 and 1
+                    && _revealChance is <= 1f and > 0f) // only do partial fingerprints if reveal chance is between 0 and 1
                 {
-                    var full = fingerprintG.Fingerprint ?? ""; //asign the fingerprint to new variable
-                    string updated;
-                    if (component.Fingerprints.TryGetValue(full, out var value)) // Try to find existing fingerprint for the same person
-                        updated = MergePartialFingerprintRandomly(full, value);
-                    else
-                        updated = new string('#', full.Length);
+                    var result = CreateOrMergePartialFingerprintRandomly(
+                        fingerprintG.Fingerprint,
+                        component.Fingerprints.TryGetValue(fingerprintG.Fingerprint, out var existing)
+                            ? existing
+                            : null);
 
-                    component.Fingerprints[full] = updated;
+                    if (!string.IsNullOrEmpty(result))
+                        component.Fingerprints[fingerprintG.Fingerprint] = result;
+
                     Dirty(target, component);
                     return;
                 }
@@ -526,16 +527,26 @@ namespace Content.Server.Forensics
         /// Merges an existing partial fingerprint with a full fingerprint, revealing some characters randomly based on the reveal
         /// chance.
         /// </summary>
-        private string MergePartialFingerprintRandomly(string full, string value)
+        private string CreateOrMergePartialFingerprintRandomly(string full, string? value)
         {
-            var merged = value.ToCharArray();
-            for (var i = 0; i < merged.Length; i++)
+            var valueX = value ?? new string('#', full.Length);
+            var merged = string.Empty;
+            var ix = 0;
+            var proced = false;
+            foreach (var i in valueX)
             {
-                if (value[i] == '#' && _random.Prob(_revealChance))
-                    merged[i] = full[i];
+                if (i != '#') //if already revealed
+                    merged += i; // keep revealed
+                else if (_random.Prob(_revealChance)) // reveal based on chance
+                    {
+                        merged += full[ix]; // reveal
+                        proced = true;
+                    }
+                else
+                    merged += '#'; // hide them all if they are not revealed
+                ix++;
             }
-
-            return new string(merged);
+            return proced ? new string(merged) : string.Empty; // return empty value if  nothing was revealed
         }
 
         #endregion
