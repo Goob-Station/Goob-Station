@@ -1,0 +1,47 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Title="{Loc 'book-scanner-menu-title'}"
+    SetSize="400 400">
+    <BoxContainer
+        Orientation="Vertical"
+        HorizontalExpand="True"
+        VerticalExpand="True"
+        Margin="8 4">
+        <RichTextLabel
+            Name="TitleLabel"
+            Margin="4"
+            HorizontalExpand="True"
+            SizeFlagsStretchRatio="1"
+            VerticalExpand="True" />
+        <RichTextLabel
+            Name="GenreLabel"
+            Margin="4"
+            HorizontalExpand="True"
+            SizeFlagsStretchRatio="1"
+            VerticalExpand="True" />
+        <RichTextLabel
+            Name="AuthorNameLabel"
+            Margin="4"
+            HorizontalExpand="True"
+            SizeFlagsStretchRatio="1"
+            VerticalExpand="True" />
+        <ScrollContainer
+            HScrollEnabled="False"
+            Margin="4"
+            HorizontalExpand="True"
+            SizeFlagsStretchRatio="5"
+            VerticalExpand="True">
+            <RichTextLabel
+                Name="DescLabel"
+                Margin="0 2"
+                VerticalAlignment="Top" />
+        </ScrollContainer>
+        <Button
+            Name="StartScanningButton"
+            Text="Start scanning"
+            SetHeight="48"/>
+    </BoxContainer>
+</controls:FancyWindow>

@@ -545,6 +545,62 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("blacklist", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.BookEntry", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("book_printer_entry_id");
+
+                    b.Property<string>("Author")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("author");
+
+                    b.PrimitiveCollection<string>("BindingMaps")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("binding_maps");
+
+                    b.PrimitiveCollection<string>("BindingPaths")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("binding_paths");
+
+                    b.PrimitiveCollection<string>("BindingStates")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("binding_states");
+
+                    b.PrimitiveCollection<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("content");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("description");
+
+                    b.Property<string>("Genre")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("genre");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("title");
+
+                    b.HasKey("Id")
+                        .HasName("PK_book_printer_entry");
+
+                    b.HasIndex("Id")
+                        .IsUnique();
+
+                    b.ToTable("book_printer_entry", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.Property<int>("Id")
