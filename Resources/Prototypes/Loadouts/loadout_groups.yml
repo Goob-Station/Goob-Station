@@ -135,6 +135,7 @@
 # SPDX-FileCopyrightText: 2025 Cass <45694413+CubixThree@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+# SPDX-FileCopyrightText: 2025 GnKonkort <nlok3@yandex.ru>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Julian Giebel <juliangiebel@live.de>
@@ -330,6 +331,7 @@
   - CaptainCloak
   - CaptainCloakFormal
   - CaptainMantle
+  - CaptainFeatheryCloak # Goobstation
 
 - type: loadoutGroup
   id: CaptainBackpack
@@ -1257,6 +1259,7 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   - Bodycam # Goobstation - Body cameras
+  - HeadofSecurityFeatheryCloak # Goobstation
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
