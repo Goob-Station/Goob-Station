@@ -17355,3 +17355,25 @@ Entries:
       message: Banana phone has a new sprite (AsnDen)
   id: 1947
   time: '2025-11-01T17:31:55.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Fix
+      message: Recyclers can no longer be animated by wizard or wraith
+    - type: Fix
+      message: Wraith doesn't take explosion damage anymore
+    - type: Fix
+      message: >-
+        Fixed token version of Wraith having missing features from the midround
+        version
+    - type: Fix
+      message: Some wraith mobs now have indicators on whether they died or not
+    - type: Tweak
+      message: Spirit Candle has more feedback on use
+    - type: Add
+      message: New section in chaplain guidebook
+    - type: Remove
+      message: Wraith Command
+    - type: Remove
+      message: Wraith Animate
+  id: 1948
+  time: '2025-11-01T18:37:08.0000000+00:00'
