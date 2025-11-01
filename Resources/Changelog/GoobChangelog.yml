@@ -17211,3 +17211,147 @@ Entries:
       message: NTR experimental hardsuit to the catalogue for 100 points.
   id: 1926
   time: '2025-10-29T20:39:54.0000000+00:00'
+- author: TytosB
+  changes:
+    - type: Tweak
+      message: bridge has a second door and external access from sec
+  id: 1927
+  time: '2025-10-30T13:06:39.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Scubbing floor now transfers reagents to the scubbing item
+  id: 1928
+  time: '2025-10-30T13:42:25.0000000+00:00'
+- author: Loltart, ZarathushtraSpitama
+  changes:
+    - type: Add
+      message: Vox's now have a unique slot for storing their nitrogen tanks.
+  id: 1929
+  time: '2025-10-30T13:53:07.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Add
+      message: >-
+        Fireaxe will now ~~decapitation~~ rapidly amputates the head if used to
+        execute somone
+  id: 1930
+  time: '2025-10-30T13:54:31.0000000+00:00'
+- author: '-'
+  changes: []
+  id: 1931
+  time: '2025-10-30T14:01:40.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Updated heretic guidebook.
+  id: 1932
+  time: '2025-10-30T14:24:39.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Reality fractures are visible to crew again.
+    - type: Fix
+      message: Fix being able to put markup tags in chat messages.
+  id: 1933
+  time: '2025-10-30T14:26:57.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        The undetermined crate now has a new western bundle. Only for real
+        cowboy's.
+  id: 1934
+  time: '2025-10-30T14:28:28.0000000+00:00'
+- author: ShieldAcrados
+  changes:
+    - type: Fix
+      message: Ended the facehugger torment nexus
+  id: 1935
+  time: '2025-10-30T23:49:08.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Fix
+      message: IPCs hopefully no longer explode violently when shocked.
+    - type: Fix
+      message: IPCs don't crash the server when two IPCs are shocked near each other.
+    - type: Fix
+      message: Fixed the formatting in the IPC guidebook.
+  id: 1936
+  time: '2025-10-31T08:09:07.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Remove
+      message: Pain effects including pain sounds and pain paralyzing are disabled.
+  id: 1937
+  time: '2025-10-31T10:42:08.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Gruntish actually sounds gruntish. Also fixed colour and font size.
+  id: 1938
+  time: '2025-10-31T13:38:58.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix game breaking in compat mode.
+  id: 1939
+  time: '2025-10-31T14:33:30.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Tweak
+      message: The FTL range for default shuttles is back to its original number.
+    - type: Fix
+      message: Shuttles can FTL to the station grid consistently.
+  id: 1940
+  time: '2025-10-31T17:07:10.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: You can now knock on windows and rattle on fences normally again
+  id: 1941
+  time: '2025-10-31T17:18:18.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Trevor now has the access of the rider
+  id: 1942
+  time: '2025-10-31T17:26:44.0000000+00:00'
+- author: Fin55Fin
+  changes:
+    - type: Tweak
+      message: Added cutting property to plant clippers
+  id: 1943
+  time: '2025-10-31T17:34:12.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Vox no longer have a second backslot
+  id: 1944
+  time: '2025-11-01T00:08:49.0000000+00:00'
+- author: JohnJohn, ArtisticRoomba
+  changes:
+    - type: Add
+      message: >-
+        (ArtisticRoomba) Added new gamemode "oops all thieves" which can have up
+        to 22 thieves, good luck sec!
+  id: 1945
+  time: '2025-11-01T17:26:56.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Cargo bingles now glow just like ordinary bingles.
+  id: 1946
+  time: '2025-11-01T17:29:10.0000000+00:00'
+- author: JohnJohn, insoPL, Palladinium
+  changes:
+    - type: Add
+      message: >-
+        Grinders now have visuals based on the liquid inside of the beaker
+        (insoPL)
+    - type: Add
+      message: Containers can now be used to feed biomass reclaimers (Palladinium)
+    - type: Add
+      message: Banana phone has a new sprite (AsnDen)
+  id: 1947
+  time: '2025-11-01T17:31:55.0000000+00:00'
