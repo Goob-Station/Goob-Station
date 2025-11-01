@@ -471,8 +471,8 @@ namespace Content.Server.Forensics
                 {
                     var result = CreateOrMergePartialFingerprintRandomly(
                         fingerprintG.Fingerprint,
-                        component.Fingerprints.TryGetValue(fingerprintG.Fingerprint, out var existing)
-                            ? existing
+                        component.Fingerprints.TryGetValue(fingerprintG.Fingerprint, out var partial)
+                            ? partial
                             : null);
 
                     if (!string.IsNullOrEmpty(result))
@@ -532,7 +532,7 @@ namespace Content.Server.Forensics
             var valueX = value ?? new string('#', full.Length);
             var merged = string.Empty;
             var ix = 0;
-            var proc = false;
+            var revealed = false;
             foreach (var i in valueX)
             {
                 if (i != '#') //if already revealed
@@ -540,13 +540,13 @@ namespace Content.Server.Forensics
                 else if (_random.Prob(_revealChance)) // reveal based on chance
                 {
                     merged += full[ix]; // reveal
-                    proc = true;
+                    revealed = true;
                 }
                 else
                     merged += '#'; // hide them all if they are not revealed
                 ix++;
             }
-            return proc ? new string(merged) : string.Empty; // return empty value if  nothing was revealed
+            return revealed ? new string(merged) : string.Empty; // return empty value if  nothing was revealed
         }
 
         #endregion
