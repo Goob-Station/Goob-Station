@@ -19,13 +19,11 @@
       spawnerPrototype: SpawnPointGhostXenomorph
       min: 2
       max: 4
+      - type: OverallPlaytimeRequirement
+        time: 180000
       pickPlayer: true
       mindRoles:
       - MindRoleXenomorph
       briefing:
         text: xenomorph-role-greeting
         color: "#8c3986"
-
-        requirements:
-        - !type:OverallPlaytimeRequirement
-           time: 180000 #50 hours
