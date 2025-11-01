@@ -19,7 +19,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Objectives.Components;
+using System.Text.RegularExpressions;
 using Content.Server.Store.Systems;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Eye;
@@ -33,19 +33,20 @@ using Content.Server.Heretic.Components;
 using Content.Server.Antag;
 using Robust.Shared.Random;
 using System.Linq;
-using Content.Goobstation.Shared.Enchanting.Components;
-using Content.Goobstation.Shared.Religion;
 using Content.Server._Goobstation.Objectives.Components;
 using Content.Server.Actions;
+using Content.Server.Chat.Managers;
 using Content.Shared.Humanoid;
 using Robust.Server.Player;
 using Content.Server.Revolutionary.Components;
+using Content.Shared.Chat;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Preferences;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Tag;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -54,6 +55,7 @@ namespace Content.Server.Heretic.EntitySystems;
 
 public sealed class HereticSystem : EntitySystem
 {
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
@@ -65,10 +67,12 @@ public sealed class HereticSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IChatManager _chatMan = default!;
 
     private float _timer;
     private const float PassivePointCooldown = 20f * 60f;
-    private const int HereticVisFlags = ((int) VisibilityFlags.EldritchInfluence) | ((int) VisibilityFlags.EldritchInfluenceSpent);
+
+    private const int HereticVisFlags = (int) VisibilityFlags.EldritchInfluence;
 
     public override void Initialize()
     {
@@ -107,7 +111,12 @@ public sealed class HereticSystem : EntitySystem
         }
     }
 
-    public void UpdateKnowledge(EntityUid uid, HereticComponent comp, float amount, StoreComponent? store = null)
+    public void UpdateKnowledge(EntityUid uid,
+        HereticComponent comp,
+        float amount,
+        StoreComponent? store = null,
+        bool showText = true,
+        bool playSound = true)
     {
         if (Resolve(uid, ref store, false))
         {
@@ -115,9 +124,30 @@ public sealed class HereticSystem : EntitySystem
             _store.UpdateUserInterface(uid, uid, store);
         }
 
-        if (_mind.TryGetMind(uid, out var mindId, out var mind))
-            if (_mind.TryGetObjectiveComp<HereticKnowledgeConditionComponent>(mindId, out var objective, mind))
-                objective.Researched += amount;
+        if (!_mind.TryGetMind(uid, out var mindId, out var mind))
+            return;
+
+        if (_mind.TryGetObjectiveComp<HereticKnowledgeConditionComponent>(mindId, out var objective, mind))
+            objective.Researched += amount;
+
+        if (!showText && !playSound)
+            return;
+
+        if (!_playerMan.TryGetSessionById(mind.UserId, out var session))
+            return;
+
+        if (playSound)
+            _audio.PlayGlobal(comp.InfluenceGainSound, session);
+
+        if (!showText)
+            return;
+
+        var baseMessage = comp.InfluenceGainBaseMessage;
+        var message = Loc.GetString(_rand.Pick(comp.InfluenceGainMessages));
+        var size = comp.InfluenceGainTextFontSize;
+        var loc = Loc.GetString(baseMessage, ("size", size), ("text", message));
+        SharedChatSystem.UpdateFontSize(size, ref message, ref loc);
+        _chatMan.ChatMessageToOne(ChatChannel.Server, message, loc, default, false, session.Channel, canCoalesce: false);
     }
 
     public HashSet<ProtoId<TagPrototype>>? TryGetRequiredKnowledgeTags(Entity<HereticComponent> ent)
@@ -143,7 +173,8 @@ public sealed class HereticSystem : EntitySystem
     private void OnCompInit(Entity<HereticComponent> ent, ref ComponentInit args)
     {
         // add influence layer
-        if (TryComp<EyeComponent>(ent, out var eye)) // As a result, I'm afraid its complete shitcode however it's working shitcode.
+        if (TryComp<EyeComponent>(ent,
+                out var eye)) // As a result, I'm afraid its complete shitcode however it's working shitcode.
             _eye.SetVisibilityMask(ent, eye.VisibilityMask | HereticVisFlags, eye);
 
         foreach (var knowledge in ent.Comp.BaseKnowledge)
@@ -164,8 +195,7 @@ public sealed class HereticSystem : EntitySystem
 
     private void OnGetVisMask(Entity<HereticComponent> uid, ref GetVisMaskEvent args)
     {
-        var eyeVisVal = ((int) VisibilityFlags.EldritchInfluence) | ((int) VisibilityFlags.EldritchInfluenceSpent); // Splitting the visibility layer in 2 and then adding the values for heretics is the only way I thought of doing this
-        args.VisibilityMask |= eyeVisVal;
+        args.VisibilityMask |= (int) VisibilityFlags.EldritchInfluence;
     }
 
     #region Internal events (target reroll, ascension, etc.)
@@ -173,7 +203,8 @@ public sealed class HereticSystem : EntitySystem
     private void OnUpdateTargets(Entity<HereticComponent> ent, ref EventHereticUpdateTargets args)
     {
         ent.Comp.SacrificeTargets = ent.Comp.SacrificeTargets
-            .Where(target => TryGetEntity(target.Entity, out var tent) && Exists(tent) && !EntityManager.IsQueuedForDeletion(tent.Value))
+            .Where(target => TryGetEntity(target.Entity, out var tent) && Exists(tent) &&
+                             !EntityManager.IsQueuedForDeletion(tent.Value))
             .ToList();
         Dirty(ent); // update client
     }
@@ -308,8 +339,13 @@ public sealed class HereticSystem : EntitySystem
         }
 
         var pathLoc = ent.Comp.CurrentPath.ToLower();
-        var ascendSound = new SoundPathSpecifier($"/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg");
-        _chat.DispatchGlobalAnnouncement(Loc.GetString($"heretic-ascension-{pathLoc}"), Name(ent), true, ascendSound, Color.Pink);
+        var ascendSound =
+            new SoundPathSpecifier($"/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg");
+        _chat.DispatchGlobalAnnouncement(Loc.GetString($"heretic-ascension-{pathLoc}"),
+            Name(ent),
+            true,
+            ascendSound,
+            Color.Pink);
     }
 
     #endregion

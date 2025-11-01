@@ -1,0 +1,11 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+        xmlns:controls="using:Content.Client.UserInterface.Controls"
+        Title="{Loc 'plumbing-filter-window-title'}"
+        SetSize="280 350"
+        Margin="4 0">
+    <BoxContainer Orientation="Vertical">
+        <LineEdit Name="SearchBar" PlaceHolder="{Loc 'admin-add-reagent-window-search-placeholder'}" HorizontalExpand="True" Margin="0 4"/>
+        <ItemList Name="ReagentList" SelectMode="Single" VerticalExpand="True" Margin="0 4"/>
+        <Button Name="SelectButton" HorizontalExpand="True" Margin="0 4" Text="{Loc 'plumbing-filter-window-default'}"/>
+    </BoxContainer>
+</controls:FancyWindow>
