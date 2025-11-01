@@ -17329,3 +17329,11 @@ Entries:
       message: Vox no longer have a second backslot
   id: 1944
   time: '2025-11-01T00:08:49.0000000+00:00'
+- author: JohnJohn, ArtisticRoomba
+  changes:
+    - type: Add
+      message: >-
+        (ArtisticRoomba) Added new gamemode "oops all thieves" which can have up
+        to 22 thieves, good luck sec!
+  id: 1945
+  time: '2025-11-01T17:26:56.0000000+00:00'
