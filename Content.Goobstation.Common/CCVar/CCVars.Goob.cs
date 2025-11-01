@@ -597,4 +597,11 @@ public sealed partial class GoobCVars
         CVarDef.Create("footprints.minimum_puddle_size", 6f, CVar.SERVERONLY);
 
     #endregion
+
+    #region Flash
+
+    public static readonly CVarDef<bool> FlashDirectionCheck =
+        CVarDef.Create("flash.direction_check", true, CVar.ARCHIVE | CVar.REPLICATED);
+
+    #endregion
 }

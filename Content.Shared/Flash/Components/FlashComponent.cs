@@ -114,3 +114,12 @@ public sealed partial class FlashComponent : Component
     [DataField, AutoNetworkedField]
     public float Probability = 1f;
 }
+
+/// <summary>
+///  Goob - Total Flash Death - Used for checking the direction of the user to the target
+/// </summary>
+/// <param name="Target"></param> The target.
+/// <param name="User"></param> The user.
+/// <param name="Cancelled"></param> Whether the event has been cancelled, or not.
+[ByRefEvent]
+public record struct CheckDirectionFlashEvent(EntityUid? Target, EntityUid? User, bool Cancelled = false);
