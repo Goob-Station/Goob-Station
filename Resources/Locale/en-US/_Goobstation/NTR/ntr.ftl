@@ -40,7 +40,7 @@ ntr-executive-hardsuit-name = Order a hardsuit
 ntr-executive-hardsuit-desc = A durable hardsuit for extreme environments. Are you sure this purchase is justified?
 
 ntr-experimental-hardsuit-name = Order a hardsuit
-ntr-experimental-hardsuit-desc = Nanotrasen is attempting to reverse-engineer the Redspace-based technology integrated into Cybersun’s Dread Suit. By developing specialized Bluespace-conductive plates capable of transmitting energy through the Bluespace medium, the corporation has constructed an experimental exosuit utilizing this technology. However, due to the high level of risk associated with the technology, Central Command has prohibited on-site testing. As a result, field testing is being conducted through your deployment to evaluate the suit’s operational stability and performance under live conditions.
+ntr-experimental-hardsuit-desc = Nanotrasen is testing an experimental exosuit built from Bluespace-conductive plates reverse-engineered from Cybersun’s Redspace Dread Suit, with live trials conducted under your supervision.
 
 ntr-executive-cigar-name = Premium cigar case
 ntr-executive-cigar-desc = A standard premium cigar case. Only executives are permitted to smoke these in public areas.
