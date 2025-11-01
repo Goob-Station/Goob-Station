@@ -1,6 +1,7 @@
 ﻿using Content.Goobstation.Common.Knowledge.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Common.Knowledge.Components;
 
@@ -22,4 +23,18 @@ public sealed partial class KnowledgeComponent : Component
     /// </summary>
     [DataField(required: true), AutoNetworkedField]
     public ProtoId<KnowledgeMemoryPrototype> MemoryLevel;
+
+    /// <summary>
+    /// Color of the sidebar in the character UI.
+    /// Overrides the data from <see cref="KnowledgeMemoryPrototype"/>.
+    /// </summary>
+    [DataField]
+    public Color? Color;
+
+    /// <summary>
+    /// Sprite to display in the character UI.
+    /// Overrides the data from <see cref="KnowledgeMemoryPrototype"/>.
+    /// </summary>
+    [DataField]
+    public SpriteSpecifier? Sprite;
 }

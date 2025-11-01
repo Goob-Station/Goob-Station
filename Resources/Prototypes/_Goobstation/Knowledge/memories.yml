@@ -43,10 +43,8 @@
   level: 1000
   color: "#fd03dc"
 
-# Memory that can't be removed by any means.
+# Memory that is used only for testing.
 - type: knowledgeMemory
   id: DebugMemory
   category: Memories
   level: 0
-  unremoveable: true
-  hidden: true

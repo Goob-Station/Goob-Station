@@ -1,4 +1,5 @@
 ﻿using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Common.Knowledge.Prototypes;
 
@@ -48,4 +49,10 @@ public sealed partial class KnowledgeMemoryPrototype : IPrototype
     /// </summary>
     [DataField]
     public Color Color = Color.White;
+
+    /// <summary>
+    /// Sprite to display in the character UI.
+    /// </summary>
+    [DataField]
+    public SpriteSpecifier? Sprite;
 }

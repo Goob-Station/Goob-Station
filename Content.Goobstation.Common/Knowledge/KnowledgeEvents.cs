@@ -19,3 +19,9 @@ public record struct KnowledgeUnitRemovedEvent(EntityUid Target);
 /// </summary>
 [ByRefEvent] // Im not sure if it's the right way to do a relay, but whatever, it works.
 public record struct KnowledgeContainerRelayEvent(EntityUid Target, EntityUid? Found = null, bool Handled = false);
+
+/// <summary>
+/// Event that is raised to get a description of some knowledge to display it in the character menu.
+/// </summary>
+[ByRefEvent]
+public record struct KnowledgeGetDescriptionEvent(string? Description, bool Handled = false);

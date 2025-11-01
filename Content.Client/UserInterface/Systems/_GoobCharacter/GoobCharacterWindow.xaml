@@ -1,0 +1,9 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:tabs="clr-namespace:Content.Client.UserInterface.Systems._GoobCharacter.Tabs"
+               Title="{Loc 'ui-character-title'}"
+               MinSize="400 545">
+    <TabContainer Name="Tabs" Access="Public">
+        <tabs:CharacterTab Name="CharacterTab" />
+        <tabs:KnowledgeTab Name="KnowledgeTab" />
+    </TabContainer>
+</DefaultWindow>

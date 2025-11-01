@@ -11,4 +11,10 @@ public sealed partial class KnowledgeCategoryPrototype : IPrototype
     /// <inheritdoc/>
     [IdDataField]
     public string ID { get; } = default!;
+
+    /// <summary>
+    /// Localized name of that category to use in the character menu.
+    /// </summary>
+    [DataField(required: true)]
+    public LocId Name;
 }

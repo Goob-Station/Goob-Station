@@ -12,8 +12,7 @@ public sealed partial class KnowledgeSystem
     /// Ensures that knowledge unit exists inside an entity, and adds it if it's not already here.
     /// </summary>
     /// <returns>
-    /// False if target entity has no <see cref="KnowledgeContainerComponent"/> or failed to spawn a knowledge unit inside it,
-    /// true if unit was found or spawned successfully.
+    /// False if or failed to spawn a knowledge unit inside it, true if unit was found or spawned successfully.
     /// </returns>
     public bool TryEnsureKnowledgeUnit(
         EntityUid target,
@@ -34,7 +33,7 @@ public sealed partial class KnowledgeSystem
     /// Adds a knowledge unit to a knowledge container.
     /// </summary>
     /// <returns>
-    /// False if target entity has no <see cref="KnowledgeContainerComponent"/>, or if container already has knowledge entity with that ID.
+    /// False if container already has knowledge entity with that ID.
     /// </returns>
     public bool TryAddKnowledgeUnit(EntityUid target, EntProtoId knowledgeId)
     {
@@ -44,8 +43,24 @@ public sealed partial class KnowledgeSystem
         if (HasKnowledgeUnit(ent.Owner, knowledgeId))
             return false;
 
-        PredictedTrySpawnInContainer(knowledgeId, ent.Owner, KnowledgeContainerComponent.ContainerId, out _);
-        return true;
+        return PredictedTrySpawnInContainer(knowledgeId, ent.Owner, KnowledgeContainerComponent.ContainerId, out _);
+    }
+
+    /// <summary>
+    /// Adds a list of knowledge units to a knowledge container.
+    /// </summary>
+    public void AddKnowledgeUnits(EntityUid target, List<EntProtoId> knowledgeList)
+    {
+        EnsureKnowledgeContainer(target, out var ent);
+        EnsureContainer(ent);
+
+        foreach (var knowledgeId in knowledgeList)
+        {
+            if (HasKnowledgeUnit(ent.Owner, knowledgeId))
+                continue;
+
+            PredictedTrySpawnInContainer(knowledgeId, ent.Owner, KnowledgeContainerComponent.ContainerId, out _);
+        }
     }
 
     /// <summary>

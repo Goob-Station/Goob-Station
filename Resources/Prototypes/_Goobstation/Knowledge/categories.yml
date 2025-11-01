@@ -1,11 +1,15 @@
 - type: knowledgeCategory
   id: None
-
-- type: knowledgeCategory
-  id: Skills
-
-- type: knowledgeCategory
-  id: Memories
+  name: knowledge-category-none
 
 - type: knowledgeCategory
   id: Debug
+  name: knowledge-category-debug
+
+- type: knowledgeCategory
+  id: Skills
+  name: knowledge-category-skills
+
+- type: knowledgeCategory
+  id: Memories
+  name: knowledge-category-memories
