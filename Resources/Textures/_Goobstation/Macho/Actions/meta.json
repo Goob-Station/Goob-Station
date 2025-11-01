@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taekn from Goonstation 13 https://github.com/goonstation/goonstation/blob/0c577a2dc8a87fe45a6f8a5d1dd04fb1411b5a17/icons/mob/spell_buttons.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "kick"
+        },
+        {
+            "name": "slam"
+        },
+        {
+            "name": "drop"
+        },
+        {
+            "name": "strike"
+        },
+        {
+            "name": "throw"
+        }
+    ]
+}
