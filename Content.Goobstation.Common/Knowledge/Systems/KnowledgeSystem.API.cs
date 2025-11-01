@@ -46,6 +46,22 @@ public sealed partial class KnowledgeSystem
         return PredictedTrySpawnInContainer(knowledgeId, ent.Owner, KnowledgeContainerComponent.ContainerId, out _);
     }
 
+    /// <inheritdoc cref="TryAddKnowledgeUnit(Robust.Shared.GameObjects.EntityUid,Robust.Shared.Prototypes.EntProtoId)"/>
+    public bool TryAddKnowledgeUnit(
+        EntityUid target,
+        EntProtoId knowledgeId,
+        [NotNullWhen(true)] out EntityUid? found)
+    {
+        found = null;
+        EnsureKnowledgeContainer(target, out var ent);
+        EnsureContainer(ent);
+
+        if (HasKnowledgeUnit(ent.Owner, knowledgeId))
+            return false;
+
+        return PredictedTrySpawnInContainer(knowledgeId, ent.Owner, KnowledgeContainerComponent.ContainerId, out found);
+    }
+
     /// <summary>
     /// Adds a list of knowledge units to a knowledge container.
     /// </summary>
