@@ -58,7 +58,6 @@
       NerveDamage: 0
     coverage:
     - Chest
-    - Groin
     modifiers:
       coefficients:
         Blunt: 0.6 #ballistic plates = better protection
@@ -96,7 +95,6 @@
       NerveDamage: 0
     coverage:
     - Chest
-    - Groin
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -135,7 +133,6 @@
       NerveDamage: 0
     coverage:
     - Chest
-    - Groin
     modifiers:
       coefficients:
         Blunt: 0.7 #slightly better overall protection but slightly worse than bulletproof armor against bullets seems sensible
