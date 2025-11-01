@@ -77,8 +77,8 @@
         showEnts: False
         occludes: True
         ents: []
-- type: Construction
-  containers:
-  - machine_parts
-  - machine_board
-  - entity_storage
+  - type: Construction
+    containers:
+    - machine_parts
+    - machine_board
+    - entity_storage
