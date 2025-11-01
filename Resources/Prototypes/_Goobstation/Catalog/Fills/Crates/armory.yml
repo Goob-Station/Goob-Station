@@ -30,8 +30,8 @@
 - type: entity
   id: CrateArmoryCombatRiotHardsuit
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: Riot hardsuit crate
-  description: Contains an advanced riot security hardsuit, very high defence but much also very cumbersome. Requires Armory access to open.
+  name: Heavy combat hardsuit crate
+  description: Contains an advanced combat hardsuit, very high defence but very cumbersome due to the lack of servomotors. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:
