@@ -332,7 +332,7 @@
       types:
         Slash: 25
       woundSeverityMultipliers:
-        Slash: 4 # Epic delimbing
+        Slash: 3 # Epic delimbing
   - type: MeleeDash
     length: 5.5
   - type: UseDelay

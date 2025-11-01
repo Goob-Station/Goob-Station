@@ -498,8 +498,8 @@
           Heat: 15    #Goob Station rebalance, was originally 12
           Structural: 40 # Goob edit
         woundSeverityMultipliers:
-          Slash: 6
-          Heat: 6
+          Slash: 7
+          Heat: 7
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg

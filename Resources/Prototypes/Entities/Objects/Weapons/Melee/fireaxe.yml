@@ -76,7 +76,7 @@
         Slash: 10
         Structural: 10
       woundSeverityMultipliers:
-        Blunt: 3
+        Blunt: 2
         Slash: 2.5
     soundHit:
       collection: MetalThud
@@ -129,8 +129,8 @@
         Slash: 10
         Structural: 20
       woundSeverityMultipliers:
-        Slash: 2.5
-        Heat: 2
+        Slash: 2
+        Heat: 2.5
   # Goobstation - fire axe buff
   - type: IncreaseDamageOnWield
     damage:

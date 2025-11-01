@@ -13,7 +13,7 @@ public sealed partial class SecondSkinHolderComponent : Component
     [ViewVariables]
     public ContainerSlot Container = default!;
 
-    [DataField]
+    [DataField(required: true)]
     public ItemSlot ItemSlot;
 
     [DataField]

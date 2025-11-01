@@ -155,6 +155,8 @@
       Severe: 55
       Critical: 30
       Mangled: 0
+    traumaDeductions:
+      Dismemberment: 0.5
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     occupiedLayer: Groin
