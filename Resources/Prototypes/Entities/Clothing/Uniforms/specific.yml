@@ -17,7 +17,9 @@
   suffix: Chameleon
   components:
     - type: Tag
-      tags:
+      tags: # ignore "WhitelistChameleon" tag
+      - ClothMade
+      - Recyclable
       - Skirt # Goobstation
     - type: Sprite
       sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
@@ -30,11 +32,11 @@
         left:
         - state: inhand-left
           color: "#3f3f3f"
-  
+
         right:
         - state: inhand-right
           color: "#3f3f3f"
-  
+
     - type: Clothing
       sprite: Clothing/Shoes/color.rsi
       clothingVisuals:
