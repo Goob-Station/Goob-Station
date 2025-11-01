@@ -17433,3 +17433,11 @@ Entries:
       message: Facehuggers no longer attack skeletons.
   id: 1953
   time: '2025-11-01T18:43:20.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Plasmamen burn agein
+    - type: Fix
+      message: 'robotosist start whit envirosuit  '
+  id: 1954
+  time: '2025-11-01T20:23:04.0000000+00:00'
