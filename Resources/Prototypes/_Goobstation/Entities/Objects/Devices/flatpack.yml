@@ -180,3 +180,20 @@
   - type: StaticPrice
     price: 500
 
+- type: entity
+  parent: BaseFlatpack
+  id: SlotMachineFlatpack
+  name: slot machine flatpack
+  description: A flatpack used for constructing a slot machine
+  components:
+  - type: Flatpack
+    entity: SlotMachine
+
+- type: entity
+  parent: BaseFlatpack
+  id: SlotMachineHighRollerFlatPack
+  name: high roller slot machine flatpack
+  description: A flatpack used for constructing a high roller slot machine
+  components:
+  - type: Flatpack
+    entity: SlotMachineHighRoller
