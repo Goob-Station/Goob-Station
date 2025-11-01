@@ -191,6 +191,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
+using Content.Shared.Medical.SuitSensor;
 
 namespace Content.Client.Lobby.UI
 {
@@ -377,6 +378,27 @@ namespace Content.Client.Lobby.UI
             };
 
             #endregion Gender
+
+            #region Sensor
+            var sensorItems = new[]
+            {
+                ("humanoid-profile-editor-name-random-button", -1),
+                ("suit-sensor-mode-off", (int) SuitSensorMode.SensorOff),
+                ("suit-sensor-mode-binary", (int) SuitSensorMode.SensorBinary),
+                ("suit-sensor-mode-vitals", (int) SuitSensorMode.SensorVitals),
+                ("suit-sensor-mode-cords", (int) SuitSensorMode.SensorCords),
+            };
+            foreach (var (name, id) in sensorItems)
+            {
+                DefaultSuitSensorModeButton.AddItem(Loc.GetString(name), id);
+            }
+
+            DefaultSuitSensorModeButton.OnItemSelected += args =>
+            {
+                DefaultSuitSensorModeButton.SelectId(args.Id);
+                SetDefaultSuitSensorMode((SuitSensorMode) args.Id);
+            };
+            #endregion Sensor
 
             RefreshSpecies();
 
@@ -1046,6 +1068,28 @@ namespace Content.Client.Lobby.UI
                 ("humanoid-profile-editor-job-priority-high-button", (int) JobPriority.High),
             };
 
+            var sensorItems = new[]
+            {
+                ("default-suit-sensor-mode", -1),
+                ("suit-sensor-mode-off", (int) SuitSensorMode.SensorOff),
+                ("suit-sensor-mode-binary", (int) SuitSensorMode.SensorBinary),
+                ("suit-sensor-mode-vitals", (int) SuitSensorMode.SensorVitals),
+                ("suit-sensor-mode-cords", (int) SuitSensorMode.SensorCords),
+            };
+
+            Dictionary<string, SuitSensorMode?> sensorModes = new Dictionary<string, SuitSensorMode?>(Profile?.SensorModes ?? new Dictionary<string, SuitSensorMode?>());
+            bool hadSensorModes = true;
+            if (sensorModes == null)
+            {
+                hadSensorModes = false;
+                sensorModes = new Dictionary<string, SuitSensorMode?>();
+            }
+            if (sensorModes.Count == 0)
+            {
+                hadSensorModes = false;
+            }
+
+
             foreach (var department in departments)
             {
                 var departmentName = Loc.GetString(department.Name);
@@ -1193,9 +1237,46 @@ namespace Content.Client.Lobby.UI
                         };
                     }
 
+                    var sensorSelectorBtn = new OptionButton();
+                    foreach (var (name, id) in sensorItems)
+                    {
+                        sensorSelectorBtn.AddItem(Loc.GetString(name), id);
+                    }
+                    if (!hadSensorModes || !sensorModes.ContainsKey(job.ID))
+                    {
+                        // if we didn't have any sensor modes at the start or this job isn't in the dictionary
+                        // then add it with a null value (default)
+                        sensorModes[job.ID] = null;
+                    }
+                    // set to current value
+                    var buttonValue = sensorModes[job.ID];
+                    if (buttonValue != null)
+                    {
+                        sensorSelectorBtn.SelectId((int) buttonValue);
+                    }
+
+
+                    sensorSelectorBtn.OnItemSelected += args =>
+                    {
+                        sensorSelectorBtn.SelectId(args.Id);
+                        
+                        if (args.Id == -1)
+                        {
+                            // the value representing random is null
+                            SetRoleSuitSensors(job.ID, null);
+                        }
+                        else
+                        {
+                            SetRoleSuitSensors(job.ID, ((SuitSensorMode) args.Id));
+                        }
+                    };
+
+
+
                     _jobPriorities.Add((job.ID, selector));
                     jobContainer.AddChild(selector);
                     jobContainer.AddChild(loadoutWindowBtn);
+                    jobContainer.AddChild(sensorSelectorBtn);
                     category.AddChild(jobContainer);
                 }
             }
@@ -1432,6 +1513,24 @@ namespace Content.Client.Lobby.UI
         {
             Profile = Profile?.WithGender(newGender);
             ReloadPreview();
+        }
+
+        private void SetDefaultSuitSensorMode(SuitSensorMode? newMode)
+        {
+            Profile = Profile?.WithSensor(newMode);
+            SetDirty();
+        }
+
+        private void SetRoleSuitSensors(string jobId, SuitSensorMode? newMode)
+        {
+            var oldDict = Profile?.SensorModes ?? new Dictionary<string, SuitSensorMode?>();
+
+            var newDict = new Dictionary<string, SuitSensorMode?>(oldDict)
+            {
+                [jobId] = newMode
+            };
+            Profile = Profile?.WithRoleSensors(newDict);
+            SetDirty();
         }
 
         private void SetSpecies(string newSpecies)
