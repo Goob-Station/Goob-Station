@@ -150,6 +150,9 @@ public sealed class CarryingSystem : EntitySystem
     /// </summary>
     private void OnThrow(Entity<CarryingComponent> ent, ref BeforeThrowEvent args)
     {
+        if (ent.Owner != args.PlayerUid) // Goobstation
+            return;
+
         if (!TryComp<VirtualItemComponent>(args.ItemUid, out var virtItem) || !HasComp<CarriableComponent>(virtItem.BlockingEntity))
             return;
 
@@ -157,6 +160,7 @@ public sealed class CarryingSystem : EntitySystem
         args.ItemUid = carried;
 
         args.ThrowSpeed = 5f * MassContest(ent, carried);
+        args.GrabThrow = true;
     }
 
     private void OnParentChanged(Entity<CarryingComponent> ent, ref EntParentChangedMessage args)

@@ -150,6 +150,9 @@ public sealed partial class PullerComponent : Component
     public TimeSpan StageChangeCooldown = TimeSpan.FromSeconds(1f);
 
     [DataField]
+    public float DownedEscapeChanceMultiplier = 0.5f;
+
+    [DataField]
     public Dictionary<GrabStage, float> EscapeChances = new()
     {
         { GrabStage.No, 1f },
