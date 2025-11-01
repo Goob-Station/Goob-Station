@@ -154,4 +154,4 @@
     mediumWinChance: .05
     bigWinChance: .01
     jackPotWinChance: .001
-    godPotWinChance: 1
+    godPotWinChance: .00001
