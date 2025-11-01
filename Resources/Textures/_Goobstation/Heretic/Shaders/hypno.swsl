@@ -37,10 +37,10 @@ void fragment() {
     highp float[6] b = float[6](col0.b, col1.b, col2.b, col3.b, col4.b, col5.b);
     highp float[6] a = float[6](col0.a, col1.a, col2.a, col3.a, col4.a, col5.a);
 
-    float x = mix(r[s1], r[s2], m);
-    float y = mix(g[s1], g[s2], m);
-    float z = mix(b[s1], b[s2], m);
-    float w = mix(a[s1], a[s2], m) * sprite.a;
+    highp float x = mix(r[s1], r[s2], m);
+    highp float y = mix(g[s1], g[s2], m);
+    highp float z = mix(b[s1], b[s2], m);
+    highp float w = mix(a[s1], a[s2], m) * sprite.a;
 
     COLOR = vec4(x, y, z, w);
 }
