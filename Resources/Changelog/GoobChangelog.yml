@@ -17329,3 +17329,29 @@ Entries:
       message: Vox no longer have a second backslot
   id: 1944
   time: '2025-11-01T00:08:49.0000000+00:00'
+- author: JohnJohn, ArtisticRoomba
+  changes:
+    - type: Add
+      message: >-
+        (ArtisticRoomba) Added new gamemode "oops all thieves" which can have up
+        to 22 thieves, good luck sec!
+  id: 1945
+  time: '2025-11-01T17:26:56.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Cargo bingles now glow just like ordinary bingles.
+  id: 1946
+  time: '2025-11-01T17:29:10.0000000+00:00'
+- author: JohnJohn, insoPL, Palladinium
+  changes:
+    - type: Add
+      message: >-
+        Grinders now have visuals based on the liquid inside of the beaker
+        (insoPL)
+    - type: Add
+      message: Containers can now be used to feed biomass reclaimers (Palladinium)
+    - type: Add
+      message: Banana phone has a new sprite (AsnDen)
+  id: 1947
+  time: '2025-11-01T17:31:55.0000000+00:00'
