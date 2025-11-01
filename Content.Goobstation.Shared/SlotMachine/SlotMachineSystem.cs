@@ -129,9 +129,9 @@ namespace Content.Goobstation.Shared.SlotMachine
                 if (_random.Prob(comp.GodPotWinChance)) // THE GODPOT!!!
                 {
                     _audio.PlayPredicted(comp.GodPotWinSound, uid, args.User);
-                    _chatSystem.TrySendInGameICMessage(uid, Loc.GetString("slotmachine-win-godpot"), InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
                     var coordinates = Transform(uid).Coordinates;
                     EntityManager.SpawnEntity(comp.GodPotPrize, coordinates);
+                    _chatSystem.TrySendInGameICMessage(uid, Loc.GetString("slotmachine-win-godpot"), InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
                     return;
                 }
             }

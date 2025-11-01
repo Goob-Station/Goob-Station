@@ -86,7 +86,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: _Goobstation/Structures/Machines/slotmachine.rsi
+    sprite: _Goobstation/Structures/Machines/slotmachines/slotmachine.rsi
     layers:
       - state: slotmachine
       - state: slotmachine_spin
@@ -110,3 +110,48 @@
     interfaces:
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
+
+- type: entity
+  id: SlotMachineHighRoller
+  parent: BaseSlotMachine
+  name: the QM's personal slot machine
+  description: A high roller version of the slot machine, takes a whopping 10k per spin, but has significantly larger prizes!
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Structures/Machines/slotmachines/slotmachinehighroller.rsi
+    layers:
+      - state: slotmachine
+      - state: slotmachine_spin
+        visible: false
+        map: ["slotmachine_spin"]
+      - state: panel
+        map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Wires
+    layoutId: SlotMachine
+    boardName: wires-board-name-slot-machine
+  - type: GenericVisualizer # I have NO idea how this works
+    visuals:
+      enum.SlotMachineVisuals.Spinning:
+        slotmachine_spin:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: SlotMachine
+    spinCost: 10000
+    smallPrizeAmount: 20000
+    mediumPrizeAmount: 50000
+    bigPrizeAmount: 100000
+    jackPotPrizeAmount: 1000000
+    godPotPrize: Throngler
+    SmallWinChance: 0.1
+    mediumWinChance: .05
+    bigWinChance: .01
+    jackPotWinChance: .001
+    godPotWinChance: 1
