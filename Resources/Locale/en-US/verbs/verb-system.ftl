@@ -49,7 +49,6 @@ verb-categories-lever = Lever
 verb-categories-select-type = Select Type
 verb-categories-fax = Set Destination
 verb-categories-power-level = Power Level
-verb-categories-interaction = Interact
 verb-categories-adjust = Adjust
 
 verb-common-toggle-light = Toggle light

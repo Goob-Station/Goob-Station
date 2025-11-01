@@ -260,8 +260,6 @@
       - Normal
       - CosmicCultMonument # DeltaV - Cosmic Cult
       - Abductor
-  - type: OwnInteractionVerbs
-    allowedVerbs: []
   - type: ExplosionResistance
     damageCoefficient: 0
 
