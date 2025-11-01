@@ -1,4 +1,6 @@
+using Content.Shared.Dataset;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Anomaly;
 
@@ -9,7 +11,7 @@ namespace Content.Goobstation.Server.Anomaly;
 public sealed partial class BaldAnomalyComponent : Component
 {
     /// <summary>
-    /// mange of anomaly
+    /// Anomaly's area of effect.
     /// </summary>
     [DataField]
     public float BaseRange = 10f;
@@ -21,11 +23,21 @@ public sealed partial class BaldAnomalyComponent : Component
     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Items/scissors.ogg");
 
     [DataField]
-    public int SpeakChance = 50;
+    public float SpeakChance = 0.5f;
+
+
+    [DataField]
+    public ProtoId<LocalizedDatasetPrototype> BaldIsAwesomeStringDataset = "BaldIsAwesomeStringDataset";
 
     /// <summary>
-    /// numbers of lines in the ftl
+    ///  if this entity will spawn a copy on deleted
     /// </summary>
     [DataField]
-    public int SayLines = 6;
+    public bool CanCopy = true;
+
+    /// <summary>
+    /// copy to spawn
+    /// </summary>
+    [DataField]
+    public EntProtoId CopyProto = "AnomalyBaldCopy";
 }

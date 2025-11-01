@@ -13,7 +13,9 @@ using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Random.Helpers;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Anomaly;
@@ -24,15 +26,16 @@ namespace Content.Goobstation.Server.Anomaly;
 public sealed class BaldAnomalySystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly AnomalySystem _anomaly = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     public override void Initialize()
     {
@@ -63,10 +66,10 @@ public sealed class BaldAnomalySystem : EntitySystem
         {
             if (MakeBald(anomaly, ent, comp))
                 continue;
-            if (_random.Next(100) < anomaly.Comp.SpeakChance)
+            if (_random.Prob(anomaly.Comp.SpeakChance))
                 continue;
 
-            var line = Loc.GetString("anomaly-bald-say-"+ _random.Next(anomaly.Comp.SayLines));
+            var line = Loc.GetString(_random.Pick(_prototypeManager.Index(anomaly.Comp.BaldIsAwesomeStringDataset)));
             _chatSystem.TrySendInGameICMessage(ent,line, InGameICChatType.Speak,true);
         }
     }
@@ -100,9 +103,9 @@ public sealed class BaldAnomalySystem : EntitySystem
         if (potentialTargets.Count <= 0)
             return; // no targets found
 
-        var victim = potentialTargets[_random.Next(potentialTargets.Count)];
-        _chatSystem.TrySendInGameICMessage(victim,Loc.GetString("anomaly-bald-cri"), InGameICChatType.Speak,false);
-        _adminLogger.Add(LogType.Anomaly, $"{ToPrettyString(victim):target} was gibed by bald anomaly {ToPrettyString(anomaly.Owner):user)}");
+        var victim = _random.Pick(potentialTargets);
+        _chatSystem.TrySendInGameICMessage(victim,Loc.GetString("anomaly-bald-crit"), InGameICChatType.Speak,false);
+        _adminLogger.Add(LogType.Gib, $"{ToPrettyString(victim):target} was gibed by bald anomaly {ToPrettyString(anomaly.Owner):user)}");
 
         _bodySystem.GibBody(victim);
     }
@@ -138,6 +141,8 @@ public sealed class BaldAnomalySystem : EntitySystem
         return true;
     }
 
+    #region Anomaly behavior
+
     /// <summary>
     /// on anomaly being removed spawn a copy somewhere else on the station
     /// </summary>
@@ -145,12 +150,14 @@ public sealed class BaldAnomalySystem : EntitySystem
     /// <param name="args"></param>
     private void OnShutdown(Entity<BaldAnomalyComponent> anomaly, ref AnomalyShutdownEvent args)
     {
-        var proto = MetaData(anomaly.Owner).EntityPrototype;
-        var grid = Transform(anomaly).GridUid;
-        if (proto is null || grid is null)
+        if (!anomaly.Comp.CanCopy)
             return;
 
-        _anomaly.SpawnOnRandomGridLocation(grid.Value, proto.ID);
+        var grid = Transform(anomaly).GridUid;
+        if ( grid is null)
+            return;
+
+        _anomaly.SpawnOnRandomGridLocation(grid.Value, anomaly.Comp.CopyProto);
     }
 
     private void OnSeverityChanged(Entity<BaldAnomalyComponent> anomaly, ref AnomalySeverityChangedEvent args)
@@ -174,4 +181,6 @@ public sealed class BaldAnomalySystem : EntitySystem
                 break;
         }
     }
+
+    #endregion
 }

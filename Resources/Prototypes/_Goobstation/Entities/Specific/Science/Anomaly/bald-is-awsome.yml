@@ -9,6 +9,8 @@
     supercriticalSoundAtAnimationStart:
       collection: AnomalyGravitySupercritical
     supercriticalDuration: 10s
+    minPointsPerSecond: 1
+    maxPointsPerSecond: 50
   - type: Sprite
     sprite: _Goobstation/Structures/Specific/anomality.rsi
     layers:
@@ -33,3 +35,17 @@
   - type: CanMoveInAir
   - type: RandomWalk
   - type: BaldAnomaly
+
+- type: entity
+  id: AnomalyBaldCopy
+  parent: AnomalyBald
+  suffix: Bald 2
+  components:
+  - type: BaldAnomaly
+    canCopy: false
+
+- type: localizedDataset
+  id: BaldIsAwesomeStringDataset
+  values:
+    prefix: anomaly-bald-say-
+    count: 6
