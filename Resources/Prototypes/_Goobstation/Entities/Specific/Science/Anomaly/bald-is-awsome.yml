@@ -16,15 +16,19 @@
     layers:
     - state: anom
       map: [ "enum.AnomalyVisualLayers.Base","Safe" ]
+      shader: unshaded
     - state: anom-2
       map: [ "Unsafe" ]
       visible: false
+      shader: unshaded
     - state: anom-3
       map: [ "Danger" ]
       visible: false
+      shader: unshaded
     - state: pulse
       map: [ "enum.AnomalyVisualLayers.Animated" ]
       visible: false
+      shader: unshaded
   - type: PointLight
     radius: 2.0
     energy: 10
