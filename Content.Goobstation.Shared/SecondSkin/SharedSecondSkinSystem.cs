@@ -24,6 +24,7 @@ public abstract class SharedSecondSkinSystem : EntitySystem
 
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedItemSystem _itemSys = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
@@ -34,7 +35,8 @@ public abstract class SharedSecondSkinSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SecondSkinHolderComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<SecondSkinHolderComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<SecondSkinHolderComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<SecondSkinHolderComponent, EntInsertedIntoContainerMessage>(OnInsert);
         SubscribeLocalEvent<SecondSkinHolderComponent, EntRemovedFromContainerMessage>(OnRemove);
         SubscribeLocalEvent<SecondSkinHolderComponent, GetItemActionsEvent>(OnGetActions);
@@ -295,10 +297,16 @@ public abstract class SharedSecondSkinSystem : EntitySystem
         _itemSys.VisualsChanged(ent);
     }
 
-    private void OnMapInit(Entity<SecondSkinHolderComponent> ent, ref MapInitEvent args)
+    private void OnStartup(Entity<SecondSkinHolderComponent> ent, ref ComponentStartup args)
     {
         ent.Comp.Container = _container.EnsureContainer<ContainerSlot>(ent, ent.Comp.ContainerId);
-        _actions.AddAction(ent, ref ent.Comp.SecondSkinAction, ent.Comp.SecondSkinActionId);
+        _actionContainer.EnsureAction(ent, ref ent.Comp.SecondSkinAction, ent.Comp.SecondSkinActionId);
+        Dirty(ent);
+    }
+
+    private void OnShutdown(Entity<SecondSkinHolderComponent> ent, ref ComponentShutdown args)
+    {
+        _container.ShutdownContainer(ent.Comp.Container);
     }
 
     protected virtual void UpdateSprite(Entity<HumanoidAppearanceComponent> ent) { }

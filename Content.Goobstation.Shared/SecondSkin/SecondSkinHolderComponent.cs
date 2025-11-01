@@ -6,7 +6,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.SecondSkin;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SecondSkinHolderComponent : Component
 {
     [ViewVariables]
@@ -27,7 +27,7 @@ public sealed partial class SecondSkinHolderComponent : Component
     [DataField]
     public EntProtoId SecondSkinActionId = "ActionActivateSecondSkin";
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? SecondSkinAction;
 
     [DataField]
