@@ -104,23 +104,6 @@ public sealed class DeviceLinkSystem : SharedDeviceLinkSystem
     }
 
     /// <summary>
-    /// Helper function that invokes a port with a high/low binary logic signal.
-    /// </summary>
-    public void SendSignal(EntityUid uid, string port, bool signal, DeviceLinkSourceComponent? comp = null)
-    {
-        if (!Resolve(uid, ref comp))
-            return;
-
-        var data = new NetworkPayload
-        {
-            [DeviceNetworkConstants.LogicState] = signal ? SignalState.High : SignalState.Low
-        };
-        InvokePort(uid, port, data, comp);
-
-        comp.LastSignals[port] = signal;
-    }
-
-    /// <summary>
     /// Clears the last signals state for linking.
     /// This is not to be confused with sending a low signal, this is the complete absence of anything.
     /// Use if the device is in an invalid state and has no reasonable output signal.
