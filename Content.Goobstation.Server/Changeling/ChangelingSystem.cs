@@ -106,6 +106,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
+using MvcContrib;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -148,22 +149,13 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuv = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
 
-    public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
-    public EntProtoId HammerPrototype = "ArmHammerChangeling";
-    public EntProtoId ClawPrototype = "ArmClawChangeling";
     public EntProtoId DartGunPrototype = "DartGunChangeling";
 
-    public EntProtoId ShieldPrototype = "ChangelingShield";
     public EntProtoId BoneShardPrototype = "ThrowingStarChangeling";
-
-    public EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";
-    public EntProtoId ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
 
     public override void Initialize()
     {
@@ -456,7 +448,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         var target = action.Target;
 
         // can't sting a dried out husk
-        if (HasComp<AbsorbedComponent>(target))
+        if (TryComp<AbsorbableComponent>(target, out var absorbable) && absorbable.Absorbed)
         {
             _popup.PopupEntity(Loc.GetString("changeling-sting-fail-hollow"), uid, uid);
             return false;
@@ -746,7 +738,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     }
     public bool TryTransform(EntityUid target, ChangelingIdentityComponent comp, bool sting = false, bool persistentDna = false)
     {
-        if (HasComp<AbsorbedComponent>(target))
+        if (TryComp<AbsorbableComponent>(target, out var absorbable) && absorbable.Absorbed)
         {
             _popup.PopupEntity(Loc.GetString("changeling-transform-fail-absorbed"), target, target);
             return false;
@@ -807,6 +799,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         RemComp<CanHostGuardianComponent>(uid);
         RemComp<MartialArtsKnowledgeComponent>(uid);
         RemComp<CanPerformComboComponent>(uid);
+        RemComp<ButcherableComponent>(uid);
         EnsureComp<ZombieImmuneComponent>(uid);
 
         // add actions
