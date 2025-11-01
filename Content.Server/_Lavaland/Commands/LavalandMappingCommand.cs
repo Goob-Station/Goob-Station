@@ -79,16 +79,14 @@ public sealed class LavalandMappingCommand : IConsoleCommand
                 shell.WriteLine(Help);
                 return;
         }
-
-        shell.WriteLine("Starting lavaland map...");
         var lavalandSys = _entityManager.System<LavalandSystem>();
 
         if (lavalandSys.GetPreloaderEntity() == null)
             lavalandSys.EnsurePreloaderMap();
 
         if (!lavalandSys.SetupLavalandPlanet(lavalandProto, out var lavaland, lavalandSeed))
-            shell.WriteLine("Failed to load lavaland!");
-
-        shell.WriteLine($"Successfully created new lavaland map: {_entityManager.ToPrettyString(lavaland)}");
+            shell.WriteLine("Failed to load lavaland! Ensure that lavaland.enabled CVar is set to true and check server-side logs.");
+        else
+            shell.WriteLine($"Successfully created new lavaland map: {_entityManager.ToPrettyString(lavaland)}");
     }
 }
