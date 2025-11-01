@@ -17377,3 +17377,17 @@ Entries:
       message: Wraith Animate
   id: 1948
   time: '2025-11-01T18:37:08.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Star gazer can no longer harm its master by attacking shadow form.
+    - type: Fix
+      message: Star gazer no longer blocks projectiles and lasers.
+    - type: Add
+      message: Star gazer now star marks people on melee attack.
+    - type: Tweak
+      message: Star gazer laser is 2x thicker.
+    - type: Tweak
+      message: Star gazer melee dps tuned down.
+  id: 1949
+  time: '2025-11-01T18:38:35.0000000+00:00'
