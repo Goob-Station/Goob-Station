@@ -12,6 +12,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Ninja.Systems;
+using Content.Server.Power.EntitySystems; // goobstation - check power 
 using Content.Shared.Communications;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -31,7 +32,7 @@ public sealed class CommsHackerSystem : SharedCommsHackerSystem
     // TODO: remove when generic check event is used
     [Dependency] private readonly NinjaGlovesSystem _gloves = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-
+    [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!; // Goobstation check power
     public override void Initialize()
     {
         base.Initialize();
@@ -47,7 +48,8 @@ public sealed class CommsHackerSystem : SharedCommsHackerSystem
     {
         if (args.Handled || !HasComp<CommunicationsConsoleComponent>(args.Target))
             return;
-
+        if (!_powerReceiverSystem.IsPowered(args.Target)) // Goobstation - is powererd
+            return;
         // TODO: generic check event
         if (!_gloves.AbilityCheck(uid, args, out var target))
             return;
@@ -70,7 +72,7 @@ public sealed class CommsHackerSystem : SharedCommsHackerSystem
     /// </summary>
     private void OnDoAfter(EntityUid uid, CommsHackerComponent comp, TerrorDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled || args.Target == null)
+        if (args.Cancelled || args.Handled || args.Target == null || !_powerReceiverSystem.IsPowered(args.Target.Value)) // Goobsstation - is powered
             return;
 
         var threats = _proto.Index<WeightedRandomPrototype>(comp.Threats);
