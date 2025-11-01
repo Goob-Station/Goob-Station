@@ -16,7 +16,6 @@
   id: SmartFridge
   name: SmartFridge
   description: A refrigerated storage unit for keeping items cold and fresh.
-  categories: [ HideSpawnMenu ] # DeltaV - apparently we can't migrate abstract/disabled prototypes
   components:
   - type: StationAiWhitelist
   - type: Vocalizer
@@ -35,27 +34,51 @@
     - state: smartfridge_door
       map: ["enum.StorageVisualLayers.Door"]
       shader: unshaded
-  - type: EntityStorageVisuals
-    stateBaseClosed: smartfridge
-    stateDoorOpen: smartfridge_open
-    stateDoorClosed: smartfridge_door
   - type: PointLight
     radius: 1.5
     energy: 1.6
     color: "#9dc5c9"
-  - type: EntityStorage
-    isCollidableWhenOpen: true
-    closeSound:
-      path: /Audio/Machines/windoor_open.ogg
-      params:
-        volume: -3
-    openSound:
-      path: /Audio/Machines/windoor_open.ogg
-      params:
-        volume: -3
   - type: ContainerContainer
     containers:
-      entity_storage: !type:Container
+      smart_fridge_inventory: !type:Container
+  - type: LitOnPowered
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: ExtensionCableReceiver
+  - type: SmartFridge
+    whitelist:
+      components:
+      - FitsInDispenser
+      - Pill
+      - Produce
+      - Seed
+      # Goobstation - Start
+      - Organ
+      - BodyPart
+      - AbductorOrgan
+      - Food
+      - Healing
+      tags:
+      - PillCanister
+      - Bottle
+      - Syringe
+      - ChemDispensable
+    blacklist:
+      components:
+      - Clothing
+      - Cybernetics
+      - Material # No cloth in chefFridge
+      tags:
+      - BodyPartInorganic
+      # Goobstation - End
+  - type: ActivatableUI
+    key: enum.SmartFridgeUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.SmartFridgeUiKey.Key:
+        type: SmartFridgeBoundUserInterface
+  - type: AccessReader
   - type: UseDelay
     delay: 1
   - type: AntiRottingContainer
@@ -105,6 +128,7 @@
           SheetSteel1:
             min: 1
             max: 1
+      - !type:EmptyAllContainersBehaviour # Goobstation
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
@@ -119,3 +143,16 @@
         Blunt: 5
     soundHit:
       collection: MetalThud
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+
+# Moved to Goob folder
+#- type: entity
+#  parent: SmartFridge
+#  id: SmartFridgeMedical
+#  suffix: Medical
+#  components:
+#  - type: SmartFridge
+#    flavorText: smart-fridge-request-chemistry
+#  - type: AccessReader
+#    access: [["Medical"]]

@@ -20550,7 +20550,7 @@ entities:
     - type: Transform
       pos: -20.182804,-9.296771
       parent: 1668
-- proto: DVSmartFridgeMedical
+- proto: SmartFridge
   entities:
   - uid: 1290
     components:
