@@ -21,14 +21,6 @@ public sealed partial class TargetingComponent : Component
     public TargetBodyPart Target = TargetBodyPart.Chest;
 
     /// <summary>
-    /// Goobstation
-    /// Chance to miss and hit torso instead of the targeted part on heavy attacks
-    /// Applies to prone targets as well
-    /// </summary>
-    [DataField]
-    public float HeavyAttackMissChance = 0.5f;
-
-    /// <summary>
     /// What odds are there for every part targeted to be hit?
     /// </summary>
     [DataField]

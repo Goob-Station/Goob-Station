@@ -919,13 +919,12 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             RaiseLocalEvent(entity, attackedEvent);
             var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
             modifiedDamage = DamageSpecifier.ApplyModifierSets(modifiedDamage, attackedEvent.ModifiersList); // Goobstation
-            // Goobstation start
-            TargetBodyPart? targetPart = null;
-            if (TryComp(user, out TargetingComponent? targeting) && targeting.HeavyAttackMissChance is > 0f and <= 1f &&
-                random.Prob(targeting.HeavyAttackMissChance))
-                targetPart = TargetBodyPart.Chest;
-            // Goobstation end
-            var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, ignoreResistances: resistanceBypass, partMultiplier: component.HeavyPartDamageMultiplier, targetPart: targetPart); // Shitmed Change
+            foreach (var type in modifiedDamage.DamageDict.Keys) // Goobstation
+            {
+                if (!modifiedDamage.WoundSeverityMultipliers.TryAdd(type, component.HeavyAttackWoundMultiplier))
+                    modifiedDamage.WoundSeverityMultipliers[type] *= component.HeavyAttackWoundMultiplier;
+            }
+            var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, ignoreResistances: resistanceBypass, partMultiplier: component.HeavyPartDamageMultiplier); // Shitmed Change
             var comboEv = new ComboAttackPerformedEvent(user, entity, meleeUid, ComboAttackType.HarmLight);
             RaiseLocalEvent(user, comboEv);
 
