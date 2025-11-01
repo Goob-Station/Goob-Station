@@ -39,7 +39,7 @@ public sealed class BoostedImmunitySystem : SharedBoostedImmunitySystem
 
         foreach (var trait in profile.TraitPreferences)
         {
-            if (!_protoManager.TryIndex<TraitPrototype>(trait, out var traitProto))
+            if (!_protoManager.TryIndex(trait, out var traitProto))
                 continue;
 
             if (traitProto.Category != DisabilityProto)
