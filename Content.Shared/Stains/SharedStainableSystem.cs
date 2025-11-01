@@ -37,7 +37,7 @@ public abstract partial class SharedStainableSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<StainableComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<StainableComponent, MapInitEvent>(OnMapInit);
 
         SubscribeLocalEvent<StainableComponent, InventoryRelayedEvent<SlippedEvent>>(OnSlipped);
         SubscribeLocalEvent<StainableComponent, InventoryRelayedEvent<SpilledOnEvent>>(OnSpilledOn);
@@ -49,7 +49,7 @@ public abstract partial class SharedStainableSystem : EntitySystem
         SubscribeLocalEvent<StainableComponent, WringStainDoAfterEvent>(OnWringDoAfter); // Gaby
     }
 
-    private void OnInit(Entity<StainableComponent> ent, ref ComponentInit args)
+    private void OnMapInit(Entity<StainableComponent> ent, ref MapInitEvent args)
     {
         if (!Solution.EnsureSolution(ent.Owner, ent.Comp.SolutionId, out var solution, ent.Comp.MaxVolume))
             return;

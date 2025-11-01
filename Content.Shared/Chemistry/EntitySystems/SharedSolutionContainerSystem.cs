@@ -1143,8 +1143,9 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         var manager = EnsureComp<SolutionContainerManagerComponent>(uid);
         if (meta.EntityLifeStage >= EntityLifeStage.MapInitialized)
         {
-            EnsureSolutionEntity((uid, manager), name, out existed,
-                out var solEnt, maxVol, prototype);
+            if (!EnsureSolutionEntity((uid, manager), name, out existed,
+                    out var solEnt, maxVol, prototype))
+                return false;
             solution = solEnt!.Value.Comp.Solution;
             return true;
         }
