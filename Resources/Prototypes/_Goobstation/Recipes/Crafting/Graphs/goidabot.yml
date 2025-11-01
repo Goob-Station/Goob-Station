@@ -1,6 +1,5 @@
 - type: constructionGraph
   id: GoidaBot
-  start: start
   graph:
   - node: start
     edges:

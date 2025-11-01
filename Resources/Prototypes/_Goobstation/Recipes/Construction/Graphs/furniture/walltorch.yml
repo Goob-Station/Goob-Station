@@ -6,7 +6,6 @@
 
 - type: constructionGraph
   id: WallTorchGraph
-  start: start
   graph:
     - node: start
       edges:

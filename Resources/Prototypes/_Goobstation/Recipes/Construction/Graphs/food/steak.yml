@@ -7,9 +7,7 @@
 
 - type: constructionGraph
   id: GondolaSteak
-  start: start
   graph:
-
   - node: start
     edges:
     - to: gondola steak
@@ -18,15 +16,12 @@
         sound: /Audio/Effects/sizzle.ogg
       steps:
       - minTemperature: 345
-
   - node: gondola steak
     entity: FoodMeatGondolaCooked
 
 - type: constructionGraph
   id: BingleSteak
-  start: start
   graph:
-
   - node: start
     edges:
     - to: bingle steak
@@ -35,6 +30,5 @@
         sound: /Audio/Effects/sizzle.ogg
       steps:
       - minTemperature: 345
-
   - node: bingle steak
     entity: FoodMeatBingleCooked

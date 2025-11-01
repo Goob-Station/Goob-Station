@@ -1,6 +1,5 @@
 - type: constructionGraph
   id: BarricadeSteel
-  start: start
   graph:
   - node: start
     actions:
