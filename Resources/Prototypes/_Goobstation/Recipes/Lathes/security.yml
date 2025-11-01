@@ -55,8 +55,7 @@
   result: CartridgeEpinephrine
   completetime: 1
   materials:
-    Steel: 100
-    Glass: 300
+    Glass: 100
     Plasma: 100
 
 - type: latheRecipe
@@ -64,8 +63,7 @@
   result: CartridgeAtropine
   completetime: 1
   materials:
-    Steel: 100
-    Glass: 300
+    Glass: 100
     Plasma: 200
 
 - type: latheRecipe
@@ -73,8 +71,7 @@
   result: CartridgeBicaridine
   completetime: 1
   materials:
-    Steel: 100
-    Glass: 300
+    Glass: 100
     Plasma: 100
 
 - type: latheRecipe
@@ -82,8 +79,7 @@
   result: CartridgeDermaline
   completetime: 1
   materials:
-    Steel: 100
-    Glass: 300
+    Glass: 100
     Plasma: 100
 
 - type: latheRecipe
@@ -91,16 +87,15 @@
   result: CartridgeSaline
   completetime: 1
   materials:
-    Steel: 100
-    Glass: 300
+    Glass: 100
+    Plasma: 50
 
 - type: latheRecipe
   id: CartridgeEphedrine
   result: CartridgeEphedrine
   completetime: 1
   materials:
-    Steel: 200
-    Glass: 400
+    Glass: 200
     Plasma: 200
 
 - type: latheRecipe
@@ -108,8 +103,7 @@
   result: CartridgePuncturase
   completetime: 1
   materials:
-    Steel: 200
-    Glass: 400
+    Glass: 200
     Plasma: 200
 
 - type: latheRecipe
@@ -117,8 +111,7 @@
   result: CartridgeTirizene
   completetime: 1
   materials:
-    Steel: 200
-    Glass: 400
+    Glass: 200
     Plasma: 200
 
 - type: latheRecipe
@@ -126,10 +119,10 @@
   result: SecHypo
   completetime: 3
   materials:
-    Steel: 1500
-    Plastic: 800
-    Glass: 1200
-    Gold: 500
+    Steel: 500
+    Plastic: 500
+    Glass: 500
+    Gold: 300
 
 # Guns
 - type: latheRecipe
