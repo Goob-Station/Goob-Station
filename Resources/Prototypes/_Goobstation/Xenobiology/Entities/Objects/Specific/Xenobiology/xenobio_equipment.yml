@@ -2,7 +2,7 @@
   parent: [Clothing, ClothingSlotBase]
   id: ClothingBackpackXenoBioTank
   name: xenovac containment tank
-  description: Holds xenofauna. Sucks via the nozzle in your hands, and has a slot on the side for said spray nozzle.
+  description: Holds xenofauna. Also contains a vacuum nozzle on it's side. It's just like slime rancher.
   components:
   - type: XenoVacuumTank
   - type: Appearance
@@ -12,7 +12,9 @@
   - type: Item
     size: Ginormous
   - type: Clothing
-    slots: SUITSTORAGE
+    slots:
+    - back
+    - SUITSTORAGE
     sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_pack.rsi
   - type: ContainerContainer
     containers:
