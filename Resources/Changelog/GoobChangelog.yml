@@ -17305,3 +17305,27 @@ Entries:
       message: Shuttles can FTL to the station grid consistently.
   id: 1940
   time: '2025-10-31T17:07:10.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: You can now knock on windows and rattle on fences normally again
+  id: 1941
+  time: '2025-10-31T17:18:18.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Trevor now has the access of the rider
+  id: 1942
+  time: '2025-10-31T17:26:44.0000000+00:00'
+- author: Fin55Fin
+  changes:
+    - type: Tweak
+      message: Added cutting property to plant clippers
+  id: 1943
+  time: '2025-10-31T17:34:12.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Vox no longer have a second backslot
+  id: 1944
+  time: '2025-11-01T00:08:49.0000000+00:00'
