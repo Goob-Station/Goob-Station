@@ -17391,3 +17391,23 @@ Entries:
       message: Star gazer melee dps tuned down.
   id: 1949
   time: '2025-11-01T18:38:35.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fixed rust charging into disposal bin deleting you.
+    - type: Remove
+      message: Removed leeching walk knowledge, merged it with rust grasp knowledge.
+    - type: Add
+      message: Rust charge is now rust main knowledge.
+    - type: Add
+      message: >-
+        Rust passive healing is now: 2/s after researching grasp, 3/s after
+        researching toxic blade, 4/s on ascension.
+    - type: Add
+      message: >-
+        You now purge chems except for eldritch essence when standing on rust as
+        rust heretic.
+    - type: Add
+      message: You regenerate lost limbs on rust as ascended rust heretic.
+  id: 1950
+  time: '2025-11-01T18:38:58.0000000+00:00'
