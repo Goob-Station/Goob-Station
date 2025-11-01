@@ -101,6 +101,7 @@
   setPreference: true
   objective: roles-antag-syndicate-agent-objective
   guides: [ Traitors ]
+  criminalRecord: antag-record-criminal-connections # Goobstation
 
 - type: antag
   id: TraitorSleeper
@@ -109,6 +110,7 @@
   setPreference: true
   objective: roles-antag-syndicate-agent-sleeper-objective
   guides: [ Traitors ]
+  criminalRecord: antag-record-criminal-connections # Goobstation
 
 # Syndicate Operative Outfit - Monkey
 - type: startingGear
