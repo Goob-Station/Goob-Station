@@ -2,9 +2,7 @@ using Content.Goobstation.Shared.Medical;
 using Content.Goobstation.Shared.SpecialPassives.BoostedImmunity.Components;
 using Content.Server._White.Xenomorphs.Infection;
 using Content.Server.Body.Systems;
-using Content.Server.GameTicking;
 using Content.Shared.Body.Part;
-using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -12,10 +10,8 @@ namespace Content.Goobstation.Shared.SpecialPassives.BoostedImmunity;
 
 public sealed class BoostedImmunitySystem : SharedBoostedImmunitySystem
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
 
     private EntityQuery<XenomorphInfectionComponent> _xenoInfectQuery;
 
