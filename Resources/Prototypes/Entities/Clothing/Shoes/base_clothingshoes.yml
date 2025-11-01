@@ -91,7 +91,6 @@
     iconVisuals:
     - sprite: _Gabystation/Effects/blood.rsi
       state: shoebloodicon
-  - type: SolutionContainerManager
 
 - type: entity
   abstract: true
