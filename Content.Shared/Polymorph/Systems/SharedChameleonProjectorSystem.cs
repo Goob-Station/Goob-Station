@@ -90,7 +90,17 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
     private void OnDisguiseShutdown(Entity<ChameleonDisguiseComponent> ent, ref ComponentShutdown args)
     {
-        _actions.RemoveProvidedActions(ent.Comp.User, ent.Comp.Projector);
+        // Goobstation - Start
+        if (ent.Comp.RemoveActions)
+            _actions.RemoveProvidedActions(ent.Comp.User, ent.Comp.Projector);
+        else
+        {
+            if (!TryComp<ChameleonProjectorComponent>(ent.Comp.Projector, out var comp))
+                return;
+
+            _actions.RemoveAction(comp.AnchorActionEntity);
+            _actions.RemoveAction(comp.NoRotActionEntity);
+        }//Goobstation - End
     }
 
     #endregion
