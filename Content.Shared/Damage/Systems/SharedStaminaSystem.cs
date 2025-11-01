@@ -82,6 +82,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+using Content.Goobstation.Common.Damage.Events;
 
 // Goobstation usings
 using Content.Shared.Movement.Components; // For InputMoverComponent
@@ -256,10 +257,14 @@ public abstract partial class SharedStaminaSystem : EntitySystem
             // raise event for each entity hit
             RaiseLocalEvent(ent, ref hitEvent);
 
+            // raise event to modify outgoing stamina damage by multiplier or something
+            var outgoingModifier = new ModifyOutgoingStaminaDamageEvent(1f);
+            RaiseLocalEvent(args.User, ref outgoingModifier);
+
             var damageImmediate = component.Damage;
             var damageOvertime = component.Overtime;
-            damageImmediate *= hitEvent.Value;
-            damageOvertime *= hitEvent.Value;
+            damageImmediate *= hitEvent.Value * outgoingModifier.Value;
+            damageOvertime *= hitEvent.Value * outgoingModifier.Value;
 
             if (args.Direction == null)
             {
