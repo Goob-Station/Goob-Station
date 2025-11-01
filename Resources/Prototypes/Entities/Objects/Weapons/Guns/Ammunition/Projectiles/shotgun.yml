@@ -156,7 +156,6 @@
         Piercing: 10
         Structural: 15
 
-
 - type: entity
   id: PelletShotgunSpread
   categories: [ HideSpawnMenu ]
@@ -164,8 +163,8 @@
   components:
   - type: ProjectileSpread
     proto: PelletShotgun
-    count: 6
-    spread: 15
+    count: 5 # Goobstation - 6>5 - Shotgun nerf
+    spread: 45 # Goobstation - 15>45 - Shotgun nerf
 
 - type: entity
   id: PelletShotgunIncendiary
@@ -192,7 +191,7 @@
   - type: ProjectileSpread
     proto: PelletShotgunIncendiary
     count: 4
-    spread: 15
+    spread: 45 # Goobstation - 15>45 - Shotgun nerf
 
 - type: entity
   id: PelletShotgunPractice
@@ -215,8 +214,8 @@
   components:
   - type: ProjectileSpread
     proto: PelletShotgunPractice
-    count: 6
-    spread: 15
+    count: 5 # Goobstation - 6>5 - Shotgun nerf
+    spread: 45 # Goobstation - 15>45 - Shotgun nerf
 
 - type: entity
   id: PelletShotgunImprovised
@@ -240,7 +239,7 @@
   components:
   - type: ProjectileSpread
     proto: PelletShotgunImprovised
-    count: 10
+    count: 12 # Goobstation - 10>12 - Harded to make than find basic ammo
     spread: 45
 
 - type: entity
@@ -340,7 +339,7 @@
   - type: ProjectileSpread
     proto: PelletShotgunUranium
     count: 5
-    spread: 6
+    spread: 45 # Goobstation - 6>45 - Shotgun nerf
 
 - type: entity
   id: PelletGrapeshot #tally fucking ho
