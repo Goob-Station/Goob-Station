@@ -9,19 +9,20 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Shared.Blob.Chemistry;
 using Robust.Client.GameObjects;
 
 namespace Content.Goobstation.Client.Blob.Chemistry;
 
 public sealed class BlobSmokeSystem : EntitySystem
 {
-    public override void Initialize()
+    /*public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<Shared.Blob.Chemistry.BlobSmokeColorComponent, AfterAutoHandleStateEvent>(OnBlobTileHandleState);
+        SubscribeLocalEvent<BlobSmokeColorComponent, AfterAutoHandleStateEvent>(OnBlobTileHandleState);
     }
 
-    private void OnBlobTileHandleState(EntityUid uid, Shared.Blob.Chemistry.BlobSmokeColorComponent component, ref AfterAutoHandleStateEvent state)
+    private void OnBlobTileHandleState(EntityUid uid, BlobSmokeColorComponent component, ref AfterAutoHandleStateEvent state)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
@@ -30,5 +31,5 @@ public sealed class BlobSmokeSystem : EntitySystem
         {
             sprite.LayerSetColor(i, component.Color);
         }
-    }
+    }*/
 }

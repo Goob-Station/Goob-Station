@@ -9,24 +9,25 @@
 
 using Content.Shared.Damage;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.Blob.Prototypes;
+using Content.Goobstation.Shared.Blob.Systems;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Blob.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), Serializable]
+[RegisterComponent, Access(typeof(SharedBlobTileSystem))]
+[NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BlobTileComponent : Component
 {
-    [DataField, AutoNetworkedField]
-    public Color Color = Color.White;
+    [ViewVariables, AutoNetworkedField]
+    public EntityUid? Core;
 
-    [ViewVariables]
-    public Entity<BlobCoreComponent>? Core;
+    [ViewVariables, AutoNetworkedField]
+    public ProtoId<BlobTilePrototype> TilePrototype;
 
     [DataField]
-    public bool ReturnCost = true;
-
-    [DataField(required: true)]
-    public BlobTileType BlobTileType = BlobTileType.Invalid;
+    public bool Refudable = true;
 
     [DataField]
     public DamageSpecifier HealthOfPulse = new()
@@ -41,30 +42,4 @@ public sealed partial class BlobTileComponent : Component
             { "Shock", -4 },
         }
     };
-
-    [DataField]
-    public DamageSpecifier FlashDamage = new()
-    {
-        DamageDict = new Dictionary<string, FixedPoint2>
-        {
-            { "Heat", 24 },
-        }
-    };
-}
-
-[Serializable]
-public enum BlobTileType : byte
-{
-    Invalid, // invalid default value 0
-    Normal,
-    Strong,
-    Reflective,
-    Resource,
-    /*
-    Storage,
-    Turret,
-    */
-    Node,
-    Factory,
-    Core,
 }

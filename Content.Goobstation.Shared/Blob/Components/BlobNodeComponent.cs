@@ -7,7 +7,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Blob.Prototypes;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Blob.Components;
@@ -17,24 +19,23 @@ namespace Content.Goobstation.Shared.Blob.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BlobNodeComponent : Component
 {
+    [ViewVariables, AutoNetworkedField]
+    public Dictionary<ProtoId<BlobTilePrototype>, EntityUid> PlacedSpecials;
+
+    [ViewVariables]
+    public TimeSpan NextPulse;
+
     [DataField]
     public float PulseFrequency = 4f;
 
     [DataField]
     public float PulseRadius = 4f;
 
-    public float NextPulse = 0;
+    [DataField]
+    public float NodeRadiusLimit = 5f;
 
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
-    public EntityUid? BlobResource = null;
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
-    public EntityUid? BlobFactory = null;
-    /*
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
-    public EntityUid? BlobStorage = null;
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
-    public EntityUid? BlobTurret = null;
-    */
+    [DataField]
+    public float TilesRadiusLimit = 9f;
 }
 
 public sealed class BlobTileGetPulseEvent : HandledEntityEventArgs
@@ -53,7 +54,4 @@ public sealed partial class BlobMobGetPulseEvent : EntityEventArgs
 /// </summary>
 public sealed class BlobSpecialGetPulseEvent : EntityEventArgs;
 
-/// <summary>
-/// Event
-/// </summary>
 public sealed class BlobNodePulseEvent : EntityEventArgs;
