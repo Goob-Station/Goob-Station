@@ -131,6 +131,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: RevolversDrop
+  - type: SpinableGun
   # Goobstation edit end
 
 - type: entity
