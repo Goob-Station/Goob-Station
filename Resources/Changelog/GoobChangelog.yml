@@ -17323,3 +17323,9 @@ Entries:
       message: Added cutting property to plant clippers
   id: 1943
   time: '2025-10-31T17:34:12.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Vox no longer have a second backslot
+  id: 1944
+  time: '2025-11-01T00:08:49.0000000+00:00'
