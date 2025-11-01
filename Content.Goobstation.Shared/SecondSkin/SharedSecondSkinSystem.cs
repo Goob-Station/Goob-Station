@@ -7,6 +7,7 @@ using Content.Shared.Armor;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Clothing.Components;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory.Events;
@@ -27,6 +28,7 @@ public abstract class SharedSecondSkinSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedItemSystem _itemSys = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly ItemSlotsSystem _slots = default!;
 
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] protected readonly SharedContainerSystem Container = default!;
@@ -300,6 +302,7 @@ public abstract class SharedSecondSkinSystem : EntitySystem
     private void OnMapInit(Entity<SecondSkinHolderComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.Container = Container.EnsureContainer<ContainerSlot>(ent, ent.Comp.ContainerId);
+        _slots.AddItemSlot(ent, ent.Comp.ContainerId, ent.Comp.ItemSlot);
         _actionContainer.EnsureAction(ent, ref ent.Comp.SecondSkinAction, ent.Comp.SecondSkinActionId);
         Dirty(ent);
     }

@@ -1,3 +1,4 @@
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Inventory;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -10,7 +11,10 @@ namespace Content.Goobstation.Shared.SecondSkin;
 public sealed partial class SecondSkinHolderComponent : Component
 {
     [ViewVariables]
-    public ContainerSlot Container = new();
+    public ContainerSlot Container = default!;
+
+    [DataField]
+    public ItemSlot ItemSlot;
 
     [DataField]
     public string ContainerId = "skin_slot";

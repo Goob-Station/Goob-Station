@@ -445,15 +445,13 @@
   id: BaseSecondSkinHolder
   abstract: true
   components:
-  - type: ItemSlots
-    slots:
-      skin_slot:
-        priority: 1
-        whitelist:
-          components:
-          - SecondSkin
   - type: Appearance
   - type: SecondSkinHolder
+    itemSlot:
+      priority: 1
+      whitelist:
+        components:
+        - SecondSkin
 
 - type: entity
   id: SecondSkinBase
