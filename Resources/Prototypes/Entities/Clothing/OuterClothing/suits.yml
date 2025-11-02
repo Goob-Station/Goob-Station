@@ -362,9 +362,6 @@
   - type: HideClothingLayerClothing # Goobstation
     hiddenSlots:
     - jumpsuit
-  - type: ClothingSpeedModifier
-    walkModifier: 1.1 #goob
-    sprintModifier: 1.1 #goob
 
 - type: entity
   parent: ClothingOuterBase
