@@ -39,6 +39,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
+using Content.Goobstation.Shared.Atmos.Events; // goob edit
 using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
@@ -314,6 +315,16 @@ namespace Content.Server.Atmos.EntitySystems
 
                 if (pressure <= Atmospherics.HazardLowPressure)
                 {
+
+                    // goob start
+                    var resistEv = new ResistPressureEvent();
+                    resistEv.Pressure = pressure;
+                    RaiseLocalEvent(uid, ref resistEv);
+
+                    if (resistEv.Cancelled)
+                        return;
+                    // goob end
+
                     // Deal damage and ignore resistances. Resistance to pressure damage should be done via pressure protection gear.
                     _damageableSystem.TryChangeDamage(uid, barotrauma.Damage * Atmospherics.LowPressureDamage, true, false, targetPart: TargetBodyPart.All); // Shitmed Change
 
@@ -327,6 +338,15 @@ namespace Content.Server.Atmos.EntitySystems
                 }
                 else if (pressure >= Atmospherics.HazardHighPressure && !_spellblade.IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(uid)) // Goob edit
                 {
+                    // goob start
+                    var resistEv = new ResistPressureEvent();
+                    resistEv.Pressure = pressure;
+                    RaiseLocalEvent(uid, ref resistEv);
+
+                    if (resistEv.Cancelled)
+                        return;
+                    // goob end
+
                     var damageScale = MathF.Min(((pressure / Atmospherics.HazardHighPressure) - 1) * Atmospherics.PressureDamageCoefficient, Atmospherics.MaxHighPressureDamage);
 
                     // Deal damage and ignore resistances. Resistance to pressure damage should be done via pressure protection gear.
@@ -342,6 +362,11 @@ namespace Content.Server.Atmos.EntitySystems
                 }
                 else
                 {
+                    // goob start
+                    var pressureEv = new SendSafePressureEvent(pressure);
+                    RaiseLocalEvent(uid, ref pressureEv);
+                    // goob end
+
                     // Within safe pressure limits
                     if (barotrauma.TakingDamage)
                     {
