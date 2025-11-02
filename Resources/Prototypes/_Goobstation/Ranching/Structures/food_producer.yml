@@ -1,0 +1,30 @@
+- type: entity
+  name: Feed Producer
+  id: FeedProducer
+  description: It converts food and reagents into usable feed for chickens. Alt-Click the machine in order to produce feed.
+  parent: BaseMachine # Powered
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Ranching/structures.rsi
+    state: feed_producer
+  - type: FoodProducer
+  - type: Storage
+    grid:
+    - 0,0,5,2
+    whitelist:
+      components:
+      - Food
+  - type: ContainerContainer
+    containers:
+      beakerSlot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      beakerSlot:
+        whitelist:
+          components:
+          - FitsInDispenser
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: DoAfter

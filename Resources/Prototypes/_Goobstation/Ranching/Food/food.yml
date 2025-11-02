@@ -41,10 +41,19 @@
   - type: FoodSeedVisuals
   - type: SolutionContainerManager
     solutions:
-      seed:
+      seed: # todo: make the chem devourable
         maxVol: 10
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
   - type: ExaminableSolution
     solution: seed
+  - type: ChickenFood
+  - type: FlavorProfile
+    flavors:
+      - food
 
 - type: entity
   id: ChickenFeedRandom
