@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 260.2.0
+  engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/10/2025 17:02:38
-  entityCount: 147
+  time: 10/26/2025 16:36:00
+  entityCount: 152
 maps: []
 grids:
 - 292
@@ -60,6 +60,11 @@ entities:
       id: Empty
     - type: OccluderTree
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: DeviceNetwork
       configurators: []
@@ -140,12 +145,20 @@ entities:
     - type: GridPathfinding
     - type: Godmode
     - type: ImplicitRoof
+    - type: FTLDrive
 - proto: AirCanister
   entities:
   - uid: 9
     components:
     - type: Transform
       pos: -1.5,3.5
+      parent: 292
+- proto: AirlockCommandGlassLocked
+  entities:
+  - uid: 147
+    components:
+    - type: Transform
+      pos: -0.5,1.5
       parent: 292
 - proto: AirlockGlassShuttle
   entities:
@@ -158,6 +171,30 @@ entities:
     components:
     - type: Transform
       pos: -2.5,-3.5
+      parent: 292
+- proto: AlwaysPoweredWallLight
+  entities:
+  - uid: 148
+    components:
+    - type: Transform
+      pos: 1.5,0.5
+      parent: 292
+  - uid: 149
+    components:
+    - type: Transform
+      pos: -2.5,0.5
+      parent: 292
+  - uid: 150
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,2.5
+      parent: 292
+  - uid: 151
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,-2.5
       parent: 292
 - proto: APCBasic
   entities:
