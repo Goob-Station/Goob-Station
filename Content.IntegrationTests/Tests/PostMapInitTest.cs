@@ -198,42 +198,48 @@ namespace Content.IntegrationTests.Tests
 
         private static readonly string[] GameMaps =
         {
-            "Dev",
-            "TestTeg",
-            "Fland",
-            "Meta",
-            "Packed",
-            //"Cluster", // Goobstation - Readds Cluster // Corvax-Goob-Maps-deleted
-            "Omega",
-            "Bagel",
-            "CentComm",
-            "Box",
-            //"Europa", // Goobstation - Readds Europa // Corvax-Goob-Maps-deleted
-            //"Atlas", // Goobstation - Readds Atlas // Corvax-Goob-Maps-deleted
-            "Core",
-            "Marathon",
-            "MeteorArena",
-            "Saltern",
-            "Reach",
-            //"Origin", // Goobstation - Readds Origin // Corvax-Goob-Maps-deleted
-            "Train",
-            "Oasis",
-            "Cog", // Goobstation - Readd Cog
-            //"FlandHighPop", // Goobstation - add highpop maps // Corvax-Goob-Maps-deleted
-            "OriginHighPop",
-            "OasisHighPop",
-            //"Barratry", // Goobstation - add Barratry // Corvax-Goob-Maps-deleted
-            //"Kettle", // Goobstation - add Kettle // Corvax-Goob-Maps-deleted
-            //"Submarine", // Goobstation - add Submarine // Corvax-Goob-Maps-deleted
-            //"Lambda", // Goobstation - add Lambda // Corvax-Goob-Maps-deleted
-            //"Leonid", // Goobstation - add Leonid // Corvax-Goob-Maps-deleted
-            "Amber",
-            //"Gate", // Goobstation - goob changes // Corvax-Goob-Maps-deleted
-            "Lavatest", // Lavaland Change
-            "Loop",
-            //"Delta", // Goobstation - add Delta // Corvax-Goob-Maps-deleted
-            "dm01-entryway",
-            //"Chloris", // Goobstation // Corvax-Goob-Maps-deleted
+            // Goobstation edit:
+            // order this list alphabetically, mark dev maps
+            // if upstreaming take ours here and edit manually.
+              "Amber",
+              //"Atlas", // Corvax-Goob-Maps-deleted
+              "Bagel",
+              //"Barratry", // Corvax-Goob-Maps-deleted
+              "Box",            // Not in pool
+              "CentComm",       // CentComm
+              //"Chloris", // Corvax-Goob-Maps-deleted
+              //"Cluster", // Corvax-Goob-Maps-deleted
+              "Cog",
+              "Core",           // Not in pool.
+              //"Delta", // Corvax-Goob-Maps-deleted
+              "Dev",            // Dev map
+              "dm01-entryway",  // Deathmatch
+              //"Europa",         // Not in pool. // Corvax-Goob-Maps-deleted
+              "Fland",
+              //"FlandHighPop", // Corvax-Goob-Maps-deleted
+              //"Gate",           // Not in pool // Corvax-Goob-Maps-deleted
+              //"Kettle", // Corvax-Goob-Maps-deleted
+              //"Lambda",         // Not in pool // Corvax-Goob-Maps-deleted
+              "Lavatest",       //Dev map
+              //"Leonid", // Corvax-Goob-Maps-deleted
+              "Loop",
+              "Marathon",
+              "Meta",
+              "MeteorArena",    // Deathmatch
+              "Oasis",
+              "OasisHighPop",
+              "Omega",
+              //"Origin", // Corvax-Goob-Maps-deleted
+              "OriginHighPop",  //Not in pool
+              "TestTeg",        //Dev map
+              "Train",          //Not in pool
+              "Packed",
+              "Reach",
+              "Saltern",
+              "Serpentcrest",
+              //"Submarine", // Corvax-Goob-Maps-deleted
+            // Goob end
+
             // Corvax-Goob-Maps-start
             "CorvaxAstra",
             "CorvaxBox",
@@ -257,8 +263,50 @@ namespace Content.IntegrationTests.Tests
             "CorvaxChloris",
             "CorvaxSilly",
             // Corvax-Goob-Maps-end
-            //"Serpentcrest", // Goobstation // Corvax-Goob-Maps-deleted
         };
+        // Goobstation edit start, yeah i know, but this is easier and less load than loading protoman or something.
+        private static readonly string[] GameMapsInCurrentPool = // plus dev
+        {
+            // order this list alphabetically, mark dev maps
+              "Amber",
+              "Atlas",
+              "Bagel",
+              "Barratry",
+            //"Box",            // Not in pool
+              "CentComm",      // CentComm
+              "Chloris",
+              "Cluster",
+              "Cog",
+            //"Core",           // Not in pool.
+              "Delta",
+              "Dev",            // Dev map
+            //"dm01-entryway",  // Deathmatch
+            //"Europa",         // Not in pool.
+              "Fland",
+              "FlandHighPop",
+            //"Gate",           // Not in pool
+              "Kettle",
+            //"Lambda",         // Not in pool
+              "Lavatest",       //Dev map
+              "Leonid",
+              "Loop",
+              "Marathon",
+              "Meta",
+            //"MeteorArena",    // Deathmatch
+              "Oasis",
+              "OasisHighPop",
+              "Omega",
+              "Origin",
+            //"OriginHighPop",  //Not in pool
+              "TestTeg",        //Dev map
+            //"Train",          //Not in pool
+              "Packed",
+              "Reach",
+              "Saltern",
+              "Serpentcrest",
+              "Submarine"
+        };
+        // Goobstation edit end
 
         private static readonly ProtoId<EntityCategoryPrototype> DoNotMapCategory = "DoNotMap";
 
@@ -508,7 +556,7 @@ namespace Content.IntegrationTests.Tests
             return true;
         }
 
-        [Test, TestCaseSource(nameof(GameMaps))]
+        [Test, TestCaseSource(nameof(GameMapsInCurrentPool))] // Goob edit - GameMapsInCurrentPool only
         public async Task GameMapsLoadableTest(string mapProto)
         {
             await using var pair = await PoolManager.GetServerClient(new PoolSettings

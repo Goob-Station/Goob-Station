@@ -54,6 +54,16 @@
 
 Вы можете превратить его в священное оружие, положив на алтарь!
 
+### Spirit Candles
+You can craft a spirit candle by putting a candle on a skull. Spirit Candles are useful against evil spirits like Wraith.
+
+When they are ignited, they create a 12x12 tile area that reveals evil spirits. It also has a special function when you use it in-hand.
+By using it [bold]when an evil spirit is within(!!) your 12x12 area[/bold], it will make them corporeal.
+
+It has 2 charges per spirit candle, and [bold]it only consumes a charge when you reveal the evil spirit[/bold].
+
+It drops the skull once the candle has melted, so you can craft another one.
+
 ## Обязанности
 
 - Богослужения: читать проповеди и петь гимны.

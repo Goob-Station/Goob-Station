@@ -210,10 +210,11 @@
     - id: MedkitOxygenFilled
     - id: MedkitAdvancedFilled
     #Corvax-Goob-brigmedic-loadout-update-start
-    - id: BoxBodyBag
     - id: Defibrillator
     - id: ClothingMaskSecurityMedicalRespirator
     #Corvax-Goob-brigmedic-loadout-update-end
+    - id: BoxSyringe
+    - id: BoxBodyBag # Goob Station
 
 - type: entity
   id: LockerDetectiveFilled

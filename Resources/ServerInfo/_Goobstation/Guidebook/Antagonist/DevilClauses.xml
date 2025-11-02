@@ -15,12 +15,13 @@
   - Контрагент полностью блокирует половину получаемого урона.
   - Увеличивает получемый святой урон.
 
-  ## Алчность
+<!-- Disabled, Used by shitters  ## Avarice
   <Box>
     [color=#999999][italic]-30 Вес[/italic][/color]
   </Box>
 
-  - Позволяет контрагенту поглощать предметы, прямо как дракон.
+  - Allows the contractee to devour things whole, just like a dragon.
+  -->
 
   ## Страх смерти
   <Box>

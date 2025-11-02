@@ -48,21 +48,7 @@
     # TODO: this should pull the target closer or sumth, but I need to code that action first
     !type:NoOpAction
 
-- type: Interaction
-  id: Pet
-  parent: [BaseGlobal, BaseHands]
-  priority: 1
-  #icon: /Textures/Interface/Actions/hug.png
-  delay: 0.4
-  range: {max: 1}
-  hideByRequirement: true
-  requirement:
-    !type:MobStateRequirement
-    inverted: true
-  action:
-    !type:NoOpAction
-
-# Knocking on the target - windows, doors, etc.
+# Knocking on the target - doors, etc.
 - type: Interaction
   id: KnockOn
   parent: BaseHands
@@ -70,16 +56,5 @@
   effectSuccess:
     popup: Visible
     sound: {path: /Audio/Effects/glass_knock.ogg}
-  action:
-    !type:NoOpAction
-
-# Rattling a fence
-- type: Interaction
-  id: Rattle
-  parent: BaseHands
-  priority: 20
-  effectSuccess:
-    popup: VisibleNoChat
-    sound: {collection: FenceRattle}
   action:
     !type:NoOpAction

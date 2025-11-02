@@ -399,18 +399,16 @@ public sealed class HealingSystem : EntitySystem
 
         if (canHeal)
         {
-            var damageChanged = _damageable.TryChangeDamage(targetedWoundable, healing.Damage * _damageable.UniversalTopicalsHealModifier, true, origin: args.User); // GOOBEDIT
+            if (healing.BloodlossModifier == 0 && healing.ModifyBloodLevel >= 0 && woundableComp.Bleeds > 0)  // If the healing item has no bleeding heals, and its bleeding, we raise the alert. Goobstation edit
+            {
+                _popupSystem.PopupClient(Loc.GetString("medical-item-cant-use-rebell", ("target", ent)), ent, args.User);
+                return;
+            }
+
+            var damageChanged = _damageable.TryChangeDamage(targetedWoundable, healing.Damage * _damageable.UniversalTopicalsHealModifier, true, origin: args.User, ignoreBlockers: healedBleed || healing.BloodlossModifier == 0); // GOOBEDIT
 
             if (damageChanged is not null)
                 healedTotal += -damageChanged.GetTotal();
-
-            if (healedTotal <= 0 && !healedBleed)
-            {
-                if (healing.BloodlossModifier == 0 && woundableComp.Bleeds > 0) // If the healing item has no bleeding heals, and its bleeding, we raise the alert.
-                // Goobstation predicted --> client
-                    _popupSystem.PopupClient(Loc.GetString("medical-item-cant-use-rebell", ("target", ent)), ent, args.User);
-                return;
-            }
         }
 
         // Re-verify that we can heal the damage.
@@ -508,7 +506,7 @@ public sealed class HealingSystem : EntitySystem
             HasDamage(healing, (target.Owner, target.Comp)) ||
             TryComp<BodyComponent>(target, out var bodyComp) && // I'm paranoid, sorry.
             IsBodyDamaged((target, bodyComp), user, healing.Comp) ||
-            healing.Comp.ModifyBloodLevel > 0 // Special case if healing item can restore lost blood...
+            healing.Comp.ModifyBloodLevel < 0 // Special case if healing item can restore lost blood... Goobstation edit
                 && TryComp<BloodstreamComponent>(target, out var bloodstream)
                 && _solutionContainerSystem.ResolveSolution(target.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution)
                 && bloodSolution.Volume < bloodSolution.MaxVolume; // ...and there is lost blood to restore.
