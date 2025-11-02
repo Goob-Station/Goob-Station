@@ -108,6 +108,13 @@
     heatDamageThreshold: 360
     coldDamageThreshold: -150
     currentTemperature: 310.15
+    coldDamage: #per second, scales with temperature & other constants
+      types:
+        Cold : 0.1
+    specificHeat: 42
+    heatDamage: #per second, scales with temperature & other constants
+      types:
+        Heat : 1.5
   - type: ZombieImmune
   - type: StatusEffects
     allowed:
