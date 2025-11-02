@@ -104,6 +104,7 @@
         Brute: 25
   - type: TypingIndicator
     proto: alien
+  - type: AtmosExposed
   - type: Temperature
     heatDamageThreshold: 360
     coldDamageThreshold: -150
