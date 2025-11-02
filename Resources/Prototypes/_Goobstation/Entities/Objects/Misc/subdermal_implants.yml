@@ -251,6 +251,8 @@
     - type: Changeling
     - type: ChangelingIdentity
     - type: Store
+      refundsIgnoreStartingMap: true
+      individualRefundsAllowed: false
     # this shit is broken still CBF to fix it but you need to make it find or add a ling rule, then MakeChangeling it
     removed:
     - type: Hunger

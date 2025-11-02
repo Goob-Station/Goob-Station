@@ -154,6 +154,16 @@
         type: Add
         time: 3
         refresh: false
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        key: BlurryVision
+        component: BlurryVision
+        type: Add
+        time: 10
+        refresh: false
 
 - type: reagent
   id: Amnestizine

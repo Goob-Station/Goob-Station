@@ -12,37 +12,35 @@
 evolutionmenu-combat-armblade-name = Arm Blade
 evolutionmenu-combat-armblade-desc =
     Reform one of your arms into a grotesque blade, composed of bone and flesh, able to pry open airlocks and cut through your foes like butter. Easily delimbs.
-    Costs 15 chemicals.
+    Costs 20 chemicals.
 
 evolutionmenu-combat-armhammer-name = Arm Hammer
 evolutionmenu-combat-armhammer-desc =
     Reform one of your arms into a grotesque hammer, composed of bone and flesh, able to smash your opponents, knocking them down and sending them flying. Will only knock down on light attack.
-    Costs 15 chemicals.
+    Costs 20 chemicals.
 
 evolutionmenu-combat-armclaw-name = Arm Claw
 evolutionmenu-combat-armclaw-desc =
     Reform one of your arms into a grotesque claw, composed of bone and flesh, able to inject long lasting poison on hit, muting and damaging them.
-    Costs 15 chemicals.
+    Costs 20 chemicals.
 
 evolutionmenu-combat-dartgun-name = Dart Gun
 evolutionmenu-combat-dartgun-desc =
-    Reform one of your arms into a stinger, able to shoot darts, applying half of the effect of one of your evolved reagent stings.
-    Available modes: blind sting, mute sting, cryogenic sting, lethargic sting
-    Costs 15 chemicals.
-    Each shot costs about 1/3 the chemical cost of the selected sting.
+    Reform one of your arms into a stinger, able to shoot darts, applying half of the effect of all of your currently evolved reagent stings.
+    Costs 10 chemicals.
+    Each shot costs 5 chemicals.
 
 evolutionmenu-combat-boneshard-name = Bone Shard
 evolutionmenu-combat-boneshard-desc =
     Break off shards of your bone and shape them into a throwing star which embeds into your foes. But a one timer opportinuty.
-    Costs 15 chemicals.
+    Costs 10 chemicals.
 
 evolutionmenu-combat-armor-name = Chitinous Armor
 evolutionmenu-combat-armor-desc =
     Inflate your body into an all-consuming chitinous mass of armor.
     Provides solid protection against physical damage.
     Maintaining its shape slows chemical generation.
-    WARNING: Requires you to absorb at least 2 organics to use the ability.
-    Costs 25 chemicals.
+    Costs 20 chemicals.
 
 evolutionmenu-combat-shield-name = Organic Shield
 evolutionmenu-combat-shield-desc =
@@ -55,8 +53,7 @@ evolutionmenu-combat-shriek-dissonant-name = Dissonant Shriek
 evolutionmenu-combat-shriek-dissonant-desc =
     You scream out an EMP blast, which disables technology in the surrounding area, including radio headsets.
     Good for escaping cyborgs and security.
-    WARNING: Requires you to absorb at least 1 organic to use the ability.
-    Costs 30 chemicals.
+    Costs 20 chemicals.
 
 evolutionmenu-combat-shriek-resonant-name = Resonant Shriek
 evolutionmenu-combat-shriek-resonant-desc =
@@ -64,8 +61,7 @@ evolutionmenu-combat-shriek-resonant-desc =
     bursting lights as well as causing sensory overloads in organisms and silicons.
     Good for escaping groups, or hindering people from fleeing.
     Changelings are not affected by this sound, and ear protection will reduce disorientation.
-    WARNING: Requires you to absorb at least 1 organic to use the ability.
-    Costs 30 chemicals.
+    Costs 20 chemicals.
 
 evolutionmenu-combat-strainedmuscles-name = Strained Muscles
 evolutionmenu-combat-strainedmuscles-desc =
@@ -85,7 +81,7 @@ evolutionmenu-sting-cryo-name = Cryogenic Sting
 evolutionmenu-sting-cryo-desc =
     Inject an organic target with a cocktail of chemicals that chills the blood.
     May be used while under the effects of Lesser Form.
-    Costs 20 chemicals.
+    Costs 15 chemicals.
 
 evolutionmenu-sting-lethargic-name = Lethargic Sting
 evolutionmenu-sting-lethargic-desc =
@@ -110,14 +106,14 @@ evolutionmenu-sting-armblade-desc =
     Inject some of your genome into an organic target, forcing their arm to shapeshift into a dull armblade.
     Target can only have one fake armblade at a time.
     May be used while under the effects of Lesser Form.
-    Costs 30 chemicals.
+    Costs 20 chemicals.
 
 # utility
 
 evolutionmenu-utility-panacea-name = Anatomic Panacea
 evolutionmenu-utility-panacea-desc =
     Cure yourself of diseases, disabilities, radiation, toxins, drunkenness, and brain damage. Generally covers the things that fleshmend doesn't.
-    Costs 30 chemicals.
+    Costs 20 chemicals.
 
 evolutionmenu-utility-eyesight-name = Augmented Eyesight
 evolutionmenu-utility-eyesight-desc =
@@ -134,20 +130,19 @@ evolutionmenu-utility-chameleon-name = Chameleon Skin
 evolutionmenu-utility-chameleon-desc =
     Alter the pigment in your skin to match your surroundings, rendering you invisible.
     Maintaining this chameleon state slows chemical generation.
-    Costs 20 chemicals.
+    Costs 10 chemicals.
 
 evolutionmenu-utility-voidadapt-name = Void Adaption
 evolutionmenu-utility-voidadapt-desc =
     Alter your cells and organs to resist cold, low pressure and the need for oxygen.
     Maintaining this state slows chemical regeneration.
-    WARNING: Requires you to absorb at least 2 organics to use the ability.
     Cost-free.
 
 evolutionmenu-utility-stims-name = Adrenaline reserves
 evolutionmenu-utility-stims-desc =
     Releases additional adrenaline into your bloodstream, making you nigh-impervious to fatigue, knockdown and stuns.
     Continuous injection is poisonous.
-    Costs 30 chemicals.
+    Costs 25 chemicals.
 
 evolutionmenu-utility-fleshmend-name = Fleshmend
 evolutionmenu-utility-fleshmend-desc =
@@ -155,7 +150,7 @@ evolutionmenu-utility-fleshmend-desc =
     Additionally, bleeding will gradually heal and blood volume will slowly be restored.
     Lasts 10 seconds.
     Healing will cease while on fire.
-    Costs 35 chemicals.
+    Costs 20 chemicals.
 
 evolutionmenu-utility-lastresort-name = Last Resort
 evolutionmenu-utility-lastresort-desc =
@@ -165,12 +160,12 @@ evolutionmenu-utility-lastresort-desc =
 evolutionmenu-utility-lesserform-name = Lesser Form
 evolutionmenu-utility-lesserform-desc =
     Abandon your current form and turn into a sentient monkey.
-    Costs 20 chemicals.
+    Costs 5 chemicals.
 
 evolutionmenu-utility-spacesuit-name = Space Adaptation
 evolutionmenu-utility-spacesuit-desc =
-    Get rid of useless tissue in order to facilitate space travel. A source of oxygen is still required for space walking.
-    Costs 20 chemicals.
+    Adapt to the harsh environment of space, removing the need for oxygen or a suit.
+    Cost free.
 
 evolutionmenu-utility-hivemindaccess-name = Hivemind Access
 evolutionmenu-utility-hivemindaccess-desc =

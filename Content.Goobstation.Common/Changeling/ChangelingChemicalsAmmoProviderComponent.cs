@@ -17,7 +17,7 @@ namespace Content.Goobstation.Common.Changeling;
 public sealed partial class ChangelingChemicalsAmmoProviderComponent : Component
 {
     [DataField]
-    public float FireCost = 7f;
+    public float FireCost = 5f;
 
     [ViewVariables(VVAccess.ReadWrite), DataField(required: true)]
     public EntProtoId Proto;

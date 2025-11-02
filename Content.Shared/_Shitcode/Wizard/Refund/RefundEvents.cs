@@ -10,11 +10,16 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Goobstation.Wizard.Refund;
 
 [Serializable, NetSerializable]
-public sealed class StoreRefundState(List<RefundListingData> listings, bool refundDisabled) : BoundUserInterfaceState
+public sealed class StoreRefundState(
+    List<RefundListingData> listings,
+    bool refundDisabled,
+    bool individualRefundDisabled) : BoundUserInterfaceState
 {
     public List<RefundListingData> Listings = listings;
 
     public bool RefundDisabled = refundDisabled;
+
+    public bool IndividualRefundDisabled = individualRefundDisabled;
 }
 
 [Serializable, NetSerializable]

@@ -34,7 +34,8 @@ namespace Content.Client._Shitcode.Wizard.Refund
     public sealed partial class StoreRefundWindow : DefaultWindow
     {
         private List<RefundListingData> _listings = new();
-        private bool _refundDiabled;
+        private bool _refundDisabled;
+        private bool _individualRefundDisabled;
         private string _searchText = string.Empty;
 
         public event Action<NetEntity>? ListingClicked;
@@ -49,9 +50,12 @@ namespace Content.Client._Shitcode.Wizard.Refund
             RefundAllButton.OnPressed += _ => RefundAllClicked?.Invoke();
         }
 
-        public void UpdateListings(IEnumerable<RefundListingData> listings, bool refundDisabled)
+        public void UpdateListings(IEnumerable<RefundListingData> listings,
+            bool refundDisabled,
+            bool individualRefundDisabled)
         {
-            _refundDiabled = refundDisabled;
+            _refundDisabled = refundDisabled;
+            _individualRefundDisabled = individualRefundDisabled;
             // Server COULD send these sorted but how about we just use the client to do it instead
             _listings = listings
                 .OrderBy(w => w.DisplayName,
@@ -67,7 +71,7 @@ namespace Content.Client._Shitcode.Wizard.Refund
 
         private void AddButtons()
         {
-            if (_refundDiabled)
+            if (_refundDisabled)
             {
                 RefundAllButton.Disabled = true;
                 NoRefundLabel.Visible = true;
@@ -103,6 +107,7 @@ namespace Content.Client._Shitcode.Wizard.Refund
                     SizeFlagsStretchRatio = 1,
                     MinSize = new Vector2(340, 20),
                     ClipText = true,
+                    Disabled = _individualRefundDisabled,
                 };
 
                 currentButtonRef.OnPressed += _ => ListingClicked?.Invoke(listingUid);

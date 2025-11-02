@@ -93,6 +93,20 @@ public sealed partial class StoreComponent : Component
     public bool RefundAllowed;
 
     /// <summary>
+    ///     Goobstation
+    ///     Should you be able to refund individual listings
+    /// </summary>
+    [ViewVariables, DataField]
+    public bool IndividualRefundsAllowed = true;
+
+    /// <summary>
+    ///     Goobstation
+    ///     Should you be able to refund individual listings
+    /// </summary>
+    [ViewVariables, DataField]
+    public bool RefundsIgnoreStartingMap;
+
+    /// <summary>
     ///     Checks if store can be opened by the account owner only.
     ///     Not meant to be used with uplinks.
     /// </summary>

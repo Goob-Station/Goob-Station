@@ -48,7 +48,7 @@ public sealed partial class ChangelingIdentityComponent : Component
     public SoundSpecifier ShriekSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/changeling_shriek.ogg");
 
     [DataField("shriekPower")]
-    public float ShriekPower = 2.5f;
+    public float ShriekPower = 4f;
 
     [DataField("armorTransform")]
     public SoundSpecifier ArmourSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/armour_transform.ogg");
@@ -116,13 +116,13 @@ public sealed partial class ChangelingIdentityComponent : Component
     ///     Current amount of chemicals changeling currently has.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float Chemicals = 100.0f;
+    public float Chemicals = 75.0f;
 
     /// <summary>
     ///     Maximum amount of chemicals changeling can have.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float MaxChemicals = 100.0f;
+    public float MaxChemicals = 75.0f;
 
     /// <summary>
     ///     Total evolution points gained by the changeling.
@@ -194,6 +194,9 @@ public sealed partial class ChangelingIdentityComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public TransformData? SelectedForm;
+
+    [ViewVariables]
+    public LocId? HivemindName;
 }
 
 [DataDefinition]

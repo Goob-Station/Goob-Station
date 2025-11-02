@@ -42,7 +42,6 @@ using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Server.Light.Components;
 using Content.Server.Nutrition.Components;
-using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Content.Shared.Chemistry.Components;
@@ -56,7 +55,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Ensnaring;
 using Content.Shared.Ensnaring.Components;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Humanoid;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
@@ -69,8 +67,8 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Shared.Actions.Components;
 using Content.Goobstation.Shared.Devour.Events;
+using Content.Shared.Humanoid;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -202,8 +200,8 @@ public sealed partial class ChangelingSystem
         if (TryComp<ChangelingIdentityComponent>(target, out var targetComp))
         {
             popup = Loc.GetString("changeling-absorb-end-self-ling");
-            bonusChemicals += targetComp.MaxChemicals / 2;
-            bonusEvolutionPoints += targetComp.TotalEvolutionPoints / 2;
+            bonusChemicals += targetComp.MaxChemicals / 2f;
+            bonusEvolutionPoints += targetComp.TotalEvolutionPoints / 2f;
             bonusChangelingAbsorbs += targetComp.TotalChangelingsAbsorbed + 1;
 
             if (!TryComp<HumanoidAppearanceComponent>(target, out var targetForm)
@@ -211,11 +209,7 @@ public sealed partial class ChangelingSystem
                 popup = Loc.GetString("changeling-absorb-end-self-ling-incompatible");
         }
         else if (!HasComp<PartialAbsorbableComponent>(target))
-        {
             popup = Loc.GetString("changeling-absorb-end-self");
-            bonusChemicals += 10;
-            bonusEvolutionPoints += 2;
-        }
         else
             popup = Loc.GetString("changeling-absorb-end-partial");
 
@@ -235,8 +229,11 @@ public sealed partial class ChangelingSystem
 
         if (TryComp<StoreComponent>(args.User, out var store))
         {
-            _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoint", bonusEvolutionPoints } }, args.User, store);
+            if (bonusEvolutionPoints != 0)
+                _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoint", bonusEvolutionPoints } }, args.User, store);
+            store.RefundAllowed = true;
             _store.UpdateUserInterface(args.User, args.User, store);
+            _store.UpdateRefundUserInterface(args.User, store);
         }
 
         if (_mind.TryGetMind(uid, out var mindId, out var mind))
@@ -251,7 +248,6 @@ public sealed partial class ChangelingSystem
         }
 
         UpdateChemicals(uid, comp, comp.MaxChemicals); // refill chems to max
-
     }
 
     public List<ProtoId<ReagentPrototype>> BiomassAbsorbedChemicals = new() { "Nutriment", "Protein", "UncookedAnimalProteins", "Fat" }; // fat so absorbing raw meat good
@@ -495,43 +491,9 @@ public sealed partial class ChangelingSystem
         if (!TryToggleItem(uid, DartGunPrototype, comp, out var dartgun))
             return;
 
-        if (!TryComp(dartgun, out AmmoSelectorComponent? ammoSelector))
-        {
-            PlayMeatySound(uid, comp);
-            return;
-        }
-
-        if (!_mind.TryGetMind(uid, out var mindId, out _) || !TryComp(mindId, out ActionsContainerComponent? container))
-            return;
-
-        var setProto = false;
-        foreach (var ability in container.Container.ContainedEntities)
-        {
-            if (!TryComp(ability, out ChangelingReagentStingComponent? sting) || sting.DartGunAmmo == null)
-                continue;
-
-            ammoSelector.Prototypes.Add(sting.DartGunAmmo.Value);
-
-            if (setProto)
-                continue;
-
-            _selectableAmmo.TrySetProto((dartgun.Value, ammoSelector), sting.DartGunAmmo.Value);
-            setProto = true;
-        }
-
-        if (ammoSelector.Prototypes.Count == 0)
-        {
-            comp.Chemicals += chemCostOverride ?? Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
-            _popup.PopupEntity(Loc.GetString("changeling-dartgun-no-stings"), uid, uid);
-            comp.Equipment.Remove(DartGunPrototype);
-            QueueDel(dartgun.Value);
-            return;
-        }
-
-        Dirty(dartgun.Value, ammoSelector);
-
         PlayMeatySound(uid, comp);
     }
+
     private void OnCreateBoneShard(EntityUid uid, ChangelingIdentityComponent comp, ref CreateBoneShardEvent args)
     {
         if (!TryUseAbility(uid, comp, args))

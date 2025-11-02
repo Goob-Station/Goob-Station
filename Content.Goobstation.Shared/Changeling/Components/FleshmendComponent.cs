@@ -41,17 +41,17 @@ public sealed partial class FleshmendComponent : Component
     public bool IgnoreFire = false; // for whatever reason
 
     [DataField]
-    public float BruteHeal = -10f;
+    public float BruteHeal = -7f;
 
     [DataField]
-    public float BurnHeal = -5f;
+    public float BurnHeal = -3f;
 
     [DataField]
-    public float AsphyxHeal = -2f;
+    public float AsphyxHeal = -1f;
 
     [DataField]
-    public float BleedingAdjust = -2.5f;
+    public float BleedingAdjust = -1f;
 
     [DataField]
-    public float BloodLevelAdjust = 10f;
+    public float BloodLevelAdjust = 7f;
 }

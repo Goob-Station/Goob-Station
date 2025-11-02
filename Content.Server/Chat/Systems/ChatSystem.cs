@@ -614,16 +614,21 @@ public sealed partial class ChatSystem : SharedChatSystem
         var admins = _adminManager.ActiveAdmins
             .Select(p => p.Channel);
 
+        var name = Name(source);
+        var ev = new HivemindGetNameEvent(collectiveMind.ID);
+        RaiseLocalEvent(source, ref ev);
+        name = ev.Name ?? name;
+
         string messageWrap = Loc.GetString("collective-mind-chat-wrap-message",
             ("message", message),
             ("channel", collectiveMind.LocalizedName),
             ("number", Number));
         string namedMessageWrap = Loc.GetString("collective-mind-chat-wrap-message-named",
-            ("source", source),
+            ("source", name),
             ("message", message),
             ("channel", collectiveMind.LocalizedName));
         string adminMessageWrap = Loc.GetString("collective-mind-chat-wrap-message-admin",
-            ("source", source),
+            ("source", name),
             ("message", message),
             ("channel", collectiveMind.LocalizedName),
             ("number", Number));

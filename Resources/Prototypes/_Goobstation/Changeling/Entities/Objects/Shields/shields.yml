@@ -26,16 +26,16 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 60
+            damage: 150
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
         - trigger:
             !type:DamageTrigger
-            damage: 50
+            damage: 100
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
             - !type:PlaySoundBehavior
               sound:
-                collection: MetalBreak
+                collection: gib

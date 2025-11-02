@@ -104,6 +104,8 @@
       # Goobstation - changelings
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
+      enum.RefundUiKey.Key:
+        type: StoreRefundBoundUserInterface
       enum.HereticLivingHeartKey.Key: # goob edit - heretics
         type: LivingHeartMenuBoundUserInterface
   # to prevent bag open/honk spam

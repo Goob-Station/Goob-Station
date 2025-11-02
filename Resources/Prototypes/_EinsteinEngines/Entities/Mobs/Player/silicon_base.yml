@@ -245,6 +245,8 @@
           type: StrippableBoundUserInterface
         enum.StoreUiKey.Key: # Goobstation - changelings
           type: StoreBoundUserInterface
+        enum.RefundUiKey.Key:
+          type: StoreRefundBoundUserInterface
         enum.HereticLivingHeartKey.Key: # goob edit - heretics
           type: LivingHeartMenuBoundUserInterface
         enum.WizardTeleportUiKey.Key: # Goobstation - wizard

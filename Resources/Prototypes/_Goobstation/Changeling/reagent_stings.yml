@@ -17,10 +17,10 @@
 - type: reagentStingConfiguration
   id: StingCryo
   reagents:
-    Fresium: 10
+    Fresium: 5
 
 - type: reagentStingConfiguration
   id: StingLethargic
   reagents:
-    ChloralHydrate: 5
-    Tirizene: 5
+    ChloralHydrate: 2.5
+    Tirizene: 2.5
