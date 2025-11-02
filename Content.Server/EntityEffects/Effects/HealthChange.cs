@@ -198,7 +198,7 @@ namespace Content.Server.EntityEffects.Effects
             var universalReagentHealModifier =
                 args.EntityManager.System<DamageableSystem>().UniversalReagentHealModifier;
 
-            if (Math.Abs(universalReagentDamageModifier - 1) > 1 || Math.Abs(universalReagentHealModifier - 1) > 1)
+            if (args is EntityEffectBaseArgs && (universalReagentDamageModifier != 1 || universalReagentHealModifier != 1)) // Goob edit
             {
                 foreach (var (type, val) in damageSpec.DamageDict)
                 {
