@@ -30,7 +30,7 @@
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
   </Box>
 
-  Deals massive Stamina damage and speeds up the opponent so they can run away from you faster in fear.
+  Deals massive Stamina damage and slows them down. Stamina damage is lowered heavily if target is wearing armor.
 
   ### Dragon Tail
 
