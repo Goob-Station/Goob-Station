@@ -122,6 +122,7 @@
     - state: icon
   - type: SetSelector
     possibleSets:
+    - SyndicateWesternSet
     - SyndicateSpySet
     - SyndicateHitmanSet
     - SyndicateImplantsSet
