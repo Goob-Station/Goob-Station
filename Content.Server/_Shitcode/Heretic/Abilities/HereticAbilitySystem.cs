@@ -418,8 +418,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         var temperatureQuery = GetEntityQuery<TemperatureComponent>();
         var staminaQuery = GetEntityQuery<StaminaComponent>();
         var statusQuery = GetEntityQuery<StatusEffectsComponent>();
-        var rustbringerQuery = GetEntityQuery<RustbringerComponent>();
         var resiratorQuery = GetEntityQuery<RespiratorComponent>();
+        var hereticQuery = GetEntityQuery<HereticComponent>();
 
         var leechQuery = EntityQueryEnumerator<LeechingWalkComponent, TransformComponent>();
         while (leechQuery.MoveNext(out var uid, out var leech, out var xform))
@@ -427,23 +427,44 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             if (!IsTileRust(xform.Coordinates, out _))
                 continue;
 
-            var multiplier = 1f;
+            damageableQuery.TryComp(uid, out var damageable);
 
-            if (rustbringerQuery.HasComp(uid))
+            var multiplier = 2f;
+            var boneHeal = FixedPoint2.Zero;
+            var shouldHeal = true;
+            if (hereticQuery.TryComp(uid, out var heretic))
             {
-                multiplier = leech.AscensionMultiplier;
+                if (heretic.PathStage >= 7)
+                {
+                    if (heretic.Ascended)
+                    {
+                        multiplier = 4f;
+                        if (resiratorQuery.TryComp(uid, out var respirator))
+                        {
+                            _respirator.UpdateSaturation(uid,
+                                respirator.MaxSaturation - respirator.MinSaturation,
+                                respirator);
+                        }
 
-                if (resiratorQuery.TryComp(uid, out var respirator))
-                    _respirator.UpdateSaturation(uid, respirator.MaxSaturation - respirator.MinSaturation, respirator);
+                        if (damageable != null && damageable.TotalDamage < FixedPoint2.Epsilon)
+                        {
+                            _body.RestoreBody(uid);
+                            shouldHeal = false;
+                        }
+                    }
+                    else
+                        multiplier = 3f;
+
+                    boneHeal = leech.BoneHeal * multiplier;
+                }
             }
+            var otherHeal = boneHeal; // Same as boneHeal because I don't give a fuck
 
             RemCompDeferred<DelayedKnockdownComponent>(uid);
 
             var toHeal = leech.ToHeal * multiplier;
-            var boneHeal = leech.BoneHeal * multiplier;
-            var otherHeal = boneHeal; // Same as boneHeal because I don't give a fuck
 
-            if (damageableQuery.TryComp(uid, out var damageable))
+            if (shouldHeal && damageable != null)
             {
                 IHateWoundMed((uid, damageable, null, null), toHeal, boneHeal, otherHeal);
             }
@@ -461,6 +482,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                         FixedPoint2.Min(leech.BloodHeal * multiplier,
                             blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume));
                 }
+
+                _blood.FlushChemicals((uid, blood), leech.ExcludedReagent, leech.ChemPurgeRate * multiplier);
             }
 
             if (temperatureQuery.TryComp(uid, out var temperature))

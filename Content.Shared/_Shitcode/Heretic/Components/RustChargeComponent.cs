@@ -1,6 +1,8 @@
 using Content.Shared.Damage;
+using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Shitcode.Heretic.Components;
 
@@ -15,6 +17,9 @@ public sealed partial class RustChargeComponent : Component
             {"Blunt", 50f},
         },
     };
+
+    [DataField]
+    public ProtoId<TagPrototype> IgnoreTag = "IgnoreImmovableRod";
 
     [DataField]
     public SoundSpecifier HitSound = new SoundCollectionSpecifier("MetalSlam");

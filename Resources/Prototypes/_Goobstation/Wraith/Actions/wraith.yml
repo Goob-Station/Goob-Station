@@ -301,7 +301,7 @@
 - type: entity
   id: ActionSummonVoidPortal
   name: Summon void portal
-  description: Summon a void portal from which otherworldly creatures pour out. You get increased point generation when near it.
+  description: Summon a void portal from which otherworldly creatures pour out.
   components:
   - type: ConfirmableAction
     popup: wraith-portal-already
