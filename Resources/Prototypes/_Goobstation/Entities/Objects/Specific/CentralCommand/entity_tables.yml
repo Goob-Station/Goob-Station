@@ -9,8 +9,8 @@
     rolls: !type:ConstantNumberSelector
       value: 2
     children:
-    - id: MagazineBoxShotgunHighCaliberFlash
-    - id: MagazineBoxShotgunHighCaliberEnsnaring
-    - id: MagazineBoxShotgunHighCaliberEMP
-    - id: MagazineBoxShotgunHighCaliber
+    - id: MagazineBoxHighCaliberFlash
+    - id: MagazineBoxHighCaliberEnsnaring
+    - id: MagazineBoxHighCaliberEMP
+    - id: MagazineBoxHighCaliber
       weight: 2
