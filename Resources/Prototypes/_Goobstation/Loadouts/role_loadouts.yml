@@ -172,6 +172,10 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  # Plasmaman
+  - ScientistEnvirohelm
+  - ScientistEnvirosuit
+  - ScientistEnvirogloves
 
 - type: roleLoadout
   id: JobBrigmedic

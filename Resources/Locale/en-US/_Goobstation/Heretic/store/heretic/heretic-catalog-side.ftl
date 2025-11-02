@@ -120,12 +120,6 @@ knowledge-path-side-s8-cleave-desc =
 
     Grants you Cleave, an area-of-effect targeted spell that causes heavy bleeding and blood loss to anyone afflicted.
 
-knowledge-path-side-s8-rust-charge-name = Rust Charge
-knowledge-path-side-s8-rust-charge-desc =
-    The hills sparkled now, as I neared them my mind began to wander. I quickly regained my resolve and pushed forward, this last leg would be the most treacherous.
-
-    Grants you Rust Charge, a targeted action that can only be cast on a rusted tile. It charges you forward, destroying any rusted objects you come into contact with, it will also deal high damage to others and rust around you during the charge.
-
 ## stage 9
 knowledge-path-side-s9-coin-name = Eldritch Coin
 knowledge-path-side-s9-coin-desc =
