@@ -8,7 +8,7 @@
   id: BalloonPackageBasic
   name: balloon package
   description: A package containing one random balloon.
-  components: 
+  components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/balloon_package.rsi
     state: icon
@@ -16,45 +16,45 @@
     size: Tiny
   - type: SpawnItemsOnUse
     items:
-    - id: redBalloon
+    - id: RedBalloon
       orGroup: BalloonRandom
       prob: 0.33 # Lower tier rarer
-    - id: blueBalloon
+    - id: BlueBalloon
       orGroup: BalloonRandom
       prob: 0.4
-    - id: greenBalloon
+    - id: GreenBalloon
       orGroup: BalloonRandom
-    - id: yellowBalloon
+    - id: YellowBalloon
       orGroup: BalloonRandom
-    - id: pinkBalloon
+    - id: PinkBalloon
       orGroup: BalloonRandom
-    - id: whiteBalloon
+    - id: WhiteBalloon
       orGroup: BalloonRandom # higher tier balloons are rarer
       prob: 0.4
-    - id: blackBalloon
+    - id: BlackBalloon
       orGroup: BalloonRandom
       prob: 0.4
-    - id: steelBalloon
+    - id: SteelBalloon
       orGroup: BalloonRandom
       prob: 0.33
-    - id: zebraBalloon
+    - id: ZebraBalloon
       orGroup: BalloonRandom
       prob: 0.33
-    - id: rainbowBalloon
+    - id: RainbowBalloon
       orGroup: BalloonRandom
       prob: 0.2
-    - id: ceramicBalloon
+    - id: CeramicBalloon
       orGroup: BalloonRandom
       prob: 0.1
     sound:
       path: /Audio/Effects/unwrap.ogg
-      
+
 - type: entity
   parent: BaseItem
   id: BalloonPackagePremium
   name: premium balloon package
   description: A package containing one random balloon.
-  components: 
+  components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/balloon_package.rsi
     state: gold
@@ -62,35 +62,36 @@
     size: Tiny
   - type: SpawnItemsOnUse
     items:
-    - id: blackBalloon
+    - id: BlackBalloon
       orGroup: BalloonRandom
-    - id: whiteBalloon
+    - id: WhiteBalloon
       orGroup: BalloonRandom
-    - id: steelBalloon
+    - id: SteelBalloon
       orGroup: BalloonRandom
       prob: 0.7
-    - id: zebraBalloon
+    - id: ZebraBalloon
       orGroup: BalloonRandom
-      prob: 0.65 #65 chance 65 65 65 
-    - id: rainbowBalloon
+      prob: 0.65 #65 chance 65 65 65
+    - id: RainbowBalloon
       orGroup: BalloonRandom
       prob: 0.5
-    - id: ceramicBalloon
+    - id: CeramicBalloon
       orGroup: BalloonRandom # higher tier balloons are rarer
       prob: 0.4
-    - id: moabBalloon
-      orGroup: BalloonRandom
-      prob: 0.10
-    - id: bfbBalloon
-      orGroup: BalloonRandom
-      prob: 0.05
-    - id: zomgBalloon
-      orGroup: BalloonRandom
-      prob: 0.01
+    # This fucking kills server performance
+    # - id: MoabBalloon
+    #   orGroup: BalloonRandom
+    #   prob: 0.10
+    # - id: BfbBalloon
+    #   orGroup: BalloonRandom
+    #   prob: 0.05
+    # - id: ZomgBalloon
+    #   orGroup: BalloonRandom
+    #   prob: 0.01
     sound:
       path: /Audio/Effects/unwrap.ogg
-   
-   
+
+
 - type: entity
   name: balloon package box
   parent: BoxCardboard
@@ -103,7 +104,7 @@
         amount: 9
   - type: Sprite
     sprite: _Goobstation/Objects/Storage/boxes.rsi
-    
+
 - type: entity
   name: premium balloon package box
   parent: BoxCardboard
@@ -116,8 +117,8 @@
         amount: 9
   - type: Sprite
     sprite: _Goobstation/Objects/Storage/boxes.rsi
-    
-    
+
+
 - type: entity
   id: CrateBalloonPackage
   parent: CratePlastic
@@ -137,8 +138,8 @@
     # Extra
     - id: MonkeyCube
       prob: 0.4
-      
-      
+
+
 - type: entity
   id: PremiumCrateBalloonPackage
   parent: CratePirate
