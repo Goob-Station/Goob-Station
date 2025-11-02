@@ -2,7 +2,7 @@
   parent: [BaseSword, BaseSyndicateContraband]
   id: TigersClawSword
   name: the tigers claw
-  description: A semi-cheap knockoff of the real deal, propells the user forward to deal third degree burns and lacerations, rumors are that wearing a capos outfit addionally marks weak opponents as "prey" making them less likely to escape you, the predator.
+  description: Y'all don't go huntn' tigers expecting to not get chomped!
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/tigers_claw.rsi

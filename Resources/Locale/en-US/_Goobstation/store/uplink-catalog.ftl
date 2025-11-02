@@ -134,7 +134,7 @@ uplink-m7s-name = M7S "Ventilator"
 uplink-m7s-desc = The spread of this submachine gun gets tighter the longer you suppress your foes with it. The gunshots are suppressed too. Pretty convenient.
 
 uplink-tigers-claw-name = The tigers claw
-uplink-tigers-claw-desc = A semi-cheap knockoff of the real deal, uses ammo to propel the user forward to deal third degree burns and lacerations, rumors are that wearing a capos outfit addionally marks weak opponents as "prey" making them less likely to escape you, the predator.
+uplink-tigers-claw-desc = The latest from Cybersuns R&D department, a legendary blade forged out of the highest quality metals, weilding this blade with the "Capos Attire" give the sword special properties.
 
 uplink-combat-shotgun-name = 'Bojevic' Combat shotgun
 uplink-combat-shotgun-desc = A beefy pump-action shotgun chambered in 8 gauge, with a 5 round magazine tube.
