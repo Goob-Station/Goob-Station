@@ -2,7 +2,7 @@
   parent: BaseKnowledge
   id: DebugKnowledge
   name: Debug knowledge
-  desc: It's a very special knowledge, the only thing you know about it is that you know it!
+  description: It's a very special knowledge, the only thing you know about it is that you know it!
   suffix: DEBUG
   components:
   - type: Knowledge

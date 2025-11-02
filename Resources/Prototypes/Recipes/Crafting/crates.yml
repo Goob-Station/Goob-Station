@@ -21,6 +21,10 @@
   targetNode: cratelivestock
   category: construction-category-storage
   objectType: Structure
+  # Goobstation start
+  groups:
+  - SimpleFurniture
+  # Goobstation end
 
 - type: construction
   id: CrateGenericSteel
@@ -29,6 +33,10 @@
   targetNode: crategenericsteel
   category: construction-category-storage
   objectType: Structure
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: CrateSecure
@@ -37,6 +45,11 @@
   targetNode: cratesecure
   category: construction-category-storage
   objectType: Structure
+  # Goobstation start
+  groups:
+  - Furniture
+  - Electronics
+  # Goobstation end
 
 - type: construction
   id: CrateFreezer
@@ -46,6 +59,11 @@
   targetNode: done
   category: construction-category-storage
   objectType: Structure
+  # Goobstation start
+  groups:
+  - Furniture
+  - Technological
+  # Goobstation end
 
 - type: construction
   id: CratePlastic
@@ -54,6 +72,10 @@
   targetNode: crateplastic
   category: construction-category-storage
   objectType: Structure
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: BigBox
@@ -63,6 +85,10 @@
   targetNode: basebigbox
   category: construction-category-storage
   objectType: Structure
+  # Goobstation start
+  groups:
+  - AdvancedHandmade
+  # Goobstation end
 
 - type: construction
   id: BoxCardboard
@@ -72,6 +98,10 @@
   targetNode: boxcardboard
   category: construction-category-storage
   objectType: Item
+  # Goobstation start
+  groups:
+  - AdvancedHandmade
+  # Goobstation end
 
 - type: construction
   id: FoodBoxPizza
@@ -80,6 +110,11 @@
   targetNode: foodboxpizza
   category: construction-category-storage
   objectType: Item
+  # Goobstation start
+  groups:
+  - AdvancedHandmade
+  - Technological
+  # Goobstation end
 
 - type: construction
   id: CrateCoffin
@@ -88,3 +123,7 @@
   targetNode: cratecoffin
   category: construction-category-storage
   objectType: Structure
+  # Goobstation start
+  groups:
+  - AdvancedHandmade
+  # Goobstation end

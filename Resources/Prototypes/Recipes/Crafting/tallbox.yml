@@ -13,6 +13,10 @@
   targetNode: done
   category: construction-category-storage
   objectType: Structure
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: ClosetSteelSecure
@@ -21,6 +25,11 @@
   targetNode: done
   category: construction-category-storage
   objectType: Structure
+  # Goobstation start
+  groups:
+  - Furniture
+  - Electronics
+  # Goobstation end
 
 - type: construction
   id: ClosetFreezer
@@ -30,6 +39,11 @@
   targetNode: done
   category: construction-category-storage
   objectType: Structure
+  # Goobstation start
+  groups:
+  - Furniture
+  - Technological
+  # Goobstation end
 
 - type: construction
   id: GunSafe
@@ -38,6 +52,11 @@
   targetNode: done
   category: construction-category-storage
   objectType: Structure
+  # Goobstation start
+  groups:
+  - Furniture
+  - Technological
+  # Goobstation end
 
 - type: construction
   id: ClosetWall
@@ -51,3 +70,7 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end

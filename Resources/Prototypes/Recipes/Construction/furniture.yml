@@ -41,6 +41,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: Stool
@@ -53,6 +57,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: StoolBar
@@ -65,6 +73,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: ChairBrass
@@ -77,6 +89,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: ChairOfficeLight
@@ -89,6 +105,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: ChairOfficeDark
@@ -101,6 +121,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: ChairComfy
@@ -113,6 +137,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: chairPilotSeat
@@ -125,6 +153,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: ChairWood
@@ -137,6 +169,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - SimpleFurniture
+  # Goobstation end
 
 - type: construction
   id: ChairMeat
@@ -149,6 +185,10 @@
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - SimpleFurniture
+  # Goobstation end
 
 - type: construction
   id: ChairRitual
@@ -161,6 +201,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - SimpleFurniture
+  # Goobstation end
 
 - type: construction
   id: ChairFolding
@@ -173,6 +217,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: ChairSteelBench
@@ -185,6 +233,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: ChairWoodBench
@@ -197,6 +249,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - SimpleFurniture
+  # Goobstation end
 
 - type: construction
   id: RedComfBench
@@ -210,6 +266,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: BlueComfBench
@@ -223,6 +283,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 #tables
 - type: construction
@@ -236,6 +300,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: TableReinforced
@@ -248,6 +316,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: TableGlass
@@ -260,6 +332,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: TableReinforcedGlass
@@ -272,6 +348,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: TablePlasmaGlass
@@ -284,6 +364,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: TableBrass
@@ -296,6 +380,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: TableWood
@@ -308,6 +396,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - SimpleFurniture
+  # Goobstation end
 
 - type: construction
   id: TableCarpet
@@ -320,6 +412,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - SimpleFurniture
+  # Goobstation end
 
 - type: construction
   id: TableFancyBlack
@@ -333,6 +429,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: TableFancyBlue
@@ -346,6 +446,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: TableFancyCyan
@@ -359,6 +463,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: TableFancyGreen
@@ -372,6 +480,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: TableFancyOrange
@@ -385,6 +497,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: TableFancyPurple
@@ -398,6 +514,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: TableFancyPink
@@ -411,6 +531,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: TableFancyRed
@@ -424,6 +548,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: TableFancyWhite
@@ -437,6 +565,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: TableCounterMetal
@@ -449,6 +581,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: TableCounterWood
@@ -461,6 +597,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 #bathroom
 - type: construction
@@ -474,6 +614,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 #bedroom
 - type: construction
@@ -487,6 +631,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: MedicalBed
@@ -499,6 +647,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: DogBed
@@ -511,6 +663,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: Dresser
@@ -523,6 +679,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 #racks
 - type: construction
@@ -536,6 +696,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 #misc
 - type: construction
@@ -549,6 +713,11 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - SurvivalWeaponsHandmade
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: Curtains
@@ -560,6 +729,10 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+  # Goobstation start
+  groups:
+  - SimpleFurniture
+  # Goobstation end
 
 - type: construction
   id: CurtainsBlack
@@ -571,6 +744,10 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: CurtainsBlue
@@ -582,6 +759,10 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: CurtainsCyan
@@ -593,6 +774,10 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: CurtainsGreen
@@ -604,6 +789,10 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: CurtainsOrange
@@ -615,6 +804,10 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: CurtainsPink
@@ -626,6 +819,10 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: CurtainsPurple
@@ -637,6 +834,10 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: CurtainsRed
@@ -648,6 +849,10 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: CurtainsWhite
@@ -659,6 +864,10 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: Bookshelf
@@ -671,6 +880,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: NoticeBoard
@@ -684,6 +897,10 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: Mannequin
@@ -697,3 +914,7 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end

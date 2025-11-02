@@ -16,3 +16,5 @@
   canBuildInImpassable: false
   startNode: start
   targetNode: detector
+  groups:
+  - Electronics

@@ -11,3 +11,6 @@
   targetNode: end
   category: construction-category-misc
   objectType: Item
+  groups:
+  - AdvancedHandmade
+  - Technological

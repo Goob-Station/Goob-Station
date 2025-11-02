@@ -17,7 +17,10 @@
   targetNode: bananiumSword
   category: construction-category-weapons
   objectType: Item
-  
+  groups:
+  - Bananium
+  - Technological
+
 - type: construction
   id: boomerang
   graph: boomerangGraph
@@ -25,3 +28,5 @@
   targetNode: boomerangFinish
   category: construction-category-weapons
   objectType: Item
+  groups:
+  - SurvivalWeaponsHandmade

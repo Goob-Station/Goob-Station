@@ -8,5 +8,9 @@
   placementMode: SnapgridCenter
   canRotate: false
   canBuildInImpassable: false
+  # Goobstation edit start
+  groups:
+  - SimpleFurniture
+  # Goobstation edit end
   conditions:
   - !type:TileNotBlocked

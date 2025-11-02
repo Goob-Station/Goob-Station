@@ -18,6 +18,10 @@
     - SpiderCraft
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - SpiderCraft
+  # Goobstation end
 
 - type: construction
   id: TableWeb
@@ -34,6 +38,10 @@
     - SpiderCraft
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - SpiderCraft
+  # Goobstation end
 
 - type: construction
   id: WebBed
@@ -50,6 +58,10 @@
     - SpiderCraft
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - SpiderCraft
+  # Goobstation end
 
 - type: construction
   id: ChairWeb
@@ -63,6 +75,10 @@
   entityWhitelist:
     tags:
     - SpiderCraft
+  # Goobstation start
+  groups:
+  - SpiderCraft
+  # Goobstation end
 
 - type: construction
   id: CrateWeb
@@ -77,6 +93,10 @@
   entityWhitelist:
     tags:
     - SpiderCraft
+  # Goobstation start
+  groups:
+  - SpiderCraft
+  # Goobstation end
 
 - type: construction
   id: WebDoor
@@ -92,3 +112,7 @@
     - SpiderCraft
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - SpiderCraft
+  # Goobstation end

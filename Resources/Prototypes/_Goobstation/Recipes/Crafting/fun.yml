@@ -10,3 +10,6 @@
   targetNode: toygrenade
   category: construction-category-misc
   objectType: Item
+  groups:
+  - AdvancedHandmade
+  - Technological

@@ -1,0 +1,7 @@
+- type: entity
+  id: ConstructionKnowledge
+  name: Construction knowledge
+  categories: [ Knowledge ]
+  abstract: true
+  components:
+  - type: Knowledge

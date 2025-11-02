@@ -11,6 +11,8 @@
   targetNode: bot
   category: construction-category-utilities
   objectType: Item
+  groups:
+  - Bots
 
 - type: construction
   id: plantbot
@@ -19,6 +21,8 @@
   targetNode: bot
   category: construction-category-utilities
   objectType: Item
+  groups:
+  - Bots
 
 - type: construction
   id: fillbot
@@ -27,6 +31,8 @@
   targetNode: bot
   category: construction-category-utilities
   objectType: Item
+  groups:
+  - Bots
 
 - type: construction
   id: minebot
@@ -35,3 +41,5 @@
   targetNode: bot
   category: construction-category-utilities
   objectType: Item
+  groups:
+  - Bots

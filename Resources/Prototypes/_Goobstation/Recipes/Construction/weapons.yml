@@ -13,6 +13,9 @@
   targetNode: LitMolotov
   category: construction-category-weapons
   objectType: Item
+  groups:
+  - AdvancedHandmade
+  - Technological
 
 - type: construction
   name: recipes-wooden-wand-name
@@ -22,3 +25,5 @@
   targetNode: woodenWand
   category: construction-category-weapons
   objectType: Item
+  groups:
+  - AdvancedHandmade

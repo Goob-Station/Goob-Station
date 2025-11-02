@@ -177,6 +177,9 @@
     templateId: arachnid
     speciesId: arachnid #Goobedit - Fix Arachnid specific textures
   - type: IgnoreSpiderWeb # Goobstation
+  - type: KnowledgeGrant # Goobstation
+    toAdd:
+    -
 
 - type: entity
   parent: BaseSpeciesDummy
