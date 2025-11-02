@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/26/2025 20:05:44
-  entityCount: 7057
+  time: 11/02/2025 08:46:47
+  entityCount: 7066
 maps: []
 grids:
 - 818
@@ -3130,7 +3130,7 @@ entities:
       pos: 17.5,23.5
       parent: 818
     - type: Door
-      secondsUntilStateChange: -23743.67
+      secondsUntilStateChange: -25193.03
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3143,7 +3143,7 @@ entities:
       pos: 33.5,27.5
       parent: 818
     - type: Door
-      secondsUntilStateChange: -23642.637
+      secondsUntilStateChange: -25091.996
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3484,7 +3484,7 @@ entities:
       pos: 13.5,26.5
       parent: 818
     - type: Door
-      secondsUntilStateChange: -4544.897
+      secondsUntilStateChange: -5994.2573
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3575,7 +3575,7 @@ entities:
       pos: -22.5,-14.5
       parent: 818
     - type: Door
-      secondsUntilStateChange: -23904.102
+      secondsUntilStateChange: -25353.46
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5584,6 +5584,17 @@ entities:
     - type: Transform
       pos: -18.430738,-20.491697
       parent: 818
+- proto: BookMedicalReferenceBook
+  entities:
+  - uid: 7059
+    components:
+    - type: MetaData
+      desc: An unbelievably thick textbook outlining the anatomies and surgical procedures of many common sophont species including slimes, humans, vulpkanin, moths, and more. Written by Dr. Kal-Falon.
+      name: The Spacer Surgeon's Anatomical Handbook Vol. 44
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 14.809358,-20.211351
+      parent: 818
 - proto: BookNarsieLegend
   entities:
   - uid: 6586
@@ -5638,6 +5649,28 @@ entities:
     components:
     - type: Transform
       pos: 36.5,34.5
+      parent: 818
+- proto: BookSpaceEncyclopedia
+  entities:
+  - uid: 7057
+    components:
+    - type: MetaData
+      desc: An exhaustive textbook on how to read, write, and speak Tau-Ceti Basic. This one has been rented out from the library onboard the RAE-Nebula. It's pages are sort of slimy.
+      name: Tau-Ceti Basic for Dummies Vol. III
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 14.934358,-20.378017
+      parent: 818
+- proto: BookSpaceLaw
+  entities:
+  - uid: 7058
+    components:
+    - type: MetaData
+      desc: A set of guidelines as determined by Red Reimold and Dan Westbrook. Similar to common space law but with small adjustments.
+      name: RAE Law
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 14.913525,-20.555101
       parent: 818
 - proto: BookTemple
   entities:
@@ -5790,6 +5823,16 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -24.156265,-23.963987
+      parent: 818
+- proto: BubblishTranslator
+  entities:
+  - uid: 7055
+    components:
+    - type: MetaData
+      desc: Translates speech between Bubblish and Galactic Common, helping communicate with slimes and slime people. This one has "Squimsh Ceblyzz" carved into the battery panel by a laser engraver.
+      name: Bubblish-Tau-Ceti Basic Translator
+    - type: Transform
+      pos: 14.029276,-23.30512
       parent: 818
 - proto: BubblishTranslatorImplanter
   entities:
@@ -15701,6 +15744,13 @@ entities:
     - type: Transform
       pos: 43.368534,-16.630138
       parent: 818
+- proto: ClothingCostumeAbductorHead
+  entities:
+  - uid: 476
+    components:
+    - type: Transform
+      pos: -17.531387,-20.747095
+      parent: 818
 - proto: ClothingEyesEyepatchFlipped
   entities:
   - uid: 2893
@@ -15793,6 +15843,15 @@ entities:
       parent: 1531
     - type: Physics
       canCollide: False
+- proto: ClothingHeadHatCentcomcap
+  entities:
+  - uid: 7052
+    components:
+    - type: MetaData
+      desc: An extravagant, stylish cap worn by NanoTrasen CentComm officials. The long arm of NanoTrasen reaches everywhere, even deep space.
+    - type: Transform
+      pos: 25.480198,18.842047
+      parent: 818
 - proto: ClothingHeadHatFlowerWreath
   entities:
   - uid: 6124
@@ -17423,7 +17482,7 @@ entities:
       pos: -24.5,-11.5
       parent: 818
     - type: Door
-      secondsUntilStateChange: -23915.002
+      secondsUntilStateChange: -25364.361
       state: Closing
   - uid: 1454
     components:
@@ -17488,7 +17547,7 @@ entities:
       pos: 13.5,30.5
       parent: 818
     - type: Door
-      secondsUntilStateChange: -4540.5635
+      secondsUntilStateChange: -5989.924
       state: Closing
   - uid: 6657
     components:
@@ -17519,7 +17578,7 @@ entities:
       pos: 24.5,21.5
       parent: 818
     - type: Door
-      secondsUntilStateChange: -23757.936
+      secondsUntilStateChange: -25207.295
       state: Closing
 - proto: CurtainsCyan
   entities:
@@ -17555,7 +17614,7 @@ entities:
       pos: 16.5,-20.5
       parent: 818
     - type: Door
-      secondsUntilStateChange: -34300.543
+      secondsUntilStateChange: -35749.906
       state: Closing
   - uid: 6965
     components:
@@ -17621,6 +17680,8 @@ entities:
       parent: 818
   - uid: 5303
     components:
+    - type: MetaData
+      name: Red's Weakest Generator
     - type: Transform
       pos: 2.5,61.5
       parent: 818
@@ -26650,7 +26711,7 @@ entities:
       pos: -18.5,6.5
       parent: 818
     - type: Door
-      secondsUntilStateChange: -24350.135
+      secondsUntilStateChange: -25799.494
       state: Opening
 - proto: HospitalCurtainsOpen
   entities:
@@ -29540,6 +29601,11 @@ entities:
     components:
     - type: Transform
       pos: -2.5,47.5
+      parent: 818
+  - uid: 7056
+    components:
+    - type: Transform
+      pos: 15.060785,-23.565536
       parent: 818
 - proto: PowerDrill
   entities:
@@ -43986,6 +44052,14 @@ entities:
     - type: Transform
       pos: -16.76931,54.839268
       parent: 818
+- proto: WeaponPistolCobra
+  entities:
+  - uid: 7051
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 14.453991,-23.411665
+      parent: 818
 - proto: WeaponPistolMk58
   entities:
   - uid: 1690
@@ -44011,6 +44085,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -16.14523,53.537186
+      parent: 818
+  - uid: 7054
+    components:
+    - type: MetaData
+      desc: Designed by NanoTrasen's Small Arms Division. This one's serial number has been filed off. Whoever it belongs to must have a dangerous occupation.
+    - type: Transform
+      pos: 25.609243,19.46835
       parent: 818
 - proto: WeaponPistolN1984
   entities:
@@ -44095,10 +44176,10 @@ entities:
       parent: 818
 - proto: WeaponShotgunDoubleBarreledRubber
   entities:
-  - uid: 476
+  - uid: 7053
     components:
     - type: Transform
-      pos: 14.471743,-23.202354
+      pos: 14.193574,-20.338749
       parent: 818
 - proto: WeaponSniperHE1SG8
   entities:
@@ -44752,7 +44833,7 @@ entities:
       pos: -19.5,-0.5
       parent: 818
     - type: Door
-      secondsUntilStateChange: -23399.703
+      secondsUntilStateChange: -24849.062
       state: Opening
   - uid: 5219
     components:
@@ -44789,7 +44870,7 @@ entities:
       pos: 14.5,33.5
       parent: 818
     - type: Door
-      secondsUntilStateChange: -10985.994
+      secondsUntilStateChange: -12435.354
       state: Opening
   - uid: 6601
     components:
@@ -44799,7 +44880,7 @@ entities:
       pos: 15.5,33.5
       parent: 818
     - type: Door
-      secondsUntilStateChange: -10987.961
+      secondsUntilStateChange: -12437.32
       state: Opening
   - uid: 6778
     components:
