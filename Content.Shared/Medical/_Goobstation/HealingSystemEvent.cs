@@ -8,7 +8,7 @@ namespace Content.Shared.Medical._Goobstation;
 /// Event raised when a wound is being medicated.
 /// </summary>
 [ByRefEvent]
-public record struct HealingSystemEvent(EntityUid Entity)
+public record struct HealingSystemEvent(EntityUid Healing, EntityUid Entity)
 {
-    public bool AnythingToDo = false;
+    public bool AnythingToDo {get; set; } = false;
 }

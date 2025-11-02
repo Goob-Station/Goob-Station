@@ -280,18 +280,14 @@ public sealed class WoundMedicationSystem : EntitySystem
     /// <param name="args">Entity<DamageableComponent?> target</param>
     private void OnHealingSystemEvent(ref HealingSystemEvent args)
     {
-        if (!TryComp<DamageableComponent>(args.Entity, out var damageable))
-        {
-            args.AnythingToDo = false;
-            return;
-        }
-
         // Get the healing component from the event's target entity
-        if (!TryComp<HealingComponent>(args.Entity, out var healing))
-        {
-            args.AnythingToDo = false;
+
+        TryComp<DamageableComponent>(args.Entity, out var damageable);
+        TryComp<HealingComponent>(args.Healing, out var healing);
+
+
+        if (healing == null || damageable == null)
             return;
-        }
 
         // Check if there's any damage to heal
         var hasDamage = damageable.Damage.GetTotal() > FixedPoint2.Zero;
