@@ -1,7 +1,7 @@
 - type: entity
   id: LavalandHardsuitBerserker
   parent: [ BaseMajorContraband, ClothingOuterHardsuitSalvage ]
-  name: Berserker Hardsuit
+  name: berserker hardsuit
   description: the berserk dont care from who the blood flows
   components:
   - type: Sprite
@@ -28,7 +28,7 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitSalvage
   id: LavalandHardsuitBerserkerHelmet
-  name: Berserker Helmet
+  name: berserker helmet
   description: has the mark of a god of war
   components:
   - type: Sprite

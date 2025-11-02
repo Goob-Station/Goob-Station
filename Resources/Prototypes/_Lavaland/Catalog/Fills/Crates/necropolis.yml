@@ -95,13 +95,13 @@
     - id: LavalandAmuletMementoMori
 
 - type: entity
-  id: LavalandCrateNecropolisMinersChalic
+  id: LavalandCrateNecropolisMinersChalice
   parent: LavalandCrateNecropolis
-  suffix: Miners Chalic
+  suffix: Miners Chalice
   components:
   - type: StorageFill
     contents:
-    - id: LavalandMinersChalic
+    - id: LavalandMinersChalice
 
 - type: entity
   id: LavalandCrateNecropolisInvisibilityCloak

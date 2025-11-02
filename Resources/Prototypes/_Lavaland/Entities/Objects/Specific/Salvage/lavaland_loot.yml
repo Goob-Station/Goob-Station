@@ -57,7 +57,8 @@
 - type: entity
   id: LavalandAmuletMementoMori
   parent: ClothingNeckBase
-  name: Memento Mori
+  name: memento mori
+  description: a necklace that reminds you, one day to to will die
   components:
   - type: Clothing
     sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
@@ -76,8 +77,8 @@
 - type: entity
   id: LavalandAmuletImmortalityTalisman
   parent: ClothingNeckBase
-  name: Immortality talisman
-  description: A dread talisman that can render you completely invulnerable.
+  name: immortality talisman
+  description: a dread talisman that can render you completely invulnerable.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
@@ -89,8 +90,8 @@
 - type: entity
   id: LavalandStaffOfHealing
   parent: [WeaponStaffHealing, OmnimedTool] # works as a healing wand and a surgary tool
-  name: Rod of Asclepius
-  description: Something about it seems to inspire in you the responsibility and duty to help others.
+  name: rod of asclepius
+  description: something about it seems to inspire in you the responsibility and duty to help others.
   components:
   - type: Unremoveable
     deleteOnDrop: false
@@ -107,9 +108,9 @@
     price: 5000
 
 - type: entity
-  id: LavalandMinersChalic
+  id: LavalandMinersChalice
   parent: DrinkBase
-  name: Miners Chalic
+  name: miners chalice
   description: a drink fit for a miner
   components:
   - type: Sprite
@@ -136,7 +137,7 @@
   parent: ClothingNeckCloakVoid
   id: LavalandInvisibilityCloak
   name: the invisibility cloak
-  description: An invisibility cloak. where is it?
+  description: an invisibility cloak. where is it?
   components:
   - type: ToggleableClothing
     clothingPrototypes:
@@ -153,7 +154,7 @@
   parent: ClothingHeadHatHoodVoidCloak
   id: LavalandInvisibilityCloakHood
   name: void cloak hood
-  description: The hood of an invisibility cloak.
+  description: the hood of an invisibility cloak.
   components:
   - type: ClothingGrantComponent
     component:
@@ -197,7 +198,7 @@
           True: { state: linked_blue }
 
 - type: entity
-  name: Book of Babel
+  name: book of babel
   parent: BaseItem
   id: LavalandBookofBabel
   description: you can't seem to read it
@@ -215,7 +216,7 @@
 - type: entity
   id: LavalandLifeforceTalisman
   parent: ClothingNeckBase
-  name: Lifeforce talisman
+  name: lifeforce talisman
   description: feels like its brimming whit life
   components:
   - type: ClothingGrantComponent
