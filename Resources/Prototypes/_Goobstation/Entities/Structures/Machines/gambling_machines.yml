@@ -17,7 +17,7 @@
     noRot: true
   - type: Destructible
     thresholds:
-    - trigger: # Excess damage, don't do anything
+    - trigger:
         !type:DamageTrigger
         damage: 200
       behaviors:
@@ -52,8 +52,17 @@
     weight: 0.125
   - type: StaticPrice
     price: 100
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
+  - type: Vocalizer
+    minVocalizeInterval: 8m
+    maxVocalizeInterval: 10m
+    hideChat: true
+  - type: VocalizerRequiresPower
   - type: DatasetVocalizer
-    dataset: CondimentVendAds
+    dataset: SlotMachineAds
   - type: ContainerContainer
     containers:
       money: !type:ContainerSlot
