@@ -452,6 +452,7 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 75 # It's harder to kill iron golem
     damagePenalty: 0.25
+  - type: MiningPoints # goobstation borgs can claim mining points
 
 - type: entity
   abstract: true
@@ -500,6 +501,7 @@
   - type: SurveillanceCamera # they act like cameras for the mothership
     networkSet: true
     nameSet: True
+    mobile: True # Goobstation - mobile cameras fix, borg camera not really relevant since monitor doesn't see it anyways but eh
     id: Xenoborg
   - type: Explosive
     explosionType: Minibomb

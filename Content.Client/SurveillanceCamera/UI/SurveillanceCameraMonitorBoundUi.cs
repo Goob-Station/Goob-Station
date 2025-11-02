@@ -80,9 +80,13 @@ public sealed class SurveillanceCameraMonitorBoundUserInterface : BoundUserInter
 
         var active = EntMan.GetEntity(cast.ActiveCamera);
 
+        EntMan.TryGetComponent<TransformComponent>(Owner, out var xform); // Goobstation
+        var monitor = Owner; // Goobstation
+        var monitorCoords = xform?.Coordinates; // Goobstation
+
         if (active == null)
         {
-            _window.UpdateState(null, cast.ActiveAddress, cast.Cameras); // Goobstation
+            _window.UpdateState(null, cast.ActiveAddress, cast.Cameras, cast.MobileCameras, monitor, monitorCoords); // Goobstation
 
             if (_currentCamera != null)
             {
@@ -107,7 +111,7 @@ public sealed class SurveillanceCameraMonitorBoundUserInterface : BoundUserInter
 
             if (EntMan.TryGetComponent<EyeComponent>(active, out var eye))
             {
-                _window.UpdateState(eye.Eye, cast.ActiveAddress, cast.Cameras); // Goobstation
+                _window.UpdateState(eye.Eye, cast.ActiveAddress, cast.Cameras, cast.MobileCameras, monitor, monitorCoords); // Goobstation
             }
         }
     }
