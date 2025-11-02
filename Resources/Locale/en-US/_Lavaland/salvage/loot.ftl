@@ -6,6 +6,6 @@
 popup-cursed-heart-damage = Your heart doesn't beat!
 popup-cursed-heart-already-cursed = Your heart is already under this curse!
 
-popup-Immortality-talisman-activated = you feel Immortal
-popup-Immortality-talisman-recharging = Talisman is recharging
-popup-Immortality-talisman-ended = you no longer feel Immortal
+popup-Immortality-talisman-activated = You feel immortal
+popup-Immortality-talisman-recharging = The talisman is recharging
+popup-Immortality-talisman-ended = You no longer feel immortal

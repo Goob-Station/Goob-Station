@@ -8,10 +8,10 @@ namespace Content.Shared._Lavaland.Damage;
 /// </summary>
 public sealed class BleedingIncreaseMeleeDamageSystem : EntitySystem
 {
-    /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<BleedingIncreaseMeleeDamageComponent,GetUserMeleeDamageEvent>(OnGetMeleeDamage);
     }
 

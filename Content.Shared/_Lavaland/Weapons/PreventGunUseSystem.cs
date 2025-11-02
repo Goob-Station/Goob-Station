@@ -11,7 +11,7 @@ public sealed class PreventGunUseSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();

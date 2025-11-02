@@ -14,9 +14,11 @@ public sealed class AshOnRemovalSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<Shared._Lavaland.Clothing.AshOnRemovalComponent,ClothingGotUnequippedEvent>(OnUnequip);
     }
 
@@ -40,9 +42,8 @@ public sealed class AshOnRemovalSystem : EntitySystem
         {
             var slots = _inventory.GetSlotEnumerator((uid, inventory));
             while (slots.NextItem(out _, out var slot))
-            {
                 _inventory.TryUnequip(uid, uid, slot.Name, true, true, inventory: inventory);
-            }
+
         }
 
         if (TryComp<HandsComponent>(uid, out var hands))

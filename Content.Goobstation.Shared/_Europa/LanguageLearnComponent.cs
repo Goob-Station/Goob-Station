@@ -5,9 +5,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Goobstation.Shared._Europa;
-//
-// License-Identifier: AGPL-3.0-or-later
-//
+
 /// <summary>
 /// This is used for learning languages
 /// </summary>

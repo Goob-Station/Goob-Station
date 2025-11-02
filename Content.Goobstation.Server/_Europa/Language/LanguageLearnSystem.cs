@@ -10,14 +10,10 @@ using Content.Goobstation.Shared._Europa;
 
 namespace Content.Goobstation.Server._Europa.Language;
 
-//
-// License-Identifier: AGPL-3.0-or-later
-//
-
 /// <summary>
 /// This handles learning languages on use of items
 /// </summary>
-///
+
 public sealed class LanguageLearnSystem : EntitySystem
 {
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
@@ -25,10 +21,10 @@ public sealed class LanguageLearnSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
 
-    /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<LanguageLearnComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<LanguageLearnComponent, LanguageLearnDoAfterEvent>(OnUsed, after: new []{typeof(DoAfterSystem)});
         SubscribeLocalEvent<LanguageLearnComponent, ExaminedEvent>(OnExamine);
