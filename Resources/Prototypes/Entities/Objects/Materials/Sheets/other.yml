@@ -150,10 +150,8 @@
         - ReagentId: Plasma
           Quantity: 10
         canReact: false
-  - type: Tag # Redundant
+  - type: Tag # Goobstation
     tags:
-    - Sheet
-    - ConstructionMaterial
     - SheetPlasma # Goobstation
 
 - type: entity
