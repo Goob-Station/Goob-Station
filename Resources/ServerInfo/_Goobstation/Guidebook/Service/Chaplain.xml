@@ -55,6 +55,16 @@ The obsidian rod will be your defense against the forces of evil. [color=blue][b
 
 You can transform it into a holy weapon of choice by placing it on an altar!
 
+### Spirit Candles
+You can craft a spirit candle by putting a candle on a skull. Spirit Candles are useful against evil spirits like Wraith.
+
+When they are ignited, they create a 12x12 tile area that reveals evil spirits. It also has a special function when you use it in-hand.
+By using it [bold]when an evil spirit is within(!!) your 12x12 area[/bold], it will make them corporeal.
+
+It has 2 charges per spirit candle, and [bold]it only consumes a charge when you reveal the evil spirit[/bold].
+
+It drops the skull once the candle has melted, so you can craft another one.
+
 ## Duties
 
 - Church Services: Give sermons and sing hymns.
@@ -66,5 +76,5 @@ You can transform it into a holy weapon of choice by placing it on an altar!
 As Chaplain you are the first line of defence against metaphysical threats, [bold] ready your Null Rod - the time is now. [/bold]
 
 [color=red][bold] Use of excessive force against targets which you cannot confirm are metaphysical threats may land you in trouble with the law, use caution and investigate carefully. [/bold][/color]
-  
+
 </Document>

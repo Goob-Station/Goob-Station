@@ -151,6 +151,7 @@
   - type: Sharp
   - type: Execution
     doAfterDuration: 4.0
+    decapitation: true # Goobstation - Decapitation
   - type: MeleeWeapon
     animationRotation: -45 # WWDP
     wideAnimationRotation: -135

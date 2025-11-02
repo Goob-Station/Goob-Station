@@ -17095,3 +17095,355 @@ Entries:
         suitstorage slot
   id: 1913
   time: '2025-10-27T17:51:52.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 'Added new hardlight bow arrow: ion.'
+    - type: Tweak
+      message: Hardlight bow cost reduced 75 -> 60.
+    - type: Tweak
+      message: Disabler and freeze hardlight arrows were buffed.
+    - type: Fix
+      message: You can now play with radial menu open.
+  id: 1914
+  time: '2025-10-28T20:27:44.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Remove
+      message: Removed moab class bloons due to performance issues.
+  id: 1915
+  time: '2025-10-28T23:36:16.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Remove
+      message: Disabled Zombie kit from Nukie uplink.
+    - type: Remove
+      message: Disabled the Devour Devil Clause.
+    - type: Tweak
+      message: 'Tweak: Devils require now a higher player count to spawn.'
+  id: 1916
+  time: '2025-10-28T23:38:10.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Plasmamen can no longer become ninjas, nukies or wizards.
+  id: 1917
+  time: '2025-10-28T23:38:52.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: You can no longer kill yourself with a water pistol
+  id: 1918
+  time: '2025-10-29T01:14:47.0000000+00:00'
+- author: Speebro
+  changes:
+    - type: Tweak
+      message: >-
+        Opporozidone (anti-rot cryo chem) now uses Phalanxamine instead of
+        Cognizine. It's strength has been halved to compensate.
+    - type: Tweak
+      message: Formaldehyde no longer reverts rotting, only pausing it.
+  id: 1919
+  time: '2025-10-29T01:16:45.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Added Roboticist Role, still needs mapping and some spriting.
+  id: 1920
+  time: '2025-10-29T14:10:58.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Buff fake spesos by 5X
+  id: 1921
+  time: '2025-10-29T14:17:26.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Science can now research liquid pumps to move reagents between machines.
+        Read the guidebook!
+  id: 1922
+  time: '2025-10-29T14:29:39.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Tweak
+      message: Wraith Animate Object cd from 30s -> 60s and WP cost from 100 -> 200
+    - type: Tweak
+      message: Wraith Rot Hulk has bigger search range
+    - type: Tweak
+      message: Diseased Rat from Wraith no longer injects insane amounts of poison
+    - type: Tweak
+      message: Wraith Blood Crayon WP cost from 2 -> 5
+    - type: Tweak
+      message: 'Wraith Command cd from 20s -> 40s and it can no longer throw jugs '
+    - type: Tweak
+      message: Wraith Possessed objects can talk now
+    - type: Tweak
+      message: Spirit Candle drops the skull back once it melts
+    - type: Fix
+      message: Rosary no longer damages incorporeal ghosts like Wraith
+    - type: Fix
+      message: Wraith Haunt no longer works on dead bodies
+    - type: Fix
+      message: Salt lines getting destroyed by ghosts
+  id: 1923
+  time: '2025-10-29T15:24:19.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: End of round manifest now shows what antagonists have purchased.
+    - type: Add
+      message: Added detonate nuke objective for nukeops.
+    - type: Remove
+      message: Bso protect command objective.
+  id: 1924
+  time: '2025-10-29T15:30:00.0000000+00:00'
+- author: joaofernandez
+  changes:
+    - type: Tweak
+      message: Added focus to the Search Input whenever the build menu is opened
+  id: 1925
+  time: '2025-10-29T15:57:09.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: NTR experimental hardsuit to the catalogue for 100 points.
+  id: 1926
+  time: '2025-10-29T20:39:54.0000000+00:00'
+- author: TytosB
+  changes:
+    - type: Tweak
+      message: bridge has a second door and external access from sec
+  id: 1927
+  time: '2025-10-30T13:06:39.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Scubbing floor now transfers reagents to the scubbing item
+  id: 1928
+  time: '2025-10-30T13:42:25.0000000+00:00'
+- author: Loltart, ZarathushtraSpitama
+  changes:
+    - type: Add
+      message: Vox's now have a unique slot for storing their nitrogen tanks.
+  id: 1929
+  time: '2025-10-30T13:53:07.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Add
+      message: >-
+        Fireaxe will now ~~decapitation~~ rapidly amputates the head if used to
+        execute somone
+  id: 1930
+  time: '2025-10-30T13:54:31.0000000+00:00'
+- author: '-'
+  changes: []
+  id: 1931
+  time: '2025-10-30T14:01:40.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Updated heretic guidebook.
+  id: 1932
+  time: '2025-10-30T14:24:39.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Reality fractures are visible to crew again.
+    - type: Fix
+      message: Fix being able to put markup tags in chat messages.
+  id: 1933
+  time: '2025-10-30T14:26:57.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        The undetermined crate now has a new western bundle. Only for real
+        cowboy's.
+  id: 1934
+  time: '2025-10-30T14:28:28.0000000+00:00'
+- author: ShieldAcrados
+  changes:
+    - type: Fix
+      message: Ended the facehugger torment nexus
+  id: 1935
+  time: '2025-10-30T23:49:08.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Fix
+      message: IPCs hopefully no longer explode violently when shocked.
+    - type: Fix
+      message: IPCs don't crash the server when two IPCs are shocked near each other.
+    - type: Fix
+      message: Fixed the formatting in the IPC guidebook.
+  id: 1936
+  time: '2025-10-31T08:09:07.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Remove
+      message: Pain effects including pain sounds and pain paralyzing are disabled.
+  id: 1937
+  time: '2025-10-31T10:42:08.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Gruntish actually sounds gruntish. Also fixed colour and font size.
+  id: 1938
+  time: '2025-10-31T13:38:58.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix game breaking in compat mode.
+  id: 1939
+  time: '2025-10-31T14:33:30.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Tweak
+      message: The FTL range for default shuttles is back to its original number.
+    - type: Fix
+      message: Shuttles can FTL to the station grid consistently.
+  id: 1940
+  time: '2025-10-31T17:07:10.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: You can now knock on windows and rattle on fences normally again
+  id: 1941
+  time: '2025-10-31T17:18:18.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Trevor now has the access of the rider
+  id: 1942
+  time: '2025-10-31T17:26:44.0000000+00:00'
+- author: Fin55Fin
+  changes:
+    - type: Tweak
+      message: Added cutting property to plant clippers
+  id: 1943
+  time: '2025-10-31T17:34:12.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Vox no longer have a second backslot
+  id: 1944
+  time: '2025-11-01T00:08:49.0000000+00:00'
+- author: JohnJohn, ArtisticRoomba
+  changes:
+    - type: Add
+      message: >-
+        (ArtisticRoomba) Added new gamemode "oops all thieves" which can have up
+        to 22 thieves, good luck sec!
+  id: 1945
+  time: '2025-11-01T17:26:56.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Cargo bingles now glow just like ordinary bingles.
+  id: 1946
+  time: '2025-11-01T17:29:10.0000000+00:00'
+- author: JohnJohn, insoPL, Palladinium
+  changes:
+    - type: Add
+      message: >-
+        Grinders now have visuals based on the liquid inside of the beaker
+        (insoPL)
+    - type: Add
+      message: Containers can now be used to feed biomass reclaimers (Palladinium)
+    - type: Add
+      message: Banana phone has a new sprite (AsnDen)
+  id: 1947
+  time: '2025-11-01T17:31:55.0000000+00:00'
+- author: Luminal
+  changes:
+    - type: Fix
+      message: Recyclers can no longer be animated by wizard or wraith
+    - type: Fix
+      message: Wraith doesn't take explosion damage anymore
+    - type: Fix
+      message: >-
+        Fixed token version of Wraith having missing features from the midround
+        version
+    - type: Fix
+      message: Some wraith mobs now have indicators on whether they died or not
+    - type: Tweak
+      message: Spirit Candle has more feedback on use
+    - type: Add
+      message: New section in chaplain guidebook
+    - type: Remove
+      message: Wraith Command
+    - type: Remove
+      message: Wraith Animate
+  id: 1948
+  time: '2025-11-01T18:37:08.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Star gazer can no longer harm its master by attacking shadow form.
+    - type: Fix
+      message: Star gazer no longer blocks projectiles and lasers.
+    - type: Add
+      message: Star gazer now star marks people on melee attack.
+    - type: Tweak
+      message: Star gazer laser is 2x thicker.
+    - type: Tweak
+      message: Star gazer melee dps tuned down.
+  id: 1949
+  time: '2025-11-01T18:38:35.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fixed rust charging into disposal bin deleting you.
+    - type: Remove
+      message: Removed leeching walk knowledge, merged it with rust grasp knowledge.
+    - type: Add
+      message: Rust charge is now rust main knowledge.
+    - type: Add
+      message: >-
+        Rust passive healing is now: 2/s after researching grasp, 3/s after
+        researching toxic blade, 4/s on ascension.
+    - type: Add
+      message: >-
+        You now purge chems except for eldritch essence when standing on rust as
+        rust heretic.
+    - type: Add
+      message: You regenerate lost limbs on rust as ascended rust heretic.
+  id: 1950
+  time: '2025-11-01T18:38:58.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: >-
+        Synthflesh now has a "weak" heal on splash like silver sulfide or
+        styptic powder, beg botany to make it
+    - type: Tweak
+      message: Synthcells deal less brute damage
+  id: 1951
+  time: '2025-11-01T18:41:02.0000000+00:00'
+- author: lambdatiger
+  changes:
+    - type: Add
+      message: TG station BZ catalyzed nitrous oxide production.
+  id: 1952
+  time: '2025-11-01T18:42:45.0000000+00:00'
+- author: XWASHERE
+  changes:
+    - type: Fix
+      message: Facehuggers no longer attack skeletons.
+  id: 1953
+  time: '2025-11-01T18:43:20.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Plasmamen burn agein
+    - type: Fix
+      message: 'robotosist start whit envirosuit  '
+  id: 1954
+  time: '2025-11-01T20:23:04.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Fix
+      message: Space Goldfish can now enter VIMs like any other small critter
+  id: 1955
+  time: '2025-11-01T20:23:27.0000000+00:00'
