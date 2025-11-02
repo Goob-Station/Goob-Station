@@ -1,7 +1,7 @@
 - type: entity
   name: Feed Producer
   id: FeedProducer
-  description: It converts food and reagents into usable feed for chickens. Alt-Click the machine in order to produce feed
+  description: It converts food and reagents into usable feed for chickens. Alt-Click the machine in order to produce feed.
   parent: BaseMachine # Powered
   components:
   - type: Sprite

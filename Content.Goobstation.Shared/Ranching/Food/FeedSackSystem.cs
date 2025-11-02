@@ -1,5 +1,5 @@
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Ranching.Happiness;
+using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Interaction;
@@ -10,8 +10,14 @@ using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Ranching.Food;
 
+/// <summary>
+/// Handles spawning food for the chicken.
+/// It transfers the preferences to the chicken feed.
+/// It allows you to place a set amount of chicken feed depending on how much food you put in the Food Producer.
+/// </summary>
 public sealed class FeedSackSystem : EntitySystem
 {
+    // todo: visuals for when it gets empty
     [Dependency] private readonly TurfSystem _turfSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
@@ -28,6 +34,8 @@ public sealed class FeedSackSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<FeedSackComponent, AfterInteractEvent>(OnAfterInteract);
+
+        SubscribeLocalEvent<LimitedChargesComponent, FoodProducedEvent>(OnFoodProduced);
     }
 
     private void OnAfterInteract(Entity<FeedSackComponent> ent, ref AfterInteractEvent args)
@@ -64,18 +72,24 @@ public sealed class FeedSackSystem : EntitySystem
             return;
         }
 
+        // transfer preferences to chicken feed
         foreach (var pref in _happiness.GetPreferences(ent.Owner))
         {
             preferences.Preferences.Add(pref);
         }
 
+        TransferSolutions(args.User, ent.Owner, chickenFeed, _charges.GetCurrentCharges(ent.Owner));
+
         if (!_appearance.TryGetData<Color>(ent.Owner, SeedColor.Color, out var color))
             return;
 
         _appearance.SetData(chickenFeed, SeedColor.Color, color);
-        TransferSolutions(args.User, ent.Owner, chickenFeed, _charges.GetCurrentCharges(ent.Owner));
     }
 
+    private void OnFoodProduced(Entity<LimitedChargesComponent> ent, ref FoodProducedEvent args) =>
+        _charges.SetCharges(ent.Owner, ent.Comp.LastCharges * args.FoodAmount);
+
+    #region Helper
     private void TransferSolutions(EntityUid user, EntityUid sack, EntityUid food, int chargesLeft)
     {
         if (!_solutionContainer.TryGetSolution(sack, "sack", out var sackSolution)
@@ -93,4 +107,5 @@ public sealed class FeedSackSystem : EntitySystem
             seedSolution.Value,
             sackSolution.Value.Comp.Solution.Volume / chargesLeft);
     }
+    #endregion
 }

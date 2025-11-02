@@ -1,5 +1,5 @@
 - type: entity
-  id: ChickenFeedBase
+  id: ChickenFeedBase # base item without Item and some other things
   abstract: true
   components:
   - type: Appearance

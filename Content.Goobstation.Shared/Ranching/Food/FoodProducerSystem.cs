@@ -5,7 +5,6 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
-using Content.Shared.Storage.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -16,7 +15,8 @@ using Robust.Shared.Utility;
 namespace Content.Goobstation.Shared.Ranching.Food;
 
 /// <summary>
-/// This handles producing procedural food.
+/// This handles producing chicken feed sacks.
+/// It spawns a chicken feed sack, which takes the colour of either the beaker's reagent OR defaults to orange.
 /// </summary>
 public sealed class FoodProducerSystem : EntitySystem
 {
@@ -32,6 +32,7 @@ public sealed class FoodProducerSystem : EntitySystem
 
     private EntityQuery<PreferencesHolderComponent> _preferencesQuery;
     private EntityQuery<HappinessPreferenceComponent> _happinessPreferenceQuery;
+    private EntityQuery<FeedSackComponent> _feedSackQuery;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -40,6 +41,7 @@ public sealed class FoodProducerSystem : EntitySystem
 
         _preferencesQuery = GetEntityQuery<PreferencesHolderComponent>();
         _happinessPreferenceQuery = GetEntityQuery<HappinessPreferenceComponent>();
+        _feedSackQuery = GetEntityQuery<FeedSackComponent>();
 
         SubscribeLocalEvent<FoodProducerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
         SubscribeLocalEvent<FoodProducerComponent, FoodProducerDoAfterEvent>(OnDoAfter);
@@ -62,47 +64,6 @@ public sealed class FoodProducerSystem : EntitySystem
                 ProduceFood(ent);
             }
         });
-    }
-
-    private void ProduceFood(Entity<FoodProducerComponent> ent)
-    {
-        // first, check if those containers exist in our entity
-        if (!_container.TryGetContainer(ent.Owner, ent.Comp.StorageContainer, out var foodContainer)
-            || !_container.TryGetContainer(ent.Owner, ent.Comp.BeakerContainer, out var beakerContainer))
-        {
-            Log.Warning("Containers not found. Make sure the food producer has storagebase and beakerSlot");
-            return;
-        }
-
-        // check if the food container has more food than allowed, or no food at all
-        if (!CanMakeFood(ent, foodContainer))
-            return;
-
-        var doAfterArgs = new DoAfterArgs(
-            EntityManager,
-            ent.Owner,
-            ent.Comp.Duration,
-            new FoodProducerDoAfterEvent(),
-            ent.Owner)
-        {
-            Hidden = true,
-            BreakOnDamage = true,
-            BreakOnMove = true,
-        };
-
-        var stream = _audio.PlayPredicted(ent.Comp.GrindSound, ent.Owner, null);
-        ent.Comp.Audio = stream?.Entity;
-
-        if (!_doAfter.TryStartDoAfter(doAfterArgs))
-        {
-            ent.Comp.Audio = _audio.Stop(ent.Comp.Audio);
-            ent.Comp.IsActive = false;
-            Dirty(ent);
-            return;
-        }
-
-        ent.Comp.IsActive = true;
-        Dirty(ent);
     }
 
     private void OnDoAfter(Entity<FoodProducerComponent> ent, ref FoodProducerDoAfterEvent args)
@@ -146,6 +107,50 @@ public sealed class FoodProducerSystem : EntitySystem
     }
 
     #region Helpers
+    /// <summary>
+    /// Starts the DoAfter if conditions pass.
+    /// </summary>
+    private void ProduceFood(Entity<FoodProducerComponent> ent)
+    {
+        // first, check if those containers exist in our entity
+        if (!_container.TryGetContainer(ent.Owner, ent.Comp.StorageContainer, out var foodContainer)
+            || !_container.TryGetContainer(ent.Owner, ent.Comp.BeakerContainer, out _))
+        {
+            Log.Warning("Containers not found. Make sure the food producer has storagebase and beakerSlot");
+            return;
+        }
+
+        // check if the food container has more food than allowed, or no food at all
+        if (!CanMakeFood(ent, foodContainer))
+            return;
+
+        var doAfterArgs = new DoAfterArgs(
+            EntityManager,
+            ent.Owner,
+            ent.Comp.Duration,
+            new FoodProducerDoAfterEvent(),
+            ent.Owner)
+        {
+            Hidden = true,
+            BreakOnDamage = true,
+            BreakOnMove = true,
+        };
+
+        var stream = _audio.PlayPredicted(ent.Comp.GrindSound, ent.Owner, null);
+        ent.Comp.Audio = stream?.Entity;
+
+        if (!_doAfter.TryStartDoAfter(doAfterArgs))
+        {
+            ent.Comp.Audio = _audio.Stop(ent.Comp.Audio);
+            ent.Comp.IsActive = false;
+            Dirty(ent);
+            return;
+        }
+
+        ent.Comp.IsActive = true;
+        Dirty(ent);
+    }
+
     private void MakeFood(Entity<FoodProducerComponent> ent, BaseContainer foodContainer, BaseContainer beakerContainer)
     {
         if (_net.IsClient)
@@ -158,9 +163,11 @@ public sealed class FoodProducerSystem : EntitySystem
 
         PrepareFeedSack(feedSack, foodList, beaker);
 
+        var ev = new FoodProducedEvent(foodList.Count);
+        RaiseLocalEvent(feedSack, ref ev);
+
         foreach (var food in foodList)
         {
-            _container.Remove(food, foodContainer);
             QueueDel(food);
         }
 
@@ -170,7 +177,7 @@ public sealed class FoodProducerSystem : EntitySystem
 
     private void PrepareFeedSack(EntityUid uid, List<EntityUid> food, EntityUid? beaker)
     {
-        if (!_preferencesQuery.TryComp(uid, out var preferencesHolder) || !TryComp<FeedSackComponent>(uid, out var feedSackComponent))
+        if (!_preferencesQuery.TryComp(uid, out var preferencesHolder) || !_feedSackQuery.TryComp(uid, out var feedSackComponent))
             return;
 
         var color = feedSackComponent.SeedColor;
@@ -186,7 +193,8 @@ public sealed class FoodProducerSystem : EntitySystem
         // next from the reagent
         if (beaker is { } beakerEnt)
         {
-            if (!_solutionContainer.TryGetSolution(beakerEnt, "beaker", out var solution))
+            if (!_solutionContainer.TryGetSolution(beakerEnt, "beaker", out var solution)
+                || solution.Value.Comp.Solution.Volume <= 0)
                 return;
 
             if (_appearance.TryGetData<Color>(beakerEnt, SolutionContainerVisuals.Color, out var beakerColor))
