@@ -20,7 +20,7 @@
   event: !type:DragonClawPerformedEvent
     sound:
       path: /Audio/Weapons/genhit3.ogg
-  staminaDamage: 40
+  staminaDamage: 50
 
 - type: combo
   id: DragonTail
