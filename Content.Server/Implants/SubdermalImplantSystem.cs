@@ -198,7 +198,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
 
         if (TryComp<PullableComponent>(user, out var pullable) && pullable.Puller.HasValue)
         {
-            _stun.TryParalyze(pullable.Puller.Value, TimeSpan.FromSeconds(args.StunTime), true);
+            //_stun.TryParalyze(pullable.Puller.Value, TimeSpan.FromSeconds(args.StunTime), true); todo marty stun
             args.Handled = true;
         }
 

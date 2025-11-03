@@ -1789,7 +1789,7 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
-  - type: LayingDown # Goobstation
+  #- type: LayingDown # Goobstation todo marty layingdown here
   - type: Vocal # Goobstation
     sounds:
       Male: MonkeyMode
@@ -2265,7 +2265,7 @@
   - type: Stamina
     critThreshold: 20
     animationThreshold: 10 # Goob edit
-  - type: LayingDown
+  #- type: LayingDown todo marty layingdown here
   - type: NPCRetaliation
     attackMemoryLength: 5 # stop caring fast if you don't keep hitting
   - type: GroupRetaliation

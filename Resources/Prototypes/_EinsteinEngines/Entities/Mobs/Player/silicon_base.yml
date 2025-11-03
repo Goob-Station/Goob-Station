@@ -343,7 +343,7 @@
     - type: ComplexInteraction
     - type: Carriable
     - type: Targeting
-    - type: LayingDown
+    #- type: LayingDown todo marty layingdown here
     - type: Consciousness
       cap: 190
       threshold: 95

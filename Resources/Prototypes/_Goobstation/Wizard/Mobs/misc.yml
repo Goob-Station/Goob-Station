@@ -133,7 +133,7 @@
         damage:
           types:
             Cellular: 1
-  - type: LayingDown
+  #- type: LayingDown #todo marty layingdown here
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: PaperCreature

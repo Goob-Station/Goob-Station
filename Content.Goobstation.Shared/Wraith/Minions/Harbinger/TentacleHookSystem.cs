@@ -95,7 +95,7 @@ public sealed class TentacleHookSystem : EntitySystem
         ent.Comp.Target = args.Target;
         Dirty(ent);
 
-        _stun.TrySlowdown(args.Target, ent.Comp.DurationSlow, false, 0.3f, 0.3f);
+        //stun.TrySlowdown(args.Target, ent.Comp.DurationSlow, false, 0.3f, 0.3f);  todo marty stunmod_
 
         var tentacle = EnsureComp<TentacleHookedComponent>(args.Target);
         tentacle.ThrowTowards = args.Shooter;

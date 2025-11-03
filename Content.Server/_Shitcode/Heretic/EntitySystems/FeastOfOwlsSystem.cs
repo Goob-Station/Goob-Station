@@ -45,12 +45,12 @@ public sealed class FeastOfOwlsSystem : EntitySystem
 
             comp.ElapsedTime = 0f;
 
-            if (comp.CurrentStep + 1 < comp.Reward && !_stun.TryParalyze(uid, comp.ParalyzeTime, true, status))
-            {
-                _heretic.UpdateKnowledge(uid, heretic, comp.Reward - comp.CurrentStep, store, false, false);
-                RemCompDeferred(uid, comp);
-                continue;
-            }
+            // if (comp.CurrentStep + 1 < comp.Reward && !_stun.TryParalyze(uid, comp.ParalyzeTime, true, status))
+            // {
+            //     _heretic.UpdateKnowledge(uid, heretic, comp.Reward - comp.CurrentStep, store);
+            //     RemCompDeferred(uid, comp);
+            //     continue;
+            // } todo marty stun
 
             _jitter.DoJitter(uid, comp.JitterStutterTime, true, 10f, 10f,  true, status);
             _stutter.DoStutter(uid, comp.JitterStutterTime, true, status);

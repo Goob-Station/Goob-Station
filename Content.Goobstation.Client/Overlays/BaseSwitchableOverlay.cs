@@ -7,6 +7,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Goobstation.Maths.Vectors;
 using Content.Goobstation.Shared.Overlays;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
@@ -39,7 +40,7 @@ public sealed class BaseSwitchableOverlay<TComp> : Overlay where TComp : Switcha
             return;
 
         _shader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
-        _shader.SetParameter("tint", Comp.Tint);
+        //_shader.SetParameter("tint", Comp.Tint); todo marty fix vector3 here
         _shader.SetParameter("luminance_threshold", Comp.Strength);
         _shader.SetParameter("noise_amount", Comp.Noise);
 

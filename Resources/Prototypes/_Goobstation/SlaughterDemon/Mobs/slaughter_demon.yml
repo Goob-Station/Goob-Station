@@ -122,7 +122,7 @@
   - type: TypingIndicator
     proto: guardian
   - type: Gibbable
-  - type: LayingDown
+  #- type: LayingDown todo marty layingdown here
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90

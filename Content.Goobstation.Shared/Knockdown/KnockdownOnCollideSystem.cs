@@ -16,7 +16,6 @@ namespace Content.Goobstation.Shared.Knockdown;
 
 public sealed class KnockdownOnCollideSystem : EntitySystem
 {
-    [Dependency] private readonly SharedLayingDownSystem _layingDown = default!;
     [Dependency] private readonly SharedHulkSystem _hulk = default!;
 
     public override void Initialize()
@@ -48,6 +47,6 @@ public sealed class KnockdownOnCollideSystem : EntitySystem
         if (HasComp<RustbringerComponent>(target))
             return;
 
-        _layingDown.TryLieDown(target, null, null, component.Behavior);
+        //_layingDown.TryLieDown(target, null, null, component.Behavior); todo marty trycrawl
     }
 }

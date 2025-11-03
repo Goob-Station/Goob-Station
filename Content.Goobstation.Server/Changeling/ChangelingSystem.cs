@@ -423,12 +423,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
             if (soundEv.ProtectionRange < float.MaxValue)
             {
-                _stun.TryStun(player, TimeSpan.FromSeconds(stunTime / 2f), true);
+                //_stun.TryStun(player, TimeSpan.FromSeconds(stunTime / 2f), true);todo marty stun
                 _stun.TryKnockdown(player, TimeSpan.FromSeconds(knockdownTime / 2f), true);
                 continue;
             }
 
-            _stun.TryStun(player, TimeSpan.FromSeconds(stunTime), true);
+            //_stun.TryStun(player, TimeSpan.FromSeconds(stunTime), true);todo marty stun
             _stun.TryKnockdown(player, TimeSpan.FromSeconds(knockdownTime), true);
         }
     }
