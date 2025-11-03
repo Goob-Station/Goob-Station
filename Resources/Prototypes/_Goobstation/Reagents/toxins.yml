@@ -336,7 +336,7 @@
         paralyzeTime: 2
 
 - type: reagent
-  id: microplastics
+  id: Microplastics
   name: reagent-name-microplastics
   group: Toxins
   desc: reagent-desc-microplastics
@@ -349,12 +349,12 @@
     amount: -1
   metabolisms:
     Poison:
-      metabolismRate: 0.03 #Yummers
+      metabolismRate: 0.05 #Yummers
       effects:
       - !type:HealthChange
         damage:
           types:
-            Poison: 0.01
+            Poison: 0.02
         conditions:
         - !type:OrganType
           type: Vox
@@ -378,18 +378,10 @@
           min: 20
     Food:
       effects:
-      - !type:SatiateHunger
-        factor: 0.01
-        conditions:
-        - !type:OrganType # Goob, Vox are stinky
-          type: Vox
-          shouldHave: true
       - !type:HealthChange
         damage:
           types:
-            Poison: -0.01
-          groups:
-            Brute: -0.01 # very dogshit healing but by god is the concept funny
+            Poison: -0.03
         conditions:
         - !type:OrganType # Goob, Vox are stinky
           type: Vox

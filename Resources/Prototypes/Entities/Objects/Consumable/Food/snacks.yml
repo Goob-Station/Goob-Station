@@ -703,7 +703,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 7 #goob, was 10 i dont know why they let you inject chems into trash so i just made it enough to have the chems it should have
+        maxVol: 12 #goob, was 10
         reagents:
         - ReagentId: ToxinTrash
           Quantity: 5
