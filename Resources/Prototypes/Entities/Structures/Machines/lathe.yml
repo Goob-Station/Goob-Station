@@ -539,6 +539,7 @@
     - SecurityWeaponsGoob
     - RestraintTechnology
     - MiningWeapons
+    - Archguns #RAE
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -670,6 +671,7 @@
     emagDynamicPacks:
     - MechWeaponsSalvage
     - MechWeaponsSecurityLight
+    - Archguns
   - type: MaterialStorage
     whitelist:
       tags:
