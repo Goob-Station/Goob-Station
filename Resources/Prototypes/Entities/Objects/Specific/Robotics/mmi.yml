@@ -269,7 +269,6 @@
     - type: NerveSystem # backmen: wounding
     - type: ConsciousnessRequired
       identifier: "nerveSystem"
-    - type: KnowledgeContainer # Goobstation - knowledge
     - type: LanguageSpeaker # Einstein Engines - Language
     - type: LanguageGrant # Einstein Engines - Language
       speaks:

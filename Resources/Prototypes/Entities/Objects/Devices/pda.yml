@@ -298,7 +298,6 @@
     proto: robot
   - type: Speech
     speechVerb: Robotic
-  - type: KnowledgeContainer # Goobstation - Knowledge
   - type: LanguageSpeaker # Einstein Engines - Language
   - type: LanguageGrant # Einstein Engines - Language
     speaks:

@@ -127,7 +127,6 @@
       components:
       - Xenomorph
   # Einstein Engines - Language begin
-  - type: KnowledgeContainer # Goobstation - knowledge
   - type: LanguageSpeaker
   - type: LanguageGrant
     speaks:

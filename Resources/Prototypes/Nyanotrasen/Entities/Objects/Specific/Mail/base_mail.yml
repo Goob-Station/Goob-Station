@@ -121,7 +121,6 @@
     - paper
     ignoreReagents:
     - Fiber
-  - type: KnowledgeContainer # Goobstation - knowledge
   - type: LanguageSpeaker # Einstein Engines - Language
   - type: LanguageGrant # Einstein Engines - Language
     speaks:

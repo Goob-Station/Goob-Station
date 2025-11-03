@@ -280,7 +280,6 @@
     price: 100
   - type: Appearance
   - type: WiresVisuals
-  - type: KnowledgeContainer # Goobstation - knowledge
   - type: LanguageSpeaker # Einstein Engines - Languages
   - type: LanguageGrant # Einstein Engines - Languages
     speaks:

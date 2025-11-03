@@ -247,7 +247,6 @@
       - type: CanEscapeInventory
       - type: MobCollision
       - type: LanguageSpeaker
-      - type: KnowledgeContainer # Goobstation - Knowledge
       - type: UniversalLanguageSpeaker
       - type: Speech
         speechVerb: Ghost
