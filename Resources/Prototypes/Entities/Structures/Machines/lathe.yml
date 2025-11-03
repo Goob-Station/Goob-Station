@@ -786,6 +786,7 @@
     - PowerCells
     # RA
     - SlayerBlades
+    - Archguns
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:
     - SyndicateAmmoLightStatic

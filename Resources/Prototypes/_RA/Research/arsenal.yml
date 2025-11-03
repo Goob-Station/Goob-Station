@@ -22,4 +22,21 @@
   cost: 40000
   recipeUnlocks:
   - BladesOfChaos
-  position: 6, 2
+  position: 3, 1
+  technologyPrerequisites:
+  - DraconicMunitions
+
+- type: technology
+  id: MechWeaponUpgrades
+  name: research-technology-archguns
+  icon:
+    sprite: _Lavaland/Objects/Weapons/upgrade.rsi
+    state: display-mech
+  discipline: Arsenal
+  tier: 3
+  cost: 7500
+  recipeUnlocks:
+  - GraviMag
+  position: 1,-7
+  technologyPrerequisites:
+  - KineticModifications

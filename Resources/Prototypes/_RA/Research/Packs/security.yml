@@ -2,3 +2,8 @@
   id: SlayerBlades
   recipes:
   - BladesOfChaos
+
+- type: latheRecipePack
+  id: Archguns
+  recipes:
+  - GraviMag

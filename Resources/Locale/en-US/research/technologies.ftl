@@ -60,6 +60,7 @@ research-technology-portable-microfusion-weaponry = Portable Microfusion Weaponr
 research-technology-experimental-battery-ammo = Experimental Battery Ammo
 research-technology-heavy-weaponry = Heavy Weaponry
 research-technology-slayer = Slayer
+research-technology-archguns = Archgun Mobilization
 research-technology-kinetic-modifications = Kinetic Modifications
 research-technology-basic-shuttle-armament = Shuttle Basic Armament
 research-technology-advanced-shuttle-weapon = Advanced Shuttle Weapons

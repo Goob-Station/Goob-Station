@@ -115,7 +115,7 @@
   # - MagazineBoxLightRifleIncendiary # Goobstation - remove light rifle
   - MagazineBoxRifleIncendiary
   # Goobstation R&D Console rework start
-  position: 2,2
+  position: 2,1
   technologyPrerequisites:
   - SalvageWeapons
   # Goobstation R&D Console rework end
