@@ -110,6 +110,15 @@
     Glass: 100
 
 - type: latheRecipe
+  parent: BasePartRecipe
+  id: VoiceSensor
+  result: voicesensor
+  materials:
+    Steel: 100
+    Plastic: 200
+    Glass: 100
+
+- type: latheRecipe
   id: SignallerAdvanced
   result: RemoteSignallerAdvanced
   categories:
@@ -290,7 +299,7 @@
 - type: latheRecipe
   id: CableDetStack1
   result: CableDetStack1
-  categories: 
+  categories:
   - Weapons
   completetime: 2
   materials:
@@ -301,7 +310,7 @@
 - type: latheRecipe
   id: EmptyDetonator
   result: EmptyDetonator
-  categories: 
+  categories:
   - Weapons
   completetime: 3
   materials:

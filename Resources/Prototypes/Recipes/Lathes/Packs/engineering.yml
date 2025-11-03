@@ -13,6 +13,7 @@
 - type: latheRecipePack
   id: ToolsStatic
   recipes:
+  - VoiceSensor
   - Wirecutter
   - Screwdriver
   - Welder
