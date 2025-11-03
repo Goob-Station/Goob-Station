@@ -100,13 +100,13 @@ public sealed class CosmicRunesSystem : EntitySystem
 
         if (HasComp<StarMarkComponent>(user))
         {
-            _popup.PopupPredicted(Loc.GetString("heretic-cosmic-rune-fail-star-mark"), user, user);
+            _popup.PopupClient(Loc.GetString("heretic-cosmic-rune-fail-star-mark"), user, user);
             return false;
         }
 
         if (!_transform.InRange(ent.Owner, user, ent.Comp.Range))
         {
-            _popup.PopupPredicted(Loc.GetString("heretic-cosmic-rune-fail-range"), user, user);
+            _popup.PopupClient(Loc.GetString("heretic-cosmic-rune-fail-range"), user, user);
             return false;
         }
 
@@ -157,7 +157,7 @@ public sealed class CosmicRunesSystem : EntitySystem
         }
 
         if (pulling != null)
-            _pulling.TryStartPull(user, pulling.Value, puller, null, grabStage);
+            _pulling.TryStartPull(user, pulling.Value, puller, null, grabStage, force: true);
 
         return true;
     }

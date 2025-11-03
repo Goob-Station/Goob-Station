@@ -103,6 +103,10 @@
   - type: Reflect
     reflectProb: 1
     spread: 360
+    reflects:
+    - Energy
+    - NonEnergy
+    - Magic
 
 - type: entity
   parent: BaseBullet
