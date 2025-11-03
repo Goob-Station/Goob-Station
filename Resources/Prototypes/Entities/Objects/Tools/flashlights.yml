@@ -147,6 +147,17 @@
       Plastic: 25
       Steel: 25
       Glass: 25
+  # goob edit start - more multitool shite
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+    - Toggle
+  - type: SignalToggler
+  # goob edit end
 
 - type: entity
   name: seclite

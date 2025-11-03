@@ -80,6 +80,17 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  # goob edit start - more multitool shite
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+    - Toggle
+  - type: SignalToggler
+  # goob edit end
 
 - type: entity
   parent: [ClothingShoesBootsMagBase]
