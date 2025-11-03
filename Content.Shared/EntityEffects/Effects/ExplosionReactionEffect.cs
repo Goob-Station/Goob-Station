@@ -4,14 +4,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.Explosion;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using System.Text.Json.Serialization;
 
-namespace Content.Shared.EntityEffects.Effects;
+namespace Content.Shared.EntityEffects.Effects; //todo marty goobify
 
 [DataDefinition]
 public sealed partial class ExplosionReactionEffect : EventEntityEffect<ExplosionReactionEffect>
