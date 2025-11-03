@@ -1,7 +1,9 @@
+# TODO: split this into a bunch of entities for each construction group instead of storing everything in 1 place
 - type: entity
+  parent: BaseKnowledge
   id: ConstructionKnowledge
   name: Construction knowledge
-  categories: [ Knowledge ]
-  abstract: true
   components:
   - type: Knowledge
+    memoryLevel: JobMemory
+  - type: ConstructionKnowledge

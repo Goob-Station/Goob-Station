@@ -1,5 +1,8 @@
 ﻿using Content.Goobstation.Common.Knowledge.Systems;
 using Content.Goobstation.Shared.Knowledge.Components;
+using Content.Shared.Body.Systems;
+using Content.Shared.Construction;
+using Content.Shared.Construction.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;
 using Robust.Shared.Serialization;
@@ -19,7 +22,8 @@ public sealed class KnowledgeGrantSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<KnowledgeGrantComponent, MapInitEvent>(OnKnowledgeGrantInit);
+        SubscribeLocalEvent<KnowledgeGrantComponent, MapInitEvent>(OnKnowledgeGrantInit, after: [typeof(SharedBodySystem)]); // General component for general shitspawning
+        SubscribeLocalEvent<ConstructionKnowledgeGrantComponent, MapInitEvent>(OnConstructionGrantInit, after: [typeof(SharedBodySystem)]); // For construction knowledge
 
         SubscribeLocalEvent<KnowledgeGrantOnUseComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<KnowledgeGrantOnUseComponent, KnowledgeLearnDoAfterEvent>(OnDoAfter);
@@ -68,6 +72,22 @@ public sealed class KnowledgeGrantSystem : EntitySystem
             return;
 
         _knowledge.AddKnowledgeUnits(args.Target.Value, ent.Comp.ToAdd);
+    }
+
+
+    private void OnConstructionGrantInit(Entity<ConstructionKnowledgeGrantComponent> ent, ref MapInitEvent args)
+    {
+        if (!_knowledge.TryEnsureKnowledgeUnit(ent.Owner, SharedConstructionSystem.ConstructionKnowledge, out var knowledge)
+            || !TryComp(knowledge, out ConstructionKnowledgeComponent? knowledgeComp))
+            return;
+
+        foreach (var group in ent.Comp.Groups)
+        {
+            knowledgeComp.Groups.Add(group);
+        }
+
+        Dirty(knowledge.Value, knowledgeComp);
+        RemComp(ent.Owner, ent.Comp);
     }
 }
 

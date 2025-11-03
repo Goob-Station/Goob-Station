@@ -83,6 +83,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using Content.Goobstation.Common.Knowledge;
+using Content.Goobstation.Common.Knowledge.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Organ;
@@ -94,6 +97,7 @@ using Robust.Shared.Containers;
 using Content.Shared.Damage;
 using Content.Shared._Shitmed.BodyEffects;
 using Content.Shared._Shitmed.Body.Organ;
+using Content.Shared.Silicons.Borgs.Components;
 
 namespace Content.Shared.Body.Systems;
 
@@ -105,6 +109,7 @@ public partial class SharedBodySystem
     {
         SubscribeLocalEvent<OrganComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<OrganComponent, OrganEnableChangedEvent>(OnOrganEnableChanged);
+        SubscribeLocalEvent<OrganComponent, KnowledgeContainerRelayEvent>(HandleKnowledge); // Goobstation edit
     }
 
     private void OnMapInit(Entity<OrganComponent> ent, ref MapInitEvent args)
@@ -114,6 +119,33 @@ public partial class SharedBodySystem
     }
 
     // Shitmed Change End
+
+    // Goobstation edit start
+    private void HandleKnowledge(Entity<OrganComponent> ent, ref KnowledgeContainerRelayEvent args)
+    {
+        // Look for the first organ that has KnowledgeContainerComponent and is inserted inside as body organ
+        if (args.Handled
+            || !HasComp<KnowledgeContainerComponent>(ent.Owner))
+            return;
+
+        // Check for a brain that is inside MMI because borg system is trash
+        if (HasComp<MMIComponent>(Transform(ent.Owner).ParentUid))
+        {
+            args.Found = ent.Owner;
+            args.Handled = true;
+            return;
+        }
+
+        // Check that the brain is inserted into the right entity
+        var organs = GetBodyOrgans(args.Target).Select(x => x.Id).ToList();
+        if (!organs.Contains(ent.Owner))
+            return;
+
+        // We are in a right place.
+        args.Found = ent.Owner;
+        args.Handled = true;
+    }
+    // Goobstation edit end
 
     private void AddOrgan(
         Entity<OrganComponent> organEnt,
