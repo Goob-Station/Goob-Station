@@ -360,15 +360,26 @@
           type: Vox
           shouldHave: false
       - !type:ChemVomit
+        probability: 0.1
         conditions:
         - !type:ReagentThreshold
           min: 10
         - !type:OrganType
           type: Vox
           shouldHave: false
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.90
+        sprintSpeedModifier: 0.90
+        conditions:
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 20
     Food:
       effects:
       - !type:SatiateHunger
+        factor: 0.01
         conditions:
         - !type:OrganType # Goob, Vox are stinky
           type: Vox
@@ -378,7 +389,7 @@
           types:
             Poison: -0.01
           groups:
-            Brute: -0.01
+            Brute: -0.01 # very dogshit healing but by god is the concept funny
         conditions:
         - !type:OrganType # Goob, Vox are stinky
           type: Vox
