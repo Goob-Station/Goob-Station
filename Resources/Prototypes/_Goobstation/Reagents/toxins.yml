@@ -334,3 +334,52 @@
           shouldHave: false
         probability: 0.05
         paralyzeTime: 2
+
+- type: reagent
+  id: microplastics
+  name: reagent-name-microplastics
+  group: Toxins
+  desc: reagent-desc-microplastics
+  physicalDesc: reagent-physical-desc-powdery
+  color: "#ffffff"
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 2
+  - !type:PlantAdjustHealth
+    amount: -1
+  metabolisms:
+    Poison:
+      metabolismRate: 0.03 #Yummers
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.01
+        conditions:
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
+      - !type:ChemVomit
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType # Goob, Vox are stinky
+          type: Vox
+          shouldHave: true
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -0.01
+          groups:
+            Brute: -0.01
+        conditions:
+        - !type:OrganType # Goob, Vox are stinky
+          type: Vox
+          shouldHave: true
