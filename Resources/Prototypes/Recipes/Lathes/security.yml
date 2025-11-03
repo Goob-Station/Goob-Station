@@ -377,7 +377,8 @@
   materials:
     Steel: 1500
     Gold: 1000
-    Diamond: 2000
+    Diamond: 200
+    Plasma: 1000
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
