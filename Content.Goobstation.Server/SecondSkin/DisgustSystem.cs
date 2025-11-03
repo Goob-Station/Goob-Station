@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.SecondSkin;
 using Content.Goobstation.Shared.SecondSkin;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Alert;
@@ -21,6 +22,12 @@ public sealed class DisgustSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<DisgustComponent, RejuvenateEvent>(OnRejuvenate);
+        SubscribeLocalEvent<DisgustComponent, ModifyDisgustEvent>(OnModify);
+    }
+
+    private void OnModify(Entity<DisgustComponent> ent, ref ModifyDisgustEvent args)
+    {
+        UpdateLevel(ent, args.Delta);
     }
 
     private void OnRejuvenate(Entity<DisgustComponent> ent, ref RejuvenateEvent args)
@@ -69,6 +76,8 @@ public sealed class DisgustSystem : EntitySystem
 
     public void UpdateLevel(Entity<DisgustComponent> ent, float delta)
     {
+        if (delta > 0f)
+            delta *= ent.Comp.AccumulationMultiplier;
         ent.Comp.Level = Math.Max(0f, ent.Comp.Level + delta);
     }
 

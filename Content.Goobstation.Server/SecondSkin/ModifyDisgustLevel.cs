@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.SecondSkin;
 using Content.Goobstation.Shared.SecondSkin;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
@@ -34,7 +35,7 @@ public sealed partial class ModifyDisgustLevel : EntityEffect
         if (amount == 0f)
             return;
 
-        var sys = args.EntityManager.System<DisgustSystem>();
-        sys.UpdateLevel((args.TargetEntity, disgust), amount);
+        var ev = new ModifyDisgustEvent(amount);
+        args.EntityManager.EventBus.RaiseLocalEvent(args.TargetEntity, ref ev);
     }
 }

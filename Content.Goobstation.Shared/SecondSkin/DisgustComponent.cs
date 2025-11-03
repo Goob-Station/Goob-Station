@@ -15,6 +15,9 @@ public sealed partial class DisgustComponent : Component
     public float ReductionRate = 2f;
 
     [DataField]
+    public float AccumulationMultiplier = 1f;
+
+    [DataField]
     public float UpdateTime = 1f;
 
     [ViewVariables]

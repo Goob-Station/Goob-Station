@@ -18,6 +18,7 @@ using System.Numerics;
 using System.Text;
 using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Common.Physics;
+using Content.Goobstation.Common.SecondSkin;
 using Content.Goobstation.Common.Weapons;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Wizard.SanguineStrike;
@@ -186,6 +187,11 @@ public abstract class SharedHereticBladeSystem : EntitySystem
             case "Rust":
                 if (_mobState.IsDead(target))
                     _rotting.ReduceAccumulator(target, -TimeSpan.FromMinutes(1f));
+                else
+                {
+                    var ev = new ModifyDisgustEvent(15f);
+                    RaiseLocalEvent(target, ref ev);
+                }
                 break;
 
             default:
@@ -252,7 +258,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                     {
                         DamageDict =
                         {
-                            { "Poison", 8f },
+                            { "Poison", 5f },
                         },
                     };
                     break;

@@ -1,0 +1,12 @@
+- type: reagent
+  id: Phthalates
+  name: reagent-name-phthalates
+  group: Foods
+  desc: reagent-desc-phthalates
+  physicalDesc: reagent-physical-desc-opaque
+  color: "#24591F"
+  metabolisms:
+    Food:
+      effects:
+      - !type:ModifyDisgustLevel
+        delta: 6

@@ -37,3 +37,19 @@
     sprite: Objects/Materials/materials.rsi
     state: bones
   - type: Appearance
+
+- type: entity
+  id: BoneWeak
+  parent: Bone
+  components:
+  - type: Bone
+    integrityCap: 40
+    boneIntegrity: 40
+
+- type: entity
+  id: BoneNeckWeak
+  parent: BoneNeck
+  components:
+  - type: Bone
+    integrityCap: 60
+    boneIntegrity: 60
