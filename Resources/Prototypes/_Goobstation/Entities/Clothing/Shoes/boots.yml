@@ -287,3 +287,17 @@
         Blunt: 0.95
         Slash: 0.95
         Piercing: 0.95
+
+# Western Undetermined Set
+- type: entity
+  parent: [ClothingShoesMilitaryBase, BaseMajorContraband]
+  id: ClothingShoesBootsCowboyBrownRobust
+  name: authentic brown cowboy boots
+  description: For a real cowboy.
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/cowboybootsbrown.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/cowboybootsbrown.rsi
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
