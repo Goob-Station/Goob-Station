@@ -52,6 +52,7 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 using Content.Shared.Administration.Logs;
+using Content.Goobstation.Shared.ManifestListings;
 
 namespace Content.Server.Objectives;
 
