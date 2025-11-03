@@ -106,7 +106,7 @@ public sealed class CosmicGlareSystem : EntitySystem
 
             if (HasComp<BorgChassisComponent>(targetEnt) // fuck them clankers
                 || HasComp<SiliconComponent>(targetEnt))
-                _stun.TryParalyze(targetEnt, uid.Comp.CosmicGlareDuration / 2, true);
+                //_stun.TryParalyze(targetEnt, uid.Comp.CosmicGlareDuration / 2, true); todo marty stun
 
             _color.RaiseEffect(Color.CadetBlue,
                 new List<EntityUid>() { targetEnt },

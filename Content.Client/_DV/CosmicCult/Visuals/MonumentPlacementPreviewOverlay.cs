@@ -76,7 +76,7 @@ public sealed class MonumentPlacementPreviewOverlay : Overlay
 
         _saturationShader = protoMan.Index<ShaderPrototype>("SaturationShuffle").InstanceUnique();
         _saturationShader.SetParameter("tileSize", new Vector2(96, 96));
-        _saturationShader.SetParameter("hsv", new Robust.Shared.Maths.Vector3(1.0f, 0.25f, 0.2f));
+        _saturationShader.SetParameter("hsv", new Vector3(1.0f, 0.25f, 0.2f)); // todo marty doublecheck correct vector3
 
         _starsShader = protoMan.Index<ShaderPrototype>("MonumentPulse").InstanceUnique();
         _starsShader.SetParameter("tileSize", new Vector2(96, 96));

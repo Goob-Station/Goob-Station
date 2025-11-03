@@ -834,7 +834,7 @@ public partial class PainSystem
                     nerveSys,
                     nerveSys.Comp.PainShockAdrenalineTime);
 
-                _stun.TryParalyze(body, nerveSys.Comp.PainShockStunTime, true, standOnRemoval: false);
+                //_stun.TryParalyze(body, nerveSys.Comp.PainShockStunTime, true, standOnRemoval: false); todo marty stun
                 _jitter.DoJitter(body, nerveSys.Comp.PainShockStunTime, true, 20f, 7f);
 
                 // For the funnies :3

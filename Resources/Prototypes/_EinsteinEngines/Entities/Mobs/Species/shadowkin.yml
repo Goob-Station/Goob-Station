@@ -77,7 +77,7 @@
   - type: Perishable
   - type: FireVisuals
     alternateState: Standing
-  - type: LayingDown
+  #- type: LayingDown todo marty layingdown here
   - type: Hunger
   - type: Thirst
   - type: Carriable

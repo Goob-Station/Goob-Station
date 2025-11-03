@@ -156,11 +156,11 @@ public partial class SharedMartialArtsSystem
                 }
 
                 // Leg sweep
-                if (!TryComp<StandingStateComponent>(ent, out var standing)
-                    || standing.CurrentState == StandingState.Standing ||
-                    !TryComp(args.Target, out StandingStateComponent? targetStanding) ||
-                    targetStanding.CurrentState != StandingState.Standing)
-                    break;
+                // if (!TryComp<StandingStateComponent>(ent, out var standing)
+                //     || standing.CurrentState == StandingState.Standing ||
+                //     !TryComp(args.Target, out StandingStateComponent? targetStanding) ||
+                //     targetStanding.CurrentState != StandingState.Standing)
+                //     break; todo marty stun
 
                 _status.TryRemoveStatusEffect(ent, "KnockedDown");
                 _standingState.Stand(ent);

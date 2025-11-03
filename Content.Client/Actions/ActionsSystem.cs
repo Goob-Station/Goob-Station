@@ -500,7 +500,7 @@ namespace Content.Client.Actions
 
             args.Handled = true;
 
-            if (args.Input.EntityUid is not { Valid: true } entity)
+            //if (args.Input.EntityUid is not { Valid: true } entity) // todo marty what is this?
             // Goob edit start todo marty ???
 
             var entity = args.Input.EntityUid;

@@ -433,7 +433,7 @@ public sealed partial class DragonSystem : EntitySystem
             if (_faction.IsEntityFriendly(uid, (mob.Owner, mob.Comp)))
                 continue;
 
-            _stun.TryStun(mob, TimeSpan.FromSeconds(component.RoarStunTime), false);
+            //_stun.TryStun(mob, TimeSpan.FromSeconds(component.RoarStunTime), false); todo marty stun
         }
 
         args.Handled = true;

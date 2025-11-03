@@ -122,7 +122,7 @@ public abstract partial class SharedMartialArtsSystem
 
         var modifier = sneakAttack.TakedownSpeedModifier;
 
-        _stun.TrySlowdown(target, TimeSpan.FromSeconds(slowdownTime), true, modifier, modifier);
+       // _stun.TrySlowdown(target, TimeSpan.FromSeconds(slowdownTime), true, modifier, modifier); todo marty movemod
         _status.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(muteTime), true);
 
         _audio.PlayPvs(sneakAttack.AssassinateSoundUnarmed, target);
@@ -237,7 +237,7 @@ public abstract partial class SharedMartialArtsSystem
                     time = knockdownTime;
 
                 // We do not want to knockdown because it will stunlock the target
-                _stun.TryStun(target, time, true);
+                //_stun.TryStun(target, time, true); todo marty stun
             }
         }
 

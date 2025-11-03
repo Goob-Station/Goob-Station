@@ -18,10 +18,10 @@ public sealed class LayingDownModifierSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, LayingDownModifierComponent component, ComponentStartup args)
     {
-        if (!TryComp<LayingDownComponent>(uid, out var layingDown))
-            return;
-
-        layingDown.StandingUpTime *= component.LayingDownCooldownMultiplier;
-        layingDown.SpeedModify *= component.DownedSpeedMultiplierMultiplier;
+        // if (!TryComp<LayingDownComponent>(uid, out var layingDown)) todo marty trycrawl or some shti
+        //     return;
+        //
+        // layingDown.StandingUpTime *= component.LayingDownCooldownMultiplier;
+        // layingDown.SpeedModify *= component.DownedSpeedMultiplierMultiplier;
     }
 }

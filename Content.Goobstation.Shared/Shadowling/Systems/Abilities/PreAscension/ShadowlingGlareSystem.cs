@@ -65,7 +65,7 @@ public sealed class ShadowlingGlareSystem : EntitySystem
 
     private void ActivateStun(EntityUid target, ShadowlingGlareComponent comp)
     {
-        _stun.TryStun(target, TimeSpan.FromSeconds(comp.GlareStunTime), false);
+        //_stun.TryStun(target, TimeSpan.FromSeconds(comp.GlareStunTime), false); todo marty stun
         comp.ActivateGlareTimer = false;
     }
 
@@ -87,7 +87,7 @@ public sealed class ShadowlingGlareSystem : EntitySystem
         if (distance <= comp.MinGlareDistance)
         {
             comp.GlareStunTime = comp.MaxGlareStunTime;
-            _stun.TryStun(target, TimeSpan.FromSeconds(comp.GlareStunTime), true);
+            //_stun.TryStun(target, TimeSpan.FromSeconds(comp.GlareStunTime), true); todo marty stun
         }
         else
         {
@@ -102,7 +102,7 @@ public sealed class ShadowlingGlareSystem : EntitySystem
         if (TryComp<StatusEffectsComponent>(target, out var statComp))
         {
             _effects.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(comp.MuteTime), true);
-            _stun.TrySlowdown(target, TimeSpan.FromSeconds(comp.SlowTime), true, 0.5f, 0.5f, statComp);
+            //_stun.TrySlowdown(target, TimeSpan.FromSeconds(comp.SlowTime), true, 0.5f, 0.5f, statComp); todo marty stun
         }
 
         var effectEnt = PredictedSpawnAtPosition(comp.EffectGlare, Transform(uid).Coordinates);
