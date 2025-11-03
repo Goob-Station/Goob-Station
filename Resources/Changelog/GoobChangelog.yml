@@ -17463,3 +17463,9 @@ Entries:
       message: Tweak Heretic Rifts are only visble by the Heretic and the Chaplain.
   id: 1957
   time: '2025-11-03T07:29:30.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Chaplain can see reality fractures but not reality shifts.
+  id: 1958
+  time: '2025-11-03T17:05:42.0000000+00:00'
