@@ -1,21 +1,13 @@
 using Content.Shared.DoAfter;
-using Content.Shared.Verbs;
 using Content.Shared.Popups;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
-using Content.Shared.Popups;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Stacks;
 using Content.Shared.Chat;
-using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Network;
-using Robust.Shared.Timing;
-using Robust.Shared.GameObjects;
 
 
 namespace Content.Goobstation.Shared.SlotMachine
@@ -100,7 +92,7 @@ namespace Content.Goobstation.Shared.SlotMachine
             }
 
             // Handle the chances
-            if (slot.Item != null && TryComp<StackComponent>(slot.Item.Value, out var stack)) // Just like real slot machines it will always end on a lose if its your last spin 
+            if (slot.Item != null && TryComp<StackComponent>(slot.Item.Value, out var stack)) // Just like real slot machines it will always end on a lose if its your last spin
             {
                 if (_random.Prob(comp.SmallWinChance))
                 {
