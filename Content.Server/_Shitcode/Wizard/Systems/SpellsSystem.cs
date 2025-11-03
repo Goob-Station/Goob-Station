@@ -14,7 +14,7 @@ using System.Numerics;
 using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Bloodstream;
 using Content.Server._Goobstation.Wizard.Components;
-using Content.Server.Abilities.Mime;
+using Content.Shared.Abilities.Mime;
 using Content.Server.Antag;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
@@ -77,7 +77,7 @@ using Content.Shared.Friction;
 using Content.Shared.Item;
 using Content.Shared.Tag;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Goobstation.Wizard.Systems; //todo refactor wiz
 
 public sealed class SpellsSystem : SharedSpellsSystem
 {

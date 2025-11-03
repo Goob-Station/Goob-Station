@@ -26,5 +26,5 @@ public sealed partial class Polymorph : EventEntityEffect<Polymorph>
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     => Loc.GetString("reagent-effect-guidebook-make-polymorph",
             ("chance", Probability), ("entityname",
-                prototype.Index<EntityPrototype>(prototype.Index<PolymorphPrototype>(PolymorphPrototype).Configuration.Entity).Name));
+                prototype.Index<EntityPrototype>(prototype.Index<PolymorphPrototype>(PolymorphPrototype).Configuration.Entity!).Name)); //todo marty that exclamation mark is yours and evil
 }
