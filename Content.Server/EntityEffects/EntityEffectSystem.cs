@@ -24,6 +24,8 @@ using Content.Server.Traits.Assorted;
 using Content.Server.Zombies;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
+using Content.Shared.Body.Components;
+using Content.Shared.Chat;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.EntityEffects.EffectConditions;
 using Content.Shared.EntityEffects.Effects.PlantMetabolism;
@@ -74,6 +76,7 @@ public sealed class EntityEffectSystem : EntitySystem
     [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly VomitSystem _vomit = default!;
+    [Dependency] private readonly TurfSystem _turf = default!; //todo marty turf?
 
     public override void Initialize()
     {
@@ -527,7 +530,7 @@ public sealed class EntityEffectSystem : EntitySystem
                 return;
             }
 
-            if (_spreader.RequiresFloorToSpread(args.Effect.PrototypeId) && tileRef.Tile.IsSpace())
+            if (_spreader.RequiresFloorToSpread(args.Effect.PrototypeId) &&  _turf.IsSpace(tileRef)) //todo marty turf???
                 return;
 
             var coords = _map.MapToGrid(gridUid, mapCoords);
@@ -708,7 +711,7 @@ public sealed class EntityEffectSystem : EntitySystem
             args.Args.TargetEntity,
             null,
             range,
-            args.Effect.Duration * 1000,
+            TimeSpan.FromSeconds(args.Effect.Duration * 1000), // this wasnt in timespan todo marty
             slowTo: args.Effect.SlowTo,
             sound: args.Effect.Sound);
 
@@ -780,7 +783,7 @@ public sealed class EntityEffectSystem : EntitySystem
                 amt *= reagentArgs.Scale.Float();
             }
 
-            _bloodstream.TryModifyBleedAmount(args.Args.TargetEntity, amt, blood);
+            _bloodstream.TryModifyBleedAmount(args.Args.TargetEntity, amt); // todo marty no blood component passed
         }
     }
 
@@ -796,7 +799,7 @@ public sealed class EntityEffectSystem : EntitySystem
                 amt *= reagentArgs.Scale;
             }
 
-            _bloodstream.TryModifyBloodLevel(args.Args.TargetEntity, amt, blood);
+            _bloodstream.TryModifyBloodLevel(args.Args.TargetEntity, amt); // todo marty no blood component passed
         }
     }
 

@@ -3,8 +3,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Temperature.Components;
-using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityEffects.EffectConditions;
@@ -20,17 +18,6 @@ public sealed partial class Temperature : EventEntityEffectCondition<Temperature
 
     [DataField]
     public float Max = float.PositiveInfinity;
-    //todo marty is this method fine
-    public override bool Condition(EntityEffectBaseArgs args)
-    {
-        if (args.EntityManager.TryGetComponent(args.TargetEntity, out TemperatureComponent? temp))
-        {
-            if (temp.CurrentTemperature > Min && temp.CurrentTemperature < Max)
-                return true;
-        }
-
-        return false;
-    }
 
     public override string GuidebookExplanation(IPrototypeManager prototype)
     {

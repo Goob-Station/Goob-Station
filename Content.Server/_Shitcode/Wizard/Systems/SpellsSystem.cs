@@ -76,7 +76,7 @@ using Content.Shared.Item;
 using Content.Shared.Tag;
 using Content.Goobstation.Shared.Teleportation.Systems;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Goobstation.Wizard.Systems; //todo refactor wiz
 
 public sealed class SpellsSystem : SharedSpellsSystem
 {
