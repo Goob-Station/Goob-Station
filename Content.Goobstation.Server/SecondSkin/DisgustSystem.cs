@@ -78,6 +78,8 @@ public sealed class DisgustSystem : EntitySystem
     {
         if (delta > 0f)
             delta *= ent.Comp.AccumulationMultiplier;
+        if (delta == 0f)
+            return;
         ent.Comp.Level = Math.Max(0f, ent.Comp.Level + delta);
     }
 
