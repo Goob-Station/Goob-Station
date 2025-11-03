@@ -968,7 +968,6 @@
   components:
   - type: Tag
     tags:
-      - Debug
       - Table # goob
   - type: Sprite
     sprite: Structures/Furniture/Tables/debug.rsi

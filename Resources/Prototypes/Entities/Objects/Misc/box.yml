@@ -78,6 +78,3 @@
       Cloth: 25
   - type: StaticPrice
     price: 15
-  - type: Tag
-    tags:
-    - ToteBase
