@@ -95,13 +95,13 @@ public partial class TraumaSystem
                 nerveSys.Value.Comp.OrganDestructionReflexSounds[sex],
                 AudioParams.Default.WithVolume(6f));
 
-            _stun.TryParalyze(body.Value, nerveSys.Value.Comp.OrganDamageStunTime, true);
-            _stun.TrySlowdown(
-                body.Value,
-                nerveSys.Value.Comp.OrganDamageStunTime * _cfg.GetCVar(SurgeryCVars.OrganTraumaSlowdownTimeMultiplier),
-                true,
-                _cfg.GetCVar(SurgeryCVars.OrganTraumaWalkSpeedSlowdown),
-                _cfg.GetCVar(SurgeryCVars.OrganTraumaRunSpeedSlowdown));
+            //_stun.TryParalyze(body.Value, nerveSys.Value.Comp.OrganDamageStunTime, true); todo marty goob refact
+            //_stun.TrySlowdown(
+                // body.Value,
+                // nerveSys.Value.Comp.OrganDamageStunTime * _cfg.GetCVar(SurgeryCVars.OrganTraumaSlowdownTimeMultiplier),
+                // true,
+                // _cfg.GetCVar(SurgeryCVars.OrganTraumaWalkSpeedSlowdown),
+                // _cfg.GetCVar(SurgeryCVars.OrganTraumaRunSpeedSlowdown));
         }
 
         if (TryGetWoundableTrauma(bodyPart, out var traumas, TraumaType.OrganDamage, bodyPart))

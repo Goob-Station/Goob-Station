@@ -593,7 +593,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             if (!TryComp<StandingStateComponent>(uid, out var standingState))
                 return false;
 
-            return standingState.CurrentState != StandingState.Standing;
+            return true; // standingState.CurrentState != StandingState.Standing; todo marty
         }
     }
 

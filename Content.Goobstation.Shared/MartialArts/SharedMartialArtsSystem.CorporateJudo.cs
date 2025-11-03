@@ -90,7 +90,7 @@ public partial class SharedMartialArtsSystem
             || !TryComp(target, out StatusEffectsComponent? status))
             return;
 
-        _stun.TrySlowdown(target, TimeSpan.FromSeconds(5), true, 0.5f, 0.5f, status);
+        //_stun.TrySlowdown(target, TimeSpan.FromSeconds(5), true, 0.5f, 0.5f, status); todo marty movemod
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
@@ -217,7 +217,7 @@ public partial class SharedMartialArtsSystem
             || !TryComp<PullableComponent>(target, out var pullable))
             return;
 
-        _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, status);
+        //_stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, status); todo marty stun
 
         _pulling.TryStopPull(target, pullable, ent, true);
 
