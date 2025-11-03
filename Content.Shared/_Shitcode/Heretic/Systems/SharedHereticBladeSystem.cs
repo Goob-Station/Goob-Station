@@ -189,7 +189,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                     _rotting.ReduceAccumulator(target, -TimeSpan.FromMinutes(1f));
                 else
                 {
-                    var ev = new ModifyDisgustEvent(15f);
+                    var ev = new ModifyDisgustEvent(20f);
                     RaiseLocalEvent(target, ref ev);
                 }
                 break;

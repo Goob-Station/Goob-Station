@@ -870,5 +870,3 @@
         conditions:
         - !type:OrganType
           type: Vox
-      - !type:ModifyDisgustLevel # Goob
-        delta: 8

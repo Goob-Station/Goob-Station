@@ -98,8 +98,6 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 3
-        - ReagentId: Phthalates # Goob
-          Quantity: 5
   - type: Item
     size: Tiny
   - type: Tag
@@ -162,8 +160,6 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Phthalates # Goob
           Quantity: 5
   - type: Sprite
     state: dank
@@ -275,8 +271,6 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
-        - ReagentId: Phthalates # Goob
-          Quantity: 5
   - type: Sprite
     state: pizza
 
@@ -316,8 +310,6 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Phthalates # Goob
           Quantity: 5
         - ReagentId: Honk
           Quantity: 0.50
@@ -361,8 +353,6 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
-        - ReagentId: Phthalates # Goob
-          Quantity: 5
   - type: Sprite
     state: berry
 
@@ -403,8 +393,6 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
-        - ReagentId: Phthalates # Goob
-          Quantity: 5
   - type: Sprite
     state: stonk
 
@@ -441,8 +429,6 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Phthalates # Goob
           Quantity: 5
   - type: Sprite
     state: carp
@@ -503,8 +489,6 @@
         - ReagentId: Nutriment
           Quantity: 5
         - ReagentId: Fiber
-          Quantity: 5
-        - ReagentId: Phthalates # Goob
           Quantity: 5
   - type: Sprite
     state: moth

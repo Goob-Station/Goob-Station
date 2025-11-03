@@ -52,8 +52,6 @@
         effectProto: StatusEffectDrowsiness
         time: 1
         type: Remove
-      - !type:ModifyDisgustLevel # Goob
-        delta: 3.5
   tileReactions: # Goobstation
   - !type:ChangeTileReaction # Unrusts tile
     newTileId: Plating
@@ -79,8 +77,6 @@
       effects:
       - !type:SatiateThirst
         factor: 4
-      - !type:ModifyDisgustLevel # Goob
-        delta: 3.5
 
 - type: reagent
   id: ChangelingSting
@@ -126,8 +122,6 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.1
-      - !type:ModifyDisgustLevel # Goob
-        delta: 3.5
   fizziness: 0.4
 
 - type: reagent
@@ -249,8 +243,6 @@
       effects:
       - !type:SatiateThirst
         factor: 4
-      - !type:ModifyDisgustLevel # Goob
-        delta: 2.5
 
 - type: reagent
   id: SpaceMountainWind

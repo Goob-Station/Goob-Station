@@ -639,8 +639,6 @@
       effects:
       - !type:SatiateHunger
         factor: 1
-      - !type:ModifyDisgustLevel # Goob
-        delta: 3.5
 
 - type: reagent
   id: HotRamen
@@ -655,8 +653,6 @@
       effects:
       - !type:SatiateHunger
         factor: 4
-      - !type:ModifyDisgustLevel # Goob
-        delta: 2.5
 
 - type: reagent
   id: ArnoldPalmer
