@@ -16,6 +16,19 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+- type: htnCompound
+  id: HereticSummonCompound
+  branches:
+    - tasks:
+        - !type:HTNCompoundTask
+          task: MeleeCombatCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: FollowCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound
+
 - type: entity
   parent: [ SimpleMobBase, MobCombat ]
   id: BaseMobGhoul
@@ -88,7 +101,7 @@
     - MansusLink
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: HereticSummonCompound
     blackboard:
       NavSmash: !type:Bool
         true
@@ -164,7 +177,7 @@
   components:
   - type: Ghoul
     spawnOnDeathPrototype: SheetPlasma1
-    totalHealth: 20
+    totalHealth: 16
   - type: Sprite
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     state: fire_shark
@@ -189,9 +202,9 @@
       path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Heat: 10
-        Slash: 5
-        Piercing: 5
+        Heat: 6
+        Slash: 6
+        Piercing: 6
   - type: Flammable
     canResistFire: false
     damage:
@@ -349,7 +362,7 @@
   - type: FlashImmunity
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: HereticSummonCompound
     blackboard:
       NavSmash: !type:Bool
         true

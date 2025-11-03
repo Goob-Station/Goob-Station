@@ -21,9 +21,12 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using System.Text;
 using System.Linq;
+using Content.Server.NPC;
+using Content.Server.NPC.Systems;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Examine;
 using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared.Coordinates;
 using Content.Shared.Stacks;
 using Robust.Shared.Containers;
 
@@ -39,6 +42,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
+    [Dependency] private readonly NPCSystem _npc = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/castsummon.ogg");
 
@@ -176,6 +180,8 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
                 ghoul.BoundHeretic = performer;
                 Dirty(spawned, ghoul);
+
+                _npc.SetBlackboard(spawned, NPCBlackboard.FollowTarget, performer.ToCoordinates());
             }
         }
 
