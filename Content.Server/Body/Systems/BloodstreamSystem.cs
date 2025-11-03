@@ -124,7 +124,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.EntityEffects.Effects;
+using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.EntityEffects.Effects;
