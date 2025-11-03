@@ -7,7 +7,12 @@ namespace Content.Goobstation.Server.Chaplain.Components;
 /// <summary>
 /// Gives the user the ability to see the Eldritch Influence layer.
 /// </summary>
-[RegisterComponent, Access(typeof(SeeHereticFixturesSystem))]
+[RegisterComponent]
 public sealed partial class SeeHereticFixturesComponent : Component
 {
+    [DataField]
+    public bool SeeShifts = true;
+
+    [DataField]
+    public bool SeeFractures = true;
 }
