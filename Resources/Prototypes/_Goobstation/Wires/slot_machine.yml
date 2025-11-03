@@ -4,3 +4,8 @@
   wires:
   - !type:PowerWireAction
   - !type:PowerWireAction
+  - !type:PowerWireAction
+  - !type:PowerWireAction
+  - !type:AiInteractWireAction
+  - !type:AiInteractWireAction
+  - !type:AiInteractWireAction
