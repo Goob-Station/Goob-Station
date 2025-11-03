@@ -366,3 +366,9 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_ce.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_ce.rsi
+
+- type: entity
+  parent: ClothingUniformJumpsuitAncient
+  id: ClothingUniformJumpsuitAncientUnremoveable
+  components:
+  - type: Unremoveable

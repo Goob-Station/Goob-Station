@@ -265,3 +265,9 @@
       amount: 1
     - id: EbifinlLazideChemistryVial
       amount: 1
+
+- type: entity
+  parent: ClothingBeltUtilityFilled
+  id: ClothingBeltUtilityFilledUnremoveable
+  components:
+  - type: Unremoveable

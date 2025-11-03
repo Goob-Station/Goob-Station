@@ -1,0 +1,13 @@
+- type: startingGear
+  id: GreyTideAntagGear
+  equipment:
+    mask: ClothingMaskGasUnremoveable
+    jumpsuit: ClothingUniformJumpsuitAncientUnremoveable
+    shoes: ClothingShoesColorBlackUnremoveable
+    id: PassengerPDA
+    ears: ClothingHeadsetGrey
+    belt: ClothingBeltUtilityFilledUnremoveable
+    gloves: ClothingHandsGlovesColorYellowUnremovable
+    back: ClothingBackpackUnremoveable
+  inhand:
+  - Toolboxrobust
