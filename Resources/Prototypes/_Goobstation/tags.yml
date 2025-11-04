@@ -398,6 +398,9 @@
   id: MechThruster
 
 - type: Tag
+  id: MechUnGrabbable
+
+- type: Tag
   id: MedicalPatch
 
 - type: Tag
@@ -551,6 +554,9 @@
   id: ShellShotgunHeavier
 
 - type: Tag
+  id: SheetGlass
+
+- type: Tag
   id: ShellShotgunHeavy
 
 - type: Tag
@@ -632,6 +638,9 @@
   id: WeaponEnergyGunLawbringer
 
 - type: Tag
+  id: WideSwingIgnore
+
+- type: Tag
   id: WeaponPistolCasul
 
 - type: Tag
@@ -678,6 +687,12 @@
 
 - type: Tag
   id: MidroundAntag
+
+- type: Tag
+  id: FoodTinMRE
+
+- type: Tag
+  id: EmergencyWaterVaporTank
 
 - type: Tag
   id: DisposableBattery

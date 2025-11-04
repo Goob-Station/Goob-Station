@@ -1,0 +1,91 @@
+- type: entity
+  name: spirit candle
+  parent: Candle
+  id: SpiritCandle
+  description: Feels vaguely ominous!
+  components:
+  - type: Item
+    size: Small
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Sprite
+    sprite: _Goobstation/Wraith/Objects/spirit_candle.rsi
+    layers:
+    - state: unmelted-unlit
+    - state: eyes
+      map: [ "enum.SpiritCandleVisuals.Layer" ]
+      visible: true
+  - type: SpiritCandle # holds logic and visuals
+  - type: FireVisuals
+    sprite: _Goobstation/Wraith/Objects/spirit_candle.rsi
+    normalState: unmelted-lit
+    lightColor: "#0000FF"
+  - type: ToggleableVisuals
+    spriteLayer: null
+    inhandVisuals:
+      left:
+      - state: inhand-left-flame
+        shader: unshaded
+      right:
+      - state: inhand-right-flame
+        shader: unshaded
+  - type: LimitedCharges
+    maxCharges: 2
+  - type: UseDelay
+    delay: 17 # as long as the status effects last + grace period for escape
+  - type: Construction
+    graph: SpiritCandle
+    node: spiritCandle
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          HeadSkeleton:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: GuideHelp
+    guides: [ Chaplain ]
+
+
+
+# dummy entity for detecting
+# Note for future reader:
+# This doesn't trigger collisions if wraith is not moving for some reason (im tired of testing for hours)
+# In a live round, the wraith should be moving so its not gonna be a huge problem. Hopefully someone finds a solution tho
+- type: entity
+  id: SpiritCandleRevealArea
+  name: spirit candle area
+  description: You shouldn't see this.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpiritCandleArea
+    whitelist:
+      components:
+      - Wraith
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-6, -6, 6, 6" # 12x12 tile area
+        density: 1
+        hard: false
+        layer:
+        - GhostImpassable
+        mask:
+        - GhostImpassable
+  - type: CollisionWake
+    enabled: false

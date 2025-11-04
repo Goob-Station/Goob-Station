@@ -59,6 +59,7 @@
       - Silicon
       - Ghost
       - XenomorphEgg
+      - FacehuggerImmune # Goobstation
     damageOnImpact:
       types:
         Blunt: 15

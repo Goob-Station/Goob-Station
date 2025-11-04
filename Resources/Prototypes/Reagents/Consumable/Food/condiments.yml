@@ -192,6 +192,16 @@
       # eating salt on its own kinda sucks, kids
       - !type:SatiateThirst
         factor: -0.5
+  tileReactions: # 古布站 - Wraith Start Goobstation
+    - !type:EnsureTileReaction
+      components:
+        - type: StatusEffectOnCollideGhost
+          whitelist:
+            tags:
+            - WeakToSalt
+          statusEffect: Corporeal
+          duration: 15  # 古布站 - Wraith End
+
 
 - type: reagent
   id: Syrup

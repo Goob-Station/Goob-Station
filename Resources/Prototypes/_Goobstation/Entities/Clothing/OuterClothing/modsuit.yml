@@ -75,7 +75,7 @@
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
-      - state: equipped-OUTERCLOTHING-sealed-resomi
+      - state: equipped-OUTERCLOTHING-sealed-resomi   
   - type: StaminaResistance
     damageCoefficient: 0.9
   - type: Armor
@@ -145,6 +145,8 @@
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: ModifyDelayedKnockdown
@@ -220,6 +222,8 @@
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox     
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: ModifyDelayedKnockdown
@@ -301,6 +305,8 @@
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox     
   - type: ExplosionResistance
     damageCoefficient: 0.85
   - type: Armor
@@ -376,6 +382,8 @@
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox     
   - type: ExplosionResistance
     damageCoefficient: 0.35
   - type: Armor
@@ -452,6 +460,8 @@
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox     
   - type: ExplosionResistance
     damageCoefficient: 0.45
   - type: Armor
@@ -526,6 +536,8 @@
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox     
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: Armor
@@ -604,6 +616,8 @@
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox     
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor

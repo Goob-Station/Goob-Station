@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -11,7 +12,6 @@ namespace Content.Goobstation.Common.Physics;
 
 /// <summary>
 /// Works like JointVisualsComponent, but supports multiple targets and more customization.
-/// Sometimes it works not good enough though, so use this only when necessary.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ComplexJointVisualsComponent : Component
@@ -24,11 +24,26 @@ public sealed partial class ComplexJointVisualsComponent : Component
 public sealed partial class ComplexJointVisualsData(
     string id,
     SpriteSpecifier sprite,
-    Color color)
+    Color color,
+    SpriteSpecifier? startSprite = null,
+    SpriteSpecifier? endSprite = null,
+    TimeSpan? creationTime = null)
 {
     public ComplexJointVisualsData() : this(string.Empty, SpriteSpecifier.Invalid, Color.White) { }
 
-    public ComplexJointVisualsData(string id, SpriteSpecifier sprite) : this(id, sprite, Color.White) { }
+    public ComplexJointVisualsData(string id,
+        SpriteSpecifier sprite,
+        SpriteSpecifier? startSprite = null,
+        SpriteSpecifier? endSprite = null,
+        TimeSpan? creationTime = null) : this(id, sprite, Color.White, startSprite, endSprite, creationTime)
+    {
+    }
+
+    [DataField]
+    public SpriteSpecifier? StartSprite = startSprite;
+
+    [DataField]
+    public SpriteSpecifier? EndSprite = endSprite;
 
     [DataField]
     public SpriteSpecifier Sprite = sprite;
@@ -38,6 +53,12 @@ public sealed partial class ComplexJointVisualsData(
 
     [DataField]
     public string Id = id;
+
+    [DataField]
+    public TimeSpan? CreationTime = creationTime;
+
+    [DataField]
+    public Vector2 Scale = Vector2.One;
 
     // TODO: add support for joint offsets
 }

@@ -103,3 +103,20 @@
         Steel: 5
         CableHV: 10
         Plasma: 5
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: PlumbingPumpCircuitboard
+  name: liquid pump board
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: PlumbingPump
+    stackRequirements:
+      Manipulator: 4
+      Steel: 5
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker

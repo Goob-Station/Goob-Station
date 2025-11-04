@@ -157,6 +157,27 @@
   - GroupPocketTankDouble
 
 - type: roleLoadout
+  id: JobRoboticist
+  groups:
+  - GroupTankHarness
+  - ScientistHead
+  - ScientistNeck
+  - ScientistJumpsuit
+  - ScientistBackpack
+  - ScientistOuterClothing
+  - ScientistGloves
+  - ScientistShoes
+  - ScientistPDA
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  # Plasmaman
+  - ScientistEnvirohelm
+  - ScientistEnvirosuit
+  - ScientistEnvirogloves
+
+- type: roleLoadout
   id: JobBrigmedic
   groups:
   - BrigmedicHead
@@ -165,7 +186,7 @@
   - BrigmedicOuterClothing
   - MedicalGloves
   - BrigmedicBackpack
-  #- SecurityMelee # Brigmed probably doesn't need this roundstart
+  - SecurityMelee # EE parity, make corpsman able to carry weapons like the rest of security
   - SecurityShoes
   - SecurityNeck
   - SurvivalSecurity
