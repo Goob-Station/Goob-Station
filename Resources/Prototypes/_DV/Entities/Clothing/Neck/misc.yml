@@ -7,7 +7,7 @@
   parent: [ClothingNeckBase, BaseSecurityContraband]
   id: ClothingNeckCWPSec
   name: senior officer's poncho
-  description: A cold weather poncho, advertised as a masterpiece of environmental protection. Results may vary.
+  description: A cold weather poncho, advertised as a masterpiece of environmental protection. Results may vary. It has built-in camera.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Neck/cwpsec.rsi
