@@ -28886,7 +28886,7 @@ entities:
     - type: Transform
       pos: 15.710992,29.909811
       parent: 818
-- proto: PKAUpgradeMoveSpeed
+- proto: PKAUpgradeMechSpeedRechargeAdmeme
   entities:
   - uid: 1678
     components:
