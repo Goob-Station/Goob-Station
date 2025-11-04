@@ -703,11 +703,11 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12 #goob, was 10
+        maxVol: 7 #goob, was 10
         reagents:
         - ReagentId: ToxinTrash
           Quantity: 5
-        - Reagentid: Microplastics #Goob
+        - ReagentId: Microplastics #Goob
           Quantity: 2
   - type: Food
     requiresSpecialDigestion: true

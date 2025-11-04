@@ -349,12 +349,12 @@
     amount: -1
   metabolisms:
     Poison:
-      metabolismRate: 0.05 #Yummers
+      metabolismRate: 0.1 #Yummers, should be 0.01 but doesnt work due to good code
       effects:
       - !type:HealthChange
         damage:
           types:
-            Poison: 0.02
+            Poison: 0.25 #should be 0.02, dealt ~30 dmg (less due to Good code)
         conditions:
         - !type:OrganType
           type: Vox
@@ -376,12 +376,10 @@
           shouldHave: false
         - !type:ReagentThreshold
           min: 20
-    Food:
-      effects:
       - !type:HealthChange
         damage:
           types:
-            Poison: -0.03
+            Poison: -0.25 #should be 0.03
         conditions:
         - !type:OrganType # Goob, Vox are stinky
           type: Vox
