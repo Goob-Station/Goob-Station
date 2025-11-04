@@ -25,3 +25,9 @@
     back: ClothingBackpackClown
   inhand:
   - FireAxe
+  - Stunprod
+  storage:
+    back:
+    - ClownRecorder
+    - FoodMeatClown
+    - TunnelClownBusinessCard

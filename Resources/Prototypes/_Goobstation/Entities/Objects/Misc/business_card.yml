@@ -22,3 +22,11 @@
     backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
     contentMargin: 4.0, 4.0, 4.0, 4.0
     maxWritableArea: 400.0, 256.0
+
+- type: entity
+  id: TunnelClownBusinessCard
+  name: tunnel clown business card
+  parent: CentralCommandBusinessCard
+  components:
+  - type: Paper
+    content: tunnel-clown-business-card
