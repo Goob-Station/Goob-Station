@@ -4,14 +4,14 @@
   # Highpop 55+
   - CorvaxAstra
   #- CorvaxAvrite
-  - CorvaxBox
+  # - CorvaxBox
   - CorvaxChloris
   #- CorvaxDelta
   - CorvaxGlacier
   - CorvaxPilgrim
 
   # Midpop 25–55
-  - CorvaxAmber
+  # - CorvaxAmber
   - CorvaxAwesome
   - CorvaxBagel
   #- CorvaxMarathon
