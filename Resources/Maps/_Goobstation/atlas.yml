@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/02/2025 16:55:26
-  entityCount: 9176
+  time: 11/04/2025 14:29:21
+  entityCount: 9200
 maps:
 - 1
 grids:
@@ -3694,6 +3694,11 @@ entities:
     - type: Transform
       pos: 4.5,9.5
       parent: 2
+  - uid: 3477
+    components:
+    - type: Transform
+      pos: 5.5,8.5
+      parent: 2
 - proto: AirlockCaptainGlassLocked
   entities:
   - uid: 61
@@ -4450,7 +4455,7 @@ entities:
       pos: 4.5,19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6977.905
+      secondsUntilStateChange: -7283.563
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4777,11 +4782,6 @@ entities:
     components:
     - type: Transform
       pos: 8.5,8.5
-      parent: 2
-  - uid: 3894
-    components:
-    - type: Transform
-      pos: 5.5,8.5
       parent: 2
   - uid: 4411
     components:
@@ -12377,6 +12377,31 @@ entities:
     - type: Transform
       pos: 11.5,10.5
       parent: 2
+  - uid: 6750
+    components:
+    - type: Transform
+      pos: 13.5,3.5
+      parent: 2
+  - uid: 6751
+    components:
+    - type: Transform
+      pos: 12.5,3.5
+      parent: 2
+  - uid: 6752
+    components:
+    - type: Transform
+      pos: 11.5,3.5
+      parent: 2
+  - uid: 6860
+    components:
+    - type: Transform
+      pos: 3.5,1.5
+      parent: 2
+  - uid: 6861
+    components:
+    - type: Transform
+      pos: 4.5,1.5
+      parent: 2
   - uid: 6925
     components:
     - type: Transform
@@ -12447,10 +12472,55 @@ entities:
     - type: Transform
       pos: -20.5,-27.5
       parent: 2
+  - uid: 7344
+    components:
+    - type: Transform
+      pos: 5.5,1.5
+      parent: 2
+  - uid: 7520
+    components:
+    - type: Transform
+      pos: 6.5,1.5
+      parent: 2
+  - uid: 7534
+    components:
+    - type: Transform
+      pos: 7.5,1.5
+      parent: 2
+  - uid: 7561
+    components:
+    - type: Transform
+      pos: 8.5,1.5
+      parent: 2
+  - uid: 7562
+    components:
+    - type: Transform
+      pos: 9.5,1.5
+      parent: 2
+  - uid: 7563
+    components:
+    - type: Transform
+      pos: 10.5,1.5
+      parent: 2
+  - uid: 7564
+    components:
+    - type: Transform
+      pos: 11.5,1.5
+      parent: 2
   - uid: 7832
     components:
     - type: Transform
       pos: -0.5,17.5
+      parent: 2
+  - uid: 7842
+    components:
+    - type: Transform
+      pos: -51.5,16.5
+      parent: 2
+  - uid: 7925
+    components:
+    - type: Transform
+      pos: -51.5,17.5
       parent: 2
   - uid: 9021
     components:
@@ -21202,6 +21272,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 8.5,-13.5
+      parent: 2
+- proto: ComputerNTRTasks
+  entities:
+  - uid: 7928
+    components:
+    - type: Transform
+      pos: 37.5,4.5
       parent: 2
 - proto: ComputerPowerMonitoring
   entities:
@@ -49938,6 +50015,12 @@ entities:
       id: Sci Hall
 - proto: SurveillanceCameraSecurity
   entities:
+  - uid: 7602
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 9.5,7.5
+      parent: 2
   - uid: 7604
     components:
     - type: Transform
@@ -49948,6 +50031,72 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: Detective
+  - uid: 7618
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,10.5
+      parent: 2
+  - uid: 7816
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,14.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Security main
+  - uid: 7817
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,17.5
+      parent: 2
+  - uid: 7838
+    components:
+    - type: Transform
+      pos: -0.5,20.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: HoS
+  - uid: 7839
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,24.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Armory
+  - uid: 7840
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,6.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Law office
+  - uid: 7841
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,10.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: court
 - proto: SurveillanceCameraService
   entities:
   - uid: 7607
@@ -51102,17 +51251,19 @@ entities:
     - type: Transform
       pos: -50.5,7.5
       parent: 2
+- proto: TelecomServerFilledCommand
+  entities:
+  - uid: 3894
+    components:
+    - type: Transform
+      pos: -50.5,8.5
+      parent: 2
 - proto: TelecomServerFilledCommon
   entities:
   - uid: 1911
     components:
     - type: Transform
       pos: -51.5,16.5
-      parent: 2
-  - uid: 3477
-    components:
-    - type: Transform
-      pos: -50.5,8.5
       parent: 2
 - proto: TelecomServerFilledEngineering
   entities:
@@ -51134,6 +51285,13 @@ entities:
     components:
     - type: Transform
       pos: -52.5,7.5
+      parent: 2
+- proto: TelecomServerFilledSecurity
+  entities:
+  - uid: 7926
+    components:
+    - type: Transform
+      pos: -48.5,8.5
       parent: 2
 - proto: TelecomServerFilledService
   entities:
