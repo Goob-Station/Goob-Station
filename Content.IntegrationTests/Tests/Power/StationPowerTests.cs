@@ -19,30 +19,9 @@ public sealed class StationPowerTests
     private const float MinimumPowerDurationSeconds = 10 * 60;
 
     private static readonly string[] GameMaps =
-    [ // Goobstation only maps in rotation
-        "Atlas",
-        "Amber",
-        "Bagel",
-        "Box",
-        "Cluster",
-        "Fland",
-        "Loop",
-        "Marathon",
-        "Meta",
-        "Oasis",
-        "Omega",
-        "Origin",
-        "Saltern",
-        "Packed",
-        "Reach",
-        "OasisHighPop",
-        "Barratry",
-        "Kettle",
-        "Submarine",
-        "Leonid",
-        "Delta",
-        "Chloris",
-        "Cog"
+    [ // Red Astra Maps only
+        "Covalent",
+        "Nebula"
     ];
 
     [Test, TestCaseSource(nameof(GameMaps))]
