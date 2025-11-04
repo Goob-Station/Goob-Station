@@ -343,8 +343,8 @@
       collection: MaleDeathGasp
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
-    Surprised: # Goob
-      path: /Audio/_Goobstation/Voice/surprised.ogg
+    # Surprised: # Goob Commented by CorvaxGoob
+      # path: /Audio/_Goobstation/Voice/surprised.ogg
 
 - type: emoteSounds
   id: FemaleRodentia
@@ -383,8 +383,8 @@
       collection: FemaleDeathGasp
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
-    Surprised: # Goob
-      path: /Audio/_Goobstation/Voice/surprised.ogg
+    # Surprised: # Goob Commented by CorvaxGoob
+      # path: /Audio/_Goobstation/Voice/surprised.ogg
 
 - type: emoteSounds
   id: UnisexChitinid
@@ -467,8 +467,8 @@
       collection: FeroxiGnashes
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
-    Surprised: # Goob
-      path: /Audio/_Goobstation/Voice/surprised.ogg
+    # Surprised: # Goob Commented by CorvaxGoob
+      # path: /Audio/_Goobstation/Voice/surprised.ogg
 
 - type: emoteSounds
   id: MaleFeroxi
@@ -509,5 +509,5 @@
       collection: FeroxiGnashes
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
-    Surprised: # Goob
-      path: /Audio/_Goobstation/Voice/surprised.ogg
+    # Surprised: # Goob Commented by CorvaxGoob
+      # path: /Audio/_Goobstation/Voice/surprised.ogg
