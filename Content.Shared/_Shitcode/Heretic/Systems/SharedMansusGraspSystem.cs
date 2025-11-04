@@ -206,7 +206,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
 
             case "Cosmos":
             {
-                if (_starMark.TryApplyStarMark(target, performer))
+                if (_starMark.TryApplyStarMark(target))
                     _starMark.SpawnCosmicField(Transform(performer).Coordinates, heretic.PathStage);
                 break;
             }
