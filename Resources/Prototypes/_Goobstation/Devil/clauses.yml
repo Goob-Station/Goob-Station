@@ -19,29 +19,30 @@
   clauseWeight: -35
   damageModifierSet: DevilDealPositive
 
+# Disabled - Its used by shitters mostly
 # // VORE //
-- type: clause
-  id: avarice
-  name: Алчность # CorvaxGoob devil fix
-  clauseWeight: -30
-  addedComponents:
-  - type: Devourer
-    foodPreferenceWhitelist:
-      components:
-      - HumanoidAppearance
-    stomachStorageWhitelist:
-      components:
-      - MobState
-      - Item
-    chemical: Ichor
-    healRate: 7.5
-    whitelist:
-      components:
-      - MobState
-      - Door
-      - Item
-      tags:
-      - Wall
+# - type: clause
+#   id: avarice
+#   name: Алчность # CorvaxGoob devil fix
+#   clauseWeight: -30
+#   addedComponents:
+#   - type: Devourer
+#     foodPreferenceWhitelist:
+#       components:
+#       - HumanoidAppearance
+#     stomachStorageWhitelist:
+#       components:
+#       - MobState
+#       - Item
+#     chemical: Ichor
+#     healRate: 7.5
+#     whitelist:
+#       components:
+#       - MobState
+#       - Door
+#       - Item
+#       tags:
+#       - Wall
 
 - type: clause
   id: fearoffire

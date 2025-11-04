@@ -337,6 +337,13 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float BurstCooldownModified;
+
+    /// <summary>
+    /// Goobstation
+    /// How long should it take to execute with this gun
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float GunExecutionTime = 3.5f;
 }
 
 [Flags]

@@ -27,6 +27,7 @@
   access: # intentionally no medical access, not even hos has it, ask chemists instead of silently stealing meds
   - Security
   - Brig
+  - Medical
   - Maintenance
   - Service
   - External
@@ -36,19 +37,19 @@
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
-    components: # Intentionally no surgery buff, you're reliable but not powerful as a real doctor
+    components:
     - type: SecurityStaff
-    #Corvax-Goob-brigmedic-loadout-update-start
+  - !type:AddComponentSpecial
+    components:
     - type: SurgerySpeedModifier
-      speedModifier: 1.5
-    #Corvax-Goob-brigmedic-loadout-update-end
+      speedModifier: 1.25 # Same as Paramedic
 
 - type: chameleonOutfit
   id: BrigmedicChameleonOutfit
   job: Brigmedic
   equipment:
-    eyes: ClothingEyesGlassesMed
     mask: ClothingMaskSecurityMedicalRespirator #Corvax-Goob-brigmedic-loadout-update
+    eyes: ClothingEyesGlassesMedSec
     ears: ClothingHeadsetBrigmedic
     outerClothing: ClothingOuterCoatAMG
     gloves: ClothingHandsGlovesColorWhite

@@ -52,6 +52,7 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 using Content.Shared.Administration.Logs;
+using Content.Goobstation.Shared.ManifestListings;
 
 namespace Content.Server.Objectives;
 
@@ -200,6 +201,13 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             var totalObjectives = 0;
             var agentSummary = new StringBuilder();
             agentSummary.AppendLine(Loc.GetString("objectives-with-objectives", ("custody", custody), ("title", title), ("agent", agent)));
+
+            // Goobstation start
+            var ev = new PrependObjectivesSummaryTextEvent();
+            RaiseLocalEvent(mindId, ref ev);
+            if (ev.Text != string.Empty)
+                agentSummary.AppendLine(ev.Text);
+            // Goobstation end
 
             foreach (var objectiveGroup in objectives.GroupBy(o => Comp<ObjectiveComponent>(o).LocIssuer))
             {
