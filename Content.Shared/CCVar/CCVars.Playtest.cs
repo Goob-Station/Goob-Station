@@ -66,7 +66,7 @@ public sealed partial class CCVars
         /// </summary>
         [CVarControl(AdminFlags.VarEdit)]
         public static readonly CVarDef<float> PlaytestReagentDamageModifier =
-            CVarDef.Create("playtest.reagent_damage_modifier", 0.33f, CVar.SERVER | CVar.REPLICATED); // Goob edit
+            CVarDef.Create("playtest.reagent_damage_modifier", 1f, CVar.SERVER | CVar.REPLICATED);
 
         /// <summary>
         ///     Scales the healing given by all reagents in the game.
