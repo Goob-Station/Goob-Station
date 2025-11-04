@@ -19,7 +19,7 @@ public sealed class StationPowerTests
     private const float MinimumPowerDurationSeconds = 10 * 60;
 
     private static readonly string[] GameMaps =
-    [ // Red Astra Maps only
+    [ // Goobstation only maps in rotation
         "Covalent",
         "Nebula"
     ];
