@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Changeling.Components;
 
 /// <summary>
-/// Component used to mark changelings that use biomass. Typically only via Anatomic Overdrive.
+/// Component used to mark changelings that use biomass. Typically only via Awakened Instinct.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ChangelingBiomassComponent : Component
