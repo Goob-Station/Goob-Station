@@ -184,7 +184,8 @@ public sealed class FoodProducerSystem : EntitySystem
         // first gather the preferences off the foods
         foreach (var foodEntity in food)
         {
-            if (!_happinessPreferenceQuery.TryComp(foodEntity, out var happinessPreference))
+            if (!_happinessPreferenceQuery.TryComp(foodEntity, out var happinessPreference)
+                || preferencesHolder.Preferences.Contains(happinessPreference.Preference))
                 continue;
 
             preferencesHolder.Preferences.Add(happinessPreference.Preference);

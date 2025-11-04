@@ -12,7 +12,8 @@
       shader: unshaded
     - state: feed_sack
   - type: LimitedCharges
-    maxCharges: 5
+    lastCharges: 5
+    maxCharges: 20 # food producer can container 4 foods, therefore 4 * lastCharges
   - type: PreferencesHolder
   - type: FeedSack
     chickenFeed: ChickenFeed
@@ -50,7 +51,10 @@
           Quantity: 5
   - type: ExaminableSolution
     solution: seed
-  - type: ChickenFood
+  - type: RanchingFood
+    whitelist:
+      tags:
+      - Chicken
   - type: FlavorProfile
     flavors:
       - food

@@ -79,7 +79,7 @@
   query:
   - !type:ComponentQuery
     components:
-    - type: ChickenFood
+    - type: RanchingFood
   considerations:
   - !type:TargetIsAliveCon
     curve: !type:InverseBoolCurve

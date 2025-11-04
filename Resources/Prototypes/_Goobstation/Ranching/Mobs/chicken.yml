@@ -8,5 +8,8 @@
     rootTask:
       task: ChickenCompound
   - type: HappinessContainer
+    maxHappiness: 50
+    preferences:
+       BBQRib: 2 # gives 2 happiness when eaten
   - type: Hunger
     startingHunger: 10
