@@ -146,3 +146,5 @@ ghost-role-information-wraith-name-token = Wraith (Token)
 ghost-role-information-grey-tide-name = The Grey Tide
 ghost-role-information-grey-tide-description = Against all the evil that shitsec can conjure, all the wickedness that sci can produce, we will send unto them only you. Robust and shit until it is done.
 grey-tide-role-greeting = Long forgotten in the depths of maints, you are [color=#880808]THE GREY-TIDE [/color], the clothes you wear have fused with your body from extensive robusting, this station isn't theirs to conquer...
+tide-objective-kill-everyone-desc = This station has wronged you for the last time, robust and tide until they are all dead.
+tide-objective-condition-kill-everyone-else-title = Robust everyone.
