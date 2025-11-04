@@ -56,7 +56,7 @@ public sealed partial class CCVars
 
     public static readonly CVarDef<bool> ChatFancyNameBackground =
         CVarDef.Create("chat.fancy_name_background",
-            true,
+            false,
             CVar.CLIENTONLY | CVar.ARCHIVE,
             "Toggles displaying a background under the speaking character's name.");
 
