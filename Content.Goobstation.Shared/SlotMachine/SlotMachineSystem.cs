@@ -62,13 +62,15 @@ namespace Content.Goobstation.Shared.SlotMachine
             Dirty(stack.Owner, stack);
             comp.IsSpinning = true;
 
-            if (TryComp<AppearanceComponent>(uid, out var appearance))
+            if (_net.IsServer)
+            {
+                _audio.PlayPvs(comp.SpinSound, uid);
+                _doAfter.TryStartDoAfter(doAfter);
+            }
+            if (TryComp<AppearanceComponent>(uid, out var appearance) && _net.IsServer)
             {
                 _appearance.SetData(uid, SlotMachineVisuals.Spinning, true);
             }
-            _doAfter.TryStartDoAfter(doAfter);
-            if (_net.IsServer)
-                _audio.PlayPvs(comp.SpinSound, uid);
         }
 
         private void OnSlotMachineDoAfter(EntityUid uid, SlotMachineComponent comp, SlotMachineDoAfterEvent args)
@@ -86,7 +88,7 @@ namespace Content.Goobstation.Shared.SlotMachine
             comp.IsSpinning = false;
             Dirty(uid, comp);
 
-            if (TryComp<AppearanceComponent>(uid, out var appearance))
+            if (TryComp<AppearanceComponent>(uid, out var appearance) && _net.IsServer)
             {
                 _appearance.SetData(uid, SlotMachineVisuals.Spinning, false);
             }
