@@ -15,15 +15,12 @@ using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 
 namespace Content.Shared._Shitcode.Heretic.Systems;
 
-public sealed class RustChargeSystem : EntitySystem
+public abstract class SharedRustChargeSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
@@ -74,7 +71,7 @@ public sealed class RustChargeSystem : EntitySystem
 
         var other = args.OtherEntity;
 
-        if (!HasComp<DamageableComponent>(other) || _tag.HasTag(other, "IgnoreImmovableRod") ||
+        if (!HasComp<DamageableComponent>(other) || _tag.HasTag(other, ent.Comp.IgnoreTag) ||
             ent.Comp.DamagedEntities.Contains(other))
             args.Cancelled = true;
     }
@@ -103,8 +100,7 @@ public sealed class RustChargeSystem : EntitySystem
 
         ent.Comp.DamagedEntities.Add(other);
 
-        // I would check for DamageableComponent but it is in server for whatever reason, also prevent collide handles that
-        if (!TryComp(other, out DamageableComponent? damageable) || _tag.HasTag(other, "IgnoreImmovableRod"))
+        if (!TryComp(other, out DamageableComponent? damageable) || _tag.HasTag(other, ent.Comp.IgnoreTag))
             return;
 
         // Damage mobs
@@ -122,8 +118,11 @@ public sealed class RustChargeSystem : EntitySystem
             return;
         }
 
-        // Delete structures
-        if (_net.IsServer)
-            Del(other);
+        // Destroy structures
+        DestroyStructure(other, ent);
+    }
+
+    protected virtual void DestroyStructure(EntityUid uid, EntityUid user)
+    {
     }
 }

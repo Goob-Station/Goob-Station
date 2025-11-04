@@ -5,6 +5,8 @@
   name: plague rat
   description: A diseased looking rat.
   components:
+  - type: MindContainer
+    showExamineInfo: true
   - type: CollectiveMind
     defaultChannel: Wraithmind
     channels:
