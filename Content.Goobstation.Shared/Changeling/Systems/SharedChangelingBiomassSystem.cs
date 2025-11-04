@@ -55,9 +55,9 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
     {
         ent.Comp.UpdateTimer = _timing.CurTime + ent.Comp.UpdateDelay;
 
-        ent.Comp.FirstWarnThreshold = (ent.Comp.MaxBiomass / 4) * 3; // 75%
-        ent.Comp.SecondWarnThreshold = ent.Comp.MaxBiomass / 2; // 50%
-        ent.Comp.ThirdWarnThreshold = ent.Comp.MaxBiomass / 4; // 25%
+        ent.Comp.FirstWarnThreshold = ent.Comp.MaxBiomass * 0.75f;
+        ent.Comp.SecondWarnThreshold = ent.Comp.MaxBiomass * 0.5f;
+        ent.Comp.ThirdWarnThreshold = ent.Comp.MaxBiomass * 0.25f;
 
         if (_lingQuery.TryComp(ent, out var ling))
             ling.ChemicalRegenMultiplier += ent.Comp.ChemicalBoost;
