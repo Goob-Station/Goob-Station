@@ -201,45 +201,45 @@ namespace Content.IntegrationTests.Tests
             // Goobstation edit:
             // order this list alphabetically, mark dev maps
             // if upstreaming take ours here and edit manually.
-            //  "Amber",
-            //  "Atlas",
-            //  "Bagel",
-            //  "Barratry",
-            //  "Box",            // Not in pool
+              "Amber",
+              "Atlas",
+              "Bagel",
+              "Barratry",
+              "Box",            // Not in pool
               "CentComm",       // CentComm
-            //  "Chloris",
-            //  "Cluster",
-            //  "Cog",
-            //  "Core",           // Not in pool.
-              "Covalent",
-            //  "Delta",
+              "Chloris",
+              "Cluster",
+              "Cog",
+              "Core",           // Not in pool.
+              "Covalent",       // RAE
+              "Delta",
               "Dev",            // Dev map
-            //  "dm01-entryway",  // Deathmatch
-            //  "Europa",         // Not in pool.
-            // "Fland",
-            //  "FlandHighPop",
-            //  "Gate",           // Not in pool
-            //  "Kettle",
-            //  "Lambda",         // Not in pool
+              "dm01-entryway",  // Deathmatch
+              "Europa",         // Not in pool.
+              "Fland",
+              "FlandHighPop",
+              "Gate",           // Not in pool
+              "Kettle",
+              "Lambda",         // Not in pool
               "Lavatest",       //Dev map
-            //  "Leonid",
-            //  "Loop",
-            // "Marathon",
-            //  "Meta",
-            //  "MeteorArena",    // Deathmatch
-              "Nebula",
-            //  "Oasis",
-            //  "OasisHighPop",
-            //  "Omega",
-            //  "Origin",
-            //  "OriginHighPop",  //Not in pool
+              "Leonid",
+              "Loop",
+              "Marathon",
+              "Meta",
+              "MeteorArena",    // Deathmatch
+              "Nebula",         // RAE
+              "Oasis",
+              "OasisHighPop",
+              "Omega",
+              "Origin",
+              "OriginHighPop",  //Not in pool
               "TestTeg",        //Dev map
-            //  "Train",          //Not in pool
-            //  "Packed",
-            //  "Reach",
-            //  "Saltern",
-            //  "Serpentcrest",
-            //  "Submarine"
+              "Train",          //Not in pool
+              "Packed",
+              "Reach",
+              "Saltern",
+              "Serpentcrest",
+              "Submarine"
             // Goob end
         };
         // Goobstation edit start, yeah i know, but this is easier and less load than loading protoman or something.
