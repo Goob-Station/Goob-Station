@@ -1738,6 +1738,9 @@
         time: 4
         type: Add
         refresh: false
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
       - !type:GenericStatusEffect
         key: Jitter
         time: 4.0
