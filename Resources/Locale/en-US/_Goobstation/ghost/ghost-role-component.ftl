@@ -140,3 +140,9 @@ roles-slaughter-demon-name-token = Slaughter Demon (Token)
 roles-laughter-demon-name-token = Laughter Demon (Token)
 ghost-role-information-ancient-rogue-king-name-token = Ancient Rogue King (Token)
 ghost-role-information-wraith-name-token = Wraith (Token)
+
+# Misc-Midround Antags
+
+ghost-role-information-grey-tide-name = The Grey Tide
+ghost-role-information-grey-tide-description = Against all the evil that shitsec can conjure, all the wickedness that sci can produce, we will send unto them only you. Robust and shit until it is done.
+grey-tide-role-greeting = Long forgotten in the depths of maints, you are [color=#880808]THE GREY-TIDE [/color], the clothes you wear have fused with your body from extensive robusting, this station isn't theirs to conquer...

@@ -8,7 +8,7 @@
     heavyStaminaCost: 0
     damage:
       types:
-        Blunt: 30
+        Blunt: 35
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
   - type: Sprite

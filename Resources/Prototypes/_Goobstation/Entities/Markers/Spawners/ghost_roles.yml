@@ -39,3 +39,36 @@
     - state: green
     - sprite: Mobs/Silicon/chassis.rsi
       state: synd_sec
+
+- type: entity
+  name: grey tide antag spawn
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostGreyTide
+  components:
+  - type: GhostRole
+    name: ghost-role-information-grey-tide-name
+    description: ghost-role-information-grey-tide-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+      state: icon
+
+- type: entity
+  name: MaintsSpawnerMarker
+  parent: MarkerBase
+  id: MaintsSpawnMarker
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+      state: icon
+  - type: MaintsSpawnLocation
