@@ -11,3 +11,17 @@
     back: ClothingBackpackUnremoveable
   inhand:
   - Toolboxrobust
+
+- type: startingGear
+  id: TunnelClownAntagGear
+  equipment:
+    mask: ClothingMaskClownUnremoveable
+    jumpsuit: ClothingUniformJumpsuitClown
+    outerClothing: ClothingOuterCoatJacketBiker
+    shoes: ClothingShoesClownUnremoveable
+    id: ClownPDA
+    ears: ClothingHeadsetService
+    gloves: ClothingHandsGlovesCombat
+    back: ClothingBackpackClown
+  inhand:
+  - FireAxe

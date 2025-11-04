@@ -37,3 +37,8 @@
   license: "Custom"
   copyright: "No copyright - ai generated sound"
   source: "https://goida.zip/unknown" # keeping up this tradition
+
+- files: ["clownalwayswinsshort.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Clown Always Wins by NИTRODE"
+  source: "https://www.youtube.com/watch?v=UkN2DQYRooA"

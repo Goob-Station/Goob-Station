@@ -148,3 +148,9 @@ ghost-role-information-grey-tide-description = Against all the evil that shitsec
 grey-tide-role-greeting = Long forgotten in the depths of maints, you are [color=#880808]THE GREY-TIDE [/color], the clothes you wear have fused with your body from extensive robusting, this station isn't theirs to conquer...
 tide-objective-kill-everyone-desc = This station has wronged you for the last time, robust and tide until they are all dead.
 tide-objective-condition-kill-everyone-else-title = Robust everyone.
+
+ghost-role-information-tunnel-clown-name = Tunnel Clown
+ghost-role-information-tunnel-clown-description = A clown gang member whos made their home in maintenance.
+tunnel-clown-role-greeting = You are a [color=#880808]tunnel clown[/color], a clown gang member who has made their home in maintenance, see your character sheet for your objectives.
+tunnel-clown-objective-maints-slasher-desc = This stations maintenance has been your home for as long as you can remember, hiding from the crew in lockers is all that you knew until now. Thoses station goers have invaded your home for the last time, kill anyone who dares to distrupt your home.
+tunnel-clown-objective-condition-maints-slasher-title = Protect maintenance.

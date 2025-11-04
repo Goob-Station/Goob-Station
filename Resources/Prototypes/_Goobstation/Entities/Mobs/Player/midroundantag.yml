@@ -5,3 +5,14 @@
   components:
   - type: Loadout
     prototypes: [ GreyTideAntagGear ]
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanTunnelClown
+  name: Tunnel clown
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ TunnelClownAntagGear ]
+  - type: Clumsy
