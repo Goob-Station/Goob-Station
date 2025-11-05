@@ -72,7 +72,7 @@ public sealed class HereticSystem : EntitySystem
     private float _timer;
     private const float PassivePointCooldown = 20f * 60f;
 
-    private const int HereticVisFlags = (int) VisibilityFlags.EldritchInfluence;
+    private const int HereticVisFlags = (int) (VisibilityFlags.EldritchInfluence | VisibilityFlags.EldritchInfluenceSpent);
 
     public override void Initialize()
     {
@@ -195,7 +195,7 @@ public sealed class HereticSystem : EntitySystem
 
     private void OnGetVisMask(Entity<HereticComponent> uid, ref GetVisMaskEvent args)
     {
-        args.VisibilityMask |= (int) VisibilityFlags.EldritchInfluence;
+        args.VisibilityMask |= HereticVisFlags;
     }
 
     #region Internal events (target reroll, ascension, etc.)
