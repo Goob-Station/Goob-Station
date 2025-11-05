@@ -39,7 +39,7 @@ public sealed partial class PuddleMetricComponent : Component
             { "Slime", ModerateImpact },
             { "Blood", ModerateImpact },
             { "CopperBlood", ModerateImpact },
-            { "BlackBlood", ModerateImpact }, // Omu Edit
+            { "BlackBlood", ModerateImpact }, // Goob Edit
             { "ZombieBlood", ModerateImpact },
             { "AmmoniaBlood", ModerateImpact },
             { "ChangelingBlood", ModerateImpact },

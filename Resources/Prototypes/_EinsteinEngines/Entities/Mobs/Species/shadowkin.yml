@@ -224,7 +224,7 @@
     - AnomalyHost
     - ShadowkinEmotes
   - type: Respirator #Goob edit start - Lore Accurate Shadowkin superdense iron blood.
-    updateInterval: 8
+    updateInterval: 6
     saturationLoss: 0.2
     maxSaturation: 30
     saturation: 30 #Goob Edit end
