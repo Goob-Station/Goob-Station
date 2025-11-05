@@ -6,106 +6,106 @@
   voice: 1
 
 - type: voice
-  id: Z7HhYXzYeRsQk3RnXqiG
-  name: Attank
-  sex: Male
+  id: 7NsaqHdLuKNFvEfjpUno
+  name: Seer
+  sex: Female
   silicon: false
   voice: 2
 
 - type: voice
-  id: DwwuoY7Uz8AP8zrY5TAo
-  name: Sean
+  id: MKlLqCItoCkvdhrxgtLv
+  name: Grampa
   sex: Male
   silicon: false
   voice: 3
 
 - type: voice
-  id: IMJF2iheYddhTs9SsQag
-  name: TF2 Announcer
+  id: Uxoc3diZvlOgley7DPAG
+  name: Announcer
   sex: Female
   silicon: false
   voice: 4
 
 - type: voice
-  id: gHtxOv0zWflP8Fkt7oJ6
-  name: Hatsune Miku (lol)
+  id: bFapzro3kAlrpiIM7VKo
+  name: Hatsune Miku (v1)
   sex: Female
   silicon: false
   voice: 5
 
 - type: voice
-  id: AAGYUBLEaLMgNDOa78hA
-  name: Johnny Silverhand
+  id: INf6KQEMi8Zl9wR2XoyJ
+  name: Johnny
   sex: Male
   silicon: false
   voice: 6
 
 - type: voice
-  id: Ir4joamaphNKb0t3Mq6v
-  name: Billy Herrington
+  id: ABZxQiad9U4kHgGZLvKC
+  name: Billy
   sex: Male
   silicon: false
   voice: 7
 
 - type: voice
-  id: tUXaswOrqMfmw8CzG6jb
-  name: Flying Dutchman
+  id: 9U1kNETZLekGznuEgHiw
+  name: K'nuckles
   sex: Male
   silicon: false
   voice: 8
 
 - type: voice
-  id: XcXEQzuLXRU9RcfWzEJt
-  name: Veda Sky
-  sex: Female
+  id: c2kYcg7zh0HGdN87aNUw
+  name: Obama
+  sex: Male
   silicon: false
   voice: 9
 
 - type: voice
-  id: Ybqj6CIlqb6M85s9Bl4n
-  name: Jamal
-  sex: Male
+  id: C8qyfgo9nFJXaWT6pLag
+  name: Hatsune (v2)
+  sex: Female
   silicon: false
   voice: 10
 
 - type: voice
-  id: exsUS4vynmxd379XN4yO
-  name: Blondie
+  id: RXtWW6etvimS8QJ5nhVk
+  name: Fiona
   sex: Female
   silicon: false
   voice: 11
 
 - type: voice
-  id: nLiZs38w2b9S5WVDWipV
-  name: Sia
-  sex: Female
+  id: ew7xY5VVQOl20Pn3KIsS
+  name: Solid Snake
+  sex: Male
   silicon: false
   voice: 12
 
 - type: voice
-  id: AAcsG2GKDfpmaiNOamMe
-  name: Francesca
+  id: vS40YJ16NT5bGQEvgfIK
+  name: Karlach
   sex: Female
   silicon: false
   voice: 13
 
 - type: voice
-  id: Jvf6TAXwMUVTSR20U0f9
-  name: Klaus
+  id: 6PCKUH2ZKnCaRZjj5Gtl
+  name: Arthur
   sex: Male
   silicon: false
   voice: 14
 
 - type: voice
-  id: nzeAacJi50IvxcyDnMXa
-  name: Spy
+  id: LV3E99J5nR2WulzxYVvO
+  name: Gilbert
   sex: Male
   silicon: false
   voice: 15
 
 - type: voice
-  id: Dt2jDzhoZC0pZw5bmy2S
-  name: Emilia
+  id: 9KL2n0XhMAl26aOqn22k
+  name: Marcelline
   sex: Female
   silicon: false
   voice: 16
@@ -118,92 +118,64 @@
   voice: 17
 
 - type: voice
-  id: BBfN7Spa3cqLPH1xAS22
-  name: Beezle
+  id: JtxRCgJ4RBROb6EcKAOu
+  name: Kiryu
   sex: Male
   silicon: false
   voice: 18
 
 - type: voice
-  id: xYWUvKNK6zWCgsdAK7Wi
-  name: Argonian
+  id: 9CArWG8YxDIaFuxKdd3n
+  name: Cayde6
   sex: Male
-  silicon: false
+  silicon: true
   voice: 19
 
 - type: voice
-  id: qhH5VOAvpCwvNpmn2srO
-  name: Feargol
+  id: yxvRlEYykRyPpNj4wyzO
+  name: Shadowheart
   sex: Female
   silicon: false
   voice: 20
 
 - type: voice
-  id: MKlLqCItoCkvdhrxgtLv
-  name: Grampa
+  id: 6lzOuoNBO1bBN4jLCW6X
+  name: Duke
   sex: Male
   silicon: false
   voice: 21
 
 - type: voice
-  id: vL8WtDawgZvWdIBTgvsB
-  name: Obi-Wan
+  id: 63AqbT21Nj7hd05efFbJ
+  name: Obiwan
   sex: Male
   silicon: false
   voice: 22
 
 - type: voice
-  id: MagX1RqeCPUGDLvFYbtQ
-  name: Dwarf
+  id: xBdrkqKcP5zVLmkdC5C1
+  name: Simaris
   sex: Male
-  silicon: false
+  silicon: true
   voice: 23
 
 - type: voice
-  id: MagX1RqeCPUGDLvFYbtQ
-  name: Dwarf
+  id: rhCkPglhGaLQEkKTbHMh
+  name: Lahey
   sex: Male
   silicon: false
   voice: 24
 
 - type: voice
-  id: oxrJ5cJFgNwOSam6RBnL
-  name: Simaris
+  id: O21VhfE61YFwuThz5SaG
+  name: Dwarf
   sex: Male
   silicon: false
   voice: 25
 
 - type: voice
-  id: oxrJ5cJFgNwOSam6RBnL
-  name: Simaris
-  sex: Male
-  silicon: true
-  voice: 26
-
-- type: voice
-  id: yxyjU7BBIjX7YkttSriR
-  name: KAY/O
-  sex: Male
-  silicon: false
-  voice: 27
-
-- type: voice
-  id: yxyjU7BBIjX7YkttSriR
-  name: KAY/O
-  sex: Male
-  silicon: true
-  voice: 28
-
-- type: voice
-  id: Fenx3FUS2RqLyP1nIvLq
-  name: GLaDOS
-  sex: Male
-  silicon: false
-  voice: 29
-
-- type: voice
-  id: Fenx3FUS2RqLyP1nIvLq
-  name: GLaDOS
+  id: cgSgspJ2msm6clMCkdW9
+  name: Jessica
   sex: Female
-  silicon: true
-  voice: 30
+  silicon: false
+  voice: 25

@@ -19,7 +19,7 @@ public sealed partial class StarlightCCVars
     /// Auth token of the TTS server API.
     /// </summary>
     public static readonly CVarDef<string> TTSApiToken =
-        CVarDef.Create("tts.api_token", "sk_8a0cebef3fa8d5400bb520b513e485b6ecc23ccb98c9f431", CVar.SERVERONLY | CVar.CONFIDENTIAL);
+        CVarDef.Create("tts.api_token", "bd8062aafbccb904c411e6e93468f5d3592e5179fd7d2cd1c7ff6b0c913568c5", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
     /// <summary>
     /// Amount of seconds before timeout for API
