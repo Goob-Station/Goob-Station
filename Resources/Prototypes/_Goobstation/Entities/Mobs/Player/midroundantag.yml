@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseMobHuman
   id: MobHumanGreyTide
-  name: The GreyTide
+  name: The Greytide
   components:
   - type: Loadout
     prototypes: [ GreyTideAntagGear ]
