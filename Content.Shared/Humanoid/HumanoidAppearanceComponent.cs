@@ -149,12 +149,11 @@ public sealed partial class HumanoidAppearanceComponent : Component
 [Serializable, NetSerializable]
 public readonly partial struct CustomBaseLayerInfo
 {
-    public CustomBaseLayerInfo(string? id, Color? color = null, string? shader = null) // Goobstation edit
+    public CustomBaseLayerInfo(string? id, Color? color = null)
     {
         DebugTools.Assert(id == null || IoCManager.Resolve<IPrototypeManager>().HasIndex<HumanoidSpeciesSpriteLayer>(id));
         Id = id;
         Color = color;
-        Shader = shader; // Goobtation
     }
 
     /// <summary>
@@ -168,8 +167,4 @@ public readonly partial struct CustomBaseLayerInfo
     /// </summary>
     [DataField]
     public Color? Color { get; init; }
-
-    // Goobstation
-    [DataField]
-    public string? Shader { get; init; }
 }

@@ -42,7 +42,7 @@
 - type: entity
   id: HeadResomi
   name: "resomi head"
-  parent: [PartResomi, BaseHead]
+  parent: [PartResomi, BaseHead, ]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi

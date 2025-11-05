@@ -38,7 +38,7 @@
   - type: Armor
     traumaDeductions:
       Dismemberment: 1
-      OrganDamage: 0.5
+      OrganDamage: 0.3
       BoneDamage: 0.5
       VeinsDamage: 0
       NerveDamage: 0

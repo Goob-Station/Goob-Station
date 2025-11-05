@@ -15,20 +15,3 @@
     useDelay: 70
   - type: InstantAction
     event: !type:ActionActivateAutoInjectorEvent {}
-
-- type: entity
-  parent: BaseAction
-  id: ActionActivateSecondSkin
-  name: Activate Second Skin
-  description: Cover your body with armored protective liquid-like substance
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Action
-    checkCanInteract: false
-    itemIconStyle: NoItem
-    useDelay: 2
-    icon:
-      sprite: _Goobstation/Clothing/OuterClothing/second_skin.rsi
-      state: action
-  - type: InstantAction
-    event: !type:ActionActivateSecondSkin

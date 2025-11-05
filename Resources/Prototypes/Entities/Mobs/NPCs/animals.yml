@@ -1622,7 +1622,7 @@
 - type: entity
   name: genetic ancestor
   id: MobBaseAncestor
-  parent: [SimpleMobBase, StripableInventoryBase, BaseMobDisgust] # Goob edit
+  parent: [SimpleMobBase, StripableInventoryBase]
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
@@ -3608,7 +3608,7 @@
     factions:
     - Syndicate
   - type: Access
-    tags:
+    tags: 
     - NuclearOperative
     - SyndicateAgent
   - type: MeleeWeapon
