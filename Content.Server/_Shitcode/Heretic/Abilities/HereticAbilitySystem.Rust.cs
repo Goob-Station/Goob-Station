@@ -11,6 +11,7 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Shared.SecondSkin;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Spreader;
 using Content.Shared._Goobstation.Heretic.Components;
@@ -55,6 +56,16 @@ public sealed partial class HereticAbilitySystem
         SubscribeLocalEvent<SpriteRandomOffsetComponent, ComponentStartup>(OnRandomOffsetStartup);
 
         SubscribeLocalEvent<RustbringerComponent, FlashAttemptEvent>(OnFlashAttempt);
+
+        SubscribeLocalEvent<LeechingWalkComponent, MapInitEvent>(OnMapInit);
+    }
+
+    private void OnMapInit(Entity<LeechingWalkComponent> ent, ref MapInitEvent args)
+    {
+        if (!TryComp(ent, out DisgustComponent? disgust))
+            return;
+
+        disgust.AccumulationMultiplier = 0f;
     }
 
     private void OnFlashAttempt(Entity<RustbringerComponent> ent, ref FlashAttemptEvent args)
