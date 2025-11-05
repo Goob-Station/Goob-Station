@@ -82,7 +82,7 @@
         1: 0.45
         0: 0.00
     - type: Temperature
-      heatDamageThreshold: 363.15 # Second Goob edit: The temperature where most wiring start to melt
+      heatDamageThreshold: 450 # Another goob edit: Wanted to do 363.15 for le realism, but reptiles have 400K limit which is ????
       coldDamageThreshold: 260
       currentTemperature: 310.15 # Goob note: 310K is the standard operating temperature of a home circuit breaker
       specificHeat: 42
@@ -91,7 +91,7 @@
           Cold: 0.1 #per second, scales with temperature & other constants
       heatDamage:
         types:
-          Heat: 3 #per second, scales with temperature & other constants
+          Heat: 2 #per second, scales with temperature & other constants
       atmosTemperatureTransferEfficiency: 0.05
     #- type: KillOnOverheat # Goob edit Edit - I WILL BRING THIS BACK BETTER
     - type: Deathgasp
