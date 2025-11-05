@@ -23,5 +23,5 @@ public sealed partial class HereticCosmicRuneComponent : Component
     public TimeSpan NextUse = TimeSpan.Zero;
 
     [DataField]
-    public TimeSpan Delay = TimeSpan.FromSeconds(1);
+    public TimeSpan Delay = TimeSpan.FromSeconds(2);
 }
