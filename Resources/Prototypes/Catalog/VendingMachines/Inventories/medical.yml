@@ -101,6 +101,7 @@
   id: NanoMedPlusInventory
   startingInventory:
     HandheldHealthAnalyzer: 3
+    Gauze: 5 # Goobstation
     Brutepack: 5
     Ointment: 5
     Bloodpack: 5
