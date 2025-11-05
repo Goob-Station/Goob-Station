@@ -11,7 +11,7 @@
     Dragon: 1
     # Revenant: 1 # Goob - Removed in favor of LoneOperative
     SlaughterDemon: 1
-    # Wraith: 1 # Goob
+    # Wraith: 1 # Goob - Wraith
     LoneOperative: 1 # Goobstation
 
 - type: ninjaHackingThreat
