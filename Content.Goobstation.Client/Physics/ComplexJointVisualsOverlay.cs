@@ -71,7 +71,8 @@ public sealed class ComplexJointVisualsOverlay : Overlay
                 var ourPos = coords.Position;
 
                 var dir = targetCoords.Position - ourPos;
-                var length = dir.Length();
+                var dirLength = dir.Length();
+                var length = dirLength / data.Scale.Y;
                 if (length <= 0.01f)
                     continue;
 
@@ -103,13 +104,16 @@ public sealed class ComplexJointVisualsOverlay : Overlay
                 segments = (int) MathF.Ceiling(trueLength / avg);
 
                 var ratio = length / trueLength;
-                var normalized = dir / length;
+                var normalized = dir / dirLength;
                 var angle = normalized.ToWorldAngle() + Angle.FromDegrees(180);
                 var modifiedY = realY * ratio;
                 var size = new Vector2(realX, modifiedY);
                 var extraLen = 0f;
 
-                handle.SetTransform(Matrix3Helpers.CreateTranslation(ourPos));
+                var scaleMatrix = Matrix3Helpers.CreateScale(data.Scale);
+                var worldMatrix = Matrix3Helpers.CreateTranslation(ourPos);
+                var scaledWorld = Matrix3x2.Multiply(scaleMatrix, worldMatrix);
+                handle.SetTransform(scaledWorld);
                 for (var i = 0; i < segments; i++)
                 {
                     Texture? tex = null;
