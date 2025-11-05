@@ -526,7 +526,7 @@
   icon: { sprite: /Textures/Clothing/Head/Helmets/swat_syndicate.rsi, state: icon }
   productEntity: ClothingHeadHelmetSwatSyndicate
   cost:
-    Telecrystal: 10
+    Telecrystal: 5
   categories:
   - UplinkWearables
 

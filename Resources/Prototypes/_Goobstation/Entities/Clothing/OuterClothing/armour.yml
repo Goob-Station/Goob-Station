@@ -449,6 +449,7 @@
   - type: SecondSkinHolder
     itemSlot:
       priority: 1
+      swap: false
       whitelist:
         components:
         - SecondSkin

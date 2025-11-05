@@ -240,7 +240,7 @@
       coefficients:
         Blunt: 0.35
         Slash: 0.35
-        Piercing: 0.6
+        Piercing: 0.8
         Heat: 0.6
         Caustic: 0.75
   - type: ExplosionResistance
