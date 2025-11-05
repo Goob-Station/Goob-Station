@@ -69,11 +69,6 @@
   components:
   - type: Stack
     stackType: GoldOre
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: gold
   - type: Material
@@ -111,11 +106,6 @@
   components:
   - type: Stack
     stackType: DiamondOre
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: diamond
   - type: Material
@@ -149,11 +139,6 @@
   components:
   - type: Stack
     stackType: SteelOre
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: iron
   - type: Material
@@ -187,11 +172,6 @@
   components:
   - type: Stack
     stackType: PlasmaOre
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: plasma
   - type: Material
@@ -234,11 +214,6 @@
   components:
   - type: Stack
     stackType: SilverOre
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: silver
   - type: Material
@@ -276,11 +251,6 @@
   components:
   - type: Stack
     stackType: SpaceQuartz
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: spacequartz
   - type: Material
@@ -314,11 +284,6 @@
   components:
   - type: Stack
     stackType: UraniumOre
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: uranium
   - type: Material
@@ -364,11 +329,6 @@
   components:
   - type: Stack
     stackType: BananiumOre
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: bananium
   - type: Material
@@ -415,11 +375,6 @@
   components:
   - type: Stack
     stackType: Coal
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: coal
   - type: Material
@@ -485,11 +440,6 @@
   components:
   - type: Stack
     stackType: SaltOre
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: salt
   - type: Material
@@ -508,6 +458,12 @@
           Quantity: 5
   - type: Item
     heldPrefix: salt
+  - type: StatusEffectOnCollideGhost # Goobstation
+    whitelist:
+      tags:
+      - WeakToSalt
+    statusEffect: Corporeal
+    duration: 15
 
 - type: entity
   parent: SaltOre

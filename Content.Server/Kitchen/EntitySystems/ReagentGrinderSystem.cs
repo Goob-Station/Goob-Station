@@ -244,6 +244,9 @@ namespace Content.Server.Kitchen.EntitySystems
                 var program = reagentGrinder.AutoMode == GrinderAutoMode.Grind ? GrinderProgram.Grind : GrinderProgram.Juice;
                 DoWork(uid, reagentGrinder, program);
             }
+
+            if (TryComp<AppearanceComponent>(uid, out var appearanceComponent)) // Goobstation
+                Dirty(uid, appearanceComponent);
         }
 
         private void OnInteractUsing(Entity<ReagentGrinderComponent> entity, ref InteractUsingEvent args)

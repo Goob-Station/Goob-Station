@@ -7,7 +7,7 @@
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
-
+/*
 using Content.Goobstation.Common.Pirates;
 using Content.Goobstation.Server.Pirates.Roles;
 using Content.Server.Antag;
@@ -84,4 +84,4 @@ public sealed partial class ActivePirateRuleSystem : GameRuleSystem<ActivePirate
 
         return true;
     }
-}
+}*/

@@ -34,3 +34,13 @@
   storage:
     back:
     - TapeRecorderFilled
+
+- type: loadout
+  id: DrinkOniGourd
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Oni
+  storage:
+    back:
+    - DrinkOniGourd

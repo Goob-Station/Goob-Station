@@ -36,12 +36,6 @@
   - SecHypo
 
 - type: latheRecipePack
-  id: SecurityWeaponsStaticGoob
-  recipes:
-  - PolymerBaton
-  - SpearTelescopic
-
-- type: latheRecipePack
   id: SecurityWeaponsNonEmaggableStaticGoob # At some point Terminus should be mapped and not printable, at least without research.
   recipes:
   - Terminus

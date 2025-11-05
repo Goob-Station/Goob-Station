@@ -86,6 +86,7 @@
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 Avalon <jfbentley1@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
@@ -98,7 +99,9 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
@@ -121,36 +124,35 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.CCVar;
-using Content.Goobstation.Common.MartialArts; // Goobstation - Martial Arts
+using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Common.Weapons; // Goobstation - Martial Arts
 using Content.Shared._EinsteinEngines.Contests;
-using Content.Shared._Shitmed.Weapons.Melee.Events; // Shitmed Change
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode;
-using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Coordinates;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Hands.EntitySystems; // Shitmed Change
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
+using Content.Shared.Tag;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
@@ -196,6 +198,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private   readonly ThrowingSystem _throwing = default!;
     [Dependency] private   readonly INetConfigurationManager _config = default!;
     [Dependency] private   readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private   readonly TagSystem _tag = default!;
 
     //Goob - Shove
     private float _shoveRange;
@@ -406,7 +409,15 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         ev.Modifiers = userEv.Modifiers;
         // </Goobstation>
 
+        // Begin DeltaV additions
+        // Allow users of melee weapons to have bonuses applied
+        if (user != uid)
+        {
+            RaiseLocalEvent(user, ref ev);
+        }
+
         return DamageSpecifier.ApplyModifierSets(ev.Damage, ev.Modifiers);
+        // End DeltaV additions
     }
 
     public float GetAttackRate(EntityUid uid, EntityUid user, MeleeWeaponComponent? component = null)
@@ -661,12 +672,17 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var target = GetEntity(ev.Target);
         var resistanceBypass = GetResistanceBypass(meleeUid, user, component);
 
+        // Goobstation start
+        var rangeEv = new GetLightAttackRangeEvent(target, user, component.Range);
+        RaiseLocalEvent(meleeUid, ref rangeEv);
+        // Goobstation end
+
         // For consistency with wide attacks stuff needs damageable.
         if (Deleted(target) ||
             !HasComp<DamageableComponent>(target) ||
             !TryComp(target, out TransformComponent? targetXform) ||
             // Not in LOS.
-            !InRange(user, target.Value, component.Range, session))
+            !InRange(user, target.Value, rangeEv.Range, session)) // Goob edit
         {
             // Leave IsHit set to true, because the only time it's set to false
             // is when a melee weapon is examined. Misses are inferred from an
@@ -687,7 +703,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             var missEvent = new MeleeHitEvent(new List<EntityUid>(), user, meleeUid, damage, null, GetCoordinates(ev.Coordinates)); // Goob edit
             RaiseLocalEvent(meleeUid, missEvent, true); // Goob station - broadcast
             _meleeSound.PlaySwingSound(user, meleeUid, component);
-            DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(ev.Coordinates), component.Range, component.MissAnimation, component.AnimationRotation, component.FlipAnimation); // Goobstation - Edit
+            DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(ev.Coordinates), rangeEv.Range, component.MissAnimation, component.AnimationRotation, component.FlipAnimation); // Goobstation - Edit
             return;
         }
 
@@ -713,7 +729,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             target.Value
         };
 
-        DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(target.Value.ToCoordinates()), component.Range, component.Animation, component.AnimationRotation, component.FlipAnimation); // Goobstation - Edit
+        DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(target.Value.ToCoordinates()), rangeEv.Range, component.Animation, component.AnimationRotation, component.FlipAnimation); // Goobstation - Edit
         // We skip weapon -> target interaction, as forensics system applies DNA on hit
         Interaction.DoContactInteraction(user, weapon);
 
@@ -969,6 +985,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 range,
                 ignore,
                 false)
+                .Where(x => !_tag.HasTag(x.HitEntity, "WideSwingIgnore")) // Goobstation
                 .ToList();
 
             if (res.Count != 0)

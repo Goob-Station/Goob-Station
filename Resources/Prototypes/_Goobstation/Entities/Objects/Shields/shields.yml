@@ -32,12 +32,13 @@
       activeSound:
         path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyhum.ogg
     - type: ItemToggleSize
-      activatedSize: Ginormous
+      activatedSize: Huge
     - type: Clothing
       sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
       quickEquip: false
       slots:
       - Belt
+      - suitStorage
     - type: ComponentToggler
       components:
       - type: DisarmMalus
@@ -52,7 +53,7 @@
           shader: unshaded
           map: [ "shield" ]
     - type: Item
-      size: Large
+      size: Normal
     - type: UseDelay
       delay: 0.5
     - type: ToggleableVisuals
