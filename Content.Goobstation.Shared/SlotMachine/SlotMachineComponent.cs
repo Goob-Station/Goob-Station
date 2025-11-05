@@ -8,9 +8,7 @@ namespace Content.Goobstation.Shared.SlotMachine;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SlotMachineComponent : Component
 {
-    /// <summary>
-    /// Sounds
-    /// </summary>
+    #region Sounds
 
     [DataField]
     public SoundSpecifier SpinSound = new SoundPathSpecifier("/Audio/_Goobstation/Machines/SlotMachine/slotmachine_spin.ogg");
@@ -33,9 +31,9 @@ public sealed partial class SlotMachineComponent : Component
     [DataField]
     public SoundSpecifier GodPotWinSound = new SoundPathSpecifier("/Audio/_Goobstation/Machines/SlotMachine/slotmachine_godpot.ogg");
 
-    /// <summary>
-    /// Chances
-    /// </summary>
+    #endregion
+
+    #region Chances
 
     [DataField, AutoNetworkedField]
     public float SmallWinChance = .20f;
@@ -52,16 +50,12 @@ public sealed partial class SlotMachineComponent : Component
     [DataField, AutoNetworkedField]
     public float GodPotWinChance = .0001f;
 
-    /// <summary>
-    /// Prizes
-    /// </summary>
+    #endregion
 
     [DataField, AutoNetworkedField]
     public EntProtoId GodPotPrize = "WeaponShotgunHeavy";
 
-    /// <summary>
-    /// Prize Amounts
-    /// </summary>
+    #region Prize Amounts
 
     [DataField, AutoNetworkedField]
     public int SpinCost = 50;
@@ -78,15 +72,17 @@ public sealed partial class SlotMachineComponent : Component
     [DataField, AutoNetworkedField]
     public int JackPotPrizeAmount = 10000;
 
-    /// <summary>
-    /// DoAfter
-    /// </summary>
+    #endregion
+
+    #region DoAfter
 
     [DataField, AutoNetworkedField]
     public float DoAfterTime = 3.8f;
 
     [DataField, AutoNetworkedField]
     public bool IsSpinning;
+
+    #endregion
 }
 
 [Serializable, NetSerializable]
