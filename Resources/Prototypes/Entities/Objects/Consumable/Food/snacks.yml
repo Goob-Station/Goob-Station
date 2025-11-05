@@ -703,7 +703,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 7 #goob, was 10
+        maxVol: 12 #goob, was 10
         reagents:
         - ReagentId: ToxinTrash
           Quantity: 5

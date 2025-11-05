@@ -235,8 +235,8 @@
   - type: SolutionContainerManager
     solutions:
       plastic:
-        reagents:
-        - ReagentId: Oil #goob
+        reagents: #goob
+        - ReagentId: Oil
           Quantity: 3 #was 5
         - ReagentId: Phosphorus
           Quantity: 3 #was 5

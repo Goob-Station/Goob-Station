@@ -349,9 +349,10 @@
     amount: -1
   metabolisms:
     Poison:
-      metabolismRate: 0.1 #Yummers, should be 0.01 but doesnt work due to good code
+      metabolismRate: 0.01 #Yummers
       effects:
       - !type:HealthChange
+        probability: 0.5
         damage:
           types:
             Poison: 0.25 #should be 0.02, dealt ~30 dmg (less due to Good code)
@@ -377,9 +378,10 @@
         - !type:ReagentThreshold
           min: 20
       - !type:HealthChange
+        probability: 0.5
         damage:
           types:
-            Poison: -0.25 #should be 0.03
+            Poison: -0.25 #in reality i dont care if its a good medicine for vox bcz its funny
         conditions:
         - !type:OrganType # Goob, Vox are stinky
           type: Vox
