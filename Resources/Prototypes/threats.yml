@@ -11,7 +11,7 @@
     Dragon: 1
     # Revenant: 1 # Goob - Removed in favor of LoneOperative
     SlaughterDemon: 1
-    Wraith: 1
+    # Wraith: 1 # Goob - Disabled until someone actually maintains it actively
     LoneOperative: 1 # Goobstation
 
 - type: ninjaHackingThreat
@@ -30,10 +30,11 @@
   announcement: terror-lone-operative
   rule: LoneOpsSpawn
 
-- type: ninjaHackingThreat
-  id: Wraith
-  announcement: terror-wraith
-  rule: WraithMidround
+# Wraith - Disabled until someone actually maintains it actively
+#- type: ninjaHackingThreat
+#  id: Wraith
+#  announcement: terror-wraith
+#  rule: WraithMidround
 
 #- type: ninjaHackingThreat
 #  id: Revenant
