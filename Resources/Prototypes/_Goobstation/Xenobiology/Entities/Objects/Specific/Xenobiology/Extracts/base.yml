@@ -1,0 +1,31 @@
+- type: entity
+  id: BaseSlimeExtract
+  parent: BaseItem
+  name: slime extract
+  description:
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
+      state: core
+      color: "#828282"
+  - type: Appearance
+  - type: SolutionContainerManager
+    solutions:
+      extract:
+        maxVol: 100
+  - type: RefillableSolution
+    solution: extract
+  - type: DrawableSolution
+    solution: extract
+  - type: ExaminableSolution
+    solution: extract
+  - type: SlimeExtract
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+  - type: GuideHelp
+    guides:
+    - Xenobiology
+    - Science

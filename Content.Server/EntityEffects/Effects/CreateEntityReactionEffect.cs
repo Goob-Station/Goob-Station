@@ -19,6 +19,7 @@
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Timing;
 
 namespace Content.Server.EntityEffects.Effects;
 
@@ -30,6 +31,8 @@ public sealed partial class CreateEntityReactionEffect : EntityEffect
     /// </summary>
     [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string Entity = default!;
+
+    [DataField] public float Delay = 0f; // goob edit
 
     /// <summary>
     ///     How many entities to create per unit reaction.
@@ -43,11 +46,23 @@ public sealed partial class CreateEntityReactionEffect : EntityEffect
             ("entname", IoCManager.Resolve<IPrototypeManager>().Index<EntityPrototype>(Entity).Name),
             ("amount", Number));
 
+    // goob edit - moved Effect contents to DoSpawn method and added a delay support
     public override void Effect(EntityEffectBaseArgs args)
+    {
+        if (Delay > 0f)
+        {
+            Timer.Spawn((int) MathF.Round(Delay * 1000), () => DoSpawn(args));
+            return;
+        }
+
+        DoSpawn(args);
+    }
+
+    private void DoSpawn(EntityEffectBaseArgs args)
     {
         var transform = args.EntityManager.GetComponent<TransformComponent>(args.TargetEntity);
         var transformSystem = args.EntityManager.System<SharedTransformSystem>();
-        var quantity = (int)Number;
+        var quantity = (int) Number;
         if (args is EntityEffectReagentArgs reagentArgs)
             quantity *= reagentArgs.Quantity.Int();
 
