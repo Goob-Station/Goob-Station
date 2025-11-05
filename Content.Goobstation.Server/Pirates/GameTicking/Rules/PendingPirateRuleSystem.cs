@@ -8,7 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Cargo.Components;
+/*using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
@@ -125,3 +125,4 @@ public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPira
         Threat, Arrival, Paid, Cancelled, NotEnough
     }
 }
+*/
