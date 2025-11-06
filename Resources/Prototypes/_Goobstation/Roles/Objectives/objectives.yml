@@ -66,4 +66,4 @@
       state: icon
     difficulty: 1
     issuer: objective-issuer-lord-singuloth
-  - type: RoleplayObjective
+  - type: DestroyTheTeslaObjective
