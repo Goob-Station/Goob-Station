@@ -86,7 +86,7 @@ public sealed class RustSpreaderSystem : EntitySystem
             List<EntityUid> toRemove = new();
             foreach (var ent in spreader.AffectedDocks)
             {
-                if (!dockQuery.TryGetComponent(ent, out var dock))
+                if (!Exists(ent) || !dockQuery.TryGetComponent(ent, out var dock))
                 {
                     toRemove.Add(ent);
                     continue;
