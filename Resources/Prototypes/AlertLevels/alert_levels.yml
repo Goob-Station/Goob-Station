@@ -174,3 +174,12 @@
       emergencyLightColor: CadetBlue
       forceEnableEmergencyLights: true
       shuttleTime: 600
+    honk: # Goobstation
+      announcement: alert-level-honk-announcement
+      selectable: false
+      sound: /Audio/Items/bikehorn.ogg
+      disableSelection: true
+      color: Magenta
+      emergencyLightColor: Magenta
+      forceEnableEmergencyLights: true
+      shuttleTime: 600
