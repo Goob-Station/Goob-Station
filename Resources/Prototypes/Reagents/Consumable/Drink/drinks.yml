@@ -563,7 +563,6 @@
     Gas: # DeltaV - Feroxi get to breathe with this too!
       effects:
       - !type:HealthChange
-        scaling: true
         ignoreResistances: true
         conditions:
         - !type:MetabolizerTypeCondition

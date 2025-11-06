@@ -675,7 +675,6 @@
       methods: [Touch, Ingestion, Injection]
       effects:
       - !type:HealthChange
-        scaling: true
         damage:
           types:
             Caustic: 1

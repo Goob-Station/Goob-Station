@@ -169,7 +169,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaling: true
         damage:
           types:
             Caustic: 5 # Goobstation

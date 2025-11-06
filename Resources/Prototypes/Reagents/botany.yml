@@ -293,7 +293,6 @@
         - !type:ReagentCondition
           reagent: Ammonia
           min: 1
-        scaling: true
         ignoreResistances: true
         damage:
           groups:
