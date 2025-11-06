@@ -9,17 +9,15 @@ public abstract class SharedMobCollisionSpellSystem : EntitySystem
 {
     public override void Initialize()
     {
-
+        base.Initialize();
     }
     public bool MobCollisionEnabled()
     {
-        var query = EntityQueryEnumerator<MobCollisionSpellRuleComponent, ActiveGameRuleComponent, GameRuleComponent>();
-        while (query.MoveNext(out _, out _, out _, out _))
+        var query = EntityQueryEnumerator<MobCollisionSpellRuleComponent>();
+        while (query.MoveNext(out var _, out var _))
         {
             return true;
         }
-
         return false;
     }
-
 }

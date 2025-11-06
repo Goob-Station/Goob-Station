@@ -325,13 +325,12 @@
 
 - type: listing
   id: SpellbookEventMobCollitions
-  name: MobCollitions
-  description: MobCollitions
+  name: enable mob colition
+  description: Pysics is my domain, I reject your reality for my own
   productEvent: !type:MobColissionSpellEvent # Goobstation
   icon: # Goobstation
     sprite: Mobs/Ghosts/ghost_human.rsi
     state: icon
-  # productAction: ActionSummonGhosts # Goobstation
   cost:
     WizCoin: 2
   categories:
@@ -339,15 +338,14 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  - !type:CcvarListingCondition
+  - !type:CcvarListingCondition # dont show this if mob collision is active via cvar
     name: movement.mob_pushing
   disableRefund: true # Goobstation
 
-
 - type: listing
   id: SpellbookEventSpaceWind
-  name: space wind
-  description: space wind
+  name: enable space wind
+  description: because fuck them. that's why
   productEvent: !type:SpaceWindSpellEvent # Goobstation
   icon: # Goobstation
     sprite: Mobs/Ghosts/ghost_human.rsi
@@ -359,4 +357,6 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:CcvarListingCondition # dont show this if space wind  is active via cvar
+    name: atmos.space_wind
   disableRefund: true # Goobstation
