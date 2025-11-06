@@ -115,7 +115,7 @@ public sealed class TeleportSystem : EntitySystem
         // break any active pulls e.g. secoff pulling you with cuffs
         if (TryComp<PullableComponent>(uid, out var pullable) && _pullingSystem.IsPulled(uid, pullable))
             _pullingSystem.TryStopPull(uid, pullable, ignoreGrab: true);
-        // if we teleport the pulled entity goes with us
+        // if we teleport check if we're pulling someone and teleport them too if kidnap is true
         EntityUid? pullableEntity = null;
         if (TryComp<PullerComponent>(uid, out var puller) && kidnap)
             pullableEntity = puller.Pulling;
