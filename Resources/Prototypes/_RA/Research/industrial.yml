@@ -1,0 +1,14 @@
+- type: technology
+  id: ArchgunMobilization
+  name: research-technology-archguns
+  icon:
+    sprite: _Lavaland/Objects/Weapons/upgrade.rsi
+    state: display-mech
+  discipline: Arsenal
+  tier: 3
+  cost: 7500
+  recipeUnlocks:
+  - GraviMag
+  position: 0,-8
+  technologyPrerequisites:
+  - KineticModifications
