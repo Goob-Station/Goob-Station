@@ -84,7 +84,7 @@ public sealed class TeleportSystem : EntitySystem
         if (playSound)
             _audio.PlayPvs(component.DepartureSound, Transform(uid).Coordinates, AudioParams.Default);
 
-        RandomTeleport(uid, component.Radius, component.TeleportAttempts, component.ForceSafeTeleport, false);
+        RandomTeleport(uid, component.Radius, component.TeleportAttempts, component.ForceSafeTeleport, false, component.Kidnap);
 
         if (playSound)
             _audio.PlayPvs(component.ArrivalSound, Transform(uid).Coordinates, AudioParams.Default);
