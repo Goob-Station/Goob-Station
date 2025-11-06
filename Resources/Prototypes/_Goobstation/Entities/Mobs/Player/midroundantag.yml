@@ -16,3 +16,13 @@
   - type: Loadout
     prototypes: [ TunnelClownAntagGear ]
   - type: Clumsy
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanSingulothKnight
+  name: Singuloth Knight
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ SingulothKnightsAntagGear ]

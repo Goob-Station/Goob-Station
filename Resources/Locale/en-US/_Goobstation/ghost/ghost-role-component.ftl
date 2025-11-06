@@ -155,3 +155,8 @@ tunnel-clown-role-greeting = You are a [color=#880808]tunnel clown[/color], a cl
 tunnel-clown-objective-maints-slasher-desc = This stations maintenance has been your home for as long as you can remember, hiding from the crew in lockers is all that you knew until now. Thoses station goers have invaded your home for the last time, kill anyone who dares to distrupt your home.
 tunnel-clown-objective-condition-maints-slasher-title = Protect maintenance.
 tunnel-clown-business-card = Tunnel Clown, licensed to kill.
+
+ghost-role-information-Singuloth-Knight-name = Singuloth Knight
+ghost-role-information-Singuloth-Knight-description = Once master engineers, now followers of Lord Singuloth. Wielding a singularity hammer they are a force to be reckoned with!
+Singuloth-Knight-role-greeting = Thou art a [color=#880808]Singuloth Knight[/color], a devout followeth'r of Lord Singuloth, checketh thy charact'r sheet f'r thy objectives.
+objective-issuer-lord-singuloth = [color=#320022]Lord Singuloth[/color]

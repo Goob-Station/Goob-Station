@@ -83,6 +83,27 @@
       state: icon
 
 - type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  name: Singuloth Knights antag spawn
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostSingulothKnight
+  components:
+  - type: GhostRole
+    name: ghost-role-information-Singuloth-Knight-name
+    description: ghost-role-information-Singuloth-Knight-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: _Goobstation/Clothing/Head/Helmets/singulothhelm.rsi
+      state: icon
+
+- type: entity
   name: Maints Spawn Marker
   parent: MarkerBase
   id: MaintsSpawnMarker

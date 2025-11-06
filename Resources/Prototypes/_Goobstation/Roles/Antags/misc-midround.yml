@@ -31,3 +31,19 @@
     - ClownRecorder
     - FoodMeatClown
     - TunnelClownBusinessCard
+
+- type: startingGear
+  id: SingulothKnightsAntagGear
+  equipment:
+    head: ClothingHeadSinguloth
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+    outerClothing: ClothingSingulothArmor
+    shoes: ClothingShoesLeather
+    gloves: ClothingHandsGlovesColorYellow
+    back: ClothingBackpackSatchelLeather
+    belt: ClothingBeltUtilityFilled
+  inhand:
+  - SingularityHammer
+  storage:
+    back:
+    - MedkitCombatFilled

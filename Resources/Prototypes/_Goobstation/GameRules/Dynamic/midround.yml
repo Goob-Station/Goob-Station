@@ -68,3 +68,31 @@
   - type: AntagObjectives
     objectives:
     - TunnelClownProtectMaintenanceObjective
+
+- type: entity
+  parent: BaseGameRule
+  id: SingulothKnightsAntagMidround
+  components:
+  - type: GameRule
+    chaosScore: 250
+  - type: AntagSpawner
+    prototype: MobHumanSingulothKnight
+  - type: AntagSelection
+    agentName: ghost-role-information-Singuloth-Knight-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSingulothKnight
+      min: 3
+      max: 3
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+      briefing:
+        text: Singuloth-Knight-role-greeting
+        color: Red
+        sound: /Audio/_Goobstation/Misc/singulothknight_greeting.ogg
+  - type: AntagRandomSpawn
+  - type: AntagObjectives
+    objectives:
+    - SingulothKnightPreachObjective
+    - SingulothKnightSingularityObjective
+    - SingulothKnightTeslaObjective

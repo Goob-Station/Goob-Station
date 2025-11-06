@@ -177,10 +177,20 @@
   parent: [ClothingHeadHelmetTemplar, BaseMagicalContraband]
   id: ClothingHeadSinguloth
   name: singuloth knight's helm
-  description: This is an adamantium helmet from the chapter of the Singuloth Knights. It shines with a holy aura
+  description: An adamantium helmet from the chapter of the Singuloth Knights. It shines with a holy aura
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Helmets/singulothhelm.rsi
     state: icon
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Helmets/singulothhelm.rsi
+  - type: Armor # Goobstation
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+        Radiation: 0.5

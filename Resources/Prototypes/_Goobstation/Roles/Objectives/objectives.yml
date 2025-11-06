@@ -25,3 +25,45 @@
     difficulty: 1
     issuer: objective-issuer-unknown
   - type: RoleplayObjective
+
+- type: entity
+  parent: BaseObjective
+  name: Preach the word of Lord Singuloth!
+  description: Thou art to locateth this stations engineering department and conv'rt those folk into fellow followeth'rs of singuloth, if 't those gents refuseth those gents art to beest execut'd mercilessly.
+  id: SingulothKnightPreachObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Specific/Chapel/bible.rsi
+      state: icon
+    difficulty: 1
+    issuer: objective-issuer-lord-singuloth
+  - type: RoleplayObjective
+
+- type: entity
+  parent: BaseObjective
+  name: Expand the singularity
+  description: Thee wilt prithee lord singuloth, doth this by expanding (but nay loosing) the singularity, the bigger the better!
+  id: SingulothKnightSingularityObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Melee/singularityhammer.rsi
+      state: icon
+    difficulty: 1
+    issuer: objective-issuer-lord-singuloth
+  - type: RoleplayObjective
+
+- type: entity
+  parent: BaseObjective
+  name: Remove any tesla's from the station
+  description: If 't be true this station hast a tesla thou art to destroy it by any means and execute it's creator for yond affront to lord singuloth!
+  id: SingulothKnightTeslaObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: _Goobstation/Clothing/Head/Helmets/singulothhelm.rsi
+      state: icon
+    difficulty: 1
+    issuer: objective-issuer-lord-singuloth
+  - type: RoleplayObjective
