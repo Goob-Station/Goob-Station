@@ -1,16 +1,10 @@
 # Goobstation Subdermal Implants
 - type: entity
-  parent: BaseSubdermalImplant
+  parent: ScramImplant
   id: KidnapImplant
   name: kidnapping implant
   description: This implant randomly teleports the user and pulled target within a large radius when activated.
   categories: [ HideSpawnMenu ]
   components:
-    - type: SubdermalImplant
-      implantAction: ActionActivateScramImplant
-    - type: TriggerImplantAction
     - type: RandomTeleport
-      radius:
-        min: 10
-        max: 100
-        kidnap: true
+      kidnap: true
