@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Common.Bloodstream;
+namespace Content.Goobstation.Common.WoundMed.Bloodstream;
 
 public sealed class StoppedTakingBloodlossDamageEvent : EntityEventArgs;
 

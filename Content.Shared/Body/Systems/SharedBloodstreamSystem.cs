@@ -1,25 +1,17 @@
-using Content.Goobstation.Common.Bloodstream;
-using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared._Shitmed.Damage;
-using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
-using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Alert;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Drunk;
+// using Content.Shared.EntityEffects.Effects; // Goobstation no Predicted EntityEffects YET
 using Content.Shared.Fluids;
 using Content.Shared.Forensics.Components;
 using Content.Shared.HealthExaminable;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Random.Helpers;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Speech.EntitySystems;
 using Robust.Shared.Audio.Systems;
@@ -27,11 +19,18 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using System.Linq;
+
+// [WOUNDMED] - Goobstation
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Common.WoundMed.Bloodstream;
+using Content.Shared._Shitmed.Damage;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Body._Goobstation;
+
 
 namespace Content.Shared.Body.Systems;
 
-public abstract partial class SharedBloodstreamSystem : EntitySystem
+public partial class SharedBloodstreamSystem : EntitySystem
 {
     [Dependency] protected readonly SharedSolutionContainerSystem SolutionContainer = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -49,16 +48,15 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BloodstreamComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BloodstreamComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
-        //SubscribeLocalEvent<BloodstreamComponent, ReactionAttemptEvent>(OnReactionAttempt); // Goobstation - moved to Server
-        //SubscribeLocalEvent<BloodstreamComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnReactionAttempt); // Goobstation - moved to Server
         SubscribeLocalEvent<BloodstreamComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<BloodstreamComponent, HealthBeingExaminedEvent>(OnHealthBeingExamined);
         SubscribeLocalEvent<BloodstreamComponent, BeingGibbedEvent>(OnBeingGibbed);
         SubscribeLocalEvent<BloodstreamComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
         SubscribeLocalEvent<BloodstreamComponent, RejuvenateEvent>(OnRejuvenate);
 
+        // [WOUNDMED]
+        SubscribeLocalEvent<BloodstreamComponent, MapInitEvent>(OnMapInit);
         InitializeWounds();
     }
 
@@ -74,9 +72,15 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
                 continue;
 
             bloodstream.NextUpdate += bloodstream.AdjustedUpdateInterval;
-            DirtyField(uid, bloodstream, nameof(BloodstreamComponent.NextUpdate)); // needs to be dirtied on the client so it can be rerolled during prediction
+            DirtyField(uid,
+                bloodstream,
+                nameof(BloodstreamComponent
+                    .NextUpdate)); // needs to be dirtied on the client so it can be rerolled during prediction
 
-            if (!SolutionContainer.ResolveSolution(uid, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution))
+            if (!SolutionContainer.ResolveSolution(uid,
+                    bloodstream.BloodSolutionName,
+                    ref bloodstream.BloodSolution,
+                    out var bloodSolution))
                 continue;
 
             // Adds blood to their blood level if it is below the maximum; Blood regeneration. Must be alive.
@@ -102,21 +106,23 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
                 // bloodloss damage is based on the base value, and modified by how low your blood level is.
                 var amt = bloodstream.BloodlossDamage / (0.1f + bloodPercentage);
 
-                // Goobstation start
+                // [WOUNDMED] - Blood Loss Multiplier
                 var multiplierEv = new GetBloodlossDamageMultiplierEvent();
                 RaiseLocalEvent(uid, multiplierEv);
                 amt *= multiplierEv.Multiplier;
-                // Goobstation end
+                // END
 
-                _damageableSystem.TryChangeDamage(uid, amt,
-                    ignoreResistances: false, interruptsDoAfters: false);
+                _damageableSystem.TryChangeDamage(uid,
+                    amt,
+                    ignoreResistances: false,
+                    interruptsDoAfters: false);
 
                 // Apply dizziness as a symptom of bloodloss.
                 // The effect is applied in a way that it will never be cleared without being healthy.
                 // Multiplying by 2 is arbitrary but works for this case, it just prevents the time from running out
                 _drunkSystem.TryApplyDrunkenness(
                     uid,
-                    (float)bloodstream.AdjustedUpdateInterval.TotalSeconds * 2,
+                    (float) bloodstream.AdjustedUpdateInterval.TotalSeconds * 2,
                     applySlur: false);
                 _stutteringSystem.DoStutter(uid, bloodstream.AdjustedUpdateInterval * 2, refresh: false);
 
@@ -132,9 +138,9 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
                     bloodstream.BloodlossHealDamage * bloodPercentage,
                     ignoreResistances: true,
                     interruptsDoAfters: false,
-                    ignoreBlockers: true,
+                    ignoreBlockers: true, // [WOUNDMED] / Shitmed - Start
                     targetPart: TargetBodyPart.All,
-                    splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll); // End
 
                 // Remove the drunk effect when healthy. Should only remove the amount of drunk and stutter added by low blood level
                 _drunkSystem.TryRemoveDrunkenessTime(uid, bloodstream.StatusTime.TotalSeconds);
@@ -144,52 +150,22 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
                 DirtyField(uid, bloodstream, nameof(BloodstreamComponent.StatusTime));
             }
 
-            // Shitmed Change Start
-            if (!_consciousness.TryGetNerveSystem(uid, out var nerveSys))
-                continue;
-
-            var total = FixedPoint2.Zero;
-            foreach (var (bodyPart, _) in _body.GetBodyChildren(uid))
-            {
-                var totalPartBleeds = FixedPoint2.Zero; // Goobstation
-                foreach (var (wound, _) in _wound.GetWoundableWounds(bodyPart))
-                {
-                    if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
-                        continue;
-
-                    total += bleeds.BleedingAmount;
-                    totalPartBleeds = bleeds.BleedingAmount; // Goobstation
-                }
-
-                if (TryComp<WoundableComponent>(bodyPart, out var woundable)) // Goobstation
-                {
-                    woundable.Bleeds = totalPartBleeds; // Goobstation
-                }
-            }
-
-            var missingBlood = bloodstream.BloodMaxVolume - bloodstream.BloodSolution.Value.Comp.Solution.Volume;
-
-            bloodstream.BleedAmount = (float) total / 4;
-            if (!_consciousness.SetConsciousnessModifier(
-                    uid,
-                    nerveSys.Value,
-                    -missingBlood / 4,
-                    identifier: "Bleeding",
-                    type: ConsciousnessModType.Pain))
-            {
-                _consciousness.AddConsciousnessModifier(
-                    uid,
-                    nerveSys.Value,
-                    -missingBlood / 4,
-                    identifier: "Bleeding",
-                    type: ConsciousnessModType.Pain);
-            }
-            // Shitmed Change End
+            // [WOUNDMED] - Start
+            var ev = new UpdateBloodstreamEvent(uid, ref bloodstream);
+            RaiseLocalEvent(ref ev);
+            bloodstream.BleedAmount = ev.BleedAmount; // Update BleedAmount from the event
         }
-
         UpdateWounds(frameTime);
+        // END
     }
 
+    // [WOUNDMED]
+    /// <summary>
+    /// Handles the initialization of the BloodstreamComponent when an entity is first created.
+    /// Sets the initial update timing for blood-related calculations.
+    /// </summary>
+    /// <param name="ent">The entity with the BloodstreamComponent.</param>
+    /// <param name="args">The map initialization event data.</param>
     private void OnMapInit(Entity<BloodstreamComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.NextUpdate = _timing.CurTime + ent.Comp.AdjustedUpdateInterval;
@@ -288,7 +264,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
 
         // TODO: Replace with RandomPredicted once the engine PR is merged
         // Use both the receiver and the damage causing entity for the seed so that we have different results for multiple attacks in the same tick
-        var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(ent).Id, GetNetEntity(args.Origin)?.Id ?? 0 });
+        var seed = HashCode.Combine((int)_timing.CurTick.Value, GetNetEntity(ent).Id, GetNetEntity(args.Origin)?.Id ?? 0);
         var rand = new System.Random(seed);
         var prob = Math.Clamp(totalFloat / 25, 0, 1);
         if (totalFloat > 0 && rand.Prob(prob))
@@ -304,7 +280,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             // because it's burn damage that cauterized their wounds.
 
             // We'll play a special sound and popup for feedback.
-            _popup.PopupPredicted(Loc.GetString("bloodstream-component-wounds-cauterized"), ent,
+            _popup.PopupEntity(Loc.GetString("bloodstream-component-wounds-cauterized"), ent,
                     ent, PopupType.Medium); // only the burned entity can see this
             _audio.PlayPredicted(ent.Comp.BloodHealedSound, ent, args.Origin);
         }
@@ -441,12 +417,13 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             || !SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution))
             return false;
 
-        //  SHITMED CHANGE: We dont really care if the reagent was added in its entirety, just whether or not it could take more blood.
+        // [WOUNDMED] We dont really care if the reagent was added in its entirety, just whether or not it could take more blood.
         if (amount >= 0)
         {
             SolutionContainer.TryAddReagent(ent.Comp.BloodSolution.Value, ent.Comp.BloodReagent, amount, out var acceptedAmount, null, GetEntityBloodData(ent.Owner));
             return acceptedAmount > 0;
         }
+        // END
 
         // Removal is more involved,
         // since we also wanna handle moving it to the temporary solution
@@ -467,14 +444,10 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
                 tempSolution.AddSolution(temp, _prototypeManager);
             }
 
-            // Goobstation start
-            // Set the freshness when the spill is created instead of every time new blood is created
-            foreach (var dna in tempSolution
-                .SelectMany(r => r.Reagent.EnsureReagentData().OfType<DnaData>()))
-            {
-                dna.Freshness = _timing.CurTime;
-            }
-            // Goobstation end
+            // [WOUNDMED] BloodFreshnessSystem
+            var ev = new UpdateBloodFreshnessEvent(tempSolution);
+            RaiseLocalEvent(ref ev);
+            // END
 
             _puddle.TrySpillAt(ent.Owner, tempSolution, out _, sound: false);
 
@@ -580,9 +553,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         var dnaData = new DnaData();
 
         if (TryComp<DnaComponent>(uid, out var donorComp) && donorComp.DNA != null)
-        {
             dnaData.DNA = donorComp.DNA;
-        }
         else
             dnaData.DNA = Loc.GetString("forensics-dna-unknown");
 

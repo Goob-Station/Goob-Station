@@ -12,7 +12,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Actions;
-using Content.Goobstation.Common.Bloodstream;
+using Content.Goobstation.Common.WoundMed.Bloodstream;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Abilities.Mime;
 using Content.Server.Antag;

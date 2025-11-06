@@ -13,7 +13,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Bloodstream;
+using Content.Goobstation.Common.WoundMed.Bloodstream;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage;
