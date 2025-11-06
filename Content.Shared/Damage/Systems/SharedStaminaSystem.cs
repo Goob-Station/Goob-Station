@@ -90,6 +90,7 @@ using Content.Shared._Shitcode.Weapons.Misc;
 using Content.Goobstation.Common.Stunnable; // Martial Arts
 using Content.Goobstation.Common.MartialArts; // Martial Arts
 using Content.Shared.Damage.Events; // Sprinting Logs
+using Robust.Shared.Utility;
 
 
 namespace Content.Shared.Damage.Systems;
@@ -168,6 +169,10 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
     private void OnStartup(Entity<StaminaComponent> entity, ref ComponentStartup args)
     {
+        // Goobstation edit start - prevent a server crash from YAMLmaxxing
+        if (entity.Comp.CritThreshold <= entity.Comp.AnimationThreshold)
+            Log.Error($"Entity {ToPrettyString(entity)} failed to initialize StaminaComponent properly: {nameof(StaminaComponent.CritThreshold)} is lower or equal to {nameof(StaminaComponent.AnimationThreshold)}. Please fix its YAML prototype!");
+        // Goobstation edit end
         UpdateStaminaVisuals(entity);
     }
 
