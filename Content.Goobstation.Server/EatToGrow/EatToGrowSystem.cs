@@ -13,9 +13,9 @@ namespace Content.Goobstation.Server.EatToGrow;
 public sealed class EatToGrowSystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     public override void Initialize()
     {
-        
         SubscribeLocalEvent<FoodComponent, AfterFullyEatenEvent>(OnFoodEaten);
         SubscribeLocalEvent<EatToGrowComponent, ComponentGetState>(OnGetState);
     }
@@ -28,36 +28,29 @@ public sealed class EatToGrowSystem : EntitySystem
         // Only grow entities that have EatToGrowComponent.
         if (!TryComp<EatToGrowComponent>(eater, out var comp))
             return;
-
+        // if growing would go over the limit, return
         if (comp.CurrentScale >= comp.MaxGrowth)
             return;
-
+        // Add growth
         comp.CurrentScale += comp.Growth;
         comp.CurrentScale = MathF.Min(comp.CurrentScale, comp.MaxGrowth);
 
         Dirty(eater, comp); // Sync updated growth to client.
 
-        var physics = _entityManager.System<SharedPhysicsSystem>();
-
-
-
-
-        if (_entityManager.TryGetComponent(eater, out FixturesComponent? manager))
+        // Grow the fixture by 1/4 the growth
+        if (TryComp(eater, out FixturesComponent? manager))
         {
             foreach (var (id, fixture) in manager.Fixtures)
             {
                 if (fixture.Shape is PhysShapeCircle circle)
                 {
-                    physics.SetPositionRadius(
+                    _physics.SetPositionRadius(
                         eater, id, fixture, circle,
                         circle.Position, circle.Radius + comp.Growth/4, manager);
                 }
-                else
-                {
-                    throw new NotImplementedException("Only circle fixtures supported for scaling.");
-                }
             }
         }
+        return; // If fails, return
 
     }
 
