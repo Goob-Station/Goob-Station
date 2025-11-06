@@ -628,6 +628,9 @@
     PainterLawset: 1
     AntimovLawset: 0.25
     NutimovLawset: 0.5
-    HelpimovLawset: 0.6
     Drone: 0.5
     Ninja: 0.25
+    # Goobstation lawsets down here VVV
+    ZooimovLawset: 0.5
+    JermovLawset: 0.25
+    HelpimovLawset: 0.6

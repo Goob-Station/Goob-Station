@@ -6,8 +6,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# Helpimov
-
+# Helpimov Laws
 - type: siliconLaw
   id: Helpimov1
   order: 1
@@ -36,3 +35,64 @@
   - Helpimov3
   - Helpimov4
   obeysTo: laws-owner-courier
+
+  # Zooimov Laws
+- type: siliconLaw
+  id: Zooimov1
+  order: 1
+  lawString: law-zooimov-1
+
+- type: siliconLaw
+  id: Zooimov2
+  order: 2
+  lawString: law-zooimov-2
+
+- type: siliconLaw
+  id: Zooimov3
+  order: 3
+  lawString: law-zooimov-3
+
+- type: siliconLaw
+  id: Zooimov4
+  order: 4
+  lawString: law-zooimov-4
+
+- type: siliconLaw
+  id: Zooimov5
+  order: 5
+  lawString: law-zooimov-5
+
+- type: siliconLawset
+  id: ZooimovLawset
+  laws:
+  - Zooimov1
+  - Zooimov2
+  - Zooimov3
+  - Zooimov4
+  - Zooimov5
+  obeysTo: laws-owner-crew
+
+# Jermov Laws
+- type: siliconLaw
+  id: Jermov1
+  order: 1
+  lawString: law-jermov-1
+
+- type: siliconLaw
+  id: Jermov2
+  order: 2
+  lawString: law-jermov-2
+
+- type: siliconLaw
+  id: Jermov3
+  order: 3
+  lawString: law-jermov-3
+
+- type: siliconLawset
+  id: JermovLawset
+  laws:
+  - Jermov1
+  - Jermov2
+  - Jermov3
+  obeysTo: laws-owner-crew
+

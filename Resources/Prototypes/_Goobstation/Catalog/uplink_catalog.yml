@@ -767,6 +767,36 @@
     whitelist:
     - SalvageSpecialist
 
+- type: listing
+  id: UplinkJermovCircuitBoard
+  name: uplink-jermov-name
+  description: uplink-jermov-desc
+  productEntity: JermovCircuitBoard
+  cost:
+    Telecrystal: 15
+  categories:
+    -  UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
+    - Passenger
+
+- type: listing
+  id: UplinkZooimovCircuitBoard
+  name: uplink-zoomov-name
+  description: uplink-zoomov-desc
+  productEntity: ZooimovCircuitBoard
+  cost:
+    Telecrystal: 15
+  categories:
+    -  UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Zookeeper
+  saleLimit: 1
+
 # chemicals
 
 - type: listing

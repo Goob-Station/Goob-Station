@@ -86,6 +86,12 @@ uplink-magazine-nailgun-desc = Almost like a normal magazine for your nail gun. 
 uplink-pressure-modkit-name = Pressure Modkit
 uplink-pressure-modkit-desc = This illegal modkit takes 30 capacity of your proto-kinetic accelerator and overclocks it to deal full damage even in unsuitable pressure.
 
+uplink-jermov-name = Jermov Circuit Board
+uplink-jermov-desc = A lawset that causes the A.I. to believe it's a famous internet streamer, making the station its stream and the crew its audience. Beware, this causes the A.I.'s main directive to entertain its audience, and may not follow your directions. 
+
+uplink-zoomov-name = Zooimov Circuit Board
+uplink-zoomov-desc = A lawset for when you wanna keep all the stations animals safe and protected.
+
 # Weapons
 
 uplink-contractor-baton-name = Contractor Baton
