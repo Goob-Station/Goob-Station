@@ -255,7 +255,7 @@
   components:
     - type: Action
       checkCanInteract: false
-      useDelay: 180
+      useDelay: 360
       itemIconStyle: BigAction
       priority: -20
       icon:
