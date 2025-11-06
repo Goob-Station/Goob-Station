@@ -1,4 +1,5 @@
 
+using System.Linq;
 using Content.Shared.Store;
 using Robust.Shared.Configuration;
 
@@ -27,15 +28,16 @@ public sealed partial class CcvarListingCondition : ListingCondition
     [DataField]
     public bool ReturnIfFail = false;
 
-    [Dependency] private readonly IConfigurationManager CfgManager = default!;
     public override bool Condition(ListingConditionArgs args)
     {
-        if (!CfgManager.IsCVarRegistered(Name))
-            return ReturnIfFail; // cvar dont exist
+        var cfgManager = IoCManager.Resolve<IConfigurationManager>();
+
+        if (!cfgManager.IsCVarRegistered(Name))
+           return ReturnIfFail;
 
         if (Invert)
-            return !CfgManager.GetCVar<bool>(Name);
+            return !cfgManager.GetCVar<bool>(Name);
 
-        return CfgManager.GetCVar<bool>(Name);
+        return cfgManager.GetCVar<bool>(Name);
     }
 }
