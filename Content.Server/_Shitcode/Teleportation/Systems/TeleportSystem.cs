@@ -119,7 +119,8 @@ public sealed class TeleportSystem : EntitySystem
         EntityUid? pullableEntity = null;
         if (TryComp<PullerComponent>(uid, out var puller) && kidnap)
             pullableEntity = puller.Pulling;
-
+        else
+            _pullingSystem.StopAllPulls(uid);
         var entityCoords = xform.Coordinates.ToMap(EntityManager, _xform);
 
         var targetCoords = new MapCoordinates();
