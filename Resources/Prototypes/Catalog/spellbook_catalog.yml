@@ -342,3 +342,21 @@
   - !type:CcvarListingCondition
     name: movement.mob_pushing
   disableRefund: true # Goobstation
+
+
+- type: listing
+  id: SpellbookEventSpaceWind
+  name: space wind
+  description: space wind
+  productEvent: !type:SpaceWindSpellEvent # Goobstation
+  icon: # Goobstation
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    state: icon
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true # Goobstation

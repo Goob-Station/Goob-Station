@@ -548,3 +548,10 @@ public sealed partial class MobColissionSpellEvent : EntityEventArgs
     [DataField]
     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/ghost2.ogg");
 }
+
+[DataDefinition]
+public sealed partial class SpaceWindSpellEvent : EntityEventArgs
+{
+    [DataField]
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/ghost2.ogg");
+}
