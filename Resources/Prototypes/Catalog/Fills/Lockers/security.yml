@@ -245,6 +245,9 @@
     - id: BloodTrak # Goobstation
     - id: Betty # Goobstation
     - id: BoxTapeRecorder # DeltaV
+    - id: OxygenTankFilled # Goobstation
+    - id: NitrogenTankFilled # Goobstation
+    - id: ClothingOuterHardsuitDetective # Goobstation
 
 - type: entity
   id: ClosetBombFilled
