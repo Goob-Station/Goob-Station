@@ -17469,3 +17469,9 @@ Entries:
       message: Chaplain can see reality fractures but not reality shifts.
   id: 1958
   time: '2025-11-03T17:05:42.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Remove
+      message: Removed station AI vision from pAI
+  id: 1959
+  time: '2025-11-05T20:26:17.0000000+00:00'
