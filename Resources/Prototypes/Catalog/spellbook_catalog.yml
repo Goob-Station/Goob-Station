@@ -339,4 +339,6 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:CcvarListingCondition
+    name: movement.mob_pushing
   disableRefund: true # Goobstation
