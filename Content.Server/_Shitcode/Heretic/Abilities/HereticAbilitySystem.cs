@@ -420,6 +420,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         var statusQuery = GetEntityQuery<StatusEffectsComponent>();
         var resiratorQuery = GetEntityQuery<RespiratorComponent>();
         var hereticQuery = GetEntityQuery<HereticComponent>();
+        var ghoulQuery = GetEntityQuery<GhoulComponent>();
 
         var leechQuery = EntityQueryEnumerator<LeechingWalkComponent, TransformComponent>();
         while (leechQuery.MoveNext(out var uid, out var leech, out var xform))
@@ -429,7 +430,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
             damageableQuery.TryComp(uid, out var damageable);
 
-            var multiplier = 2f;
+            var multiplier = 1.5f;
             var boneHeal = FixedPoint2.Zero;
             var shouldHeal = true;
             if (hereticQuery.TryComp(uid, out var heretic))
@@ -438,7 +439,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 {
                     if (heretic.Ascended)
                     {
-                        multiplier = 4f;
+                        multiplier = 5f;
                         if (resiratorQuery.TryComp(uid, out var respirator))
                         {
                             _respirator.UpdateSaturation(uid,
@@ -453,12 +454,15 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                         }
                     }
                     else
-                        multiplier = 3f;
+                        multiplier = 2.5f;
 
                     boneHeal = leech.BoneHeal * multiplier;
                 }
             }
-            var otherHeal = boneHeal; // Same as boneHeal because I don't give a fuck
+            else if (ghoulQuery.HasComp(uid))
+                multiplier = 2.5f;
+
+            var otherHeal = boneHeal;
 
             RemCompDeferred<DelayedKnockdownComponent>(uid);
 

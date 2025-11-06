@@ -7,6 +7,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Heretic.Prototypes;
 using Robust.Server.GameObjects;
@@ -46,7 +47,9 @@ public sealed partial class RitualRustAscendBehavior : RitualSacrificeBehavior
     {
         base.Finalize(args);
 
-        args.EntityManager.Spawn(AscensionSpreader,
+        var rustBringer = args.EntityManager.EnsureComponent<RustbringerComponent>(args.Performer);
+
+        rustBringer.RustSpreader = args.EntityManager.Spawn(AscensionSpreader,
             args.EntityManager.System<TransformSystem>().GetMapCoordinates(args.Platform));
     }
 }
