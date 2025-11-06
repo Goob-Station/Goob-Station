@@ -20,7 +20,7 @@ public sealed class RustSpreaderSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
 
-    private const float RustSpreadInterval = 1f;
+    private const float RustSpreadInterval = 2f;
     private float _accumulator;
 
     public override void Initialize()
