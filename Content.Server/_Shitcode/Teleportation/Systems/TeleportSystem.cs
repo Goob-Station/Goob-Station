@@ -105,7 +105,8 @@ public sealed class TeleportSystem : EntitySystem
         MinMax radius,
         int triesBase = 10,
         bool forceSafe = true,
-        bool checkEv = true)
+        bool checkEv = true,
+        bool kidnap = false)
     {
         if (checkEv && !CanTeleport(uid))
             return;
@@ -114,10 +115,9 @@ public sealed class TeleportSystem : EntitySystem
         // break any active pulls e.g. secoff pulling you with cuffs
         if (TryComp<PullableComponent>(uid, out var pullable) && _pullingSystem.IsPulled(uid, pullable))
             _pullingSystem.TryStopPull(uid, pullable, ignoreGrab: true);
-
         // if we teleport the pulled entity goes with us
         EntityUid? pullableEntity = null;
-        if (TryComp<PullerComponent>(uid, out var puller))
+        if (TryComp<PullerComponent>(uid, out var puller) && kidnap)
             pullableEntity = puller.Pulling;
 
         var entityCoords = xform.Coordinates.ToMap(EntityManager, _xform);
