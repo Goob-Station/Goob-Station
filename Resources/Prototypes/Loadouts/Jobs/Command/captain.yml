@@ -82,7 +82,6 @@
 # For mantles
 - type: loadoutEffectGroup
   id: MasterCap
-  components:
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
@@ -156,17 +155,6 @@
     neck: ClothingNeckCloakCapFormal
 
 - type: loadout
-  id: VeteranCaptainCloak
-  equipment:
-    neck: ClothingNeckCloakVetCap
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobCaptain
-      time: 360000 #100 hrs
-
-- type: loadout
   id: CaptainMantle
   equipment:
     neck: ClothingNeckMantleCap
@@ -178,6 +166,17 @@
   id: CaptainMantle
   equipment:
     neck: ClothingNeckMantleCap
+
+- type: loadout
+  id: VeteranCaptainCloak
+  equipment:
+    neck: ClothingNeckCloakVetCap
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 360000 #100 hrs
 
 # Back
 - type: loadout
