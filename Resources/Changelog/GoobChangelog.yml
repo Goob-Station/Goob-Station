@@ -17490,3 +17490,13 @@ Entries:
       message: Min width and height of Oni is now taller
   id: 1961
   time: '2025-11-07T10:27:19.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Add
+      message: Microplastics reagent! YUMMERS!
+    - type: Add
+      message: Plastic and food packet trash now grind into a little microplastics.
+    - type: Tweak
+      message: 'Vox can now safely consume Vent crud. (the reagent) '
+  id: 1962
+  time: '2025-11-07T10:39:59.0000000+00:00'
