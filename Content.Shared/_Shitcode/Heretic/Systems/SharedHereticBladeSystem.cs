@@ -283,7 +283,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
                     foreach (var uid in hitEnts)
                     {
-                        _starMark.TryApplyStarMark(uid, args.User);
+                        _starMark.TryApplyStarMark(uid);
                     }
                     break;
             }
