@@ -181,7 +181,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         bool removeUnderstood = true)
     {
         // Goobstation edit start
-        if (!_knowledge.TryEnsureKnowledgeUnit(ent, LanguageKnowledgeId, out var knowledgeEnt))
+        if (!_knowledge.TryGetKnowledgeUnit(ent, LanguageKnowledgeId, out var knowledgeEnt))
             return;
         var knowledge = EnsureComp<LanguageKnowledgeComponent>(knowledgeEnt.Value);
         // Goobstation edit end
