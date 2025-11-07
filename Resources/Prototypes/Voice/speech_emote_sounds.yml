@@ -103,6 +103,8 @@
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    HumanMeow: # Goob
+      path: /Audio/_Goobstation/Voice/Human/meow.ogg
 
 - type: emoteSounds
   id: FemaleHuman
@@ -149,6 +151,8 @@
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    HumanMeow: # Goob
+      path: /Audio/_Goobstation/Voice/Human/meow.ogg
 
 - type: emoteSounds ## GOOB CONTENT START
   id: MonkeyMode

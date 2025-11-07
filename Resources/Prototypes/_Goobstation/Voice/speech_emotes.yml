@@ -267,3 +267,17 @@
     - is surprised
     - exclamation marks
     - exclamation mark
+
+- type: emote
+  id: HumanMeow
+  name: chat-emote-name-humanmeow
+  category: Vocal
+  icon: _Goobstation/Interface/Emotes/meow.png
+  whitelist:
+    components:
+    - Vocal
+  chatMessages: ["chat-emote-msg-humanmeow"]
+  chatTriggers:
+  - meow
+  - meows
+  - meows like revolver ocelot
