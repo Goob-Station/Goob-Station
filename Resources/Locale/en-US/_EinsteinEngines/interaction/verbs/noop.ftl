@@ -16,11 +16,6 @@ interaction-KnockOn-success-self-popup = You knock on {THE($target)}.
 interaction-KnockOn-success-target-popup = {THE($user)} knocks on you.
 interaction-KnockOn-success-others-popup = {THE($user)} knocks on {THE($target)}.
 
-interaction-Rattle-name = Rattle
-interaction-Rattle-success-self-popup = You rattle {THE($target)}.
-interaction-Rattle-success-target-popup = {THE($user)} rattles you.
-interaction-Rattle-success-others-popup = {THE($user)} rattles {THE($target)}.
-
 # The below includes conditionals for if the user is holding an item
 interaction-WaveAt-name = Wave at
 interaction-WaveAt-description = Wave at the target. If you are holding an item, you will wave it.
