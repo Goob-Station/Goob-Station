@@ -11,6 +11,9 @@ public sealed partial class CustomBooksSystem
     {
         SubscribeNetworkEvent<ApproveBookMessage>(OnBookApprove);
         SubscribeNetworkEvent<DeclineBookMessage>(OnBookDecline);
+
+        // its here because deleting books is for admins only
+        SubscribeLocalEvent<BookPrinterComponent, DeleteBookMessage>(OnBookDelete);
     }
 
     private void OnBookApprove(ApproveBookMessage args)
@@ -26,6 +29,14 @@ public sealed partial class CustomBooksSystem
         _pendingBooks.Remove(args.Book);
         var ev = new PopulatePendingBooksMenuMessage(_pendingBooks);
         RaiseNetworkEvent(ev, Filter.Empty().AddWhere(x => _adminManager.IsAdmin(x)));
+    }
+
+    private void OnBookDelete(Entity<BookPrinterComponent> ent, ref DeleteBookMessage args)
+    {
+        if (!_adminManager.IsAdmin(args.Actor))
+            return;
+
+        RemoveBookFromDb(args.Id);
     }
 
     /// <summary>
@@ -64,6 +75,16 @@ public sealed partial class CustomBooksSystem
         RaiseNetworkEvent(ev, Filter.Empty().AddWhere(x => _adminManager.IsAdmin(x)));
 
         // Update printers
+        foreach (var printer in EntityManager.AllEntities<BookPrinterComponent>())
+        {
+            UpdatePrinterUi(printer);
+        }
+    }
+
+    private async void RemoveBookFromDb(int id)
+    {
+        await _db.DeleteBookPrinterEntryAsync(id);
+
         foreach (var printer in EntityManager.AllEntities<BookPrinterComponent>())
         {
             UpdatePrinterUi(printer);

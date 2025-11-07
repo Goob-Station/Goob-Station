@@ -4,6 +4,7 @@ using Content.Server.Audio;
 using Content.Server.Chat.Managers;
 using Content.Server.Database;
 using Robust.Server.Audio;
+using Robust.Server.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Books;
@@ -16,6 +17,7 @@ public sealed partial class CustomBooksSystem : SharedCustomBooksSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     private Dictionary<int, BookData> _pendingBooks = new();
     private int _nextPendingBook = 0;
