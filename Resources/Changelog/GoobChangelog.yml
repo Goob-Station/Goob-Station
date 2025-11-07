@@ -17463,3 +17463,24 @@ Entries:
       message: Tweak Heretic Rifts are only visble by the Heretic and the Chaplain.
   id: 1957
   time: '2025-11-03T07:29:30.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Chaplain can see reality fractures but not reality shifts.
+  id: 1958
+  time: '2025-11-03T17:05:42.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Remove
+      message: Removed station AI vision from pAI
+  id: 1959
+  time: '2025-11-05T20:26:17.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Add
+      message: >-
+        Added: **Audible Ping** for when you receive chat highlights!  *(You can
+        toggle it on/off in Accessibility settings or adjust the volume in Audio
+        settings.)*
+  id: 1960
+  time: '2025-11-07T03:36:40.0000000+00:00'
