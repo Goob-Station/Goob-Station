@@ -370,5 +370,6 @@
 - type: entity
   parent: ClothingUniformJumpsuitAncient
   id: ClothingUniformJumpsuitAncientUnremoveable
+  suffix: Unremoveable
   components:
   - type: Unremoveable

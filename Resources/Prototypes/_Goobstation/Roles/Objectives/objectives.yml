@@ -67,3 +67,17 @@
     difficulty: 1
     issuer: objective-issuer-lord-singuloth
   - type: DestroyTheTeslaObjective
+
+- type: entity
+  parent: BaseObjective
+  name: Have an epic duel!
+  description: Those's other syndicate agents don't take you seriously, prove them wrong by winning a duel against a worthy opponent!
+  id: DarkLordDuelObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Melee/e_sword.rsi
+      state: icon
+    difficulty: 1
+    issuer: objective-issuer-syndicate
+  - type: RoleplayObjective

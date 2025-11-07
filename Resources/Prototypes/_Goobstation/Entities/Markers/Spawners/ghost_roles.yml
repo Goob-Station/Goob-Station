@@ -104,6 +104,27 @@
       state: icon
 
 - type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  name: Dark Lord antag spawn
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostDarkLord
+  components:
+  - type: GhostRole
+    name: ghost-role-information-dark-lord-name
+    description: ghost-role-information-dark-lord-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Objects/Weapons/Melee/e_sword.rsi
+      state: icon
+
+- type: entity
   name: Maints Spawn Marker
   parent: MarkerBase
   id: MaintsSpawnMarker

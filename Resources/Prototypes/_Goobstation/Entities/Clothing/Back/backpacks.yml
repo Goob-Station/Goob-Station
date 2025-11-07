@@ -29,5 +29,6 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackUnremoveable
+  suffix: Unremoveable
   components:
   - type: Unremoveable

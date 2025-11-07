@@ -47,3 +47,18 @@
   storage:
     back:
     - MedkitCombatFilled
+
+- type: startingGear
+  id: DarkLordAntagGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMonasticRobeDark
+    outerClothing: ClothingOuterWizardBlackReal
+    shoes: ClothingShoesColorBlack
+    gloves: ClothingHandsGlovesCombat
+    back: ClothingBackpackSatchelLeather
+    id: SyndiPDA
+  inhand:
+  - EnergySwordDouble
+  storage:
+    back:
+    - BoxSurvivalSlotsSyndicate

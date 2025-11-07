@@ -26,3 +26,16 @@
     randomizeName: true
   - type: Loadout
     prototypes: [ SingulothKnightsAntagGear ]
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanDarkLord
+  name: The Dark Lord
+  components:
+  - type: ActionGrant
+    actions:
+    - ActionLightningBolt
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ DarkLordAntagGear ]

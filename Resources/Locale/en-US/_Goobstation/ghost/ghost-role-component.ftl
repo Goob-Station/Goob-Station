@@ -160,3 +160,7 @@ ghost-role-information-Singuloth-Knight-name = Singuloth Knight
 ghost-role-information-Singuloth-Knight-description = Once master engineers, now followers of Lord Singuloth. Wielding a singularity hammer they are a force to be reckoned with!
 Singuloth-Knight-role-greeting = Thou art a [color=#880808]Singuloth Knight[/color], a devout followeth'r of Lord Singuloth, checketh thy charact'r sheet f'r thy objectives.
 objective-issuer-lord-singuloth = [color=#320022]Lord Singuloth[/color]
+
+ghost-role-information-dark-lord-name = Dark Lord
+ghost-role-information-dark-lord-description = A syndicate agent themed after a sith lord, use your lightning powers and energy sword to complete your objectives!
+dark-lord-role-greeting = You are a [color=#880808]Dark Lord[/color] sent by the syndicate to this station to do their dirty work, check your character sheet for your objectives.

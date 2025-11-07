@@ -142,5 +142,6 @@
 - type: entity
   parent: ClothingMaskGas
   id: ClothingMaskGasUnremoveable
+  suffix: Unremoveable
   components:
   - type: Unremoveable

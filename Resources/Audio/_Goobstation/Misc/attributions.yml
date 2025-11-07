@@ -47,3 +47,8 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "Media Vita"
   source: "https://www.youtube.com/watch?v=BytxBjXRfS8"
+
+- files: ["darklord_greeting.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "taken from FILMSTRO on youtube"
+  source: "https://www.youtube.com/watch?v=pU_8B6yrZrQ"
