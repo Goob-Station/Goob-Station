@@ -83,6 +83,8 @@
 
 - type: npcFaction
   id: PetsNT
+  friendly:
+  - NanoTrasen
   hostile:
   - Mouse
   - Balloon # Goob Balloon Edit     Pets can join the fight against the balloons
@@ -90,7 +92,6 @@
   - Zombie
   - Xeno
   - AllHostile
-  - Wizard
   - Dragon
   - Blob # Goobstation - Blob
   - Lavafauna # Goob - Lavaland
@@ -247,7 +248,7 @@
   - Xeno # rivalry
 
   # cause they are hostile to them
-  - SimpleHostile 
+  - SimpleHostile
   - AllHostile
   - Blob # Goobstation - Blob
   - Shadowling # Einstein Engines - Shadowlings
