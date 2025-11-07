@@ -1,0 +1,13 @@
+# Goblin
+
+- type: localizedDataset
+  id: CP14_Names_Goblin_Male_First
+  values:
+    prefix: cp14-species-name-goblin-male-first-
+    count: 26
+
+- type: localizedDataset
+  id: CP14_Names_Goblin_Female_First
+  values:
+    prefix: cp14-species-name-goblin-female-first-
+    count: 24
