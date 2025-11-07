@@ -35,6 +35,9 @@
         },
         {
             "name": "display"
+        },
+        {
+            "name": "display-mech"
         }
     ]
 }

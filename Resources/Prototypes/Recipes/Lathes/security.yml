@@ -377,7 +377,8 @@
   materials:
     Steel: 1500
     Gold: 1000
-    Diamond: 2000
+    Diamond: 200
+    Plasma: 1000
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -393,3 +394,14 @@
   result: N14BaseSpeedLoader45-70
   materials:
     Steel: 300
+
+- type: latheRecipe
+  id: GraviMag
+  result: PKAUpgradeMechSpeedRecharge
+  completetime: 10
+  materials:
+    Steel: 600
+    Gold: 200
+    Plasma: 400
+    Uranium: 400
+    Glass: 400

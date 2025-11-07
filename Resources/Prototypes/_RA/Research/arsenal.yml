@@ -19,7 +19,9 @@
     state: icon
   discipline: Arsenal
   tier: 3
-  cost: 40000
+  cost: 5000
   recipeUnlocks:
   - BladesOfChaos
-  position: 6, 2
+  position: 3, 1
+  technologyPrerequisites:
+  - DraconicMunitions

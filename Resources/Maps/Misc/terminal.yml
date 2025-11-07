@@ -14482,7 +14482,7 @@ entities:
       - stampedColor: '#2F4F4FFF'
         stampedName: Victrola
       content: >-
-        [color=gold]Remember your roots Analog. 
+        [color=gold]Remember your roots Analog.
 
         Stay on task. [/color]
 - proto: Chair
@@ -28981,14 +28981,14 @@ entities:
     - type: Transform
       pos: 15.710992,29.909811
       parent: 818
-- proto: PKAUpgradeMoveSpeed
+- proto: PKAUpgradeMechSpeedRechargeAdmeme
   entities:
   - uid: 1678
     components:
     - type: Transform
       pos: -21.681692,54.609085
       parent: 818
-- proto: PKAUpgradeRechargeAdmeme
+- proto: PKAUpgradeMechSpeedRechargeAdmeme
   entities:
   - uid: 1679
     components:

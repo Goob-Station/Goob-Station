@@ -1,8 +1,8 @@
 - type: entity
-  id: PKAUpgradeMoveSpeed
+  id: PKAUpgradeMechSpeedRecharge
   parent: BasePKAUpgrade
   name: GraviMag
-  description: A modkit for heavy weapons, enabling users to equip and weild weapons without an exosuit.
+  description: A modkit for researched deep in a null sector of space. Grants mech weapons a weight reduction and mobile charging.
   components:
   - type: Sprite
     layers:
@@ -16,55 +16,29 @@
   - type: Tag
     tags:
     - WeaponUpgradeMech
-    - WeaponUpgradeMechMelee
   - type: GunUpgrade
     tags: [ WeaponUpgradeMech ]
     examineText: gun-upgrade-examine-text-speed
-    capacityCost: 20
+    capacityCost: 50
     unique: true
   - type: GunComponentUpgrade
     components:
     - type: ClothingSpeedModifier
       walkModifier: 0.85
       sprintModifier: 0.85
-
-- type: entity
-  id: PKAUpgradeRecharge
-  parent: BasePKAUpgrade
-  name: ElectroMag
-  description: A modkit for heavy weapons, providing portable recharging in the absence of an exosuit.
-  components:
-  - type: Sprite
-    layers:
-    - state: base-mech
-    - state: overlay-mech-1
-      color: "#ff4242"
-    - state: overlay-mech-2
-      color: "#e69e02"
-    - state: overlay-mech-3
-      color: "#e69e02"
-  - type: Tag
-    tags:
-    - WeaponUpgradeMech
-  - type: GunUpgrade
-    tags: [ WeaponUpgradeMech ]
-    examineText: gun-upgrade-examine-text-recharge
-    capacityCost: 30
-    unique: true
-  - type: GunComponentUpgrade
-    components:
     - type: BatterySelfRecharger
       autoRecharge: true
-      autoRechargeRate: 3.75
+      autoRechargeRate: 10
       autoRechargePause: true
-      autoRechargePauseTime: 15
+      autoRechargePauseTime: 20
       canEmp: true
 
 # Admeme/Centcomm recharger, NOT balanced for station use.
 - type: entity
-  id: PKAUpgradeRechargeAdmeme
+  id: PKAUpgradeMechSpeedRechargeAdmeme
   parent: BasePKAUpgrade
-  name: High-Grade ElectroMag
+  name: High-Grade GraviMag
+  suffix: Admin
   description: A modkit for heavy weapons, overclocked for use by CentComm's enforcers.
   components:
   - type: Sprite
@@ -85,10 +59,14 @@
   - type: GunUpgrade
     tags: [ WeaponUpgradeMech ]
     examineText: gun-upgrade-examine-text-recharge-admeme
-    capacityCost: 30
+    capacityCost: 50
     unique: true
   - type: GunComponentUpgrade
     components:
+    - type: ClothingSpeedModifier
+      walkModifier: 0.90
+      sprintModifier: 0.90
     - type: BatterySelfRecharger
       autoRecharge: true
-      autoRechargeRate: 5
+      autoRechargeRate: 15
+      canEmp: false

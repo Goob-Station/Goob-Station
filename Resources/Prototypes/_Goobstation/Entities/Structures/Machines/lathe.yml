@@ -139,6 +139,7 @@
     - BluespaceTheory
     - ScienceClothing
     - ConstructionBagOfHolding
+    - Archguns #RAE
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SalvageExplosivesStatic # Seismic charges - they're pretty cheap in salvage vendor anyway so why not
