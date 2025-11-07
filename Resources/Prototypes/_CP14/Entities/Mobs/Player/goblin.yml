@@ -1,0 +1,4 @@
+- type: entity
+  save: false
+  parent: CP14BaseMobGoblin
+  id: CP14MobGoblin

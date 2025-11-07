@@ -1,0 +1,27 @@
+<Document>
+# Goblins
+
+<Box>
+<GuideEntityEmbed Entity="CP14MobGoblin" Caption="Goblin"/>
+</Box>
+
+Goblins are a race of stunted goblinoids that have settled en masse throughout Sylate. Although the other races are prejudiced against them, goblins rarely try to cause trouble on purpose.
+
+## Smallness of body
+
+Goblins are rather short in stature, and this greatly affects their lifestyle:
+- It's harder to pull large objects
+- Others find it easier to pull goblins
+- Reduced hitbox. Goblins are harder to hit
+- All incoming damage increased by 20%. Except for poisons. Poisons, on the other hand, do 50% less damage
+- Faster recovery from stamina crit
+- Have more stamina
+- Goblins initially have basic and advanced athletic.
+
+## Smallness of soul
+
+Nature has deprived goblins of the gift of magic:
+- Maximum mana reserve reduced by 75%
+- Mana regeneration rate increased by 1.5 times
+
+</Document>
