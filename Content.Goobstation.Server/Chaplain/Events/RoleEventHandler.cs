@@ -9,6 +9,8 @@ namespace Content.Goobstation.Server.Chaplain.Events;
 
 public sealed class RoleEventHandler : EntitySystem
 {
+    [Dependency] private readonly SharedEyeSystem _eye = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -20,6 +22,8 @@ public sealed class RoleEventHandler : EntitySystem
     {
         // Add the component to anyone with the BibleUser component
         // Pretty much anything that is a Chaplain should have this component (ERT etc)
-        EnsureComp<SeeHereticFixturesComponent>(uid);
+        var see = EnsureComp<SeeHereticFixturesComponent>(uid);
+        see.SeeShifts = false;
+        _eye.RefreshVisibilityMask(uid);
     }
 }
