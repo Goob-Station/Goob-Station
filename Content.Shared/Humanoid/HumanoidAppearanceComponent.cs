@@ -22,6 +22,10 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Content.Shared.Preferences;
+using Content.Shared.Starlight.TextToSpeech;
+
 namespace Content.Shared.Humanoid;
 
 [NetworkedComponent, RegisterComponent, AutoGenerateComponentState(true)]
@@ -115,6 +119,21 @@ public sealed partial class HumanoidAppearanceComponent : Component
     //
     //[DataField]
     //public ProtoId<MarkingPrototype>? UndergarmentBottom = new ProtoId<MarkingPrototype>("UndergarmentBottomBoxers");
+
+    /// <summary>
+    /// The profile that this entity was originally spawned with.
+    /// If null, the entity was not spawned with a profile.
+    /// </summary>
+    public HumanoidCharacterProfile? BaseProfile;
+
+    public static readonly Dictionary<Sex, string> DefaultSexVoice = new()
+    {
+        {Sex.Male, "Voljin"},
+        {Sex.Female, "Amina"},
+        {Sex.Unsexed, "Charlotte"}
+    };
+    [DataField("voice", customTypeSerializer: typeof(PrototypeIdSerializer<VoicePrototype>))]
+    public string? Voice { get; set; }
 
     /// <summary>
     ///     The displacement maps that will be applied to specific layers of the humanoid.

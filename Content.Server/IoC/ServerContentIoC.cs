@@ -188,6 +188,7 @@ using Content.Server.Players.RateLimiting;
 using Content.Server.Preferences.Managers;
 using Content.Server.ServerInfo;
 using Content.Server.ServerUpdates;
+using Content.Server.Starlight.TextToSpeech;
 using Content.Server.Voting.Managers;
 using Content.Server.Worldgen.Tools;
 using Content.Shared.Administration.Logs;
@@ -196,6 +197,10 @@ using Content.Shared.Chat;
 using Content.Shared.Kitchen;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
+
+using Content.Server.Starlight;
+using Content.Server.Starlight.TextToSpeech;
+using Content.Shared.Starlight;
 
 namespace Content.Server.IoC
 {
@@ -246,6 +251,9 @@ namespace Content.Server.IoC
             IoCManager.Register<CVarControlManager>();
             IoCManager.Register<LastRolledAntagManager>(); // Goobstation - antag pity
             IoCManager.Register<LinkAccountManager>(); // RMC - Patreon
+
+            // 🌟Starlight🌟
+            IoCManager.Register<ITTSManager, TTSManager>();
         }
     }
 }

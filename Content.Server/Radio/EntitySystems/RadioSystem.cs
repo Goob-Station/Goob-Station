@@ -55,6 +55,8 @@ using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Shared.Whitelist;
 
+using Content.Server.Starlight.TTS;
+
 namespace Content.Server.Radio.EntitySystems;
 
 /// <summary>
@@ -243,6 +245,13 @@ public sealed class RadioSystem : EntitySystem
             // send the message
             RaiseLocalEvent(receiver, ref ev);
         }
+
+        RaiseLocalEvent(new RadioSpokeEvent
+        {
+            Source = messageSource,
+            Message = message,
+            Receivers = [.. ev.Receivers]
+        });
 
         if (name != Name(messageSource))
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Radio message from {ToPrettyString(messageSource):user} as {name} on {channel.LocalizedName}: {message}");
