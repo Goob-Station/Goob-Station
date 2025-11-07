@@ -220,11 +220,13 @@
   - type: SolutionContainerManager
     solutions:
       plastic:
-        reagents:
+        reagents: #goob
         - ReagentId: Oil
-          Quantity: 5
+          Quantity: 3 #was 5
         - ReagentId: Phosphorus
-          Quantity: 5
+          Quantity: 3 #was 5
+        - ReagentId: Microplastics
+          Quantity: 4
         canReact: false
 
 - type: entity
