@@ -96,24 +96,14 @@
       department: Security
       time: 60h
 
-- type: loadoutEffectGroup
+- type: loadoutEffectGroup # Goobstation?
   id: VeteranOfficer
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 360000 # 100 hrs
-
-#Security Star
-- type: loadoutEffectGroup
-  id: SecurityStarWorthy
-  effects:
-    - !type:JobRequirementLoadoutEffect
-      requirement:
-        !type:DepartmentTimeRequirement
-        department: Security
-        time: 100h
+      time: 100h
 
 # Head
 - type: loadout
@@ -265,13 +255,3 @@
     proto: SeniorOfficer
   equipment:
     id: SeniorOfficerPDA
-
-# Misc
-- type: loadout
-  id: SecStar
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SecurityStarWorthy
-  storage:
-    back:
-    - Dinkystar
