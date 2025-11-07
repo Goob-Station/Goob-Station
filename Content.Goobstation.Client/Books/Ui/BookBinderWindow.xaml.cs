@@ -50,13 +50,15 @@ public sealed partial class BookBinderWindow : FancyWindow
 
         for (var i = 0; i < count; i++)
         {
-            var entry = new BookBinderPageEntry(pages.ElementAt(i).Value)
+            var item = pages.ElementAt(i);
+
+            var entry = new BookBinderPageEntry(item.Value)
             {
                 HorizontalExpand = true,
                 SetHeight = 340
             };
 
-            entry.EjectButton.OnPressed += args => EjectPressed?.Invoke(pages.ElementAt(i).Key);
+            entry.EjectButton.OnPressed += args => EjectPressed?.Invoke(item.Key);
 
             PagesContainer.AddChild(entry);
         }
