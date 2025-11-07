@@ -415,7 +415,7 @@
   icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
   productEntity: BowHardlight
   cost:
-    Telecrystal: 75
+    Telecrystal: 60
   categories:
   - UplinkWeaponry
   conditions:
@@ -959,6 +959,23 @@
     blacklist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: NukieUplinkAutosurgeonSandevistan
+  name: uplink-autosurgeon-sandevistan-name
+  description: uplink-autosurgeon-sandevistan-desc
+  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
+  productEntity: AutosurgeonSandevistan
+  cost:
+    Telecrystal: 124
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - LoneOpsUplink
+
 
 - type: listing
   id: UplinkClothingOuterDavidsJacketValid
@@ -1524,6 +1541,25 @@
     Telecrystal: 3
   categories:
   - UplinkPointless
+
+- type: listing
+  id: UplinkStarterKit
+  name: uplink-starter-kit-name
+  description: uplink-starter-kit-desc
+  productEntity: CrateSyndicateStarterKit
+  cost:
+    Telecrystal: 225
+  categories:
+  - UplinkWeaponry # Usually the first tab new players look at
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+        - NukeOpsUplink
+    - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+        - SurplusBundle
 
 - type: listing
   id: UplinkSyndiedrobe

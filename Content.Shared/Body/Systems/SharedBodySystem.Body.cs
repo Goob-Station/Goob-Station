@@ -537,6 +537,18 @@ public partial class SharedBodySystem
 
     private void OnRejuvenate(EntityUid ent, BodyComponent body, ref RejuvenateEvent args)
     {
+        RestoreBody((ent, body)); // Goobstation
+    }
+
+    // Goob edit start
+    public void RestoreBody(Entity<BodyComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp, false))
+            return;
+
+        var ent = entity.Owner;
+        var body = entity.Comp;
+
         if (body.Prototype == null)
             return;
 
@@ -693,6 +705,7 @@ public partial class SharedBodySystem
             _woundSystem.ForceHealWoundsOnWoundable(bodyPart.Id, out _);
         }
     }
+    // Goob edit end
 
     /// <summary>
     /// Gets all child body parts of this entity that have component T, including the root entity if it has component T.

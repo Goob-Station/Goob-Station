@@ -200,7 +200,7 @@
             tags:
             - WeakToSalt
           statusEffect: Corporeal
-          duration: 8  # 古布站 - Wraith End
+          duration: 15  # 古布站 - Wraith End
 
 
 - type: reagent
