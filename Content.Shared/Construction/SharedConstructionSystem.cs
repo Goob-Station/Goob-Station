@@ -60,22 +60,16 @@ namespace Content.Shared.Construction
             return PrototypeManager.Index(info.DefaultPrototype).Name;
         }
 
-        // Goobstation edit start
-        public static readonly EntProtoId ConstructionKnowledge = "ConstructionKnowledge";
-
         /// <summary>
         /// Goobstation
         /// Returns all available construction groups for that entity.
         /// </summary>
         public HashSet<ProtoId<ConstructionGroupPrototype>> AvailableConstructionGroups(EntityUid user)
         {
-            if (!_knowledge.TryGetKnowledgeUnit(user, ConstructionKnowledge, out var knowledge)
-                || !TryComp(knowledge, out ConstructionKnowledgeComponent? comp))
+            if (!_knowledge.TryGetKnowledgeWithComp<ConstructionKnowledgeComponent>(user, out var knowledge))
                 return Array.Empty<ProtoId<ConstructionGroupPrototype>>().ToHashSet();
 
-            return comp.Groups;
+            return knowledge.Select(x => x.Comp1.Group).ToHashSet();
         }
-
-        // Goobstation edit end
     }
 }

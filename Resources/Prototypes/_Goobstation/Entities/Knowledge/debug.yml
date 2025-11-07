@@ -1,9 +1,0 @@
-- type: entity
-  parent: BaseKnowledge
-  id: DebugKnowledge
-  name: Debug knowledge
-  description: It's a very special knowledge, the only thing you know about it is that you know it!
-  suffix: DEBUG
-  components:
-  - type: Knowledge
-    memoryLevel: DebugMemory

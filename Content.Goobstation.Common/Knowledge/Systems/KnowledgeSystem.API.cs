@@ -98,7 +98,7 @@ public sealed partial class KnowledgeSystem
     {
         if (!TryGetKnowledgeUnit(target, knowledgeUnit, out var unit)
             || !_knowledgeQuery.TryComp(unit, out var knowledge)
-            || !CanRemoveKnowledge(knowledge.MemoryLevel, category, level, force))
+            || !CanRemoveKnowledge((unit.Value, knowledge), category, level, force))
             return false;
 
         PredictedQueueDel(unit);
@@ -115,8 +115,7 @@ public sealed partial class KnowledgeSystem
             || !_knowledgeQuery.TryComp(unit, out var knowledge))
             return false;
 
-        var memoryProto = _protoMan.Index(knowledge.MemoryLevel);
-        if (!force && memoryProto.Unremoveable)
+        if (!force && knowledge.Unremoveable)
             return false;
 
         PredictedQueueDel(unit);
@@ -134,12 +133,12 @@ public sealed partial class KnowledgeSystem
         if (!TryGetAllKnowledgeUnits(target, out var units))
             return false;
 
-        foreach (var (unit, knowledgeComp) in units)
+        foreach (var unit in units)
         {
-            if (!CanRemoveKnowledge(knowledgeComp.MemoryLevel, category, level, force))
+            if (!CanRemoveKnowledge(unit.AsNullable(), category, level, force))
                 continue;
 
-            PredictedQueueDel(unit);
+            PredictedQueueDel(unit.Owner);
         }
 
         return true;
@@ -158,8 +157,7 @@ public sealed partial class KnowledgeSystem
 
         foreach (var (unit, knowledgeComp) in units)
         {
-            var memoryProto = _protoMan.Index(knowledgeComp.MemoryLevel);
-            if (!force && memoryProto.Unremoveable)
+            if (!force && knowledgeComp.Unremoveable)
                 continue;
 
             PredictedQueueDel(unit);
@@ -285,19 +283,20 @@ public sealed partial class KnowledgeSystem
     /// into account its memory level and knowledge category.
     /// </summary>
     public bool CanRemoveKnowledge(
-        ProtoId<KnowledgeMemoryPrototype> target,
+        Entity<KnowledgeComponent?> target,
         ProtoId<KnowledgeCategoryPrototype> category,
         int level,
         bool force = false)
     {
+        if (!_knowledgeQuery.Resolve(target.Owner, ref target.Comp))
+            return false;
+
         if (force)
             return true;
 
-        var memoryProto = _protoMan.Index(target);
-
-        if (memoryProto.Unremoveable
-            || memoryProto.Category != category
-            || memoryProto.Level > level)
+        if (target.Comp.Unremoveable
+            || target.Comp.Category != category
+            || target.Comp.Level > level)
             return false;
 
         return true;

@@ -1,8 +1,11 @@
+# TODO remake all of the language system to make it similar to construction knowledge
 - type: entity
   parent: BaseKnowledge
   id: LanguageKnowledge
   name: Language knowledge
   components:
   - type: Knowledge
-    memoryLevel: Language
+    category: Skills
+    level: 800
+    color: "#0b30a8"
   - type: LanguageKnowledge

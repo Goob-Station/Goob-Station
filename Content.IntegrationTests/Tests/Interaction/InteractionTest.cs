@@ -192,7 +192,10 @@ public abstract partial class InteractionTest
     tags:
     - CanPilot
   - type: UserInterface
-";
+  - type: KnowledgeGrant
+    table: !type:NestedSelector
+      tableId: AllConstructions
+"; // Goobstation edit - added KnowledgeGrant
 
     [SetUp]
     public virtual async Task Setup()

@@ -74,14 +74,13 @@ public sealed partial class KnowledgeSystem : EntitySystem
     public (string Category, KnowledgeInfo Info) GetKnowledgeInfo(Entity<KnowledgeComponent> knowledge)
     {
         var (uid, comp) = knowledge;
-        var proto = _protoMan.Index(comp.MemoryLevel);
-        var category = _protoMan.Index(proto.Category);
+        var category = _protoMan.Index(comp.Category);
 
         var ev = new KnowledgeGetDescriptionEvent();
         RaiseLocalEvent(uid, ref ev);
         var description = ev.Description ?? Description(uid);
 
         return (Loc.GetString(category.Name),
-            new KnowledgeInfo(Name(uid), description, comp.Color ?? proto.Color, comp.Sprite ?? proto.Sprite));
+            new KnowledgeInfo(Name(uid), description, comp.Color, comp.Sprite));
     }
 }

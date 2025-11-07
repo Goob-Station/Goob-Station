@@ -8,12 +8,12 @@ namespace Content.Shared.Construction.Components;
 /// Goobstation
 /// Knowledge component that contains information about all available crafting recipes.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ConstructionKnowledgeComponent : Component
 {
     /// <summary>
-    /// All available groups of constructions.
+    /// Group that this knowledge grants.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public HashSet<ProtoId<ConstructionGroupPrototype>> Groups = new();
+    [DataField(required: true)]
+    public ProtoId<ConstructionGroupPrototype> Group;
 }

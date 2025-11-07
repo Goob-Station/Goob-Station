@@ -44,30 +44,9 @@
     - Started
     - Completed
     - Failed
-  - type: ConstructionKnowledgeGrant
-    groups:
-    - SimpleHandmade
-    - AdvancedHandmade
-    - SurvivalWeaponsHandmade
-    - SurvivalWeaponsHandmadeAdvanced
-    - Technological
-    - Materials
-    - Doors
-    - Airlocks
-    - Toys
-    - Bananium
-    - Bots
-    - SimpleFurniture
-    - Furniture
-    - Infrastructure
-    - Electronics
-    - Walls
-    - AdvancedWalls
-    - Science
-    - Windows
-    - AdvancedWindows
-    - SpiderCraft # Also require a tag so it's fine
-    - Smokeables
+  - type: KnowledgeGrant
+    table: !type:NestedSelector
+      tableId: AllConstructions
   # Power
   - type: ApcPowerReceiver
     powerLoad: 1000

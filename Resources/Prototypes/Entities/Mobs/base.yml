@@ -139,32 +139,11 @@
     damagePenalty: 0.05
   - type: StunVisuals
   # Goobstation start
-  - type: ConstructionKnowledgeGrant
-    # For now, it's just all possible construction groups, but in the future
-    # we may start limiting recipes more when we have mechanics to actually learn them.
-    groups:
-    - SimpleHandmade
-    - AdvancedHandmade
-    - SurvivalWeaponsHandmade
-    - SurvivalWeaponsHandmadeAdvanced
-    - Technological
-    - Materials
-    - Doors
-    - Airlocks
-    - Toys
-    - Bananium
-    - Bots
-    - SimpleFurniture
-    - Furniture
-    - Infrastructure
-    - Electronics
-    - Walls
-    - AdvancedWalls
-    - Science
-    - Windows
-    - AdvancedWindows
-    - SpiderCraft # Also require a tag so it's fine
-    - Smokeables
+  # For now, it's just all possible construction groups, but in the future
+  # we may start limiting recipes more when we have mechanics to actually learn them.
+  - type: KnowledgeGrant
+    table: !type:NestedSelector
+      tableId: AllConstructions
   # Goobstation end
 
 - type: entity

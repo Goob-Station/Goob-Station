@@ -1,5 +1,5 @@
-﻿using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
+﻿using Content.Shared.EntityTable.EntitySelectors;
+using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Knowledge.Components;
 
@@ -13,5 +13,5 @@ public sealed partial class KnowledgeGrantComponent : Component
     /// Knowledge that will be added.
     /// </summary>
     [DataField(required:true)]
-    public List<EntProtoId> ToAdd = new();
+    public EntityTableSelector Table;
 }

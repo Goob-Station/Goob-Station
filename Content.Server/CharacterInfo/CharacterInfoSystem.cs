@@ -85,7 +85,7 @@ public sealed class CharacterInfoSystem : EntitySystem
         {
             foreach (var unit in found)
             {
-                if (_proto.Index(unit.Comp.MemoryLevel).Hidden)
+                if (unit.Comp.Hidden)
                     continue;
 
                 var (category, info) = _knowledge.GetKnowledgeInfo(unit);

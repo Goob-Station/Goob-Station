@@ -1,9 +1,192 @@
-# TODO: split this into a bunch of entities for each construction group instead of storing everything in 1 place
 - type: entity
   parent: BaseKnowledge
-  id: ConstructionKnowledge
+  id: BaseConstructionKnowledge
   name: Construction knowledge
+  abstract: true
   components:
   - type: Knowledge
-    memoryLevel: JobMemory
+    category: Skills
+    level: 500
+    color: "#0ba881"
   - type: ConstructionKnowledge
+
+- type: entityTable
+  id: AllConstructions
+  table: !type:AllSelector
+    children:
+    - id: ConstructionSimpleHandmade
+    - id: ConstructionAdvancedHandmade
+    - id: ConstructionSurvivalWeaponsHandmade
+    - id: ConstructionSurvivalWeaponsHandmadeAdvanced
+    - id: ConstructionTechnological
+    - id: ConstructionMaterials
+    - id: ConstructionDoors
+    - id: ConstructionAirlocks
+    - id: ConstructionToys
+    - id: ConstructionBananium
+    - id: ConstructionBots
+    - id: ConstructionSimpleFurniture
+    - id: ConstructionFurniture
+    - id: ConstructionInfrastructure
+    - id: ConstructionElectronics
+    - id: ConstructionWalls
+    - id: ConstructionAdvancedWalls
+    - id: ConstructionScience
+    - id: ConstructionWindows
+    - id: ConstructionAdvancedWindows
+    - id: ConstructionSpiderCraft # Also require a tag so it's fine
+    - id: ConstructionSmokeables
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionSimpleHandmade
+  components:
+  - type: ConstructionKnowledge
+    group: SimpleHandmade
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionAdvancedHandmade
+  components:
+  - type: ConstructionKnowledge
+    group: AdvancedHandmade
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionSurvivalWeaponsHandmade
+  components:
+  - type: ConstructionKnowledge
+    group: SurvivalWeaponsHandmade
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionSurvivalWeaponsHandmadeAdvanced
+  components:
+  - type: ConstructionKnowledge
+    group: SurvivalWeaponsHandmadeAdvanced
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionTechnological
+  components:
+  - type: ConstructionKnowledge
+    group: Technological
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionMaterials
+  components:
+  - type: ConstructionKnowledge
+    group: Materials
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionDoors
+  components:
+  - type: ConstructionKnowledge
+    group: Doors
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionAirlocks
+  components:
+  - type: ConstructionKnowledge
+    group: Airlocks
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionToys
+  components:
+  - type: ConstructionKnowledge
+    group: Toys
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionBananium
+  components:
+  - type: ConstructionKnowledge
+    group: Bananium
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionBots
+  components:
+  - type: ConstructionKnowledge
+    group: Bots
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionSimpleFurniture
+  components:
+  - type: ConstructionKnowledge
+    group: SimpleFurniture
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionFurniture
+  components:
+  - type: ConstructionKnowledge
+    group: Furniture
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionInfrastructure
+  components:
+  - type: ConstructionKnowledge
+    group: Infrastructure
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionElectronics
+  components:
+  - type: ConstructionKnowledge
+    group: Electronics
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionWalls
+  components:
+  - type: ConstructionKnowledge
+    group: Walls
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionAdvancedWalls
+  components:
+  - type: ConstructionKnowledge
+    group: AdvancedWalls
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionScience
+  components:
+  - type: ConstructionKnowledge
+    group: Science
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionWindows
+  components:
+  - type: ConstructionKnowledge
+    group: Windows
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionAdvancedWindows
+  components:
+  - type: ConstructionKnowledge
+    group: AdvancedWindows
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionSpiderCraft
+  components:
+  - type: ConstructionKnowledge
+    group: SpiderCraft
+
+- type: entity
+  parent: BaseConstructionKnowledge
+  id: ConstructionSmokeables
+  components:
+  - type: ConstructionKnowledge
+    group: Smokeables
