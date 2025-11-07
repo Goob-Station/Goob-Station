@@ -1,0 +1,102 @@
+﻿- type: construction
+  id: BladeServerFrameRecipe
+  graph: BladeServer
+  startNode: start
+  targetNode: bladeServer
+  category: construction-category-machines
+  objectType: Item
+
+# Construction graph shared by all blade servers
+- type: constructionGraph
+  id: BladeServer
+  start: start
+  graph:
+  - node: start
+    actions:
+    - !type:SpawnPrototype
+      prototype: SheetSteel1
+    - !type:DeleteEntity
+    edges:
+    - to: missingWires
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 2.5
+
+  - node: missingWires
+    entity: UnfinishedBladeServerFrame
+    actions:
+    - !type:EmptyAllContainers
+    edges:
+    - to: bladeServerFrame
+      steps:
+      - material: Cable
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:DeleteEntity
+      steps:
+      - tool: Screwing
+        doAfter: 2
+
+  - node: bladeServerFrame
+    entity: BladeServerFrame
+    actions:
+    - !type:AddContainer
+      container: machine_parts
+    - !type:AddContainer
+      container: machine_board
+    - !type:MachineFrameRegenerateProgress
+    edges:
+    - to: bladeServer
+      conditions:
+      - !type:MachineFrameComplete
+        guideIconBoard:
+          sprite: Objects/Misc/module.rsi
+          state: id_mod
+        guideIconParts:
+          sprite: Objects/Misc/stock_parts.rsi
+          state: scan_module
+      steps:
+      - tool: Screwing
+        doAfter: 0.5
+
+    - to: bladeServerFrame
+      conditions:
+      - !type:ContainerNotEmpty
+        container: machine_board
+      steps:
+      - tool: Prying
+        doAfter: 2
+        completed:
+        - !type:EmptyAllContainers
+        - !type:MachineFrameRegenerateProgress
+
+    - to: missingWires
+      conditions:
+      - !type:ContainerEmpty
+        container: machine_board
+        examineText: construction-condition-machine-container-empty
+      completed:
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+      steps:
+      - tool: Cutting
+        doAfter: 0.25
+
+  - node: bladeServer
+    entity: !type:BoardNodeEntity
+      container: machine_board
+    edges:
+    - to: bladeServerFrame
+      completed:
+      - !type:RaiseEvent
+        event: !type:MachineDeconstructedEvent
+        broadcast: false
+      conditions:
+      - !type:WirePanel
+      steps:
+      - tool: Prying
+        doAfter: 2
