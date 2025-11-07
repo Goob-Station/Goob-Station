@@ -13,27 +13,6 @@
       map: [ "openLayer" ]
     - state: closed
       map: [ "closedLayer" ]
-  - type: Appearance
-    quickEquip: false
-    slots:
-    - back
-  - type: Item
-    size: Large
-  - type: Storage
-    grid:
-    - 0,0,6,3
-    maxItemSize: Huge
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: []
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-  - type: ExplosionResistance
-    damageCoefficient: 0
-    worn: false
 
 
 - type: entity
