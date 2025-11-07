@@ -155,6 +155,10 @@
       inverted: true
       species:
       - Felinid
+    - !type:DepartmentTimeRequirement # goob - get a life
+      department: Security
+      time: 2340000 #650 hrs
+      inverted: true
   #  - !type:StyleRequirement
   #    styles:
   #    - HumanHairFloorlengthBedhead
