@@ -41,7 +41,7 @@
   voice: 6
 
 - type: voice
-  id: ABZxQiad9U4kHgGZLvKC
+  id: 2qzAcSfnHjHxl7O5kP7N
   name: Billy
   sex: Male
   silicon: false
@@ -55,8 +55,8 @@
   voice: 8
 
 - type: voice
-  id: c2kYcg7zh0HGdN87aNUw
-  name: Obama
+  id: qOaBBuX9SbPXW5j00QzL
+  name: Moon
   sex: Male
   silicon: false
   voice: 9
@@ -128,7 +128,7 @@
   id: 9CArWG8YxDIaFuxKdd3n
   name: Cayde6
   sex: Male
-  silicon: true
+  silicon: false
   voice: 19
 
 - type: voice
@@ -156,7 +156,7 @@
   id: xBdrkqKcP5zVLmkdC5C1
   name: Simaris
   sex: Male
-  silicon: true
+  silicon: false
   voice: 23
 
 - type: voice

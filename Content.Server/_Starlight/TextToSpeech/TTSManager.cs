@@ -94,7 +94,8 @@ public sealed class TTSManager : ITTSManager
             {
                 stability = 0.5,
                 similarity_boost = 0.75,
-                style_exaggeration = 2.0
+                style_exaggeration = 2.0,
+                speaker_boost = true
             },
             output_format = "opus_48khz_192kbps"
         };
