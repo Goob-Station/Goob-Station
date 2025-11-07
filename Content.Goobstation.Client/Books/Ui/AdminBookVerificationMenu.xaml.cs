@@ -77,10 +77,10 @@ public sealed partial class AdminBookVerificationMenu : FancyWindow
         CreateButton.Disabled = _selectedBook == null;
         DeclineButton.Disabled = _selectedBook == null;
 
-        AuthorNameLabel.SetMarkup(Loc.GetString("book-printer-menu-author", ("author", _selectedBook?.Author ?? "None selected")));
-        GenreLabel.SetMarkup(Loc.GetString("book-printer-menu-genre", ("genre", _selectedBook?.Genre ?? "None selected")));
-        TitleLabel.SetMarkup(Loc.GetString("book-printer-menu-title", ("title", _selectedBook?.Title ?? "None selected")));
-        DescLabel.SetMarkup(Loc.GetString("book-printer-menu-desc", ("desc", _selectedBook?.Desc ?? "None selected")));
+        AuthorNameLabel.SetMarkup(Loc.GetString("book-printer-menu-book-author", ("author", _selectedBook?.Author ?? "None selected")));
+        GenreLabel.SetMarkup(Loc.GetString("book-printer-menu-book-genre", ("genre", _selectedBook?.Genre ?? "None selected")));
+        TitleLabel.SetMarkup(Loc.GetString("book-printer-menu-book-title", ("title", _selectedBook?.Title ?? "None selected")));
+        DescLabel.SetMarkup(Loc.GetString("book-printer-menu-book-desc", ("desc", _selectedBook?.Desc ?? "None selected")));
 
         if (_selectedBook == null)
         {

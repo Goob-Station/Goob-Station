@@ -16,7 +16,7 @@ book-printer-menu-title = Book printer
 book-printer-menu-delete-button = Delete
 book-printer-menu-print-button = Print
 
-book-printer-menu-author = Author: { $author }
-book-printer-menu-genre = Genre: { $genre }
-book-printer-menu-title = Title: { $title }
-book-printer-menu-desc = Desc: { $desc }
+book-printer-menu-book-author = Author: { $author }
+book-printer-menu-book-genre = Genre: { $genre }
+book-printer-menu-book-title = Title: { $title }
+book-printer-menu-book-desc = Desc: { $desc }
