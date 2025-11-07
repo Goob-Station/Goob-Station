@@ -17506,3 +17506,9 @@ Entries:
       message: Fix chat messages not appearing.
   id: 1963
   time: '2025-11-07T11:23:58.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fixed blackscreen when vox with specific hair markings gets decapped.
+  id: 1964
+  time: '2025-11-07T11:32:33.0000000+00:00'
