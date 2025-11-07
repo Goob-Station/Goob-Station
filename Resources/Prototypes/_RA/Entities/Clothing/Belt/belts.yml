@@ -30,3 +30,14 @@
           tags:
           - CaptainSabre
   - type: Appearance
+
+- type: entity
+  parent: [ClothingBeltMilitaryWebbing]
+  id: ClothingBeltNTBelt
+  name: Nanotrasen Belt
+  description: A tactical belt worn by Nanotrasen Militarized Units.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/Belt/pmc.rsi
+  - type: Clothing
+    sprite: _RMC14/Objects/Clothing/Belt/pmc.rsi

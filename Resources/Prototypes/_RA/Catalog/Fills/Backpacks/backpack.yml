@@ -1,0 +1,35 @@
+- type: entity
+  id: ClothingBackNTStandardfilled
+  parent: NTSUbackpack
+  suffix: Filled, Soldier # Goobstation
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalSecurity
+
+- type: entity
+  id: ClothingBackNTSmartpackfilled
+  parent: NTSPbackpack
+  suffix: Filled, Officer # Goobstation
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalSecurity
+
+- type: entity
+  id: ClothingBackNTMedicalfilled
+  parent: NTMSatchel
+  suffix: Filled, Medic # Goobstation
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalSecurity
+
+- type: entity
+  id: ClothingBackNTWelderpackfilled
+  parent: NTWPbackpack
+  suffix: Filled, Engineer # Goobstation
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvivalSecurity

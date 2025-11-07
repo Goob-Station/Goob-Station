@@ -145,3 +145,64 @@
         Shock: 0.75
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.25
+
+- type: entity
+  parent: [ClothingHandsGlovesColorBlack]
+  id: ClothingHandsGlovesNTCombat
+  name: Nanotrasen combat gloves
+  description: These tactical gloves are fireproof and shock resistant.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/Gloves/white.rsi
+  - type: Clothing
+    sprite: _RMC14/Objects/Clothing/Gloves/white.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+  - type: Armor # Goob
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Shock: 0.75
+
+- type: entity
+  parent: [ClothingHandsGlovesColorBlack]
+  id: ClothingHandsGlovesNTACombat
+  name: Nanotrasen Advanced Combat Gauntlets
+  description: Expensive Gauntlets with technology built in to assist the user in melee combat.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/Gloves/gauntlets.rsi
+  - type: Clothing
+    sprite: _RMC14/Objects/Clothing/Gloves/gauntlets.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+  - type: Armor # Goob
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Shock: 0.75
+  - type: ClothingGrantComponent
+    component:
+    - type: Prying
+      pryPowered: true
+      force: true
+      speedModifier: 1.5
+  - type: MeleeWeapon
+    attackRate: 1.2
+    damage:
+      types:
+        Blunt: 12
+        Structural: 80
+    mustBeEquippedToUse: true
+    soundHit:
+      path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
+    canWideSwing: false
+  - type: StaminaDamageOnHit
+    damage: 20
+    overtime: 80

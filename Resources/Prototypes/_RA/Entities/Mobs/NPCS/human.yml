@@ -1,0 +1,196 @@
+- type: entity
+  name: Nanotrasen Soldier
+  parent: BaseMobHuman
+  id: MobNanotrasensoldier
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototypes:
+        - NanotrasenSoldiergear
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+    - type: PartialAbsorbable # Goobstation - changelings
+
+- type: entity
+  name: Nanotrasen Medic
+  parent: BaseMobHuman
+  id: MobNanotrasenmedic
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototypes:
+        - NanotrasenMedicgear
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+    - type: PartialAbsorbable # Goobstation - changelings
+
+- type: entity
+  name: Nanotrasen Heavy
+  parent: BaseMobHuman
+  id: MobNanotrasenHeavy
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototypes:
+        - NanotrasenHeavygear
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+    - type: PartialAbsorbable # Goobstation - changelings
+
+- type: entity
+  name: Nanotrasen Officer
+  parent: BaseMobHuman
+  id: MobNanotrasenOfficer
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototypes:
+        - NanotrasenOfficergear
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+    - type: PartialAbsorbable # Goobstation - changelings
+
+- type: entity
+  name: Nanotrasen Commando
+  parent: BaseMobHuman
+  id: MobNanotrasenCommando
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototypes:
+        - NanotrasenCommandogear
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+    - type: PartialAbsorbable # Goobstation - changelings
+
+- type: entity
+  name: Nanotrasen Engineer
+  parent: BaseMobHuman
+  id: MobNanotrasenEngineer
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototypes:
+        - NanotrasenEngineergear
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+    - type: PartialAbsorbable # Goobstation - changelings
+
+# clothings
+
+- type: startingGear
+  id: NanotrasenSoldiergear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNTBDU
+    back: ClothingBackNTStandardfilled
+    belt: ClothingBeltNTfilledSoldier
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesNTCombat
+    outerClothing: ClothingOuterArmorNTSBA
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetNTESH
+  inhand:
+  - WeaponEnergyRifleLoaded
+
+- type: startingGear
+  id: NanotrasenMedicgear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNTBDU
+    back: ClothingBackNTMedicalfilled
+    belt: ClothingBeltMedicalNTFilled
+    eyes: ClothingEyesGlassesMedSec
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesNTCombat
+    outerClothing: ClothingOuterArmorNTSBA
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetNTESH
+  inhand:
+  - WeaponEnergyRifleLoaded
+
+- type: startingGear
+  id: NanotrasenHeavygear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNTOBDU
+    back: ClothingBackNTSmartpackfilled
+    belt: ClothingBeltNTfilledSoldier
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorNTEXA
+    shoes: ClothingShoesBootsJackAdvanced
+    head: ClothingHeadHelmetNTEXH
+  inhand:
+  - WeaponLaserCannon
+
+- type: startingGear
+  id: NanotrasenCommandogear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNTCBDU
+    back: ClothingBackNTSmartpackfilled
+    belt: ClothingBeltNTfilledSoldier
+    eyes: ClothingEyesGlassesMedSec
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesNTCombat
+    outerClothing: ClothingOuterArmorNTCBA
+    shoes: ClothingShoesBootsJackAdvanced
+    head: ClothingHeadHelmetNTCH
+  inhand:
+  - WeaponLaserCellSMGLoaded
+
+- type: startingGear
+  id: NanotrasenEngineergear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNTEBDU
+    back: ClothingBackNTWelderpackfilled
+    belt: ClothingBeltNTEngineer
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorNTEBA
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetNTCEH
+  inhand:
+  - WeaponEnergyShotgun
+
+- type: startingGear
+  id: NanotrasenOfficergear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNTOBDU
+    back: ClothingBackNTSmartpackfilled
+    belt: ClothingBeltNTfilledSoldier
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesNTCombat
+    outerClothing: ClothingOuterArmorNTOBA
+    shoes: ClothingShoesBootsCombatFilled
+    mask: ClothingMaskGasNT
+    head: ClothingHeadHelmetNTAC
+  inhand:
+  - WeaponEnergyRevolver
