@@ -236,6 +236,7 @@ namespace Content.Shared.Containers.ItemSlots
         ///     When specified, a popup will be generated whenever someone attempts to insert a bad item into this slot.
         /// </summary>
         [DataField]
+        [Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute)] // Moffstation - Allow setting from foreign systems
         public LocId? WhitelistFailPopup;
 
         /// <summary>
@@ -243,6 +244,7 @@ namespace Content.Shared.Containers.ItemSlots
         ///     from the slot while that slot is locked.
         /// </summary>
         [DataField]
+        [Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute)] // Moffstation - Allow setting from foreign systems
         public LocId? LockedFailPopup;
 
         /// <summary>
@@ -250,6 +252,7 @@ namespace Content.Shared.Containers.ItemSlots
         ///     This is also used for insertions resulting from swapping.
         /// </summary>
         [DataField]
+        [Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute)] // Moffstation - Allow setting from foreign systems
         public LocId? InsertSuccessPopup;
 
         /// <summary>
