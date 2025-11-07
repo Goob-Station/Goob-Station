@@ -1,0 +1,36 @@
+- type: body
+  id: Werewolf
+  name: "Werewolf"
+  root: chest
+  slots:
+    chest:
+      part: ChestDragon # GOIDA
+      connections:
+      - groin
+      organs:
+        lungs: OrganAnimalLungs
+        heart: OrganAnimalHeart
+    groin:
+      part: GroinDragon # GOIDA
+      connections:
+      - legs
+      organs:
+        liver: OrganAnimalLiver
+        stomach: OrganAnimalStomach
+        kidneys: OrganAnimalKidneys
+    legs:
+      part: LegsDragon # GOIDA
+      connections:
+      - feet
+    feet:
+      part: FeetAnimal
+
+- type: damageModifierSet
+  id: Werewolf
+  coefficients:
+    Blunt: 0.35
+    Slash: 0.35
+    Piercing: 0.35
+    Heat: 0.65
+    Holy: 1.5
+  ignoreArmorPierceFlags: All

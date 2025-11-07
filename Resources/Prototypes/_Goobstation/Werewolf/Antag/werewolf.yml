@@ -1,0 +1,10 @@
+- type: antag
+  id: Werewolf
+  name: roles-antag-werewolf-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-werewolf-desc
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 43200 # 12h
+  guides: [  ]

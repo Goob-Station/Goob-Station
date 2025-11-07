@@ -1,0 +1,39 @@
+- type: entity
+  id: WerewolfWerewolf
+  parent: BaseWerewolf
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Werewolf/Mutations/base.rsi
+    state: werewolf
+  - type: NightVision
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.35
+        Heat: 0.1
+  - type: GrantWerewolfMoves # not in the base because of white wolf (no sec meta)
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - Canilunzt # the furry vulp language
+    understands:
+    - TauCetiBasic
+    - Canilunzt
+
+- type: entity
+  id: WerewolfWerehuman
+  parent: WerewolfWerewolf # should be identical to the average werewolf because memes
+  name: human
+  description: Lord have mercy.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Werewolf/Mutations/werehuman.rsi
+    state: werehuman
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic # made so that werehumans couldnt speak vulp language cuz why
+    understands:
+    - TauCetiBasic
+

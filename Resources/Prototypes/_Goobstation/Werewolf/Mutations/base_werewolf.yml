@@ -1,0 +1,85 @@
+- type: entity
+  parent:
+  - BaseMob
+  - MobAtmosExposed
+  - MobCombat
+  id: BaseWerewolf
+  name: wolf
+  description: Holy shit what the fuck is that!? Who have brought a wolf onto the station?
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Werewolf/Mutations/base.rsi
+    state: werewolf
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 250 # 5 times more than a hueman
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Werewolf
+  - type: Body
+    prototype: Werewolf
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: MobStateActions
+    actions:
+      Critical:
+      - ActionCritSuccumb
+      - ActionCritFakeDeath
+      - ActionCritLastWords
+  - type: Deathgasp
+  - type: HealthExaminable
+    examinableTypes:
+    - Blunt
+    - Slash
+    - Piercing
+    - Heat
+    - Shock
+    - Cold
+    - Caustic
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Blunt: 5
+        Slash: 10
+  - type: Pullable
+  - type: Puller
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 6.5
+    baseWalkSpeed: 4.5
+  - type: Tag
+    tags:
+    - FootstepSound
+    - DoorBumpOpener
+  - type: Insulated
+  - type: ThermalVision
+    flashDurationMultiplier: 3 # counter to werewolves and their insane speed - flashes.
+    pulseTime: 10
+    isEquipment: false
+    toggleAction: PulseThermalVisionWerewolf
+  - type: Prying
+    speedModifier: 65 # cmon a fucking 11 foot wolf
+    pryPowered: true
+  - type: Hands # also dont worry you cant pick up anything
+    hands:
+      hand_right:
+        location: Right
+    sortedHands:
+    - hand_left # martial art requires at least 1 hand to work properly for some fuckass unknown reason

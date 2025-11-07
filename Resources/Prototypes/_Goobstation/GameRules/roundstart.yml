@@ -488,3 +488,39 @@
       - type: AbductorScientist # Should be removed when we have proper teleportation system
       mindRoles:
       - MindRoleAbductorAgent
+
+- type: entity
+  parent: BaseGameRule
+  id: Werewolf
+  components:
+  - type: WerewolfRule
+  - type: GameRule
+    minPlayers: 15 # same as changeling
+#  - type: AntagRandomObjectives # todo
+#    sets:
+#    - groups: ChangelingObjectiveGroups
+#    maxDifficulty: 5
+#  - type: AntagObjectives
+#    objectives:
+#    - ChangelingSurviveObjective
+#    - ChangelingStealDNAObjective
+#    - ChangelingAbsorbObjective
+#    - EscapeIdentityObjective
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    agentName: roles-antag-werewolf-name
+    definitions:
+    - prefRoles: [ Werewolf ]
+      max: 4
+      playerRatio: 12
+      chaosScore: 200
+      jobBlacklist: [ Chaplain ]
+      blacklist:
+        components:
+        - CommandStaff
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleWerewolf
+  - type: Tag
+    tags:
+    - RoundstartAntag

@@ -1,0 +1,48 @@
+- type: martialArt
+  id: LyCqc
+  martialArtsForm: LyCqc
+  roundstartCombos: LyCqcMoves
+
+- type: comboList
+  id: LyCqcMoves
+  combos:
+  - LyCqcOpenVein
+  - LyCqcViciousThrow
+  - LyCqcDismemberment
+
+- type: combo
+  id: LyCqcDismemberment
+  name: Dismemberment
+  martialArtsForm: LyCqc
+  attacks:
+  - Grab
+  - Grab
+  - Disarm
+  - Harm
+  event: !type:LyCqcDismembermentPerformedEvent
+  paralyzeTime: 6
+  staminaDamage: 30
+
+- type: combo
+  id: LyCqcOpenVein
+  name: Open Vein
+  martialArtsForm: LyCqc
+  attacks:
+  - Grab
+  - Harm
+  - Harm
+  event: !type:LyCqcOpenVeinPerformedEvent { }
+  extraDamage: 30
+  staminaDamage: 50
+
+- type: combo
+  id: LyCqcViciousThrow
+  name: Vicious Throw
+  martialArtsForm: LyCqc
+  attacks:
+  - Disarm
+  - Grab
+  - Disarm
+  event: !type:LyCqcViciousTossEvent
+  staminaDamage: 50
+

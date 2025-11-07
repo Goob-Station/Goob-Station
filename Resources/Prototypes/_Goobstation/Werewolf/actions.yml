@@ -1,0 +1,82 @@
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfHowl
+  name: Howl
+  description: Scream as loud as you can, stunning everyone in radius.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 12
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: howl
+  - type: InstantAction
+    event: !type:HowlEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfTransfurm
+  name: Transfurm
+  description: Transfurm into a werewolf. Be warned as you can transfurm back only after 2 minutes.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 12 # todo 120
+    startDelay: true
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: transfurm
+  - type: InstantAction
+    event: !type:TransfurmEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfOpenMutationStore
+  name: Open mutation store
+  description: Open the mutation menu.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: store
+  - type: InstantAction
+    event: !type:EventWerewolfOpenStore {}
+
+- type: entity
+  id: PulseThermalVisionWerewolf
+  parent: ToggleThermalVision
+  name: Heightened Senses
+  description: Gives you 10 seconds of thermal vision
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: senses
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfAbsorb
+  name: Bite
+  description: Bite a fellow crewmate for mutation points.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: bite
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:EventWerewolfDevour {}

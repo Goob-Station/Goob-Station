@@ -1,0 +1,11 @@
+# all the store shit is here (or maybe not, todo idk)
+
+- type: currency
+  id: Fury
+  displayName: store-currency-display-fury
+  canWithdraw: false
+
+- type: storeCategory
+  id: WerewolfMutate
+  name: werewolf-store-mutate-name
+  priority: 0

@@ -1,0 +1,28 @@
+- type: polymorph
+  id: WerewolfTransformBasic
+  configuration:
+    entity: WerewolfWerewolf
+    forced: true
+    inventory: None
+    transferName: false
+    transferDamage: true
+    duration: 480
+    polymorphSound: /Audio/_Goobstation/Changeling/Effects/armour_transform.ogg # goida
+    copiedComponents:
+    - WerewolfBasicAbilities
+    - Store
+
+- type: polymorph
+  id: WerewolfTransformWerehuman
+  configuration:
+    entity: WerewolfWerehuman
+    forced: true
+    inventory: None
+    transferName: false
+    transferDamage: true
+    duration: 480
+    polymorphSound: /Audio/_Goobstation/Changeling/Effects/armour_transform.ogg # goida
+    copiedComponents:
+    - WerewolfBasicAbilities
+    - Store
+

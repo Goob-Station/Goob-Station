@@ -1,0 +1,29 @@
+{
+    "version": 1,
+	"license": "CC-BY-SA-3.0",
+    "copyright": "Made by TechnoSpaghetti(192358052710711299) on discord for Goob Station",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "empty"
+        },
+        {
+            "name": "howl"
+        },
+        {
+            "name": "transfurm"
+        },
+        {
+            "name": "senses"
+        },
+        {
+            "name": "bite"
+        },
+        {
+            "name": "store"
+        }
+    ]
+}
