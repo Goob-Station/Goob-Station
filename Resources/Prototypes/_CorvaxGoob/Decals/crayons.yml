@@ -131,13 +131,3 @@
   sprite:
     sprite: _CorvaxGoob/Effects/crayondecals.rsi
     state: cyr_z
-    
-- type: decal # Гойда
-  id: goida
-  tags: ["crayon", "crayon-5-graffiti"]
-  defaultCleanable: true
-  defaultCustomColor: true
-  defaultSnap: false
-  sprite:
-    sprite: _CorvaxGoob/Effects/crayondecals.rsi
-    state: goida    
