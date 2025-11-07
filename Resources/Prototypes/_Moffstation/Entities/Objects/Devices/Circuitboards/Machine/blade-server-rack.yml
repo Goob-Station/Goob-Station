@@ -1,0 +1,18 @@
+﻿- type: entity
+  id: BladeServerRackMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: blade server rack circuit board
+  description: A machine printed circuit board for a blade server rack.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: BladeServerRack
+    stackRequirements:
+      Steel: 1
+      Cable: 2
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
+  id: BladeServerRackMachineCircuitboard
+  result: BladeServerRackMachineCircuitboard

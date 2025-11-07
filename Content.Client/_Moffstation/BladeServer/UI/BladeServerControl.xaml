@@ -1,0 +1,94 @@
+﻿<bladeServerUi:BladeServerControl
+    xmlns="https://spacestation14.io"
+    xmlns:bladeServerUi="clr-namespace:Content.Client._Moffstation.BladeServer.UI"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+
+    <PanelContainer Margin="10 0 10 5">
+        <PanelContainer.PanelOverride>
+            <graphics:StyleBoxFlat BorderColor="#FFFFFF" BorderThickness="2" />
+        </PanelContainer.PanelOverride>
+
+        <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+            <Label
+                Name="SlotLabel"
+                Text="{Loc moff-blade-server-rack-slot-entity-unknown}"
+                StyleClasses="ConsoleSubHeading"
+                HorizontalAlignment="Center"
+                Margin="0 5 0 5" />
+
+            <PanelContainer StyleClasses="LowDivider" HorizontalExpand="True" SetHeight="2">
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#FFFFFF" />
+                </PanelContainer.PanelOverride>
+            </PanelContainer>
+
+            <BoxContainer
+                Orientation="Horizontal"
+                Margin="10 10 10 10"
+                VerticalExpand="True"
+                HorizontalExpand="True">
+                <BoxContainer
+                    HorizontalAlignment="Center"
+                    HorizontalExpand="True"
+                    SizeFlagsStretchRatio="0.5"
+                    Margin="0 0 10 0"
+                    SetSize="96 96">
+                    <Button
+                        Name="EntityViewButton"
+                        HorizontalExpand="True"
+                        VerticalExpand="True">
+                        <bladeServerUi:BladeServerEntityView
+                            Name="EntityView"
+                            Stretch="Fill" />
+                    </Button>
+                    <TextureRect
+                        Name="EmptyEntitySlot"
+                        TexturePath="/Textures/Interface/Nano/placeholder.png"
+                        SetSize="96 96"
+                        Stretch="KeepAspectCentered" />
+                </BoxContainer>
+
+                <PanelContainer StyleClasses="LowDivider" VerticalExpand="True" Margin="0 0 0 0" SetWidth="2">
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BackgroundColor="#FFFFFF" />
+                    </PanelContainer.PanelOverride>
+                </PanelContainer>
+
+                <BoxContainer
+                    Orientation="Vertical"
+                    VerticalExpand="True"
+                    Margin="10 0 0 0">
+                    <!-- Power Button -->
+                    <PanelContainer
+                        Margin="0 0 0 10"
+                        SetSize="48 48">
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BorderColor="#FFFFFF" BorderThickness="2" />
+                        </PanelContainer.PanelOverride>
+                        <TextureButton
+                            Name="PowerButton"
+                            ToolTip="{Loc 'moff-blade-server-rack-slot-power-toggle'}"
+                            TexturePath="/Textures/Interface/VerbIcons/spare/poweronoff.svg.192dpi.png"
+                            Margin="5" />
+                        <!-- Extra margin on the power button because the texture has no built-in margin -->
+                    </PanelContainer>
+                    <!--Eject / Insert Button -->
+                    <PanelContainer
+                        SetSize="48 48">
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BorderColor="#FFFFFF" BorderThickness="2" />
+                        </PanelContainer.PanelOverride>
+                        <TextureButton
+                            Name="EjectButton"
+                            ToolTip="{Loc 'moff-blade-server-rack-slot-eject'}"
+                            TexturePath="/Textures/Interface/VerbIcons/eject.svg.192dpi.png" />
+                        <TextureButton
+                            Name="InsertButton"
+                            ToolTip="{Loc 'moff-blade-server-rack-slot-insert'}"
+                            TexturePath="/Textures/Interface/VerbIcons/insert.svg.192dpi.png" />
+                    </PanelContainer>
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</bladeServerUi:BladeServerControl>

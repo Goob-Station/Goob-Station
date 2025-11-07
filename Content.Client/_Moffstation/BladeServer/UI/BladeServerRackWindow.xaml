@@ -1,0 +1,58 @@
+﻿<bladeServerUi:BladeServerRackWindow
+    xmlns="https://spacestation14.io"
+    xmlns:bladeServerUi="clr-namespace:Content.Client._Moffstation.BladeServer.UI"
+    SetWidth="550"
+    Resizable="False"
+    MouseFilter="Stop">
+    <PanelContainer Name="Background" StyleClasses="PdaBackgroundRect" ModulateSelfOverride="#4a5466" />
+    <PanelContainer Name="Border" StyleClasses="PdaBorderRect" />
+
+    <BoxContainer Orientation="Vertical"
+                  HorizontalExpand="True">
+        <!-- Window Top Bar and Close Button -->
+        <BoxContainer SetHeight="26"
+                      Margin="4 2 8 0"
+                      Orientation="Horizontal"
+                      HorizontalAlignment="Right">
+            <TextureButton Name="CloseButton"
+                           StyleClasses="windowCloseButton"
+                           Modulate="#646464"
+                           VerticalAlignment="Center"
+                           Margin="0 4 4 0" />
+        </BoxContainer>
+
+        <!--Content-->
+        <Control Margin="18 0"
+                 RectClipContent="True"
+                 VerticalExpand="true"
+                 HorizontalExpand="True"
+                 Modulate="#1f8ab2">
+            <!-- Window Background -->
+            <PanelContainer Name="ContentBorder" StyleClasses="PdaBackground" />
+
+            <!-- Screen Background -->
+            <PanelContainer Name="ContentBackground" StyleClasses="PdaContentBackground" />
+
+            <!-- Screen foreground -->
+            <BoxContainer Orientation="Vertical">
+                <Label Text="{Loc 'moff-blade-server-rack-window-title'}"
+                       StyleClasses="ConsoleHeading"
+                       HorizontalAlignment="Center" Margin="0 5 0 0" />
+                <BoxContainer Orientation="Vertical" Name="Slots">
+                    <!-- Individual blade server UI elements are added dynamically. -->
+                </BoxContainer>
+            </BoxContainer>
+        </Control>
+
+        <!--Footer-->
+        <BoxContainer Orientation="Horizontal" SetHeight="28" HorizontalExpand="True">
+            <Label Name="Footer"
+                   Text="{Loc 'moff-blade-server-rack-window-footer-flavor'}"
+                   StyleClasses="WindowFooterText"
+                   HorizontalAlignment="Right"
+                   HorizontalExpand="True"
+                   Margin="0 0 4 4" />
+        </BoxContainer>
+
+    </BoxContainer>
+</bladeServerUi:BladeServerRackWindow>

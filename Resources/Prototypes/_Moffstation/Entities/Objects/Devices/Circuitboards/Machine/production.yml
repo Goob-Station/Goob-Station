@@ -1,0 +1,16 @@
+- type: entity
+  id: CircuitImprinterLawMatrixMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: law matrix imprinter machine board
+  components:
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: CircuitImprinterLawMatrix
+    stackRequirements:
+      MatterBin: 1
+      Plasma: 1
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker

@@ -1,0 +1,30 @@
+﻿# This was peeled off of upstream's `ResearchAndDevelopmentServer`. Changes to that prototype from upstream should be
+# carefully considered to be added here or there, depending on whether it should affect just the machine variant, or all
+# variants of the R&D server.
+- type: entity
+  id: BaseResearchAndDevelopmentServer
+  abstract: true
+  name: abstract R&D server
+  components:
+  - type: ResearchServer
+  - type: TechnologyDatabase
+    supportedDisciplines:
+    - Industrial
+    - Arsenal
+    - Experimental
+    - CivilianServices
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: ExtensionCableReceiver
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: GuideHelp
+    guides:
+    - Science

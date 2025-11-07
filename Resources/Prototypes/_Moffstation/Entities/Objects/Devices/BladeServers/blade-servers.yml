@@ -1,0 +1,94 @@
+﻿- type: entity
+  abstract: true
+  id: ConstructibleBladeServer
+  parent: BaseItem
+  components:
+  - type: BladeServer
+  - type: Machine
+  - type: InnerCableReceiver
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Construction
+    graph: BladeServer
+    node: bladeServer
+    containers:
+    - machine_parts
+    - machine_board
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2
+  - type: Sprite
+    sprite: _Moffstation/Structures/Machines/blade_server.rsi
+    layers:
+    - state: frame
+    - state: stripe
+      visible: false
+      map: [ "enum.BladeServerVisuals.StripeLayer" ]
+    - state: cover
+    - state: powered
+      visible: false
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: maintenance-panel
+      visible: false
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: Item
+    size: Huge
+    sprite: _Moffstation/Structures/Machines/blade_server.rsi
+    inhandVisuals:
+      left:
+      - state: inhand
+      - state: inhand-stripe
+        visible: false
+        map: [ "enum.BladeServerVisuals.StripeLayer" ]
+      right:
+      - state: inhand
+      - state: inhand-stripe
+        visible: false
+        map: [ "enum.BladeServerVisuals.StripeLayer" ]
+  - type: MultiHandedItem
+  - type: Speech
+    speechVerb: Robotic
+
+- type: entity
+  id: ResearchAndDevelopmentBladeServer
+  parent: [ BaseResearchAndDevelopmentServer, ConstructibleBladeServer ]
+  name: R&D blade server
+  description: Contains the collective knowledge of the station's scientists. Destroying it would send them back to the stone age. You don't want that do you?
+  components:
+  - type: BladeServer
+    stripeColor: "#A331B9FF"
+  - type: Machine
+    board: ResearchAndDevelopmentServerMachineCircuitboard
+
+- type: entity
+  id: CrewMonitoringBladeServer
+  parent: [ BaseCrewMonitoringServer, ConstructibleBladeServer ]
+  name: crew monitoring blade server
+  description: Receives and relays the status of all active suit sensors on the station.
+  components:
+  - type: BladeServer
+    stripeColor: "#008C30FF"
+  - type: Machine
+    board: CrewMonitoringServerMachineCircuitboard
