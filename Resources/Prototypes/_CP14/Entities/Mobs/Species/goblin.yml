@@ -1,0 +1,311 @@
+- type: entity
+  parent: BaseMobSpeciesOrganic
+  id: CP14BaseMobGoblin
+  name: Mr. Goblin
+  abstract: true
+  components:
+  # START copying a bunch of stuff from SS14 human
+  - type: Hunger
+  - type: Thirst
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatChicken
+      amount: 3
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - SolCommon
+    understands:
+    - TauCetiBasic
+    - SolCommon
+  #- type: Inventory
+  #  femaleDisplacements:
+  #    jumpsuit:
+  #      sizeMaps:
+  #        32:
+  #          sprite: Mobs/Species/Human/displacement.rsi
+  #          state: jumpsuit-female
+  #- type: Sprinter # Goob Change: human major
+  #  staminaDrainRate: 8
+  # END copying a bunch of stuff from SS14 human
+  - type: Sprite
+    layers:
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - shader: StencilClear
+      sprite: Mobs/Species/Human/parts.rsi
+      state: l_leg
+    - shader: StencilMask
+      map: [ "enum.HumanoidVisualLayers.StencilMask" ]
+      sprite: Mobs/Customization/masking_helpers.rsi
+      state: unisex_full
+      visible: false
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    - map: [ "pants" ]
+    - map: [ "shoes" ]
+    - map: [ "jumpsuit" ] #ss14
+    - map: [ "enum.HumanoidVisualLayers.LHand" ]
+    - map: [ "enum.HumanoidVisualLayers.RHand" ]
+    - map: [ "gloves" ]
+    - map: [ "ears" ]
+    - map: [ "outerClothing" ]
+    - map: [ "cloak" ]
+    - map: [ "eyes" ]
+    - map: [ "id" ] # ss14
+    - map: [ "belt" ]
+    - map: [ "neck" ]
+    - map: [ "back" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "vampire_fangs" ]
+      sprite: _CP14/Mobs/Species/Vampire/fangs.rsi
+      state: goblin # Goblin fangs state
+      visible: false
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+  - type: HumanoidAppearance
+    species: CP14Goblin
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: hair
+          48:
+            sprite: _CP14/Mobs/Species/Goblin/displacement48.rsi
+            state: hair
+  - type: FireVisuals
+    alternateState: Goblin_burning
+  - type: Icon
+    sprite: _CP14/Mobs/Species/Goblin/parts.rsi
+    state: full
+  - type: Vocal
+    sounds:
+      Male: CP14UnisexGoblin
+      Female: CP14UnisexGoblin
+      Unsexed: CP14UnisexGoblin
+  - type: Speech
+    speechSounds: CP14Goblin
+  - type: Body
+    prototype: Human
+    requiredLegs: 2
+  - type: Bloodstream
+    bloodReagent: AmmoniaBlood
+  - type: Fixtures
+    fixtures: # Smaller hitbox & less weight
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 185
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  # - type: Damageable
+  #  damageContainer: CP14Biological
+  #  damageModifierSet: CP14Goblin #+25% all damage, -50% poison
+  #- type: PassiveDamage
+  #  allowedStates:
+  #  - Alive
+  #  damageCap: 80
+  #  damage:
+  #   #types:
+  #   #  CP14ManaDepletion: -0.05
+  #    groups:
+  #      Burn: -0.2
+  #      Brute: -0.2
+  #      Toxin: -0.05
+  #- type: Stamina
+  #  decay: 5 # 3 default
+  #  critThreshold: 120 # 100 default
+  #  stunTime: 4 #6 default
+  #- type: CP14MagicEnergyContainer #SMALL mana container
+  #  maxEnergy: 25
+  #  energy: 25
+  #- type: CP14MagicEnergyDraw #Cool x3 mana regen!
+  #  energy: 1.5
+  #  delay: 3
+  #- type: CP14AuraImprint
+  #  imprintLength: 6 #Short imprint hehe
+  #  imprintColor: "#919e19"
+  #- type: CP14SkillStorage #Innate athletic
+  #  freeLearnedSkills:
+  #  - AthleticT1
+  #  - AthleticT2
+  - type: Hands
+    handDisplacement:
+      sizeMaps:
+        32:
+          sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+          state: hands
+  - type: Inventory
+    #templateId: Human
+    #speciesId: goblin
+    speciesId: human
+    displacements:
+      belt:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: belt
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: jumpsuit
+      cloak:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: cloak
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: outerclothing
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: eyes
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: gloves
+      head:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: head
+          48:
+            sprite: _CP14/Mobs/Species/Goblin/displacement48.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: mask
+      pants:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: pants
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: shoes
+      neck:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: neck
+          48:
+            sprite: _CP14/Mobs/Species/Goblin/displacement48.rsi
+            state: neck
+      ears:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: hair
+          48:
+            sprite: _CP14/Mobs/Species/Goblin/displacement48.rsi
+            state: hair
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: CP14MobGoblinDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: CP14Goblin
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: hair
+          48:
+            sprite: _CP14/Mobs/Species/Goblin/displacement48.rsi
+            state: hair
+  - type: Inventory
+    templateId: Human
+    speciesId: goblin
+    displacements:
+      belt:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: belt
+      cloak:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: cloak
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: outerclothing
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: eyes
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: gloves
+      head:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: head
+          48:
+            sprite: _CP14/Mobs/Species/Goblin/displacement48.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: mask
+      pants:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: pants
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: shoes
+      neck:
+        sizeMaps:
+          32:
+            sprite: _CP14/Mobs/Species/Goblin/displacement.rsi
+            state: neck
+          48:
+            sprite: _CP14/Mobs/Species/Goblin/displacement48.rsi
+            state: neck

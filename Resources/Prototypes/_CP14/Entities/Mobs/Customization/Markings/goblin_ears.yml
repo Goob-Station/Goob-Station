@@ -1,0 +1,33 @@
+- type: marking
+  id: CP14GoblinEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  followSkinColor: true
+  forcedColoring: true
+  speciesRestriction: [ CP14Goblin ]
+  sprites:
+    - sprite: _CP14/Mobs/Customization/goblin_ears.rsi
+      state: ears1
+
+- type: marking
+  id: CP14GoblinEars2
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  followSkinColor: true
+  forcedColoring: true
+  speciesRestriction: [ CP14Goblin ]
+  sprites:
+    - sprite: _CP14/Mobs/Customization/goblin_ears.rsi
+      state: ears2
+
+- type: marking
+  id: CP14GoblinEars3
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  followSkinColor: true
+  forcedColoring: true
+  speciesRestriction: [ CP14Goblin ]
+  sprites:
+    - sprite: _CP14/Mobs/Customization/goblin_ears.rsi
+      state: ears3
+

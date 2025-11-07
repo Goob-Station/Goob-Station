@@ -1,0 +1,16 @@
+# species
+- type: emoteSounds
+  id: CP14UnisexGoblin
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_CP14/Voice/Goblin/goblin_scream.ogg
+    Laugh:
+      path: /Audio/_CP14/Voice/Goblin/goblin_laugh.ogg
+    Snore:
+      path: /Audio/_CP14/Voice/Goblin/goblin_sleep.ogg
+    DefaultDeathgasp:
+      path: /Audio/_CP14/Voice/Goblin/goblin_death.ogg
+    Whistle:
+      collection: Whistles
