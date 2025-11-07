@@ -5,7 +5,7 @@
         "y": 32
     },
     "license": "CC0-1.0",
-    "copyright": "discord:temporary-ga#3856",
+    "copyright": "discord:temporary-ga#3856, 'goida' by Dezzzix",
     "states": [
         {
             "name": "cyr_b"
@@ -63,6 +63,9 @@
         },
         {
             "name": "cyr_z"
-        }
+        },
+		{
+			"name": "goida"
+		}
     ]
 }
