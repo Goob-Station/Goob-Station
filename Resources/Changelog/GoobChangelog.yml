@@ -17500,3 +17500,9 @@ Entries:
       message: 'Vox can now safely consume Vent crud. (the reagent) '
   id: 1962
   time: '2025-11-07T10:39:59.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix chat messages not appearing.
+  id: 1963
+  time: '2025-11-07T11:23:58.0000000+00:00'
