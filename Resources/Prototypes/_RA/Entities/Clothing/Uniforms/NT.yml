@@ -1,0 +1,43 @@
+- type: entity
+  parent: [UnsensoredClothingUniformBase]
+  id: ClothingUniformJumpsuitNTBDU
+  name: Nanotrasen Battle Dress
+  description: Uniform for Armed Nanotrasen Units
+  components:
+  - type: Sprite
+    sprite: _RA/Clothing/Uniform/NT/standard.rsi
+  - type: Clothing
+    sprite: _RA/Clothing/Uniform/NT/standard.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase]
+  id: ClothingUniformJumpsuitNTCBDU
+  name: Nanotrasen Commando Battle Dress
+  description: Uniform for Elite Nanotrasen Units
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/Uniform/PMC/commando.rsi
+  - type: Clothing
+    sprite: _RMC14/Objects/Clothing/Uniform/PMC/commando.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase]
+  id: ClothingUniformJumpsuitNTOBDU
+  name: Nanotrasen Officer Battle Dress
+  description: Uniform for Dedicated Nanotrasen Units
+  components:
+  - type: Sprite
+    sprite: _RA/Clothing/Uniform/NT/officer.rsi
+  - type: Clothing
+    sprite: _RA/Clothing/Uniform/NT/officer.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase]
+  id: ClothingUniformJumpsuitNTEBDU
+  name: Nanotrasen Engineer Battle Dress
+  description: Uniform for Dedicated Nanotrasen Engineers
+  components:
+  - type: Sprite
+    sprite: _RA/Clothing/Uniform/NT/engineer.rsi
+  - type: Clothing
+    sprite: _RA/Clothing/Uniform/NT/engineer.rsi

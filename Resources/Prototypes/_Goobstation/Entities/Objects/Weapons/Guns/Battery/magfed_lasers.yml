@@ -253,3 +253,23 @@
   - type: Tag
     tags:
     - LaserLMG
+
+- type: entity
+  parent: [WeaponLaserCellSMG]
+  id: WeaponLaserCellSMGLoaded
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: PowerCellIRSMG
+
+- type: entity
+  parent: [WeaponEnergyRifle]
+  id: WeaponEnergyRifleLoaded
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: EnergyMagRifleLethal

@@ -7,3 +7,63 @@
     containers:
       item:
       - RedsSabre
+
+- type: entity
+  id: ClothingBeltNTEngineer
+  parent: ClothingBeltNTBelt
+  suffix: Filled, Engineer # Goobstation
+  components:
+  - type: StorageFill
+    contents:
+    - id: CrowbarYellow
+    - id: Wrench
+    - id: Screwdriver
+    - id: Wirecutter
+    - id: Welder
+    - id: Multitool
+
+- type: entity
+  id: ClothingBeltNTfilledMedical
+  parent: [ClothingBeltNTBelt]
+  suffix: Filled, Medic
+  components:
+  - type: StorageFill
+    contents:
+      - id: Brutepack
+        amount: 2
+      - id: Ointment
+        amount: 1
+      - id: Bloodpack
+        amount: 2
+      - id: Gauze
+      - id: EmergencyMedipen #You never know what people are going to latejoin into
+
+- type: entity
+  id: ClothingBeltNTfilledSoldier
+  parent: [ClothingBeltNTBelt]
+  suffix: Filled, Soldier
+  components:
+  - type: StorageFill
+    contents:
+    - id: PowerCellIRSMG
+      amount: 2
+    - id: EnergyMagRifleLethal
+      amount: 2
+    - id: GrenadeFlashBang
+      amount: 2
+
+- type: entity
+  id: ClothingBeltMedicalNTFilled
+  parent: ClothingBeltNTBelt
+  suffix: Filled, Medical
+  components:
+  - type: StorageFill
+    contents:
+      - id: Brutepack
+        amount: 2
+      - id: Ointment
+        amount: 1
+      - id: Bloodpack
+        amount: 1
+      - id: Gauze
+      - id: EmergencyMedipen #You never know what people are going to latejoin into

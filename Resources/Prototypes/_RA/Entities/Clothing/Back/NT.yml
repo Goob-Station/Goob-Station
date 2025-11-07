@@ -1,0 +1,49 @@
+- type: entity
+  parent: ClothingBackpack
+  abstract: true
+  id: CMPersonalStorageBase
+  name: backpack
+  description: You wear this on your back and put items into it.
+  components:
+  - type: Sprite
+    sprite: _RA/Clothing/Back/NT/standard
+    layers:
+    - state: icon
+    - state: open
+      map: [ "openLayer" ]
+    - state: closed
+      map: [ "closedLayer" ]
+
+
+- type: entity
+  parent: CMPersonalStorageBase
+  id: NTSUbackpack
+  name: Nanotrasen Combat Pack
+  description: Standard Nanotrasen Backpack for Militarized Units.
+
+- type: entity
+  parent: CMPersonalStorageBase
+  id: NTSPbackpack
+  name: Nanotrasen Smart Combat Pack
+  description: It's a tough backpack lookin' used by Officers and the like.
+  components:
+  - type: Sprite
+    sprite: _RA/Clothing/Back/NT/smartpack
+
+- type: entity
+  parent: CMPersonalStorageBase
+  id: NTWPbackpack
+  name: Nanotrasen Engineer Combat Pack
+  description: It's a tough backpack lookin' used by Nanotrasen engineers and the like.
+  components:
+  - type: Sprite
+    sprite: _RA/Clothing/Back/NT/welder
+
+- type: entity
+  parent: CMPersonalStorageBase
+  id: NTMSatchel
+  name: Nanotrasen Medic Combat Pack
+  description: It's a tough Satchel lookin' used by Nanotrasen Medics and the like.
+  components:
+  - type: Sprite
+    sprite: _RA/Clothing/Back/NT/medic
