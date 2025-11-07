@@ -74,6 +74,7 @@
   - type: BladeServerRack
     bladeServerVisualsOffset: 0, -4
   - type: AccessReader
+    access: [ [ "Command" ] ]
   - type: Lock
     unlockOnClick: false
   - type: LockedAnchorable
