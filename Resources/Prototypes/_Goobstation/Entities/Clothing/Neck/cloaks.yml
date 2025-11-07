@@ -86,9 +86,9 @@
         verb: auraless
         sprite:
           sprite: _Goobstation/Clothing/Neck/Cloaks/Veterancap.rsi
-          state: aura-icon
+          state: icon
       aura: !type:ItemSwitchState
         verb: aura
         sprite:
           sprite: _Goobstation/Clothing/Neck/Cloaks/Veterancap.rsi
-          state: aura-icon
+          state: icon
