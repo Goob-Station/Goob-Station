@@ -178,4 +178,25 @@
   name: Jessica
   sex: Female
   silicon: false
-  voice: 25
+  voice: 26
+
+- type: voice
+  id: ILUb62E4DDUMY52FrefA
+  name: Sazza (Goblin)
+  sex: Female
+  silicon: false
+  voice: 27
+
+- type: voice
+  id: jGBBWZzFHgZEHA38znV9
+  name: Crusher (Goblin)
+  sex: Male
+  silicon: false
+  voice: 28
+
+- type: voice
+  id: 1V1sMUWX4xIxVORD86RD
+  name: Eight (Goblin)
+  sex: Male
+  silicon: false
+  voice: 29
