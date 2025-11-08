@@ -8,12 +8,9 @@ public sealed class BonusStaminaDamageSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<BonusStaminaDamageComponent, ModifyOutgoingStaminaDamageEvent>(OnModifyOutgoingStamina);
     }
 
     private void OnModifyOutgoingStamina(Entity<BonusStaminaDamageComponent> ent, ref ModifyOutgoingStaminaDamageEvent args)
-    {
-        args.Value *= ent.Comp.Multiplier;
-    }
+        => args.Value *= ent.Comp.Multiplier;
 }
