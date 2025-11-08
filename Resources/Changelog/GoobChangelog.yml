@@ -17524,3 +17524,9 @@ Entries:
       message: Xenomorphs are no longer used for prying.
   id: 1966
   time: '2025-11-08T16:09:56.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Tweak
+      message: Tweaked command highlights.
+  id: 1967
+  time: '2025-11-08T16:11:10.0000000+00:00'
