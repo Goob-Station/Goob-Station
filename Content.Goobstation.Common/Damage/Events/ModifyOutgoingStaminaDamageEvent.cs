@@ -5,5 +5,4 @@ namespace Content.Goobstation.Common.Damage.Events;
 /// Lets offensive traits modify outgoing stamina damage.
 /// </summary>
 [ByRefEvent]
-
 public record struct ModifyOutgoingStaminaDamageEvent(float Value, EntityUid? Source = null);
