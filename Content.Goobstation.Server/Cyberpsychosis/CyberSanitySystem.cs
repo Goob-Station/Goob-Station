@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Goobstation.Common.Medical;
+using Content.Goobstation.Server.Controlled;
 using Content.Goobstation.Server.Shizophrenia;
 using Content.Server.Actions;
 using Content.Server.Administration;
@@ -7,12 +7,12 @@ using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Humanoid;
-using Content.Shared.Body.Events;
-using Content.Shared.Body.Organ;
-using Content.Shared.Body.Part;
+using Content.Server.Jittering;
+using Content.Server.Mind;
+using Content.Server.Popups;
+using Content.Server.Roles;
 using Content.Shared.Inventory;
 using Robust.Server.GameObjects;
-using Robust.Server.GameStates;
 using Robust.Server.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -34,6 +34,11 @@ public sealed partial class CyberSanitySystem : EntitySystem
     [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly MindSwapSystem _mindSwap = default!;
+    [Dependency] private readonly JitteringSystem _jitter = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly RoleSystem _role = default!;
 
     public override void Initialize()
     {
