@@ -27,6 +27,16 @@
     sprite: Mobs/Species/Gingerbread/parts.rsi
   - type: BodyPart # Shitmed Change
     species: Gingerbread
+  - type: SolutionContainerManager #Goobstation
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+  - type: FlavorProfile #Goobstation
+    flavors:
+    - sweet
+  - type: Food
   - type: Extractable
     juiceSolution:
       reagents:

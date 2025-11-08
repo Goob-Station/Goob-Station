@@ -64,14 +64,14 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
-    - reagents: [ Water ]
+    - reagents: [ Milk ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
+        scaleByQuantity: false
         damage:
           types:
-            Heat: 0.3
+            Heat: 10
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -102,6 +102,22 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: FlavorProfile #Goobstation
+    flavors:
+    - sweet
+  - type: Food
+    requireDead: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 100 #Goobstation
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      100: Dead
 
 
 - type: entity

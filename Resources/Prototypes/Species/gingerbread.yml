@@ -9,25 +9,35 @@
 - type: species
   id: Gingerbread
   name: Gingerbread
-  roundStart: false
+  roundStart: true
   prototype: MobGingerbread
   sprites: MobGingerbreadSprites
-  markingLimits: MobHumanMarkingLimits
+  markingLimits: MobGingerbreadMarkingLimits # Goobstation
   dollPrototype: MobGingerbreadDummy
   skinColoration: HumanToned
   defaultSkinTone: "#9a7c5a"
+  # begin Goobstation: port EE height/width sliders
+  minHeight: 0.70
+  defaultHeight: 0.80
+  maxHeight: 0.90
+  minWidth: 0.70
+  defaultWidth: 0.75
+  maxWidth: 0.85
+  # end Goobstation: port EE height/width sliders
 
 - type: speciesBaseSprites
   id: MobGingerbreadSprites
   sprites:
     Head: MobGingerbreadHead
-    HeadTop: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Underwear: MobHumanoidAnyMarking
     Undershirt: MobHumanoidAnyMarking
     Chest: MobGingerbreadChest
     Groin: MobGingerbreadGroin
     Eyes: MobGingerbreadEyes
+    HeadTop: MobHumanoidAnyMarking # Goobstation
+    Tail: MobHumanoidAnyMarking # Goobstation
     LArm: MobGingerbreadLArm
     RArm: MobGingerbreadRArm
     LHand: MobGingerbreadLHand
@@ -36,6 +46,37 @@
     RLeg: MobGingerbreadRLeg
     LFoot: MobGingerbreadLFoot
     RFoot: MobGingerbreadRFoot
+
+# Goobstation start
+- type: markingPoints
+  id: MobGingerbreadMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    Head:
+      points: 1
+      required: true
+      defaultMarkings: [ FaceIcingDefault ]
+    HeadTop:
+      points: 1
+      required: false
+    HeadSide:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: false
+    Chest:
+      points: 2
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+# Goobstation end
 
 - type: humanoidBaseSprite
   id: MobGingerbreadEyes
@@ -46,101 +87,101 @@
 - type: humanoidBaseSprite
   id: MobGingerbreadHead
   baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
+    sprite: _Funky/Mobs/Species/Gingerbread/parts.rsi # Goobstation
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobGingerbreadHeadMale
   baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
+    sprite: _Funky/Mobs/Species/Gingerbread/parts.rsi # Goobstation
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobGingerbreadHeadFemale
   baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
+    sprite: _Funky/Mobs/Species/Gingerbread/parts.rsi # Goobstation
     state: head_f
 
 - type: humanoidBaseSprite
   id: MobGingerbreadChest
   baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
+    sprite: _Funky/Mobs/Species/Gingerbread/parts.rsi # Goobstation
     state: chest_m
 
 - type: humanoidBaseSprite
   id: MobGingerbreadChestMale
   baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
+    sprite: _Funky/Mobs/Species/Gingerbread/parts.rsi # Goobstation
     state: chest_m
 
 - type: humanoidBaseSprite
   id: MobGingerbreadChestFemale
   baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
+    sprite: _Funky/Mobs/Species/Gingerbread/parts.rsi # Goobstation
     state: chest_f
 
 - type: humanoidBaseSprite
   id: MobGingerbreadGroin
   baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
+    sprite: _Funky/Mobs/Species/Gingerbread/parts.rsi # Goobstation
     state: groin_m
 
 - type: humanoidBaseSprite
   id: MobGingerbreadGroinMale
   baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
+    sprite: _Funky/Mobs/Species/Gingerbread/parts.rsi # Goobstation
     state: groin_m
 
 - type: humanoidBaseSprite
   id: MobGingerbreadGroinFemale
   baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
+    sprite: _Funky/Mobs/Species/Gingerbread/parts.rsi # Goobstation
     state: groin_f
 
 - type: humanoidBaseSprite
   id: MobGingerbreadLLeg
   baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
+    sprite: _Funky/Mobs/Species/Gingerbread/parts.rsi # Goobstation
     state: l_leg
 
 - type: humanoidBaseSprite
   id: MobGingerbreadLHand
   baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
+    sprite: _Funky/Mobs/Species/Gingerbread/parts.rsi # Goobstation
     state: l_hand
 
 - type: humanoidBaseSprite
   id: MobGingerbreadLArm
   baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
+    sprite: _Funky/Mobs/Species/Gingerbread/parts.rsi # Goobstation
     state: l_arm
 
 - type: humanoidBaseSprite
   id: MobGingerbreadLFoot
   baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
+    sprite: _Funky/Mobs/Species/Gingerbread/parts.rsi # Goobstation
     state: l_foot
 
 - type: humanoidBaseSprite
   id: MobGingerbreadRLeg
   baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
+    sprite: _Funky/Mobs/Species/Gingerbread/parts.rsi # Goobstation
     state: r_leg
 
 - type: humanoidBaseSprite
   id: MobGingerbreadRHand
   baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
+    sprite: _Funky/Mobs/Species/Gingerbread/parts.rsi # Goobstation
     state: r_hand
 
 - type: humanoidBaseSprite
   id: MobGingerbreadRArm
   baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
+    sprite: _Funky/Mobs/Species/Gingerbread/parts.rsi # Goobstation
     state: r_arm
 
 - type: humanoidBaseSprite
   id: MobGingerbreadRFoot
   baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
+    sprite: _Funky/Mobs/Species/Gingerbread/parts.rsi # Goobstation
     state: r_foot

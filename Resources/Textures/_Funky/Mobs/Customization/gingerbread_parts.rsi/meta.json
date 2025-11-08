@@ -1,0 +1,145 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Tea",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "body_gummybutton",
+            "directions": 4
+        },
+
+        {
+            "name": "face_icing_default",
+            "directions": 4
+        },
+
+        {
+            "name": "body_icing_default",
+            "directions": 4
+        },
+
+        {
+            "name": "l_arm_icing_default",
+            "directions": 4
+        },
+
+        {
+            "name": "l_foot_icing_default",
+            "directions": 4
+        },
+
+        {
+            "name": "r_arm_icing_default",
+            "directions": 4
+        },
+
+        {
+            "name": "r_foot_icing_default",
+            "directions": 4
+        },
+
+        {
+            "name": "face_gumball_moth_eyes",
+            "directions": 4
+        },
+
+        {
+            "name": "face_gumball_moth_antennae",
+            "directions": 4
+        },
+
+        {
+            "name": "cotton_candy_wings_primary",
+            "directions": 4
+        },
+
+        {
+            "name": "cotton_candy_wings_secondary",
+            "directions": 4
+        },
+
+        {
+            "name": "cotton_candy_wings_stick",
+            "directions": 4
+        },
+
+        {
+            "name": "l_snapped_leg",
+            "directions": 4
+        },
+
+        {
+            "name": "r_snapped_leg",
+            "directions": 4
+        },
+
+        {
+            "name": "headtop_whippedcreamdo",
+            "directions": 4
+        },
+
+        {
+            "name": "headtop_whippedcreamdocherry",
+            "directions": 4
+        },
+
+        {
+            "name": "body_icingbuttons",
+            "directions": 4
+        },
+
+        {
+            "name": "face_mustached_eyes",
+            "directions": 4
+        },
+
+        {
+            "name": "face_mustached_secondary",
+            "directions": 4
+        },
+
+        {
+            "name": "face_icing_sad",
+            "directions": 4
+        },
+
+        {
+            "name": "face_blush",
+            "directions": 4
+        },
+
+        {
+            "name": "body_bowtie",
+            "directions": 4
+        },
+
+        {
+            "name": "body_tie",
+            "directions": 4
+        },
+
+        {
+            "name": "face_arachnideyes",
+            "directions": 4
+        },
+
+        {
+            "name": "face_arachnidchelicerae",
+            "directions": 4
+        },
+
+        {
+            "name": "tail_sourappendageone",
+            "directions": 4
+        },
+
+        {
+            "name": "tail_sourappendagetwo",
+            "directions": 4
+        }
+    ]
+}
