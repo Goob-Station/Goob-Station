@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client.Administration.UI.CustomControls;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Goobstation.Shared.Books;
@@ -37,6 +38,10 @@ public sealed partial class BookBindingCustomizationMenu : FancyWindow
         LayersContainer.RemoveAllChildren();
 
         var prototypes = _proto.EnumeratePrototypes<BookBindingLayerPrototype>().OrderBy(x => x.Priority);
+
+        var firstSeparator = new VSeparator() { Margin = new(4) };
+        LayersContainer.AddChild(firstSeparator);
+
         foreach (var binding in prototypes)
         {
             ScrollContainer scroll = new()
@@ -70,6 +75,9 @@ public sealed partial class BookBindingCustomizationMenu : FancyWindow
             }
 
             LayersContainer.AddChild(scroll);
+
+            var separator = new VSeparator() { Margin = new(4) };
+            LayersContainer.AddChild(separator);
         }
     }
 
