@@ -17518,3 +17518,9 @@ Entries:
       message: Fixed stamina damage using attackers armor as stamina modifier.
   id: 1965
   time: '2025-11-08T14:34:28.0000000+00:00'
+- author: Gab
+  changes:
+    - type: Fix
+      message: Xenomorphs are no longer used for prying.
+  id: 1966
+  time: '2025-11-08T16:09:56.0000000+00:00'
