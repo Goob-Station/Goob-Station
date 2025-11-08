@@ -88,7 +88,7 @@ public abstract partial class SharedGunSystem //todo marty doublecheck goobedit 
         var abs = Math.Abs(ap);
         args.Message.AddMarkupPermissive("\n" + Loc.GetString("armor-penetration", ("arg", ap/abs), ("abs", abs)));
     }
-    private int GetProjectilePenetration(string proto)
+    public int GetProjectilePenetration(string proto)
     {
         if (!ProtoManager.TryIndex<EntityPrototype>(proto, out var entityProto)
             || !entityProto.Components.TryGetValue(Factory.GetComponentName<ProjectileComponent>(), out var projectile))
