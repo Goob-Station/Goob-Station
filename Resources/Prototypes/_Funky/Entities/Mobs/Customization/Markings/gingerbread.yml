@@ -1,3 +1,63 @@
+# Arms
+- type: marking
+  id: LArmIcingDefault
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Gingerbread]
+  sprites:
+    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
+      state: l_arm_icing_default
+
+- type: marking
+  id: RArmIcingDefault
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [Gingerbread]
+  sprites:
+    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
+      state: r_arm_icing_default
+
+# Legs / Feet
+- type: marking
+  id: LSnappedLeg
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Gingerbread]
+  followSkinColor: true
+  sprites:
+    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
+      state: l_snapped_leg
+
+- type: marking
+  id: RSnappedLeg
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [Gingerbread]
+  followSkinColor: true
+  sprites:
+    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
+      state: r_snapped_leg
+
+- type: marking
+  id: LFootIcingDefault
+  bodyPart: LFoot
+  markingCategory: LeftFoot
+  speciesRestriction: [Gingerbread]
+  sprites:
+    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
+      state: l_foot_icing_default
+
+- type: marking
+  id: RFootIcingDefault
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Gingerbread]
+  sprites:
+    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
+      state: r_foot_icing_default
+
+# Chest
+
 - type: marking
   id: BodyGummybutton
   bodyPart: Chest
@@ -9,15 +69,6 @@
       state: body_gummybutton
 
 - type: marking
-  id: FaceIcingDefault
-  bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [Gingerbread]
-  sprites:
-    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
-      state: face_icing_default
-
-- type: marking
   id: BodyIcingDefault
   bodyPart: Chest
   markingCategory: Chest
@@ -27,40 +78,43 @@
       state: body_icing_default
 
 - type: marking
-  id: LArmIcingDefault
-  bodyPart: LArm
-  markingCategory: Arms
+  id: BodyBowtie
+  bodyPart: Chest
+  markingCategory: Chest
   speciesRestriction: [Gingerbread]
   sprites:
     - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
-      state: l_arm_icing_default
+      state: body_bowtie
 
 - type: marking
-  id: RArmIcingDefault
-  bodyPart: RArm
-  markingCategory: Arms
+  id: BodyTie
+  bodyPart: Chest
+  markingCategory: Chest
   speciesRestriction: [Gingerbread]
   sprites:
     - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
-      state: r_arm_icing_default
+      state: body_tie
 
 - type: marking
-  id: LFootIcingDefault
-  bodyPart: LFoot
-  markingCategory: Legs
+  id: BodyIcingbuttons
+  bodyPart: Chest
+  markingCategory: Chest
   speciesRestriction: [Gingerbread]
+  followSkinColor: true
   sprites:
     - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
-      state: l_foot_icing_default
+      state: body_icingbuttons
+
+# Head
 
 - type: marking
-  id: RFootIcingDefault
-  bodyPart: RFoot
-  markingCategory: Legs
+  id: FaceIcingDefault
+  bodyPart: Head
+  markingCategory: Head
   speciesRestriction: [Gingerbread]
   sprites:
     - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
-      state: r_foot_icing_default
+      state: face_icing_default
 
 - type: marking
   id: FaceGumballMoth
@@ -74,37 +128,25 @@
       state: face_gumball_moth_antennae
 
 - type: marking
-  id: CottonCandyWings
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Gingerbread]
-  sprites:
-    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
-      state: cotton_candy_wings_primary
-    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
-      state: cotton_candy_wings_secondary
-    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
-      state: cotton_candy_wings_stick
-
-- type: marking
-  id: LSnappedLeg
-  bodyPart: LLeg
-  markingCategory: Legs
+  id: FaceBlush
+  bodyPart: HeadSide
+  markingCategory: HeadSide
   speciesRestriction: [Gingerbread]
   followSkinColor: true
   sprites:
     - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
-      state: l_snapped_leg
+      state: face_blush
 
 - type: marking
-  id: RSnappedLeg
-  bodyPart: RLeg
-  markingCategory: Legs
+  id: FaceArachnid
+  bodyPart: Head
+  markingCategory: Head
   speciesRestriction: [Gingerbread]
-  followSkinColor: true
   sprites:
     - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
-      state: r_snapped_leg
+      state: face_arachnideyes
+    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
+      state: face_arachnidchelicerae
 
 - type: marking
   id: HeadtopWhippedcreamdo
@@ -116,16 +158,6 @@
       state: headtop_whippedcreamdo
     - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
       state: headtop_whippedcreamdocherry
-
-- type: marking
-  id: BodyIcingbuttons
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Gingerbread]
-  followSkinColor: true
-  sprites:
-    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
-      state: body_icingbuttons
 
 - type: marking
   id: FaceMustached
@@ -147,44 +179,7 @@
     - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
       state: face_icing_sad
 
-- type: marking
-  id: FaceBlush
-  bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [Gingerbread]
-  followSkinColor: true
-  sprites:
-    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
-      state: face_blush
-
-- type: marking
-  id: BodyBowtie
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Gingerbread]
-  sprites:
-    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
-      state: body_bowtie
-
-- type: marking
-  id: BodyTie
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Gingerbread]
-  sprites:
-    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
-      state: body_tie
-
-- type: marking
-  id: FaceArachnid
-  bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [Gingerbread]
-  sprites:
-    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
-      state: face_arachnideyes
-    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
-      state: face_arachnidchelicerae
+# Tail
 
 - type: marking
   id: TailSourAppendages
@@ -196,3 +191,16 @@
       state: tail_sourappendageone
     - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
       state: tail_sourappendagetwo
+
+- type: marking
+  id: CottonCandyWings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Gingerbread]
+  sprites:
+    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
+      state: cotton_candy_wings_primary
+    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
+      state: cotton_candy_wings_secondary
+    - sprite: _Funky/Mobs/Customization/gingerbread_parts.rsi
+      state: cotton_candy_wings_stick
