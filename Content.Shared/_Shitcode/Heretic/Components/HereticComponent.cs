@@ -11,6 +11,7 @@
 
 using Content.Shared.Dataset;
 using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Objectives.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Tag;
@@ -132,6 +133,14 @@ public sealed partial class HereticComponent : Component
         "influence-gain-message-14",
         "influence-gain-message-15",
         "influence-gain-message-16",
+    };
+
+    [DataField]
+    public List<EntProtoId<ObjectiveComponent>> AllObjectives = new()
+    {
+        "HereticKnowledgeObjective",
+        "HereticSacrificeObjective",
+        "HereticSacrificeHeadObjective",
     };
 }
 
