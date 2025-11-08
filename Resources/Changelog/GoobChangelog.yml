@@ -17574,3 +17574,17 @@ Entries:
       message: Removed slaughter demon kill wizard objective.
   id: 1972
   time: '2025-11-08T17:48:32.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: Added fun!
+    - type: Remove
+      message: Removed fun!
+    - type: Tweak
+      message: Changed fun!
+    - type: Fix
+      message: >-
+        Fixed security suits from cargo not having proper contraband
+        classification
+  id: 1973
+  time: '2025-11-08T23:52:35.0000000+00:00'
