@@ -258,8 +258,8 @@ public abstract partial class SharedStaminaSystem : EntitySystem
             // raise event for each entity hit
             RaiseLocalEvent(ent, ref hitEvent);
 
-// Goobstation
-// raise event to modify outgoing stamina damage by multiplier or something
+            // Goobstation
+            // raise event to modify outgoing stamina damage by multiplier or something
             var outgoingModifier = new ModifyOutgoingStaminaDamageEvent(1f);
             RaiseLocalEvent(args.User, ref outgoingModifier);
 
