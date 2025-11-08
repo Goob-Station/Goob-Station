@@ -48,6 +48,8 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Shuttles.Components;
+using Content.Shared.Speech;
+using Content.Shared.Speech.Components;
 using Content.Shared.Temperature.Components;
 using Robust.Server.Containers;
 using Robust.Shared.Audio;

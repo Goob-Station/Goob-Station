@@ -293,7 +293,7 @@
   - type: SubdermalImplant
     implantAction: ActionActivateScramImplant
   - type: TriggerOnActivateImplant
-  - type: ScramImplant
+  #- type: ScramImplant #todo maty bad comp?
 
 - type: entity
   parent: BaseSubdermalImplant
