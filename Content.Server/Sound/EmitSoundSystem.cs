@@ -54,7 +54,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Explosion.EntitySystems;
-using Content.Server.Sound.Components;
 using Content.Shared.Sound;
 using Content.Shared.Sound.Components;
 using Robust.Shared.Timing;

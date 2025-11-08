@@ -10,6 +10,7 @@ using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Trigger.Systems;
 using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Server.Trigger;

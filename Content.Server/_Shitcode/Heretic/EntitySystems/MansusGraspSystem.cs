@@ -41,6 +41,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Timing;
+using Content.Shared.Trigger.Systems;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
@@ -84,18 +85,19 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         SubscribeLocalEvent<TagComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<RustGraspComponent, AfterInteractEvent>(OnRustInteract);
         SubscribeLocalEvent<HereticComponent, DrawRitualRuneDoAfterEvent>(OnRitualRuneDoAfter);
-        SubscribeLocalEvent<MansusGraspBlockTriggerComponent, BeforeTriggerEvent>(OnTriggerAttempt);
+        SubscribeLocalEvent<MansusGraspBlockTriggerComponent, BeforeDamageOnTriggerEvent>(OnTriggerAttempt);
     }
 
-    private void OnTriggerAttempt(Entity<MansusGraspBlockTriggerComponent> ent, ref BeforeTriggerEvent args)
+    private void OnTriggerAttempt(Entity<MansusGraspBlockTriggerComponent> ent, ref BeforeDamageOnTriggerEvent args) //todo marty doublecheck this event
     {
-        if (HasComp<MansusGraspAffectedComponent>(args.User))
+        if (HasComp<MansusGraspAffectedComponent>(args.Tripper))
         {
-            args.Cancel();
-            _popup.PopupEntity(Loc.GetString("mansus-grasp-trigger-fail"), args.User.Value, args.User.Value);
+            //args.Cancel();
+            _popup.PopupEntity(Loc.GetString("mansus-grasp-trigger-fail"), args.Tripper, args.Tripper);
         }
         else if (HasComp<MansusGraspAffectedComponent>(Transform(ent).ParentUid))
-            args.Cancel();
+            return;
+            //args.Cancel();
     }
 
     private void OnRustInteract(EntityUid uid, RustGraspComponent comp, AfterInteractEvent args)
