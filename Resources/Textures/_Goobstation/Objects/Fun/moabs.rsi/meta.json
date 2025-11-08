@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "Created by Arraydeess14",
+  "size": {
+    "x": 48,
+    "y": 48
+  },
+  "states": [
+    {
+        "name": "dragon"
+    },
+    {
+        "name": "brb"
+    },
+    {
+        "name": "zomb"
+    }
+  ]
+}
