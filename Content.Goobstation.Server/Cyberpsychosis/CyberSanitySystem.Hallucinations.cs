@@ -18,6 +18,7 @@ public sealed partial class CyberSanitySystem
         SubscribeLocalEvent<CyberPsychosisEntityComponent, MapInitEvent>(OnPsychoEntityInit);
         SubscribeLocalEvent<CyberPsychosisEntityComponent, CyberPsychoTeleportToOwnerActionEvent>(OnTeleport);
         SubscribeLocalEvent<CyberPsychosisEntityComponent, CyberPsychoForceSayActionEvent>(OnForceSay);
+        SubscribeLocalEvent<CyberPsychosisEntityComponent, CyberPsychoOvertakeActionEvent>(OnControl);
     }
 
     private void OnPsychoEntityInit(Entity<CyberPsychosisEntityComponent> ent, ref MapInitEvent args)
