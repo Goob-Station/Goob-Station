@@ -93,7 +93,7 @@
     - type: SmokeOnTrigger
       spreadAmount: 25
       duration: 10
-    - type: SoundOnTrigger
+    - type: EmitSoundOnTrigger #todo marty test
       sound: /Audio/Effects/smoke.ogg
 
 - type: entity

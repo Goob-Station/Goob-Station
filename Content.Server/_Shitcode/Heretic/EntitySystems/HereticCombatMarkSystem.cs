@@ -143,7 +143,7 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
                     Del(cosmicMark.CosmicDiamondUid.Value); // Just in case
                 }
 
-                //_stun.TryParalyze(target, cosmicMark.ParalyzeTime, true); todo marty stun
+                _stun.TryUpdateParalyzeDuration(target, cosmicMark.ParalyzeTime);
                 break;
 
             default:

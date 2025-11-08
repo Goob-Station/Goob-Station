@@ -333,7 +333,7 @@
   id: SupermatterGrenade
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/singularitygrenade.rsi
+    sprite: Objects/Weapons/Grenades/supermattergrenade.rsi #todo marty check naming upstream
   - type: TimerTrigger
     delay: 3
     beepInterval: 0.46

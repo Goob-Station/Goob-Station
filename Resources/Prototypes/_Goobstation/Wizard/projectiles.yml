@@ -305,12 +305,12 @@
   - type: PolymorphOnTrigger
     targetUser: true
     polymorph: WizardWabbajack
-#  - type: TriggerWhitelist todo marty remove this prob if it hits
-#    whitelist:
-#      components:
-#      - Body
+  - type: WhitelistTriggerCondition #todo marty test
+    userWhitelist:
+      components:
+      - Body
   - type: TriggerOnCollide #todo marty test
-    fixtureId: projectile
+    fixtureID: projectile
     maxTriggers: null
   - type: Reflective
     reflective: Magic
@@ -325,17 +325,17 @@
     sprite:
       sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
       state: magicm_cyan
-  - type: Fixtures
-    fixtures:
-      projectile:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.1,-0.1,0.1,0.1"
-        hard: false
-        mask:
-        - Impassable
-        - BulletImpassable
-        - Opaque # So that it can hit holographic mobs
+#  - type: Fixtures #todo marty why the fuck does this bolt have a whole ass custom fixture that conflicts with the projectile fixture
+#    fixtures:
+#      projectile:
+#        shape:
+#          !type:PhysShapeAabb
+#          bounds: "-0.1,-0.1,0.1,0.1"
+#        hard: false
+#        mask:
+#        - Impassable
+#        - BulletImpassable
+#        - Opaque # So that it can hit holographic mobs
 
 - type: entity
   id: ProjectileDeathBolt
@@ -578,6 +578,7 @@
   - type: Ammo
     muzzleFlash: null
   - type: TriggerOnCollide #todo marty test
+    fixtureID: projectile # this too marty
   - type: EmpOnTrigger
     range: 3
     energyConsumption: 50000
