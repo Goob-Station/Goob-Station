@@ -58,7 +58,7 @@ public sealed class SolutionCartridgeSystem : EntitySystem
         if (!_container.TryGetContainer(ent, "item", out var container))
             return;
 
-        if (_net.IsClient) // Goobstation
+        if (_net.IsClient) // Goobstation - Fix prediction errors
             return;
 
         _container.CleanContainer(container);
