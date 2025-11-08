@@ -17512,3 +17512,9 @@ Entries:
       message: Fixed blackscreen when vox with specific hair markings gets decapped.
   id: 1964
   time: '2025-11-07T11:32:33.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Fixed stamina damage using attackers armor as stamina modifier.
+  id: 1965
+  time: '2025-11-08T14:34:28.0000000+00:00'
