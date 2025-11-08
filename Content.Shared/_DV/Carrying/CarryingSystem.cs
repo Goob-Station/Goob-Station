@@ -10,6 +10,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._DV.Polymorph;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Climbing.Events;
@@ -136,7 +137,11 @@ public sealed class CarryingSystem : EntitySystem
     /// </summary>
     private void OnVirtualItemDeleted(Entity<CarryingComponent> ent, ref VirtualItemDeletedEvent args)
     {
-        if (HasComp<CarriableComponent>(args.BlockingEntity))
+        // Goobstation - VirtualItemDeletedEvent is raised on both the blocking entity and the user,
+        //               so we need to check that the item being deleted is the carried person item and
+        //               not something unrelated like the virtual item for pulling another player.
+        //               See https://github.com/Goob-Station/Goob-Station/issues/2121
+        if (args.BlockingEntity == ent.Comp.Carried && HasComp<CarriableComponent>(args.BlockingEntity))
             DropCarried(ent, args.BlockingEntity);
     }
 

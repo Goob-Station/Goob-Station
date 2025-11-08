@@ -58,6 +58,7 @@
       NerveDamage: 0
     coverage:
     - Chest
+    - Groin
     modifiers:
       coefficients:
         Blunt: 0.4
@@ -95,6 +96,7 @@
       NerveDamage: 0
     coverage:
     - Chest
+    - Groin
     modifiers:
       coefficients:
         Blunt: 0.3
@@ -133,6 +135,7 @@
       NerveDamage: 0
     coverage:
     - Chest
+    - Groin
     modifiers:
       coefficients:
         Blunt: 0.55
