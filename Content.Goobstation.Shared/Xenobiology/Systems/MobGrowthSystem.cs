@@ -24,15 +24,11 @@ public sealed partial class MobGrowthSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly INetManager _net = default!;
 
-    private ISawmill _sawmill = default!;
-
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<MobGrowthComponent, ComponentInit>(OnMobGrowthInit);
-
-        _sawmill = Logger.GetSawmill("MobGrowth");
     }
 
     private void OnMobGrowthInit(Entity<MobGrowthComponent> ent, ref ComponentInit args)
@@ -42,7 +38,7 @@ public sealed partial class MobGrowthSystem : EntitySystem
 
         if (!ent.Comp.Stages.ContainsKey(ent.Comp.CurrentStage))
         {
-            _sawmill.Error($"Invalid initial stage {ent.Comp.CurrentStage} for entity {ToPrettyString(ent)}");
+            Log.Error($"Invalid initial stage {ent.Comp.CurrentStage} for entity {ToPrettyString(ent)}");
             ent.Comp.CurrentStage = ent.Comp.FirstStage;
         }
 

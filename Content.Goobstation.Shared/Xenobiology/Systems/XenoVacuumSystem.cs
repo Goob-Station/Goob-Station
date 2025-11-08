@@ -6,13 +6,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Goobstation.Shared.Xenobiology.Components.Equipment;
-using Content.Shared.ActionBlocker;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Coordinates;
-using Content.Shared.Damage;
-using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
@@ -20,22 +15,14 @@ using Content.Shared.Hands;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
-using Content.Shared.Jittering;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Nutrition.Components;
-using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
@@ -53,8 +40,6 @@ public sealed partial class XenoVacuumSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
-    private ISawmill _sawmill = default!;
-
     private EntityQuery<HumanoidAppearanceComponent> _humanoidQuery;
     private EntityQuery<MobStateComponent> _mobQuery;
 
@@ -62,7 +47,7 @@ public sealed partial class XenoVacuumSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<XenoVacuumTankComponent, ComponentInit>(OnTankInit);
+        SubscribeLocalEvent<XenoVacuumTankComponent, MapInitEvent>(OnTankInit);
         SubscribeLocalEvent<XenoVacuumTankComponent, ExaminedEvent>(OnTankExamined);
 
         SubscribeLocalEvent<XenoVacuumComponent, GotEmaggedEvent>(OnVacEmagged);
@@ -72,41 +57,41 @@ public sealed partial class XenoVacuumSystem : EntitySystem
 
         SubscribeLocalEvent<XenoVacuumComponent, AfterInteractEvent>(OnXenoVacuum);
 
-        _sawmill = Logger.GetSawmill("Xenobiology");
-
         _humanoidQuery = GetEntityQuery<HumanoidAppearanceComponent>();
         _mobQuery = GetEntityQuery<MobStateComponent>();
     }
 
-    private void OnTankInit(Entity<XenoVacuumTankComponent> tank, ref ComponentInit args) =>
-        tank.Comp.StorageTank = _containerSystem.EnsureContainer<Container>(tank, "StorageTank");
+    private void OnTankInit(Entity<XenoVacuumTankComponent> ent, ref MapInitEvent args)
+    {
+        ent.Comp.StorageTank = _containerSystem.EnsureContainer<Container>(ent, ent.Comp.TankContainerName);
+    }
 
-    private void OnTankExamined(Entity<XenoVacuumTankComponent> tank, ref ExaminedEvent args)
+    private void OnTankExamined(Entity<XenoVacuumTankComponent> ent, ref ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)
             return;
 
-        foreach (var ent in tank.Comp.StorageTank.ContainedEntities)
+        foreach (var e in ent.Comp.StorageTank.ContainedEntities)
         {
-            var text = Robust.Shared.Localization.Loc.GetString("xeno-vacuum-examined", ("ent", ent));
+            var text = Loc.GetString("xeno-vacuum-examined", ("ent", e));
             args.PushMarkup(text);
         }
     }
 
-    private void OnEquippedHand(Entity<XenoVacuumComponent> vacuum, ref GotEquippedHandEvent args)
+    private void OnEquippedHand(Entity<XenoVacuumComponent> ent, ref GotEquippedHandEvent args)
     {
         if (!_inventorySystem.TryGetSlotEntity(args.User, "suitstorage", out var tank)
             || !TryComp<XenoVacuumTankComponent>(tank, out var tankComp)
             || _net.IsClient)
             return;
 
-        tankComp.LinkedNozzle = vacuum;
+        tankComp.LinkedNozzle = ent;
 
-        Dirty(vacuum);
+        Dirty(ent);
         Dirty(tank.Value, tankComp);
     }
 
-    private void OnUnequippedHand(Entity<XenoVacuumComponent> vacuum, ref GotUnequippedHandEvent args)
+    private void OnUnequippedHand(Entity<XenoVacuumComponent> ent, ref GotUnequippedHandEvent args)
     {
         if (!_inventorySystem.TryGetSlotEntity(args.User, "suitstorage", out var tank)
             || !TryComp<XenoVacuumTankComponent>(tank, out var tankComp)
@@ -115,15 +100,15 @@ public sealed partial class XenoVacuumSystem : EntitySystem
 
         tankComp.LinkedNozzle = null;
 
-        Dirty(vacuum);
+        Dirty(ent);
         Dirty(tank.Value, tankComp);
     }
 
-    private void OnVacEmagged(Entity<XenoVacuumComponent> vacuum, ref GotEmaggedEvent args)
+    private void OnVacEmagged(Entity<XenoVacuumComponent> ent, ref GotEmaggedEvent args)
     {
         if (!_emag.CompareFlag(args.Type, EmagType.Interaction)
-            || _emag.CheckFlag(vacuum, EmagType.Interaction)
-            || HasComp<EmaggedComponent>(vacuum)
+            || _emag.CheckFlag(ent, EmagType.Interaction)
+            || HasComp<EmaggedComponent>(ent)
             || _net.IsClient)
             return;
 
@@ -196,7 +181,7 @@ public sealed partial class XenoVacuumSystem : EntitySystem
 
         if (!_containerSystem.Insert(target, tankComp.StorageTank))
         {
-            _sawmill.Debug($"{ToPrettyString(user)} failed to insert {ToPrettyString(target)} into {ToPrettyString(tank)}");
+            Log.Debug($"{ToPrettyString(user)} failed to insert {ToPrettyString(target)} into {ToPrettyString(tank)}");
             return false;
         }
 
@@ -208,7 +193,5 @@ public sealed partial class XenoVacuumSystem : EntitySystem
         return true;
     }
 
-
     #endregion
-
 }

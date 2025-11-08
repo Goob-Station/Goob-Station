@@ -9,7 +9,6 @@
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.DoAfter;
-using Content.Shared.Examine;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;

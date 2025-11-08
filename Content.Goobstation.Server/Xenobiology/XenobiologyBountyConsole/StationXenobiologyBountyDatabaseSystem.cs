@@ -12,7 +12,6 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.NameIdentifier;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Xenobiology.XenobiologyBountyConsole;
@@ -20,13 +19,11 @@ namespace Content.Goobstation.Server.Xenobiology.XenobiologyBountyConsole;
 public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly NameIdentifierSystem _nameIdentifier = default!;
     [Dependency] private readonly XenobiologyBountyConsoleSystem _xenoConsole = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    [ValidatePrototypeId<NameIdentifierGroupPrototype>]
-    private const string BountyNameIdentifierGroup = "Bounty";
+    private static readonly ProtoId<NameIdentifierGroupPrototype> BountyNameIdentifierGroup = "Bounty";
 
     public override void Initialize()
     {
@@ -34,8 +31,10 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
         SubscribeLocalEvent<StationXenobiologyBountyDatabaseComponent, MapInitEvent>(OnMapInit);
     }
 
-    private void OnMapInit(Entity<StationXenobiologyBountyDatabaseComponent> database, ref MapInitEvent args) =>
-        FillBountyDatabase(database!);
+    private void OnMapInit(Entity<StationXenobiologyBountyDatabaseComponent> database, ref MapInitEvent args)
+    {
+        FillBountyDatabase(database.AsNullable());
+    }
 
     public override void Update(float frametime)
     {
@@ -48,11 +47,11 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
                 continue;
 
             RerollBountyDatabase((uid, db));
-            ShiftAllTowardsDefaultPointMultiplier(db);
 
             db.NextGlobalMarketRefresh = _timing.CurTime + db.GlobalMarketRefreshDelay;
         }
     }
+
     public void FillBountyDatabase(Entity<StationXenobiologyBountyDatabaseComponent?> database)
     {
         if (!Resolve(database, ref database.Comp))
@@ -63,7 +62,6 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
             TryAddBounty(database, bounty);
 
         SortBounties(database.Comp);
-        RandomizeAllBountyPointMultipliers(database.Comp);
         _xenoConsole.UpdateBountyConsoles();
     }
 
@@ -96,25 +94,18 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
             return false;
         }
 
-        newBounty.InitialMultiplier = newBounty.CurrentMultiplier;
         component.Bounties.Add(newBounty);
         return true;
     }
 
     [PublicAPI]
-    public bool TryRemoveBounty(Entity<StationXenobiologyBountyDatabaseComponent?> ent,
-        string dataId,
-        bool skipped,
-        EntityUid? actor = null)
+    public bool TryRemoveBounty(Entity<StationXenobiologyBountyDatabaseComponent?> ent, string dataId, bool skipped, EntityUid? actor = null)
     {
         return TryGetBountyFromId(ent.Owner, dataId, out var data, ent.Comp) && TryRemoveBounty(ent, data, skipped, actor);
     }
 
     [PublicAPI]
-    public bool TryRemoveBounty(Entity<StationXenobiologyBountyDatabaseComponent?> ent,
-        XenobiologyBountyData data,
-        bool skipped,
-        EntityUid? actor = null)
+    public bool TryRemoveBounty(Entity<StationXenobiologyBountyDatabaseComponent?> ent, XenobiologyBountyData data, bool skipped, EntityUid? actor = null)
     {
         if (!Resolve(ent, ref ent.Comp))
             return false;
@@ -133,11 +124,10 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
             }
 
             ent.Comp.History.Add(new XenobiologyBountyHistoryData(data,
-                skipped
-                    ? CargoBountyHistoryData.BountyResult.Skipped
-                    : CargoBountyHistoryData.BountyResult.Completed,
+                skipped ? CargoBountyHistoryData.BountyResult.Skipped : CargoBountyHistoryData.BountyResult.Completed,
                 _timing.CurTime,
                 actorName));
+
             ent.Comp.Bounties.RemoveAt(i);
             return true;
         }
@@ -146,18 +136,13 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
     }
 
     [PublicAPI]
-    public bool TryGetBountyFromId(
-        EntityUid uid,
-        string id,
-        [NotNullWhen(true)] out XenobiologyBountyData? bounty,
-        StationXenobiologyBountyDatabaseComponent? component = null)
+    public bool TryGetBountyFromId(EntityUid uid, string id, [NotNullWhen(true)] out XenobiologyBountyData? bounty, StationXenobiologyBountyDatabaseComponent? component = null)
     {
         bounty = null;
         if (!Resolve(uid, ref component))
             return false;
 
-        foreach (var bountyData in component.Bounties
-                     .Where(bountyData => bountyData.Id == id))
+        foreach (var bountyData in component.Bounties.Where(bountyData => bountyData.Id == id))
         {
             bounty = bountyData;
             break;
@@ -168,44 +153,6 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
 
     public void SortBounties(StationXenobiologyBountyDatabaseComponent db)
     {
-        db.Bounties = db.Bounties
-            .OrderBy(bounty => !_proto.TryIndex(bounty.Bounty, out var proto) ? 0 : GetActualValue(bounty))
-            .ToList();
-    }
-    public void RandomizeAllBountyPointMultipliers(StationXenobiologyBountyDatabaseComponent db)
-    {
-        foreach (var bounty in db.Bounties)
-            RandomizeBountyPointMultiplier(bounty);
-    }
-
-    public void ShiftAllTowardsDefaultPointMultiplier(StationXenobiologyBountyDatabaseComponent db)
-    {
-        foreach (var bounty in db.Bounties)
-            ShiftTowardsDefaultPointMultiplier(bounty);
-    }
-
-    public void RandomizeBountyPointMultiplier(XenobiologyBountyData bounty) =>
-        bounty.CurrentMultiplier = _random.NextFloat(bounty.MinMultiplier, bounty.MaxMultiplier);
-
-    public void IncreaseBountyPointMultiplier(XenobiologyBountyData bounty) =>
-        bounty.CurrentMultiplier = _random.NextFloat(bounty.CurrentMultiplier, bounty.MaxMultiplier);
-
-
-    public void DecreaseBountyPointMultiplier(XenobiologyBountyData bounty) =>
-        bounty.CurrentMultiplier = _random.NextFloat(bounty.MinMultiplier, bounty.CurrentMultiplier);
-
-    public void ShiftTowardsDefaultPointMultiplier(XenobiologyBountyData bounty) =>
-        bounty.CurrentMultiplier = MathHelper.Lerp(bounty.CurrentMultiplier, bounty.InitialMultiplier, 0.3f);
-
-    public int GetActualValue(XenobiologyBountyData bounty)
-    {
-        if (!_proto.TryIndex(bounty.Bounty, out var proto))
-            return 0;
-
-        double absNumber = Math.Abs(proto.PointsAwarded * bounty.CurrentMultiplier);
-        var exponent = Math.Floor(Math.Log10(absNumber));
-        var baseValue = 0.25 * Math.Pow(10, exponent);
-        var roundedAbs = Math.Round(absNumber / baseValue, MidpointRounding.AwayFromZero) * baseValue;
-        return  (int)roundedAbs;
+        db.Bounties = db.Bounties.OrderBy(bounty => !_proto.TryIndex(bounty.Bounty, out var proto) ? 0 : proto.PointsAwarded).ToList();
     }
 }

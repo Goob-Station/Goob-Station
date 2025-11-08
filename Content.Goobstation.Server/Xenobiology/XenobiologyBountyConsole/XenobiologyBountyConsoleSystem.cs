@@ -84,12 +84,11 @@ public sealed class XenobiologyBountyConsoleSystem : EntitySystem
         foreach (var bountyEnt in bountyEntities)
             Del(bountyEnt);
 
-        var pointsToAward = _xenoDatabase.GetActualValue(bounty);
-        _research.ModifyServerPoints(server.Value, pointsToAward, serverComponent);
+        var pointsToAward = !_proto.TryIndex(bounty.Bounty, out var bp) ? 0 : bp.PointsAwarded;
+        _research.ModifyServerPoints(server.Value, (int) pointsToAward, serverComponent);
 
         _audio.PlayPvs(console.Comp.FulfillSound, console);
 
-        _xenoDatabase.DecreaseBountyPointMultiplier(bounty);
         UpdateState(console, db);
     }
 

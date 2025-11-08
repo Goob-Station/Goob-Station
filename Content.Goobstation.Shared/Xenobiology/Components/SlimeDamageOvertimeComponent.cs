@@ -20,7 +20,7 @@ public sealed partial class SlimeDamageOvertimeComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? SourceEntityUid;
 
-    [DataField(customTypeSerializer: typeof(TimespanSerializer))]
+    [DataField]
     public TimeSpan Interval = TimeSpan.FromSeconds(1);
 
     [ViewVariables(VVAccess.ReadOnly)]

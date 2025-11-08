@@ -15,6 +15,9 @@ namespace Content.Goobstation.Shared.Xenobiology.Components.Equipment;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class XenoVacuumTankComponent : Component
 {
+    [DataField]
+    public string TankContainerName = "StorageTank";
+
     /// <summary>
     /// The ID of the tank's container.
     /// </summary>

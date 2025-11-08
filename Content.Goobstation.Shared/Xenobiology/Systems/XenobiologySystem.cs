@@ -7,7 +7,6 @@
 
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -51,8 +50,6 @@ public sealed partial class XenobiologySystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IConfigurationManager _configuration = default!;
 
-    private ISawmill _sawmill = default!;
-
     private EntityQuery<SlimeComponent> _slimeQuery;
     private EntityQuery<HungerComponent> _hungerQuery;
 
@@ -65,8 +62,6 @@ public sealed partial class XenobiologySystem : EntitySystem
         SubscribeActions();
 
         SubscribeLocalEvent<SlimeComponent, ExaminedEvent>(OnExamined);
-
-        _sawmill = Logger.GetSawmill("Xenobiology");
 
         _slimeQuery = GetEntityQuery<SlimeComponent>();
         _hungerQuery = GetEntityQuery<HungerComponent>();

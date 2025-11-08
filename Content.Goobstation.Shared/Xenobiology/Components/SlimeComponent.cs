@@ -4,7 +4,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Robust.Client.Graphics;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -85,6 +84,7 @@ public sealed partial class SlimeComponent : Component
     /// <summary>
     /// The entity, if any, currently being consumed by the slime.
     /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? LatchedTarget;
 
     /// <summary>
@@ -153,7 +153,4 @@ public sealed partial class SlimeComponent : Component
     /// </summary>
     [DataField]
     public SoundPathSpecifier EatSound = new("/Audio/Voice/Talk/slime.ogg");
-
-
-
 }

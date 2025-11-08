@@ -1,6 +1,6 @@
 - type: xenobiologyBounty
   id: BountyExtractAnyThree
-  pointsAwarded: 9000
+  pointsAwarded: 2500
   entries:
   - name: bounty-item-extract-any-three
     amount: 3
@@ -10,7 +10,7 @@
 
 - type: xenobiologyBounty
   id: BountyGreyExtract
-  pointsAwarded: 3000
+  pointsAwarded: 1000
   entries:
   - name: bounty-item-grey-extract
     amount: 1
@@ -20,7 +20,7 @@
 
 - type: xenobiologyBounty
   id: BountyOrangeExtract
-  pointsAwarded: 5000
+  pointsAwarded: 2500
   entries:
   - name: bounty-item-orange-extract
     amount: 1
@@ -30,7 +30,7 @@
 
 - type: xenobiologyBounty
   id: BountyPurpleExtract
-  pointsAwarded: 5000
+  pointsAwarded: 2500
   entries:
   - name: bounty-item-purple-extract
     amount: 1
@@ -40,7 +40,7 @@
 
 - type: xenobiologyBounty
   id: BountyBlueExtract
-  pointsAwarded: 5000
+  pointsAwarded: 2500
   entries:
   - name: bounty-item-blue-extract
     amount: 1
@@ -50,7 +50,7 @@
 
 - type: xenobiologyBounty
   id: BountyMetalExtract
-  pointsAwarded: 5000
+  pointsAwarded: 2500
   entries:
   - name: bounty-item-metal-extract
     amount: 1
@@ -60,7 +60,7 @@
 
 - type: xenobiologyBounty
   id: BountyYellowExtract
-  pointsAwarded: 10000
+  pointsAwarded: 5000
   entries:
   - name: bounty-item-yellow-extract
     amount: 1
@@ -70,7 +70,7 @@
 
 - type: xenobiologyBounty
   id: BountyDarkPurpleExtract
-  pointsAwarded: 10000
+  pointsAwarded: 5000
   entries:
   - name: bounty-item-dark-purple-extract
     amount: 1
@@ -80,7 +80,7 @@
 
 - type: xenobiologyBounty
   id: BountyDarkBlueExtract
-  pointsAwarded: 10000
+  pointsAwarded: 5000
   entries:
   - name: bounty-item-dark-blue-extract
     amount: 1
@@ -90,7 +90,7 @@
 
 - type: xenobiologyBounty
   id: BountySilverExtract
-  pointsAwarded: 10000
+  pointsAwarded: 5000
   entries:
   - name: bounty-item-silver-extract
     amount: 1
@@ -100,7 +100,7 @@
 
 - type: xenobiologyBounty
   id: BountyBluespaceExtract
-  pointsAwarded: 15000
+  pointsAwarded: 7500
   entries:
   - name: bounty-item-bluespace-extract
     amount: 1
@@ -110,7 +110,7 @@
 
 - type: xenobiologyBounty
   id: BountySepiaExtract
-  pointsAwarded: 15000
+  pointsAwarded: 7500
   entries:
   - name: bounty-item-sepia-extract
     amount: 1
@@ -120,7 +120,7 @@
 
 - type: xenobiologyBounty
   id: BountyCeruleanExtract
-  pointsAwarded: 15000
+  pointsAwarded: 7500
   entries:
   - name: bounty-item-cerulean-extract
     amount: 1
@@ -130,7 +130,7 @@
 
 - type: xenobiologyBounty
   id: BountyPyriteExtract
-  pointsAwarded: 15000
+  pointsAwarded: 7500
   entries:
   - name: bounty-item-pyrite-extract
     amount: 1
@@ -140,7 +140,7 @@
 
 - type: xenobiologyBounty
   id: BountyRedExtract
-  pointsAwarded: 20000
+  pointsAwarded: 10000
   entries:
   - name: bounty-item-red-extract
     amount: 1
@@ -150,7 +150,7 @@
 
 - type: xenobiologyBounty
   id: BountyGreenExtract
-  pointsAwarded: 20000
+  pointsAwarded: 10000
   entries:
   - name: bounty-item-green-extract
     amount: 1
@@ -160,7 +160,7 @@
 
 - type: xenobiologyBounty
   id: BountyPinkExtract
-  pointsAwarded: 20000
+  pointsAwarded: 10000
   entries:
   - name: bounty-item-pink-extract
     amount: 1
@@ -170,7 +170,7 @@
 
 - type: xenobiologyBounty
   id: BountyGoldExtract
-  pointsAwarded: 20000
+  pointsAwarded: 10000
   entries:
   - name: bounty-item-gold-extract
     amount: 1
@@ -180,7 +180,7 @@
 
 - type: xenobiologyBounty
   id: BountyOilExtract
-  pointsAwarded: 25000
+  pointsAwarded: 12500
   entries:
   - name: bounty-item-oil-extract
     amount: 1
@@ -190,7 +190,7 @@
 
 - type: xenobiologyBounty
   id: BountyLightPinkExtract
-  pointsAwarded: 25000
+  pointsAwarded: 12500
   entries:
   - name: bounty-item-light-pink-extract
     amount: 1
@@ -200,7 +200,7 @@
 
 - type: xenobiologyBounty
   id: BountyBlackExtract
-  pointsAwarded: 25000
+  pointsAwarded: 12500
   entries:
   - name: bounty-item-black-extract
     amount: 1
@@ -210,7 +210,7 @@
 
 - type: xenobiologyBounty
   id: BountyAdamantineExtract
-  pointsAwarded: 25000
+  pointsAwarded: 12500
   entries:
   - name: bounty-item-adamantine-extract
     amount: 1
