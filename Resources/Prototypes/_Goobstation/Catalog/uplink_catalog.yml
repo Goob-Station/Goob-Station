@@ -1367,22 +1367,6 @@
       - ContravendUplink
 
 - type: listing
-  id: UplinkCQCManualChef
-  name: uplink-cqc-name
-  description: uplink-cqc-desc
-  productEntity: CQCManual
-  cost:
-    Telecrystal: 60
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:BuyerJobCondition
-    whitelist:
-    - Chef
-
-- type: listing
   id: UplinkCapoeiraManual
   name: uplink-capoeira-name
   description: uplink-capoeira-desc
