@@ -23,7 +23,10 @@ public sealed partial class CyberSanitySystem
 
     private void OnPsychoEntityInit(Entity<CyberPsychosisEntityComponent> ent, ref MapInitEvent args)
     {
+        if (!_mind.TryGetMind(ent.Owner, out var mindId, out var mind))
+            return;
 
+        _role.MindAddRole(mindId, "MindRoleCyberpsychosis");
     }
 
     private void OnTeleport(Entity<CyberPsychosisEntityComponent> ent, ref CyberPsychoTeleportToOwnerActionEvent args)

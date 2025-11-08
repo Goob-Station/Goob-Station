@@ -1,0 +1,6 @@
+- type: antag
+  id: Cyberpsychosis
+  name: Psychosis
+  antagonist: true
+  setPreference: false
+  objective: "Get your body and commit slaughter."
