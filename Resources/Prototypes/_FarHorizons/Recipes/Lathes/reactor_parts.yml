@@ -1,0 +1,50 @@
+# Base prototypes
+
+- type: latheRecipe
+  abstract: true
+  id: BaseReactorPartRecipe
+  categories:
+  - Parts
+  completetime: 10
+
+## Recipes
+
+# Fuel Rods
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: CerenkiteFuelRod
+  result: CerenkiteFuelRod
+  materials:
+    Steel: 1500
+    Plasma: 500
+    Uranium: 1000
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: UraniumFuelRod
+  result: UraniumFuelRod
+  materials:
+    Steel: 500
+    Uranium: 3000
+
+# Other Parts
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: ReactorControlRod
+  result: ReactorControlRod
+  materials:
+    Steel: 4000
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: ReactorGasChannel
+  result: ReactorGasChannel
+  materials:
+    Steel: 2500
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: ReactorHeatExchanger
+  result: ReactorHeatExchanger
+  materials:
+    Steel: 3000

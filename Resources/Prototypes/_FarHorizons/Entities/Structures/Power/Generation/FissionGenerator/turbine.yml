@@ -1,0 +1,136 @@
+- type: entity
+  id: Turbine
+  parent: BaseStructure
+  name: gas turbine
+  description: A large turbine used for generating power using hot gas.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/turbine.rsi
+    layers:
+    - state: turbine
+      visible: true
+      map: [ "enum.TurbineVisualLayers.TurbineSpeed" ]
+    - state: turbinebroken
+      visible: false
+      map: [ "enum.TurbineVisualLayers.TurbineRuined" ]
+    - state: turbine_sparks
+      visible: false
+      map: [ "enum.TurbineVisualLayers.DamageSpark" ]
+    - state: turbine_smoke
+      visible: false
+      map: [ "enum.TurbineVisualLayers.DamageSmoke" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.TurbineVisuals.TurbineRuined:
+        enum.TurbineVisualLayers.TurbineRuined:
+          True: { visible: true }
+          False: { visible: false }
+      enum.TurbineVisuals.TurbineSpeed:
+        enum.TurbineVisualLayers.TurbineSpeed:
+          SpeedStill: { state: turbine }
+          # Allows for multiple speed anims, even if there is only one
+          SpeedSlow: { state: turbinerun }
+          SpeedMid: { state: turbinerun }
+          SpeedFast: { state: turbinerun }
+          SpeedOverspeed: { state: turbinerun }
+      enum.TurbineVisuals.DamageSpark:
+        enum.TurbineVisualLayers.DamageSpark:
+          True: { visible: true }
+          False: { visible: false }
+      enum.TurbineVisuals.DamageSmoke:
+        enum.TurbineVisualLayers.DamageSmoke:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: Physics
+    bodyType: Static
+  - type: InteractionOutline
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-2.5,1.5,2.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Anchorable
+    flags: 
+    - Anchorable
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      inlet:
+        !type:OffsetPipeNode
+        nodeGroupID: Pipe
+        pipeDirection: West
+        volume: 1000
+        offsetEast: -2
+        offsetNorth: -1
+      outlet:
+        !type:OffsetPipeNode
+        nodeGroupID: Pipe
+        pipeDirection: East
+        volume: 1000
+        offsetEast: 2
+        offsetNorth: -1
+      output:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+  - type: PowerMonitoringDevice
+    group: Generator
+    loadNode: output
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/turbine.rsi
+    state: static
+  - type: PowerSupplier
+    supplyRampRate: 75000
+    supplyRampTolerance: 5000
+  - type: AtmosDevice
+  - type: Explosive
+    explosionType: Default
+    tileBreakScale: 0
+    canCreateVacuum: false
+    intensitySlope: 15
+    maxIntensity: 70
+    repeatable: true
+  - type: Turbine
+  - type: ActivatableUI
+    key: enum.TurbineUiKey.Key
+  - type: ActivatableUIRequiresAnchor
+  - type: UserInterface
+    interfaces:
+      enum.TurbineUiKey.Key:
+        type: TurbineBoundUserInterface
+  - type: AccessReader # Keeps some random tider from blowing up the turbine
+    access: [["Engineering"]]
+  - type: Lock
+    unlockOnClick: false
+  - type: GuideHelp
+    guides:
+    - NuclearReactor
+    - Power
+  
+# Arrow to indicate flow
+- type: entity
+  id: TurbineFlowArrow
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: Markers/teg_arrow.rsi
+      color: "#FFFFFFBB"
+      layers:
+        - state: arrow
+          rotation: 90
+          offset: 1.75, -1
+        - state: arrow
+          rotation: 90
+          offset: -1.75, -1
+    - type: TimedDespawn
+      lifetime: 2
+    - type: Tag
+      tags:
+        - HideContextMenu

@@ -1,0 +1,218 @@
+- type: entity
+  id: BaseNuclearReactor
+  parent: BaseStructure
+  name: nuclear reactor
+  description: A nuclear reactor vessel, with slots for fuel rods and other components. Hey wait, didn't one of these explode once?
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/nuclear_reactor.rsi
+    layers:
+    - state: reactor
+      visible: true
+      map: [ "enum.ReactorVisualLayers.Sprite" ]
+    - state: reactor_status_active
+      visible: false
+      map: [ "enum.ReactorVisualLayers.Status" ]
+    - state: reactor_gas_input_lights
+      visible: false
+      map: [ "enum.ReactorVisualLayers.Input" ]
+    - state: reactor_gas_output_lights
+      visible: false
+      map: [ "enum.ReactorVisualLayers.Output" ]
+    - state: reactor_lights_warning
+      visible: false
+      map: [ "enum.ReactorVisualLayers.Lights" ]
+    - state: reactor_fire
+      visible: false
+      map: [ "enum.ReactorVisualLayers.Smoke" ]
+    - state: reactor_smoke
+      visible: false
+      map: [ "enum.ReactorVisualLayers.Fire" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ReactorVisuals.Sprite:
+        enum.ReactorVisualLayers.Sprite:
+          Normal: { state: reactor }
+          Melted: { state: reactorbroken }
+      enum.ReactorVisuals.Status:
+        enum.ReactorVisualLayers.Status:
+          Off: { visible: false}
+          Active: { state: reactor_status_active, visible: true }
+          Overheat: { state: reactor_status_overheat, visible: true }
+          Meltdown: { state: reactor_status_meltdown, visible: true }
+          Boom: { state: reactor_status_boom, visible: true }
+      enum.ReactorVisuals.Input:
+        enum.ReactorVisualLayers.Input:
+          True: { visible: true }
+          False: { visible: false }
+      enum.ReactorVisuals.Output:
+        enum.ReactorVisualLayers.Output:
+          True: { visible: true }
+          False: { visible: false }
+      enum.ReactorVisuals.Lights:
+        enum.ReactorVisualLayers.Lights:
+          LightsOff: { visible: false }
+          LightsWarning: { state: reactor_lights_warning, visible: true }
+          LightsMeltdown: { state: reactor_lights_meltdown, visible: true }
+      enum.ReactorVisuals.Smoke:
+        enum.ReactorVisualLayers.Smoke:
+          True: { visible: true }
+          False: { visible: false }
+      enum.ReactorVisuals.Fire:
+        enum.ReactorVisualLayers.Fire:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: Physics
+    bodyType: Static
+  - type: InteractionOutline
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-2.5,-2.5,2.5,2.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        - HighImpassable
+  - type: Anchorable
+    flags: 
+    - Anchorable
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      inlet:
+        !type:OffsetPipeNode
+        nodeGroupID: Pipe
+        pipeDirection: West
+        volume: 1000
+        offsetEast: -3
+        offsetNorth: -1
+      outlet:
+        !type:OffsetPipeNode
+        nodeGroupID: Pipe
+        pipeDirection: East
+        volume: 1000
+        offsetEast: 3
+        offsetNorth: 1
+  - type: AtmosDevice
+  - type: RadiationSource
+    intensity: 0
+  - type: ContainerContainer
+    containers:
+      part_slot: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      part_slot:
+        whitelist:
+          components:
+            - ReactorPart
+  - type: NuclearReactor
+  - type: ActivatableUI
+    key: enum.NuclearReactorUiKey.Key
+  - type: ActivatableUIRequiresAnchor
+  - type: UserInterface
+    interfaces:
+      enum.NuclearReactorUiKey.Key:
+        type: NuclearReactorBoundUserInterface
+  - type: AccessReader # You got a permit for that meltdown?
+    access: [["Engineering"]]
+  - type: Lock
+    unlockOnClick: false
+  - type: GuideHelp
+    guides:
+    - NuclearReactor
+    - Power
+
+# Visual parts on the reactor
+- type: entity
+  id: ReactorComponent
+  name: reactor component
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_component_cap.rsi
+    drawdepth: 1
+    layers:
+    - state: base_cap
+      visible: true
+      map: [ "enum.ReactorCapVisualLayers.Sprite" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ReactorCapVisuals.Sprite:
+        enum.ReactorCapVisualLayers.Sprite:
+          Base: { state: empty_cap }
+          Control: { state: control_cap }
+          ControlM1: { state: control_cap_melted_1 }
+          ControlM2: { state: control_cap_melted_2 }
+          ControlM3: { state: control_cap_melted_3 }
+          ControlM4: { state: control_cap_melted_4 }
+          Fuel: { state: fuel_cap }
+          FuelM1: { state: fuel_cap_melted_1 }
+          FuelM2: { state: fuel_cap_melted_2 }
+          FuelM3: { state: fuel_cap_melted_3 }
+          FuelM4: { state: fuel_cap_melted_4 }
+          Gas: { state: gas_cap }
+          GasM1: { state: gas_cap_melted_1 }
+          GasM2: { state: gas_cap_melted_2 }
+          GasM3: { state: gas_cap_melted_3 }
+          GasM4: { state: gas_cap_melted_4 }
+          Heat: { state: heat_cap }
+          HeatM1: { state: heat_cap_melted_1 }
+          HeatM2: { state: heat_cap_melted_2 }
+          HeatM3: { state: heat_cap_melted_3 }
+          HeatM4: { state: heat_cap_melted_4 }
+  - type: Appearance
+  - type: Transform
+    noRot: true
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+# Nuclear debris resultant from a meltdown
+- type: entity
+  id: NuclearDebrisChunk
+  parent: BaseItem
+  name: nuclear debris
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/nuclear_waste.rsi
+    layers:
+      - state: nuclear_waste
+        map: [ "base" ]
+  - type: Item
+    size: Huge
+  - type: MultiHandedItem
+  - type: RandomSprite
+    available:
+    - base:
+        nuclear_waste: "" # Allows for multiple debris sprites... even though there's just one
+  - type: RadiationSource
+    intensity: 1.6
+
+# Arrow to indicate flow
+- type: entity
+  id: ReactorFlowArrow
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: Markers/teg_arrow.rsi
+      color: "#FFFFFFBB"
+      layers:
+        - state: arrow
+          rotation: 90
+          offset: 2.75, 1
+        - state: arrow
+          rotation: 90
+          offset: -2.75, -1
+    - type: TimedDespawn
+      lifetime: 2
+    - type: Tag
+      tags:
+        - HideContextMenu

@@ -1,0 +1,8 @@
+- type: latheRecipePack
+  id: ReactorPartsBasic
+  recipes:
+  - CerenkiteFuelRod
+  - UraniumFuelRod
+  - ReactorControlRod
+  - ReactorGasChannel
+  - ReactorHeatExchanger

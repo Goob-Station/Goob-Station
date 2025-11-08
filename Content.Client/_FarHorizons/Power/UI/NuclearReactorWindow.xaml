@@ -1,0 +1,134 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+            MinSize="200 120" Title="Nuclear Reactor">
+    <BoxContainer Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="10">
+        <!--Main Content-->
+        <BoxContainer Name="MainContent" Orientation="Horizontal" VerticalExpand="True" Margin="4">
+
+			<!--Left Panel-->
+			<BoxContainer Name="LeftPanel" Orientation="Vertical">
+				
+				<!--Insert/remove controls-->
+			    <BoxContainer Name="Controls" Orientation="Vertical">
+				    <GridContainer Name="ControlGrid" Columns="3" Margin="2 2 2 2">
+					    <Button Name="XDecrement" Text="-X" Disabled="true"/>
+					    <Label Name="XPos" Text="0" StyleClasses="LabelKeyText" />
+					    <Button Name="XIncrement" Text="+X"/>
+					    <Button Name="YDecrement" Text="-Y" Disabled="true"/>
+					    <Label Name="YPos" Text="0" StyleClasses="LabelKeyText" />
+					    <Button Name="YIncrement" Text="+Y"/>
+				    </GridContainer>
+					<controls:StripeBack>
+						<Button Name="ItemAction" Text="{Loc comp-nuclear-reactor-ui-insert-button}"/>
+						<Label Name="ItemActionLock" Text="{Loc comp-nuclear-reactor-ui-locked}" Visible="false" HorizontalAlignment="Center" VerticalAlignment="Center" />
+					</controls:StripeBack>
+			    </BoxContainer>
+				
+				<!--Target info-->
+				<BoxContainer Name="TargetData" Orientation="Vertical" VerticalExpand="True">
+					<BoxContainer Name="TargetInfo" Orientation="Vertical">
+						<Label Name="TargetName" Text="Rod"/>
+						<GridContainer Name="TargetTemperatureGrid" Columns="2" Margin="2 2 2 2">
+							<Label Text="T: " StyleClasses="StatusFieldTitle"  HorizontalExpand="True"/>
+							<Label Name="TargetTemperature" Text="20C" HorizontalAlignment="Right"/>
+						</GridContainer>
+						<GridContainer Name="TargetNRadiationGrid" Columns="2" Margin="2 2 2 2">
+							<Label Text="N: " StyleClasses="StatusFieldTitle"  HorizontalExpand="True"/>
+							<Label Name="TargetNRadiation" Text="0" HorizontalAlignment="Right"/>
+						</GridContainer>
+						<GridContainer Name="TargetRadiationGrid" Columns="2" Margin="2 2 2 2">
+							<Label Text="R: " StyleClasses="StatusFieldTitle"  HorizontalExpand="True"/>
+							<Label Name="TargetRadiation" Text="0" HorizontalAlignment="Right"/>
+						</GridContainer>
+						<GridContainer Name="TargetSpentGrid" Columns="2" Margin="2 2 2 2">
+							<Label Text="S: " StyleClasses="StatusFieldTitle"  HorizontalExpand="True"/>
+							<Label Name="TargetSpent" Text="0" HorizontalAlignment="Right"/>
+						</GridContainer>
+					</BoxContainer>
+				</BoxContainer>
+				
+				<!--"Shelf"-->
+				<BoxContainer Name="Shelf" Orientation="Vertical">
+					<Button Name="EjectItem" Text="{Loc comp-nuclear-reactor-ui-eject-button}" />
+					<Label Name="ItemName" Text="empty" />
+				</BoxContainer>
+			</BoxContainer>
+			
+            <!--Reactor display-->
+            <PanelContainer Name="GridVisuals" StyleClasses="Inset" HorizontalExpand="True" Margin="5 5 5 5">
+                <BoxContainer Orientation="Vertical">
+					<Button Name="ChangeViewButton" Text="{Loc comp-nuclear-reactor-ui-view-change}"/>
+                    <Label Name="ViewLabel" Text="{Loc comp-nuclear-reactor-ui-view-temp}" StyleClasses="LabelKeyText" />
+                    <GridContainer Name="ReactorGrid" Columns="7" VerticalExpand="True" Margin="2 2 2 2">
+                    </GridContainer>
+                </BoxContainer>
+            </PanelContainer>
+			
+			<!--Right Panel-->
+			<BoxContainer Name="RightPanel" Orientation="Vertical">
+				<Label Name="StatusPanelLabel" Text="{Loc comp-nuclear-reactor-ui-status-panel}" StyleClasses="LabelKeyText" />
+
+				<BoxContainer Name="StatusIndicators" Orientation="Vertical">
+					<BoxContainer Name="ReactorTemp" Orientation="Horizontal" HorizontalExpand="True">
+						<Label Name="ReactorTempLabel" Text="{Loc comp-nuclear-reactor-ui-reactor-temp}" StyleClasses="StatusFieldTitle"  HorizontalExpand="True"/>
+						<Label Name="ReactorTempValue" Text="20C" HorizontalAlignment="Right"/>
+					</BoxContainer>
+					<ProgressBar Name="ReactorTempBar" MaxValue="2000" SetSize="150 5" Margin="5" />
+
+					<PanelContainer SetHeight="2" VerticalAlignment="Top" SetWidth="200" Margin="2 5" />
+
+					<BoxContainer Name="ReactorRads" Orientation="Horizontal">
+						<Label Name="ReactorRadsLabel" Text="{Loc comp-nuclear-reactor-ui-reactor-rads}" StyleClasses="StatusFieldTitle"  HorizontalExpand="True"/>
+						<Label Name="ReactorRadsValue" Text="0" HorizontalAlignment="Right"/>
+					</BoxContainer>
+					<ProgressBar Name="ReactorRadsBar" MaxValue="50" SetSize="150 5" Margin="5" />
+
+					<PanelContainer SetHeight="2" VerticalAlignment="Top" SetWidth="200" Margin="2 5" />
+
+					<BoxContainer Name="ReactorTherm" Orientation="Horizontal" HorizontalExpand="True">
+						<Label Name="ReactorThermLabel" Text="{Loc comp-nuclear-reactor-ui-reactor-therm}" StyleClasses="StatusFieldTitle"  HorizontalExpand="True"/>
+						<Label Name="ReactorThermValue" Text="0" HorizontalAlignment="Right"/>
+					</BoxContainer>
+					<ProgressBar Name="ReactorThermBar" MaxValue="10000000" SetSize="150 5" Margin="5" />
+
+					<PanelContainer SetHeight="2" VerticalAlignment="Top" SetWidth="200" Margin="2 5" />
+
+					
+					<BoxContainer Name="ControlRodsText" Orientation="Horizontal">
+						<Label Name="ControlRodsLabel" Text="{Loc comp-nuclear-reactor-ui-reactor-control}" StyleClasses="StatusFieldTitle"  HorizontalExpand="True"/>
+						<Label Name="ControlRodsValue" Text="100%" HorizontalAlignment="Right"/>
+					</BoxContainer>
+					<BoxContainer Name="ControlRods" Orientation="Horizontal">
+						<ProgressBar Name="ControlRodsActual" MaxValue="2" SetSize="5 100" Margin="5" Vertical="True" />
+						<ProgressBar Name="ControlRodsSet" MaxValue="2" SetSize="5 100" Margin="5" Vertical="True" />
+						<controls:StripeBack>
+							<BoxContainer Name="ControlRodsButtons" Orientation="Vertical">
+								<Button Name="ControlRodsInsertLarge" Text="+ +"/>
+								<Button Name="ControlRodsInsert" Text=" + "/>
+								<Button Name="ControlRodsRemove" Text=" - "/>
+								<Button Name="ControlRodsRemoveLarge" Text="- -"/>
+							</BoxContainer>
+							<Label Name="ControlRodsLock" Text="{Loc comp-nuclear-reactor-ui-locked}" Visible="false" HorizontalAlignment="Center" VerticalAlignment="Center" />
+						</controls:StripeBack>
+					</BoxContainer>
+
+				</BoxContainer>
+				
+			</BoxContainer>
+			
+        </BoxContainer>
+
+        <!--Footer-->
+        <BoxContainer Name="Footer" Orientation="Vertical">
+            <PanelContainer StyleClasses="LowDivider" />
+            <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
+                <Label Text="{Loc comp-nuclear-reactor-ui-footer-left}" StyleClasses="WindowFooterText" />
+                <Label Text="{Loc comp-nuclear-reactor-ui-footer-right}" StyleClasses="WindowFooterText"
+                       HorizontalAlignment="Right" HorizontalExpand="True" Margin="0 0 5 0" />
+                <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
+                             VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19" />
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

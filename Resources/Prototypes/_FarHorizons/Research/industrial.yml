@@ -1,0 +1,19 @@
+- type: technology
+  id: NuclearPowerGeneration
+  name: research-technology-nuclear-power
+  icon:
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_parts.rsi
+    state: default_rod
+  discipline: Industrial
+  tier: 2
+  cost: 12500
+  recipeUnlocks:
+  - CerenkiteFuelRod
+  - UraniumFuelRod
+  - ReactorControlRod
+  - ReactorGasChannel
+  - ReactorHeatExchanger
+  technologyPrerequisites:
+  - PowerGeneration
+  radioChannels:
+  - Engineering

@@ -1,0 +1,1 @@
+guide-entry-nuclear-reactor = Nuclear Reactor

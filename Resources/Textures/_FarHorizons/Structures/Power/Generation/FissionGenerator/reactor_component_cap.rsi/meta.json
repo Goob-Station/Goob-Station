@@ -1,0 +1,77 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "taken from goonstation https://github.com/goonstation/goonstation/blob/master/icons/misc/reactorcomponents.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "empty_cap"
+        },
+        {
+            "name": "base_cap"
+        },
+        {
+            "name": "control_cap"
+        },
+        {
+            "name": "control_cap_melted_1"
+        },
+        {
+            "name": "control_cap_melted_2"
+        },
+        {
+            "name": "control_cap_melted_3"
+        },
+        {
+            "name": "control_cap_melted_4"
+        },
+        {
+            "name": "fuel_cap"
+        },
+        {
+            "name": "fuel_cap_melted_1"
+        },
+        {
+            "name": "fuel_cap_melted_2"
+        },
+        {
+            "name": "fuel_cap_melted_3"
+        },
+        {
+            "name": "fuel_cap_melted_4"
+        },
+        {
+            "name": "gas_cap"
+        },
+        {
+            "name": "gas_cap_melted_1"
+        },
+        {
+            "name": "gas_cap_melted_2"
+        },
+        {
+            "name": "gas_cap_melted_3"
+        },
+        {
+            "name": "gas_cap_melted_4"
+        },
+        {
+            "name": "heat_cap"
+        },
+        {
+            "name": "heat_cap_melted_1"
+        },
+        {
+            "name": "heat_cap_melted_2"
+        },
+        {
+            "name": "heat_cap_melted_3"
+        },
+        {
+            "name": "heat_cap_melted_4"
+        }
+    ]
+}

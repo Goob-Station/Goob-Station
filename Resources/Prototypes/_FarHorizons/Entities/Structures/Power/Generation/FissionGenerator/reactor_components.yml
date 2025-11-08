@@ -1,0 +1,135 @@
+- type: entity
+  id: BaseReactorItem
+  parent: BaseItem
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_parts.rsi
+    state: default_rod
+  - type: Item
+    size: Huge
+  - type: MultiHandedItem
+  - type: Tag
+    tags:
+    - ReactorPart
+  - type: Edible # Blame Abby for making them edible
+    transferAmount: null
+    delay: 30
+    forceFeedDelay: 60
+  - type: FlavorProfile
+    flavors:
+      - metal
+      - electrons
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Uranium
+          Quantity: 800
+        - ReagentId: Radium
+          Quantity: 200
+        canReact: false
+  - type: GuideHelp
+    guides:
+    - NuclearReactor
+    - Power
+  
+- type: entity
+  id: BaseReactorPart
+  abstract: true
+  parent: BaseReactorItem
+  components:
+  - type: ReactorPart
+
+- type: entity
+  id: BaseReactorFuelRod
+  parent: BaseReactorPart
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ReactorPart
+    iconStateInserted: "fuel"
+    iconStateCap: "fuel_cap"
+    neutronCrossSection: 1.0
+    thermalCrossSection: 10
+    thermalMass: 420000 # specific heat capacity of steel (420 J/KgK) * mass of component (1000Kg)
+
+- type: entity
+  id: CerenkiteFuelRod
+  parent: BaseReactorFuelRod
+  name: cerenkite fuel rod
+  description: A fuel rod for a nuclear reactor.
+  components:
+  - type: ReactorPart
+    propertyDensity: 4
+    propertyHard: 2
+    radioactive: 5
+    propertyThermal: 6
+
+- type: entity
+  id: UraniumFuelRod
+  parent: BaseReactorFuelRod
+  name: uranium fuel rod
+  description: A fuel rod for a nuclear reactor.
+  components:
+  - type: ReactorPart
+    propertyDensity: 7
+    propertyHard: 5
+    nRadioactive: 3
+    radioactive: 4
+    propertyThermal: 4
+
+- type: entity
+  id: PlutoniumFuelRod
+  parent: BaseReactorFuelRod
+  name: plutonium fuel rod
+  description: A fuel rod for a nuclear reactor.
+  components:
+  - type: ReactorPart
+    propertyDensity: 8
+    propertyHard: 7
+    nRadioactive: 5
+    radioactive: 3
+    propertyThermal: 7
+
+- type: entity
+  id: ReactorControlRod
+  parent: BaseReactorPart
+  name: control rod
+  description: A control rod assembly for a nuclear reactor.
+  components:
+  - type: ReactorPart
+    rodType: 2 #1<<1
+    iconStateInserted: "control"
+    iconStateCap: "control_cap"
+    isControlRod: true
+    neutronCrossSection: 2.0
+    propertyDensity: 6
+    propertyHard: 5
+    propertyThermal: 10
+
+- type: entity
+  id: ReactorGasChannel
+  parent: BaseReactorPart
+  name: gas channel
+  description: A gas channel for a nuclear reactor.
+  components:
+  - type: ReactorPart
+    rodType: 4 #1<<2
+    iconStateInserted: "gas"
+    iconStateCap: "gas_cap"
+    thermalCrossSection: 15
+    gasVolume: 100
+    thermalMass: 21000
+
+- type: entity
+  id: ReactorHeatExchanger
+  parent: BaseReactorPart
+  name: heat exchanger
+  description: A heat exchanger for a nuclear reactor.
+  components:
+  - type: ReactorPart
+    iconStateInserted: "heat"
+    iconStateCap: "heat_cap"
+    neutronCrossSection: 0.1
+    thermalCrossSection: 25

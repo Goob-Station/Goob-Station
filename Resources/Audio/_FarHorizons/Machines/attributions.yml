@@ -1,0 +1,34 @@
+- files: ["alarm_beep.ogg"]
+  license: "CC-0"
+  copyright: "Created by JW_Audio, clipped and converted Mono and .ogg by Jhrushbe"
+  source: https://freesound.org/people/JW_Audio/sounds/816661/
+
+- files: ["alarm_buzzer.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Created by NoahBangs, clipped and converted Mono and .ogg by Jhrushbe"
+  source: https://freesound.org/people/NoahBangs/sounds/587950/
+
+- files: ["meltdown_siren.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from Goonstation"
+  source: https://github.com/goonstation/goonstation/blob/master/sound/machines/meltdown_siren.ogg
+
+- files: ["reactor_alarm_1.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Created by Tecc_Source, clipped and converted Mono by Jhrushbe"
+  source: https://freesound.org/people/Tecc_Source/sounds/746816/
+
+- files: ["reactor_alarm_2.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Created by Tecc_Source, clipped and converted Mono by Jhrushbe"
+  source: https://freesound.org/people/Tecc_Source/sounds/746818/
+
+- files: ["reactor_alarm_3.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Created by Tecc_Source, converted Mono by Jhrushbe"
+  source: https://freesound.org/people/Tecc_Source/sounds/746819/
+
+- files: ["relay_click.ogg"]
+  license: "CC-0"
+  copyright: "Created by bassmosphere, remixed and converted Mono and .ogg by Jhrushbe"
+  source: https://freesound.org/people/bassmosphere/sounds/384698/

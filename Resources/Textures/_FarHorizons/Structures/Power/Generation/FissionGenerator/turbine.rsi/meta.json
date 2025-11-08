@@ -1,0 +1,45 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "taken from goonstation https://github.com/goonstation/goonstation/blob/master/icons/obj/large/96x160.dmi",
+    "size": {
+        "x": 96,
+        "y": 160
+    },
+    "states": [
+        {
+            "name": "static"
+        },
+        {
+            "name": "turbine"
+        },
+        {
+            "name": "turbinebroken"
+        },
+        {
+            "name": "turbine_sparks"
+        },
+        {
+            "name": "turbine_smoke"
+        },
+        {
+            "name": "turbinerun",
+            "delays": [
+                [
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05
+                ]
+            ]
+        }
+    ]
+}

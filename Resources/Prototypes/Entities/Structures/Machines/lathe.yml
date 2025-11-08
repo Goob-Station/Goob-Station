@@ -518,6 +518,7 @@
     #- AtmosTools - Goobstation - Moved to Engifab
     #- EngineeringWeapons - Goobstation - Moved to Scifab and Engifab
     #- Chemistry - Goobstation
+    - ReactorPartsBasic
     - Janitor
     - Instruments
     - Equipment # Goobstation note: handheld mass scanner is removed
