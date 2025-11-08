@@ -9,6 +9,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Hands; // Goobstation
 using Content.Shared.Inventory.Events;
 using Content.Shared.Overlays;
 using Robust.Client.Graphics;
@@ -25,6 +26,8 @@ public sealed class ShowHealthBarsSystem : EquipmentHudSystem<ShowHealthBarsComp
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     private EntityHealthBarOverlay _overlay = default!;
+
+    protected override bool WorksInHands => true; // Goobstation
 
     public override void Initialize()
     {
@@ -66,5 +69,13 @@ public sealed class ShowHealthBarsSystem : EquipmentHudSystem<ShowHealthBarsComp
 
         _overlay.DamageContainers.Clear();
         _overlayMan.RemoveOverlay(_overlay);
+    }
+
+    // Goobstation
+    protected override void OnRefreshEquipmentHud(Entity<ShowHealthBarsComponent> ent,
+        ref HeldRelayedEvent<RefreshEquipmentHudEvent<ShowHealthBarsComponent>> args)
+    {
+        if (ent.Comp.WorksInHands)
+            base.OnRefreshEquipmentHud(ent, ref args);
     }
 }
