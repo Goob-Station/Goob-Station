@@ -1,6 +1,7 @@
 using Content.Goobstation.Shared.EatToGrow;
 using Content.Server.Nutrition.Components;
 using Content.Shared.Nutrition;
+using JetBrains.Annotations;
 using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
@@ -16,11 +17,11 @@ public sealed class EatToGrowSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     public override void Initialize()
     {
-        SubscribeLocalEvent<FoodComponent, AfterFullyEatenEvent>(OnFoodEaten);
+        SubscribeLocalEvent<FoodComponent, BeforeFullyEatenEvent>(OnFoodEaten);
         SubscribeLocalEvent<EatToGrowComponent, ComponentGetState>(OnGetState);
     }
 
-    private void OnFoodEaten(Entity<FoodComponent> ent, ref AfterFullyEatenEvent args)
+    private void OnFoodEaten(Entity<FoodComponent> ent, ref BeforeFullyEatenEvent args)
     {
         // The entity that ate the food (the mothroach, human, etc.)
         var eater = args.User;
@@ -31,6 +32,12 @@ public sealed class EatToGrowSystem : EntitySystem
         // if growing would go over the limit, return
         if (comp.CurrentScale >= comp.MaxGrowth)
             return;
+
+        TryGrow(eater, ref comp);
+    }
+
+    private void TryGrow(EntityUid eater, ref EatToGrowComponent comp)
+    {
         // Add growth
         comp.CurrentScale += comp.Growth;
         comp.CurrentScale = MathF.Min(comp.CurrentScale, comp.MaxGrowth);
@@ -46,12 +53,11 @@ public sealed class EatToGrowSystem : EntitySystem
                 {
                     _physics.SetPositionRadius(
                         eater, id, fixture, circle,
-                        circle.Position, circle.Radius + comp.Growth/4, manager);
+                        circle.Position, circle.Radius + comp.Growth / 4, manager);
                 }
             }
         }
         return; // If fails, return
-
     }
 
     private void OnGetState(EntityUid uid, EatToGrowComponent comp, ref ComponentGetState args)
