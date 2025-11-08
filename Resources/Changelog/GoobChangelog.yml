@@ -17546,3 +17546,13 @@ Entries:
       message: Fix not being able to sacrifice crit targets as heretic.
   id: 1969
   time: '2025-11-08T16:13:55.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: >-
+        Atmos backpack has a delay, still faster than fire extinguisher but you
+        can't spam it.
+    - type: Tweak
+      message: Miner salvine overdose damage nerfed by 3x.
+  id: 1970
+  time: '2025-11-08T17:41:19.0000000+00:00'
