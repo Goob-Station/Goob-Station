@@ -92,6 +92,6 @@ public sealed class FlashbangSystem : EntitySystem
 
         var stunTime = float.Lerp(comp.StunTime, 0f, ratio);
         if (stunTime > 0f)
-            return; //_stun.TryStun(args.Target, TimeSpan.FromSeconds(stunTime), true);todo marty stun
+            _stun.TryUpdateStunDuration(args.Target, TimeSpan.FromSeconds(stunTime));
     }
 }

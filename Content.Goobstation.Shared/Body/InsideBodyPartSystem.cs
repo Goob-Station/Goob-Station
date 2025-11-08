@@ -98,7 +98,7 @@ public sealed class InsideBodyPartSystem : CommonInsideBodyPartSystem
 
         if (partComp.Body is {} body)
         {
-            //_stun.TryStun(body, ent.Comp.StunTime, refresh: true); todo marty stun
+            _stun.TryUpdateStunDuration(body, ent.Comp.StunTime);
             _jittering.DoJitter(body, ent.Comp.StunTime, refresh: true, frequency: 12f);
         }
 

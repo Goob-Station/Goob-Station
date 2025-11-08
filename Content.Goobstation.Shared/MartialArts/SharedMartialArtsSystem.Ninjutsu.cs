@@ -20,6 +20,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
@@ -121,8 +122,7 @@ public abstract partial class SharedMartialArtsSystem
         }
 
         var modifier = sneakAttack.TakedownSpeedModifier;
-
-       // _stun.TrySlowdown(target, TimeSpan.FromSeconds(slowdownTime), true, modifier, modifier); todo marty movemod
+        _movementMod.TryUpdateMovementSpeedModDuration(target, SharedStunSystem.StunId, TimeSpan.FromSeconds(slowdownTime), modifier, modifier);
         _status.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(muteTime), true);
 
         _audio.PlayPvs(sneakAttack.AssassinateSoundUnarmed, target);
@@ -237,7 +237,7 @@ public abstract partial class SharedMartialArtsSystem
                     time = knockdownTime;
 
                 // We do not want to knockdown because it will stunlock the target
-                //_stun.TryStun(target, time, true); todo marty stun
+                _stun.TryUpdateStunDuration(target, time);
             }
         }
 

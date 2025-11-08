@@ -54,7 +54,7 @@ public sealed class ProjectileThrowOnHitSystem : EntitySystem
         RaiseLocalEvent(target, ref startEvent);
 
         if (ent.Comp.StunTime != null)
-            return;//_stun.TryParalyze(target, ent.Comp.StunTime.Value, false); todo marty stun
+            _stun.TryUpdateParalyzeDuration(target, ent.Comp.StunTime.Value);
 
         if (direction == Vector2.Zero)
             return;

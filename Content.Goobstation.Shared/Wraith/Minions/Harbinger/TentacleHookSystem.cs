@@ -9,6 +9,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 using System.Numerics;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Stunnable;
 using Robust.Shared.Spawners;
 
@@ -23,6 +24,7 @@ public sealed class TentacleHookSystem : EntitySystem
     [Dependency] private readonly SharedJointSystem _joints = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
 
     private const string TentacleJoint = "grappling";
 
@@ -94,8 +96,7 @@ public sealed class TentacleHookSystem : EntitySystem
 
         ent.Comp.Target = args.Target;
         Dirty(ent);
-
-        //stun.TrySlowdown(args.Target, ent.Comp.DurationSlow, false, 0.3f, 0.3f);  todo marty stunmod_
+        _movementMod.TryUpdateMovementSpeedModDuration(args.Target, SharedStunSystem.StunId, ent.Comp.DurationSlow, 0.3f, 0.3f);
 
         var tentacle = EnsureComp<TentacleHookedComponent>(args.Target);
         tentacle.ThrowTowards = args.Shooter;

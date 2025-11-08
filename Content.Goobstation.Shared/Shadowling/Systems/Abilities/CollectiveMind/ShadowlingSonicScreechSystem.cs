@@ -80,7 +80,7 @@ public sealed class ShadowlingSonicScreechSystem : EntitySystem
 
             if (HasComp<SiliconComponent>(entity))
             {
-                //_stun.TryParalyze(entity, component.SiliconStunTime, false); todo marty stun
+                _stun.TryUpdateParalyzeDuration(entity, component.SiliconStunTime);
                 continue;
             }
 
