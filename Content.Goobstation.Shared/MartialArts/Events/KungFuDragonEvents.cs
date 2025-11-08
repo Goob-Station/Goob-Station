@@ -32,7 +32,7 @@ public sealed partial class DragonClawPerformedEvent : BaseKungFuDragonEvent
 public sealed partial class DragonTailPerformedEvent : BaseKungFuDragonEvent
 {
     [DataField]
-    public TimeSpan DownedParalyzeTime = TimeSpan.FromSeconds(1);
+    public TimeSpan DownedParalyzeTime = TimeSpan.FromSeconds(5);
 }
 
 [DataDefinition]
