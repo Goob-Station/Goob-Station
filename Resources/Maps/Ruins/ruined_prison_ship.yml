@@ -635,7 +635,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
-      autoRecharge: True
   - uid: 362
     components:
     - type: Transform

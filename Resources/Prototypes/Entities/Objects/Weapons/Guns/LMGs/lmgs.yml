@@ -209,6 +209,5 @@
       - oni-cannot-shoot-guns-2
       - oni-cannot-shoot-guns-3
     - type: BatterySelfRecharger
-      autoRecharge: true
       autoRechargeRate: 25
     - type: AmmoCounter

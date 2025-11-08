@@ -98,10 +98,9 @@ namespace Content.Server.Stunnable.Systems
                 energy *= entity.Comp.LightAttackEnergyMultiplier;
 
 
-
-            if (!_itemToggle.IsActivated(entity.Owner)
-                || !TryComp<BatteryComponent>(entity.Owner, out var battery)
-                || !_battery.TryUseCharge(entity.Owner, energy, battery)) // Goob edit end
+            if (!_itemToggle.IsActivated(entity.Owner) ||
+            !TryComp<BatteryComponent>(entity.Owner, out var battery) || !_battery.TryUseCharge((entity.Owner, battery),
+                energy)) // Goob edit
             {
                 args.Cancelled = true;
             }

@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿/* Goob nah.
+using System.Numerics;
 using Content.Shared.Changeling.Components;
 using Content.Shared.Cloning;
 using Content.Shared.Humanoid;
@@ -197,3 +198,4 @@ public abstract class SharedChangelingIdentitySystem : EntitySystem
         _map.SetPaused(mapUid, true);
     }
 }
+*/
