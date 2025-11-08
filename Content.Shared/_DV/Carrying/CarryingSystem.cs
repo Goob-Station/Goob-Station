@@ -37,7 +37,6 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using System.Numerics;
-using Content.Shared.Body.Events;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mind.Components;
 
@@ -85,7 +84,7 @@ public sealed class CarryingSystem : EntitySystem
         SubscribeLocalEvent<BeingCarriedComponent, UnstrappedEvent>(OnDrop);
         SubscribeLocalEvent<BeingCarriedComponent, EscapeInventoryEvent>(OnDrop);
         SubscribeLocalEvent<CarriableComponent, CarryDoAfterEvent>(OnDoAfter);
-        SubscribeLocalEvent<BeingCarriedComponent, BeingGibbedEvent>(OnGib);
+        SubscribeLocalEvent<BeingCarriedComponent, EntityTerminatingEvent>(OnDelete);
     }
 
     private void AddCarryVerb(Entity<CarriableComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
@@ -382,7 +381,7 @@ public sealed class CarryingSystem : EntitySystem
         return length;
     }
 
-    private void OnGib(Entity<BeingCarriedComponent> ent, ref  BeingGibbedEvent args)
+    private void OnDelete(Entity<BeingCarriedComponent> ent, ref EntityTerminatingEvent args)
         => DropCarried(ent.Comp.Carrier, ent.Owner);
 
     public override void Update(float frameTime)
