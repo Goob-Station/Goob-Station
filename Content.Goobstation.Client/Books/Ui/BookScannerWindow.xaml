@@ -28,9 +28,10 @@
             HorizontalExpand="True"
             SizeFlagsStretchRatio="1"
             VerticalExpand="True" />
+        <customControls:HSeparator Margin="4 2"/>
         <ScrollContainer
             HScrollEnabled="False"
-            Margin="4"
+            Margin="6"
             HorizontalExpand="True"
             SizeFlagsStretchRatio="5"
             VerticalExpand="True">
