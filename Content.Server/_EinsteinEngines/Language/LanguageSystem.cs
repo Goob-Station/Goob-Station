@@ -236,7 +236,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         //    foreach (var understood in knowledge.UnderstoodLanguages)
         //       ev.UnderstoodLanguages.Add(understood);
         //}
-        if (_knowledge.TryEnsureKnowledgeUnit(ent.Owner, LanguageKnowledgeId, out var knowledgeEnt)
+        if (_knowledge.TryGetKnowledgeUnit(ent.Owner, LanguageKnowledgeId, out var knowledgeEnt)
             && TryComp(knowledgeEnt, out LanguageKnowledgeComponent? languageKnowledge))
         {
             foreach (var spoken in languageKnowledge.SpokenLanguages)
