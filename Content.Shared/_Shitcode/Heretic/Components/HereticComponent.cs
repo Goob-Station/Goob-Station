@@ -11,9 +11,11 @@
 
 using Content.Shared.Dataset;
 using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Objectives.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Tag;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -94,12 +96,57 @@ public sealed partial class HereticComponent : Component
     public EntityUid MansusGrasp = EntityUid.Invalid;
 
     [DataField]
-    public List<EntityUid> OurBlades = new();
+    public Dictionary<ProtoId<HereticRitualPrototype>, List<EntityUid>> LimitedTransmutations = new();
 
-    public int MaxBlades => CurrentPath switch
+    // Required for reminiscence, Path -> Blade ritual id
+    [DataField]
+    public Dictionary<string, ProtoId<HereticRitualPrototype>> Blades = new()
     {
-        "Blade" => 4,
-        _ => 2,
+        {"Ash", "BladeAsh"},
+        {"Blade", "BladeBlade"},
+        {"Flesh", "BladeFlesh"},
+        {"Void", "BladeVoid"},
+        {"Rust", "BladeRust"},
+        {"Cosmos", "BladeCosmos"},
+    };
+
+    [DataField]
+    public SoundSpecifier? InfluenceGainSound = new SoundCollectionSpecifier("bloodCrawl");
+
+    [DataField]
+    public LocId InfluenceGainBaseMessage = "influence-base-message";
+
+    [DataField]
+    public int InfluenceGainTextFontSize = 22;
+
+    [DataField]
+    public List<LocId> InfluenceGainMessages = new()
+    {
+        "influence-gain-message-1",
+        "influence-gain-message-2",
+        "influence-gain-message-3",
+        "influence-gain-message-4",
+        "influence-gain-message-5",
+        "influence-gain-message-6",
+        "influence-gain-message-7",
+        "influence-gain-message-7",
+        "influence-gain-message-8",
+        "influence-gain-message-9",
+        "influence-gain-message-10",
+        "influence-gain-message-11",
+        "influence-gain-message-12",
+        "influence-gain-message-13",
+        "influence-gain-message-14",
+        "influence-gain-message-15",
+        "influence-gain-message-16",
+    };
+
+    [DataField]
+    public List<EntProtoId<ObjectiveComponent>> AllObjectives = new()
+    {
+        "HereticKnowledgeObjective",
+        "HereticSacrificeObjective",
+        "HereticSacrificeHeadObjective",
     };
 }
 

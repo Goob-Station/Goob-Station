@@ -21,6 +21,12 @@
       rules: ghost-role-information-freeagent-rules
       mindRoles:
       - MindRoleGhostRoleFreeAgent
+    - type: Tag #Goob edit start
+      tags:
+      - VimPilot
+      - Carp
+      - DoorBumpOpener
+      - CannotSuicide #Goob edit end
     - type: GhostTakeoverAvailable
     - type: Sprite
       drawdepth: Mobs
