@@ -50,6 +50,6 @@
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
-  Deals 40 damage and stuns for 5 seconds. Only works on downed opponents.
+  Deals 40 damage and stuns for 3 seconds. Only works on downed opponents.
 
 </Document>
