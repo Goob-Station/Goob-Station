@@ -35,6 +35,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Parallax;
+using Content.Shared.Station.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
