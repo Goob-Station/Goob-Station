@@ -24,7 +24,7 @@ public sealed class LandMineSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly TriggerSystem _trigger = default!;
+    [Dependency] private readonly Shared.Trigger.Systems.TriggerSystem _trigger = default!; //todo marty doublecheck trigger sys
 
     public override void Initialize()
     {
@@ -57,7 +57,7 @@ public sealed class LandMineSystem : EntitySystem
     private void HandleStepOffTriggered(EntityUid uid, LandMineComponent component, ref StepTriggeredOffEvent args)
     {
         // TODO: Adjust to the new trigger system
-        _trigger.Trigger(uid, args.Tripper, TriggerSystem.DefaultTriggerKey);
+        _trigger.Trigger(uid, args.Tripper, Shared.Trigger.Systems.TriggerSystem.DefaultTriggerKey); //todo marty doublecheck trigger sys
     }
 
     /// <summary>

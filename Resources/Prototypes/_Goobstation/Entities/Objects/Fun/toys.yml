@@ -300,7 +300,7 @@
     maxIntensity: 0.01
     intensitySlope: 1
     totalIntensity: 0.01
-  - type: SoundOnTrigger
+  - type: EmitSoundOnTrigger
     sound:
       collection: Explosion
 
