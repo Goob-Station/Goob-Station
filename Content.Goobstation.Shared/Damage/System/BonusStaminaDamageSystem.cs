@@ -11,6 +11,7 @@ public sealed class BonusStaminaDamageSystem : EntitySystem
 
         SubscribeLocalEvent<BonusStaminaDamageComponent, ModifyOutgoingStaminaDamageEvent>(OnModifyOutgoingStamina);
     }
+
     private void OnModifyOutgoingStamina(Entity<BonusStaminaDamageComponent> ent, ref ModifyOutgoingStaminaDamageEvent args)
     {
         args.Value *= ent.Comp.Multiplier;
