@@ -597,7 +597,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("footprints.minimum_puddle_size", 6f, CVar.SERVERONLY);
 
     /// <summary>
-    /// Determines minimum amount of solution you have to step into for footprints to be created.
+    /// Should heretic ascension ritual be cancelled if heretic hasn't completed their objectives.
     /// </summary>
     public static readonly CVarDef<bool> AscensionRequiresObjectives =
         CVarDef.Create("heretic.ascension_requires_objectives", true, CVar.SERVERONLY);
