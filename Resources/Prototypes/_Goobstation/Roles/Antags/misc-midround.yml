@@ -51,6 +51,7 @@
 - type: startingGear
   id: DarkLordAntagGear
   equipment:
+    head: ClothingHeadHatHoodVoidCloak
     jumpsuit: ClothingUniformJumpsuitMonasticRobeDark
     outerClothing: ClothingOuterWizardBlackReal
     shoes: ClothingShoesColorBlack
@@ -58,7 +59,18 @@
     back: ClothingBackpackSatchelLeather
     id: SyndiPDA
   inhand:
-  - EnergySwordDouble
+  - EnergySwordDoubleRed
   storage:
     back:
     - BoxSurvivalSlotsSyndicate
+
+- type: startingGear
+  id: ChosenOneProtagGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorWhite
+    outerClothing: JediRobes
+    shoes: ClothingShoesBootsJack
+    belt: ClothingBeltAssaultFilled
+    id: CentcomPDA
+  inhand:
+  - EnergySwordBlue

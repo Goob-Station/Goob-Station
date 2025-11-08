@@ -164,3 +164,8 @@ objective-issuer-lord-singuloth = [color=#320022]Lord Singuloth[/color]
 ghost-role-information-dark-lord-name = Dark Lord
 ghost-role-information-dark-lord-description = A syndicate agent themed after a sith lord, use your lightning powers and energy sword to complete your objectives!
 dark-lord-role-greeting = You are a [color=#880808]Dark Lord[/color] sent by the syndicate to this station to do their dirty work, check your character sheet for your objectives.
+
+ghost-role-information-chosen-one-name = The Chosen One
+ghost-role-information-chosen-one-description = A special agent sent to the station by Nanotrasen to defeat a dark lord.
+chosen-one-role-greeting = You are the [color=#0087FF]Chosen One[/color], you have been sent to this station to defeat a Dark Lord sent by the syndicate, check your character sheet for your objectives.
+objective-condition-dark-lord-kill-title = Ensure Dark Lord {$targetName} dies.

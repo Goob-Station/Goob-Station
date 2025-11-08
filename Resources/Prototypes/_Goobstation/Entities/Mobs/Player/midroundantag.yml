@@ -39,3 +39,18 @@
     randomizeName: true
   - type: Loadout
     prototypes: [ DarkLordAntagGear ]
+  - type: DarkLordMarker
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanChosenOne
+  name: The chosen one
+  components:
+  - type: ActionGrant
+    actions:
+    - ActionRepulseNoRobes
+    - ActionBlindSpell
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ ChosenOneProtagGear ]

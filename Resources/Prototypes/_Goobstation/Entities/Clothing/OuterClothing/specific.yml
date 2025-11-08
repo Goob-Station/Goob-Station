@@ -90,3 +90,15 @@
     - type: Clothing
       sprite: _Goobstation/Clothing/OuterClothing/Misc/nopro.rsi
       quickEquip: true
+
+- type: entity
+  parent: ClothingOuterWizardCentCommReal
+  id: JediRobes
+  name: robes of the chosen one
+  description: theses white robes are worn by only the finest of Nanotrasen's special operations department.
+  suffix: chosen one
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/robesjedi.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/robesjedi.rsi

@@ -123,6 +123,28 @@
     - state: green
     - sprite: Objects/Weapons/Melee/e_sword.rsi
       state: icon
+  - type: DarkLord
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  name: Chosen One spawn
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostChosenOne
+  components:
+  - type: GhostRole
+    name: ghost-role-information-chosen-one-name
+    description: ghost-role-information-chosen-one-description
+    rules: ghost-role-information-nonantagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleNeutral
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Objects/Weapons/Melee/e_sword.rsi
+      state: icon
 
 - type: entity
   name: Maints Spawn Marker

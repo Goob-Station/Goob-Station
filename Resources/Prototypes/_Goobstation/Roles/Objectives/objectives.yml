@@ -81,3 +81,17 @@
     difficulty: 1
     issuer: objective-issuer-syndicate
   - type: RoleplayObjective
+
+- type: entity
+  parent: BaseObjective
+  name: Kill the Dark Lord
+  description: You have been sent to this station by Nanotrasen to kill a Dark Lord, don't let them down!
+  id: ChosenOneKillDarkLordObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Melee/e_sword.rsi
+      state: icon
+    difficulty: 1
+    issuer: objective-issuer-nanotrasen
+  - type: KillTheDarkLordObjective
