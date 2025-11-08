@@ -58,6 +58,10 @@
   - type: Tag
     tags:
       - HideContextMenu
+  - type: PreventCollide
+    whitelist:
+      components:
+      - Ghoul
 
 - type: entity
   id: TileHereticVoid
