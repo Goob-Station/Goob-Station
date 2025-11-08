@@ -265,8 +265,8 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
             var damageImmediate = component.Damage;
             var damageOvertime = component.Overtime;
-            damageImmediate *= hitEvent.Value * outgoingModifier.Value; // Goobstation
-            damageOvertime *= hitEvent.Value * outgoingModifier.Value; // Goobstation
+            damageImmediate *= hitEvent.Value * outgoingModifier.Value;
+            damageOvertime *= hitEvent.Value * outgoingModifier.Value;
             // Goobstation edit end
             if (args.Direction == null)
             {
