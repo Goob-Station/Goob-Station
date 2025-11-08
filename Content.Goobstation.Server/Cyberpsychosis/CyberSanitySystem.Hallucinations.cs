@@ -112,6 +112,7 @@ public sealed partial class CyberSanitySystem
 
         var psyComp = EnsureComp<CyberPsychosisEntityComponent>(ent);
         psyComp.PsychosisOwner = uid;
+        comp.PsychosisHallucination = ent;
 
         _humanoid.CloneAppearance(uid, ent);
         _humanoid.SetBaseLayerColor(ent, HumanoidVisualLayers.Eyes, Color.Crimson);

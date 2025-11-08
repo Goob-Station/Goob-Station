@@ -24,6 +24,12 @@ public sealed partial class CyberSanityComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public int CurrentGain = 10;
 
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool FullPsycho = false;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public EntityUid? PsychosisHallucination;
+
     /// <summary>
     /// Effect thresholds applied when reaching certain sanity levels
     /// </summary>

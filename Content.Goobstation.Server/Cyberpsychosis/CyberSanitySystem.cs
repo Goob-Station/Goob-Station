@@ -85,6 +85,14 @@ public sealed partial class CyberSanitySystem : EntitySystem
         var sanityQuery = EntityQueryEnumerator<CyberSanityComponent>();
         while (sanityQuery.MoveNext(out var uid, out var comp))
         {
+            if (HasComp<MindSwappedComponent>(uid) || comp.FullPsycho)
+                continue;
+
+            if (comp.Sanity <= 350 && !comp.PsychosisHallucination.HasValue)
+                CreatePsychoEntity(uid, comp);
+            else if (comp.Sanity > 450 && comp.PsychosisHallucination.HasValue)
+                QueueDel(comp.PsychosisHallucination);
+
             UpdateSanity(uid, comp);
             UpdateEffects(uid, comp);
         }
