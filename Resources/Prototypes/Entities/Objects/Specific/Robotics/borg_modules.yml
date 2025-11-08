@@ -1570,6 +1570,7 @@
     - state: xenoborg_stealth
     - state: icon-xenoborg-cloak2
   - type: ItemBorgModule
+    moduleId: SuperCloakDevice #todo marty test
     items:
     - SuperCloakingDevice
   - type: BorgModuleIcon
