@@ -17556,3 +17556,11 @@ Entries:
       message: Miner salvine overdose damage nerfed by 3x.
   id: 1970
   time: '2025-11-08T17:41:19.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Flesh heretic path completely reworked!
+    - type: Add
+      message: You can now eat body parts.
+  id: 1971
+  time: '2025-11-08T17:43:28.0000000+00:00'
