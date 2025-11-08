@@ -152,7 +152,7 @@ namespace Content.Server.Zombies
             _actions.AddAction(uid, ref component.Action, component.ZombifySelfActionPrototype);
             _faction.AddFaction(uid, Faction);
 
-            if (HasComp<ZombieComponent>(uid) || HasComp<ZombieImmuneComponent>(uid) || HasComp<AntagImmuneComponent>(uid))
+            if (HasComp<ZombieComponent>(uid) || HasComp<ZombieImmuneComponent>(uid))
                 return;
 
             EnsureComp<PendingZombieComponent>(uid, out PendingZombieComponent pendingComp);
