@@ -431,6 +431,7 @@
     SheetPlasma: 3
   output:
     MobGhoulFireShark: 3
+  limit: 15
 
 ## stage 6
 

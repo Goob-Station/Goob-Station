@@ -66,6 +66,7 @@ knowledge-path-side-s3-shark-desc =
     Allows you to transmute 3 pools of ash, a liver, and 3 sheets of plasma into 3 Fire Sharks.
     Fire Sharks are fast and strong in groups, but die quickly. They are also highly resistant against fire attacks.
     Fire Sharks ignite their victims and drop plasma sheet once they die.
+    You can only create 15 at a time.
 
 knowledge-path-side-s3-ice-spear-name = Mysteries of Creation
 knowledge-path-side-s3-ice-spear-desc =

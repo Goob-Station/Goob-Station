@@ -16,19 +16,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: htnCompound
-  id: HereticSummonCompound
-  branches:
-    - tasks:
-        - !type:HTNCompoundTask
-          task: MeleeCombatCompound
-    - tasks:
-        - !type:HTNCompoundTask
-          task: FollowCompound
-    - tasks:
-        - !type:HTNCompoundTask
-          task: IdleCompound
-
 - type: entity
   parent: [ SimpleMobBase, MobCombat ]
   id: BaseMobGhoul
