@@ -40,7 +40,7 @@
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
-  Deals Blunt and Stamina damage. Knocks the opponent down if they are standing, and applies a short stun otherwise.
+  Deals Blunt and Stamina damage. Knocks the opponent down if they are standing, and applies a stun otherwise.
 
   ### Dragon Strike
 
