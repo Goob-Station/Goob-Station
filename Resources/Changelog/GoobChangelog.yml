@@ -17538,3 +17538,11 @@ Entries:
         actually 60)
   id: 1968
   time: '2025-11-08T16:11:53.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Heretics must complete their objectives in order to ascend.
+    - type: Fix
+      message: Fix not being able to sacrifice crit targets as heretic.
+  id: 1969
+  time: '2025-11-08T16:13:55.0000000+00:00'
