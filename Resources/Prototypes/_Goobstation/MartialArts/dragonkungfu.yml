@@ -49,4 +49,4 @@
     sound:
       path: /Audio/Weapons/genhit1.ogg
   extraDamage: 40
-  paralyzeTime: 2 # Actual paralyze
+  paralyzeTime: 5 # Actual paralyze
