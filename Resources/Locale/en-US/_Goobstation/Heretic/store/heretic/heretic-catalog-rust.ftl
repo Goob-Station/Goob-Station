@@ -36,13 +36,20 @@ knowledge-path-rust-s2-desc =
 
     Your Mansus Grasp will deal massive damage to non-living matter and rust any surface it touches.
     Already rusted surfaces are destroyed.
+    Standing on Rusted tiles heals, purges chems off your body and grants you resistance to batons.
     Allows you to rust basic iron walls and floors.
 
-knowledge-path-rust-s3-name = Leeching Walk
+knowledge-path-rust-s3-name = Aggressive Spread
 knowledge-path-rust-s3-desc =
-    The speed was unparalleled, the strength unnatural. The Blacksmith was smiling.
+    All wise men know well not to visit the Rusted Hills... Yet the Blacksmith's tale was inspiring.
 
-    Grants you passive healing and resistance to batons while standing over rust.
+    Grants you Aggressive Spread, a spell that spreads rust to nearby surfaces.
+
+# knowledge-path-rust-s3-name = Leeching Walk
+# knowledge-path-rust-s3-desc =
+#     The speed was unparalleled, the strength unnatural. The Blacksmith was smiling.
+#
+#     Grants you passive healing and resistance to batons while standing over rust.
 
 knowledge-path-rust-s4-name = Mark of Rust
 knowledge-path-rust-s4-desc =
@@ -59,29 +66,30 @@ knowledge-path-rust-s5-desc =
     Grants you Rust Construction, a spell that allows you to raise a wall out of a rusted floor.
     Anyone overtop the wall will be thrown aside and sustain damage.
 
-knowledge-path-rust-s6-name = Aggressive Spread
+knowledge-path-rust-s6-name = Entropic Plume
 knowledge-path-rust-s6-desc =
-    All wise men know well not to visit the Rusted Hills... Yet the Blacksmith's tale was inspiring.
+    The corrosion was unstoppable. The rust was unpleasable. The Blacksmith was gone, and you hold their blade. Champions of hope, the Rustbringer is nigh!
 
-    Grants you Aggressive Spread, a spell that spreads rust to nearby surfaces.
+    Grants you Entropic Plume, a spell that releases a vexing wave of Rust. Blinds, poisons, and inflicts Amok on any heathen it hits, causing them to strike at friend or foe wildly. Also rusts and destroys and surfaces it hits.
 
 knowledge-path-rust-s7-name = Toxic Blade
 knowledge-path-rust-s7-desc =
     The Blacksmith hands you their blade. "The Blade will guide you through the flesh, should you let it." The heavy rust weights it down. You stare deeply into it. The Rusted Hills call for you, now.
 
     Your Rusty Blade now causes toxic damage to those you attack and also increases rot level of corpses.
+    Standing on Rusted tiles closes up your wounds and heals your pain, healing effect increased.
     Allows you to rust reinforced and mining walls.
 
-knowledge-path-rust-s8-name = Entropic Plume
-knowledge-path-rust-s8-desc =
-    The corrosion was unstoppable. The rust was unpleasable. The Blacksmith was gone, and you hold their blade. Champions of hope, the Rustbringer is nigh!
+knowledge-path-rust-s8-rust-charge-name = Rust Charge
+knowledge-path-rust-s8-rust-charge-desc =
+    The hills sparkled now, as I neared them my mind began to wander. I quickly regained my resolve and pushed forward, this last leg would be the most treacherous.
 
-    Grants you Entropic Plume, a spell that releases a vexing wave of Rust. Blinds, poisons, and inflicts Amok on any heathen it hits, causing them to strike at friend or foe wildly. Also rusts and destroys and surfaces it hits.
+    Grants you Rust Charge, a targeted action that can only be cast on a rusted tile. It charges you forward, destroying any rusted objects you come into contact with, it will also deal high damage to others and rust around you during the charge.
 
 knowledge-path-rust-s9-name = Rustbringer's Oath
 knowledge-path-rust-s9-desc =
     The ascension ritual of the Path of Rust.
     Bring 3 rotting or silicon corpses to a transmutation rune to complete the ritual.
     When completed, the ritual site will endlessly spread rust onto any surface, stopping for nothing.
-    Additionally, you will become extremely resilient on rust, healing at triple the rate and becoming immune to many effects and dangers.
+    Additionally, you will become extremely resilient on rust, healing at much higher rate, regenerating lost limbs and becoming immune to many effects and dangers.
     You will be able to rust almost anything upon ascending.

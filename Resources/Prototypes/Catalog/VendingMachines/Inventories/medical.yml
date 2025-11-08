@@ -123,6 +123,7 @@
     FoodSnackLollypopWrappedTricordrazine: 8
     NitrousOxideTankFilled: 2
   emaggedInventory:
+    SyringeMicroplastics: 2 #Technically a medicine
     FoodSnackLollypopWrappedLexorin: 3
     FoodSnackLollypopWrappedMysteryEvil: 5 # Goobstation - end
   contrabandInventory:
