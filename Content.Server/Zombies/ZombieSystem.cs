@@ -76,7 +76,6 @@ using Content.Shared._Shitmed.Targeting;
 
 // Language Change
 using Content.Server._EinsteinEngines.Language;
-using Content.Server.Antag.Components;
 using Content.Shared._EinsteinEngines.Language;
 using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared._EinsteinEngines.Language.Events;
