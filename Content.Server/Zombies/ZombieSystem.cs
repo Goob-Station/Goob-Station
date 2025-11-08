@@ -76,9 +76,11 @@ using Content.Shared._Shitmed.Targeting;
 
 // Language Change
 using Content.Server._EinsteinEngines.Language;
+using Content.Server.Antag.Components;
 using Content.Shared._EinsteinEngines.Language;
 using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared._EinsteinEngines.Language.Events;
+
 
 namespace Content.Server.Zombies
 {
@@ -150,7 +152,7 @@ namespace Content.Server.Zombies
             _actions.AddAction(uid, ref component.Action, component.ZombifySelfActionPrototype);
             _faction.AddFaction(uid, Faction);
 
-            if (HasComp<ZombieComponent>(uid) || HasComp<ZombieImmuneComponent>(uid))
+            if (HasComp<ZombieComponent>(uid) || HasComp<ZombieImmuneComponent>(uid) || HasComp<AntagImmuneComponent>(uid))
                 return;
 
             EnsureComp<PendingZombieComponent>(uid, out PendingZombieComponent pendingComp);
