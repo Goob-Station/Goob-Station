@@ -27,6 +27,11 @@ public sealed partial class CyberSanitySystem
 
     private void OnTeleport(Entity<CyberPsychosisEntityComponent> ent, ref CyberPsychoTeleportToOwnerActionEvent args)
     {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+
         var msg = new StaticFlashEffectMessage(2f);
         RaiseNetworkEvent(msg, ent.Owner);
         RaiseNetworkEvent(msg, ent.Comp.PsychosisOwner);
@@ -36,8 +41,13 @@ public sealed partial class CyberSanitySystem
 
     private void OnForceSay(Entity<CyberPsychosisEntityComponent> ent, ref CyberPsychoForceSayActionEvent args)
     {
+        if (args.Handled)
+            return;
+
         if (!_player.TryGetSessionByEntity(ent.Owner, out var session))
             return;
+
+        args.Handled = true;
 
         _quickDialog.OpenDialog(session, Loc.GetString("cyber-psycho-force-say-title"), "Message",
         (string arg) =>
