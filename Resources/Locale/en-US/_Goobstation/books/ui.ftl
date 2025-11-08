@@ -20,3 +20,18 @@ book-printer-menu-book-author = Author: { $author }
 book-printer-menu-book-genre = Genre: { $genre }
 book-printer-menu-book-title = Title: { $title }
 book-printer-menu-book-desc = Desc: { $desc }
+
+book-scanner-menu-title = Book scanner
+
+book-scanner-author = [font=Default size=18]Book author: { $author }[/font]
+book-scanner-genre = [font=Default size=18]Book genre: { $genre }[/font]
+book-scanner-title = [font=Default size=18]Book title: { $title }[/font]
+book-scanner-desc = [font=Default size=18]{ $desc }[/font]
+
+book-scanner-no-author = [font=Default size=18]Book author: Unknown[/font]
+book-scanner-no-genre = [font=Default size=18]Book genre: Unknown[/font]
+book-scanner-no-title = [font=Default size=18]Book title: Unknown[/font]
+book-scanner-no-desc = [font=Default size=18]No book to get data from.[/font]
+
+book-scanner-no-book-tooltip = There is no book to scan.
+book-scanner-scanning-tooltip = Scanner is currently active.
