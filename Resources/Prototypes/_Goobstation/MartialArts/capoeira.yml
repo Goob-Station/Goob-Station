@@ -59,7 +59,7 @@
   - Harm
   - Disarm
   event: !type:SweepKickPerformedEvent
-    staminaToHeal: -30
+    staminaToHeal: -40
     attackSpeedMultiplier: 2
     attackSpeedMultiplierTime: 5
     minVelocity: 2
