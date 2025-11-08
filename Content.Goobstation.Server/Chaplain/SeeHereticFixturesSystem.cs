@@ -36,6 +36,10 @@ public sealed class SeeHereticFixturesSystem : EntitySystem
 
     private void OnGetVisMask(EntityUid uid, SeeHereticFixturesComponent component, ref GetVisMaskEvent args)
     {
-        args.VisibilityMask |= (int) VisibilityFlags.EldritchInfluence;
+        if (component.SeeShifts)
+            args.VisibilityMask |= (int) VisibilityFlags.EldritchInfluence;
+
+        if (component.SeeFractures)
+            args.VisibilityMask |= (int) VisibilityFlags.EldritchInfluenceSpent;
     }
 }
