@@ -18,13 +18,7 @@ public sealed class FleshmendEffectSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<FleshmendEffectComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<FleshmendEffectComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<FleshmendEffectComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
-    }
-
-    private void OnAfterAutoHandleState(Entity<FleshmendEffectComponent> ent, ref AfterAutoHandleStateEvent args)
-    {
-        AddLayer(ent);
+        SubscribeLocalEvent<FleshmendEffectComponent, ComponentShutdown>(OnShutdown); //todo marty test fleshmend why the tf was there an after auto state event here
     }
 
     private void OnStartup(Entity<FleshmendEffectComponent> ent, ref ComponentStartup args)
