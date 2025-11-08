@@ -96,7 +96,7 @@
   extendedAccess:
   - Hydroponics
   - Bar
-  # special: # Goobstation - Martial Arts
+  special: # Goobstation - Martial Arts
   # - !type:AddComponentSpecial
   #   components:
   #     - type: GrantCqc
