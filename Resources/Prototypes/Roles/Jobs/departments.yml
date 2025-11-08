@@ -239,6 +239,7 @@
   - Scientist
   - Xenobiologist # Goobstation
   - ResearchAssistant
+  - Roboticist #Goob
 
 - type: department
   id: Silicon

@@ -53,3 +53,4 @@ JobGovernmentMan = The G-Man
 JobConquest = Conquest
 JobInspector = Central Command Auditor
 JobMercenaryCaptain = Mercenary Captain
+JobRoboticist = Roboticist
