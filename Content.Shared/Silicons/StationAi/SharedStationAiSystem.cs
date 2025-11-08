@@ -345,11 +345,11 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             RaiseLocalEvent(held, ref ev);
         }
 
-        // Corvax-Next-AiRemoteControl-Start
-        if (TryComp<StationAiHeldComponent>(held, out var heldComp))
-            if (heldComp.CurrentConnectedEntity != null)
-                AnnounceIntellicardUsage(heldComp.CurrentConnectedEntity.Value, intelliComp.WarningSound);
-        // Corvax-Next-AiRemoteControl-End
+        // // Corvax-Next-AiRemoteControl-Start // todo marty is this even worth fixing or does refactor make the warning better - test
+        // if (TryComp<StationAiHeldComponent>(held, out var heldComp))
+        //     if (heldComp.CurrentConnectedEntity != null)
+        //         AnnounceIntellicardUsage(heldComp.CurrentConnectedEntity.Value, intelliComp.WarningSound);
+        // // Corvax-Next-AiRemoteControl-End
 
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, cardHasAi ? intelliComp.UploadTime : intelliComp.DownloadTime, new IntellicardDoAfterEvent(), args.Target, ent.Owner)
         {

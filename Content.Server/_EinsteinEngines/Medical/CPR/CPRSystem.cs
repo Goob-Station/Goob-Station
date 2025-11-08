@@ -27,7 +27,8 @@ using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Shared.Traits.Assorted;
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Nutrition.EntitySystems; // Shitmed Change
 
 namespace Content.Server.Medical.CPR;
 

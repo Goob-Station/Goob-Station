@@ -82,7 +82,6 @@
 
 using System.Numerics;
 using System.Text;
-using Content.Server.Nutrition.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
@@ -96,8 +95,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Item; // Goobstation - anythingburgers
 using Content.Shared.Chemistry.Components.SolutionManager; // Goobstation - anythingburgers
-using Content.Server.Singularity.Components; // Goobstation - anythingburgers
-using Content.Shared.Interaction.Components; // Goobstation - anythingburgers
 
 namespace Content.Shared.Nutrition.EntitySystems;
 //todo marty anythingburgers what the fuck - goobify this code
@@ -112,7 +109,6 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedItemSystem _item = default!; // Goobstation - anythingburgers
     public override void Initialize()
     {
@@ -125,10 +121,10 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
 
     private void OnInteractUsing(Entity<FoodSequenceStartPointComponent> ent, ref InteractUsingEvent args)
     {
-        if (HasComp<EntityStorageComponent>(args.Used)
-            || HasComp<StorageComponent>(args.Used)
-            || HasComp<UnremoveableComponent>(args.Used)) // Goobstation - Prevent burgering unremovable items
-            return; // Prevent Backpacks/Pet Carriers
+        // if (HasComp<EntityStorageComponent>(args.Used) //todo marty refactor this or move entitytstoragecomp to shared
+        //     || HasComp<StorageComponent>(args.Used)
+        //     || HasComp<UnremoveableComponent>(args.Used)) // Goobstation - Prevent burgering unremovable items
+        //     return; // Prevent Backpacks/Pet Carriers
 
         if (ent.Comp.AcceptAll) // Goobstation - anythingburgers
             EnsureComp<FoodSequenceElementComponent>(args.Used);
@@ -318,11 +314,11 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         { // Goobstation - anythingburgers We don't give a FUCK if the solution container is food or not, and i dont see why you woold.
             foreach (var name in elementSolutionContainer.Containers)
             {
-                if (!_solutionContainer.TryGetSolution(element.Owner, name, out _, out var elementSolution))
+                if (!_solutionContainer.TryGetSolution(element, name, out _, out var elementSolutionGoob))
                     continue;
 
                 startSolution.MaxVolume += elementSolution.MaxVolume;
-                _solutionContainer.TryAddSolution(startSolutionEntity.Value, elementSolution);
+                _solutionContainer.TryAddSolution(startSolutionEntity.Value, elementSolutionGoob);
             }
         }
     }
@@ -392,10 +388,11 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
             }
 
             _item.SetShape(start, new List<Box2i> { new Box2i(0, 0, 1, increment) });
-        } else if (increment >= 8) {
-            EnsureComp<GravityWellComponent>(start, out var gravityWell);
-            gravityWell.MaxRange = (float)Math.Sqrt(increment/4);
-            gravityWell.BaseRadialAcceleration = (float)Math.Sqrt(increment/4);
         }
+        // else if (increment >= 8) { //todo marty refactor this or move GravityWellComponent to shared
+        //     EnsureComp<GravityWellComponent>(start, out var gravityWell);
+        //     gravityWell.MaxRange = (float)Math.Sqrt(increment/4);
+        //     gravityWell.BaseRadialAcceleration = (float)Math.Sqrt(increment/4);
+        // }
     }
 }
