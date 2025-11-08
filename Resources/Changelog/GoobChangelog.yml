@@ -17530,3 +17530,11 @@ Entries:
       message: Tweaked command highlights.
   id: 1967
   time: '2025-11-08T16:11:10.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Fix
+      message: >-
+        Fixed syndicate bomb text saying it was a minimum of 180 seconds (it's
+        actually 60)
+  id: 1968
+  time: '2025-11-08T16:11:53.0000000+00:00'
