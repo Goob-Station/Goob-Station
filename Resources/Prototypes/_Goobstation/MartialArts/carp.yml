@@ -67,4 +67,4 @@
   - Harm
   - Disarm
   event: !type:SleepingCarpCrashingWavesPerformedEvent
-  staminaDamage: 50
+  staminaDamage: 35
