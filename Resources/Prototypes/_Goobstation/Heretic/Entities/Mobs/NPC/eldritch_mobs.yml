@@ -200,7 +200,7 @@
   components:
   - type: Ghoul
     spawnOnDeathPrototype: SheetPlasma1
-    totalHealth: 16
+    totalHealth: 15
     ghostRoleName: ghostrole-fire-shark-name
     ghostRoleDesc: ghostrole-fire-shark-desc
   - type: Sprite
