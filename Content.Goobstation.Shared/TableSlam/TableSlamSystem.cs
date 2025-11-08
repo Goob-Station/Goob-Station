@@ -60,7 +60,7 @@ public sealed class TableSlamSystem : EntitySystem
         if(!_random.Prob(ent.Comp.ParalyzeChance))
             return;
 
-        //_stunSystem.TryParalyze(ent, TimeSpan.FromSeconds(3), false); todo marty stun
+        _stunSystem.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(3));
         RemComp<PostTabledComponent>(ent);
     }
 

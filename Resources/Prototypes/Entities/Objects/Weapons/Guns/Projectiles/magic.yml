@@ -293,8 +293,6 @@
     fixtureID: projectile
   - type: PolymorphOnTrigger
     targetUser: true
-  - type: TriggerOnCollide # Goob edit #todo marty test
-    fixtureID: projectile
   - type: Reflective # Goobstation
     reflective: Magic
   - type: Ammo # Goobstation #todo marty why is this ammo ungoida this

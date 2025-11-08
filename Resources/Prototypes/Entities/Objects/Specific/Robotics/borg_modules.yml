@@ -1116,6 +1116,7 @@
     - state: service
     - state: icon-clown-adv
   - type: ItemBorgModule
+    moduleId: AdvancedClowning #todo marty test
     items:
     - HoloprojectorClownBorg
     - BorgLauncherCreamPie

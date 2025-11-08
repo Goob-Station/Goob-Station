@@ -144,7 +144,7 @@
   protoId: ProjectileXRayBolt
 
 - type: selectableAmmo
-  id: ProjectileEmpBolt
+  id: ProjectileEmpBolt #todo marty what the fuck why are the selectableammoprotoids the same protoid as the fucking bolts???
   desc: Emp. Disables technology.
   icon:
     sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi

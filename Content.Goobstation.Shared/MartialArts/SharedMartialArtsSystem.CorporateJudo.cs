@@ -24,6 +24,7 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 
@@ -90,7 +91,7 @@ public partial class SharedMartialArtsSystem
             || !TryComp(target, out StatusEffectsComponent? status))
             return;
 
-        //_stun.TrySlowdown(target, TimeSpan.FromSeconds(5), true, 0.5f, 0.5f, status); todo marty movemod
+        _movementMod.TryUpdateMovementSpeedModDuration(target, SharedStunSystem.StunId, TimeSpan.FromSeconds(5), 0.5f, 0.5f);
         // todo recheck here on rebase
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
@@ -222,7 +223,7 @@ public partial class SharedMartialArtsSystem
             || !TryComp<PullableComponent>(target, out var pullable))
             return;
 
-        //_stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, status); todo marty stun
+        _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(proto.ParalyzeTime));
 
         _pulling.TryStopPull(target, pullable, ent, true);
 
