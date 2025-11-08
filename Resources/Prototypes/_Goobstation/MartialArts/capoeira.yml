@@ -30,7 +30,7 @@
     staminaToHeal: -30
     sound:
       path: /Audio/Weapons/genhit3.ogg
-  extraDamage: 5
+  extraDamage: 15
   paralyzeTime: 1
   dropHeldItemsBehavior: NoDrop
   canDoWhileProne: false
@@ -47,7 +47,7 @@
     staminaToHeal: -40
     sound:
       path: /Audio/Weapons/genhit2.ogg
-  extraDamage: 15
+  extraDamage: 25
   canDoWhileProne: false
 
 - type: combo
@@ -59,8 +59,8 @@
   - Harm
   - Disarm
   event: !type:SweepKickPerformedEvent
-    staminaToHeal: -60
-    attackSpeedMultiplier: 1.5
+    staminaToHeal: -30
+    attackSpeedMultiplier: 2
     attackSpeedMultiplierTime: 5
     minVelocity: 2
     sound:
@@ -87,7 +87,7 @@
     sound:
       path: /Audio/Weapons/genhit1.ogg
   paralyzeTime: 2
-  staminaDamage: 15
+  staminaDamage: 25
   extraDamage: 25
   canDoWhileProne: false
 
