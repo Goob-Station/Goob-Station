@@ -19,6 +19,24 @@
   - !type:BZFormationReaction
 
 - type: gasReaction
+  id: N2OFormation
+  priority: 2
+  minimumTemperature: 200
+  minimumRequirements:
+  - 0.01  # oxygen
+  - 0.01  # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # ammonia
+  - 0     # n2o
+  - 0     # frezon
+  - 5     # bz
+  effects:
+  - !type:N2OFormationReaction {}
+
+- type: gasReaction
   id: HealiumProduction
   priority: 2
   maximumTemperature: 300.0
