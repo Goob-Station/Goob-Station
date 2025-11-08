@@ -1,5 +1,5 @@
 using Content.Goobstation.Common.Damage.Events;
-using Content.Goobstation.Shared.Damage.Component;
+using Content.Goobstation.Shared.Damage.Components;
 
 namespace Content.Goobstation.Shared.Damage.System;
 
