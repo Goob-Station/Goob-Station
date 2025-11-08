@@ -31,7 +31,7 @@
   - Grab
   - Harm
   event: !type:CqcSlamPerformedEvent { }
-  extraDamage: 10 #
+  extraDamage: 5 #
   paralyzeTime: 12 # in seconds
 
 
@@ -43,8 +43,7 @@
   - Harm
   - Harm
   event: !type:CqcKickPerformedEvent
-  extraDamage: 10
-  staminaDamage: 25
+  extraDamage: 20
 
 - type: combo
   id: CQCRestrain
@@ -76,5 +75,5 @@
   - Disarm
   - Harm
   event: !type:CqcConsecutivePerformedEvent
-  extraDamage: 10
+  extraDamage: 5
   staminaDamage: 70
