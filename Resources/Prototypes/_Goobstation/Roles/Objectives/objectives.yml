@@ -62,7 +62,7 @@
   components:
   - type: Objective
     icon:
-      sprite: _Goobstation/Clothing/Head/Helmets/singulothhelm.rsi
+      sprite: _Goobstation/Clothing/Head/Hardsuits/singulothhelm.rsi
       state: icon
     difficulty: 1
     issuer: objective-issuer-lord-singuloth

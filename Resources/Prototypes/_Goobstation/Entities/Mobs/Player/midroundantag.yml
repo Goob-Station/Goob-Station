@@ -54,3 +54,11 @@
     randomizeName: true
   - type: Loadout
     prototypes: [ ChosenOneProtagGear ]
+
+- type: entity
+  parent: MobVox
+  id: Voxraider
+  name: Vox Raider
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true

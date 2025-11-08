@@ -100,7 +100,7 @@
     sprite: Markers/jobs.rsi
     layers:
     - state: green
-    - sprite: _Goobstation/Clothing/Head/Helmets/singulothhelm.rsi
+    - sprite: _Goobstation/Clothing/Head/Hardsuits/singulothhelm.rsi
       state: icon
 
 - type: entity

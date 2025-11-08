@@ -440,28 +440,3 @@
     knockdownTimeDelta: -2
   - type: StaminaResistance
     damageCoefficient: 0.7
-
-- type: entity
-  parent: [TemplarArmor, BaseMagicalContraband]
-  id: ClothingSingulothArmor
-  name: singuloth knight's armor
-  description: A ceremonial armor from the chapter of the Singuloth Knights, It's made of pure forged adamantium.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Armor/singuloth_knight_armor.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Armor/singuloth_knight_armor.rsi
-  - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Leg
-    - Tail
-    modifiers:
-      coefficients:
-        Blunt: 0.65
-        Slash: 0.10
-        Piercing: 0.65
-        Heat: 1.5
-        Radiation: 0.5

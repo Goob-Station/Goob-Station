@@ -35,7 +35,6 @@
 - type: startingGear
   id: SingulothKnightsAntagGear
   equipment:
-    head: ClothingHeadSinguloth
     jumpsuit: ClothingUniformJumpsuitColorBlack
     outerClothing: ClothingSingulothArmor
     shoes: ClothingShoesLeather
