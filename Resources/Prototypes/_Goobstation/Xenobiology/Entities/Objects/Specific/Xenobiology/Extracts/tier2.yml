@@ -16,27 +16,37 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-evil" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:ExplosionReactionEffect
+        delay: 5
         explosionType: Electrical
         maxIntensity: 1050
         intensitySlope: 4
         intensityPerUnit: 70
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
         entity: XenoSlimeBattery
         number: 1
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:EmpReactionEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:EmpReactionEffect
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -60,27 +70,36 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
         entity: SheetPlastic10
         number: 3
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
         entity: SheetPlasma1
         number: 3
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-evil" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateGas
         gas: Plasma
         multiplier: 35
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -104,29 +123,36 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
         entity: DarkBlueExtractJelly
         number: 1
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-evil" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateGas
         gas: Frezon
         multiplier: 35
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:AdjustReagent
         reagent: Leporazine
         amount: 100
-      - !type:PopupMessage
-        messages: [ "xeno-extract-leporazine-created" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -151,29 +177,39 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:AreaReactionEffect #This should be after 5 seconds.
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-evil" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:AreaReactionEffect
         duration: 10
+        delay: 5
         prototypeId: AluminiumMetalFoam
         sound:
           path: /Audio/Effects/extinguish.ogg
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
         entity: IngotSilver1
         number: 2
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
         entity: XenoGoopBall
         number: 3
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -198,25 +234,34 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:CreateEntityReactionEffect
-        entity: FloorTileItemBluespace
-        number: 25
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:CreateEntityReactionEffect
+        entity: FloorTileItemBluespace
+        number: 30
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:CreateEntityReactionEffect
-        entity: MaterialBSCrystal1
-        number: 3
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:CreateEntityReactionEffect
+        entity: MaterialBSCrystal1
+        number: 5
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:RandomTeleportNearby
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:RandomTeleportNearby
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -241,30 +286,37 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:AdjustReagent
         reagent: Tilenol
         amount: 100
-      - !type:PopupMessage
-        messages: [ "xeno-extract-leporazine-created" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-evil" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
         delay: 5
         entity: XenoExtractChronofield
         number: 1
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:CreateEntityReactionEffect
-        entity: FloorTileItemSepia
-        number: 25
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:CreateEntityReactionEffect
+        entity: FloorTileItemSepia
+        number: 30
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -288,23 +340,32 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:OxygenateNearby
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:OxygenateNearby
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:ExtinguishNearby
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:ExtinguishNearby
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
         entity: CeruleanExtractJelly
         number: 1
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -313,7 +374,7 @@
 - type: entity
   id: PyriteSlimeExtract
   parent: BaseSlimeExtract
-  name: pyrite slime extract # Requires upstream status effects.
+  name: pyrite slime extract
   description:
   components:
   - type: Sprite
@@ -322,6 +383,48 @@
       state: core
       color: "#dcaa4f"
       shader: XenoMetallic
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:ForceStealthNearbyEffect
+        radius: 12
+        duration: 60
+        chance: 0.5
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:DoSmokeEntityEffect
+        duration: 5
+        spreadAmount: 75
+        smokePrototype: Smoke
+      - !type:ForceStealthNearbyEffect
+        duration: 30
+        radius: 7
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:ForceStealthNearbyEffect
+        radius: 1
+        duration: 120
   - type: SlimeExtract
   - type: Tag
     tags:

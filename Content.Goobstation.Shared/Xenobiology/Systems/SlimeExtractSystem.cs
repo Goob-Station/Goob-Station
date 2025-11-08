@@ -8,32 +8,22 @@
 
 using Content.Goobstation.Common.Chemistry;
 using Content.Goobstation.Shared.Xenobiology.Components;
-using Content.Shared.Chemistry.Reaction;
-using Content.Shared.Examine;
+using Content.Shared.Chemistry.EntitySystems;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
 // This handles slime extracts.
-public partial class XenobiologySystem
+public sealed partial class SlimeExtractSystem : EntitySystem
 {
-    private void SubscribeExtracts()
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+
+    public override void Initialize()
     {
-        SubscribeLocalEvent<SlimeExtractComponent, ExaminedEvent>(OnExamined);
+        base.Initialize();
+
         SubscribeLocalEvent<SlimeExtractComponent, BeforeSolutionReactEvent>(BeforeSolutionReact);
     }
 
-    private void OnExamined(Entity<SlimeExtractComponent> extract, ref ExaminedEvent args)
-    {
-        if (!args.IsInDetailsRange
-            || !TryComp<ReactiveComponent>(extract, out var reactive))
-            return;
-
-        var message = Loc.GetString("slime-extract-examined-charges", ("num", reactive.RemainingReactions));
-        if (reactive.IsReactionsUnlimited)
-            message = Loc.GetString("slime-extract-examined-charges-infinite");
-
-        args.PushMarkup(message);
-    }
     private void BeforeSolutionReact(Entity<SlimeExtractComponent> extract, ref BeforeSolutionReactEvent args)
     {
         // clean up the reagents inside when performing an effect

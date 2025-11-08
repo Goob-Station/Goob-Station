@@ -5,6 +5,8 @@
   description:
   abstract: true
   components:
+  - type: Item
+    size: Small
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi

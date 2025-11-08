@@ -16,6 +16,11 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:DoSmokeEntityEffect
         duration: 10
         spreadAmount: 75
@@ -24,28 +29,30 @@
           reagents:
           - ReagentId: TearGas
             Quantity: 20
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:IgniteNearby
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:IgniteNearbyEffect
       - !type:FlashReactionEffect
         maxRange: 7
         rangePerUnit: 1
         sound: /Audio/_Goobstation/Wizard/zapbang.ogg
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:AdjustReagent
         reagent: CapsaicinOil
         amount: 100
-      - !type:PopupMessage
-        messages: [ "xeno-extract-capsaicin-created" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -69,29 +76,36 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateRQuantityEntityReactionEffect
         entity: ArtifactFragment1
         maxEntities: 4
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
         entity: PurpleExtractJelly
         number: 1
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:AdjustReagent
         reagent: Omnizine
         amount: 100
-      - !type:PopupMessage
-        messages: [ "xeno-extract-omnizine-created" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -115,31 +129,38 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:AreaReactionEffect
         duration: 10
         prototypeId: Foam
         sound:
           path: /Audio/Effects/extinguish.ogg
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:AdjustReagent
         reagent: FrostOil
         amount: 100
-      - !type:PopupMessage
-        messages: [ "xeno-extract-frost-created" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
         entity: BlueExtractJelly
         number: 1
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -164,35 +185,42 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
         entity: SheetGlass1
         number: 15
       - !type:CreateEntityReactionEffect
         entity: SheetRGlass1
         number: 5
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
         entity: SheetSteel1
         number: 15
       - !type:CreateEntityReactionEffect
         entity: SheetPlasteel1
         number: 5
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:AdjustReagent
         reagent: WeldingFuel
         amount: 100
-      - !type:PopupMessage
-        messages: [ "xeno-extract-fuel-created" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
   - type: Tag
     tags:

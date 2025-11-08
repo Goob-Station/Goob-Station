@@ -6,7 +6,9 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Interaction;
+using Content.Server.Stealth;
 using Content.Shared.Physics;
+using Content.Shared.Stealth.Components;
 
 namespace Content.Server.NPC.HTN.Preconditions;
 
@@ -14,6 +16,7 @@ public sealed partial class TargetInLOSPrecondition : HTNPrecondition
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     private InteractionSystem _interaction = default!;
+    private StealthSystem _stealth = default!; // goob edit
 
     [DataField("targetKey")]
     public string TargetKey = "Target";
@@ -28,6 +31,7 @@ public sealed partial class TargetInLOSPrecondition : HTNPrecondition
     {
         base.Initialize(sysManager);
         _interaction = sysManager.GetEntitySystem<InteractionSystem>();
+        _stealth = sysManager.GetEntitySystem<StealthSystem>(); // goob edit
     }
 
     public override bool IsMet(NPCBlackboard blackboard)
@@ -35,6 +39,10 @@ public sealed partial class TargetInLOSPrecondition : HTNPrecondition
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
         if (!blackboard.TryGetValue<EntityUid>(TargetKey, out var target, _entManager))
+            return false;
+
+        // goob edit - stealthed entities can't be seen by npcs
+        if (_entManager.TryGetComponent<StealthComponent>(target, out var stealth) && _stealth.GetVisibility(target, stealth) <= stealth.ExamineThreshold)
             return false;
 
         var range = blackboard.GetValueOrDefault<float>(RangeKey, _entManager);

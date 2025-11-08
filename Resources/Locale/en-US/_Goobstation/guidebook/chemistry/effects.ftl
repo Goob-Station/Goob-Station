@@ -19,3 +19,5 @@ reagent-effect-guidebook-deal-stamina-damage =
                     [true] immediate
                     *[false] overtime
                   } stamina damage
+
+reagent-effect-guidebook-stealth-entities = Camouflages everything in a {$radius} tile radius.

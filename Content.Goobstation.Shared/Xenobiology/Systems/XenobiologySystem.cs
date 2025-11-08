@@ -49,7 +49,6 @@ public sealed partial class XenobiologySystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly IConfigurationManager _configuration = default!;
 
     private ISawmill _sawmill = default!;
@@ -64,7 +63,6 @@ public sealed partial class XenobiologySystem : EntitySystem
         SubscribeTaming();
         SubscribeBreeding();
         SubscribeActions();
-        SubscribeExtracts();
 
         SubscribeLocalEvent<SlimeComponent, ExaminedEvent>(OnExamined);
 

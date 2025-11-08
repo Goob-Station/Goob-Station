@@ -16,29 +16,37 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:AdjustReagent
         reagent: Epinephrine
         amount: 100
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:PopupMessage
-        messages: [ "xeno-extract-epinephrine-created" ]
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:CreateEntityReactionEffect
-        entity: MobXenoSlime
-        number: 1
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-evil" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:CreateEntityReactionEffect
+        delay: 3
+        entity: MobSlimeXenobioBabyGrey
+        number: 1
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
         entity: MonkeyCube
         number: 3
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
   - type: Tag
     tags:

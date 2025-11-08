@@ -11,6 +11,7 @@ using System.Numerics;
 using Content.Goobstation.Common.BlockTeleport;
 using Content.Server.Administration.Logs;
 using Content.Server.Stack;
+using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared.Database;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Interaction.Events;
@@ -19,6 +20,7 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Stacks;
 using Content.Shared.Teleportation;
+using JetBrains.FormatRipper.Elf;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -37,6 +39,7 @@ public sealed class TeleportSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly IAdminLogManager _alog = default!;
     [Dependency] private readonly StackSystem _stack = default!;
+    [Dependency] private readonly SparksSystem _sparks = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -81,13 +84,13 @@ public sealed class TeleportSystem : EntitySystem
             return false;
 
         // play sound before and after teleport if playSound is true
-        if (playSound)
-            _audio.PlayPvs(component.DepartureSound, Transform(uid).Coordinates, AudioParams.Default);
+        if (playSound) _audio.PlayPvs(component.DepartureSound, Transform(uid).Coordinates, AudioParams.Default);
+        _sparks.DoSparks(Transform(uid).Coordinates); // also sparks!!
 
         RandomTeleport(uid, component.Radius, component.TeleportAttempts, component.ForceSafeTeleport, false);
 
-        if (playSound)
-            _audio.PlayPvs(component.ArrivalSound, Transform(uid).Coordinates, AudioParams.Default);
+        if (playSound) _audio.PlayPvs(component.ArrivalSound, Transform(uid).Coordinates, AudioParams.Default);
+        _sparks.DoSparks(Transform(uid).Coordinates);
 
         return true;
     }

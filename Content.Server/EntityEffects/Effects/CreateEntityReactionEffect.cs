@@ -32,8 +32,6 @@ public sealed partial class CreateEntityReactionEffect : EntityEffect
     [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string Entity = default!;
 
-    [DataField] public float Delay = 0f; // goob edit
-
     /// <summary>
     ///     How many entities to create per unit reaction.
     /// </summary>
@@ -46,16 +44,11 @@ public sealed partial class CreateEntityReactionEffect : EntityEffect
             ("entname", IoCManager.Resolve<IPrototypeManager>().Index<EntityPrototype>(Entity).Name),
             ("amount", Number));
 
-    // goob edit - moved Effect contents to DoSpawn method and added a delay support
+    // goob edit - moved Effect contents to DoSpawn method and added delay support
     public override void Effect(EntityEffectBaseArgs args)
     {
-        if (Delay > 0f)
-        {
-            Timer.Spawn((int) MathF.Round(Delay * 1000), () => DoSpawn(args));
-            return;
-        }
-
-        DoSpawn(args);
+        if (Delay > 0f) Timer.Spawn((int) (Delay * 1000f), () => DoSpawn(args));
+        else DoSpawn(args);
     }
 
     private void DoSpawn(EntityEffectBaseArgs args)

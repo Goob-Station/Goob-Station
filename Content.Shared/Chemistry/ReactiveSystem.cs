@@ -43,6 +43,8 @@ using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Shared.Chemistry;
 
@@ -74,7 +76,7 @@ public sealed class ReactiveSystem : EntitySystem
         if (!TryComp(uid, out ReactiveComponent? reactive))
             return;
 
-        if (reactive is { IsReactionsUnlimited: false, RemainingReactions: <= 0 }) // Goobstation
+        if (reactive is { IsReactionsUnlimited: false, RemainingReactions: <= 0 }) // goob edit
             return;
 
         // custom event for bypassing reactivecomponent stuff
@@ -84,7 +86,7 @@ public sealed class ReactiveSystem : EntitySystem
         // If we have a source solution, use the reagent quantity we have left. Otherwise, use the reaction volume specified.
         var args = new EntityEffectReagentArgs(uid, EntityManager, null, source, source?.GetReagentQuantity(reagentQuantity.Reagent) ?? reagentQuantity.Quantity, proto, method, 1f);
 
-        if (reactive.OneUnitReaction) // Goobstation
+        if (reactive.OneUnitReaction) // goob edit
             args.Quantity = 1;
 
         // First, check if the reagent wants to apply any effects.
@@ -152,30 +154,31 @@ public sealed class ReactiveSystem : EntitySystem
                     }
 
                     effect.Effect(args);
-
                 }
 
-                // Goobstation - Start
+                // goob edit - GOIDA!
+                var maxDelay = entry.Effects.Max(e => e.Delay);
                 var afterReact = new SolutionReactedEvent();
                 RaiseLocalEvent(uid, ref afterReact);
 
                 if (!reactive.IsReactionsUnlimited)
+                {
                     reactive.RemainingReactions -= 1;
 
-                if (!reactive.IsReactionsUnlimited
-                    && reactive.RemainingReactions == 0)
-                    QueueDel(uid);
-                // Goobstation - End
+                    if (reactive.RemainingReactions == 0 && reactive.DeleteOnReactionDepletion)
+                        Timer.Spawn((int) (maxDelay * 1000f) + 5, () => QueueDel(uid));
+                }
+                // goob edit end
             }
         }
     }
 }
 public enum ReactionMethod
 {
-Touch,
-Injection,
-Ingestion,
-Eyes,
+    Touch,
+    Injection,
+    Ingestion,
+    Eyes,
 }
 
 [ByRefEvent]

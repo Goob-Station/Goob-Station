@@ -5,21 +5,18 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Diagnostics;
-using System.Linq;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
-using SixLabors.ImageSharp.PixelFormats;
 
 namespace Content.Goobstation.Server.EntityEffects;
 
 /// <summary>
 ///     Ignites mobs nearby.
 /// </summary>
-public sealed partial class IgniteNearby : EntityEffect
+public sealed partial class IgniteNearbyEffect : EntityEffect
 {
 
     [DataField]
