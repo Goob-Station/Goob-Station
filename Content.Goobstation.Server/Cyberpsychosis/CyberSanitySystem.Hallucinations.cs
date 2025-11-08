@@ -50,6 +50,49 @@ public sealed partial class CyberSanitySystem
         });
     }
 
+    private void OnControl(Entity<CyberPsychosisEntityComponent> ent, ref CyberPsychoOvertakeActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!TryComp<CyberSanityComponent>(ent.Comp.PsychosisOwner, out var sanity))
+            return;
+
+        var duration = sanity.Sanity switch
+        {
+            <= 5 => -1f,
+            < 50 => 75f,
+            < 100 => 60f,
+            < 150 => 30f,
+            _ => 0f
+        };
+
+        if (duration == 0)
+        {
+            _popup.PopupEntity(Loc.GetString("cyber-psychosis-overtake-high-sanity"), ent.Owner, ent.Owner);
+            return;
+        }
+
+        args.Handled = true;
+
+        if (duration < 0)
+        {
+            _mind.TryGetMind(ent.Owner, out var mindId, out var mind);
+            _mind.TransferTo(mindId, ent.Comp.PsychosisOwner);
+            sanity.FullPsycho = true;
+            QueueDel(ent.Owner);
+        }
+        else
+        {
+            _mindSwap.SwapMinds(ent.Owner, ent.Comp.PsychosisOwner, duration);
+            _jitter.DoJitter(ent.Comp.PsychosisOwner, TimeSpan.FromSeconds(3), true);
+
+            var msg = new StaticFlashEffectMessage(2f);
+            RaiseNetworkEvent(msg, ent.Owner);
+            RaiseNetworkEvent(msg, ent.Comp.PsychosisOwner);
+        }
+    }
+
     private void CreatePsychoEntity(EntityUid uid, CyberSanityComponent comp)
     {
         var ent = _shizophrenia.AddHallucination(uid, "HallucinationCyberPhychosis");
