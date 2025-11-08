@@ -90,6 +90,7 @@
     state: god_transmit
   customBehaviors:
   - !type:RitualCanAscend
+    checkObjectives: false
   - !type:RitualFeastOfOwlsBehavior
 
 ### ash path
