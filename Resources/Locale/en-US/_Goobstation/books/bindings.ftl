@@ -1,6 +1,6 @@
 book-binding-part-cover_base = Base cover
-book-binding-cover_old = Old cover
-book-binding-cover_strong = Strong cover
+book-binding-part-cover_old = Old cover
+book-binding-part-cover_strong = Strong cover
 
 book-binding-part-decor_bottom = Bottom decor
 book-binding-part-decor_diagonal = Diagonal decor
