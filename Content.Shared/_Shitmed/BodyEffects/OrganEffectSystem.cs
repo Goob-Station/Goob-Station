@@ -52,6 +52,9 @@ public sealed partial class OrganEffectSystem : EntitySystem
     private void OnOrganComponentsModify(Entity<OrganComponent> organEnt,
         ref OrganComponentsModifyEvent ev)
     {
+        if (_gameTiming.ApplyingState)
+            return;
+
         if (organEnt.Comp.OnAdd != null)
         {
             if (ev.Add)
