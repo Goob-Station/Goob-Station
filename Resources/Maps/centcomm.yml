@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/04/2025 14:12:09
-  entityCount: 6787
+  time: 11/08/2025 11:06:30
+  entityCount: 6793
 maps: []
 grids:
 - 1668
@@ -2424,8 +2424,7 @@ entities:
             1: 34824
           -3,-3:
             0: 3
-            1: 39820
-            2: 8192
+            1: 48012
           -3,-2:
             1: 48059
           -3,-1:
@@ -2532,8 +2531,7 @@ entities:
           -4,4:
             1: 65535
           -3,1:
-            3: 1
-            1: 2874
+            1: 2875
           -3,2:
             1: 65535
           -3,3:
@@ -2629,7 +2627,7 @@ entities:
           7,-2:
             1: 65504
           7,-1:
-            1: 65534
+            1: 65532
           7,-5:
             1: 65520
           7,0:
@@ -2639,13 +2637,13 @@ entities:
           8,-3:
             1: 12407
           8,-2:
-            1: 24400
+            1: 62960
           8,-1:
-            1: 20831
+            1: 5396
           4,4:
             1: 56719
           5,1:
-            1: 47359
+            1: 47871
           5,2:
             1: 64779
           5,3:
@@ -2669,9 +2667,9 @@ entities:
           7,4:
             1: 65535
           8,0:
-            1: 24401
+            1: 62965
           8,1:
-            1: 4447
+            1: 4373
           8,2:
             1: 30481
           8,3:
@@ -2685,9 +2683,10 @@ entities:
           -1,-7:
             1: 3823
           0,-6:
-            1: 3545
+            2: 273
+            1: 7368
           -1,-6:
-            1: 4095
+            2: 4095
           0,-9:
             1: 52431
           1,-8:
@@ -2716,7 +2715,7 @@ entities:
             1: 13056
           4,-8:
             1: 1019
-            4: 34816
+            3: 34816
           4,-7:
             1: 49075
           4,-6:
@@ -2725,7 +2724,7 @@ entities:
             1: 32768
           5,-8:
             1: 61183
-            4: 4352
+            3: 4352
           5,-7:
             1: 49080
           5,-6:
@@ -2734,7 +2733,7 @@ entities:
             1: 61440
           6,-8:
             1: 35000
-            5: 13056
+            4: 13056
           6,-7:
             1: 65528
           6,-6:
@@ -2826,43 +2825,43 @@ entities:
           0,5:
             1: 119
           0,6:
-            1: 49356
+            1: 3276
           0,7:
-            1: 52236
+            1: 3276
           0,8:
-            1: 12
+            1: 52428
           1,5:
-            1: 10096
+            1: 4080
           1,6:
-            1: 26366
+            1: 30583
           1,7:
-            1: 24679
+            1: 1911
           1,8:
-            1: 6
+            1: 30583
           2,5:
             1: 65528
           2,6:
-            1: 28927
+            1: 65535
           2,7:
-            1: 30583
+            1: 61152
           2,8:
-            1: 7
+            1: 238
           3,5:
-            1: 16305
+            1: 64977
           3,6:
-            1: 46075
+            1: 65309
           3,7:
-            1: 47167
+            1: 61156
           3,8:
-            1: 11
+            1: 2798
           4,5:
-            1: 52700
+            1: 56796
           4,6:
-            1: 4113
-          4,7:
             1: 4353
+          4,7:
+            1: 4368
           4,8:
-            1: 1
+            1: 17
           5,5:
             1: 57305
           6,5:
@@ -2982,29 +2981,10 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 293.15
+          temperature: 235
           moles:
-          - 21.6852
-          - 81.57766
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.14975
-          moles:
-          - 21.824879
-          - 82.10312
+          - 27.225372
+          - 102.419266
           - 0
           - 0
           - 0
@@ -3887,7 +3867,7 @@ entities:
   - uid: 5862
     components:
     - type: MetaData
-      desc: This pen was somehow made before the first outbreak we are not sure how NT had it.
+      desc: This pen was discovered before the first outbreak. It's a mystery how NT acquired it.
     - type: Transform
       pos: -10.6244135,4.5721507
       parent: 1668
@@ -4483,7 +4463,7 @@ entities:
   - uid: 1189
     components:
     - type: MetaData
-      desc: Nuclear operatives exist, sadly they are poorly funded compared to our own nuclear operatives, our succeed they's fail to a cadet.
+      desc: Nuclear operatives exist, sadly they are poorly funded compared to our own operatives. Ours succeed, they fall to a cadet.
     - type: Transform
       pos: -12.014473,6.766891
       parent: 1668
@@ -18292,7 +18272,7 @@ entities:
   - uid: 5945
     components:
     - type: MetaData
-      desc: This one has a crack in it, on closer inspection it is a cloacked NT blade stuck in it.
+      desc: This one has a crack in it, on closer inspection it was the result of an NT blade.
     - type: Transform
       pos: -10.288156,6.059138
       parent: 1668
@@ -18422,7 +18402,7 @@ entities:
   - uid: 3771
     components:
     - type: MetaData
-      desc: Some heratics ascend onto godhood, this one was a inconvenience to our profits.
+      desc: Some heretics ascend to godhood - this one was an inconvenience to our profits.
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -11.31995,6.692339
@@ -19268,7 +19248,7 @@ entities:
       pos: -11.5,-22.5
       parent: 1668
     - type: Door
-      secondsUntilStateChange: -12148.815
+      secondsUntilStateChange: -13377.107
       state: Closing
 - proto: CurtainsOrangeOpen
   entities:
@@ -26287,7 +26267,7 @@ entities:
   - uid: 1447
     components:
     - type: MetaData
-      desc: A devil sometimes makes contracts, but the crew sometimes forgets, we already own the soul.
+      desc: A devil sometimes makes contracts, but the crew sometimes forgets, we already own their soul.
     - type: Transform
       pos: -10.239562,6.6804953
       parent: 1668
@@ -26396,7 +26376,7 @@ entities:
   - uid: 5875
     components:
     - type: MetaData
-      desc: Our agent was given this PDA before he killed half of syndicate high command, and they say they are good at infiltration.
+      desc: Our agent was given this PDA before he infiltrated and killed half of high command, and the syndicate thinks they're the pros.
     - type: Transform
       pos: -11.030173,4.752286
       parent: 1668
@@ -26492,7 +26472,7 @@ entities:
   - uid: 6020
     components:
     - type: MetaData
-      desc: Some AIs think going malf is a good idea, we kindly remind them that AI hell is a real thing and you will be going there.
+      desc: Some AIs believe going malf is a good idea. We kindly remind them that Android Hell is a real place, and you will be going there.
     - type: Transform
       pos: -10.671659,5.7178593
       parent: 1668
@@ -27173,7 +27153,7 @@ entities:
   - uid: 6021
     components:
     - type: MetaData
-      desc: The most feared too by the demonic forces, using it our janitors are the most feared.
+      desc: The most feared by the demonic forces, using it our janitors have dealt with many a foe.
       name: implement of cleaning
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -27999,6 +27979,13 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
+- proto: PlushieXeve
+  entities:
+  - uid: 6519
+    components:
+    - type: Transform
+      pos: 16.419022,24.329641
+      parent: 1668
 - proto: PortableScrubber
   entities:
   - uid: 3696
@@ -31742,7 +31729,7 @@ entities:
   - uid: 1360
     components:
     - type: MetaData
-      desc: This book is filled with secret NT codewords, magic in it is it takes our brainwashing and turns it around.
+      desc: This book is filled with secret NT codewords.
     - type: Transform
       pos: -10.598979,6.6190257
       parent: 1668
@@ -34988,7 +34975,7 @@ entities:
   - uid: 3772
     components:
     - type: MetaData
-      desc: A poor nockoff of our bluespace technologie.
+      desc: A poor knockoff of our bluespace technology.
     - type: Transform
       pos: -11.6637,6.489214
       parent: 1668
@@ -34999,6 +34986,37 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -10.855742,-5.3932433
+      parent: 1668
+- proto: TeslaGenerator
+  entities:
+  - uid: 6529
+    components:
+    - type: MetaData
+      name: cargo tesla generator
+    - type: Transform
+      pos: -5.5,22.5
+      parent: 1668
+- proto: TeslaGroundingRodFlatpack
+  entities:
+  - uid: 6520
+    components:
+    - type: Transform
+      pos: -7.7308407,24.745832
+      parent: 1668
+  - uid: 6526
+    components:
+    - type: Transform
+      pos: -7.2152157,24.745832
+      parent: 1668
+  - uid: 6527
+    components:
+    - type: Transform
+      pos: -7.7620907,24.308332
+      parent: 1668
+  - uid: 6528
+    components:
+    - type: Transform
+      pos: -7.2620907,24.323957
       parent: 1668
 - proto: ToiletEmpty
   entities:
@@ -41901,7 +41919,7 @@ entities:
   - uid: 6022
     components:
     - type: MetaData
-      desc: Who could have guessed pulse weapons kill these like ducks, we do wonder how millitary companies struggle taking these out.
+      desc: Who could've guessed pulse weapons cut through these like butter. It's a wonder military companies struggle taking them out.
       name: destroyed xeno egg
     - type: Transform
       pos: -10.5,5.5
