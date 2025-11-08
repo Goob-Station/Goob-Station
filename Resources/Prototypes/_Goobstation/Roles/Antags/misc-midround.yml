@@ -51,7 +51,7 @@
 - type: startingGear
   id: DarkLordAntagGear
   equipment:
-    head: ClothingHeadHatHoodVoidCloak
+    head: ClothingHeadHatDarkLordHood
     jumpsuit: ClothingUniformJumpsuitMonasticRobeDark
     outerClothing: ClothingOuterWizardBlackReal
     shoes: ClothingShoesColorBlack
