@@ -7,7 +7,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
-using Robust.Shared.Network;
+using Robust.Shared.Network; //Goobstation
 
 namespace Content.Shared.Chemistry.EntitySystems.Hypospray;
 
@@ -16,7 +16,7 @@ public sealed class SolutionCartridgeSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly INetManager _net = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -58,7 +58,7 @@ public sealed class SolutionCartridgeSystem : EntitySystem
         if (!_container.TryGetContainer(ent, "item", out var container))
             return;
 
-        if (_net.IsClient)
+        if (_net.IsClient) // Goobstation
             return;
 
         _container.CleanContainer(container);
