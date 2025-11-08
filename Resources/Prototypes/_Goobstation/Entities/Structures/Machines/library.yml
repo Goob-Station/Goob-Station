@@ -58,6 +58,8 @@
     whitelist:
       components:
       - CustomBook
+  - type: PlaceableSurface
+    placeCentered: true
   - type: ActivatableUI
     key: enum.BookScannerUiKey.Key
   - type: UserInterface
