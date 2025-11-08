@@ -34,6 +34,6 @@ public sealed class BookScannerBoundUserInterface : BoundUserInterface
         if (state is not BookScannerUiState cast)
             return;
 
-        _menu?.Populate(cast.Author, cast.Genre, cast.Title, cast.Desc, cast.Cooldown);
+        _menu?.Populate(cast.Author, cast.Genre, cast.Title, cast.Desc, cast.State);
     }
 }

@@ -64,10 +64,17 @@ public sealed partial class CustomBooksSystem
 
     private void UpdateScannerUi(Entity<BookScannerComponent> ent)
     {
+        var state = BookScannerState.NoBook;
+
+        if (ent.Comp.IsScanning)
+            state = BookScannerState.Scanning;
+        else if (ent.Comp.Book != null)
+            state = BookScannerState.Ready;
+
         if (!TryComp<CustomBookComponent>(ent.Comp.Book, out var comp))
-            UI.SetUiState(ent.Owner, BookScannerUiKey.Key, new BookScannerUiState("", "", "", "", ent.Comp.IsScanning || ent.Comp.NextScan > _timing.CurTime));
+            UI.SetUiState(ent.Owner, BookScannerUiKey.Key, new BookScannerUiState("", "", "", "", state));
         else
-            UI.SetUiState(ent.Owner, BookScannerUiKey.Key, new BookScannerUiState(comp.Author, comp.Genre, comp.Title, comp.Desc, ent.Comp.IsScanning || ent.Comp.NextScan > _timing.CurTime));
+            UI.SetUiState(ent.Owner, BookScannerUiKey.Key, new BookScannerUiState(comp.Author, comp.Genre, comp.Title, comp.Desc, state));
     }
 
     private void UpdateScanner(float frameTime)
@@ -84,7 +91,7 @@ public sealed partial class CustomBooksSystem
             AddPendingBook((comp.Book.Value, bookComp));
             comp.IsScanning = false;
             comp.ScanEndTime = TimeSpan.Zero;
-            comp.NextScan = _timing.CurTime + TimeSpan.FromMinutes(15);
+
             _ambient.SetAmbience(uid, false);
             Appearance.SetData(uid, BookScannerVisuals.Scanning, false);
             _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/high_tech_confirm.ogg"), uid, AudioParams.Default.WithVolume(-4f));

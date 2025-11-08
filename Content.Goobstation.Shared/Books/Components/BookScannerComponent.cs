@@ -15,8 +15,6 @@ public sealed partial class BookScannerComponent : Component
     public bool IsScanning = false;
 
     public TimeSpan ScanEndTime = TimeSpan.Zero;
-
-    public TimeSpan NextScan = TimeSpan.Zero;
 }
 
 [Serializable, NetSerializable]
