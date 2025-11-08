@@ -85,7 +85,6 @@ public sealed class CarryingSystem : EntitySystem
         SubscribeLocalEvent<BeingCarriedComponent, EscapeInventoryEvent>(OnDrop);
         SubscribeLocalEvent<CarriableComponent, CarryDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<BeingCarriedComponent, EntityTerminatingEvent>(OnDelete);
-        SubscribeLocalEvent<CarryingComponent, EntityTerminatingEvent>(OnCarryDelete);
     }
 
     private void AddCarryVerb(Entity<CarriableComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
@@ -384,9 +383,6 @@ public sealed class CarryingSystem : EntitySystem
 
     private void OnDelete(Entity<BeingCarriedComponent> ent, ref EntityTerminatingEvent args)
         => DropCarried(ent.Comp.Carrier, ent.Owner);
-
-    private void OnCarryDelete(Entity<CarryingComponent> ent, ref EntityTerminatingEvent args)
-        => DropCarried(ent.Owner, ent.Comp.Carried);
 
     public override void Update(float frameTime)
     {
