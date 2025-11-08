@@ -56,8 +56,8 @@
   - Grab
   event: !type:SleepingCarpKneeHaulPerformedEvent
   extraDamage: 10
-  paralyzeTime: 6
-  staminaDamage: 60
+  paralyzeTime: 2
+  staminaDamage: 25
 
 - type: combo
   id: SleepingCarpCrashingWaves
@@ -67,4 +67,4 @@
   - Harm
   - Disarm
   event: !type:SleepingCarpCrashingWavesPerformedEvent
-  staminaDamage: 25
+  staminaDamage: 50
