@@ -816,16 +816,17 @@
 #      components:
 #      - SurplusBundle
 
-- type: listing
-  id: UplinkNocturineChemistryBottle
-  name: uplink-nocturine-chemistry-bottle-name
-  description: uplink-nocturine-chemistry-bottle-desc
-  productEntity: ChemistryBottleNocturine
-  cost:
-    Telecrystal: 30 # goob
-  categories:
-  - UplinkChemicals
-
+#- type: listing - Goob, removed noct from uplink
+#  id: UplinkNocturineChemistryBottle
+#  name: uplink-nocturine-chemistry-bottle-name
+#  description: uplink-nocturine-chemistry-bottle-desc
+#  productEntity: ChemistryBottleNocturine
+#  cost:
+#    Telecrystal: 30 # goob
+#  categories:
+#  - UplinkChemicals
+# USE A LESS FUCKING LAME STRATETGY, IM FUCKING TIRED OF THIS LAME BITCHASS NO SKILL NO INTERACTIVITY
+# ZERO REAL COUNTER BULLSHIT STRAT. GOD its so FUCKING LAME.
 
 - type: listing
   id: UplinkCombatMedkit
