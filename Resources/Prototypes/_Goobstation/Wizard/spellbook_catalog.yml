@@ -829,6 +829,7 @@
     blacklist:
       tags:
       - GrimoireGhost
+      - WizApprentice # Apprentice buying an apprentice is a bit silly
 
 - type: listing
   id: SpellbookBottleOfBlood
@@ -888,6 +889,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - WizApprentice
   disableRefund: true
 
 - type: listing
@@ -908,6 +913,10 @@
   - !type:BuyBeforeCondition
     whitelist:
       - SpellbookTileToggle
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - WizApprentice
   disableRefund: true
 
 # Special

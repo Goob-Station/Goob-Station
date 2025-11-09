@@ -276,6 +276,9 @@
   id: AnomalyHost
 
 - type: Tag
+  id: WizApprentice
+
+- type: Tag
   id: AppraisalTool
 
 - type: Tag

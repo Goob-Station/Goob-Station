@@ -1,0 +1,14 @@
+- type: entity
+  id: ApprenticesGrimoire
+  name: Apprentices grimoire
+  suffix: Wizard
+  parent: WizardsGrimoire
+  components:
+    - type: Store
+      refundAllowed: true
+      ownerOnly: true # get your own tome!
+      balance:
+        WizCoin: 3
+    - type: Tag
+      tags:
+      - WizApprentice

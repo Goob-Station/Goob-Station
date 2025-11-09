@@ -246,6 +246,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - WizApprentice
   disableRefund: true # Goobstation
 
 # Goob edit - disable events pending revork
