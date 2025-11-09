@@ -212,6 +212,21 @@
     - id: BoxSyringe
     - id: BoxBodyBag # Goob Station
 
+# Goobstation
+- type: entity
+  id: LockerDetectiveFilledHardsuit
+  suffix: Filled, Hardsuit
+  parent: LockerDetective
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillLockerDetective
+        - !type:NestedSelector
+          tableId: FillLockerDetectiveHardsuit
+
 - type: entity
   id: LockerDetectiveFilled
   suffix: Filled
@@ -245,9 +260,16 @@
     - id: BloodTrak # Goobstation
     - id: Betty # Goobstation
     - id: BoxTapeRecorder # DeltaV
-    - id: OxygenTankFilled # Goobstation
-    - id: NitrogenTankFilled # Goobstation
-    - id: ClothingOuterHardsuitDetective # Goobstation
+
+# Goobstation
+- type: entityTable
+  id: FillLockerDetectiveHardsuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterHardsuitDetective
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingMaskBreath
 
 - type: entity
   id: ClosetBombFilled
