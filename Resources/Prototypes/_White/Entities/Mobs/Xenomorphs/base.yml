@@ -153,11 +153,8 @@
   id: BaseMobXenomorphAdult
   abstract: true
   components:
-  - type: Tool
+  - type: Prying #Switched from Tools component to this
     speedModifier: 1.5
-    qualities:
-    - Prying
-  - type: Prying
     pryPowered: true
   - type: ComplexInteraction
   - type: Hands

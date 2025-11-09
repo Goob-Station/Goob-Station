@@ -19,9 +19,6 @@ namespace Content.Server.Heretic.Components;
 public sealed partial class MansusGraspComponent : Component
 {
     [DataField]
-    public string? Path;
-
-    [DataField]
     public TimeSpan CooldownAfterUse = TimeSpan.FromSeconds(10);
 
     [DataField]
