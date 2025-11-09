@@ -17512,3 +17512,79 @@ Entries:
       message: Fixed blackscreen when vox with specific hair markings gets decapped.
   id: 1964
   time: '2025-11-07T11:32:33.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Fixed stamina damage using attackers armor as stamina modifier.
+  id: 1965
+  time: '2025-11-08T14:34:28.0000000+00:00'
+- author: Gab
+  changes:
+    - type: Fix
+      message: Xenomorphs are no longer used for prying.
+  id: 1966
+  time: '2025-11-08T16:09:56.0000000+00:00'
+- author: TaserTheFox
+  changes:
+    - type: Tweak
+      message: Tweaked command highlights.
+  id: 1967
+  time: '2025-11-08T16:11:10.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Fix
+      message: >-
+        Fixed syndicate bomb text saying it was a minimum of 180 seconds (it's
+        actually 60)
+  id: 1968
+  time: '2025-11-08T16:11:53.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Heretics must complete their objectives in order to ascend.
+    - type: Fix
+      message: Fix not being able to sacrifice crit targets as heretic.
+  id: 1969
+  time: '2025-11-08T16:13:55.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: >-
+        Atmos backpack has a delay, still faster than fire extinguisher but you
+        can't spam it.
+    - type: Tweak
+      message: Miner salvine overdose damage nerfed by 3x.
+  id: 1970
+  time: '2025-11-08T17:41:19.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Flesh heretic path completely reworked!
+    - type: Add
+      message: You can now eat body parts.
+  id: 1971
+  time: '2025-11-08T17:43:28.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Added Hell Ripte scroll and special demon heart to wizard grimoire.
+    - type: Fix
+      message: Fixed slaughter demons dealing less damage than intended.
+    - type: Remove
+      message: Removed slaughter demon kill wizard objective.
+  id: 1972
+  time: '2025-11-08T17:48:32.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: Added fun!
+    - type: Remove
+      message: Removed fun!
+    - type: Tweak
+      message: Changed fun!
+    - type: Fix
+      message: >-
+        Fixed security suits from cargo not having proper contraband
+        classification
+  id: 1973
+  time: '2025-11-08T23:52:35.0000000+00:00'
