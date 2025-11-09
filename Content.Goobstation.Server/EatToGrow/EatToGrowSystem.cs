@@ -2,6 +2,7 @@ using Content.Goobstation.Shared.EatToGrow;
 using Content.Server.Nutrition.Components;
 using Content.Shared.Nutrition;
 using JetBrains.Annotations;
+using Robust.Server.GameObjects;
 using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
@@ -13,12 +14,13 @@ namespace Content.Goobstation.Server.EatToGrow;
 
 public sealed class EatToGrowSystem : EntitySystem
 {
+
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<FoodComponent, BeforeFullyEatenEvent>(OnFoodEaten);
-        SubscribeLocalEvent<EatToGrowComponent, ComponentGetState>(OnGetState);
     }
 
     private void OnFoodEaten(Entity<FoodComponent> ent, ref BeforeFullyEatenEvent args)
@@ -42,6 +44,20 @@ public sealed class EatToGrowSystem : EntitySystem
         comp.CurrentScale += comp.Growth;
         comp.CurrentScale = MathF.Min(comp.CurrentScale, comp.MaxGrowth);
 
+        // Scale Command
+        var physics = _entityManager.System<SharedPhysicsSystem>();
+        var appearance = _entityManager.System<AppearanceSystem>();
+
+        _entityManager.EnsureComponent<ScaleVisualsComponent>(eater);
+        var @event = new ScaleEntityEvent();
+        _entityManager.EventBus.RaiseLocalEvent(eater, ref @event);
+
+        var appearanceComponent = _entityManager.EnsureComponent<AppearanceComponent>(eater);
+        if (!appearance.TryGetData<Vector2>(eater, ScaleVisuals.Scale, out var oldScale, appearanceComponent))
+            oldScale = Vector2.One;
+
+        appearance.SetData(eater, ScaleVisuals.Scale, oldScale * comp.CurrentScale, appearanceComponent);
+        // Scale command end
         Dirty(eater, comp); // Sync updated growth to client.
 
         // Grow the fixture by 1/4 the growth
@@ -58,10 +74,5 @@ public sealed class EatToGrowSystem : EntitySystem
             }
         }
         return; // If fails, return
-    }
-
-    private void OnGetState(EntityUid uid, EatToGrowComponent comp, ref ComponentGetState args)
-    {
-        args.State = new EatToGrowComponentState(comp.Growth, comp.MaxGrowth, comp.CurrentScale);
     }
 };
