@@ -335,9 +335,9 @@
     definitions:
     - spawnerPrototype: SpawnPointApprenticeToken
       prefRoles: [ MidroundApprentice ]
-      playerRatio: 20
+      playerRatio: 1
       min: 1
-      max: 3
+      max: 1
       pickPlayer: false
       mindRoles:
       - MindRoleApprenticeMidround
