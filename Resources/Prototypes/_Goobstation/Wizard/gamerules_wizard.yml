@@ -72,6 +72,71 @@
       - RoundstartAntag
 
 - type: entity
+  parent: BaseGameRule
+  id: ApprenticeMidround
+  components:
+  - type: StationEvent
+    earliestStart: 30
+    weight: 2
+    minimumPlayers: 30
+  - type: AntagObjectives
+    objectives:
+    - WizardSurviveObjective
+  - type: AntagRandomObjectives
+    maxDifficulty: 6
+    sets:
+    - groups: ObjectivesApprentice
+  - type: AntagSelection
+    useCharacterNames: true
+    selectionTime: PostPlayerSpawn
+    agentName: apprentice-roundend-name
+    definitions:
+    - spawnerPrototype: SpawnPointApprentice
+      prefRoles: [ MidroundApprentice ]
+      playerRatio: 20
+      min: 1
+      max: 3
+      pickPlayer: false
+      mindRoles:
+      - MindRoleApprenticeMidround
+      startingGear: ApprenticeGearMidround
+      unequipOldGear: true
+      roleLoadout:
+      - RoleSurvivalEVA
+      briefing:
+        text: apprentice-midround-role-greeting
+        color: Yellow
+        sound: /Audio/_DV/CosmicCult/antag_cosmic_briefing.ogg # it's somewhat fitting I guess
+      components:
+      - type: Apprentice
+      - type: CanEnchant
+      - type: LanguageKnowledge
+        speaks: []
+        understands: []
+      - type: UniversalLanguageSpeaker
+      - type: TowerOfBabel
+      - type: LanguageSpeaker
+      - type: RandomMetadata
+        nameSegments:
+        - WizardFirst
+        - WizardLast
+        nameFormat: name-format-standard
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+  - type: AntagLoadProfileRule
+    speciesOverride: Human
+    speciesOverrideBlacklist:
+    - Yowie
+    - Plasmaman
+  - type: RuleGrids
+  - type: LoadMapRule
+    mapPath: /Maps/_Goobstation/Nonstations/wizden.yml
+  - type: Tag
+    tags:
+      - MidroundAntag
+
+- type: entity
   parent: BaseWizardRule
   id: Wizard
 
@@ -154,6 +219,8 @@
       - type: NpcFactionMember
         factions:
         - Wizard
+
+
 
 - type: entity
   parent: BaseGameRule

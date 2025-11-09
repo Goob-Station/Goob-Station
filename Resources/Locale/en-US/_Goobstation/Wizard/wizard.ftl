@@ -37,3 +37,12 @@ lich-greeting =
     You're a lich.
 
 objective-condition-wizard-alive-title = Ensure wizard {$targetName} stays alive.
+
+roles-antag-midround-apprentice-name = Apprentice
+roles-antag-midround-apprentice-description = Prove yourself to the Space Wizard Federation.
+
+roles-midround-apprentice-name = Wizard Apprentice
+roles-midround-apprentice-objective = Prove yourself to the Space Wizard Federation so you can become a full fledged wizard!
+
+apprentice-midround-role-greeting =
+    You are a student wizard that has taken an internship. You must complete your objectives or you won't be able to graduate from Wizard School. The Space Wizard Federation has provided you with a limited magical wizard grimoire which you can use to learn devastating spells.

@@ -1,0 +1,45 @@
+- type: weightedRandom
+  id: ObjectivesApprentice
+  weights:
+    ApprenticeObjectivesRP: 1
+    ApprenticeObjectivesKill: 1
+    ApprenticeObjectiveGroupSteal: 1
+
+# Roleplay/light objectives group
+- type: weightedRandom
+  id: ApprenticeObjectivesRP
+  weights:
+    ApprenticeShowProwessObjective: 1
+    ApprenticeCollectComponentsObjective: 1
+    ApprenticeStageShowObjective: 1
+    ApprenticeRitualCircleObjective: 1
+    ApprenticeMercifulHealerObjective: 1
+    ApprenticeDiplomacyObjective: 1
+
+# Impactful objectives group
+- type: weightedRandom
+  id: ApprenticeObjectivesKill
+  weights:
+    ApprenticeProveSelfKillObjective: 1
+    ApprenticeMaroonTargetObjective: 1
+    ApprenticeKillRandomHeadObjective: 1
+
+#Steal objectives group
+- type: weightedRandom
+  id: ApprenticeObjectiveGroupSteal
+  weights:
+    ApprenticeCaptainIDStealObjective: 1
+    ApprenticeCMOHyposprayStealObjective: 1
+    ApprenticeCMORapidSyringeGunStealObjective: 1
+    ApprenticeRDHardsuitStealObjective: 1
+    ApprenticeNukeDiskStealObjective: 1
+    ApprenticeMagbootsStealObjective: 1
+    ApprenticeCorgiMeatStealObjective: 1
+    ApprenticeClipboardStealObjective: 1
+    ApprenticeCaptainGunStealObjective: 0.5
+    ApprenticeCaptainJetpackStealObjective: 0.5
+    ApprenticeHandTeleporterStealObjective: 0.5
+    ApprenticeEnergyShotgunStealObjective: 0.5
+    ApprenticeStealSupermatterSliverObjective: 0.5
+    ApprenticeLawbringerStealObjective: 0.5
+    ApprenticeGeminiProjectorStealObjective: 0.5

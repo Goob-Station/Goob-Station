@@ -27,6 +27,18 @@
     roleType: Familiar
   - type: ApprenticeRole
 
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleApprenticeMidround
+  name: Apprentice Role
+  components:
+  - type: MindRole
+    antagPrototype: Apprentice
+    exclusiveAntag: true
+    roleType: TeamAntagonist
+    subType: role-subtype-apprentice
+  - type: ApprenticeRole
+
 - type: antag
   id: Wizard
   name: roles-antag-wizard-name
@@ -49,6 +61,21 @@
   setPreference: false
   objective: roles-antag-apprentice-description
 
+- type: antag
+  id: MidroundApprentice
+  name: roles-antag-midround-apprentice-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-midround-apprentice-description
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 600 # 10 hours
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
+    - Yowie
+
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
@@ -60,6 +87,26 @@
     rules: ghost-role-information-antagonist-rules
     mindRoles:
     - MindRoleGhostRoleFreeAgent
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Clothing/Head/Hats/wizardhat.rsi
+        state: icon
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointApprentice
+  components:
+  - type: GhostRole
+    name: roles-midround-apprentice-name
+    description: roles-midround-apprentice-objective
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

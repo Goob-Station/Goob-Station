@@ -31,3 +31,350 @@
     title: objective-condition-wizard-alive-title
     dynamicName: true
     showJobTitle: false
+
+# Base apprentice objectives
+
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseApprenticeObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-wizard-federation
+    difficulty: 1
+    icon:
+      sprite: Clothing/Head/Hats/wizardhat.rsi
+      state: icon
+
+- type: entity
+  abstract: true
+  parent: [BaseApprenticeObjective, BaseStealObjective]
+  id: BaseApprenticeStealObjective
+  components:
+  - type: StealCondition
+    verifyMapExistence: false
+  - type: Objective
+    difficulty: 2
+
+- type: entity
+  abstract: true
+  parent: BaseApprenticeObjective
+  id: BaseApprenticeRoleplayObjective
+  components:
+  - type: RoleplayObjective
+
+# Apprentice specific fun / flavour objectives
+# These are given to midround apprentices to encourage engaging RP and light goals.
+
+- type: entity
+  parent: BaseApprenticeRoleplayObjective
+  id: ApprenticeShowProwessObjective
+  name: Demonstrate your magical prowess
+  description: Show the station you have more than party tricks. Cast spells flamboyantly, impress the crew and make them remember you.
+  components:
+  - type: Objective
+    difficulty: 1
+
+- type: entity
+  parent: BaseApprenticeRoleplayObjective
+  id: ApprenticeCollectComponentsObjective
+  name: Gather arcane components
+  description: Collect curiosities for your studies (rare items, advanced technology). Display them proudly in a makeshift laboratory.
+  components:
+  - type: Objective
+    difficulty: 1
+
+- type: entity
+  parent: BaseApprenticeRoleplayObjective
+  id: ApprenticeStageShowObjective
+  name: Put on a grand stage show
+  description: Transform a public area into a theater and perform a dazzling multi-spell show for gathered crew.
+  components:
+  - type: Objective
+    difficulty: 1
+
+- type: entity
+  parent: BaseApprenticeRoleplayObjective
+  id: ApprenticeRitualCircleObjective
+  name: Construct a ritual circle
+  description: Arrange at least six valuable items into a convincing arcane circle and construct a ritual.
+  components:
+  - type: Objective
+    difficulty: 1
+
+- type: entity
+  parent: BaseApprenticeRoleplayObjective
+  id: ApprenticeMercifulHealerObjective
+  name: Practice merciful thaumaturgy
+  description: Heal or save at least five different injured crew members using arcane means.
+  components:
+  - type: Objective
+    difficulty: 1
+
+- type: entity
+  parent: BaseApprenticeRoleplayObjective
+  id: ApprenticeDiplomacyObjective
+  name: Negotiate magical tolerance
+  description: Broker a temporary truce or treaty with security or command granting sanctioned spell demonstrations.
+  components:
+  - type: Objective
+    difficulty: 1
+
+## kill objectives
+
+- type: entity
+  parent: [BaseApprenticeObjective, BaseKillObjective]
+  id: ApprenticeProveSelfKillObjective
+  name: Prove yourself to the Federation
+  description: The Wizard Federation demands true commitment. Eliminate the designated target using your magic.
+  components:
+  - type: Objective
+    difficulty: 2
+  - type: TargetObjective
+    title: objective-condition-apprentice-prove-title
+  - type: KillPersonCondition
+    requireDead: true
+    requireMaroon: false
+
+- type: entity
+  parent: [BaseApprenticeObjective, BaseKillObjective]
+  id: ApprenticeMaroonTargetObjective
+  name: Maroon the chosen adversary
+  description: Prove strategic cunning by ensuring your designated target is either dead or stranded when evacuation ends.
+  components:
+  - type: Objective
+    difficulty: 2
+  - type: TargetObjective
+    title: objective-condition-apprentice-maroon-title
+  - type: KillPersonCondition
+    requireDead: false
+    requireMaroon: true
+
+- type: entity
+  parent: [BaseApprenticeObjective, BaseKillObjective]
+  id: ApprenticeKillRandomHeadObjective
+  description: Ensure the demise of this head of staff to demonstrate your magical prowess.
+  components:
+  - type: Objective
+    difficulty: 3.0
+    unique: true
+  - type: TargetObjective
+    title: objective-condition-kill-maroon-title
+  - type: PickRandomHead
+  - type: KillPersonCondition
+    requireDead: true
+    requireMaroon: true
+
+## Steal Objectives
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseApprenticeStealObjective
+  id: ApprenticeStealSupermatterSliverObjective
+  components:
+  - type: Objective
+    difficulty: 3.5
+  - type: StealCondition
+    verifyMapExistence: true
+    stealGroup: SupermatterSliver
+    objectiveNoOwnerText: objective-condition-steal-smsliver-title
+    descriptionText: objective-condition-steal-smsliver-description
+
+## ntr
+
+- type: entity
+  parent: BaseApprenticeStealObjective
+  id: ApprenticeExecutiveBriefcaseStealObjective
+  components:
+  - type: Objective
+    difficulty: 3
+  - type: StealCondition
+    stealGroup: ExecutiveBriefcase
+
+## hos
+
+- type: entity
+  parent: BaseApprenticeStealObjective
+  id: ApprenticeLawbringerStealObjective
+  components:
+  - type: Objective
+    difficulty: 3
+  - type: StealCondition
+    stealGroup: WeaponEnergyGunLawbringer
+    owner: job-name-hos
+
+- type: entity
+  parent: BaseApprenticeStealObjective
+  id: ApprenticeJusticeStealObjective
+  components:
+  - type: Objective
+    difficulty: 3
+  - type: StealCondition
+    stealGroup: WeaponSecHeadSword
+    owner: job-name-hos
+
+## cmo
+
+- type: entity
+  abstract: true
+  parent: BaseApprenticeStealObjective
+  id: ApprenticeBaseCMOStealObjective
+  components:
+  - type: StealCondition
+    owner: job-name-cmo
+
+- type: entity
+  parent: ApprenticeBaseCMOStealObjective
+  id: ApprenticeCMOHyposprayStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: Hypospray
+  - type: Objective
+    difficulty: 3
+
+- type: entity
+  parent: ApprenticeBaseCMOStealObjective
+  id: ApprenticeCMORapidSyringeGunStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: RapidSyringeGun
+  - type: Objective
+    difficulty: 3
+
+## rd
+
+- type: entity
+  abstract: true
+  parent: BaseApprenticeStealObjective
+  id: ApprenticeBaseRDStealObjective
+  components:
+  - type: StealCondition
+    owner: job-name-rd
+
+- type: entity
+  parent: ApprenticeBaseRDStealObjective
+  id: ApprenticeRDHardsuitStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: ClothingOuterHardsuitRd
+  - type: Objective
+    # This item must be worn or stored in a slowing duffelbag, very hard to hide.
+    difficulty: 3
+
+- type: entity
+  parent: ApprenticeBaseRDStealObjective
+  id: ApprenticeHandTeleporterStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: HandTeleporter
+
+- type: entity
+  parent: ApprenticeBaseRDStealObjective
+  id: ApprenticeGeminiProjectorStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: ClothingBeltGeminiHoloProjector
+    descriptionText: objective-condition-steal-gemini-projector-description
+  - type: Objective
+    difficulty: 3
+
+## warden
+
+- type: entity
+  parent: BaseApprenticeStealObjective
+  id: ApprenticeEnergyShotgunStealObjective
+  components:
+  - type: Objective
+    difficulty: 3
+  - type: StealCondition
+    stealGroup: WeaponEnergyShotgun
+    owner: job-name-warden # Goob edit
+
+## ce
+
+- type: entity
+  abstract: true
+  parent: BaseApprenticeStealObjective
+  id: ApprenticeBaseCEStealObjective
+  components:
+  - type: NotJobRequirement
+    job: ChiefEngineer
+  - type: StealCondition
+    owner: job-name-ce
+
+- type: entity
+  parent: ApprenticeBaseCEStealObjective
+  id: ApprenticeMagbootsStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: ClothingShoesBootsMagAdv
+
+## qm
+
+- type: entity
+  parent: BaseApprenticeStealObjective
+  id: ApprenticeClipboardStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: BoxFolderQmClipboard
+    owner: job-name-qm
+
+- type: entity
+  parent: BaseApprenticeStealObjective
+  id: ApprenticeKnuckleDustersStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: ClothingHandsKnuckleDustersQM
+    owner: job-name-qm
+
+## hop
+
+- type: entity
+  parent: BaseApprenticeStealObjective
+  id: ApprenticeCorgiMeatStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: FoodMeatCorgi
+    owner: objective-condition-steal-Ian
+
+## cap
+
+- type: entity
+  abstract: true
+  parent: BaseApprenticeStealObjective
+  id: ApprenticeBaseCaptainObjective
+  components:
+  - type: Objective
+    difficulty: 3
+
+- type: entity
+  parent: ApprenticeBaseCaptainObjective
+  id: ApprenticeCaptainIDStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: CaptainIDCard
+
+- type: entity
+  parent: ApprenticeBaseCaptainObjective
+  id: ApprenticeCaptainJetpackStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: JetpackCaptainFilled
+
+- type: entity
+  parent: ApprenticeBaseCaptainObjective
+  id: ApprenticeCaptainGunStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: WeaponAntiqueLaser
+    owner: job-name-captain
+
+- type: entity
+  parent: ApprenticeBaseCaptainObjective
+  id: ApprenticeNukeDiskStealObjective
+  components:
+  - type: Objective
+    difficulty: 4
+  - type: StealCondition
+    stealGroup: NukeDisk
+    owner: objective-condition-steal-station

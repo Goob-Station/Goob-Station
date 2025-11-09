@@ -131,3 +131,15 @@
     rules: ghost-role-information-wraith-rules
     raffle:
       settings: short
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointApprentice
+  id: SpawnPointApprenticeToken
+  components:
+  - type: GhostRole
+    name: ghost-role-information-apprentice-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-antagonist-rules
+    raffle:
+      settings: short

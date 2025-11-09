@@ -21,6 +21,20 @@
     pocket2: WizardsGrimoire
 
 - type: startingGear
+  id: ApprenticeGearMidround
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorDarkBlue
+    head: ClothingHeadHatWizardReal
+    outerClothing: ClothingOuterWizardReal
+    shoes: ClothingShoesWizard
+    back: ClothingBackpack
+    belt: ScrollTeleport
+    gloves: ClothingHandsGlovesWizard
+    id: WizardPDA
+    pocket1: CrowbarWizard
+    pocket2: ApprenticesGrimoire
+
+- type: startingGear
   id: LichGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBlack
