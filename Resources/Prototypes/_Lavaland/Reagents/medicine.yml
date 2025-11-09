@@ -66,8 +66,8 @@
           min: 21
         damage:
           types:
-            Poison: 15
-            Cold: 15
+            Poison: 5
+            Cold: 5
       - !type:Jitter
       - !type:PopupMessage
         type: Local
