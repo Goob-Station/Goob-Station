@@ -130,7 +130,7 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
         var powerQ = GetEntityQuery<CombatPowerComponent>();
 
         // var humanoidQ = GetEntityQuery<HumanoidAppearanceComponent>();
-        var stationGrids = _stationSystem.GetAllStationGrids();
+        var stationGrids = _stationSystem.GoobGetAllStationGrids();
 
         while (query.MoveNext(out var uid, out var mind, out var mobState, out var damage, out var transform))
         {

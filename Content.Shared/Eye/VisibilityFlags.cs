@@ -20,11 +20,14 @@ namespace Content.Shared.Eye
     {
         None = 0,
         Normal = 1 << 0,
-        Ghost = 1 << 1,
-        Subfloor = 1 << 2,
-        Abductor = 1 << 3, // Shitmed Change - Starlight Abductor
-        CosmicCultMonument = 1 << 4, // DeltaV - DeltaV - Cosmic Cult
-        EldritchInfluence = 1 << 5, // Goobstation
-        EldritchInfluenceSpent = 1 << 6, // Goobstation
+        Ghost = 1 << 1, // Observers and revenants.
+        Subfloor = 1 << 2, // Pipes, disposal chutes, cables etc. while hidden under tiles. Can be revealed with a t-ray.
+        Admin = 1 << 3, // Reserved for admins in stealth mode and admin tools.
+        Abductor = 1 << 4, // Shitmed Change - Starlight Abductor
+        CosmicCultMonument = 1 << 5, // DeltaV - DeltaV - Cosmic Cult
+        EldritchInfluence = 1 << 6, // Goobstation
+        EldritchInfluenceSpent = 1 << 7, // Goobstation
+        //todo marty doublecheck updated vis flags. - all goob ones +1, admin is new flag
+
     }
 }

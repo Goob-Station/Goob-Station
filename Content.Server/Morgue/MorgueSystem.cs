@@ -30,8 +30,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Storage.Components;
-using Content.Shared.Body.Components;
 using Content.Shared.Examine;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Morgue;
 using Content.Shared.Morgue.Components;
 using Robust.Shared.Audio.Systems;
@@ -90,7 +90,7 @@ public sealed class MorgueSystem : EntitySystem
 
         foreach (var ent in storage.Contents.ContainedEntities)
         {
-            if (!hasMob && HasComp<BodyComponent>(ent))
+            if (!hasMob && HasComp<MobStateComponent>(ent))
                 hasMob = true;
 
             if (HasComp<ActorComponent>(ent))

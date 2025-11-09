@@ -110,7 +110,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!; // Goobstation - Add Cooldown to shock to prevent entity overload
 
-    private static readonly ProtoId<StatusEffectPrototype> StatusEffectKey = "Electrocution";
+    private static readonly ProtoId<StatusEffectPrototype> StatusKeyIn = "Electrocution";
     private static readonly ProtoId<DamageTypePrototype> DamageType = "Shock";
     private static readonly ProtoId<TagPrototype> WindowTag = "Window";
 
@@ -474,18 +474,23 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         }
 
         if (!Resolve(uid, ref statusEffects, false) ||
-            !_statusEffects.CanApplyEffect(uid, StatusEffectKey, statusEffects))
+            !_statusEffects.CanApplyEffect(uid, StatusKeyIn, statusEffects))
         {
             return false;
         }
 
-        if (!_statusEffects.TryAddStatusEffect<ElectrocutedComponent>(uid, StatusEffectKey, time, refresh, statusEffects))
+        if (!_statusEffects.TryAddStatusEffect<ElectrocutedComponent>(uid, StatusKeyIn, time, refresh, statusEffects))
             return false;
 
         var shouldStun = siemensCoefficient > 0.5f;
 
         if (shouldStun)
-            _stun.TryParalyze(uid, time * ParalyzeTimeMultiplier, refresh, statusEffects);
+        {
+            _ = refresh
+                ? _stun.TryUpdateParalyzeDuration(uid, time * ParalyzeTimeMultiplier)
+                : _stun.TryAddParalyzeDuration(uid, time * ParalyzeTimeMultiplier);
+        }
+            
 
         // TODO: Sparks here.
 

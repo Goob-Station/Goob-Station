@@ -152,6 +152,7 @@
   id: PotassiumExplosion
   impact: High
   priority: 20
+  conserveEnergy: false
   reactants:
     Water:
       amount: 1
@@ -160,15 +161,16 @@
   effects:
     - !type:ExplosionReactionEffect
       explosionType: Default
-      maxIntensity: 100
-      intensityPerUnit: 0.5 # 50+50 reagent for maximum explosion
-      intensitySlope: 4
+      intensityPerUnit: 0.25
       maxTotalIntensity: 100
+      intensitySlope: 4
+      maxIntensity: 7
 
 - type: reaction
   id: Smoke
-  priority: 10
+  priority: -10
   impact: High
+  conserveEnergy: false
   reactants:
     Phosphorus:
       amount: 1
@@ -185,8 +187,9 @@
 
 - type: reaction
   id: Foam
-  priority: 10
+  priority: -10
   impact: High
+  conserveEnergy: false
   reactants:
     Fluorosurfactant:
       amount: 1
@@ -202,7 +205,8 @@
 - type: reaction
   id: IronMetalFoam
   impact: High
-  priority: 10
+  priority: -10
+  conserveEnergy: false
   reactants:
     Iron:
       amount: 3
@@ -220,7 +224,8 @@
 - type: reaction
   id: AluminiumMetalFoam
   impact: High
-  priority: 10
+  priority: -10
+  conserveEnergy: false
   reactants:
     Aluminium:
       amount: 3
@@ -239,6 +244,7 @@
   id: UraniumEmpExplosion
   impact: High
   priority: 20
+  conserveEnergy: false
   reactants:
     Iron:
       amount: 1
@@ -257,6 +263,7 @@
   id: Flash
   impact: High
   priority: 20
+  conserveEnergy: false
   reactants:
     Aluminium:
       amount: 1

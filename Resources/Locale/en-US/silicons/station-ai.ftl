@@ -8,10 +8,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # General
-ai-wire-snipped = Wire has been cut at {$coords}.
+ai-wire-snipped = One of your systems' wires has been cut at {$source}.
 wire-name-ai-vision-light = AIV
 wire-name-ai-act-light = AIA
 station-ai-takeover = AI takeover
+station-ai-eye-name = AI eye - {$name}
 
 # Radial actions
 ai-open = Open actions
@@ -53,5 +54,3 @@ station-ai-hologram-male = Male appearance
 station-ai-hologram-face = Disembodied head
 station-ai-hologram-cat = Cat form
 station-ai-hologram-dog = Corgi form
-station-ai-hologram-kobold = Kobold form
-station-ai-hologram-monkey = Monkey form

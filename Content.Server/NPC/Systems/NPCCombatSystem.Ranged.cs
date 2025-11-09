@@ -245,7 +245,7 @@ public sealed partial class NPCCombatSystem
 
             break;
 
-            // Goobstation
+            // Goobstation // todo marty why was this missing earlier? pasted from repo.
             void UpdatePointerLineNoTarget()
             {
                 if (TryComp(gunUid, out LaserPointerComponent? pointer) && TryComp(gunUid, out WieldableComponent? wieldable))

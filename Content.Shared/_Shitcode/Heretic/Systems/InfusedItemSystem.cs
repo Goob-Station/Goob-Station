@@ -55,7 +55,7 @@ public sealed class InfusedItemSystem : EntitySystem
         if (HasComp<StatusEffectsComponent>(target))
         {
             _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
-            _stun.TryParalyze(target, TimeSpan.FromSeconds(5f), true);
+            _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(5f));
             _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
         }
 

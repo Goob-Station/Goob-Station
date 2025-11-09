@@ -117,7 +117,7 @@ public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
         var counter = 0;
         foreach (var state in start.Comp.FoodLayers)
         {
-            if (state.Sprite is null && state.Proto != null && _prototypeManager.TryIndex<EntityPrototype>(state.Proto, out var prototype)) // Goobstation - anythingburgers HOLY FUCK THIS IS SO BAD!!! BUT IT WORKS!!
+            if (state.Sprite is null && _prototypeManager.TryIndex<EntityPrototype>(state.Proto, out var prototype)) // Goobstation - anythingburgers HOLY FUCK THIS IS SO BAD!!! BUT IT WORKS!!
             {
                 if (prototype.TryGetComponent<SpriteComponent>(out var spriteComp))
                 {
@@ -168,9 +168,10 @@ public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
             if (start.Comp.InverseLayers)
                 index++;
 
-            _sprite.AddBlankLayer((start.Owner, sprite), index);
-            _sprite.LayerMapSet((start.Owner, sprite), keyCode, index);
-            _sprite.LayerSetSprite((start.Owner, sprite), index, state.Sprite);
+            sprite.AddBlankLayer(index);
+            sprite.LayerMapSet(keyCode, index);
+            sprite.LayerSetSprite(index, state.Sprite);
+            sprite.LayerSetScale(index, state.Scale);
 
             //Offset the layer
             var layerPos = start.Comp.StartPosition;

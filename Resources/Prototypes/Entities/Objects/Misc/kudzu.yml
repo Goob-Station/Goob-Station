@@ -122,7 +122,7 @@
         components:
         - IgnoreKudzu
     - type: Food
-      requiredStomachs: 2 # ruminants have 4 stomachs but i dont care to give them literally 4 stomachs. 2 is good
+      requiresSpecialDigestion: true
       delay: 0.5
     - type: FlavorProfile
       flavors:
@@ -133,6 +133,9 @@
           reagents:
           - ReagentId: Nutriment
             Quantity: 2
+    - type: Tag
+      tags:
+      - Ruminant
 
 - type: entity
   id: WeakKudzu
