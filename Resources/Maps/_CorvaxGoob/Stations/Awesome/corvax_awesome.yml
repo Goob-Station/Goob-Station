@@ -2,15 +2,14 @@ meta:
   format: 7
   category: Map
   engineVersion: 264.0.0
-  forkId: syndicate-goob
-  forkVersion: 12ca58ac04102fccb931420a3d68f43717087934
-  time: 10/28/2025 09:57:32
-  entityCount: 26398
+  forkId: ""
+  forkVersion: ""
+  time: 11/09/2025 05:41:55
+  entityCount: 26396
 maps:
 - 1
 grids:
 - 2
-- 13125
 - 15658
 - 17413
 - 17433
@@ -9074,52 +9073,6 @@ entities:
       id: CorvaxAwesome
     - type: ImplicitRoof
     - type: FTLDrive
-  - uid: 13125
-    components:
-    - type: MetaData
-      name: grid
-    - type: Transform
-      pos: -2.8650627,1.1149979
-      parent: 1
-    - type: MapGrid
-      chunks:
-        3,-2:
-          ind: 3,-2
-          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
-          version: 7
-    - type: Broadphase
-    - type: Physics
-      bodyStatus: InAir
-      fixedRotation: False
-      bodyType: Dynamic
-    - type: Fixtures
-      fixtures: {}
-    - type: OccluderTree
-    - type: SpreaderGrid
-    - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
-      dampingModifier: 0.25
-    - type: GridPathfinding
-    - type: Gravity
-      gravityShakeSound: !type:SoundPathSpecifier
-        path: /Audio/Effects/alert.ogg
-    - type: DecalGrid
-      chunkCollection:
-        version: 2
-        nodes: []
-    - type: GridAtmosphere
-      version: 2
-      data:
-        chunkSize: 4
-    - type: GasTileOverlay
-    - type: IFF
-      flags: HideLabel
-    - type: NavMap
-    - type: FTLDrive
   - uid: 15658
     components:
     - type: MetaData
@@ -13310,7 +13263,7 @@ entities:
       pos: 12.5,-4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -150894.83
+      secondsUntilStateChange: -151159.33
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13321,7 +13274,7 @@ entities:
       pos: 13.5,-4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -150893.25
+      secondsUntilStateChange: -151157.75
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -79924,11 +79877,6 @@ entities:
     - type: Transform
       pos: -6.5,-26.5
       parent: 2
-  - uid: 24691
-    components:
-    - type: Transform
-      pos: -2.5,-27.5
-      parent: 2
   - uid: 26354
     components:
     - type: MetaData
@@ -101879,6 +101827,23 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 22.5,22.5
       parent: 2
+  - uid: 13125
+    components:
+    - type: Transform
+      anchored: False
+      pos: -4.5,-27.5
+      parent: 2
+    - type: Physics
+      bodyType: Dynamic
+  - uid: 13415
+    components:
+    - type: Transform
+      anchored: False
+      rot: -1.5707963267948966 rad
+      pos: -1.5,-28.5
+      parent: 2
+    - type: Physics
+      bodyType: Dynamic
 - proto: GasThermoMachineFreezerEnabled
   entities:
   - uid: 16879
@@ -101888,6 +101853,17 @@ entities:
       parent: 2
     - type: GasThermoMachine
       targetTemperature: 73.15
+- proto: GasThermoMachineHeater
+  entities:
+  - uid: 277
+    components:
+    - type: Transform
+      anchored: False
+      rot: 3.141592653589793 rad
+      pos: -2.5,-27.5
+      parent: 2
+    - type: Physics
+      bodyType: Dynamic
 - proto: GasValve
   entities:
   - uid: 16865
@@ -125296,8 +125272,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 52.5,-17.5
       parent: 2
-    - type: ApcPowerReceiver
-      powerDisabled: True
     - type: DisposalUnit
       nextFlush: 0
     - type: ContainerContainer
@@ -125317,8 +125291,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 52.5,-7.5
       parent: 2
-    - type: ApcPowerReceiver
-      powerDisabled: True
     - type: DisposalUnit
       nextFlush: 0
     - type: ContainerContainer
@@ -125337,8 +125309,6 @@ entities:
     - type: Transform
       pos: 69.5,0.5
       parent: 2
-    - type: ApcPowerReceiver
-      powerDisabled: True
     - type: DisposalUnit
       nextFlush: 0
     - type: ContainerContainer
@@ -125359,8 +125329,6 @@ entities:
     - type: Transform
       pos: 73.5,0.5
       parent: 2
-    - type: ApcPowerReceiver
-      powerDisabled: True
     - type: DisposalUnit
       nextFlush: 0
     - type: ContainerContainer
@@ -168065,11 +168033,15 @@ entities:
     - type: Transform
       pos: 16.5,-27.5
       parent: 2
+    - type: WarpPoint
+      location: Спальня ПНТ
   - uid: 24506
     components:
     - type: Transform
       pos: 16.5,-33.5
       parent: 2
+    - type: WarpPoint
+      location: Спальня ОСЩ
 - proto: WaterCooler
   entities:
   - uid: 1380

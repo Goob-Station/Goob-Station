@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/25/2025 09:31:41
+  time: 11/09/2025 05:41:43
   entityCount: 186
 maps: []
 grids:
@@ -995,6 +995,8 @@ entities:
       anchored: True
       pos: -0.5,1.5
       parent: 1
+    - type: FuelGenerator
+      targetPower: 8000
     - type: Physics
       bodyType: Static
 - proto: Poweredlight
