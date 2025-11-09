@@ -4,12 +4,12 @@
   components:
   - type: ShadowlingRule
   - type: GameRule
-    minPlayers: 30
+    minPlayers: 25
   - type: AntagSelection
     definitions:
     - prefRoles: [ Shadowling ]
-      max: 2
-      playerRatio: 30
+      max: 3
+      playerRatio: 25
       chaosScore: 350
       jobBlacklist: [ Chaplain ] # GOOBSTATION
       blacklist:

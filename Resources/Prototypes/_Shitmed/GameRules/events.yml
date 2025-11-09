@@ -123,12 +123,12 @@
   - type: StationEvent
     earliestStart: 15
     reoccurrenceDelay: 45
-    weight: 4 # Goobstation - 7.5 -> 4
+    weight: 3 # Goobstation - 7.5 -> 4
     minimumPlayers: 20
     duration: null # Goobstation - chud
     chaos:
-      Hostile: 150
-      Medical: 150
+      Hostile: 100
+      Medical: 100
     eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 200
