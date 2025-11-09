@@ -75,7 +75,7 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Cloaks/Veterancap.rsi
     quickEquip: false
-    equippedPrefix: auraless
+    equippedPrefix: aura
     slots:
     - Neck
   - type: ItemSwitch
