@@ -17608,3 +17608,17 @@ Entries:
       message: No more Ryan Gosling zombies
   id: 1976
   time: '2025-11-09T07:34:29.0000000+00:00'
+- author: JohnJohn
+  changes:
+    - type: Add
+      message: >-
+        Added Gambling, slot machines can now be bought from cargo for 1000
+        spesos
+    - type: Add
+      message: >-
+        Added a high roller version of the slot machine for the QM, can be found
+        in their locker
+    - type: Add
+      message: Added a new lawset for the AI "Gambamov"
+  id: 1977
+  time: '2025-11-09T11:28:53.0000000+00:00'
