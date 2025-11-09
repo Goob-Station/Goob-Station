@@ -117,7 +117,7 @@ public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
         var counter = 0;
         foreach (var state in start.Comp.FoodLayers)
         {
-            if (state.Sprite is null && state.Proto != null && _prototypeManager.TryIndex<EntityPrototype>(state.Proto, out var prototype)) // Goobstation - anythingburgers HOLY FUCK THIS IS SO BAD!!! BUT IT WORKS!!
+            if (state.Sprite is null && _prototypeManager.TryIndex<EntityPrototype>(state.Proto, out var prototype)) // Goobstation - anythingburgers HOLY FUCK THIS IS SO BAD!!! BUT IT WORKS!!
             {
                 if (prototype.TryGetComponent<SpriteComponent>(out var spriteComp))
                 {

@@ -74,6 +74,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Actions.Components;
 using Content.Goobstation.Shared.Devour.Events;
+using Content.Shared.Nutrition.Components;
 
 namespace Content.Goobstation.Server.Changeling;
 

@@ -209,7 +209,7 @@ public sealed partial class FoodSequenceStartPointComponent : Component
 /// Stores all the necessary information for rendering the FoodSequence element
 /// </summary>
 [DataRecord, Serializable, NetSerializable]
-public record struct FoodSequenceVisualLayer
+public sealed class FoodSequenceVisualLayer // Goobstation edit: public record struct -> public sealed class
 {
     /// <summary>
     /// reference to the original prototype of the layer. Used to edit visual layers.

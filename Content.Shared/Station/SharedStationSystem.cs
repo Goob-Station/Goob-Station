@@ -179,4 +179,21 @@ public abstract partial class SharedStationSystem : EntitySystem
 
         return null;
     }
+
+    // Goobstation start
+    public HashSet<EntityUid> GoobGetAllStationGrids()
+    {
+        // Collect all grids owned by stations
+        var grids = new HashSet<EntityUid>();
+
+        var query = EntityQueryEnumerator<StationDataComponent>();
+        while (query.MoveNext(out var uid, out var data))
+        {
+            // Add to the list of grids
+            grids.UnionWith(data.Grids);
+        }
+
+        return grids;
+    }
+    // Goobstation end
 }

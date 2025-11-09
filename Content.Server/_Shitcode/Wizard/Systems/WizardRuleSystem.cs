@@ -117,7 +117,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
                 map = GetRandomTargetMap();
             else
             {
-                var stationGrid = _station.GetLargestGrid(Comp<StationDataComponent>(ruleComp.TargetStation.Value));
+                var stationGrid = _station.GetLargestGrid(ruleComp.TargetStation.Value);
                 map = stationGrid == null ? GetRandomTargetMap() : Transform(stationGrid.Value).MapUid;
             }
         }
@@ -251,7 +251,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 
     public IEnumerable<EntityUid?> GetWizardTargetStationGrids()
     {
-        return GetWizardTargetStations().Select(station => _station.GetLargestGrid(station.Comp));
+        return GetWizardTargetStations().Select(station => _station.GetLargestGrid(station.Owner));
     }
 
     public EntityUid? GetWizardTargetRandomStationGrid()

@@ -302,7 +302,7 @@ public sealed class FoodSystem : EntitySystem
         args.Destroy = true;
     }
 
-    private void OnFoodFullyEaten(Entity<FoodComponent> food, ref FullyEatenEvent args)
+    public void OnFoodFullyEaten(Entity<FoodComponent> food, ref FullyEatenEvent args) // Goobstation made public
     {
         if (food.Comp.Trash.Count == 0)
             return;
