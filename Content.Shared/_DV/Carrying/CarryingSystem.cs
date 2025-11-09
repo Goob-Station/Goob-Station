@@ -10,6 +10,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._DV.Polymorph;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Climbing.Events;
@@ -84,6 +85,7 @@ public sealed class CarryingSystem : EntitySystem
         SubscribeLocalEvent<BeingCarriedComponent, UnstrappedEvent>(OnDrop);
         SubscribeLocalEvent<BeingCarriedComponent, EscapeInventoryEvent>(OnDrop);
         SubscribeLocalEvent<CarriableComponent, CarryDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<BeingCarriedComponent, EntityTerminatingEvent>(OnDelete);
     }
 
     private void AddCarryVerb(Entity<CarriableComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
@@ -379,6 +381,9 @@ public sealed class CarryingSystem : EntitySystem
 
         return length;
     }
+
+    private void OnDelete(Entity<BeingCarriedComponent> ent, ref EntityTerminatingEvent args)
+        => DropCarried(ent.Comp.Carrier, ent.Owner);
 
     public override void Update(float frameTime)
     {
