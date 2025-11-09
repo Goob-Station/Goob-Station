@@ -79,6 +79,8 @@
     earliestStart: 30
     weight: 2
     minimumPlayers: 30
+  - type: GameRule
+    chaosScore: 400
   - type: AntagObjectives
     objectives:
     - WizardSurviveObjective
