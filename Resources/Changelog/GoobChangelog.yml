@@ -17602,3 +17602,9 @@ Entries:
       message: Antag immune means antag immune
   id: 1975
   time: '2025-11-09T07:12:15.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: No more Ryan Gosling zombies
+  id: 1976
+  time: '2025-11-09T07:34:29.0000000+00:00'
