@@ -96,12 +96,18 @@ public sealed partial class HereticComponent : Component
     public EntityUid MansusGrasp = EntityUid.Invalid;
 
     [DataField]
-    public List<EntityUid> OurBlades = new();
+    public Dictionary<ProtoId<HereticRitualPrototype>, List<EntityUid>> LimitedTransmutations = new();
 
-    public int MaxBlades => CurrentPath switch
+    // Required for reminiscence, Path -> Blade ritual id
+    [DataField]
+    public Dictionary<string, ProtoId<HereticRitualPrototype>> Blades = new()
     {
-        "Blade" => 4,
-        _ => 2,
+        {"Ash", "BladeAsh"},
+        {"Blade", "BladeBlade"},
+        {"Flesh", "BladeFlesh"},
+        {"Void", "BladeVoid"},
+        {"Rust", "BladeRust"},
+        {"Cosmos", "BladeCosmos"},
     };
 
     [DataField]
