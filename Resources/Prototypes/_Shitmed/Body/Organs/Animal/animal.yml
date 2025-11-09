@@ -20,7 +20,7 @@
     integrityThresholds:
       Normal: 28
       Damaged: 16
-      Destroyed: 0    
+      Destroyed: 0
   - type: Input
     context: "ghost"
   - type: Brain
@@ -47,12 +47,12 @@
   - type: FlavorProfile
     flavors:
       - people
-  - type: FoodSequenceElement
-    entries:
-      burger:
-        name: food-sequence-content-brain
-      taco:
-        name: food-sequence-content-brain
+#  - type: FoodSequenceElement //todo marty see - PR 31012
+#    entries:
+#      burger:
+#        name: food-sequence-content-brain
+#      taco:
+#        name: food-sequence-content-brain
   - type: Item
     size: Small
     heldPrefix: brain
@@ -75,7 +75,7 @@
     integrityThresholds:
       Normal: 12
       Damaged: 6
-      Destroyed: 0    
+      Destroyed: 0
   - type: Eyes
   # end-backmen: surgery
   - type: Sprite

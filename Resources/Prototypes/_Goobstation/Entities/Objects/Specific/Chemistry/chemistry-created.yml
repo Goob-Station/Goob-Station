@@ -37,12 +37,12 @@
           Quantity: 5
         - ReagentId: GastroToxin
           Quantity: 5
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: bear
-    entries:
-      burger: # just in case you really want to
-        name: food-sequence-burger-content-rotten
-      taco:
-        name: food-sequence-content-rotten
+#  - type: FoodSequenceElement  //todo marty see - PR 31012
+#    sprite:
+#      sprite: Objects/Consumable/Food/meat.rsi
+#      state: bear
+#    entries:
+#      burger: # just in case you really want to
+#        name: food-sequence-burger-content-rotten
+#      taco:
+#        name: food-sequence-content-rotten

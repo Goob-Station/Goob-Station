@@ -2386,13 +2386,13 @@
   - type: Construction
     graph: DragonCutlet
     node: dragon cutlet
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: dragoncutlet-cooked
-    entries:
-      burger:
-        name: food-sequence-content-dragon
+#  - type: FoodSequenceElement  //todo marty see - PR 31012
+#    sprite:
+#      sprite: Objects/Consumable/Food/meat.rsi
+#      state: dragoncutlet-cooked
+#    entries:
+#      burger:
+#        name: food-sequence-content-dragon
   - type: Item
     inhandVisuals:
       left:
