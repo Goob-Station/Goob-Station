@@ -17588,3 +17588,11 @@ Entries:
         classification
   id: 1973
   time: '2025-11-08T23:52:35.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Add
+      message: Yowies can now use most humanoid markings
+    - type: Fix
+      message: Yowie fur markings no longer have a missing strip in the midsection
+  id: 1974
+  time: '2025-11-09T07:07:24.0000000+00:00'
