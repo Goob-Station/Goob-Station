@@ -17622,3 +17622,9 @@ Entries:
       message: Added a new lawset for the AI "Gambamov"
   id: 1977
   time: '2025-11-09T11:28:53.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Basalt blocks rads now.
+  id: 1978
+  time: '2025-11-09T12:02:59.0000000+00:00'
