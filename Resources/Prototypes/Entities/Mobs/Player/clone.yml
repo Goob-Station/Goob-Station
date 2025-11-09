@@ -110,6 +110,8 @@
 - type: cloningSettings
   id: ParadoxCloningSettings
   parent: [BaseClone, Antag]
+  components:
+  - Forensics # This is so hugging data is copied to the clone, so you can't hug metagame them
 
 # Upstreamer - requires Changeling devour and transform #34002 or some shit
 ## changeling identity copying
