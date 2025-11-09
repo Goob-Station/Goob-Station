@@ -352,8 +352,6 @@ public sealed partial class ZombieSystem
         //zombies get slowdown once they convert
         _movementSpeedModifier.RefreshMovementSpeedModifiers(target);
         if (TryComp<MechPilotComponent>(target, out var mechPilotComponent)) // Goobstation - kick out zombies from mechs on conversion
-        {
             _mech.TryEject(mechPilotComponent.Mech, null, target);
-        }
     }
 }
