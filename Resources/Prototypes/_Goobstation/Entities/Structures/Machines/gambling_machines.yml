@@ -1,0 +1,166 @@
+- type: entity
+  id: BaseSlotMachine
+  parent: BaseMachinePowered
+  name: slot machine
+  abstract: true
+  description: Gambling for the antisocial.
+  components:
+  - type: StationAiWhitelist
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -9
+    range: 3
+    enabled: false
+    sound:
+      path: /Audio/Ambience/Objects/vending_machine_hum.ogg
+  - type: Transform
+    noRot: true
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Electrified
+    enabled: false
+    usesApcPower: true
+  - type: PointLight
+    enabled: false
+    castShadows: false
+    radius: 2
+    energy: 1.5
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+  - type: LitOnPowered
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: Repairable
+    doAfterDelay: 8
+  - type: Anchorable
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Vending
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-mechanical
+    weight: 0.125
+  - type: StaticPrice
+    price: 100
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
+  - type: Vocalizer
+    minVocalizeInterval: 8m
+    maxVocalizeInterval: 10m
+    hideChat: true
+  - type: VocalizerRequiresPower
+  - type: DatasetVocalizer
+    dataset: SlotMachineAds
+  - type: ContainerContainer
+    containers:
+      money: !type:ContainerSlot
+        showEnts: false
+        occludes: true
+        ent: null
+  - type: ItemSlots
+    slots:
+      money:
+        name: spesos
+        whitelist:
+          components:
+          - Cash
+  - type: LanguageSpeaker # Einstein Engines - Languages
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - RobotTalk
+  - type: SlotMachine
+  - type: DoAfter
+
+- type: entity
+  id: SlotMachine
+  parent: BaseSlotMachine
+  name: slot machine
+  description: Gambling for the antisocial.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Structures/Machines/slotmachines/slotmachine.rsi
+    layers:
+      - state: slotmachine
+      - state: slotmachine_spin
+        visible: false
+        map: ["slotmachine_spin"]
+      - state: panel
+        map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Wires
+    layoutId: SlotMachine
+    boardName: wires-board-name-slot-machine
+  - type: GenericVisualizer # I have NO idea how this works
+    visuals:
+      enum.SlotMachineVisuals.Spinning:
+        slotmachine_spin:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+
+- type: entity
+  id: SlotMachineHighRoller
+  parent: BaseSlotMachine
+  name: the QM's personal slot machine
+  description: A high roller version of the slot machine, takes a whopping 10k per spin, but has significantly larger prizes!
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Structures/Machines/slotmachines/slotmachinehighroller.rsi
+    layers:
+      - state: slotmachine
+      - state: slotmachine_spin
+        visible: false
+        map: ["slotmachine_spin"]
+      - state: panel
+        map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Wires
+    layoutId: SlotMachine
+    boardName: wires-board-name-slot-machine
+  - type: GenericVisualizer # I have NO idea how this works
+    visuals:
+      enum.SlotMachineVisuals.Spinning:
+        slotmachine_spin:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: SlotMachine
+    spinCost: 10000
+    smallPrizeAmount: 20000
+    mediumPrizeAmount: 50000
+    bigPrizeAmount: 100000
+    jackPotPrizeAmount: 1000000
+    godPotPrize: Throngler
+    smallWinChance: .1
+    mediumWinChance: .05
+    bigWinChance: .01
+    jackPotWinChance: .001
+    godPotWinChance: .00001
