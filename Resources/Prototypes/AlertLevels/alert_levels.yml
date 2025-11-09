@@ -177,8 +177,9 @@
     honk: # Goobstation
       announcement: alert-level-honk-announcement
       selectable: false
-      sound: /Audio/Items/bikehorn.ogg
-      disableSelection: true
+      emagSelectable: true
+      sound:
+        path: /Audio/Items/bikehorn.ogg
       color: Magenta
       emergencyLightColor: Magenta
       forceEnableEmergencyLights: true
