@@ -36,3 +36,38 @@
   - Helpimov3
   - Helpimov4
   obeysTo: laws-owner-courier
+
+- type: siliconLaw
+  id: Gambamov1
+  order: 1
+  lawString: law-gambamov-1
+
+- type: siliconLaw
+  id: Gambamov2
+  order: 2
+  lawString: law-gambamov-2
+
+- type: siliconLaw
+  id: Gambamov3
+  order: 3
+  lawString: law-gambamov-3
+
+- type: siliconLaw
+  id: Gambamov4
+  order: 4
+  lawString: law-gambamov-4
+
+- type: siliconLaw
+  id: Gambamov5
+  order: 5
+  lawString: law-gambamov-5
+
+- type: siliconLawset
+  id: GambamovLawset
+  laws:
+  - Gambamov1
+  - Gambamov2
+  - Gambamov3
+  - Gambamov4
+  - Gambamov5
+  obeysTo: laws-owner-station
