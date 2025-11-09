@@ -36,7 +36,6 @@
     antagPrototype: Apprentice
     exclusiveAntag: true
     roleType: TeamAntagonist
-    subType: role-subtype-apprentice
   - type: ApprenticeRole
 
 - type: antag
