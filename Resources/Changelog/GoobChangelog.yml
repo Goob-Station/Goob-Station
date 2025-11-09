@@ -17596,3 +17596,9 @@ Entries:
       message: Yowie fur markings no longer have a missing strip in the midsection
   id: 1974
   time: '2025-11-09T07:07:24.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Antag immune means antag immune
+  id: 1975
+  time: '2025-11-09T07:12:15.0000000+00:00'
