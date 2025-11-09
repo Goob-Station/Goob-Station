@@ -47,7 +47,7 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
         SubscribeLocalEvent<SlaughterDemonComponent, BloodCrawlAttemptEvent>(OnBloodCrawlAttempt);
 
         // devouring
-        SubscribeLocalEvent<SlaughterDemonComponent, SlaughterDevourEvent>(OnSlaughterDevour);
+        SubscribeLocalEvent<SlaughterDevourEvent>(OnSlaughterDevour);
 
         // polymorph shittery
         SubscribeLocalEvent<SlaughterDemonComponent, PolymorphedEvent>(OnPolymorph);
@@ -74,18 +74,11 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
 
     private void OnPolymorph(Entity<SlaughterDemonComponent> ent, ref PolymorphedEvent args)
     {
-        if (!TryComp<SlaughterDevourComponent>(args.NewEntity, out var component)
-            || component.Container == null)
-            return;
-
-        foreach (var entity in ent.Comp.ConsumedMobs)
-        {
-            _container.Insert(entity, component.Container);
-        }
-
         // Cooldown
         foreach (var action in _actions.GetActions(args.NewEntity))
+        {
             _actions.StartUseDelay(action.Owner);
+        }
     }
 
     private void OnBloodCrawlExit(Entity<SlaughterDemonComponent> ent, ref BloodCrawlExitEvent args)
@@ -100,22 +93,16 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
         PredictedSpawnAtPosition(ent.Comp.JauntUpEffect, Transform(ent.Owner).Coordinates);
     }
 
-    private void OnSlaughterDevour(Entity<SlaughterDemonComponent> ent, ref SlaughterDevourEvent args)
+    private void OnSlaughterDevour(ref SlaughterDevourEvent args)
     {
-        var demonUid = ent.Owner;
-        var demon = ent.Comp;
+        var uid = args.pullerEnt;
         var pullingEnt = args.pullingEnt;
 
-        demon.ConsumedMobs.Add(pullingEnt);
-        demon.Devoured++;
-
-        Dirty(ent);
-
-        if (!TryComp<SlaughterDevourComponent>(demonUid, out var slaughterDevour)
+        if (!TryComp<SlaughterDevourComponent>(uid, out var slaughterDevour)
             || slaughterDevour.Container == null)
             return;
 
-        var evAttempt = new SlaughterDevourAttemptEvent(pullingEnt, demonUid);
+        var evAttempt = new SlaughterDevourAttemptEvent(pullingEnt, uid);
         RaiseLocalEvent(pullingEnt, ref evAttempt);
 
         if (evAttempt.Cancelled)
@@ -132,10 +119,18 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
 
         RemoveBlood(pullingEnt);
 
-        _audio.PlayPredicted(slaughterDevour.FeastSound, args.PreviousCoordinates, ent.Owner);
+        _audio.PlayPredicted(slaughterDevour.FeastSound, Transform(uid).Coordinates, uid);
 
-        _slaughterDevour.HealAfterDevouring(pullingEnt, demonUid, slaughterDevour);
-        _slaughterDevour.IncrementObjective(demonUid,pullingEnt, demon);
+        _slaughterDevour.HealAfterDevouring(pullingEnt, uid, slaughterDevour);
+        if (!TryComp(uid, out SlaughterDemonComponent? demon))
+            return;
+
+        _slaughterDevour.IncrementObjective(uid, pullingEnt, demon);
+        demon.ConsumedMobs.Add(pullingEnt);
+        demon.Devoured++;
+
+        Dirty(uid, demon);
+
     }
 
     private void RefreshMovement(EntityUid uid,
