@@ -224,17 +224,20 @@ namespace Content.Client.RoundEnd
                     playerTitleBox.AddChild(playerNameText);
 
                     var role = Loc.GetString(playerInfo.Role);
-                    if (role != "Unknown")
+                    var playerRoleText = new Label
                     {
-                        var playerRoleText = new Label
-                        {
-                            VerticalAlignment = VAlignment.Bottom,
-                            StyleClasses = { StyleNano.StyleClassLabelSubText },
-                            Text = Loc.GetString("round-end-summary-window-player-role",
-                                ("role", role))
-                        };
-                        playerTitleBox.AddChild(playerRoleText);
-                    }
+                        VerticalAlignment = VAlignment.Bottom,
+                        StyleClasses = { StyleNano.StyleClassLabelSubText },
+                        Text = Loc.GetString("round-end-summary-window-player-name",
+                            ("player", playerInfo.PlayerOOCName))
+                    };
+
+                    if (role != "Unknown")
+                        playerRoleText.Text = Loc.GetString("round-end-summary-window-player-name-role",
+                                ("role", role),
+                                ("player", playerInfo.PlayerOOCName));
+
+                    playerTitleBox.AddChild(playerRoleText);
                 }
 
                 textVBox.AddChild(playerTitleBox);
