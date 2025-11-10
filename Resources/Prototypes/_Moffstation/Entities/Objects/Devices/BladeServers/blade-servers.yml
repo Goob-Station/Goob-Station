@@ -6,7 +6,6 @@
   - type: BladeServer
   - type: Machine
   - type: InnerCableReceiver
-  - type: ContainerContainer
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
@@ -73,7 +72,7 @@
 
 - type: entity
   id: ResearchAndDevelopmentBladeServer
-  parent: [ BaseResearchAndDevelopmentServer ]
+  parent: [ BaseResearchAndDevelopmentServer, ConstructibleBladeServer ]
   name: R&D blade server
   description: Contains the collective knowledge of the station's scientists. Destroying it would send them back to the stone age. You don't want that do you?
   components:
@@ -84,7 +83,7 @@
 
 - type: entity
   id: CrewMonitoringBladeServer
-  parent: [ BaseCrewMonitoringServer ]
+  parent: [ BaseCrewMonitoringServer, ConstructibleBladeServer ]
   name: crew monitoring blade server
   description: Receives and relays the status of all active suit sensors on the station.
   components:
