@@ -73,7 +73,7 @@
 
 - type: entity
   id: ResearchAndDevelopmentBladeServer
-  parent: [ BaseResearchAndDevelopmentServer, ConstructibleBladeServer ]
+  parent: [ BaseResearchAndDevelopmentServer ]
   name: R&D blade server
   description: Contains the collective knowledge of the station's scientists. Destroying it would send them back to the stone age. You don't want that do you?
   components:
@@ -84,7 +84,7 @@
 
 - type: entity
   id: CrewMonitoringBladeServer
-  parent: [ BaseCrewMonitoringServer, ConstructibleBladeServer ]
+  parent: [ BaseCrewMonitoringServer ]
   name: crew monitoring blade server
   description: Receives and relays the status of all active suit sensors on the station.
   components:
