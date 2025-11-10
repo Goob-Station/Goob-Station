@@ -188,7 +188,7 @@ public sealed class RadioSystem : EntitySystem
         //     ("channel", $"\\[{channel.LocalizedName}\\]"),
         //     ("name", name),
         //     ("message", content));
-        var wrappedMessage = WrapRadioMessage(messageSource, channel, name, content, language); // Einstein Engines - Language
+
         // start 🌟Starlight🌟
 
         var iconId = "JobIconNoId";
