@@ -430,7 +430,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
             damageableQuery.TryComp(uid, out var damageable);
 
-            var multiplier = 1.5f;
+            var multiplier = 2f;
             var boneHeal = FixedPoint2.Zero;
             var shouldHeal = true;
             if (hereticQuery.TryComp(uid, out var heretic))
@@ -454,13 +454,13 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                         }
                     }
                     else
-                        multiplier = 2.5f;
+                        multiplier = 3f;
 
                     boneHeal = leech.BoneHeal * multiplier;
                 }
             }
             else if (ghoulQuery.HasComp(uid))
-                multiplier = 2.5f;
+                multiplier = 3f;
 
             var otherHeal = boneHeal;
 
