@@ -133,7 +133,7 @@
   worksOnTheDead: true
   metabolisms:
     Medicine:
-      metabolismRate: 0.5
+      metabolismRate: 0.4
       effects:
         - !type:AdjustReagent
           reagent: ChloralHydrate
@@ -177,6 +177,9 @@
               type: Local
               messages: [ "reagent-popup-lingdrenaline" ]
               probability: 0.2
+        - !type:MovespeedModifier
+          walkSpeedModifier: 1.2
+          sprintSpeedModifier: 1.2
         - !type:HealthChange
           conditions:
           - !type:ReagentThreshold
@@ -1034,7 +1037,7 @@
             Heat: -0.38
             Cold: -0.38
             Shock: -0.25
-            Caustic: -0.25 
+            Caustic: -0.25
         conditions:
         - !type:HasComponentOnEquipmentCondition
           components:

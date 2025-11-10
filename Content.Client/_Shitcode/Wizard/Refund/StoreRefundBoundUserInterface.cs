@@ -39,7 +39,7 @@ public sealed class StoreRefundBoundUserInterface : BoundUserInterface
         if (state is not StoreRefundState refundState)
             return;
 
-        _menu?.UpdateListings(refundState.Listings, refundState.RefundDisabled);
+        _menu?.UpdateListings(refundState.Listings, refundState.RefundDisabled, refundState.IndividualRefundDisabled);
         _menu?.Populate();
     }
 

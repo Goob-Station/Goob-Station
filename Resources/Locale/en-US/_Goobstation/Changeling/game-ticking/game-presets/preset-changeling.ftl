@@ -25,3 +25,4 @@ changeling-role-greeting =
 
 changeling-role-greeting-short =
     You are a changeling who has absorbed and taken the initial form of {$name}.
+    You can access hivemind using +h key.

@@ -37,6 +37,7 @@ using System.Numerics;
 using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Common.Store;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
@@ -46,7 +47,6 @@ using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Server.Actions;
-using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
@@ -63,7 +63,9 @@ using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
 using Content.Server.Zombies;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Alert;
 using Content.Shared.Camera;
 using Content.Shared.Chemistry.Components;
@@ -77,6 +79,7 @@ using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Flash.Components;
 using Content.Shared.Fluids;
 using Content.Shared.Forensics.Components;
+using Content.Shared.GameTicking;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
@@ -85,7 +88,6 @@ using Content.Shared.Inventory;
 using Content.Shared.Medical;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -97,7 +99,6 @@ using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Store.Components;
-using Content.Shared.Tag;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -148,9 +149,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuv = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
@@ -165,6 +164,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     public EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";
     public EntProtoId ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
 
+    public List<LocId> ChangelingHivemindNames = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -176,29 +177,104 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, ComponentRemove>(OnComponentRemove);
         SubscribeLocalEvent<ChangelingIdentityComponent, TargetBeforeDefibrillatorZapsEvent>(OnDefibZap);
         SubscribeLocalEvent<ChangelingIdentityComponent, RejuvenateEvent>(OnRejuvenate);
-
         SubscribeLocalEvent<ChangelingIdentityComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
+        SubscribeLocalEvent<ChangelingIdentityComponent, HivemindGetNameEvent>(OnGetName);
+        SubscribeLocalEvent<ChangelingIdentityComponent, AugmentedEyesightPurchasedEvent>(OnAugmentedEyesightPurchased);
+        SubscribeLocalEvent<ChangelingIdentityComponent, StoreListingRefundedEvent>(OnRefund);
 
         SubscribeLocalEvent<ChangelingDartComponent, ProjectileHitEvent>(OnDartHit);
 
-        SubscribeLocalEvent<ChangelingIdentityComponent, AugmentedEyesightPurchasedEvent>(OnAugmentedEyesightPurchased);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRestart);
 
         SubscribeAbilities();
+        ResetHivemindNames();
+    }
+
+    private void OnRefund(Entity<ChangelingIdentityComponent> ent, ref StoreListingRefundedEvent args)
+    {
+        if (!TryComp(ent, out StoreComponent? store))
+            return;
+
+        store.RefundAllowed = false;
+    }
+
+    private void OnGetName(Entity<ChangelingIdentityComponent> ent, ref HivemindGetNameEvent args)
+    {
+        ent.Comp.HivemindName ??= GetNewHivemindName();
+        args.Name = Loc.GetString(ent.Comp.HivemindName);
+    }
+
+    private void OnRestart(RoundRestartCleanupEvent ev)
+    {
+        ResetHivemindNames();
+    }
+
+    private void ResetHivemindNames()
+    {
+        ChangelingHivemindNames =
+        [
+            "changeling-hivemind-name-1",
+            "changeling-hivemind-name-2",
+            "changeling-hivemind-name-3",
+            "changeling-hivemind-name-4",
+            "changeling-hivemind-name-5",
+            "changeling-hivemind-name-6",
+            "changeling-hivemind-name-7",
+            "changeling-hivemind-name-8",
+            "changeling-hivemind-name-9",
+            "changeling-hivemind-name-10",
+            "changeling-hivemind-name-11",
+            "changeling-hivemind-name-12",
+            "changeling-hivemind-name-13",
+            "changeling-hivemind-name-14",
+            "changeling-hivemind-name-15",
+            "changeling-hivemind-name-16",
+            "changeling-hivemind-name-17",
+            "changeling-hivemind-name-18",
+            "changeling-hivemind-name-19",
+            "changeling-hivemind-name-20",
+            "changeling-hivemind-name-21",
+            "changeling-hivemind-name-22",
+            "changeling-hivemind-name-23",
+            "changeling-hivemind-name-24",
+        ];
+    }
+
+    private LocId GetNewHivemindName()
+    {
+        if (ChangelingHivemindNames.Count == 0)
+            ResetHivemindNames();
+        return _rand.PickAndTake(ChangelingHivemindNames);
     }
 
     private void OnDartHit(Entity<ChangelingDartComponent> ent, ref ProjectileHitEvent args)
     {
+        var multiplier = ent.Comp.ReagentMultiplier;
+        if (multiplier <= 0)
+            return;
+
         if (HasComp<ChangelingIdentityComponent>(args.Target))
             return;
 
-        if (ent.Comp.ReagentDivisor <= 0)
+        if (!HasComp<ChangelingIdentityComponent>(args.Shooter))
             return;
 
-        if (!_proto.TryIndex(ent.Comp.StingConfiguration, out var configuration))
+        if (!_mind.TryGetMind(args.Shooter.Value, out var mindId, out _) ||
+            !TryComp(mindId, out ActionsContainerComponent? container))
             return;
 
-        TryInjectReagents(args.Target,
-            configuration.Reagents.Select(x => (x.Key, x.Value / ent.Comp.ReagentDivisor)).ToDictionary());
+        Dictionary<string, FixedPoint2> reagents = new();
+
+        foreach (var ability in container.Container.ContainedEntities)
+        {
+            if (!TryComp(ability, out ChangelingReagentStingComponent? sting))
+                continue;
+
+            var config = _proto.Index(sting.Configuration);
+            reagents = reagents.Concat(config.Reagents).ToDictionary(x => x.Key, x => x.Value * multiplier);
+        }
+
+        TryInjectReagents(args.Target, reagents);
     }
 
     protected override void UpdateFlashImmunity(EntityUid uid, bool active)
@@ -278,7 +354,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (comp.StrainedMusclesActive)
         {
             var stamina = EnsureComp<StaminaComponent>(uid);
-            _stamina.TakeStaminaDamage(uid, 7.5f, visual: false, immediate: false);
+            _stamina.TakeStaminaDamage(uid, 5f, visual: false, immediate: false);
             if (stamina.StaminaDamage >= stamina.CritThreshold || _gravity.IsWeightless(uid))
                 ToggleStrainedMuscles(uid, comp);
         }
@@ -346,32 +422,39 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     }
 
     /// <summary>
-    /// Knocks down and/or stuns entities in range if they aren't a changeling
+    /// Knocks down and slows down entities in range if they aren't a changeling
     /// </summary>
     public void TryScreechStun(EntityUid uid, ChangelingIdentityComponent comp)
     {
-        var nearbyEntities = _lookup.GetEntitiesInRange(uid, comp.ShriekPower);
+        var nearbyEntities =
+            _lookup.GetEntitiesInRange(uid, comp.ShriekPower, LookupFlags.Dynamic | LookupFlags.Contained);
 
-        var stunTime = 2f;
-        var knockdownTime = 4f;
+        var coords = _transform.GetWorldPosition(uid);
 
         foreach (var player in nearbyEntities)
         {
             if (HasComp<ChangelingIdentityComponent>(player))
                 continue;
 
-            var soundEv = new GetFlashbangedEvent(float.MaxValue);
-            RaiseLocalEvent(player, soundEv);
+            var protectionRange = comp.ShriekPower;
+            var ev = new GetFlashbangedEvent(protectionRange);
+            RaiseLocalEvent(player, ev);
+            protectionRange = ev.ProtectionRange;
 
-            if (soundEv.ProtectionRange < float.MaxValue)
-            {
-                _stun.TryStun(player, TimeSpan.FromSeconds(stunTime / 2f), true);
-                _stun.TryKnockdown(player, TimeSpan.FromSeconds(knockdownTime / 2f), true);
+            var distance = (coords - _transform.GetWorldPosition(player)).Length();
+
+            if (distance > protectionRange)
                 continue;
-            }
 
-            _stun.TryStun(player, TimeSpan.FromSeconds(stunTime), true);
-            _stun.TryKnockdown(player, TimeSpan.FromSeconds(knockdownTime), true);
+            var ratio = distance / protectionRange;
+
+            var knockdownTime = float.Lerp(2f, 0f, ratio);
+            if (knockdownTime > 0f)
+                _stun.TryKnockdown(player, TimeSpan.FromSeconds(knockdownTime), true);
+
+            var slowDownTime = float.Lerp(6f, 0f, ratio);
+            if (slowDownTime > 0f)
+                _stun.TrySlowdown(player, TimeSpan.FromSeconds(slowDownTime), true, 0.5f, 0.5f);
         }
     }
 
@@ -821,6 +904,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         // don't want instant stasis
         comp.StasisTime = comp.DefaultStasisTime;
+
+        // Add hivemind
+        var mind = EnsureComp<CollectiveMindComponent>(uid);
+        mind.Channels.Add(HivemindProto);
+
+        comp.HivemindName = GetNewHivemindName();
 
         // show alerts
         UpdateChemicals(uid, comp, 0);

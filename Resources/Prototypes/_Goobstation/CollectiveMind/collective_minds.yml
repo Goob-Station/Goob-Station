@@ -19,7 +19,6 @@
   name: collective-mind-lingmind
   keycode: 'h'
   color: "#FFA000"
-  showNames: false
 
 - type: collectiveMind
   id: Tidemind

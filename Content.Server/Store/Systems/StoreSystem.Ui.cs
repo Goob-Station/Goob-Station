@@ -29,6 +29,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Store;
 using Content.Goobstation.Shared.NTR;
 using Content.Goobstation.Shared.NTR.Events;
 using Content.Server._Goobstation.Wizard.Store;
@@ -487,10 +488,10 @@ public sealed partial class StoreSystem
     }
 
     // Goobstation start
-    private void UpdateRefundUserInterface(EntityUid uid, StoreComponent component)
+    public void UpdateRefundUserInterface(EntityUid uid, StoreComponent component)
     {
         if (!IsOnStartingMap(uid, component))
-            _ui.SetUiState(uid, RefundUiKey.Key, new StoreRefundState(new(), true));
+            _ui.SetUiState(uid, RefundUiKey.Key, new StoreRefundState(new(), true, true));
         else
         {
             List<RefundListingData> listings = new();
@@ -504,7 +505,7 @@ public sealed partial class StoreSystem
                 listings.Add(new RefundListingData(GetNetEntity(bought), name));
             }
 
-            _ui.SetUiState(uid, RefundUiKey.Key, new StoreRefundState(listings, false));
+            _ui.SetUiState(uid, RefundUiKey.Key, new StoreRefundState(listings, false, !component.IndividualRefundsAllowed));
         }
     }
 
@@ -546,6 +547,9 @@ public sealed partial class StoreSystem
 
         Del(boughtEntity);
 
+        var ev = new StoreListingRefundedEvent();
+        RaiseLocalEvent(uid, ref ev);
+
         return true;
     }
 
@@ -558,7 +562,7 @@ public sealed partial class StoreSystem
 
         var listing = GetEntity(args.ListingEntity);
 
-        if (RefundListing(uid, component, listing, buyer, true))
+        if (ent.Comp.IndividualRefundsAllowed && RefundListing(uid, component, listing, buyer, true))
             UpdateUserInterface(buyer, uid, component);
 
         UpdateRefundUserInterface(uid, component);
@@ -621,6 +625,8 @@ public sealed partial class StoreSystem
 
     private bool IsOnStartingMap(EntityUid store, StoreComponent component)
     {
+        if (component.RefundsIgnoreStartingMap)
+            return true;
         var xform = Transform(store);
         return component.StartingMap == xform.MapUid;
     }

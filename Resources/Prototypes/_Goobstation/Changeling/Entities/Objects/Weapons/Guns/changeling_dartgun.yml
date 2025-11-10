@@ -30,15 +30,6 @@
         volume: -5
   - type: ChangelingChemicalsAmmoProvider
     proto: ChangelingDart
-  - type: AmmoSelector
-    soundSelect: null
-  - type: UserInterface
-    interfaces:
-      enum.AmmoSelectorUiKey.Key:
-        type: AmmoSelectorMenuBoundUserInterface
-  - type: ActivatableUI
-    inHandsOnly: true
-    key: enum.AmmoSelectorUiKey.Key
 
 - type: entity
   id: ChangelingDart
@@ -67,43 +58,44 @@
     damage:
       types:
         Piercing: 3
-
-- type: entity
-  id: ChangelingDartMute
-  parent: ChangelingDart
-  name: mute organic dart
-  categories: [ HideSpawnMenu ]
-  suffix: Mute
-  components:
   - type: ChangelingDart
-    stingConfiguration: StingMute
 
-- type: entity
-  id: ChangelingDartBlind
-  parent: ChangelingDart
-  name: blinding organic dart
-  categories: [ HideSpawnMenu ]
-  suffix: Blind
-  components:
-  - type: ChangelingDart
-    stingConfiguration: StingBlind
-
-- type: entity
-  id: ChangelingDartCryo
-  parent: ChangelingDart
-  name: cryogenic organic dart
-  categories: [ HideSpawnMenu ]
-  suffix: Cryo
-  components:
-  - type: ChangelingDart
-    stingConfiguration: StingCryo
-
-- type: entity
-  id: ChangelingDartLethargic
-  parent: ChangelingDart
-  name: lethargic organic dart
-  categories: [ HideSpawnMenu ]
-  suffix: Lethargic
-  components:
-  - type: ChangelingDart
-    stingConfiguration: StingLethargic
+#- type: entity
+#  id: ChangelingDartMute
+#  parent: ChangelingDart
+#  name: mute organic dart
+#  categories: [ HideSpawnMenu ]
+#  suffix: Mute
+#  components:
+#  - type: ChangelingDart
+#    stingConfiguration: StingMute
+#
+#- type: entity
+#  id: ChangelingDartBlind
+#  parent: ChangelingDart
+#  name: blinding organic dart
+#  categories: [ HideSpawnMenu ]
+#  suffix: Blind
+#  components:
+#  - type: ChangelingDart
+#    stingConfiguration: StingBlind
+#
+#- type: entity
+#  id: ChangelingDartCryo
+#  parent: ChangelingDart
+#  name: cryogenic organic dart
+#  categories: [ HideSpawnMenu ]
+#  suffix: Cryo
+#  components:
+#  - type: ChangelingDart
+#    stingConfiguration: StingCryo
+#
+#- type: entity
+#  id: ChangelingDartLethargic
+#  parent: ChangelingDart
+#  name: lethargic organic dart
+#  categories: [ HideSpawnMenu ]
+#  suffix: Lethargic
+#  components:
+#  - type: ChangelingDart
+#    stingConfiguration: StingLethargic
