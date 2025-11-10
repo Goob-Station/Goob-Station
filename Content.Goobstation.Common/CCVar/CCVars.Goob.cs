@@ -596,5 +596,11 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> MinimumPuddleSizeForFootprints =
         CVarDef.Create("footprints.minimum_puddle_size", 6f, CVar.SERVERONLY);
 
+    /// <summary>
+    /// Should heretic ascension ritual be cancelled if heretic hasn't completed their objectives.
+    /// </summary>
+    public static readonly CVarDef<bool> AscensionRequiresObjectives =
+        CVarDef.Create("heretic.ascension_requires_objectives", true, CVar.SERVERONLY);
+
     #endregion
 }
