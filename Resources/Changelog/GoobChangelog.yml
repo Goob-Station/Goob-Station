@@ -17588,3 +17588,43 @@ Entries:
         classification
   id: 1973
   time: '2025-11-08T23:52:35.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Add
+      message: Yowies can now use most humanoid markings
+    - type: Fix
+      message: Yowie fur markings no longer have a missing strip in the midsection
+  id: 1974
+  time: '2025-11-09T07:07:24.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Antag immune means antag immune
+  id: 1975
+  time: '2025-11-09T07:12:15.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: No more Ryan Gosling zombies
+  id: 1976
+  time: '2025-11-09T07:34:29.0000000+00:00'
+- author: JohnJohn
+  changes:
+    - type: Add
+      message: >-
+        Added Gambling, slot machines can now be bought from cargo for 1000
+        spesos
+    - type: Add
+      message: >-
+        Added a high roller version of the slot machine for the QM, can be found
+        in their locker
+    - type: Add
+      message: Added a new lawset for the AI "Gambamov"
+  id: 1977
+  time: '2025-11-09T11:28:53.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Basalt blocks rads now.
+  id: 1978
+  time: '2025-11-09T12:02:59.0000000+00:00'
