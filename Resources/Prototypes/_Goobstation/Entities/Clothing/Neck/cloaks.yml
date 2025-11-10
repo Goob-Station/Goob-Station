@@ -70,6 +70,9 @@
   name: Veteran Captain's cloak
   description: Captains Aura Cloak
   components:
+  - type: Item
+    size: Small
+    heldPrefix: auraless
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/Veterancap.rsi
   - type: Clothing
