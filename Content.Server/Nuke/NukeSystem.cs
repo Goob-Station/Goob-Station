@@ -233,9 +233,8 @@ public sealed class NukeSystem : EntitySystem
             }
         }
         // Goobstation start
-        if (_roundEndTime != null && _gameTiming.CurTime >= _roundEndTime)
+        if (_gameTiming.CurTime >= _roundEndTime)
         {
-            _roundEndTime = null; // prevent re-triggering
             _gameTicker.EndRound();
         }
         // Goobstation end
