@@ -299,47 +299,6 @@ public sealed class RadioSystem : EntitySystem
             ? Loc.GetString("chat-manager-language-prefix", ("language", language.ChatName))
             : "";
 
-        // start 🌟Starlight🌟
-        var iconId = "JobIconNoId";
-        var jobName = "";
-
-        if (_accessReader.FindAccessItemsInventory(source, out var items))
-        {
-            foreach (var item in items)
-            {
-                // ID Card
-                if (TryComp<IdCardComponent>(item, out var id))
-                {
-                    iconId = id.JobIcon;
-                    jobName = id.LocalizedJobTitle;
-                    break;
-                }
-
-                // PDA
-                if (TryComp<PdaComponent>(item, out var pda)
-                    && pda.ContainedId != null
-                    && TryComp(pda.ContainedId, out id))
-                {
-                    iconId = id.JobIcon;
-                    jobName = id.LocalizedJobTitle;
-                    break;
-                }
-            }
-        }
-
-        if (HasComp<BorgChassisComponent>(source) || HasComp<BorgBrainComponent>(source))
-        {
-            iconId = "JobIconBorg";
-            jobName = Loc.GetString("job-name-borg");
-        }
-
-        if (HasComp<StationAiHeldComponent>(source))
-        {
-            iconId = "JobIconStationAi";
-            jobName = Loc.GetString("job-name-station-ai");
-        }
-        // end 🌟Starlight🌟
-
         // goob start - loudspeakers
 
         int? loudSpeakFont = null;
