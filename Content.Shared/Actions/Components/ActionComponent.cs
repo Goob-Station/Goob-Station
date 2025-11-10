@@ -177,6 +177,14 @@ public sealed partial class ActionComponent : Component
     public bool RaiseOnUser;
 
     /// <summary>
+    ///     If true, this will cause the the action event to always be raised directed at the action itself instead of the action's container/provider.
+    ///     Takes priority over RaiseOnUser.
+    /// </summary>
+    [DataField]
+    [Obsolete("This datafield will be reworked in an upcoming action refactor")]
+    public bool RaiseOnAction;
+
+    /// <summary>
     ///     Whether or not to automatically add this action to the action bar when it becomes available.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -199,19 +207,19 @@ public sealed partial class ActionComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public SoundSpecifier? Sound;
-    
+
     /// <summary>
     ///     Goobstation.
     ///     If true, ghosts will be granted this action.
     /// </summary>
-    [DataField] 
+    [DataField]
     public bool AllowGhostAction;
 
     /// <summary>
     ///     Goobstation.
     ///     Is this action predicted.
     /// </summary>
-    [DataField] 
+    [DataField]
     public bool Predicted = true;
 }
 

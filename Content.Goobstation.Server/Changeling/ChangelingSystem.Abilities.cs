@@ -91,13 +91,8 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, EnterStasisEvent>(OnEnterStasis);
         SubscribeLocalEvent<ChangelingIdentityComponent, ExitStasisEvent>(OnExitStasis);
 
-        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleArmbladeEvent>(OnToggleArmblade);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleArmHammerEvent>(OnToggleHammer);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleArmClawEvent>(OnToggleClaw);
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleDartGunEvent>(OnToggleDartGun);
         SubscribeLocalEvent<ChangelingIdentityComponent, CreateBoneShardEvent>(OnCreateBoneShard);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleChitinousArmorEvent>(OnToggleArmor);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleOrganicShieldEvent>(OnToggleShield);
         SubscribeLocalEvent<ChangelingIdentityComponent, ShriekDissonantEvent>(OnShriekDissonant);
         SubscribeLocalEvent<ChangelingIdentityComponent, ShriekResonantEvent>(OnShriekResonant);
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleStrainedMusclesEvent>(OnToggleStrainedMuscles);
@@ -134,21 +129,24 @@ public sealed partial class ChangelingSystem
     {
         var target = args.Target;
 
-        if (HasComp<AbsorbedComponent>(target))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-absorbed"), uid, uid);
-            return;
-        }
-        if (!HasComp<AbsorbableComponent>(target))
+        if (!TryComp<AbsorbableComponent>(target, out var absorbable))
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-unabsorbable"), uid, uid);
             return;
         }
+
+        if (absorbable.Absorbed)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-absorbed"), uid, uid);
+            return;
+        }
+
         if (!IsIncapacitated(target) && !IsHardGrabbed(target))
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-nograb"), uid, uid);
             return;
         }
+
         if (CheckFireStatus(target)) // checks if the target is on fire
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-onfire"), uid, uid);
@@ -181,7 +179,10 @@ public sealed partial class ChangelingSystem
 
         var target = args.Args.Target.Value;
 
-        if (args.Cancelled || HasComp<AbsorbedComponent>(target) || (!IsIncapacitated(target) && !IsHardGrabbed(target)))
+        if (args.Cancelled ||
+            !TryComp<AbsorbableComponent>(target, out var absorbable) ||
+            absorbable.Absorbed ||
+            !IsIncapacitated(target) && !IsHardGrabbed(target))
             return;
 
         PlayMeatySound(args.User, comp);
@@ -191,7 +192,8 @@ public sealed partial class ChangelingSystem
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
         _blood.SpillAllSolutions(target);
 
-        EnsureComp<AbsorbedComponent>(target);
+        absorbable.Absorbed = true;
+
         EnsureComp<UnrevivableComponent>(target);
 
         var popup = string.Empty;
@@ -210,25 +212,24 @@ public sealed partial class ChangelingSystem
                 || targetForm.Species == "Monkey") // if they are a headslug or in monkey form
                 popup = Loc.GetString("changeling-absorb-end-self-ling-incompatible");
         }
-        else if (!HasComp<PartialAbsorbableComponent>(target))
-        {
-            popup = Loc.GetString("changeling-absorb-end-self");
-            bonusChemicals += 10;
-            bonusEvolutionPoints += 2;
-        }
         else
-            popup = Loc.GetString("changeling-absorb-end-partial");
+        {
+            bonusChemicals += absorbable.BonusChemicals;
+            bonusEvolutionPoints += absorbable.EvolutionPoints;
+
+            popup = Loc.GetString("changeling-absorb-end-self", ("evolutionPoints", bonusEvolutionPoints), ("chemicals", bonusChemicals))
+                + (absorbable.ProgressObjective ? "" : " " + Loc.GetString("changeling-absorb-end-no-progress"));
+        }
 
         comp.TotalEvolutionPoints += bonusEvolutionPoints;
 
-        var objBool = !HasComp<PartialAbsorbableComponent>(target);
-        if (objBool)
+        if (absorbable.ProgressObjective)
         {
             comp.TotalAbsorbedEntities++;
             comp.TotalChangelingsAbsorbed += bonusChangelingAbsorbs;
         }
 
-        TryStealDNA(uid, target, comp, objBool);
+        TryStealDNA(uid, target, comp, absorbable.ProgressObjective);
 
         _popup.PopupEntity(popup, args.User, args.User);
         comp.MaxChemicals += bonusChemicals;
@@ -241,8 +242,7 @@ public sealed partial class ChangelingSystem
 
         if (_mind.TryGetMind(uid, out var mindId, out var mind))
         {
-            if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var absorbObj, mind)
-                && !HasComp<PartialAbsorbableComponent>(target))
+            if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var absorbObj, mind) && absorbable.ProgressObjective)
                 absorbObj.Absorbed += 1;
 
             if (_mind.TryGetObjectiveComp<AbsorbChangelingConditionComponent>(mindId, out var lingAbsorbObj, mind)
@@ -333,7 +333,7 @@ public sealed partial class ChangelingSystem
             return;
 
         var target = args.Target;
-        var objBool = !HasComp<PartialAbsorbableComponent>(target);
+        var objBool = TryComp<AbsorbableComponent>(uid, out var absorbable) && absorbable.ProgressObjective;
 
         if (!TryStealDNA(uid, target, comp, objBool))
         {
@@ -370,7 +370,7 @@ public sealed partial class ChangelingSystem
 
     private void OnEnterStasis(EntityUid uid, ChangelingIdentityComponent comp, ref EnterStasisEvent args)
     {
-        if (comp.IsInStasis || HasComp<AbsorbedComponent>(uid))
+        if (comp.IsInStasis || TryComp<AbsorbableComponent>(uid, out var absorbable) && absorbable.Absorbed)
         {
             _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-fail"), uid, uid);
             return;
@@ -417,7 +417,7 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail"), uid, uid);
             return;
         }
-        if (HasComp<AbsorbedComponent>(uid))
+        if (TryComp<AbsorbableComponent>(uid, out var absorbable) && absorbable.Absorbed)
         {
             _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail-dead"), uid, uid);
             return;
@@ -454,37 +454,6 @@ public sealed partial class ChangelingSystem
     #endregion
 
     #region Combat Abilities
-
-    private void OnToggleArmblade(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleArmbladeEvent args)
-    {
-        if (!TryUseAbility(uid, comp, args, GetEquipmentChemCostOverride(comp, ArmbladePrototype)))
-            return;
-
-        if (!TryToggleItem(uid, ArmbladePrototype, comp, out _))
-            return;
-
-        PlayMeatySound(uid, comp);
-    }
-    private void OnToggleHammer(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleArmHammerEvent args)
-    {
-        if (!TryUseAbility(uid, comp, args, GetEquipmentChemCostOverride(comp, HammerPrototype)))
-            return;
-
-        if (!TryToggleItem(uid, HammerPrototype, comp, out _))
-            return;
-
-        PlayMeatySound(uid, comp);
-    }
-    private void OnToggleClaw(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleArmClawEvent args)
-    {
-        if (!TryUseAbility(uid, comp, args, GetEquipmentChemCostOverride(comp, ClawPrototype)))
-            return;
-
-        if (!TryToggleItem(uid, ClawPrototype, comp, out _))
-            return;
-
-        PlayMeatySound(uid, comp);
-    }
     private void OnToggleDartGun(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleDartGunEvent args)
     {
         var chemCostOverride = GetEquipmentChemCostOverride(comp, DartGunPrototype);
@@ -539,31 +508,6 @@ public sealed partial class ChangelingSystem
 
         var star = Spawn(BoneShardPrototype, Transform(uid).Coordinates);
         _hands.TryPickupAnyHand(uid, star);
-
-        PlayMeatySound(uid, comp);
-    }
-    private void OnToggleArmor(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleChitinousArmorEvent args)
-    {
-        float? chemCostOverride = comp.ActiveArmor == null ? null : 0f;
-
-        if (!TryUseAbility(uid, comp, args, chemCostOverride))
-            return;
-
-        if (!TryToggleArmor(uid, comp, [(ArmorHelmetPrototype, "head"), (ArmorPrototype, "outerClothing")]))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-equip-armor-fail"), uid, uid);
-            comp.Chemicals += chemCostOverride ?? Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
-            return;
-        }
-
-    }
-    private void OnToggleShield(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleOrganicShieldEvent args)
-    {
-        if (!TryUseAbility(uid, comp, args, GetEquipmentChemCostOverride(comp, ShieldPrototype)))
-            return;
-
-        if (!TryToggleItem(uid, ShieldPrototype, comp, out _))
-            return;
 
         PlayMeatySound(uid, comp);
     }
@@ -671,21 +615,25 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-incapacitated"), uid, uid);
             return;
         }
-        if (HasComp<AbsorbedComponent>(target))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-absorbed"), uid, uid);
-            return;
-        }
-        if (!HasComp<AbsorbableComponent>(target))
+
+        if (!TryComp<AbsorbableComponent>(target, out var absorbable))
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-unabsorbable"), uid, uid);
             return;
         }
+
+        if (absorbable.Absorbed)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-absorbed"), uid, uid);
+            return;
+        }
+
         if (CheckFireStatus(uid)) // checks if the target is on fire
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-onfire"), uid, uid);
             return;
         }
+
         var mind = _mind.GetMind(uid);
         if (mind == null)
             return;
@@ -701,7 +649,8 @@ public sealed partial class ChangelingSystem
         eggComp.lingStore = _serialization.CreateCopy(storeComp, notNullableOverride: true);
         eggComp.AugmentedEyesightPurchased = HasComp<Shared.Overlays.ThermalVisionComponent>(uid);
 
-        EnsureComp<AbsorbedComponent>(target);
+        absorbable.Absorbed = true;
+
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
         _damage.TryChangeDamage(target, dmg, false, false, targetPart: TargetBodyPart.All); // Shitmed Change
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
