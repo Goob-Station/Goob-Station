@@ -373,12 +373,11 @@ public sealed class RadioSystem : EntitySystem
                     return (id.JobIcon, id.LocalizedJobTitle);
             }
         }
+        if (HasComp<StationAiHeldComponent>(ent))
+            return ("JobIconStationAi", Loc.GetString("job-name-station-ai"));
 
         if (HasComp<BorgChassisComponent>(ent) || HasComp<BorgBrainComponent>(ent))
             return ("JobIconBorg", Loc.GetString("job-name-borg"));
-
-        if (HasComp<StationAiHeldComponent>(ent))
-            return ("JobIconStationAi", Loc.GetString("job-name-station-ai"));
 
         return ("JobIconNoId", null);
     }
