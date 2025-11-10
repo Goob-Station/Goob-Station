@@ -9,7 +9,7 @@
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
 using Content.Shared.Inventory;
-using Content.Shared.StatusIcon;
+using Content.Shared.StatusIcon; // GabyStation radio icons
 
 namespace Content.Shared.Chat;
 
@@ -47,3 +47,5 @@ public sealed class TransformSpeakerJobIconEvent : EntityEventArgs, IInventoryRe
         JobName = jobName;
     }
 }
+
+// GabyStation end

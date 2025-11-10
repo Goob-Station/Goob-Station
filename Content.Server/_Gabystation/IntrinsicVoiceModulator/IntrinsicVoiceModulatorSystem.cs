@@ -40,12 +40,10 @@ public sealed partial class IntrinsicVoiceModulatorSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<IntrinsicVoiceModulatorComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<IntrinsicVoiceModulatorComponent, ComponentRemove>(OnComponentRemove);
 
         SubscribeLocalEvent<IntrinsicVoiceModulatorComponent, TransformSpeakerNameEvent>(OnTransformSpeakerName);
         SubscribeLocalEvent<IntrinsicVoiceModulatorComponent, TransformSpeakerJobIconEvent>(OnTransformJobIcon);
         SubscribeLocalEvent<IntrinsicVoiceModulatorComponent, OpenIntrinsicVoiceModulatorMenuEvent>(OnOpenVoiceModulatorMenu);
-        SubscribeLocalEvent<IntrinsicVoiceModulatorComponent, ToggleIntrinsicVoiceModulatorEvent>(OnToggle);
 
         Subs.BuiEvents<IntrinsicVoiceModulatorComponent>(IntrinsicVoiceModulatorUiKey.Key, subs =>
         {
@@ -59,37 +57,12 @@ public sealed partial class IntrinsicVoiceModulatorSystem : EntitySystem
 
     private void OnComponentInit(Entity<IntrinsicVoiceModulatorComponent> ent, ref ComponentInit args)
     {
-        _alerts.ShowAlert(ent.Owner, ent.Comp.ToggleAlertProtoId, (short) (ent.Comp.Enabled ? 1 : 0));
-
-        var action = _actions.AddAction(ent.Owner, ent.Comp.ActionProtoId);
-        ent.Comp.ActionEntity = action;
-
-        // Isso ser hardcoded é terrível, mas acho que não tem outra forma de conseguir o nome da classe. Ela vive no cliente, não daria pra pegar aqui.
         var data = new InterfaceData("IntrinsicVoiceModulatorBoundUserInterface");
         _ui.SetUi(ent.Owner, IntrinsicVoiceModulatorUiKey.Key, data);
     }
 
-    private void OnComponentRemove(Entity<IntrinsicVoiceModulatorComponent> ent, ref ComponentRemove args)
-    {
-        _alerts.ClearAlert(ent.Owner, ent.Comp.ToggleAlertProtoId);
-        _actions.RemoveAction(ent.Owner, ent.Comp.ActionEntity);
-    }
-
-    private void OnToggle(Entity<IntrinsicVoiceModulatorComponent> ent, ref ToggleIntrinsicVoiceModulatorEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        ent.Comp.Enabled = !ent.Comp.Enabled;
-        _alerts.ShowAlert(ent.Owner, ent.Comp.ToggleAlertProtoId, (short) (ent.Comp.Enabled ? 1 : 0));
-
-        args.Handled = true;
-    }
-
     private void OnTransformSpeakerName(Entity<IntrinsicVoiceModulatorComponent> ent, ref TransformSpeakerNameEvent args)
     {
-        if (!ent.Comp.Enabled)
-            return;
 
         if (!string.IsNullOrWhiteSpace(ent.Comp.VoiceName))
             args.VoiceName = ent.Comp.VoiceName;
@@ -100,8 +73,6 @@ public sealed partial class IntrinsicVoiceModulatorSystem : EntitySystem
 
     private void OnTransformJobIcon(Entity<IntrinsicVoiceModulatorComponent> ent, ref TransformSpeakerJobIconEvent args)
     {
-        if (!ent.Comp.Enabled)
-            return;
 
         if (ent.Comp.JobIconProtoId is { } jobIcon)
             args.JobIcon = jobIcon;

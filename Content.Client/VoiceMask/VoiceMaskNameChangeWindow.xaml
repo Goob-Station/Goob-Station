@@ -21,7 +21,7 @@ SPDX-License-Identifier: MIT
             <OptionButton Name="SpeechVerbSelector" /> <!-- Populated in LoadVerbs -->
         </BoxContainer>
         <!-- GabyStation -> Radio icons -->
-		<Label Text="{Loc 'intrinsic-voice-modulator-icon-label'}"/>
+		<Label Text="{Loc 'voice-mask-icon-label'}"/>
 		<GridContainer Name="IconGrid" Columns="10">
 			<!-- Job icon buttons are generated in the code -->
 		</GridContainer>

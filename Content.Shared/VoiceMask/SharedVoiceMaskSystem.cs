@@ -10,8 +10,8 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.StatusIcon;
-using Robust.Shared.Prototypes;
+using Content.Shared.StatusIcon; // GabyStation radio icons
+using Robust.Shared.Prototypes; // GabyStation radio icons
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.VoiceMask;
@@ -29,7 +29,7 @@ public sealed class VoiceMaskBuiState : BoundUserInterfaceState
     public readonly string? Verb;
     public ProtoId<JobIconPrototype>? JobIcon { get; } // GabyStation -> Radio icons
 
-    public VoiceMaskBuiState(string name, string? verb, ProtoId<JobIconPrototype>? jobIcon)
+    public VoiceMaskBuiState(string name, string? verb, ProtoId<JobIconPrototype>? jobIcon) // GabyStation radio icons
     {
         Name = name;
         Verb = verb;

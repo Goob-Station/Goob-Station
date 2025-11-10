@@ -24,16 +24,4 @@ public sealed partial class IntrinsicVoiceModulatorComponent : Component
 
     [DataField]
     public string? JobName;
-
-    [DataField]
-    public EntProtoId ActionProtoId = "ActionChangeIntrinsicVoiceModulator";
-
-    [DataField]
-    public EntityUid? ActionEntity;
-
-    [DataField]
-    public ProtoId<AlertPrototype> ToggleAlertProtoId = "IntrinsicVoiceModulator";
-
-    [DataField]
-    public bool Enabled;
 }

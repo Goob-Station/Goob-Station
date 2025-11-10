@@ -22,7 +22,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Players;
 using Content.Shared.Players.PlayTimeTracking;
-using Content.Shared.StatusIcon;
+using Content.Shared.StatusIcon; // GabyStation radio icons
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -266,4 +266,6 @@ public abstract class SharedJobSystem : EntitySystem
         job = null;
         return false;
     }
+
+    // GabyStation end
 }
