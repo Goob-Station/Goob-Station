@@ -45,7 +45,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
+    [Dependency] private readonly EmergencyShuttleSystem _emergency = default!; // Goobstation edit
 
     public override void Initialize()
     {
@@ -126,7 +126,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         var stationName = Name(stationUid);
 
         if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
-            && _roundEndSystem.ExpectedCountdownEnd != null && !_emergency.EmergencyShuttleArrived)
+            && _roundEndSystem.ExpectedCountdownEnd != null && !_emergency.EmergencyShuttleArrived) // Goobstation edit
         {
             _roundEndSystem.CancelRoundEndCountdown(checkCooldown: false);
             _chatSystem.DispatchStationAnnouncement(stationUid,
@@ -136,8 +136,9 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 null,
                 Color.Red);
         }
+        // goobstation edit start
         else if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
-                 && _roundEndSystem.ExpectedCountdownEnd != null && _emergency.EmergencyShuttleArrived)
+                 && _roundEndSystem.ExpectedCountdownEnd != null && _emergency.EmergencyShuttleArrived) 
         {
             _chatSystem.DispatchStationAnnouncement(stationUid,
                 Loc.GetString("blob-alert-shuttle-arrived"),
@@ -146,7 +147,8 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 null,
                 Color.OrangeRed);
         }
-
+        // goobstation edit end
+        
         switch (blobRuleComp.Stage)
         {
             case BlobStage.Default when blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin):
