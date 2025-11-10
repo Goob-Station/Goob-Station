@@ -9,18 +9,16 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticFleshSurgery
-  name: flesh surgery
-  description: Remove a random organ from someone, or heal your teammates.
+  name: Knit Flesh
+  description: A touch spell that allows you to either perform quick surgery or restore flesh of target.
   components:
   - type: Action
-    useDelay: 30
+    useDelay: 1
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: flesh_surgery
     checkCanInteract: true
-  - type: TargetAction
-  - type: EntityTargetAction
+  - type: InstantAction
     event: !type:EventHereticFleshSurgery
   - type: HereticAction
-    messageLoc: heretic-speech-flesh-surgery

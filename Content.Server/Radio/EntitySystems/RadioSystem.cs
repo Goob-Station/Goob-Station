@@ -216,12 +216,16 @@ public sealed class RadioSystem : EntitySystem
         //     null);
         // var chatMsg = new MsgChatMessage { Message = chat };
         // var ev = new RadioReceiveEvent(message, messageSource, channel, radioSource, chatMsg);
-        var msg = new ChatMessage(ChatChannel.Radio, content, wrappedMessage, NetEntity.Invalid, null); // Einstein Engines - Language
+        // Goobstation - Chat Pings
+        // Added GetNetEntity(messageSource), to source
+        var msg = new ChatMessage(ChatChannel.Radio, content, wrappedMessage, GetNetEntity(messageSource), null);
 
         // Einstein Engines - Language begin
         var obfuscated = _language.ObfuscateSpeech(content, language);
+        // Goobstation - Chat Pings
+        // Added GetNetEntity(messageSource), to source
         var obfuscatedWrapped = WrapRadioMessage(messageSource, channel, name, obfuscated, language, jobIcon, jobName);
-        var notUdsMsg = new ChatMessage(ChatChannel.Radio, obfuscated, obfuscatedWrapped, NetEntity.Invalid, null);
+        var notUdsMsg = new ChatMessage(ChatChannel.Radio, obfuscated, obfuscatedWrapped, GetNetEntity(messageSource), null);
         var ev = new RadioReceiveEvent(messageSource, channel, msg, notUdsMsg, language, radioSource);
         // Einstein Engines - Language end
 
