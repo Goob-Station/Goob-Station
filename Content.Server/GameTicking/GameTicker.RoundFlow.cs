@@ -103,7 +103,12 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Content.Goobstation.Common.LastWords; // Goob Station - Last words
+// Goob Station - End of Round Screen
+using Content.Goobstation.Common.LastWords;
+using Content.Shared.Damage;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Goobstation.Maths.FixedPoint;
 
 namespace Content.Server.GameTicking
 {
@@ -642,9 +647,25 @@ namespace Content.Server.GameTicking
 
                 var roles = _roles.MindGetAllRoleInfo(mindId);
 
-                var lastWords = ""; // Goob Station - Last words
-                if (TryComp<LastWordsComponent>(mindId, out var lastWordsComponent))
+                #region Goob Station
+
+                var lastWords = "";
+                var mobState = MobState.Invalid;
+                var damagePerGroup = new Dictionary<string, FixedPoint2>();
+                var lastMob = mind.LastMob;
+                if (TryComp<LastWordsComponent>(mindId, out var lastWordsComponent)
+                    && !TerminatingOrDeleted(lastMob))
+                {
                     lastWords = lastWordsComponent.LastWords;
+
+                    if (TryComp<MobStateComponent>(lastMob, out var mobStateComp))
+                        mobState = mobStateComp.CurrentState;
+
+                    if (TryComp<DamageableComponent>(lastMob, out var damageableComp))
+                        damagePerGroup = damageableComp.DamagePerGroup;
+                }
+
+                #endregion
 
                 var playerEndRoundInfo = new RoundEndMessageEvent.RoundEndPlayerInfo()
                 {
@@ -663,7 +684,10 @@ namespace Content.Server.GameTicking
                     AntagPrototypes = roles.Where(role => role.Antagonist).Select(role => role.Prototype).ToArray(),
                     Observer = observer,
                     Connected = connected,
-                    LastWords = lastWords // Goob Station - Last words
+                    // Goob Station - End of Round Screen
+                    LastWords = lastWords,
+                    EntMobState = mobState,
+                    DamagePerGroup = damagePerGroup
                 };
                 listOfPlayerInfo.Add(playerEndRoundInfo);
             }
