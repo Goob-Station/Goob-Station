@@ -6,6 +6,7 @@
   - type: BladeServer
   - type: Machine
   - type: InnerCableReceiver
+  - type: ContainerContainer
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
