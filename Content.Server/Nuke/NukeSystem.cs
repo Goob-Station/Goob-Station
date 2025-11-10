@@ -774,7 +774,7 @@ public sealed class NukeSystem : EntitySystem
         {
             OwningStation = transform.GridUid,
         });
-        _roundEndTime = _gameTiming.CurTime + TimeSpan.FromSeconds(30);
+        _roundEndTime = _gameTiming.CurTime + TimeSpan.FromSeconds(30); // Goobstation infinite round prevention fix talking about you blob shit
         _sound.StopStationEventMusic(uid, StationEventMusicType.Nuke);
         Del(uid);
     }
