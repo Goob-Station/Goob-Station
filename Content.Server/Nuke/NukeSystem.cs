@@ -141,6 +141,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Robust.Shared.Timing; // Goobstation
 
 namespace Content.Server.Nuke;
 
@@ -164,7 +165,8 @@ public sealed class NukeSystem : EntitySystem
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!; // Goobstation
     [Dependency] private readonly TurfSystem _turf = default!;
-
+    [Dependency] private readonly IGameTiming _gameTiming = default!; // Goobstation
+    
     /// <summary>
     ///     Used to calculate when the nuke song should start playing for maximum kino with the nuke sfx
     /// </summary>
@@ -176,6 +178,8 @@ public sealed class NukeSystem : EntitySystem
     /// </summary>
     private const float NukeSongBuffer = 1.5f;
 
+    private TimeSpan? _roundEndTime; // Goobstation to end round after nuke detonation
+    
     public override void Initialize()
     {
         base.Initialize();
@@ -228,6 +232,13 @@ public sealed class NukeSystem : EntitySystem
                     break;
             }
         }
+        // Goobstation start
+        if (_roundEndTime != null && _gameTiming.CurTime >= _roundEndTime)
+        {
+            _roundEndTime = null; // prevent re-triggering
+            _gameTicker.EndRound();
+        }
+        // Goobstation end
     }
 
     private void OnMapInit(EntityUid uid, NukeComponent nuke, MapInitEvent args)
@@ -764,7 +775,7 @@ public sealed class NukeSystem : EntitySystem
         {
             OwningStation = transform.GridUid,
         });
-
+        _roundEndTime = _gameTiming.CurTime + TimeSpan.FromSeconds(30);
         _sound.StopStationEventMusic(uid, StationEventMusicType.Nuke);
         Del(uid);
     }
