@@ -244,6 +244,8 @@ namespace Content.Shared.GameTicking
             public bool Observer;
 
             public bool Connected;
+
+            public string? LastWords; // Goob Station - Last words
         }
 
         public string GamemodeTitle { get; }

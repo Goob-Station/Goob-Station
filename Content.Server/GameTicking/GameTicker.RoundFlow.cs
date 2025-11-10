@@ -103,6 +103,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Goobstation.Common.LastWords; // Goob Station - Last words
 
 namespace Content.Server.GameTicking
 {
@@ -641,6 +642,10 @@ namespace Content.Server.GameTicking
 
                 var roles = _roles.MindGetAllRoleInfo(mindId);
 
+                var lastWords = ""; // Goob Station - Last words
+                if (TryComp<LastWordsComponent>(mindId, out var lastWordsComponent))
+                    lastWords = lastWordsComponent.LastWords;
+
                 var playerEndRoundInfo = new RoundEndMessageEvent.RoundEndPlayerInfo()
                 {
                     // Note that contentPlayerData?.Name sticks around after the player is disconnected.
@@ -657,7 +662,8 @@ namespace Content.Server.GameTicking
                     JobPrototypes = roles.Where(role => !role.Antagonist).Select(role => role.Prototype).ToArray(),
                     AntagPrototypes = roles.Where(role => role.Antagonist).Select(role => role.Prototype).ToArray(),
                     Observer = observer,
-                    Connected = connected
+                    Connected = connected,
+                    LastWords = lastWords // Goob Station - Last words
                 };
                 listOfPlayerInfo.Add(playerEndRoundInfo);
             }

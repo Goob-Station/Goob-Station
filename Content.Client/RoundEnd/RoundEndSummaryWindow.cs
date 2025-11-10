@@ -198,13 +198,17 @@ namespace Content.Client.RoundEnd
                     {
                         //TODO: On Hover display a popup detailing more play info.
                         //For example: their antag goals and if they completed them sucessfully.
+                        var lastWords = string.IsNullOrWhiteSpace(playerInfo.LastWords) // Goob Station - Last words
+                            ? string.Empty
+                            : $"\"{playerInfo.LastWords}\"";
                         var icNameColor = playerInfo.Antag ? "red" : "white";
                         playerInfoText.SetMarkup(
                             Loc.GetString("round-end-summary-window-player-info-if-not-observer-text",
                                 ("playerOOCName", playerInfo.PlayerOOCName),
                                 ("icNameColor", icNameColor),
                                 ("playerICName", playerInfo.PlayerICName),
-                                ("playerRole", Loc.GetString(playerInfo.Role))));
+                                ("playerRole", Loc.GetString(playerInfo.Role)),
+                                ("lastWords", lastWords))); // Goob Station - Last words
                     }
                 }
                 hBox.AddChild(playerInfoText);
