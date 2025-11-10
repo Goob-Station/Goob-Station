@@ -88,6 +88,7 @@
     staminaRatio: 2
   - type: Stamina
     critThreshold: 20
+    animationThreshold: 10 # Goob edit
   - type: Respirator
     damage:
       types:

@@ -3,3 +3,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "stolen by Shy Bandit from somewhere, converted to mono by @deltanedas (github)"
   source: "https://goida.zip/unknown"
+
+- files: [ "highnoon.ogg" ]
+  license: "CC-BY-4.0"
+  copyright: "Originally made by Freesound_community"
+  source: "https://pixabay.com/sound-effects/highnoon-39371/"
