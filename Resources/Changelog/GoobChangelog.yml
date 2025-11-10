@@ -17628,3 +17628,9 @@ Entries:
       message: Basalt blocks rads now.
   id: 1978
   time: '2025-11-09T12:02:59.0000000+00:00'
+- author: John John
+  changes:
+    - type: Tweak
+      message: The station report now has a better template
+  id: 1979
+  time: '2025-11-10T15:30:27.0000000+00:00'
