@@ -17731,3 +17731,11 @@ Entries:
       message: Shadowlings are now able to equip a pda / id.
   id: 1990
   time: '2025-11-11T09:19:40.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Add
+      message: >-
+        Added a holofan and the ability to hold plasteel to generic cyborg's
+        science modules
+  id: 1991
+  time: '2025-11-11T09:21:26.0000000+00:00'
