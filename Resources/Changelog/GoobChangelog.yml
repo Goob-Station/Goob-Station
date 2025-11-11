@@ -17689,3 +17689,11 @@ Entries:
       message: Fire sharks are slightly weaker but you get 3 of them per 1 liver.
   id: 1985
   time: '2025-11-11T08:57:37.0000000+00:00'
+- author: Thatonestomf
+  changes:
+    - type: Remove
+      message: >-
+        Removed the Hristov and RPG from submarine, replaced with WT550 and a
+        watergun.
+  id: 1986
+  time: '2025-11-11T09:06:15.0000000+00:00'
