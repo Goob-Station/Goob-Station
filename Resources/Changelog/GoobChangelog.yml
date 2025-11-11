@@ -17745,3 +17745,11 @@ Entries:
       message: Fixed BSO having to protect nukie commander
   id: 1992
   time: '2025-11-11T09:24:50.0000000+00:00'
+- author: Puntable Tuerk
+  changes:
+    - type: Fix
+      message: >-
+        Stuffing Tajarans, Resomi, Felinid and Rodentia into storage spaces with
+        the previously bugged "Insert Other" verb works now.
+  id: 1993
+  time: '2025-11-11T09:27:24.0000000+00:00'
