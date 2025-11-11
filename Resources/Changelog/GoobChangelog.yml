@@ -17634,3 +17634,19 @@ Entries:
       message: The station report now has a better template
   id: 1979
   time: '2025-11-10T15:30:27.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Removed steel cost from autoinjector carts, reduced glass cost (1 glass
+        1 plasma is roughly what most of them now cost to print)
+    - type: Tweak
+      message: >-
+        Airloss autoinjector carts now cost 0.5 plasma to print due to above
+        changes
+    - type: Tweak
+      message: >-
+        Made autoinjectors themselves not cost an arm and a leg to print. (still
+        relatively expensive)
+  id: 1980
+  time: '2025-11-11T08:50:26.0000000+00:00'
