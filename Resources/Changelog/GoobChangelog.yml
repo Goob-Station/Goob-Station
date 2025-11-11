@@ -17753,3 +17753,13 @@ Entries:
         the previously bugged "Insert Other" verb works now.
   id: 1993
   time: '2025-11-11T09:27:24.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: Additional turrets to CC
+    - type: Tweak
+      message: AI position at CC
+    - type: Fix
+      message: Some power issues at CC
+  id: 1994
+  time: '2025-11-11T09:40:37.0000000+00:00'
