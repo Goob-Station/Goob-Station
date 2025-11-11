@@ -63,9 +63,9 @@
     weight: 3
     minimumPlayers: 15
     maxOccurrences: 1
-    startAnnouncement: station-event-genomic-pulse
+    startAnnouncement: station-event-communication-interception
     startAudio:
-      path: /Audio/Announcements/biopulse.ogg
+      path: /Audio/Announcements/intercept.ogg
     duration: null
     occursDuringRoundEnd: false
     chaos:
@@ -107,9 +107,9 @@
     weight: 3
     minimumPlayers: 30
     maxOccurrences: 1
-    startAnnouncement: station-event-unholy-wave
+    startAnnouncement: station-event-communication-interception
     startAudio:
-      path: /Audio/Announcements/unholypulse.ogg
+      path: /Audio/Announcements/intercept.ogg
     duration: null
     occursDuringRoundEnd: false
     chaos:
@@ -261,9 +261,9 @@
     weight: 1
     minimumPlayers: 30
     maxOccurrences: 1
-    startAnnouncement: station-event-unholy-wave
+    startAnnouncement: station-event-communication-interception
     startAudio:
-      path: /Audio/Announcements/unholypulse.ogg
+      path: /Audio/Announcements/intercept.ogg
     duration: null
     occursDuringRoundEnd: false
     chaos:
