@@ -1117,7 +1117,7 @@
       - !type:SuppressPain
         amount: 2
         time: 14
-      - !type:HealthChange
+- !type:HealthChange # Goobstation - Make Omnizine great again!!!!!!!
         damage:
           Burn: -3
           Toxin: -3
