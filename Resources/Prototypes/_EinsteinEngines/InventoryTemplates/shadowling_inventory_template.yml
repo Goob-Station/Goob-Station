@@ -16,3 +16,12 @@
     uiWindowPos: 3,0
     strippingWindowPos: 0,5
     displayName: Back
+  - name: id
+    slotTexture: id
+    fullTextureName: template_small
+    slotFlags: IDCARD
+    slotGroup: SecondHotbar
+    stripTime: 6
+    uiWindowPos: 2,1
+    strippingWindowPos: 2,4
+    displayName: ID

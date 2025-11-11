@@ -63,9 +63,10 @@ knowledge-path-side-s3-shark-name = Scorching Shark
 knowledge-path-side-s3-shark-desc =
     The cradle of the nebula was cold, but not dead. Light and heat flits even through the deepest darkness, and is hunted by its own predators.
 
-    Allows you to transmute a pool of ash, a liver, and a sheet of plasma into a Fire Shark.
+    Allows you to transmute 3 pools of ash, a liver, and 3 sheets of plasma into 3 Fire Sharks.
     Fire Sharks are fast and strong in groups, but die quickly. They are also highly resistant against fire attacks.
-    Fire Sharks ignite their victims and spawn plasma once they die.
+    Fire Sharks ignite their victims and drop plasma sheet once they die.
+    You can only create 15 at a time.
 
 knowledge-path-side-s3-ice-spear-name = Mysteries of Creation
 knowledge-path-side-s3-ice-spear-desc =
@@ -119,12 +120,6 @@ knowledge-path-side-s8-cleave-desc =
     At first I didn't understand these instruments of war, but the Priest told me to use them regardless. Soon, he said, I would know them well.
 
     Grants you Cleave, an area-of-effect targeted spell that causes heavy bleeding and blood loss to anyone afflicted.
-
-knowledge-path-side-s8-rust-charge-name = Rust Charge
-knowledge-path-side-s8-rust-charge-desc =
-    The hills sparkled now, as I neared them my mind began to wander. I quickly regained my resolve and pushed forward, this last leg would be the most treacherous.
-
-    Grants you Rust Charge, a targeted action that can only be cast on a rusted tile. It charges you forward, destroying any rusted objects you come into contact with, it will also deal high damage to others and rust around you during the charge.
 
 ## stage 9
 knowledge-path-side-s9-coin-name = Eldritch Coin

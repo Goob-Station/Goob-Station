@@ -5,6 +5,7 @@ using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Bible;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared._Shitcode.Heretic.Systems.Abilities;
 using Content.Shared.Coordinates;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
@@ -31,6 +32,7 @@ public sealed class CosmicRunesSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
+    [Dependency] private readonly SharedHereticAbilitySystem _heretic = default!;
 
     public override void Initialize()
     {
@@ -48,7 +50,7 @@ public sealed class CosmicRunesSystem : EntitySystem
 
         if (TryComp(args.Used, out StarTouchComponent? starTouch))
         {
-            _starTouch.InvokeSpell((args.Used, starTouch), args.User);
+            _heretic.InvokeTouchSpell<StarTouchComponent>((args.Used, starTouch), args.User);
             EnsureComp<FadingTimedDespawnComponent>(ent).Lifetime = 0f;
             if (Exists(ent.Comp.LinkedRune))
                 EnsureComp<FadingTimedDespawnComponent>(ent.Comp.LinkedRune.Value).Lifetime = 0f;
@@ -138,8 +140,10 @@ public sealed class CosmicRunesSystem : EntitySystem
         EntityUid? pulling = null;
         var grabStage = GrabStage.No;
         PullerComponent? puller = null;
+
         var isUserCosmosHeretic = HasComp<StarGazerComponent>(user) ||
                                   TryComp(user, out HereticComponent? heretic) && heretic.CurrentPath == "Cosmos";
+
         if (isUserCosmosHeretic && TryComp(user, out puller) && puller.Pulling != null)
         {
             pulling = puller.Pulling.Value;
@@ -151,10 +155,8 @@ public sealed class CosmicRunesSystem : EntitySystem
         {
             _pulling.StopAllPulls(entity);
             _transform.SetCoordinates(entity, xform.Coordinates);
+            _starMark.TryApplyStarMark(entity);
         }
-
-        if (!isUserCosmosHeretic)
-            _starMark.TryApplyStarMark(user, null, true);
 
         if (pulling != null)
             _pulling.TryStartPull(user, pulling.Value, puller, null, grabStage);
