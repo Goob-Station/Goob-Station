@@ -117,7 +117,26 @@
   - type: Sprite
     drawdepth: SmallObjects
     sprite: Structures/Wallmounts/switch.rsi
-    state: on
+    # CorvaxGoob-ButtonsVisuals-Start
+    layers:
+    - state: dead
+    - state: on
+      map: ["on"]
+      shader: unshaded
+    - state: off
+      map: ["off"]
+      shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.SignalSwitchVisuals.State:
+        off:
+          On: { visible: false }
+          Off: { visible: true }
+        on:
+          On: { visible: true }
+          Off: { visible: false }
+  # CorvaxGoob-ButtonsVisuals-End
   - type: SignalSwitch
   - type: UseDelay
     delay: 0.5 # prevent light-toggling auto-clickers.
@@ -225,7 +244,11 @@
     - type: Sprite
       drawdepth: SmallObjects
       sprite: Structures/Wallmounts/switch.rsi
-      state: on
+      # CorvaxGoob-ButtonsVisuals-End
+      layers:
+      - state: dead
+      - state: on
+      # CorvaxGoob-ButtonsVisuals-End
     - type: Rotatable
     - type: ExtensionCableReceiver
     - type: DeviceNetwork
