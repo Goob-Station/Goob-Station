@@ -17666,3 +17666,12 @@ Entries:
       message: Fixed plasma tank now fit in tank harness
   id: 1982
   time: '2025-11-11T08:52:45.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Add
+      message: >-
+        New changeling ability - Awakened Instinct. Gives the option for
+        changelings to use the biomass system in return for a flat 25% increase
+        in chemical regeneration.
+  id: 1983
+  time: '2025-11-11T08:54:58.0000000+00:00'
