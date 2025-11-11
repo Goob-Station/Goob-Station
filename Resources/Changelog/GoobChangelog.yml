@@ -17715,3 +17715,13 @@ Entries:
         softer)
   id: 1988
   time: '2025-11-11T09:08:54.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Magic wand tweaked, death and healing bolt are less useful, lesser magic
+        missile is stronger, wand degradation charge limit is doubled.
+    - type: Add
+      message: wizard gorilla form can target limbs.
+  id: 1989
+  time: '2025-11-11T09:10:44.0000000+00:00'
