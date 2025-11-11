@@ -166,7 +166,6 @@ using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
-using Content.Shared.Corvax.CorvaxVars; // Corvax-Frontier-Barks
 using Content.Shared.GameTicking;
 using Content.Shared.Guidebook;
 using Content.Shared.Humanoid;
@@ -192,7 +191,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
-
+using Content.Goobstation.Common.CCVar; // Goob Station - Barks
+using Content.Goobstation.Common.Barks; // Goob Station - Barks
 namespace Content.Client.Lobby.UI
 {
     [GenerateTypedNameReferences]
@@ -379,17 +379,16 @@ namespace Content.Client.Lobby.UI
 
             #endregion Gender
 
-            // Corvax-Frontier-Barks-start
+            // Goob Station
             #region Barks
 
-            if (configurationManager.GetCVar(CorvaxVars.BarksEnabled))
+            if (configurationManager.GetCVar(GoobCVars.BarksEnabled))
             {
                 BarksContainer.Visible = true;
                 InitializeBarkVoice();
             }
 
             #endregion
-            // Corvax-Frontier-Barks-end
 
             RefreshSpecies();
 
@@ -1486,7 +1485,7 @@ namespace Content.Client.Lobby.UI
             SetDirty();
         }
 
-        // begin Goobstation: port EE height/width sliders
+        // Goob Station - Start
         private void SetProfileHeight(float height)
         {
             Profile = Profile?.WithHeight(height);
@@ -1500,14 +1499,12 @@ namespace Content.Client.Lobby.UI
             ReloadProfilePreview();
             IsDirty = true;
         }
-        // end Goobstation: port EE height/width sliders
-        // Corvax-Frontier-Barks-start
-        private void SetBarkVoice(string newVoice)
+        private void SetBarkVoice(BarkPrototype newVoice)
         {
             Profile = Profile?.WithBarkVoice(newVoice);
             IsDirty = true;
         }
-        // Corvax-Frontier-Barks-end
+        // Goob Station - End
 
         public bool IsDirty
         {

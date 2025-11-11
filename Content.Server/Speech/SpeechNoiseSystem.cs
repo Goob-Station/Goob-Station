@@ -18,14 +18,15 @@
 using Content.Goobstation.Common.Speech;
 using Robust.Shared.Audio;
 using Content.Server.Chat.Systems;
-using Content.Shared._Corvax.Speech.Synthesis.Components;
-using Content.Shared.Corvax.CorvaxVars;
 using Content.Shared.Speech;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
+// Goob Station
+ using Content.Goobstation.Common.Barks;
+using Content.Goobstation.Common.CCVar;
 
 namespace Content.Server.Speech
 {
@@ -91,8 +92,8 @@ namespace Content.Server.Speech
         {
             if (component.SpeechSounds == null
                 || !args.Language.SpeechOverride.RequireSpeech
-                || _cfg.GetCVar(CorvaxVars.BarksEnabled) // Corvax-Frontier-Barks-Edit-My-Family-Is
-                && HasComp<SpeechSynthesisComponent>(uid)) // Being-Held-Hostage-For-Me-To-Comment-This
+                || _cfg.GetCVar(GoobCVars.BarksEnabled) // Goob Station - Barks
+                && HasComp<SpeechSynthesisComponent>(uid))
                 return;
 
             var currentTime = _gameTiming.CurTime;

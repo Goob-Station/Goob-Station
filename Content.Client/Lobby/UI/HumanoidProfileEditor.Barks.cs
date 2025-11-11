@@ -3,10 +3,8 @@
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
-
+using Content.Goobstation.Common.Barks;
 using System.Linq;
-using Content.Shared._Corvax.Speech.Synthesis;
-using Content.Client._Corvax.Speech.Synthesis.System;
 
 namespace Content.Client.Lobby.UI;
 
@@ -20,7 +18,7 @@ public sealed partial class HumanoidProfileEditor
         BarkVoiceButton.OnItemSelected += args =>
         {
             BarkVoiceButton.SelectId(args.Id);
-            SetBarkVoice(_barkPrototypes[args.Id].ID);
+            SetBarkVoice(_barkPrototypes[args.Id]);
             PlayPreviewBark();
         };
 
@@ -46,7 +44,7 @@ public sealed partial class HumanoidProfileEditor
         for (var i = 0; i < _barkPrototypes.Count; i++)
         {
             var bark = _barkPrototypes[i];
-            if (bark.ID == Profile.BarkVoice)
+            if (bark == Profile.BarkVoice)
                 selectedBarkId = i;
 
             BarkVoiceButton.AddItem(Loc.GetString(bark.Name), i);
@@ -56,7 +54,7 @@ public sealed partial class HumanoidProfileEditor
             selectedBarkId = 0;
 
         BarkVoiceButton.SelectId(selectedBarkId);
-        SetBarkVoice(_barkPrototypes[selectedBarkId].ID);
+        SetBarkVoice(_barkPrototypes[selectedBarkId]);
     }
 
     private void PlayPreviewBark()
@@ -64,6 +62,7 @@ public sealed partial class HumanoidProfileEditor
         if (Profile is null)
             return;
 
-        _entManager.System<BarkSystem>().RequestPreviewBark(Profile.BarkVoice!);
+        var ev = new PreviewBarkEvent(Profile.BarkVoice);
+        _entManager.EventBus.RaiseEvent(EventSource.Local, ref ev);
     }
 }

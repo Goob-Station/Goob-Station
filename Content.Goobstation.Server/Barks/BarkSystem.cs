@@ -1,18 +1,17 @@
-using Content.Shared.Corvax.CorvaxVars;
 using Content.Server.Chat.Systems;
-using Content.Shared._Corvax.Speech.Synthesis;
-using Content.Shared._Corvax.Speech.Synthesis.Components;
+using Content.Goobstation.Common.Barks;
 using Robust.Shared.Configuration;
+using Content.Goobstation.Common.CCVar;
 
-namespace Content.Server._Corvax.Speech.Synthesis.System;
+namespace Content.Goobstation.Server.Barks;
 
 public sealed class BarkSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<SpeechSynthesisComponent, EntitySpokeEvent>(OnEntitySpoke);
     }
 
@@ -20,10 +19,10 @@ public sealed class BarkSystem : EntitySystem
     {
         if (comp.VoicePrototypeId is null
             || !args.Language.SpeechOverride.RequireSpeech
-            || !_configurationManager.GetCVar(CorvaxVars.BarksEnabled))
+            || !_configurationManager.GetCVar(GoobCVars.BarksEnabled))
             return;
 
-        var sourceEntity = _entityManager.GetNetEntity(uid);
+        var sourceEntity = GetNetEntity(uid);
         RaiseNetworkEvent(new PlayBarkEvent(sourceEntity, args.Message, args.IsWhisper));
     }
 }

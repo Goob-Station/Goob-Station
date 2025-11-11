@@ -60,7 +60,6 @@ public abstract class SharedChatSystem : EntitySystem
     public const char TelepathicPrefix = '='; //Nyano - Summary: Adds the telepathic channel's prefix.
     public const char CollectiveMindPrefix = '+'; // Goobstation - Starlight collective mind port
     public const char DefaultChannelKey = 'h';
-    public const int VoiceRange = 10; // Corvax-Frontier-Barks
 
     public static readonly ProtoId<RadioChannelPrototype> CommonChannel = "Common";
 

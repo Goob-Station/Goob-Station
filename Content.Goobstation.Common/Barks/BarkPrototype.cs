@@ -1,9 +1,8 @@
 
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-using Content.Shared.Humanoid.Prototypes;
 
-namespace Content.Shared._Corvax.Speech.Synthesis;
+namespace Content.Goobstation.Common.Barks;
 
 [Prototype("bark")]
 public sealed partial class BarkPrototype : IPrototype
@@ -26,7 +25,7 @@ public sealed partial class BarkPrototype : IPrototype
     /// A list of species that can use this bark.
     /// </summary>
     [DataField]
-    public HashSet<ProtoId<SpeciesPrototype>>? SpeciesWhitelist;
+    public HashSet<String>? SpeciesWhitelist;
 
     /// <summary>
     /// The lower bound of the pitch variation.

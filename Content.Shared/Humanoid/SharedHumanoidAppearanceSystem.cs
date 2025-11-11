@@ -44,8 +44,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Preferences;
 using Content.Shared._EinsteinEngines.HeightAdjust;
-using Content.Shared._Corvax.Speech.Synthesis; // Corvax-Frontier-Barks
-using Content.Shared._Corvax.Speech.Synthesis.Components; // Corvax-Frontier-Barks
+using Content.Goobstation.Common.Barks; // Goob Station - Barks
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.GameObjects.Components.Localization;
@@ -80,10 +79,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly SharedIdentitySystem _identity = default!;
 
     public static readonly ProtoId<SpeciesPrototype> DefaultSpecies = "Human";
-    // Corvax-Frontier-Barks-start
-    [ValidatePrototypeId<BarkPrototype>]
-    public const string DefaultBarkVoice = "Alto";
-    // Corvax-Frontier-Barks-end
+    public static readonly ProtoId<BarkPrototype> DefaultBarkVoice = "Alto"; // Goob Station - Barks
 
     public override void Initialize()
     {
@@ -550,7 +546,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         }
 
         EnsureDefaultMarkings(uid, humanoid);
-        SetBarkVoice(uid, profile.BarkVoice, humanoid); // Corvax-Frontier-Barks
+        SetBarkVoice(uid, profile.BarkVoice, humanoid); // Goob Station - Barks
 
         humanoid.Gender = profile.Gender;
         if (TryComp<GrammarComponent>(uid, out var grammar))
@@ -659,7 +655,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
                 .Where(o => o.RoundStart && (o.SpeciesWhitelist is null || o.SpeciesWhitelist.Contains(humanoid.Species)))
                 .ToList();
 
-            voicePrototypeId = _proto.Index<BarkPrototype>(barks.Count > 0 ? barks[0].ID : DefaultBarkVoice).ID;
+            voicePrototypeId = _proto.Index(barks.Count > 0 ? barks[0] : DefaultBarkVoice);
         }
 
         EnsureComp<SpeechSynthesisComponent>(uid, out var comp);
