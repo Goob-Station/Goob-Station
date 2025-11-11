@@ -449,7 +449,7 @@ public sealed partial class ChargeMagicEvent : InstantActionEvent
     public float WandChargeRate = 1000f;
 
     [DataField]
-    public float MinWandDegradeCharge = 500f;
+    public float MinWandDegradeCharge = 1000f;
 
     [DataField]
     public float WandDegradePercentagePerCharge = 0.5f;
