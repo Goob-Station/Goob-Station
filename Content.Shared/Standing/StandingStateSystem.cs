@@ -86,7 +86,8 @@ public sealed class StandingStateSystem : EntitySystem
         bool force = true,
         StandingStateComponent? standingState = null,
         AppearanceComponent? appearance = null,
-        HandsComponent? hands = null)
+        HandsComponent? hands = null,
+        bool animate = true)    // Goobstation edit
     {
         // TODO: This should actually log missing comps...
         if (!Resolve(uid, ref standingState, false))
@@ -122,7 +123,7 @@ public sealed class StandingStateSystem : EntitySystem
         RaiseLocalEvent(uid, new DownedEvent(), false);
 
         // Seemed like the best place to put it
-        _appearance.SetData(uid, RotationVisuals.RotationState, RotationState.Horizontal, appearance);
+        _appearance.SetData(uid, RotationVisuals.RotationState, animate ? RotationState.Horizontal : RotationState.HorizontalForce, appearance);    // Goobstation - animations
 
         // Change collision masks to allow going under certain entities like flaps and tables
         if (TryComp(uid, out FixturesComponent? fixtureComponent))
