@@ -17656,3 +17656,13 @@ Entries:
       message: 'IPC pumps can be reinserted. '
   id: 1981
   time: '2025-11-11T08:52:14.0000000+00:00'
+- author: 'Fishbait '
+  changes:
+    - type: Add
+      message: Added sprites for plasma tanks
+    - type: Tweak
+      message: Changed plasmamen survival tank to now have a smal plasma tank
+    - type: Fix
+      message: Fixed plasma tank now fit in tank harness
+  id: 1982
+  time: '2025-11-11T08:52:45.0000000+00:00'
