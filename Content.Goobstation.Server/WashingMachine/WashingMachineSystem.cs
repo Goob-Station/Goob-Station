@@ -7,7 +7,6 @@
 using Content.Goobstation.Shared.WashingMachine;
 using Content.Server.Forensics;
 using Content.Shared.Forensics.Components;
-using Content.Shared.WashingMachine;
 
 namespace Content.Goobstation.Server.WashingMachine;
 

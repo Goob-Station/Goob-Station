@@ -14,6 +14,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Popups;
 using Content.Shared.Slippery;
+using Content.Shared._Gabystation.Stains;
 using Content.Shared.Stains.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
