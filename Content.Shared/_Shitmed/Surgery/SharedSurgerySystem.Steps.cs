@@ -48,6 +48,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared._Shitmed.Surgery;
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
 
@@ -617,6 +618,11 @@ public abstract partial class SharedSurgerySystem
 
     private void OnPainInflicterStep(Entity<SurgeryStepPainInflicterComponent> ent, ref SurgeryStepEvent args)
     {
+        var ev = new SurgeryPainEvent();
+        RaiseLocalEvent(args.Body, ev);
+        if (ev.Cancelled)
+            return;
+
         if (!_consciousness.TryGetNerveSystem(args.Body, out var nerveSys))
             return;
 
@@ -687,7 +693,9 @@ public abstract partial class SharedSurgerySystem
             && _inventory.TryGetSlotEntity(args.User, "mask", out var _))
             return;
 
-        if (HasComp<SanitizedComponent>(args.User))
+        var sepsisEv = new SurgerySanitizationEvent();
+        RaiseLocalEvent(args.User, sepsisEv);
+        if (sepsisEv.Handled)
             return;
 
         if (TryComp<SurgeryTargetComponent>(args.Body, out var surgeryTargetComponent) &&
@@ -837,7 +845,7 @@ public abstract partial class SharedSurgerySystem
             return false;
         }
 
-        if (!PreviousStepsComplete(body, part, surgery, stepId))
+        if (!PreviousStepsComplete(body, part, surgery, stepId, user))
         {
             error = StepInvalidReason.MissingPreviousSteps;
             return false;
@@ -921,7 +929,7 @@ public abstract partial class SharedSurgerySystem
 
         return stepComp.Duration / speed;
     }
-    private (Entity<SurgeryComponent> Surgery, int Step)? GetNextStep(EntityUid body, EntityUid part, Entity<SurgeryComponent?> surgery, List<EntityUid> requirements)
+    private (Entity<SurgeryComponent> Surgery, int Step)? GetNextStep(EntityUid body, EntityUid part, Entity<SurgeryComponent?> surgery, List<EntityUid> requirements, EntityUid user)
     {
         if (!Resolve(surgery, ref surgery.Comp))
             return null;
@@ -929,11 +937,26 @@ public abstract partial class SharedSurgerySystem
         if (requirements.Contains(surgery))
             throw new ArgumentException($"Surgery {surgery} has a requirement loop: {string.Join(", ", requirements)}");
 
+
+        var ev = new SurgeryIgnorePreviousStepsEvent();
+        RaiseLocalEvent(user, ev);
+        if (ev.Handled)
+        {
+            for (var i = surgery.Comp.Steps.Count - 1; i >= 0; i--)
+            {
+                var surgeryStep = surgery.Comp.Steps[i];
+                if (!IsStepComplete(body, part, surgeryStep, surgery))
+                    return ((surgery, surgery.Comp), -i - 1);
+            }
+
+            return null;
+        }
+
         requirements.Add(surgery);
 
         if (surgery.Comp.Requirement is { } requirementId &&
             GetSingleton(requirementId) is { } requirement &&
-            GetNextStep(body, part, requirement, requirements) is { } requiredNext)
+            GetNextStep(body, part, requirement, requirements, user) is { } requiredNext)
         {
             return requiredNext;
         }
@@ -948,20 +971,25 @@ public abstract partial class SharedSurgerySystem
         return null;
     }
 
-    public (Entity<SurgeryComponent> Surgery, int Step)? GetNextStep(EntityUid body, EntityUid part, EntityUid surgery)
+    public (Entity<SurgeryComponent> Surgery, int Step)? GetNextStep(EntityUid body, EntityUid part, EntityUid surgery, EntityUid user)
     {
         _nextStepList.Clear();
-        return GetNextStep(body, part, surgery, _nextStepList);
+        return GetNextStep(body, part, surgery, _nextStepList, user);
     }
 
-    public bool PreviousStepsComplete(EntityUid body, EntityUid part, Entity<SurgeryComponent> surgery, EntProtoId step)
+    public bool PreviousStepsComplete(EntityUid body, EntityUid part, Entity<SurgeryComponent> surgery, EntProtoId step, EntityUid user)
     {
+        var ev = new SurgeryIgnorePreviousStepsEvent();
+        RaiseLocalEvent(user, ev);
+        if (ev.Handled)
+            return true;
+
         // TODO RMC14 use index instead of the prototype id
         if (surgery.Comp.Requirement is { } requirement)
         {
             if (GetSingleton(requirement) is not { } requiredEnt ||
                 !TryComp(requiredEnt, out SurgeryComponent? requiredComp) ||
-                !PreviousStepsComplete(body, part, (requiredEnt, requiredComp), step))
+                !PreviousStepsComplete(body, part, (requiredEnt, requiredComp), step, user))
             {
                 return false;
             }
