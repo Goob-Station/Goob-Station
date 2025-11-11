@@ -113,6 +113,7 @@
     - machine_board
   - type: LightningTarget
     priority: 1
+  - type: TogglePower
 
 - type: entity
   abstract: true
