@@ -111,7 +111,8 @@ public sealed class CarryingSystem : EntitySystem
         // If the person is carrying someone, and the carried person is a pseudo-item, and the target entity is a storage,
         // then add an action to insert the carried entity into the target
         // AKA put carried felenid into a duffelbag
-        if (args.Using is not {} carried || !args.CanAccess || !TryComp<PseudoItemComponent>(carried, out var pseudoItem))
+        var carried = ent.Comp.Carried; // Goob edit start - It made ZERO sense to grab args.Using, which would point to a virtual item.
+        if (!args.CanAccess || !TryComp<PseudoItemComponent>(ent.Comp.Carried, out var pseudoItem)) // Goob edit end - OF COURSE if you have CarryingComponent you are carrying something, why even check that.
             return;
 
         var target = args.Target;
