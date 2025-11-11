@@ -17771,3 +17771,11 @@ Entries:
         the seccies you kill
   id: 1995
   time: '2025-11-11T09:42:17.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Reworked player manifest in round end summary, now includes last words
+        and how players died.
+  id: 1996
+  time: '2025-11-11T09:55:56.0000000+00:00'
