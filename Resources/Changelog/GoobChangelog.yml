@@ -17681,3 +17681,11 @@ Entries:
       message: Foamblades can make their scary sounds again.
   id: 1984
   time: '2025-11-11T08:55:40.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Heretic summons simplemob AI now follows heretic around.
+    - type: Tweak
+      message: Fire sharks are slightly weaker but you get 3 of them per 1 liver.
+  id: 1985
+  time: '2025-11-11T08:57:37.0000000+00:00'
