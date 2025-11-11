@@ -17797,3 +17797,18 @@ Entries:
         external ones.
   id: 1998
   time: '2025-11-11T15:17:33.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: >-
+        Slot machines can now be emagged! this causing almost everything to
+        become randomized (spin cost, win chances, win amounts, it also causes
+        the godpot to be randomized which means it could be ANYTHING)
+    - type: Tweak
+      message: each slot machine spin now costs 300 by default
+    - type: Tweak
+      message: >-
+        qm's slot machine now costs 100,000 per spin but now has a 10% chance to
+        win 1 million instead of the previous 1%
+  id: 1999
+  time: '2025-11-11T20:56:32.0000000+00:00'
