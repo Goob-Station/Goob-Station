@@ -17707,3 +17707,11 @@ Entries:
       message: Brig access on atlas
   id: 1987
   time: '2025-11-11T09:08:07.0000000+00:00'
+- author: LuciferEOS, The Syndicate Oculist Department
+  changes:
+    - type: Tweak
+      message: >-
+        Thermals no longer burn your eyes irl when you use them (made the filter
+        softer)
+  id: 1988
+  time: '2025-11-11T09:08:54.0000000+00:00'
