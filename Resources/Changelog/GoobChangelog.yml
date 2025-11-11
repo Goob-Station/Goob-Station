@@ -17739,3 +17739,9 @@ Entries:
         science modules
   id: 1991
   time: '2025-11-11T09:21:26.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed BSO having to protect nukie commander
+  id: 1992
+  time: '2025-11-11T09:24:50.0000000+00:00'
