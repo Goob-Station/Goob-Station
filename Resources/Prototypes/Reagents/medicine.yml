@@ -1117,7 +1117,7 @@
       - !type:SuppressPain
         amount: 2
         time: 14
-      - !type:EvenHealthChange
+      - !type:HealthChange
         damage:
           Burn: -3
           Toxin: -3
