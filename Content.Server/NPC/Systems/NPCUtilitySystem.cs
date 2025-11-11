@@ -406,8 +406,8 @@ public sealed class NPCUtilitySystem : EntitySystem
             }
             case TargetMeleeCon:
             {   
-                TryComp<FoldableComponent>(targetUid, out var foldable); // Goobstation
-                if (TryComp<MeleeWeaponComponent>(targetUid, out var melee) && (foldable == null || foldable.IsFolded)) // Goobstation
+                if (TryComp<MeleeWeaponComponent>(targetUid, out var melee) &&
+                    (!TryComp<FoldableComponent>(targetUid, out var foldable) || foldable.IsFolded)) // Goobstation
                 {
                     return melee.Damage.GetTotal().Float() * melee.AttackRate / 100f;
                 }
