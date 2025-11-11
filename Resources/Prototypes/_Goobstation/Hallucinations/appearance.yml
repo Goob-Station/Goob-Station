@@ -1,0 +1,28 @@
+- type: hallucinationsPack
+  id: CyberPsychoAppearance
+  data: !type:AppearanceHallucinations
+    delay:
+      min: 20
+      max: 120
+    appearances:
+    - prototypes:
+      - ArmBladeChangeling
+      - ArmClawChangeling
+      states: [inhand-left, inhand-right]
+      sound:
+        collection: gib
+    - prototypes:
+      - TouchSpellMansus
+      states: [inhand-left, inhand-right]
+      sound:
+        path: /Audio/Items/welder.ogg
+    - prototypes:
+      - ClothingOuterArmorHeretic
+      states: [equipped-OUTERCLOTHING]
+      sound:
+        path: /Audio/Items/welder.ogg
+    - prototypes:
+      - WeaponLightMachineGunL6C
+      states: [wielded-inhand-left, wielded-inhand-right]
+      sound:
+        path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg

@@ -62,7 +62,7 @@ public sealed class MeleeSoundSystem : EntitySystem
     /// for immediate feedback, misses and such
     /// (Swinging a weapon goes "whoosh" whether it hits or not)
     /// </summary>
-    public void PlaySwingSound(EntityUid userUid, EntityUid weaponUid, MeleeWeaponComponent weaponComponent)
+    public void PlaySwingSound(EntityUid? userUid, EntityUid weaponUid, MeleeWeaponComponent weaponComponent)   // Goobstation - nullable user
     {
         _audio.PlayPredicted(weaponComponent.SwingSound, weaponUid, userUid);
     }

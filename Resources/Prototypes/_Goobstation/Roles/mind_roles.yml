@@ -51,3 +51,16 @@
     roleType: Familiar
     subtype: role-subtype-brainwashed
   - type: MindcontrolledRole
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleCyberpsychosis
+  name: Cyberpsycho Role
+  components:
+  - type: MindRole
+    antagPrototype: Cyberpsychosis
+    exclusiveAntag: true
+    roleType: SoloAntagonist
+    subtype: Cyberpsychosis
+  - type: RoleBriefing
+    briefing: cyberpsychosis-briefing

@@ -508,6 +508,7 @@
   - MobAtmosStandard
   - MobFlammable
   - BaseMobSpecies
+  - BaseCyberSanityMob  # Goobstation
   id: BaseMobSpeciesOrganic
   abstract: true
   components:
@@ -576,6 +577,7 @@
     power: 0.6
   - type: FlightAffectedByScale # Goobstation: port EE height/width sliders.
   - type: StunVisuals
+  - type: CanHallucinate # Goobstation hallucinations
 
 - type: entity
   save: false

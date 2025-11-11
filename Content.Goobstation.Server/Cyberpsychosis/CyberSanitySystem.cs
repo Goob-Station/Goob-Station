@@ -1,0 +1,106 @@
+using System.Linq;
+using Content.Goobstation.Server.Controlled;
+using Content.Goobstation.Server.Shizophrenia;
+using Content.Server.Actions;
+using Content.Server.Administration;
+using Content.Server.Administration.Logs;
+using Content.Server.Body.Systems;
+using Content.Server.Chat.Systems;
+using Content.Server.Humanoid;
+using Content.Server.Jittering;
+using Content.Server.Mind;
+using Content.Server.Popups;
+using Content.Server.Roles;
+using Content.Shared.Inventory;
+using Robust.Server.GameObjects;
+using Robust.Server.Player;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
+
+namespace Content.Goobstation.Server.Cyberpsychosis;
+
+public sealed partial class CyberSanitySystem : EntitySystem
+{
+    [Dependency] private readonly BodySystem _body = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly SchizophreniaSystem _shizophrenia = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly MindSwapSystem _mindSwap = default!;
+    [Dependency] private readonly JitteringSystem _jitter = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly RoleSystem _role = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        UpdatesBefore.Add(typeof(ActionsSystem));
+
+        InitializeGain();
+        InitializeHallucination();
+
+        SubscribeLocalEvent<CyberSanityComponent, MapInitEvent>(OnMapInit);
+    }
+
+    private void OnMapInit(EntityUid uid, CyberSanityComponent comp, MapInitEvent args)
+    {
+
+    }
+
+    private void UpdateSanity(EntityUid uid, CyberSanityComponent comp)
+    {
+        if (comp.NextGain > _timing.CurTime)
+            return;
+
+        comp.NextGain = _timing.CurTime + TimeSpan.FromSeconds(1);
+        GainSanity(uid, comp);
+    }
+
+    private void UpdateEffects(EntityUid uid, CyberSanityComponent comp)
+    {
+        if (comp.NextEffect > _timing.CurTime)
+            return;
+
+        if (comp.Sanity > comp.EffectThresholds.Keys.Max())
+            return;
+
+        comp.NextEffect = _timing.CurTime + TimeSpan.FromSeconds(_random.NextFloat(7f, 40f));
+
+        var effects = comp.EffectThresholds.Where(x => x.Key >= comp.Sanity).SelectMany(x => x.Value).ToList();
+
+        if (effects.Count <= 0)
+            return;
+
+        _random.Pick(effects).Effect(new(uid, EntityManager));
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var sanityQuery = EntityQueryEnumerator<CyberSanityComponent>();
+        while (sanityQuery.MoveNext(out var uid, out var comp))
+        {
+            if (HasComp<MindSwappedComponent>(uid) || comp.FullPsycho)
+                continue;
+
+            if (comp.Sanity <= 350 && !comp.PsychosisHallucination.HasValue)
+                CreatePsychoEntity(uid, comp);
+            else if (comp.Sanity > 450 && comp.PsychosisHallucination.HasValue)
+                QueueDel(comp.PsychosisHallucination);
+
+            UpdateSanity(uid, comp);
+            UpdateEffects(uid, comp);
+        }
+    }
+}
+
