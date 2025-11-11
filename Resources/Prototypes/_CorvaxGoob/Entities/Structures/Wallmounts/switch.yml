@@ -1,0 +1,59 @@
+- type: entity
+  id: SignalSwitchLightDirectionalNonAIWhitelist
+  name: signal switch
+  description: It's a switch for toggling lights in room.
+  suffix: "Directional, Non AI Whitelist"
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: WallMount
+    arc: 175
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    canCollide: false
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: Structures/Wallmounts/switch.rsi
+    layers:
+    - state: dead
+    - state: on
+      map: ["on"]
+      shader: unshaded
+    - state: off
+      map: ["off"]
+      shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.SignalSwitchVisuals.State:
+        off:
+          On: { visible: false }
+          Off: { visible: true }
+        on:
+          On: { visible: true }
+          Off: { visible: false }
+  - type: SignalSwitch
+  - type: UseDelay
+    delay: 0.5 # prevent light-toggling auto-clickers.
+  - type: Rotatable
+  - type: Construction
+    graph: SignalSwitchGraph
+    node: SignalSwitchNode
+  - type: Fixtures
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSource
+    ports:
+    - On
+    - Off
+    - Status
+    lastSignals:
+      Status: false
+  - type: Tag
+    tags:
+    - Structure
