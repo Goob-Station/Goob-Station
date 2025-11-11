@@ -17574,3 +17574,214 @@ Entries:
       message: Removed slaughter demon kill wizard objective.
   id: 1972
   time: '2025-11-08T17:48:32.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: Added fun!
+    - type: Remove
+      message: Removed fun!
+    - type: Tweak
+      message: Changed fun!
+    - type: Fix
+      message: >-
+        Fixed security suits from cargo not having proper contraband
+        classification
+  id: 1973
+  time: '2025-11-08T23:52:35.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Add
+      message: Yowies can now use most humanoid markings
+    - type: Fix
+      message: Yowie fur markings no longer have a missing strip in the midsection
+  id: 1974
+  time: '2025-11-09T07:07:24.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Antag immune means antag immune
+  id: 1975
+  time: '2025-11-09T07:12:15.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: No more Ryan Gosling zombies
+  id: 1976
+  time: '2025-11-09T07:34:29.0000000+00:00'
+- author: JohnJohn
+  changes:
+    - type: Add
+      message: >-
+        Added Gambling, slot machines can now be bought from cargo for 1000
+        spesos
+    - type: Add
+      message: >-
+        Added a high roller version of the slot machine for the QM, can be found
+        in their locker
+    - type: Add
+      message: Added a new lawset for the AI "Gambamov"
+  id: 1977
+  time: '2025-11-09T11:28:53.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Basalt blocks rads now.
+  id: 1978
+  time: '2025-11-09T12:02:59.0000000+00:00'
+- author: John John
+  changes:
+    - type: Tweak
+      message: The station report now has a better template
+  id: 1979
+  time: '2025-11-10T15:30:27.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Removed steel cost from autoinjector carts, reduced glass cost (1 glass
+        1 plasma is roughly what most of them now cost to print)
+    - type: Tweak
+      message: >-
+        Airloss autoinjector carts now cost 0.5 plasma to print due to above
+        changes
+    - type: Tweak
+      message: >-
+        Made autoinjectors themselves not cost an arm and a leg to print. (still
+        relatively expensive)
+  id: 1980
+  time: '2025-11-11T08:50:26.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Fix
+      message: 'IPC pumps can be reinserted. '
+  id: 1981
+  time: '2025-11-11T08:52:14.0000000+00:00'
+- author: 'Fishbait '
+  changes:
+    - type: Add
+      message: Added sprites for plasma tanks
+    - type: Tweak
+      message: Changed plasmamen survival tank to now have a smal plasma tank
+    - type: Fix
+      message: Fixed plasma tank now fit in tank harness
+  id: 1982
+  time: '2025-11-11T08:52:45.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Add
+      message: >-
+        New changeling ability - Awakened Instinct. Gives the option for
+        changelings to use the biomass system in return for a flat 25% increase
+        in chemical regeneration.
+  id: 1983
+  time: '2025-11-11T08:54:58.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Fix
+      message: Foamblades can make their scary sounds again.
+  id: 1984
+  time: '2025-11-11T08:55:40.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Heretic summons simplemob AI now follows heretic around.
+    - type: Tweak
+      message: Fire sharks are slightly weaker but you get 3 of them per 1 liver.
+  id: 1985
+  time: '2025-11-11T08:57:37.0000000+00:00'
+- author: Thatonestomf
+  changes:
+    - type: Remove
+      message: >-
+        Removed the Hristov and RPG from submarine, replaced with WT550 and a
+        watergun.
+  id: 1986
+  time: '2025-11-11T09:06:15.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Command and sec radio to atlas
+    - type: Fix
+      message: Security camera coverage on atlas
+    - type: Fix
+      message: Brig access on atlas
+  id: 1987
+  time: '2025-11-11T09:08:07.0000000+00:00'
+- author: LuciferEOS, The Syndicate Oculist Department
+  changes:
+    - type: Tweak
+      message: >-
+        Thermals no longer burn your eyes irl when you use them (made the filter
+        softer)
+  id: 1988
+  time: '2025-11-11T09:08:54.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Magic wand tweaked, death and healing bolt are less useful, lesser magic
+        missile is stronger, wand degradation charge limit is doubled.
+    - type: Add
+      message: wizard gorilla form can target limbs.
+  id: 1989
+  time: '2025-11-11T09:10:44.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Shadowlings are now able to equip a pda / id.
+  id: 1990
+  time: '2025-11-11T09:19:40.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Add
+      message: >-
+        Added a holofan and the ability to hold plasteel to generic cyborg's
+        science modules
+  id: 1991
+  time: '2025-11-11T09:21:26.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed BSO having to protect nukie commander
+  id: 1992
+  time: '2025-11-11T09:24:50.0000000+00:00'
+- author: Puntable Tuerk
+  changes:
+    - type: Fix
+      message: >-
+        Stuffing Tajarans, Resomi, Felinid and Rodentia into storage spaces with
+        the previously bugged "Insert Other" verb works now.
+  id: 1993
+  time: '2025-11-11T09:27:24.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: Additional turrets to CC
+    - type: Tweak
+      message: AI position at CC
+    - type: Fix
+      message: Some power issues at CC
+  id: 1994
+  time: '2025-11-11T09:40:37.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: >-
+        Security ponchos now have built in cameras don't forget to take em of
+        the seccies you kill
+  id: 1995
+  time: '2025-11-11T09:42:17.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Reworked player manifest in round end summary, now includes last words
+        and how players died.
+  id: 1996
+  time: '2025-11-11T09:55:56.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Slaugther demon no longer dies to plasma fire
+  id: 1997
+  time: '2025-11-11T09:59:07.0000000+00:00'
