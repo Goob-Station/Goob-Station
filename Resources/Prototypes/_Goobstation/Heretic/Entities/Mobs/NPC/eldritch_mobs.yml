@@ -79,7 +79,7 @@
     description: ghostrole-ghoul-desc
     rules: ghostrole-ghoul-rules
     mindRoles:
-    - MindRoleGhostRoleFamiliar
+    - MindRoleGhoul
     raffle:
       settings: short
   - type: CollectiveMind
@@ -113,7 +113,7 @@
     name: ghostrole-stalker-name
     description: ghostrole-stalker-desc
     mindRoles:
-    - MindRoleGhostRoleFamiliar
+    - MindRoleGhoul
   - type: ActionsProvider
     actions:
     - ActionHereticJaunt
@@ -169,7 +169,7 @@
     name: ghostrole-prophet-name
     description: ghostrole-prophet-desc
     mindRoles:
-    - MindRoleGhostRoleFamiliar
+    - MindRoleGhoul
   - type: ActionsProvider
     actions:
     - ActionHereticJauntLong
@@ -210,7 +210,7 @@
     name: ghostrole-fire-shark-name
     description: ghostrole-fire-shark-desc
     mindRoles:
-    - MindRoleGhostRoleFamiliar
+    - MindRoleGhoul
   - type: Body
     prototype: null
     bodyType: Simple

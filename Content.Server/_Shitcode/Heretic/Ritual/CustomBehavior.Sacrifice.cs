@@ -52,6 +52,12 @@ namespace Content.Server.Heretic.Ritual;
     [DataField]
     public bool OnlyTargets;
 
+    /// <summary>
+    ///     Should we count only humanoids?
+    /// </summary>
+    [DataField]
+    public bool OnlyHumanoid = true;
+
     // this is awful but it works so i'm not complaining
     protected SharedMindSystem _mind = default!;
     protected HereticSystem _heretic = default!;
@@ -92,7 +98,7 @@ namespace Content.Server.Heretic.Ritual;
         foreach (var look in lookup)
         {
             if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) // only mobs
-            || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) // only humans
+            || OnlyHumanoid && !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) // only humans
             || OnlyTargets
                 && hereticComp.SacrificeTargets.All(x => x.Entity != args.EntityManager.GetNetEntity(look)) // only targets
                 && !args.EntityManager.HasComponent<HereticComponent>(look)) // or other heretics

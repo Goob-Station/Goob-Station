@@ -1,3 +1,4 @@
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Tag;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -72,4 +73,10 @@ public sealed partial class FleshPassiveComponent : Component
 
     [ViewVariables]
     public float Accumulator;
+
+    [DataField]
+    public FixedPoint2 TrackedDamage;
+
+    [DataField]
+    public FixedPoint2 MimicDamage = 10;
 }

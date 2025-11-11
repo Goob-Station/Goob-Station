@@ -43,7 +43,9 @@ public sealed class HealingAuraSystem : EntitySystem
                     aura.ToHeal * multiplier,
                     aura.BoneHeal * multiplier,
                     aura.PainHeal * multiplier,
-                    aura.WoundHeal * multiplier);
+                    aura.WoundHeal * multiplier,
+                    aura.BloodHeal * multiplier,
+                    aura.BleedHeal * multiplier);
             }
         }
     }
