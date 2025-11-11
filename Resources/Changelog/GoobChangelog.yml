@@ -17785,3 +17785,15 @@ Entries:
       message: Slaugther demon no longer dies to plasma fire
   id: 1997
   time: '2025-11-11T09:59:07.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Add
+      message: >-
+        Added back old mid round antagonists such as heretics and lings as well
+        as adding mid round devils to the mix.
+    - type: Add
+      message: >-
+        Added a new game mode that focuses on internal threats rather than
+        external ones.
+  id: 1998
+  time: '2025-11-11T15:17:33.0000000+00:00'
