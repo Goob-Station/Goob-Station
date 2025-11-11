@@ -537,7 +537,7 @@
   icon: { sprite:  Structures/Machines/holopad.rsi, state: base } # Goobstation
   result: HolopadMachineCircuitboard
 
-- type: latheRecipe
+- type: latheRecipe # Goobstation
   parent: [ BaseCircuitboardRecipe, BaseGeneralMachineRecipeCategory ]
   id: WashingMachineCircuitboard
   icon: { sprite:  _Goobstation/Structures/Machines/washing_machine.rsi, state: base }

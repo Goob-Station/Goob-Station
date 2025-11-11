@@ -67,7 +67,7 @@
   - type: Tag # goob edit
     tags:
     - Mask
-  - type: Appearance
+  - type: Appearance # Goobstation stains start
   - type: Stainable
     clothingVisuals:
       mask:
@@ -75,7 +75,7 @@
         state: maskblood
     iconVisuals:
     - sprite: _Gabystation/Effects/blood.rsi
-      state: maskbloodicon
+      state: maskbloodicon # Goobstation stains end
 
 - type: entity
   abstract: true

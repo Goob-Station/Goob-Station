@@ -129,7 +129,7 @@
         Blunt: 0.95
         Slash: 0.95
         Piercing: 0.95
-  - type: Appearance
+  - type: Appearance # Goobstation stains start
   - type: Stainable
     clothingVisuals:
       gloves:
@@ -137,7 +137,7 @@
         state: gloveblood
     iconVisuals:
     - sprite: _Gabystation/Effects/blood.rsi
-      state: glovebloodicon
+      state: glovebloodicon # Goobstation stains end
 
 - type: entity
   abstract: true

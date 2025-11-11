@@ -197,14 +197,14 @@
     knockdownTimeDelta: -2
   - type: StaminaResistance # Goobstation
     damageCoefficient: 0.7
-  - type: Stainable
+  - type: Stainable # Goobstation stains start
     clothingVisuals:
       outerClothing:
       - sprite: _Gabystation/Effects/blood.rsi
         state: armorblood
     iconVisuals:
     - sprite: _Gabystation/Effects/blood.rsi
-      state: armorbloodicon
+      state: armorbloodicon # Goobstation stains end
 
 #Standard armor vest, allowed for security and bartenders
 - type: entity
@@ -606,7 +606,7 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
-  - type: Stainable
+  - type: Stainable # Goobstation stains start
     clothingVisuals:
       outerClothing:
       - sprite: _Gabystation/Effects/blood.rsi
@@ -615,7 +615,7 @@
     - sprite: _Gabystation/Effects/blood.rsi
       state: armorbloodicon
   - type: StainBlocker
-    slots: [INNERCLOTHING]
+    slots: [INNERCLOTHING] # Goobstation stains end
 
 - type: entity # This is from upstream, so it goes in wizden code.
   parent: [ClothingOuterArmorCaptainCarapace, BaseCentcommContraband]

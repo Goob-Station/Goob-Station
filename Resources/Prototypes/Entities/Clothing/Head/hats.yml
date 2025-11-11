@@ -505,14 +505,14 @@
     tags:
     - PetWearable
     - CorgiWearable
-  - type: Stainable
+  - type: Stainable # Goobstation stains start
     clothingVisuals:
       head:
       - sprite: _Gabystation/Effects/blood.rsi
         state: helmetblood
     iconVisuals:
     - sprite: _Gabystation/Effects/blood.rsi
-      state: outerclothinghelmeticon
+      state: outerclothinghelmeticon # Goobstation stains end
 
 - type: entity
   parent: [ ClothingHeadHatBeretRND, BaseCommandContraband ]
@@ -1316,14 +1316,14 @@
     - Recyclable
     - HamsterWearable
     - WhitelistChameleon
-  - type: Stainable
+  - type: Stainable # Goobstation stains start
     clothingVisuals:
       head:
       - sprite: _Gabystation/Effects/blood.rsi
         state: helmetblood
     iconVisuals:
     - sprite: _Gabystation/Effects/blood.rsi
-      state: outerclothinghelmeticon
+      state: outerclothinghelmeticon # Goobstation stains end
 
 - type: entity
   parent: ClothingHeadBase
