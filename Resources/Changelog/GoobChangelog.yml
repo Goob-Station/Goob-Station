@@ -17650,3 +17650,9 @@ Entries:
         relatively expensive)
   id: 1980
   time: '2025-11-11T08:50:26.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Fix
+      message: 'IPC pumps can be reinserted. '
+  id: 1981
+  time: '2025-11-11T08:52:14.0000000+00:00'
