@@ -52,8 +52,8 @@ using Content.Shared._EinsteinEngines.Language.Systems;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Speech;
-using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared.Silicons.StationAi;
+using Content.Shared.Silicons.Borgs.Components; // Goobstation
+using Content.Shared.Silicons.StationAi; // Goobstation
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -61,11 +61,11 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
-using Content.Shared.Access.Systems;
-using Content.Shared.Access.Components;
-using Content.Shared.PDA;
+using Content.Shared.Access.Systems; // Goobstation
+using Content.Shared.Access.Components; // Goobstation
+using Content.Shared.PDA; // Goobstation
 using Content.Shared.Whitelist;
-using Content.Shared.StatusIcon;
+using Content.Shared.StatusIcon; // Goobstation
 
 namespace Content.Server.Radio.EntitySystems;
 

@@ -13,7 +13,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Speech;
-using Content.Shared.StatusIcon;
+using Content.Shared.StatusIcon; // Goobstation
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.VoiceMask;

@@ -14,8 +14,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Gabystation.VoiceMask;
-using Content.Shared.StatusIcon;
+using Content.Shared._Gabystation.VoiceMask; // Goobstation
+using Content.Shared.StatusIcon; // Goobstation
 using Content.Shared.VoiceMask;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
