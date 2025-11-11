@@ -17675,3 +17675,9 @@ Entries:
         in chemical regeneration.
   id: 1983
   time: '2025-11-11T08:54:58.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Fix
+      message: Foamblades can make their scary sounds again.
+  id: 1984
+  time: '2025-11-11T08:55:40.0000000+00:00'
