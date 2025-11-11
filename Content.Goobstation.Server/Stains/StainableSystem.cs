@@ -4,14 +4,17 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Stains;
 using Content.Server.Forensics;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Stains;
 using Content.Shared.Tag;
-using Robust.Shared.Containers; // Gaby
+using Robust.Shared.Containers;
 
-namespace Content.Server.Stains;
+// Gaby
+
+namespace Content.Goobstation.Server.Stains;
 
 public sealed partial class StainableSystem : SharedStainableSystem
 {
@@ -27,12 +30,12 @@ public sealed partial class StainableSystem : SharedStainableSystem
         }
     }
 
-    protected override void StainForensics(Entity<StainableComponent> ent, Entity<SolutionComponent> solution)
+    protected override void StainForensics(Entity<Shared.Stains.StainableComponent> ent, Entity<SolutionComponent> solution)
     {
         _tag.AddTag(ent.Owner, ForensicScannerSystem.DNASolutionScannableTag);
     }
 
-    protected override void WashingForensics(Entity<StainableComponent> ent, Entity<SolutionComponent> solution, EntityUid washingMachine)
+    protected override void WashingForensics(Entity<Shared.Stains.StainableComponent> ent, Entity<SolutionComponent> solution, EntityUid washingMachine)
     {
         if (!TryComp<ForensicsComponent>(washingMachine, out var forensics))
             return;

@@ -4,21 +4,23 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
+using Content.Goobstation.Shared.WashingMachine.Events;
+using Content.Shared.Clothing.Components;
 using Content.Shared.Destructible;
 using Content.Shared.Interaction;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Verbs;
-using Content.Shared.WashingMachine.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using System.Linq;
-using Content.Shared.Clothing.Components; // Gaby
 
-namespace Content.Shared.WashingMachine;
+// Gaby
+
+namespace Content.Goobstation.Shared.WashingMachine;
 
 public abstract partial class SharedWashingMachineSystem : EntitySystem
 {

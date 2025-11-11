@@ -5,12 +5,10 @@
 
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.WashingMachine;
+namespace Content.Goobstation.Shared.WashingMachine;
 
 [Serializable, NetSerializable]
-public enum WashingMachineState : byte
+public enum WashingMachineVisuals : byte
 {
-    Idle,
-    Washing,
-    Broken
+    State
 }

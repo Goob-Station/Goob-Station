@@ -6,16 +6,16 @@
 
 using Content.Client.Clothing;
 using Content.Client.Items.Systems;
-using Content.Shared.Clothing;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.Stains;
+using Content.Shared.Clothing;
 using Content.Shared.Hands;
 using Content.Shared.Stains;
-using Content.Shared.Forensics;
 using Robust.Client.GameObjects;
-using Robust.Shared.Reflection;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Reflection;
 
-namespace Content.Client.Stains;
+namespace Content.Goobstation.Client.Stains;
 
 public sealed partial class StainableSystem : SharedStainableSystem
 {
@@ -28,14 +28,14 @@ public sealed partial class StainableSystem : SharedStainableSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<StainableComponent, AppearanceChangeEvent>(OnAppearanceChanged);
-        SubscribeLocalEvent<StainableComponent, GetEquipmentVisualsEvent>(OnClothingVisuals, after: [typeof(ClientClothingSystem)]);
-        SubscribeLocalEvent<StainableComponent, GetInhandVisualsEvent>(OnItemVisuals, after: [typeof(ItemSystem)]);
+        SubscribeLocalEvent<Shared.Stains.StainableComponent, AppearanceChangeEvent>(OnAppearanceChanged);
+        SubscribeLocalEvent<Shared.Stains.StainableComponent, GetEquipmentVisualsEvent>(OnClothingVisuals, after: [typeof(ClientClothingSystem)]);
+        SubscribeLocalEvent<Shared.Stains.StainableComponent, GetInhandVisualsEvent>(OnItemVisuals, after: [typeof(ItemSystem)]);
 
         _layerPrefix = _reflection.GetEnumReference(StainVisualLayers.Layer);
     }
 
-    private void OnAppearanceChanged(Entity<StainableComponent> ent, ref AppearanceChangeEvent args)
+    private void OnAppearanceChanged(Entity<Shared.Stains.StainableComponent> ent, ref AppearanceChangeEvent args)
     {
         if (args.Sprite is not {} sprite)
             return;
@@ -52,7 +52,7 @@ public sealed partial class StainableSystem : SharedStainableSystem
         }
     }
 
-    private void OnClothingVisuals(Entity<StainableComponent> ent, ref GetEquipmentVisualsEvent args)
+    private void OnClothingVisuals(Entity<Shared.Stains.StainableComponent> ent, ref GetEquipmentVisualsEvent args)
     {
         if (!ent.Comp.ClothingVisuals.TryGetValue(args.Slot, out var layers))
             return;
@@ -61,7 +61,7 @@ public sealed partial class StainableSystem : SharedStainableSystem
             args.Layers.Add((key, layer));
     }
 
-    private void OnItemVisuals(Entity<StainableComponent> ent, ref GetInhandVisualsEvent args)
+    private void OnItemVisuals(Entity<Shared.Stains.StainableComponent> ent, ref GetInhandVisualsEvent args)
     {
         if (!ent.Comp.ItemVisuals.TryGetValue(args.Location, out var layers))
             return;
@@ -70,7 +70,7 @@ public sealed partial class StainableSystem : SharedStainableSystem
             args.Layers.Add((key, layer));
     }
 
-    private IEnumerable<(string, PrototypeLayerData)> UpdateVisuals(Entity<StainableComponent> ent, List<PrototypeLayerData> layers, object? identifier = null)
+    private IEnumerable<(string, PrototypeLayerData)> UpdateVisuals(Entity<Shared.Stains.StainableComponent> ent, List<PrototypeLayerData> layers, object? identifier = null)
     {
         if (!Solution.TryGetSolution(ent.Owner, ent.Comp.SolutionId, out var solution))
             yield break;

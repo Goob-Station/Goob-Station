@@ -4,11 +4,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.WashingMachine;
 using Content.Server.Forensics;
-using Content.Shared.WashingMachine;
 using Content.Shared.Forensics.Components;
+using Content.Shared.WashingMachine;
 
-namespace Content.Server.WashingMachine;
+namespace Content.Goobstation.Server.WashingMachine;
 
 public sealed partial class WashingMachineSystem : SharedWashingMachineSystem
 {
@@ -17,7 +18,7 @@ public sealed partial class WashingMachineSystem : SharedWashingMachineSystem
         base.Initialize();
     }
 
-    protected override void UpdateForensics(Entity<WashingMachineComponent> ent, HashSet<EntityUid> items)
+    protected override void UpdateForensics(Entity<Shared.WashingMachine.WashingMachineComponent> ent, HashSet<EntityUid> items)
     {
         if (!TryComp<ForensicsComponent>(ent.Owner, out var forensics))
             return;

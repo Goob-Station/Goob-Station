@@ -4,23 +4,30 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.WashingMachine.Events;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Clothing.Components;
+using Content.Shared.DoAfter;
 using Content.Shared.Fluids;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
+using Content.Shared.Popups;
 using Content.Shared.Slippery;
-using Content.Shared.WashingMachine.Events;
-using Robust.Shared.GameObjects; // Gaby
-using Content.Shared.Clothing.Components; // Gaby
-using Robust.Shared.Containers; // Gaby
-using Content.Shared.Stains.Components; // Gaby
-using Content.Shared.Verbs; // Gaby
-using Content.Shared.DoAfter; // Gaby
-using Content.Shared.Popups; // Gaby
-using Robust.Shared.Utility; // Gaby
+using Content.Shared.Stains.Components;
+using Content.Shared.Verbs;
+using Robust.Shared.Containers;
+// Gaby
+// Gaby
+// Gaby
+// Gaby
+// Gaby
+// Gaby
+// Gaby
 
-namespace Content.Shared.Stains;
+// Gaby
+
+namespace Content.Goobstation.Shared.Stains;
 
 public abstract partial class SharedStainableSystem : EntitySystem
 {
