@@ -540,5 +540,5 @@
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseGeneralMachineRecipeCategory ]
   id: WashingMachineCircuitboard
-  icon: { sprite:  Structures/Furniture/washing_machine.rsi, state: base }
+  icon: { sprite:  _Goobstation/Structures/Machines/washing_machine.rsi, state: base }
   result: WashingMachineCircuitboard

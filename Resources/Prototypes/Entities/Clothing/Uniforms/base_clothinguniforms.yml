@@ -72,7 +72,7 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 30
-  - type: Appearance
+  - type: Appearance # Goob stains start
   - type: Stainable
     clothingVisuals:
       jumpsuit:
@@ -80,14 +80,14 @@
         state: uniformblood
     itemVisuals:
       left:
-      - sprite: Effects/Stains/jumpsuit.rsi
+      - sprite: _Goobstation/Stains/jumpsuit.rsi
         state: inhand-right
       right:
-      - sprite: Effects/Stains/jumpsuit.rsi
+      - sprite: _Goobstation/Stains/jumpsuit.rsi
         state: inhand-left
     iconVisuals:
     - sprite: _Gabystation/Effects/blood.rsi
-      state: uniformbloodicon
+      state: uniformbloodicon # Goob stains end
   - type: Tag
     tags:
     - ClothMade
@@ -103,21 +103,21 @@
   - type: Clothing
     slots: [innerclothing]
     femaleMask: UniformTop
-  - type: Stainable
+  - type: Stainable # Goob stains start
     clothingVisuals:
       jumpsuit:
       - sprite: _Gabystation/Effects/blood.rsi
         state: uniformblood
     itemVisuals:
       left:
-      - sprite: Effects/Stains/jumpskirt.rsi
+      - sprite: _Goobstation/Stains/jumpskirt.rsi
         state: inhand-right
       right:
-      - sprite: Effects/Stains/jumppskirt.rsi
+      - sprite: _Goobstation/Stains/jumpskirt.rsi
         state: inhand-left
     iconVisuals:
     - sprite: _Gabystation/Effects/blood.rsi
-      state: uniformbloodicon
+      state: uniformbloodicon # Goob stains end
 
 
 - type: entity
@@ -150,7 +150,7 @@
     - Skirt
     - ClothMade
     - WhitelistChameleon
-  - type: Stainable
+  - type: Stainable # Goob stains start
     clothingVisuals:
       jumpsuit:
       - sprite: _Gabystation/Effects/blood.rsi
@@ -164,4 +164,4 @@
         state: inhand-left
     iconVisuals:
     - sprite: _Gabystation/Effects/blood.rsi
-      state: uniformbloodicon
+      state: uniformbloodicon # Goob stains end

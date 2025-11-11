@@ -12,7 +12,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: Structures/Furniture/washing_machine.rsi
+    sprite: _Goobstation/Structures/Machines/washing_machine.rsi
     snapCardinals: true
     layers:
     - state: base
