@@ -93,6 +93,7 @@
       80: 0.7
   - type: Speech
     speechVerb: Skeleton
+  - type: OfferItem # CorvaxGoob-Offer
   - type: ZombieImmune
   - type: Vocal
     wilhelm: "/Audio/_Goobstation/Voice/badtothebone.ogg" # Goobstation

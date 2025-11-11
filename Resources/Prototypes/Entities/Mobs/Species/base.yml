@@ -522,6 +522,7 @@
   abstract: true
   components:
   - type: Absorbable # Goobstation - changelings
+  - type: OfferItem # CorvaxGoob-Offer
   - type: WraithAbsorbable # Goobstation - wraith
   - type: Barotrauma
     damage:

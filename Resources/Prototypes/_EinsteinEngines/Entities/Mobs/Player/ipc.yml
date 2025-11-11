@@ -95,6 +95,7 @@
     unlockOnClick: false
     lockTime: 5
     unlockTime: 5
+  - type: OfferItem # CorvaxGoob-Offer
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic

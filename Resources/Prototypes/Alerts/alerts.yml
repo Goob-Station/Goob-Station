@@ -166,6 +166,7 @@
   - alertType: Magboots
   - alertType: Rooted
   - alertType: Pacified
+  - alertType: Offer # CorvaxGoob-Offer
   - alertType: Stealthy
   - alertType: ShadowCloak # Goobstation
   - alertType: DragonPower # Goobstation
@@ -237,6 +238,15 @@
   clickEvent: !type:ResistFireAlertEvent
   name: alerts-on-fire-name
   description: alerts-on-fire-desc
+
+- type: alert # CorvaxGoob-Offer
+  id: Offer
+  clickEvent: !type:AcceptOfferAlertEvent
+  icons:
+  - sprite: /Textures/_CorvaxGoob/Interface/Alerts/offer_item.rsi
+    state: offer_item
+  name: alerts-offer-name
+  description: alerts-offer-desc
 
 
 - type: alert

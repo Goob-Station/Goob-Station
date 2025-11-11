@@ -776,3 +776,6 @@ binds:
   type: State
   key: MouseRight
   canFocus: true
+- function: OfferItem # CorvaxGoob-Offer
+  type: State
+  key: H
