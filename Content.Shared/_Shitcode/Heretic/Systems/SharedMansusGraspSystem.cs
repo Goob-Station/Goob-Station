@@ -170,17 +170,6 @@ public abstract class SharedMansusGraspSystem : EntitySystem
 
                     AddComp(target, ghoul);
                     RemCompDeferred<HereticCombatMarkComponent>(target);
-                    if (TryComp(target, out FleshMimickedComponent? mimicked))
-                    {
-                        foreach (var mimic in mimicked.FleshMimics)
-                        {
-                            if (!Exists(mimic))
-                                continue;
-
-                            _faction.DeAggroEntity(mimic, target);
-                        }
-                        RemCompDeferred(target, mimicked);
-                    }
                 }
 
                 break;
