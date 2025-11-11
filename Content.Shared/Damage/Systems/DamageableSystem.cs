@@ -1027,9 +1027,9 @@ namespace Content.Shared.Damage
         public readonly DamageSpecifier? DamageDelta;
 
         /// <summary>
-        ///     This is damage before clamp of excessive heal was applied
+        ///     Damage before clamp of excessive heal and damage cap was applied
         /// </summary>
-        public readonly DamageSpecifier? UncappedDamageable;
+        public readonly DamageSpecifier? UncappedDamage;
 
         /// <summary>
         ///     Was any of the damage change dealing damage, or was it all healing?
@@ -1062,7 +1062,7 @@ namespace Content.Shared.Damage
             if (DamageDelta == null)
                 return;
 
-            UncappedDamageable = uncapped ?? damageDelta; // Goobstation
+            UncappedDamage = uncapped ?? damageDelta; // Goobstation
 
             foreach (var damageChange in DamageDelta.DamageDict.Values)
             {
