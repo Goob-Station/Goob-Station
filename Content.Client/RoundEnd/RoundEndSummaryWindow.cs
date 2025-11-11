@@ -324,7 +324,11 @@ namespace Content.Client.RoundEnd
                             "Electronic" => Color.DarkOrange,
                             _ => Color.White,
                         };
-
+                        var damagePanel = new PanelContainer
+                        {
+                            StyleClasses = { StyleNano.StyleClassBackgroundBaseLight },
+                            Margin = new Thickness(2, 2, 2, 2)
+                        };
                         var damageBox = new BoxContainer
                         {
                             Orientation = LayoutOrientation.Vertical,
@@ -344,10 +348,10 @@ namespace Content.Client.RoundEnd
                             HorizontalAlignment = HAlignment.Center,
                             VerticalAlignment = VAlignment.Center,
                         };
-
+                        damagePanel.AddChild(damageBox);
                         damageBox.AddChild(valueLabel);
                         damageBox.AddChild(headerLabel);
-                        damageTable.AddChild(damageBox);
+                        damageTable.AddChild(damagePanel);
                     }
 
                     textVBox.AddChild(damageTable);
