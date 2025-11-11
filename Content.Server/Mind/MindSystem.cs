@@ -82,6 +82,7 @@ using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Tag;
+using Content.Shared.Mobs.Components; // Goob Station
 
 namespace Content.Server.Mind;
 
@@ -269,6 +270,9 @@ public sealed class MindSystem : SharedMindSystem
 
                 alreadyAttached = true;
             }
+
+            if (HasComp<MobStateComponent>(entity.Value))// Goob Station
+                mind.LastMob = entity.Value;
         }
         else if (createGhost)
         {
