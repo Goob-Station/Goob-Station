@@ -63,9 +63,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Server._Goobstation.Wizard.NPC;
+using Content.Shared.Foldable;
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
-using Content.Shared.Foldable; // Goobstation
 
 namespace Content.Server.NPC.Systems;
 
@@ -405,8 +405,9 @@ public sealed class NPCUtilitySystem : EntitySystem
                 return _mobState.IsDead(targetUid) ? 1f : 0f;
             }
             case TargetMeleeCon:
-            {
-                if (TryComp<MeleeWeaponComponent>(targetUid, out var melee) && !HasComp<DeployFoldableComponent>(targetUid))
+            {   
+                TryComp<FoldableComponent>(targetUid, out var foldable); // Goobstation
+                if (TryComp<MeleeWeaponComponent>(targetUid, out var melee) && (foldable == null || foldable.IsFolded))
                 {
                     return melee.Damage.GetTotal().Float() * melee.AttackRate / 100f;
                 }
