@@ -17697,3 +17697,13 @@ Entries:
         watergun.
   id: 1986
   time: '2025-11-11T09:06:15.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Command and sec radio to atlas
+    - type: Fix
+      message: Security camera coverage on atlas
+    - type: Fix
+      message: Brig access on atlas
+  id: 1987
+  time: '2025-11-11T09:08:07.0000000+00:00'
