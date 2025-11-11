@@ -17,7 +17,7 @@ public sealed class VoxRestrictedSystem : EntitySystem
         // Get prototype ID of the mob trying to equip
         var meta = MetaData(args.EquipTarget);
 
-        if (meta.EntityPrototype?.ID != "Voxraider")
+        if (meta.EntityPrototype?.ID != "MobVoxraider")
         {
             args.Cancel();
         }

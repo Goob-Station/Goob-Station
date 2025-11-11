@@ -73,3 +73,29 @@
     id: CentcomPDA
   inhand:
   - EnergySwordBlue
+
+- type: startingGear
+  id: MimeAssassinGear
+  equipment:
+    gloves: ClothingHandsGlovesColorWhite
+    shoes: ClothingShoesColorWhite
+    id: MimePDA
+    pocket1: CrayonMime
+    ears: ClothingHeadsetService
+    jumpsuit: ClothingUniformJumpsuitMime
+    mask: ClothingMaskMime
+    head: ClothingHeadHatBeretFrench
+    back: ClothingBackpackMime
+  storage:
+    back:
+    - RubberStampMime
+    - WeaponPistolCobra
+    - SyringePistol
+    - SyndicateBusinessCard
+    - ChameleonProjector
+    - MagazinePistolCaselessRifle
+    - MagazinePistolCaselessRifle
+    - ChemistryBottleNocturine
+    - Syringe
+    - DeathAcidifierImplanter
+    - FreedomImplanter

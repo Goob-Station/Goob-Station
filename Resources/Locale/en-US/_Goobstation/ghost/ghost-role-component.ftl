@@ -169,3 +169,7 @@ ghost-role-information-chosen-one-name = The Chosen One
 ghost-role-information-chosen-one-description = A special agent sent to the station by Nanotrasen to defeat a dark lord.
 chosen-one-role-greeting = You are the [color=#0087FF]Chosen One[/color], you have been sent to this station to defeat a Dark Lord sent by the syndicate, check your character sheet for your objectives.
 objective-condition-dark-lord-kill-title = Ensure Dark Lord {$targetName} dies.
+
+ghost-role-information-mime-Assassin-name = Mime Assassin
+ghost-role-information-mime-Assassin-description = As assassin that uses mime clothes and favors silent kills, their name? well they probably can't tell you, but thats what makes then so good!
+mime-Assassin-role-greeting = You are a [color=#880808]Mime Assassin[/color], you have been sent to this station by the syndicate to kill some members of command that they need taken out of the equation, the syndicate have supplied you with some tools to get the job done, quietly... check your character sheet for your objectives, and don't get caught.

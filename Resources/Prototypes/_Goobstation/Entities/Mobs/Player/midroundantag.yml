@@ -56,8 +56,19 @@
     prototypes: [ ChosenOneProtagGear ]
 
 - type: entity
+  parent: MobHuman
+  id: MobHumanMimeAssassin
+  name: Mime assassin
+  components:
+  - type: MimePowers
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ MimeAssassinGear ]
+
+- type: entity
   parent: MobVox
-  id: Voxraider
+  id: MobVoxraider
   name: Vox Raider
   components:
   - type: RandomHumanoidAppearance

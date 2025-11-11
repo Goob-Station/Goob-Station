@@ -127,6 +127,27 @@
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
+  name: mime assassin antag spawn
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostMimeAssassin
+  components:
+  - type: GhostRole
+    name: ghost-role-information-mime-Assassin-name
+    description: ghost-role-information-mime-Assassin-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Clothing/Head/Hats/beret_french.rsi
+      state: icon
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
   name: Chosen One spawn
   parent: BaseAntagSpawner
   id: SpawnPointGhostChosenOne
