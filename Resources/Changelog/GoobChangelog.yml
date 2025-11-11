@@ -17779,3 +17779,9 @@ Entries:
         and how players died.
   id: 1996
   time: '2025-11-11T09:55:56.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Slaugther demon no longer dies to plasma fire
+  id: 1997
+  time: '2025-11-11T09:59:07.0000000+00:00'
