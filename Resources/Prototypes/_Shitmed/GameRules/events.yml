@@ -23,7 +23,7 @@
   - type: StationEvent
     earliestStart: 15
     reoccurrenceDelay: 45
-    weight: 3 # Goobstation - 7.5 -> 4 -> reduced to 3
+    weight: 3 # Goobstation - 7.5 -> 3
     minimumPlayers: 10
     duration: null # Goobstation - chud
     chaos:
