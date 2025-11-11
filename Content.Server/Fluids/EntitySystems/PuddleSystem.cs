@@ -165,7 +165,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     [Dependency] private readonly TileFrictionController _tile = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly SharedAtmosphereSystem _atmos = default!;
+    [Dependency] private readonly SharedAtmosphereSystem _atmos = default!; // Gaby
     [Dependency] private readonly StandingStateSystem _standing = default!; // Gaby
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!; // Gaby
 
@@ -420,12 +420,12 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
                 out var solution))
             return;
 
-        Popups.PopupEntity(Loc.GetString("puddle-component-slipped-touch-reaction", ("puddle", entity.Owner)),
+        Popups.PopupEntity(Loc.GetString("puddle-component-slipped-touch-reaction", ("puddle", entity.Owner)), // Goobstation
             args.Slipped, args.Slipped, PopupType.SmallCaution);
 
         // Take 15% of the puddle solution
         var splitSol = _solutionContainerSystem.SplitSolution(entity.Comp.Solution.Value, solution.Volume * 0.15f);
-        Reactive.DoEntityReaction(args.Slipped, splitSol, ReactionMethod.Touch);
+        Reactive.DoEntityReaction(args.Slipped, splitSol, ReactionMethod.Touch); // Goobstation
 
         // <Goobstation>
         // after we've had the puddle interact with skin, add back reagents that aren't supposed to stick
@@ -721,12 +721,12 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
             if (user != null)
             {
-                AdminLogger.Add(LogType.Landed,
+                AdminLogger.Add(LogType.Landed, // Goobstation
                     $"{ToPrettyString(user.Value):user} threw {ToPrettyString(uid):entity} which splashed a solution {SharedSolutionContainerSystem.ToPrettyString(solution):solution} onto {ToPrettyString(owner):target}");
             }
 
             targets.Add(owner);
-
+            // Goobstation start
             var stainEv = new SpilledOnEvent(uid, splitSolution.Clone()); // Gaby
             RaiseLocalEvent(owner, stainEv);
 
@@ -734,6 +734,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             Popups.PopupEntity(
                 Loc.GetString("spill-land-spilled-on-other", ("spillable", uid),
                     ("target", Identity.Entity(owner, EntityManager))), owner, PopupType.SmallCaution);
+            // Goobstation end
         }
 
         _color.RaiseEffect(solution.GetColor(_prototypeManager), targets,
@@ -890,7 +891,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         return false;
     }
 
-    // Caso a entidade esteja deitado por cima de uma poça e se movimeta pra outro tile, suja a roupa e coloca o liquido nela.
+    // If the entity is lying on top of a puddle and moves to another tile, it gets its clothes dirty and transfers the liquid to them. GOOBSTATION START
     private void OnCrawlInPuddle(Entity<LayingDownComponent> ent, ref MoveEvent args) // Gaby
     {
         if (!_standing.IsDown(ent.Owner))
@@ -912,7 +913,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         var isSuperSlippery = TryComp<SlipperyComponent>(puddleUid, out var slippery) && slippery.SlipData.SuperSlippery;
         var slippedEv = new SlippedEvent(puddleUid, isSuperSlippery);
         RaiseLocalEvent(ent.Owner, slippedEv);
-        
+
         // Copia uma parte do OnPuddleSlip
         if (HasComp<ReactiveComponent>(ent.Owner) && !HasComp<SlidingComponent>(ent.Owner))
         {
@@ -934,5 +935,6 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             }
             solution.AddSolution(splitSol.SplitSolutionWithOnly(splitSol.Volume, addBack.ToArray()), _prototypeManager);
         }
+        // Goobstation end
     }
 }

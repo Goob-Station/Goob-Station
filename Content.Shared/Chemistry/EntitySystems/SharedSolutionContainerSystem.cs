@@ -1143,9 +1143,9 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         var manager = EnsureComp<SolutionContainerManagerComponent>(uid);
         if (meta.EntityLifeStage >= EntityLifeStage.MapInitialized)
         {
-            if (!EnsureSolutionEntity((uid, manager), name, out existed,
-                    out var solEnt, maxVol, prototype))
-                return false;
+            if (!EnsureSolutionEntity((uid, manager), name, out existed, // Goobstation
+                    out var solEnt, maxVol, prototype)) // Goobstation
+                return false; // Goobstation
             solution = solEnt!.Value.Comp.Solution;
             return true;
         }

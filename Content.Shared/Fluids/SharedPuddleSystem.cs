@@ -22,8 +22,8 @@
 // SPDX-License-Identifier: MIT
 
 using System.Linq;
-using Content.Shared.Administration.Logs;
-using Content.Shared.Chemistry;
+using Content.Shared.Administration.Logs; // Goobstation
+using Content.Shared.Chemistry; // Goobstation
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
@@ -33,8 +33,8 @@ using Content.Shared.Examine;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Movement.Events;
-using Content.Shared.Popups;
-using Content.Shared.Stains;
+using Content.Shared.Popups; // Goobstation
+using Content.Shared._Gabystation.Stains; // Goobstation
 using Content.Shared.StepTrigger.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -44,12 +44,12 @@ namespace Content.Shared.Fluids;
 
 public abstract partial class SharedPuddleSystem : EntitySystem
 {
-    [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
-    [Dependency] protected readonly SharedPopupSystem Popups = default!;
+    [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!; // Goobstation
+    [Dependency] protected readonly SharedPopupSystem Popups = default!; // Goobstation
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] protected readonly ReactiveSystem Reactive = default!;
+    [Dependency] protected readonly ReactiveSystem Reactive = default!; // Goobstation
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
 
     private static readonly ProtoId<ReagentPrototype> Blood = "Blood";
@@ -78,7 +78,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
 
         SubscribeLocalEvent<PuddleComponent, SolutionContainerChangedEvent>(OnSolutionUpdate);
         SubscribeLocalEvent<PuddleComponent, GetFootstepSoundEvent>(OnGetFootstepSound);
-        SubscribeLocalEvent<PuddleComponent, GetStainableSolutionEvent>(OnGetStainableSolution);
+        SubscribeLocalEvent<PuddleComponent, GetStainableSolutionEvent>(OnGetStainableSolution); // Goobstation
         SubscribeLocalEvent<PuddleComponent, ExaminedEvent>(HandlePuddleExamined);
         SubscribeLocalEvent<PuddleComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
 
@@ -144,7 +144,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
         }
     }
 
-    private void OnGetStainableSolution(Entity<PuddleComponent> entity, ref GetStainableSolutionEvent args)
+    private void OnGetStainableSolution(Entity<PuddleComponent> entity, ref GetStainableSolutionEvent args) // Goobstation
     {
         if (args.Handled)
             return;

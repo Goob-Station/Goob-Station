@@ -14,23 +14,22 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Chemistry;
+using Content.Shared.Chemistry; // Goobstation
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reaction;
+using Content.Shared.Chemistry.EntitySystems; // Goobstation
+using Content.Shared.Chemistry.Reaction; // Goobstation
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Fluids.Components;
-using Content.Shared.IdentityManagement;
+using Content.Shared.IdentityManagement; // Goobstation
 using Content.Shared.Nutrition.EntitySystems;
-using Content.Shared.Popups;
+using Content.Shared.Popups; // Goobstation
 using Content.Shared.Spillable;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
-using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Player;
+using Content.Shared.Weapons.Melee.Events; // Goobstation
 using Robust.Shared.Network; // Gaby
 
 namespace Content.Shared.Fluids;
@@ -44,7 +43,7 @@ public abstract partial class SharedPuddleSystem
     {
         SubscribeLocalEvent<SpillableComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<SpillableComponent, GetVerbsEvent<Verb>>(AddSpillVerb);
-        SubscribeLocalEvent<SpillableComponent, MeleeHitEvent>(SplashOnMeleeHit, after: [typeof(OpenableSystem)]);
+        SubscribeLocalEvent<SpillableComponent, MeleeHitEvent>(SplashOnMeleeHit, after: [typeof(OpenableSystem)]); // Goobstation
     }
 
     private void OnExamined(Entity<SpillableComponent> entity, ref ExaminedEvent args)
@@ -111,7 +110,7 @@ public abstract partial class SharedPuddleSystem
         args.Verbs.Add(verb);
     }
 
-    private void SplashOnMeleeHit(Entity<SpillableComponent> entity, ref MeleeHitEvent args) // Gaby
+    private void SplashOnMeleeHit(Entity<SpillableComponent> entity, ref MeleeHitEvent args) // Goobstation, moved from server
     {
         if (args.Handled)
             return;

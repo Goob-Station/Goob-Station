@@ -12,8 +12,8 @@
 
 using Content.Shared.DoAfter;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Inventory;
+using Content.Shared.Chemistry.Components; // Goobstation
+using Content.Shared.Inventory; // Goobstation
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
 
@@ -61,7 +61,7 @@ public record struct SprayAttemptEvent(EntityUid User, bool Cancelled = false)
     }
 }
 
-public sealed partial class SpilledOnEvent : EntityEventArgs, IInventoryRelayEvent
+public sealed partial class SpilledOnEvent : EntityEventArgs, IInventoryRelayEvent // Goobstation
 {
     public SlotFlags TargetSlots { get; } = SlotFlags.WITHOUT_POCKET;
 

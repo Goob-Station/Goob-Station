@@ -159,7 +159,7 @@ public sealed class SlipperySystem : EntitySystem
 
         if (!force)
         {
-            var attemptEv = new SlipAttemptEvent(component.SlipData.SuperSlippery)
+            var attemptEv = new SlipAttemptEvent(component.SlipData.SuperSlippery) // Goobstation
             {
                 SlipCausingEntity = uid
             };
@@ -176,14 +176,13 @@ public sealed class SlipperySystem : EntitySystem
                 return;
         }
 
-        var hardStun = component.SlipData.SuperSlippery; // Goobstation
-        // Goob edit end
+        var hardStun = component.SlipData.SuperSlippery; // Goobstation start
 
         var slipEv = new SlipEvent(other);
         RaiseLocalEvent(uid, ref slipEv);
 
         var slippedEv = new SlippedEvent(uid, component.SlipData.SuperSlippery);
-        RaiseLocalEvent(other, slippedEv);
+        RaiseLocalEvent(other, slippedEv); // Goobstation end
 
         if (TryComp(other, out PhysicsComponent? physics) && !HasComp<SlidingComponent>(other))
         {
@@ -239,9 +238,9 @@ public sealed class SlipAttemptEvent : EntityEventArgs, IInventoryRelayEvent
         SlipCausingEntity = slipCausingEntity;
     }
 
-    public bool SuperSlippery;
+    public bool SuperSlippery; // Goobstation
 
-    public SlipAttemptEvent(bool superSlippery)
+    public SlipAttemptEvent(bool superSlippery) // Goobstation
     {
         SuperSlippery = superSlippery;
     }
@@ -259,6 +258,7 @@ public record struct SlipCausingAttemptEvent (bool Cancelled);
 [ByRefEvent]
 public readonly record struct SlipEvent(EntityUid Slipped);
 
+// Goobstation start
 /// Raised on the entity that got slipped
 /// <param name="Slipper">The entity being slipped</param>
 /// <param name="SuperSlippery">Was whatever slipped us super slippery</param>
@@ -275,3 +275,4 @@ public sealed class SlippedEvent : EntityEventArgs, IInventoryRelayEvent
         SuperSlippery = superSlippery;
     }
 }
+// Goobstation end

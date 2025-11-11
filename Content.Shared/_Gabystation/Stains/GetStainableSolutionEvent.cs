@@ -5,7 +5,7 @@
 
 using Content.Shared.Chemistry.Components;
 
-namespace Content.Goobstation.Shared.Stains;
+namespace Content.Shared._Gabystation.Stains;
 
 public sealed partial class GetStainableSolutionEvent : HandledEntityEventArgs
 {

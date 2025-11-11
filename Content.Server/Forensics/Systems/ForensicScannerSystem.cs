@@ -134,7 +134,7 @@ namespace Content.Server.Forensics
         [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
         [Dependency] private readonly TagSystem _tag = default!;
 
-        public static readonly ProtoId<TagPrototype> DNASolutionScannableTag = "DNASolutionScannable";
+        public static readonly ProtoId<TagPrototype> DNASolutionScannableTag = "DNASolutionScannable"; // Made public by goobstation
 
         public override void Initialize()
         {

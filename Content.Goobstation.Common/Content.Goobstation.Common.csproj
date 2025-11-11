@@ -23,6 +23,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="stains\" />
       <Folder Include="Temperature\" />
     </ItemGroup>
 

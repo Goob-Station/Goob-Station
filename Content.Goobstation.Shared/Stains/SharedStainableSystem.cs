@@ -17,15 +17,6 @@ using Content.Shared.Slippery;
 using Content.Shared.Stains.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
-// Gaby
-// Gaby
-// Gaby
-// Gaby
-// Gaby
-// Gaby
-// Gaby
-
-// Gaby
 
 namespace Content.Goobstation.Shared.Stains;
 
