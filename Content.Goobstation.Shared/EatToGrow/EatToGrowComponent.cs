@@ -17,4 +17,10 @@ public sealed partial class EatToGrowComponent : Component
 
     [DataField("currentScale")]
     public float CurrentScale = 1.0f; // current scale
+
+    [DataField("shrinkOnDeath")]
+    public bool ShrinkOnDeath = true; // Revert to original size on death?
+
+    [DataField("timesGrown")]
+    public int TimesGrown = 0; // how many times have they grown?
 }
