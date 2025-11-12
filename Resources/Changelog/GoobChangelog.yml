@@ -17820,3 +17820,11 @@ Entries:
         dying.
   id: 2000
   time: '2025-11-12T08:10:15.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Add
+      message: Added special admin logging for what Bureaucratic Error does.
+    - type: Tweak
+      message: Tweaked Bureaucratic Error to be less chaotic.
+  id: 2001
+  time: '2025-11-12T08:14:29.0000000+00:00'
