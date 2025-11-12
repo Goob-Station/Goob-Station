@@ -44,7 +44,7 @@
     - state: redspace_lifeline
       shader: unshaded
   - type: SpawnOnDespawn
-    prototype: Telecrystal
+    prototype: Telecrystal1
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/_Goobstation/Weapons/ChronoLegionnaire/stasisgun_reload.ogg
