@@ -5,11 +5,15 @@
   description: An easily portable tank for emergencies. Contains very little plasma, rated for survival use only.
   components:
   - type: Sprite
-    sprite: Objects/Tanks/emergency_red.rsi # TODO: emergency plasma tank sprite
+    sprite: _EinsteinEngines/Objects/Tanks/emergency.rsi
   - type: Item
-    sprite: Objects/Tanks/emergency_red.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/emergency.rsi
   - type: Clothing
-    sprite: Objects/Tanks/emergency_red.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/emergency.rsi
+  - type: Tag
+    tags:
+    - GasTank
+    - EmergencyOxygenTank
 
 - type: entity
   id: EmergencyPlasmaTankFilled
@@ -31,15 +35,19 @@
 - type: entity
   parent: ExtendedEmergencyOxygenTank
   id: ExtendedEmergencyPlasmaTank
-  name: extended-capacity emergency plasma tank
+  name: extended capacity emergency plasma tank
   description: An emergency tank with extended capacity. Technically rated for prolonged use.
   components:
   - type: Sprite
-    sprite: Objects/Tanks/emergency_extended_red.rsi # TODO: extended-capacity emergency plasma tank sprite
+    sprite: _EinsteinEngines/Objects/Tanks/regular.rsi
   - type: Item
-    sprite: Objects/Tanks/emergency_extended_red.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/regular.rsi
   - type: Clothing
-    sprite: Objects/Tanks/emergency_extended_red.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/regular.rsi
+  - type: Tag
+    tags:
+    - GasTank
+    - EmergencyOxygenTank
 
 - type: entity
   id: ExtendedEmergencyPlasmaTankFilled
@@ -65,11 +73,15 @@
   description: A tank of plasma designed to be internals for Plasmamen.
   components:
   - type: Sprite
-    sprite: _EinsteinEngines/Objects/Tanks/plasmaman.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/double-emergency.rsi
   - type: Item
-    sprite: _EinsteinEngines/Objects/Tanks/plasmaman.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/double-emergency.rsi
   - type: Clothing
-    sprite: _EinsteinEngines/Objects/Tanks/plasmaman.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/double-emergency.rsi
+  - type: Tag
+    tags:
+    - GasTank
+    - EmergencyOxygenTank
 
 - type: entity
   id: DoubleEmergencyPlasmaTankFilled
