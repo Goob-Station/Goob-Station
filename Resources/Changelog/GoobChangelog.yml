@@ -17859,3 +17859,9 @@ Entries:
       message: Aura to captains over 100h - see in lobby loadout.
   id: 2005
   time: '2025-11-12T14:52:46.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added voices, speak your heart out.
+  id: 2006
+  time: '2025-11-12T17:50:46.0000000+00:00'
