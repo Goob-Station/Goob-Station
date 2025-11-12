@@ -639,6 +639,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     }
 
     //  Goob Station - Barks Start
+    #region Goob - Barks
     public void SetBarkVoice(EntityUid uid, string? barkvoiceId, HumanoidAppearanceComponent humanoid)
     {
         var voicePrototypeId = DefaultBarkVoice;
@@ -663,6 +664,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         humanoid.BarkVoice = voicePrototypeId;
         Dirty(uid, comp);
     }
+    #endregion
     // Goob Station - Barks End
 
     /// <summary>
