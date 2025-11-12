@@ -17832,3 +17832,11 @@ Entries:
   changes: []
   id: 2002
   time: '2025-11-12T08:16:29.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Add
+      message: >-
+        The Shadowling guidebook now teaches the early game, converting, and
+        abilities.
+  id: 2003
+  time: '2025-11-12T14:41:26.0000000+00:00'
