@@ -17853,3 +17853,9 @@ Entries:
         protection.
   id: 2004
   time: '2025-11-12T14:42:01.0000000+00:00'
+- author: Sarahon Androidonator
+  changes:
+    - type: Add
+      message: Aura to captains over 100h - see in lobby loadout.
+  id: 2005
+  time: '2025-11-12T14:52:46.0000000+00:00'
