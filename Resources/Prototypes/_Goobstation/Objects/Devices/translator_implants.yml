@@ -14,68 +14,75 @@
   components:
   - type: TranslatorImplant
     spoken:
-      - Eldritch
+      - TauCetiBasic
+      - SolCommon
+      - Elyran
+      - Freespeak
+      - NovuNederic
+      - Tradeband
+      - Sign
+      - SpaceItalian
+      - Bubblish
+      - Calcic
+      - Canilunzt
       - Chittin
-      - RootSpeak
-      - ValyrianStandard
+      - Gruntish
+      - NewKinPidgin #Ka'rakk
       - Marish
       - Moffic
-      - Schechi
-      - NewKinPidgin #Ka'rakk
+      - Nehina
       - Nekomimetic
-      - Draconic     #Sinta'Unathi
-      - Azaziba
-      - Calcic
-      - Bubblish
+      - RobotTalk
+      - RootSpeak
       - SiikMaas
+      - Draconic     #Sinta'Unathi
+      - Schechi
+      - ValyrianStandard
+      - Azaziba
       - NalRasan
       - SiikTajr
       - YaSsa
       - Delvahii
-      - Canilunzt
-      - Elyran
-      - Freespeak
-      - NovuNederic
-      - SolCommon
-      - TauCetiBasic
-      - Tradeband
+      - Eldritch
       - Mouse
-      - Sign
       - Monkey
       - Kobold
-      - SpaceItalian
       - Cheval
+
     understood:
-      - Eldritch
+      - TauCetiBasic
+      - SolCommon
+      - NovuNederic
+      - Freespeak
+      - Tradeband
+      - Elyran
+      - Sign
+      - SpaceItalian
+      - Bubblish
+      - Canilunzt
+      - Calcic
       - Chittin
-      - RootSpeak
-      - ValyrianStandard
+      - Gruntish
+      - NewKinPidgin #Ka'rakk
       - Marish
       - Moffic
-      - Schechi
-      - NewKinPidgin #Ka'rakk
+      - Nehina
       - Nekomimetic
-      - Draconic     #Sinta'Unathi
-      - Azaziba
-      - Calcic
-      - Bubblish
+      - RobotTalk
+      - RootSpeak
       - SiikMaas
+      - Draconic     #Sinta'Unathi
+      - Schechi
+      - ValyrianStandard
+      - Azaziba
       - NalRasan
       - SiikTajr
       - YaSsa
       - Delvahii
-      - Canilunzt
-      - Elyran
-      - Freespeak
-      - NovuNederic
-      - SolCommon
-      - TauCetiBasic
-      - Tradeband
+      - Eldritch
       - Mouse
-      - Sign
       - Monkey
       - Kobold
-      - SpaceItalian
       - Cheval
 
 
