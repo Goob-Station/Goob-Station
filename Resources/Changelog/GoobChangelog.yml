@@ -17812,3 +17812,11 @@ Entries:
         win 1 million instead of the previous 1%
   id: 1999
   time: '2025-11-11T20:56:32.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Shadowkin being able to talk in the hivemind while literally
+        dying.
+  id: 2000
+  time: '2025-11-12T08:10:15.0000000+00:00'
