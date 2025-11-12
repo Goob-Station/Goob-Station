@@ -669,3 +669,49 @@
     whitelist:
       tags:
       - WeaponPistolCasul
+
+- type: entity
+  parent: BaseNullrod
+  id: RatvarianSpear
+  name: ancient spear
+  description: An ancient spear made of brass, I mean gold, I mean bronze. It looks highly mechanical.
+  components:
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Piercing: 20
+    UntrainedUseString: nullrod-spear-untrained-usage-popup
+  - type: Item
+    size: Huge
+    sprite: _ShitChap/Objects/Weapons/Nullrod/ratvarian_spear.rsi
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/ratvarian_spear.rsi
+    state: icon
+  - type: Clothing
+    sprite: _ShitChap/Objects/Weapons/Nullrod/ratvarian_spear.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - back
+    - belt
+  - type: MeleeWeapon
+    range: 2.2 # Goob
+    attackRate: 0.8 # Goob
+    animationRotation: -135 # WWDP
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Piercing: 18
+        Holy: 10
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Tag
+    tags:
+    - RatvarianSpear
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 25
+        Holy: 15
