@@ -180,7 +180,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     private void AddSummary(StringBuilder result, string agent, List<(EntityUid, string)> minds)
     {
         var agentSummaries = new List<(string summary, float successRate, int completedObjectives)>();
-        var currencyStorage = new Dictionary<NetUserId, int>(); //goobstation- store all currency and add at end off round
+        var currencyStorage = new Dictionary<NetUserId, float>(); //goobstation- store all currency and add at end off round
 
         foreach (var (mindId, name) in minds)
         {
@@ -272,9 +272,9 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                         //Goobstation
                         if (userid.HasValue && rewardPartial)
                             if (currencyStorage.ContainsKey(userid.Value))
-                                currencyStorage[userid.Value] += (int) Math.Floor(reward * progress);
+                                currencyStorage[userid.Value] += reward * progress;
                             else
-                                currencyStorage.Add(userid.Value, (int) Math.Floor(reward * progress));
+                                currencyStorage.Add(userid.Value, reward * progress);
                     }
                     else if (progress < 0.5f && progress > 0f)
                     {
@@ -308,7 +308,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
         }
 
         foreach (var (key, currency) in currencyStorage)
-            _currencyMan.AddCurrency(key, currency * _goobcoinsServerMultiplier);
+            _currencyMan.AddCurrency(key, (int)Math.Round( currency * _goobcoinsServerMultiplier));
     }
 
     public EntityUid? GetRandomObjective(EntityUid mindId, MindComponent mind, ProtoId<WeightedRandomPrototype> objectiveGroupProto, float maxDifficulty)
