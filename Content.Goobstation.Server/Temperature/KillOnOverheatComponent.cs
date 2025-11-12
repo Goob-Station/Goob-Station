@@ -16,7 +16,7 @@ namespace Content.Goobstation.Server.Temperature;
 public sealed partial class KillOnOverheatComponent : Component
 {
     [DataField]
-    public float OverheatThreshold = Atmospherics.T0C + 110f;
+    public float OverheatThreshold = Atmospherics.T0C + 310f;
 
     [DataField]
     public LocId OverheatPopup = "ipc-overheat-popup";
