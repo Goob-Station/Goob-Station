@@ -64,7 +64,7 @@ public sealed class BarkSystem : EntitySystem
             message = message[..50];
 
         var volume = GetVolume(whisper, proto);
-        if (volume <= -10f)
+        if (volume <= -20f)
             return;
 
         var upperCount = 0;
@@ -180,13 +180,15 @@ public sealed class BarkSystem : EntitySystem
 
     private float GetVolume(bool whisper, BarkPrototype proto)
     {
-        var volume = _cfg.GetCVar(GoobCVars.BarksVolume);
-        var finalVolume = SharedAudioSystem.GainToVolume(volume);
+        var volume = proto.Volume;
 
-        finalVolume += SharedAudioSystem.GainToVolume(proto.Volume);
+        if (whisper)
+            volume = 0.05f + (volume - 0.05f) * 0.25f;
 
-        finalVolume += whisper ? -10f : 0f;
-        return finalVolume;
+        var barksVolume = _cfg.GetCVar(GoobCVars.BarksVolume);
+        volume *= barksVolume / 3f;
+
+        return SharedAudioSystem.GainToVolume(volume);
     }
 
     private sealed class ActiveBark
