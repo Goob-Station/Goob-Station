@@ -26,8 +26,8 @@
   color: lightgreen
   soundGunshot:
     path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
-  fireCost: 500
-  fireRate: 1
+  fireCost: 750
+  fireRate: 0.5
   flags: All
   protoId: ProjectileHealingBolt
 
@@ -110,8 +110,8 @@
   color: darkred
   soundGunshot:
     path: /Audio/_Goobstation/Wizard/wandodeath.ogg
-  fireRate: 1
-  fireCost: 500
+  fireRate: 0.5
+  fireCost: 750
   flags: All
   protoId: ProjectileDeathBolt
 
