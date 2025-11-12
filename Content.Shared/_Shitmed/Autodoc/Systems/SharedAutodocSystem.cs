@@ -312,7 +312,7 @@ public abstract class SharedAutodocSystem : EntitySystem
         if (_surgery.GetSingleton(surgery) is not {} singleton)
             throw new AutodocError("reality-breaking");
 
-        if (_surgery.GetNextStep(patient, part, singleton) is not {} pair)
+        if (_surgery.GetNextStep(patient, part, singleton, ent) is not {} pair)
             return false;
 
         var nextSurgery = pair.Item1;

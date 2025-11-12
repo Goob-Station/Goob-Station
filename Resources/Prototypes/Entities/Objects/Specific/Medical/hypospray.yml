@@ -653,9 +653,9 @@
         maxVol: 30
         reagents:
           - ReagentId: Leporazine
-            Quantity: 10
+            Quantity: 15 #goob, was 10
           - ReagentId: Barozine
-            Quantity: 20
+            Quantity: 15 #goob, was 20, changed due to barozine metabolizing slower now, lasts a minute
   - type: Tag
     tags:
     - Medipen

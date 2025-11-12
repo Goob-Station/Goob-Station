@@ -23,9 +23,9 @@
     icon:
       sprite: _Goobstation/Heretic/reality_fracture.rsi
       state: icon_harvested
-  - type: NumberObjective
-    min: 12
-    max: 18
+  - type: NumberObjective # Full main path research +1-2 side knowledge
+    min: 13
+    max: 15
     title: objective-condition-knowledge-title
   - type: HereticKnowledgeCondition
 
@@ -38,7 +38,7 @@
       sprite: _Goobstation/Heretic/Blades/eldritch_blade.rsi
       state: icon
   - type: NumberObjective
-    min: 2
+    min: 3
     max: 4
     title: objective-condition-sacrifice-title
   - type: HereticSacrificeCondition

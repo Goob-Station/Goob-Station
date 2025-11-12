@@ -190,6 +190,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   # Utility Abilities
 
+  ## Awakened Instinct
+  <Box>
+    [color=#999999][italic] Free [italic][/color]
+  </Box>
+  - Gain a flat 25% boost to chemical regeneration.
+  - The user will require biomass to sustain themselves.
+  - Biomass is replenished by absorbing compatible humanoids.
+  - Maximum biomass capacity can be increased by absorbing other changelings.
+  - Running out of biomass will cause the user to be absorbed, and permanently killed.
+
   ## Anatomic Panacea
   <Box>
     [color=#999999][italic] 2 Evolution Points / 30 Chems [italic][/color]

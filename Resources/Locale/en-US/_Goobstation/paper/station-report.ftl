@@ -1,24 +1,18 @@
 station-report-text =
-                                            STATION REPORT
-    ----------------------------------------------------------------------------------------------
-    NTR please fill out this report of the station, failure to do so will result in a fine.
-    Failure to delete all explaination text will also result in a fine.
-    ----------------------------------------------------------------------------------------------
-    • [bold]Command Departmental Report[/bold]
+    {"["}color=#1b67a5]░░██░░ [head=2]Offical Document[/head]
+    ▀████▀ [head=3]Subject: Station Report[/head]
+    ▄█▀▀█▄ [head=3]Reviewer: NanoTrasen Representative[/head]
+    {"["}/color]──────────────────────────────────────────
+    • [color=#9fed58][bold]General Report[/bold][/color]
     >[mono][/mono]
-    • [bold]Security Departmental Report[/bold]
+    • [color=#ff5c5c][bold]Security Department Report[/bold][/color]
     >[mono][/mono]
-    • [bold]Cargo Departmental Report[/bold]
+    • [color=#d28150][bold]Logistics Department Report[/bold][/color]
     >[mono][/mono]
-    • [bold]Engineering Departmental Report[/bold]
+    • [color=#f2e052][bold]Engineering Department Report[/bold][/color]
     >[mono][/mono]
-    • [bold]Medical Departmental Report[/bold]
+    • [color=#5b97bc][bold]Medical Department Report[/bold][/color]
     >[mono][/mono]
-    • [bold]Science Departmental Report[/bold]
+    • [color=#c96dbf][bold]Research Department Report[/bold][/color]
     >[mono][/mono]
-    • [bold]Service Departmental Report[/bold]
-    >[mono][/mono]
-    • [bold]Silicon Report[/bold]
-    >[mono][/mono]
-    signed, [color=Green]NTR name here[/color]
-    >[italic]Please do not stamp or sign this document, all signatures and stamps are filtered out by our systems, please instead write your name in the given slot[/italic]
+    Signed by: [color=Green]Nanotrasen Representative name here[/color]
