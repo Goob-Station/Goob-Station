@@ -764,6 +764,7 @@
   color: "#ff867d"
   metabolisms:
     Medicine:
+      metabolismRate: 0.25 #goob
       effects:
       - !type:HealthChange
         conditions:
