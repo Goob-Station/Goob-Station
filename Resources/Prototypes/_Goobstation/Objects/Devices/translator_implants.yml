@@ -52,15 +52,15 @@
     understood:
       - TauCetiBasic
       - SolCommon
-      - NovuNederic
-      - Freespeak
-      - Tradeband
       - Elyran
+      - Freespeak
+      - NovuNederic
+      - Tradeband
       - Sign
       - SpaceItalian
       - Bubblish
-      - Canilunzt
       - Calcic
+      - Canilunzt
       - Chittin
       - Gruntish
       - NewKinPidgin #Ka'rakk
@@ -84,6 +84,7 @@
       - Monkey
       - Kobold
       - Cheval
+
 
 
 - type: entity
