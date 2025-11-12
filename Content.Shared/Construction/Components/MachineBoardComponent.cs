@@ -48,6 +48,12 @@ public sealed partial class MachineBoardComponent : Component
     /// </summary>
     [DataField(required: true)]
     public EntProtoId Prototype;
+
+    // Moffstation - Start - Blade Server Construction from existing boards
+    [DataField]
+    public EntProtoId? BladeServerPrototype;
+    // Moffstation - End
+
 }
 
 [DataDefinition, Serializable]
