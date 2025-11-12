@@ -1,0 +1,13 @@
+- type: shader
+  id: Eldritch
+  kind: source
+  path: "/Textures/_Goobstation/Heretic/Shaders/hypno.swsl"
+  params:
+    steps: 5
+    speed: 3.0
+    col0: "#0d0d0dff"
+    col1: "#410194ff"
+    col2: "#7f17d8ff"
+    col3: "#410194ff"
+    col4: "#3bb5d3ff"
+    col5: "#ffffffff"
