@@ -2,6 +2,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Audio;
+using Content.Shared.Explosion.Components;
 
 namespace Content.Goobstation.Shared.SlotMachine;
 
@@ -32,7 +33,6 @@ public sealed partial class SlotMachineComponent : Component
     public SoundSpecifier GodPotWinSound = new SoundPathSpecifier("/Audio/_Goobstation/Machines/SlotMachine/slotmachine_godpot.ogg");
 
     #endregion
-
     #region Chances
 
     [DataField, AutoNetworkedField]
@@ -46,6 +46,9 @@ public sealed partial class SlotMachineComponent : Component
 
     [DataField, AutoNetworkedField]
     public float JackPotWinChance = .01f;
+
+    [DataField, AutoNetworkedField]
+    public float ExplodeChance = .001f;
 
     [DataField, AutoNetworkedField]
     public float GodPotWinChance = .0001f;
@@ -84,7 +87,6 @@ public sealed partial class SlotMachineComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool IsSpinning;
-
     #endregion
 }
 
@@ -93,3 +95,6 @@ public enum SlotMachineVisuals : byte
 {
     Spinning
 }
+
+[ByRefEvent]
+public readonly record struct SlotMachineExplosionEvent(EntityUid SlotMachine, float PowerModifier);

@@ -1,17 +1,20 @@
-using System.Linq;
-using Content.Shared.DoAfter;
-using Content.Shared.Popups;
-using Content.Shared.Interaction;
-using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Stacks;
 using Content.Shared.Chat;
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.DoAfter;
 using Content.Shared.Emag.Systems;
+using Content.Shared.Explosion;
+using Content.Shared.Explosion.Components;
+using Content.Shared.Explosion.EntitySystems;
+using Content.Shared.Interaction;
+using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
+using Content.Shared.Stacks;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Random;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-
+using Robust.Shared.Random;
+using System.Linq;
 
 namespace Content.Goobstation.Shared.SlotMachine
 {
@@ -28,7 +31,7 @@ namespace Content.Goobstation.Shared.SlotMachine
         [Dependency] private readonly SharedStackSystem _stackSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly IPrototypeManager _proto = default!;
-
+        [Dependency] private readonly SharedExplosionSystem _boom = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -36,6 +39,7 @@ namespace Content.Goobstation.Shared.SlotMachine
             SubscribeLocalEvent<SlotMachineComponent, ActivateInWorldEvent>(OnInteractHandEvent);
             SubscribeLocalEvent<SlotMachineComponent, SlotMachineDoAfterEvent>(OnSlotMachineDoAfter);
             SubscribeLocalEvent<SlotMachineComponent, GotEmaggedEvent>(OnEmagged);
+
         }
 
         /// <summary>
@@ -43,7 +47,7 @@ namespace Content.Goobstation.Shared.SlotMachine
         /// </summary>
         private void OnEmagged(EntityUid uid, SlotMachineComponent comp, ref GotEmaggedEvent args)
         {
-            if(comp.Emagged)
+            if (comp.Emagged)
                 return;
 
             args.Handled = true;
@@ -55,11 +59,12 @@ namespace Content.Goobstation.Shared.SlotMachine
             comp.BigPrizeAmount = _random.Next(-500, 50000);
             comp.JackPotPrizeAmount = _random.Next(-500, 100000);
 
-            comp.SmallWinChance  = _random.NextFloat(0, 0.6f);
-            comp.MediumWinChance  = _random.NextFloat(0, 0.35f);
-            comp.BigWinChance  = _random.NextFloat(0f, 0.2f);
-            comp.JackPotWinChance  = _random.NextFloat(0, 0.1f);
-            comp.GodPotWinChance =  _random.NextFloat(0, 0.05f);
+            comp.ExplodeChance = _random.NextFloat(0, 0.6f);
+            comp.SmallWinChance = _random.NextFloat(0, 0.4f);
+            comp.MediumWinChance = _random.NextFloat(0, 0.35f);
+            comp.BigWinChance = _random.NextFloat(0f, 0.2f);
+            comp.JackPotWinChance = _random.NextFloat(0, 0.1f);
+            comp.GodPotWinChance = _random.NextFloat(0, 0.05f);
 
             // lord have mercy...
             var allProtos = _proto.EnumeratePrototypes<EntityPrototype>().ToList();
@@ -137,6 +142,12 @@ namespace Content.Goobstation.Shared.SlotMachine
             if (slot.Item != null)
                 TryComp<StackComponent>(slot.Item.Value, out stack);
 
+            if (_random.Prob(comp.ExplodeChance))
+            {
+                ExplodeMachine(uid,args.User);
+                _audio.PlayPredicted(comp.LoseSound, uid, args.User);
+                return;
+            }
             if (_random.Prob(comp.SmallWinChance))
             {
                 _audio.PlayPredicted(comp.SmallWinSound, uid, args.User);
@@ -193,6 +204,16 @@ namespace Content.Goobstation.Shared.SlotMachine
             _stackSystem.SetCount(stack.Owner, stack.Count + prize, stack);
             Dirty(stack.Owner, stack);
             _chatSystem.TrySendInGameICMessage(uid, msg, InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
+        }
+        private void ExplodeMachine(EntityUid uid, EntityUid user)
+        {
+            // Spawn a new cash stack if there's no money left in the machine
+            var entityManager = IoCManager.Resolve<IEntityManager>();
+            if (entityManager.TryGetComponent<ExplosiveComponent>(uid, out var myComponent))
+            {
+                if (!myComponent.Exploded & _net.IsServer)
+                    _boom.TriggerExplosive(uid, myComponent, true, myComponent.TotalIntensity, 7f, user);
+            }
         }
     }
 }

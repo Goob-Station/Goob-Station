@@ -5,6 +5,12 @@
   abstract: true
   description: Gambling for the antisocial.
   components:
+  - type: Explosive
+    explosionType: DemolitionCharge
+    totalIntensity: 20
+    intensitySlope: 2
+    maxIntensity: 15
+    canCreateVacuum: false
   - type: StationAiWhitelist
   - type: AmbientOnPowered
   - type: AmbientSound
