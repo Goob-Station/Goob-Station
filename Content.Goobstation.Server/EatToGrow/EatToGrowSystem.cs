@@ -40,16 +40,17 @@ public sealed class EatToGrowSystem : EntitySystem
         if (comp.CurrentScale >= comp.MaxGrowth)
             return;
 
-        TryGrow(eater, ref comp);
+        TryGrow(eater, ref comp, 1f);
     }
 
-    private void TryGrow(EntityUid eater, ref EatToGrowComponent comp)
+    private void TryGrow(EntityUid eater, ref EatToGrowComponent comp, float scale)
     {
+        // Uses scale variable to  multiply the growth, mainly used for shrinking
         // Add growth
         comp.CurrentScale += comp.Growth;
         comp.CurrentScale = MathF.Min(comp.CurrentScale, comp.MaxGrowth);
 
-        // Scale Command
+        
         EnsureComp<ScaleVisualsComponent>(eater);
         var @event = new ScaleEntityEvent();
         RaiseLocalEvent(eater, ref @event);
@@ -58,8 +59,8 @@ public sealed class EatToGrowSystem : EntitySystem
         if (!_appearance.TryGetData<Vector2>(eater, ScaleVisuals.Scale, out var oldScale, appearanceComponent))
             oldScale = Vector2.One;
 
-        _appearance.SetData(eater, ScaleVisuals.Scale, oldScale + new Vector2(comp.Growth, comp.Growth), appearanceComponent);
-        // Scale command end
+        _appearance.SetData(eater, ScaleVisuals.Scale, oldScale + scale * new Vector2(comp.Growth, comp.Growth), appearanceComponent);
+
         Dirty(eater, comp); // Sync updated growth to client.
 
         // add 1 to times grown
@@ -74,7 +75,7 @@ public sealed class EatToGrowSystem : EntitySystem
                 {
                     _physics.SetPositionRadius(
                         eater, id, fixture, circle,
-                        circle.Position, circle.Radius + comp.Growth / 4, manager);
+                        circle.Position, circle.Radius + scale * (comp.Growth / 4), manager);
                 }
             }
         }
@@ -91,35 +92,13 @@ public sealed class EatToGrowSystem : EntitySystem
 
             if (comp.ShrinkOnDeath == true)
             {
+                // shrink the entity
+                TryGrow(eater, ref comp, -comp.TimesGrown); // uses the negative of times grown to shrink the entity back to normal
 
-                var appearanceComponent = EnsureComp<AppearanceComponent>(eater);
-                if (!_appearance.TryGetData<Vector2>(eater, ScaleVisuals.Scale, out var oldScale, appearanceComponent))
-                    oldScale = Vector2.One;
 
-                _appearance.SetData(eater, ScaleVisuals.Scale, oldScale - (comp.TimesGrown * new Vector2(comp.Growth, comp.Growth)), appearanceComponent);
-
-                Dirty(eater, comp); // Sync updated growth to client.
-
-                // Grow the fixture by 1/4 the growth
-                if (TryComp(eater, out FixturesComponent? manager))
-                {
-                    foreach (var (id, fixture) in manager.Fixtures)
-                    {
-                        if (fixture.Shape is PhysShapeCircle circle)
-                        {
-                            // return radius to normal
-                            _physics.SetPositionRadius(
-                             eater, id, fixture, circle,
-                             circle.Position, circle.Radius - comp.TimesGrown * (comp.Growth / 4), manager); // minus the growth times how many times grown should set it back to normal
-
-                            // set current scale to 1
-                            comp.CurrentScale = 1f;
-                            // reset times grown
-                            comp.TimesGrown = 0;
-                        }
-                    }
-                }
-                return;  // If fails, return
+                // Reset data on shrink
+                comp.CurrentScale = 1f;
+                comp.TimesGrown = 0;
             }
             return; // if ShrinkOnDeath is false, return
         }
