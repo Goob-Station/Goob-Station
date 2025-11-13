@@ -408,3 +408,32 @@
     - KillRandomHeadObjective
     - KillRandomHeadObjective
     - EscapeShuttleObjective
+
+- type: entity
+  parent: BaseGameRule
+  id: DarkPriestMidround
+  components:
+  - type: GameRule
+    chaosScore: 300
+  - type: AntagSpawner
+    prototype: MobHumanDarkPriest
+  - type: AntagSelection
+    agentName: ghost-role-information-dark-priest-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDarkPriest
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleFreeAgent
+      briefing:
+        text: dark-priest-role-greeting
+        color: Purple
+        sound: /Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg
+  - type: AntagRandomSpawn
+  - type: AntagObjectives
+    objectives:
+    - DarkPriestProtectObjective
+    - DarkPriestHireApprentice
+    - KillRandomPerson
+    - EscapeShuttleObjective

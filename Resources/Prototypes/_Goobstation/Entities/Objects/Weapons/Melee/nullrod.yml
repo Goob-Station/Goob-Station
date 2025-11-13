@@ -669,3 +669,17 @@
     whitelist:
       tags:
       - WeaponPistolCasul
+
+- type: entity
+  name: blessing of the reaper
+  parent: [BaseNullrod, ArmBlade]
+  id: BlessingOfTheReaper
+  description: A special undroppable armblade nullrod, it's blessed by the dark gods.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/blessing_reaper.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Objects/Weapons/Melee/blessing_reaper.rsi
+  - type: Unremoveable

@@ -50,7 +50,7 @@
 - type: startingGear
   id: DarkLordAntagGear
   equipment:
-    head: ClothingHeadHatDarkLordHood
+    head: ClothingHeadHatHoodCloakSith
     jumpsuit: ClothingUniformJumpsuitMonasticRobeDark
     outerClothing: ClothingOuterWizardBlackReal
     shoes: ClothingShoesColorBlack
@@ -99,3 +99,23 @@
     - Syringe
     - DeathAcidifierImplanter
     - FreedomImplanter
+
+- type: startingGear
+  id: DarkPriestAntagGear
+  equipment:
+    head: ClothingHeadHatHoodVoidCloak
+    ears: ClothingHeadsetService
+    jumpsuit: ClothingUniformJumpsuitChaplain
+    shoes: ClothingShoesColorBlack
+    neck: ClothingNeckStoleChaplain
+    id: ChaplainPDA
+    outerClothing: ClothingOuterHoodieChaplain
+    back: ClothingBackpack
+  inhand:
+  - BlessingOfTheReaper
+  storage:
+    back:
+    - ClothingNeckStoleChaplain
+    - ClothingHeadHatHoodVoidCloak
+    - ClothingOuterHoodieChaplain
+    - BoxSurvivalSlots

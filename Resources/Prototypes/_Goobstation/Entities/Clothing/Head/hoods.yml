@@ -47,29 +47,3 @@
     sprite: _Goobstation/Clothing/Head/Hoods/cap_winter_hood.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hoods/cap_winter_hood.rsi
-
-- type: entity
-  parent: ClothingHeadHatHoodVoidCloak
-  id: ClothingHeadHatDarkLordHood
-  name: the Dark Lords hood
-  components:
-  - type: Armor
-    traumaDeductions: # prevents traumas at all (kinda)
-      Dismemberment: 1
-      OrganDamage: 1
-      BoneDamage: 1
-      VeinsDamage: 1
-      NerveDamage: 1
-    coverage:
-    - Head
-    modifiers:
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.6
-        Caustic: 0.1
-        Radiation: 0.1
-  - type: ExplosionResistance
-    damageCoefficient: 0.8
-  - type: GroupExamine

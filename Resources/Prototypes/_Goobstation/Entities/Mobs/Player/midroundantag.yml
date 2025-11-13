@@ -67,6 +67,16 @@
     prototypes: [ MimeAssassinGear ]
 
 - type: entity
+  parent: MobHuman
+  id: MobHumanDarkPriest
+  name: Dark Priest
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ DarkPriestAntagGear ]
+
+- type: entity
   parent: MobVox
   id: MobVoxraider
   name: Vox Raider
