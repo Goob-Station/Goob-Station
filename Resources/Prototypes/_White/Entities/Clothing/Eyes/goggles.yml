@@ -20,25 +20,18 @@
     flashDurationMultiplier: 2
     isEquipment: true
   - type: IdentityBlocker
+    coverage: EYES
 
 - type: entity
-  parent: [ClothingEyesBase,BaseSyndicateContraband]
+  parent: [ClothingEyesNightVisionGoggles, BaseSyndicateContraband]
   id: ClothingEyesNightVisionGogglesSyndie
   name: syndicate night vision goggles
-  description: A high-tech pair of night vision goggles. Has medical analysis technology.
+  description: A high-tech pair of night vision goggles.
   components:
   - type: Sprite
     sprite: _White/Clothing/Eyes/Goggles/snightvision.rsi
   - type: Clothing
     sprite: _White/Clothing/Eyes/Goggles/snightvision.rsi
-  - type: NightVision
-    flashDurationMultiplier: 2
-    isEquipment: true
-  - type: IdentityBlocker
-    coverage: EYES
-  - type: ShowHealthBars
-    damageContainers:
-    - Biological
 
 - type: entity
   parent: ClothingEyesNightVisionGogglesSyndie

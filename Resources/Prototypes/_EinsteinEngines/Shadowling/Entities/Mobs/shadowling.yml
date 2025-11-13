@@ -52,6 +52,7 @@
   - type: PressureImmunity
   - type: BreathingImmunity
   - type: ThermalVision
+    thermalShader: null
     color: "#BF40BF"
     activateSound: null
     deactivateSound: null

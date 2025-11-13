@@ -22,6 +22,9 @@ public sealed partial class ThermalVisionComponent : SwitchableVisionOverlayComp
 
     [DataField]
     public float LightRadius = 2f;
+
+    [DataField]
+    public string? ThermalShader = "ThermalVision";
 }
 
 public sealed partial class ToggleThermalVisionEvent : InstantActionEvent;

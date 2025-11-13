@@ -50,7 +50,7 @@ public sealed class BaseSwitchableOverlay<TComp> : Overlay where TComp : Switcha
 
         worldHandle.SetTransform(Matrix3x2.Identity);
         worldHandle.UseShader(_shader);
-        worldHandle.DrawRect(args.WorldBounds, Comp.Color.WithAlpha(alpha));
+        worldHandle.DrawRect(args.WorldBounds, Comp.Color.WithAlpha(alpha * Comp.OverlayOpacity));
         worldHandle.UseShader(null);
     }
 }

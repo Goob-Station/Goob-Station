@@ -318,7 +318,6 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
-  - type: ThermalVision # Goobstation - Thermal vision
   - type: CombatPower # Goobstation
     factor: 4 # times more dangerous than a crew-member
   - type: Fauna # Lavaland Change
