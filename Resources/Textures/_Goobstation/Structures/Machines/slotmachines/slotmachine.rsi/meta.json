@@ -11,6 +11,9 @@
         "name": "slotmachine"
     },
     {
+        "name": "slotmachine_destroyed"
+    },
+    {
         "name": "slotmachine_spin",
         "delays":
         [

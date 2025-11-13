@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "made by John John",
+  "copyright": "Taken from goonstation at commit: https://github.com/goonstation/goonstation/commit/4059e4be90832b02b1228b1bee3db342094e4f1e",
     "size": {
         "x": 32,
         "y": 32
@@ -9,6 +9,9 @@
   "states": [
     {
         "name": "slotmachine"
+    },
+    {
+        "name": "slotmachine_destroyed"
     },
     {
         "name": "slotmachine_spin",

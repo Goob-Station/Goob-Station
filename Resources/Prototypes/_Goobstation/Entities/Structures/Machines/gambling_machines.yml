@@ -7,17 +7,10 @@
   components:
   - type: Explosive
     explosionType: DemolitionCharge
-    totalIntensity: 5
+    totalIntensity: 10
     intensitySlope: 3
     maxIntensity: 120
     canCreateVacuum: false
-  - type: Timer
-    beepSound:
-      path: "/Audio/Effects/beep1.ogg"
-      params:
-        volume: 5
-    initialBeepDelay: 0
-    beepInterval: 2
   - type: StationAiWhitelist
   - type: AmbientOnPowered
   - type: AmbientSound
@@ -114,6 +107,9 @@
       - state: slotmachine_spin
         visible: false
         map: ["slotmachine_spin"]
+      - state: slotmachine_destroyed
+        visible: false
+        map: ["slotmachine_destroyed"]
       - state: panel
         map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: WiresPanel
@@ -125,6 +121,10 @@
     visuals:
       enum.SlotMachineVisuals.Spinning:
         slotmachine_spin:
+          True: { visible: true }
+          False: { visible: false }
+      enum.SlotMachineVisuals.Destroyed:
+        slotmachine_destroyed:
           True: { visible: true }
           False: { visible: false }
   - type: Appearance
@@ -147,6 +147,9 @@
       - state: slotmachine_spin
         visible: false
         map: ["slotmachine_spin"]
+      - state: slotmachine_destroyed
+        visible: false
+        map: ["slotmachine_destroyed"]
       - state: panel
         map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: WiresPanel
@@ -158,6 +161,10 @@
     visuals:
       enum.SlotMachineVisuals.Spinning:
         slotmachine_spin:
+          True: { visible: true }
+          False: { visible: false }
+      enum.SlotMachineVisuals.Destroyed:
+        slotmachine_destroyed:
           True: { visible: true }
           False: { visible: false }
   - type: Appearance

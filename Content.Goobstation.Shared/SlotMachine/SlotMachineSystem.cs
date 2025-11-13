@@ -1,5 +1,8 @@
+using Content.Goobstation.Shared.Devil;
+using Content.Shared.Cabinet;
 using Content.Shared.Chat;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Explosion;
@@ -8,6 +11,8 @@ using Content.Shared.Explosion.Components.OnTrigger;
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.Power;
+using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio.Systems;
@@ -40,6 +45,7 @@ namespace Content.Goobstation.Shared.SlotMachine
             SubscribeLocalEvent<SlotMachineComponent, ActivateInWorldEvent>(OnInteractHandEvent);
             SubscribeLocalEvent<SlotMachineComponent, SlotMachineDoAfterEvent>(OnSlotMachineDoAfter);
             SubscribeLocalEvent<SlotMachineComponent, GotEmaggedEvent>(OnEmagged);
+            SubscribeLocalEvent<SlotMachineComponent, DamageChangedEvent>(OnDamaged);
         }
 
         /// <summary>
@@ -82,7 +88,7 @@ namespace Content.Goobstation.Shared.SlotMachine
 
         private void OnInteractHandEvent(EntityUid uid, SlotMachineComponent comp, ActivateInWorldEvent args)
         {
-            if (comp.IsSpinning || !_power.IsPowered(uid))
+            if (comp.Destroyed || comp.IsSpinning || !_power.IsPowered(uid))
                 return;
 
             if (!_itemSlots.TryGetSlot(uid, "money", out var slot)
@@ -119,7 +125,7 @@ namespace Content.Goobstation.Shared.SlotMachine
 
         private void OnSlotMachineDoAfter(EntityUid uid, SlotMachineComponent comp, SlotMachineDoAfterEvent args)
         {
-            if (args.Cancelled) // Almost no way for it to be canceled but just in case
+            if (comp.Destroyed || args.Cancelled) // Almost no way for it to be canceled but just in case
             {
                 comp.IsSpinning = false;
                 Dirty(uid, comp);
@@ -207,12 +213,42 @@ namespace Content.Goobstation.Shared.SlotMachine
         }
         private void ExplodeMachine(EntityUid uid, EntityUid user)
         {
-            // Spawn a new cash stack if there's no money left in the machine
+            // plant the bomb
             var entityManager = IoCManager.Resolve<IEntityManager>();
             if (entityManager.TryGetComponent<ExplosiveComponent>(uid, out var _exploder))
             {
                 if (!_exploder.Exploded & _net.IsServer)
                     _boom.TriggerExplosive(uid, _exploder, false, _exploder.TotalIntensity, 7f, user);
+            }
+        }
+        private void OnDamaged(EntityUid uid, SlotMachineComponent comp, DamageChangedEvent args)
+        {
+            if (args.Damageable.TotalDamage >= comp.DamageToDestroy)
+            {
+                // set destroyed sprite over spinning sprite
+                if (TryComp<AppearanceComponent>(uid, out var appearance))
+                {
+                    _appearance.SetData(uid, SlotMachineVisuals.Destroyed, true);
+                    _appearance.SetData(uid, SlotMachineVisuals.Spinning, false);
+                }
+                _audio.PlayPredicted(comp.BreakSound, uid, uid);
+                // talk to the power and tell it i cant pay
+                _power.SetPowerDisabled(uid, true);
+                comp.Destroyed = true;
+                comp.IsSpinning = false;
+                Dirty(uid, comp);
+            }
+            else
+            {
+                // machine is fixed? undo stuff
+                if (TryComp<AppearanceComponent>(uid, out var appearance))
+                {
+                    _appearance.SetData(uid, SlotMachineVisuals.Destroyed, false);
+                }
+                // lie about not being able to pay
+                _power.SetPowerDisabled(uid, false);
+                comp.Destroyed = false;
+                Dirty(uid, comp);
             }
         }
     }

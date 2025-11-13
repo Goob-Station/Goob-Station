@@ -32,6 +32,9 @@ public sealed partial class SlotMachineComponent : Component
     [DataField]
     public SoundSpecifier GodPotWinSound = new SoundPathSpecifier("/Audio/_Goobstation/Machines/SlotMachine/slotmachine_godpot.ogg");
 
+    [DataField]
+    public SoundSpecifier BreakSound = new SoundPathSpecifier("/Audio/Effects/glass_break4.ogg");
+
     #endregion
     #region Chances
 
@@ -80,6 +83,12 @@ public sealed partial class SlotMachineComponent : Component
 
     #endregion
 
+    [DataField, AutoNetworkedField]
+    public int DamageToDestroy = 75;
+
+    [DataField, AutoNetworkedField]
+    public bool Destroyed = false;
+
     #region DoAfter
 
     [DataField, AutoNetworkedField]
@@ -93,5 +102,6 @@ public sealed partial class SlotMachineComponent : Component
 [Serializable, NetSerializable]
 public enum SlotMachineVisuals : byte
 {
-    Spinning
+    Spinning = 0,
+    Destroyed
 }
