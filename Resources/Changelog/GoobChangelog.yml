@@ -17812,3 +17812,56 @@ Entries:
         win 1 million instead of the previous 1%
   id: 1999
   time: '2025-11-11T20:56:32.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Shadowkin being able to talk in the hivemind while literally
+        dying.
+  id: 2000
+  time: '2025-11-12T08:10:15.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Add
+      message: Added special admin logging for what Bureaucratic Error does.
+    - type: Tweak
+      message: Tweaked Bureaucratic Error to be less chaotic.
+  id: 2001
+  time: '2025-11-12T08:14:29.0000000+00:00'
+- author: loltart
+  changes: []
+  id: 2002
+  time: '2025-11-12T08:16:29.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Add
+      message: >-
+        The Shadowling guidebook now teaches the early game, converting, and
+        abilities.
+  id: 2003
+  time: '2025-11-12T14:41:26.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Barozine will now last twice as long! This means space medipens will
+        protect you from pressure damage for twice as long. 
+    - type: Tweak
+      message: >-
+        Space Medipens now have more leproazine in them, this means they'll give
+        half a minute of temperature protection and a full minute of pressure
+        protection.
+  id: 2004
+  time: '2025-11-12T14:42:01.0000000+00:00'
+- author: Sarahon Androidonator
+  changes:
+    - type: Add
+      message: Aura to captains over 100h - see in lobby loadout.
+  id: 2005
+  time: '2025-11-12T14:52:46.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added voices, speak your heart out.
+  id: 2006
+  time: '2025-11-12T17:50:46.0000000+00:00'
