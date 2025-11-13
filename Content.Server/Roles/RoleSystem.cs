@@ -38,7 +38,7 @@ public sealed class RoleSystem : SharedRoleSystem
     {
         if (mindId == null)
         {
-            Log.Error($"MingGetBriefing failed for mind {mindId}");
+            Log.Error($"MindGetBriefing failed for mind {mindId}");
             return null;
         }
 
@@ -46,7 +46,7 @@ public sealed class RoleSystem : SharedRoleSystem
 
         if (mindComp is null)
         {
-            Log.Error($"MingGetBriefing failed for mind {mindId}");
+            Log.Error($"MindGetBriefing failed for mind {mindId}");
             return null;
         }
 
