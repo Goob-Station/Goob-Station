@@ -259,7 +259,7 @@
   name: airtight hatch
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/hatch.rsi
+    sprite: _DEN/Structures/Doors/Airlocks/Standard/hatch.rsi
   - type: Paintable
     group: null
 
@@ -269,7 +269,7 @@
   name: maintenance hatch
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/hatch_maint.rsi
+    sprite: _DEN/Structures/Doors/Airlocks/Standard/hatch_maint.rsi
   - type: Paintable
     group: null
 
