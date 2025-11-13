@@ -4,6 +4,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Explosion;
 using Content.Shared.Explosion.Components;
+using Content.Shared.Explosion.Components.OnTrigger;
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
@@ -39,7 +40,6 @@ namespace Content.Goobstation.Shared.SlotMachine
             SubscribeLocalEvent<SlotMachineComponent, ActivateInWorldEvent>(OnInteractHandEvent);
             SubscribeLocalEvent<SlotMachineComponent, SlotMachineDoAfterEvent>(OnSlotMachineDoAfter);
             SubscribeLocalEvent<SlotMachineComponent, GotEmaggedEvent>(OnEmagged);
-
         }
 
         /// <summary>
@@ -59,11 +59,11 @@ namespace Content.Goobstation.Shared.SlotMachine
             comp.BigPrizeAmount = _random.Next(-500, 50000);
             comp.JackPotPrizeAmount = _random.Next(-500, 100000);
 
-            comp.ExplodeChance = _random.NextFloat(0, 0.6f);
-            comp.SmallWinChance = _random.NextFloat(0, 0.4f);
+            comp.SmallWinChance = _random.NextFloat(0, 0.6f);
             comp.MediumWinChance = _random.NextFloat(0, 0.35f);
             comp.BigWinChance = _random.NextFloat(0f, 0.2f);
             comp.JackPotWinChance = _random.NextFloat(0, 0.1f);
+            comp.ExplodeChance = _random.NextFloat(0, 0.075f);
             comp.GodPotWinChance = _random.NextFloat(0, 0.05f);
 
             // lord have mercy...
@@ -209,10 +209,10 @@ namespace Content.Goobstation.Shared.SlotMachine
         {
             // Spawn a new cash stack if there's no money left in the machine
             var entityManager = IoCManager.Resolve<IEntityManager>();
-            if (entityManager.TryGetComponent<ExplosiveComponent>(uid, out var myComponent))
+            if (entityManager.TryGetComponent<ExplosiveComponent>(uid, out var _exploder))
             {
-                if (!myComponent.Exploded & _net.IsServer)
-                    _boom.TriggerExplosive(uid, myComponent, true, myComponent.TotalIntensity, 7f, user);
+                if (!_exploder.Exploded & _net.IsServer)
+                    _boom.TriggerExplosive(uid, _exploder, false, _exploder.TotalIntensity, 7f, user);
             }
         }
     }

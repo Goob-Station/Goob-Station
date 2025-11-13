@@ -95,6 +95,3 @@ public enum SlotMachineVisuals : byte
 {
     Spinning
 }
-
-[ByRefEvent]
-public readonly record struct SlotMachineExplosionEvent(EntityUid SlotMachine, float PowerModifier);

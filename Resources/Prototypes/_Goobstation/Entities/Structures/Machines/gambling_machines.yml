@@ -7,10 +7,17 @@
   components:
   - type: Explosive
     explosionType: DemolitionCharge
-    totalIntensity: 20
-    intensitySlope: 2
-    maxIntensity: 15
+    totalIntensity: 5
+    intensitySlope: 3
+    maxIntensity: 120
     canCreateVacuum: false
+  - type: Timer
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 5
+    initialBeepDelay: 0
+    beepInterval: 2
   - type: StationAiWhitelist
   - type: AmbientOnPowered
   - type: AmbientSound
