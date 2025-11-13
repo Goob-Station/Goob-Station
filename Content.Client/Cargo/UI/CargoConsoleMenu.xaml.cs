@@ -246,8 +246,8 @@ namespace Content.Client.Cargo.UI
 
                 var product = _protoManager.Index<EntityPrototype>(order.ProductId); // Goobstation
                 var productName = product.Name; // Goobstation
-                var requester = !string.IsNullOrEmpty(order.Requester) ?
-                    order.Requester : Loc.GetString("cargo-console-menu-order-row-alerts-requester-unknown");
+                var requester = !string.IsNullOrEmpty(order.Requester) ? // Goobstation
+                    order.Requester : Loc.GetString("cargo-console-menu-order-row-alerts-requester-unknown"); // Goobstation
                 var account = _protoManager.Index(order.Account);
 
                 var row = new CargoOrderRow
