@@ -225,6 +225,7 @@ namespace Content.Goobstation.Shared.SlotMachine
         {
             if (args.Damageable.TotalDamage >= comp.DamageToDestroy)
             {
+                if (comp.Destroyed) return;
                 // set destroyed sprite over spinning sprite
                 if (TryComp<AppearanceComponent>(uid, out var appearance))
                 {
