@@ -1,0 +1,19 @@
+﻿- type: entity
+  id: Basestationgunnery
+  abstract: true
+  name: abstract gunnery server
+  components:
+  - type: FireControlServer
+    processingPower: 1000
+  - type: ApcPowerReceiver
+    powerLoad: 1200
+  - type: ExtensionCableReceiver
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }

@@ -1,0 +1,101 @@
+﻿- type: entity
+  id: BladeServerRack
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: Blade Server Rack
+  description: A sleek steel frame designed to hold a few blade servers. Compact functionality with a stylish aesthetic.
+  components:
+  - type: Sprite
+    sprite: _Moffstation/Structures/Machines/blade_server_rack.rsi
+    snapCardinals: true
+    layers:
+    - state: base
+    - state: base-powered
+      unshaded: true
+      visible: false
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: base-open
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: PointLight
+    enabled: false
+    castShadows: false
+    radius: 1.5
+    energy: 1.6
+    color: "#39b8ee"
+  - type: LitOnPowered
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: ExtensionCableReceiver
+  - type: InnerCableProvider
+    connectableContainers:
+    - blade-server-rack-slot-0
+    - blade-server-rack-slot-1
+    - blade-server-rack-slot-2
+    - blade-server-rack-slot-3
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Machine
+    board: BladeServerRackMachineCircuitboard
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -9
+    range: 5
+    enabled: false
+    sound:
+      path: /Audio/Ambience/Objects/server_fans.ogg
+  - type: BladeServerRack
+    bladeServerVisualsOffset: 0, -4
+  - type: AccessReader
+    access: [ [ "Command" ] ]
+  - type: Lock
+    unlockOnClick: false
+  - type: LockedAnchorable
+  - type: ItemSlots
+  - type: ItemSlotsLock
+    slots:
+    - blade-server-rack-slot-0
+    - blade-server-rack-slot-1
+    - blade-server-rack-slot-2
+    - blade-server-rack-slot-3
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blade-server-rack-slot-0: !type:ContainerSlot
+      blade-server-rack-slot-1: !type:ContainerSlot
+      blade-server-rack-slot-2: !type:ContainerSlot
+      blade-server-rack-slot-3: !type:ContainerSlot
+  - type: ActivatableUI
+    key: enum.BladeServerRackUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.BladeServerRackUiKey.Key:
+        type: BladeServerRackBoundUserInterface

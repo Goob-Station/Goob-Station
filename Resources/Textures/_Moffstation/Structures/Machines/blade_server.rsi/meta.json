@@ -1,0 +1,53 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "GitHub @Centronias(https://github.com/moff-station/moff-station-14)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "board"
+        },
+        {
+            "name": "cover"
+        },
+        {
+            "name": "frame"
+        },
+        {
+            "name": "inhand",
+            "directions": 4
+        },
+        {
+            "name": "inhand-open",
+            "directions": 4
+        },
+        {
+            "name": "inhand-stripe",
+            "directions": 4
+        },
+        {
+            "name": "maintenance-panel"
+        },
+        {
+            "name": "powered",
+            "delays": [
+                [
+                    0.35,
+                    0.35,
+                    0.35,
+                    0.35,
+                    0.35
+                ]
+            ]
+        },
+        {
+            "name": "stripe"
+        },
+        {
+            "name": "wires"
+        }
+    ]
+}

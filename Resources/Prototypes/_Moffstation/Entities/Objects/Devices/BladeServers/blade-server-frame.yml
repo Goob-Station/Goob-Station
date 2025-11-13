@@ -1,0 +1,126 @@
+﻿- type: entity
+  id: UnfinishedBladeServerFrame
+  parent: BaseItem
+  name: blade server frame
+  description: A blade server frame under construction. Needs more parts.
+  suffix: Unfinished
+  components:
+  - type: Sprite
+    sprite: _Moffstation/Structures/Machines/blade_server.rsi
+    state: frame
+  - type: Item
+    size: Huge
+    sprite: _Moffstation/Structures/Machines/blade_server.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-open
+      right:
+      - state: inhand-open
+  - type: MultiHandedItem
+  - type: Speech
+    speechVerb: Robotic
+  - type: Construction
+    containers:
+    - machine_board
+    - machine_parts
+    graph: BladeServer
+    node: missingWires
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  id: BladeServerFrame
+  parent: BaseItem
+  name: blade server frame
+  suffix: Ready
+  components:
+  - type: Sprite
+    sprite: _Moffstation/Structures/Machines/blade_server.rsi
+    layers:
+    - state: frame
+    - state: wires
+  - type: Item
+    size: Huge
+    sprite: _Moffstation/Structures/Machines/blade_server.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-open
+      right:
+      - state: inhand-open
+  - type: MultiHandedItem
+  - type: Speech
+    speechVerb: Robotic
+  - type: Transform
+  - type: Construction
+    graph: BladeServer
+    node: bladeServerFrame
+    defaultTarget: bladeServer
+    containers:
+    - machine_board
+    - machine_parts
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: missingWires
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: MachineFrame
+  - type: BladeServerFrame
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Appearance
+  - type: ItemMapper
+    mapLayers:
+      board:
+        minCount: 1
+        whitelist:
+          components:
+          - MachineBoard

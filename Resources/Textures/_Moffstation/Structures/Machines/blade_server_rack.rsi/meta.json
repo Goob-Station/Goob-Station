@@ -1,0 +1,74 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "GitHub @Centronias; based on telecomms.rsi by Spangs04(https://github.com/moff-station/moff-station-14)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "base-open"
+        },
+        {
+            "name": "base-powered",
+            "delays": [
+                [
+                    0.35,
+                    0.35,
+                    0.35
+                ]
+            ]
+        },
+        {
+            "name": "base"
+        },
+        {
+            "name": "blade-base"
+        },
+        {
+            "name": "blade-powered-0",
+            "delays": [
+                [
+                    0.40,
+                    0.30,
+                    0.35
+                ]
+            ]
+        },
+        {
+            "name": "blade-powered-1",
+            "delays": [
+                [
+                    0.35,
+                    0.40,
+                    0.30
+                ]
+            ]
+        },
+        {
+            "name": "blade-powered-2",
+            "delays": [
+                [
+                    0.30,
+                    0.35,
+                    0.40
+                ]
+            ]
+        },
+        {
+            "name": "blade-powered-3",
+            "delays": [
+                [
+                    0.20,
+                    0.20,
+                    0.20,
+                    0.45
+                ]
+            ]
+        },
+        {
+            "name": "blade-stripe"
+        }
+    ]
+}

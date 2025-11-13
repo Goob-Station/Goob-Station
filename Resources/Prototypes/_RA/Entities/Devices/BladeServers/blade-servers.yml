@@ -1,0 +1,11 @@
+﻿
+- type: entity
+  id: BladeServerGunnery
+  parent: [ Basestationgunnery, ConstructibleBladeServer ]
+  name: Station Gunnery blade server
+  description: Contains the information of the station's defenses & controls it. Destroying it would leave them defenseless. You don't want that do you?
+  components:
+  - type: BladeServer
+    stripeColor: "#b3721E"
+  - type: Machine
+    board: MachineGCSUltraCircuitboard
