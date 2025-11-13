@@ -40,10 +40,10 @@ public sealed class EatToGrowSystem : EntitySystem
         if (comp.CurrentScale >= comp.MaxGrowth)
             return;
 
-        TryGrow(eater, ref comp, 1f);
+        TryGrow(eater, comp, 1f);
     }
 
-    private void TryGrow(EntityUid eater, ref EatToGrowComponent comp, float scale)
+    private void TryGrow(EntityUid eater, EatToGrowComponent comp, float scale)
     {
         // Uses scale variable to  multiply the growth, mainly used for shrinking
         // Add growth
@@ -83,25 +83,15 @@ public sealed class EatToGrowSystem : EntitySystem
     }
     private void ShrinkOnDeath(Entity<EatToGrowComponent> eater, ref MobStateChangedEvent args)
     {
-
         // Copied from TryGrow, just need to grow in reverse
-        if (args.NewMobState == MobState.Dead)
-        {
-            if (!TryComp<EatToGrowComponent>(eater, out var comp))
-                return;
+        if (args.NewMobState != MobState.Dead || !TryComp<EatToGrowComponent>(eater, out var comp) || comp.ShrinkOnDeath == false)
+        return;
 
-            if (comp.ShrinkOnDeath == true)
-            {
-                // shrink the entity
-                TryGrow(eater, ref comp, -comp.TimesGrown); // uses the negative of times grown to shrink the entity back to normal
+        // shrink the entity
+        TryGrow(eater, comp, -comp.TimesGrown); // uses the negative of times grown to shrink the entity back to normal
 
-
-                // Reset data on shrink
-                comp.CurrentScale = 1f;
-                comp.TimesGrown = 0;
-            }
-            return; // if ShrinkOnDeath is false, return
-        }
-        return; // if the mob is not dead, return
+        // Reset data on shrink
+        comp.CurrentScale = 1f;
+        comp.TimesGrown = 0;
     }
 };
