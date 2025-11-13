@@ -58,9 +58,11 @@ using Content.Server.Roles;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Starlight.CollectiveMind;
+using Content.Shared.Body.Components;
 using Content.Shared.Coordinates;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Roles;
+using Content.Shared.Species.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -153,9 +155,6 @@ public sealed class GhoulSystem : EntitySystem
 
         EnsureComp<CollectiveMindComponent>(ent).Channels.Add(HereticAbilitySystem.MansusLinkMind);
 
-        var htn = EnsureComp<HTNComponent>(ent);
-        htn.RootTask = new HTNCompoundTask { Task = Compound };
-
         if (Exists(ent.Comp.BoundHeretic))
             SetBoundHeretic(ent, ent.Comp.BoundHeretic.Value, false);
 
@@ -170,7 +169,11 @@ public sealed class GhoulSystem : EntitySystem
             _role.MindAddRole(mindId, GhoulRole, mind);
         }
         else
+        {
+            var htn = EnsureComp<HTNComponent>(ent);
+            htn.RootTask = new HTNCompoundTask { Task = Compound };
             _htn.Replan(htn);
+        }
 
         if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
         {
@@ -283,6 +286,16 @@ public sealed class GhoulSystem : EntitySystem
         if (ent.Comp.SpawnOnDeathPrototype != null)
             Spawn(ent.Comp.SpawnOnDeathPrototype.Value, Transform(ent).Coordinates);
 
-        _body.GibBody(ent, contents: ent.Comp.DropOrgansOnDeath ? GibContentsOption.Drop : GibContentsOption.Skip);
+        if (!TryComp(ent, out BodyComponent? body))
+            return;
+
+        foreach (var nymph in _body.GetBodyOrganEntityComps<NymphComponent>((ent, body)))
+        {
+            RemComp(nymph.Owner, nymph.Comp1);
+        }
+
+        _body.GibBody(ent,
+            body: body,
+            contents: ent.Comp.DropOrgansOnDeath ? GibContentsOption.Drop : GibContentsOption.Skip);
     }
 }
