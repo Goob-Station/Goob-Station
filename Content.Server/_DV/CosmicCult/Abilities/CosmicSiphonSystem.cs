@@ -119,13 +119,10 @@ public sealed class CosmicSiphonSystem : EntitySystem
         uid.Comp.EntropyStored += siphonQuantity;
         uid.Comp.EntropyBudget += siphonQuantity;
         Dirty(uid, uid.Comp);
-        _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(target, "EntropicDegen", TimeSpan.FromSeconds(_random.Next(21) + 40), true); //40-60 seconds, 4-6 cold damage per siphon
         if (_cosmicCult.EntityIsCultist(target))
         {
-            _popup.PopupEntity(Loc.GetString("cosmicability-siphon-cultist-success",
-                ("target", Identity.Entity(target, EntityManager))),
-                uid,
-                uid);
+            _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(target, "EntropicDegen", TimeSpan.FromSeconds(_random.Next(21) + 40), true); //40-60 seconds, 4-6 cold damage per siphon
+            _popup.PopupEntity(Loc.GetString("cosmicability-siphon-cultist-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
         }
         else
         {

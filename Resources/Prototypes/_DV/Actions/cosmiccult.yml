@@ -11,7 +11,7 @@
   parent: BaseAction
   id: ActionCosmicSiphon
   name: Siphon Entropy
-  description: Silently siphon entropy from your target, dealing some damage in the process.
+  description: Silently siphon entropy from your target.
   components:
   - type: Action
     useDelay: 15
