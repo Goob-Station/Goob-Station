@@ -5,6 +5,7 @@ using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Bible;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared._Shitcode.Heretic.Systems.Abilities;
 using Content.Shared.Coordinates;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
@@ -31,6 +32,7 @@ public sealed class CosmicRunesSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
+    [Dependency] private readonly SharedHereticAbilitySystem _heretic = default!;
 
     public override void Initialize()
     {
@@ -48,7 +50,7 @@ public sealed class CosmicRunesSystem : EntitySystem
 
         if (TryComp(args.Used, out StarTouchComponent? starTouch))
         {
-            _starTouch.InvokeSpell((args.Used, starTouch), args.User);
+            _heretic.InvokeTouchSpell<StarTouchComponent>((args.Used, starTouch), args.User);
             EnsureComp<FadingTimedDespawnComponent>(ent).Lifetime = 0f;
             if (Exists(ent.Comp.LinkedRune))
                 EnsureComp<FadingTimedDespawnComponent>(ent.Comp.LinkedRune.Value).Lifetime = 0f;

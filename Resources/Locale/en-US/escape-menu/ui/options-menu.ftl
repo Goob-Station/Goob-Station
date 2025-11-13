@@ -100,6 +100,8 @@ ui-options-event-music = Event Music
 ui-options-admin-sounds = Play Admin Sounds
 ui-options-bwoink-sound = Play AHelp Notification Sound
 ui-options-volume-label = Volume
+# Goobstation - Highlight Volume
+ui-options-highlight-volume = Chat Highlight Ping Volume:
 
 ## Graphics menu
 
@@ -375,6 +377,8 @@ ui-options-chat-window-opacity = Chat window opacity
 ui-options-speech-bubble-text-opacity = Speech bubble text opacity
 ui-options-speech-bubble-speaker-opacity = Speech bubble speaker opacity
 ui-options-speech-bubble-background-opacity = Speech bubble background opacity
+# Goobstation - Highlight chat sounds!
+ui-options-highlight-sound = Play sound on highlight
 
 ## Admin menu
 

@@ -259,6 +259,21 @@
 # utility
 
 - type: listing
+  id: EvolutionMenuUtilityInstinct
+  name: evolutionmenu-utility-instinct-name
+  description: evolutionmenu-utility-instinct-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: awakened_instinct }
+  productEvent: !type:AwakenedInstinctPurchasedEvent
+  raiseProductEventOnUser: true
+  cost:
+    EvolutionPoint: 0
+  categories:
+  - ChangelingAbilityUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: EvolutionMenuUtilityPanacea
   name: evolutionmenu-utility-panacea-name
   description: evolutionmenu-utility-panacea-desc

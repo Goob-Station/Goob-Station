@@ -502,6 +502,7 @@
         components:
         - CommandStaff # Goobstation
         - ZombieImmune
+        - AntagImmune
       briefing:
         text: zombie-patientzero-role-greeting
         color: Plum

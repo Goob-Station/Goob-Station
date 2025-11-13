@@ -22,6 +22,12 @@ public sealed partial class HereticRitualPrototype : IPrototype
     [IdDataField] public string ID { get; private set; } = default!;
 
     /// <summary>
+    ///     How many entities ritual can create at once. less or equal than 0 means no limit.
+    /// </summary>
+    [DataField]
+    public int Limit;
+
+    /// <summary>
     ///     How many entitites with specific names are required for the ritual?
     /// </summary>
     [DataField] public Dictionary<string, int>? RequiredEntityNames;
