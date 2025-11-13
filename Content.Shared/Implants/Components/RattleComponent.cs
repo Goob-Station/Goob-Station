@@ -25,4 +25,11 @@ public sealed partial class RattleComponent : Component
     // The message that the implant will send when dead
     [DataField]
     public LocId DeathMessage = "deathrattle-implant-dead-message";
+
+    /// <summary>
+    /// Lavaland Change
+    /// If true, reports the coordinates instead of the nearest beacon message.
+    /// </summary>
+    [DataField]
+    public bool ReportCoordinates;
 }
