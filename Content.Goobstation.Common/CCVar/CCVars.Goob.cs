@@ -544,7 +544,7 @@ public sealed partial class GoobCVars
     #region forensics
 
     public static readonly CVarDef<float> RevealChance =
-        CVarDef.Create("forensics.reveal_chance", 0.05f, CVar.SERVERONLY);
+        CVarDef.Create("forensics.reveal_chance", 0.01f, CVar.SERVERONLY);
 
     #endregion
 
