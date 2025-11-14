@@ -485,7 +485,7 @@
     objectives:
     - DarkPriestProtectObjective
     - DarkPriestHireApprentice
-    - KillRandomPerson
+    - KillRandomPersonObjective
     - EscapeShuttleObjective
 
 - type: entity
