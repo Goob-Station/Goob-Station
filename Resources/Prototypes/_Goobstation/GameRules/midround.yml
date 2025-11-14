@@ -364,7 +364,7 @@
       max: 3
       pickPlayer: false
       mindRoles:
-      - MindRoleGhostRoleTeamAntagonist
+      - MindRoleGhostRoleFreeAgent
       briefing:
         text: Singuloth-Knight-role-greeting
         color: Red

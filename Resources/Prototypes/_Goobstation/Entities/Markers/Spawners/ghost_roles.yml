@@ -93,7 +93,7 @@
     description: ghost-role-information-Singuloth-Knight-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
+    - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
   - type: Sprite

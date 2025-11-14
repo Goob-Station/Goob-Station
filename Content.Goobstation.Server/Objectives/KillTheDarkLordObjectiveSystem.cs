@@ -7,7 +7,7 @@ using Content.Shared.Objectives.Components;
 namespace Content.Goobstation.Server.Objectives;
 
 /// <summary>
-/// This handles...
+/// This handles the "kill the dark lord" objective for the chosen one
 /// </summary>
 public sealed class KillTheDarkLordObjectiveSystem : EntitySystem
 {

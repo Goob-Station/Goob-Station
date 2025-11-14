@@ -171,7 +171,7 @@ chosen-one-role-greeting = You are the [color=#0087FF]Chosen One[/color], you ha
 objective-condition-dark-lord-kill-title = Ensure Dark Lord {$targetName} dies.
 
 ghost-role-information-mime-Assassin-name = Mime Assassin
-ghost-role-information-mime-Assassin-description = As assassin that uses mime clothes and favors silent kills, their name? well they probably can't tell you, but thats what makes then so good!
+ghost-role-information-mime-Assassin-description = An assassin that uses mime clothes and favors silent kills, their name? well they probably can't tell you, but thats what makes then so good!
 mime-Assassin-role-greeting = You are a [color=#880808]Mime Assassin[/color], you have been sent to this station by the syndicate to kill some members of command that they need taken out of the equation, the syndicate have supplied you with some tools to get the job done, quietly... check your character sheet for your objectives, and don't get caught.
 
 ghost-role-information-dark-priest-name = Dark Priest
