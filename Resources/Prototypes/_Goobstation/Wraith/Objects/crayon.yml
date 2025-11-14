@@ -6,6 +6,7 @@
   description: A bloody crayon. Looks scary. Oooo...
   components:
   - type: Sprite
+    sprite: Objects/Fun/crayons.rsi
     state: red
   - type: Item
     sprite: Objects/Fun/crayons.rsi
