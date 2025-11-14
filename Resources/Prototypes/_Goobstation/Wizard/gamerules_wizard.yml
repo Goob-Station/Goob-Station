@@ -83,7 +83,7 @@
   components:
   - type: StationEvent
     earliestStart: 35
-    weight: 5.5
+    weight: 4 # CorvaxGoob-SpawnRebalance: Changed to from 5.5
     minimumPlayers: 20
     duration: 1
     chaos: # Goobstation

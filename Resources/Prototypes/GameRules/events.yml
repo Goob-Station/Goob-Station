@@ -351,7 +351,7 @@
   - type: StationEvent
     weight: 5
     duration: 1
-    minimumPlayers: 10
+    minimumPlayers: 30 # CorvaxGoob-SpawnRebalance: Changed to from 10
     eventType: Chaotic # Goobstation
   # Goobstation
   - type: GameRule

@@ -72,5 +72,11 @@ public sealed partial class HyposprayComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan OtherDelay = TimeSpan.FromSeconds(1);
+
+    /// <summary>
+    /// Hides doafter progressbar on injection.
+    /// </summary>
+    [DataField]
+    public bool HideDoAfter = false;
     // CorvaxGoob-RefillableMedipens-End
 }

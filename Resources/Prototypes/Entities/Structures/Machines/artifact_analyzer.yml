@@ -116,6 +116,8 @@
         Blunt: 10
   - type: Machine
     board: ArtifactCrusherMachineCircuitboard
+  - type: TogglePower # CorvaxGoob-TogglingPower
+    altMode: false
   - type: WiresPanel
   - type: Sprite
     sprite: Structures/Machines/artifact_crusher.rsi

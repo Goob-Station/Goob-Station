@@ -18,7 +18,7 @@
 - type: species
   id: Oni
   name: species-name-oni
-  roundStart: false # CorvaxGoob Temporary hidden
+  roundStart: true
   prototype: MobOni
   dollPrototype: MobOniDummy
   markingLimits: MobOniMarkingLimits

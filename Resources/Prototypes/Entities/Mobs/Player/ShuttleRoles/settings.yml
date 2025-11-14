@@ -854,8 +854,7 @@
       description: ghost-role-information-syndie-soldier-teamlead-description
       rules: ghost-role-information-rules-team-antagonist
       skills: # CorvaxGoob-Skills
-        - ShuttleControl
-        - Shooting
+        - All
       mindRoles:
       - MindRoleGhostRoleTeamAntagonist
       raffle:
@@ -877,8 +876,7 @@
       description: ghost-role-information-syndie-soldier-description
       rules: ghost-role-information-rules-team-antagonist
       skills: # CorvaxGoob-Skills
-        - ShuttleControl
-        - Shooting
+        - All
       mindRoles:
       - MindRoleGhostRoleTeamAntagonist
       raffle:

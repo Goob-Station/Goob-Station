@@ -13,7 +13,8 @@ public sealed partial class TogglePowerSystem : SharedTogglePowerSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<TogglePowerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<TogglePowerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAlternativeVerbs);
+        SubscribeLocalEvent<TogglePowerComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
         SubscribeLocalEvent<TogglePowerComponent, ExaminedEvent>(OnExamined);
     }
 
@@ -28,9 +29,31 @@ public sealed partial class TogglePowerSystem : SharedTogglePowerSystem
             args.PushMarkup(Loc.GetString("power-toggle-status-off"));
     }
 
-    private void OnGetVerbs(Entity<TogglePowerComponent> entity, ref GetVerbsEvent<AlternativeVerb> args)
+    private void OnGetVerbs(Entity<TogglePowerComponent> entity, ref GetVerbsEvent<Verb> args)
     {
         if (!args.CanAccess || !args.CanInteract || args.Hands == null)
+            return;
+
+        if (entity.Comp.AltModeEnabled)
+            return;
+
+        var target = args.Target;
+        var user = args.User;
+
+        var verb = new Verb
+        {
+            Text = Loc.GetString("power-toggle-verb"),
+            Act = () => VerbPowerToggle(entity, target, user)
+        };
+        args.Verbs.Add(verb);
+    }
+
+    private void OnGetAlternativeVerbs(Entity<TogglePowerComponent> entity, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || args.Hands == null)
+            return;
+
+        if (!entity.Comp.AltModeEnabled)
             return;
 
         var target = args.Target;

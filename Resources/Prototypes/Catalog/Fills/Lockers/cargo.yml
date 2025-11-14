@@ -47,10 +47,10 @@
   components:
   - type: StorageFill
     contents:
-      #- id: ClothingOuterHardsuitSalvage #Goobstation
+      - id: ClothingOuterHardsuitSalvage #Goobstation # Uncommented by CorvaxGoob
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
-      #- id: ClothingShoesBootsMag
+      - id: ClothingShoesBootsMag # Uncommented by CorvaxGoob
       - id: ClothingMaskGasExplorer
       - id: ClothingBeltUtilityFilled
       - id: SurvivalKnife

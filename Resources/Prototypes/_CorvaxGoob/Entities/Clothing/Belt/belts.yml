@@ -116,6 +116,7 @@
     - 0,0,9,1
     whitelist:
       tags:
+        - LocatorWide
         - Powerdrill
         - Wirecutter
         - Crowbar
@@ -138,6 +139,7 @@
         - MagazineNailgun # Goobstation
         - ScienceTool
       components:
+        - NodeScanner
         - StationMap
         - SprayPainter
         - NetworkConfigurator

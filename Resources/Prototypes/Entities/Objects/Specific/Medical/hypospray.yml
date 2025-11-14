@@ -147,6 +147,7 @@
     solution: hypospray
   - type: Hypospray
     onlyAffectsMobs: false
+    otherDelay: 0.25 # CorvaxGoob-Changes
   - type: UseDelay
     delay: 0.5
   - type: StaticPrice
@@ -188,6 +189,7 @@
     solution: hypospray
   - type: Hypospray
     onlyAffectsMobs: false
+    otherDelay: 0.25 # CorvaxGoob-Changes
   - type: UseDelay
     delay: 0.25
   - type: Appearance
@@ -270,6 +272,7 @@
     transferAmount: 20 # Goobstation
     onlyAffectsMobs: false
     injectOnly: true
+    otherDelay: 0.25 # CorvaxGoob-Changes
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 1
@@ -807,6 +810,10 @@
     heldOnly: true # Allow examination only when held in hand.
   - type: Hypospray
     onlyAffectsMobs: false
+    # CorvaxGoob-Changes-Start
+    hideDoAfter: true
+    otherDelay: 0.25
+    # CorvaxGoob-Changes-End
   - type: UseDelay
     delay: 0.5
   - type: StaticPrice # A new shitcurity meta

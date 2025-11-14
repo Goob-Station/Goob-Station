@@ -182,7 +182,8 @@ public sealed class HypospraySystem : EntitySystem
             {
                 BreakOnMove = true,
                 NeedHand = true,
-                BreakOnDamage = true
+                BreakOnDamage = true,
+                Hidden = component.HideDoAfter
             });
 
             if (doAfterCancelled)

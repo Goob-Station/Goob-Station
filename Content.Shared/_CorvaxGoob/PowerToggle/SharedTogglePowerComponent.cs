@@ -14,6 +14,9 @@ public abstract partial class SharedTogglePowerComponent : Component
 
     [DataField("nextToggle")]
     public TimeSpan NextToggle = TimeSpan.Zero;
+
+    [DataField("altMode")]
+    public bool AltModeEnabled = true;
 }
 
 [Serializable, NetSerializable]

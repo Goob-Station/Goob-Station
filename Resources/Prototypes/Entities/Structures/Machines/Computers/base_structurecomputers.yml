@@ -47,9 +47,7 @@
     containers:
       - board
   - type: Computer
-  - type: TogglePower
-    applyPowerOnSpawn: true
-    isTurnedOn: false
+  - type: TogglePower # CorvaxGoob-TogglingPower
   - type: ApcPowerReceiver
     powerLoad: 200
   - type: ExtensionCableReceiver

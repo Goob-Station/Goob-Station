@@ -7,6 +7,7 @@
     contents:
         - id: DoubleEmergencyOxygenTankFilled
         - id: ClothingOuterHardsuitSecPilot
+        - id: ClothingHeadHelmetHardsuitSecPilot
         - id: ClothingMaskBreath
         - id: ClothingShoesBootsMag
   - type: AccessReader
