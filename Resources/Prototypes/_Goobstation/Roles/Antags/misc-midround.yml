@@ -128,7 +128,7 @@
     eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesColorBlack
     id: AgentIDCard
-    gloves: ClothingHandsGlovesCombat
+    gloves: ClothingHandsChameleonThief
     outerClothing: ClothingOuterHardsuitVoxRaiderStealth
     suitstorage: ExtendedEmergencyNitrogenTankFilled
     back: ClothingBackpack
@@ -138,12 +138,6 @@
     - ExtendedEmergencyNitrogenTankFilled
     - ChameleonProjector
     - DartGun
-    - BulletDartGun
-    - BulletDartGun
-    - BulletDartGun
-    - BulletDartGun
-    - BulletDartGun
     - ChemistryBottleNocturine
     - ChemistryBottleNocturine
     - HypopenBox
-    - ClothingHandsChameleonThief
