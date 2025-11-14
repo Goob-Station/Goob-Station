@@ -17883,3 +17883,9 @@ Entries:
       message: NPCS wont try to pickup unfolded chairs.
   id: 2009
   time: '2025-11-14T00:34:04.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Tweak
+      message: Made the hermit game mode more hermity and buffed heretic midrounds
+  id: 2010
+  time: '2025-11-14T01:09:50.0000000+00:00'
