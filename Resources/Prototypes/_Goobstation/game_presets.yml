@@ -245,6 +245,19 @@
   - SubGamemodesRule
   - SecretPlusRampingMid
 
+# hermit gamemode, internal threat focused gamemode
+- type: gamePreset
+  id: SecretPlusHermit
+  alias:
+    - secretPlusHermit
+    - The hermit
+    - Ingress
+  name: hermitplus-title
+  description: hermitplus-description
+  showInVote: true
+  rules:
+    - SecretPlusHermit
+
 - type: gamePreset
   id: OopsAllThieves
   alias:

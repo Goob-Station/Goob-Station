@@ -379,6 +379,7 @@
     sentence: action-speech-spell-bind-soul
   - type: Magic
     requiresSpeech: true
+    blockedBySpectral: false
     school: Necromancy
   - type: Tag
     tags:
