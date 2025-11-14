@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC-BY-SA-3.0",
-  "copyright": "icon by RiceMar1244 based on tgstation at https://github.com/tgstation/tgstation/commit/8b7f8ba6a3327c7381967c550f185dffafd11a57; inhand, wield, and belt equip sprites by RiceMar1244, bayonet and flashlight taken from Monkestation at commit https://github.com/Monkestation/Monkestation2.0/commit/914d185332f0487f6da39bb43711019282fe2fae",
+  "copyright": "icon and animation-icon taken from https://github.com/Bubberstation/Bubberstation/pull/1332/commits/712c86db77c96657cd2b8cfaf6203d76f85f9649, rest made by ratyyy(github), wielded-inhand-left/wielded-inhand-right sprited by orange6775 (discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -11,15 +11,6 @@
             "name": "icon"
         },
         {
-            "name": "animation-icon",
-            "delays": [
-                [
-                    0.2,
-                    0.2
-                ]
-            ]
-        },
-        {
             "name": "bayonet"
         },
         {
@@ -27,6 +18,15 @@
         },
         {
             "name": "flight-on"
+        },
+        {
+            "name": "animation-icon",
+            "delays": [
+                [
+                    0.2,
+                    0.2
+                ]
+            ]
         },
         {
             "name": "inhand-right",
@@ -40,7 +40,7 @@
             "name": "wielded-inhand-right",
             "directions": 4
         },
-        {
+		{
             "name": "wielded-inhand-left",
             "directions": 4
         },
