@@ -117,7 +117,6 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Timing; // Goobstation
 using Content.Goobstation.Common.CCVar;
-using Prometheus; // Goobstation
 using Robust.Shared.Configuration; // Goobstation
 namespace Content.Server.Forensics
 
