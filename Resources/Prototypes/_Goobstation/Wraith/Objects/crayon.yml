@@ -1,5 +1,6 @@
+
 - type: entity
-  parent: Crayon
+  parent: BaseItem
   id: CrayonBlood
   categories: [ HideSpawnMenu ]
   name: bloody crayon
@@ -8,6 +9,8 @@
   - type: Sprite
     state: red
   - type: Item
+    sprite: Objects/Fun/crayons.rsi
+    size: Tiny
     heldPrefix: bloody
   - type: Crayon
     color: '#a70000'
@@ -21,3 +24,10 @@
     - CrayonRed
     - Recyclable
     - Trash
+  - type: SpaceGarbage
+  - type: UserInterface
+    interfaces:
+      enum.CrayonUiKey.Key:
+        type: CrayonBoundUserInterface
+  - type: Crayon
+    capacity: 25
