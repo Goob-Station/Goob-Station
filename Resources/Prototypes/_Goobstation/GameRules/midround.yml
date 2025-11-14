@@ -124,7 +124,7 @@
     selectionTime: PostPlayerSpawn
     agentName: heretic-roundend-name
     definitions:
-    - prefRoles: [ SleeperHeretict ]
+    - prefRoles: [ SleeperHeretic ]
     - fallbackRoles: [ Heretic ]
       max: 1
       playerRatio: 15
