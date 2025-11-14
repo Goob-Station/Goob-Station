@@ -28,5 +28,3 @@
     interfaces:
       enum.CrayonUiKey.Key:
         type: CrayonBoundUserInterface
-  - type: Crayon
-    capacity: 25
