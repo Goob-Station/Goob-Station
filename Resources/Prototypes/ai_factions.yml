@@ -46,6 +46,8 @@
     - Zombie
     - Revolutionary
     - AllHostile
+    # - Wizard # Goob
+    - Xenoborg
     - Heretic # goob edit - heretics
     - Blob # Goobstation - Blob
     - Shadowling # Einstein Engines - Shadowlings
@@ -108,6 +110,7 @@
   - Dragon
   - Xeno
   - AllHostile
+  # - Wizard # Goob?
   - Xenoborg
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
@@ -131,11 +134,11 @@
   - Zombie
   - Dragon
   - AllHostile
+  - Wizard
   - Xenoborg
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
-  - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
   - Shadowling # Einstein Engines - Shadowlings
   - Wraith # Goobstation - Wraith
@@ -151,6 +154,7 @@
   - Zombie
   - Revolutionary
   - AllHostile
+  - Wizard
   - Dragon
   - Xenoborg
   - Dragon
@@ -173,12 +177,12 @@
   - PetsNT
   - Revolutionary
   - AllHostile
+  - Wizard
   - Dragon
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - Shadowling # Einstein Engines - Shadowlings
-  - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
   - Xenoborg
   - Wraith # Goobstation - Wraith
@@ -223,10 +227,10 @@
   - Lavafauna # Goob - Lavaland
 
 # Balloons Factions Edit:
-- type: npcFaction  
+- type: npcFaction
   id: Balloon
   # Balloons can't attack
-  
+
 - type: npcFaction
   id: Monkey
   hostile:
@@ -260,6 +264,9 @@
   - Syndicate
   - Passive
   - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Xeno
   - Zombie
   - Revolutionary
   - Dragon

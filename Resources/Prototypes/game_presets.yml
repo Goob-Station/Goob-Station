@@ -102,12 +102,13 @@
     - Traitor
     - Revolutionary
     - Zombie
-    - Thief
-    - Heretic
-    - BlobGameMode
-    - LoneAbductorSpawn
-    - KesslerSyndromeScheduler
     - Wizard
+    - Xenoborgs
+    - Thief
+    - Heretic # Goob
+    - BlobGameMode # Goob
+    - LoneAbductorSpawn # Goob
+    - KesslerSyndromeScheduler
     - RampingStationEventScheduler
     - Changeling # Goobstation - changeling playtest
     - SpaceTrafficControlEventScheduler
@@ -133,6 +134,7 @@
     - BlobGameMode
     - LoneAbductorSpawn
     - Wizard
+    - Xenoborgs
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
     - MeteorSwarmMildScheduler # Goob Edit
@@ -269,6 +271,22 @@
   - DummyNonAntagChance
   - Revolutionary
   # - SubGamemodesRuleNoWizard Goob
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: Xenoborgs
+  alias:
+    - xenoborgs
+  name: xenoborgs-title
+  description: xenoborgs-description
+  showInVote: false
+  rules:
+  - Xenoborgs
+  - DummyNonAntagChance
+  - SubGamemodesRuleNoXenoborg # no two motherships
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
