@@ -42,6 +42,12 @@ public sealed partial class RitualRecallBladeBehavior : RitualCustomBehavior
         IEntityManager entMan,
         TransformSystem transform)
     {
+        if (comp.CurrentPath == null || !comp.Blades.TryGetValue(comp.CurrentPath, out var bladeId))
+            return null;
+
+        if (!comp.LimitedTransmutations.TryGetValue(bladeId, out var blades))
+            return null;
+
         var originCoords = transform.GetMapCoordinates(origin);
         var hereticCoords = transform.GetMapCoordinates(heretic);
 
@@ -52,7 +58,7 @@ public sealed partial class RitualRecallBladeBehavior : RitualCustomBehavior
 
         var range = MathF.Max(1.5f, dist + 0.5f);
 
-        foreach (var blade in comp.OurBlades)
+        foreach (var blade in blades)
         {
             if (!entMan.EntityExists(blade))
                 continue;

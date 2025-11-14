@@ -90,6 +90,7 @@
     state: god_transmit
   customBehaviors:
   - !type:RitualCanAscend
+    checkObjectives: false
   - !type:RitualFeastOfOwlsBehavior
 
 ### ash path
@@ -100,12 +101,12 @@
   icon:
     sprite: _Goobstation/Heretic/Blades/blade_ash.rsi
     state: icon
-  customBehaviors:
-  - !type:RitualCreateBladeBehavior
-    bladeProto: HereticBladeAsh
   requiredTags:
     Knife: 1
     Matchstick: 1
+  output:
+    HereticBladeAsh: 1
+  limit: 2
 
 - type: hereticRitual
   id: MaskOfMadness
@@ -146,11 +147,11 @@
   icon:
     sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
     state: icon
-  customBehaviors:
-  - !type:RitualCreateBladeBehavior
-    bladeProto: HereticBladeBlade
   requiredTags:
     Knife: 2
+  output:
+    HereticBladeBlade: 1
+  limit: 4
 
 - type: hereticRitual
   id: AscensionBlade
@@ -178,10 +179,11 @@
   customBehaviors:
   - !type:RitualReagentPuddleBehavior
     reagent: Blood
-  - !type:RitualCreateBladeBehavior
-    bladeProto: HereticBladeFlesh
   requiredTags:
     Knife: 1
+  output:
+    HereticBladeFlesh: 1
+  limit: 2
 
 - type: hereticRitual
   id: ImperfectRitual
@@ -194,6 +196,7 @@
   - !type:RitualMuteGhoulifyBehavior
   requiredTags:
     Muzzle: 1
+  limit: 2
 
 - type: hereticRitual
   id: RawRitual
@@ -210,6 +213,7 @@
     Stomach: 1
   output:
     MobGhoulProphet: 1
+  limit: 2
 
 - type: hereticRitual
   id: LonelyRitual
@@ -257,10 +261,11 @@
   customBehaviors:
   - !type:RitualTemperatureBehavior
     minThreshold: 0 # ~= -1 celcius. or sub zero temperatures
-  - !type:RitualCreateBladeBehavior
-    bladeProto: HereticBladeVoid
   requiredTags:
     Knife: 1
+  output:
+    HereticBladeVoid: 1
+  limit: 2
 
 - type: hereticRitual
   id: AscensionVoid
@@ -287,12 +292,12 @@
   icon:
     sprite: _Goobstation/Heretic/Blades/blade_rust.rsi
     state: icon
-  customBehaviors:
-  - !type:RitualCreateBladeBehavior
-    bladeProto: HereticBladeRust
   requiredTags:
     Knife: 1
     Trash: 1
+  output:
+    HereticBladeRust: 1
+  limit: 2
 
 - type: hereticRitual
   id: AscensionRust
@@ -317,12 +322,12 @@
   icon:
     sprite: _Goobstation/Heretic/Blades/blade_cosmos.rsi
     state: icon
-  customBehaviors:
-  - !type:RitualCreateBladeBehavior
-    bladeProto: HereticBladeCosmos
   requiredTags:
     Knife: 1
     SheetGlass: 1
+  output:
+    HereticBladeCosmos: 1
+  limit: 2
 
 - type: hereticRitual
   id: AscensionCosmos
@@ -421,11 +426,12 @@
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     state: fire_shark_icon
   requiredTags:
-    Ash: 1
+    Ash: 3
     Liver: 1
-    SheetPlasma: 1
+    SheetPlasma: 3
   output:
-    MobGhoulFireShark: 1
+    MobGhoulFireShark: 3
+  limit: 15
 
 ## stage 6
 
