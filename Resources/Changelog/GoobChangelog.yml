@@ -17889,3 +17889,9 @@ Entries:
       message: Made the hermit game mode more hermity and buffed heretic midrounds
   id: 2010
   time: '2025-11-14T01:09:50.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Made the cc advanced stimulant not kill you.
+  id: 2011
+  time: '2025-11-14T01:10:51.0000000+00:00'
