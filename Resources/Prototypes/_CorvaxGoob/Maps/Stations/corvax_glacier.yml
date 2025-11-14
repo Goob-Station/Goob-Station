@@ -41,7 +41,8 @@
             Surgeon: [ 1, 1 ]
             # science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 5, 6 ]
+            Scientist: [ 4, 5 ]
+            Roboticist: [ 1, 1 ]
             ResearchAssistant: [ 3, 4 ]
             # security
             HeadOfSecurity: [ 1, 1 ]
