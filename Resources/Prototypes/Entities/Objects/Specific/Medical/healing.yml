@@ -99,6 +99,7 @@
     state: ointment
   - type: Item
     heldPrefix: ointment
+    storedRotation: 45
   - type: Healing
     damageContainers:
       - Biological
@@ -374,6 +375,7 @@
     state: gauze
   - type: Item
     heldPrefix: gauze
+    storedRotation: -90
   - type: Construction
     graph: Gauze
     node: gauze

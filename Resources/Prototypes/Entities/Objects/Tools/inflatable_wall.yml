@@ -31,6 +31,7 @@
   - type: Item
     sprite: Objects/Misc/inflatable_wall.rsi
     size: Small
+    storedRotation: 90
   - type: SpawnAfterInteract
     prototype: InflatableWall
     doAfter: 1
@@ -59,6 +60,7 @@
   - type: Item
     sprite: Objects/Misc/inflatable_door.rsi
     size: Small
+    storedRotation: 90
   - type: SpawnAfterInteract
     prototype: InflatableDoor
     doAfter: 1
