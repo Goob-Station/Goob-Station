@@ -78,8 +78,10 @@
 
 - type: entity
   parent: MobVox
-  id: MobVoxraider
+  id: MobVoxRaider
   name: Vox Raider
   components:
   - type: RandomHumanoidAppearance
     randomizeName: true
+  - type: Loadout
+    prototypes: [ VoxRaiderAntagGear ]

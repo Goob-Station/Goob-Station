@@ -189,6 +189,27 @@
       state: icon
 
 - type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  name: Vox Raider Spawner
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostVoxRaider
+  components:
+  - type: GhostRole
+    name: ghost-role-information-vox-raider-name
+    description: ghost-role-information-vox-raider-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/vox-raiders-stealth.rsi
+      state: icon
+
+- type: entity
   name: Maints Spawn Marker
   parent: MarkerBase
   id: MaintsSpawnMarker

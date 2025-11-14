@@ -672,7 +672,7 @@
 
 - type: entity
   name: blessing of the reaper
-  parent: [BaseNullrod, ArmBlade]
+  parent: [BaseNullrod, ArmBlade, BaseMajorContraband]
   id: BlessingOfTheReaper
   description: A special undroppable armblade nullrod, it's blessed by the dark gods.
   components:

@@ -277,7 +277,7 @@
   id: TunnelClownMidround
   components:
   - type: GameRule
-    chaosScore: 250
+    chaosScore: 200
   - type: AntagSpawner
     prototype: MobHumanTunnelClown
   - type: AntagSelection
@@ -303,7 +303,7 @@
   id: SingulothKnightsMidround
   components:
   - type: GameRule
-    chaosScore: 300
+    chaosScore: 350
   - type: AntagSpawner
     prototype: MobHumanSingulothKnight
   - type: AntagSelection
@@ -331,7 +331,7 @@
   id: DarkLordMidround
   components:
   - type: GameRule
-    chaosScore: 300
+    chaosScore: 400
   - type: AntagSpawner
     prototype: MobHumanDarkLord
   - type: AntagSelection
@@ -359,7 +359,7 @@
   id: ChosenOneMidround
   components:
   - type: GameRule
-    chaosScore: 1000
+    chaosScore: 9999
   - type: AntagSpawner
     prototype: MobHumanChosenOne
   - type: AntagSelection
@@ -385,7 +385,7 @@
   id: MimeAssassinMidround
   components:
   - type: GameRule
-    chaosScore: 300
+    chaosScore: 200
   - type: AntagSpawner
     prototype: MobHumanMimeAssassin
   - type: AntagSelection
@@ -414,7 +414,7 @@
   id: DarkPriestMidround
   components:
   - type: GameRule
-    chaosScore: 300
+    chaosScore: 250
   - type: AntagSpawner
     prototype: MobHumanDarkPriest
   - type: AntagSelection
@@ -437,3 +437,44 @@
     - DarkPriestHireApprentice
     - KillRandomPerson
     - EscapeShuttleObjective
+
+- type: entity
+  parent: BaseGameRule
+  id: VoxRaidersMidround
+  components:
+  - type: StationEvent
+    earliestStart: 35
+    weight: 2.5
+    minimumPlayers: 50
+    duration: 1
+    chaos:
+      Hostile: 300
+      Medical: 200
+      Death: 300
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 800
+  - type: AntagSpawner
+    prototype: MobVoxRaider
+  - type: RuleGrids
+  - type: LoadMapRule
+    gridPath: /Maps/_Goobstation/Shuttles/VoxRaiderShuttle.yml
+  - type: AntagSelection
+    agentName: ghost-role-information-vox-raider-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostVoxRaider
+      min: 3`
+      max: 4
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+      briefing:
+        text: vox-raider-role-greeting
+        color: Purple
+        sound: /Audio/Misc/thief_greeting.ogg
+  - type: AntagObjectives
+    objectives:
+    - ThiefObjectiveGroupStructure
+    - ThiefObjectiveGroupItem
+    - ThiefObjectiveGroupItem
+    - ThiefObjectiveGroupEscape

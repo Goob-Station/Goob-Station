@@ -119,3 +119,31 @@
     - ClothingHeadHatHoodVoidCloak
     - ClothingOuterHoodieChaplain
     - BoxSurvivalSlots
+
+- type: startingGear
+  id: VoxRaiderAntagGear
+  equipment:
+    ears: ClothingHeadsetAltSyndicate
+    jumpsuit: ClothingUniformJumpsuitTacticool
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesColorBlack
+    id: AgentIDCard
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitVoxRaiderStealth
+    suitstorage: ExtendedEmergencyNitrogenTankFilled
+    back: ClothingBackpack
+  storage:
+    back:
+    - BoxSurvivalSlotsNitrogen
+    - ExtendedEmergencyNitrogenTankFilled
+    - ChameleonProjector
+    - DartGun
+    - BulletDartGun
+    - BulletDartGun
+    - BulletDartGun
+    - BulletDartGun
+    - BulletDartGun
+    - ChemistryBottleNocturine
+    - ChemistryBottleNocturine
+    - HypopenBox
+    - ClothingHandsChameleonThief
