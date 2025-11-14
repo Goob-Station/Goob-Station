@@ -19,10 +19,10 @@
   id: ClarkePeripheralsElectronics
   result: ClarkePeripheralsElectronics
 
-- type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  id: GygaxCentralElectronics
-  result: GygaxCentralElectronics
+#- type: latheRecipe
+#  parent: BaseGoldCircuitboardRecipe
+#  id: GygaxCentralElectronics
+#  result: GygaxCentralElectronics
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
@@ -34,10 +34,10 @@
   id: GygaxTargetingElectronics
   result: GygaxTargetingElectronics
 
-- type: latheRecipe
-  parent: BaseSilverCircuitboardRecipe
-  id: DurandCentralElectronics
-  result: DurandCentralElectronics
+#- type: latheRecipe
+#  parent: BaseSilverCircuitboardRecipe
+#  id: DurandCentralElectronics
+#  result: DurandCentralElectronics
 
 - type: latheRecipe
   parent: BaseSilverCircuitboardRecipe
