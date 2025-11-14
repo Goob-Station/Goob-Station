@@ -544,7 +544,7 @@ public sealed partial class GoobCVars
     #region forensics
 
     public static readonly CVarDef<float> RevealChance =
-        CVarDef.Create("forensics.reveal_chance", 0.05f, CVar.SERVERONLY);
+        CVarDef.Create("forensics.reveal_chance", 0.01f, CVar.SERVERONLY);
 
     #endregion
 
@@ -602,6 +602,12 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<float> MinimumPuddleSizeForFootprints =
         CVarDef.Create("footprints.minimum_puddle_size", 6f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Should heretic ascension ritual be cancelled if heretic hasn't completed their objectives.
+    /// </summary>
+    public static readonly CVarDef<bool> AscensionRequiresObjectives =
+        CVarDef.Create("heretic.ascension_requires_objectives", true, CVar.SERVERONLY);
 
     #endregion
 }

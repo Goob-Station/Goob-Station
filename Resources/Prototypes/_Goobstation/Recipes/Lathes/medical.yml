@@ -64,10 +64,10 @@
   result: ParamedHypo
   completetime: 3
   materials:
-    Steel: 1500
-    Plastic: 800
-    Glass: 1200
-    Gold: 500
+    Steel: 500
+    Plastic: 500
+    Glass: 500
+    Gold: 300
 
 - type: latheRecipe
   id: HandheldCrewMonitor

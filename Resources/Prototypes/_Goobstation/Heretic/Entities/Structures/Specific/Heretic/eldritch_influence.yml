@@ -80,7 +80,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
-    lifetime: 30
+    lifetime: 600
   - type: SpawnOnDespawn
     prototype: EldritchInfluenceSpent
 
@@ -96,6 +96,6 @@
     sprite: _Goobstation/Heretic/reality_fracture.rsi
     state: icon_harvested
   - type: Visibility
-    layer: 1
+    layer: 64
   - type: EldritchInfluence
     spent: true
