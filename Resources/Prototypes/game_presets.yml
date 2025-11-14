@@ -102,16 +102,17 @@
     - Traitor
     - Revolutionary
     - Zombie
-    - Thief
-    - Heretic
-    - BlobGameMode
-    - LoneAbductorSpawn
-    - KesslerSyndromeScheduler
     - Wizard
+    - Xenoborgs
+    - KesslerSyndromeScheduler
     - RampingStationEventScheduler
-    - Changeling # Goobstation - changeling playtest
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+    - Changeling # Goobstation - changeling playtest
+    - Thief # Goob edit
+    - Heretic # Goob edit
+    - BlobGameMode # Goob edit
+    - LoneAbductorSpawn # Goob edit
 
 - type: gamePreset
   id: AllerAtOnce
@@ -128,19 +129,19 @@
     - Traitor
     - Revolutionary
     - Zombie
-    - Thief
-    - Heretic
-    - BlobGameMode
-    - LoneAbductorSpawn
     - Wizard
+    - Xenoborgs
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
-    - MeteorSwarmMildScheduler # Goob Edit
-    - MeteorSwarmScheduler # Goob edit
+    - MeteorSwarmMildScheduler
+    - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
+    - BlobGameMode # Goob edit
+    - LoneAbductorSpawn # Goob edit
+    - Thief # Goob edit
+    - Heretic # Goob edit
     - Changeling # Goobstation - changeling playtest
     - Shadowling # Einstein Engines - Shadowlings
 
@@ -276,6 +277,22 @@
   - DummyNonAntagChance
   - Revolutionary
   - SubGamemodesRule
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: Xenoborgs
+  alias:
+    - xenoborgs
+  name: xenoborgs-title
+  description: xenoborgs-description
+  showInVote: false
+  rules:
+  - Xenoborgs
+  - DummyNonAntagChance
+  - SubGamemodesRuleNoXenoborg # no two motherships
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler

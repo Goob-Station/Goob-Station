@@ -83,19 +83,17 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# The progenitor. This should only container the most basic components possible.
-# Only put things on here if every mob *must* have it. This includes ghosts.
+
+# The literal bare minimum needed to be a controllable mob. Cannot move but can interact.
 - type: entity
-  save: false
-  id: BaseMob
   abstract: true
+  save: false
+  id: BaseControllable
   components:
   - type: Sprite
     noRot: true
     drawdepth: Mobs
-  - type: MobCollision
   - type: Physics
-    bodyType: KinematicController
   - type: Fixtures
     fixtures:
       fix1:
@@ -109,11 +107,8 @@
         - MobLayer
   - type: Clickable
   - type: InteractionOutline
-  - type: InputMover
   - type: Input
     context: "human"
-  - type: LagCompensation
-  - type: MobMover
   - type: Actions
   - type: Alerts
   - type: Appearance
@@ -126,18 +121,33 @@
   - type: ContentEye
   - type: CameraRecoil
   - type: MindContainer
-  - type: MovementSpeedModifier
   - type: RequireProjectileTarget
     active: False
-  - type: AnimatedEmotes
+  - type: AnimatedEmotes # Goobstation
   - type: LanguageSpeaker # Einstein Engines - Language. This component is required to support speech, but it does not define known languages.
-  - type: Fart
+  - type: Fart # Goobstation
   - type: CollectiveMind # Goobstation - Starlight collective mind port
   - type: SpecialAnimationViewer # Goobstation - Cool Animations!!!!
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 15 # Kill million mices
     damagePenalty: 0.05
-  - type: StunVisuals
+
+# The progenitor. This should only container the most basic components possible.
+# Only put things on here if every mob *must* have it. This includes ghosts.
+- type: entity
+  abstract: true
+  save: false
+  parent: BaseControllable
+  id: BaseMob
+  components:
+  - type: MobCollision
+  - type: Physics
+    bodyType: KinematicController
+  - type: InputMover
+  - type: MobMover
+  - type: Actions
+  - type: MovementSpeedModifier
+  - type: LagCompensation
 
 - type: entity
   save: false
@@ -182,6 +192,7 @@
     #      collection: MeatLaserImpact
   - type: RadiationReceiver
   - type: Stamina
+  - type: StunVisuals
   - type: MobState
   - type: MobThresholds
     thresholds:

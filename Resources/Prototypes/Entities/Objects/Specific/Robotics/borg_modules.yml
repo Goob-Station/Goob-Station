@@ -1398,9 +1398,6 @@
     - type: StaticPrice
       price: 2000
 
-# Goob upstreamer todo fixborghands earlyadding this so i dont have to do shitcode for xenoborgs and i dont want to earlymerge every part of them
-# Kill this shit when you start upstreaming xenoborgs proper
-# <Goobstreamer>
 # mothership module
 - type: entity
   parent: [ BaseXenoborgModuleGeneric, BaseProviderBorgModule, BaseXenoborgContraband ]
@@ -1414,22 +1411,37 @@
   - type: Sprite
     layers:
     - state: xenoborg_generic
-    - state: icon-xenoborg-tools
+    - state: icon-xenoborg-basic
   - type: ItemBorgModule
     hands:
     - item: DoorRemoteXenoborg
-    - item: MMI
-    - item: PowerCellHigh
-    - item: XenoborgModuleBasic
-    - item: HandheldGPSBasic
-    - item: MaterialBag
+    - hand:
+        emptyRepresentative: MMIFilled
+        emptyLabel: borg-slot-brains-empty
+        whitelist:
+          components:
+          - Brain
+          - BorgBrain
+    - hand:
+        emptyRepresentative: XenoborgModuleBasic
+        emptyLabel: borg-slot-modules-empty
+        whitelist:
+          components:
+          - BorgModule
+    - hand:
+        emptyRepresentative: BorgModuleConstructionMaterialPlaceholder
+        emptyLabel: borg-slot-construction-empty
+        whitelist:
+          tags:
+          - ConstructionMaterial
+    - hand:
+        emptyRepresentative: PowerCellHigh
+        emptyLabel: borg-slot-powercell-empty
+        whitelist:
+          components:
+          - PowerCell
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-martyr-module }
-- type: Tag
-  id: MothershipModule # Cyborg module category for evil xenoborg core
-  # Yeah im just, whatever, ill kill this as i upstream.
-
-# </Goobstreamer>
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-module-module }
 
 # Shitmed Modules
 
@@ -1625,6 +1637,7 @@
     hands:
     - item: HandheldGPSBasic
     - item: HandHeldMassScannerBorg
+    - item: PinpointerMothership
     - item: HandheldStationMapUnpowered
     - item: WeaponGrapplingGun
     - item: JetpackXenoborg
