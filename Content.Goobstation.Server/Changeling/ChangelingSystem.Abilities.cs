@@ -940,6 +940,7 @@ public sealed partial class ChangelingSystem
         EnsureComp<HivemindComponent>(uid);
         var mind = EnsureComp<CollectiveMindComponent>(uid);
         mind.Channels.Add(HivemindProto);
+        mind.CanUseInCrit = true;
 
         _popup.PopupEntity(Loc.GetString("changeling-hivemind-start"), uid, uid);
     }
