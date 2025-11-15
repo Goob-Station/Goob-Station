@@ -279,8 +279,8 @@ public sealed class MindSystem : SharedMindSystem
             // Goobstation - End-of-round Last words
             if (HasComp<MobStateComponent>(entity.Value))
             {
-                var lastMobComp = EnsureComp<MindLastMobComponent>(mindId);
-                lastMobComp.LastMob = entity.Value;
+                if (TryComp<MindLastMobComponent>(mindId, out var lastMobComp))
+                    lastMobComp.LastMob = entity.Value;
             }
             // END
 
