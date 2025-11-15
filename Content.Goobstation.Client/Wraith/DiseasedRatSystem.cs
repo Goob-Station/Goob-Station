@@ -1,4 +1,4 @@
-using Content.Goobstation.Shared.Wraith.Minions.Plaguebinger;
+using Content.Goobstation.Shared.Wraith.Minions.Plaguebringer;
 
 namespace Content.Goobstation.Client.Wraith;
 

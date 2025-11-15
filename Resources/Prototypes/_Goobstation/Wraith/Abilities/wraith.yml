@@ -83,8 +83,8 @@
     - ActionMakeRevenant
 
 - type: entity
-  id: PlaguebingerAbilities
-  name: Plaguebinger Abilities
+  id: PlaguebringerAbilities
+  name: Plaguebringer Abilities
   parent: WraithAbilities
   categories: [ HideSpawnMenu ]
   components:

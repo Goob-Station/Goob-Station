@@ -85,7 +85,7 @@
     - type: Condemned
       soulOwnedNotDevil: true # This just means they won't suffer the effects of being condemned, while still not being able to sell their soul. - Goobstation
     - type: CanEnchant #GoobStation
-    - type: CurseImmune # Immune to curses of wraith plaguebinger - Goobstation
+    - type: CurseImmune # Immune to curses of wraith plaguebringer - Goobstation
 
 - type: startingGear
   id: ChaplainGear
