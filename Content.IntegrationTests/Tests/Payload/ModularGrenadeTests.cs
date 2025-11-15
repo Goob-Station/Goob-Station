@@ -74,7 +74,8 @@ public sealed class ModularGrenadeTests : InteractionTest
         await Drop();
 
         // Wait until grenade explodes
-        var triggerSys = SEntMan.System<TriggerSystem>(); // todo marty shrapnel payload
+        var triggerSys = SEntMan.System<TriggerSystem>();
+        Target = SEntMan.GetNetEntity(await FindEntity(Payload)); // Goobstation - shrapnel payload
         while (Target != null && triggerSys.GetRemainingTime(SEntMan.GetEntity(Target.Value))?.TotalSeconds >= 0.0)
         {
             await RunTicks(10);

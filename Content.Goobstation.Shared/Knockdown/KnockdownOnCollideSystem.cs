@@ -50,7 +50,6 @@ public sealed class KnockdownOnCollideSystem : EntitySystem
         if (HasComp<RustbringerComponent>(target))
             return;
 
-        //_layingDown.TryLieDown(target, null, null, component.Behavior); todo marty
         _stunSystem.TryCrawling(target); // todo Marty / Richard, check if this works??
     }
 }

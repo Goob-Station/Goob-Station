@@ -17,12 +17,6 @@
     back:
     - SilverRing
 
-#- type: loadout #todo marty nuke dv cane doublecheck upstream cane
-#  id: Cane
-#  storage:
-#    back:
-#    - Cane
-
 - type: loadout
   id: WhiteCane
   storage:

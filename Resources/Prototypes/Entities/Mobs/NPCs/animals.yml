@@ -1787,7 +1787,7 @@
     hasPainScreams: false
     threshold: 70
     cap: 140
-  - type: Crawler #todo marty layingdown here - Crawler done
+  - type: Crawler
 
 
 
@@ -2246,7 +2246,7 @@
   - type: Stamina
     critThreshold: 20
     animationThreshold: 10 # Goob edit
-  #- type: LayingDown todo marty layingdown here
+  - type: Crawler
   - type: NPCRetaliation
     attackMemoryLength: 5 # stop caring fast if you don't keep hitting
   - type: GroupRetaliation

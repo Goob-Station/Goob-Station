@@ -333,8 +333,8 @@ public abstract partial class SharedStunSystem : EntitySystem
         RaiseLocalEvent(modifierEv);
         time *= modifierEv.Modifier;
 
-        //if (!HasComp<CrawlerComponent>(entity)) // Goobstation - only knockdown mobs that can lie down //todo marty crawlercomp - also doublecheck the stunmeta shit here
-        //    return false;
+        if (!HasComp<CrawlerComponent>(entity)) // Goobstation - only knockdown mobs that can lie down //todo marty crawlercomp - also doublecheck the stunmeta shit here
+            return false;
 
         if (time <= TimeSpan.Zero)
             return false;
