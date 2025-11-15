@@ -23,6 +23,4 @@
 - type: entity
   name: Singuloth's hammer
   parent: SingularityHammer
-  id: SingularityHammerUnremoveable
-  components:
-  - type: Unremoveable
+  id: SingulothsHammer

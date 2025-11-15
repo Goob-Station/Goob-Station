@@ -353,7 +353,7 @@
 # Singuloth hardsuit
 
 - type: entity
-  parent: [BaseMagicalContraband, ClothingHeadHelmetHardsuitEngineeringWhite]
+  parent: [BaseMagicalContraband, ClothingOuterHardsuitEngineeringWhite]
   id: ClothingSingulothArmor
   name: singuloth knight's armor
   description: A ceremonial armor from the chapter of the Singuloth Knights, It's made of pure forged adamantium.
