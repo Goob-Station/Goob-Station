@@ -56,6 +56,8 @@
   - type: Vocal # Goobstation - Cyborg emote sounds
     sounds:
       Unsexed: UnisexSiliconSyndicate
+  - type: SpeechSynthesis # Corvax-Frontier-Barks
+    voice: BorgSyndie
 
 - type: entity
   id: BorgChassisUrist
