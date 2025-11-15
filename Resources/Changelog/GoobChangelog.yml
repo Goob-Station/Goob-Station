@@ -17895,3 +17895,17 @@ Entries:
       message: Made the cc advanced stimulant not kill you.
   id: 2011
   time: '2025-11-14T01:10:51.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Brigmed is no longer a lapdog
+  id: 2012
+  time: '2025-11-14T12:41:52.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced the chaos score of abductors and chances of them happening
+        slightly
+  id: 2013
+  time: '2025-11-14T12:51:17.0000000+00:00'
