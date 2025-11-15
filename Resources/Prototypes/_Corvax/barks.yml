@@ -103,7 +103,7 @@
 - type: bark
   id: Slime
   name: Slime
-  volume: 0.2
+  volume: 0.5
   soundCollection:
     collection: SlimeBark
   speciesWhitelist:
@@ -120,7 +120,7 @@
 - type: bark
   id: Vox
   name: Vox
-  volume: 0.15
+  volume: 0.5
   soundCollection:
     collection: VoxBark
   speciesWhitelist:
@@ -284,3 +284,72 @@
   maxPitch: 1.1
   soundCollection:
     collection: DurkBark
+
+# Aviu
+- type: soundCollection
+  id: Aviu1Bark
+  files:
+    - /Audio/_Goobstation/Voice/Barks/aviu1/1.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu1/2.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu1/3.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu1/4.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu1/5.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu1/6.ogg
+
+- type: bark
+  id: Aviu1
+  name: Impudent
+  frequency: 0.7
+  soundCollection:
+    collection: Aviu1Bark
+
+- type: soundCollection
+  id: Aviu2Bark
+  files:
+    - /Audio/_Goobstation/Voice/Barks/aviu2/1.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu2/2.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu2/3.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu2/4.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu2/5.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu2/6.ogg
+
+- type: bark
+  id: Aviu2
+  name: Strong
+  frequency: 0.7
+  soundCollection:
+    collection: Aviu2Bark
+
+- type: soundCollection
+  id: Aviu3Bark
+  files:
+    - /Audio/_Goobstation/Voice/Barks/aviu3/1.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu3/2.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu3/3.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu3/4.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu3/5.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu3/6.ogg
+
+- type: bark
+  id: Aviu3
+  name: Alien
+  frequency: 0.7
+  soundCollection:
+    collection: Aviu3Bark
+
+- type: soundCollection
+  id: Aviu4Bark
+  files:
+    - /Audio/_Goobstation/Voice/Barks/aviu4/1.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu4/2.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu4/3.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu4/4.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu4/5.ogg
+    - /Audio/_Goobstation/Voice/Barks/aviu4/6.ogg
+
+- type: bark
+  id: Aviu4
+  name: Ethereal
+  frequency: 0.7
+  soundCollection:
+    collection: Aviu4Bark
