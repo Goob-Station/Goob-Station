@@ -42,7 +42,7 @@
     back: ClothingBackpackSatchelLeather
     belt: ClothingBeltUtilityFilled
   inhand:
-  - SingularityHammer
+  - SingularityHammerUnremoveable
   storage:
     back:
     - MedkitCombatFilled
