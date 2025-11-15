@@ -202,6 +202,7 @@
     - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
     - id: WraithMidround # Goobstation - Wraith
+    - id: SpacePirates # goobstation - space irs
 
 - type: entity
   id: BaseStationEvent
