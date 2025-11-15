@@ -131,7 +131,7 @@ public sealed class StoreTests
 
     //                var buyMsg = new StoreBuyListingMessage(discountedListingItem.ID){Actor = human};
     //                server.EntMan.EventBus.RaiseComponentEvent(pda, storeComponent, buyMsg);
-    // todo marty whatever the fuck is going on here
+    //
     //                 var buyMsg = new StoreBuyListingMessage(discountedListingItem.ID){Actor = human};
     //                 server.EntMan.EventBus.RaiseLocalEvent(pda, buyMsg);
     //

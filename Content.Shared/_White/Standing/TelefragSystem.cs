@@ -37,8 +37,8 @@ public sealed class TelefragSystem : EntitySystem
             if (knockdownTime > TimeSpan.Zero && _stun.TryKnockdown(ent, knockdownTime, true, behavior))
                 continue;
 
-            //if (_layingDown.TryLieDown(ent, behavior: behavior) && autoStandUp) //todo marty goobcode adjust
-            //    _layingDown.TryStandUp(ent);
+            if (_stun.TryCrawling(ent) && autoStandUp) //todo marty test - maybe add dropitembehaviour
+                _stun.TryStand(ent!);
         }
     }
 }

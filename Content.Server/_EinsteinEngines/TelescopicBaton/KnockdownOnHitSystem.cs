@@ -11,6 +11,7 @@ using Content.Shared._EinsteinEngines.TelescopicBaton;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Server._EinsteinEngines.TelescopicBaton;
@@ -44,7 +45,7 @@ public sealed class KnockdownOnHitSystem : EntitySystem
         {
             if (entity.Comp.Duration <= TimeSpan.Zero) // Goobstation
             {
-                //if (_laying.TryLieDown(target, null, null, ev.Behavior)) // Goobstation todo marty trycrawl
+                _stun.TryCrawling(target); //todo marty trycrawl - now test, dropitembehaviour
                     knockedDown.Add(target);
                 continue;
             }
