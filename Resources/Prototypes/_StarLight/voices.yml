@@ -1,0 +1,202 @@
+- type: voice
+  id: OYTbf65OHHFELVut7v2H
+  name: Hope
+  sex: Female
+  silicon: false
+  voice: 1
+
+- type: voice
+  id: VD1if7jDVYtAKs4P0FIY
+  name: Milly
+  sex: Female
+  silicon: false
+  voice: 2
+
+- type: voice
+  id: MKlLqCItoCkvdhrxgtLv
+  name: Grampa
+  sex: Male
+  silicon: false
+  voice: 3
+
+- type: voice
+  id: gg9Z71PcorYkpTHNVyzM
+  name: Announcer from TF2
+  sex: Female
+  silicon: false
+  voice: 4
+
+- type: voice
+  id: B8gJV1IhpuegLxdpXFOE
+  name: Kuon
+  sex: Female
+  silicon: false
+  voice: 5
+
+- type: voice
+  id: IVNayTJko66tn9AtgzoN
+  name: Johnny Silverhand
+  sex: Male
+  silicon: false
+  voice: 6
+
+- type: voice
+  id: fBjEPOtKKfp9nwOPAvc3
+  name: Billy Herrington
+  sex: Male
+  silicon: false
+  voice: 7
+
+- type: voice
+  id: WtA85syCrJwasGeHGH2p
+  name: Ember
+  sex: Female
+  silicon: false
+  voice: 8
+
+- type: voice
+  id: sIe5wWun6QZZEJ03GfFJ
+  name: Moonmoon Anime
+  sex: Male
+  silicon: false
+  voice: 9
+
+- type: voice
+  id: yzFmNANRAvZC89kFLRHU
+  name: Hatsune Miku (?)
+  sex: Female
+  silicon: false
+  voice: 10
+
+- type: voice
+  id: RXtWW6etvimS8QJ5nhVk
+  name: Fiona
+  sex: Female
+  silicon: false
+  voice: 11
+
+- type: voice
+  id: goT3UYdM9bhm0n2lmKQx
+  name: Edward
+  sex: Male
+  silicon: false
+  voice: 12
+
+- type: voice
+  id: lmMj3Gm7LGiKKI1PEEtT
+  name: Karlach
+  sex: Female
+  silicon: false
+  voice: 13
+
+- type: voice
+  id: tgROjO7EnEZOSMQNjewD
+  name: Arthur
+  sex: Male
+  silicon: false
+  voice: 14
+
+- type: voice
+  id: P1QssfCIaCtGhcEIQRKa
+  name: Gilbert
+  sex: Male
+  silicon: false
+  voice: 15
+
+- type: voice
+  id: ljo9gAlSqKOvF6D8sOsX
+  name: Bjorn
+  sex: Male
+  silicon: false
+  voice: 16
+
+- type: voice
+  id: si0svtk05vPEuvwAW93c
+  name: Blondie
+  sex: Female
+  silicon: false
+  voice: 17
+
+- type: voice
+  id: xYWUvKNK6zWCgsdAK7Wi
+  name: Reptile
+  sex: Male
+  silicon: false
+  voice: 18
+
+- type: voice
+  id: rHWSYoq8UlV0YIBKMryp
+  name: Jerry
+  sex: Male
+  silicon: false
+  voice: 19
+
+- type: voice
+  id: Z7RrOqZFTyLpIlzCgfsp
+  name: Goblin
+  sex: Male
+  silicon: false
+  voice: 20
+
+- type: voice
+  id: D2jw4N9m4xePLTQ3IHjU
+  name: Alien
+  sex: Male
+  silicon: false
+  voice: 21
+
+- type: voice
+  id: wmLGGTWvqOjBQiZOxwvB
+  name: Obiwan
+  sex: Male
+  silicon: false
+  voice: 22
+
+- type: voice
+  id: R0pMg1uTYnoM2WdKVwe7
+  name: Simaris
+  sex: Male
+  silicon: false
+  voice: 23
+
+- type: voice
+  id: ruirxsoakN0GWmGNIo04
+  name: John
+  sex: Male
+  silicon: false
+  voice: 24
+
+- type: voice
+  id: wo6udizrrtpIxWGp2qJk
+  name: Terry
+  sex: Male
+  silicon: false
+  voice: 25
+
+- type: voice
+  id: V4tud2TL0qndnXRCyMjX
+  name: Sazza (Goblin)
+  sex: Female
+  silicon: false
+  voice: 26
+
+- type: voice
+  id: iDoDtADjQMlQLksHtxyw
+  name: Crusher (Goblin)
+  sex: Male
+  silicon: false
+  voice: 27
+
+- type: voice
+  id: SF84GQfcwxsHOMGiFvfD
+  name: Eight (Goblin)
+  sex: Male
+  silicon: false
+  voice: 28
+
+- type: voice
+  id: HAvvFKatz0uu0Fv55Riy
+  name: Sage
+  sex: Male
+  silicon: false
+  voice: 29

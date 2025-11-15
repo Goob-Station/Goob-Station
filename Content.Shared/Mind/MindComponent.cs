@@ -167,6 +167,13 @@ public sealed partial class MindComponent : Component
     [DataField]
     public LocId? Subtype;
 
+    // 🌟Starlight🌟
+    [DataField]
+    public string? Voice;
+
+    // 🌟Starlight🌟
+    [DataField]
+    public string? SiliconVoice;
     // Goob Station
     /// <summary>
     ///     The last mob entity this mind was in.

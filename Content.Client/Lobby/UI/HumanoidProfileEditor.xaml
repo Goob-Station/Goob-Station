@@ -112,6 +112,20 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                     <Control HorizontalExpand="True"/>
                                     <OptionButton Name="SpawnPriorityButton" HorizontalAlignment="Right" />
                                 </BoxContainer>
+                                <!-- Voice Button -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'Humanoid Voice'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="VoiceButton" HorizontalAlignment="Left" />
+                                    <Button Name="VoicePreviewButton" Text="{Loc 'Play'}" MaxWidth="80" />
+                                </BoxContainer>
+                                <!--Silicon Voice Button -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'Cyborg Voice'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="SiliconVoiceButton" HorizontalAlignment="Left" />
+                                    <Button Name="SiliconVoicePreviewButton" Text="{Loc 'Play'}" MaxWidth="80" />
+                                </BoxContainer>
                                 <!-- Height Slider --> <!-- begin Goobstation: port EE height/width sliders -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Name="HeightLabel" MinWidth="110" />

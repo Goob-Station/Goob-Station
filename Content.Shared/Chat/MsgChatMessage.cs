@@ -23,6 +23,7 @@
 using System.IO;
 using JetBrains.Annotations;
 using Lidgren.Network;
+using Robust.Shared.Audio;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -45,6 +46,8 @@ namespace Content.Shared.Chat
         /// formatting tags.
         /// </summary>
         public string WrappedMessage;
+
+        public SoundSpecifier? Chime; // Starlight
 
         public NetEntity SenderEntity;
 

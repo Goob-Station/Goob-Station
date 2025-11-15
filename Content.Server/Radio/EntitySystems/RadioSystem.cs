@@ -55,6 +55,8 @@ using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Shared.Whitelist;
 
+using Content.Server.Starlight.TTS;
+
 namespace Content.Server.Radio.EntitySystems;
 
 /// <summary>
@@ -203,7 +205,7 @@ public sealed class RadioSystem : EntitySystem
         // Goobstation - Chat Pings
         // Added GetNetEntity(messageSource), to source
         var notUdsMsg = new ChatMessage(ChatChannel.Radio, obfuscated, obfuscatedWrapped, GetNetEntity(messageSource), null);
-        var ev = new RadioReceiveEvent(messageSource, channel, msg, notUdsMsg, language, radioSource);
+        var ev = new RadioReceiveEvent(messageSource, channel, msg, notUdsMsg, language, radioSource, []);
         // Einstein Engines - Language end
 
         var sendAttemptEv = new RadioSendAttemptEvent(channel, radioSource);
@@ -243,6 +245,13 @@ public sealed class RadioSystem : EntitySystem
             // send the message
             RaiseLocalEvent(receiver, ref ev);
         }
+
+        RaiseLocalEvent(new RadioSpokeEvent
+        {
+            Source = messageSource,
+            Message = message,
+            Receivers = [.. ev.Receivers]
+        });
 
         if (name != Name(messageSource))
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Radio message from {ToPrettyString(messageSource):user} as {name} on {channel.LocalizedName}: {message}");

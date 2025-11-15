@@ -1,0 +1,8 @@
+- type: speechSounds
+  id: CP14Goblin
+  saySound:
+    path: /Audio/_CP14/Voice/Goblin/goblin_talk3.ogg
+  askSound:
+    path: /Audio/_CP14/Voice/Goblin/goblin_talk2.ogg
+  exclaimSound:
+    path: /Audio/_CP14/Voice/Goblin/goblin_talk1.ogg

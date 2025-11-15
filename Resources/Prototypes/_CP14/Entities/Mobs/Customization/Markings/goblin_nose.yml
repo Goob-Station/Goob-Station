@@ -1,0 +1,33 @@
+- type: marking
+  id: CP14GoblinNose
+  bodyPart: Snout
+  markingCategory: Snout
+  followSkinColor: true
+  forcedColoring: true
+  speciesRestriction: [ CP14Goblin ]
+  sprites:
+    - sprite: _CP14/Mobs/Customization/goblin_nose.rsi
+      state: nose1
+
+- type: marking
+  id: CP14GoblinNose2
+  bodyPart: Snout
+  markingCategory: Snout
+  followSkinColor: true
+  forcedColoring: true
+  speciesRestriction: [ CP14Goblin ]
+  sprites:
+    - sprite: _CP14/Mobs/Customization/goblin_nose.rsi
+      state: nose2
+
+- type: marking
+  id: CP14GoblinNose3
+  bodyPart: Snout
+  markingCategory: Snout
+  followSkinColor: true
+  forcedColoring: true
+  speciesRestriction: [ CP14Goblin ]
+  sprites:
+    - sprite: _CP14/Mobs/Customization/goblin_nose.rsi
+      state: nose3
+
