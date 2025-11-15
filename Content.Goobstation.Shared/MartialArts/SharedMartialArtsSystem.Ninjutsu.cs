@@ -262,7 +262,7 @@ public abstract partial class SharedMartialArtsSystem
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
 
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropHeldItemsBehavior);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * GetDamageMultiplier(ent), out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);

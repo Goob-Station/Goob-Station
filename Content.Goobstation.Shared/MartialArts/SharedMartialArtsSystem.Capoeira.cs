@@ -116,7 +116,7 @@ public abstract partial class SharedMartialArtsSystem
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
             true,
             true,
-            proto.DropHeldItemsBehavior == DropHeldItemsBehavior.DropIfStanding);
+            proto.DropHeldItemsBehavior);
 
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
@@ -193,6 +193,7 @@ public abstract partial class SharedMartialArtsSystem
 
         _stun.TryKnockdown(target,
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
+            true,
             true,
             proto.DropHeldItemsBehavior);
 
