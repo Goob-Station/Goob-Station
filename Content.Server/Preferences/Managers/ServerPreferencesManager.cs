@@ -315,6 +315,17 @@ namespace Content.Server.Preferences.Managers
 
             prefsData.PrefsLoaded = true;
 
+            // Corvax-Sponsors-Start: Remove sponsor markings from expired sponsors
+            var collection = IoCManager.Instance!;
+            foreach (var (_, profile) in prefsData.Prefs.Characters)
+            {
+                var sponsorPrototypes = _sponsors != null && _sponsors.TryGetServerPrototypes(session.UserId, out var prototypes)
+                    ? prototypes.ToArray()
+                    : [];
+                profile.EnsureValid(session, collection, sponsorPrototypes);
+            }
+            // Corvax-Sponsors-End
+
             var msg = new MsgPreferencesAndSettings();
             msg.Preferences = prefsData.Prefs;
             msg.Settings = new GameSettings
