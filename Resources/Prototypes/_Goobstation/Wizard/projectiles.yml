@@ -305,12 +305,12 @@
   - type: PolymorphOnTrigger
     targetUser: true
     polymorph: WizardWabbajack
-  - type: WhitelistTriggerCondition #todo marty test
+  - type: WhitelistTriggerCondition
     userWhitelist:
       components:
       - Body
-  - type: TriggerOnCollide #todo marty test
-    fixtureID: projectile
+  - type: TriggerOnCollide
+    fixtureID: projectile # <- This shit?
     maxTriggers: null
   - type: Reflective
     reflective: Magic
@@ -577,8 +577,8 @@
     reflective: Magic
   - type: Ammo
     muzzleFlash: null
-  - type: TriggerOnCollide #todo marty test
-    fixtureID: projectile # this too marty
+  - type: TriggerOnCollide
+    fixtureID: projectile
   - type: EmpOnTrigger
     range: 3
     energyConsumption: 50000

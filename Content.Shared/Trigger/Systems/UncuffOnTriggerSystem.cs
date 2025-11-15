@@ -36,7 +36,9 @@ public sealed class UncuffOnTriggerSystem : EntitySystem
         if (!TryComp<CuffableComponent>(target.Value, out var cuffs) || cuffs.Container.ContainedEntities.Count < 1)
             return;
 
-        if (TryComp<PullableComponent>(target, out var pullable) && pullable.Puller.HasValue) //todo marty finish up
+        //Goob start freedom implant buff
+
+        if (TryComp<PullableComponent>(target, out var pullable) && pullable.Puller.HasValue) //todo goobstream test freedom implant
         {
             _stun.TryUpdateParalyzeDuration(pullable.Puller.Value, TimeSpan.FromSeconds(5)); // fuck it we hardcode
             args.Handled = true;
@@ -49,6 +51,8 @@ public sealed class UncuffOnTriggerSystem : EntitySystem
             _transform.DropNextTo(bola, target.Value);
             args.Handled = true;
         }
+
+        //Goob end freedom implant buff
 
         _cuffable.Uncuff(target.Value, args.User, cuffs.LastAddedCuffs);
         args.Handled = true;

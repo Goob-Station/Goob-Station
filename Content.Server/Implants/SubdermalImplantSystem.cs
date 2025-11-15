@@ -121,7 +121,7 @@ using Content.Shared.Store.Components;
 using Content.Shared.Teleportation;
 using Content.Shared.Stunnable;
 
-namespace Content.Server.Implants; //todo marty goobify freedomimplant and some heretic shit
+namespace Content.Server.Implants; //todo goobstream test
 
 public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
 {

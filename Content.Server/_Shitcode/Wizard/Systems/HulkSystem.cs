@@ -147,7 +147,7 @@ public sealed class HulkSystem : SharedHulkSystem
     private void Scale(EntityUid uid, float scale)
     {
         EnsureComp<ScaleVisualsComponent>(uid);
-        var ev = new ScaleEntityEvent(); //todo marty test scale command
+        var ev = new ScaleEntityEvent(); //todo goobstream test scale command
         RaiseLocalEvent(uid, ref ev);
 
         var appearanceComponent = EnsureComp<AppearanceComponent>(uid);

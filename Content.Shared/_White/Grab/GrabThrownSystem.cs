@@ -71,7 +71,7 @@ public sealed class GrabThrownSystem : EntitySystem
         _damageable.TryChangeDamage(args.OtherEntity, kineticEnergyDamage);
         _stamina.TakeStaminaDamage(ent, (float) Math.Floor(modNumber / 2));
 
-        _stun.TryCrawling(args.OtherEntity); // todo marty dropitembehaviour
+        _stun.TryCrawling(args.OtherEntity); // todo goobstation test - dropitembehaviour?
 
         _color.RaiseEffect(Color.Red, new List<EntityUid>() { ent }, Filter.Pvs(ent, entityManager: EntityManager));
     }
@@ -106,7 +106,7 @@ public sealed class GrabThrownSystem : EntitySystem
         comp.IgnoreEntity.Add(thrower);
         comp.DamageOnCollide = damageToUid;
 
-        _stun.TryCrawling(uid); //todo marty dropbehaviour
+        _stun.TryCrawling(uid); //todo goobstream test dropbehaviour
         _throwing.TryThrow(uid, vector, grabThrownSpeed, animated: false);
     }
 }

@@ -184,10 +184,10 @@ public sealed class MovementModStatusSystem : EntitySystem
         if (!TryComp<StaminaComponent>(uid, out var staminaComp))
             return true; // look all the other code ran if they have no stamina im gonna say they dont need to jitter and its fine.
 
-        //todo marty check this shit what the fuck - Done readding it now test if work
         // goob edit - stunmeta
         // no slowdown because funny
         // Choose bigger of speed modifiers (usually sprint) and use it to scale Crowd Control effect time
+        //todo goobstream test
         var cCFactor = Math.Clamp(1 - Math.Min(walkSpeedModifier, sprintSpeedModifier), 0, 1);
         var cCTime = TimeSpan.FromSeconds(10f);
         if (visual

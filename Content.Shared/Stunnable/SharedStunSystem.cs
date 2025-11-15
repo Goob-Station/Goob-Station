@@ -226,7 +226,7 @@ public abstract partial class SharedStunSystem : EntitySystem
 
     private void OnStunnedSuccessfully(EntityUid uid, TimeSpan? duration)
     {
-        //todo marty check placement of this
+        //todo goobstream test
         // goob edit
         if (duration.HasValue)
         {
@@ -284,37 +284,11 @@ public abstract partial class SharedStunSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Knocks down the entity, making it fall to the ground.
-    /// </summary>
-    public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh,
-        DropHeldItemsBehavior behavior, StatusEffectsComponent? status = null, bool standOnRemoval = true) // Shitmed Change
-    {
-        var modifierEv = new GetClothingStunModifierEvent(uid);
-        RaiseLocalEvent(modifierEv);
-        time *= modifierEv.Modifier;
-
-        if (!HasComp<KnockedDownComponent>(uid)) // Goobstation - only knockdown mobs that can lie down
-            return false;
-
-        if (time <= TimeSpan.Zero || !Resolve(uid, ref status, false))
-            return false;
-
-        var component = _componentFactory.GetComponent<KnockedDownComponent>();
-        //component.DropHeldItemsBehavior = behavior; //todo marty dropped item behaviour
-        component.StandOnRemoval = standOnRemoval;
-        if (!_status.TryAddStatusEffect(uid, KnockdownId, out _, time))
-            return false;
-
-        var ev = new KnockedDownEvent();
-        RaiseLocalEvent(uid, ref ev);
-        return true;
-    }
-
-    /// <summary>
     ///     Goobstation.
     ///     Try knockdown, if it fails - stun.
+    ///     Refresh true by default on either, statuseffectcomp is handled by each system separately
     /// </summary>
-    public bool KnockdownOrStun(EntityUid uid, TimeSpan time, bool refresh, StatusEffectsComponent? status = null)
+    public bool KnockdownOrStun(EntityUid uid, TimeSpan time, bool refresh = true)
     {
         return TryKnockdown(uid, time, refresh) || TryUpdateStunDuration(uid, time);
     }
@@ -363,6 +337,12 @@ public abstract partial class SharedStunSystem : EntitySystem
     /// <param name="force">Should we force the status effect?</param>
     public bool TryKnockdown(Entity<CrawlerComponent?> entity, TimeSpan? time, bool refresh = true, bool autoStand = true, bool drop = true, bool force = false)
     {
+        //goob start stunmodifiers todo goob these are fucking broke anyway apparently
+        var modifierEv = new GetClothingStunModifierEvent(entity);
+        RaiseLocalEvent(modifierEv);
+        time *= modifierEv.Modifier;
+        //goob end
+
         if (!CanKnockdown(entity.Owner, ref time, ref autoStand, ref drop, force))
             return false;
 
@@ -370,6 +350,8 @@ public abstract partial class SharedStunSystem : EntitySystem
         // Also time shouldn't be null if we're and trying to add time but, we check just in case anyways.
         if (!Resolve(entity, ref entity.Comp, false))
             return refresh || time == null ? TryUpdateParalyzeDuration(entity, time) : TryAddParalyzeDuration(entity, time.Value);
+
+        
 
         Knockdown(entity, time, refresh, autoStand, drop);
         return true;
