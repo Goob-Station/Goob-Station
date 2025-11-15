@@ -659,16 +659,21 @@ namespace Content.Server.GameTicking
                 var lastMob = TryComp<MindLastMobComponent>(mindId, out var lastMobComponent)
                     ? lastMobComponent.LastMob
                     : null;
-                if (TryComp<LastWordsComponent>(mindId, out var lastWordsComponent)
-                    && !TerminatingOrDeleted(lastMob))
+
+                // First check if there are any last words (stored on the mind)
+                if (TryComp<LastWordsComponent>(mindId, out var lastWordsComponent))
                 {
                     lastWords = lastWordsComponent.LastWords;
 
-                    if (TryComp<MobStateComponent>(lastMob, out var mobStateComp))
-                        mobState = mobStateComp.CurrentState;
+                    // Only try to get mob state and damage if the mob still exists
+                    if (lastMob != null && !TerminatingOrDeleted(lastMob))
+                    {
+                        if (TryComp<MobStateComponent>(lastMob, out var mobStateComp))
+                            mobState = mobStateComp.CurrentState;
 
-                    if (TryComp<DamageableComponent>(lastMob, out var damageableComp))
-                        damagePerGroup = damageableComp.DamagePerGroup;
+                        if (TryComp<DamageableComponent>(lastMob, out var damageableComp))
+                            damagePerGroup = damageableComp.DamagePerGroup;
+                    }
                 }
 
                 #endregion
