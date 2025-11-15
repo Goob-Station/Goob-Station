@@ -66,7 +66,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
     }
 
     private void OnRandomPersonAssigned(Entity<PickRandomPersonComponent> ent, ref ObjectiveAssignedEvent args)
-    { //todo marty exclude changelings from objectives (goobify) - cancel if no command staff
+    {
         // invalid objective prototype
         if (!TryComp<TargetObjectiveComponent>(ent, out var target))
         {

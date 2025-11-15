@@ -42,7 +42,6 @@ using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Timing;
 using Content.Shared.Trigger;
-using Content.Shared.Trigger.Systems;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;

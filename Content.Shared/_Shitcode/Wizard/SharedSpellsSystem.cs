@@ -426,7 +426,7 @@ public abstract class SharedSpellsSystem : EntitySystem
             if (HasComp<SiliconComponent>(target) || HasComp<BorgChassisComponent>(target))
                 Stun.TryUpdateParalyzeDuration(target, ev.SiliconStunTime / range);
             else
-                Stun.KnockdownOrStun(target, ev.KnockdownTime / range, true, status);
+                Stun.KnockdownOrStun(target, ev.KnockdownTime / range, true);
         }
 
         ev.Handled = true;

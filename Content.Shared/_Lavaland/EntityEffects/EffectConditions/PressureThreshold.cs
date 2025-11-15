@@ -23,7 +23,7 @@ using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 using Content.Shared.Atmos.EntitySystems;
 
-namespace Content.Shared.EntityEffects.EffectConditions; // todo marty this is bad
+namespace Content.Shared.EntityEffects.EffectConditions;
 
 public sealed partial class PressureThreshold : EntityEffectCondition
 {

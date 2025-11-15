@@ -35,7 +35,7 @@ public sealed partial class CombatDoAfterSystem
 
     private void OnEnsnared(Entity<EnsnaringKnockdownComponent> ent, ref EnsnaredEvent args)
     {
-        _stun.TryCrawling(args.Target); //todo marty test
+        _stun.TryCrawling(args.Target); //todo goobstream test
         RemCompDeferred(ent.Owner, ent.Comp);
     }
 

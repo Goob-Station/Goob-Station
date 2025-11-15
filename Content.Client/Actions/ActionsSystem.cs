@@ -500,10 +500,10 @@ namespace Content.Client.Actions
 
             args.Handled = true;
 
-            if (args.Input.EntityUid is not { Valid: true } entity) // todo marty / Richard check if it works
+            if (args.Input.EntityUid is not { Valid: true } entity) // todo goobstream test
                 return;
 
-            // Goob edit start todo marty / Richard check if it works
+            // Goob edit start todo goobstream test
             if (!HasComp<LockOnMarkActionComponent>(ent) || !Exists(_mark.Target))
                     return;
             entity = _mark.Target.Value;

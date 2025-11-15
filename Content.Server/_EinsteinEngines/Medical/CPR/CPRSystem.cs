@@ -89,7 +89,7 @@ public sealed class CPRSystem : EntitySystem
             return;
         }
 
-        if (!_ingestionSystem.HasMouthAvailable(performer, performer) || !_ingestionSystem.HasMouthAvailable(target, performer)) //todo marty test
+        if (!_ingestionSystem.HasMouthAvailable(performer, performer) || !_ingestionSystem.HasMouthAvailable(target, performer)) //todo goobstream test
             return;
 
         _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person", ("target", target)), target, performer);

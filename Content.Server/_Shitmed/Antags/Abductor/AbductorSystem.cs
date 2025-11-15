@@ -154,7 +154,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
 
         foreach (var station in stations)
         {
-            if (_stationSystem.GetLargestGrid(station) is not { } grid//todo marty test
+            if (_stationSystem.GetLargestGrid(station) is not { } grid
                 || !TryComp(station, out MetaDataComponent? stationMetaData))
                 return;
 

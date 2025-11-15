@@ -29,7 +29,7 @@
   - type: WorldTargetAction
     event: !type:TeleportSpellEvent
 
-# Todo marty fix this spell?
+# Todo goobstation fix this spell?
 ## TODO: Second level upgrade sometime that allows swapping with all objects
 #- type: entity
 #  parent: BaseEntitySpellAction

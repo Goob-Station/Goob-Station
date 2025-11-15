@@ -138,6 +138,9 @@ public sealed class MimePowersSystem : EntitySystem
         if (!Resolve(uid, ref mimePowers))
             return;
 
+        if (!mimePowers.CanBreakVow) // Goobstation
+            return;
+
         if (mimePowers.VowBroken)
             return;
 
