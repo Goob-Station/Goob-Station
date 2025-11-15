@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Standing;
 using Content.Server.Stunnable;
 using Content.Shared._EinsteinEngines.TelescopicBaton;
 using Content.Shared.Mobs.Systems;
@@ -57,7 +58,7 @@ public sealed class KnockdownOnHitSystem : EntitySystem
                 entity.Comp.Duration,
                 entity.Comp.RefreshDuration,
                 true,
-                false)) // todo goobstream test - nuked drophelditembehaviour kinda so fuck it hardcode for now
+                DropHeldItemsBehavior.NoDrop))
                 knockedDown.Add(target);
         }
 

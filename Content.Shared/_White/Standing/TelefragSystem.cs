@@ -34,7 +34,7 @@ public sealed class TelefragSystem : EntitySystem
         var entities = _lookup.GetEntitiesInRange(coords, range, LookupFlags.Dynamic);
         foreach (var ent in entities.Where(ent => ent != uid && !_standing.IsDown(ent)))
         {
-            if (knockdownTime > TimeSpan.Zero && _stun.TryKnockdown(ent, knockdownTime, true, true, true))
+            if (knockdownTime > TimeSpan.Zero && _stun.TryKnockdown(ent, knockdownTime))
                 continue;
 
             if (_stun.TryCrawling(ent) && autoStandUp) //todo goobstream test - maybe add dropitembehaviour
