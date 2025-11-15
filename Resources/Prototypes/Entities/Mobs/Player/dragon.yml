@@ -467,19 +467,3 @@
     priority: 4
   - type: InstantAction
     event: !type:DragonSpawnCarpHordeActionEvent
-
-- type: entity
-  parent: BaseAction
-  id: ActionDragonRoar
-  name: Wing flap
-  description: Flap your wings to stun all enemies around you!
-  components:
-  - type: Action
-    icon:
-      sprite: _Goobstation/Actions/dragon.rsi
-      state: wing_flap
-    useDelay: 45
-    priority: 5
-  - type: InstantAction
-    event: !type:DragonRoarActionEvent
-# Goobstation end

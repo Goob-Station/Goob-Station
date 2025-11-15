@@ -163,7 +163,6 @@ public sealed partial class DragonSystem : EntitySystem
         SubscribeLocalEvent<DragonComponent, RefreshMovementSpeedModifiersEvent>(OnDragonMove);
         SubscribeLocalEvent<DragonComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<DragonComponent, EntityZombifiedEvent>(OnZombified);
-        SubscribeLocalEvent<DragonComponent, DragonRoarActionEvent>(OnDragonRoar); // Goobstation
         SubscribeLocalEvent<DragonComponent, DragonSpawnCarpHordeActionEvent>(OnRiseFish); // Goobstation
     }
 
@@ -225,7 +224,6 @@ public sealed partial class DragonSystem : EntitySystem
         Roar(uid, component);
         _actions.AddAction(uid, ref component.SpawnRiftActionEntity, component.SpawnRiftAction);
         _actions.AddAction(uid, ref component.SpawnCarpsActionEntity, component.SpawnCarpsAction); // Goobstation
-        _actions.AddAction(uid, ref component.RoarActionEntity, component.RoarAction); // Goobstation
     }
 
     private void OnShutdown(EntityUid uid, DragonComponent component, ComponentShutdown args)
@@ -412,28 +410,6 @@ public sealed partial class DragonSystem : EntitySystem
                 _serManager.CopyTo(randomSprite, ref spawnedSprite, notNullableOverride: true);
                 Dirty(ent, spawnedSprite);
             }
-        }
-
-        args.Handled = true;
-    }
-
-    private void OnDragonRoar(EntityUid uid, DragonComponent component, DragonRoarActionEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        Roar(uid, component);
-
-        // TODO: add pushing (like from push horn but stronger) after upstream is merged
-
-        var xform = Transform(uid);
-        var nearMobs = _lookup.GetEntitiesInRange<NpcFactionMemberComponent>(xform.Coordinates, component.RoarRange, LookupFlags.Uncontained);
-        foreach (var mob in nearMobs)
-        {
-            if (_faction.IsEntityFriendly(uid, (mob.Owner, mob.Comp)))
-                continue;
-
-            _stun.TryStun(mob, TimeSpan.FromSeconds(component.RoarStunTime), false);
         }
 
         args.Handled = true;
