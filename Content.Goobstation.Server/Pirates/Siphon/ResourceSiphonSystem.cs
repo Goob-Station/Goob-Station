@@ -26,7 +26,6 @@ using Content.Shared.Chat;
 using Content.Shared.Destructible;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
-using Content.Shared.Mind;
 using Content.Shared.Stacks;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
@@ -39,7 +38,6 @@ public sealed  class ResourceSiphonSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StationAnchorSystem _anchor = default!;
-    [Dependency] private readonly CargoSystem _cargo = default!;
     [Dependency] private readonly PricingSystem _pricing = default!;
     [Dependency] private readonly TransformSystem _xform = default!;
     [Dependency] private readonly MindSystem _mind = default!;
@@ -90,10 +88,7 @@ public sealed  class ResourceSiphonSystem : EntitySystem
 
         var bank = nbank!.Value;
 
-        // Uncomment this if you don't want cargo to go into space debt
-        // :trollface:
-        ;
-        var funds = Siphon(ent, bank.Comp.Accounts, ent.Comp.DrainRate);
+        var funds = Siphon(ent, bank.Comp.Accounts, ent.Comp.DrainRate, ent.Comp.DrainPercent);
 
         UpdateCredits(ent, funds);
     }
@@ -101,10 +96,11 @@ public sealed  class ResourceSiphonSystem : EntitySystem
     /// <summary>
     /// removes funds from the station eveanly distributad based on available funds in that department
     /// </summary>
+    /// <param name="ent"></param> ent of the siphoning machine
     /// <param name="accounts"></param> accouunts of the station
     /// <param name="siphon"></param> ammount to siphon must be more than 0
     /// <returns>returns the ammount removed</returns>
-    private float Siphon(Entity<ResourceSiphonComponent> ent, Dictionary<ProtoId<CargoAccountPrototype>, int> accounts, float siphon = 1)
+    private float Siphon(Entity<ResourceSiphonComponent> ent, Dictionary<ProtoId<CargoAccountPrototype>, int> accounts, float siphon = 1f, float drainPercent = .1f)
     {
         var total = 0f;
 
@@ -112,7 +108,7 @@ public sealed  class ResourceSiphonSystem : EntitySystem
             if (ammount > 0)
                 total += ammount; //we only care about positive accounts. red accounts get excluded
 
-        siphon = Math.Max(total * ent.Comp.DrainPercent, siphon); // either drain a % of the total or atake the set value if its bigger.
+        siphon = Math.Max(total * drainPercent, siphon); // either drain a % of the total or take the set value if its bigger.
         siphon = (float) Math.Round(siphon); // round
 
         if (total < siphon || total == 0) // total is lower then we wanted so we take what we can.
@@ -121,7 +117,7 @@ public sealed  class ResourceSiphonSystem : EntitySystem
                 if (ammount > 0)
                     accounts[key] = 0;
 
-            DeactivateSiphon(ent, "empty"); // stop the siphon if we empty all accounts.
+            DeactivateSiphon(ent, "empty"); // stop the siphon because  all accounts are empty.
             return total;
         }
 
