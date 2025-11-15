@@ -17909,3 +17909,9 @@ Entries:
         slightly
   id: 2013
   time: '2025-11-14T12:51:17.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Added 4 new bark voices.
+  id: 2014
+  time: '2025-11-15T07:21:37.0000000+00:00'
