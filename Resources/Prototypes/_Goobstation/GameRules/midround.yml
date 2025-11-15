@@ -533,3 +533,24 @@
         text: vox-raider-role-greeting
         color: Purple
         sound: /Audio/Misc/thief_greeting.ogg
+
+
+- type: entity
+  id: ClownGoblinMigration
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    startDelay: 10
+    earliestStart: 5
+    minimumPlayers: 15
+    duration: 60
+  - type: VentCrittersRule
+    table:
+      max: 1
+      id: MobClownGoblin
+  - type: GameRule
+    chaosScore: 50

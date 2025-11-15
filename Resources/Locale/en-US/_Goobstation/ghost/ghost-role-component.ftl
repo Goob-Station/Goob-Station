@@ -183,3 +183,6 @@ objective-issuer-self = [color=#7851A9]For your own interests[/color]
 ghost-role-information-vox-raider-name = Vox Raider
 ghost-role-information-vox-raider-description = Vox that swear their loyalty to the Shoal. It is unclear what their intentions or whether they plan on trading or thieving from the station. It is always best to use caution when they show up.
 vox-raider-role-greeting = You are a [color=#7851A9]Vox Raider[/color], a Vox that has sworn their loyalty to the Shoal, you are tasked with stealing items from the station or trading for them, it doesn't matter which you decide to do, all that matters is that you obtain all the items you need to complete your objectives and complete "The Heist", check your character sheet for your objectives.
+
+ghost-role-information-clown-goblin-name = Clown goblin
+ghost-role-information-clown-goblin-description = A terrible creature, born out of hell.

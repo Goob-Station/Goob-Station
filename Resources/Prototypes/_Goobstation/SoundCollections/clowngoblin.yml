@@ -1,0 +1,4 @@
+- type: soundCollection
+  id: ClownGoblinScream
+  files:
+  - /Audio/Items/airhorn.ogg

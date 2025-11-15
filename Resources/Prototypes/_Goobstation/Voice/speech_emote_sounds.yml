@@ -54,3 +54,12 @@
   sounds:
     Laugh:
       path: /Audio/_Goobstation/FloorGoblin/laugh.ogg
+
+- type: emoteSounds
+  id: ClownGoblin
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: ClownGoblinScream
+
