@@ -349,7 +349,11 @@
   - type: GuideHelp
     guides:
     - MinorAntagonists
-
+  - type: Tag # Goobstation
+    tags:
+      - CannotSuicide
+      - FootstepSound
+      - Unimplantable
 
 - type: entity
   name: rat servant
