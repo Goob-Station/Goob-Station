@@ -835,12 +835,16 @@
     baseDecayRate: 0
   - type: GhostTakeoverAvailable
   - type: GhostRole
-    prob: 0.25
     makeSentient: true
     allowSpeech: true
     allowMovement: true
     name: ghost-role-information-clown-goblin-name
     description: ghost-role-information-clown-goblin-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
   - type: Speech
     speechSounds: BikeHorn
   - type: Sprite

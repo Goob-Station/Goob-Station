@@ -177,7 +177,7 @@
     - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
     - id: MalignRiftSpawn # DeltaV
     - id: FloorGoblinMidRound # Goobstation
-    - id: TunnelClownMidround # Goobstation
+    - id: ClownGoblinMigration # Goobstation - New Midrounds
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -209,6 +209,7 @@
     - id: MimeAssassinMidround # Goobstation - New Midrounds
     - id: DarkPriestMidround # Goobstation - New Midrounds
     - id: VoxRaidersMidround # Goobstation - New Midrounds
+    - id: TunnelClownMidround # Goobstation
 
 - type: entity
   id: BaseStationEvent
