@@ -53,6 +53,7 @@ heretic-ritual-fail-limit = You have reached a limit of items that this ritual p
 heretic-ritual-fail-no-lost-blades = No lost blades can be found.
 heretic-ritual-fail-already-ascended = You are already ascended.
 heretic-ritual-fail-cannot-ascend = You cannot ascend.
+heretic-ritual-fail-cannot-ascend-objectives = You must complete your objectives in order to ascend.
 
 ## side quests
 heretic-ritual-side-knowledge = Ritual of Knowledge

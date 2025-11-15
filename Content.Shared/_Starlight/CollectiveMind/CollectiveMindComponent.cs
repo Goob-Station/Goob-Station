@@ -32,5 +32,12 @@ namespace Content.Shared._Starlight.CollectiveMind
 
         [DataField]
         public bool RespectAccents = false;
+
+        // Goobstation
+        /// <summary>
+        /// Whether the collective mind can be used while in critical condition
+        /// </summary>
+        [DataField]
+        public bool CanUseInCrit = false;
     }
 }
