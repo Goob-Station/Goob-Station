@@ -29,7 +29,7 @@ public sealed partial class ResourceSiphonComponent : Component
     /// <summary>
     ///  % of total station budget to drain number 0 - 1
     /// </summary>
-    [DataField] public float DrainPercent = .1f;
+    [DataField] public float DrainPercent = .05f;
 
     /// <summary>
     /// If the calculated DrainPercent is lower then this drains this amount instead
@@ -41,5 +41,5 @@ public sealed partial class ResourceSiphonComponent : Component
     public TimeSpan NextUpdateTime = TimeSpan.Zero;
     public TimeSpan NextUpdateInterval = TimeSpan.FromSeconds(1);
 
-    [DataField] public float MaxSignalRange = 1250f;
+    [DataField] public float MaxSignalRange = 250f;
 }
