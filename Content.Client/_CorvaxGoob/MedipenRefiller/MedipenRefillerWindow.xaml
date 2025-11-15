@@ -51,7 +51,7 @@
                     </ScrollContainer>
                 </PanelContainer>
                 <BoxContainer Orientation="Horizontal" Margin="0 0 0 0">
-                    <Label Text="{Loc 'medipen-refiller-window-filling-text'}:" />
+                    <Label Text="{Loc 'medipen-refiller-window-filling-text'}" />
                     <Control HorizontalExpand="True" MinSize="20 0" />
                     <Label Text="{Loc 'medipen-refiller-window-dose-label'}" Margin="5 0 0 0" StyleClasses="LabelSecondaryColor" />
                     <LineEdit MinSize="100 0" Name="MedipenDosage" Margin="5 0 0 0" Access="Public"/>
