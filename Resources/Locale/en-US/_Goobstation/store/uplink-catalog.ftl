@@ -302,6 +302,9 @@ uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced
 uplink-belt-rig-name = Grenadier Belt
 uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
 
+uplink-guerrilla-gloves-name = Guerrilla Gloves
+uplink-guerrilla-gloves-desc = A special shock resistant pair of gloves that make you hard grab by default, reduce your slowdown when actively grabbing and make it harder for victims to escape your grabs.
+
 # Deception
 
 uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves

@@ -590,6 +590,17 @@
   categories:
   - UplinkWearables
 
+- type: listing
+  id: UplinkClothingHandsGlovesGuerrilla
+  name: uplink-guerrilla-gloves-name
+  description: uplink-guerrilla-gloves-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
+  productEntity: ClothingHandsGlovesGuerrilla
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWearables
+
 # Job specific
 - type: listing
   id: UplinkPieCannon
