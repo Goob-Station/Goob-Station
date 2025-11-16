@@ -57,6 +57,8 @@
     - id: SlaughterDemonMidroundHermit # Goobstation - Slaughter Demon
     - id: XenomorphsInfestationHermit # WD EDIT
     - id: WraithMidroundHermit # GHOSTS
+    - id: GreyTideAntagMidround # Goobstation - New Midrounds
+    - id: TunnelClownMidround # Goobstation - New Midrounds
 
 - type: entity
   parent: DerelictCyborgSyndicateSpawn

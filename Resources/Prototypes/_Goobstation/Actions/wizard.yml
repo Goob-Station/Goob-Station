@@ -231,6 +231,15 @@
       5: ActionRepulseV
 
 - type: entity
+  parent: ActionRepulse
+  id: ActionRepulseNoRobes
+  components:
+  - type: Magic
+    requiresClothes: false
+    requiresSpeech: true
+    school: Evocation
+
+- type: entity
   parent: BaseAction
   id: ActionStopTime
   name: Stop Time

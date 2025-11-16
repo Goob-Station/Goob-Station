@@ -138,3 +138,10 @@
   - type: TriggerOnSpeak
   - type: ActiveListener
     range: 4
+
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskGasUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable

@@ -288,6 +288,13 @@
         Slash: 0.95
         Piercing: 0.95
 
+- type: entity
+  parent: ClothingShoesColorBlack
+  id: ClothingShoesColorBlackUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+
 # Western Undetermined Set
 - type: entity
   parent: [ClothingShoesMilitaryBase, BaseMajorContraband]
