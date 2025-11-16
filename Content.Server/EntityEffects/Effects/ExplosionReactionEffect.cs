@@ -10,6 +10,7 @@ using Content.Shared.EntityEffects;
 using Content.Shared.Explosion;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Timing;
 using System.Text.Json.Serialization;
 
 namespace Content.Server.EntityEffects.Effects;
@@ -65,14 +66,19 @@ public sealed partial class ExplosionReactionEffect : EntityEffect
         => Loc.GetString("reagent-effect-guidebook-explosion-reaction-effect", ("chance", Probability));
     public override LogImpact LogImpact => LogImpact.High;
 
+    // goob edit - delay support
     public override void Effect(EntityEffectBaseArgs args)
+    {
+        if (Delay > 0f) Timer.Spawn((int) (Delay * 1000f), () => DoEffect(args));
+        else DoEffect(args);
+    }
+
+    private void DoEffect(EntityEffectBaseArgs args)
     {
         var intensity = IntensityPerUnit;
 
         if (args is EntityEffectReagentArgs reagentArgs)
-        {
             intensity = MathF.Min((float) reagentArgs.Quantity * IntensityPerUnit, MaxTotalIntensity);
-        }
 
         args.EntityManager.System<ExplosionSystem>()
             .QueueExplosion(
@@ -81,6 +87,6 @@ public sealed partial class ExplosionReactionEffect : EntityEffect
             intensity,
             IntensitySlope,
             MaxIntensity,
-			TileBreakScale);
+            TileBreakScale);
     }
 }

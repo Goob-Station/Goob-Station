@@ -135,7 +135,7 @@
   - type: Sprite
     sprite: _Goobstation/Structures/posters.rsi
     state: goob_poster13_legit
-    
+
 - type: entity
   parent: PosterBase
   id: PosterLegitGoobWelderBomb

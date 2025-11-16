@@ -58,6 +58,7 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Power.NodeGroups;
 using Content.Server.Weapons.Melee;
+using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Database;
@@ -75,6 +76,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Melee.Events;
+using JetBrains.FormatRipper.Elf;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
@@ -109,6 +111,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!; // Goobstation - Add Cooldown to shock to prevent entity overload
+    [Dependency] private readonly SparksSystem _sparks = default!; // goob edit - finally visual fucking effects
 
     private static readonly ProtoId<StatusEffectPrototype> StatusEffectKey = "Electrocution";
     private static readonly ProtoId<DamageTypePrototype> DamageType = "Shock";
@@ -488,6 +491,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             _stun.TryParalyze(uid, time * ParalyzeTimeMultiplier, refresh, statusEffects);
 
         // TODO: Sparks here.
+        _sparks.DoSparks(Transform(uid).Coordinates); // goob edit - DONE! I HATE YOU AVIU
 
         if (shockDamage is { } dmg)
         {
