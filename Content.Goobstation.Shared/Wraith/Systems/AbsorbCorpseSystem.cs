@@ -96,7 +96,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         _wraithPoints.AdjustWpGenerationRate(ent.Comp.WpPassiveAdd, ent.Owner);
 
         // apply rot
-        // EnsureComp<RottingComponent>(target); // Removed until someone figures out how to make it partially rot instead of instant full rot
+// EnsureComp<RottingComponent>(target); // TODO Removed until someone figures out how to make it partially rot instead of instant full rot
 
         _popup.PopupPredicted(Loc.GetString("wraith-absorb-smoke1"), target, target);
         ent.Comp.CorpsesAbsorbed++;
