@@ -20,9 +20,9 @@ public sealed class TurbineSystem : SharedTurbineSystem
         SubscribeLocalEvent<TurbineComponent, ClientExaminedEvent>(ReactorExamined);
     }
 
-    protected override void UpdateUi(Entity<TurbineComponent> entity)
+    protected override void UpdateUI(EntityUid uid, TurbineComponent turbine)
     {
-        if (_userInterfaceSystem.TryGetOpenUi(entity.Owner, TurbineUiKey.Key, out var bui))
+        if (_userInterfaceSystem.TryGetOpenUi(uid, TurbineUiKey.Key, out var bui))
         {
             bui.Update();
         }

@@ -13,7 +13,7 @@
 - type: latheRecipe
   parent: BaseReactorPartRecipe
   id: CerenkiteFuelRod
-  result: CerenkiteFuelRod
+  result: CerenkiteReactorFuelRod
   materials:
     Steel: 1500
     Plasma: 500
@@ -22,7 +22,7 @@
 - type: latheRecipe
   parent: BaseReactorPartRecipe
   id: UraniumFuelRod
-  result: UraniumFuelRod
+  result: UraniumReactorFuelRod
   materials:
     Steel: 500
     Uranium: 3000
@@ -31,20 +31,20 @@
 - type: latheRecipe
   parent: BaseReactorPartRecipe
   id: ReactorControlRod
-  result: ReactorControlRod
+  result: BohrumReactorControlRod
   materials:
     Steel: 4000
 
 - type: latheRecipe
   parent: BaseReactorPartRecipe
   id: ReactorGasChannel
-  result: ReactorGasChannel
+  result: SteelReactorGasChannel
   materials:
     Steel: 2500
 
 - type: latheRecipe
   parent: BaseReactorPartRecipe
   id: ReactorHeatExchanger
-  result: ReactorHeatExchanger
+  result: SteelReactorHeatExchanger
   materials:
     Steel: 3000

@@ -10,6 +10,13 @@ reactor-smoke-stop-message = The {$owner} has cooled below dangerous temperature
 reactor-fire-start-message = ALERT: The {$owner} has reached CRITICAL temperature: {$temperature}K. MELTDOWN IMMINENT.
 reactor-fire-stop-message = The {$owner} has cooled below critical temperature. Meltdown averted.
 
+reactor-temperature-dangerous-message = The {$owner} is at dangerous temperature: {$temperature}K.
+reactor-temperature-critical-message = The {$owner} is at critical temperature: {$temperature}K.
+reactor-temperature-cooling-message = The {$owner} is cooling: {$temperature}K.
+
+reactor-melting-announcement = A nuclear reactor aboard the station is beginning to meltdown. Evacuation of the surrounding area is advised.
+reactor-melting-announcement-sender = Nuclear Emergency
+
 reactor-meltdown-announcement = A nuclear reactor aboard the station has catastrophically overloaded. Radioactive debris, nuclear fallout, and coolant fires are likely. Immediate evacuation of the surrounding area is strongly advised.
 reactor-meltdown-announcement-sender = Nuclear Meltdown
 

@@ -1,0 +1,43 @@
+- type: material
+  parent: Steel # TODO: Materials
+  id: Bohrum
+  name: materials-bohrum
+  color: "#566558"
+  price: 0.45 # $45 for 1 unit, arbitrary
+  properties:
+    electrical: 5
+    thermal: 6
+    hard: 5
+    density: 6
+    chemical: 7
+
+- type: material
+  id: Cerenkite
+  stackEntity: SheetUranium1 # TODO: Materials
+  name: materials-cerenkite
+  icon: { sprite: Objects/Materials/Sheets/other.rsi, state: uranium } # TODO: Materials
+  color: "#828aa4"
+  price: 0.65 # $65 for 1 unit, arbitrary
+  properties:
+    electrical: 6
+    thermal: 6
+    hard: 2
+    density: 4
+    chemical: 6
+    radioactive: 5
+
+- type: material
+  id: Plutonium
+  stackEntity: SheetUranium1 # TODO: Materials
+  name: materials-plutonium
+  icon: { sprite: Objects/Materials/Sheets/other.rsi, state: uranium } # TODO: Materials
+  color: "#404888"
+  price: 1.75 # $175 for 1 unit, arbitrary
+  properties:
+    electrical: 7
+    thermal: 6
+    hard: 7
+    density: 8
+    chemical: 6
+    radioactive: 3
+    n_radioactive: 5

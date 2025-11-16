@@ -27,6 +27,12 @@
   icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: glass }
   color: "#a8ccd7"
   price: 0.15 # $15 for one unit
+  properties: # FH edit
+    electrical: 3
+    thermal: 3
+    hard: 3
+    density: 2
+    chemical: 5
 
 - type: material
   id: ReinforcedGlass
@@ -35,6 +41,13 @@
   icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: rglass }
   color: "#549bb0"
   price: 0.225 # 1-0.5 mix of glass and metal.
+  # Interpolated properties
+  properties: # FH edit
+    electrical: 3.66
+    thermal: 4
+    hard: 3
+    density: 2.66
+    chemical: 5.33
 
 - type: material
   id: PlasmaGlass
@@ -43,6 +56,12 @@
   icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: pglass }
   color: "#b35989"
   price: 0.50 # 1-1 mix of plasma and glass.
+  properties: # FH edit
+    electrical: 3
+    thermal: 3
+    hard: 7
+    density: 3
+    chemical: 5
 
 - type: material
   id: ReinforcedPlasmaGlass
@@ -51,6 +70,13 @@
   icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: rpglass }
   color: "#8c4069"
   price: 0.575 # 1-1-0.5 mix of plasma, glass, and metal.
+  # Interpolated properties
+  properties: # FH edit
+    electrical: 3.66
+    thermal: 4
+    hard: 5.66
+    density: 3.33
+    chemical: 5.33
 
 - type: material
   id: BrassGlass
@@ -59,6 +85,13 @@
   icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: cglass }
   color: "#9b6f07"
   price: 0.225 # average of glass and brass.
+  # Interpolated properties
+  properties: # FH edit
+    electrical: 4
+    thermal: 4.5
+    hard: 3
+    density: 3
+    chemical: 5.5
 
 - type: material
   id: UraniumGlass
@@ -67,6 +100,15 @@
   icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: uglass }
   color: "#3cab38"
   price: 1.0 # 1-1 mix of uranium and glass.
+  # Interpolated properties
+  properties: # FH edit
+    electrical: 3.5
+    thermal: 3
+    hard: 4
+    density: 4.5
+    chemical: 5.5
+    radioactive: 2 # Making something out of uranium is radioactive... imagine that
+    n_radioactive: 1.5
 
 - type: material
   id: ReinforcedUraniumGlass
@@ -75,3 +117,12 @@
   icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: ruglass }
   color: "#2d872a"
   price: 1.075 # 2-2-1 mix of uranium, glass, and metal.
+  # Interpolated properties
+  properties: # FH edit
+    electrical: 3.8
+    thermal: 3.6
+    hard: 3.8
+    density: 3.3
+    chemical: 5.6
+    radioactive: 1.6
+    n_radioactive: 1.2

@@ -2,6 +2,8 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Audio;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Atmos;
+using Robust.Shared.Prototypes;
+using Content.Shared.Materials;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -29,7 +31,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// Number of neutrons that hit the edge of the reactor grid last tick
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public float RadiationLevel = 0;
 
     /// <summary>
@@ -40,7 +42,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// Reactor casing temperature
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public float Temperature = Atmospherics.T20C;
 
     /// <summary>
@@ -58,19 +60,19 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// Flag indicating the reactor is overheating
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public bool IsSmoking = false;
 
     /// <summary>
     /// Flag indicating the reactor is on fire
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public bool IsBurning = false;
 
     /// <summary>
     /// Flag indicating total meltdown has happened
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public bool Melted = false;
 
     /// <summary>
@@ -83,7 +85,6 @@ public sealed partial class NuclearReactorComponent : Component
     /// The actual insertion level of the control rods
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField]
     public float AvgInsertion = 0;
 
     /// <summary>
@@ -95,7 +96,19 @@ public sealed partial class NuclearReactorComponent : Component
     /// Radio channel to send alerts to
     /// </summary>
     [DataField]
-    public string AlertChannel = "Engineering";
+    public string EngineeringChannel = "Engineering";
+
+    /// <summary>
+    /// Last reported temperature during overheat events
+    /// </summary>
+    [ViewVariables]
+    public float LastSendTemperature = Atmospherics.T20C;
+
+    /// <summary>
+    /// If the reactor has given the nuclear emergency warning
+    /// </summary>
+    [ViewVariables]
+    public bool HasSentWarning = false;
 
     /// <summary>
     /// Alert level to set after meltdown
@@ -107,16 +120,18 @@ public sealed partial class NuclearReactorComponent : Component
     /// The estimated thermal power the reactor is making
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField]
     public float ThermalPower = 0;
-    public float[] ThermalPowerL1 = new float[32];
-    public float[] ThermalPowerL2 = new float[32];
+    public int ThermalPowerCount = 0;
+    public int ThermalPowerPrecision = 128;
 
+    [ViewVariables]
     public EntityUid? AlarmAudioHighThermal;
+    [ViewVariables]
     public EntityUid? AlarmAudioHighTemp;
+    [ViewVariables]
     public EntityUid? AlarmAudioHighRads;
 
-    [DataField]
+    [ViewVariables]
     public ItemSlot PartSlot = new();
 
     /// <summary>
@@ -143,33 +158,34 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// Flag indicating the reactor should apply the selected prefab
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public bool ApplyPrefab = true;
 
-    [DataField("inlet")]
-    public string InletName { get; set; } = "inlet";
+    /// <summary>
+    /// Material the reactor is made out of
+    /// </summary>
+    [DataField("material")]
+    public ProtoId<MaterialPrototype> Material = "Steel";
 
-    [DataField("outlet")]
-    public string OutletName { get; set; } = "outlet";
+    [DataField]
+    public string PipeName { get; set; } = "pipe";
+    [ViewVariables]
+    public EntityUid? InletEnt;
+    [ViewVariables]
+    public EntityUid? OutletEnt;
 
     #region Debug
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("neutrons")]
     public int NeutronCount = 0;
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("meltedParts")]
     public int MeltedParts = 0;
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("controlRods")]
     public int DetectedControlRods = 0;
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("totalN-Rads")]
     public float TotalNRads = 0;
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("totalRads")]
     public float TotalRads = 0;
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("spentFuel")]
     public float TotalSpent = 0;
     #endregion
 }

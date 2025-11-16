@@ -1,4 +1,3 @@
-using Content.Server._FarHorizons.NodeContainer.Nodes;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Explosion.EntitySystems;
@@ -16,6 +15,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
+using Content.Server.NodeContainer.Nodes;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -27,7 +27,6 @@ public sealed class TurbineSystem : SharedTurbineSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
-    [Dependency] private readonly NodeGroupSystem _nodeGroupSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
@@ -50,6 +49,31 @@ public sealed class TurbineSystem : SharedTurbineSystem
     {
         base.Initialize();
         SubscribeLocalEvent<TurbineComponent, AtmosDeviceUpdateEvent>(OnUpdate);
+        SubscribeLocalEvent<TurbineComponent, GasAnalyzerScanEvent>(OnAnalyze);
+    }
+
+    private void OnAnalyze(EntityUid uid, TurbineComponent comp, ref GasAnalyzerScanEvent args)
+    {
+        if (!comp.InletEnt.HasValue || !comp.OutletEnt.HasValue)
+            return;
+
+        args.GasMixtures ??= [];
+
+        if (_nodeContainer.TryGetNode(comp.InletEnt.Value, comp.PipeName, out PipeNode? inlet) && inlet.Air.Volume != 0f)
+        {
+            var inletAirLocal = inlet.Air.Clone();
+            inletAirLocal.Multiply(inlet.Volume / inlet.Air.Volume);
+            inletAirLocal.Volume = inlet.Volume;
+            args.GasMixtures.Add((Loc.GetString("gas-analyzer-window-text-inlet"), inletAirLocal));
+        }
+
+        if (_nodeContainer.TryGetNode(comp.OutletEnt.Value, comp.PipeName, out PipeNode? outlet) && outlet.Air.Volume != 0f)
+        {
+            var outletAirLocal = outlet.Air.Clone();
+            outletAirLocal.Multiply(outlet.Volume / outlet.Air.Volume);
+            outletAirLocal.Volume = outlet.Volume;
+            args.GasMixtures.Add((Loc.GetString("gas-analyzer-window-text-outlet"), outletAirLocal));
+        }
     }
 
     #region Main Loop
@@ -60,40 +84,35 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
         supplier.MaxSupply = comp.LastGen;
 
-        if (!_nodeContainer.TryGetNodes(uid, comp.InletName, comp.OutletName, out OffsetPipeNode? inlet, out OffsetPipeNode? outlet))
-        {
-            comp.HasPipes = false;
-            return;
-        }
-        else
-        {
-            comp.HasPipes = true;
-        }
+        if (!comp.InletEnt.HasValue || EntityManager.Deleted(comp.InletEnt.Value))
+            comp.InletEnt = SpawnAttachedTo("TurbineGasPipe", new(uid, -1, -1), rotation: Angle.FromDegrees(-90));
+        if (!comp.OutletEnt.HasValue || EntityManager.Deleted(comp.OutletEnt.Value))
+            comp.OutletEnt = SpawnAttachedTo("TurbineGasPipe", new(uid, 1, -1), rotation: Angle.FromDegrees(90));
 
-        // Try to connect to a distant pipe
-        // TODO: This is BAD and I HATE IT... and I'm too lazy to fix it
-        if (inlet.ReachableNodes.Count == 0) 
-            _nodeGroupSystem.QueueReflood(inlet);
-        if (outlet.ReachableNodes.Count == 0)
-            _nodeGroupSystem.QueueReflood(outlet);
+        if (!_nodeContainer.TryGetNode(comp.InletEnt.Value, comp.PipeName, out PipeNode? inlet))
+            return;
+        if (!_nodeContainer.TryGetNode(comp.OutletEnt.Value, comp.PipeName, out PipeNode? outlet))
+            return;
 
         UpdateAppearance(uid, comp);
 
-        var AirContents = inlet.Air.RemoveVolume(Math.Min(comp.FlowRate * _atmosphereSystem.PumpSpeedup() * args.dt, inlet.Air.Volume));
+        var transferVolume = CalculateTransferVolume(comp, inlet, outlet, args.dt);
 
-        comp.LastVolumeTransfer = AirContents.Volume;
+        var AirContents = inlet.Air.RemoveVolume(transferVolume) ?? new GasMixture();
+
+        comp.LastVolumeTransfer = transferVolume;
         comp.LastGen = 0;
-        comp.Overtemp = AirContents?.Temperature >= comp.MaxTemp - 500;
-        comp.Undertemp = AirContents?.Temperature <= comp.MinTemp;
+        comp.Overtemp = AirContents.Temperature >= comp.MaxTemp - 500;
+        comp.Undertemp = AirContents.Temperature <= comp.MinTemp;
 
         // Dump gas into atmosphere
-        if (comp.Ruined || AirContents?.Temperature >= comp.MaxTemp)
+        if (comp.Ruined || AirContents.Temperature >= comp.MaxTemp)
         {
             var tile = _atmosphereSystem.GetTileMixture(uid, excite: true);
 
             if (tile != null)
             {
-                _atmosphereSystem.Merge(tile, AirContents!);
+                _atmosphereSystem.Merge(tile, AirContents);
             }
 
             if (!comp.Ruined && !_audio.IsPlaying(comp.AlarmAudioOvertemp))
@@ -102,10 +121,8 @@ public sealed class TurbineSystem : SharedTurbineSystem
                 _popupSystem.PopupEntity(Loc.GetString("turbine-overheat", ("owner", uid)), uid, PopupType.LargeCaution);
             }
 
-            _atmosphereSystem.Merge(outlet.Air, AirContents!);
-
             // Prevent power from being generated by residual gasses
-            AirContents?.Clear();
+            AirContents.Clear();
         }
         else
         {
@@ -205,13 +222,22 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
             _atmosphereSystem.Merge(outlet.Air, AirContents);
         }
-        AirContents!.Volume = comp.FlowRate;
 
         // Explode
         if (!comp.Ruined && (comp.BladeHealth <= 0|| comp.RPM>comp.BestRPM*4))
         {
             TearApart(uid, comp);
         }
+    }
+
+    private float CalculateTransferVolume(TurbineComponent comp, PipeNode inlet, PipeNode outlet, float dt)
+    {
+        var wantToTransfer = comp.FlowRate * _atmosphereSystem.PumpSpeedup() * dt;
+        var transferVolume = Math.Min(inlet.Air.Volume, wantToTransfer);
+        var transferMoles = inlet.Air.Pressure * transferVolume / (inlet.Air.Temperature * Atmospherics.R);
+        var molesSpaceLeft = (comp.OutputPressure - outlet.Air.Pressure) * outlet.Air.Volume / (outlet.Air.Temperature * Atmospherics.R);
+        var actualMolesTransfered = Math.Clamp(transferMoles, 0, Math.Max(0, molesSpaceLeft));
+        return Math.Max(0, actualMolesTransfered * inlet.Air.Temperature * Atmospherics.R / inlet.Air.Pressure);
     }
 
     private void TearApart(EntityUid uid, TurbineComponent comp)
@@ -257,7 +283,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
         }
     }
 
-    private void UpdateUI(EntityUid uid, TurbineComponent turbine)
+    protected override void UpdateUI(EntityUid uid, TurbineComponent turbine)
     {
         if (!_uiSystem.IsUiOpen(uid, TurbineUiKey.Key))
             return;

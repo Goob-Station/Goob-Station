@@ -64,20 +64,6 @@
   - type: NodeContainer
     examinable: true
     nodes:
-      inlet:
-        !type:OffsetPipeNode
-        nodeGroupID: Pipe
-        pipeDirection: West
-        volume: 1000
-        offsetEast: -2
-        offsetNorth: -1
-      outlet:
-        !type:OffsetPipeNode
-        nodeGroupID: Pipe
-        pipeDirection: East
-        volume: 1000
-        offsetEast: 2
-        offsetNorth: -1
       output:
         !type:CableDeviceNode
         nodeGroupID: HVPower
@@ -90,6 +76,8 @@
     supplyRampRate: 75000
     supplyRampTolerance: 5000
   - type: AtmosDevice
+  - type: AtmosMonitoringConsoleDevice
+    navMapBlip: Thermoregulator
   - type: Explosive
     explosionType: Default
     tileBreakScale: 0
@@ -125,12 +113,39 @@
       layers:
         - state: arrow
           rotation: 90
-          offset: 1.75, -1
+          offset: 2, -1
         - state: arrow
           rotation: 90
-          offset: -1.75, -1
+          offset: -2, -1
     - type: TimedDespawn
       lifetime: 2
     - type: Tag
       tags:
         - HideContextMenu
+
+# Pipes the turbine uses to connect to the pipe network
+- type: entity
+  parent: GasPipeBase
+  id: TurbineGasPipe
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: AlignAtmosPipeLayers
+  components:
+  - type: Sprite
+    layers:
+    - state: pipeHalf
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+      visible: false
+  - type: Anchorable
+    flags: 
+    - Anchorable
+  - type: NodeContainer
+    nodes:
+      pipe:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: South
+        volume: 1000
+  - type: Tag
+    tags:
+      - HideContextMenu

@@ -38,6 +38,9 @@
   icon: { sprite: /Textures/Objects/Misc/monkeycube.rsi, state: cube }
   color: "#8A9A5B"
   price: 0.1
+  properties: # FH edit
+    electrical: 4
+    flammable: 3
 
 - type: material
   id: Cardboard
@@ -46,6 +49,11 @@
   icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: cardboard }
   color: "#70736c"
   price: 0.025
+  properties: # FH edit
+    electrical: 4
+    hard: 1
+    density: 2
+    flammable: 4
 
 - type: material
   id: Cloth
@@ -55,6 +63,11 @@
   icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: cloth }
   color: "#e7e7de"
   price: 0.05
+  properties: # FH edit
+    electrical: 4
+    hard: 1
+    density: 1
+    flammable: 2
 
 - type: material
   id: Durathread
@@ -65,6 +78,13 @@
   icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: durathread }
   color: "#8291a1"
   price: 0.35 # 1-1 mix of plastic and cloth.
+  properties: # FH edit
+    electrical: 8
+    thermal: 9
+    hard: 4
+    density: 5
+    flammable: 2
+    chemical: 7
 
 - type: material
   id: Paper
@@ -73,6 +93,11 @@
   icon: { sprite: Objects/Materials/Sheets/other.rsi, state: paper }
   color: "#d9d9d9"
   price: 0.01 # it's paper bro what do you expect?
+  properties: # FH edit
+    electrical: 2
+    hard: 1
+    density: 1
+    flammable: 6
 
 - type: material
   id: Plasma
@@ -81,6 +106,14 @@
   icon: { sprite: Objects/Materials/Sheets/other.rsi, state: plasma }
   color: "#7e009e"
   price: 0.35 # $35 for 1 unit
+  properties: # FH edit
+    electrical: 5
+    thermal: 3
+    hard: 2
+    density: 1
+    flammable: 8
+    chemical: 5
+    radioactive: 2
 
 - type: material
   id: Plastic
@@ -89,6 +122,12 @@
   icon: { sprite: Objects/Materials/Sheets/other.rsi, state: plastic }
   color: "#d9d9d9"
   price: 0.20 # $20 for 1 unit
+  properties: # FH edit
+    electrical: 2
+    thermal: 3
+    hard: 1
+    density: 3
+    chemical: 5
 
 - type: material
   id: Wood
@@ -98,6 +137,11 @@
   icon: { sprite: Objects/Materials/materials.rsi, state: wood }
   color: "#966F33"
   price: 0.10 # $10 for 1 unit
+  properties: # FH edit
+    electrical: 4
+    hard: 3
+    density: 5
+    flammable: 4
 
 - type: material
   id: Uranium
@@ -106,6 +150,14 @@
   icon: { sprite: Objects/Materials/Sheets/other.rsi, state: uranium }
   color: "#32a852"
   price: 0.85 # $85 for 1 unit
+  properties: # FH edit
+    electrical: 4
+    thermal: 3
+    hard: 5
+    density: 7
+    chemical: 6
+    radioactive: 4
+    n_radioactive: 3
 
 - type: material
   id: Bananium
@@ -115,6 +167,16 @@
   icon: { sprite: Objects/Materials/materials.rsi, state: bananium }
   color: "#32a852"
   price: 1.0 # $100 for 1 unit
+  # Interpolated properties, 50/50 biomass/uranium
+  properties: # FH edit
+    electrical: 4
+    thermal: 4
+    hard: 4
+    density: 5
+    flammable: 1.5
+    chemical: 4.5
+    radioactive: 7 # Not interpolated, PRAISE THE HONKMOTHER
+    n_radioactive: 1.5
 
 - type: material
   id: Meaterial # you can't take this pun from me
@@ -123,6 +185,11 @@
   icon: { sprite: Objects/Materials/Sheets/meaterial.rsi, state: meat }
   color: "#c53648"
   price: 0.05
+  properties: # FH edit
+    electrical: 4
+    hard: 1
+    density: 3
+    flammable: 3
 
 - type: material
   id: WebSilk
@@ -131,6 +198,12 @@
   icon: { sprite: Objects/Materials/silk.rsi, state: icon }
   color: "#eeeeee" #eeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
   price: 0 # Maybe better for it to be priceless, knowing how greedy cargo is.
+  properties: # FH edit
+    electrical: 4
+    thermal: 4
+    hard: 1
+    density: 6
+    flammable: 5
 
 - type: material
   id: Cotton
@@ -139,6 +212,12 @@
   icon: { sprite: Objects/Materials/materials.rsi, state: cotton }
   color: "#cccccc"
   price: 0.01 #Who knew cotton was infinitely more valuable than silk
+  properties: # FH edit
+    electrical: 4
+    thermal: 4
+    hard: 1
+    density: 1
+    flammable: 4
 
 - type: material
   id: Bones
@@ -147,6 +226,11 @@
   icon: { sprite: Objects/Materials/materials.rsi, state: bones }
   color: "#896f5e"
   price: 0
+  properties: # FH edit
+    electrical: 4
+    hard: 5
+    density: 3
+    flammable: 2
 
 - type: material
   id: Coal
@@ -156,6 +240,11 @@
   icon: { sprite: Objects/Materials/ore.rsi, state: coal }
   color: "#404040"
   price: 0.1 # $10 for 1 unit
+  properties: # FH edit
+    electrical: 4
+    hard: 3
+    density: 2
+    flammable: 5
 
 - type: material
   id: Gunpowder
@@ -164,6 +253,9 @@
   icon: { sprite: Objects/Misc/reagent_fillings.rsi, state: powderpile }
   color: "#A9A9A9"
   price: 0
+  properties: # FH edit
+    electrical: 3
+    flammable: 8
 
 - type: material
   id: Diamond
@@ -173,3 +265,9 @@
   icon: { sprite: Objects/Materials/materials.rsi, state: diamond }
   color: "#80ffff"
   price: 20 # big diamond gaslit us so hard diamonds actually became extremely rare
+  properties: # FH edit
+    electrical: 3
+    thermal: 3
+    hard: 7
+    density: 6
+    chemical: 5

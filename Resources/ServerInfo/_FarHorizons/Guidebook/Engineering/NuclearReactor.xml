@@ -16,10 +16,10 @@
 
 	## Reactor Rods
 	<Box>
-		<GuideEntityEmbed Entity="UraniumFuelRod"/>
-		<GuideEntityEmbed Entity="ReactorControlRod"/>
-		<GuideEntityEmbed Entity="ReactorGasChannel"/>
-		<GuideEntityEmbed Entity="ReactorHeatExchanger"/>
+		<GuideEntityEmbed Entity="CerenkiteReactorFuelRod" Caption="fuel rod"/>
+		<GuideEntityEmbed Entity="BohrumReactorControlRod" Caption="control rod"/>
+		<GuideEntityEmbed Entity="SteelReactorGasChannel" Caption="gas channel"/>
+		<GuideEntityEmbed Entity="SteelReactorHeatExchanger" Caption="heat exchanger"/>
 	</Box>
 
 	Reactor Rods are the parts that go into the Reactor grid and cause it to function.
@@ -111,28 +111,33 @@
 	The [bold]Control Rod Gauges[/bold] show the actual and set insertion levels of the control rods within the Reactor, and provide buttons to change the insertion level.
 
 	## Cooling the Reactor
-	The Reactor is cooled through the use of gasses, but the gasses you use can have varying effects on the Reactor.
+	The Reactor is cooled through the use of gasses, but some gasses have effects on the Reactor when in sufficient quantities:
 
 	<Box>
 		<GuideEntityEmbed Entity="PlasmaCanister" Caption=""/>
 	</Box>
-	[color=purple][bold]Plasma[/bold][/color] has a reactive effect, creating more neutrons and decaying into [color=green][bold]Tritium[/bold][/color].
+	[color=#ff3300][bold]Plasma[/bold][/color] has a reactive effect, creating more neutrons and decaying into [color=#13ff4b][bold]Tritium[/bold][/color].
 
 	If there is enough plasma within the Reactor, it may end up going into a runaway reaction and [color=red]melting down[/color].
 
 	<Box>
 		<GuideEntityEmbed Entity="CarbonDioxideCanister" Caption=""/>
 	</Box>
-	[color=gray][bold]Carbon Dioxide[/bold][/color] has a moderative effect, removing neutrons that come into contact with it.
+	[color=#4e4e4e][bold]Carbon Dioxide[/bold][/color] has a moderative effect, removing neutrons that come into contact with it.
 
 	This can be used to regulate a plasma reaction or slow down the Reactor.
 
 	<Box>
 		<GuideEntityEmbed Entity="TritiumCanister" Caption=""/>
 	</Box>
-	[color=green][bold]Tritium[/bold][/color] transmutes within a Reactor, decaying into a wide variety of gasses, including [color=blue][bold]Oxygen[/bold][/color].
+	[color=#13ff4b][bold]Tritium[/bold][/color] transmutes within a Reactor, randomly decaying into a wide variety of gasses:
+	- [color=#2887e8][bold]Oxygen[/bold][/color]
+	- [color=#FF0000][bold]Nitrogen[/bold][/color]
+	- [color=#56941e][bold]Ammonia[/bold][/color]
+	- [color=#8f00ff][bold]Nitrous Oxide[/bold][/color]
+	- [color=#3a758c][bold]Frezon[/bold][/color]
 
-	In the presence of oxygen and at the temperatures of the Reactor, tritium will begin to burn, creating large amounts of heat.
+	In the presence of [color=#2887e8][bold]Oxygen[/bold][/color] and at the temperatures of the Reactor, [color=#13ff4b][bold]Tritium[/bold][/color] will begin to burn, [color=red]creating large amounts of heat[/color].
 
 	## Reactor Radiation
 	<Box>
@@ -193,7 +198,7 @@
 
 	Prolonged time spent at overspeed or excessive overspeed will cause the Turbine to [color=red]tear itself apart[/color].
 
-	Damage to the Turbine can be repaired with a [color=yellow]welder[/color].
+	Damage to the Turbine can be repaired with a [color=yellow]welder[/color], though it will likely take multiple attempts to fully repair it.
 
 	### Overtemp
 	The gas going into the Turbine is too hot.
@@ -222,6 +227,6 @@
 	- As the Reactor warms up, engineers will want to keep adjusting the Turbine's Stator Load to maintain optimal RPM.
 	- Once the Turbine is making enough power for the station, the Control Rods should be inserted to the point of maintaining Reactor temperature.
 
-	Over time, the Fuel Rods will lose radioactivity, meaning the Control Rods should be retracted further or they should be replaced.
+	Over time, the Fuel Rods will lose radioactivity, meaning the Control Rods should be retracted further or the fuel rods replaced.
 
 </Document>
