@@ -91,5 +91,16 @@ namespace Content.Server.Atmos.EntitySystems
             Subs.CVar(_cfg, CCVars.ExcitedGroupsSpaceIsAllConsuming, value => ExcitedGroupsSpaceIsAllConsuming = value, true);
             Subs.CVar(_cfg, GoobCVars.AtmosHumanoidThrowMultiplier, value => HumanoidThrowMultiplier = value, true);
         }
+        //goobstation start
+        public bool GetSpaceWind()
+        {
+            return SpaceWind;
+        }
+
+        public void SetSpaceWind(bool value)
+        {
+            SpaceWind = value;
+        }
+        // Goobstation end
     }
 }

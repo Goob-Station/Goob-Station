@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._Goobstation.Wizard.EventSpells;
 using Content.Shared.CCVar;
 using Content.Shared.Movement.Components;
 using Robust.Shared;
@@ -19,6 +20,7 @@ public abstract class SharedMobCollisionSystem : EntitySystem
     [Dependency] private   readonly MovementSpeedModifierSystem _moveMod = default!;
     [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
     [Dependency] private   readonly SharedTransformSystem _xformSystem = default!;
+    [Dependency] protected readonly SharedMobCollisionSpellSystem _mobCollisionSpell = default!;
 
     protected EntityQuery<MobCollisionComponent> MobQuery;
     protected EntityQuery<PhysicsComponent> PhysicsQuery;

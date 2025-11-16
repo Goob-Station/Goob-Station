@@ -57,4 +57,10 @@ public sealed partial class MobCollisionComponent : Component
 
     [DataField, AutoNetworkedField]
     public Vector2 Direction;
+
+    /// <summary>
+    /// if mob coliding  have been enabled via events
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool EnabledViaEvent;
 }
