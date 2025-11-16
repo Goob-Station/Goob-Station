@@ -8,3 +8,5 @@
   entityWhitelist:
     components:
     - HeadRevolutionary
+  groups:
+  - Technological

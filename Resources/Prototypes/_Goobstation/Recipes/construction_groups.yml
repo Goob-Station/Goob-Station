@@ -1,0 +1,110 @@
+# Simple combination of 2-3 parts.
+- type: constructionGroup
+  id: SimpleHandmade
+  name: construction-group-handmade-simple
+
+# Simple combination of more than 3 parts that require good level of intellegence.
+- type: constructionGroup
+  id: AdvancedHandmade
+  name: construction-group-handmade-advanced
+
+# Simple survival weapons that don't require special skills.
+- type: constructionGroup
+  id: SurvivalWeaponsHandmade
+  name: construction-group-survival-weapons
+
+# More complex weapons that require experience in the wilds. (Used for ashwalker weapons)
+- type: constructionGroup
+  id: SurvivalWeaponsHandmadeAdvanced
+  name: construction-group-survival-weapons-advanced
+
+# Anything that is makeshift, but known only because of technological progress.
+# Added along side some exceptions, like baseball bats, which are simple to make, but you need to know that they even exist.
+- type: constructionGroup
+  id: Technological
+  name: construction-group-technological
+
+# Any materials that can be made from other some other materials.
+- type: constructionGroup
+  id: Materials
+  name: construction-group-materials
+
+# Simple doors that don't have any electronics in them.
+- type: constructionGroup
+  id: Doors
+  name: construction-group-doors
+
+# All electric doors.
+- type: constructionGroup
+  id: Airlocks
+  name: construction-group-airlocks
+
+# Recipies that require some basic creativity to make out of other funny toys.
+- type: constructionGroup
+  id: Toys
+  name: construction-group-toys
+
+# For all of the weird bananium stuff.
+- type: constructionGroup
+  id: Bananium
+  name: construction-group-bananium
+
+# Bots that automatically do stuff.
+- type: constructionGroup
+  id: Bots
+  name: construction-group-bots
+
+# Simple furniture that is typically made out of wood.
+- type: constructionGroup
+  id: SimpleFurniture
+  name: construction-group-furniture-simple
+
+# Basic station furniture.
+- type: constructionGroup
+  id: Furniture
+  name: construction-group-furniture
+
+# Diffirent types of pipes. (doesn't include any actual devices)
+- type: constructionGroup
+  id: Infrastructure
+  name: construction-group-infrastructure
+
+# Everything that requires interaction with any boards or electronic devices in general.
+- type: constructionGroup
+  id: Electronics
+  name: construction-group-electronics
+
+# Basically all types of walls that are made from a single material.
+- type: constructionGroup
+  id: Walls
+  name: construction-group-walls
+
+# Walls that require multiple materials (or plasteel)
+- type: constructionGroup
+  id: AdvancedWalls
+  name: construction-group-walls-advanced
+
+# Anything that includes science devices in the recipe.
+- type: constructionGroup
+  id: Science
+  name: construction-group-science
+
+# Windows from normal and reinforced glass.
+- type: constructionGroup
+  id: Windows
+  name: construction-group-windows
+
+# Windows from any other advanced type of glass.
+- type: constructionGroup
+  id: AdvancedWindows
+  name: construction-group-windows-advanced
+
+# Everything made out of web.
+- type: constructionGroup
+  id: SpiderCraft
+  name: construction-group-spider-craft
+
+# Weed.
+- type: constructionGroup
+  id: Smokeables
+  name: construction-group-smokeables

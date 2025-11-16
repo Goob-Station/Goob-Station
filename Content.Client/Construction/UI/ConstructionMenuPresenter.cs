@@ -308,6 +308,12 @@ namespace Content.Client.Construction.UI
             var isEmptyCategory = string.IsNullOrEmpty(category) || category == ForAllCategoryName;
             _selectedCategory = isEmptyCategory ? string.Empty : category;
 
+            // Goobstation start
+            if (_playerManager.LocalEntity == null)
+                return recipes;
+            var availableGroups = _constructionSystem!.AvailableConstructionGroups(_playerManager.LocalEntity.Value);
+            // Goobstation end
+
             foreach (var recipe in _prototypeManager.EnumeratePrototypes<ConstructionPrototype>())
             {
                 if (recipe.Hide)
@@ -315,7 +321,8 @@ namespace Content.Client.Construction.UI
 
                 if (_playerManager.LocalSession == null
                     || _playerManager.LocalEntity == null
-                    || _whitelistSystem.IsWhitelistFail(recipe.EntityWhitelist, _playerManager.LocalEntity.Value))
+                    || _whitelistSystem.IsWhitelistFail(recipe.EntityWhitelist, _playerManager.LocalEntity.Value)
+                    || !availableGroups.Overlaps(recipe.Groups)) // Goobstation edit
                     continue;
 
                 if (!string.IsNullOrEmpty(search) && (recipe.Name is { } name &&

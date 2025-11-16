@@ -9,3 +9,5 @@
     components:
     - HeadRevolutionary
     - Revolutionary
+  groups:
+  - Technological

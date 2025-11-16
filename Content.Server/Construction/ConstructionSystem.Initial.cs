@@ -415,6 +415,14 @@ namespace Content.Server.Construction
                 return false;
             }
 
+            // Goobstation edit start
+            if (!AvailableConstructionGroups(user).Overlaps(constructionPrototype.Groups))
+            {
+                Log.Error($"User {ToPrettyString(user)} tried to start a construction {prototype} that it doesn't have knowledge about!");
+                return false;
+            }
+            // Goobstation edit end
+
             if (_whitelistSystem.IsWhitelistFail(constructionPrototype.EntityWhitelist, user))
             {
                 _popup.PopupEntity(Loc.GetString("construction-system-cannot-start"), user, user);
@@ -516,6 +524,15 @@ namespace Content.Server.Construction
                 RaiseNetworkEvent(new AckStructureConstructionMessage(ack), user);
                 return false;
             }
+
+            // Goobstation edit start
+            if (!AvailableConstructionGroups(user).Overlaps(constructionPrototype.Groups))
+            {
+                Log.Error($"User {ToPrettyString(user)} tried to start a construction {prototypeName} that it doesn't have knowledge about!");
+                RaiseNetworkEvent(new AckStructureConstructionMessage(ack), user);
+                return false;
+            }
+            // Goobstation edit end
 
             if (!PrototypeManager.TryIndex(constructionPrototype.Graph, out ConstructionGraphPrototype? constructionGraph))
             {

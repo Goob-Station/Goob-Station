@@ -66,6 +66,7 @@ using Content.Server.Administration.Managers;
 using Content.Server.Body.Components;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Common.Knowledge;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;

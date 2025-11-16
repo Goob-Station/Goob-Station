@@ -117,7 +117,7 @@
   - type: Speech
     speechVerb: Bingle
     speechSounds: Slime
-  - type: LanguageKnowledge
+  - type: LanguageGrant
     speaks:
     - Bingle
     understands: []

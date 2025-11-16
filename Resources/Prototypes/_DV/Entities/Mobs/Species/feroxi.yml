@@ -100,7 +100,7 @@
     hydratedMetabolizer: Feroxi
     dehydratedMetabolizer: FeroxiDehydrated
     dehydrationThreshold: 150
-  - type: LanguageKnowledge # The Den, give Feroxi their own language.
+  - type: LanguageGrant # The Den, give Feroxi their own language.
     speaks:
     - TauCetiBasic
     - Nehina

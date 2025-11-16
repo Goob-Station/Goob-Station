@@ -1,0 +1,7 @@
+- type: entity
+  id: BaseKnowledge
+  name: Base knowledge
+  categories: [ Knowledge ]
+  abstract: true
+  components:
+  - type: Knowledge

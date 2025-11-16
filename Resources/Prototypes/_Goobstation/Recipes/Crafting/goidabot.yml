@@ -5,3 +5,5 @@
   targetNode: bot
   category: construction-category-utilities
   objectType: Item
+  groups:
+  - Bots
