@@ -19,32 +19,12 @@
   name: abductor-agent-ghost-role-name
   antagonist: true
   objective: roles-antag-abductor-objective
-  # <Goob>
-  setPreference: true
-  guides: [ Abductors ]
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 180000 #50 hours
-  - !type:DepartmentTimeRequirement
-    department: Security
-    time: 10800 #3 hours
-  # </Goob>
 
 - type: antag
   id: AbductorScientistAntag
   name: abductor-scientist-ghost-role-name
   antagonist: true
   objective: roles-antag-abductor-objective
-  # <Goob>
-  setPreference: true
-  guides: [ Abductors ]
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 180000 #50 hours
-  - !type:DepartmentTimeRequirement
-    department: Medical
-    time: 10800 #3 hours
-  # </Goob>
 
 - type: antag
   id: AbductorVictimAntag
