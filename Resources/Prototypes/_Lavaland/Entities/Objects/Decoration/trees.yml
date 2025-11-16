@@ -1,0 +1,53 @@
+- type: entity
+  parent: BaseTree
+  id: FloraAshtree
+  name: ash tree
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Decoration/Flora/ashtree.rsi
+    offset: 0,0.5
+    layers:
+    - state: ashtree01
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        ashtree01: ""
+        ashtree02: ""
+        ashtree03: ""
+        ashtree04: ""
+        ashtree05: ""
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.3,0.25,0.3"
+        density: 1000
+        layer:
+        - WallLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/tree_fell.ogg
+          params:
+            volume: 5
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Log:
+            min: 2
+            max: 5
