@@ -90,6 +90,13 @@
         - state: equipped-HEAD-vox
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
+    - type: HideLayerClothing # Goobstation
+      slots:
+        - Hair
+        - Snout
+        - HeadTop
+        - HeadSide
+      hideOnToggle: true
     - type: PressureProtection
       highPressureMultiplier: 0.05
       lowPressureMultiplier: 1000
