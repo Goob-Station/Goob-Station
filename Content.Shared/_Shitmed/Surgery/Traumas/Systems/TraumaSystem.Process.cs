@@ -528,6 +528,9 @@ public partial class TraumaSystem
         var bone = target.Comp.Bone.ContainedEntities.FirstOrNull();
         if (bone != null && TryComp<BoneComponent>(bone, out var boneComp))
         {
+            if (bodyPart.PartType == BodyPartType.Head && boneComp.BoneSeverity < BoneSeverity.Cracked)
+                return false;
+
             switch (boneComp.BoneSeverity)
             {
                 case BoneSeverity.Normal:
