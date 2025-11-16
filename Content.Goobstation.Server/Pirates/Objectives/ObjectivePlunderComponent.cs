@@ -15,4 +15,5 @@ public sealed partial class ObjectivePlunderComponent : Component
 {
     //[ViewVariables(VVAccess.ReadOnly)][NonSerialized] public Entity<ResourceSiphonComponent>? BoundSiphon;
     [DataField] public float Plundered = 0f;
+    [DataField] public float Goal = 100000f;
 }

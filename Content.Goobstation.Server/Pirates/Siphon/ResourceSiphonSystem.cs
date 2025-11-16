@@ -21,27 +21,27 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared.Cargo.Components;
+using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Chat;
 using Content.Shared.Destructible;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
-using Content.Shared.Mind;
 using Content.Shared.Stacks;
 using Robust.Server.GameObjects;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Pirates.Siphon;
 
-public sealed partial class ResourceSiphonSystem : EntitySystem
+public sealed  class ResourceSiphonSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StationAnchorSystem _anchor = default!;
-    [Dependency] private readonly CargoSystem _cargo = default!;
     [Dependency] private readonly PricingSystem _pricing = default!;
     [Dependency] private readonly TransformSystem _xform = default!;
     [Dependency] private readonly MindSystem _mind = default!;
-
-    private float TickTimer = 1f;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -61,21 +61,16 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         var eqe = EntityQueryEnumerator<ResourceSiphonComponent>();
         while (eqe.MoveNext(out var uid, out var siphon))
         {
-            siphon.ActivationRewindClock -= frameTime;
-            if (siphon.ActivationRewindClock <= 0)
-            {
-                siphon.ActivationRewindClock = siphon.ActivationRewindTime;
-                siphon.ActivationPhase = 0; // reset
-            }
-        }
+            if (siphon.NextUpdateTime >_timing.CurTime)
+                continue;
 
-        TickTimer -= frameTime;
-        if (TickTimer <= 0)
-        {
-            TickTimer = 1;
-            eqe = EntityQueryEnumerator<ResourceSiphonComponent>(); // reset it ig
-            while (eqe.MoveNext(out var uid, out var siphon))
-                Tick((uid, siphon));
+            siphon.NextUpdateTime += siphon.NextUpdateInterval;
+
+            siphon.ActivationPhase -= 1;
+            if (siphon.ActivationPhase < 0)
+                siphon.ActivationPhase = 0; // reset
+
+            Tick((uid, siphon));
         }
     }
 
@@ -93,26 +88,57 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
 
         var bank = nbank!.Value;
 
-        // Uncomment this if you don't want cargo to go into space debt
-        // :trollface:
-        ;
-        var funds = _cargo.GetBalanceFromAccount(bank.AsNullable(), bank.Comp.PrimaryAccount) - ent.Comp.DrainRate;
-        if (funds > 0)
+        var funds = Siphon(ent, bank.Comp.Accounts, ent.Comp.DrainRate, ent.Comp.DrainPercent);
+
+        UpdateCredits(ent, funds);
+    }
+
+    /// <summary>
+    /// removes funds from the station eveanly distributad based on available funds in that department
+    /// </summary>
+    /// <param name="ent"></param> ent of the siphoning machine
+    /// <param name="accounts"></param> accouunts of the station
+    /// <param name="siphon"></param> ammount to siphon must be more than 0
+    /// <returns>returns the ammount removed</returns>
+    private float Siphon(Entity<ResourceSiphonComponent> ent, Dictionary<ProtoId<CargoAccountPrototype>, int> accounts, float siphon = 1f, float drainPercent = .1f)
+    {
+        var total = 0f;
+
+        foreach (var (key, ammount) in accounts)
+            if (ammount > 0)
+                total += ammount; //we only care about positive accounts. red accounts get excluded
+
+        siphon = Math.Max(total * drainPercent, siphon); // either drain a % of the total or take the set value if its bigger.
+        siphon = (float) Math.Round(siphon); // round
+
+        if (total < siphon || total == 0) // total is lower then we wanted so we take what we can.
         {
-            _cargo.UpdateBankAccount(bank.AsNullable(), (int) -ent.Comp.DrainRate, bank.Comp.PrimaryAccount);
-            UpdateCredits(ent, ent.Comp.DrainRate);
+            foreach (var (key, ammount) in accounts)
+                if (ammount > 0)
+                    accounts[key] = 0;
+
+            DeactivateSiphon(ent, "empty"); // stop the siphon because  all accounts are empty.
+            return total;
         }
+
+        foreach (var (key, ammount) in accounts)
+            if (ammount > 0)
+                accounts[key] -= (int) ((ammount/total) * siphon); //remove value from each account
+
+        return siphon; // return what we came for
     }
 
     #region Event Handlers
     private void OnInit(Entity<ResourceSiphonComponent> ent, ref ComponentInit args)
     {
-        if (!TryBindRule(ent)) return;
+        if (!TryBindRule(ent))
+            return;
     }
 
     private void OnInteract(Entity<ResourceSiphonComponent> ent, ref InteractHandEvent args)
     {
-        if (ent.Comp.Active) return;
+        if (ent.Comp.Active)
+            return;
 
         // no station = bad
         if (!GetBank(ent, out var bank))
@@ -137,7 +163,8 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
             var loc = Loc.GetString($"pirate-siphon-activate-{ent.Comp.ActivationPhase}");
             _chat.TrySendInGameICMessage(ent, loc, InGameICChatType.Speak, false);
         }
-        else ActivateSiphon(ent);
+        else
+            ActivateSiphon(ent);
     }
 
     private void OnInteractUsing(Entity<ResourceSiphonComponent> ent, ref InteractUsingEvent args)
@@ -145,12 +172,12 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         if (HasComp<CashComponent>(args.Used))
         {
             var price = _pricing.GetPrice(args.Used);
-            if (price == 0) return;
+            if (price == 0)
+                return;
 
             UpdateCredits(ent, (float) price);
             QueueDel(args.Used);
             args.Handled = true;
-            return;
         }
 
         // add more stuff here if needed
@@ -158,7 +185,10 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
 
     private void OnExamine(Entity<ResourceSiphonComponent> ent, ref ExaminedEvent args)
     {
-        args.PushMarkup(Loc.GetString("pirate-siphon-examine", ("num", ent.Comp.Credits), ("max_num", ent.Comp.CreditsThreshold)));
+        if (!TryComp<ActivePirateRuleComponent>(ent.Comp.BoundGamerule, out var prule))
+            return;
+
+        args.PushMarkup(Loc.GetString("pirate-siphon-examine", ("num", prule.Credits ), ("max_num", ent.Comp.CreditsThreshold)));
     }
 
     private void OnDestruction(Entity<ResourceSiphonComponent> ent, ref DestructionEventArgs args)
@@ -171,7 +201,7 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
     }
     #endregion
 
-    public void ActivateSiphon(Entity<ResourceSiphonComponent> ent)
+    private void ActivateSiphon(Entity<ResourceSiphonComponent> ent)
     {
         ent.Comp.Active = true;
 
@@ -184,9 +214,11 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         var anloc = Loc.GetString("data-siphon-activated-announcement", ("pos", $"X: {coords.X}; Y: {coords.Y}"));
         _chat.DispatchGlobalAnnouncement(anloc, "Priority", colorOverride: Color.Red);
     }
-    public void DeactivateSiphon(Entity<ResourceSiphonComponent> ent, string reason = "none")
+
+    private void DeactivateSiphon(Entity<ResourceSiphonComponent> ent, string reason = "none")
     {
-        if (!ent.Comp.Active) return;
+        if (!ent.Comp.Active)
+            return;
 
         ent.Comp.Active = false;
         if (TryComp<StationAnchorComponent>(ent, out var anchor))
@@ -225,26 +257,25 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         || !TryComp<ActivePirateRuleComponent>(ent.Comp.BoundGamerule, out var prule))
             return false;
 
-        prule.Credits = ent.Comp.Credits;
+        prule.Credits += ent.Comp.Credits;
+        ent.Comp.Credits = 0;
 
         foreach (var pirate in prule.Pirates)
-            UpdateObjective(pirate, ent);
+            if (_mind.TryGetObjectiveComp<ObjectivePlunderComponent>(pirate, out var objective))
+                objective.Plundered = prule.Credits;
 
         return true;
-    }
-    public void UpdateObjective(Entity<MindComponent> pirate, Entity<ResourceSiphonComponent> siphon)
-    {
-        if (_mind.TryGetObjectiveComp<ObjectivePlunderComponent>(pirate, out var objective))
-            objective.Plundered = siphon.Comp.Credits;
     }
 
     public void UpdateCredits(Entity<ResourceSiphonComponent> ent, float amount)
     {
-        var newAmount = ent.Comp.Credits + amount;
-        ent.Comp.Credits = Math.Min(ent.Comp.CreditsThreshold, newAmount);
+        if (!TryComp<ActivePirateRuleComponent>(ent.Comp.BoundGamerule, out var prule))
+        {
+            ent.Comp.Credits += amount;
+            return;
+        }
 
-        if (newAmount > ent.Comp.CreditsThreshold)
-            DeactivateSiphon(ent, "full");
+        prule.Credits += amount;
     }
 
     private bool GetBank(Entity<ResourceSiphonComponent> ent, out Entity<StationBankAccountComponent>? bank)

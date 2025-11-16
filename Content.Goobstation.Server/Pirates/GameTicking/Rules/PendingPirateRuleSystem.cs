@@ -81,8 +81,12 @@ public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPira
             if (!TryComp<StationBankAccountComponent>(station, out var bank))
                 return;
 
-            var balance = _cargo.GetBalanceFromAccount((station.Value, bank), bank.PrimaryAccount);
-            price = _rand.Next((int) (balance * 0.75f), (int) (balance * 1.25f));
+            var balance = 0f;
+            foreach (var (key,account) in bank.Accounts) // use all accounts total for the randsome
+                if (bank.Accounts[key] > 0)
+                    balance += bank.Accounts[key];
+
+            price = _rand.Next((int) (balance * 0.75f), (int) (balance * 2f));
 
             var orderId = CargoSystem.GenerateOrderId(cargoDb) + 1984;
 

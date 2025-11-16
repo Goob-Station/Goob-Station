@@ -1,0 +1,7 @@
+- type: entity
+  id: PiratsComputerPalletConsole
+  parent: ComputerPalletConsole
+  name: cargo sale computer
+  description: Used by pirates to sell goods loaded onto cargo pallets.
+  components:
+  - type: PiratesPalletConsole
