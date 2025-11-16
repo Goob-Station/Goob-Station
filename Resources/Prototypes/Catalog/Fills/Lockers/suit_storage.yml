@@ -274,19 +274,6 @@
   - type: AccessReader
     access: [["Armory"]]
 
-#Detective's hardsuit - Goobstation
-- type: entity
-  id: SuitStorageDetective
-  parent: SuitStorageBase
-  suffix: Detective
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillLockerDetectiveHardsuit
-  - type: AccessReader
-    access: [["Detective"]]
-
 #Captain's hardsuit
 - type: entity
   id: SuitStorageCaptain
