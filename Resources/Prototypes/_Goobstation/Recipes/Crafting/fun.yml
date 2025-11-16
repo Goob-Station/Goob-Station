@@ -6,7 +6,6 @@
 - type: construction
   id: ToyGrenade
   graph: ToyGrenade
-  startNode: start
   targetNode: toygrenade
   category: construction-category-misc
   objectType: Item

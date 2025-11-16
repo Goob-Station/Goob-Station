@@ -6,7 +6,6 @@
 
 - type: constructionGraph
   id: SpesosCounterfeit
-  start: start
   graph:
     - node: start
       edges:

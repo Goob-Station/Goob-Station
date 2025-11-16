@@ -7,7 +7,6 @@
 
 - type: constructionGraph
   id: RipleyMKII
-  start: start
   graph:
   - node: start
     edges:

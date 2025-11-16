@@ -15,7 +15,6 @@
 
 - type: constructionGraph
   id: WallDirectional
-  start: start
   graph:
     - node: start
       edges:

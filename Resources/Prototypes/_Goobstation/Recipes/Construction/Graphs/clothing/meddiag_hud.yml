@@ -8,7 +8,6 @@
 
 - type: constructionGraph
   id: HudMedDiag
-  start: start
   graph:
     - node: start
       edges:
