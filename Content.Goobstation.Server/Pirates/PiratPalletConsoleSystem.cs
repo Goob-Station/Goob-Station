@@ -7,6 +7,7 @@ using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Events;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs.Components;
+
 namespace Content.Goobstation.Server.Pirates;
 
 public sealed class PiratesPalletConsoleSystem : EntitySystem
@@ -58,7 +59,6 @@ public sealed class PiratesPalletConsoleSystem : EntitySystem
         _popup.PopupEntity("cant sell", args.Actor,args.Actor);
     }
 
-
     private bool SellPallets(EntityUid gridUid , out HashSet<(EntityUid, OverrideSellComponent?, double)> goods)
     {
         GetPalletGoods(gridUid, out var toSell, out goods);
@@ -74,6 +74,7 @@ public sealed class PiratesPalletConsoleSystem : EntitySystem
 
         return true;
     }
+
     private void GetPalletGoods(EntityUid gridUid, out HashSet<EntityUid> toSell,  out HashSet<(EntityUid, OverrideSellComponent?, double)> goods)
     {
         goods = new HashSet<(EntityUid, OverrideSellComponent?, double)>();
@@ -154,37 +155,5 @@ public sealed class PiratesPalletConsoleSystem : EntitySystem
         }
 
         return true;
-    }
-
-
-
-    /// <summary>
-    /// removes funds from the station eveanly distributad based on available funds in that department
-    /// </summary>
-    /// <param name="accounts"></param> accouunts of the station
-    /// <param name="siphon"></param> ammount to siphon must be more than 0
-    /// <returns>returns the ammount removed</returns>
-    private float Siphon(ref Dictionary<string, float> accounts, float siphon = 1)
-    {
-        var total = 0f;
-
-        foreach (var (key, ammount) in accounts)
-            if (ammount > 0)
-             total += ammount; //we only care about positive accounts. red accounts get excluded
-
-        if (total < siphon || total == 0) // total is lower then we wanted so we take what we can.
-        {
-            foreach (var (key, ammount) in accounts)
-                if (ammount > 0)
-                    accounts[key] = 0f;
-
-            return total;
-        }
-
-        foreach (var (key, ammount) in accounts)
-            if (ammount > 0)
-                accounts[key] -= (ammount/total) * siphon; //remove value from each account
-
-        return siphon; // return what we came for
     }
 }
