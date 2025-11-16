@@ -83,7 +83,7 @@ public sealed class InfusedItemSystem : EntitySystem
             if ((TryComp<HereticComponent>(target, out var th) && th.CurrentPath == heretic.CurrentPath))
                 continue;
 
-            if (!_grasp.TryApplyGraspEffectAndMark(args.User, heretic, target, null))
+            if (!_grasp.TryApplyGraspEffectAndMark(args.User, heretic, target, null, out _))
                 continue;
 
             success = true;

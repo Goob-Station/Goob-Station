@@ -37,7 +37,7 @@ knowledge-path-flesh-s2-desc =
     Your Mansus Grasp gains the ability to create a ghoul out of corpse with a soul.
     Ghouls have only 50 health and look like husks to the heathens' eyes.
     All ghouls get their own Bloody Blade that cannot be shattered and disappears on ghoul death.
-    You are now able to consume raw flesh. Eating meat, organs and body parts will empower you temporarily, the effect scales with your path stage.
+    You are now able to consume raw flesh. Eating meat, organs and body parts will empower and heal you temporarily, the effect scales with your path stage.
     You also become immune to damage from poisons.
 
 knowledge-path-flesh-s3-name = Imperfect Ritual
@@ -95,7 +95,6 @@ knowledge-path-flesh-s9-name = Priest’s Final Hymn
 knowledge-path-flesh-s9-desc =
     The ascension ritual of the Path of Flesh. Bring 4 corpses to a transmutation rune to complete the ritual.
     When completed, you will become even stronger from consuming flesh.
-    Additionally, upon taking damage, your body will split into mute flesh mimic. They will be given a Bloody Blade.
-    Mute flesh mimics are identical to Voiceless Dead but they receive damage over time that increases slowly.
+    Additionally, upon taking damage, your body will split into flesh mimic. They will be given a Bloody Blade.
     You can only sustain 10 flesh mimics at once, taking even more damage will instead heal existing mimics.
     You will also become immune to extreme temperatures and pressure.

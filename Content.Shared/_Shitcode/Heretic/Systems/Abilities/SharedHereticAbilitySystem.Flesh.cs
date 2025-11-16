@@ -100,7 +100,7 @@ public abstract partial class SharedHereticAbilitySystem
             return;
 
         InvokeTouchSpell<FleshSurgeryComponent>((args.Used.Value, surgery), args.User);
-        IHateWoundMed(args.Target.Value, null, null, null, null);
+        IHateWoundMed(args.Target.Value, null, null, null, null, null, null);
         args.Handled = true;
     }
 }

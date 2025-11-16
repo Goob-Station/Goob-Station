@@ -42,6 +42,18 @@
 
 - type: entity
   parent: BaseMindRoleAntag
+  id: MindRoleGhoul
+  name: Ghoul
+  components:
+  - type: MindRole
+    antagPrototype: Ghoul
+    exclusiveAntag: false
+    roleType: Familiar
+    subtype: role-subtype-ghoul
+  - type: GhoulRole
+
+- type: entity
+  parent: BaseMindRoleAntag
   id: MindRoleBrainwashed
   name: Brainwashed Role
   components:

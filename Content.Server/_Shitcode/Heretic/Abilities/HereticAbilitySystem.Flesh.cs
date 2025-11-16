@@ -30,7 +30,6 @@ using Content.Shared.Heretic;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Components;
-using Content.Shared.Speech.Muting;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio;
@@ -183,32 +182,47 @@ public sealed partial class HereticAbilitySystem
         if (!args.DamageIncreased || args.DamageDelta == null)
             return;
 
+        if (_mobstate.IsDead(ent))
+            return;
+
         var damage = args.DamageDelta.GetTotal();
 
-        if (damage < 5)
+        if (damage <= 0)
             return;
 
         if (!TryComp(ent, out HereticComponent? heretic) || !heretic.Ascended)
             return;
 
+        ent.Comp.TrackedDamage += damage;
+
         ent.Comp.FleshMimics.RemoveAll(x => !Exists(x));
-        if (ent.Comp.MaxMimics > 0 && ent.Comp.FleshMimics.Count > ent.Comp.MaxMimics)
+
+        if (ent.Comp.MaxMimics <= ent.Comp.FleshMimics.Count)
         {
-            var toHeal = -damage / ent.Comp.FleshMimics.Count * ent.Comp.MimicHealMultiplier;
+            var toHeal = -ent.Comp.TrackedDamage / ent.Comp.FleshMimics.Count * ent.Comp.MimicHealMultiplier;
+            ent.Comp.TrackedDamage = FixedPoint2.Zero;
             foreach (var mimic in ent.Comp.FleshMimics)
             {
-                IHateWoundMed(mimic, AllDamage * toHeal, toHeal, toHeal, toHeal);
+                IHateWoundMed(mimic, AllDamage * toHeal, toHeal, toHeal, toHeal, null, null);
             }
 
             return;
         }
 
-        if (CreateFleshMimic(ent, ent, true, true, 100, args.Origin) is not { } clone)
+        var maxToSpawn = ent.Comp.MaxMimics - ent.Comp.FleshMimics.Count;
+        var toSpawn = (int) (ent.Comp.TrackedDamage / ent.Comp.MimicDamage);
+        toSpawn = Math.Clamp(toSpawn, 0, maxToSpawn);
+
+        if (toSpawn == 0)
             return;
 
-        ent.Comp.FleshMimics.Add(clone);
-        EnsureComp<MutedComponent>(clone);
-        EnsureComp<HereticBladeUserBonusDamageComponent>(clone);
+        for (var i = 0; i < toSpawn; i++)
+        {
+            if (CreateFleshMimic(ent, ent, true, true, 50, args.Origin) is { } clone)
+                ent.Comp.FleshMimics.Add(clone);
+        }
+
+        ent.Comp.TrackedDamage -= toSpawn * ent.Comp.MimicDamage;
     }
 
     public EntityUid? CreateFleshMimic(EntityUid uid,
