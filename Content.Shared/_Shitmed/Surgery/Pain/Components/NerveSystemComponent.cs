@@ -73,7 +73,7 @@ public sealed partial class NerveSystemComponent : Component
     public TimeSpan NextCritScream;
 
     [DataField("painShockStun")]
-    public TimeSpan PainShockStunTime = TimeSpan.FromSeconds(2f);
+    public TimeSpan PainShockStunTime = TimeSpan.FromSeconds(0f); //disabled
 
     [DataField("organDamageStun")]
     public TimeSpan OrganDamageStunTime = TimeSpan.FromSeconds(12f);
@@ -249,9 +249,9 @@ public sealed partial class NerveSystemComponent : Component
         { PainThresholdTypes.Agony, 40 },
         // Just having 'PainFlinch' is lame, people scream for a few seconds before passing out / getting pain shocked, so I added agony.
         // A lot of screams (individual pain screams poll), for the funnies.
-        { PainThresholdTypes.PainShock, 65 }, // real
+        { PainThresholdTypes.PainShock, 2000 }, // essentially disabled
         // usually appears after an explosion. or some ultra big damage output thing, you might survive, and most importantly, you will fall down in pain.
         // :troll:
-        { PainThresholdTypes.PainShockAndAgony, 85 },
+        { PainThresholdTypes.PainShockAndAgony, 2500 },
     };
 }
