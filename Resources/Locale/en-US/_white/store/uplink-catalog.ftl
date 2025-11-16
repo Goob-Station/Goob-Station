@@ -5,10 +5,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 uplink-night-vision-name = Night Vision Goggles
-uplink-night-vision-desc = They allow you to see in the dark, while looking like normal sunglasses!
+uplink-night-vision-desc = They allow you to see in the dark, with a built in medical scanner.
 
 uplink-thermal-vision-name = Thermal Vision Goggles
-uplink-thermal-vision-desc = They allow you to see living creatures regardless of obstacles, with a built in medical scanner.
+uplink-thermal-vision-desc = They allow you to see living creatures regardless of obstacles.
 
 uplink-betrayal-knife-name = Betrayal Knife
 uplink-betrayal-knife-desc =

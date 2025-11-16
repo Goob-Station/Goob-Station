@@ -130,6 +130,7 @@
     baseSprintSpeed: 5
   - type: FlashImmunity
   - type: ThermalVision
+    thermalShader: null
     isActive: true
     color: white
     drawOverlay: false
