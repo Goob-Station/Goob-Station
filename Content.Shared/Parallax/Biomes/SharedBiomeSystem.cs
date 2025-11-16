@@ -19,10 +19,11 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Noise;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Utility; // Goob
 
 namespace Content.Shared.Parallax.Biomes;
 
-public abstract class SharedBiomeSystem : EntitySystem
+public abstract partial class SharedBiomeSystem : EntitySystem // Goob - made partial
 {
     [Dependency] protected readonly IPrototypeManager ProtoManager = default!;
     [Dependency] private readonly ISerializationManager _serManager = default!;
@@ -93,13 +94,15 @@ public abstract class SharedBiomeSystem : EntitySystem
             return false;
         }
 
-        return TryGetBiomeTile(indices, biome.Layers, biome.Seed, (uid, grid), out tile);
+        // Goob - added LayerNoises
+        return TryGetBiomeTile(indices, biome.Layers, biome.LayerNoises, biome.Seed, (uid, grid), out tile);
     }
 
     /// <summary>
     /// Tries to get the tile, real or otherwise, for the specified indices.
     /// </summary>
-    public bool TryGetBiomeTile(Vector2i indices, List<IBiomeLayer> layers, int seed, Entity<MapGridComponent>? grid, [NotNullWhen(true)] out Tile? tile)
+    // Goob - added layerNoises
+    public bool TryGetBiomeTile(Vector2i indices, List<IBiomeLayer> layers, List<FastNoiseLite> layerNoises, int seed, Entity<MapGridComponent>? grid, [NotNullWhen(true)] out Tile? tile)
     {
         if (grid is { } gridEnt && _map.TryGetTileRef(gridEnt, gridEnt.Comp, indices, out var tileRef) && !tileRef.Tile.IsEmpty)
         {
@@ -107,27 +110,32 @@ public abstract class SharedBiomeSystem : EntitySystem
             return true;
         }
 
-        return TryGetTile(indices, layers, seed, grid, out tile);
+        // Goob - added layerNoises
+        return TryGetTile(indices, layers, layerNoises, seed, grid, out tile);
     }
 
     /// <summary>
     /// Tries to get the tile, real or otherwise, for the specified indices.
     /// </summary>
     [Obsolete("Use the Entity<MapGridComponent>? overload")]
-    public bool TryGetBiomeTile(Vector2i indices, List<IBiomeLayer> layers, int seed, MapGridComponent? grid, [NotNullWhen(true)] out Tile? tile)
+    // Goob - added layerNoises
+    public bool TryGetBiomeTile(Vector2i indices, List<IBiomeLayer> layers, List<FastNoiseLite> layerNoises, int seed, MapGridComponent? grid, [NotNullWhen(true)] out Tile? tile)
     {
-        return TryGetBiomeTile(indices, layers, seed, grid == null ? null : (grid.Owner, grid), out tile);
+        // Goob - added layerNoises
+        return TryGetBiomeTile(indices, layers, layerNoises, seed, grid == null ? null : (grid.Owner, grid), out tile);
     }
 
     /// <summary>
     /// Gets the underlying biome tile, ignoring any existing tile that may be there.
     /// </summary>
-    public bool TryGetTile(Vector2i indices, List<IBiomeLayer> layers, int seed, Entity<MapGridComponent>? grid, [NotNullWhen(true)] out Tile? tile)
+    // Goobstation - added layerNoises
+    public bool TryGetTile(Vector2i indices, List<IBiomeLayer> layers, List<FastNoiseLite> layerNoises, int seed, Entity<MapGridComponent>? grid, [NotNullWhen(true)] out Tile? tile)
     {
+        DebugTools.Assert(layers.Count == layerNoises.Count, $"Tried to get tile with {layers.Count} layers but only {layerNoises.Count} noises cached!"); // Goob
         for (var i = layers.Count - 1; i >= 0; i--)
         {
             var layer = layers[i];
-            var noiseCopy = GetNoise(layer.Noise, seed);
+            var noiseCopy = layerNoises[i]; // Goob - use layerNoises
 
             var invert = layer.Invert;
             var value = noiseCopy.GetNoise(indices.X, indices.Y);
@@ -139,7 +147,11 @@ public abstract class SharedBiomeSystem : EntitySystem
             // Check if the tile is from meta layer, otherwise fall back to default layers.
             if (layer is BiomeMetaLayer meta)
             {
-                if (TryGetBiomeTile(indices, ProtoManager.Index<BiomeTemplatePrototype>(meta.Template).Layers, seed, grid, out tile))
+                // <Goob> - get cached templateNoises first
+                var template = ProtoManager.Index<BiomeTemplatePrototype>(meta.Template);
+                var templateNoises = GetTemplateNoises(template, seed);
+                // </Goob>
+                if (TryGetBiomeTile(indices, template.Layers, templateNoises, seed, grid, out tile))
                 {
                     return true;
                 }
@@ -164,9 +176,11 @@ public abstract class SharedBiomeSystem : EntitySystem
     /// Gets the underlying biome tile, ignoring any existing tile that may be there.
     /// </summary>
     [Obsolete("Use the Entity<MapGridComponent>? overload")]
-    public bool TryGetTile(Vector2i indices, List<IBiomeLayer> layers, int seed, MapGridComponent? grid, [NotNullWhen(true)] out Tile? tile)
+    // Goob - added layerNoises
+    public bool TryGetTile(Vector2i indices, List<IBiomeLayer> layers, List<FastNoiseLite> layerNoises, int seed, MapGridComponent? grid, [NotNullWhen(true)] out Tile? tile)
     {
-        return TryGetTile(indices, layers, seed, grid == null ? null : (grid.Owner, grid), out tile);
+        // Goob - added layerNoises
+        return TryGetTile(indices, layers, layerNoises, seed, grid == null ? null : (grid.Owner, grid), out tile);
     }
 
     /// <summary>
@@ -203,13 +217,15 @@ public abstract class SharedBiomeSystem : EntitySystem
     public bool TryGetEntity(Vector2i indices, BiomeComponent component, Entity<MapGridComponent>? grid,
         [NotNullWhen(true)] out string? entity)
     {
-        if (!TryGetBiomeTile(indices, component.Layers, component.Seed, grid, out var tile))
+        // Goob - added LayerNoises
+        if (!TryGetBiomeTile(indices, component.Layers, component.LayerNoises, component.Seed, grid, out var tile))
         {
             entity = null;
             return false;
         }
 
-        return TryGetEntity(indices, component.Layers, tile.Value, component.Seed, grid, out entity);
+        // Goob - added LayerNoises
+        return TryGetEntity(indices, component.Layers, tile.Value, component.LayerNoises, component.Seed, grid, out entity);
     }
 
     /// <summary>
@@ -222,7 +238,8 @@ public abstract class SharedBiomeSystem : EntitySystem
         return TryGetEntity(indices, component, grid == null ? null : (grid.Owner, grid), out entity);
     }
 
-    public bool TryGetEntity(Vector2i indices, List<IBiomeLayer> layers, Tile tileRef, int seed, Entity<MapGridComponent>? grid,
+    // Goob - added layerNoises
+    public bool TryGetEntity(Vector2i indices, List<IBiomeLayer> layers, Tile tileRef, List<FastNoiseLite> layerNoises, int seed, Entity<MapGridComponent>? grid,
         [NotNullWhen(true)] out string? entity)
     {
         var tileId = TileDefManager[tileRef.TypeId].ID;
@@ -246,7 +263,7 @@ public abstract class SharedBiomeSystem : EntitySystem
                     continue;
             }
 
-            var noiseCopy = GetNoise(layer.Noise, seed);
+            var noiseCopy = layerNoises[i]; // Goob - use layerNoises
 
             var invert = layer.Invert;
             var value = noiseCopy.GetNoise(indices.X, indices.Y);
@@ -257,7 +274,11 @@ public abstract class SharedBiomeSystem : EntitySystem
 
             if (layer is BiomeMetaLayer meta)
             {
-                if (TryGetEntity(indices, ProtoManager.Index<BiomeTemplatePrototype>(meta.Template).Layers, tileRef, seed, grid, out entity))
+                // <Goob> - get cached templateNoises first
+                var template = ProtoManager.Index<BiomeTemplatePrototype>(meta.Template);
+                var templateNoises = GetTemplateNoises(template, seed);
+                // </Goob>
+                if (TryGetEntity(indices, template.Layers, tileRef, templateNoises, seed, grid, out entity))
                 {
                     return true;
                 }
@@ -282,19 +303,23 @@ public abstract class SharedBiomeSystem : EntitySystem
     }
 
     [Obsolete("Use the Entity<MapGridComponent>? overload")]
-    public bool TryGetEntity(Vector2i indices, List<IBiomeLayer> layers, Tile tileRef, int seed, MapGridComponent grid,
+    // Goob - added layerNoises
+    public bool TryGetEntity(Vector2i indices, List<IBiomeLayer> layers, Tile tileRef, List<FastNoiseLite> layerNoises, int seed, MapGridComponent grid,
         [NotNullWhen(true)] out string? entity)
     {
-        return TryGetEntity(indices, layers, tileRef, seed, grid == null ? null : (grid.Owner, grid), out entity);
+        // Goob - added layerNoises
+        return TryGetEntity(indices, layers, tileRef, layerNoises, seed, grid == null ? null : (grid.Owner, grid), out entity);
     }
 
     /// <summary>
     /// Tries to get the relevant decals for this tile.
     /// </summary>
-    public bool TryGetDecals(Vector2i indices, List<IBiomeLayer> layers, int seed, Entity<MapGridComponent>? grid,
+    // Goob - added layerNoises
+    public bool TryGetDecals(Vector2i indices, List<IBiomeLayer> layers, List<FastNoiseLite> layerNoises, int seed, Entity<MapGridComponent>? grid,
         [NotNullWhen(true)] out List<(string ID, Vector2 Position)>? decals)
     {
-        if (!TryGetBiomeTile(indices, layers, seed, grid, out var tileRef))
+        // Goob - added layerNoises
+        if (!TryGetBiomeTile(indices, layers, layerNoises, seed, grid, out var tileRef))
         {
             decals = null;
             return false;
@@ -323,7 +348,7 @@ public abstract class SharedBiomeSystem : EntitySystem
             }
 
             var invert = layer.Invert;
-            var noiseCopy = GetNoise(layer.Noise, seed);
+            var noiseCopy = layerNoises[i]; // Goob - use layerNoises
             var value = noiseCopy.GetNoise(indices.X, indices.Y);
             value = invert ? value * -1 : value;
 
@@ -332,7 +357,11 @@ public abstract class SharedBiomeSystem : EntitySystem
 
             if (layer is BiomeMetaLayer meta)
             {
-                if (TryGetDecals(indices, ProtoManager.Index<BiomeTemplatePrototype>(meta.Template).Layers, seed, grid, out decals))
+                // <Goob> - get cached templateNoises first
+                var template = ProtoManager.Index<BiomeTemplatePrototype>(meta.Template);
+                var templateNoises = GetTemplateNoises(template, seed);
+                // </Goob>
+                if (TryGetDecals(indices, template.Layers, layerNoises, seed, grid, out decals))
                 {
                     return true;
                 }
@@ -379,10 +408,12 @@ public abstract class SharedBiomeSystem : EntitySystem
     /// Tries to get the relevant decals for this tile.
     /// </summary>
     [Obsolete("Use the Entity<MapGridComponent>? overload")]
-    public bool TryGetDecals(Vector2i indices, List<IBiomeLayer> layers, int seed, MapGridComponent grid,
+    // Goob - added layerNoises
+    public bool TryGetDecals(Vector2i indices, List<IBiomeLayer> layers, List<FastNoiseLite> layerNoises, int seed, MapGridComponent grid,
         [NotNullWhen(true)] out List<(string ID, Vector2 Position)>? decals)
     {
-        return TryGetDecals(indices, layers, seed, grid == null ? null : (grid.Owner, grid), out decals);
+        // Goob - added layerNoises
+        return TryGetDecals(indices, layers, layerNoises, seed, grid == null ? null : (grid.Owner, grid), out decals);
     }
 
     private FastNoiseLite GetNoise(FastNoiseLite seedNoise, int seed)
