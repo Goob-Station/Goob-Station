@@ -38,6 +38,10 @@
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: null
   - type: Nerve
+  - type: Tag # Goobstation
+    tags:
+    - Trash
+    - BodyPartInorganic
 
 - type: entity
   parent: [ PartIPCBase, BaseChestInorganic ]
