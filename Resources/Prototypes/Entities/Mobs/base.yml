@@ -191,9 +191,9 @@
   - type: MobStateActions
     actions:
       Critical:
-      - ActionCritSuccumb
+#      - ActionCritSuccumb # Goobstation: Removed quick suicide.
       - ActionCritFakeDeath
-      - ActionCritLastWords
+#      - ActionCritLastWords # Goobstation: Removed quick suicide.
   - type: Deathgasp
   - type: HealthExaminable
     examinableTypes:

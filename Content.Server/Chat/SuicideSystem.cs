@@ -235,12 +235,14 @@ public sealed class SuicideSystem : EntitySystem
             || HasComp<XenomorphPreventSuicideComponent>(victim))
             return;
 
+        /* // Goobstation begin - Moved to SuicideCommand
         var othersMessage = Loc.GetString("suicide-command-default-text-others", ("name", Identity.Entity(victim, EntityManager)));
         _popup.PopupEntity(othersMessage, victim, Filter.PvsExcept(victim), true);
 
         var selfMessage = Loc.GetString("suicide-command-default-text-self");
         _popup.PopupEntity(selfMessage, victim, victim);
 
+*/ //Goobstation end
         if (args.DamageSpecifier != null)
         {
             _suicide.ApplyLethalDamage(victim, args.DamageSpecifier);
