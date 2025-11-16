@@ -21,3 +21,4 @@ reagent-effect-guidebook-deal-stamina-damage =
                   } stamina damage
 
 reagent-effect-guidebook-stealth-entities = Camouflages everything in a {$radius} tile radius.
+reagent-effect-guidebook-change-faction = Changes factions of nearby mobs.

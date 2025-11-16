@@ -33,7 +33,7 @@
     energy: 1.6
     color: "#b89f25"
   - type: AccessReader
-    access: [["ResearchDirector"]]
+    access: [["Research"]]
   - type: GuideHelp
     guides:
     - Xenobiology

@@ -188,16 +188,6 @@
 
 - type: entity
   parent: PosterBase
-  id: PosterLegitGoobAllSeeingStar
-  name: "All-Seeing Star"
-  description: "A poster depicting a four-pointed star. The text reads 'Always watching. Always.'"
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Structures/posters.rsi
-    state: goob_poster19_legit
-
-- type: entity
-  parent: PosterBase
   id: PosterContrabandGoobChuckler
   name: "The Chuckler"
   description: "A poster depicting a clearly suffering clown. You can feel the sadness and anger behind the facade of a smile"

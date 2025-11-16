@@ -5,8 +5,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-job-description-xenobiologist = Breed, maintain, and harvest various xenobiological creatures aboard the station.
-
 # Navy
 
 job-description-navy-officer-undercover = Complete your assigned tasks, Terminate the given targets. Good luck.

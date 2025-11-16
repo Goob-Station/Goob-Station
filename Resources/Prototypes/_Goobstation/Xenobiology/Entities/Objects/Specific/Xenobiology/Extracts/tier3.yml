@@ -21,7 +21,9 @@
         messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      # create volatile red slime jelly
+      - !type:CreateEntityReactionEffect
+        entity: VolatileRedExtractJelly
+        number: 1
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:

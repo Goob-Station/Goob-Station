@@ -20,11 +20,3 @@
     sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
     state: trainer
   jobName: job-name-nct
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconXenobiologist
-  icon:
-    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
-    state: Xenobiologist
-  jobName: job-name-xenobiologist

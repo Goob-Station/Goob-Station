@@ -162,7 +162,6 @@
   - Brig
   - Cryogenics
   - External # Goobstation
-  - Xenobiology # Goobstation
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
