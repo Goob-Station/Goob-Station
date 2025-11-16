@@ -17915,3 +17915,11 @@ Entries:
       message: Added 4 new bark voices.
   id: 2014
   time: '2025-11-15T07:21:37.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added artifact fragment ore, it melts to normal artifact fragments in
+        the ore processor, and gives you 200 mining points per piece!
+  id: 2015
+  time: '2025-11-15T19:17:00.0000000+00:00'
