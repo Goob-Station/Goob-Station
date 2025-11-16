@@ -14,6 +14,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Goobstation.Common.MouseWheel;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.UserInterface;
@@ -132,6 +133,19 @@ namespace Content.Client.Viewport
             IoCManager.InjectDependencies(this);
             RectClipContent = true;
         }
+
+        // Goobstation start
+        protected override void MouseWheel(GUIMouseWheelEventArgs args)
+        {
+            if (args.Handled || MathHelper.CloseToPercent(0f, args.Delta.Y))
+                return;
+
+            var ev = new MouseWheelUIEvent(args.Delta.Y);
+            _entityManager.EventBus.RaiseEvent(EventSource.Local, ref ev);
+
+            base.MouseWheel(args);
+        }
+        // Goobstation end
 
         protected override void KeyBindDown(GUIBoundKeyEventArgs args)
         {
