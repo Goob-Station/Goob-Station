@@ -10,10 +10,10 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Shared.SlotMachine;
+namespace Content.Goobstation.Shared.SlotMachine.CoinFlipper;
 
 /// <summary>
-/// This handles...
+/// This handles the coinflipper machine logic
 /// </summary>
 public sealed class CoinFlipperMachineSystem : EntitySystem
 {
@@ -26,8 +26,6 @@ public sealed class CoinFlipperMachineSystem : EntitySystem
     [Dependency] private readonly SharedChatSystem _chatSystem = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedStackSystem _stackSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     public override void Initialize()
     {
         base.Initialize();
