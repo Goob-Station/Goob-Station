@@ -74,4 +74,18 @@ public sealed partial class AntagPrototype : IPrototype
     /// </summary>
     [DataField]
     public List<ProtoId<GuideEntryPrototype>>? Guides;
+
+    // Goobstation start
+    [DataField]
+    public string? CriminalRecord = null;
+
+    [DataField]
+    public string? MedicalRecord = null;
+
+    [DataField]
+    public float RecordsProb = 0.75f;
+
+    [DataField]
+    public float FakeRecordsProb = 0.15f;
+    // Goobstation end
 }
