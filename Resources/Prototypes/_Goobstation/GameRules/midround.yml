@@ -19,8 +19,9 @@
   components:
   - type: StationEvent
     earliestStart: 30
-    weight: 10
+    weight: 8
     minimumPlayers: 15
+    maxOccurrences: 1
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
@@ -38,7 +39,8 @@
     selectionTime: PostPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 1
+      min: 1
+      max: 2
       playerRatio: 10
       blacklist:
         components:
@@ -60,6 +62,7 @@
     earliestStart: 20
     weight: 3
     minimumPlayers: 15
+    maxOccurrences: 1
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
@@ -77,8 +80,10 @@
     selectionTime: PostPlayerSpawn
     agentName: changeling-roundend-name
     definitions:
-    - prefRoles: [ Changeling ]
-      max: 1
+    - prefRoles: [ SleeperChangeling ]
+    - fallbackRoles: [ Changeling ]
+      min: 1
+      max: 2
       playerRatio: 10
       blacklist:
         components:
@@ -87,7 +92,7 @@
         - BibleUser
       lateJoinAdditional: true
       mindRoles:
-      - MindRoleChangeling
+      - MindRoleChangelingmidround
   - type: Tag
     tags:
       - MidroundAntag
@@ -101,6 +106,7 @@
     earliestStart: 20
     weight: 3
     minimumPlayers: 30
+    maxOccurrences: 1
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
@@ -118,8 +124,10 @@
     selectionTime: PostPlayerSpawn
     agentName: heretic-roundend-name
     definitions:
-    - prefRoles: [ Heretic ]
-      max: 1
+    - prefRoles: [ SleeperHeretic ]
+    - fallbackRoles: [ Heretic ]
+      min: 1
+      max: 2
       playerRatio: 15
       blacklist:
         components:
@@ -243,5 +251,47 @@
     table:
       id: MobFloorGoblin
   - type: Tag
+
+# Midround Devil
+- type: entity
+  parent: Devil
+  id: Devilmidround
+  components:
+  - type: StationEvent
+    earliestStart: 20
+    weight: 1
+    minimumPlayers: 30
+    maxOccurrences: 1
+    startAnnouncement: station-event-communication-interception
+    startAudio:
+      path: /Audio/Announcements/intercept.ogg
+    duration: null
+    occursDuringRoundEnd: false
+    chaos:
+      Hostile: 200
+      Medical: 150
+      Death: 200
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 400
+  - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
+    agentName: devil-roundend-name
+    definitions:
+    - prefRoles: [ SleeperDevil ]
+    - fallbackRoles: [ Devil ]
+      max: 1
+      playerRatio: 15
+      blacklist:
+        components:
+        - CommandStaff
+        - AntagImmune
+        - BibleUser
+      lateJoinAdditional: true
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      mindRoles:
+      - DevilMindRole
+  - type: Tag
     tags:
-    - MidroundAntag
+      - MidroundAntag
