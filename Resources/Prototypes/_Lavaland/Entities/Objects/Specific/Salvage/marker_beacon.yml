@@ -55,6 +55,9 @@
   components:
   - type: Transform
     anchored: true
+  - type: Physics
+    canCollide: False
+    bodyType: Static
 
 - type: entity
   id: MarkerBeaconActiveAnchored
@@ -63,6 +66,9 @@
   components:
   - type: Transform
     anchored: true
+  - type: Physics
+    canCollide: False
+    bodyType: Static
 
 - type: entity
   parent: BaseAmmoProvider # this is for cycling swabs out and not spawning 30 entities, trust
