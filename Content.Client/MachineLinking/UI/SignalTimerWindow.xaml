@@ -14,10 +14,9 @@ SPDX-License-Identifier: MIT
         </BoxContainer>
         <BoxContainer Name="DelayEdit" Orientation="Horizontal">
             <Label Name="CurrentDelay" Text="{Loc signal-timer-menu-delay}" />
-            <LineEdit Name="CurrentDelayEditMinutes" MinWidth="32" />
-            <Label Name="Colon" Text=":" />
-            <LineEdit Name="CurrentDelayEditSeconds" MinWidth="32" />
-            <Label Name="DelayInfo" Text=" (mm:ss)" />
+            <!-- Mono: Changed from integer MM:SS to float seconds -->
+            <FloatSpinBox Name="CurrentDelayEdit" MinWidth="32" />
+            <Label Text="s" />
         </BoxContainer>
         <Button Name="StartTimer" Text="{Loc signal-timer-menu-start}" />
     </BoxContainer>
