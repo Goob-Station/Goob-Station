@@ -5,6 +5,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Polymorph;
+using Robust.Shared.Prototypes;
+
 namespace Content.Goobstation.Server.Implants.Components;
 
 [RegisterComponent]
@@ -34,4 +37,10 @@ public sealed partial class NutrimentPumpImplantComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public TimeSpan ExecutionInterval = TimeSpan.FromSeconds(1);
+
+    /// <summary>
+    /// Polymorph proto when implant is implanted in rat king
+    /// </summary>
+    [DataField]
+    public ProtoId<PolymorphPrototype>? RatKingPolymorph = "RatKingBuff";
 }

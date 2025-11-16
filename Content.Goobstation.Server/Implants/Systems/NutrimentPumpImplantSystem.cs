@@ -6,9 +6,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Server.Implants.Components;
+using Content.Server.Polymorph.Systems;
+using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.RatKing;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
@@ -18,7 +21,24 @@ public sealed class NutrimentPumpImplantSystem : EntitySystem
 {
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly ThirstSystem _thirst = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<NutrimentPumpImplantComponent, ImplantImplantedEvent>(OnImplanted);
+    }
+
+    private void OnImplanted(Entity<NutrimentPumpImplantComponent> ent, ref ImplantImplantedEvent args)
+    {
+        if (ent.Comp.RatKingPolymorph == null || !HasComp<RatKingComponent>(args.Implanted))
+            return;
+
+        _polymorph.PolymorphEntity(args.Implanted.Value, ent.Comp.RatKingPolymorph.Value);
+    }
 
     public override void Update(float frameTime)
     {
