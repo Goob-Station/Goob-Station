@@ -48,7 +48,7 @@
   - type: Damageable # Shitmed
     damageModifierSet: Slime
   - type: Boneless # Goob Edit
-    bonePenalty: 1
+    bonePenalty: 0.7
 
 - type: entity
   id: ChestSlime
