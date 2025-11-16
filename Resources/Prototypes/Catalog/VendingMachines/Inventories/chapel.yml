@@ -58,6 +58,7 @@
     BoxCandleSmall: 2
     Urn: 5
     SpectralLocator: 1
+    ClothingHeadHelmetTemplar: 1 #goob
     ClothingHeadHatImam: 1 #goob
     HeadSkeleton: 1 #goob
   contrabandInventory:
