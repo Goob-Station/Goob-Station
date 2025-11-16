@@ -1,0 +1,84 @@
+# SPDX-FileCopyrightText: 2025 GabyChangelog <agentepanela2@gmail.com>
+# SPDX-FileCopyrightText: 2025 Will-Oliver-Br <164823659+Will-Oliver-Br@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: WashingMachine
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: washing machine
+  description: Remove the bloodstains from your grayshirt.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/washing_machine.rsi
+    snapCardinals: true
+    layers:
+    - state: base
+      map: [ "enum.StorageVisualLayers.Base" ]
+    - state: empty
+      map: [ "content" ]
+    - state: door-open
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: running
+      map: [ "washing" ]
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      visible: false
+  - type: WashingMachine
+    washingTime: 5
+    washingSound:
+      path: /Audio/_Goobstation/Machines/washing_loop.ogg
+      params:
+        loop: true
+    finishedSound:
+      path: /Audio/_Goobstation/Machines/washing_open.ogg
+  - type: EntityStorage
+    isCollidableWhenOpen: true
+    open: true
+    capacity: 8
+    whitelist:
+      components:
+      - Clothing
+      sizes:
+      - Tiny
+  - type: Forensics
+    canDnaBeCleaned: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.WashingMachineVisuals.State:
+        washing:
+          Idle: { visible: false }
+          Washing: { visible: true }
+          Broken: { visible: false }
+      enum.StorageVisuals.HasContents:
+        content:
+          True: { state: full }
+          False: { state: empty }
+  - type: EntityStorageVisuals
+    stateDoorOpen: door-open
+    stateDoorClosed: door-closed
+  - type: Machine
+    board: WashingMachineCircuitboard
+  - type: PlaceableSurface
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      machine_parts: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      entity_storage: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+  - type: Construction
+    containers:
+    - machine_parts
+    - machine_board
+    - entity_storage
