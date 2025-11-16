@@ -27,6 +27,6 @@ namespace Content.Shared._Lavaland.Aggression;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class AggressorComponent : Component
 {
-    [ViewVariables, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public HashSet<EntityUid> Aggressives = new();
 }
