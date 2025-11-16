@@ -1,0 +1,23 @@
+- type: entity
+  id: MorphSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    earliestStart: 20
+    minimumPlayers: 20
+    weight: 5
+  - type: MorphRule
+  - type: AntagRandomSpawn
+  - type: AntagSpawner
+    prototype: MobMorph
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostMorph
+      min: 1
+      max: 1
+      briefing:
+        text: morph-role-greeting
+        color: lime
+        sound: /Audio/_Harmony/Misc/mutate.ogg
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
