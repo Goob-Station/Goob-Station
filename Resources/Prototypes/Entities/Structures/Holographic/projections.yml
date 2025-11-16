@@ -138,7 +138,9 @@
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 60
+          damage: 30 # Goob edit
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 10

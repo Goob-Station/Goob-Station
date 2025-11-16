@@ -20,7 +20,9 @@ using Content.Shared.Coordinates.Helpers;
 using Content.Server.Power.Components;
 using Content.Server.PowerCell;
 using Content.Shared.Interaction;
+using Content.Shared.Physics; // Goobstation
 using Content.Shared.Storage;
+using Robust.Shared.Physics.Components; // Goobstation
 
 namespace Content.Server.Holosign;
 
@@ -28,6 +30,7 @@ public sealed class HolosignSystem : EntitySystem
 {
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!; // Goobstation
 
 
     public override void Initialize()
@@ -58,17 +61,35 @@ public sealed class HolosignSystem : EntitySystem
 
     private void OnBeforeInteract(EntityUid uid, HolosignProjectorComponent component, BeforeRangedInteractEvent args)
     {
-
+        // Goob edit start
         if (args.Handled
             || !args.CanReach // prevent placing out of range
-            || HasComp<StorageComponent>(args.Target) // if it's a storage component like a bag, we ignore usage so it can be stored
-            || !_powerCell.TryUseCharge(uid, component.ChargeUse, user: args.User) // if no battery or no charge, doesn't work
-            )
+            || HasComp<StorageComponent>(args.Target)) // if it's a storage component like a bag, we ignore usage so it can be stored
             return;
 
         // places the holographic sign at the click location, snapped to grid.
-        // overlapping of the same holo on one tile remains allowed to allow holofan refreshes
-        var holoUid = Spawn(component.SignProto, args.ClickLocation.SnapToGrid(EntityManager));
+        var coords = args.ClickLocation.SnapToGrid(EntityManager);
+        var physicsQuery = GetEntityQuery<PhysicsComponent>();
+        var look = _lookup.GetEntitiesInRange(coords, 0.1f);
+        foreach (var entity in look)
+        {
+            if (Prototype(entity) is {} proto && proto.ID == component.SignProto)
+                return;
+
+            if (!physicsQuery.TryComp(entity, out var physics))
+                continue;
+
+            if ((physics.CollisionLayer |
+                 (int) (CollisionGroup.Impassable |
+                        CollisionGroup.LowImpassable |
+                        CollisionGroup.MidImpassable |
+                        CollisionGroup.HighImpassable)) != 0)
+                return;
+        }
+        if (!_powerCell.TryUseCharge(uid, component.ChargeUse, user: args.User)) // if no battery or no charge, doesn't work
+            return;
+        var holoUid = Spawn(component.SignProto, coords);
+        // Goob edit end
         var xform = Transform(holoUid);
         if (!xform.Anchored)
             _transform.AnchorEntity(holoUid, xform); // anchor to prevent any tempering with (don't know what could even interact with it)
