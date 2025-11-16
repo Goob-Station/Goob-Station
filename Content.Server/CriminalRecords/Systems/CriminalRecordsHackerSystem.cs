@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chat.Systems;
+using Content.Server.Power.EntitySystems; // Goobstation - Check power
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords.Systems;
 using Content.Shared.CriminalRecords;
@@ -26,7 +27,7 @@ public sealed class CriminalRecordsHackerSystem : SharedCriminalRecordsHackerSys
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StationRecordsSystem _records = default!;
-
+    [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!; // Goobstation - check power
     public override void Initialize()
     {
         base.Initialize();
@@ -36,7 +37,7 @@ public sealed class CriminalRecordsHackerSystem : SharedCriminalRecordsHackerSys
 
     private void OnDoAfter(Entity<CriminalRecordsHackerComponent> ent, ref CriminalRecordsHackDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled || args.Target == null)
+        if (args.Cancelled || args.Handled || args.Target == null || !_powerReceiverSystem.IsPowered(args.Target.Value)) // Goobstation - check power
             return;
 
         if (_station.GetOwningStation(ent) is not {} station)
