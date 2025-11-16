@@ -199,6 +199,11 @@
     - WhitelistChameleon
   - type: FireProtection
     reduction: 0.1
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop: HEAD
+      HeadSide: HEAD
 
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
@@ -218,6 +223,8 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  - type: HideLayerClothing
+    layers: {}
 
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
@@ -245,6 +252,8 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  - type: HideLayerClothing
+    layers: {}
 
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
@@ -293,3 +302,8 @@
     state: icon
   - type: Clothing
     sprite: _ShitChap/Clothing/Head/Misc/bishop.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    layers: {}

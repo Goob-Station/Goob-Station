@@ -22,6 +22,8 @@
     reflectProb: 1
     reflects:
     - Magic
+    slotFlags:
+    - NONE
   - type: DisarmMalus
     malus: 0
   - type: Tag
@@ -339,6 +341,12 @@
   - type: Sharp
   - type: Scalpel
     speed: 0.5
+  - type: DivineIntervention
+    validSpellDenialSlots:
+    - HEAD
+  - type: Reflect
+    slotFlags:
+    - HEAD
   - type: Tag
     tags:
     - AthiestsFedora
@@ -682,7 +690,10 @@
         Piercing: 20
     UntrainedUseString: nullrod-spear-untrained-usage-popup
   - type: Item
-    size: Huge
+    size: Large # Goob edit
+    shape: # Goob
+    - 0,0,8,0
+    storedRotation: 45 # Goob
     sprite: _ShitChap/Objects/Weapons/Nullrod/ratvarian_spear.rsi
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Nullrod/ratvarian_spear.rsi
@@ -713,5 +724,42 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 25
+        Piercing: 25
         Holy: 15
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          vertices:
+            - -0.08,-0.06 # Goob edit
+            - -0.06,-0.08 # Goob edit
+            - 0.40,0.30
+            - 0.30,0.40
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: Sharp
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 5 # Goobstation
+  - type: MeleeChemicalInjector
+    transferAmount: 1 # Goobstation
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionInjectOnEmbed
+    transferAmount: 2
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 2
+  - type: ThrowableBlocked # Goobstation

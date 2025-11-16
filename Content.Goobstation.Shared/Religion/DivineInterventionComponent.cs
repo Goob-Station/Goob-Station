@@ -5,11 +5,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Inventory;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Common.Religion;
+namespace Content.Goobstation.Shared.Religion;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class DivineInterventionComponent : Component
@@ -31,4 +32,10 @@ public sealed partial class DivineInterventionComponent : Component
     /// </summary>
     [DataField]
     public LocId DenialString = "nullrod-spelldenial-popup";
+
+    /// <summary>
+    /// Valid inventory slots for spell denial when equipped
+    /// </summary>
+    [DataField]
+    public SlotFlags ValidSpellDenialSlots = SlotFlags.NONE;
 }
