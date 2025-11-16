@@ -309,3 +309,4 @@ Resources/MapImages
 
 config.json
 .github/workflows/update-prs.yaml
+Resources/.vscode/settings.json
