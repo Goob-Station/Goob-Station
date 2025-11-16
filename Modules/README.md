@@ -98,9 +98,10 @@ mkdir -p Modules/YourModule/Content.YourModule.Shared
 ```
 
 Writing TODO:
-[] Step 5: Add to SLN (`find . -name "*.csproj" ! -path "./RobustToolbox/*" -exec dotnet sln add {} \;`)
-[] Step 6: IoC + Entrypoint
-[] Step 7: Reference in parent module if necessary
-[] Step 8: uhm uhm uhm
-[] Also I think i'll prolly write a script to generate a new module with Client/Shared/Server/Common modules baked in
-[] uhm.... explain dependencies, circular shit, and common
+
+- [] Step 5: Add to SLN (`find . -name "*.csproj" ! -path "./RobustToolbox/*" -exec dotnet sln add {} \;`)
+- [] Step 6: IoC + Entrypoint
+- [] Step 7: Reference in parent module if necessary
+- [] Step 8: uhm uhm uhm
+- [] Also I think i'll prolly write a script to generate a new module with Client/Shared/Server/Common modules baked in
+- [] uhm.... explain dependencies, circular shit, and common
