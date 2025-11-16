@@ -72,21 +72,12 @@ public static class ClientPackaging
     {
         var clientProjects = new List<string> { Path.Combine("Content.Client", "Content.Client.csproj") };
 
-        var directories = Directory.GetDirectories(path, "Content.*");
-
-        foreach (var dir in directories)
-        {
-            var dirName = Path.GetFileName(dir);
-
-            if (dirName != "Content.Client" && dirName.EndsWith(".Client"))
-            {
-                var projectPath = Path.Combine(dir, $"{dirName}.csproj");
-                if (File.Exists(projectPath))
-                {
-                    clientProjects.Add(projectPath);
-                }
-            }
-        }
+        // Modules - Add modules from Modules/ directory
+        clientProjects.AddRange(
+            ModuleDiscovery.DiscoverModules(path)
+                .Where(m => m.Type == ModuleRole.Client)
+                .Select(m => m.ProjectPath)
+        );
 
         return clientProjects;
     }
@@ -98,27 +89,14 @@ public static class ClientPackaging
             path = ".";
 
         var modules = new List<string> { "Content.Client", "Content.Shared", "Content.Shared.Database", "Content.ModuleManager" };
-        // Goobstation - Modular Packaging
-        modules.AddRange(ModuleDiscovery.DiscoverModules(path)
-            .Where(m => m.Type is not ModuleType.Server)
-            .Select(m => m.Name)
-            .Distinct()
+
+        // Modules - Add modules from Modules/ directory
+        modules.AddRange(
+            ModuleDiscovery.DiscoverModules(path)
+                .Where(m => m.Type != ModuleRole.Server)
+                .Select(m => m.Name)
+                .Distinct()
         );
-
-        // Basic Directory Scanning
-        var directories = Directory.GetDirectories(path, "Content.*");
-        foreach (var dir in directories)
-        {
-            var dirName = Path.GetFileName(dir);
-
-            // Throw out anything that does not end with ".Client" or ".Shared"
-            if (!dirName.EndsWith(".Client") && !dirName.EndsWith(".Shared") || modules.Contains(dirName))
-                continue;
-
-            var projectPath = Path.Combine(dir, $"{dirName}.csproj");
-            if (File.Exists(projectPath))
-                modules.Add(dirName);
-        }
 
         return modules;
     }
