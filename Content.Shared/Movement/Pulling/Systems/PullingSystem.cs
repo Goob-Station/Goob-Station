@@ -759,7 +759,8 @@ public sealed class PullingSystem : EntitySystem
         PullerComponent? pullerComp = null,
         PullableComponent? pullableComp = null,
         GrabStage? grabStageOverride = null,
-        float escapeAttemptModifier = 1.0f)
+        float escapeAttemptModifier = 1.0f,
+        bool force = false) // Goob edit
     {
         if (!Resolve(pullerUid, ref pullerComp, false) ||
             !Resolve(pullableUid, ref pullableComp, false))
@@ -776,7 +777,7 @@ public sealed class PullingSystem : EntitySystem
         if (!TryComp(pullerUid, out PhysicsComponent? pullerPhysics) || !TryComp(pullableUid, out PhysicsComponent? pullablePhysics))
             return false;
 
-        if(TryComp<MeleeWeaponComponent>(pullerUid, out var meleeWeaponComponent)
+        if(!force && TryComp<MeleeWeaponComponent>(pullerUid, out var meleeWeaponComponent) // Goob edit
            && _timing.CurTime < meleeWeaponComponent.NextAttack)
             return false;
 

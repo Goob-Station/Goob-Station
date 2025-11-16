@@ -9,6 +9,7 @@
 
 using System.Numerics;
 using Content.Goobstation.Common.BlockTeleport;
+using Content.Goobstation.Common.MartialArts;
 using Content.Server.Administration.Logs;
 using Content.Server.Stack;
 using Content.Shared.Database;
@@ -111,15 +112,6 @@ public sealed class TeleportSystem : EntitySystem
             return;
 
         var xform = Transform(uid);
-        // break any active pulls e.g. secoff pulling you with cuffs
-        if (TryComp<PullableComponent>(uid, out var pullable) && _pullingSystem.IsPulled(uid, pullable))
-            _pullingSystem.TryStopPull(uid, pullable, ignoreGrab: true);
-
-        // if we teleport the pulled entity goes with us
-        EntityUid? pullableEntity = null;
-        if (TryComp<PullerComponent>(uid, out var puller))
-            pullableEntity = puller.Pulling;
-
         var entityCoords = xform.Coordinates.ToMap(EntityManager, _xform);
 
         var targetCoords = new MapCoordinates();
@@ -170,10 +162,24 @@ public sealed class TeleportSystem : EntitySystem
         if (!foundValid)
             targetCoords = entityCoords.Offset(GetTeleportVector(radius.Min, extraRadiusBase));
 
+        // if we teleport the pulled entity goes with us
+        EntityUid? pullableEntity = null;
+        var stage = GrabStage.No;
+        if (TryComp<PullerComponent>(uid, out var puller))
+        {
+            stage = puller.GrabStage;
+            pullableEntity = puller.Pulling;
+        }
+
+        _pullingSystem.StopAllPulls(uid);
+
         _xform.SetWorldPosition(uid, targetCoords.Position);
         // pulled entity goes with us
-        if (pullableEntity != null)
-            _xform.SetWorldPosition((EntityUid) pullableEntity, _xform.GetWorldPosition(uid));
+        if (pullableEntity == null)
+            return;
+
+        _xform.SetWorldPosition(pullableEntity.Value, _xform.GetWorldPosition(uid));
+        _pullingSystem.TryStartPull(uid, pullableEntity.Value, grabStageOverride: stage, force: true);
     }
 
     private bool CanTeleport(EntityUid uid)
