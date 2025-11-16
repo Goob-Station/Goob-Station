@@ -20,7 +20,7 @@ public sealed partial class AristocratComponent : Component
     [DataField] public float UpdateDelay = 0.1f;
     [DataField] public float Range = 10f;
 
-    public int UpdateStep = 0;
+    public int UpdateStep = 1;
     public float UpdateTimer = 0f;
     public bool HasDied = false;
 

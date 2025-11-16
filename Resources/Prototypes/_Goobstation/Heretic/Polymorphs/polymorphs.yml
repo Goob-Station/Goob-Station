@@ -15,6 +15,7 @@
     forced: true
     duration: 3
     attachToGridOrMap: true
+    showPopup: false
 
 - type: polymorph
   id: AshJauntLong
@@ -33,6 +34,19 @@
     transferDamage: false
     revertOnCrit: false
     revertOnDeath: false
+
+- type: polymorph
+  id: VoidPrison
+  configuration:
+    entity: VoidPrison
+    forced: true
+    inventory: None
+    transferName: false
+    transferDamage: false
+    duration: 10
+    polymorphSound: /Audio/_Goobstation/Heretic/voidblink.ogg
+    showPopup: false
+    attachToGridOrMap: true
 
 # shapeshifts
 - type: polymorph

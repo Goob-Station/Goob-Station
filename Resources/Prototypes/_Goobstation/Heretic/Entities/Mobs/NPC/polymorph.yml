@@ -189,3 +189,43 @@
     interactSuccessString: hugging-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseStructure
+  id: VoidPrison
+  name: Void Prison
+  description: A Yawning void encases their mortal coil.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Effects/effects.rsi
+    layers:
+    - state: voidball_effect
+      shader: unshaded
+      map: [ "base" ]
+    drawdepth: OverMobs
+    noRot: true
+  - type: CosmicLapse
+  - type: Speech
+    enabled: False
+  - type: Transform
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        mask:
+        - MobMask
+        layer:
+        - WallLayer
+  - type: SpawnAnimation
+    animationLength: 1.2
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.SpawnAnimationVisuals.Spawned:
+        base:
+          True: { state: voidball_effect }
+          False: { state: voidball_opening }
+  - type: VoidPrison

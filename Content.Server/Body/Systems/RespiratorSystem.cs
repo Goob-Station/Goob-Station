@@ -77,6 +77,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Body.Components;
 using Content.Goobstation.Common.MartialArts;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
@@ -100,8 +101,6 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Movement.Pulling.Components; // Goobstation
-using Content.Shared.Movement.Pulling.Systems; // Goobstation
-using Content.Goobstation.Shared.Body.Components;
 using Content.Shared._DV.CosmicCult.Components; // DeltaV
 
 // Shitmed Change
