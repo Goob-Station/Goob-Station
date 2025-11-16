@@ -577,6 +577,64 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("blacklist", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.BookEntry", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("book_printer_entry_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Author")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("author");
+
+                    b.PrimitiveCollection<List<string>>("BindingMaps")
+                        .IsRequired()
+                        .HasColumnType("text[]")
+                        .HasColumnName("binding_maps");
+
+                    b.PrimitiveCollection<List<string>>("BindingPaths")
+                        .IsRequired()
+                        .HasColumnType("text[]")
+                        .HasColumnName("binding_paths");
+
+                    b.PrimitiveCollection<List<string>>("BindingStates")
+                        .IsRequired()
+                        .HasColumnType("text[]")
+                        .HasColumnName("binding_states");
+
+                    b.PrimitiveCollection<List<string>>("Content")
+                        .IsRequired()
+                        .HasColumnType("text[]")
+                        .HasColumnName("content");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("description");
+
+                    b.Property<string>("Genre")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("genre");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("title");
+
+                    b.HasKey("Id")
+                        .HasName("PK_book_printer_entry");
+
+                    b.HasIndex("Id")
+                        .IsUnique();
+
+                    b.ToTable("book_printer_entry", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.Property<int>("Id")

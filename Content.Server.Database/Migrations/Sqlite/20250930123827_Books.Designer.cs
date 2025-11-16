@@ -3,6 +3,7 @@ using System;
 using Content.Server.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
-    partial class SqliteServerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250930123827_Books")]
+    partial class Books
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
@@ -846,11 +849,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("INTEGER")
                         .HasColumnName("age");
 
-                    b.Property<string>("BarkVoice")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("bark_voice");
-
                     b.Property<string>("CharacterName")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -1212,12 +1210,6 @@ namespace Content.Server.Database.Migrations.Sqlite
 
                     b.HasIndex("DiscordRole")
                         .IsUnique();
-
-                    b.HasIndex("LobbyMessage")
-                        .HasDatabaseName("IX_rmc_patron_tiers_lobby_message");
-
-                    b.HasIndex("RoundEndShoutout")
-                        .HasDatabaseName("IX_rmc_patron_tiers_round_end_shoutout");
 
                     b.ToTable("rmc_patron_tiers", (string)null);
                 });
