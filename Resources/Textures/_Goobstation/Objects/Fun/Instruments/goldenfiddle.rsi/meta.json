@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Based on the violin sprites by Hyenh, Edited by SolsticeOfTheWinter while listening to https://youtu.be/X9uk9IcoQ0w?list=RDX9uk9IcoQ0w",
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}
