@@ -231,21 +231,13 @@ public static class ServerPackaging
     {
         var serverModules = new List<string> { "Content.Server" };
 
-        var directories = Directory.GetDirectories(path, "Content.*");
-        foreach (var dir in directories)
-        {
-            var dirName = Path.GetFileName(dir);
+        // Modules - Add modules from Modules/ directory
+        var discoveredModules = ModuleDiscovery.DiscoverModules(path)
+            .Where(m => m.Type == ModuleRole.Server)
+            .Select(m => Path.GetDirectoryName(m.ProjectPath))
+            .Where(dir => dir != null);
 
-            // Look for Content.{name}.Server projects
-            if (dirName != "Content.Server" && dirName.EndsWith(".Server"))
-            {
-                var projectPath = Path.Combine(dir, $"{dirName}.csproj");
-                if (File.Exists(projectPath))
-                {
-                    serverModules.Add(dirName);
-                }
-            }
-        }
+        serverModules.AddRange(discoveredModules!);
 
         return serverModules;
     }
@@ -253,24 +245,13 @@ public static class ServerPackaging
     private static List<string> FindAllServerModules(string path = ".")
     {
         var modules = new List<string>(CoreServerContentAssemblies);
+
+        // Modules - Add modules from Modules/ directory
         modules.AddRange(ModuleDiscovery.DiscoverModules(path)
-            .Where(m => m.Type is not ModuleType.Client)
+            .Where(m => m.Type != ModuleRole.Client)
             .Select(m => m.Name)
             .Distinct()
         );
-
-        var directories = Directory.GetDirectories(path, "Content.*");
-        foreach (var dir in directories)
-        {
-            var dirName = Path.GetFileName(dir);
-
-            // Throw out anything that does not end with ".Server" or ".Shared"
-            if ((!dirName.EndsWith(".Server") && !dirName.EndsWith(".Shared")) || modules.Contains(dirName))
-                continue;
-            var projectPath = Path.Combine(dir, $"{dirName}.csproj");
-            if (File.Exists(projectPath))
-                modules.Add(dirName);
-        }
 
         return modules;
     }

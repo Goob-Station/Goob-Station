@@ -1,0 +1,22 @@
+name: GoobStation
+id: goobstation
+version: 1.0.0
+
+projects:
+  - path: Content.Goobstation.Shared
+    role: Shared
+
+  - path: Content.Goobstation.Client
+    role: Client
+
+  - path: Content.Goobstation.Server
+    role: Server
+
+  - path: Content.Goobstation.Common
+    role: Common
+
+  - path: Content.Goobstation.Maths
+    role: Common
+
+  - path: Content.Goobstation.UIKit
+    role: Client

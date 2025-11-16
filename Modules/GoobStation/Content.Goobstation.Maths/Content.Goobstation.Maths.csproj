@@ -8,8 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Content.ModuleManager\Content.ModuleManager.csproj" />
-      <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
+      <ProjectReference Include="../../../Content.ModuleManager/Content.ModuleManager.csproj" />
+      <ProjectReference Include="../../../RobustToolbox/Robust.Shared/Robust.Shared.csproj" />
     </ItemGroup>
 
 </Project>

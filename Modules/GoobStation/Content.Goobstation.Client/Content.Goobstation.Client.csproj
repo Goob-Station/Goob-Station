@@ -25,12 +25,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Content.Client\Content.Client.csproj" />
-      <ProjectReference Include="..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" />
-      <ProjectReference Include="..\RobustToolbox\Robust.Client\Robust.Client.csproj" />
-      <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
+      <ProjectReference Include="..\..\..\Content.Client\Content.Client.csproj" />
+      <ProjectReference Include="..\..\..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" />
+      <ProjectReference Include="..\..\..\RobustToolbox\Robust.Client\Robust.Client.csproj" />
+      <ProjectReference Include="..\..\..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
     </ItemGroup>
 
-    <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
-    <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
+    <Import Project="..\..\..\RobustToolbox\MSBuild\Robust.Properties.targets" />
+    <Import Project="..\..\..\RobustToolbox\MSBuild\XamlIL.targets" />
 </Project>
