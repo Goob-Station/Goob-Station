@@ -16,13 +16,6 @@ public sealed class OrganInsertOnUseSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<OrganInsertOnUseComponent, UseInHandEvent>(OnUseInHand);
-        SubscribeLocalEvent<OrganInsertOnUseComponent, TryRemoveOrganEvent>(OnTryRemoveOrgan);
-    }
-
-    private void OnTryRemoveOrgan(Entity<OrganInsertOnUseComponent> ent, ref TryRemoveOrganEvent args)
-    {
-        if (ent.Comp.PreventRemoval)
-            args.Cancelled = true;
     }
 
     private void OnUseInHand(Entity<OrganInsertOnUseComponent> ent, ref UseInHandEvent args)
@@ -36,7 +29,9 @@ public sealed class OrganInsertOnUseSystem : EntitySystem
                     out var container) || container is not ContainerSlot slot)
                 continue;
 
-            if (slot.ContainedEntity != null && !_body.TryRemoveOrgan(slot.ContainedEntity.Value))
+            if (slot.ContainedEntity != null &&
+                (HasComp<OrganInsertOnUseComponent>(slot.ContainedEntity.Value) ||
+                 !_body.TryRemoveOrgan(slot.ContainedEntity.Value)))
                 continue;
 
             if (!_container.Insert(ent.Owner, slot, force: true))
