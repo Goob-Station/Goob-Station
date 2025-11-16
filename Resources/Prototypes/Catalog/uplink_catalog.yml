@@ -1496,7 +1496,7 @@
   icon: { sprite: /Textures/Structures/Specific/anomaly.rsi, state: anom4 }
   productEntity: ScramImplanter
   cost:
-    Telecrystal: 15 # goob - can be useful, but does nothing on its own
+    Telecrystal: 35 # Goob
   categories:
     - UplinkImplants
 
