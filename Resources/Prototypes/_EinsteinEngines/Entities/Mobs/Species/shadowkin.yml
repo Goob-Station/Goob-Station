@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 vorpuscl <198003781+vorpuscl@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThanosDeGraf <richardgirgindontstop@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -222,6 +223,11 @@
     - DoorBumpOpener
     - AnomalyHost
     - ShadowkinEmotes
+  - type: Respirator #Goob edit start - Lore Accurate Shadowkin superdense iron blood.
+    updateInterval: 6
+    saturationLoss: 0.2
+    maxSaturation: 30
+    saturation: 30 #Goob Edit end
 
 - type: entity
   save: false

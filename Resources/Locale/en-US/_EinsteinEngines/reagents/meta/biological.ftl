@@ -1,2 +1,2 @@
 reagent-name-black-blood = black blood
-reagent-desc-black-blood = This is definitely not ketchup nor BBQ sauce.
+reagent-desc-black-blood = A ridiculously high iron content turns this alien blood almost jet black.

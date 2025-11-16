@@ -19,3 +19,15 @@
       amount: 1
   products:
     TripleCitrus: 3
+
+- type: reaction
+  id: Amasec2
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    Vodka:
+      amount: 2
+    BlackBlood:
+      amount: 3
+  products:
+    Amasec: 5

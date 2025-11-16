@@ -4,7 +4,7 @@
   name: reagent-name-black-blood
   group: Biological
   desc: reagent-desc-black-blood
-  flavor: bitter
+  flavor: metallic
   color: "#1c1624"
   recognizable: true
   physicalDesc: reagent-physical-desc-inky
