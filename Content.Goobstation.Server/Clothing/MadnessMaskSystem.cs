@@ -67,7 +67,7 @@ public sealed class MadnessMaskSystem : EntitySystem
         if (!IsHereticOrGhoul(args.Args.Target))
             return;
 
-        args.Args.Reduce(1f);
+        args.Args.Multiplier = -10f; // Basically ignore fire AP
     }
 
     public override void Update(float frameTime)
