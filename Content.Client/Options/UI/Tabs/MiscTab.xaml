@@ -36,6 +36,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <CheckBox Name="LogInChatCheckBox" Text="{Loc 'ui-options-log-in-chat'}" /> <!-- WD EDIT -->
                 <CheckBox Name="CoalesceIdenticalMessagesCheckBox" Text="{Loc 'ui-options-coalesce-identical-messages'}" /> <!-- WD EDIT -->
                 <CheckBox Name="DetailedExamineCheckBox" Text="{Loc 'ui-options-detailed-examine'}" /> <!-- Goobstation Change -->
+                <Label Text="{Loc 'ui-options-general-area-echo'}"
+                       StyleClasses="LabelKeyText"/> <!-- Mono -->
+                <CheckBox Name="AreaEchoCheckBox" Text="{Loc 'ui-options-area-echo-enabled'}" /> <!-- Mono -->
+                <CheckBox Name="AreaEchoHighResolutionCheckBox" Text="{Loc 'ui-options-area-echo-highres'}" /> <!-- Mono -->
                 <Label Text="{Loc 'ui-options-general-cursor'}"
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="ShowHeldItemCheckBox" Text="{Loc 'ui-options-show-held-item'}" />

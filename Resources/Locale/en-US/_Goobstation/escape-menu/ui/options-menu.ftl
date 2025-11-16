@@ -10,3 +10,7 @@ ui-options-detailed-examine = Show detailed examine text
 ui-options-auto-focus-search-on-build-menu = Automatically focus the search input when the build menu is opened
 
 ui-options-hud-theme-coscult = Cosmic Cult
+
+ui-options-general-area-echo = Area echo
+ui-options-area-echo-enabled = Apply echo to audio in large open spaces
+ui-options-area-echo-highres = Use improved but slower calculations for echoes, if enabled
