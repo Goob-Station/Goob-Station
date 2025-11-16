@@ -33,8 +33,16 @@
   - type: RandomSpawner
     offset: 0
     prototypes:
-    - LavalandCrateNecropolisCultRobe
     - LavalandCrateNecropolisCultArmor
     - LavalandCrateNecropolisHeart
     - LavalandCrateNecropolisVampirismCrystal
+    - LavalandCrateNecropolisTeleporterCube
+    - LavalandCrateNecropolisRodOfAsclepius
+    - LavalandCrateNecropolisMinersChalice
+    - LavalandCrateNecropolisInvisibilityCloak
+    - LavalandCrateNecropolisMementoMori
+    - LavalandCrateNecropolisTalismanImmortality
+    - LavalandCrateNecropolisHardsuitBerserker
+    - LavalandCrateNecropolisBookofBabel
+    - LavalandCrateNecropolisTalismanLifeforce
     chance: 1
