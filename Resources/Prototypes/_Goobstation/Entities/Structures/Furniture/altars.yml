@@ -9,7 +9,7 @@
     state: clock
   - type: Icon
     sprite: _ShitChap/Structures/clockaltar.rsi
-    state: nanotrasen
+    state: clock
   - type: Construction
     graph: AltarsGraph
     node: ClockAltarNode
