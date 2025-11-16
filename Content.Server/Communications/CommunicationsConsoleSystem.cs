@@ -244,7 +244,7 @@ namespace Content.Server.Communications
                 return false;
 
             // Calling shuttle checks
-            if (_roundEndSystem.ExpectedCountdownEnd is null)
+            if (_roundEndSystem.ExpectedCountdownEnd is null && !_roundEndSystem.IsBlocked) // Goobstation edit - added IsBlocked check
                 return true;
 
             // Recalling shuttle checks
