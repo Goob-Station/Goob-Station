@@ -63,6 +63,10 @@ public abstract partial class SharedSelfExtinguisherSystem : EntitySystem
 
     private void OnGetVerbs(EntityUid uid, SelfExtinguisherComponent component, GetVerbsEvent<EquipmentVerb> args)
     {
+        // Goobstation - Ghosts/mice/pAIs cant telepathically extinguish plasmemes
+        if (!args.CanAccess || !args.CanInteract || !args.CanComplexInteract)
+            return;
+
         if (!_inventory.TryGetContainingSlot(uid, out var _))
             return;
 
