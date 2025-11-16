@@ -20,6 +20,7 @@
   - MobBloodstream
   - MobFlammable
   - BaseMobSpecies
+  - BaseMobDisgust # Goobstation
   id: MobAbductor
   components:
   - type: Absorbable # BLOOD FOR THE BLOOD GOD

@@ -22,6 +22,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Common.SecondSkin;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
@@ -300,6 +301,10 @@ public partial class TraumaSystem
     public FixedPoint2 GetArmourChanceDeduction(EntityUid body, Entity<TraumaInflicterComponent> inflicter, TraumaType traumaType, BodyPartType coverage)
     {
         var deduction = FixedPoint2.Zero;
+
+        var ev = new GetSecondSkinDeductionEvent((int) coverage, (int) traumaType);
+        RaiseLocalEvent(body, ref ev);
+        deduction += ev.Deduction;
 
         foreach (var ent in _inventory.GetHandOrInventoryEntities(body, SlotFlags.WITHOUT_POCKET))
         {

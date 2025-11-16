@@ -39,10 +39,10 @@
     - Chest
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.25
-        Heat: 0.55
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -53,7 +53,7 @@
 
 # Durathread plated vest
 - type: entity
-  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing]
+  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseSecondSkinHolder]
   id: ClothingOuterArmourDurathread
   name: durathread armor
   description: An armored vest created from plasteel plates woven with durathread. It's surprisingly flexible and light, despite formidable armor plating.
@@ -67,10 +67,10 @@
     - Chest
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.3
-        Heat: 0.3
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.4
+        Heat: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -135,11 +135,11 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.35
-        Slash: 0.35
-        Piercing: 0.45
-        Heat: 0.35
-        Caustic: 0.6
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.7
+        Heat: 0.6
+        Caustic: 0.8
 
 - type: entity
   parent: [ ClothingOuterArmorCaptainCarapace, ClothingOuterWinterCoatToggleable ]
@@ -156,11 +156,11 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.5
-        Heat: 0.4
-        Caustic: 0.65
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.7
+        Heat: 0.6
+        Caustic: 0.8
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterCapFancy
@@ -218,7 +218,7 @@
 # CentralCommand
 
 - type: entity
-  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCentcommContraband]
+  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCentcommContraband, BaseSecondSkinHolder]
   id: ClothingOuterArmourInvisible # I'll be real, this is just invisible armor so it doesn't ruin how fucking AWESOME navy officers look. Bite me.
   name: bluespace assisted armor
   description: An armored vest that utilizes bluespace technology, bending light and becoming invisible to the naked eye when worn.
@@ -232,10 +232,10 @@
     - Chest
     modifiers:
       coefficients:
-        Blunt: 0.35
-        Slash: 0.35
-        Piercing: 0.35
-        Heat: 0.35
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: ModifyDelayedKnockdown
@@ -370,7 +370,7 @@
     knockdownTimeDelta: 0
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseSecondSkinHolder]
   id: ClothingOuterArmorQueenCarapace
   name: queen's carapace
   description: The skull of the ancient Xeno Queen, reforged into an imposing chestpiece that turns her former menace into unyielding protection.
@@ -412,7 +412,7 @@
 
 # Western Undetermined Set
 - type: entity
-  parent: [ClothingOuterPonchoClassic, BaseMajorContraband]
+  parent: [ClothingOuterPonchoClassic, BaseMajorContraband, BaseSecondSkinHolder]
   id: ClothingOuterPonchoClassicRobust
   name: authentic cowboys poncho
   description: A poncho made for real cowboy's.
@@ -440,3 +440,98 @@
     knockdownTimeDelta: -2
   - type: StaminaResistance
     damageCoefficient: 0.7
+
+- type: entity
+  id: BaseSecondSkinHolder
+  abstract: true
+  components:
+  - type: Appearance
+  - type: SecondSkinHolder
+    itemSlot:
+      priority: 1
+      swap: false
+      whitelist:
+        components:
+        - SecondSkin
+
+- type: entity
+  id: SecondSkinBase
+  abstract: true
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/second_skin.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: SecondSkin
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  id: SecondSkinSecurity
+  parent: [SecondSkinBase, BaseSecurityCommandContraband]
+  name: security second skin
+  description: "A strange device that can be attached directly to your armor vest. Allows you to cover your body in a strange liquid-like substance that reduces damage and traumas. This does not cover head. WARNING: wearing active second skin for too long may cause disgust and vomiting. Liquid is corrosive and harmful to silicons."
+  components:
+  - type: Sprite
+    color: darkred
+  - type: SecondSkin
+    color: darkred
+    damageToSilicons:
+      groups:
+        Brute: 0.5
+    disgustRate: 1.0
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+
+- type: entity
+  id: SecondSkinSyndicate
+  parent: [SecondSkinBase, BaseSyndicateContraband]
+  name: syndicate second skin
+  description: "A strange device that can be attached directly to your armor vest. Allows you to cover your body in a strange liquid-like substance that reduces damage and traumas."
+  components:
+  - type: Sprite
+    color: red
+  - type: SecondSkin
+    color: red
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.75
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0

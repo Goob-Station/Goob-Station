@@ -32,3 +32,6 @@ alerts-severe-pain-desc = [color=red]The pain is intense and hard to ignore.[/co
 
 alerts-excruciating-pain-name = [color=red]Excruciating Pain[/color]
 alerts-excruciating-pain-desc = [color=red]The pain is unbearable, making it hard to focus on anything else.[/color]
+
+alerts-disgust-name = [color=yellow]Disgust[/color]
+alerts-disgust-desc = You're not feeling very well...

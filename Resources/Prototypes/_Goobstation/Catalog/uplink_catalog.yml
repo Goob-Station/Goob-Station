@@ -526,7 +526,7 @@
   icon: { sprite: /Textures/Clothing/Head/Helmets/swat_syndicate.rsi, state: icon }
   productEntity: ClothingHeadHelmetSwatSyndicate
   cost:
-    Telecrystal: 10
+    Telecrystal: 5
   categories:
   - UplinkWearables
 
@@ -587,6 +587,17 @@
   productEntity: BoxReverseBearTrap
   cost:
     Telecrystal: 23 # novelty item for rp
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkSecondSkinSyndicate
+  name: uplink-second-skin-name
+  description: uplink-second-skin-desc
+  icon: { sprite: _Goobstation/Clothing/OuterClothing/second_skin.rsi, state: action }
+  productEntity: SecondSkinSyndicate
+  cost:
+    Telecrystal: 10
   categories:
   - UplinkWearables
 
