@@ -30,20 +30,20 @@
     - DragonKungFu
 
 - type: entity
-  parent: [BaseItem, BaseCentcommContraband]
+  parent: [BaseHandheldComputer, BaseCentcommContraband]
   id: HandheldCrewMonitorBSO
   name: handheld command monitor
-  description: A handheld crew monitor modified for blueshield officer's needs. Designed to inject a tracking device into command personnel and alarm you about them being in danger. Works on a built-in microreactor cell.
+  description: A handheld crew monitor modified for blueshield officer's needs. Only shows command members' status.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Security/bso_monitor.rsi
     state: scanner
   - type: Item
     size: Small
-  - type: CrewMonitorScanning
-    whitelist:
-      components:
-      - CommandStaff
+  # - type: CrewMonitorScanning
+  #   whitelist:
+  #     components:
+  #     - CommandStaff
   - type: ActivatableUI
     key: enum.CrewMonitoringUIKey.Key
   - type: UserInterface
@@ -51,6 +51,9 @@
       enum.CrewMonitoringUIKey.Key:
         type: CrewMonitoringBoundUserInterface
   - type: CrewMonitoringConsole
+    validDepartments:
+    - Command
+    - CentralCommand
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: CrewMonitor
@@ -62,5 +65,13 @@
   - type: Tag
     tags:
     - HandheldCrewMonitor
-  - type: Speech
-    speechSounds: Borg
+
+- type: entity
+  id: HandheldCrewMonitorBSOEmpty
+  parent: HandheldCrewMonitorBSO
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

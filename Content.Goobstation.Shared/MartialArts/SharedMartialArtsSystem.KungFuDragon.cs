@@ -9,6 +9,7 @@
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Damage.Events;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Weapons.Melee.Events;
@@ -95,7 +96,9 @@ public abstract partial class SharedMartialArtsSystem
             return;
 
         _stun.TrySlowdown(target, args.SlowdownTime, true, args.WalkSpeedModifier, args.SprintSpeedModifier);
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+        var ev = new BeforeStaminaDamageEvent(proto.StaminaDamage); // Even more stam damage reduction
+        RaiseLocalEvent(target, ref ev);
+        _stamina.TakeStaminaDamage(target, ev.Value, applyResistances: true);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
