@@ -49,7 +49,7 @@ public sealed partial class AbsorbCorpseComponent : Component
     public ProtoId<ReagentPrototype> Reagent = "Formaldehyde";
 
     /// <summary>
-    /// Sounds to be played whwn wraith absorbs someone.
+    /// Sounds to be played when wraith absorbs someone.
     /// </summary>
     [DataField]
     public SoundSpecifier? AbsorbSound = new SoundCollectionSpecifier("Wraith_SoulSucc");

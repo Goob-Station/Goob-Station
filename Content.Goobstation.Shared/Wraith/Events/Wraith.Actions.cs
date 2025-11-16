@@ -51,7 +51,7 @@ public sealed partial class MakeRevenantEvent : EntityTargetActionEvent;
 
 #endregion
 
-#region Plaguebinger
+#region Plaguebringer
 
 public sealed partial class BlindCurseEvent : EntityTargetActionEvent;
 

@@ -36,7 +36,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<AbsorbCorpseComponent, AbsorbCorpseEvent>(OnAbsorb);
-        SubscribeLocalEvent<PlaguebingerComponent, AbsorbCorpseAttemptEvent>(OnPlaguebingerAttempt);
+        SubscribeLocalEvent<PlaguebringerComponent, AbsorbCorpseAttemptEvent>(OnPlaguebringerAttempt);
     }
 
     private void OnAbsorb(Entity<AbsorbCorpseComponent> ent, ref AbsorbCorpseEvent args)
@@ -67,8 +67,11 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
 
         if (ev.Handled)
         {
+            absorbable.Absorbed = true;
+            Dirty(args.Target, absorbable);
+
             _admin.Add(LogType.Action, LogImpact.Medium,
-                $"{ToPrettyString(ent.Owner)} absorbed the corpse of {ToPrettyString(args.Target)} as a Plaguebinger Wraith");
+                $"{ToPrettyString(ent.Owner)} absorbed the corpse of {ToPrettyString(args.Target)} as a Plaguebringer Wraith");
             args.Handled = true;
             return;
         }
@@ -93,7 +96,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         _wraithPoints.AdjustWpGenerationRate(ent.Comp.WpPassiveAdd, ent.Owner);
 
         // apply rot
-        EnsureComp<RottingComponent>(target);
+// EnsureComp<RottingComponent>(target); // TODO Removed until someone figures out how to make it partially rot instead of instant full rot
 
         _popup.PopupPredicted(Loc.GetString("wraith-absorb-smoke1"), target, target);
         ent.Comp.CorpsesAbsorbed++;
@@ -110,7 +113,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
 
     #region Special
 
-    private void OnPlaguebingerAttempt(Entity<PlaguebingerComponent> ent, ref AbsorbCorpseAttemptEvent args)
+    private void OnPlaguebringerAttempt(Entity<PlaguebringerComponent> ent, ref AbsorbCorpseAttemptEvent args)
     {
         if (!TryComp<PerishableComponent>(args.Target, out var perish)
             || !TryComp<DamageableComponent>(args.Target, out var damageable))
@@ -122,10 +125,9 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         {
             _wraithPoints.AdjustWraithPoints(150, ent.Owner);
             _wraithPoints.AdjustWpGenerationRate(0.2, ent.Owner);
-            if (_netManager.IsServer)
-                _body.GibBody(args.Target);
 
             _popup.PopupClient(Loc.GetString("wraith-absorb-rotbonus"), ent.Owner, ent.Owner, PopupType.Medium);
+
         }
         else if (toxinDamage < 30 && perish.Stage <= 2)
         {
