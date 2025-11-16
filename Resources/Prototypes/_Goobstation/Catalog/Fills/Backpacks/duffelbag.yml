@@ -132,3 +132,17 @@
       amount: 9
     - id: CartridgeG8Hypercharged
       amount: 9
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledCaposOutfit
+  name: the Capos attire
+  description: This bundle holds the Capos attire.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingHeadHatCapoSyndi
+    - id: ClothingSuitCapoSyndi
+    - id: ClothingShoesCapoSyndi
+    - id: ClothingHandsGlovesCapoSyndi
+    - id: ClothingNeckCloakCapoSyndi

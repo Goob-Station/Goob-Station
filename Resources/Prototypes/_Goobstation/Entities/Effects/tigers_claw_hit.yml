@@ -1,0 +1,23 @@
+- type: entity
+  id: WeaponTigersClawHit      # Not inheriting so we don't have EffectVisuals to delete the entity
+  categories: [ HideSpawnMenu ] # on LightFade animation complete, which causes a
+  components:                   # "Predicting the queued deletion of a networked entity" error on tests.
+    - type: Sprite
+      sprite: _Goobstation/Effects/tigers_claw_hit.rsi
+      state: slash
+      drawdepth: Effects
+    - type: WeaponArcVisuals
+      fadeOut: false
+    - type: TimedDespawn
+      lifetime: 0.45
+    - type: PointLight
+      radius: 1.13
+      energy: 50
+      color: "#cf220b"
+      netsync: false
+    - type: LightFade
+      rampUpDuration: 0.1
+      duration: 0.45
+    - type: Tag
+      tags:
+        - HideContextMenu
