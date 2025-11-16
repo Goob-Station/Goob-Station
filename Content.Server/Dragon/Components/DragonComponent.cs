@@ -101,18 +101,6 @@ namespace Content.Server.Dragon
         public int CarpAmount = 3;
 
         [DataField]
-        public EntityUid? RoarActionEntity;
-
-        [DataField]
-        public EntProtoId RoarAction = "ActionDragonRoar";
-
-        [DataField]
-        public float RoarRange = 3f;
-
-        [DataField]
-        public float RoarStunTime = 2f;
-
-        [DataField]
         public float CarpRiftHealingRange = 3f;
 
         /// <summary>

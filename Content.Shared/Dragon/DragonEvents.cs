@@ -22,7 +22,3 @@ public sealed partial class DragonSpawnRiftActionEvent : InstantActionEvent
 /// </summary>
 public sealed partial class DragonSpawnCarpHordeActionEvent : InstantActionEvent;
 
-/// <summary>
-/// Goobstation
-/// </summary>
-public sealed partial class DragonRoarActionEvent : InstantActionEvent;
