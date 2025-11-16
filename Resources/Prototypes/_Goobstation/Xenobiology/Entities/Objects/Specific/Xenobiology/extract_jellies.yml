@@ -1,8 +1,8 @@
 - type: entity
   name: base slime jelly
   parent: EdibleBase
-  id: BaseExtractJelly
-  description:
+  id: XenobioBaseExtractJelly
+  description: Very squishy in hand! I wonder if it tastes as good?
   abstract: true
   components:
   - type: Sprite
@@ -35,13 +35,11 @@
         - ReagentId: Slime
           Quantity: 1
 
-#Tier 1 -
-
 - type: entity
-  id: PurpleExtractJelly
-  parent: BaseExtractJelly
+  id: XenobioPurpleExtractJelly
+  parent: XenobioBaseExtractJelly
   name: purple slime jelly
-  description: Slimes love this stuff, metabolizes into additional extracts inside the slime.
+  description: This extract increases slimes yield after consumption. Slimes love this thing!
   components:
   - type: Sprite
     layers:
@@ -53,14 +51,14 @@
       food:
         maxVol: 1
         reagents:
-        - ReagentId: PurpleXenoJelly
+        - ReagentId: XenobioPurpleJelly
           Quantity: 1
 
 - type: entity
-  id: BlueExtractJelly
-  parent: BaseExtractJelly
+  id: XenobioBlueExtractJelly
+  parent: XenobioBaseExtractJelly
   name: blue slime jelly
-  description: The frosty chill caused by this jelly reduces a slime's chance to mutate when metabolized.
+  description: This extract reduces a slime's chance to mutate when metabolized. Also chilly to the touch. Yikes.
   components:
   - type: Sprite
     layers:
@@ -72,30 +70,33 @@
       food:
         maxVol: 1
         reagents:
-        - ReagentId: BlueXenoJelly
+        - ReagentId: XenobioBlueJelly
           Quantity: 1
 
-#Tier 2 -
-
 - type: entity
-  id: DarkBlueExtractJelly
-  parent: BaseExtractJelly
+  id: XenobioDarkBlueExtractJelly
+  parent: XenobioBaseExtractJelly
   name: dark blue slime jelly
-  description: It's covered in a thick fire-retardant gel, have you tried eating it?
+  description: It's covered in a thick fire-retardant gel. Have you tried eating it?
   components:
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
       color: "#1e8cfa"
-
-#Tier 2.5 -
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: XenobioDarkBlueJelly
+          Quantity: 1
 
 - type: entity
-  id: CeruleanExtractJelly
-  parent: BaseExtractJelly
+  id: XenobioCeruleanExtractJelly
+  parent: XenobioBaseExtractJelly
   name: cerulean slime jelly
-  description: Slimes with more... cannibalistic tendencies... appeared to react more after consuming cerulean jelly.
+  description: This extract increases a slime's potential offspring. Slimes with more "cannibalistic" tendencies appear to react more after consuming it.
   components:
   - type: Sprite
     layers:
@@ -107,16 +108,14 @@
       food:
         maxVol: 1
         reagents:
-        - ReagentId: CeruleanXenoJelly
+        - ReagentId: XenobioCeruleanJelly
           Quantity: 1
 
-#Tier 3 -
-
 - type: entity
-  id: RedExtractJelly
-  parent: BaseExtractJelly
+  id: XenobioRedExtractJelly
+  parent: XenobioBaseExtractJelly
   name: red slime jelly
-  description: The violent contractions caused by this jelly increase a slime's chance to mutate when metabolized.
+  description: This extract increases a slime's chance to mutate when metabolized. But don't try to eat it yourself. You will not mutate.
   components:
   - type: Sprite
     layers:
@@ -128,14 +127,26 @@
       food:
         maxVol: 1
         reagents:
-        - ReagentId: RedXenoJelly
+        - ReagentId: XenobioRedJelly
           Quantity: 1
 
 - type: entity
-  id: GreenExtractJelly
-  parent: BaseExtractJelly
+  id: XenobioVolatileRedExtractJelly
+  parent: XenobioBaseExtractJelly
+  name: volatile red slime jelly
+  description: Using this on a piece of clothing seems to apply a lubricating kind of effect, removing any potential slowdowns. Hovewer, subjects wearing such clothing were burnt to a crisp after a scientist lit his cigarette. Even when wearing a hardsuit.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#ff3333" #This will need an additional distinguishing shader?
+
+- type: entity
+  id: XenobioGreenExtractJelly
+  parent: XenobioBaseExtractJelly
   name: green slime jelly
-  description: The violent contractions caused by this jelly increase a slime's chance to mutate when metabolized.
+  description: This extract increases a slime's chance to mutate when metabolized. But don't try to eat it yourself. You will not mutate. Unless?
   components:
   - type: Sprite
     layers:
@@ -145,28 +156,16 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 1
         reagents:
-        - ReagentId: GreenXenoJelly
-          Quantity: 15
+        - ReagentId: XenobioGreenJelly
+          Quantity: 1
 
 - type: entity
-  id: VolatileExtractJelly
-  parent: BaseExtractJelly
-  name: volatile red slime jelly
-  description: Primate test subjects exhibited heightened speed and senses, even whilst carrying high density ore - subjects were burnt to a crisp after a scientist lit his cigarette.
-  components:
-  - type: Sprite
-    layers:
-    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
-      state: jelly
-      color: "#ff3333" #This will need an additional distinguishing shader?
-
-- type: entity
-  id: PinkExtractJelly
-  parent: BaseExtractJelly
+  id: XenobioPinkExtractJelly
+  parent: XenobioBaseExtractJelly
   name: pink slime jelly
-  description: Discovered for the first time in the wild recently, a tame Space Carp was found devouring the jelly of a dead Pink Slime.
+  description: This extract will tame any hostile mob that tries to eat it. Discovered for the first time in the wild recently, a tame Space Carp was found devouring the jelly off of a dead pink slime.
   components:
   - type: Sprite
     layers:
@@ -174,13 +173,11 @@
       state: jelly
       color: "#ff33cc"
 
-#Tier 4 -
-
 - type: entity
-  id: OilyExtractJelly
-  parent: BaseExtractJelly
+  id: XenobioOilyExtractJelly
+  parent: XenobioBaseExtractJelly
   name: oily slime jelly
-  description: The oily jelly looks slick, it appears to slide along the floor when thrown... you better be careful you don't get it stuck in a vent.
+  description: The oily jelly looks slick. It appears to slide along the floor when thrown. Apparently, also increases any living being's slipperiness, allowing even the largest of species to fit inside ventilation shafts. Don't ask how that was discovered. Nanotrasen recommends that it's employees do not use this jelly to "oil up", as this is childish behavior.
   components:
   - type: Sprite
     layers:
@@ -190,10 +187,10 @@
       shader: XenoMetallic
 
 - type: entity
-  id: LightPinkExtractJelly
-  parent: BaseExtractJelly
+  id: XenobioLightPinkExtractJelly
+  parent: XenobioBaseExtractJelly
   name: light pink slime jelly
-  description: Salvage Log 3036 - "Did that Goliath just... talk?"
+  description: This extract has notoriety for granting sentience to not-so-sentient beings. Salvage Log 3036 - "Did that Goliath just talk?"
   components:
   - type: Sprite
     layers:
@@ -207,9 +204,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 5
+        maxVol: 10
         reagents:
         - ReagentId: Cognizine
-          Quantity: 5
-
-#Tier 5
+          Quantity: 10

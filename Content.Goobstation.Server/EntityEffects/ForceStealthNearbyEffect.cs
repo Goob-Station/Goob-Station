@@ -16,15 +16,12 @@ public sealed partial class ForceStealthNearbyEffect : EntityEffect
     public override bool ShouldLog => true;
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("reagent-effect-guidebook-stealth-entities", ("radius", (int) Radius));
+        => Loc.GetString("reagent-effect-guidebook-stealth-entities");
 
     public override LogImpact LogImpact => LogImpact.Medium;
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        if (args is not EntityEffectReagentArgs reagentArgs)
-            return;
-
         var entityManager = args.EntityManager;
         var lookupSys = entityManager.System<EntityLookupSystem>();
         var forceStealth = entityManager.System<ForcedStealthSystem>();

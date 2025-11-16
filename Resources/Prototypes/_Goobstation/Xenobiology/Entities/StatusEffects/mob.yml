@@ -4,3 +4,9 @@
   components:
   - type: ForcedStealthStatusEffect
     visibility: 0
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ChangeFactionStatusEffect
+  components:
+  - type: ChangeFactionStatusEffect

@@ -1,10 +1,8 @@
-#Tier 2 -
-
 - type: entity
-  id: XenoSlimeBattery
+  id: XenobioVolatileOrgan
   parent: [ BaseHumanOrgan, BasePowerCell ]
   name: volatile organ
-  description: A pulsating mass of slime, it seems to react to nearby devices...
+  description: A pulsating mass of slime, it seems to react to nearby devices.
   suffix: Full
   components:
   - type: Sprite
@@ -69,8 +67,8 @@
 - type: entity
   name: goop ball
   parent: [ BaseItem, ItemHeftyBase ]
-  id: XenoGoopBall
-  description: It's pulsating... is it alive?
+  id: XenobioGoopBall
+  description: Not as goopy as it looks. Try throwing it at a nearby wall and see if it sticks!
   components:
   - type: Sprite
     layers:
@@ -121,8 +119,6 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
-# Tier 2.5
-
 - type: entity
   name: fitted bluespace carpet square
   parent: FloorTileItemBase
@@ -137,7 +133,6 @@
         type: StackCustomSplitBoundUserInterface
   - type: SpawnAfterInteract
     prototype: FloorBluespaceEntity
-    doAfter: 0.5
     removeOnInteract: true
   - type: FloorTile
     outputs:
@@ -159,7 +154,6 @@
         type: StackCustomSplitBoundUserInterface
   - type: SpawnAfterInteract
     prototype: FloorSepiaEntity
-    doAfter: 0.5
     removeOnInteract: true
   - type: FloorTile
     outputs:

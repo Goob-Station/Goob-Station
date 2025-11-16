@@ -22,7 +22,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        entity: VolatileRedExtractJelly
+        entity: XenobioVolatileRedExtractJelly
         number: 1
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
@@ -33,7 +33,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        entity: RedExtractJelly
+        entity: XenobioRedExtractJelly
         number: 1
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
@@ -43,7 +43,8 @@
         messages: [ "xeno-extract-reaction-evil" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      # make every mob hostile in radius
+      - !type:ChangeFactionNearbyEffect
+        newFaction: AllHostile
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -73,7 +74,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        entity: GreenExtractJelly
+        entity: XenobioGreenExtractJelly
         number: 1
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
@@ -118,7 +119,8 @@
         messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      # Mutate nearby plants effect required.
+      - !type:MutateNearbyPlantsEntityEffect
+        radius: 5
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -128,7 +130,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        entity: PinkExtractJelly
+        entity: XenobioPinkExtractJelly
         number: 1
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]

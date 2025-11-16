@@ -129,7 +129,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        entity: DarkBlueExtractJelly
+        entity: XenobioDarkBlueExtractJelly
         number: 1
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
@@ -208,7 +208,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        entity: XenoGoopBall
+        entity: XenobioGoopBall
         number: 3
   - type: SlimeExtract
   - type: Tag
@@ -364,7 +364,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        entity: CeruleanExtractJelly
+        entity: XenobioCeruleanExtractJelly
         number: 1
   - type: SlimeExtract
   - type: Tag
@@ -423,7 +423,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:ForceStealthNearbyEffect
-        radius: 1
+        radius: 1.5
         duration: 120
   - type: SlimeExtract
   - type: Tag

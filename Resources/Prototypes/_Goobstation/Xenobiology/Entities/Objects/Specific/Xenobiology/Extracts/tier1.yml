@@ -93,7 +93,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        entity: PurpleExtractJelly
+        entity: XenobioPurpleExtractJelly
         number: 1
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
@@ -159,7 +159,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        entity: BlueExtractJelly
+        entity: XenobioBlueExtractJelly
         number: 1
   - type: SlimeExtract
   - type: Tag

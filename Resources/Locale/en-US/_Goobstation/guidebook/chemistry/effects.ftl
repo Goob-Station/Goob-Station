@@ -20,5 +20,6 @@ reagent-effect-guidebook-deal-stamina-damage =
                     *[false] overtime
                   } stamina damage
 
-reagent-effect-guidebook-stealth-entities = Camouflages everything in a {$radius} tile radius.
-reagent-effect-guidebook-change-faction = Changes factions of nearby mobs.
+reagent-effect-guidebook-stealth-entities = Camouflages living mobs nearby.
+reagent-effect-guidebook-change-faction = Changes factions of living mobs nearby.
+reagent-effect-guidebook-mutate-plants = Randomly mutates nearby plants.
