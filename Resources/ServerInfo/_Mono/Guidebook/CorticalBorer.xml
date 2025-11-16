@@ -1,0 +1,39 @@
+<Document>
+  # Cortical Borer
+
+  <Box>
+    <GuideEntityEmbed Entity="MobCorticalBorer"/>
+  </Box>
+  Cortical Borers are a worm-like parasitic species that inhabit the Colossus sector. They burrow into one's brain and feed off the body. It's said they can speak to their host, often try to persuade them to do certain things for unknown reasons.
+
+  ### Inject Chemicals
+  <Box>
+    <GuideEntityEmbed Entity="Beaker"/>
+  </Box>
+  The Cortical Borer injects reagents into its host, could be useful, could be harmful...
+
+  ### Check Blood
+  <Box>
+    <GuideEntityEmbed Entity="HandheldHealthAnalyzer"/>
+  </Box>
+  The Cortical Borer can use the host's blood in order to inspect its condition.
+
+  ### Take Control
+  <Box>
+    <GuideEntityEmbed Entity="OrganHumanBrain"/>
+  </Box>
+  The Cortical Borer take's control of the host fully for 40 seconds.
+
+  ### Lay Egg
+  <Box>
+    <GuideEntityEmbed Entity="CorticalBorerEgg"/>
+  </Box>
+  While the Cortical Borer has full control of it's host's body, it can lay an egg and force its host to vomit it out.
+
+  ## How do I Stop them?
+  <Box>
+    <GuideEntityEmbed Entity="JugSugar"/>
+    <GuideEntityEmbed Entity="ModsuitHelmet"/>
+  </Box>
+  While these creatures can be helpful, there is still a risk in letting them into your body. Wearing a helmet will prevent them from entering your body at all. Ingesting sugar will prevent it from getting into your body and suppress the abilities of one already inside. They can be removed from your body with a surgery to the brain, but it's recommended to consume sugar first, lest they take over your body during the procedure.
+</Document>

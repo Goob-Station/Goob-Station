@@ -1,0 +1,155 @@
+- type: entity
+  parent: SimpleSpaceMobBase
+  id: MobCorticalBorer
+  name: cortical borer
+  description: Worm that burrows into brains.
+  components:
+  - type: CombatMode
+    combatToggleAction: ActionCombatModeToggleOff
+  - type: VentCrawler
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: False
+    allowMovement: true
+    name: cortical-borer-ghostrole-name
+    description: cortical-borer-ghostrole-desc
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 36000 # 10 hrs
+  - type: GhostTakeoverAvailable
+  - type: Sprite
+    scale: 0.6, 0.6
+    drawdepth: SmallMobs
+    sprite: _Mono/Mobs/Aliens/cortical_borer.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: cortical_borer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: cortical_borer
+      Dead:
+        Base: dead
+  - type: Item
+    size: Tiny
+    heldPrefix: 0
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.15
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      25: Dead
+  - type: Barotrauma # take away space immunity but still not gasp
+    damage:
+      types:
+        Blunt: 0.15
+  - type: Bloodstream
+    bloodlossDamage:
+      types:
+        Bloodloss: 0.5
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -1
+    bleedReductionAmount: 2 # bleeding stops faster
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1.9
+    baseSprintSpeed : 4.2
+  - type: Tag
+    tags:
+    - Meat
+  - type: ThermalVision
+    color: "#ae65bf"
+    lightRadius: 15
+    activateSound: null
+    deactivateSound: null
+  - type: CorticalBorer
+    eggProto: CorticalBorerEgg
+    addOnInfest:
+    - type: PressureImmunity
+    removeOnInfest:
+    - type: CanEscapeInventory
+  - type: UserInterface
+    interfaces:
+      enum.CorticalBorerDispenserUiKey.Key:
+        type: CorticalBorerDispenserBoundUserInterface
+      enum.HealthAnalyzerUiKey.Key:
+        type: HealthAnalyzerBoundUserInterface
+  - type: CollectiveMind
+    defaultChannel: CorticalBorer
+    channels:
+    - CorticalBorer
+  - type: Speech
+    enabled: false
+  - type: HealthAnalyzer
+    scanningEndSound:
+      path: "/Audio/Voice/Slime/slime_squish.ogg"
+    maxScanRange: .5
+  - type: CanEscapeInventory
+  - type: GuideHelp
+    guides:
+    - CorticalBorerGuide
+  - type: Body
+    thermalVisibility: false
+  - type: UniversalLanguageSpeaker
+  - type: ActionGrant
+    actions:
+    - ActionCorticalBorerInfest
+    - ActionCorticalBorerEject
+    - ActionCorticalBorerChemMenu
+    - ActionCheckBlood
+    - ActionControlHost
+
+- type: entity
+  parent: BaseItem
+  id: CorticalBorerEgg
+  name: cortical borer egg
+  description: This egg is so nice, wet and soft...
+  components:
+  - type: Sprite
+    sprite: _Mono/Mobs/Aliens/cortical_borer_egg.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: GhostRole
+    name: cortical-borer-ghostrole-name
+    description: cortical-borer-ghostrole-desc
+    rules: ghost-role-information-freeagent-rules
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 36000 # 10 hrs
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+  - type: GhostRoleMobSpawner
+    prototype: MobCorticalBorer
+  - type: Damageable
+    damageContainer: Biological
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: GuideHelp
+    guides:
+    - CorticalBorerGuide
