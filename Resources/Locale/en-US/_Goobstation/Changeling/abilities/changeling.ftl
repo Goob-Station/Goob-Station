@@ -81,17 +81,21 @@ changeling-passive-active = Already active!
 
 changeling-fleshmend = We begin to seal our wounds and regenerate dead cells.
 changeling-panacea = We begin to reconstruct our cellular structure and immune system.
+changeling-adrenaline = We inject highly potent adrenaline into our body.
 
 changeling-chameleon-start = We adapt our skin to the environment
 changeling-chameleon-end = Our skin is losing its translucency
 
-changeling-voidadapt-start = We tense up as our cells and organs adapt to be more resilient to the void of space.
-changeling-voidadapt-end = We loosen up as our adaption against the void of space is lost.
+changeling-voidadapt-lowpressure-start = We adapt to the surrounding low pressure.
+changeling-voidadapt-lowpressure-end = The surrounding pressure is no longer low. We cast off our adaption.
+changeling-voidadapt-lowtemperature-start = We adapt to the surrounding freezing temperature.
+changeling-voidadapt-lowtemperature-end = The surrounding temperature is warmer. We cast off our adaption.
 
 changeling-hivemind-start = We tune our brainwaves to match the hivemind frequency
 
 changeling-lastresort-activate = CURRENT BODY WILL BE LOST! Use it again to confirm.
 
 changeling-onfire = Our cells writhe with agony, failing to perform the action!
+changeling-voidadapt-onfire = Our adaptions become too painful to maintain on fire! We cast them off!
 
 changeling-rejuvenate = An strange energy pulses through our body, rejuvenating our cells and restoring our chemicals!

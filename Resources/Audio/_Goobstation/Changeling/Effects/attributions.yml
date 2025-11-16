@@ -9,11 +9,6 @@
   copyright: "made by thebiggestbruh using samples from /Organs and /Bone"
   source: "https://github.com/Goob-Station/Goob-Station/tree/master/Resources/Audio/_Shitmed/ReBELL"
 
-- files: ["fleshmend_sfx.ogg"]
-  license: "CC-BY-SA-3.0"
-  copyright: "modified by thebiggestbruh using free steam sfx from pixabay.com"
-  source: "https://pixabay.com/sound-effects/steam-tinyloop-100437/"
-
 # if you want to find the source its from before The Great Rename (#689)
 - files: ["changeling_shriek.ogg"]
   license: "CC-BY-SA-3.0"

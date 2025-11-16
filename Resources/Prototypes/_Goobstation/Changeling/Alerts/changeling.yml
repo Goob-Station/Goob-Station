@@ -34,6 +34,30 @@
   name: alerts-changeling-fleshmend-name
   description: alerts-changeling-fleshmend-desc
 
+- type: alert
+  id: AdrenalineReserves
+  icons:
+  - sprite: /Textures/_Goobstation/Changeling/changeling_abilities.rsi
+    state: epinephrine_overdose
+  name: alerts-changeling-adrenaline-name
+  description: alerts-changeling-adrenaline-desc
+
+- type: alert
+  id: AnatomicPanacea
+  icons:
+  - sprite: /Textures/_Goobstation/Changeling/changeling_abilities.rsi
+    state: anatomic_panacea
+  name: alerts-changeling-panacea-name
+  description: alerts-changeling-panacea-desc
+
+- type: alert
+  id: VoidAdaption
+  icons:
+  - sprite: /Textures/_Goobstation/Changeling/changeling_abilities.rsi
+    state: void_adaptation
+  name: alerts-changeling-voidadapt-name
+  description: alerts-changeling-voidadapt-desc
+
 - type: entity
   id: AlertChangelingChemicalsSpriteView
   categories: [ HideSpawnMenu ]
