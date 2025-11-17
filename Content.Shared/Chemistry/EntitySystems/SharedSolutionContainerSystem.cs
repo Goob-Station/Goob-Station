@@ -1241,7 +1241,22 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         return true;
     }
 
-    private Solution EnsureSolutionPrototype(Entity<SolutionContainerManagerComponent?> entity, string name, FixedPoint2 maxVol, Solution? prototype, out bool existed)
+    // Goobstation start
+    public IEnumerable<string> EnumerateSolutionContainers(Entity<SolutionContainerManagerComponent?> ent,
+        bool addPrefix = true)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
+            yield break;
+
+        var prefix = addPrefix ? "solution@" : string.Empty;
+        foreach (var container in ent.Comp.Containers)
+        {
+            yield return prefix + container;
+        }
+    }
+    // Goobstation end
+
+    public Solution EnsureSolutionPrototype(Entity<SolutionContainerManagerComponent?> entity, string name, FixedPoint2 maxVol, Solution? prototype, out bool existed) // Goob edit
     {
         existed = true;
 

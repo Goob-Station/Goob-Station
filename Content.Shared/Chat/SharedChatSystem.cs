@@ -22,6 +22,9 @@
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Zekins <zekins3366@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -332,6 +335,31 @@ public abstract class SharedChatSystem : EntitySystem
 
         return message;
     }
+
+    // Goobstation start - add newlines to string so that it fits in chat if its font is larger than default
+    public static void UpdateFontSize(int fontSize, ref string message, ref string wrappedMessage)
+    {
+        var newLines = GetChatNewLines(message);
+        var ratio = GetFontRatio(fontSize);
+        for (var i = 1; i < newLines * (int) MathF.Round(ratio); i++)
+        {
+            message += '\n';
+            wrappedMessage += '\n';
+        }
+    }
+
+    public static int GetChatNewLines(string message)
+    {
+        const string pattern = @"\r\n|\n|\r";
+        return new Regex(pattern).Matches(message).Count + 1;
+    }
+
+    public static float GetFontRatio(int fontSize)
+    {
+        const int defaultFontSize = 12;
+        return (float) fontSize / defaultFontSize;
+    }
+    // Goobstation end
 
     public static string SanitizeAnnouncement(string message, int maxLength = 0, int maxNewlines = 2)
     {

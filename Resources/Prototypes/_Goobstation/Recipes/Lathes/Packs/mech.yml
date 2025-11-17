@@ -75,10 +75,10 @@
 - type: latheRecipePack
   id: MechBoardsSecurity
   recipes:
-  - GygaxCentralElectronics
+#  - GygaxCentralElectronics
   - GygaxPeripheralsElectronics
   - GygaxTargetingElectronics
-  - DurandCentralElectronics
+#  - DurandCentralElectronics
   - DurandPeripheralsElectronics
   - DurandTargetingElectronics
 
