@@ -262,6 +262,7 @@ namespace Content.IntegrationTests.Tests
             "CorvaxAwesome",
             "CorvaxChloris",
             "CorvaxSilly",
+            "CorvaxCluster",
             // Corvax-Goob-Maps-end
         };
         // Goobstation edit start, yeah i know, but this is easier and less load than loading protoman or something.
