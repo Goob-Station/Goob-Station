@@ -282,8 +282,12 @@ public sealed partial class WoundSystem
                 if (!IsWoundPrototypeValid(damageType))
                     continue;
 
-                TryInduceWound(uid, damageType, damageValue *
-                    args.DamageDelta.WoundSeverityMultipliers.GetValueOrDefault(damageType, 1), out _, component);
+                TryInduceWound(uid,
+                    damageType,
+                    damageValue *
+                    args.UncappedDamage.WoundSeverityMultipliers.GetValueOrDefault(damageType, 1),
+                    out _,
+                    component);
             }
         }
 
