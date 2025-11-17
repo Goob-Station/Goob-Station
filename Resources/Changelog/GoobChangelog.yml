@@ -18070,3 +18070,11 @@ Entries:
       message: 'Removed: Round Start Abductors :alien: '
   id: 2034
   time: '2025-11-17T17:51:31.0000000+00:00'
+- author: Rounded
+  changes:
+    - type: Fix
+      message: >-
+        Fixed unprocessed artifact fragment ore splitting into
+        bananium...................
+  id: 2035
+  time: '2025-11-17T18:48:26.0000000+00:00'
