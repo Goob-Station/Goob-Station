@@ -71,6 +71,9 @@ public sealed partial class WoundSystem
 
     private void OnWoundableMapInit(EntityUid uid, WoundableComponent comp, MapInitEvent args)
     {
+        if (HasComp<BonelessComponent>(uid))
+            return;
+
         var bone = Spawn(comp.BoneEntity);
         if (!TryComp<BoneComponent>(bone, out var boneComp))
             return;
@@ -255,13 +258,13 @@ public sealed partial class WoundSystem
     private void OnDamageChanged(EntityUid uid, WoundableComponent component, ref DamageChangedEvent args)
     {
         // Skip if there was no damage delta or if wounds aren't allowed
-        if (args.DamageDelta == null
+        if (args.UncappedDamage == null // Goobstation
             || !component.AllowWounds
             || !_net.IsServer)
             return;
 
         // Create or update wounds based on damage changes
-        foreach (var (damageType, damageValue) in args.DamageDelta.DamageDict)
+        foreach (var (damageType, damageValue) in args.UncappedDamage.DamageDict)
         {
             if (damageValue == 0)
                 continue; // Only create wounds for damage or healing

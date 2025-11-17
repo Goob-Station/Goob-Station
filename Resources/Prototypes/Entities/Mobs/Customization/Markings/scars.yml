@@ -20,7 +20,7 @@
   id: ScarEyeRight
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Feroxi] # Delta V - Felinid, Harpy, Rodentia, Feroxi; Goob - Tajaran; EE- Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Feroxi, Yowie] # Delta V - Felinid, Harpy, Rodentia, Feroxi; Goob - Tajaran, Yowies; EE- Oni
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -30,7 +30,7 @@
   id: ScarEyeLeft
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Feroxi] # Delta V - Felinid, Harpy, Rodentia, Feroxi; Goob - Tajaran; EE- Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Feroxi, Yowie] # Delta V - Felinid, Harpy, Rodentia, Feroxi; Goob - Tajaran, Yowies; EE- Oni
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -40,7 +40,7 @@
   id: ScarTopSurgeryShort
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Oni, Feroxi ] # DeltaV - Feroxi
+  speciesRestriction: [ Human, Dwarf, Oni, Feroxi, Yowie] # DeltaV - Feroxi; Goob - Yowies
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -50,7 +50,7 @@
   id: ScarTopSurgeryLong
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Oni, Feroxi] # DeltaV - Feroxi
+  speciesRestriction: [Human, Dwarf, Oni, Feroxi, Yowie] # DeltaV - Feroxi; Goob - Yowies
   sexRestriction: [Male]
   followSkinColor: true
   sprites:
@@ -61,7 +61,7 @@
   id: ScarChest
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Oni, Feroxi] # DeltaV - Feroxi
+  speciesRestriction: [Human, Dwarf, Oni, Feroxi, Yowie] # DeltaV - Feroxi; Goob - Yowies
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -121,7 +121,7 @@
   id: BodyScarr
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Oni]
+  speciesRestriction: [Human, Dwarf, Oni, Yowie] # goob edit - yowies
   followSkinColor: true
   sprites:
   - sprite: _Goobstation/Mobs/Customization/scars.rsi

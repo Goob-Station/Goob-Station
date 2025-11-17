@@ -114,6 +114,14 @@ evolutionmenu-sting-armblade-desc =
 
 # utility
 
+evolutionmenu-utility-instinct-name = Awakened Instinct
+evolutionmenu-utility-instinct-desc =
+    Awaken a ravenous, insatiable hunger towards biomass - even your own.
+    Results in chemical regeneration being increased by a flat 25%.
+    Running out of biomass will result in self-consumption - your permanent demise.
+    Biomass is restored when absorbing compatible organisms.
+    Passive ability.
+
 evolutionmenu-utility-panacea-name = Anatomic Panacea
 evolutionmenu-utility-panacea-desc =
     Cure yourself of diseases, disabilities, radiation, toxins, drunkenness, and brain damage. Generally covers the things that fleshmend doesn't.

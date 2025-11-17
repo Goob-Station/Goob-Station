@@ -133,6 +133,7 @@
     - type: Stealth
       enabledOnDeath: false
       enabledOnCrit: false
+      thermalsImmune: true # Goobstation
   - type: FlashImmunity
   - type: FlashSoundSuppression
 
@@ -243,17 +244,51 @@
   - type: FlashImmunity
   - type: FlashSoundSuppression
 
-# ntr
+# Nanorep catalog Hardsuit
+
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
-  id: ClothingHeadHelmetHardsuitNanorep
-  name: nanorep hardsuit helmet
+  id: ClothingHeadHelmetHardsuitExperimentalNanorep
+  name: "NTX5-Mirrorduss helmet"
+  description: A dark green helmet with glowing cyan nodes, a mirrored visor, and a mounted side light.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Helmets/ntr_helmet.rsi
+    sprite: _Goobstation/Clothing/Head/Helmets/ntr_experimental_helmet.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Helmets/ntr_helmet.rsi
+    sprite: _Goobstation/Clothing/Head/Helmets/ntr_experimental_helmet.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      head-resomi:
+      - state: equipped-head-resomi
   - type: PointLight
-    color: green
+    color: white
+    radius: 7
+    energy: 5
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
   - type: PressureProtection
-    highPressureMultiplier: 0.525
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.75
+        Heat: 0.7
+        Radiation: 0.9
+        Caustic: 0.9
+  - type: FireProtection
+    reduction: 0.4
