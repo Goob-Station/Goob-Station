@@ -17923,3 +17923,23 @@ Entries:
         the ore processor, and gives you 200 mining points per piece!
   id: 2015
   time: '2025-11-15T19:17:00.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fixed wound passive healing not working.
+    - type: Fix
+      message: Fixed wounds not healing sometimes when they should.
+    - type: Fix
+      message: Fixed infinite healing bug.
+  id: 2016
+  time: '2025-11-17T05:11:24.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix throwing being awful.
+  id: 2017
+  time: '2025-11-17T05:12:33.0000000+00:00'
+- author: 'JohnJohn, empty0set, lzk228 '
+  changes: []
+  id: 2018
+  time: '2025-11-17T11:02:28.0000000+00:00'
