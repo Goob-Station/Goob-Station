@@ -9,6 +9,7 @@
   cost: 7500
   recipeUnlocks:
   - GraviMag
+  - GraviMagGun
   position: 0,-8
   technologyPrerequisites:
   - KineticModifications

@@ -125,3 +125,64 @@
     walkModifier: 0.7 # goob edit V
     sprintModifier: 0.7 # goob edit ^
   - type: GunRequiresWield
+
+- type: entity
+  id: WeaponMechCombatHandheldArchgun
+  parent: [BaseMechEquipment, BaseGunWieldable, BaseSecurityContraband]
+  name: R.Arch-2 "Dunali"
+  description: The pinacle of the Red Astra "Archguns" program, with a miniturized internal GraviMag keeping the gun light and its ammo fabricator fully powered. A focus on burst fire keeps it modest outside the hands of a mech.
+  suffix: Mech Weapon, Gun, Combat, Rifle
+  components:
+  - type: Sprite
+    sprite: _RA/Objects/Weapons/Guns/LMG/Dunali.rsi
+    state: base
+  - type: Clothing
+    sprite: _RA/Objects/Weapons/Guns/LMG/Dunali.rsi
+    slots: BACK, SUITSTORAGE
+  - type: Item
+    sprite: _RA/Objects/Weapons/Guns/LMG/Dunali.rsi
+    size: Ginormous
+  - type: Battery
+    maxCharge: 640 # Battery is charged by mech
+    startingCharge: 640
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargePause: true
+    autoRechargeRate: 64
+    autoRechargePauseTime: 10
+  - type: StaticPrice
+    price: 3500
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: HeldSpeedModifier
+    mirrorClothingModifier: false
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: Gun
+    minAngle: 16
+    maxAngle: 28
+    angleIncrease: -8
+    fireRate: 4
+    burstCooldown: 0.35
+    burstFireRate: 28
+    shotsPerBurst: 2
+    selectedMode: Burst
+    availableModes:
+      - SemiAuto
+      - Burst
+      - FullAuto
+    cameraRecoilScalar: 0.25
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_perforator.ogg
+  - type: Wieldable
+  - type: GunWieldBonus
+    angleDecay: -8
+    minAngle: -8
+    maxAngle: -28
+  - type: Multishot
+  - type: ProjectileBatteryAmmoProvider
+    proto: CartridgeCaselessDual
+    fireCost: 40
+  - type: Appearance
+  - type: AmmoCounter

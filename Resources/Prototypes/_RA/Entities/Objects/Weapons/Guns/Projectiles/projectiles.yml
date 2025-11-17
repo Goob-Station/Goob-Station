@@ -1,0 +1,17 @@
+- type: entity
+  id: BulletEnergyFabricated
+  categories: [ HideSpawnMenu ]
+  parent: PelletShotgun
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/smartgun.rsi
+    layers:
+    - state: smartgun
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Slash: 6
+        Blunt: 7
+        Heat: 5
+      armorPenetration: 0.25

@@ -1,0 +1,9 @@
+- type: entity
+  id: CartridgeCaselessDual
+  categories: [ HideSpawnMenu ]
+  name: cartridge (Fabricated) # Goob edit
+  parent: BaseCartridgeCaselessRifle
+  description: A scrap of matter from an ammo fabricator. You should not be seeing this, unless you've broken your weapon in half.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletEnergyFabricated

@@ -401,7 +401,18 @@
   completetime: 10
   materials:
     Steel: 600
+    Glass: 400
     Gold: 200
     Plasma: 400
     Uranium: 400
-    Glass: 400
+
+- type: latheRecipe
+  id: GraviMagGun
+  result: WeaponMechCombatHandheldArchgun
+  completetime: 10
+  Steel: 500
+  Plastic: 500
+  Glass: 200
+  Gold: 200
+  Plasma: 200
+  Uranium: 200

@@ -1,4 +1,10 @@
+
 - type: latheRecipePack
   id: Archguns
+  recipes:
+  - GraviMag
+  - GraviMagGun
+- type: latheRecipePack
+  id: ArchgunsUpgrade
   recipes:
   - GraviMag
