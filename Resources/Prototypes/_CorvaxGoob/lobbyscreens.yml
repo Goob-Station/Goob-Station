@@ -1,225 +1,285 @@
 - type: lobbyBackground
   id: BarLife
-  background: /Textures/_CorvaxGoob/LobbyScreens/bar-life.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/bar-life.webp
 
 - type: lobbyBackground
   id: DeadInSpace
-  background: /Textures/_CorvaxGoob/LobbyScreens/dead-in-space.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/dead-in-space.webp
 
 - type: lobbyBackground
   id: Deadsquad
-  background: /Textures/_CorvaxGoob/LobbyScreens/deadsquad.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/deadsquad.webp
 
 - type: lobbyBackground
   id: Detective
-  background: /Textures/_CorvaxGoob/LobbyScreens/detective.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/detective.webp
 
 - type: lobbyBackground
   id: EngineersChill
-  background: /Textures/_CorvaxGoob/LobbyScreens/engineers-chill.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/engineers-chill.webp
 
 - type: lobbyBackground
   id: Greytide
-  background: /Textures/_CorvaxGoob/LobbyScreens/greytide.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/greytide.webp
 
 - type: lobbyBackground
   id: Hydroponics
-  background: /Textures/_CorvaxGoob/LobbyScreens/hydroponics.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/hydroponics.webp
 
 - type: lobbyBackground
   id: IntoSpace
-  background: /Textures/_CorvaxGoob/LobbyScreens/into-space.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/into-space.webp
 
 - type: lobbyBackground
   id: Jailbreak
-  background: /Textures/_CorvaxGoob/LobbyScreens/jailbreak.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/jailbreak.webp
 
 - type: lobbyBackground
   id: Kosmologistika
-  background: /Textures/_CorvaxGoob/LobbyScreens/kosmologistika.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/kosmologistika.webp
 
 - type: lobbyBackground
   id: LizardBar
-  background: /Textures/_CorvaxGoob/LobbyScreens/lizard-bar.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/lizard-bar.webp
 
 - type: lobbyBackground
   id: Lofi
-  background: /Textures/_CorvaxGoob/LobbyScreens/lofi.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/lofi.webp
 
 - type: lobbyBackground
   id: MaintenanceClown
-  background: /Textures/_CorvaxGoob/LobbyScreens/maintenance-clown.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/maintenance-clown.webp
 
 - type: lobbyBackground
   id: MedDepart
-  background: /Textures/_CorvaxGoob/LobbyScreens/med-depart.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/med-depart.webp
 
 - type: lobbyBackground
   id: NukiesHere
-  background: /Textures/_CorvaxGoob/LobbyScreens/nukies-here.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/nukies-here.webp
 
 - type: lobbyBackground
   id: RegularShift
-  background: /Textures/_CorvaxGoob/LobbyScreens/regular-shift.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/regular-shift.webp
 
 - type: lobbyBackground
   id: Russellmart
-  background: /Textures/_CorvaxGoob/LobbyScreens/russellmart.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/russellmart.webp
 
 - type: lobbyBackground
   id: Sidor
-  background: /Textures/_CorvaxGoob/LobbyScreens/sidor.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/sidor.webp
 
 - type: lobbyBackground
   id: Singulord
-  background: /Textures/_CorvaxGoob/LobbyScreens/singulord.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/singulord.webp
 
 - type: lobbyBackground
   id: SpaceMudaki
-  background: /Textures/_CorvaxGoob/LobbyScreens/space-mudaki.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/space-mudaki.webp
 
 - type: lobbyBackground
   id: Traitor
-  background: /Textures/_CorvaxGoob/LobbyScreens/traitor.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/traitor.webp
 
 - type: lobbyBackground
   id: NukieDudes
-  background: /Textures/_CorvaxGoob/LobbyScreens/nukie-dudes.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/nukie-dudes.webp
 
 - type: lobbyBackground
   id: LostAndPowerless
-  background: /Textures/_CorvaxGoob/LobbyScreens/lost-and-powerless.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/lost-and-powerless.webp
 
 - type: lobbyBackground
   id: MenAtWork
-  background: /Textures/_CorvaxGoob/LobbyScreens/men-at-work.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/men-at-work.webp
 
 - type: lobbyBackground
   id: FleshAnom
-  background: /Textures/_CorvaxGoob/LobbyScreens/fleshanom.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/fleshanom.webp
 
 - type: lobbyBackground
   id: Revenant
-  background: /Textures/_CorvaxGoob/LobbyScreens/revenant.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/revenant.webp
 
 - type: lobbyBackground
   id: DeathNettle
-  background: /Textures/_CorvaxGoob/LobbyScreens/deathnettle.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/deathnettle.webp
 
 - type: lobbyBackground
   id: Xeno
-  background: /Textures/_CorvaxGoob/LobbyScreens/xeno.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/xeno.webp
 
 - type: lobbyBackground
   id: ClownSpider
-  background: /Textures/_CorvaxGoob/LobbyScreens/clownspider.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/clownspider.webp
 
 - type: lobbyBackground
   id: AIMia
-  background: /Textures/_CorvaxGoob/LobbyScreens/ai-mia.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/ai-mia.webp
 
 - type: lobbyBackground
   id: XenoAttack
-  background: /Textures/_CorvaxGoob/LobbyScreens/xenosattack.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/xenosattack.webp
 
 - type: lobbyBackground
   id: SingulordCage
-  background: /Textures/_CorvaxGoob/LobbyScreens/singulord-cage.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/singulord-cage.webp
 
 - type: lobbyBackground
   id: YouLookLonely
-  background: /Textures/_CorvaxGoob/LobbyScreens/you-look-lonely.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/you-look-lonely.webp
 
 - type: lobbyBackground
   id: GrayTide
-  background: /Textures/_CorvaxGoob/LobbyScreens/gray-tide.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/gray-tide.webp
 
 - type: lobbyBackground
   id: NewYearBar
-  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-bar.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-bar.webp
 
 - type: lobbyBackground
   id: NewYearSec
-  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-sec.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-sec.webp
 
 - type: lobbyBackground
   id: NewYearSave
-  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-save.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-save.webp
 
 - type: lobbyBackground
   id: NewYearComfort
-  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-comfort.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-comfort.webp
 
 - type: lobbyBackground
   id: NewYearParty
-  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-party.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-party.webp
 
 - type: lobbyBackground
   id: NewYearPine
-  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-pine.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-pine.webp
 
 - type: lobbyBackground
   id: NewYearExplosion
-  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-explosion.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-explosion.webp
 
 - type: lobbyBackground
   id: SpaceNuke
-  background: /Textures/_CorvaxGoob/LobbyScreens/space-nuke.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/space-nuke.webp
 
 - type: lobbyBackground
   id: NewYearPenguins
-  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-penguins.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-penguins.webp
 
 - type: lobbyBackground
   id: NewYearNuke
-  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-nuke.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-nuke.webp
 
 - type: lobbyBackground
   id: ArnoldIntelligence
-  background: /Textures/_CorvaxGoob/LobbyScreens/arnold-intelligence.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/arnold-intelligence.webp
 
 - type: lobbyBackground
   id: MimesInTechs
-  background: /Textures/_CorvaxGoob/LobbyScreens/mimes-in-techs.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/mimes-in-techs.webp
 
 - type: lobbyBackground
   id: NukieWar
-  background: /Textures/_CorvaxGoob/LobbyScreens/nukie-war.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/nukie-war.webp
 
 - type: lobbyBackground
   id: EngineersVsZombies
-  background: /Textures/_CorvaxGoob/LobbyScreens/engineers-vs-zombies.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/engineers-vs-zombies.webp
 
 - type: lobbyBackground
   id: SillyIsland
-  background: /Textures/_CorvaxGoob/LobbyScreens/silly-island.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/silly-island.webp
 
 - type: lobbyBackground
   id: EchoTeam
-  background: /Textures/_CorvaxGoob/LobbyScreens/echo-team.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/echo-team.webp
 
 - type: lobbyBackground
   id: YouAreNotFunny
-  background: /Textures/_CorvaxGoob/LobbyScreens/you-are-not-funny.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/you-are-not-funny.webp
 
 - type: lobbyBackground
   id: NarSieCult
-  background: /Textures/_CorvaxGoob/LobbyScreens/nar-sie.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/nar-sie.webp
 
 - type: lobbyBackground
   id: End
-  background: /Textures/_CorvaxGoob/LobbyScreens/end.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/end.webp
 
 - type: lobbyBackground
   id: CyborgNinja
-  background: /Textures/_CorvaxGoob/LobbyScreens/cyborg-ninja.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/cyborg-ninja.webp
 
 - type: lobbyBackground
   id: Security
-  background: /Textures/_CorvaxGoob/LobbyScreens/security.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/security.webp
+
+- type: lobbyBackground
+  id: Summer2025GreytidePilgrim
+  background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-greytide-pilgrim.webp
+
+- type: lobbyBackground
+  id: Summer2025DragonLeash
+  background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-dragon-leash.webp
+
+- type: lobbyBackground
+  id: Summer2025ASecondBefore
+  background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-a-second-before.webp
+
+- type: lobbyBackground
+  id: Summer2025Why
+  background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-why.webp
+
+- type: lobbyBackground
+  id: Summer2025ExtremeFishing
+  background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-extreme-fishing.webp
+
+- type: lobbyBackground
+  id: Summer2025Expedition
+  background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-expedition.webp
+
+- type: lobbyBackground
+  id: Summer2025BeachGames
+  background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-beach-games.webp
+
+- type: lobbyBackground
+  id: Summer2025Invite
+  background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-invite.webp
+
+- type: lobbyBackground
+  id: Summer2025Afterparty
+  background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-afterparty.webp
+
+- type: lobbyBackground
+  id: Summer2025Dome
+  background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-dome.webp
+
+- type: lobbyBackground
+  id: Summer2025Crash
+  background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-crash.webp
+
+- type: lobbyBackground
+  id: Summer2025Survivour
+  background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-survivour.webp
+
+- type: lobbyBackground
+  id: Summer2025Syndicill
+  background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-syndicill.webp
+
+- type: lobbyBackground
+  id: Summer2025WorksDone
+  background: /Textures/_CorvaxGoob/LobbyScreens/summer2025-works-done.webp
+
+- type: lobbyBackground
+  id: SoleSurvivor
+  background: /Textures/_CorvaxGoob/LobbyScreens/sole-survivor.webp
 
 - type: lobbyBackground
   id: AwesomeShuttle
   name: "Замечательный шаттл"
   artist: qulezza
-  background: /Textures/_CorvaxGoob/LobbyScreens/awesome-shuttle.png
+  background: /Textures/_CorvaxGoob/LobbyScreens/awesome-shuttle.webp

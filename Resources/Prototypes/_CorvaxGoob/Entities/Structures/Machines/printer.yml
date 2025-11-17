@@ -2,7 +2,7 @@
   parent: BaseLathe
   id: PrinterDoc
   name: document printer
-  description: Bureaucratic perfection. Stores a database of all Nanotrasen documents, and lets you print them as long as you have paper.
+  description: Bureaucratic perfection. Stores the database of all Nanotrasen documents. For rapid pre-filling of documents with your personal details, use the ID card slot. Printing is available provided paper is supplied.
   components:
   - type: Sprite
     sprite: _CorvaxGoob/Structures/Machines/printer.rsi
@@ -46,3 +46,17 @@
     - Paper
     storage:
       Paper: 0
+  - type: DocumentPrinter
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+      id: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      id:
+        name: IdSlot
+        whitelist:
+          components:
+          - IdCard
