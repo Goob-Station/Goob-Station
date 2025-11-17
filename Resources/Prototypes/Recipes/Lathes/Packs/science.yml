@@ -49,6 +49,7 @@
   - DeviceQuantumSpinInverter
   - DeviceDesynchronizer
   - ClothingBackpackHarmpack
+  - AnomalyPayload # CorvaxGoob-AnomalyGrenades
 
 - type: latheRecipePack
   id: ScienceClothing
