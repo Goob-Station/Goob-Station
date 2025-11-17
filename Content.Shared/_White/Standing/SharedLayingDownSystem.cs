@@ -128,11 +128,17 @@ public abstract class SharedLayingDownSystem : EntitySystem
             standingState.CurrentState is not StandingState.Lying ||
             !_mobState.IsAlive(uid) ||
             TerminatingOrDeleted(uid) ||
-            // Shitmed Change
-            !TryComp<BodyComponent>(uid, out var body) ||
-            body.LegEntities.Count < body.RequiredLegs ||
             HasComp<DebrainedComponent>(uid))
             return false;
+
+        // Goobstation begin
+        if (!HasComp<IgnoreLegsForStandingComponent>(uid))
+        {
+            if (!TryComp<BodyComponent>(uid, out var body) ||
+                body.LegEntities.Count < body.RequiredLegs)
+                return false;
+        }
+        // goobstation end
 
         // Goob edit start
         var ev = new GetStandingUpTimeMultiplierEvent();

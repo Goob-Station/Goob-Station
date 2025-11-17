@@ -1,0 +1,295 @@
+- type: entity
+  name: machete
+  parent: [ BaseSword, BaseMajorContraband ]
+  id: SlasherMachete
+  description: A large, vicious looking blade.
+  components:
+  - type: Tag
+    tags:
+    - Machete
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/machete.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 15
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    storedSprite:
+      state: storage
+      sprite: _Goobstation/Objects/Specific/Slasher/machete.rsi
+    shape:
+    - 0,0,0,2
+  - type: DisarmMalus
+#  - type: MeleeThrowOnHit # check later
+#    stunTime: 1.5 # stunned on throw
+#    activateOnThrown: true
+#    distance: 0 # no throw impulse to victim, only stun
+#    speed: 0
+  - type: SlasherMassacreMachete
+
+
+- type: entity
+  parent: WeldingMaskBase
+  id: ClothingHeadHatSlasherMask
+  name: slasher mask
+  description: A head-mounted face cover designed to protect the wearer completely from space-arc eye.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - WeldingMask
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterSlasherApron
+  name: slasher apron
+  description: A fancy apron for a stylish person.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/apron.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Specific/Slasher/apron.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+  - type: Tag
+    tags:
+    - Apron
+    - WhitelistChameleon
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostSlasher
+  components:
+  - type: GhostRole
+    name: ghost-role-information-space-ninja-name
+    description: ghost-role-information-space-ninja-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+#    requirements: # Goobstation - ghost roles requirements
+#    - !type:OverallPlaytimeRequirement
+#      time: 18000 #5 hours
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Objects/Weapons/Melee/energykatana.rsi
+      state: icon
+
+- type: entity
+  parent: BaseGameRule
+  id: SlasherSpawn
+  components:
+  - type: StationEvent
+    weight: 3
+    duration: null
+    earliestStart: 30
+    maxOccurrences: 1
+    minimumPlayers: 30
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 20
+      Combat: 40
+      Death: 40
+      Medical: 40
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 300
+#  - type: SpaceSpawnRule
+  - type: AntagRandomSpawn
+  - type: AntagLoadProfileRule
+    speciesOverride: Human
+    speciesOverrideBlacklist:
+    - Yowie
+    - IPC
+    - Diona
+    - Abductor
+    - Harpy
+    - Plasmaman
+  - type: AntagObjectives
+    objectives:
+    - StealResearchObjective # Change later
+  - type: AntagSelection
+    agentName: ninja-round-end-agent-name # Change later
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSlasher
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SlasherGear
+      roleLoadout:
+      - RoleSurvivalEVA
+      briefing: # Change
+        text: slasher-role-greeting
+        color: Red
+        sound: /Audio/_Goobstation/Effects/Slasher/Slasherintro.ogg
+      components:
+      - type: Slasher
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+#      - type: AutoImplant
+#        implants:
+#        - MicroBombImplant # Goobstation
+      - type: RandomMetadata # Change later
+        nameSegments:
+        - NamesNinjaTitle
+        - NamesNinja
+        nameFormat: name-format-ninja # Change
+      mindRoles:
+      - MindRoleNinja # Change
+
+- type: startingGear
+  id: SlasherGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+    back: ClothingBackpackSatchel
+#    mask: ClothingMaskNinja
+    head: ClothingHeadHatSlasherMask
+#    eyes: ClothingEyesVisorNinja
+    gloves: ClothingHandsGlovesColorBlack
+    outerClothing: ClothingOuterSlasherApron
+    shoes: ClothingShoesLeather
+#    id: AgentIDCard
+#    ears: ClothingHeadsetGrey
+#    pocket1: SpiderCharge
+#    pocket2: PinpointerStation
+#    belt: EnergyKatana
+#  inhand:
+#    - SlasherMachete
+#    - NinjutsuScroll # Goobstation
+#  storage:
+#    back:
+#    - Crowbar
+#    - Wrench
+#    - Screwdriver
+#    - Wirecutter
+#    - Welder
+#    - Multitool
+
+- type: reagent
+  id: slasherium
+  name: reagent-name-slasherium
+  group: Medicine
+  desc: reagent-desc-slasherium
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: medicine
+  color: "#fcf7f9"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.25
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: -12
+          groups:
+            Burn: -12
+            Brute: -12
+            Toxin: -12
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 3
+        type: Remove
+    Narcotic:
+      metabolismRate: 0.25
+      effects:
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 3
+        type: Remove
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
+      - !type:RemoveComponentEffect
+        component: DelayedKnockdown
+        locale: reagent-effect-guidebook-remove-delayed-knockdown
+      - !type:TakeStaminaDamage
+        amount: -10
+        immediate: true
+      - !type:SuppressPain
+        amount: 1.2
+        time: 30
+
+- type: entity
+  id: SlasherMeatSpike
+  parent: BaseStructure
+  name: Ominous Meat Spike
+  description: You might want to run.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: Structures/meat_spike.rsi
+    state: spike
+    layers:
+    - state: spike
+      map: ["base"]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -4
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+  - type: Anchorable
+  - type: Pullable
+  - type: Appearance
+  - type: BlockHandsOnBuckle
+  - type: Strap
+    position: Down
+    rotation: -180
+    selfUnBuckleDelay: 60
+    blacklist:
+      components:
+        - Slasher # no lmao
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: AntiRotOnBuckle
+  - type: Fixtures
+    fixtures:
+      spike:
+        shape: !type:PhysShapeAabb { bounds: "-0.25,-0.25,0.25,0.25" }
+        density: 5
+        mask: [] # No collision mask so entities can walk through
+        layer: []
+
