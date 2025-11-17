@@ -139,6 +139,8 @@
           Cellular: 0.1
           Radiation: 0.1
           Caustic: 0.1
+    - type: ZombificationResistance
+      zombificationResistanceCoefficient: 0 #goob edit
     - type: SealableClothingVisuals
       spriteLayer: sealed
       clothingVisuals:

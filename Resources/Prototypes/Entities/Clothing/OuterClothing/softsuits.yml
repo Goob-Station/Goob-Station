@@ -122,6 +122,25 @@
     sprite: Clothing/OuterClothing/Suits/eva_syndicate.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/eva_syndicate.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Radiation: 0.5
   - type: Tag
     tags:
     - SuitEVA
@@ -232,6 +251,8 @@
         Heat: 0.9
         Radiation: 0.75
         Caustic: 0.5
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.8 #goob edit
   - type: GroupExamine
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitVoidParamed

@@ -280,6 +280,8 @@
   - type: Fiber
     fiberMaterial: fibers-latex
   - type: FingerprintMask
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.95 #goob edit
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -294,6 +296,8 @@
   - type: Fiber
     fiberMaterial: fibers-nitrile
   - type: FingerprintMask
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.9 #goob edit
 ####
 - type: entity
   parent: ClothingHandsButcherable

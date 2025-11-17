@@ -41,6 +41,8 @@
     parts:
     - BodyMiddle
     - Legs
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.75
 
 
 - type: entity
@@ -75,7 +77,7 @@
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
-      - state: equipped-OUTERCLOTHING-sealed-resomi   
+      - state: equipped-OUTERCLOTHING-sealed-resomi
   - type: StaminaResistance
     damageCoefficient: 0.9
   - type: Armor
@@ -111,6 +113,8 @@
       heatingCoefficient: 0.01
   - type: FireProtection
     reduction: 0.5
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.75
 
 - type: entity
   parent: ClothingOuterBase
@@ -187,6 +191,8 @@
       heatingCoefficient: 0.01
   - type: FireProtection
     reduction: 0.5
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.75
 
 
 - type: entity
@@ -223,7 +229,7 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: ModifyDelayedKnockdown
@@ -271,6 +277,8 @@
       Bicaridine: 10
       TranexamicAcid: 5
       Tramadol: 5
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.75
 
 - type: entity
   parent: ClothingOuterBase
@@ -306,7 +314,7 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
   - type: ExplosionResistance
     damageCoefficient: 0.85
   - type: Armor
@@ -348,6 +356,8 @@
     damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.5
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.75
 
 - type: entity
   parent: ClothingOuterBase
@@ -383,7 +393,7 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
   - type: ExplosionResistance
     damageCoefficient: 0.35
   - type: Armor
@@ -426,6 +436,8 @@
     damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.7
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.75
 
 - type: entity
   parent: ClothingOuterBase
@@ -461,7 +473,7 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
   - type: ExplosionResistance
     damageCoefficient: 0.45
   - type: Armor
@@ -502,6 +514,8 @@
     damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.75
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.75
 
 - type: entity
   parent: ClothingOuterBase
@@ -537,7 +551,7 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: Armor
@@ -581,6 +595,8 @@
   - type: FireProtection
     reduction: 0.5
   - type: GroupExamine
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.75
 
 - type: entity
   parent: ClothingOuterBase
@@ -617,7 +633,7 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
@@ -659,3 +675,5 @@
     damageCoefficient: 0.6
   - type: FireProtection
     reduction: 0.5
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.75

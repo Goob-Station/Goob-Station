@@ -333,6 +333,18 @@
     sprite: Clothing/Uniforms/Jumpsuit/virology.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/virology.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Caustic: 0.95
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.95 #goob edit
 
 - type: entity
   parent: ClothingUniformBase

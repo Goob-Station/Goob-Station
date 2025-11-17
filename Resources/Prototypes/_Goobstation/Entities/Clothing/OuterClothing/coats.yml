@@ -81,6 +81,9 @@
     knockdownTimeDelta: -1.5
   - type: StaminaResistance
     damageCoefficient: 0.7
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.9
+
 
 #blue ward coat
 - type: entity
@@ -105,7 +108,7 @@
     sprite: _Goobstation/Clothing/OuterClothing/Coats/rdaltcoat.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Coats/rdaltcoat.rsi
-    
+
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRD]

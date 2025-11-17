@@ -169,6 +169,8 @@
       lowPressureMultiplier: 1000
     - type: ExplosionResistance
       damageCoefficient: 0.45
+    - type: ZombificationResistance
+      zombificationResistanceCoefficient: 0.75 #goob edit
 
 - type: entity
   parent: ClothingModsuitBootsStandard

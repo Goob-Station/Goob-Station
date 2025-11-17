@@ -409,6 +409,21 @@
   - type: Tag
     tags:
     - PlasmamanSafe # EE Plasmeme Change
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    modifiers:
+      coefficients:
+        Slash: 0.95
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.9 #goob edit
 
 - type: entity
   parent: ClothingOuterBase

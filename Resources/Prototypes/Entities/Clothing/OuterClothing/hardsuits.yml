@@ -731,7 +731,7 @@
         Heat: 0.4
         Caustic: 0.1
   - type: ZombificationResistance
-    zombificationResistanceCoefficient: 0.4
+    zombificationResistanceCoefficient: 0.0 #goob edit - "so sterile that germs cant get in"
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
@@ -769,6 +769,8 @@
         Shock: 0.85
         Radiation: 0.05
         Caustic: 0.4
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.8 #goob edit
   - type: ExplosionResistance
     damageCoefficient: 0.15 #Goob - Modsuits
   - type: ClothingSpeedModifier
@@ -1418,6 +1420,8 @@
         Cellular: 0.1
         Radiation: 0.1
         Caustic: 0.1
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.0 #goob edit
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
