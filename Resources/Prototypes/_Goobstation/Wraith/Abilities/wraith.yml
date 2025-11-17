@@ -25,38 +25,38 @@
   - type: BloodWriting
   - type: Decay
   - type: AbsorbCorpse
-    damage:
+    damage: # damage they take when they eat a corpse with forma
       types:
         Slash: 25
         Blunt: 25
   - type: DemonicWhisper
   - type: PossessObject
   - type: SpookMark
-  - type: WraithCommand
-    blacklist:
-      components:
-      - MobState
-      - Body
-      - Food
-      - EntityStorage
-      - Solution
-      - ReagentDispenser
-      tags:
-      - ChemDispensable
-    searchRange: 7
-    stunDuration: 5
+  #- type: WraithCommand
+  #  blacklist:
+  #    components:
+  #    - MobState
+  #    - Body
+  #    - Food
+  #    - EntityStorage
+  #    - Solution
+  #    - ReagentDispenser
+  #    tags:
+  #    - ChemDispensable
+  #  searchRange: 7
+  #  stunDuration: 5
   - type: Evolve
     availableEvolutions:
     - prototype: MobWraithHarbinger
     - prototype: MobWraithPlague
-    #- prototype: MobWraithTrickster
+  # - prototype: MobWraithTrickster
   - type: ActionGrant
     actions:
     - ActionAbsorbCorpse
     - ActionPossessObject
     - ActionDecay
-    - ActionCommand
-    - ActionAnimateObject
+   # - ActionCommand
+   # - ActionAnimateObject
     - ActionWhisper
     - ActionBloodWriting
     - ActionSpook

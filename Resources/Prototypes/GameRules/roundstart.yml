@@ -163,7 +163,7 @@
     - id: Devil # Goob
       prob: 0.02
     - id: Shadowling # Goob
-      prob: 0.09
+      prob: 0.02
 
 - type: entity
   parent: BaseGameRule
@@ -502,6 +502,7 @@
         components:
         - CommandStaff # Goobstation
         - ZombieImmune
+        - AntagImmune
       briefing:
         text: zombie-patientzero-role-greeting
         color: Plum

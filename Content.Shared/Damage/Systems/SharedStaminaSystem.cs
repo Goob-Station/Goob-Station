@@ -82,14 +82,15 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+using Content.Goobstation.Common.Damage.Events;
 
 // Goobstation usings
-using Content.Shared.Movement.Components; // For InputMoverComponent
 using Robust.Shared.Random; // Shove
 using Content.Shared._Shitcode.Weapons.Misc;
 using Content.Goobstation.Common.Stunnable; // Martial Arts
-using Content.Goobstation.Common.MartialArts; // Martial Arts
-using Content.Shared.Damage.Events; // Sprinting Logs
+using Content.Goobstation.Common.MartialArts;
+using Content.Shared.Damage.Events;
+using Robust.Shared.Utility;
 
 
 namespace Content.Shared.Damage.Systems;
@@ -138,9 +139,6 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
         SubscribeLocalEvent<StaminaDamageOnHitComponent, MeleeHitEvent>(OnMeleeHit);
 
-        // Goobstation - Grab Sprinting Toggle from Goob Mod
-        SubscribeLocalEvent<SprintingStateChangedEvent>(OnSprintingStateChanged);
-
         Subs.CVar(_config, CCVars.PlaytestStaminaDamageModifier, value => UniversalStaminaDamageModifier = value, true);
     }
 
@@ -168,6 +166,10 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
     private void OnStartup(Entity<StaminaComponent> entity, ref ComponentStartup args)
     {
+        // Goobstation edit start - prevent a server crash from YAMLmaxxing
+        if (entity.Comp.CritThreshold <= entity.Comp.AnimationThreshold)
+            Log.Error($"Entity {ToPrettyString(entity)} failed to initialize StaminaComponent properly: {nameof(StaminaComponent.CritThreshold)} is lower or equal to {nameof(StaminaComponent.AnimationThreshold)}. Please fix its YAML prototype!");
+        // Goobstation edit end
         UpdateStaminaVisuals(entity);
     }
 
@@ -256,16 +258,16 @@ public abstract partial class SharedStaminaSystem : EntitySystem
             // raise event for each entity hit
             RaiseLocalEvent(ent, ref hitEvent);
 
-            // Begin DeltaV additions
-            // Allow users to modifier stamina damage as well, this part of the event is not handle-able by listeners.
-            RaiseLocalEvent(args.User, ref hitEvent);
-            // End DeltaV additions
+            // Goobstation EDIT START
+            // raise event to modify outgoing stamina damage by multiplier or something
+            var outgoingModifier = new ModifyOutgoingStaminaDamageEvent(1f);
+            RaiseLocalEvent(args.User, ref outgoingModifier);
 
             var damageImmediate = component.Damage;
             var damageOvertime = component.Overtime;
-            damageImmediate *= hitEvent.Value;
-            damageOvertime *= hitEvent.Value;
-
+            damageImmediate *= hitEvent.Value * outgoingModifier.Value;
+            damageOvertime *= hitEvent.Value * outgoingModifier.Value;
+            // Goobstation EDIT END
             if (args.Direction == null)
             {
                 damageImmediate *= component.LightAttackDamageMultiplier;
@@ -375,7 +377,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
     // goob edit - stunmeta
     public void TakeStaminaDamage(EntityUid uid, float value, StaminaComponent? component = null,
-        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null, bool immediate = true, bool applyResistances = false)
+        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null, bool immediate = true, bool applyResistances = false, bool logDamage = true)
     {
         if (!Resolve(uid, ref component, false)
         || value == 0) // no damage???
@@ -439,7 +441,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
             return;
 
         // Goobstation - Don't log stamina damage if the entity is sprinting and the damage is from themselves (sprinting)
-        if (!component.IsSprinting && source != uid)
+        if (logDamage && source != uid)
         {
             if (source != null)
                 _adminLogger.Add(LogType.Stamina, $"{ToPrettyString(source.Value):user} caused {value} stamina damage to {ToPrettyString(uid):target}{(with != null ? $" using {ToPrettyString(with.Value):using}" : "")}");
@@ -631,17 +633,4 @@ public abstract partial class SharedStaminaSystem : EntitySystem
     {
         public NetEntity Entity = entity;
     }
-
-    #region Goobstaiton - Sprinting State Change Event
-
-    private void OnSprintingStateChanged(ref SprintingStateChangedEvent ev)
-    {
-        if (TryComp<StaminaComponent>(ev.Uid, out var stamina))
-        {
-            stamina.IsSprinting = ev.IsSprinting;
-            Dirty(ev.Uid, stamina);
-        }
-    }
-
-    #endregion
 }
