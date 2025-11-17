@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.SlaughterDemon;
 using Content.Server.Guardian;
 using Content.Server.Humanoid;
 using Content.Server.Mind;
@@ -77,6 +78,12 @@ public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
                 return;
             }
 
+            if (HasComp<BloodCrawlComponent>(target))
+            {
+                _popup.PopupEntity(Loc.GetString("wizard-mirror-blood-crawl-change-species-fail"), target, target);
+                return;
+            }
+
             var config = new PolymorphConfiguration
             {
                 Entity = speciesProto.Prototype,
@@ -93,6 +100,8 @@ public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
                     new("UniversalLanguageSpeaker", mirror: true),
                     new("TowerOfBabel", mirror: true),
                     new("CanEnchant", mirror: true),
+                    new("CanPerformCombo", mirror: true),
+                    new("MartialArtsKnowledge"),
                     new("NpcFactionMember"),
                 },
             };

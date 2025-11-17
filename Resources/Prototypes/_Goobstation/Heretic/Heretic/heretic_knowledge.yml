@@ -213,6 +213,7 @@
   id: GraspOfFlesh
   path: Flesh
   stage: 2
+  event: !type:EventHereticFleshPassive
 
 - type: hereticKnowledge
   id: ImperfectRitual

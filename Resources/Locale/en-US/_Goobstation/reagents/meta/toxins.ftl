@@ -25,3 +25,6 @@ reagent-desc-sarin = A brutal neurotoxin that creates nasty caustic burns on con
 
 reagent-name-nevcottapowder = nevcotta powder
 reagent-desc-nevcottapowder = A highly toxic powder created from grinding the bark of the nevcotta tree. Used in the creation of a classified chemical.
+
+reagent-name-microplastics = microplastics
+reagent-desc-microplastics = A mildly toxic pollutant found in a lot of everyday objects. Its toxic effects do not seem to affect Vox.

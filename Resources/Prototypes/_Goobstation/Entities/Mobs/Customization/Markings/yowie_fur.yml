@@ -24,7 +24,7 @@
 - type: marking
   id: YowieFurHead
   bodyPart: Head
-  markingCategory: Overlay
+  markingCategory: Head
   speciesRestriction: [Yowie]
   coloring:
     default:
@@ -38,7 +38,7 @@
 - type: marking
   id: YowieFurChest
   bodyPart: Chest
-  markingCategory: Overlay
+  markingCategory: Chest
   speciesRestriction: [Yowie]
   coloring:
     default:
@@ -52,7 +52,7 @@
 - type: marking
   id: YowieFurGroin
   bodyPart: Groin
-  markingCategory: Overlay
+  markingCategory: Groin
   speciesRestriction: [Yowie]
   coloring:
     default:
@@ -66,7 +66,7 @@
 - type: marking
   id: YowieFurArmRight
   bodyPart: RArm
-  markingCategory: Overlay
+  markingCategory: RightArm
   speciesRestriction: [Yowie]
   coloring:
     default:
@@ -80,7 +80,7 @@
 - type: marking
   id: YowieFurArmLeft
   bodyPart: LArm
-  markingCategory: Overlay
+  markingCategory: LeftArm
   speciesRestriction: [Yowie]
   coloring:
     default:
@@ -94,7 +94,7 @@
 - type: marking
   id: YowieFurLegRight
   bodyPart: RLeg
-  markingCategory: Overlay
+  markingCategory: RightLeg
   speciesRestriction: [Yowie]
   coloring:
     default:
@@ -108,7 +108,7 @@
 - type: marking
   id: YowieFurLegLeft
   bodyPart: LLeg
-  markingCategory: Overlay
+  markingCategory: LeftLeg
   speciesRestriction: [Yowie]
   coloring:
     default:
@@ -122,7 +122,7 @@
 - type: marking
   id: YowieFurFeetRight
   bodyPart: RFoot
-  markingCategory: Overlay
+  markingCategory: RightFoot
   speciesRestriction: [Yowie]
   coloring:
     default:
@@ -136,7 +136,7 @@
 - type: marking
   id: YowieFurFeetLeft
   bodyPart: LFoot
-  markingCategory: Overlay
+  markingCategory: LeftFoot
   speciesRestriction: [Yowie]
   coloring:
     default:

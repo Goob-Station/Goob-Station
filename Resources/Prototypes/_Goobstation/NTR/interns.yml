@@ -30,6 +30,7 @@
     randomizeName: true
   - type: Loadout
     prototypes: [LeadInternGear]
+  - type: AntagImmune
 
 # Basic Intern Coin
 - type: entity
@@ -82,6 +83,7 @@
     randomizeName: true
   - type: Loadout
     prototypes: [NTInternGear]
+  - type: AntagImmune
 
 # NT Nerd Intern
 - type: entity
@@ -94,6 +96,7 @@
     randomizeName: true
   - type: Loadout
     prototypes: [NTNerdInternGear]
+  - type: AntagImmune
 
 # NT Nerd Intern Gear
 - type: startingGear

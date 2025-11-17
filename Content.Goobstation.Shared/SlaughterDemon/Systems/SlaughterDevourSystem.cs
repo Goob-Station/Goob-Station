@@ -1,6 +1,8 @@
 using Content.Goobstation.Shared.SlaughterDemon.Objectives;
 using Content.Goobstation.Shared.SlaughterDemon.Other;
 using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._Shitmed.Damage;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
@@ -60,8 +62,8 @@ public sealed class SlaughterDevourSystem : EntitySystem
             || args.Cancelled)
             return;
 
-        var ev = new SlaughterDevourEvent(args.Target.Value, Transform(ent.Owner).Coordinates);
-        RaiseLocalEvent(ent.Owner, ref ev);
+        var ev = new SlaughterDevourEvent(args.Target.Value, ent.Owner);
+        RaiseLocalEvent(ent.Owner, ref ev, true);
     }
 
     /// <summary>
@@ -122,21 +124,28 @@ public sealed class SlaughterDevourSystem : EntitySystem
     public void HealAfterDevouring(EntityUid target, EntityUid devourer, SlaughterDevourComponent component)
     {
         // I dont know how to refactor this into events so im leaving it like this
+        var toHeal = component.ToHeal;
         if (HasComp<HumanoidAppearanceComponent>(target) && !HasComp<SiliconComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("slaughter-devour-humanoid"), devourer);
-            _damageable.TryChangeDamage(devourer, component.ToHeal);
         }
         else if (HasComp<BorgChassisComponent>(target) || HasComp<SiliconComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("slaughter-devour-robot"), devourer);
-            _damageable.TryChangeDamage(devourer, component.ToHealNonCrew);
+            toHeal = component.ToHealNonCrew;
         }
         else
         {
             _popup.PopupEntity(Loc.GetString("slaughter-devour-other"), devourer);
-            _damageable.TryChangeDamage(devourer, component.ToHealAnythingElse);
+            toHeal = component.ToHealAnythingElse;
         }
+
+        _damageable.TryChangeDamage(devourer,
+            toHeal,
+            true,
+            false,
+            targetPart: TargetBodyPart.All,
+            splitDamage: SplitDamageBehavior.SplitEnsureAll);
     }
 
     /// <summary>

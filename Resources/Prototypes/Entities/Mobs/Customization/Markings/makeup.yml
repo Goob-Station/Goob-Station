@@ -8,7 +8,7 @@
   id: MakeupLips
   bodyPart: Face
   markingCategory: Face
-  speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Arachne] # Delta V - Felinid, Oni, Harpy
+  speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Arachne, Yowie] # Delta V - Felinid, Oni, Harpy; Goob - Yowies
   coloring:
     default:
       type:
@@ -22,7 +22,7 @@
   id: MakeupBlush
   bodyPart: Face
   markingCategory: Face
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Felinid, Oni, Vulpkanin, Harpy, Arachne] # Delta V - Felinid, Oni, Vulpkanin, Harpy
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Felinid, Oni, Vulpkanin, Harpy, Arachne, Yowie] # Delta V - Felinid, Oni, Vulpkanin, Harpy; Goob - Yowies
   coloring:
     default:
       type:
@@ -36,7 +36,7 @@
   id: MakeupNailPolishRight
   bodyPart: RHand
   markingCategory: RightHand
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin, Arachne] # Delta V - Felinid, Oni, Vulpkanin
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin, Arachne, Yowie] # Delta V - Felinid, Oni, Vulpkanin; Goob - Yowies
   coloring:
     default:
       type:
@@ -50,7 +50,7 @@
   id: MakeupNailPolishLeft
   bodyPart: LHand
   markingCategory: LeftHand
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin, Arachne] # Delta V - Felinid, Oni, Vulpkanin
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin, Arachne, Yowie] # Delta V - Felinid, Oni, Vulpkanin; Goob - Yowies
   coloring:
     default:
       type:

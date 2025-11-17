@@ -63,3 +63,35 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/sanabi.rsi
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckCloakVetCap
+  name: Veteran Captain's cloak
+  description: Captains Aura Cloak
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: auraless
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/Veterancap.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Cloaks/Veterancap.rsi
+    quickEquip: false
+    equippedPrefix: auraless
+    slots:
+    - Neck
+  - type: ItemSwitch
+    state: auraless
+    showLabel: true
+    states:
+      auraless: !type:ItemSwitchState
+        verb: auraless
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Cloaks/Veterancap.rsi
+          state: icon
+      aura: !type:ItemSwitchState
+        verb: aura
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Cloaks/Veterancap.rsi
+          state: icon

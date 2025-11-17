@@ -169,40 +169,11 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnStarTouch(Entity<HereticComponent> ent, ref EventHereticStarTouch args)
     {
-        if (!TryUseAbility(ent, args))
+        var touch = GetTouchSpell<EventHereticStarTouch, StarTouchComponent>(ent, ref args);
+        if (touch == null)
             return;
 
-        if (!TryComp(ent, out HandsComponent? hands) || hands.Hands.Count < 1)
-            return;
-
-        args.Handled = true;
-
-        if (_net.IsClient)
-            return;
-
-        var hadStarTouch = false;
-
-        foreach (var held in _hands.EnumerateHeld((ent, hands)))
-        {
-            if (!HasComp<StarTouchComponent>(held))
-                continue;
-
-            hadStarTouch = true;
-            QueueDel(held);
-        }
-
-        if (hadStarTouch || !_hands.TryGetEmptyHand((ent, hands), out var emptyHand))
-            return;
-
-        var touch = Spawn(args.StarTouch, Transform(ent).Coordinates);
-
-        if (!_hands.TryPickup(ent, touch, emptyHand, animate: false, handsComp: hands))
-        {
-            QueueDel(touch);
-            return;
-        }
-
-        EnsureComp<StarTouchComponent>(touch).StarTouchAction = args.Action.Owner;
+        EnsureComp<StarTouchComponent>(touch.Value).Action = args.Action.Owner;
     }
 
     private void OnCosmicRune(Entity<HereticComponent> ent, ref EventHereticCosmicRune args)

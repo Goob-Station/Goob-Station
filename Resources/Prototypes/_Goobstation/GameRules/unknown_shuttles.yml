@@ -13,7 +13,7 @@
   id: UnknownShuttleFrontierProspector
   components:
   - type: StationEvent
-    weight: 2
+  - type: GameRule
   - type: LoadMapRule
     preloadedGrid: FrontierProspector
 

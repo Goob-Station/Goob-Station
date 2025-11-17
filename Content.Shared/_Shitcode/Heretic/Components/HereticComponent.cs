@@ -11,6 +11,7 @@
 
 using Content.Shared.Dataset;
 using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Objectives.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Tag;
@@ -95,12 +96,18 @@ public sealed partial class HereticComponent : Component
     public EntityUid MansusGrasp = EntityUid.Invalid;
 
     [DataField]
-    public List<EntityUid> OurBlades = new();
+    public Dictionary<ProtoId<HereticRitualPrototype>, List<EntityUid>> LimitedTransmutations = new();
 
-    public int MaxBlades => CurrentPath switch
+    // Required for reminiscence, Path -> Blade ritual id
+    [DataField]
+    public Dictionary<string, ProtoId<HereticRitualPrototype>> Blades = new()
     {
-        "Blade" => 4,
-        _ => 2,
+        {"Ash", "BladeAsh"},
+        {"Blade", "BladeBlade"},
+        {"Flesh", "BladeFlesh"},
+        {"Void", "BladeVoid"},
+        {"Rust", "BladeRust"},
+        {"Cosmos", "BladeCosmos"},
     };
 
     [DataField]
@@ -132,6 +139,14 @@ public sealed partial class HereticComponent : Component
         "influence-gain-message-14",
         "influence-gain-message-15",
         "influence-gain-message-16",
+    };
+
+    [DataField]
+    public List<EntProtoId<ObjectiveComponent>> AllObjectives = new()
+    {
+        "HereticKnowledgeObjective",
+        "HereticSacrificeObjective",
+        "HereticSacrificeHeadObjective",
     };
 }
 

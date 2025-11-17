@@ -17,6 +17,7 @@
     prototype: Scurret
     bodyType: Complex
     requiredLegs: 2
+  - type: AntagImmune # Goob, no evil wawa
   - type: Sprite
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -169,7 +170,7 @@
     - VimPilot
     - AnomalyHost
 #goobstation edit - clumsy addition
-  - type: Clumsy 
+  - type: Clumsy
     gunShootFailDamage:
       types:
         Blunt: 5
@@ -181,7 +182,7 @@
         Blunt: 1
     clumsySound:
       path: /Audio/Animals/wawa_protest.ogg
- 
+
 
 # Spawnable scurrets have a random name and colour.
 

@@ -11,7 +11,6 @@
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Examine;
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.RCD.Components;
@@ -55,7 +54,7 @@ public sealed class RCDAmmoSystem : EntitySystem
         var current = _sharedCharges.GetCurrentCharges((target, charges));
         var user = args.User;
         args.Handled = true;
-        var count = Math.Min(charges.MaxCharges - current,comp.Charges);
+        var count = Math.Min(charges.MaxCharges - current, comp.Charges);
         if (count <= 0)
         {
             _popup.PopupClient(Loc.GetString("rcd-ammo-component-after-interact-full"), target, user);
@@ -69,6 +68,6 @@ public sealed class RCDAmmoSystem : EntitySystem
 
         // prevent having useless ammo with 0 charges
         if (comp.Charges <= 0)
-            QueueDel(uid);
+            PredictedQueueDel(uid); // Goobstation - Fix prediction errors
     }
 }
