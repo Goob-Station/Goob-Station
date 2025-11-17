@@ -403,6 +403,7 @@
       5: Dead # Goob edit
   - type: Stamina
     critThreshold: 10
+    animationThreshold: 5 # Goob edit
   - type: DamageStateVisuals
     states:
       Alive:
@@ -2252,6 +2253,7 @@
     staminaRatio: 1 # mice are small so can probably evade without much stamina drain
   - type: Stamina
     critThreshold: 20
+    animationThreshold: 10 # Goob edit
   - type: LayingDown
   - type: NPCRetaliation
     attackMemoryLength: 5 # stop caring fast if you don't keep hitting

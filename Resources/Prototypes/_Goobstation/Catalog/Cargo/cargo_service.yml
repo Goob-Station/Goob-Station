@@ -12,3 +12,13 @@
   cost: 1000
   category: cargoproduct-category-name-service
   group: market
+
+- type: cargoProduct
+  id: SlotMachineCargo
+  icon:
+    sprite: _Goobstation/Structures/Machines/slotmachines/slotmachine.rsi
+    state: slotmachine
+  product: CrateSlotMachine
+  cost: 1000
+  category: cargoproduct-category-name-service
+  group: market

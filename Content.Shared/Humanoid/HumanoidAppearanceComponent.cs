@@ -6,12 +6,15 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Zekins <zekins3366@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Goobstation.Common.Barks; // Goob Station - Barks
 using Content.Shared.DisplacementMap;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -45,6 +48,9 @@ public sealed partial class HumanoidAppearanceComponent : Component
 
     [DataField, AutoNetworkedField]
     public int Age = 18;
+
+    [DataField] // Goob Station - Barks
+    public ProtoId<BarkPrototype> BarkVoice { get; set; } = SharedHumanoidAppearanceSystem.DefaultBarkVoice; // Goob Station - Barks
 
     /// <summary>
     ///     Any custom base layers this humanoid might have. See:
