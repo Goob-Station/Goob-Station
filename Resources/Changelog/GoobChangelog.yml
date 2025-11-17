@@ -17943,3 +17943,9 @@ Entries:
   changes: []
   id: 2018
   time: '2025-11-17T11:02:28.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Add
+      message: Ghosts can no longer activate envirosuit extinguishers.
+  id: 2019
+  time: '2025-11-17T15:57:10.0000000+00:00'
