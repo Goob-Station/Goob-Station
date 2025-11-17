@@ -178,4 +178,25 @@
   name: Grimblewood
   sex: Male
   silicon: false
-  voice: 25
+  voice: 26
+
+- type: voice
+  id: 7NsaqHdLuKNFvEfjpUno
+  name: Seer
+  sex: Female
+  silicon: false
+  voice: 27
+
+- type: voice
+  id: RXtWW6etvimS8QJ5nhVk
+  name: Fiona
+  sex: Female
+  silicon: false
+  voice: 28
+
+- type: voice
+  id: rhCkPglhGaLQEkKTbHMh
+  name: Lahey
+  sex: Female
+  silicon: false
+  voice: 29
