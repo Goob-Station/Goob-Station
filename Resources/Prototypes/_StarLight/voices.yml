@@ -194,3 +194,17 @@
   silicon: false
   voice: 28
 
+- type: voice
+  id: ZhHNkVJW5gN171ttyjk8
+  name: Vegeta
+  sex: Male
+  silicon: false
+  voice: 29
+
+- type: voice
+  id: FeN6vYjdUAvIqox0nYFR
+  name: Lois
+  sex: Female
+  silicon: false
+  voice: 30
+
