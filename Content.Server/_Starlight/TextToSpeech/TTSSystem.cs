@@ -17,6 +17,9 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
+using System.Diagnostics;
+using System.IO;
+
 namespace Content.Server.Starlight.TTS;
 
 public sealed partial class TTSSystem : EntitySystem
@@ -305,7 +308,10 @@ public sealed partial class TTSSystem : EntitySystem
         if (soundData is null)
             return;
 
-        RaiseNetworkEvent(new PlayTTSEvent { IsRadio = true, Chime = chime, Data = soundData }, Filter.Entities(uIds).RemovePlayers(_ignoredRecipients), false);
+        // apply ffmpeg radio effect
+        var processed = await AudioProcessing.ApplyRadioEffectAsync(soundData);
+
+        RaiseNetworkEvent(new PlayTTSEvent { IsRadio = true, Chime = chime, Data = processed ?? soundData }, Filter.Entities(uIds).RemovePlayers(_ignoredRecipients), false);
     }
 
     private async void HandleCollectiveMind(EntityUid[] uIds, string message, int voice)
@@ -405,6 +411,77 @@ public sealed partial class TTSSystem : EntitySystem
             {"Ш", "W"},
             {"ш", "w"},
         };
+
+    public static class AudioProcessing
+    {
+        // Apply a "radio" effect to an OGG/Audio byte[] using ffmpeg (reads from stdin, writes to stdout).
+        // Make sure ffmpeg is installed and on PATH (or replace "ffmpeg" with full path to the binary).
+        public static async Task<byte[]?> ApplyRadioEffectAsync(byte[] inputOgg)
+        {
+            if (inputOgg == null || inputOgg.Length == 0)
+                return inputOgg;
+
+            // ffmpeg audio filter chain for "radio" effect — tweak to taste
+            var filter =
+                "highpass=f=200, lowpass=f=3500, acompressor=threshold=-18dB:ratio=6:attack=5:release=50, acrusher=bits=8:mode=log, volume=-3dB";
+
+            // Output with libvorbis into an ogg container
+            var args = $"-hide_banner -loglevel error -i pipe:0 -af \"{filter}\" -c:a libvorbis -f ogg pipe:1";
+
+            var psi = new ProcessStartInfo
+            {
+                FileName = "ffmpeg", // or full path to ffmpeg.exe
+                Arguments = args,
+                UseShellExecute = false,
+                RedirectStandardInput = true,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                CreateNoWindow = true
+            };
+
+            try
+            {
+                using var proc = Process.Start(psi);
+                if (proc == null)
+                    throw new InvalidOperationException("Failed to start ffmpeg process.");
+
+                // Write input bytes to ffmpeg stdin asynchronously
+                var stdin = proc.StandardInput.BaseStream;
+                var stdout = proc.StandardOutput.BaseStream;
+                var stderr = proc.StandardError;
+
+                var writeTask = Task.Run(async () =>
+                {
+                    await stdin.WriteAsync(inputOgg, 0, inputOgg.Length).ConfigureAwait(false);
+                    await stdin.FlushAsync().ConfigureAwait(false);
+                    stdin.Close(); // Important: signal EOF to ffmpeg
+                });
+
+                // Read all output bytes
+                using var ms = new MemoryStream();
+                await stdout.CopyToAsync(ms).ConfigureAwait(false);
+
+                // Wait for process exit and writing to finish
+                await Task.WhenAll(writeTask, proc.WaitForExitAsync()).ConfigureAwait(false);
+
+                // optional: check stderr for warnings/errors
+                var err = await stderr.ReadToEndAsync().ConfigureAwait(false);
+                if (proc.ExitCode != 0)
+                {
+                    // For debugging you could log 'err'
+                    throw new Exception($"ffmpeg failed (exit {proc.ExitCode}): {err}");
+                }
+
+                return ms.ToArray();
+            }
+            catch (Exception ex)
+            {
+                // handle logging of ex.Message if needed - return original data as safe fallback
+                Console.Error.WriteLine($"ApplyRadioEffectAsync error: {ex.Message}");
+                return inputOgg;
+            }
+        }
+    }
 
     [GeneratedRegex(@"[^a-zA-Z0-9,\-+?!. ]")]
     private static partial Regex CharFilter();

@@ -18,7 +18,7 @@ namespace Content.Server.Starlight.TextToSpeech
                 var ffmpeg = new ProcessStartInfo
                 {
                     FileName = "ffmpeg",
-                    Arguments = $"-y -i \"{inputPath}\" -c:a libvorbis \"{outputPath}\"",
+                    Arguments = $"-y -i \"{inputPath}\" " + "-filter:a loudnorm=I=-16:TP=-1.5:LRA=11 " + $" -c:a libvorbis \"{outputPath}\"",
                     UseShellExecute = false,
                     CreateNoWindow = true,
                     RedirectStandardError = true,

@@ -89,11 +89,9 @@ public sealed class TTSManager : ITTSManager
         var payload = new
         {
             text = text,
-            model_id = "eleven_turbo_v2",
+            model_id = "eleven_turbo_v2_5",
             voice_settings = new
             {
-                stability = 0.5,
-                similarity_boost = 0.75,
                 use_speaker_boost = true
             },
             output_format = "opus_48khz_192kbps"
