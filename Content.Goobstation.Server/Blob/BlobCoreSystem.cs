@@ -381,7 +381,7 @@ public sealed class BlobCoreSystem : EntitySystem
         }
 
         ConnectBlobTile((blobTileUid, blobTileComp), blobCore, nearNode);
-        ChangeBlobEntChem(blobTileUid, blobCoreComp.CurrentChem);
+        ChangeBlobEntChem(blobTileUid, blobCoreComp.CurrentChem, blobTileComp);
 
         Dirty(blobTileUid, blobTileComp);
 
