@@ -18001,3 +18001,9 @@ Entries:
       message: Fired the design intern and tweaked Fire Axe In-held and worn sprites.
   id: 2027
   time: '2025-11-17T16:03:30.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: 'Tweak: Ninja is more stealthy.'
+  id: 2028
+  time: '2025-11-17T16:04:13.0000000+00:00'
