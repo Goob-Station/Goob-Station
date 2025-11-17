@@ -18056,3 +18056,11 @@ Entries:
         Salvage vendor. Use them to not get lost on Lavaland!
   id: 2032
   time: '2025-11-17T17:43:33.0000000+00:00'
+- author: 'Gab '
+  changes:
+    - type: Tweak
+      message: >-
+        Librarian now speaks a couple more languages and the language menu is
+        more organised,
+  id: 2033
+  time: '2025-11-17T17:50:25.0000000+00:00'
