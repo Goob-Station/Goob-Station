@@ -8,14 +8,12 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ Shadowling ]
-      max: 2
       playerRatio: 30
-      chaosScore: 200
+      chaosScore: 500
       jobBlacklist: [ Chaplain ] # GOOBSTATION
       blacklist:
         components:
         - CommandStaff
-      lateJoinAdditional: true
       mindRoles:
       - MindRoleShadowling
   - type: AntagObjectives
