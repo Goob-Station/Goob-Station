@@ -162,6 +162,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -179,6 +180,7 @@ namespace Content.Server.Hands.Systems
         [Dependency] private readonly PullingSystem _pullingSystem = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
         [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
+        [Dependency] private readonly SharedPhysicsSystem _physics = default!; // Goobstation
 
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -334,8 +336,6 @@ namespace Content.Server.Hands.Systems
         /// </summary>
         public bool ThrowHeldItem(EntityUid player, EntityCoordinates coordinates, float minDistance = 0.1f)
         {
-            var holderVelocity = _physicsQuery.TryComp(player, out var physics) ? physics.LinearVelocity : Vector2.Zero; // Goobstation
-
             if (ContainerSystem.IsEntityInContainer(player) ||
                 !TryComp(player, out HandsComponent? hands) ||
                 !TryGetActiveItem((player, hands), out var throwEnt) ||
@@ -379,7 +379,11 @@ namespace Content.Server.Hands.Systems
 
             // Let other systems change the thrown entity (useful for virtual items)
             // or the throw strength.
-            var ev = new BeforeThrowEvent(throwEnt.Value, direction + holderVelocity, throwSpeed, player); // Goobstation - added thrower's velocity for inertia
+            // Goobstation start - added thrower's velocity for inertia
+            var holderVelocity = _physics.GetMapLinearVelocity(player);
+            var modifier = MathF.Max(0f, Vector2.Dot(direction.Normalized(), holderVelocity));
+            var ev = new BeforeThrowEvent(throwEnt.Value, direction * (1f + modifier * 0.1f), throwSpeed * (1f + modifier * 0.05f), player);
+            // Goobstation end
             RaiseLocalEvent(player, ref ev);
 
             if (ev.Cancelled)
