@@ -64,10 +64,10 @@ public sealed partial class SlotMachineComponent : Component
     public int SpinCost = 250;
 
     [DataField, AutoNetworkedField]
-    public int SmallPrizeAmount = 300;
+    public int SmallPrizeAmount = 500;
 
     [DataField, AutoNetworkedField]
-    public int MediumPrizeAmount = 500;
+    public int MediumPrizeAmount = 750;
 
     [DataField, AutoNetworkedField]
     public int BigPrizeAmount = 5000;
