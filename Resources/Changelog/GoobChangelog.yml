@@ -17963,3 +17963,9 @@ Entries:
         each type
   id: 2021
   time: '2025-11-17T15:59:38.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Fix
+      message: Chitinids now enjoy the same eyewear prescribed to Moth crew!
+  id: 2022
+  time: '2025-11-17T15:59:57.0000000+00:00'
