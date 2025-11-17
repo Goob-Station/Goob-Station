@@ -18013,3 +18013,30 @@ Entries:
       message: Blood packs no longer exsanguinate animals and simple mobs.
   id: 2029
   time: '2025-11-17T16:05:50.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Dismemberment is more consistent and less reliant on rng.
+    - type: Add
+      message: >-
+        Some weapons now have better wounding (delimbing/bone breaking):
+        hammers, armblade, swords, sabre, axes...
+    - type: Tweak
+      message: Slash damage is good at dismemberment, blunt and piercing are bad.
+    - type: Tweak
+      message: Removed reflect from cap sabre, it has x3 wounding now instead.
+    - type: Tweak
+      message: Explosions deal less damage but they are more likely to delimb.
+    - type: Add
+      message: Heavy attacks are 2x worse at inducing wounds.
+    - type: Tweak
+      message: >-
+        The worse you aim at target with ranged weapons, the more chance you
+        have to hit chest instead of targeted limb.
+    - type: Tweak
+      message: >-
+        IPC have no bones, slimes are easier to delimb but they take less pierce
+        and slash than before, harpy and resomi have weak bones but harpy has
+        default damage modifiers now.
+  id: 2030
+  time: '2025-11-17T16:07:43.0000000+00:00'
