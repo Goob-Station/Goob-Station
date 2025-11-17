@@ -17634,3 +17634,308 @@ Entries:
       message: The station report now has a better template
   id: 1979
   time: '2025-11-10T15:30:27.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Removed steel cost from autoinjector carts, reduced glass cost (1 glass
+        1 plasma is roughly what most of them now cost to print)
+    - type: Tweak
+      message: >-
+        Airloss autoinjector carts now cost 0.5 plasma to print due to above
+        changes
+    - type: Tweak
+      message: >-
+        Made autoinjectors themselves not cost an arm and a leg to print. (still
+        relatively expensive)
+  id: 1980
+  time: '2025-11-11T08:50:26.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Fix
+      message: 'IPC pumps can be reinserted. '
+  id: 1981
+  time: '2025-11-11T08:52:14.0000000+00:00'
+- author: 'Fishbait '
+  changes:
+    - type: Add
+      message: Added sprites for plasma tanks
+    - type: Tweak
+      message: Changed plasmamen survival tank to now have a smal plasma tank
+    - type: Fix
+      message: Fixed plasma tank now fit in tank harness
+  id: 1982
+  time: '2025-11-11T08:52:45.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Add
+      message: >-
+        New changeling ability - Awakened Instinct. Gives the option for
+        changelings to use the biomass system in return for a flat 25% increase
+        in chemical regeneration.
+  id: 1983
+  time: '2025-11-11T08:54:58.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Fix
+      message: Foamblades can make their scary sounds again.
+  id: 1984
+  time: '2025-11-11T08:55:40.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Heretic summons simplemob AI now follows heretic around.
+    - type: Tweak
+      message: Fire sharks are slightly weaker but you get 3 of them per 1 liver.
+  id: 1985
+  time: '2025-11-11T08:57:37.0000000+00:00'
+- author: Thatonestomf
+  changes:
+    - type: Remove
+      message: >-
+        Removed the Hristov and RPG from submarine, replaced with WT550 and a
+        watergun.
+  id: 1986
+  time: '2025-11-11T09:06:15.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Command and sec radio to atlas
+    - type: Fix
+      message: Security camera coverage on atlas
+    - type: Fix
+      message: Brig access on atlas
+  id: 1987
+  time: '2025-11-11T09:08:07.0000000+00:00'
+- author: LuciferEOS, The Syndicate Oculist Department
+  changes:
+    - type: Tweak
+      message: >-
+        Thermals no longer burn your eyes irl when you use them (made the filter
+        softer)
+  id: 1988
+  time: '2025-11-11T09:08:54.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Magic wand tweaked, death and healing bolt are less useful, lesser magic
+        missile is stronger, wand degradation charge limit is doubled.
+    - type: Add
+      message: wizard gorilla form can target limbs.
+  id: 1989
+  time: '2025-11-11T09:10:44.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Shadowlings are now able to equip a pda / id.
+  id: 1990
+  time: '2025-11-11T09:19:40.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Add
+      message: >-
+        Added a holofan and the ability to hold plasteel to generic cyborg's
+        science modules
+  id: 1991
+  time: '2025-11-11T09:21:26.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed BSO having to protect nukie commander
+  id: 1992
+  time: '2025-11-11T09:24:50.0000000+00:00'
+- author: Puntable Tuerk
+  changes:
+    - type: Fix
+      message: >-
+        Stuffing Tajarans, Resomi, Felinid and Rodentia into storage spaces with
+        the previously bugged "Insert Other" verb works now.
+  id: 1993
+  time: '2025-11-11T09:27:24.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: Additional turrets to CC
+    - type: Tweak
+      message: AI position at CC
+    - type: Fix
+      message: Some power issues at CC
+  id: 1994
+  time: '2025-11-11T09:40:37.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: >-
+        Security ponchos now have built in cameras don't forget to take em of
+        the seccies you kill
+  id: 1995
+  time: '2025-11-11T09:42:17.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Reworked player manifest in round end summary, now includes last words
+        and how players died.
+  id: 1996
+  time: '2025-11-11T09:55:56.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Slaugther demon no longer dies to plasma fire
+  id: 1997
+  time: '2025-11-11T09:59:07.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Add
+      message: >-
+        Added back old mid round antagonists such as heretics and lings as well
+        as adding mid round devils to the mix.
+    - type: Add
+      message: >-
+        Added a new game mode that focuses on internal threats rather than
+        external ones.
+  id: 1998
+  time: '2025-11-11T15:17:33.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: >-
+        Slot machines can now be emagged! this causing almost everything to
+        become randomized (spin cost, win chances, win amounts, it also causes
+        the godpot to be randomized which means it could be ANYTHING)
+    - type: Tweak
+      message: each slot machine spin now costs 300 by default
+    - type: Tweak
+      message: >-
+        qm's slot machine now costs 100,000 per spin but now has a 10% chance to
+        win 1 million instead of the previous 1%
+  id: 1999
+  time: '2025-11-11T20:56:32.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Shadowkin being able to talk in the hivemind while literally
+        dying.
+  id: 2000
+  time: '2025-11-12T08:10:15.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Add
+      message: Added special admin logging for what Bureaucratic Error does.
+    - type: Tweak
+      message: Tweaked Bureaucratic Error to be less chaotic.
+  id: 2001
+  time: '2025-11-12T08:14:29.0000000+00:00'
+- author: loltart
+  changes: []
+  id: 2002
+  time: '2025-11-12T08:16:29.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Add
+      message: >-
+        The Shadowling guidebook now teaches the early game, converting, and
+        abilities.
+  id: 2003
+  time: '2025-11-12T14:41:26.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Barozine will now last twice as long! This means space medipens will
+        protect you from pressure damage for twice as long. 
+    - type: Tweak
+      message: >-
+        Space Medipens now have more leproazine in them, this means they'll give
+        half a minute of temperature protection and a full minute of pressure
+        protection.
+  id: 2004
+  time: '2025-11-12T14:42:01.0000000+00:00'
+- author: Sarahon Androidonator
+  changes:
+    - type: Add
+      message: Aura to captains over 100h - see in lobby loadout.
+  id: 2005
+  time: '2025-11-12T14:52:46.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added voices, speak your heart out.
+  id: 2006
+  time: '2025-11-12T17:50:46.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Remove
+      message: Removed NTR Interns & Scurrets being able to roll antags.
+  id: 2007
+  time: '2025-11-13T18:45:25.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Tweak
+      message: Resprited some mantles, coats, and chestrigs for Vox.
+  id: 2008
+  time: '2025-11-13T18:46:21.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: NPCS wont try to pickup unfolded chairs.
+  id: 2009
+  time: '2025-11-14T00:34:04.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Tweak
+      message: Made the hermit game mode more hermity and buffed heretic midrounds
+  id: 2010
+  time: '2025-11-14T01:09:50.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Made the cc advanced stimulant not kill you.
+  id: 2011
+  time: '2025-11-14T01:10:51.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Brigmed is no longer a lapdog
+  id: 2012
+  time: '2025-11-14T12:41:52.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced the chaos score of abductors and chances of them happening
+        slightly
+  id: 2013
+  time: '2025-11-14T12:51:17.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Added 4 new bark voices.
+  id: 2014
+  time: '2025-11-15T07:21:37.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added artifact fragment ore, it melts to normal artifact fragments in
+        the ore processor, and gives you 200 mining points per piece!
+  id: 2015
+  time: '2025-11-15T19:17:00.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fixed wound passive healing not working.
+    - type: Fix
+      message: Fixed wounds not healing sometimes when they should.
+    - type: Fix
+      message: Fixed infinite healing bug.
+  id: 2016
+  time: '2025-11-17T05:11:24.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix throwing being awful.
+  id: 2017
+  time: '2025-11-17T05:12:33.0000000+00:00'
