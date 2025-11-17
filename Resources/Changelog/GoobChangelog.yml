@@ -18048,3 +18048,11 @@ Entries:
       message: Mice now have an egg sack organ, steal their powers!
   id: 2031
   time: '2025-11-17T16:09:58.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added lavaland marker beacons to Extraction mining voucher kit and to
+        Salvage vendor. Use them to not get lost on Lavaland!
+  id: 2032
+  time: '2025-11-17T17:43:33.0000000+00:00'
