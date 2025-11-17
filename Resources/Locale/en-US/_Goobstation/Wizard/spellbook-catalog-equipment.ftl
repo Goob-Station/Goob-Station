@@ -85,6 +85,17 @@ spellbook-ninjutsu-desc =
     A scroll that teaches one Ninjutsu, a martial art and set of tactics used by ninja in feudal Japan.
     Cannot be refunded.
 
+spellbook-hell-rip-name = Hell Ripte Scroll
+spellbook-hell-rip-desc =
+    A scroll that teaches one Hell Ripte, a martial art and set of tactics used by Slaughter Demons.
+    Buying this and Bottle of Blood unlocks purchasing a special slaughter demon heart.
+    Cannot be refunded.
+
+spellbook-demon-heart-name = Heart of the Demon
+spellbook-demon-heart-desc =
+    Upon use, implants itself in your body, granting you slaughter demon blood crawl demonic whisper and the ability to devour bodies to regenerate health.
+    Cannot be refunded.
+
 spellbook-staff-animate-name = Staff of Animation
 spellbook-staff-animate-desc =
     An arcane staff capable of infusing eldritch energy on contact which cause inanimate objects to come to life.
