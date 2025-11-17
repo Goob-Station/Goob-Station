@@ -18064,3 +18064,9 @@ Entries:
         more organised,
   id: 2033
   time: '2025-11-17T17:50:25.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Remove
+      message: 'Removed: Round Start Abductors :alien: '
+  id: 2034
+  time: '2025-11-17T17:51:31.0000000+00:00'
