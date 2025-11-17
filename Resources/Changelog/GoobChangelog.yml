@@ -17933,3 +17933,9 @@ Entries:
       message: Fixed infinite healing bug.
   id: 2016
   time: '2025-11-17T05:11:24.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix throwing being awful.
+  id: 2017
+  time: '2025-11-17T05:12:33.0000000+00:00'
