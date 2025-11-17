@@ -20,3 +20,4 @@ coinflipper-win = Winner!, you wont {$amount} spesos!
 
 clawmachine-fail-self = You mess up and drop the plushie!
 clawmachine-fail-other = {$user} messes up and drops the plushie!
+clawmachine-fail-generic = The plushie falls out of the claw, how disappointing...

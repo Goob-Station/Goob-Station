@@ -1,9 +1,11 @@
 using Content.Shared.Chat;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
+using Content.Shared.Emag.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -29,6 +31,18 @@ public sealed class ClawMachineSystem : EntitySystem
 
         SubscribeLocalEvent<ClawMachineComponent, ActivateInWorldEvent>(OnInteractHandEvent);
         SubscribeLocalEvent<ClawMachineComponent, ClawGameDoAfterEvent>(OnSlotMachineDoAfter);
+        SubscribeLocalEvent<ClawMachineComponent, GotEmaggedEvent>(OnEmagged);
+    }
+
+    private void OnEmagged(EntityUid uid, ClawMachineComponent comp, ref GotEmaggedEvent args)
+    {
+        if(comp.Emagged)
+            return;
+
+        args.Handled = true;
+        comp.Emagged = true;
+
+        comp.Rewards = comp.EvilRewards; //My name is nhoj nhoj and I am EVIL
     }
     private void OnInteractHandEvent(EntityUid uid, ClawMachineComponent comp, ActivateInWorldEvent args)
     {
@@ -53,6 +67,10 @@ public sealed class ClawMachineSystem : EntitySystem
 
     private void OnSlotMachineDoAfter(EntityUid uid, ClawMachineComponent comp, ClawGameDoAfterEvent args)
     {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
 
         if (args.Cancelled)
         {
@@ -64,26 +82,24 @@ public sealed class ClawMachineSystem : EntitySystem
             return;
         }
 
-        if (args.Handled)
-            return;
-
         comp.IsSpinning = false;
         Dirty(uid, comp);
+        if(!_net.IsServer)
+            return;
 
         if (_random.Prob(comp.WinChance) && comp.Rewards != null)
         {
-            _audio.PlayPredicted(comp.WinSound, uid, args.User);
-            var RewardToSpawn = _random.Pick(comp.Rewards);
+            _audio.PlayPvs(comp.WinSound, uid);
+
+            var rewardToSpawn = _random.Pick(comp.Rewards);
 
             var coordinates = Transform(uid).Coordinates;
-            EntityManager.SpawnEntity(RewardToSpawn, coordinates);
+            EntityManager.SpawnEntity(rewardToSpawn, coordinates);
 
             return;
         }
 
-        var selfMsgFailEnd = Loc.GetString("clawmachine-fail-self");
-        var othersMsgFailEnd = Loc.GetString("clawmachine-fail-other", ("user", args.User));
-        _popupSystem.PopupPredicted(selfMsgFailEnd, othersMsgFailEnd, args.User, args.User, PopupType.Small);
-        _audio.PlayPredicted(comp.LoseSound, uid, args.User); // If nothing then lose
+        _popupSystem.PopupEntity(Loc.GetString("clawmachine-fail-generic"), uid);
+        _audio.PlayPvs(comp.LoseSound, uid);
     }
 }

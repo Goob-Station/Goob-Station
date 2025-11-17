@@ -355,18 +355,34 @@
     - TauCetiBasic
     - RobotTalk
   - type: ClawMachine
+    winChance: 0.5
     rewards:
     - PlushieMoth
     - PlushieHuman
     - PlushiePenguin
-    - PlushieXeno
-    - PlushieAtmosian
-    - PlushieVox
     - PlushieXeve
+    - PlushieDurk
     - PlushieMnwaar
-    - PlushieLehmin
-    - PlushieBoggle
-    - PlushieBrizby
-    - PlushieNigel
+    - PlushieLouie
+    - FoamWonderprod
+    - PlushieBingle
+    - PlushieBongle
+    - PlushieBinglePony
+    - PlushieAbductor
+    - PlushieJvne
     - PlushieFern
+    - PlushieNigel
+    - PlushieBrizby
+    - PlushieBoggle
+    - PlushieLehmin
+    evilRewards:
+    - EvilPlushieXeve
+    - EvilPlushieBoggle
+    - EvilPlushieBrizby
+    - EvilPlushieNigel
+    - EvilPlushieFern
+    - EvilPlushieJvne
+    - EvilPlushieMnwaar
+    - EvilPlushieDurk
+    - EvilPlushieLouie
   - type: DoAfter

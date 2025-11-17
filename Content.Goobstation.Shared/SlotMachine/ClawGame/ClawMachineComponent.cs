@@ -30,4 +30,10 @@ public sealed partial class ClawMachineComponent : Component
 
     [DataField, AutoNetworkedField]
     public List<EntProtoId>? Rewards;
+
+    [DataField, AutoNetworkedField]
+    public List<EntProtoId>? EvilRewards;
+
+    [DataField, AutoNetworkedField]
+    public bool Emagged;
 }
