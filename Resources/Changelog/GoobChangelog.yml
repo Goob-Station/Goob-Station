@@ -17949,3 +17949,9 @@ Entries:
       message: Ghosts can no longer activate envirosuit extinguishers.
   id: 2019
   time: '2025-11-17T15:57:10.0000000+00:00'
+- author: Happyman442
+  changes:
+    - type: Fix
+      message: Fixed Shadowling taking freeze damage from icy veins
+  id: 2020
+  time: '2025-11-17T15:59:02.0000000+00:00'
