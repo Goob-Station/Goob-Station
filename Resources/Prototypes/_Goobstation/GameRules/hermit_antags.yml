@@ -45,7 +45,7 @@
     - id: TraitorMidroundHermit
     - id: ChangelingMidroundHermit
     - id: HereticMidroundHermit
-    - id: RevolutionaryMidroundHermit #remove if despised
+   # - id: RevolutionaryMidroundHermit #removed becuse despised
     - id: DevilmidroundHermit
     - id: ZombieOutbreak
     - id: LoneOpsSpawnHermit
