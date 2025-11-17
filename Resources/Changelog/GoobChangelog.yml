@@ -18007,3 +18007,9 @@ Entries:
       message: 'Tweak: Ninja is more stealthy.'
   id: 2028
   time: '2025-11-17T16:04:13.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Blood packs no longer exsanguinate animals and simple mobs.
+  id: 2029
+  time: '2025-11-17T16:05:50.0000000+00:00'
