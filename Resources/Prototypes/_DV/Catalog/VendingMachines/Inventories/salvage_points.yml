@@ -43,6 +43,8 @@
     cost: 250
   # TODO: laser pointer 300, toy facehugger 300
   # TODO: stabilizing serum for 400
+  - id: BoxMarkerBeacons
+    cost: 300
   - id: Fulton
     cost: 400
   - id: FultonBeacon
