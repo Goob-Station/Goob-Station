@@ -149,7 +149,7 @@
   id: xBdrkqKcP5zVLmkdC5C1
   name: Simaris
   sex: Male
-  silicon: true
+  silicon: false
   voice: 22
 
 - type: voice
@@ -188,15 +188,9 @@
   voice: 27
 
 - type: voice
-  id: rhCkPglhGaLQEkKTbHMh
-  name: Lahey
+  id: MKlLqCItoCkvdhrxgtLv
+  name: Grampa
   sex: Male
   silicon: false
   voice: 28
 
-- type: voice
-  id: xBdrkqKcP5zVLmkdC5C1
-  name: Simaris
-  sex: Male
-  silicon: false
-  voice: 29
