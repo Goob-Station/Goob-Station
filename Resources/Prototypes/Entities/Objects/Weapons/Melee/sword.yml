@@ -182,6 +182,8 @@
     damage:
       types:
         Slash: 16
+      woundSeverityMultipliers:
+        Slash: 2.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -207,6 +209,8 @@
     damage:
       types:
         Slash: 15
+      woundSeverityMultipliers:
+        Slash: 2
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -239,11 +243,10 @@
     damage:
       types:
         Slash: 19 #cmon, it has to be at least BETTER than the rest. # Goob edit
+      woundSeverityMultipliers:
+        Slash: 3
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
-  - type: Reflect # change this and i will fucking GUT YOU. YOU HEAR ME AVIU??
-    reflectProb: .3
-    spread: 90
   - type: Item
     storedSprite:
       state: storage
@@ -275,6 +278,8 @@
     damage:
       types:
         Slash: 15
+      woundSeverityMultipliers:
+        Slash: 2.5
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -303,6 +308,8 @@
     damage:
       types:
         Slash: 30
+      woundSeverityMultipliers:
+        Slash: 2
   - type: Item
     storedSprite:
       state: storage
@@ -338,6 +345,8 @@
     damage:
       types:
         Slash: 20
+      woundSeverityMultipliers:
+        Slash: 2.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item

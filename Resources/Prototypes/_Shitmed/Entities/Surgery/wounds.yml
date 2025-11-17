@@ -26,6 +26,7 @@
     woundType: External
     woundVisibility: Always
     scarWound: BluntScar
+    mangleSeverity: Severe
     integrityMultiplier: 0.5 #heheheha
   - type: TraumaInflicter
     severityThreshold: 12
@@ -36,12 +37,15 @@
     - VeinsDamage
     - NerveDamage
     allowArmourDeduction:
+    - Dismemberment
+    - OrganDamage
+    - BoneDamage
     - VeinsDamage
     - NerveDamage
     traumasChances:
-      Dismemberment: -0.17
+      Dismemberment: -2
       OrganDamage: 0.17
-      BoneDamage: 0.34
+      BoneDamage: 0.8
       VeinsDamage: 0
       NerveDamage: 0
     mangledMultipliers:
@@ -61,7 +65,7 @@
     woundType: External
     woundVisibility: Always
     scarWound: PiercingScar
-    integrityMultiplier: 0.3
+    integrityMultiplier: 0.1
     mangleSeverity: Severe
   - type: TraumaInflicter
     severityThreshold: 12
@@ -73,14 +77,18 @@
     - NerveDamage
     allowArmourDeduction:
     - Dismemberment
+    - OrganDamage
+    - BoneDamage
+    - VeinsDamage
+    - NerveDamage
     traumasChances:
-      Dismemberment: 0.01
+      Dismemberment: -2
       OrganDamage: 0.08
       BoneDamage: 0.14
       VeinsDamage: -0.4 # goes through rather easy.
       NerveDamage: -0.4
     mangledMultipliers:
-      BoneDamage: 0.75
+      BoneDamage: 0.1
   - type: PainInflicter
     multiplier: 0.67
   - type: BleedInflicter
@@ -95,17 +103,22 @@
     woundType: External
     woundVisibility: Always
     scarWound: PiercingScar
-    integrityMultiplier: 0.34
+    integrityMultiplier: 0.15
     selfHealMultiplier: 0
   - type: TraumaInflicter
     severityThreshold: 6
+    allowArmourDeduction:
+    - OrganDamage
+    - BoneDamage
+    - VeinsDamage
+    - NerveDamage
     allowedTraumas:
     - OrganDamage
     - BoneDamage
     - VeinsDamage
     - NerveDamage
     traumasChances:
-      Dismemberment: -0.34 # Bullets go THROUGH people
+      Dismemberment: -1.8 # Bullets go THROUGH people
       OrganDamage: 0.24
       BoneDamage: 0.24
       VeinsDamage: -0.4
@@ -138,13 +151,13 @@
     - VeinsDamage
     - NerveDamage
     traumasChances:
-      Dismemberment: 0.08
+      Dismemberment: 0.2
       OrganDamage: 0
       BoneDamage: 0
       VeinsDamage: 0.27
       NerveDamage: 0.27
     mangledMultipliers:
-      BoneDamage: 0.6
+      BoneDamage: 0.2
   - type: PainInflicter
     multiplier: 0.67
   - type: BleedInflicter
@@ -159,7 +172,7 @@
     woundType: External
     woundVisibility: Always
     scarWound: BurnScar
-    integrityMultiplier: 0.34 # boiling people
+    integrityMultiplier: 0.4 # boiling people
   - type: TraumaInflicter
     severityThreshold: 17
     allowedTraumas:
@@ -168,16 +181,16 @@
     - VeinsDamage
     - NerveDamage
     allowArmourDeduction:
-    - OrganDamage # No matter what ultrasuperduper cool armour you have, while getting fucking boiled alive - YOUR VEINS AND NERVES WILL HURT.
+    - OrganDamage
     - BoneDamage
+    - VeinsDamage
+    - NerveDamage
     traumasChances:
       Dismemberment: 0
       OrganDamage: -0.12
       BoneDamage: -0.21
       VeinsDamage: 0.34
       NerveDamage: 0.34
-    mangledMultipliers:
-      BoneDamage: 1
   - type: PainInflicter
     multiplier: 0.8
   - type: BleedRemover

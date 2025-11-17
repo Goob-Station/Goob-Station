@@ -38,6 +38,8 @@
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: null
   - type: Nerve
+  - type: Boneless # Goob Edit
+    bonePenalty: 1
 
 - type: entity
   parent: [ PartIPCBase, BaseChestInorganic ]

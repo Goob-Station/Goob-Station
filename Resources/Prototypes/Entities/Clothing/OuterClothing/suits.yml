@@ -328,7 +328,7 @@
     parent: true
     components:
     - type: Stealth
-      maxVisibility: 0.2 # Goob edit
+      maxVisibility: -1.5 # Goob edit
       hadOutline: true
       thermalsImmune: true # Goobstation
   - type: PowerCellDraw
