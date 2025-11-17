@@ -161,6 +161,7 @@ public sealed class SharedGunExecutionSystem : EntitySystem
             || args.Cancelled
             || args.Used == null
             || args.Target == null
+            || !_timing.IsFirstTimePredicted
             || !TryComp<GunComponent>(uid, out var guncomp))
             return;
 
