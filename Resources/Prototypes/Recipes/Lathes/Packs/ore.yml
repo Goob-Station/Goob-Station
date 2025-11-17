@@ -15,6 +15,7 @@
   - IngotSilver1
   - MaterialBananium1
   - MaterialDiamond
+  - ArtifactFragment1 # Lavaland Change
 
 - type: latheRecipePack
   id: RGlassSmelting

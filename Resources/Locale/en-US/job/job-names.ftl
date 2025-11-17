@@ -84,6 +84,11 @@ job-name-zookeeper = Zookeeper
 job-name-visitor = Visitor
 job-name-cluwne = Cluwne
 
+# event-resctricted jobs
+job-name-security-clown = Security Clown
+job-name-command-maid = Command Maid
+job-name-party-maker = Party Maker
+
 # unused jobs
 # these are required for the agent ID job icon tooltips
 # I am keeping them for roleplaying opportunities
@@ -116,6 +121,7 @@ JobChemist = Chemist
 JobChiefEngineer = Chief Engineer
 JobChiefMedicalOfficer = Chief Medical Officer
 JobClown = Clown
+JobCommandMaid = Command Maid
 JobDetective = Detective
 JobBrigmedic = Brigmedic
 JobERTChaplain = ERT Chaplain
@@ -135,6 +141,7 @@ JobMime = Mime
 JobMusician = Musician
 JobParamedic = Paramedic
 JobPassenger = Assistant
+JobPartyMaker = Party Maker
 JobPsychologist = Psychologist
 JobQuartermaster = Quartermaster
 JobReporter = Reporter
@@ -143,6 +150,7 @@ JobResearchDirector = Research Director
 JobSalvageSpecialist = Salvage Specialist
 JobScientist = Scientist
 JobSecurityCadet = Security Cadet
+JobSecurityClown = Security Clown
 JobSecurityOfficer = Security Officer
 JobServiceWorker = Service Worker
 JobStationAi = Station AI
