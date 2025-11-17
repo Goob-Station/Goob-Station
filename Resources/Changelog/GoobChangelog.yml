@@ -17995,3 +17995,9 @@ Entries:
       message: Reduced frequency of shadowling spawns.
   id: 2026
   time: '2025-11-17T16:03:08.0000000+00:00'
+- author: Slungomia
+  changes:
+    - type: Tweak
+      message: Fired the design intern and tweaked Fire Axe In-held and worn sprites.
+  id: 2027
+  time: '2025-11-17T16:03:30.0000000+00:00'
