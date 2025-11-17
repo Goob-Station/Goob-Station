@@ -107,15 +107,15 @@
   - type: GameRule
     chaosScore: 250 #decreased by 30/ was 270
 
-- type: entity
-  parent: RevolutionaryMidround
-  id: RevolutionaryMidroundHermit
-  components:
-  - type: StationEvent
-    earliestStart: 20
-    weight: 1.5 #increased by .5, nerfed to 1.5
-  - type: GameRule
-    chaosScore: 600 #decreased by 200
+#- type: entity                   Removed for being shit
+#  parent: RevolutionaryMidround
+#  id: RevolutionaryMidroundHermit
+#  components:
+#  - type: StationEvent
+#    earliestStart: 20
+#   weight: 1.5 #increased by .5, nerfed to 1.5
+#  - type: GameRule
+#    chaosScore: 600 #decreased by 200
 
 - type: entity
   parent: ClosetSkeleton
