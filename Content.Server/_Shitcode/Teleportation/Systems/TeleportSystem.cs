@@ -106,7 +106,7 @@ public sealed class TeleportSystem : EntitySystem
         int triesBase = 10,
         bool forceSafe = true,
         bool checkEv = true,
-        bool kidnap = true)
+        bool kidnap = false)
     {
         if (checkEv && !CanTeleport(uid))
             return;
