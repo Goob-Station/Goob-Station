@@ -107,12 +107,12 @@ public sealed partial class TTSSystem : EntitySystem
             return;
 
         if (args.IsWhisper)
-            HandleWhisper(uid, args.Message, obfuscatedMessage, args.Language, protoVoice.Speaker);
+            HandleWhisper(uid, args.Message, obfuscatedMessage, args.Language, protoVoice.Speaker, component.Pitch);
         else
-            HandleSay(uid, args.Message, obfuscatedMessage, args.Language, protoVoice.Speaker);
+            HandleSay(uid, args.Message, obfuscatedMessage, args.Language, protoVoice.Speaker, component.Pitch);
     }
 
-    private async void HandleSay(EntityUid uid, string message, string obfMessage, LanguagePrototype language, string speaker)
+    private async void HandleSay(EntityUid uid, string message, string obfMessage, LanguagePrototype language, string speaker, float? pitch = null)
     {
         var originalSoundData = await GenerateTTS(message, speaker);
         var obfuscatedSoundData = await GenerateTTS(obfMessage, speaker);
@@ -126,16 +126,16 @@ public sealed partial class TTSSystem : EntitySystem
                 if (HasComp<LanguageKnowledgeComponent>(pvsSession.AttachedEntity.Value))
                     if (!_lang.CanUnderstand(pvsSession.AttachedEntity.Value, language))
                     {
-                        RaiseNetworkEvent(new PlayTTSEvent(obfuscatedSoundData, GetNetEntity(uid)), pvsSession.AttachedEntity.Value);
+                        RaiseNetworkEvent(new PlayTTSEvent(obfuscatedSoundData, GetNetEntity(uid), pitch: pitch), pvsSession.AttachedEntity.Value);
                         continue;
                     }
 
             if (originalSoundData is not null)
-                RaiseNetworkEvent(new PlayTTSEvent(originalSoundData, GetNetEntity(uid)), pvsSession.AttachedEntity.Value);
+                RaiseNetworkEvent(new PlayTTSEvent(originalSoundData, GetNetEntity(uid), pitch: pitch), pvsSession.AttachedEntity.Value);
         }
     }
 
-    private async void HandleWhisper(EntityUid uid, string message, string obfMessage, LanguagePrototype language, string speaker)
+    private async void HandleWhisper(EntityUid uid, string message, string obfMessage, LanguagePrototype language, string speaker, float? pitch = null)
     {
         var fullSoundData = await GenerateTTS(message, speaker, true);
         var obfSoundData = await GenerateTTS(obfMessage, speaker, true);
@@ -161,12 +161,12 @@ public sealed partial class TTSSystem : EntitySystem
                 if (HasComp<LanguageKnowledgeComponent>(session.AttachedEntity.Value))
                     if (!_lang.CanUnderstand(session.AttachedEntity.Value, language))
                     {
-                        RaiseNetworkEvent(new PlayTTSEvent(obfSoundData, GetNetEntity(uid), true), session);
+                        RaiseNetworkEvent(new PlayTTSEvent(obfSoundData, GetNetEntity(uid), true, pitch: pitch), session);
                         continue;
                     }
 
             if (fullSoundData is not null)
-                RaiseNetworkEvent(new PlayTTSEvent(fullSoundData, GetNetEntity(uid), true), session);
+                RaiseNetworkEvent(new PlayTTSEvent(fullSoundData, GetNetEntity(uid), true, pitch: pitch), session);
         }
     }
 

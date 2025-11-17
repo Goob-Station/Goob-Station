@@ -10,6 +10,8 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Utility;
 using Content.Shared._CorvaxGoob;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Audio.Components;
+using Robust.Shared.Spawners;
 
 namespace Content.Client._CorvaxGoob.TTS;
 
@@ -27,6 +29,8 @@ public sealed partial class TTSSystem : EntitySystem
     private ISawmill _sawmill = default!;
     private static MemoryContentRoot _contentRoot = new();
     private static readonly ResPath Prefix = ResPath.Root / "TTS";
+
+    private static readonly float MinimalPitchToPlay = 0.3f;
 
     private static bool _contentRootAdded;
 
@@ -87,7 +91,12 @@ public sealed partial class TTSSystem : EntitySystem
             .WithVolume(AdjustVolume(ev.IsWhisper))
             .WithMaxDistance(AdjustDistance(ev.IsWhisper));
 
+        if (ev.Pitch.HasValue)
+            audioParams = audioParams.WithPitchScale(ev.Pitch.Value);
+
         var soundSpecifier = new ResolvedPathSpecifier(Prefix / filePath);
+
+        (EntityUid Entity, AudioComponent Component)? audio;
 
         if (ev.SourceUid != null)
         {
@@ -97,11 +106,21 @@ public sealed partial class TTSSystem : EntitySystem
                 return;
             }
             var sourceUid = GetEntity(ev.SourceUid.Value);
-            _audio.PlayEntity(audioResource.AudioStream, sourceUid, soundSpecifier, audioParams);
+
+            audio = _audio.PlayEntity(audioResource.AudioStream, sourceUid, soundSpecifier, audioParams);
         }
         else
         {
-            _audio.PlayGlobal(audioResource.AudioStream, soundSpecifier, audioParams);
+            audio = _audio.PlayGlobal(audioResource.AudioStream, soundSpecifier, audioParams);
+        }
+
+        if (audio.HasValue
+            && ev.Pitch.HasValue
+            && ev.Pitch.Value != 1
+            && ev.Pitch.Value > MinimalPitchToPlay
+            && TryComp<TimedDespawnComponent>(audio.Value.Entity, out var timedDespawn))
+        {
+            timedDespawn.Lifetime = timedDespawn.Lifetime / ev.Pitch.Value;
         }
 
         _contentRoot.RemoveFile(filePath);
