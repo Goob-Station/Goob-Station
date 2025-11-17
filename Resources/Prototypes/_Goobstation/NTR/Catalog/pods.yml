@@ -88,14 +88,14 @@
   - type: SpawnOnDespawn
     prototype: BlueShieldDeputySpawnBriefcase
 
-#- type: entity
-#  id: SpawnPodHardsuit
-#  categories: [ HideSpawnMenu ]
-#  name: SpawnSupplyHardsuit
-#  parent: SpawnSupplyEmpty
-#  components:
-#  - type: SpawnOnDespawn
-#    prototype: ClothingOuterHardsuitNanorep
+- type: entity
+  id: SpawnPodHardsuitExperimental
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyHardsuit
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: ClothingOuterHardsuitExperimentalNanorep
 
 - type: entity
   id: SpawnPodGoldCase
@@ -278,6 +278,43 @@
     prototype: ComputerNTRTasksFlatpack
 
 - type: entity
+  id: SpawnPodMarlen
+  categories: [ HideSpawnMenu ]
+  name: SpawnPodMarlen
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: Marlen
+
+- type: entity
+  id: SpawnPodNTRCigs
+  categories: [ HideSpawnMenu ]
+  name: SpawnPodNTRCigs
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: VendingMachineCigsDeluxe
+
+- type: entity
+  id: SpawnPodNTRSoap
+  categories: [ HideSpawnMenu ]
+  name: SpawnPodNTRSoap
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: SoapCentcomm
+
+- type: entity
+  id: SpawnPodCargoBingle
+  categories: [ HideSpawnMenu ]
+  name: SpawnPodCargoBingle
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: CargoBingleSpawnCoin
+
+
+- type: entity
   id: SpawnPodWaterCoolerGold
   categories: [ HideSpawnMenu ]
   name: SpawnPodWaterCoolerGold
@@ -285,3 +322,4 @@
   components:
   - type: SpawnOnDespawn
     prototype: WaterCoolerGold
+

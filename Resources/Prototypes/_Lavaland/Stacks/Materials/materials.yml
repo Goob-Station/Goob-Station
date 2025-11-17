@@ -32,6 +32,15 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# Normal ore
+- type: stack
+  id: ArtifactFragmentOre
+  name: stack-artifact-fragment-ore
+  icon: { sprite: Objects/Specific/Xenoarchaeology/artifact_fragments.rsi, state: ancientball1 }
+  spawn: ArtifactFragmentOre1
+  maxCount: 30
+
+# Unprocessed ore
 - type: stack
   id: GoldOreUnprocessed
   name: stack-unprocessed-gold-ore
@@ -94,4 +103,11 @@
   name: stack-unprocessed-coal
   icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: coal }
   spawn: Coal1Unprocessed
+  maxCount: 30
+
+- type: stack
+  id: ArtifactFragmentOreUnprocessed
+  name: stack-unprocessed-artifact-fragment-ore
+  icon: { sprite: Objects/Specific/Xenoarchaeology/artifact_fragments.rsi, state: ancientball1 }
+  spawn: ArtifactFragmentOre1Unprocessed
   maxCount: 30

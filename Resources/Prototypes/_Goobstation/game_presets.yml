@@ -244,3 +244,33 @@
   - DuoAbductorRoundstart
   - SubGamemodesRule
   - SecretPlusRampingMid
+
+# hermit gamemode, internal threat focused gamemode
+- type: gamePreset
+  id: SecretPlusHermit
+  alias:
+    - secretPlusHermit
+    - The hermit
+    - Ingress
+  name: hermitplus-title
+  description: hermitplus-description
+  showInVote: true
+  rules:
+    - SecretPlusHermit
+
+- type: gamePreset
+  id: OopsAllThieves
+  alias:
+  - oopsallthieves
+  - allthieves
+  - thieves
+  name: oops-all-thieves-title
+  description: oops-all-thieves-description
+  showInVote: false
+  rules:
+    - OopsAllThieves
+    - TraitorSubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation

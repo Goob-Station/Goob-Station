@@ -17,6 +17,14 @@
     attachToGridOrMap: true
 
 - type: polymorph
+  id: AshJauntLong
+  configuration:
+    entity: PolymorphAshJaunt
+    forced: true
+    duration: 7
+    attachToGridOrMap: true
+
+- type: polymorph
   id: EldritchHorror
   configuration:
     entity: MobHereticFleshAscend
@@ -25,3 +33,191 @@
     transferDamage: false
     revertOnCrit: false
     revertOnDeath: false
+
+# shapeshifts
+- type: polymorph
+  id: ShapeshiftMouse
+  configuration:
+    entity: MobMouse
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    componentsToTransfer:
+    - component: Ghoul
+
+- type: polymorph
+  id: ShapeshiftHonkBot
+  configuration:
+    entity: MobHonkBot
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    componentsToTransfer:
+    - component: Ghoul
+
+- type: polymorph
+  id: ShapeshiftAdultSlimesBlue
+  configuration:
+    entity: MobAdultSlimesBlue
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    componentsToTransfer:
+    - component: Ghoul
+
+- type: polymorph
+  id: ShapeshiftBat
+  configuration:
+    entity: MobBat
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    componentsToTransfer:
+    - component: Ghoul
+
+- type: polymorph
+  id: ShapeshiftMothroach
+  configuration:
+    entity: MobMothroach
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    componentsToTransfer:
+    - component: Ghoul
+
+- type: polymorph
+  id: ShapeshiftCrab
+  configuration:
+    entity: MobCrab
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    componentsToTransfer:
+    - component: Ghoul
+
+- type: polymorph
+  id: ShapeshiftGoose
+  configuration:
+    entity: MobGoose
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    componentsToTransfer:
+    - component: Ghoul
+
+- type: polymorph
+  id: ShapeshiftLizard
+  configuration:
+    entity: MobLizard
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    componentsToTransfer:
+    - component: Ghoul
+
+- type: polymorph
+  id: ShapeshiftParrot
+  configuration:
+    entity: MobParrot
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    componentsToTransfer:
+    - component: Ghoul
+
+- type: polymorph
+  id: ShapeshiftGiantSpider
+  configuration:
+    entity: MobGiantSpider
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    componentsToTransfer:
+    - component: Ghoul
+
+- type: polymorph
+  id: ShapeshiftFox
+  configuration:
+    entity: MobFox
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    componentsToTransfer:
+    - component: Ghoul
+
+- type: polymorph
+  id: ShapeshiftCorgi
+  configuration:
+    entity: MobCorgi
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    componentsToTransfer:
+    - component: Ghoul
+
+- type: polymorph
+  id: ShapeshiftCat
+  configuration:
+    entity: MobCat
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    componentsToTransfer:
+    - component: Ghoul
+
+- type: polymorph
+  id: ShapeshiftHamster
+  configuration:
+    entity: MobHamster
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    componentsToTransfer:
+    - component: Ghoul
+
+- type: polymorph
+  id: ShapeshiftCarp
+  configuration:
+    entity: MobCarp
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    componentsToTransfer:
+    - component: Ghoul
+
+- type: polymorph
+  id: ShapeshiftBingle
+  configuration:
+    entity: MobBingle
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    componentsToTransfer:
+    - component: Ghoul
+
+- type: polymorph
+  id: ShapeshiftLaserRaptor
+  configuration:
+    entity: MobLaserRaptor
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    componentsToTransfer:
+    - component: Ghoul
