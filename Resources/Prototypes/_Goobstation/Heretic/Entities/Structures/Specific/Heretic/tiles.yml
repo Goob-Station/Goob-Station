@@ -28,7 +28,7 @@
         - Lava
   - type: Sprite
     sprite: Effects/fire.rsi
-    drawdepth: Effects
+    drawdepth: BelowMobs
     layers:
       - state: 1
         shader: unshaded
@@ -57,6 +57,10 @@
   - type: Tag
     tags:
       - HideContextMenu
+  - type: PreventCollide
+    whitelist:
+      components:
+      - Ghoul
 
 - type: entity
   id: TileHereticVoid

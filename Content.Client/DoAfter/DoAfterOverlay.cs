@@ -137,7 +137,8 @@ public sealed class DoAfterOverlay : Overlay
                 if (doAfter.Args.Hidden || isInContainer)
                 {
                     // Goobstation - Show doAfter progress bar to another entity
-                    if (uid != localEnt && localEnt != doAfter.Args.ShowTo)
+                    var showTo = doAfter.Args.ShowTo ?? uid;
+                    if (localEnt != showTo)
                         continue;
 
                     // Hints to the local player that this do-after is not visible to other players.
