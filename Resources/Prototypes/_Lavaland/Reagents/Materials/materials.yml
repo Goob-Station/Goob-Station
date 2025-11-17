@@ -1,0 +1,17 @@
+- type: material
+  id: ArtifactFragment
+  stackEntity: ArtifactFragment1
+  name: materials-artifact-fragment
+  unit: materials-unit-piece
+  icon: { sprite: Objects/Specific/Xenoarchaeology/artifact_fragments.rsi, state: precursorball2 }
+  color: "#ff35e4"
+  price: 0.75
+
+- type: material
+  id: RawArtifactFragment
+  stackEntity: ArtifactFragmentOre1
+  name: materials-artifact-fragment-ore
+  unit: materials-unit-piece
+  icon: { sprite: _Lavaland/Objects/Materials/ore.rsi, state: artifact }
+  color: "#ff35e4"
+  price: 0.75

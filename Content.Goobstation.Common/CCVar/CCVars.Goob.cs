@@ -438,6 +438,18 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> CoalesceIdenticalMessages =
          CVarDef.Create("chat.coalesce_identical_messages", true, CVar.CLIENT | CVar.ARCHIVE | CVar.CLIENTONLY);
 
+    /// <summary>
+    /// Set to true to enable voice barks and disable default speech sounds.
+    /// </summary>
+    public static readonly CVarDef<bool> BarksEnabled =
+        CVarDef.Create("voice.barks_enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Client volume setting for barks.
+    /// </summary>
+    public static readonly CVarDef<float> BarksVolume =
+        CVarDef.Create("voice.barks_volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     #endregion
 
     #region Voicechat
@@ -561,6 +573,24 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> LightMaximumLevel =
         CVarDef.Create("light.maximum_light_level", 10f, CVar.SERVER);
 
+
+    #endregion
+
+    # region Explosions
+
+    /// <summary>
+    /// Random variation to limb damage on explosion
+    /// 0 means no variation - all limbs are damaged the same
+    /// </summary>
+    public static readonly CVarDef<float> ExplosionLimbDamageVariation =
+        CVarDef.Create("explosion.damage_variation", 2f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Multiplier to wounds caused by explosion damage
+    /// Applies to Brute and Burn damage
+    /// </summary>
+    public static readonly CVarDef<float> ExplosionWoundMultiplier =
+        CVarDef.Create("explosion.wounding_multiplier", 8f, CVar.SERVERONLY);
 
     #endregion
 
