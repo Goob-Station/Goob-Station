@@ -27,7 +27,7 @@
   voice: 4
 
 - type: voice
-  id: C8qyfgo9nFJXaWT6pLag
+  id: INNQ4Wc85nrnHOPYh9Tp
   name: Hatsune Miku
   sex: Female
   silicon: false
@@ -41,7 +41,7 @@
   voice: 6
 
 - type: voice
-  id: ABZxQiad9U4kHgGZLvKC
+  id: 2qzAcSfnHjHxl7O5kP7N
   name: Billy
   sex: Male
   silicon: false
@@ -125,78 +125,78 @@
   voice: 18
 
 - type: voice
-  id: 9CArWG8YxDIaFuxKdd3n
-  name: Cayde
-  sex: Male
-  silicon: true
-  voice: 19
-
-- type: voice
-  id: si0svtk05vPEuvwAW93c
+  id: sEBlK6HG7xkSW4BSHZzx
   name: Shadowheart
   sex: Female
   silicon: false
-  voice: 20
+  voice: 19
 
 - type: voice
   id: 6lzOuoNBO1bBN4jLCW6X
   name: Duke
   sex: Male
   silicon: false
-  voice: 21
+  voice: 20
 
 - type: voice
   id: 63AqbT21Nj7hd05efFbJ
   name: Obiwan
   sex: Male
   silicon: false
-  voice: 22
+  voice: 21
 
 - type: voice
   id: xBdrkqKcP5zVLmkdC5C1
   name: Simaris
   sex: Male
   silicon: true
-  voice: 23
+  voice: 22
 
 - type: voice
   id: rhCkPglhGaLQEkKTbHMh
   name: Lahey
   sex: Male
   silicon: false
-  voice: 24
+  voice: 23
 
 - type: voice
   id: O21VhfE61YFwuThz5SaG
   name: Oldie
   sex: Male
   silicon: false
-  voice: 25
+  voice: 24
 
 - type: voice
   id: ouL9IsyrSnUkCmfnD02u
   name: Grimblewood
   sex: Male
   silicon: false
-  voice: 26
+  voice: 25
 
 - type: voice
   id: 7NsaqHdLuKNFvEfjpUno
   name: Seer
   sex: Female
   silicon: false
-  voice: 27
+  voice: 26
 
 - type: voice
   id: RXtWW6etvimS8QJ5nhVk
   name: Fiona
   sex: Female
   silicon: false
-  voice: 28
+  voice: 27
 
 - type: voice
   id: rhCkPglhGaLQEkKTbHMh
   name: Lahey
   sex: Female
+  silicon: false
+  voice: 28
+
+- type: voice
+  id: xBdrkqKcP5zVLmkdC5C1
+  name: Simaris
+  sex: Male
   silicon: false
   voice: 29
