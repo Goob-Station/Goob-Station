@@ -17955,3 +17955,11 @@ Entries:
       message: Fixed Shadowling taking freeze damage from icy veins
   id: 2020
   time: '2025-11-17T15:59:02.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Tweak
+      message: >-
+        The shadowling ascension egg no longer has 10 flat damage resistance of
+        each type
+  id: 2021
+  time: '2025-11-17T15:59:38.0000000+00:00'
