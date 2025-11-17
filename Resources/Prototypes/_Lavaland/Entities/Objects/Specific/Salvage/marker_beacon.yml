@@ -1,0 +1,92 @@
+- type: entity
+  id: MarkerBeacon
+  parent: BaseItem
+  name: marker beacon
+  description: Shines you the way through the darkness. Useful to not get lost on vast landscapes.
+  suffix: Unanchored
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Specific/Salvage/marker_beacon.rsi
+    noRot: true
+    layers:
+    - state: base
+    - state: unshaded
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Anchorable
+    delay: 0.2
+  - type: EnergySword # For random colors... Why the HELL it's called like that?!
+  - type: ItemToggle
+  - type: ItemTogglePointLight
+    toggleableVisualsColorModulatesLights: true
+  - type: Item
+    size: Tiny
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: white
+    netsync: false
+  - type: Appearance
+  - type: ToggleableVisuals
+    spriteLayer: light
+  - type: Tag
+    tags:
+    - MarkerBeacon
+  - type: UserInterface # Goobstation-EsColorPicker
+    interfaces:
+      enum.EsColorPickerMenu.Key:
+        type: EsColorPickerBUI
+
+- type: entity
+  id: MarkerBeaconActive
+  parent: MarkerBeacon
+  suffix: Unanchored, Active
+  components:
+  - type: ItemToggle
+    activated: true
+
+- type: entity
+  id: MarkerBeaconAnchored
+  parent: MarkerBeacon
+  suffix: Anchored
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    canCollide: False
+    bodyType: Static
+
+- type: entity
+  id: MarkerBeaconActiveAnchored
+  parent: MarkerBeaconActive
+  suffix: Anchored, Active
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    canCollide: False
+    bodyType: Static
+
+- type: entity
+  parent: BaseAmmoProvider # this is for cycling swabs out and not spawning 30 entities, trust
+  id: BoxMarkerBeacons
+  name: marker beacon dispenser
+  description: Dispenses 30 marker beacons, extremely useful for space and planet exploration.
+  components:
+  - type: Sprite
+    layers:
+    - state: boxwide
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - MarkerBeacon
+    proto: MarkerBeaconActive
+    capacity: 30
+  - type: UseDelay
+    delay: 1.0 # to prevent salvagers from creating neutron stars that kill client performance for everyone
+  #- type: GuideHelp
+  #  guides:
+  # 

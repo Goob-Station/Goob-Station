@@ -135,6 +135,8 @@
     understands:
     - TauCetiBasic
     - Moffic
+  - type: Inventory
+    speciesId: moth
   - type: ItemCougher
     item: Chitzite
     action: ActionChitzite
