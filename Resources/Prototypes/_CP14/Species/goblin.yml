@@ -1,0 +1,162 @@
+- type: species
+  id: CP14Goblin
+  name: cp14-species-name-goblin
+  roundStart: true
+  prototype: CP14MobGoblin
+  sprites: CP14MobGoblinSprites
+  markingLimits: CP14MobGoblinMarkingLimits
+  dollPrototype: CP14MobGoblinDummy
+  skinColoration: VoxFeathers
+  defaultSkinTone: "#74964d"
+  maleFirstNames: CP14_Names_Goblin_Male_First
+  femaleFirstNames: CP14_Names_Goblin_Female_First
+  naming: First
+
+- type: speciesBaseSprites
+  id: CP14MobGoblinSprites
+  sprites:
+    Head: CP14MobGoblinHead
+    HeadTop: CP14MobGoblinMarkingMatchSkin
+    Hair: CP14MobGoblinAnyMarking
+    FacialHair: CP14MobGoblinAnyMarking
+    Snout: CP14MobGoblinMarkingMatchSkin
+    Chest: CP14MobGoblinTorso
+    Eyes: CP14MobGoblinEyes
+    LArm: CP14MobGoblinLArm
+    RArm: CP14MobGoblinRArm
+    LHand: CP14MobGoblinLHand
+    RHand: CP14MobGoblinRHand
+    LLeg: CP14MobGoblinLLeg
+    RLeg: CP14MobGoblinRLeg
+    LFoot: CP14MobGoblinLFoot
+    RFoot: CP14MobGoblinRFoot
+
+- type: markingPoints
+  id: CP14MobGoblinMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+      onlyWhitelisted: true
+    Snout:
+      points: 1
+      required: true
+      defaultMarkings: [ CP14GoblinNose ]
+      onlyWhitelisted: true
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ CP14GoblinEars ]
+      onlyWhitelisted: true
+    Chest:
+      points: 1
+      required: false
+      onlyWhitelisted: true
+    Legs:
+      points: 2
+      required: false
+      onlyWhitelisted: true
+    Arms:
+      points: 2
+      required: false
+      onlyWhitelisted: true
+
+- type: humanoidBaseSprite
+  id: CP14MobGoblinEyes
+  baseSprite:
+    sprite: _CP14/Mobs/Customization/eyes.rsi
+    state: goblin_eyes
+
+- type: humanoidBaseSprite
+  id: CP14MobGoblinAnyMarking
+
+- type: humanoidBaseSprite
+  id: CP14MobGoblinMarkingMatchSkin
+  markingsMatchSkin: true
+
+- type: humanoidBaseSprite
+  id: CP14MobGoblinHead
+  baseSprite:
+    sprite: _CP14/Mobs/Species/Goblin/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: CP14MobGoblinHeadMale
+  baseSprite:
+    sprite: _CP14/Mobs/Species/Goblin/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: CP14MobGoblinHeadFemale
+  baseSprite:
+    sprite: _CP14/Mobs/Species/Goblin/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: CP14MobGoblinTorso
+  baseSprite:
+    sprite: _CP14/Mobs/Species/Goblin/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: CP14MobGoblinTorsoMale
+  baseSprite:
+    sprite: _CP14/Mobs/Species/Goblin/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: CP14MobGoblinTorsoFemale
+  baseSprite:
+    sprite: _CP14/Mobs/Species/Goblin/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: CP14MobGoblinLLeg
+  baseSprite:
+    sprite: _CP14/Mobs/Species/Goblin/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: CP14MobGoblinLArm
+  baseSprite:
+    sprite: _CP14/Mobs/Species/Goblin/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: CP14MobGoblinLHand
+  baseSprite:
+    sprite: _CP14/Mobs/Species/Goblin/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: CP14MobGoblinLFoot
+  baseSprite:
+    sprite: _CP14/Mobs/Species/Goblin/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: CP14MobGoblinRLeg
+  baseSprite:
+    sprite: _CP14/Mobs/Species/Goblin/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: CP14MobGoblinRArm
+  baseSprite:
+    sprite: _CP14/Mobs/Species/Goblin/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: CP14MobGoblinRHand
+  baseSprite:
+    sprite: _CP14/Mobs/Species/Goblin/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: CP14MobGoblinRFoot
+  baseSprite:
+    sprite: _CP14/Mobs/Species/Goblin/parts.rsi
+    state: r_foot

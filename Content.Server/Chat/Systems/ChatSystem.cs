@@ -159,6 +159,10 @@ using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 
+using Content.Server.Starlight.TTS;
+using Content.Shared.Speech;
+using Content.Shared.Starlight.TextToSpeech;
+
 namespace Content.Server.Chat.Systems;
 
 // TODO refactor whatever active warzone this class and chatmanager have become
@@ -189,6 +193,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ScryingOrbSystem _scrying = default!; // Goobstation Change
     [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; // Goobstation - Starlight collective mind port
     [Dependency] private readonly LanguageSystem _language = default!; // Einstein Engines - Language
+    [Dependency] private readonly SpeechSystem _speechSystem = default!; // Starlight
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -207,6 +212,8 @@ public sealed partial class ChatSystem : SharedChatSystem
     private bool _deadLoocEnabled;
     private bool _critLoocEnabled;
     private readonly bool _adminLoocEnabled = true;
+
+    private readonly ISawmill _sawmill = Logger.GetSawmill("tts-system");
 
     public override void Initialize()
     {
@@ -508,6 +515,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         {
             _audio.PlayGlobal(announcementSound == null ? DefaultAnnouncementSound : _audio.ResolveSound(announcementSound), Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
         }
+        // TTS global announcement
+        RaiseLocalEvent(new AnnouncementSpokeEvent
+        {
+            Message = message,
+            Source = Filter.Broadcast(),
+            AnnouncementSound = announcementSound,
+        });
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {sender}: {message}");
     }
 
@@ -538,6 +552,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         {
             _audio.PlayGlobal(announcementSound ?? new SoundPathSpecifier(DefaultAnnouncementSound), filter, true, AudioParams.Default.WithVolume(-2f));
         }
+        // TTS filtered announcement
+        RaiseLocalEvent(new AnnouncementSpokeEvent
+        {
+            AnnouncementSound = announcementSound,
+            Message = message,
+            Source = filter
+        });
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement from {sender}: {message}");
     }
 
@@ -578,7 +599,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         {
             _audio.PlayGlobal(announcementSound ?? new SoundPathSpecifier(DefaultAnnouncementSound), filter, true, AudioParams.Default.WithVolume(-2f));
         }
-
+        // TTS station announcement
+        RaiseLocalEvent(new AnnouncementSpokeEvent
+        {
+            AnnouncementSound = announcementSound,
+            Message = message,
+            Source = filter
+        });
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement on {station} from {sender}: {message}");
     }
 
@@ -594,6 +621,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         var clients = Filter.Empty();
         var clientsSeeNames = Filter.Empty();
+        var receivers = new List<EntityUid>();
         var mindQuery = EntityQueryEnumerator<CollectiveMindComponent, ActorComponent>();
         while (mindQuery.MoveNext(out var uid, out var collectMindComp, out var actorComp))
         {
@@ -607,6 +635,8 @@ public sealed partial class ChatSystem : SharedChatSystem
                 else
                     clients.AddPlayer(actorComp.PlayerSession);
             }
+
+            receivers.Add(uid);
         }
 
         var Number = $"{sourseCollectiveMindComp.Minds[collectiveMind.ID]}";
@@ -659,6 +689,15 @@ public sealed partial class ChatSystem : SharedChatSystem
             true,
             admins,
             collectiveMind.Color);
+
+        // Raise event so TTS and other related things work
+        var ev = new CollectiveMindSpokeEvent
+        {
+            Source = source,
+            Message = message,
+            Receivers = receivers.ToArray()
+        };
+        RaiseLocalEvent(source, ev, true);
     }
 
     private void SendEntitySpeak(

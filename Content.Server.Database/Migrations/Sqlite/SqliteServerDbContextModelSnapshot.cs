@@ -856,6 +856,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("sex");
 
+                    b.Property<string>("SiliconVoice")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("silicon_voice");
+
                     b.Property<string>("SkinColor")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -873,6 +878,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("species");
+
+                    b.Property<string>("Voice")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("voice");
 
                     b.Property<float>("Width")
                         .HasColumnType("REAL")
