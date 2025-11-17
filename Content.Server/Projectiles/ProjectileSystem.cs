@@ -63,6 +63,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Projectiles;
 using Content.Goobstation.Common.Weapons.Penetration;
 using Content.Server.Administration.Logs;
 using Content.Server.Destructible;
@@ -72,6 +73,7 @@ using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Projectiles;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
@@ -86,6 +88,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
     [Dependency] private readonly GunSystem _guns = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
 
     public override void Initialize()
     {
@@ -122,7 +125,19 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             damageRequired -= damageableComponent.TotalDamage;
             damageRequired = FixedPoint2.Max(damageRequired, FixedPoint2.Zero);
         }
-        var modifiedDamage = _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, damageable: damageableComponent, origin: component.Shooter); // Goob edit
+
+        // Goob edit start
+        TargetBodyPart? targetPart = null;
+        if (TryComp(uid, out ProjectileMissTargetPartChanceComponent? missComp) &&
+            !missComp.PerfectHitEntities.Contains(target))
+            targetPart = TargetBodyPart.Chest;
+        var modifiedDamage = _damageableSystem.TryChangeDamage(target,
+            ev.Damage,
+            component.IgnoreResistances,
+            damageable: damageableComponent,
+            origin: component.Shooter,
+            targetPart: targetPart);
+        // Goob edit end
         var deleted = Deleted(target);
 
         if (modifiedDamage is not null && Exists(component.Shooter))

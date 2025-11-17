@@ -82,30 +82,30 @@
   id: TraitorMidroundHermit
   components:
   - type: StationEvent
-    earliestStart: 30
+    earliestStart: 5 #was 30
     weight: 8  #kept the same pretty high
   - type: GameRule
-    chaosScore: 240 # decreased by 60 points
+    chaosScore: 200 # decreased by 60 points, was 200
 
 - type: entity
   parent: ChangelingMidround
   id: ChangelingMidroundHermit
   components:
   - type: StationEvent
-    earliestStart: 20
+    earliestStart: 5 # was 20
     weight: 5 #increased by two yell at me if its too high for balance
   - type: GameRule
-    chaosScore: 260 #decreased BY 40 points
+    chaosScore: 200 #decreased BY 40 points/ was 260
 
 - type: entity
   parent: HereticMidround
   id: HereticMidroundHermit
   components:
   - type: StationEvent
-    earliestStart: 20
+    earliestStart: 5 # was 20
     weight: 4.5 #increased by 1.5
   - type: GameRule
-    chaosScore: 270 #decreased by 30
+    chaosScore: 200 #decreased by 30/ was 270
 
 - type: entity
   parent: RevolutionaryMidround
@@ -141,7 +141,7 @@
   id: DevilmidroundHermit
   components:
   - type: StationEvent
-    earliestStart: 20
+    earliestStart: 5 #was 20
     weight: 1.5 # increased by .5
   - type: GameRule
     chaosScore: 400 #decreased by 100
