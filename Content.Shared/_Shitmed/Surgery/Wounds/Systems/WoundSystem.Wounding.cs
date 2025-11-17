@@ -231,28 +231,31 @@ public sealed partial class WoundSystem
 
         if (TerminatingOrDeleted(uid)
             || TerminatingOrDeleted(component.HoldingWoundable)
-            || !TryComp<TraumaInflicterComponent>(uid, out var traumaInflicter)
+            // || !TryComp<TraumaInflicterComponent>(uid, out var traumaInflicter) // Goob edit
             || !TryComp<WoundableComponent>(component.HoldingWoundable, out var woundable)
             || woundable.WoundableSeverity != WoundableSeverity.Mangled
             || !TryComp<BodyPartComponent>(component.HoldingWoundable, out var bodyPart))
             return;
 
-        if (bodyPart.Body is not null
-            && (delta < traumaInflicter.SeverityThreshold * _cfg.GetCVar(SurgeryCVars.DestroySeverityMultiplier)
+        // Goob edit start - can't destroy attached body parts, must sever first
+        if (bodyPart.Body is not null)
+            return;
+        /*    && (delta < traumaInflicter.SeverityThreshold * _cfg.GetCVar(SurgeryCVars.DestroySeverityMultiplier)
                 || woundable.Bone.ContainedEntities.FirstOrNull() is not { } bone
                 || !TryComp(bone, out BoneComponent? boneComp)
                 || boneComp.BoneSeverity != BoneSeverity.Broken))
-            return;
+            return;*/
 
-        if (!IsWoundableRoot(component.HoldingWoundable, woundable) // We need to add a check because the root woundable is set to the bodypart itself on removal (why wulf?????)
+        /*if (!IsWoundableRoot(component.HoldingWoundable, woundable) // We need to add a check because the root woundable is set to the bodypart itself on removal (why wulf?????)
             || bodyPart.Body is null)
         {
             if (woundable.ParentWoundable != null
                 && bodyPart.Body != null)
                 DestroyWoundable(woundable.ParentWoundable.Value, component.HoldingWoundable, woundable);
-            else
-                DestroyWoundable(component.HoldingWoundable, component.HoldingWoundable, woundable);
-        }
+            else*/
+        DestroyWoundable(component.HoldingWoundable, component.HoldingWoundable, woundable);
+        //}
+        // Goob edit end
     }
 
     private void OnDamageChanged(EntityUid uid, WoundableComponent component, ref DamageChangedEvent args)
@@ -279,7 +282,8 @@ public sealed partial class WoundSystem
                 if (!IsWoundPrototypeValid(damageType))
                     continue;
 
-                TryInduceWound(uid, damageType, damageValue, out _, component);
+                TryInduceWound(uid, damageType, damageValue *
+                    args.DamageDelta.WoundSeverityMultipliers.GetValueOrDefault(damageType, 1), out _, component);
             }
         }
 
@@ -346,7 +350,8 @@ public sealed partial class WoundSystem
 
         foreach (var woundToInduce in damage.DamageDict)
         {
-            if (!TryInduceWound(uid, woundToInduce.Key, woundToInduce.Value, out var woundInduced, woundable))
+            if (!TryInduceWound(uid, woundToInduce.Key, woundToInduce.Value *
+                damage.WoundSeverityMultipliers.GetValueOrDefault(woundToInduce.Key, 1), out var woundInduced, woundable))
                 return false;
 
             woundsInduced.Add(woundInduced.Value);

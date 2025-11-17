@@ -75,6 +75,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.CCVar;
 using Content.Shared.CCVar;
 
 namespace Content.Server.Explosion.EntitySystems;
@@ -90,6 +91,10 @@ public sealed partial class ExplosionSystem
     public bool IncrementalTileBreaking { get; private set; }
     public int SingleTickAreaLimit { get; private set; }
     public bool CanCreateVacuum { get; private set; }
+    // Goob edit start
+    public float PartVariation { get; private set; }
+    public float WoundMultiplier { get; private set; }
+    // Goob edit end
 
     private void SubscribeCvars()
     {
@@ -102,5 +107,9 @@ public sealed partial class ExplosionSystem
         Subs.CVar(_cfg, CCVars.ExplosionIncrementalTileBreaking, value => IncrementalTileBreaking = value, true);
         Subs.CVar(_cfg, CCVars.ExplosionSingleTickAreaLimit, value => SingleTickAreaLimit = value, true);
         Subs.CVar(_cfg, CCVars.ExplosionCanCreateVacuum, value => CanCreateVacuum = value, true);
+        // Goob edit start
+        Subs.CVar(_cfg, GoobCVars.ExplosionLimbDamageVariation, value => PartVariation = value, true);
+        Subs.CVar(_cfg, GoobCVars.ExplosionWoundMultiplier, value => WoundMultiplier = value, true);
+        // Goob edit end
     }
 }
