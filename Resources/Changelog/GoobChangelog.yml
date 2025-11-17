@@ -17989,3 +17989,9 @@ Entries:
       message: Colliding while sprinting no longer disarms on knockdown.
   id: 2025
   time: '2025-11-17T16:02:49.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Reduced frequency of shadowling spawns.
+  id: 2026
+  time: '2025-11-17T16:03:08.0000000+00:00'
