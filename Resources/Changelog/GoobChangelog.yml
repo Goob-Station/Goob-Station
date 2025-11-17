@@ -18040,3 +18040,11 @@ Entries:
         default damage modifiers now.
   id: 2030
   time: '2025-11-17T16:07:43.0000000+00:00'
+- author: DeusMaldPr, rustdevelopment, deltanedas, the spirit of ilya
+  changes:
+    - type: Tweak
+      message: Changed default rat servant behavior from "Loose" to "Follow"
+    - type: Add
+      message: Mice now have an egg sack organ, steal their powers!
+  id: 2031
+  time: '2025-11-17T16:09:58.0000000+00:00'
