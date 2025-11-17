@@ -1,0 +1,11 @@
+- type: localizedDataset
+  id: NamesSlasher
+  values:
+    prefix: names-slasher-dataset-
+    count: 32
+
+- type: localizedDataset
+  id: NamesSlasherTitle
+  values:
+    prefix: names-slasher-title-dataset-
+    count: 28

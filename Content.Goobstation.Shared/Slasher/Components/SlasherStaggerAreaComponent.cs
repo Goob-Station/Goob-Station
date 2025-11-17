@@ -27,7 +27,7 @@ public sealed partial class SlasherStaggerAreaComponent : Component
     /// Duration of the slowdown.
     /// </summary>
     [DataField]
-    public float SlowDuration = 4f;
+    public float SlowDuration = 8f;
 
     /// <summary>
     /// Speed debuff.
@@ -36,10 +36,15 @@ public sealed partial class SlasherStaggerAreaComponent : Component
     public float SlowMultiplier = 0.5f;
 
     /// <summary>
-    /// Optional sound to play when activating the aura.
+    /// Sound to play when the stagger area is activated.
     /// </summary>
     [DataField]
-    public SoundSpecifier? ActivateSound;
+    public SoundSpecifier StaggerSound = new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/SlasherStaggerArea.ogg")
+    {
+        Params = AudioParams.Default
+                       .WithVolume(-4f)
+                       .WithMaxDistance(4f)
+    };
 }
 
 public sealed partial class SlasherStaggerAreaEvent : InstantActionEvent

@@ -47,6 +47,17 @@ public sealed partial class SlasherSoulStealComponent : Component
     [DataField]
     public int Soulstealdoafterduration = 15;
 
+    /// <summary>
+    /// The sound to play when soul steal completes.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier SoulStealSound =
+               new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/SlasherSoulSteal.ogg")
+               {
+                   Params = AudioParams.Default
+                       .WithVolume(-8f)
+                       .WithMaxDistance(10f)
+               };
 
     /// <summary>
     /// Total alive souls stolen.
@@ -91,6 +102,7 @@ public sealed partial class SlasherSoulStealEvent : EntityTargetActionEvent
 /// <summary>
 /// Raised to amputate all limbs (arms/legs/hands/feet) from a target, sparing head and torso.
 /// </summary>
+/* Unused for now
 public sealed partial class SlasherSoulStealAmputateEvent : EntityEventArgs
 {
     public EntityUid Target { get; }
@@ -102,3 +114,4 @@ public sealed partial class SlasherSoulStealAmputateEvent : EntityEventArgs
         User = user;
     }
 }
+*/

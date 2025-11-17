@@ -59,8 +59,7 @@ public sealed class SlasherStaggerAreaSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("slasher-staggerarea-victim"), targetUid, targetUid, PopupType.MediumCaution);
         }
 
-        if (comp.ActivateSound != null)
-            _audio.PlayPvs(comp.ActivateSound, uid);
+        _audio.PlayPvs(comp.StaggerSound, uid);
 
         // popup for user
         _popup.PopupEntity(Loc.GetString("slasher-staggerarea-popup"), uid, uid, PopupType.MediumCaution);

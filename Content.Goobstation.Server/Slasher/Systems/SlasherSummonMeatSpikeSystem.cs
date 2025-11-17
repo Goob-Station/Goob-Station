@@ -1,6 +1,7 @@
 using Content.Server.Actions;
 using Content.Shared.Popups;
 using Content.Goobstation.Shared.Slasher.Components;
+using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
@@ -14,6 +15,7 @@ public sealed class SlasherSummonMeatSpikeSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protos = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -32,6 +34,7 @@ public sealed class SlasherSummonMeatSpikeSystem : EntitySystem
     private void OnSummon(Entity<SlasherSummonMeatSpikeComponent> ent, ref SlasherSummonMeatSpikeEvent args)
     {
         Spawn(ent.Comp.MeatSpikePrototype, _xform.GetMoverCoordinates(ent.Owner));
+        _audio.PlayPvs(ent.Comp.SummonSound, ent.Owner);
         _popup.PopupEntity(Loc.GetString("slasher-summon-meatspike-popup"), ent.Owner, ent.Owner, PopupType.MediumCaution);
         args.Handled = true;
     }

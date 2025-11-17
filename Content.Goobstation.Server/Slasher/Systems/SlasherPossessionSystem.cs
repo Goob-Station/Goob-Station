@@ -59,9 +59,7 @@ public sealed class SlasherPossessionSystem : EntitySystem
             return;
 
         if (TryComp<PossessedComponent>(target, out var possessed))
-        {
             _actions.UnHideActions(target, possessed.HiddenActions); // required
-        }
         args.Handled = true;
     }
 }

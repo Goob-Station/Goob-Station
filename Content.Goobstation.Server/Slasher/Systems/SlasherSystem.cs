@@ -49,6 +49,5 @@ public sealed class SlasherSystem : EntitySystem
         EnsureComp<SlasherSummonMeatSpikeComponent>(uid);
         // Allow standing without legs/body
         EnsureComp<IgnoreLegsForStandingComponent>(uid);
-        EnsureComp<Unbuckleable>(uid);
     }
 }

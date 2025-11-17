@@ -1,6 +1,7 @@
 using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Audio;
 
 namespace Content.Goobstation.Shared.Slasher.Components;
 
@@ -21,6 +22,18 @@ public sealed partial class SlasherSummonMeatSpikeComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId MeatSpikePrototype = "SlasherMeatSpike";
+
+    /// <summary>
+    /// Sound to play when the spike is summoned.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier SummonSound
+        = new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/SlasherSummonMeatspike.ogg")
+        {
+            Params = AudioParams.Default
+                       .WithVolume(-3f)
+                       .WithMaxDistance(4f)
+        };
 }
 
 public sealed partial class SlasherSummonMeatSpikeEvent : InstantActionEvent

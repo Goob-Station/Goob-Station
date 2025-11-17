@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Slasher.Components;
 
 /// <summary>
-/// Possesion system for slasher although it's actually pretty generic. Basically the same thing as devils possession
+/// Possesion system for slasher although it's actually pretty generic. Basically the same thing as devils possession but it has actions / combat mode.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SlasherPossessionComponent : Component

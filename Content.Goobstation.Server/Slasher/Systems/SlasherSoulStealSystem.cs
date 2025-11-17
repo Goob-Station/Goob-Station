@@ -106,7 +106,10 @@ public sealed class SlasherSoulStealSystem : EntitySystem
             RequireCanInteract = false
         });
 
+        // Popup for user
         _popup.PopupEntity(Loc.GetString("slasher-soulsteal-start", ("target", target)), user, user);
+        // Popup for victim only
+        _popup.PopupEntity(Loc.GetString("slasher-soulsteal-start-victim", ("user", user)), target, target, PopupType.MediumCaution);
         args.Handled = true;
     }
 
@@ -130,6 +133,7 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         if (ev.Cancelled || ev.Args.Target == null)
             return;
 
+        _audio.PlayPvs(ent.Comp.SoulStealSound, ev.Args.Target.Value);
 
         CompleteSoulSteal(ent.Owner, ev.Args.Target.Value, ent.Comp);
     }
@@ -155,7 +159,10 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         ApplyHealthBonus(user, healthBonus, comp);
         ApplyMacheteBonus(user, bruteBonus, comp);
 
-        _popup.PopupEntity(Loc.GetString("slasher-soulsteal-success", ("target", target)), user, user, PopupType.Large);
+        // Popup for user
+        _popup.PopupEntity(Loc.GetString("slasher-soulsteal-success", ("target", target)), user, user, PopupType.LargeCaution);
+        // Popup for victim only
+        _popup.PopupEntity(Loc.GetString("slasher-soulsteal-success-victim", ("user", user)), target, target, PopupType.LargeCaution);
         Dirty(user, comp);
     }
 

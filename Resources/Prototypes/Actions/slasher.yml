@@ -14,7 +14,7 @@
 - type: entity
   id: ActionSlasherSummonMeatSpike
   name: Meat Spike
-  description: Conjure a horrific meat spike beneath you to impale the dead.
+  description: Conjure a horrific meat spike beneath you to capture your victims.
   components:
   - type: Action
     raiseOnUser: true
@@ -28,7 +28,7 @@
 - type: entity
   id: ActionSlasherIncorporealize
   name: Incorporealize
-  description: Become incorporeal, capable of moving through walls and being completely invisible, but unable to interact with the world. Can only be used when in dark lighting.
+  description: Become incorporeal, capable of moving through walls and being completely invisible, but unable to interact with the world. Can only be used when unseen.
   components:
   - type: Action
     raiseOnUser: true
@@ -68,7 +68,7 @@
 - type: entity
   id: ActionSlasherPossession
   name: Possession
-  description: Use this on a person to begin to exact your control on them, eventually giving you temporary control of their body for 45 seconds. Once time is up, both bodies return.
+  description: Use this on a person to begin to exact your control on them, giving you temporary control of their body for 45 seconds. Once time is up, both bodies return.
   components:
   - type: Action
     raiseOnUser: true
@@ -115,7 +115,7 @@
 - type: entity
   id: ActionSlasherMassacre
   name: Massacre
-  description: Unleash a brutal chain of strikes. Starts weak (-9 damage) but each successful hit increases damage by 3. Missing or switching targets ends the chain. After 10 hits you start severing limbs. The 13th hit decapitates.
+  description: Unleach a brutal chain of attacks. The more hits in a row you hit the more damage you deal. You decapitate your target after 13 hits.
   components:
   - type: Action
     raiseOnUser: true
@@ -129,7 +129,7 @@
 - type: entity
   id: ActionSlasherSoulSteal
   name: Soul Steal
-  description: Spend 15 seconds siphoning a victim's soul. Must be used on a prone living target (or dead body) to steal their soul, empowering your machete and vitality.
+  description: Siphon a victims soul. Must be used on an incapicated living target (or dead body) to steal their soul, empowering your machete and increasing your health.
   components:
   - type: Action
     raiseOnUser: true
