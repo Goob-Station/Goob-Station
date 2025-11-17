@@ -55,10 +55,13 @@ public sealed partial class SlotMachineComponent : Component
     [DataField, AutoNetworkedField]
     public EntProtoId GodPotPrize = "WeaponShotgunHeavy";
 
+    [DataField, AutoNetworkedField]
+    public bool Emagged;
+
     #region Prize Amounts
 
     [DataField, AutoNetworkedField]
-    public int SpinCost = 50;
+    public int SpinCost = 300;
 
     [DataField, AutoNetworkedField]
     public int SmallPrizeAmount = 100;
