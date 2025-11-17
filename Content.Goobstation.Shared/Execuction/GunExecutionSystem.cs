@@ -205,6 +205,14 @@ public sealed class SharedGunExecutionSystem : EntitySystem
         {
             case CartridgeAmmoComponent cartridge:
                 {
+                    if (cartridge.Spent) // cant use a spent cartridge
+                    {
+                        _audio.PlayPredicted(component.SoundEmpty, uid, attacker);
+                        _execution.ShowExecutionInternalPopup("execution-popup-gun-empty", attacker, victim, weapon);
+                        _execution.ShowExecutionExternalPopup("execution-popup-gun-empty", attacker, victim, weapon);
+                        return;
+                    }
+
                     var prototype = _prototypeManager.Index<EntityPrototype>(cartridge.Prototype);
 
                     prototype.TryGetComponent<ProjectileComponent>(out var projectileA, _componentFactory); // sloth forgive me

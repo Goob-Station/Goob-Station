@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "original iron sprite by Alekshhh edited by TheShuEd. Inhands by mubururu_ (github). Original artifact sprites Taken from goonstation at commit https://github.com/goonstation/goonstation/commit/8c9738746d1222a80dddff25af1bceda58bbccac and created by Flaborized. Iron and artifact combined by Roudenn (Github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "artifact"
+    },
+    {
+      "name": "artifact-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "artifact-inhand-right",
+      "directions": 4
+    }
+  ]
+}
