@@ -14,64 +14,50 @@
 
   When hatched, shadowlings will resemble humans with black skin, small horns, red eyes, and claws.
 
-  Shadowlings are clumsy with guns, and cannot wear clothes of any kind. Despite that, they can still equip headsets and wear backpacks.
+  Shadowlings take damage in the light, heal in the dark, are clumsy with guns. They cannot wear clothes of any kind, but can still equip headsets and wear backpacks.
 
-  As a side-note, Shadowlings are not obliged to work together. While cooperation may help, going solo is a valid play-style.
+  ## Starting out as a Shadowling
 
-  ## What do I do as a Shadowling?
+  You gain power as you enthrall others, so staying undetected is important at your weakest point.
 
-  As a shadowling, your main objective is to [color=#d22b2b]ascend[/color].
+  Start by finding an isolated location, and break nearby lights to create a safe territory. Doing this while still a human is good, as once you transform, there is no going back and lights start to hurt you!
 
-  In order to ascend, you'll have to:
-  - 1. Gather 20 Thralls.
-  - 2. Form your Ascension Egg using your "Ascendance" ability.
-  - 3. Enter the egg and begin the ascension ritual
+  Choose a hidden place to hatch that will keep your egg safe during your 15 second hatching period, and make sure you have the tools to get out when you are ready!
+  Upon hatching, pick up your ID for access, your backpack for belongings, and your headset, and to remain unknown, you must rehide your egg.
 
-  You are vulnerable to light and will take damage while exposed. However, [bold]you heal in the shadows[/bold], so use darkness to your advantage.
+  You are now a Shadowling so you need to worry about lights! Toggling off [bold]night vision[/bold] can help you see lights, and your [bold]Veil[/bold] ability disables and breaks lights in a large range.
+  Your fists also work for hitting lights as you don't get shocked.
 
-  Choose your Thralls wisely.
+  You now look like a demon, so if you are spotted by security, you are always [bold]vulnerable to being flashed[/bold], so your best option early on is to run while you gain abilities and allies.
+  You are very capable of fleeing if you use [bold]Shadow Walk[/bold] to rapidly move while invisible, and [bold]Icy Veins[/bold] to freeze everyone nearby.
 
-  ## I'm a thrall, what is my purpose?
+  ## Enthralling Others
 
-  You're similar to a revolutionary, but with time and obedience, you can become something far more powerful.
+  Your general goal from here is to convert 20 people, so how do you do that? First of all you can't enthrall IPCs or mindshielded people until you are empowered.
 
-  As a thrall, your main purpose is to listen to your shadowling, the one that converted you.
-  If your shadowling demands that you suicide, you must suicide. It doesn't matter if you're a Wizard or a Nukie.
+  Your conversion ability [bold]Enthrall[/bold] takes 5 seconds of standing near someone, so you need that person to stay still for you.
+  This is best achieved with [bold]Glare[/bold], which is a 6 second instant stun and mute, which works best at close range.
 
-  You also have a few abilities at your disposal, like Guise and Thrall Darksight.
+  You may need to [bold]Veil[/bold] to disable all nearby lights, to make sure you are uninterrupted by light damage during this time.
+  Conversions can be secured slightly easier with makeshift handcuffs, but make sure to quickly take off their headset after they are restrained.
 
-  - Guise: Grants temporary invisibility when used in the dark.
+  If you succeed, this thrall is now essentially mind controlled to you, but they also gain the ability to see in the dark, and temporarily turn invisible.
+  They are a normal crewmember, but can be identified as a thrall if they are not covering their eyes, so tell them to wear face or eyewear, and to start breaking lights to expand your territory.
 
-  - Thrall Darksight: Grants night vision, allowing you to see in complete darkness.
+  ## Shadowling Progressive Abilities
 
-  The more obedient and useful you are, the more valuable you become to your Shadowling.
+  Once you start gaining thralls, you gain access to more abilities. Use the ability [bold]Collective Mind[/bold] to see your progress, and reap the rewards.
 
-  ## What can I do as crew to fight against the shadowlings?
+  Your abilities are unlocked at set thresholds, being:
+  - At 3 thralls: Temporarily disorient nearby victims with [bold]Sonic Screech[/bold]
+  - At 5 thralls: Damage and disable APCs with [bold]Null Charge[/bold]
+  - At 7 thralls: Revive thralls and create up to 5 Lesser Shadowlings with [bold]Black Recuperation[/bold], at the permanent cost of your own light resistance!
+  - At 10 thralls: Create a smoke cloud that heals thralls and shadows, and blinds those who aren't
+  - At 12 thralls: Enthrall is replaced with [bold]Empowered Enthrall[/bold] that allows for converting those who are mindshielded and IPCs, at a much quicker rate
+  - At 15 thralls: Gain full immunity to light damage with [bold]Nox Imperii[/bold]
+  - At 20 thralls: Form your ascension egg to begin your 5 minute ascension period
 
-  A shadowling is a threat that should be taken care of early in the shift.
-
-  - Never patrol maintenance alone. Stick to groups.
-  - Security should stay armed and alert.
-
-  Nanotrasen has also issued the Station with a special device that essentially took several decades of researching this
-  strange alien species and its effects on living beings.
-
-  The [bold]anti-mind control device[/bold] can remove any mind control from any person, and apply further resistance to the Thrall
-  that is to be deconverted.
-
-  It exists in Tier 2 research through the prolathe and it has the same materials as a Flash, but with Lead required.
-
-  Don't forget that it has only [bold]5 charges[/bold] per device.
-
-  Other than that, note that Lesser Shadowlings are not affected from it. Their mind is lost, and sadly unrecovable.
-
-  Additional Countemeasures:
-  - Mindshield implants offer temporary protection, though Shadowlings will gain abilities to bypass them.
-
-  In case of a shadowling starting an ascension, all available crew should arm themselves and rush to destroy the ascension egg before the process completes.
-  Succeed, and you live. Fail... and witness a god!
-
-  ## How do I ascend?
+  ## How do I Ascend?
 
   Once you have 20 thralls, use your "Ascendance" ability to place your ascension egg.
   Right-click the egg and select "Start Ascension".
@@ -85,32 +71,71 @@
 
   Protect your egg at all costs. Failure means humiliation.
 
-  ## What happens if a Shadowling ascends...
+  ## I'm a Thrall, What is my Purpose?
 
-  If a shadowling ascends, there's still a chance to win by killing the shadowling. However, it has a good amount
-  of health and very strong abilities.
+  You're similar to a revolutionary, but with time and obedience, you can become something far more powerful.
 
-  Once an ascension completes, all shadowlings will ascend at a moment's notice and Thralls will be turned into Nightmares.
+  As a thrall, your main purpose is to listen to your shadowling, the one that converted you.
+  You can be identified as a thrall through examination if you don't cover your eyes with a mask or glasses.
+  If your Shadowling demands that you suicide, you must suicide. It doesn't matter if you're a Wizard or a Nukie.
+
+  You also have a few abilities at your disposal, like Guise and Thrall Darksight.
+
+  - Guise: Grants temporary invisibility when used in the dark.
+
+  - Thrall Darksight: Grants night vision, allowing you to see in complete darkness.
+
+  The more obedient and useful you are, the more valuable you become to your Shadowling.
+
+  ## What Can I Do as Crew to Fight Against a Shadowling?
+
+  A Shadowling is a threat that should be taken care of early in the shift.
+
+  - Never patrol maintenance alone. Stick to groups.
+  - Security should stay armed and alert.
+
+  Nanotrasen has also issued the Station with a special device that essentially took several decades of researching this
+  strange alien species and its effects on living beings.
+
+  The [bold]anti-mind control device[/bold] can remove any mind control from any person, and apply further resistance to the Thrall
+  that is to be deconverted.
+
+  It exists in Tier 2 research through the prolathe and it has the same materials as a Flash, but with Gold required.
+
+  Don't forget that it has only [bold]5 charges[/bold] per device.
+
+  Other than that, note that Lesser Shadowlings are not affected from it. Their mind is lost, and sadly unrecovable.
+
+  Additional Countemeasures:
+  - Mindshield implants offer temporary protection, though Shadowlings will gain abilities to bypass them.
+
+  In case of a Shadowling starting an ascension, all available crew should arm themselves and rush to destroy the ascension egg before the process completes.
+  Succeed, and you live. Fail... and witness a god!
+
+  ## What Happens If a Shadowling Ascends...
+
+  If a Shadowling ascends, there's still a chance to win by killing the Shadowling. However, it has a good amount
+  of health and very strong abilities, including an instant ranged enthrallment, instant ranged gibbing, and a charged lightning frenzy.
+
+  Once an ascension completes all Thralls will be turned into Nightmares.
 
   Nightmares have arm-blades that can ash lights, and they can phase through walls without a care in the world!
 
-  Nightmares also reflect bullets when in the dark.
+  Nightmares also reflect all bullets when in the dark.
 
   ## What is a Lesser Shadowling?
 
-  A lesser shadowling is a thrall who got converted by the Black Recuperation ability.
+  A lesser Shadowling is a thrall who got converted by the Black Recuperation ability.
   Lesser Shadowlings can not be deconverted by the anti-mind control device.
 
   However, they do take damage from lights, similarly to a Shadowling. Much slower, though.
+  They also gain a weaker version of [bold]Veil[/bold], that stuns and mutes for less time, but long enough to cuff for conversions.
 
   You can have up to 5 of them, so choose them carefully. Quality over quantity.
 
   ## Tips and more info
 
-  - As a shadowling, you can identify your thralls by examining them.
-
-  - Even though other shadowlings will ascend once one ascends, it may be more fun to have
-  competition. Be the only ascendant, or die trying...
+  - As a Shadowling, you can identify your thralls by examining them.
 
   - Your Collective Mind ability paralyzes your Thralls once you gain a new power. However, it also
   informs you on how many thralls you need to ascend.
@@ -119,9 +144,13 @@
 
   - Black Recuperation decreases your light resistance per use, so be careful when you use it.
 
-  - As crew, you do not have to ash or gib a shadowling. They lose all thralls at death.
+  - As crew, you do not have to ash or gib a Shadowling. They lose all thralls at death.
 
-  - [bold]This is a stealth antagonist[/bold], do not try to fight people as a shadowling. Instead, play defensive and enthrall people.
+  - [bold]This is a stealth antagonist[/bold], do not try to fight people as a Shadowling. Instead, play defensive and enthrall people.
+
+  - The emergency shuttle can be delayed with your [bold]Destroy Engines[/bold] ability.
+
+  - All of your damage, internal and external, can be healed with [bold]Rapid Rehatch[/bold], but only when not critical.
 
   [bold][color=#000000]Become the darkness.[/color] [color=#702963]Embrace the void.[/color] [color=#D2042D]Ascend.[/color][/bold]
 
