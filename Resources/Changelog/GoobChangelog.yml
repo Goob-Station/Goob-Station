@@ -17969,3 +17969,9 @@ Entries:
       message: Chitinids now enjoy the same eyewear prescribed to Moth crew!
   id: 2022
   time: '2025-11-17T15:59:57.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: spent cartridges can no longer be used to execute
+  id: 2023
+  time: '2025-11-17T16:00:40.0000000+00:00'
