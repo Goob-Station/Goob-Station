@@ -104,7 +104,7 @@
   - GygaxLLeg
   - GygaxRArm
   - GygaxRLeg
-  - GygaxCentralElectronics
+#  - GygaxCentralElectronics
   - GygaxPeripheralsElectronics
   - GygaxTargetingElectronics
   - WeaponMechCombatUltraRifle
@@ -201,7 +201,7 @@
   - DurandLLeg
   - DurandRArm
   - DurandRLeg
-  - DurandCentralElectronics
+#  - DurandCentralElectronics
   - DurandPeripheralsElectronics
   - DurandTargetingElectronics
   - WeaponMechCombatShotgun
