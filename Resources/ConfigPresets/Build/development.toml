@@ -53,7 +53,7 @@ preload_grids = false
 [admin]
 see_own_notes = true
 
-[lavaland] # Lavaland Change	
+[lavaland] # Lavaland Change
 enabled = false
 
 [heretic] # Goobstation
