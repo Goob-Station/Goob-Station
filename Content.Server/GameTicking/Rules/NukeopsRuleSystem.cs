@@ -199,8 +199,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         foreach (var (_, sessionData, name) in antags)
         {
-            args.AddLine(Loc.GetString($"{component.LocalePrefix}list-name-user", ("name", name), ("user", sessionData.UserName)));
-        } */
+            args.AddLine(Loc.GetString("nukeops-list-name-user", ("name", name), ("user", sessionData.UserName)));
+        }
+        args.AddLine("");*/
     }
 
     private void OnNukeExploded(NukeExplodedEvent ev)

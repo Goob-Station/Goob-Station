@@ -211,6 +211,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
             // TODO: someone suggested listing all alive? revs maybe implement at some point
         }
+        args.AddLine("");
     }
 
     private void OnGetBriefing(EntityUid uid, RevolutionaryRoleComponent comp, ref GetBriefingEvent args)
