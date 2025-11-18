@@ -27,15 +27,6 @@
     template: LavaWastelands
   - !type:BiomeMetaLayer
     template: LavaCaves
-    threshold: -0.5
-    noise:
-      frequency: 0.001
-      noiseType: OpenSimplex2
-      fractalType: FBm
-      octaves: 2
-      lacunarity: 2
-  - !type:BiomeMetaLayer
-    template: Ashlands
     threshold: 0
     noise:
       frequency: 0.001
@@ -44,8 +35,17 @@
       octaves: 2
       lacunarity: 2
   - !type:BiomeMetaLayer
+    template: Ashlands
+    threshold: -0.5
+    noise:
+      frequency: 0.001
+      noiseType: OpenSimplex2
+      fractalType: FBm
+      octaves: 2
+      lacunarity: 2
+  - !type:BiomeMetaLayer
     template: LavaLakes
-    threshold: 0.25
+    threshold: -0.2
     noise:
       frequency: 0.001
       noiseType: OpenSimplex2
@@ -203,7 +203,7 @@
     allowedTiles:
     - FloorPlanetAsh
     - FloorBasaltLavaland
-    threshold: -0.15 # +0.10 compared to default lavaland so walls appear less
+    threshold: -0.2 # +0.05 compared to default lavaland so walls appear less
     noise:
       seed: 5
       noiseType: Cellular
@@ -214,7 +214,7 @@
       cellularDistanceFunction: Euclidean
       cellularReturnType: Distance2
     entities:
-    - WallRockBasalt
+    - AsteroidRock
   #
   # Actual Ashlands from here!
   #
