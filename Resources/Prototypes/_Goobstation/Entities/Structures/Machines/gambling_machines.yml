@@ -374,7 +374,6 @@
     - TauCetiBasic
     - RobotTalk
   - type: ClawMachine
-    winChance: 0.5
     rewards:
     - PlushieMoth
     - PlushieHuman
