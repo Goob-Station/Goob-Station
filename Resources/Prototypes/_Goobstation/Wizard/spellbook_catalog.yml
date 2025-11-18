@@ -812,7 +812,7 @@
   description: spellbook-demon-heart-desc
   productEntity: OrganMagicSlaughterHeart
   cost:
-    WizCoin: 2
+    WizCoin: 6
   categories:
   - SpellbookEquipment
   conditions:
