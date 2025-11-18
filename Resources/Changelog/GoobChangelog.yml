@@ -18090,3 +18090,9 @@ Entries:
       message: Fix freeze when quitting the game.
   id: 2037
   time: '2025-11-18T14:05:04.0000000+00:00'
+- author: Androidonator and Dummy
+  changes:
+    - type: Fix
+      message: NTR Mirrordus suit sprites
+  id: 2038
+  time: '2025-11-18T17:16:11.0000000+00:00'
