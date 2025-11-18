@@ -18078,3 +18078,9 @@ Entries:
         bananium...................
   id: 2035
   time: '2025-11-17T18:48:26.0000000+00:00'
+- author: JrInventor05Next
+  changes:
+    - type: Tweak
+      message: Added max tracking distance for detective BloodTrack!
+  id: 2036
+  time: '2025-11-18T09:04:30.0000000+00:00'
