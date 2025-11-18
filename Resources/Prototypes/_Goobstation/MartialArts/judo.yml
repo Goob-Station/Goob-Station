@@ -32,7 +32,6 @@
   - Disarm
   - Grab
   event: !type:JudoDiscombobulatePerformedEvent
-  staminaDamage: 5
 
 - type: combo
   id: JudoEyePoke
@@ -52,8 +51,8 @@
   - Grab
   - Disarm
   event: !type:JudoThrowPerformedEvent
-  paralyzeTime: 7
-  staminaDamage: 15
+  paralyzeTime: 4
+  staminaDamage: 5
   dropHeldItemsBehavior: NoDrop
   canDoWhileProne: false
 
@@ -67,7 +66,7 @@
   - Grab
   event: !type:JudoArmbarPerformedEvent
   paralyzeTime: 5
-  staminaDamage: 25
+  staminaDamage: 10
   dropHeldItemsBehavior: AlwaysDrop
 
 - type: combo
@@ -79,7 +78,7 @@
   - Disarm
   - Harm
   event: !type:JudoWheelThrowPerformedEvent
-  staminaDamage: 100
+  staminaDamage: 120
 
 # Conflicts with armbar + hugs don't seem to count?, to be implemented later
 #- type: combo

@@ -181,11 +181,11 @@
     bluntStaminaDamageFactor: 2.0
     angle: 0
     animation: WeaponArcThrust
-  # it was ~35 now it's 55 so it's a buff ig
-  - type: StaminaDamageOnHit # goob edited - Give Wideswingers a tiny bit of pity
-    damage: 5
-    overtime: 25
-    lightAttackOvertimeDamageMultiplier: 2
+  - type: StaminaDamageOnHit # goob edited
+    damage: 15
+    overtime: 40
+    lightAttackDamageMultiplier: 4
+    lightAttackOvertimeDamageMultiplier: 0
     sound: /Audio/Weapons/egloves.ogg
   - type: DelayedKnockdownOnHit # Goobstation
     useDelay: stunbaton
