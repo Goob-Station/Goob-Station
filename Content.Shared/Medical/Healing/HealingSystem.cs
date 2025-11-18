@@ -154,7 +154,7 @@ public sealed class HealingSystem : EntitySystem
 
         // Restores missing blood
         if (healing.ModifyBloodLevel != 0 && bloodstream != null)
-            _bloodstreamSystem.TryModifyBloodLevel((target.Owner, bloodstream), healing.ModifyBloodLevel);
+            _bloodstreamSystem.TryModifyBloodLevel((target.Owner, bloodstream), -healing.ModifyBloodLevel); // Goobedit
 
         var healed = _damageable.TryChangeDamage(target.Owner, healing.Damage * _damageable.UniversalTopicalsHealModifier, true, origin: args.Args.User);
 

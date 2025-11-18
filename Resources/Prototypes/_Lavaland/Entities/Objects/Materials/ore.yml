@@ -275,7 +275,7 @@
   suffix: Full
   components:
   - type: Stack
-    stackType: BananiumOreUnprocessed
+    stackType: ArtifactFragmentOreUnprocessed
   - type: UnclaimedOre
     miningPoints: 200
 
