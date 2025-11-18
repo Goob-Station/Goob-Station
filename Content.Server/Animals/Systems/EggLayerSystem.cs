@@ -139,4 +139,17 @@ public sealed class EggLayerSystem : EntitySystem
 
         return true;
     }
+
+//_Trauma
+// Removes egg laying action when EggLayerComponent is removed from an entity.
+
+    private void RemoveEggLayer()
+    {
+        SubscribeLocalEvent<EggLayerComponent, ComponentShutdown>(OnShutdown);
+    }
+
+     void OnShutdown(Entity<EggLayerComponent> ent, ref ComponentShutdown args)
+    {
+        _actions.RemoveAction(ent.Comp.Action);
+    }
 }
