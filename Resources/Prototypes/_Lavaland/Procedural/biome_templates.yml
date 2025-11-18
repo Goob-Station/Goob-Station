@@ -24,18 +24,10 @@
   id: LavaLand
   layers:
   - !type:BiomeMetaLayer
-    template: LavaWastelands
-  - !type:BiomeMetaLayer
+    threshold: -1.0
     template: LavaCaves
-    threshold: 0
-    noise:
-      frequency: 0.001
-      noiseType: OpenSimplex2
-      fractalType: FBm
-      octaves: 2
-      lacunarity: 2
   - !type:BiomeMetaLayer
-    template: Ashlands
+    template: LavaWastelands
     threshold: -0.5
     noise:
       frequency: 0.001
@@ -44,8 +36,17 @@
       octaves: 2
       lacunarity: 2
   - !type:BiomeMetaLayer
+    template: Ashlands
+    threshold: 0
+    noise:
+      frequency: 0.001
+      noiseType: OpenSimplex2
+      fractalType: FBm
+      octaves: 2
+      lacunarity: 2
+  - !type:BiomeMetaLayer
     template: LavaLakes
-    threshold: -0.2
+    threshold: 0.5
     noise:
       frequency: 0.001
       noiseType: OpenSimplex2
