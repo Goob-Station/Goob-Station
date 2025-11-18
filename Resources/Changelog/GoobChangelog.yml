@@ -18084,3 +18084,9 @@ Entries:
       message: Added max tracking distance for detective BloodTrack!
   id: 2036
   time: '2025-11-18T09:04:30.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix freeze when quitting the game.
+  id: 2037
+  time: '2025-11-18T14:05:04.0000000+00:00'
