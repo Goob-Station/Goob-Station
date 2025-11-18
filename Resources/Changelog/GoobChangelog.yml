@@ -17865,3 +17865,222 @@ Entries:
       message: Added voices, speak your heart out.
   id: 2006
   time: '2025-11-12T17:50:46.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Remove
+      message: Removed NTR Interns & Scurrets being able to roll antags.
+  id: 2007
+  time: '2025-11-13T18:45:25.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Tweak
+      message: Resprited some mantles, coats, and chestrigs for Vox.
+  id: 2008
+  time: '2025-11-13T18:46:21.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: NPCS wont try to pickup unfolded chairs.
+  id: 2009
+  time: '2025-11-14T00:34:04.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Tweak
+      message: Made the hermit game mode more hermity and buffed heretic midrounds
+  id: 2010
+  time: '2025-11-14T01:09:50.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Made the cc advanced stimulant not kill you.
+  id: 2011
+  time: '2025-11-14T01:10:51.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Brigmed is no longer a lapdog
+  id: 2012
+  time: '2025-11-14T12:41:52.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced the chaos score of abductors and chances of them happening
+        slightly
+  id: 2013
+  time: '2025-11-14T12:51:17.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Added 4 new bark voices.
+  id: 2014
+  time: '2025-11-15T07:21:37.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added artifact fragment ore, it melts to normal artifact fragments in
+        the ore processor, and gives you 200 mining points per piece!
+  id: 2015
+  time: '2025-11-15T19:17:00.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fixed wound passive healing not working.
+    - type: Fix
+      message: Fixed wounds not healing sometimes when they should.
+    - type: Fix
+      message: Fixed infinite healing bug.
+  id: 2016
+  time: '2025-11-17T05:11:24.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix throwing being awful.
+  id: 2017
+  time: '2025-11-17T05:12:33.0000000+00:00'
+- author: 'JohnJohn, empty0set, lzk228 '
+  changes: []
+  id: 2018
+  time: '2025-11-17T11:02:28.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Add
+      message: Ghosts can no longer activate envirosuit extinguishers.
+  id: 2019
+  time: '2025-11-17T15:57:10.0000000+00:00'
+- author: Happyman442
+  changes:
+    - type: Fix
+      message: Fixed Shadowling taking freeze damage from icy veins
+  id: 2020
+  time: '2025-11-17T15:59:02.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Tweak
+      message: >-
+        The shadowling ascension egg no longer has 10 flat damage resistance of
+        each type
+  id: 2021
+  time: '2025-11-17T15:59:38.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Fix
+      message: Chitinids now enjoy the same eyewear prescribed to Moth crew!
+  id: 2022
+  time: '2025-11-17T15:59:57.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: spent cartridges can no longer be used to execute
+  id: 2023
+  time: '2025-11-17T16:00:40.0000000+00:00'
+- author: saschahi
+  changes:
+    - type: Tweak
+      message: >-
+        Omnizine now heals the entire body evenly instead of a singular random
+        bodypart each Healing-tick.
+  id: 2024
+  time: '2025-11-17T16:02:02.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Colliding while sprinting no longer disarms on knockdown.
+  id: 2025
+  time: '2025-11-17T16:02:49.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Reduced frequency of shadowling spawns.
+  id: 2026
+  time: '2025-11-17T16:03:08.0000000+00:00'
+- author: Slungomia
+  changes:
+    - type: Tweak
+      message: Fired the design intern and tweaked Fire Axe In-held and worn sprites.
+  id: 2027
+  time: '2025-11-17T16:03:30.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: 'Tweak: Ninja is more stealthy.'
+  id: 2028
+  time: '2025-11-17T16:04:13.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Blood packs no longer exsanguinate animals and simple mobs.
+  id: 2029
+  time: '2025-11-17T16:05:50.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Dismemberment is more consistent and less reliant on rng.
+    - type: Add
+      message: >-
+        Some weapons now have better wounding (delimbing/bone breaking):
+        hammers, armblade, swords, sabre, axes...
+    - type: Tweak
+      message: Slash damage is good at dismemberment, blunt and piercing are bad.
+    - type: Tweak
+      message: Removed reflect from cap sabre, it has x3 wounding now instead.
+    - type: Tweak
+      message: Explosions deal less damage but they are more likely to delimb.
+    - type: Add
+      message: Heavy attacks are 2x worse at inducing wounds.
+    - type: Tweak
+      message: >-
+        The worse you aim at target with ranged weapons, the more chance you
+        have to hit chest instead of targeted limb.
+    - type: Tweak
+      message: >-
+        IPC have no bones, slimes are easier to delimb but they take less pierce
+        and slash than before, harpy and resomi have weak bones but harpy has
+        default damage modifiers now.
+  id: 2030
+  time: '2025-11-17T16:07:43.0000000+00:00'
+- author: DeusMaldPr, rustdevelopment, deltanedas, the spirit of ilya
+  changes:
+    - type: Tweak
+      message: Changed default rat servant behavior from "Loose" to "Follow"
+    - type: Add
+      message: Mice now have an egg sack organ, steal their powers!
+  id: 2031
+  time: '2025-11-17T16:09:58.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added lavaland marker beacons to Extraction mining voucher kit and to
+        Salvage vendor. Use them to not get lost on Lavaland!
+  id: 2032
+  time: '2025-11-17T17:43:33.0000000+00:00'
+- author: 'Gab '
+  changes:
+    - type: Tweak
+      message: >-
+        Librarian now speaks a couple more languages and the language menu is
+        more organised,
+  id: 2033
+  time: '2025-11-17T17:50:25.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Remove
+      message: 'Removed: Round Start Abductors :alien: '
+  id: 2034
+  time: '2025-11-17T17:51:31.0000000+00:00'
+- author: Rounded
+  changes:
+    - type: Fix
+      message: >-
+        Fixed unprocessed artifact fragment ore splitting into
+        bananium...................
+  id: 2035
+  time: '2025-11-17T18:48:26.0000000+00:00'
+- author: JrInventor05Next
+  changes:
+    - type: Tweak
+      message: Added max tracking distance for detective BloodTrack!
+  id: 2036
+  time: '2025-11-18T09:04:30.0000000+00:00'
