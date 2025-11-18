@@ -138,6 +138,14 @@
 - type: storeCategory
   id: PAIAbilities
   name: store-category-abilities
+  priority: 1
+
+# GoobStation-PAI-Start
+- type: storeCategory
+  id: SyndicatePAIAbilities
+  name: store-category-syndicate-abilities
+  priority: 2
+# GoobStation-PAI-End
 
 - type: storeCategory
   id: DiscountedItems

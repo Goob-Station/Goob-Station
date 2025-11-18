@@ -25,6 +25,7 @@
     Screwdriver: 2
     CableApcStack: 2
     FlashlightLantern: 2
+    PersonalAIMemoryDisk: 2 # GoobStation - PAI
     PowerCellSmallPrinted: 3
     MicroManipulatorStockPart: 12
   contrabandInventory:
