@@ -231,19 +231,18 @@
   rules:
     - SecretPlusRampingMid
 
-# survival+ but it has roundstart abductors and maybe thieves
+# hermit gamemode, internal threat focused gamemode
 - type: gamePreset
-  id: Abductors
+  id: SecretPlusHermit
   alias:
-  - ayylmao
-  name: abductors-title
-  description: abductors-description
-  showInVote: false
-  minPlayers: 20
+  - secretPlusHermit
+  - The hermit
+  - Ingress
+  name: hermitplus-title
+  description: hermitplus-description
+  showInVote: true
   rules:
-  - DuoAbductorRoundstart
-  - SubGamemodesRule
-  - SecretPlusRampingMid
+  - SecretPlusHermit
 
 - type: gamePreset
   id: OopsAllThieves
@@ -255,9 +254,9 @@
   description: oops-all-thieves-description
   showInVote: false
   rules:
-    - OopsAllThieves
-    - TraitorSubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
+  - OopsAllThieves
+  - TraitorSubGamemodesRule
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
