@@ -321,12 +321,12 @@ public partial class TraumaSystem
     public FixedPoint2 GetTraumaChanceDeduction(
         Entity<TraumaInflicterComponent> inflicter,
         EntityUid body,
-        EntityUid traumaTarget,
+        Entity<WoundableComponent> traumaTarget,
         FixedPoint2 severity,
         TraumaType traumaType,
         BodyPartType coverage)
     {
-        var deduction = FixedPoint2.Zero;
+        var deduction = traumaTarget.Comp.TraumaDeductions.GetValueOrDefault(traumaType, FixedPoint2.Zero);
         deduction += GetArmourChanceDeduction(body, inflicter, traumaType, coverage);
 
         var traumaDeductionEvent = new TraumaChanceDeductionEvent(severity, traumaType, 0);
@@ -517,35 +517,36 @@ public partial class TraumaSystem
         if (TryComp<BonelessComponent>(target.Owner, out var bonelessComp))
             bonePenalty = bonelessComp.BonePenalty;
 
-        var chance =
-            FixedPoint2.Clamp(
-                1 - target.Comp.WoundableIntegrity / target.Comp.IntegrityCap * bonePenalty
-                - deduction + woundInflicter.Comp.TraumasChances[TraumaType.Dismemberment],
-                0,
-                0.7); // Maximum 70% chance to dismember, because it's a bit too free otherwise
-
         // Healthy bones decrease the chance of your limb getting delimbed
         var bone = target.Comp.Bone.ContainedEntities.FirstOrNull();
+        var multiplier = 1f;
         if (bone != null && TryComp<BoneComponent>(bone, out var boneComp))
         {
             switch (boneComp.BoneSeverity)
             {
                 case BoneSeverity.Normal:
-                    chance *= 0.5; // decreases delimb chance by 50%
+                    multiplier *= 0.3f; // decreases delimb chance by 70%
                     break;
                 case BoneSeverity.Damaged:
-                    chance *= 0.8; // 20%
+                    multiplier *= 0.6f; // 40%
                     break;
                 case BoneSeverity.Cracked:
-                    chance *= 1.1; // increases by 10%
+                    multiplier *= 1f; // 0%
                     break;
                 case BoneSeverity.Broken:
-                    chance *= 1.3;
+                    multiplier *= 1.2f; // increases by 20%
                     break;
                 default:
                     break;
             }
         }
+
+        var chance =
+            FixedPoint2.Clamp(
+                (1f - (MathF.Pow(target.Comp.WoundableIntegrity.Float(), 1.3f) / target.Comp.IntegrityCap - 1f) * bonePenalty) * multiplier
+                - deduction + woundInflicter.Comp.TraumasChances[TraumaType.Dismemberment],
+                0,
+                1);
 
         var result = _random.Prob((float) chance);
         return result;
