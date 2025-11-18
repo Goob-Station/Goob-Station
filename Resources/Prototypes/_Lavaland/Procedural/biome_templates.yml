@@ -30,7 +30,7 @@
     template: LavaWastelands
     threshold: -0.5
     noise:
-      frequency: 0.001
+      frequency: 0.003
       noiseType: OpenSimplex2
       fractalType: FBm
       octaves: 2
@@ -39,7 +39,7 @@
     template: Ashlands
     threshold: 0
     noise:
-      frequency: 0.001
+      frequency: 0.003
       noiseType: OpenSimplex2
       fractalType: FBm
       octaves: 2
@@ -48,7 +48,7 @@
     template: LavaLakes
     threshold: 0.5
     noise:
-      frequency: 0.001
+      frequency: 0.003
       noiseType: OpenSimplex2
       fractalType: FBm
       octaves: 2
@@ -203,7 +203,6 @@
   - !type:BiomeEntityLayer
     allowedTiles:
     - FloorPlanetAsh
-    - FloorBasaltLavaland
     threshold: -0.2 # +0.05 compared to default lavaland so walls appear less
     noise:
       seed: 5
@@ -260,7 +259,7 @@
     threshold: -1.0
     tile: FloorBasaltLavaland
   - !type:BiomeTileLayer
-    threshold: -0.90
+    threshold: -0.5 # 1/4 from all the lavaland, since there are 4 biomes it has to be like that
     tile: FloorPlanetAsh
     noise:
       seed: 0
