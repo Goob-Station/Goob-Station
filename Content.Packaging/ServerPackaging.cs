@@ -190,13 +190,14 @@ public static class ServerPackaging
 
             foreach (var module in serverModules)
             {
+                var projectName = Path.GetFileName(module);
                 await ProcessHelpers.RunCheck(new ProcessStartInfo
                 {
                     FileName = "dotnet",
                     ArgumentList =
                     {
                         "build",
-                        Path.Combine(module, $"{module}.csproj"),
+                        Path.Combine(module, $"{projectName}.csproj"),
                         "-c", configuration,
                         "--nologo",
                         "/v:m",
@@ -320,12 +321,11 @@ public static class ServerPackaging
             BinSkipFolders,
             cancel: cancel);
 
-        await RobustSharedPackaging.WriteContentAssemblies(
+        await WriteServerContentAssemblies(
             inputPassResources,
             contentDir,
-            "Content.Server",
             contentAssemblies,
-            cancel: cancel);
+            cancel);
 
         await RobustServerPackaging.WriteServerResources(contentDir, inputPassResources, cancel);
 
@@ -336,6 +336,48 @@ public static class ServerPackaging
 
         inputPassCore.InjectFinished();
         inputPassResources.InjectFinished();
+    }
+
+    private static Task WriteServerContentAssemblies(
+        AssetPass pass,
+        string contentDir,
+        IEnumerable<string> contentAssemblies,
+        CancellationToken cancel = default)
+    {
+        var mainBinDir = Path.Combine(contentDir, "bin", "Content.Server");
+
+        var moduleAssemblyPaths = ModuleDiscovery.DiscoverModules(contentDir)
+            .Where(m => m.Type == ModuleRole.Server)
+            .ToDictionary(
+                m => m.Name,
+                m => Path.Combine(GetModuleRoot(m.ProjectPath), "bin", "Content.Server")
+            );
+
+        foreach (var asm in contentAssemblies)
+        {
+            cancel.ThrowIfCancellationRequested();
+
+            var sourceDir = moduleAssemblyPaths.GetValueOrDefault(asm) ?? mainBinDir;
+
+            var dllPath = Path.Combine(sourceDir, $"{asm}.dll");
+            if (File.Exists(dllPath))
+                pass.InjectFileFromDisk($"Assemblies/{asm}.dll", dllPath);
+
+            var pdbPath = Path.Combine(sourceDir, $"{asm}.pdb");
+            if (File.Exists(pdbPath))
+                pass.InjectFileFromDisk($"Assemblies/{asm}.pdb", pdbPath);
+        }
+
+        return Task.CompletedTask;
+    }
+
+    private static string GetModuleRoot(string projectPath)
+    {
+        // Extracts the module root from the project path
+        // e.g., "Modules/GoobStation/Content.Goobstation.Server/Content.Goobstation.Server.csproj"
+        // -> "Modules/GoobStation"
+        var projectDir = Path.GetDirectoryName(projectPath);
+        return Path.GetDirectoryName(projectDir)!;
     }
 
     private readonly record struct PlatformReg(string Rid, string TargetOs, bool BuildByDefault);
