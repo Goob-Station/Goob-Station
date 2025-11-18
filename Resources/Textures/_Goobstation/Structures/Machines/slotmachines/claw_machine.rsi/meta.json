@@ -11,9 +11,6 @@
         "name": "clawmachine"
     },
     {
-        "name": "broken"
-    },
-    {
         "name": "clawmachine_playing",
         "delays":
         [

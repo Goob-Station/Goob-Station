@@ -197,3 +197,21 @@
   components:
   - type: Flatpack
     entity: SlotMachineHighRoller
+
+- type: entity
+  parent: BaseFlatpack
+  id: CoinFlipperFlatPack
+  name: coin flipper flatpack
+  description: A flatpack used for constructing a coin flipper
+  components:
+  - type: Flatpack
+    entity: CoinFlipper
+
+- type: entity
+  parent: BaseFlatpack
+  id: ClawMachineFlatPack
+  name: claw machine flat pack
+  description: A flatpack used for constructing a claw machine
+  components:
+  - type: Flatpack
+    entity: ClawMachine

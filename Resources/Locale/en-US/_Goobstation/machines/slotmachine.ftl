@@ -16,7 +16,7 @@ advertisement-slotmachine-4 = Ingore rehab, they just don't want you to see you 
 advertisement-slotmachine-5 = One more game, then you can quit
 advertisement-slotmachine-6 = Step right up and give me a spin!
 
-coinflipper-win = Winner!, you wont {$amount} spesos!
+coinflipper-win = Winner!, you won {$amount} spesos!
 
 clawmachine-fail-self = You mess up and drop the plushie!
 clawmachine-fail-other = {$user} messes up and drops the plushie!

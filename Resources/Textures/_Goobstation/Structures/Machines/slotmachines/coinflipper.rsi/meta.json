@@ -8,10 +8,12 @@
     },
   "states": [
     {
-        "name": "Coinflipper"
+        "name": "Coinflipper",
+        "directions": 4
     },
     {
-        "name": "panel"
+        "name": "panel",
+        "directions": 4
     }
 ]
 }

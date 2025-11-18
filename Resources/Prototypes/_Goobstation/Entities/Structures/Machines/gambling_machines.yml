@@ -267,6 +267,11 @@
     - RobotTalk
   - type: CoinFliper
   - type: DoAfter
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+    rotateWhileAnchored: false
+    rotateWhilePulling: true
 
 - type: entity
   id: ClawMachine
