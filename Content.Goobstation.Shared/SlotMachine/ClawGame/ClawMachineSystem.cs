@@ -25,6 +25,7 @@ public sealed class ClawMachineSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -63,6 +64,11 @@ public sealed class ClawMachineSystem : EntitySystem
             _audio.PlayPvs(comp.PlaySound, uid);
             _doAfter.TryStartDoAfter(doAfter);
         }
+        if (TryComp<AppearanceComponent>(uid, out var appearance) && _net.IsServer)
+        {
+            _appearance.SetData(uid, ClawMachineVisuals.Spinning, true);
+            _appearance.SetData(uid, ClawMachineVisuals.NormalSprite, false);
+        }
     }
 
     private void OnSlotMachineDoAfter(EntityUid uid, ClawMachineComponent comp, ClawGameDoAfterEvent args)
@@ -78,10 +84,20 @@ public sealed class ClawMachineSystem : EntitySystem
             var othersMsgFail = Loc.GetString("clawmachine-fail-other", ("user", args.User));
             comp.IsSpinning = false;
             _popupSystem.PopupPredicted(selfMsgFail, othersMsgFail, args.User, args.User, PopupType.Small);
+            if (TryComp<AppearanceComponent>(uid, out var _) && _net.IsServer)
+            {
+                _appearance.SetData(uid, ClawMachineVisuals.Spinning, false);
+                _appearance.SetData(uid, ClawMachineVisuals.NormalSprite, true);
+            }
             Dirty(uid, comp);
             return;
         }
 
+        if (TryComp<AppearanceComponent>(uid, out var _) && _net.IsServer)
+        {
+            _appearance.SetData(uid, ClawMachineVisuals.Spinning, false);
+            _appearance.SetData(uid, ClawMachineVisuals.NormalSprite, true);
+        }
         comp.IsSpinning = false;
         Dirty(uid, comp);
         if(!_net.IsServer)

@@ -1,6 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.SlotMachine.ClawGame;
 
@@ -11,7 +12,7 @@ namespace Content.Goobstation.Shared.SlotMachine.ClawGame;
 public sealed partial class ClawMachineComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public float DoAfterTime = 3.8f;
+    public float DoAfterTime = 3.9f;
 
     [DataField]
     public SoundSpecifier PlaySound = new SoundPathSpecifier("/Audio/Machines/Keyboard/keyboard1.ogg");
@@ -36,4 +37,11 @@ public sealed partial class ClawMachineComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool Emagged;
+}
+
+[Serializable, NetSerializable]
+public enum ClawMachineVisuals : byte
+{
+    Spinning,
+    NormalSprite
 }

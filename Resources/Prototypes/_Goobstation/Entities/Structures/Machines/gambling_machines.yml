@@ -283,8 +283,22 @@
     sprite: _Goobstation/Structures/Machines/slotmachines/claw_machine.rsi
     layers:
     - state: clawmachine
+      map: [ "clawmachine" ]
+    - state: clawmachine_playing
+      visible: false
+      map: [ "clawmachine_playing" ]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: GenericVisualizer # I have NO idea how this works
+    visuals:
+      enum.ClawMachineVisuals.Spinning:
+        clawmachine_playing:
+          True: { visible: true }
+          False: { visible: false }
+      enum.ClawMachineVisuals.NormalSprite:
+        clawmachine:
+          True: { visible: true }
+          False: { visible: false }
   - type: WiresPanel
   - type: WiresVisuals
   - type: Wires
