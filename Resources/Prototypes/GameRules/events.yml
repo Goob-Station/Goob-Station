@@ -160,6 +160,7 @@
     - id: GasLeak
     - id: GreytideVirus
     - id: IonStorm # its calm like 90% of the time smh
+    - id: JobDistributionError
     - id: KudzuGrowth
     - id: MassHallucinations
     - id: MimicVendorRule
@@ -176,7 +177,7 @@
     - id: MothroachSpawn # DeltaV
     - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
     - id: MalignRiftSpawn # DeltaV
-    - id: FloorGoblinSpawn # Goobstation
+    - id: FloorGoblinMidRound # Goobstation
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -189,6 +190,9 @@
     - id: ParadoxCloneSpawn
     #- id: RevenantSpawn  # GoobStation - removed till rework
     - id: SleeperAgents
+    - id: ChangelingMidround
+    - id: HereticMidround
+    - id: Devilmidround
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
@@ -198,6 +202,7 @@
     - id: BingleSpawn #Goobstation - Bingle
     - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
+    - id: WraithMidround # Goobstation - Wraith
 
 - type: entity
   id: BaseStationEvent
@@ -418,6 +423,7 @@
     - Diona
     - Abductor
     - Harpy
+    - Plasmaman # EE
     # Goobstation end
   - type: AntagObjectives
     objectives:

@@ -39,6 +39,9 @@ ntr-executive-softsuit-desc = A basic softsuit designed for short-term space exp
 ntr-executive-hardsuit-name = Order a hardsuit
 ntr-executive-hardsuit-desc = A durable hardsuit for extreme environments. Are you sure this purchase is justified?
 
+ntr-experimental-hardsuit-name = Order a hardsuit
+ntr-experimental-hardsuit-desc = Nanotrasen is testing an experimental exosuit built from Bluespace-conductive plates reverse-engineered from Cybersun’s Redspace Dread Suit, with live trials conducted under your supervision.
+
 ntr-executive-cigar-name = Premium cigar case
 ntr-executive-cigar-desc = A standard premium cigar case. Only executives are permitted to smoke these in public areas.
 

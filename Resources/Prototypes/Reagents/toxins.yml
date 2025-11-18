@@ -540,9 +540,19 @@
           - !type:OrganType # Goobstation - Yowie
             type: Yowie
             shouldHave: false
+          - !type:OrganType # Goob, Vox are stinky
+            type: Vox
+            shouldHave: false
           damage:
             types:
               Poison: 2
+    Food:
+     effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType # Goob, Vox are stinky
+          type: Vox
+          shouldHave: true
 
 - type: reagent
   id: Romerol
