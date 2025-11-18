@@ -373,7 +373,7 @@
     understands:
     - TauCetiBasic
     - RobotTalk
-  - type: ClawMachine
+  - type: ClawMachine # EVIL LOOT!!!
     rewards:
     - PlushieMoth
     - PlushieHuman
