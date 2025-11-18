@@ -167,6 +167,20 @@ public sealed class WeatherSystem : SharedWeatherSystem
         if (!Timing.IsFirstTimePredicted)
             return true;
 
+        // Begin DeltaV Additions: Prevent hearing weather in the lobby
+        if (_playerManager.LocalEntity is not {} ent)
+            return false;
+
+        var map = Transform(uid).MapUid;
+        var entMap = Transform(ent).MapUid;
+
+        if (map == null || entMap != map)
+        {
+            weather.Stream = _audio.Stop(weather.Stream);
+            return false;
+        }
+        // End DeltaV Additions
+
         // TODO: Fades (properly)
         weather.Stream = _audio.Stop(weather.Stream);
         weather.Stream = _audio.PlayGlobal(weatherProto.Sound, Filter.Local(), true)?.Entity;
