@@ -328,7 +328,7 @@
     - SlasherAbsorbSoulsObjective
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
-    agentName: slasher-round-end-agent-name # Change later
+    agentName: slasher-round-end-agent-name
     definitions:
     - spawnerPrototype: SpawnPointGhostSlasher
       min: 1

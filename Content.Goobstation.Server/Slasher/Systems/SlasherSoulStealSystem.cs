@@ -39,6 +39,7 @@ public sealed class SlasherSoulStealSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -118,7 +119,7 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         }
 
         // Defer starting the do-after to the next tick to avoid modifying ActiveDoAfterComponent when active.
-        Timer.Spawn(TimeSpan.Zero, () =>
+        Timer.Spawn(_timing.TickPeriod, () =>
         {
             if (!Exists(user) || !Exists(target))
                 return;

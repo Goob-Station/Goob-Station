@@ -1,3 +1,11 @@
+- type: antag
+  id: Slasher
+  name: roles-antag-slasher-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-slasher-objectives
+  guides: [ Slasher ]
+
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner

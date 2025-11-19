@@ -18,13 +18,13 @@ public sealed partial class SlasherSoulStealComponent : Component
     public EntProtoId ActionId = "ActionSlasherSoulSteal";
 
     /// <summary>
-    /// Flat brute bonus per alive soul stolen (applied to machete melee and throw).
+    /// Flat slash bonus per alive soul stolen (applied to machete melee and throw).
     /// </summary>
     [DataField]
     public float AliveBruteBonusPerSoul = 2.5f;
 
     /// <summary>
-    /// Flat brute bonus per corpse soul stolen.
+    /// Flat slash bonus per corpse soul stolen.
     /// </summary>
     [DataField]
     public float DeadBruteBonusPerSoul = 1.5f;

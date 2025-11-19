@@ -1,7 +1,6 @@
 - type: entity
   id: ActionSlasherSummonMachete
   name: Summon Machete
-  priority: 1
   description: Summon your bound machete to your active hand, or create one if lost.
   components:
   - type: Action
@@ -15,7 +14,6 @@
 - type: entity
   id: ActionSlasherSummonMeatSpike
   name: Meat Spike
-  priority: 11
   description: Conjure a horrific meat spike beneath you to capture your victims.
   components:
   - type: Action
@@ -30,7 +28,6 @@
 - type: entity
   id: ActionSlasherIncorporealize
   name: Incorporealize
-  priority: 7
   description: Become incorporeal, capable of moving through walls and being completely invisible, but unable to interact with the world. Can only be used when unseen.
   components:
   - type: Action
@@ -44,7 +41,6 @@
 - type: entity
   id: ActionSlasherCorporealize
   name: Corporealize
-  priority: 8
   description: Manifest your being from your incorporeal state. Can only be used when incorporeal.
   components:
   - type: Action
@@ -58,7 +54,6 @@
 - type: entity
   id: ActionSlasherBloodTrail
   name: Blood Trail
-  priority: 6
   description: Begin trailing blood in your wake with some funky music. Spooky!
   components:
   - type: Action
@@ -73,13 +68,11 @@
 - type: entity
   id: ActionSlasherPossession
   name: Possession
-  priority: 5
   description: Use this on a person to begin to exact your control on them, giving you temporary control of their body for 45 seconds. Once time is up, both bodies return.
   components:
   - type: Action
     raiseOnUser: true
-    useDelay: 240
-    range: 3.5
+    useDelay: 180
     checkCanInteract: false
     itemIconStyle: BigAction
     icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: Possession }
@@ -93,7 +86,6 @@
 - type: entity
   id: ActionSlasherRegenerate
   name: Regenerate
-  priority: 4
   description: Quickly regenerate your being, restoring all lost health, repairing wounds, and removing all stuns.
   components:
   - type: Action
@@ -109,7 +101,6 @@
 - type: entity
   id: ActionSlasherStaggerArea
   name: Stagger Area
-  priority: 3
   description: You exert your dark aura to people in range, slowing them down for a short time.
   components:
   - type: Action
@@ -124,7 +115,6 @@
 - type: entity
   id: ActionSlasherMassacre
   name: Massacre
-  priority: 2
   description: Unleach a brutal chain of attacks. The more hits in a row you hit the more damage you deal. You decapitate your target after 13 hits.
   components:
   - type: Action
@@ -139,7 +129,6 @@
 - type: entity
   id: ActionSlasherSoulSteal
   name: Soul Steal
-  priority: 10
   description: Siphon a victims soul. Must be used on an incapicated living target (or dead body) to steal their soul, empowering your machete and increasing your health.
   components:
   - type: Action

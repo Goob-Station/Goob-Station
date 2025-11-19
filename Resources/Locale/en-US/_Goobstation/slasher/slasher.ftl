@@ -35,3 +35,5 @@ slasher-objective-absorb-souls-title = Absorb { $count } souls
 slasher-objective-absorb-souls-desc = The Crew has no need for such things.
                                       You do.
 
+roles-antag-slasher-name = The Slasher
+roles-antag-slasher-objectives = Slaughter and terrorize the living as The Slasher!

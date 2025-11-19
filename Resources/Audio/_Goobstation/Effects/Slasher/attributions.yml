@@ -1,19 +1,19 @@
 - files: ["MassacreIntro.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Created by loltart using sounds from u_pjxmrd52t5 and Universfield"
-  source: "https://pixabay.com/music/mystery-dark-thriller-194199/ https://pixabay.com/sound-effects/deep-throat-singing-w-reverb-167098/"
+  source: "https://pixabay.com/music/mystery-dark-thriller-194199/"
 
 - files: ["MassacreDelimb.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Created by Alban_Gogh, modified by loltart"
   source: "https://pixabay.com/sound-effects/panic-sound-effect-428440/"
 
-- files: ["MassacreDelimb.ogg"]
+- files: ["MassacreIntro.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Created by Alban_Gogh, modified by loltart"
   source: "https://pixabay.com/sound-effects/panic-sound-effect-428440/"
 
-- files: ["MassacreDelimb.ogg"]
+- files: ["MassacreSlash.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Created by Alban_Gogh, modified by loltart"
   source: "https://pixabay.com/sound-effects/panic-sound-effect-428440/"
