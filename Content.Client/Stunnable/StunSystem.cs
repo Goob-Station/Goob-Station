@@ -99,7 +99,7 @@ public sealed class StunSystem : SharedStunSystem
 
         var breaths = new Vector2(0, breathing * 2) / jitters;
 
-        var length =  1 / frequency;
+        var length = 1 / frequency;
         var frames = length / jitters;
 
         var keyFrames = new List<AnimationTrackProperty.KeyFrame> { new(sprite.Offset, 0f) };
@@ -112,6 +112,16 @@ public sealed class StunSystem : SharedStunSystem
             offset.X *= _random.Pick(_sign);
             offset.Y *= _random.Pick(_sign);
 
+            // GoobStation-fix-NaN-start
+            if (float.IsNaN(offset.X))
+                offset.X = 0;
+            if (float.IsNaN(offset.Y))
+                offset.Y = 0;
+            if (float.IsNaN(lastJitter.X))
+                lastJitter.X = 0;
+            if (float.IsNaN(lastJitter.Y))
+                lastJitter.Y = 0;
+            // GoobStation-fix-NaN-end
             if (i == 1 && Math.Sign(offset.X) == Math.Sign(lastJitter.X)
                        && Math.Sign(offset.Y) == Math.Sign(lastJitter.Y))
             {

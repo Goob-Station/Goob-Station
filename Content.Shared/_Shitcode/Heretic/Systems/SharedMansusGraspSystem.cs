@@ -20,6 +20,7 @@ using Content.Shared.Heretic.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.StationAi;
@@ -54,6 +55,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
 
     public bool TryApplyGraspEffectAndMark(EntityUid user,
         HereticComponent hereticComp,
@@ -167,6 +169,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                     ghoul.GiveBlade = true;
 
                     AddComp(target, ghoul);
+                    RemCompDeferred<HereticCombatMarkComponent>(target);
                 }
 
                 break;
@@ -206,7 +209,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
 
             case "Cosmos":
             {
-                if (_starMark.TryApplyStarMark(target, performer))
+                if (_starMark.TryApplyStarMark(target))
                     _starMark.SpawnCosmicField(Transform(performer).Coordinates, heretic.PathStage);
                 break;
             }

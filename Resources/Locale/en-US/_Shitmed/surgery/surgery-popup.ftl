@@ -52,6 +52,7 @@ surgery-popup-step-SurgeryStepOpenOrganSlot = {$user} is opening a cavity in {$t
 
 surgery-popup-procedure-SurgeryRemoveBrain-step-SurgeryStepRemoveOrgan = {$user} is removing the brain from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryRemoveHeart-step-SurgeryStepRemoveOrgan = {$user} is removing the heart from {$target}'s {$part}!
+surgery-popup-procedure-SurgeryRemovePump-step-SurgeryStepRemoveOrgan = {$user} is removing the pump from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryRemoveLiver-step-SurgeryStepRemoveOrgan = {$user} is removing the liver from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryRemoveLungs-step-SurgeryStepRemoveOrgan = {$user} is removing the lungs from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryRemoveEyes-step-SurgeryStepRemoveOrgan = {$user} is removing the eyes from {$target}'s {$part}!
@@ -62,6 +63,7 @@ surgery-popup-step-SurgeryStepInsertLungs = {$user} is inserting lungs into {$ta
 surgery-popup-step-SurgeryStepInsertLiver = {$user} is inserting a liver into {$target}'s {$part}!
 surgery-popup-step-SurgeryStepInsertEyes = {$user} is inserting eyes into {$target}'s {$part}!
 surgery-popup-step-SurgeryStepInsertHeart = {$user} is inserting a heart into {$target}'s {$part}!
+surgery-popup-step-SurgeryStepInsertPump = {$user} is inserting a pump into {$target}'s {$part}!
 surgery-popup-step-SurgeryStepInsertStomach = {$user} is inserting a stomach into {$target}'s {$part}!
 
 surgery-popup-step-SurgeryStepSealOrganWound = {$user} is sealing the wounds on {$target}'s {$part}.

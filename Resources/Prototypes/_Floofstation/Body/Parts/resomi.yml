@@ -18,11 +18,13 @@
     species: Resomi
   - type: Damageable
     damageModifierSet: Resomi
+  - type: Woundable # Goobstation
+    boneEntity: BoneWeak
 
 - type: entity
   id: ChestResomi
   name: "resomi chest"
-  parent: [BaseChest, PartResomi]
+  parent: [PartResomi, BaseChest]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -31,7 +33,7 @@
 - type: entity
   id: GroinResomi
   name: "resomi groin"
-  parent: [BaseGroin, PartResomi]
+  parent: [PartResomi, BaseGroin]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -40,16 +42,18 @@
 - type: entity
   id: HeadResomi
   name: "resomi head"
-  parent: [BaseHead, PartResomi]
+  parent: [PartResomi, BaseHead, ]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
     state: "head_m"
+  - type: Woundable # Goobstation
+    boneEntity: BoneNeckWeak
 
 - type: entity
   id: LeftArmResomi
   name: "left resomi arm"
-  parent: [BaseLeftArm, PartResomi]
+  parent: [PartResomi, BaseLeftArm]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -58,7 +62,7 @@
 - type: entity
   id: RightArmResomi
   name: "right resomi arm"
-  parent: [BaseRightArm, PartResomi]
+  parent: [PartResomi, BaseRightArm]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -67,7 +71,7 @@
 - type: entity
   id: LeftHandResomi
   name: "left resomi hand"
-  parent: [BaseLeftHand, PartResomi]
+  parent: [PartResomi, BaseLeftHand]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -76,7 +80,7 @@
 - type: entity
   id: RightHandResomi
   name: "right resomi hand"
-  parent: [BaseRightHand, PartResomi]
+  parent: [PartResomi, BaseRightHand]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -85,7 +89,7 @@
 - type: entity
   id: LeftLegResomi
   name: "left resomi leg"
-  parent: [BaseLeftLeg, PartResomi]
+  parent: [PartResomi, BaseLeftLeg]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -94,7 +98,7 @@
 - type: entity
   id: RightLegResomi
   name: "right resomi leg"
-  parent: [BaseRightLeg, PartResomi]
+  parent: [PartResomi, BaseRightLeg]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -103,7 +107,7 @@
 - type: entity
   id: LeftFootResomi
   name: "left resomi foot"
-  parent: [BaseLeftFoot, PartResomi]
+  parent: [PartResomi, BaseLeftFoot]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -112,7 +116,7 @@
 - type: entity
   id: RightFootResomi
   name: "right resomi foot"
-  parent: [BaseRightFoot, PartResomi]
+  parent: [PartResomi, BaseRightFoot]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
