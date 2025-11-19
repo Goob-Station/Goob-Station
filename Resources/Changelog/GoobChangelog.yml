@@ -18096,3 +18096,17 @@ Entries:
       message: NTR Mirrordus suit sprites
   id: 2038
   time: '2025-11-18T17:16:11.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Tweak
+      message: >-
+        Made mid sleepers spawn later in the round for the hermit , and fixed
+        traitor sleeper agents spawn in hermit.
+    - type: Remove
+      message: Midround revs
+    - type: Tweak
+      message: >-
+        Reduced the massive amount of antags that spawned round start on the
+        hermit.
+  id: 2039
+  time: '2025-11-19T07:34:12.0000000+00:00'
