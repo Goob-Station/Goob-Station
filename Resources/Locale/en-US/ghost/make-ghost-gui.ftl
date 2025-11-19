@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 make-ghost-roles-window-title = Make Ghost Role
 
 make-ghost-roles-window-entity-label = Entity

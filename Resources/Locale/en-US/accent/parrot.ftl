@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 accent-parrot-squawk-1 = SQUAWK!
 accent-parrot-squawk-2 = SQUAAAWK!
 accent-parrot-squawk-3 = AWWK!

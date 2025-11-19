@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 id-card-access-level-command = Command
 id-card-access-level-captain = Captain
 id-card-access-level-head-of-personnel = Head of Personnel

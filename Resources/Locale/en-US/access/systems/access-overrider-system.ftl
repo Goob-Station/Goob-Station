@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 access-overrider-window-privileged-id = Privileged ID:
 access-overrider-window-eject-button = Eject
 access-overrider-window-insert-button = Insert

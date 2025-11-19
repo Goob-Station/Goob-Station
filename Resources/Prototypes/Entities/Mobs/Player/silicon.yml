@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿# Be careful with these as they get removed on shutdown too!
 - type: entity
   id: AiHeld

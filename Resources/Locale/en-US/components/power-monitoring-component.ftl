@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 power-monitoring-window-title = Power Monitoring Console
 
 power-monitoring-window-label-sources = Sources

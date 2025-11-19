@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-wizard-last-dataset-1 = Dark
 names-wizard-last-dataset-2 = Darkmagic
 names-wizard-last-dataset-3 = Darko

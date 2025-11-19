@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # A cup is a small container used to hold liquids for drinking.[1]
 - type: entity
   abstract: true

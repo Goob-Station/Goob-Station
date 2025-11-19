@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # WirePanel
 construction-examine-condition-wire-panel-open = First, open the maintenance panel.
 construction-examine-condition-wire-panel-close = First, close the maintenance panel.

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 forensic-fibers = {LOC($material)} fibers
 forensic-fibers-colored = {LOC($color)} {LOC($material)} fibers
 

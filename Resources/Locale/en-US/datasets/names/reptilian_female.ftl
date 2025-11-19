@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-reptilian-female-dataset-1 = Adzi
 names-reptilian-female-dataset-2 = Ah
 names-reptilian-female-dataset-3 = Ahaht

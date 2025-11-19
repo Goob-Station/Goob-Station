@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿advertisement-smite-1 = SMITE! Ban your thirst!
 advertisement-smite-2 = An eldritch blast of lemon and lime!
 advertisement-smite-3 = Over 1 million drinks sold!

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Separate yml file for scrap helmet since it has so many construction steps.
 # Listed from first step of crafting to the final helmet
 

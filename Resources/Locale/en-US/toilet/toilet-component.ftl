@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ## ToiletComponent
 
 toilet-component-on-examine-found-hidden-item = There is something inside of the cistern!

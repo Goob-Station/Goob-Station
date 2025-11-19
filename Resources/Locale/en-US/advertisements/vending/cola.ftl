@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿advertisement-cola-1 = Refreshing!
 advertisement-cola-2 = Hope you're thirsty!
 advertisement-cola-3 = Over 1 million drinks sold!

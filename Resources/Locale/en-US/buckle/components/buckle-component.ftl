@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 buckle-component-no-hands-message = You don't have hands!
 buckle-component-already-buckled-message = You are already buckled in!
 buckle-component-other-already-buckled-message = {$owner} is already buckled in!

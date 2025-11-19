@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 cmd-arrivals-enable-hint = Enables arrivals
 cmd-arrivals-disable-hint = Disables arrivals
 

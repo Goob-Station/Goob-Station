@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿cmd-jobwhitelist-job-does-not-exist = Job {$job} does not exist.
 cmd-jobwhitelist-player-not-found = Player {$player} not found.
 cmd-jobwhitelist-hint-player = [player]

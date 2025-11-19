@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 admin-add-reagent-window-title = Add to {$solution}
 admin-add-reagent-window-amount-label = Quantity:
 admin-add-reagent-window-search-placeholder = Filter...

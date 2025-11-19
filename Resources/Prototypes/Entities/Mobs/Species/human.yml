@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Anything human specific (e.g. UI, input) goes under MobHuman
 - type: entity
   parent: BaseMobSpeciesOrganic

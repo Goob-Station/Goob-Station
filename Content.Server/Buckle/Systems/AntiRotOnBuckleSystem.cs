@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 using Content.Server.Power.Components;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Buckle.Components;

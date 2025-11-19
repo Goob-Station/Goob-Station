@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 crew-manifest-window-title = Crew Manifest
 crew-manifest-button-label = Crew Manifest
 crew-manifest-button-description = Show a list of your fellow crewmembers

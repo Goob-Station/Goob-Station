@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 cmd-substepatmos-desc = Substeps the atmosphere simulation by a single atmostick for the provided grid entity. Implicitly pauses atmospherics simulation.
 cmd-substepatmos-help = Usage: {$command} <EntityUid>
 

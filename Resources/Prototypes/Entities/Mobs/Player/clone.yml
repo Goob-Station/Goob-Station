@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Settings for cloning bodies
 # If you add a new trait, job specific component or a component doing visual/examination changes for humanoids
 # then add it here to the correct prototype.

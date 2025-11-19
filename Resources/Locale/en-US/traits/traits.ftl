@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 trait-blindness-name = Blindness
 trait-blindness-desc = You are legally blind, and can't see clearly past a few meters in front of you.
 

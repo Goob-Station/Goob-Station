@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+
+SPDX-License-Identifier: MIT-WIZARDS
+-->
+
 <DefaultWindow xmlns="https://spacestation14.io" Title="{Loc 'ghost-target-window-title'}" MinSize="450 450" SetSize="450 450">
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" SizeFlagsStretchRatio="0.4">
         <Button Name="GhostnadoButton" Text="{Loc 'ghost-target-window-warp-to-most-followed'}" HorizontalAlignment="Center" Margin="0 4" />

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-borg-dataset-1 = Bob
 names-borg-dataset-2 = Joe
 names-borg-dataset-3 = Beep

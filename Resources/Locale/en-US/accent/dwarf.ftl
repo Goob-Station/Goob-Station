@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿# these specifically mostly come from examples of specific scottish-english (not necessarily scots) verbiage
 # https://en.wikipedia.org/wiki/Scotticism
 # https://en.wikipedia.org/wiki/Scottish_English

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 descriptions-cookie-fortune-dataset-1 = The end is near... and it's all your fault.
 descriptions-cookie-fortune-dataset-2 = We know what you did.
 descriptions-cookie-fortune-dataset-3 = Beware.

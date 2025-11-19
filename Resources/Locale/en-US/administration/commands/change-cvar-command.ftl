@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿cmd-changecvar-no-arguments = You must specify a cvar.
 cmd-changecvar-cvar-not-registered = The cvar {$cvar} is not registered.
 cmd-changecvar-cvar-not-allowed = You cannot change this cvar.

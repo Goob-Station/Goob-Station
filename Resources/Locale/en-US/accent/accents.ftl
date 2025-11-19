@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Cat accent
 accent-words-cat-1 = Meow!
 accent-words-cat-2 = Mow.

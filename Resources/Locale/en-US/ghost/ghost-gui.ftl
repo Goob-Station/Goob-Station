@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ghost-gui-return-to-body-button = Return to body
 ghost-gui-ghost-warp-button = Ghost Warp
 ghost-gui-ghost-roles-button = Ghost Roles ({$count})

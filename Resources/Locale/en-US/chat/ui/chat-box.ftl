@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 hud-chatbox-info = {$talk-key} to talk, {$cycle-key} to cycle channels.
 hud-chatbox-info-talk = {$talk-key} to talk.
 hud-chatbox-info-cycle = Click here to talk, {$cycle-key} to cycle channels.

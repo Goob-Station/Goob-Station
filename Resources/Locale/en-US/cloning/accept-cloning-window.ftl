@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 accept-cloning-window-title = Cloning Machine
 accept-cloning-window-prompt-text-part = You are being cloned!
                                          Transfer your soul to the clone body?

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Names
 chat-emote-name-scream = Scream
 chat-emote-name-laugh = Laugh

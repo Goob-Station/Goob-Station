@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-mushman-last-dataset-1 = Porrigens
 names-mushman-last-dataset-2 = Deceptiva
 names-mushman-last-dataset-3 = Fornicatum

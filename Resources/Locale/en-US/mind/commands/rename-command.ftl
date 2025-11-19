@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 cmd-rename-desc = Renames an entity and its cloner entries, ID cards, and PDAs.
 cmd-rename-help = rename <Username|EntityUid> <New character name>
 cmd-rename-too-long = Name is too long.

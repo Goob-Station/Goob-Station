@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 #Entities found at entities/objects/specific/medical
 - type: entity
   id: MedkitFilled

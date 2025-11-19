@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿admin-ui-panic-bunker-window-title = Panic Bunker
 
 admin-ui-panic-bunker-enabled = Panic Bunker Enabled

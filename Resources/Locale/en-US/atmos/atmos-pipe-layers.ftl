@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 atmos-pipe-layers-component-layer-primary = primary 
 atmos-pipe-layers-component-layer-secondary = secondary
 atmos-pipe-layers-component-layer-tertiary = tertiary

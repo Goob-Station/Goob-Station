@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 flavor-profile = Tastes {$flavor}.
 flavor-profile-multiple = Tastes {$flavors} and {$lastFlavor}.
 flavor-profile-unknown = Tastes indescribable.

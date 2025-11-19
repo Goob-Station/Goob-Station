@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-fake-human-first-dataset-1 = Al
 names-fake-human-first-dataset-2 = Anatoli
 names-fake-human-first-dataset-3 = Bip

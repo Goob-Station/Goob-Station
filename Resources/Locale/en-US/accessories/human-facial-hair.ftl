@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 marking-HumanFacialHairAbe = Beard (Abraham Lincoln)
 marking-HumanFacialHairBrokenman = Beard (Broken Man)
 marking-HumanFacialHairChin = Beard (Chinstrap)

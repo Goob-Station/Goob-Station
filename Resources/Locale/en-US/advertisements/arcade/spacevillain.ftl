@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 advertisement-space-villain-1 = Are you a bad enough dude to beat this game?
 advertisement-space-villain-2 = Beat the bad guy; win a prize!
 advertisement-space-villain-3 = FIGHT ME!

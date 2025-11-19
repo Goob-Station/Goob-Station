@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 reagent-name-astrotame = Astrotame
 reagent-desc-astrotame = The sweetness of a thousand sugars but none of the calories.
 

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 descriptions-atv-dataset-1 = All-Tile Vehicle.
 descriptions-atv-dataset-2 = Ant-Thwarting Vehicle.
 descriptions-atv-dataset-3 = Any-Time Vegetable.

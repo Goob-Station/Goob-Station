@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 comp-gas-pump-ui-pump-status = Status:
 comp-gas-pump-ui-status-enabled = On
 comp-gas-pump-ui-status-disabled = Off

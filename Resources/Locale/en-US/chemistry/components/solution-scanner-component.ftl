@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 scannable-solution-verb-text = Solution
 scannable-solution-verb-message = Examine the chemical composition.
 scannable-solution-main-text = It contains the following chemicals:

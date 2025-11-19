@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 admin-solutions-window-title = Solution Editor - {$targetName}
 admin-solutions-window-solution-label = Target solution:
 admin-solutions-window-solution-button = Solution

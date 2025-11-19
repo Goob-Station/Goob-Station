@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-first-dataset-1 = Aaden
 names-first-dataset-2 = Aaliyah
 names-first-dataset-3 = Aaron

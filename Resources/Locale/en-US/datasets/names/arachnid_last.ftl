@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-arachnid-last-dataset-1 = Agrestis
 names-arachnid-last-dataset-2 = Algarve
 names-arachnid-last-dataset-3 = Andohahela

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 humanoid-profile-editor-randomize-everything-button = Randomize everything
 humanoid-profile-editor-name-label = Name:
 humanoid-profile-editor-name-random-button = Randomize

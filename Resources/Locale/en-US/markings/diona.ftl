@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 marking-DionaThornsHead-thorns_head = Diona Head (Thorns)
 marking-DionaThornsHead = Diona Head (Thorns)
 

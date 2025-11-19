@@ -1,1 +1,7 @@
+<!--
+SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+
+SPDX-License-Identifier: MIT-WIZARDS
+-->
+
 <ui:ShuttleMapControl xmlns:ui="clr-namespace:Content.Client.Shuttles.UI" />

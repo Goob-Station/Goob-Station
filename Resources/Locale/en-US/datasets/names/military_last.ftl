@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-military-last-dataset-1 = Agena
 names-military-last-dataset-2 = Andromeda
 names-military-last-dataset-3 = Antares

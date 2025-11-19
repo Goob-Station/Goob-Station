@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 using Content.Shared.Movement.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.Hands.EntitySystems;

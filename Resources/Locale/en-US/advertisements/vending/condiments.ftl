@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿advertisement-condiment-1 = Tired of dry meat? Squirt some flavor-packed condiments on it!
 advertisement-condiment-2 = Child-safe utensils. Forks, spoons, and knives that won't cut a thing.
 advertisement-condiment-3 = Corn oil!

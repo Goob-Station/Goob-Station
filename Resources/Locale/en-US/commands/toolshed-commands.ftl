@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 command-description-visualize =
     Takes the input list of entities and puts them into a UI window for easy browsing.
 command-description-runverbas =

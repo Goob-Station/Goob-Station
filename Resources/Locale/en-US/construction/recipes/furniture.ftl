@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 construction-recipe-red-comf-bench = comfortable bench (red)
 construction-recipe-blue-comf-bench = comfortable bench (blue)
 construction-recipe-table-fancy-black = fancy table (black)

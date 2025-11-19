@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 revenant-defile-name = Defile
 revenant-defile-desc = Defiles the surrounding area, ripping up floors, damaging windows, opening containers, and throwing items. Using it leaves you vulnerable to attacks for a short period of time.
 

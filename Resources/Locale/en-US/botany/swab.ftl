@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 botany-swab-from = You carefully collect pollen from the plant.
 botany-swab-to = You carefully dust pollen on the plant.
 swab-used = This swab has been used to collect something.

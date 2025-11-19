@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿advertisement-snack-1 = Try our new nougat bar!
 advertisement-snack-2 = Twice the calories for half the price!
 advertisement-snack-3 = The healthiest!

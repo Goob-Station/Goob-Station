@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 cmd-respawn-desc = Respawns a player, kicking them back to the lobby.
 cmd-respawn-help = respawn [player or UserId]
 

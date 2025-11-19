@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # titles that get displayed in the wire hacking window
 wires-board-name-default = Wires
 wires-board-name-booze = BoozeDispenser

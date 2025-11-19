@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 game-hud-open-escape-menu-button-tooltip = Open escape menu.
 game-hud-open-guide-menu-button-tooltip = Open guidebook menu.
 game-hud-open-character-menu-button-tooltip = Open character menu.

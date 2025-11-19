@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 stat-values-desc = Dumps all stats for a particular category into a table.
 stat-values-server = Can't be run on the server!
 stat-values-args = Invalid number of args, need 1

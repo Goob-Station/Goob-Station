@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 wires-component-ui-on-receive-message-no-hands = You have no hands.
 wires-component-ui-on-receive-message-cannot-reach = You can't reach there!
 wires-component-ui-on-receive-message-need-wirecutters = You need to hold a wirecutter in your hand!

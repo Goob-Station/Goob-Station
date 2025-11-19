@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 objectives-round-end-result = {$count ->
     [one] There was one {$agent}.
     *[other] There were {$count} {MAKEPLURAL($agent)}.

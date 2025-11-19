@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ## SpaceVillainGame
 
 space-villain-game-player-attack-message = You attack {$enemyName} for {$attackAmount}!

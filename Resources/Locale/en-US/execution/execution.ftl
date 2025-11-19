@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 execution-verb-name = Execute
 execution-verb-message = Use your weapon to execute someone.
 

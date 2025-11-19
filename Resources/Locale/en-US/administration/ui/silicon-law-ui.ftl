@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿silicon-law-ui-verb = Manage laws
 silicon-law-ui-title = Silicon laws
 silicon-law-ui-new-law = New law

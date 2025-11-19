@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 forensic-residue = {LOC($adjective)} residue
 forensic-residue-colored = {LOC($adjective)} {LOC($color)} residue
 

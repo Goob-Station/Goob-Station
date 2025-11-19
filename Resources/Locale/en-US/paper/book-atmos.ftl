@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 book-text-atmos-distro = The distribution network, or "distro" for short, is the station's lifeline. It's responsible for transporting air from atmospherics throughout the station.
 
         Relevant pipes are often painted Popping Subdued Blue, but a surefire way to identify them is to use a tray scanner to trace which pipes are connected to active vents on the station.

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 using Content.Shared.Parallax.Biomes.Layers;
 using Content.Shared.Parallax.Biomes.Markers;
 using Robust.Shared.GameStates;

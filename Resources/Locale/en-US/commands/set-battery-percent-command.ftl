@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿cmd-setbatterypercent-desc = Drains or recharges a battery by entity uid and percentage, i.e.: forall with Battery do setbatterypercent $ID 0
 cmd-setbatterypercent-help = Usage: setbatterypercent <id> <percent>
 cmd-setbatterypercent-battery-not-found = No battery found with id {$id}.

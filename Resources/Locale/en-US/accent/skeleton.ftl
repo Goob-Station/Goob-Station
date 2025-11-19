@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 accent-skeleton-words-1 = fuck you
 accent-skeleton-words-replace-1 = I've got a BONE to pick with you
 

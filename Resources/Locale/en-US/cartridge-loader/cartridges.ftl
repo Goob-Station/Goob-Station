@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 device-pda-slot-component-slot-name-cartridge = Cartridge
 
 default-program-name = Program

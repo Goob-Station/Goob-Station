@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+
+SPDX-License-Identifier: MIT-WIZARDS
+-->
+
 ﻿<windows:ActionsWindow
     xmlns="https://spacestation14.io"
     xmlns:windows="clr-namespace:Content.Client.UserInterface.Systems.Actions.Windows"

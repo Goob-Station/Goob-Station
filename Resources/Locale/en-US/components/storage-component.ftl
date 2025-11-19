@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 comp-storage-no-item-size = N/A
 comp-storage-cant-insert = Can't insert.
 comp-storage-too-big = Too big!

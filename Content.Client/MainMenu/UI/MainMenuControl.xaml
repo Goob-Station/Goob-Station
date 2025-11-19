@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+
+SPDX-License-Identifier: MIT-WIZARDS
+-->
+
 ﻿<Control xmlns="https://spacestation14.io"
          xmlns:pllax="clr-namespace:Content.Client.Parallax"
          xmlns:clog="clr-namespace:Content.Client.Changelog">

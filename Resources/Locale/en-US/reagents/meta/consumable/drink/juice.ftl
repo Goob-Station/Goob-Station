@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 reagent-name-juice-apple = apple juice
 reagent-desc-juice-apple = It's a little piece of Eden.
 

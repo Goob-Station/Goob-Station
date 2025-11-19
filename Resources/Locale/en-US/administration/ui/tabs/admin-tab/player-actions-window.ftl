@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 admin-player-actions-window-ban = Banning panel
 admin-player-actions-window-admin-ghost = Admin Ghost
 admin-player-actions-window-permissions = Permissions Panel

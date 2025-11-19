@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # General
 ai-wire-snipped = One of your systems' wires has been cut at {$source}.
 wire-name-ai-vision-light = AIV

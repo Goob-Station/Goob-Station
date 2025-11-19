@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ## RoundEndSystem
 
 round-end-system-shuttle-called-announcement = An emergency shuttle has been sent. ETA: {$time} {$units}.

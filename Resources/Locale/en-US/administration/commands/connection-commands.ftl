@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿## Strings for the "grant_connect_bypass" command.
 
 cmd-grant_connect_bypass-desc = Temporarily allow a user to bypass regular connection checks.

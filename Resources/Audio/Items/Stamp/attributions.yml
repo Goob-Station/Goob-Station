@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 - files: ["thick_stamp_sub.ogg"]
   license: "CC-BY-4.0"
   copyright: "Created by newagesoup. Converted from WAV to OGG by Lomcastar, then to mono by crazybrain23."

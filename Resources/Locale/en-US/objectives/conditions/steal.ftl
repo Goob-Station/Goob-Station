@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 objective-condition-steal-title-no-owner = Steal the {$itemName}.
 objective-condition-steal-title-alive-no-owner = Steal {$itemName}.
 objective-condition-steal-title = Steal the {$owner}'s {$itemName}.

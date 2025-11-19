@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+
+SPDX-License-Identifier: MIT-WIZARDS
+-->
+
 ﻿<BoxContainer xmlns="https://spacestation14.io" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
     <Control HorizontalExpand="True" VerticalExpand="True" HorizontalAlignment="Stretch">
         <ScrollContainer Name="Scroll" HScrollEnabled="False" HorizontalExpand="True" VerticalExpand="True">

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-vox-dataset-1 = Babapir
 names-vox-dataset-2 = Babasri
 names-vox-dataset-3 = Babepipit

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 book-text-gaming1 = Can't stay for the game.
       Engineering want me to keep a close eye on the singularity SMESes.
       Leaving this so you know what's up.

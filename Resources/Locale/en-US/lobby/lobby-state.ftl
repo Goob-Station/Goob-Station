@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 lobby-state-paused = Paused
 lobby-state-soon = Round starting soon
 lobby-state-right-now-question = Right Now?

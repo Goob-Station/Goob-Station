@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Base configuration preset used on all Wizard's Den servers.
 # Loaded before server-specific config presets by configuration.
 

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # APC
 construction-examine-condition-apc-open = First, screw open the APC.
 construction-examine-condition-apc-close = First, screw shut the APC.

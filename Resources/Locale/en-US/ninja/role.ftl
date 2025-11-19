@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ninja-round-end-agent-name = ninja
 
 objective-issuer-spiderclan = [color=#33cc00]Spider Clan[/color]

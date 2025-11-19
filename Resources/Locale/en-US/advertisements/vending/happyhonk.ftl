@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿advertisement-happyhonk-1 = Honk! Honk! Why not order a Happy Honk Meal today?
 advertisement-happyhonk-2 = Clowns deserve a hug, if you see one be sure to show your appreciation.
 advertisement-happyhonk-3 = If you find the Golden Honker then pray to the gods, you are one lucky person.

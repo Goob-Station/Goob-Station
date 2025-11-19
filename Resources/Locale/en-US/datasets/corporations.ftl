@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 traitor-corporations-dataset-1 = CyberSun Industries
 traitor-corporations-dataset-2 = Gorlex Marauders
 traitor-corporations-dataset-3 = MI13

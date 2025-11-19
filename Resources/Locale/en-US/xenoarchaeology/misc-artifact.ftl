@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 blink-artifact-popup = The artifact disappeared in an instant!
 foam-artifact-popup = Strange foam pours out of the artifact!
 

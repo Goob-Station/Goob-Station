@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.Power.Components;

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 reagent-name-cola = Space Cola
 reagent-desc-cola = A sweet, carbonated soft drink.
 

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ## IdCardComponent
 
 access-id-card-component-owner-name-job-title-text = ID card{$jobSuffix}

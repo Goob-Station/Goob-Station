@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-skeleton-first-dataset-1 = Sternum
 names-skeleton-first-dataset-2 = Ribs
 names-skeleton-first-dataset-3 = Vertebrae

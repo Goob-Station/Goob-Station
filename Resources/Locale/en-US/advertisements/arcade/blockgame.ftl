@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 advertisement-block-game-1 = Legally distinct!
 advertisement-block-game-2 = What the hell is a T-spin?
 advertisement-block-game-3 = These blocks aren't going to clear themselves!

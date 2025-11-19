@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 - type: entity
   name: pinpointer
   description: A handheld tracking device. While typically far more capable, this one has been configured to lock onto certain signals. Keep upright to retain accuracy.

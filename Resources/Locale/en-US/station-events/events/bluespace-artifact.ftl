@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 bluespace-artifact-event-announcement = Our readings have detected an incoming object of alien origin. Please inform the research team of { $sighting }.
 
 bluespace-artifact-sighting-1 = bright flashes of light

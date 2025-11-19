@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 placeholders-criminal-records-wanted-reason-1 = Ate a delicious valid salad
 placeholders-criminal-records-wanted-reason-2 = Ate their own shoes
 placeholders-criminal-records-wanted-reason-3 = Being a clown

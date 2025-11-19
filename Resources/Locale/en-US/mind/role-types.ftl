@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 role-type-crew-aligned-name = Crew Aligned
 role-type-solo-antagonist-name = Solo Antagonist
 role-type-team-antagonist-name = Team Antagonist

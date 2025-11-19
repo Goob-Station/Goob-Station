@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ### Messages that can be utilized by multiple reagents.
 
 generic-reagent-effect-burning-insides = You feel your insides burning up!

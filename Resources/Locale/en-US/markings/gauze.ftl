@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 marking-GauzeLefteyePatch-gauze_lefteye_2 = Gauze eyepatch (Left)
 marking-GauzeLefteyePatch = Gauze eyepatch (Left)
 

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 reagent-name-oxygen = oxygen
 reagent-desc-oxygen = An oxidizing, colorless gas.
 

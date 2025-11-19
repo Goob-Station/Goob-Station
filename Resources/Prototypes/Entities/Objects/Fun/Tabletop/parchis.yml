@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Parchís board item (normal in game item you can hold in your hand)
 - type: entity
   parent: BaseBoardEntity

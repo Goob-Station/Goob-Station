@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+
+SPDX-License-Identifier: MIT-WIZARDS
+-->
+
 <cartridges:NotekeeperUiFragment xmlns:cartridges="clr-namespace:Content.Client.CartridgeLoader.Cartridges"
                                  xmlns="https://spacestation14.io" Margin="1 0 2 0">
     <PanelContainer StyleClasses="BackgroundDark"></PanelContainer>

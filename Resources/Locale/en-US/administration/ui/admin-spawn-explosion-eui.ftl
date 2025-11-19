@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 admin-explosion-eui-title = Spawn Explosions
 
 admin-explosion-eui-label-type = Explosion Type

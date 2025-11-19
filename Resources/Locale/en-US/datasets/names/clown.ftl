@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-clown-dataset-1 = Gigglesworth
 names-clown-dataset-2 = Honkel the III
 names-clown-dataset-3 = Goose McSunny

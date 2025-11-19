@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 - files: ["sector11.ogg"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "-Sector11 by MashedByMachines. Converted to mono OGG."

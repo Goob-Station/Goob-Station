@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 solar-control-window-title = Solar Control Console
 solar-control-window-output-power = Output Power:
 solar-control-window-watts = W

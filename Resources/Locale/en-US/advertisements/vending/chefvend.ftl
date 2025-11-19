@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿advertisement-chefvend-1 = At least sixty percent of our eggs un-broken, guranteed!
 advertisement-chefvend-2 = Rice, rice, baby.
 advertisement-chefvend-3 = Slap some butter on it!

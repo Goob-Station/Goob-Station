@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 - files: ["plunger.ogg"]
   license: "CC-BY-4.0"
   copyright: "Created by tosha73"

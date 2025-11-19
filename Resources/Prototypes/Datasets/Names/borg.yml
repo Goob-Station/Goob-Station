@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # only used roundstart, names can be changed after
 - type: localizedDataset
   id: NamesBorg

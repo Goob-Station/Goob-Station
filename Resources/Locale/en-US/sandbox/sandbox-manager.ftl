@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 sandbox-window-title = Sandbox Panel
 
 sandbox-window-map-editing-label = Editing

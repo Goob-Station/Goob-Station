@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ### Secret stash component. Stuff like potted plants, comfy chair cushions, etc...
 
 comp-secret-stash-action-hide-success = You hide { THE($item) } in the {$stashname}.

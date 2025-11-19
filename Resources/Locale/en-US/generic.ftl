@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ### Generic, general words, which fit into multiple contexts
 
 generic-not-available-shorthand = N/A

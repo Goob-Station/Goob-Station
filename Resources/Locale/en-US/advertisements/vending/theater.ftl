@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿advertisement-theater-1 = Dress for success!
 advertisement-theater-2 = Suited and booted!
 advertisement-theater-3 = It's show time!

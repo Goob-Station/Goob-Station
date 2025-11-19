@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 - files: [reptilian_scream.ogg]
   copyright: '"scream_lizard.ogg" by Skyrat-SS13'
   license:

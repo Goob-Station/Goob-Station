@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 health-examinable-carbon-none = There are no obvious wounds to be seen.
 
 health-examinable-carbon-Slash-8 = [color=yellow]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } a superficial cut.[/color]

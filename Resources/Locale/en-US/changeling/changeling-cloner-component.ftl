@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 changeling-cloner-component-empty = It is empty.
 changeling-cloner-component-filled = It has a DNA sample in it.
 changeling-cloner-component-spent = It has been used.

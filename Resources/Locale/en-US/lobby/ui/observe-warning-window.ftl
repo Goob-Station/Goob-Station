@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 observe-nevermind = Nevermind
 observe-confirm = Observe
 observe-warning-1 = Are you sure you want to observe?

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 bloodstream-component-looks-pale = [color=bisque]{CAPITALIZE(SUBJECT($target))} {CONJUGATE-BASIC($target, "look", "looks")} pale.[/color]
 bloodstream-component-slight-bleeding = [color=#ffa8a8]{CAPITALIZE(SUBJECT($target))} {CONJUGATE-BE($target)} dripping blood.[/color]
 bloodstream-component-bleeding = [color=#e65353]{CAPITALIZE(SUBJECT($target))} {CONJUGATE-BE($target)} bleeding.[/color]

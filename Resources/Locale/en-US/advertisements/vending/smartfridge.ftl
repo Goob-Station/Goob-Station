@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿advertisement-smartfridge-1 = Hello world!
 advertisement-smartfridge-2 = PLEASE LET ME OUT
 advertisement-smartfridge-3 = I can make a quintillion calculations a second. Now, I am a fridge.

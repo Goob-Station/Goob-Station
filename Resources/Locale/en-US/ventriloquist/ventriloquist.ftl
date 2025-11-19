@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ventriloquist-puppet-insert-hand = You insert your hand into the puppet.
 ventriloquist-puppet-remove-hand = You remove your hand from the puppet.
 

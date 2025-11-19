@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-syndicate-elite-dataset-1 = Alpha
 names-syndicate-elite-dataset-2 = Beta
 names-syndicate-elite-dataset-3 = Gamma

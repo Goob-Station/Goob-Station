@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿comp-gas-thermomachine-ui-title-freezer = Freezer
 comp-gas-thermomachine-ui-title-heater = Heater
 

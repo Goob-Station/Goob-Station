@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # The mind roles specified here will be overwritten by the actual entities' GhostRoleComponent when they spawn
 # But the mind roles specified here are the ones checked for role bans when taking a ghost role!
 # TODO make this simpler

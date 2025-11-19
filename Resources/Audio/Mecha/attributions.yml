@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 - files: ["mechmove03.ogg"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Taken from TG station."

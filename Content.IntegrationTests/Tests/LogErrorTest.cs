@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 using Robust.Shared.Configuration;
 using Robust.Shared.Log;
 using Robust.UnitTesting;

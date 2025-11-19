@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿cmd-bql_select-desc = Show results of a BQL query in a client-side window
 cmd-bql_select-help = Usage: bql_select <bql query>
     The opened window allows you to teleport to or view variables the resulting entities.

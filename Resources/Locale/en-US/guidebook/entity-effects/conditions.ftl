@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 entity-condition-guidebook-total-damage =
     { $max ->
         [2147483648] it has at least {NATURALFIXED($min, 2)} total damage

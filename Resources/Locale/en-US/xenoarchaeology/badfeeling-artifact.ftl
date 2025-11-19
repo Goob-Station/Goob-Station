@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 badfeeling-artifact-1 = Something doesn't feel right.
 badfeeling-artifact-2 = You get a strange feeling in your gut.
 badfeeling-artifact-3 = Your instincts are trying to warn you about something.

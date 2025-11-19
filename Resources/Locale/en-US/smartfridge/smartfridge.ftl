@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 smart-fridge-component-try-eject-unknown-entry = Invalid selection!
 smart-fridge-component-try-eject-out-of-stock = Out of stock!
 smart-fridge-component-try-eject-access-denied = Access denied!

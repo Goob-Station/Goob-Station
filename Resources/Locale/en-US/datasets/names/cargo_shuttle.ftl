@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-cargo-shuttle-dataset-1 = A Shuttle Will Not Occur
 names-cargo-shuttle-dataset-2 = Big Money Shuttle
 names-cargo-shuttle-dataset-3 = Engine Change

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Headings
 turret-controls-window-title = Autonomous Defense Control System
 turret-controls-window-turret-status-label = Linked devices [{$count}]

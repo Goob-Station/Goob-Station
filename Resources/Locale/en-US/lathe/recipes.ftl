@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 lathe-recipe-Medkit-name = first aid kit (empty)
 lathe-recipe-MedkitBurn-name = burn treatment kit (empty)
 lathe-recipe-MedkitToxin-name = toxin treatment kit (empty)

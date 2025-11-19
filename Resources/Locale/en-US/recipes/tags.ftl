@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # clown
 construction-graph-tag-banana-peel = a banana peel
 construction-graph-tag-clown-suit = a clown suit

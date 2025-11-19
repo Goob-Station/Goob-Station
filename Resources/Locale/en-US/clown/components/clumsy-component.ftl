@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 clumsy-vaulting-fail-forced-message = { CAPITALIZE($bonker) } bonks { $victim }s head against { THE($bonkable) }!
 clumsy-vaulting-fail-message-user = You bonk your head against { THE($bonkable) }!
 clumsy-vaulting-fail-message-others = { $victim } bonks their head against { THE($bonkable) }!

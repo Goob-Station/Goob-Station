@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿comp-containment-turned-on = The containment field generator boots up.
 comp-containment-turned-off = The containment field generator shuts down.
 

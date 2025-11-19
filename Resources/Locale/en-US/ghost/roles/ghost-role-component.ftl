@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # also used in MakeGhostRuleWindow and MakeGhostRoleCommand
 ghost-role-component-default-rules = All normal rules apply unless an administrator tells you otherwise.
                                      You don't remember any of your previous life, and you don't remember anything you learned as a ghost.

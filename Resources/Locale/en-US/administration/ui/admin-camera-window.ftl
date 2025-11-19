@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿admin-camera-window-title = Observing { $name }
 admin-camera-window-title-placeholder = Observing
 admin-camera-window-follow = Follow

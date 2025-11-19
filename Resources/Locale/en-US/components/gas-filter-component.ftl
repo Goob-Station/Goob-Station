@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 comp-gas-filter-ui-filter-status = Status:
 comp-gas-filter-ui-status-enabled = On
 comp-gas-filter-ui-status-disabled = Off

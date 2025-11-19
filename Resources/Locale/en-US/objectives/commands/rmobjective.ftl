@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # addobjectives
 cmd-rmobjective-desc = Removes an objective from the player's mind.
 cmd-rmobjective-help = rmobjective <username> <index>

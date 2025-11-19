@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 suicide-command-description = Commits suicide
 suicide-command-help-text = The suicide command gives you a quick way out of a round while remaining in-character.
                             The method varies, first it will attempt to use the held item in your active hand.

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 uplink-bound-user-interface-insufficient-funds-popup = Insufficient funds!
 
 uplink-bound-user-interface-tc-balance-popup = TC Balance: [color={$weightedColor}]{$balance}[/color]

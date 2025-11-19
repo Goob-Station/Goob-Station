@@ -1,2 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+
+SPDX-License-Identifier: MIT-WIZARDS
+-->
+
 <controls1:MapGridControl
     xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls" />

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 credits-window-title = Credits
 credits-window-patrons-tab = Patrons
 credits-window-ss14contributorslist-tab = Credits

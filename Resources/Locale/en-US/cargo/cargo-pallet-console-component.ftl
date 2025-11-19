@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 
 # Cargo pallet sale console
 cargo-pallet-console-menu-title = Cargo sale console

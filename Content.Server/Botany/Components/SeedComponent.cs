@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 using Content.Server.Botany.Systems;
 using Content.Shared.Botany.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;

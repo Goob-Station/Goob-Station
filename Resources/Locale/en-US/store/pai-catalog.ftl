@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 pai-mass-scanner-name = Mass Scanner
 pai-mass-scanner-desc = Enables you to scan nearby masses to assist in navigation.
 

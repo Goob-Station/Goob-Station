@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 gas-ammonia-abbreviation = NH₃
 gas-carbon-dioxide-abbreviation = CO₂
 gas-frezon-abbreviation = F

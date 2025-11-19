@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 borg-player-not-allowed = The brain doesn't fit!
 borg-player-not-allowed-eject = The brain was expelled from the chassis!
 

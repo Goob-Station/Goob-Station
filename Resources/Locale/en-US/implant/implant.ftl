@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ## Implanter Attempt Messages
 
 implanter-component-implanting-target = {$user} is trying to implant you with something!

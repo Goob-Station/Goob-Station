@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 forensic-scanner-interface-title = Forensic scanner
 forensic-scanner-interface-fingerprints = Fingerprints
 forensic-scanner-interface-fibers = Fibers

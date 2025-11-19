@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 encryption-key-successfully-installed = You put the encryption key inside.
 encryption-key-slots-already-full = There is no place for another encryption key.
 encryption-keys-all-extracted = You pop out the encryption keys!

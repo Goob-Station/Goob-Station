@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 construction-condition-machine-container-empty = Remove the parts from the frame using a [color=cyan]Crowbar[/color].
 
 # MachineFrameComplete

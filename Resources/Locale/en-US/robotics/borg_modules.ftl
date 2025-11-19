@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 borg-slot-cables-empty = Cables
 borg-slot-construction-empty = Construction materials
 borg-slot-circuitboards-empty = Circuitboards

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 marking-SlimeGradientLeftArm-gradient_l_arm = Slime Left Arm (Gradient)
 marking-SlimeGradientLeftArm = Slime Left Arm (Gradient)
 

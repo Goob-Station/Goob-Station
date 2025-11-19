@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-xenoborg-dataset-1 = EVIL
 names-xenoborg-dataset-2 = Borgs-you
 names-xenoborg-dataset-3 = Destroyer

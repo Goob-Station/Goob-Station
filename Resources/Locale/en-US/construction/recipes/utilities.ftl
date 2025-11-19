@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 construction-recipe-gas-pipe-half = gas pipe half
 construction-recipe-gas-pipe-bend = gas pipe bend
 construction-recipe-gas-pipe-t-junction = gas pipe T-junction

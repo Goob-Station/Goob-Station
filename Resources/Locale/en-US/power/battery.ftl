@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿## Strings for the battery (SMES/substation) menu
 
 battery-menu-footer-left = Danger: high voltage

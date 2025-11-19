@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 examinable-hunger-component-examine-overfed = {CAPITALIZE(SUBJECT($entity))} {CONJUGATE-BASIC($entity, "look", "looks")} stuffed!
 examinable-hunger-component-examine-okay = {CAPITALIZE(SUBJECT($entity))} {CONJUGATE-BASIC($entity, "look", "looks")} content.
 examinable-hunger-component-examine-peckish = {CAPITALIZE(SUBJECT($entity))} {CONJUGATE-BASIC($entity, "look", "looks")} hungry.

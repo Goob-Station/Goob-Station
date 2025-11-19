@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 admin-player-actions-reason = Reason
 admin-player-actions-bans = Ban List
 admin-player-actions-notes = Notes

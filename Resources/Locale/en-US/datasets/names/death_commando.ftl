@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-death-commando-dataset-1 = A whole bunch of spiders in a SWAT suit
 names-death-commando-dataset-2 = AMERICA
 names-death-commando-dataset-3 = Beat Punchbeef

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 store-ui-default-title = Store
 store-ui-default-withdraw-text = Withdraw
 store-ui-refund-text = Refund

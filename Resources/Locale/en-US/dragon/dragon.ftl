@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 dragon-round-end-agent-name = dragon
 
 objective-issuer-dragon = [color=#7567b6]Space Dragon[/color]

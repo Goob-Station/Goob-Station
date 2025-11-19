@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Scurrets from Planet Wawa have two parts to their name - a 'chosen' and 'qualitative' name.
 
 # The qualitative name is usually related to an important feature

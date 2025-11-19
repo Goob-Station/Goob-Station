@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 reagent-name-bleach = bleach
 reagent-desc-bleach = Heavy duty cleaner that can clean tiles better than Space Cleaner. Extremely toxic when ingested.
 

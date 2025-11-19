@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿construction-presenter-to-craft = To craft this item, you need to:
 construction-presenter-to-build = To build this, first you need to:
 

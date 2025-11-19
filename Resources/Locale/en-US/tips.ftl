@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 tips-dataset-1 = If you're on fire, you can click the alert on the right of your screen to stop, drop, and roll.
 tips-dataset-2 = You can view and edit all keybindings used in-game at any time through the Options menu.
 tips-dataset-3 = You can access the in-game guidebook through the escape menu, or by pressing Numpad 0 by default.

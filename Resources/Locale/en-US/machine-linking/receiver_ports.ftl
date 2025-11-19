@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 signal-port-name-autoclose = Autoclose
 signal-port-description-autoclose = Toggles whether the device should automatically close.
 

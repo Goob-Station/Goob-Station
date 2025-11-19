@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 apc-menu-title = APC
 apc-menu-breaker-label = Main Breaker
 apc-menu-breaker-button = Toggle

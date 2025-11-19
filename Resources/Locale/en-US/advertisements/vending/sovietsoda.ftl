@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿advertisement-sovietsoda-1 = For comrade and country.
 advertisement-sovietsoda-2 = Have you fulfilled your nutrition quota today?
 advertisement-sovietsoda-3 = Very nice!

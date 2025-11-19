@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿advertisement-vendomat-1 = Only the finest!
 advertisement-vendomat-2 = Have some tools.
 advertisement-vendomat-3 = The most robust equipment.

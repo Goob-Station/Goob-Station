@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 store-currency-inserted = {CAPITALIZE(THE($used))} is inserted into {THE($target)}.
 store-currency-war-boost-given = { CAPITALIZE($target) } starts buzzing
 store-currency-inserted-implant = {CAPITALIZE(THE($used))} is inserted into your implant.

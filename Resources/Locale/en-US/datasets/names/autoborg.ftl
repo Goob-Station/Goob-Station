@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-autoborg-dataset-1 = Autoburger Helper
 names-autoborg-dataset-2 = Bob
 names-autoborg-dataset-3 = Joe

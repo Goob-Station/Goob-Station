@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 nuke-component-cant-anchor-floor = The anchoring bolts fail to lock into the floor!
 nuke-component-cant-anchor-toggle = The nuclear authentication disk is required to toggle the floor bolts!
 nuke-component-announcement-sender = Nuclear Fission Explosive

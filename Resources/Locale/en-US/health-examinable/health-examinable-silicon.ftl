@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 health-examinable-silicon-none = There is no obvious damage to be seen.
 
 health-examinable-silicon-Blunt-15 = [color=red]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } minor dents on { POSS-ADJ($target) } chassis.[/color]

@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+
+SPDX-License-Identifier: MIT-WIZARDS
+-->
+
 <!-- Guidelines: https://docs.spacestation14.io/en/getting-started/pr-guideline -->
 
 ## About the PR

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # This should probably use the same prefix system as the mobster accent.
 # For the record, these do not work right now - even when uncommented.
 

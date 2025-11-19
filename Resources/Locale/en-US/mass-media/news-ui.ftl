@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 news-read-ui-next-text = ▶
 news-read-ui-prev-text = ◀
 news-read-ui-next-tooltip = Next

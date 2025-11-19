@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿parse-minutes-fail = Unable to parse '{$minutes}' as minutes
 parse-session-fail = Did not find session for '{$username}'
 

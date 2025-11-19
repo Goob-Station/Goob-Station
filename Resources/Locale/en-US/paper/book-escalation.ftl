@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 book-text-escalation = When it comes to getting robusted, it's all about strategy. Do it right and you'll be the envy of the station. Do it wrong and the gods themselves may turn against you. Personally, I always aim for the former...
 
         First things first: let the insults fly! This is your chance to really let your opponent know what you think of their ridiculously large shoes and that annoying bike horn.

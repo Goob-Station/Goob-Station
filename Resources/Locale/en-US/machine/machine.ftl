@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 machine-insert-item = {CAPITALIZE(THE($user))} inserted {THE($item)} into {THE($machine)}.
 
 machine-upgrade-examinable-verb-text = Upgrades

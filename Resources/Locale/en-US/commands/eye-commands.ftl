@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿parse-bool-fail = Unable to parse {$arg} as a bool
 parse-float-fail = Unable to parse {$arg} as a float
 

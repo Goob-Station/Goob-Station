@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 cmd-dungen-desc = Generates a procedural dungeon with the specified preset, position, and seed. Will spawn in space if the MapId doesn't have MapGridComponent.
 cmd-dungen-help = dungen <MapId> <DungeonPreset> <PosX> <PosY> [seed]
 cmd-dungen-arg-count = Require 4 args.

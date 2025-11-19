@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-vulpkanin-male-dataset-1 = Abharr
 names-vulpkanin-male-dataset-2 = Admir
 names-vulpkanin-male-dataset-3 = Aleksi

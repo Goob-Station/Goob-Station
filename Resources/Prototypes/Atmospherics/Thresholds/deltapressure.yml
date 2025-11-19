@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ## Base prototypes for DeltaPressureComponent settings, to make it easy to just
 ## parent to them and just them globally here.
 

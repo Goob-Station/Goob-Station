@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-dragon-title-dataset-1 = the Dread
 names-dragon-title-dataset-2 = the Scorchinator
 names-dragon-title-dataset-3 = the Carpmonger

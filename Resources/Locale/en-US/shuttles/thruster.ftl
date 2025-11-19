@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 thruster-comp-enabled = The thruster is turned [color=green]on[/color].
 thruster-comp-disabled = The thruster is turned [color=red]off[/color].
 thruster-comp-nozzle-direction = The nozzle is facing [color=yellow]{$direction}[/color].

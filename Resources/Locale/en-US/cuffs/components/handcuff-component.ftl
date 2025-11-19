@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 handcuff-component-target-self = You start restraining yourself.
 handcuff-component-cuffs-broken-error = The restraints are broken!
 handcuff-component-target-has-no-hands-error = {$targetName} has no hands!

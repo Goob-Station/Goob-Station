@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ### Messages that pop up when metabolizing ethyloxyephedrine
 
 ethyloxyephedrine-effect-feeling-awake = You feel more awake.

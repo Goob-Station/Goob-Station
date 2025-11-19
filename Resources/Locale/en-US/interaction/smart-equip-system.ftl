@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿smart-equip-missing-equipment-slot = You have no {$slotName} slot to interact with!
 smart-equip-empty-equipment-slot = There's nothing in your {$slotName} slot to take out!
 smart-equip-no-valid-item-slot-insert = There's no valid item slot for {THE($item)} to go into!

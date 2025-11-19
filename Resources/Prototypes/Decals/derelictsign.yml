@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 #This has to be split up like this because tiles remove the decal under them, and the derelict sign is bigger then 32x32 when combined.
 
 #Bottom

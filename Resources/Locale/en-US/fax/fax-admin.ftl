@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Command
 cmd-faxui-desc = Open admin window for sending faxes
 cmd-faxui-help = Usage: faxui

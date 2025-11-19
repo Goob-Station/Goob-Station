@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿advertisement-cigs-1 = Space cigs taste good like a cigarette should.
 advertisement-cigs-2 = I'd rather toolbox than switch.
 advertisement-cigs-3 = Smoke!

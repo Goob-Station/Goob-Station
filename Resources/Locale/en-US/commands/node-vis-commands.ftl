@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿cmd-nodevis-desc = Toggles node group visualization.
 cmd-nodevis-help = Usage: nodevis
 

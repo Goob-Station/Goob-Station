@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿cmd-whitelistadd-desc = Adds the player with the given username to the server whitelist.
 cmd-whitelistadd-help = Usage: whitelistadd <username or User ID>
 cmd-whitelistadd-existing = {$username} is already on the whitelist!

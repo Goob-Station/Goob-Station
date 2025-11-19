@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿action-popup-blocking-user = You raise your {$shield}!
 action-popup-blocking-disabling-user = You lower your {$shield}!
 

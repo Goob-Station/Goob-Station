@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;

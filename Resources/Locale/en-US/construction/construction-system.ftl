@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ## ConstructionSystem
 
 construction-system-construct-cannot-start-another-construction = You can't start another construction now!

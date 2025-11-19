@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿roles-antag-changeling-name = Changeling
 roles-antag-changeling-objective = A intelligent predator that assumes the identities of its victims.
 

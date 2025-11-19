@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 #if NETCOREAPP
 using System.Runtime.Intrinsics;
 using System.Runtime.Intrinsics.X86;

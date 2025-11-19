@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-revenant-type-dataset-1 = essence
 names-revenant-type-dataset-2 = ghost
 names-revenant-type-dataset-3 = phantom

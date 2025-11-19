@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+
+SPDX-License-Identifier: MIT-WIZARDS
+-->
+
 # Space Station 14 DocFX
 ![](https://i.imgur.com/0h6VoRZ.png)
 

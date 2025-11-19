@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Damage examines
 damage-examinable-verb-text = Damage
 damage-examinable-verb-message = Examine the damage values.

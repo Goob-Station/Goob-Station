@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 metabolizer-type-animal = Animal
 metabolizer-type-bloodsucker = Bloodsucker
 metabolizer-type-dragon = Dragon

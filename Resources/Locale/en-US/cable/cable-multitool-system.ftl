@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 cable-multitool-system-internal-error-no-power-node = Your multitool reads, "INTERNAL ERROR: NOT A POWER CABLE".
 cable-multitool-system-internal-error-missing-component = Your multitool reads, "INTERNAL ERROR: CABLE ABNORMAL".
 cable-multitool-system-verb-name = Power

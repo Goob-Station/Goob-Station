@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ### UI
 
 chat-manager-max-message-length = Your message exceeds {$maxMessageLength} character limit

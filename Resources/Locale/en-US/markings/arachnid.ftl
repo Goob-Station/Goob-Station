@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 marking-ArachnidCheliceraeDownwards = Chelicerae (Downwards)
 marking-ArachnidCheliceraeDownwards-downwards = Chelicerae
 

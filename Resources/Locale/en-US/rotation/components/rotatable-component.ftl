@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # RotatableComponent
 rotatable-component-try-rotate-stuck = It's stuck.
 

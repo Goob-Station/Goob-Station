@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 construction-recipe-diagonal-shuttle-wall = shuttle wall (diagonal)
 construction-window-diagonal = window (diagonal)
 construction-recipe-reinforced-window-diagonal = reinforced window (diagonal)

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 health-analyzer-window-no-patient-data-text = No patient data.
 health-analyzer-window-entity-unknown-text = Unknown
 health-analyzer-window-entity-unknown-species-text = Non-Humanoid

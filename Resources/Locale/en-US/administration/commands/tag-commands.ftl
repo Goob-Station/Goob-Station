@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿addtag-command-description = Adds a tag to a given entity
 addtag-command-help = Usage: addtag <entity uid> <tag>
 

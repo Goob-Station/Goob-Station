@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 advertisement-secdrobe-1 = Beat perps in style!
 advertisement-secdrobe-2 = It's red so you can't see the blood!
 advertisement-secdrobe-3 = You have the right to be fashionable!

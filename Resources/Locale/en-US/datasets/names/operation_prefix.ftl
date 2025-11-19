@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-operation-prefix-dataset-1 = Ancient
 names-operation-prefix-dataset-2 = Angry
 names-operation-prefix-dataset-3 = Arachnid

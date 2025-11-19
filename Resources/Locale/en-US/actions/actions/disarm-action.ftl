@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 disarm-action-disarmable = {CAPITALIZE(THE($targetName))} is not disarmable!
 disarm-action-popup-message-other-clients = {CAPITALIZE(THE($performerName))} disarmed {THE($targetName)}!
 disarm-action-popup-message-cursor = Disarmed {THE($targetName)}!

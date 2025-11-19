@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-rollie-dataset-1 = bifta
 names-rollie-dataset-2 = bifter
 names-rollie-dataset-3 = bird

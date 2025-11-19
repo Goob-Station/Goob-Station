@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 - files: ["female_sigh.ogg", "male_sigh.ogg"]
   license: "CC-BY-3.0"
   copyright: "https://github.com/ss220-space/Paradise/"

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Spells
 spellbook-fireball-name = Fireball
 spellbook-fireball-desc = Get most crew exploding with rage when they see this fireball heading toward them! Upgradeable.

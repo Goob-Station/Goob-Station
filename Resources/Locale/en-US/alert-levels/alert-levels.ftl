@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 alert-level-announcement = Attention! Station alert level is now {$name}! {$announcement}
 
 alert-level-unknown = Unknown.

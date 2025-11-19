@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ## UI
 door-remote-open-close-text = Opens and Closes Doors
 door-remote-toggle-bolt-text = Toggles Bolts

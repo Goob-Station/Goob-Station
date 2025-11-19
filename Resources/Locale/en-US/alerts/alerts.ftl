@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 alerts-low-oxygen-name = [color=red]Low Oxygen[/color]
 alerts-low-oxygen-desc = There is [color=red]not enough oxygen[/color] in the air you are breathing. Put on [color=green]internals[/color].
 

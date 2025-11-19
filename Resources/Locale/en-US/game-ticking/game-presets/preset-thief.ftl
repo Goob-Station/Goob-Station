@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 thief-role-greeting-human =
     You are criminal scum, a kleptomaniac previously arrested and on parole for petty theft. You need to add more to your collection.
     You were forcibly given a pacifism implant after your last arrest, but that can't stop you from getting your fix by any means necessary.

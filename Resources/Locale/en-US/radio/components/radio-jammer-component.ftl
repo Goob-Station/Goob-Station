@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 radio-jammer-component-on-use = The jammer is now {$state}.
 radio-jammer-component-on-state = on
 radio-jammer-component-off-state = off

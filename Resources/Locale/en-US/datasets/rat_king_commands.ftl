@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 rat-king-command-stay-1 = Sit!
 rat-king-command-stay-2 = Stay!
 rat-king-command-stay-3 = Stop!

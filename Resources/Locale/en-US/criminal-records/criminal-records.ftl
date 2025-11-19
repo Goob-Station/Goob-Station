@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 criminal-records-console-window-title = Criminal Records Computer
 criminal-records-console-records-list-title = Crewmembers
 criminal-records-console-select-record-info = Select a record.

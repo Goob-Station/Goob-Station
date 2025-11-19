@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 construction-recipe-curtains-cloth = curtains (cloth)
 construction-recipe-curtains-black = curtains (black)
 construction-recipe-curtains-blue = curtains (blue)

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 lock-comp-on-examined-is-locked = The {$entityName} seems to be locked.
 lock-comp-on-examined-is-unlocked = The {$entityName} seems to be unlocked.
 lock-comp-do-lock-success = You lock the {$entityName}.

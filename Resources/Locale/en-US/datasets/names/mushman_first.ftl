@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-mushman-first-dataset-1 = Pleurocybella
 names-mushman-first-dataset-2 = Geastrum
 names-mushman-first-dataset-3 = Tricholoma

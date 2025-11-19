@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 access-reader-unknown-id = Unknown
 access-reader-access-label = [color=yellow]{$access}[/color]
 access-reader-examination = Access is generally restricted to personnel with {$access} access.

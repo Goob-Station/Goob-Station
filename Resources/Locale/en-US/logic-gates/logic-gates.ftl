@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 logic-gate-examine = It is currently {INDEFINITE($gate)} {$gate} gate.
 
 logic-gate-cycle = Switched to {INDEFINITE($gate)} {$gate} gate

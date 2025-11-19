@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿laws-number-wrapper = [bold]Law { $lawnumber }:[/bold] { $lawstring }
 
 law-crewsimov-name = Crewsimov

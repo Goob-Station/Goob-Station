@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # mop bucket
 mop-bucket-slot-component-slot-name-item = Item
 mop-bucket-slot-component-eject-verb = Take out

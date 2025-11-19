@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 spooky-speaker-generic-1 = ...ooOoooOOoooo...
 spooky-speaker-generic-2 = ...can anyone hear me...?
 spooky-speaker-generic-3 = ...join us...

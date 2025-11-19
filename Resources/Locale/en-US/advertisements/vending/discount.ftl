@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿advertisement-discount-1 = Discount Dan, he's the man!
 advertisement-discount-2 = There ain't nothing better in this world than a bite of mystery.
 advertisement-discount-3 = Don't listen to those other machines, buy my product!

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿- files: ["diona_scream.ogg"]
   license: "CC-BY-4.0"
   copyright: "Made by InspectorJ (http://www.jshaw.co.uk/) of freesound.org. Modified by Morb0 for SS14 with the following modifications: Noise reduced, cropped, converted to mono"

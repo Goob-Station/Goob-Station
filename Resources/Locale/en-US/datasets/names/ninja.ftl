@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-ninja-dataset-1 = Shadow
 names-ninja-dataset-2 = Sarutobi
 names-ninja-dataset-3 = Smoke

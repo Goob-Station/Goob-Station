@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 marking-HumanHairAfro = Afro
 marking-HumanHairAfro2 = Afro 2
 marking-HumanHairBigafro = Afro (Large)

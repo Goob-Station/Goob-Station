@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ame-controller-component-fuel-slot-fail-whitelist = You can't put that in the controller...
 ame-controller-component-fuel-slot-fail-locked = Power down the AME before manipulating its fuel.
 ame-controller-component-fuel-slot-success-insert = You insert the jar into the fuel slot.

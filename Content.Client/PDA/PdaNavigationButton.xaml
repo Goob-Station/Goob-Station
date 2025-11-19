@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+
+SPDX-License-Identifier: MIT-WIZARDS
+-->
+
 ﻿<pda:PdaNavigationButton xmlns="https://spacestation14.io" xmlns:pda="clr-namespace:Content.Client.PDA">
     <PanelContainer Name="Background"/>
     <AnimatedTextureRect Margin="0 0 0 2" Visible="False" Name="Icon" HorizontalAlignment="Center" VerticalAlignment="Center"/>

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿price-gun-pricing-result = The device deems {THE($object)} to be worth {$price} spesos.
 price-gun-verb-text = Appraisal
 price-gun-verb-message = Appraise {THE($object)}.

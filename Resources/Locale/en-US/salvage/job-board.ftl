@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 salvage-job-rank-title-0 = [color=gray]Scavenger[/color]
 salvage-job-rank-title-1 = [color=white]Scrapper[/color]
 salvage-job-rank-title-2 = [color=yellow]Specialist[/color]

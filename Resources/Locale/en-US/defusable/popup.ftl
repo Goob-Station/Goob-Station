@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 defusable-popup-begun = {CAPITALIZE(THE($name))} beeps to life; its light is on!
 defusable-popup-defuse = {CAPITALIZE(THE($name))} beeps one last time, as the light shuts off forever.
 defusable-popup-boom = {CAPITALIZE(THE($name))} roars as the internal bomb explodes!

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ## UI
 cloning-console-window-title = Cloning Console
 cloning-console-window-clone-button-text = Clone

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 comp-gas-canister-ui-canister-status = Canister Status
 comp-gas-canister-ui-canister-relabel = Relabel
 comp-gas-canister-ui-canister-pressure = Canister Pressure:

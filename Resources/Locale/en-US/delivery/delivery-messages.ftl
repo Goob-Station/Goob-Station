@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 delivery-penalty-default-reason = WARNING
 delivery-penalty-default-account-name = UNKNOWN ACCOUNT
 

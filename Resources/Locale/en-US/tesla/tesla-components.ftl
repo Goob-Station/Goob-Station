@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 tesla-coil-on = The tesla coil turns on.
 tesla-coil-off = The tesla coil turns off.
 

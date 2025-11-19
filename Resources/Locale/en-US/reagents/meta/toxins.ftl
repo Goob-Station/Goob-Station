@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 reagent-name-toxin = toxin
 reagent-desc-toxin = An unsurprisingly toxic chemical. Available at an emagged chem dispenser.
 

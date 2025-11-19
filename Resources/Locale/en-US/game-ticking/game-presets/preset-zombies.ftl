@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿zombie-title = Zombies
 zombie-description = The undead have been unleashed on the station! Work with the crew to survive the outbreak and secure the station.
 

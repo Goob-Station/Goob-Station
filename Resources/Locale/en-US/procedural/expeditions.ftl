@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 salvage-expedition-type = Mission
 salvage-expedition-window-title = Salvage expeditions
 salvage-expedition-window-difficulty = Difficulty:

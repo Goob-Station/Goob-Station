@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 using System.Linq;
 using Content.IntegrationTests.Tests.Construction.Interaction;
 using Content.IntegrationTests.Tests.Interaction;

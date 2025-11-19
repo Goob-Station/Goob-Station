@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 character-setup-gui-character-setup-label = Character setup
 character-setup-gui-character-setup-adminremarks-button = Admin Remarks
 character-setup-gui-character-setup-stats-button = Stats

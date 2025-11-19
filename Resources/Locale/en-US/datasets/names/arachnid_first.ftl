@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-arachnid-first-dataset-1 = Amblyocarenum
 names-arachnid-first-dataset-2 = Aname
 names-arachnid-first-dataset-3 = Aptostichus

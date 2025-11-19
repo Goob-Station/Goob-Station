@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 strippable-component-not-holding-anything = You aren't holding anything!
 strippable-component-cannot-drop = You can't drop that!
 strippable-component-item-slot-occupied-message = {CAPITALIZE(THE($owner))} already has something there!

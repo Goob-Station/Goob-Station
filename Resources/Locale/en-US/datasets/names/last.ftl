@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-last-dataset-1 = Ackerley
 names-last-dataset-2 = Adams
 names-last-dataset-3 = Addison

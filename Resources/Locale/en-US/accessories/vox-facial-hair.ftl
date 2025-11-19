@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 marking-VoxFacialHairBeard = Vox Beard (Quills)
 marking-VoxFacialHairColonel = Vox Moustache (Colonel)
 marking-VoxFacialHairFu = Vox Moustache (Quill Fu)

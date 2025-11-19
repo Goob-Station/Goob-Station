@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 job-name-warden = Warden
 job-name-security = Security Officer
 job-name-cadet = Security Cadet

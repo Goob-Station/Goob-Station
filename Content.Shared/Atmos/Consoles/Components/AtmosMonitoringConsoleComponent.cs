@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 using Content.Shared.Atmos.Consoles;
 using Content.Shared.Pinpointer;
 using Content.Shared.Prototypes;

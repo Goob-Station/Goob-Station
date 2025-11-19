@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-ninja-title-dataset-1 = Master
 names-ninja-title-dataset-2 = Sensei
 names-ninja-title-dataset-3 = Swift

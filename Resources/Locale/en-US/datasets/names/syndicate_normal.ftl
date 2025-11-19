@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-syndicate-normal-dataset-1 = Alfa
 names-syndicate-normal-dataset-2 = Bravo
 names-syndicate-normal-dataset-3 = Charlie

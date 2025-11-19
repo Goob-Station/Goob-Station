@@ -1,1 +1,5 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 objective-condition-steal-research-title = Steal {$count} technologies.

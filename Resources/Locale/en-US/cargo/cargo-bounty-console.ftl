@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿bounty-console-menu-title = Cargo bounty console
 bounty-console-label-button-text = Print label
 bounty-console-skip-button-text = Skip

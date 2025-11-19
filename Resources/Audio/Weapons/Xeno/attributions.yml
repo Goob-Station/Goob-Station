@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 - files: ["alien_claw_flesh1.ogg", "alien_claw_flesh2.ogg", "alien_claw_flesh3.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from CM-SS13"

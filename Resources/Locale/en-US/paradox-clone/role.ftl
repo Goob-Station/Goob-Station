@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 paradox-clone-round-end-agent-name = paradox clone
 
 objective-issuer-paradox = [color=lightblue]Paradox[/color]

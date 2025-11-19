@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 item-recall-marked-name = Recall {CAPITALIZE($item)}
 item-recall-marked-description = Recall {THE($item)} back into your hand.
 

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 verbs-dataset-1 = accept
 verbs-dataset-2 = add
 verbs-dataset-3 = admire

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿## TabletopGameComponent
 tabletop-verb-play-game = Play Game
 tabletop-verb-dump-pieces = Dump Pieces

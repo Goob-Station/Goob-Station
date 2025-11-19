@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 entity-category-name-actions = Actions
 entity-category-name-game-rules = Game Rules
 entity-category-name-objectives = Objectives

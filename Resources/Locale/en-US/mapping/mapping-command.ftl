@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 cmd-mapping-desc = Create or load a map and teleports you to it.
 cmd-mapping-help = Usage: mapping [MapID] [Path] [Grid]
 cmd-mapping-server = Only players can use this command.

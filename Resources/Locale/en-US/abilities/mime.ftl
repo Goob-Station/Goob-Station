@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 mime-cant-speak = Your vow of silence prevents you from speaking.
 mime-invisible-wall-popup-self = You brush up against an invisible wall!
 mime-invisible-wall-popup-others = {CAPITALIZE(THE($mime))} brushes up against an invisible wall!

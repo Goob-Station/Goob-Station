@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 traversal-distorter-set-up = Traversal bias set to up, toward safer nodes
 traversal-distorter-set-down = Traversal bias set to down, toward more dangerous nodes
 

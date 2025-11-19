@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 cargo-gifts-event-announcement = Congratulations! { $sender } has decided to send { $description } to the station { $dest }. Look for it in your next cargo shipment.
 cargo-gift-default-description = A bundle of gifts
 cargo-gift-default-sender = NanoTrasen

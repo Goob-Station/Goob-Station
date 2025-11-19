@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 - files: ["moth_scream.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from https://github.com/tgstation/tgstation/commit/31c19654e0f641166ecd80c672ea05362fd19488"

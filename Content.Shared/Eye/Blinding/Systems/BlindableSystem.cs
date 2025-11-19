@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 using Content.Shared.Camera;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Inventory;

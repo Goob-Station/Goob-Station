@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿cmd-camera-desc = Opens a remote camera window for an entity.
 cmd-camera-help = Usage: camera <entityUid or player>
 

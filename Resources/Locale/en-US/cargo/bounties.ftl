@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 bounty-item-artifact = Alien artifact
 bounty-item-baseball-bat = Baseball bat
 bounty-item-box-hugs = Box of hugs

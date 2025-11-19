@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # DoorWelded
 construction-examine-condition-door-weld = First, weld the {$entityName}.
 construction-examine-condition-door-unweld = First, unweld the {$entityName}.

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿cmd-adminnotes-desc = Opens the admin notes panel of target player.
 cmd-adminnotes-help = Usage: adminnotes <UserId OR Username>
 

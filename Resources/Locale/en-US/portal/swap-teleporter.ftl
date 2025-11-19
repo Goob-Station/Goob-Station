@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 swap-teleporter-popup-link-create = Quantum link established!
 swap-teleporter-popup-link-fail-already = Quantum link failed! Link already present on device.
 swap-teleporter-popup-link-fail-already-other = Quantum link failed! Link already present on secondary device.

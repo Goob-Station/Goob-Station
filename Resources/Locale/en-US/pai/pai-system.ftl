@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 pai-system-pai-installed = A pAI is installed.
 pai-system-off = No pAI is installed.
 pai-system-still-searching = Still searching for a pAI.

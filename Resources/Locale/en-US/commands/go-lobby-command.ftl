@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿cmd-golobby-desc = Enables the lobby and restarts the round.
 cmd-golobby-help = Usage: golobby / golobby <preset>
 cmd-golobby-success = Enabling the lobby and restarting the round.

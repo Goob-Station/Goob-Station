@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 main-menu-invalid-username-with-reason = Invalid username:
                                          {$invalidReason}
 main-menu-invalid-username = Invalid username

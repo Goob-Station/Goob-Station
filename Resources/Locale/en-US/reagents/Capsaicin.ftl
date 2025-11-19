@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿### Messages that pop up when metabolizing Capsaicin Oil.
 
 capsaicin-effect-light-burn = You feel a slight tingle in your throat...

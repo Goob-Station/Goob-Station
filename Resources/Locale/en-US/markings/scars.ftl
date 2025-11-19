@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 marking-ScarEyeRight-scar_eye_right = Right Eye Scar
 marking-ScarEyeRight = Eye Scar (Right)
 

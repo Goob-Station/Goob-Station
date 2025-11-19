@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 analysis-console-menu-title = Broad-Spectrum Mark 3 Analysis Console
 analysis-console-server-list-button = Server
 analysis-console-extract-button = Extract points

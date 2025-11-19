@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 atmos-alerts-window-title = Atmospheric Alerts Computer
 atmos-alerts-window-station-name = [color=white][font size=14]{$stationName}[/font][/color]
 atmos-alerts-window-unknown-location = Unknown location

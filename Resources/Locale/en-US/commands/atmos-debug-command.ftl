@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 cmd-atvrange-desc = Sets the atmos debug range (as two floats, start [red] and end [blue])
 cmd-atvrange-help = Usage: {$command} <start> <end>
 cmd-atvrange-error-start = Bad float START

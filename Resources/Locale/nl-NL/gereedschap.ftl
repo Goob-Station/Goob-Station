@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ent-Wrench = moersleutel
     .desc = Een veelgebruikt stuk gereedschap voor montage en demontage.
     .suffix = Test

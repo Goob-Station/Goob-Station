@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ## Traitor
 
 traitor-round-end-codewords = The codewords were: [color=White]{$codewords}[/color]

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 const sw = document.getElementById("switch-style"), sw_mobile = document.getElementById("switch-style-m"), b = document.body;
 if (b) {
   function toggleTheme(target, dark) {

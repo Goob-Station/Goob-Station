@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # User interface
 comms-console-menu-title = Communications Console
 comms-console-menu-announcement-placeholder = Announcement text...

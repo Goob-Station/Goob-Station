@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+
+SPDX-License-Identifier: MIT-WIZARDS
+-->
+
 # Space Station 14 Code of Conduct
 
 Space Station 14's staff and community is made up volunteers from all over the world, working on every aspect of the project - including development, teaching, and hosting integral tools.

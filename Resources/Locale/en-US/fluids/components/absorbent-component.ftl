@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 mopping-system-target-container-empty = { CAPITALIZE(THE($target)) } is empty!
 mopping-system-target-container-empty-water = { CAPITALIZE(THE($target)) } has no water!
 mopping-system-puddle-space = { CAPITALIZE(THE($used)) } is full of water.

@@ -1,2 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+
+SPDX-License-Identifier: MIT-WIZARDS
+-->
+
 <paper:StampLabel xmlns="https://spacestation14.io"
     xmlns:paper="clr-namespace:Content.Client.Paper.UI" />

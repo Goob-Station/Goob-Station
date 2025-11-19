@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 selectable-lock-verb-category-name = Add lock
 
 selectable-lock-no-lock-verb = No lock

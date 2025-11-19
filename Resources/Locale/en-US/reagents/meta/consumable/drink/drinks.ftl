@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 reagent-name-coffee = coffee
 reagent-desc-coffee = A drink made from brewed coffee beans. Contains a moderate amount of caffeine.
 

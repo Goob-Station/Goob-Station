@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 cmd-panicbunker-desc = Toggles the panic bunker, which enables stricter restrictions on who's allowed to join the server.
 cmd-panicbunker-help = Usage: panicbunker
 panicbunker-command-enabled = Panic bunker has been enabled.

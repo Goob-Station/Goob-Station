@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 markings-used = Used Markings
 markings-unused = Unused Markings
 markings-add = Add Marking

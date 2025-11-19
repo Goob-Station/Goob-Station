@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 cmd-playerpanel-desc = Displays general information and actions for a player
 cmd-playerpanel-help = Usage: playerpanel <name or user ID>
 

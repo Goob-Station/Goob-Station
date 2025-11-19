@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 book-cnc-sheet = C&C 5e Character Sheet
     --------------------------------------------------------------------------------------
     SECTION 1:  THE BASICS

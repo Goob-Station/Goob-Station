@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 lube-success = {CAPITALIZE(THE($target))} has been covered in lube!
 lubed-name-prefix = lubed {$baseName}
 lube-failure = Can't cover {THE($target)} in lube!

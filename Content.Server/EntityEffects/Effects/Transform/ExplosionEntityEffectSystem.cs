@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿using Content.Server.Explosion.EntitySystems;
 using Content.Shared.EntityEffects;
 using ExplosionEffect = Content.Shared.EntityEffects.Effects.Transform.Explosion;

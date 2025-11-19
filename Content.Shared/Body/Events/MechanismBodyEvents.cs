@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 namespace Content.Shared.Body.Events;
 
 // All of these events are raised on a mechanism entity when added/removed to a body in different

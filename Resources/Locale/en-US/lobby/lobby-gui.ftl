@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ui-lobby-title = Lobby: {$serverName}
 ui-lobby-ahelp-button = AHelp
 ui-lobby-options-button = Options

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 mech-soundboard-BikeHorn = Honk!
 mech-soundboard-CluwneHorn = !knoH
 mech-soundboard-TrollAnimals = animal noises

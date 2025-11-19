@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿department-Cargo-description = Complete bounties, earn Spessos, and order useful supplies for the crew.
 department-Civilian-description = Perform small helpful tasks to keep the station sane and well catered.
 department-Command-description = Manage the crew and keep them working efficiently.

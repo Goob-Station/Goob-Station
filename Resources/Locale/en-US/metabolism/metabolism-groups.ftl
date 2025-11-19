@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 metabolism-group-poison = Poison
 metabolism-group-medicine = Medicine
 metabolism-group-narcotic = Narcotic

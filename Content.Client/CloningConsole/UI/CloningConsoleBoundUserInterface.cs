@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Content.Shared.Cloning.CloningConsole;

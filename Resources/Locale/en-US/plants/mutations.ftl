@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 mutation-plant-bioluminescent = It glows with a gentle light.
 mutation-plant-kudzu = It is growing unusually fast and thin.
 mutation-plant-ligneous = It is woody and will need a sharp tool to harvest.

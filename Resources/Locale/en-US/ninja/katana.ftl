@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ninja-katana-recalled = Your Energy Katana teleports into your hand!
 ninja-hands-full = Your hands are full!
 

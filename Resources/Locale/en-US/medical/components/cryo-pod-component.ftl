@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿# Ejection verb label.
 cryo-pod-verb-noun-occupant = Patient
 # Examine text showing whether there's a beaker in the pod and if it is empty.

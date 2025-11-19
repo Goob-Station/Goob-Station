@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 gases-oxygen = Oxygen
 gases-nitrogen = Nitrogen
 gases-co2 = Carbon Dioxide

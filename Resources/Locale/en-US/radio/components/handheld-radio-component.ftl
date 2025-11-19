@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 handheld-radio-component-on-use = The radio is now {$radioState}.
 handheld-radio-component-on-examine = It's set to broadcast over the {$frequency} frequency.
 handheld-radio-component-on-state = on

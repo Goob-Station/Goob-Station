@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 node-scan-tooltip = Scan active nodes
 node-scan-no-data = No active node data found
 node-scan-display-title = Node scanner

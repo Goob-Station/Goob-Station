@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # "funny" placeholders of extremely minor/non-crimes for wanted reason dialog
 - type: localizedDataset
   id: CriminalRecordsWantedReasonPlaceholders

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 cargoproduct-category-name-armory = Armory
 cargoproduct-category-name-atmospherics = Atmospherics
 cargoproduct-category-name-cargo = Cargo

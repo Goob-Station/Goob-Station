@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 signal-port-name-pressed = Pressed
 signal-port-description-pressed = This port is invoked whenever the transmitter is activated.
 

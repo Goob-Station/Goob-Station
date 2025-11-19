@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿# Popups
 
 network-configurator-device-saved = Successfully saved network device {$device} with address {$address}!

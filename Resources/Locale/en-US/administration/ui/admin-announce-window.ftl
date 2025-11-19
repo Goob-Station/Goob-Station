@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 admin-announce-title = Make Announcement
 admin-announce-announcement-placeholder = Announcement text...
 admin-announce-announcer-placeholder = Announcer

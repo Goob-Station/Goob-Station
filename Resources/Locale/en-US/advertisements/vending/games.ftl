@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 advertisement-goodcleanfun-1 = Escape to a fantasy world!
 advertisement-goodcleanfun-2 = Fuel your gambling addiction!
 advertisement-goodcleanfun-3 = Ruin your friendships!

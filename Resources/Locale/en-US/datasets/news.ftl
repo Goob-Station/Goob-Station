@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 news-dataset-1 = Tree stuck in tajaran; firefighters baffled.
 news-dataset-2 = Armadillos want aardvarks removed from dictionary claims 'here first'.
 news-dataset-3 = Angel found dancing on pinhead ordered to stop; cited for public nuisance.

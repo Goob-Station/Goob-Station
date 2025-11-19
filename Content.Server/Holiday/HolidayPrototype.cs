@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 using Content.Server.Holiday.Greet;
 using Content.Server.Holiday.Interfaces;
 using Content.Server.Holiday.ShouldCelebrate;

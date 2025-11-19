@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿station-event-meteor-swarm-start-announcement = Meteors have been detected on collision course with the station.
 station-event-meteor-swarm-end-announcement = The meteor swarm has passed. Please return to your stations.
 

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 rejuvenate-command-description = Fully heals a mob.
 rejuvenate-command-help-text = Usage: rejuvenate <mobUid_1> <mobUid_2> ... <mobUid_n>
                                Attempts to heal the user's mob if no arguments are provided.

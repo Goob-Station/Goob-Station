@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 chatsan-smiles = smiles
 chatsan-frowns = frowns
 chatsan-smiles-widely = smiles widely

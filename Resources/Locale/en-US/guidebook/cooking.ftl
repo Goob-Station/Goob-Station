@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 guidebook-microwave-ingredients-header = Ingredients
 guidebook-microwave-cook-time-header = Cooking Time
 guidebook-microwave-cook-time =

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿ghost-command-description = Give up on life and become a ghost.
 ghost-command-help-text = The ghost command turns you into a ghost and makes the character you played permanently catatonic.
                           Please note that you cannot return to your character's body after ghosting.

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 job-supervisors-centcom = Central Command
 job-supervisors-captain = the Captain
 job-supervisors-hop = the Head of Personnel

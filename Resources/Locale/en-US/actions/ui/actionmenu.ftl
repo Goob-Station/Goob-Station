@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ## Action menu stuff (left panel, with hotbars etc)
 
 ui-actionmenu-title = Actions

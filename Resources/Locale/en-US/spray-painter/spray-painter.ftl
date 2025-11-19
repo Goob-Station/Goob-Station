@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Components
 spray-painter-ammo-on-examine = It holds {$charges} charges.
 spray-painter-ammo-after-interact-full = The spray painter is full!

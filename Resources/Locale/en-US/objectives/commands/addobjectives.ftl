@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # addobjectives
 cmd-addobjective-desc = Adds an objective to the player's mind.
 cmd-addobjective-help = addobjective <username> <objectiveID>

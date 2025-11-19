@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ### Solution transfer component
 
 comp-solution-transfer-fill-normal = You fill {THE($target)} with {$amount}u from {THE($owner)}.

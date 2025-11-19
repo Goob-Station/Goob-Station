@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 lathe-menu-title = Lathe Menu
 lathe-menu-queue = Queue
 lathe-menu-server-list = Server list

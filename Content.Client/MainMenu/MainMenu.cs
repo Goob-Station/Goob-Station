@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 using System.Text.RegularExpressions;
 using Content.Client.MainMenu.UI;
 using Content.Client.UserInterface.Systems.EscapeMenu;

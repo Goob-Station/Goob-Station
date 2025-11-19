@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Intentionally does not include channels like syndicate comms or binary, since these getting in to the hands of random people can cause a round to derail.
 - type: entity
   name: random encryption key spawner

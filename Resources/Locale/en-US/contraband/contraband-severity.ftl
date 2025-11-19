@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 contraband-examine-text-Minor =
     { $type ->
         *[item] [color=yellow]This item is considered minor contraband.[/color]

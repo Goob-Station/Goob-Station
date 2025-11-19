@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ## UI
 cargo-console-menu-title = Cargo request console
 cargo-console-menu-account-name-label = Account:{" "}

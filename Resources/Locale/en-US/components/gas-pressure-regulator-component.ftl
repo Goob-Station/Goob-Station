@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿# UI Labels
 gas-pressure-regulator-ui-set-threshold = Set
 gas-pressure-regulator-ui-zero-threshold = Zero

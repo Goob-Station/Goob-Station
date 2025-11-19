@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Ears
 marking-VulpEar-vulp = Vulpkanin ears (Base)
 marking-VulpEar-vulp-inner = Vulpkanin ears (Inner)

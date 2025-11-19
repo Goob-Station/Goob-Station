@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 names-first-male-dataset-1 = Aaden
 names-first-male-dataset-2 = Aaron
 names-first-male-dataset-3 = Abel

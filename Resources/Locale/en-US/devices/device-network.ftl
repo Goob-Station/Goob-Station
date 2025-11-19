@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # named frequencies
 device-frequency-prototype-name-atmos = Atmospheric Devices
 device-frequency-prototype-name-suit-sensors = Suit Sensors

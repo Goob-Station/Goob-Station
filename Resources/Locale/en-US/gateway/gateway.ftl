@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 gateway-window-title = Gateway
 gateway-window-open-portal = Open Portal
 gateway-window-no-destinations = No destinations found.

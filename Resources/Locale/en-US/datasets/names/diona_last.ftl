@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Positive
 names-diona-last-dataset-1 = Peace
 names-diona-last-dataset-2 = Harmony

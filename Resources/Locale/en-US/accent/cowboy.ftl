@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 accent-cowboy-words-1 = alcohol
 accent-cowboy-replacement-1 = firewater
 

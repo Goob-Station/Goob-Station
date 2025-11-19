@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 guide-entry-ss14 = Station and Shifts
 guide-entry-engineering = Engineering
 guide-entry-construction = Construction

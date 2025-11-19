@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿advertisement-boozeomat-1 = I hope nobody asks me for a bloody cup o' tea...
 advertisement-boozeomat-2 = Alcohol is humanity's friend. Would you abandon a friend?
 advertisement-boozeomat-3 = Quite delighted to serve you!

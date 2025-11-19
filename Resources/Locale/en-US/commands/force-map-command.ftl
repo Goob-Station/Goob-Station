@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿cmd-forcemap-desc = Forces the game to start with a given map next round.
 cmd-forcemap-help = Usage: forcemap <map ID>
 cmd-forcemap-success = Forced the game to start with map { $map } next round.

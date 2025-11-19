@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 trigger-on-voice-examine = The display reads: "{$keyphrase}"
 trigger-on-voice-uninitialized = The display reads: Uninitialized...
 

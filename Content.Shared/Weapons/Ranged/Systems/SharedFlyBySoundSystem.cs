@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 using Content.Shared.Physics;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio;

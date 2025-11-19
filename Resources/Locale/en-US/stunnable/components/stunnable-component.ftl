@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 stunnable-component-disarm-success-others = {CAPITALIZE(THE($source))} pushes {THE($target)}!
 stunnable-component-disarm-success = You push {THE($target)}!
 knockdown-component-pushup-failure = You're too exhausted to push yourself up!

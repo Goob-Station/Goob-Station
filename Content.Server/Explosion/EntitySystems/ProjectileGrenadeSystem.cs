@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿using Content.Server.Explosion.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Trigger;

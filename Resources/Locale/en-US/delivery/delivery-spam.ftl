@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # All spelling mistakes and broken english are intentional!
 # I hate saving paper contents in ftl files
 

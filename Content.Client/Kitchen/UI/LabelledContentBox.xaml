@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+
+SPDX-License-Identifier: MIT-WIZARDS
+-->
+
 <BoxContainer Orientation="Vertical" xmlns="https://spacestation14.io">
     <SplitContainer Orientation="Horizontal" Margin="5">
         <Label Name="Label" Align="Center"/>

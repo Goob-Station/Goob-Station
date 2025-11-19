@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 - files: [rumble.ogg]
   copyright: "Made by Uzbazur freesound.org, modified by brainfood1183 (github)"
   license: "CC-BY-4.0"

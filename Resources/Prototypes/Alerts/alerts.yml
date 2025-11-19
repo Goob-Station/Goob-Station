@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 - type: alertOrder
   # Defines ordering in alert tab, higher up = higher in tab.
   # List below can contain alert type or category, if both are present the id will take precedence.

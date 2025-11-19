@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Displayed as initiator of vote when no user creates the vote
 ui-vote-initiator-server = The server
 

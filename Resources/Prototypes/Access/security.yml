@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 - type: accessLevel
   id: HeadOfSecurity
   name: id-card-access-level-head-of-security

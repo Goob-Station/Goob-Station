@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿role-timer-department-insufficient = You require [color=yellow]{$time}[/color] more playtime in the [color={$departmentColor}]{$department}[/color] department to unlock this.
 role-timer-department-too-high = You require [color=yellow]{$time}[/color] less playtime in the [color={$departmentColor}]{$department}[/color] department to select this. (Are you trying to play a trainee role?)
 role-timer-overall-insufficient = You require [color=yellow]{$time}[/color] more overall playtime to unlock this.

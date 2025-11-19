@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿advertisement-pride-1 = Be gay do crime!
 advertisement-pride-2 = Full of colors!
 advertisement-pride-3 = You are valid!

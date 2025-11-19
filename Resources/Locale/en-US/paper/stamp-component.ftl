@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 stamp-component-stamped-name-default = A very important person
 stamp-component-stamped-name-detective = Detective
 stamp-component-stamped-name-mime = Mime

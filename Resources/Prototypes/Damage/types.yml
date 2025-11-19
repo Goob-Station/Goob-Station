@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Damage due to being unable to breathe.
 # Represents not enough oxygen (or equivalent) getting to the blood.
 # Usually healed automatically if entity can breathe

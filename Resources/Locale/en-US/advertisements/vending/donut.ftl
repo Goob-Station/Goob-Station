@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿advertisement-donut-1 = Each of us is a little cop!
 advertisement-donut-2 = Hope you're hungry!
 advertisement-donut-3 = Over 1 million donuts sold!

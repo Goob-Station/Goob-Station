@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 revenant-essence-amount = You have [color=plum]{$current} Essence[/color]. Your regen amount is [color=plum]{$max} Essence[/color].
 revenant-max-essence-increased = Your max essence has increased!
 

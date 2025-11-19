@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 cmd-pauseatmos-desc = Pauses or unpauses the atmosphere simulation for the provided grid entity.
 cmd-pauseatmos-help = Usage: {$command} <EntityUid>
 

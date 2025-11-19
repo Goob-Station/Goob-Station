@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Generic verbs
 delete-verb-get-data-text = Delete
 edit-solutions-verb-get-data-text = Edit Solutions

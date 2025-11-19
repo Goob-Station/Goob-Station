@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 accent-german-words-1 = yes
 accent-german-words-1-2 = yea
 accent-german-words-replace-1 = ja

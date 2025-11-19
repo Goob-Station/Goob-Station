@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ninja-gloves-on = The gloves surge with power!
 ninja-gloves-off = The gloves power down...
 ninja-gloves-not-wearing-suit = You aren't wearing a ninja suit

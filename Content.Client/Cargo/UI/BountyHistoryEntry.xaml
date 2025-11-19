@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+
+SPDX-License-Identifier: MIT-WIZARDS
+-->
+
 <BoxContainer xmlns="https://spacestation14.io"
                 xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
                 Margin="10 10 10 0"
