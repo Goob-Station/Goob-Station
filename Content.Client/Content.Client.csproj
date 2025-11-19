@@ -50,8 +50,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" />
-    <ProjectReference Include="..\Content.Goobstation.UIKit\Content.Goobstation.UIKit.csproj" />
+    <ProjectReference Include="..\Modules\GoobStation\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" />
+    <ProjectReference Include="..\Modules\GoobStation\Content.Goobstation.UIKit\Content.Goobstation.UIKit.csproj" />
     <ProjectReference Include="..\RobustToolbox\Lidgren.Network\Lidgren.Network.csproj" />
     <ProjectReference Include="..\RobustToolbox\Robust.Shared.Maths\Robust.Shared.Maths.csproj" />
     <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />

@@ -12,6 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
+using Content.ModuleManager;
 using Robust.Shared.ContentPack;
 
 namespace Content.IntegrationTests;
@@ -71,22 +72,45 @@ public static partial class PoolManager
         LoadAssemblies(fileName => coreModules.Contains(fileName));
     }
 
+    #region Modules
     private static void LoadExtras()
     {
-        LoadAssemblies(fileName =>
+        // Load modules from Modules/
+        var dir = Path.GetDirectoryName(CurrentAssembly.Location);
+        if (!string.IsNullOrEmpty(dir))
         {
-            if (!fileName.StartsWith(ContentPrefix))
-                return false;
-
-            var matchingSuffix = Suffixes.FirstOrDefault(s => fileName.EndsWith(s));
-            if (matchingSuffix == null)
-                return false;
-
-            // Check if module has a middle part to differentiate from core.
-            var middlePartLength = fileName.Length - ContentPrefix.Length - matchingSuffix.Length;
-            return middlePartLength > 0;
-        });
+            var modulesPath = Path.Combine(dir, "..", "..", "Modules");
+            if (Directory.Exists(modulesPath))
+                LoadModulesFromDirectory(modulesPath, dir);
+        }
     }
+
+    private static void LoadModulesFromDirectory(string modulesPath, string binDir)
+    {
+        foreach (var manifestPath in Directory.GetFiles(modulesPath, "module.yml", SearchOption.AllDirectories))
+        {
+            try
+            {
+                var manifest = Packaging.ModuleManifestLoader.LoadFromFile(manifestPath);
+
+                foreach (var project in manifest.Projects)
+                {
+                    var projectName = Packaging.ModuleManifestLoader.GetProjectName(project);
+                    var dllPath = Path.Combine(binDir, $"{projectName}.dll");
+
+                    if (File.Exists(dllPath) && !AlreadyLoaded(dllPath))
+                        Assembly.LoadFrom(dllPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log warning but continue - don't break tests due to module loading issues
+                Console.WriteLine($"Warning: Failed to load module from {manifestPath}: {ex.Message}");
+            }
+        }
+    }
+
+    #endregion
 
     private static void LoadAssemblies(Func<string, bool> fileFilter)
     {
