@@ -15,11 +15,13 @@ from datetime import datetime, timezone
 from collections import defaultdict
 
 LICENSE_CONFIG = {
-    "mit": {"id": "MIT-WIZARDS", "path": "LICENSES/MIT-WIZARDS.txt"},
+    "mit-wizards": {"id": "MIT-WIZARDS", "path": "LICENSES/MIT-WIZARDS.txt"},
+    "mit": {"id": "MIT-GOOB", "path": "LICENSES/MIT-WIZARDS.txt"},
     "mpl": {"id": "MPL-2.0", "path": "LICENSES/MPL-2.0.txt"},
+    "mpl-no-copyleft": {"id": "MPL-2.0-no-copyleft-exception", "path": "LICENSES/MPL-2.0-no-copyleft-exception.txt"},
 }
 
-DEFAULT_LICENSE_LABEL = "mit"
+DEFAULT_LICENSE_LABEL = "mit-wizards"
 DEFAULT_AUTHOR = "Space Station 14 Contributors"
 
 DIRECTORY_RULES = [

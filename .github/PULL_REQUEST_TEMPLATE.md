@@ -4,7 +4,15 @@ SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
 SPDX-License-Identifier: MIT-WIZARDS
 -->
 
-<!-- Guidelines: https://docs.spacestation14.io/en/getting-started/pr-guideline -->
+<!-- NOTE: All code submitted to this repository is licensed under the terms specified in each file’s license header.
+By default, files are licensed under the Mozilla Public License (MPL).
+Secondary licenses may be indicated in the header to facilitate integration with other projects.
+
+Uncomment and modify the following line only if you wish to change the file’s license from the default MPL.
+Currently allowed alternatives are: MIT or MPL-2.0-No-Copyleft.
+Files licensed under MPL-2.0-No-Copyleft cannot be ported to strong copyleft licenses (e.g., AGPL or GPL).
+If you wish to change this, do so before publishing the PR. -->
+<!--- LICENSE: MPL -->
 
 ## About the PR
 <!-- What did you change? -->
@@ -16,14 +24,8 @@ SPDX-License-Identifier: MIT-WIZARDS
 <!-- Summary of code changes for easier review. -->
 
 ## Media
-<!-- Attach media if the PR makes ingame changes (clothing, items, features, etc). 
+<!-- Attach media if the PR makes ingame changes (clothing, items, features, etc).
 Small fixes/refactors are exempt. Media may be used in SS14 progress reports with credit. -->
-
-## Requirements
-<!-- Confirm the following by placing an X in the brackets [X]: -->
-- [ ] I have read and am following the [Pull Request and Changelog Guidelines](https://docs.spacestation14.com/en/general-development/codebase-info/pull-request-guidelines.html).
-- [ ] I have added media to this PR or it does not require an ingame showcase.
-<!-- You should understand that not following the above may get your PR closed at maintainer’s discretion -->
 
 ## Breaking changes
 <!-- List any breaking changes, including namespaces, public class/method/field changes, prototype renames; and provide instructions for fixing them.
