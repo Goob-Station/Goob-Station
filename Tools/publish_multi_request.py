@@ -17,7 +17,7 @@ RELEASE_DIR = "release"
 # Forks should change these to publish to their own infrastructure.
 #
 ROBUST_CDN_URL = "https://cdn.goobstation.com/"
-FORK_ID = "GoobLRP"
+FORK_ID = "GoobStation"
 
 def main():
     session = requests.Session()
