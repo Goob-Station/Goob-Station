@@ -60,6 +60,7 @@ public sealed partial class BorgSystem
 
             var hasBrain = chassis.BrainEntity != null && !comp.FakeDisabled;
             var canDisable = comp.NextDisable == null && !comp.FakeDisabling;
+            var isEmagged = _emag.CheckFlag(uid, EmagType.Interaction); // Funkystation -> Malf Ai. Added so malf can't hack borgs multiple times
             var data = new CyborgControlData(
                 comp.Sprite,
                 comp.Name,
@@ -68,7 +69,8 @@ public sealed partial class BorgSystem
                 chassis.ModuleCount,
                 hasBrain,
                 canDisable,
-                HasComp<AiRemoteControllerComponent>(uid)); // Corvax-Next-AiRemoteControl
+                HasComp<AiRemoteControllerComponent>(uid), // Corvax-Next-AiRemoteControl
+                isEmagged); // Funkystation -> Malf Ai.
 
             var payload = new NetworkPayload()
             {
@@ -81,7 +83,7 @@ public sealed partial class BorgSystem
         }
         //Goobstation Drone transponder start
         var query2 = EntityQueryEnumerator<BorgTransponderComponent, DroneComponent, DeviceNetworkComponent, MetaDataComponent>();
-        while (query2.MoveNext(out var uid, out  var comp, out var drone, out var device, out var  meta))
+        while (query2.MoveNext(out var uid, out var comp, out var drone, out var device, out var  meta))
         {
             if (now < comp.NextBroadcast)
                 continue;
@@ -94,6 +96,7 @@ public sealed partial class BorgSystem
                 0,
                 hasBrain,
                 false, // Corvax-Next-AiRemoteControl
+                false, // Funkystation -> Malf Ai.
                 false);
 
             var payload = new NetworkPayload()

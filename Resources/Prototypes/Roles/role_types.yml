@@ -47,3 +47,9 @@
   name: role-type-silicon-antagonist-name
   color: '#c832e6'
   symbol: "⛞"
+
+- type: roleType
+  id: MalfunctioningSilicon
+  name: role-type-malfunctioning-silicon-name
+  color: '#d82000'
+  symbol: "⛞"

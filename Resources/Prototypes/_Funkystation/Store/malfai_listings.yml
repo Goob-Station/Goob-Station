@@ -1,0 +1,232 @@
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+# SPDX-FileCopyrightText: 2025 YourName
+#
+# SPDX-License-Identifier: MIT
+
+- type: listing
+  id: MalfAiViewport
+  name: malfai-listing-viewport-name
+  description: malfai-listing-viewport-desc
+  categories:
+  - MalfAI
+  - Deception
+  cost:
+    CPU: 25
+  icon: { sprite: Interface/Actions/actions_malf_ai.rsi, state: malfai_placeviewport }
+  productAction: ActionMalfAiSetViewport
+  productEvent: !type:ActionPurchaseCompanionEvent
+    companionActions:
+      - ActionMalfAiOpenViewport
+  priority: 10
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiToggleCameraUpgrade
+  name: malfai-listing-camera-upgrade-name
+  description: malfai-listing-camera-upgrade-desc
+  categories:
+  - MalfAI
+  - Deception
+  cost:
+    CPU: 50
+  icon: { sprite: Interface/Actions/actions_malf_ai.rsi, state: malfai_cameraupgrade }
+  productEvent: !type:MalfAiCameraUpgradeUnlockedEvent
+  raiseProductEventOnUser: true
+  priority: 8
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiDoomsday
+  name: malfai-listing-doomsday-name
+  description: malfai-listing-doomsday-desc
+  categories:
+  - MalfAI
+  - Disruption
+  cost:
+    CPU: 250
+  icon: { sprite: Interface/Actions/actions_malf_ai.rsi, state: malfai_doomsday }
+  productAction: ActionMalfAiDoomsday
+  priority: 11
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiRoboticsFactory
+  name: malfai-listing-robotics-factory-name
+  description: malfai-listing-robotics-factory-desc
+  categories:
+  - MalfAI
+  - Factory
+  cost:
+    CPU: 100
+  icon: { sprite: Interface/Actions/actions_malf_ai.rsi, state: malfai_factory }
+  productAction: ActionMalfAiRoboticsFactory
+  priority: 9
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiDetonateRCDs
+  name: malfai-listing-detonate-rcds-name
+  description: malfai-listing-detonate-rcds-desc
+  categories:
+  - MalfAI
+  - Disruption
+  cost:
+    CPU: 100
+  icon: { sprite: Interface/Actions/actions_malf_ai.rsi, state: malfai_detonatercd }
+  productAction: ActionMalfAiDetonateRCDs
+  priority: 8
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiShuntToApc
+  name: malfai-listing-shunt-to-apc-name
+  description: malfai-listing-shunt-to-apc-desc
+  categories:
+  - MalfAI
+  - Disruption
+  cost:
+    CPU: 25
+  icon: { sprite: Interface/Actions/actions_malf_ai.rsi, state: malfai_shunttoapc }
+  productAction: ActionMalfAiShuntToApc
+  priority: 7
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiOverloadMachine
+  name: malfai-listing-overload-machine-name
+  description: malfai-listing-overload-machine-desc
+  categories:
+  - MalfAI
+  - Disruption
+  cost:
+    CPU: 50
+  icon: { sprite: Interface/Actions/actions_malf_ai.rsi, state: malfai_overloadmachine }
+  productAction: ActionMalfAiOverloadMachine
+  productActionCharges: 2
+  priority: 6
+
+- type: listing
+  id: MalfAiOverrideMachine
+  name: malfai-listing-override-machine-name
+  description: malfai-listing-override-machine-desc
+  categories:
+  - MalfAI
+  - Disruption
+  cost:
+    CPU: 75
+  icon: { sprite: Interface/Actions/actions_malf_ai.rsi, state: malfai_overridemachine }
+  productAction: ActionMalfAiOverrideMachine
+  productActionCharges: 2
+  priority: 5
+
+- type: listing
+  id: MalfAiDecryptSyndicateKeys
+  name: malfai-listing-decrypt-syndicate-keys-name
+  description: malfai-listing-decrypt-syndicate-keys-desc
+  categories:
+  - MalfAI
+  - Deception
+  cost:
+    CPU: 50
+  icon: { sprite: Interface/Actions/actions_malf_ai.rsi, state: malfai_decrypt }
+  priority: 4
+  productEvent: !type:RadioKeyUnlockedEvent
+    channels: [ "Syndicate" ]
+  raiseProductEventOnUser: true
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiVoiceModulator
+  name: malfai-listing-voice-modulator-name
+  description: malfai-listing-voice-modulator-desc
+  categories:
+  - MalfAI
+  - Deception
+  cost:
+    CPU: 50
+  icon: { sprite: Interface/Actions/actions_malf_ai.rsi, state: malfai_voicemodulator }
+  productEvent: !type:GiveIntrinsicVoiceModulatorEvent
+  raiseProductEventOnUser: true
+  priority: 5
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiToggleCameraMicrophones
+  name: malfai-listing-toggle-camera-microphones-name
+  description: malfai-listing-toggle-camera-microphones-desc
+  categories:
+  - MalfAI
+  - Deception
+  cost:
+    CPU: 25
+  icon: { sprite: Interface/Actions/actions_malf_ai.rsi, state: malfai_cameramic }
+  productEvent: !type:MalfAiCameraMicrophonesUnlockedEvent
+  raiseProductEventOnUser: true
+  priority: 6
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiGyroscope
+  name: malfai-listing-gyroscope-name
+  description: malfai-listing-gyroscope-desc
+  categories:
+  - MalfAI
+  - Disruption
+  cost:
+    CPU: 25
+  icon: { sprite: Interface/Actions/actions_malf_ai.rsi, state: malfai_gyroscope }
+  productAction: ActionMalfAiGyroscope
+  priority: 8
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiHijackMech
+  name: malfai-listing-hijack-mech-name
+  description: malfai-listing-hijack-mech-desc
+  categories:
+  - MalfAI
+  - Disruption
+  cost:
+    CPU: 100
+  icon: { sprite: Interface/Actions/actions_malf_ai.rsi, state: malfai_mech }
+  productAction: ActionMalfAiHijackMech
+  priority: 8
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiLockdownGrid
+  name: malfai-listing-lockdown-grid-name
+  description: malfai-listing-lockdown-grid-desc
+  categories:
+  - MalfAI
+  - Disruption
+  cost:
+    CPU: 100
+  icon: { sprite: Interface/Actions/actions_malf_ai.rsi, state: malfai_lockdowngrid }
+  productAction: ActionMalfAiLockdownGrid
+  priority: 9
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

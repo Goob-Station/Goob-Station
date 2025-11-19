@@ -123,6 +123,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SpaceRox1244 <138547931+SpaceRox1244@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Lary <89530982+LaryNevesPR@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 #==Suffix Guide==
@@ -215,6 +216,7 @@
   - type: Tag # Goobstation - Prevent RCD from making lights in one tile
     tags:
     - WallLight
+    - WallMount
   placement:
     mode: SnapgridCenter
     snap:

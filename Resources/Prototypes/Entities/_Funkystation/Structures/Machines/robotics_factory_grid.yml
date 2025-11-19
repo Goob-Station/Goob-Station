@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2025 YourName
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: RoboticsFactoryGrid
+  parent: Recycler
+  name: robotics factory grid
+  description: A specialized recycling facility that has been converted into a mobile robotics factory grid.
+  components:
+  - type: MetaData
+  - type: RoboticsFactoryGrid
+  # Always consider this machine powered and on
+  - type: ApcPowerReceiver
+    needsPower: false
+  # Ensure the reclaimer is enabled so touching entities are processed
+  - type: MaterialReclaimer
+    enabled: true
+    whitelist:
+      components:
+      - HumanoidAppearance
+  # Mark as emagged (interaction) so it can process living mobs on touch
+  - type: Emagged
+    emagType: Interaction

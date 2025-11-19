@@ -53,13 +53,15 @@ using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-
 using Content.Shared.Emag.Systems;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
 using Robust.Shared.Configuration;
+using Content.Shared.Implants.Components;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared._Gabystation.MalfAi.Components;
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -400,7 +402,21 @@ public abstract partial class SharedMechSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        return IsEmpty(component) && _actionBlocker.CanMove(toInsert);
+        // Funkystation - Malf Ai begin
+        // Allow AI positronic brains to be inserted even if they cannot "move" per ActionBlocker.
+        var canMove = _actionBlocker.CanMove(toInsert);
+        // Allow Malf AI brain entities to be inserted even if they cannot move.
+        // Some forks may not keep StationAiHeldComponent on the brain when removed from its holder; in that case,
+        // still allow if the entity is the StationAiBrain prototype or carries the MalfunctioningAiComponent.
+        var isAiHeld = HasComp<StationAiHeldComponent>(toInsert);
+        var hasMalfMarker = HasComp<MalfunctioningAiComponent>(toInsert);
+        var isStationAiBrainProto = false;
+        var meta = MetaData(toInsert);
+        if (meta.EntityPrototype != null)
+            isStationAiBrainProto = meta.EntityPrototype.ID == "StationAiBrain";
+        var allowAi = isAiHeld || hasMalfMarker || isStationAiBrainProto;
+        return IsEmpty(component) && (canMove || allowAi);
+        // Funkystation - Malf Ai end
     }
 
     /// <summary>

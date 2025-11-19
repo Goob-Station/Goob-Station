@@ -95,6 +95,11 @@
 # SPDX-FileCopyrightText: 2025 ImHoks <142083149+ImHoks@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 KillanGenifer <killangenifer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ekpy <33184056+Ekpy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ekpy <xekpyx@gmail.com>
+# SPDX-FileCopyrightText: 2025 EmillyCoelho <167008606+Ichaie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ichaie <ichaicoelho@gmail.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -105,6 +110,7 @@
 # SPDX-FileCopyrightText: 2025 ThunderBear2006 <100388962+ThunderBear2006@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThunderBear2006 <bearthunder06@gmail.com>
 # SPDX-FileCopyrightText: 2025 YoungThug <ramialanbagy@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 # SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
@@ -120,6 +126,9 @@
   description: Components added / removed from an entity that gets inserted into an AI core.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Tag
+    tags:
+      - StationAiBrain
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
@@ -175,6 +184,10 @@
         type: RemoteDevicesBoundUserInterface
       enum.CamWarpUiKey.Key: # Goobstation-Ai-Camera-Jumping
         type: AiCameraWarpBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.MalfAiBorgsUiKey.Key:
+        type: MalfAiBorgsBoundUserInterface
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
@@ -248,7 +261,7 @@
       disableEject: true
       whitelist:
         tags:
-        - StationAi
+        - StationAiBrain
   - type: ContainerContainer
     containers:
       station_ai_mind_slot: !type:ContainerSlot
@@ -281,10 +294,12 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.StationAiVisualState.Key:
+      enum.StationAiVisualLayers.Icon:
         unshaded:
           Empty: { state: empty }
           Occupied: { state: full }
+          Rebooting: { state: dead }
+          Dead: { state: dead }
   - type: Intellicard
 
 - type: entity
@@ -298,6 +313,7 @@
     - state: ai
       shader: unshaded
 
+# Empty AI core
 - type: entity
   id: PlayerStationAiEmpty
   name: AI Core
@@ -308,24 +324,77 @@
   suffix: Empty
   components:
   - type: WarpPoint
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        density: 1000
   - type: ContainerComp
     proto: AiHeld
     container: station_ai_mind_slot
+  - type: Damageable
+    damageContainer: AiCore
+    damageModifierSet: Electronic
+  - type: Physics
+    bodyType: Static
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      800: Critical
+      1000: Dead
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 400
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
       - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+        acts: [ "Breakage" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 800
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlassReinforced:
+            min: 1
+            max: 2
+          SheetPlasteel:
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: DamageVisuals
+    thresholds: [25, 50, 75, 100, 125, 150, 175]
+    damageDivisor: 4
+    trackAllDamage: true
+    damageOverlay:
+      sprite: Mobs/Silicon/station_ai_cracks.rsi
   - type: ApcPowerReceiver
-    powerLoad: 1000
-    needsPower: false
+    powerLoad: 500
+  - type: ExtensionCableReceiver
+  - type: Battery
+    maxCharge: 300000
+    startingCharge: 300000
+  - type: ApcPowerReceiverBattery
+    idleLoad: 500
+    batteryRechargeRate: 1000
+    batteryRechargeEfficiency: 0 # Setting to zero until the light flickering issue associated with dynamic power loads is fixed 
   - type: StationAiCore
+  - type: ExaminableDamage
+    messages: StationAiCoreMessages
   - type: StationAiVision
   - type: InteractionOutline
   - type: Sprite
@@ -333,12 +402,26 @@
     layers:
     - state: base
     - state: ai_empty
+      map: ["enum.StationAiVisualLayers.Base"]
       shader: unshaded
     - state: ai
-      map: ["enum.StationAiVisualState.Key"]
+      map: ["enum.StationAiVisualLayers.Icon"]
       shader: unshaded
       visible: false
+    - state: ai_unpowered
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      visible: false
   - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          False: { visible: true }
+          True: { visible: false }
+      enum.StationAiVisuals.Broken:
+        enum.StationAiVisualLayers.Base:
+          False: { state: ai_empty }
+          True: { state: ai_error }
   - type: InteractionPopup
     interactSuccessString: petting-success-station-ai
     interactFailureString: petting-failure-station-ai
@@ -363,6 +446,30 @@
         type: HolopadBoundUserInterface
       enum.StationAiCustomizationUiKey.Key:
         type: StationAiCustomizationBoundUserInterface
+  - type: Construction
+    graph: StationAiCore
+    node: stationAiCore
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      station_ai_brain_slot: !type:Container
+      station_ai_mind_slot: !type:ContainerSlot
+        showEnts: true
+  - type: ContainerFill
+    containers:
+      board:
+      - StationAiCoreElectronics
+  - type: StaticPrice
+    price: 5000
+  - type: Repairable # Goob edit
+    fuelCost: 5
+    doAfterDelay: 3
+    damage:
+      types:
+        Blunt: -15
+        Piercing: -15
+        Slash: -15
+        Structural: -40
 
 # The job-ready version of an AI spawn.
 - type: entity
@@ -374,6 +481,77 @@
     containerId: station_ai_mind_slot
     job: StationAi
 
+# The station AI core assembly
+- type: entity
+  parent: BaseStructure
+  id: PlayerStationAiAssembly
+  name: AI Core Assembly
+  description: An unfinished computer core for housing an artifical intelligence.
+  components:
+  - type: Anchorable
+    flags: 
+    - Anchorable
+  - type: Rotatable
+  - type: Sprite
+    snapCardinals: true
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+    - state: frame_0
+      map: [ "enum.ConstructionVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ConstructionVisuals.Key:
+        enum.ConstructionVisuals.Layer:
+          frame: { state: frame_0 }
+          frameWithElectronics: { state: frame_1 }
+          frameWithSecuredElectronics: { state: frame_2 }
+          frameWithWires: { state: frame_3 }
+          frameWithBrain: { state: frame_3b }
+          frameWithBrainFinished: { state: frame_4 }
+          frameWithoutBrainFinished: { state: frame_4 }
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        density: 200
+  - type: Damageable
+    damageModifierSet: StrongMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetPlasteel:
+            min: 2
+            max: 4
+      - !type:EmptyContainersBehaviour
+        containers:
+        - station_ai_brain_slot
+        - board
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Construction
+    graph: StationAiCore
+    node: frame
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      station_ai_brain_slot: !type:Container
+
 # The actual brain inside the core
 - type: entity
   id: StationAiBrain
@@ -383,8 +561,6 @@
   - type: Sprite
     # Once it's in a core it's pretty much an abstract entity at that point.
     visible: false
-  - type: BlockMovement
-    blockInteraction: false
   - type: SiliconLawProvider
     laws: NTDefault # Goobstation - AI/borg law changes - set AI to NTDefault
   - type: IonStormTarget # Goobstation - AI/borg law changes - ion stormable AI
@@ -407,9 +583,16 @@
     drawFov: false
   - type: Examiner
   - type: InputMover
+  - type: BlockMovement
+    blockInteraction: false
+  - type: GhostOnMove
+    mustBeDead: true
   - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
+  - type: DamagedSiliconAccent
+    startPowerCorruptionAtCharIdx: 4
+    maxPowerCorruptionAtCharIdx: 20
   - type: Tag
     tags:
     - HideContextMenu
@@ -497,6 +680,18 @@
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
     silent: true
+
+# Funkystation, for Malf AI
+- type: entity
+  id: PlayerBorgBatteryNoMind
+  parent: BorgChassisSelectable
+  suffix: Battery, No Mind
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
 
 - type: entity
   id: PlayerBorgSyndicateAssaultBattery

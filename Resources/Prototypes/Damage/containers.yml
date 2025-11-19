@@ -107,3 +107,8 @@
   - Genetic
   supportedTypes: # Goobstation
   - Holy
+
+- type: damageContainer
+  id: AiCore
+  supportedGroups:
+  - Brute

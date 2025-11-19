@@ -174,3 +174,18 @@
       emergencyLightColor: CadetBlue
       forceEnableEmergencyLights: true
       shuttleTime: 600
+    cyan:
+      announcement: alert-level-cyan-announcement
+      sound: /Audio/Misc/cyan.ogg
+      color: Cyan
+      emergencyLightColor: Cyan
+      forceEnableEmergencyLights: true
+      shuttleTime: 600
+    doomsday:
+      announcement: alert-level-doomsday-announcement
+      sound: /Audio/Misc/delta_alt.ogg
+      color: DarkRed
+      disableSelection: true
+      emergencyLightColor: DarkRed
+      forceEnableEmergencyLights: true
+      shuttleTime: 1200

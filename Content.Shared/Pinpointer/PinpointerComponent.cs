@@ -11,6 +11,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -57,7 +58,7 @@ public sealed partial class PinpointerComponent : Component
     /// <summary>
     ///     Name to display of the target being tracked.
     /// </summary>
-    [DataField("targetName"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("targetName"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField] // Funkystation - Malf Ai, AutoNetworkedField for custom naming
     public string? TargetName;
 
     /// <summary>

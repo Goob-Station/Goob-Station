@@ -1,0 +1,32 @@
+// Malf AI Doomsday expanding cyan ripple with refractive warp ring
+// Screen-space post-process. Coordinates are in fragment space (pixels).
+// Inputs are expected to be in fragment-space pixels too (center, radius, thickness).
+
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp vec2 center;
+uniform highp float radius;
+uniform highp float thickness;
+uniform highp float warpIntensity;
+uniform lowp vec3 ringColor;
+uniform lowp float ringAlpha;
+uniform highp vec2 screenPixelSize;
+uniform highp vec2 renderScale;
+uniform highp vec2 cameraWorldOrigin;
+uniform highp float pixelsPerWorldUnit;
+
+// Soft ring mask around |distance - radius| < thickness
+highp float ringMask(highp float d, highp float r, highp float t)
+{
+    highp float edge = abs(d - r);
+    return 1.0 - smoothstep(t * 0.3, t * 0.7, edge);
+}
+
+void fragment()
+{
+    // Worldspace fragment position (tiles)
+    highp vec2 frag = FRAGCOORD.xy;
+    highp float d = length(frag - center);
+    highp float mask = ringMask(d, radius, thickness);
+    // Output the cyan ring with alpha
+    COLOR = vec4(ringColor, ringAlpha * mask);
+}

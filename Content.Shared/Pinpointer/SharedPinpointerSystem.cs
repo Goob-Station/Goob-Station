@@ -11,6 +11,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -130,6 +131,36 @@ public abstract class SharedPinpointerSystem : EntitySystem
         //    UpdateDirectionToTarget(uid, pinpointer);
         // WD EDIT END
     }
+
+    // Funkystation -> Malf Ai
+    /// <summary>
+    ///     Set pinpointers target to track with a custom target name
+    /// </summary>
+    public virtual void SetTargetWithCustomName(EntityUid uid, EntityUid? target, string? targetName, PinpointerComponent? pinpointer = null)
+    {
+        if (!Resolve(uid, ref pinpointer))
+            return;
+
+        if (target == null || pinpointer.Targets.Contains(target.Value))
+            return;
+
+        if (!pinpointer.CanTargetMultiple)
+            pinpointer.Targets.Clear();
+
+        if (TerminatingOrDeleted(target.Value))
+        {
+            TrySetArrowAngle(uid, Angle.Zero, pinpointer);
+            return;
+        }
+
+        pinpointer.Targets.Add(target.Value);
+
+        if (pinpointer.UpdateTargetName)
+            pinpointer.TargetName = targetName;
+
+        Dirty(uid, pinpointer);
+    }
+
 
     /// <summary>
     ///     Update direction from pinpointer to selected target (if it was set)

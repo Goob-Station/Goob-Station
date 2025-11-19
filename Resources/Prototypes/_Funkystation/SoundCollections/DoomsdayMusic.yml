@@ -1,0 +1,5 @@
+- type: soundCollection
+  id: DoomsdayMusic
+  files:
+    - /Audio/_Funkystation/StationEvents/RUINOUSINTNT.ogg
+    - /Audio/_Funkystation/StationEvents/dft.ogg

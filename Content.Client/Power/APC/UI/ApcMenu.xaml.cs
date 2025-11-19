@@ -9,9 +9,22 @@
 // SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Dreykor <160512778+Dreykor@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GabyChangelog <agentepanela2@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kyoth25f <kyoth25f@gmail.com>
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+// SPDX-FileCopyrightText: 2025 funkystationbot <funky@funkystation.org>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -28,6 +41,7 @@ namespace Content.Client.Power.APC.UI
     public sealed partial class ApcMenu : FancyWindow
     {
         public event Action? OnBreaker;
+        public event Action? OnSiphon; // Funkystation -> Malf AI
 
         public ApcMenu()
         {
@@ -35,6 +49,7 @@ namespace Content.Client.Power.APC.UI
             RobustXamlLoader.Load(this);
 
             BreakerButton.OnPressed += _ => OnBreaker?.Invoke();
+            SiphonButton.OnPressed += _ => OnSiphon?.Invoke(); // Funkystation -> Malf AI
         }
 
         public void SetEntity(EntityUid entity)
@@ -84,6 +99,16 @@ namespace Content.Client.Power.APC.UI
                 var chargePercentage = (castState.Charge / ChargeBar.MaxValue);
                 ChargePercentage.Text = Loc.GetString("apc-menu-charge-label",("percent",  chargePercentage.ToString("P0")));
             }
+
+            // Funkystation -> Malf AI
+            // Disable the siphon button if this APC has already been siphoned.
+            if (SiphonButton != null)
+            {
+                SiphonButton.Disabled = castState.Siphoned;
+                SiphonButton.ToolTip = castState.Siphoned
+                    ? Loc.GetString("apc-menu-siphon-already")
+                    : null;
+            }
         }
 
         public void SetAccessEnabled(bool hasAccess)
@@ -98,6 +123,17 @@ namespace Content.Client.Power.APC.UI
                 BreakerButton.Disabled = true;
                 BreakerButton.ToolTip = Loc.GetString("apc-component-insufficient-access");
             }
+        }
+
+        // Funkystation -> Malf AI
+        public void SetSiphonVisible(bool visible)
+        {
+            if (SiphonSpacer is not null)
+                SiphonSpacer.Visible = visible;
+            if (SiphonContainer is not null)
+                SiphonContainer.Visible = visible;
+            if (SiphonButton is not null)
+                SiphonButton.Visible = visible;
         }
 
         private void UpdateChargeBarColor(float charge)

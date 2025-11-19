@@ -59,6 +59,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Whitelist;
 using Content.Server.Emp; // Goobstation
+using Content.Server.Chat.Systems;
+using Content.Shared.Silicons.StationAi;
 
 namespace Content.Server.Mech.Systems;
 
@@ -75,6 +77,7 @@ public sealed partial class MechSystem : SharedMechSystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedToolSystem _toolSystem = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
 
     private static readonly ProtoId<ToolQualityPrototype> PryingQuality = "Prying";
 
@@ -367,6 +370,36 @@ public sealed partial class MechSystem : SharedMechSystem
 
     public override void BreakMech(EntityUid uid, MechComponent? component = null)
     {
+        // Funkytstation -> Malf AI begin. handle destruction of malf AI shunted brains on destruction
+        if (!Resolve(uid, ref component))
+            return;
+
+        // Check for AI brain in pilot slot BEFORE calling base.BreakMech (which ejects the pilot)
+        var pilotSlot = component.PilotSlot;
+        if (pilotSlot.ContainedEntity != null)
+        {
+            var pilotEntity = pilotSlot.ContainedEntity.Value;
+
+            // Check if it's an AI brain either by component or prototype
+            var hasStationAiHeld = HasComp<StationAiHeldComponent>(pilotEntity);
+            var isStationAiBrainProto = false;
+            if (TryComp<MetaDataComponent>(pilotEntity, out var meta) && meta.EntityPrototype != null)
+            {
+                isStationAiBrainProto = meta.EntityPrototype.ID == "StationAiBrain";
+            }
+
+            if (hasStationAiHeld || isStationAiBrainProto)
+            {
+                // Make station announcement about AI destruction
+                var msg = Loc.GetString("ai-destroyed-announcement");
+                _chatSystem.DispatchStationAnnouncement(uid, msg, playDefaultSound: true);
+
+                // Delete the AI brain
+                QueueDel(pilotEntity);
+            }
+        }
+        // Funkytstation -> Malf AI end.
+
         base.BreakMech(uid, component);
 
         _ui.CloseUi(uid, MechUiKey.Key);

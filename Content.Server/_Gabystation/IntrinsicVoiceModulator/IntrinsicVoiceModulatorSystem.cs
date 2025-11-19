@@ -7,6 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared._Gabystation.IntrinsicVoiceModulator;
 using Content.Shared._Gabystation.IntrinsicVoiceModulator.Components;
 using Content.Shared._Gabystation.IntrinsicVoiceModulator.Events;
+using Content.Shared._Gabystation.MalfAi.Components;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
@@ -46,6 +47,7 @@ public sealed partial class IntrinsicVoiceModulatorSystem : EntitySystem
         SubscribeLocalEvent<IntrinsicVoiceModulatorComponent, TransformSpeakerJobIconEvent>(OnTransformJobIcon);
         SubscribeLocalEvent<IntrinsicVoiceModulatorComponent, OpenIntrinsicVoiceModulatorMenuEvent>(OnOpenVoiceModulatorMenu);
         SubscribeLocalEvent<IntrinsicVoiceModulatorComponent, ToggleIntrinsicVoiceModulatorEvent>(OnToggle);
+        SubscribeLocalEvent<MalfunctioningAiComponent, GiveIntrinsicVoiceModulatorEvent>(OnGive);
 
         Subs.BuiEvents<IntrinsicVoiceModulatorComponent>(IntrinsicVoiceModulatorUiKey.Key, subs =>
         {
@@ -73,6 +75,11 @@ public sealed partial class IntrinsicVoiceModulatorSystem : EntitySystem
     {
         _alerts.ClearAlert(ent.Owner, ent.Comp.ToggleAlertProtoId);
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionEntity);
+    }
+
+    private void OnGive(Entity<MalfunctioningAiComponent> ai, ref GiveIntrinsicVoiceModulatorEvent args)
+    {
+        EnsureComp<IntrinsicVoiceModulatorComponent>(ai);
     }
 
     private void OnToggle(Entity<IntrinsicVoiceModulatorComponent> ent, ref ToggleIntrinsicVoiceModulatorEvent args)
