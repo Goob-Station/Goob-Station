@@ -41,7 +41,7 @@ Most media assets are licensed under [CC-BY-SA 3.0](https://creativecommons.org/
 
 Note that some assets are licensed under the non-commercial [CC-BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) or similar non-commercial licenses and will need to be removed if you wish to use this project commercially.
 
-## MPL for Dummies, Forks, and people looking to port our content.
+### MPL for Dummies, Forks, and people looking to port our content.
 
 The Mozilla Public License (MPL) is a “file-level” license, which means it only applies to the specific files it covers. Unlike AGPL, which requires the entire project using your code to also be AGPL (strong copyleft), MPL allows your code to be included in any codebase (open or closed source) as long as the MPL license stays with that file.
 
