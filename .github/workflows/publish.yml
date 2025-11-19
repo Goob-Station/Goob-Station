@@ -1,17 +1,17 @@
 name: Publish
 
-concurrency:
-  group: publish
-  cancel-in-progress: true
-
 on:
   workflow_dispatch:
-  # schedule:
-   # - cron: '0 10 * * *'
+  schedule:
+    - cron: '0 10 * * *'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - name: Fail if we are attempting to run on the master branch
@@ -21,11 +21,21 @@ jobs:
     - name: Install dependencies
       run: sudo apt-get install -y python3-paramiko python3-lxml
 
-    - uses: actions/checkout@v4.2.2
+    - name: Check .NET Installation
+      id: check-dotnet
+      run: |
+        if dotnet --info > /dev/null 2>&1; then
+          echo "skip=true" >> $GITHUB_ENV
+        else
+          echo "skip=false" >> $GITHUB_ENV
+        fi
+
+    - uses: actions/checkout@v3.6.0
       with:
         submodules: 'recursive'
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v4.1.0
+      if: env.skip == 'false'
+      uses: actions/setup-dotnet@v3.2.0
       with:
         dotnet-version: 9.0.x
 
@@ -34,6 +44,10 @@ jobs:
         cd RobustToolbox
         git fetch --depth=1
 
+
+    - name: Clean
+      run: dotnet clean
+
     - name: Install dependencies
       run: dotnet restore
 
@@ -41,7 +55,7 @@ jobs:
       run: dotnet build Content.Packaging --configuration Release --no-restore /m
 
     - name: Package server
-      run: dotnet run --project Content.Packaging server --platform win-x64 --platform win-arm64 --platform linux-x64 --platform linux-arm64 --platform osx-x64 --platform osx-arm64
+      run: dotnet run --project Content.Packaging server --platform win-x64 --platform linux-x64 --platform osx-x64 --platform linux-arm64
 
     - name: Package client
       run: dotnet run --project Content.Packaging client --no-wipe-release
@@ -53,14 +67,12 @@ jobs:
         GITHUB_REPOSITORY: ${{ vars.GITHUB_REPOSITORY }}
 
     - name: Publish changelog (Discord)
-      continue-on-error: true
       run: Tools/actions_changelogs_since_last_run.py
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
 
     - name: Publish changelog (RSS)
-      continue-on-error: true
       run: Tools/actions_changelog_rss.py
       env:
         CHANGELOG_RSS_KEY: ${{ secrets.CHANGELOG_RSS_KEY }}

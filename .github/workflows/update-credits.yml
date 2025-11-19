@@ -5,12 +5,16 @@ on:
   schedule:
     - cron: 0 0 * * 0
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   get_credits:
     runs-on: ubuntu-latest
     # Hey there fork dev! If you like to include your own contributors in this then you can probably just change this to your own repo
     # Do this in dump_github_contributors.ps1 too into your own repo
-    if: github.repository == 'space-wizards/space-station-14'
+    if: github.repository == 'Goob-Station/Goob-Station'
 
     steps:
       - uses: actions/checkout@v4.2.2
@@ -20,7 +24,7 @@ jobs:
       - name: Get this week's Contributors
         shell: pwsh
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.BOT_TOKEN }}
         run: Tools/dump_github_contributors.ps1 > Resources/Credits/GitHub.txt
 
       # TODO
@@ -50,5 +54,5 @@ jobs:
           commit-message: Update Credits
           title: Update Credits
           body: This is an automated Pull Request. This PR updates the github contributors in the credits section.
-          author: PJBot <pieterjan.briers+bot@gmail.com>
+          author: GoobBot <uristmchands@proton.me>
           branch: automated/credits-${{env.NOW}}
