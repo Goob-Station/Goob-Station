@@ -5,12 +5,4 @@ namespace Content.Goobstation.Server.Werewolf.Components;
 /// this is given when an entity is a target for the werewolfdevour
 /// </summary>
 [RegisterComponent]
-public sealed partial class WerewolfBitComponent : Component
-{
-    [DataField] public TimeSpan? StartTime;
-    [DataField] public TimeSpan InitialDelay = TimeSpan.FromSeconds(120);
-    [DataField] public float SixtyFiveChance = 0.065f; // probably like 1 in 16
-
-    [DataField] public bool WillBeSixtyFive;
-    // todo goida popups?
-}
+public sealed partial class WerewolfBitComponent : Component{}

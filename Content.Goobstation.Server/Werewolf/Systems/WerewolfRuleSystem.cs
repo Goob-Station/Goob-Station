@@ -6,6 +6,8 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Roles
 ;using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Roles;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
@@ -19,6 +21,7 @@ public sealed class WerewolfRuleSystem : GameRuleSystem<WerewolfRuleComponent>
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private readonly HungerSystem _hunger = default!;
 
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/changeling_start.ogg"); // todo
 
@@ -58,8 +61,7 @@ public sealed class WerewolfRuleSystem : GameRuleSystem<WerewolfRuleComponent>
         if (_role.MindHasRole<WerewolfRuleComponent>(mindId, out var mr))
                 AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
 
-        EnsureComp<WerewolfBasicAbilitiesComponent>(target); // todo shite
-
+        EnsureComp<WerewolfBasicAbilitiesComponent>(target);
         EnsureComp<WerewolfMindComponent>(mindId);
 
         // add store

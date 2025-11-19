@@ -83,3 +83,7 @@
         location: Right
     sortedHands:
     - hand_left # martial art requires at least 1 hand to work properly for some fuckass unknown reason
+  - type: NightVision
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null

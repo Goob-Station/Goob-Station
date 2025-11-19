@@ -9,8 +9,9 @@ public sealed partial class WerewolfRuleComponent : Component
 {
     public readonly List<EntityUid> WerewolfMinds = new();
 
-    public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories = new() // todo, also yes i am making this based on a changeling stfu
+    public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories = new()
     {
-        "WerewolfMutate"
+        "WerewolfChoose",
+        "WerewolfDire"
     };
 }

@@ -5,10 +5,6 @@
   - type: Sprite
     sprite: _Goobstation/Werewolf/Mutations/base.rsi
     state: werewolf
-  - type: NightVision
-    color: "#808080"
-    activateSound: null
-    deactivateSound: null
   - type: Barotrauma
     damage:
       types:

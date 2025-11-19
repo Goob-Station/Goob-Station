@@ -26,3 +26,17 @@
     - WerewolfBasicAbilities
     - Store
 
+- type: polymorph
+  id: WerewolfTransformDirewolf
+  configuration:
+    entity: WerewolfDirewolf
+    forced: true
+    inventory: None
+    transferName: false
+    transferDamage: true
+    duration: 480
+    polymorphSound: /Audio/_Goobstation/Changeling/Effects/armour_transform.ogg
+    copiedComponents:
+    - WerewolfBasicAbilities
+    - Store
+

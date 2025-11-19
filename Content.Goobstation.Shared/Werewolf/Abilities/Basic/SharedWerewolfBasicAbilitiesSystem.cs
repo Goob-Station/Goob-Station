@@ -47,14 +47,14 @@ public sealed class SharedWerewolfBasicAbilitiesSystem : EntitySystem
     {
         if (comp.Transfurmed != true)
         { // cant howl if your not sigma
-            _popup.PopupClient(Loc.GetString("werewolf-howl-fail-transfur"), uid);
+            _popup.PopupClient(Loc.GetString("werewolf-action-fail-transfurmed"), uid);
             return;
         }
         _audio.PlayPredicted(comp.ShriekSound, uid, uid);
 
         var center = Transform(uid).MapPosition;
         var gamers = Filter.Empty();
-        gamers.AddInRange(center, comp.ShriekPower, _player, EntityManager);
+        gamers.AddInRange(center, args.ShriekPower, _player, EntityManager);
 
         foreach (var gamer in gamers.Recipients)
         {
@@ -68,16 +68,11 @@ public sealed class SharedWerewolfBasicAbilitiesSystem : EntitySystem
                 delta = new(.01f, 0);
 
             _recoil.KickCamera(uid, -delta.Normalized());
-            DoFuckingStunIdk((uid, comp));
+            foreach (var entity in _entityLookup.GetEntitiesInRange(uid, args.ShriekPower))
+                _stun.TryParalyze(entity, new TimeSpan(0, 0, 0, args.StunDuration), true); //goid
         }
         // _audio.PlayGlobal(comp.DistantSound, uid); // when you howl, everyone on the station hears a quiet distant howl, which breaks the metashield for the chaplain, "allegedly" todo uncomment when better sound is found
         args.Handled = true;
-    }
-
-    private void DoFuckingStunIdk(Entity<WerewolfBasicAbilitiesComponent> ent)
-    {
-        foreach (var entity in _entityLookup.GetEntitiesInRange(ent.Owner, ent.Comp.ShriekPower))
-            _stun.TryParalyze(entity, new TimeSpan(0, 0, 0, ent.Comp.StunDuration), true); //goid
     }
     # endregion
 }

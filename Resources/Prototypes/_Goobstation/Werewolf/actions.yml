@@ -80,3 +80,43 @@
       - Body
     canTargetSelf: false
     event: !type:EventWerewolfDevour {}
+
+# evolving actions cuz idk how to do it otherwise without modifying the shit store system
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfMutateDire
+  name: mutate
+  description: start the transformation to the dire wolf.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    useDelay: 5
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: empty
+  - type: InstantAction
+    event: !type:EventWerewolfChangeType
+      werewolfType: WerewolfTransformDirewolf
+  - type: DisposableAction
+
+# direwolf specific
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfHowlDire
+  name: Roar
+  description: Scream as loud as you can, stunning everyone in radius.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 12
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/werewolf.rsi
+      state: howl-red
+  - type: InstantAction
+    event: !type:HowlEvent
+      shriekPower: 4
+      stunDuration: 1.65

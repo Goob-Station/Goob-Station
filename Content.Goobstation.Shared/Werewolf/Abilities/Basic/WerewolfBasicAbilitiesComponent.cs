@@ -11,13 +11,11 @@ public sealed partial class WerewolfBasicAbilitiesComponent : Component
 {
     [DataField] public SoundSpecifier ShriekSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/changeling_shriek.ogg"); // todo
     [DataField] public SoundSpecifier DistantSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/changeling_shriek.ogg"); // todo
-    [DataField] public float ShriekPower = 2.5f;
 
     public readonly List<EntProtoId> BaseWerewolfActions = new()
     {
         "ActionWerewolfTransfurm",
         "ActionWerewolfOpenMutationStore",
-        "ActionWerewolfHowl",
         "ActionWerewolfAbsorb"
     };
 
@@ -25,9 +23,6 @@ public sealed partial class WerewolfBasicAbilitiesComponent : Component
     // {
     // };
     // public readonly List<EntityUid?> TransfurmedActionsUid = new();
-
-    [DataField]
-    public int StunDuration = 1;
 
     [DataField, AutoNetworkedField]
     public bool Transfurmed = false;
@@ -40,4 +35,6 @@ public sealed partial class WerewolfBasicAbilitiesComponent : Component
 
     [DataField] // amount of points given per devour of a guy
     public int Amount = 3;
+
+
 }
