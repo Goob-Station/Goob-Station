@@ -15,7 +15,7 @@ from datetime import datetime, timezone
 from collections import defaultdict
 
 LICENSE_CONFIG = {
-    "mit": {"id": "MIT", "path": "LICENSES/MIT.txt"},
+    "mit": {"id": "MIT-WIZARDS", "path": "LICENSES/MIT-WIZARDS.txt"},
     "mpl": {"id": "MPL-2.0", "path": "LICENSES/MPL-2.0.txt"},
 }
 
