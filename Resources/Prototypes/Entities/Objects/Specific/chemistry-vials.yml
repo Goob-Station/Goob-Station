@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # TODO: Have a seperate lid state that can be popped on and off (not as a seperate item) that changes whether the vial can be spilled or not.
 
 - type: entity

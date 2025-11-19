@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Picks a random location for the NPC to move to and idle.
 - type: htnCompound
   id: IdleCompound

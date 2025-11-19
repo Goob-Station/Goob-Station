@@ -1,3 +1,7 @@
+-- SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+--
+-- SPDX-License-Identifier: MIT-WIZARDS
+
 local sprite = app.editor.sprite
 local cel = app.cel
 

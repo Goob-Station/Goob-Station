@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # A basic inheritable template for a gun that is wieldable and has the standard inaccuracy.
 - type: entity
   id: BaseGunWieldable

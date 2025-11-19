@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 - files: ["supermatter.webp", "robotics.webp"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Veritius#2351 (257233913951289344) on discord / @Veritius on GitHub"

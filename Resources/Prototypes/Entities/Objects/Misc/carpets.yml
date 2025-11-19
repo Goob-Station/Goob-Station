@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # TODO once tiles can be smoothed and carpets ported over to that, add them to the FloorTile outputs
 - type: entity
   name: carpet

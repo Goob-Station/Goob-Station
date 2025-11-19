@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 #TODO give these the new base sprite used in the regular action figures.
 #No, not like a template. Just the base of the toy.
 - type: entity

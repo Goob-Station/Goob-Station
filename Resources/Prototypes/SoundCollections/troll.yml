@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # various troll sounds for H.O.N.K.
 - type: soundCollection
   id: TrollAnimals

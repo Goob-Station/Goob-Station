@@ -1,3 +1,7 @@
+% SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+%
+% SPDX-License-Identifier: MIT-WIZARDS
+
 # This is a script to be loaded into GNU Octave.
 
 # - Notes -

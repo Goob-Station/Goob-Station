@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # they're uninflated by default so they're tiny
 - type: stack
   parent: BaseSmallStack

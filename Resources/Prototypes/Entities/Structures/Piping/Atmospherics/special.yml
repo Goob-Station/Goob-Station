@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Devices which are not portable but don't link up to anything
 - type: entity
   id: AtmosDeviceFanTiny

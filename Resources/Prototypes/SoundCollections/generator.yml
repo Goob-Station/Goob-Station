@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿- type: soundCollection
   # Plays when you try to start a generator.
   # You know, lawnmower cord pull sound.

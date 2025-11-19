@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 #!/usr/bin/env python3
 
 # User data dumping script for dumping data from an SS14 postgres database.

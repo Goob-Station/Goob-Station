@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Spawn on client side when users examine a multipart machine
 # If a sprite is given then the default component's value will be overriden
 - type: entity

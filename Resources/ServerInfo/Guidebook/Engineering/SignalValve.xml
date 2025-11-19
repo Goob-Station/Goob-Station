@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+
+SPDX-License-Identifier: MIT-WIZARDS
+-->
+
 ﻿<Document>
   # Signal Valve
   The signal valve is a valve that can be controlled via [textlink="signals." link="Networking"]

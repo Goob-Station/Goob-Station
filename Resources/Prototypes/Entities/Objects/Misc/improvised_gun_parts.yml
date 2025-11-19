@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 #The entire game mysteriously shits itself and dies if you uncomment the item size. I have no idea why.
 #TODO: Assimilate these into the same RSI.
 - type: entity

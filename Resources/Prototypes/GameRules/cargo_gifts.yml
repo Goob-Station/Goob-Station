@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Tables --  Add your new event to this Table if you want it to happen via the basic/ramping schedulers.
 
 - type: entityTable

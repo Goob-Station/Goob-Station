@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # There are limitations to this ATM. The pathfinder is too slow to check accessibility well
 # and reachable only takes in an entity so sometimes the follow idle spot is outside of the follow range
 

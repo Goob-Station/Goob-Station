@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # TODO: Kill ore veins
 # Split it into 2 components, 1 for "spawn XYZ on destruction" and 1 for "randomly select one of these for spawn on destruction"
 

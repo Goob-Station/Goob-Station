@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿- type: spaceBiome
   id: Failsafe
   priority: -999999 # This DEFINITELY shouldn't get selected!

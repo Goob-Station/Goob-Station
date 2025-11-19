@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Improvised weapons/gear, etc. Not departmentally restricted per se, but you shouldn't really have it around
 # as non-sec without a valid reason.
 - type: contrabandSeverity

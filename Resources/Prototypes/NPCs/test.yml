@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # Selects a random pathfind point and tries to move there.
 - type: htnCompound
   id: MoveToPathfindPointCompound

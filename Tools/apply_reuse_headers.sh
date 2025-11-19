@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Goob Station Contributors
 #
 # SPDX-License-Identifier: MPL-2.0
 
@@ -155,9 +155,12 @@ OPTIONS:
 EXAMPLES:
   $(basename "$0") .                    # Process current directory
   $(basename "$0") -v /path/to/code     # Process with verbose output
+  $(basename "$0") -p .                 # Parallel processing (faster!)
+  $(basename "$0") -p -j 8 .            # Parallel with 8 worker threads
   $(basename "$0") -l mpl -a "Me" src/  # Override license and author
   $(basename "$0") -n Resources/        # Dry run on Resources/
   $(basename "$0") -f Content.Client/   # Force reprocess existing headers
+  $(basename "$0") -p -n .              # Fast parallel dry run
 
 CONFIGURATION:
   Edit the CONFIGURATION SECTION at the top of this script to:
@@ -382,12 +385,18 @@ process_file() {
 
 main() {
     local target_dir="."
+    local single_file_mode=0
+    local single_file=""
 
     while [[ $# -gt 0 ]]; do
         case "$1" in
             -h|--help)
                 show_usage
                 exit 0
+                ;;
+            --single-file)
+                single_file_mode=1
+                shift
                 ;;
             -v|--verbose)
                 VERBOSE=1
@@ -450,11 +459,23 @@ main() {
                 exit 1
                 ;;
             *)
-                target_dir="$1"
+                if [ "$single_file_mode" -eq 1 ]; then
+                    single_file="$1"
+                else
+                    target_dir="$1"
+                fi
                 shift
                 ;;
         esac
     done
+
+    # Handle single file mode (used internally for parallel processing)
+    if [ "$single_file_mode" -eq 1 ]; then
+        if [ -f "$single_file" ]; then
+            process_file "$single_file"
+        fi
+        exit 0
+    fi
 
     if [ ! -d "$target_dir" ]; then
         echo "Error: Directory '$target_dir' does not exist" >&2
@@ -474,30 +495,32 @@ main() {
     echo "============================================"
     echo ""
 
-    # Export functions and variables for parallel processing
-    export CURRENT_YEAR DEFAULT_AUTHOR DEFAULT_LICENSE
-    export VERBOSE DRY_RUN FORCE LICENSE_OVERRIDE SKIP_EXISTING
-    export -f get_comment_style matches_pattern get_author_and_license
-    export -f has_reuse_header create_header process_file log_verbose
-    
-    # Export arrays
-    export LICENSE_CONFIG COMMENT_STYLES DIRECTORY_RULES
-    
     local find_cmd="find \"$target_dir\""
-    
+
     for exclude_dir in "${EXCLUDE_DIRS[@]}"; do
         find_cmd="$find_cmd -path \"*/$exclude_dir\" -prune -o"
     done
-    
+
     find_cmd="$find_cmd -type f -print0"
-    
+
     local file_count=0
     local processed_count=0
-    
+
     if [ "$PARALLEL" -eq 1 ]; then
-        # Parallel processing with xargs
-        eval "$find_cmd" 2>/dev/null | xargs -0 -P "$NUM_JOBS" -I {} bash -c 'process_file "$@"' _ {}
-        
+        # Parallel processing: call this script itself for each file
+        # This ensures all configurations are available in each worker
+        local script_path="${BASH_SOURCE[0]}"
+        local parallel_args=""
+
+        [ "$VERBOSE" -eq 1 ] && parallel_args="$parallel_args -v"
+        [ "$DRY_RUN" -eq 1 ] && parallel_args="$parallel_args -n"
+        [ "$FORCE" -eq 1 ] && parallel_args="$parallel_args -f"
+        [ -n "$LICENSE_OVERRIDE" ] && parallel_args="$parallel_args -l ${LICENSE_OVERRIDE,,}"
+        [ -n "${AUTHOR_OVERRIDE:-}" ] && parallel_args="$parallel_args -a \"$AUTHOR_OVERRIDE\""
+
+        # Use xargs to process files in parallel
+        eval "$find_cmd" 2>/dev/null | xargs -0 -P "$NUM_JOBS" -I {} bash "$script_path" --single-file $parallel_args {}
+
         # Count files after processing
         file_count=$(eval "$find_cmd" 2>/dev/null | tr '\0' '\n' | wc -l)
         processed_count="N/A (parallel mode)"

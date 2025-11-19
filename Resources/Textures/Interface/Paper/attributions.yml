@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 - files: ["paper_heading_nanotask.svg, paper_heading_nanotask.svg.96dpi.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Created by moomoobeef"

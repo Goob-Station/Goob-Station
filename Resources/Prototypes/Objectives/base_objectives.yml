@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # OBJECTIVE STYLE
 # in comments anything that says final prototype means the objective that isnt abstract.
 # you dont need noSpawn because Objectives category is automatically added, which has hideSpawnmenu

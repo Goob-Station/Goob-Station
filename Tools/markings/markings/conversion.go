@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+//
+// SPDX-License-Identifier: MIT-WIZARDS
+
 package markings
 
 func accessories_to_markings(accessories []SpriteAccessoryPrototype) ([]MarkingPrototype, error) {

@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+
+SPDX-License-Identifier: MIT-WIZARDS
+-->
+
 <Document>
 # Bartender
 The bartender has a pretty simple job: serve drinks. People will come up to you and request drinks, and your job is just to hand it to them.

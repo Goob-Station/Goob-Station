@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿# Special entity that indicates that there is something in a player's pockets, without showing the actual entity.
 # This **could** just be done via UI elements, but the existing UI uses sprite-views & the examine-system. So this is easier than special casing this.
 

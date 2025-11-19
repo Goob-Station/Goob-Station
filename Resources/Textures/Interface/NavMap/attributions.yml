@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 - files: ["beveled_arrow_east.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Created by chromiumboy"

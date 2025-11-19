@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 #!/usr/bin/python
 # Analyze the rectangular bounding boxes in a greyscale bitmap to create
 # dungeon room pack configs.

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # If you're looking at the rsi for this file, you'll probably be confused why
 # I didn't just use an alpha for most of this stuff. Well icons don't have the
 # ability to have applied colors yet in GUIs. And also inhands... -Swept

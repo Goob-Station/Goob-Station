@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿# This item is stored in the hand slot while it is blocked, to represent what is blocking that hand.
 - type: entity
   id: VirtualItem

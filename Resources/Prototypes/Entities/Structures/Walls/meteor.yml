@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # These define Meteor Walls separate from Asteroid walls so they have different properties
 - type: entity
   id: MeteorRock

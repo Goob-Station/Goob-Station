@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # The primary role types are referenced by RP Rules, and were specified based on head admin input.
 # Do not create new ones without discussion.
 # You probably want a Subtype instead, anyway. Use MindRoleComponent.Subtype

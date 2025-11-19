@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 ﻿# Only one of those rulesets will appear on the server at any given time.
 # They all have a priority of 10 so they appear 2nd by default (after priority 0 and before priority 20)
 

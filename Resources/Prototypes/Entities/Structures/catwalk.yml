@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 # TODO move this to tiles once tile smoothing is supported
 - type: entity
   id: Catwalk

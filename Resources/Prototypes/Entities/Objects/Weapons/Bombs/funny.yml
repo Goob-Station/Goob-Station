@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: MIT-WIZARDS
+
 - type: entity
   name: hot potato
   description: Once activated, you can't drop this time bomb - hit someone else with it to save yourself! Don't burn your hands!
