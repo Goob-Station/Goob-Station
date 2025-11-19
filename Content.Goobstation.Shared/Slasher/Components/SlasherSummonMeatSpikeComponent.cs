@@ -31,7 +31,6 @@ public sealed partial class SlasherSummonMeatSpikeComponent : Component
         = new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/SlasherSummonMeatspike.ogg")
         {
             Params = AudioParams.Default
-                       .WithVolume(-3f)
                        .WithMaxDistance(4f)
         };
 }

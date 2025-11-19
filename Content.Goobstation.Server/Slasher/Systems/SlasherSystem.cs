@@ -1,44 +1,45 @@
 using Content.Goobstation.Shared.Slasher.Components;
-using Content.Shared.Body.Components;
-using Content.Shared.Standing;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
+using Robust.Shared.Network;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 
 /// <summary>
-/// Server-side rules for Slasher. On spawn, make them behave like a simple mob by removing BodyComponent
-/// so damage does not route through limbs. Also ensure all relevant slasher ability components are present.
+/// Server-side rules for Slasher.
 /// </summary>
 public sealed class SlasherSystem : EntitySystem
 {
+    [Dependency] private readonly INetManager _net = default!;
+
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SlasherComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SlasherComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<SlasherComponent, UpdateMobStateEvent>(OnUpdateMobState, after: [typeof(MobThresholdSystem)]);
     }
 
     private void OnStartup(Entity<SlasherComponent> ent, ref ComponentStartup args)
     {
-        MakeSimple(ent.Owner);
+        if (!_net.IsServer)
+            return;
         ApplyComponents(ent.Owner);
     }
 
-    private void OnMapInit(Entity<SlasherComponent> ent, ref MapInitEvent args)
+    // This doesn't really get rid of the crit state but it does put the user into a sort of soft crit state due to server / client mismatch.
+    // They can still move around and use skills they just can't attack. It also "blinds" their screen like normal crit.
+    // I like the behavior so if it doesn't cause problems I'll keep it.
+    private void OnUpdateMobState(Entity<SlasherComponent> ent, ref UpdateMobStateEvent args)
     {
-        MakeSimple(ent.Owner);
-        ApplyComponents(ent.Owner);
-    }
+        if (!_net.IsServer)
+            return;
 
-    private void MakeSimple(EntityUid uid)
-    {
-        // Limb damage breaks soulsteal
-        if (HasComp<BodyComponent>(uid))
-            RemComp<BodyComponent>(uid);
+        if (args.State == MobState.Critical)
+            args.State = MobState.Alive;
     }
 
     private void ApplyComponents(EntityUid uid)
     {
-        // Ensure all relevant slasher components.
         EnsureComp<SlasherSummonMacheteComponent>(uid);
         EnsureComp<SlasherIncorporealComponent>(uid);
         EnsureComp<SlasherBloodTrailComponent>(uid);
@@ -47,7 +48,5 @@ public sealed class SlasherSystem : EntitySystem
         EnsureComp<SlasherStaggerAreaComponent>(uid);
         EnsureComp<SlasherSoulStealComponent>(uid);
         EnsureComp<SlasherSummonMeatSpikeComponent>(uid);
-        // Allow standing without legs/body
-        EnsureComp<IgnoreLegsForStandingComponent>(uid);
     }
 }

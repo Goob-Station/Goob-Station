@@ -48,9 +48,6 @@ public sealed partial class SlasherBloodTrailComponent : Component
                        .WithLoop(true)
                };
 
-    /// <summary>
-    /// The current audio stream entity playing Funkyslasher.
-    /// </summary>
     [ViewVariables]
     public EntityUid? FunkyslasherStream;
 }

@@ -43,7 +43,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!; // Added
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     private const string FootstepSoundTag = "FootstepSound";
 
@@ -74,6 +74,9 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
     private void OnMapInit(Entity<SlasherIncorporealComponent> ent, ref MapInitEvent args)
     {
+        if (!_net.IsServer)
+            return;
+
         _actions.AddAction(ent.Owner, ref ent.Comp.IncorporealizeActionEnt, ent.Comp.IncorporealizeActionId);
         _actions.AddAction(ent.Owner, ref ent.Comp.CorporealizeActionEnt, ent.Comp.CorporealizeActionId);
         _actions.SetEnabled(ent.Comp.CorporealizeActionEnt, false);
@@ -82,6 +85,9 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
     private void OnShutdown(Entity<SlasherIncorporealComponent> ent, ref ComponentShutdown args)
     {
+        if (!_net.IsServer)
+            return;
+
         _actions.RemoveAction(ent.Owner, ent.Comp.IncorporealizeActionEnt);
         _actions.RemoveAction(ent.Owner, ent.Comp.CorporealizeActionEnt);
     }
@@ -99,8 +105,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         }
 
         // Fail if any valid observer has unobstructed LOS
-        var checkRange = ent.Comp.ObserverCheckRange;
-        foreach (var other in _lookup.GetEntitiesInRange(ent.Owner, checkRange))
+        foreach (var other in _lookup.GetEntitiesInRange(ent.Owner, ent.Comp.ObserverCheckRange))
         {
             if (other == ent.Owner || !HasComp<EyeComponent>(other))
                 continue;
@@ -117,7 +122,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
             if (_mobState.IsCritical(other))
                 continue;
 
-            if (_interaction.InRangeUnobstructed(other, ent.Owner, checkRange, CollisionGroup.Opaque))
+            if (_interaction.InRangeUnobstructed(other, ent.Owner, ent.Comp.ObserverCheckRange, CollisionGroup.Opaque))
             {
                 _popup.PopupEntity(Loc.GetString("slasher-corporealize-fail-seen"), ent.Owner, ent.Owner);
                 return;
@@ -148,6 +153,13 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     {
         if (args.Handled)
             return;
+
+        if (!_net.IsServer)
+        {
+            args.Handled = true;
+            return;
+        }
+
         if (!ent.Comp.IsIncorporeal)
             return;
         ExitIncorporeal(ent.Owner, ent);
@@ -158,6 +170,12 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     {
         if (args.Cancelled || args.Handled)
             return;
+
+        if (!_net.IsServer)
+        {
+            args.Handled = true;
+            return;
+        }
 
         // Re-check observers at completion. If seen, fail.
         var checkRange = ent.Comp.ObserverCheckRange;

@@ -24,22 +24,34 @@ public sealed partial class SlasherSoulStealComponent : Component
     public float AliveBruteBonusPerSoul = 2.5f;
 
     /// <summary>
-    /// Flat brute bonus per corpse soul stolen (reduced).
+    /// Flat brute bonus per corpse soul stolen.
     /// </summary>
     [DataField]
     public float DeadBruteBonusPerSoul = 1.5f;
 
     /// <summary>
-    /// Max health bonus per alive soul.
+    /// Armor (damage reduction) granted per alive soul.
     /// </summary>
     [DataField]
-    public int AliveHealthBonusPerSoul = 25;
+    public float AliveArmorPercentPerSoul = 0.07f;
 
     /// <summary>
-    /// Max health bonus per dead soul.
+    /// Armor (damage reduction) granted per dead soul.
     /// </summary>
     [DataField]
-    public int DeadHealthBonusPerSoul = 10;
+    public float DeadArmorPercentPerSoul = 0.03f;
+
+    /// <summary>
+    /// Maximum armor (damage reduction) reduction.
+    /// </summary>
+    [DataField]
+    public float ArmorCap = 0.94f;
+
+    /// <summary>
+    /// Current total armor reduction (0-1).
+    /// </summary>
+    [ViewVariables]
+    public float ArmorReduction;
 
     /// <summary>
     /// How long it takes to perform soul steal.
@@ -78,18 +90,10 @@ public sealed partial class SlasherSoulStealComponent : Component
     public float TotalAppliedBruteBonus;
 
     /// <summary>
-    /// Cached applied health bonus so we avoid double stacking.
-    /// </summary>
-    [ViewVariables]
-    public int TotalAppliedHealthBonus;
-
-    /// <summary>
     /// Last known machete entity to which we applied damage components.
     /// </summary>
     [ViewVariables]
     public EntityUid? LastMachete;
-
-
 }
 
 /// <summary>
@@ -98,20 +102,3 @@ public sealed partial class SlasherSoulStealComponent : Component
 public sealed partial class SlasherSoulStealEvent : EntityTargetActionEvent
 {
 }
-
-/// <summary>
-/// Raised to amputate all limbs (arms/legs/hands/feet) from a target, sparing head and torso.
-/// </summary>
-/* Unused for now
-public sealed partial class SlasherSoulStealAmputateEvent : EntityEventArgs
-{
-    public EntityUid Target { get; }
-    public EntityUid? User { get; }
-
-    public SlasherSoulStealAmputateEvent(EntityUid target, EntityUid? user = null)
-    {
-        Target = target;
-        User = user;
-    }
-}
-*/

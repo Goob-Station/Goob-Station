@@ -5,17 +5,19 @@ using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Cuffs.Components;
-using Content.Shared.Popups;
 using Content.Server.Actions;
+using Content.Server.Administration.Systems;
+using Robust.Shared.Network;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 
 public sealed class SlasherRegenerateSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
     [Dependency] private readonly CuffableSystem _cuffs = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -27,18 +29,29 @@ public sealed class SlasherRegenerateSystem : EntitySystem
 
     private void OnMapInit(Entity<SlasherRegenerateComponent> ent, ref MapInitEvent args)
     {
+        if (!_net.IsServer)
+            return;
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
     }
 
     private void OnShutdown(Entity<SlasherRegenerateComponent> ent, ref ComponentShutdown args)
     {
-        _actions.RemoveAction(ent.Comp.ActionEnt);
+        if (_net.IsServer)
+            _actions.RemoveAction(ent.Comp.ActionEnt);
     }
 
     private void OnRegenerate(EntityUid uid, SlasherRegenerateComponent comp, SlasherRegenerateEvent args)
     {
         if (args.Handled)
             return;
+
+        if (!_net.IsServer)
+        {
+            args.Handled = true;
+            return;
+        }
+
+        _rejuvenate.PerformRejuvenate(uid);
 
         TryInjectReagent(uid, comp);
 

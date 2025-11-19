@@ -1,29 +1,30 @@
 using Content.Goobstation.Server.Devil.Contract;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Goobstation.Shared.Slasher.Events;
+using Content.Goobstation.Shared.Slasher.Objectives;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
+using Content.Shared.DoAfter;
+using Content.Shared.Hands;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.DoAfter;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Throwing;
-using Content.Shared.Hands.Components;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Hands;
-using Content.Shared.Stunnable;
-using Content.Shared.Mobs;
-using Content.Shared.Bed.Sleep;
 using Content.Shared.Standing;
-using Content.Shared.Mind;
-using FixedPoint2 = Content.Goobstation.Maths.FixedPoint.FixedPoint2;
+using Content.Shared.Throwing;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.Audio;
+using Robust.Shared.Timing;
+using FixedPoint2 = Content.Goobstation.Maths.FixedPoint.FixedPoint2;
+using Robust.Shared.Network;
+using System.Linq;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 
 /// <summary>
-/// Soul steal system for the slasher. Gives bonuses for stealing souls from downed or dead targets.
+/// Soul steal system for the slasher. Gives bonuses for stealing souls from incapacitated or dead targets.
 /// </summary>
 public sealed class SlasherSoulStealSystem : EntitySystem
 {
@@ -33,11 +34,11 @@ public sealed class SlasherSoulStealSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly MobThresholdSystem _thresholds = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly DevilContractSystem _devilContractSystem = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -52,24 +53,34 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         SubscribeLocalEvent<SlasherSoulStealMacheteBonusComponent, ThrowDoHitEvent>(OnThrowHit);
 
         SubscribeLocalEvent<SlasherSoulStealComponent, SlasherSummonMacheteEvent>(OnSummonMachete);
-
         SubscribeLocalEvent<SlasherSoulStealComponent, DidEquipHandEvent>(OnDidEquipHand);
+
+        SubscribeLocalEvent<SlasherSoulStealComponent, DamageModifyEvent>(OnDamageModify);
     }
 
     private void OnMapInit(Entity<SlasherSoulStealComponent> ent, ref MapInitEvent args)
     {
+        if (!_net.IsServer)
+            return;
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEntity, ent.Comp.ActionId);
     }
 
     private void OnShutdown(Entity<SlasherSoulStealComponent> ent, ref ComponentShutdown args)
     {
-        _actions.RemoveAction(ent.Comp.ActionEntity);
+        if (_net.IsServer)
+            _actions.RemoveAction(ent.Comp.ActionEntity);
     }
 
     private void OnSoulSteal(Entity<SlasherSoulStealComponent> ent, ref SlasherSoulStealEvent args)
     {
         if (args.Handled || !args.Target.Valid)
             return;
+
+        if (!_net.IsServer)
+        {
+            args.Handled = true;
+            return;
+        }
 
         var user = ent.Owner;
         var target = args.Target;
@@ -90,6 +101,15 @@ public sealed class SlasherSoulStealSystem : EntitySystem
             return;
         }
 
+        // Must be a valid mob
+        if (!HasComp<MobStateComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("slasher-soulsteal-fail-not-valid"), user, user);
+            args.Handled = true;
+            return;
+        }
+
+        // check if target is downed, incapacitated, or dead
         if (!CanStartSoulSteal(target))
         {
             _popup.PopupEntity(Loc.GetString("slasher-soulsteal-fail-not-down"), user, user);
@@ -97,13 +117,20 @@ public sealed class SlasherSoulStealSystem : EntitySystem
             return;
         }
 
-
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.Soulstealdoafterduration, new SlasherSoulStealDoAfterEvent(), user, target: target)
+        // Defer starting the do-after to the next tick to avoid modifying ActiveDoAfterComponent when active.
+        Timer.Spawn(TimeSpan.Zero, () =>
         {
-            BreakOnDamage = true,
-            BreakOnMove = true,
-            DistanceThreshold = 2f,
-            RequireCanInteract = false
+            if (!Exists(user) || !Exists(target))
+                return;
+
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.Soulstealdoafterduration,
+                new SlasherSoulStealDoAfterEvent(), user, target: target)
+            {
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                DistanceThreshold = 2f,
+                RequireCanInteract = false
+            });
         });
 
         // Popup for user
@@ -116,16 +143,10 @@ public sealed class SlasherSoulStealSystem : EntitySystem
     // Basic checks to ensure they're a valid target
     private bool CanStartSoulSteal(EntityUid target)
     {
-        if (!HasComp<MobStateComponent>(target))
-            return false;
-
-        if (_mobState.IsDead(target))
+        if (_mobState.IsCritical(target) || _mobState.IsIncapacitated(target) || _standing.IsDown(target) || _mobState.IsDead(target))
             return true;
 
-        if (_mobState.IsCritical(target) || _mobState.IsIncapacitated(target) || _standing.IsDown(target))
-            return true;
-
-        return HasComp<KnockedDownComponent>(target) || HasComp<StunnedComponent>(target) || HasComp<SleepingComponent>(target);
+        else return false;
     }
 
     private void OnSoulStealDoAfterComplete(Entity<SlasherSoulStealComponent> ent, ref SlasherSoulStealDoAfterEvent ev)
@@ -133,30 +154,49 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         if (ev.Cancelled || ev.Args.Target == null)
             return;
 
-        _audio.PlayPvs(ent.Comp.SoulStealSound, ev.Args.Target.Value);
+        if (!_net.IsServer)
+        {
+            ev.Handled = true;
+            return;
+        }
 
-        CompleteSoulSteal(ent.Owner, ev.Args.Target.Value, ent.Comp);
-    }
+        var user = ent.Owner;
+        var target = ev.Args.Target.Value;
+        var comp = ent.Comp;
 
-    private void CompleteSoulSteal(EntityUid user, EntityUid target, SlasherSoulStealComponent comp)
-    {
+        _audio.PlayPvs(ent.Comp.SoulStealSound, target);
+
         var alive = _mobState.IsAlive(target);
-        var dead = _mobState.IsDead(target);
 
         var bruteBonus = alive ? comp.AliveBruteBonusPerSoul : comp.DeadBruteBonusPerSoul;
-        var healthBonus = alive ? comp.AliveHealthBonusPerSoul : comp.DeadHealthBonusPerSoul;
+        var armorBonus = alive ? comp.AliveArmorPercentPerSoul : comp.DeadArmorPercentPerSoul;
 
         if (alive)
             comp.AliveSouls++;
         else
             comp.DeadSouls++;
 
+        // Update absorb souls objective progress
+        if (_mindSystem.TryGetMind(user, out var mindId, out var mind))
+        {
+            foreach (var objUid in mind.Objectives)
+            {
+                if (!TryComp<SlasherAbsorbSoulsConditionComponent>(objUid, out var absorbObj))
+                    continue;
+
+                absorbObj.Absorbed += 1;
+                Dirty(objUid, absorbObj);
+                break;
+            }
+        }
+
         // Apply devil clause downside
         _devilContractSystem.AddRandomNegativeClause(target);
+        // Used to prevent stealing from the same person multiple times
         EnsureComp<SoullessComponent>(target);
 
         //TryFlavorTwistLimbs(user, target); // Originally intended to take off their limbs and replace them with limbs from random species but I couldn't get it working properly
-        ApplyHealthBonus(user, healthBonus, comp);
+        ApplyArmorBonus(user, armorBonus, comp);
         ApplyMacheteBonus(user, bruteBonus, comp);
 
         // Popup for user
@@ -166,22 +206,30 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         Dirty(user, comp);
     }
 
-    private void ApplyHealthBonus(EntityUid user, int bonus, SlasherSoulStealComponent comp)
+    private void ApplyArmorBonus(EntityUid user, float percent, SlasherSoulStealComponent comp)
     {
-        if (bonus <= 0 || !TryComp(user, out MobThresholdsComponent? thresholds))
+        if (percent <= 0f)
             return;
 
-        // Increase both the Critical and Dead thresholds.
-        if (_thresholds.TryGetThresholdForState(user, MobState.Critical, out var critThreshold, thresholds)
-            && critThreshold != null)
-            _thresholds.SetMobStateThreshold(user, critThreshold.Value + bonus, MobState.Critical, thresholds);
+        comp.ArmorReduction = MathF.Min(comp.ArmorReduction + percent, comp.ArmorCap);
+    }
 
-        if (_thresholds.TryGetThresholdForState(user, MobState.Dead, out var deadThreshold, thresholds)
-            && deadThreshold != null)
-            _thresholds.SetMobStateThreshold(user, deadThreshold.Value + bonus, MobState.Dead, thresholds);
+    private void OnDamageModify(Entity<SlasherSoulStealComponent> ent, ref DamageModifyEvent args)
+    {
+        var reduction = ent.Comp.ArmorReduction;
+        if (reduction <= 0f || args.Damage.Empty)
+            return;
 
-
-        comp.TotalAppliedHealthBonus += bonus;
+        var pairs = args.Damage.DamageDict.ToArray();
+        var factor = 1f - reduction;
+        foreach (var kv in pairs)
+        {
+            var type = kv.Key;
+            var val = kv.Value;
+            if (val <= FixedPoint2.Zero)
+                continue; // don't scale healing
+            args.Damage.DamageDict[type] = val * factor;
+        }
     }
 
     // Check machete to increase damage bonus
@@ -269,56 +317,4 @@ public sealed class SlasherSoulStealSystem : EntitySystem
 
         Dirty(ent);
     }
-
-    // Supposed to give random limbs to victims but I couldn't get it working
-    /*
-    private void TryFlavorTwistLimbs(EntityUid user, EntityUid target)
-    {
-        // Amputate the victim
-        var ev = new SlasherSoulStealAmputateEvent(target, user);
-        RaiseLocalEvent(ev);
-
-        // Give the victim new arms / legs
-
-        // Give the victim new hands / feet
-    }
-
-    private void OnSoulStealAmputate(SlasherSoulStealAmputateEvent ev)
-    {
-        var target = ev.Target;
-
-        // Collect limbs to amputate. We spare head and chest.
-        var parts = _body.GetBodyChildren(target);
-        var distal = new List<EntityUid>(); // hands/feet first
-        var proximal = new List<EntityUid>(); // arms/legs second
-
-        foreach (var part in parts)
-        {
-            switch (part.Component.PartType)
-            {
-                case BodyPartType.Hand:
-                case BodyPartType.Foot:
-                    distal.Add(part.Id);
-                    break;
-                case BodyPartType.Arm:
-                case BodyPartType.Leg:
-                    proximal.Add(part.Id);
-                    break;
-            }
-        }
-
-        void TryAmputate(EntityUid limb)
-        {
-            if (!TryComp<WoundableComponent>(limb, out var woundable) || !woundable.ParentWoundable.HasValue)
-                return;
-            var parent = woundable.ParentWoundable.Value;
-            _wounds.AmputateWoundableSafely(parent, limb, woundable);
-        }
-
-        foreach (var limb in distal)
-            TryAmputate(limb);
-        foreach (var limb in proximal)
-            TryAmputate(limb);
-    }
-    */
 }

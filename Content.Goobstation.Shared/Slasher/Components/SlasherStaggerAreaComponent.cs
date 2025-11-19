@@ -42,7 +42,6 @@ public sealed partial class SlasherStaggerAreaComponent : Component
     public SoundSpecifier StaggerSound = new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/SlasherStaggerArea.ogg")
     {
         Params = AudioParams.Default
-                       .WithVolume(-4f)
                        .WithMaxDistance(4f)
     };
 }

@@ -1566,12 +1566,12 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Asphyxiation: -12
           groups:
             Burn: -12
             Brute: -12
             Toxin: -12
+            Airloss: -12
+            Genetic: -12
       - !type:GenericStatusEffect
         key: Stun
         time: 3

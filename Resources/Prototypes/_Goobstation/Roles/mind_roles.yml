@@ -78,7 +78,6 @@
     exclusiveAntag: true
     roleType: SoloAntagonist
     subtype: role-subtype-slasher
-#  - type: SlasherRole # do later
 
 - type: entity
   parent: DevilMindRole

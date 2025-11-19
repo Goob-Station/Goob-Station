@@ -5,6 +5,7 @@ using Robust.Shared.Audio.Systems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Interaction;
 using Content.Server.Actions;
+using Robust.Shared.Network;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 
@@ -19,6 +20,7 @@ public sealed class SlasherStaggerAreaSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedInteractionSystem _interact = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -30,12 +32,15 @@ public sealed class SlasherStaggerAreaSystem : EntitySystem
 
     private void OnMapInit(Entity<SlasherStaggerAreaComponent> ent, ref MapInitEvent args)
     {
+        if (!_net.IsServer)
+            return;
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
     }
 
     private void OnShutdown(Entity<SlasherStaggerAreaComponent> ent, ref ComponentShutdown args)
     {
-        _actions.RemoveAction(ent.Comp.ActionEnt);
+        if (_net.IsServer)
+            _actions.RemoveAction(ent.Comp.ActionEnt);
     }
 
     private void OnUse(Entity<SlasherStaggerAreaComponent> ent, ref SlasherStaggerAreaEvent args)
@@ -43,10 +48,15 @@ public sealed class SlasherStaggerAreaSystem : EntitySystem
         if (args.Handled)
             return;
 
-        var (uid, comp) = ent;
-        var xform = Transform(uid);
+        if (!_net.IsServer)
+        {
+            args.Handled = true;
+            return;
+        }
 
-        foreach (var (targetUid, _) in _lookup.GetEntitiesInRange<StatusEffectsComponent>(xform.Coordinates, comp.Range, LookupFlags.Dynamic))
+        var (uid, comp) = ent;
+
+        foreach (var (targetUid, _) in _lookup.GetEntitiesInRange<StatusEffectsComponent>(Transform(uid).Coordinates, comp.Range, LookupFlags.Dynamic))
         {
             if (targetUid == uid)
                 continue;

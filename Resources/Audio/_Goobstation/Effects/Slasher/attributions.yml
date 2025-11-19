@@ -32,3 +32,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Created by VoiceBosch, modified by loltart"
   source: "https://pixabay.com/sound-effects/anxious-lurker-dark-cinematic-sfx-191975/"
+
+- files: ["SlasherBreathe1.ogg", "SlasherBreathe2.ogg", "SlasherBreathe3.ogg", "SlasherBreathe4.ogg", "SlasherBreathe5.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by AWESOMETRAINMASTER1, modified by loltart"
+  source: "https://pixabay.com/sound-effects/mask-breathing-for-killer-or-other-63789/"

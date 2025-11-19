@@ -15,6 +15,10 @@
         Slash: 15
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 30
   - type: Item
     storedSprite:
       state: storage
@@ -22,13 +26,7 @@
     shape:
     - 0,0,0,2
   - type: DisarmMalus
-#  - type: MeleeThrowOnHit # check later
-#    stunTime: 1.5 # stunned on throw
-#    activateOnThrown: true
-#    distance: 0 # no throw impulse to victim, only stun
-#    speed: 0
   - type: SlasherMassacreMachete
-
 
 - type: entity
   parent: WeldingMaskBase
@@ -47,6 +45,33 @@
     tags:
     - WhitelistChameleon
     - WeldingMask
+  - type: RandomIntervalSound
+    requireEquipped: True
+    requireAlive: True
+    sound:
+      collection: SlasherBreathing
+      params:
+        volume: -5
+        rollOffFactor: 8
+        maxDistance: 8
+  - type: SelfUnremovableClothing
+  - type: SelfEquipOnly
+    unequipRequireConscious: false
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 1
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      NerveDamage: 0
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
+        Caustic: 0.90
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -61,66 +86,75 @@
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING
+  - type: SelfUnremovableClothing
+  - type: SelfEquipOnly
+    unequipRequireConscious: false
   - type: Tag
     tags:
     - Apron
     - WhitelistChameleon
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      NerveDamage: 0
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
+        Caustic: 0.90
 
 - type: entity
-  parent: BaseGameRule
-  id: SlasherSpawn
+  parent: ClothingHandsGlovesColorBlack
+  id: ClothingHandsSlasherGloves
+  name: slasher gloves
+  description: Heavy black gloves, stained by time.
   components:
-  - type: StationEvent
-    weight: 3
-    duration: null
-    earliestStart: 30
-    maxOccurrences: 1
-    minimumPlayers: 30
-    chaos:
-      Hostile: 40
-      Combat: 40
-      Death: 40
-    eventType: HostilesSpawn
-  - type: GameRule
-    chaosScore: 400
-  - type: AntagRandomSpawn
-  - type: AntagLoadProfileRule
-    speciesOverride: Human
-    speciesOverrideBlacklist:
-    - Yowie
-    - IPC
-    - Diona
-    - Harpy
-    - Plasmaman
-  - type: AntagObjectives
-    objectives:
-    - StealResearchObjective # Change later
-  - type: AntagSelection
-    agentName: slasher-round-end-agent-name # Change later
-    definitions:
-    - spawnerPrototype: SpawnPointGhostSlasher
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: SlasherGear
-      roleLoadout:
-      - RoleSurvivalEVA
-      briefing:
-        text: slasher-role-greeting
-        color: Red
-        sound: /Audio/_Goobstation/Effects/Slasher/Slasherintro.ogg
-      components:
-      - type: Slasher
-      - type: AutoImplant
-        implants:
-        - DeathAcidifierImplant
-      - type: RandomMetadata
-        nameSegments:
-        - NamesSlasherTitle
-        - NamesSlasher
-        nameFormat: name-format-slasher
-      mindRoles:
-      - MindRoleSlasher
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      NerveDamage: 0
+    coverage:
+    - Hand
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
+        Caustic: 0.90
+
+- type: entity
+  parent: ClothingShoesLeather
+  id: ClothingShoesSlasher
+  name: slasher shoes
+  description: Old leather boots that have seen better days.
+  components:
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      NerveDamage: 0
+    coverage:
+    - Foot
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
+        Caustic: 0.90
 
 - type: entity
   id: SlasherMeatSpike
@@ -182,6 +216,5 @@
       spike:
         shape: !type:PhysShapeAabb { bounds: "-0.25,-0.25,0.25,0.25" }
         density: 5
-        mask: [] # No collision mask so entities can walk through
+        mask: []
         layer: []
-

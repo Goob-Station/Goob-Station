@@ -1,9 +1,10 @@
+using Content.Goobstation.Shared.Slasher.Components;
 using Content.Server.Actions;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
-using Content.Goobstation.Shared.Slasher.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Network;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 
@@ -14,6 +15,7 @@ public sealed class SlasherSummonMacheteSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protos = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -26,16 +28,26 @@ public sealed class SlasherSummonMacheteSystem : EntitySystem
 
     private void OnMapInit(Entity<SlasherSummonMacheteComponent> ent, ref MapInitEvent args)
     {
+        if (!_net.IsServer)
+            return;
+
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
     }
 
     private void OnShutdown(Entity<SlasherSummonMacheteComponent> ent, ref ComponentShutdown args)
     {
-        _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
+        if (_net.IsServer)
+            _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
     }
 
     private void OnSummon(Entity<SlasherSummonMacheteComponent> ent, ref SlasherSummonMacheteEvent args)
     {
+        if (!_net.IsServer)
+        {
+            args.Handled = true;
+            return;
+        }
+
         // Fail if the user has no hands.
         if (!TryComp<HandsComponent>(ent.Owner, out var hands) || hands.Hands.Count == 0)
         {

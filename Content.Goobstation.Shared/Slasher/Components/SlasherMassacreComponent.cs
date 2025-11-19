@@ -82,7 +82,6 @@ public sealed partial class SlasherMassacreMacheteComponent : Component
              new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/Massacreintro.ogg")
              {
                  Params = AudioParams.Default
-                     .WithVolume(-5f)
                      .WithRolloffFactor(8f)
                      .WithMaxDistance(10f)
              };
@@ -92,7 +91,6 @@ public sealed partial class SlasherMassacreMacheteComponent : Component
              new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/Massacreslash.ogg")
              {
                  Params = AudioParams.Default
-                     .WithVolume(-5f)
                      .WithRolloffFactor(8f)
                      .WithMaxDistance(10f)
              };
@@ -102,7 +100,6 @@ public sealed partial class SlasherMassacreMacheteComponent : Component
              new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/MassacreDelimb.ogg")
              {
                  Params = AudioParams.Default
-                     .WithVolume(-5f)
                      .WithRolloffFactor(8f)
                      .WithMaxDistance(10f)
              };

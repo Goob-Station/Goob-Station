@@ -39,22 +39,29 @@ public sealed class SlasherMassacreSystem : EntitySystem
     private void OnGetItemActions(EntityUid uid, SlasherMassacreMacheteComponent comp, GetItemActionsEvent args)
     {
         EnsureComp<SlasherMassacreUserComponent>(args.User);
-        args.AddAction(ref comp.MassacreActionEntity, comp.MassacreActionId);
+
+        if (_net.IsServer)
+            args.AddAction(ref comp.MassacreActionEntity, comp.MassacreActionId);
+
         Dirty(uid, comp);
     }
 
     private void OnMassacreAction(Entity<SlasherMassacreUserComponent> ent, ref SlasherMassacreEvent args)
     {
+        if (!_net.IsServer)
+        {
+            args.Handled = true;
+            return;
+        }
+
         if (!ent.Comp.Active)
         {
             ent.Comp.Active = true;
             ent.Comp.HitCount = 0;
             ent.Comp.CurrentVictim = null;
 
-            if (_net.IsServer)
-                _popup.PopupEntity(Loc.GetString("slasher-massacre-start"), ent.Owner, ent.Owner, PopupType.MediumCaution);
-            if (_net.IsServer)
-                _audio.PlayPvs(ent.Comp.MassacreIntro, ent.Owner);
+            _popup.PopupEntity(Loc.GetString("slasher-massacre-start"), ent.Owner, ent.Owner, PopupType.MediumCaution);
+            _audio.PlayPvs(ent.Comp.MassacreIntro, ent.Owner);
 
         } // better formatting :shrug:
         else
@@ -99,7 +106,7 @@ public sealed class SlasherMassacreSystem : EntitySystem
             break;
         }
 
-        // If no valid humanoid with mind was hit, treat like a miss and end the chain.
+        // If no valid humanoid was hit, treat like a miss and end the chain.
         if (victim == null)
         {
             EndChain(args.User, userComp, true);
@@ -118,15 +125,14 @@ public sealed class SlasherMassacreSystem : EntitySystem
         userComp.CurrentVictim = victim.Value;
         userComp.HitCount++;
 
-        var machete = weaponEnt.Comp;
 
-        // Calculate damage bonus/penalty. This system does some funky stuff.. If you attack someone with it, it takes like half a second to actually apply the damage penalty/bonus. no idea why. it works tho.
-        var totalBonus = -machete.BaseDamagePenalty + machete.PerHitBonus * (userComp.HitCount - 1);
+
+        // Calculate damage bonus/penalty.
+        var totalBonus = -weaponEnt.Comp.BaseDamagePenalty + weaponEnt.Comp.PerHitBonus * (userComp.HitCount - 1);
         if (totalBonus != 0)
         {
-            var damageAdj = new DamageSpecifier();
-            damageAdj.DamageDict.Add("Slash", totalBonus);
-            args.BonusDamage += damageAdj;
+            new DamageSpecifier().DamageDict.Add("Slash", totalBonus);
+            args.BonusDamage += new DamageSpecifier();
         }
 
         // If the victim died end the chain silently.
@@ -139,18 +145,18 @@ public sealed class SlasherMassacreSystem : EntitySystem
         var playedDelimb = false;
 
         // Limb severing phase.
-        if (userComp.HitCount >= machete.LimbSeverHits)
+        if (userComp.HitCount >= weaponEnt.Comp.LimbSeverHits)
         {
-            if (TrySeverRandomLimb(victim.Value, chance: machete.LimbSeverChance))
+            if (TrySeverRandomLimb(victim.Value, chance: weaponEnt.Comp.LimbSeverChance))
                 playedDelimb = true;
         }
 
         // Decapitation.
-        if (userComp.HitCount == machete.DecapitateHit)
+        if (userComp.HitCount == weaponEnt.Comp.DecapitateHit)
         {
             if (Decapitate(victim.Value))
             {
-                playedDelimb = true; // play delimb sound for decap
+                playedDelimb = true;
                 if (_net.IsServer)
                     _popup.PopupEntity(Loc.GetString("slasher-massacre-decap"), victim.Value, PopupType.Large);
             }
@@ -161,14 +167,15 @@ public sealed class SlasherMassacreSystem : EntitySystem
         if (_net.IsServer)
         {
             if (playedDelimb)
-                _audio.PlayPvs(machete.MassacreDelimb, args.User);
+                _audio.PlayPvs(weaponEnt.Comp.MassacreDelimb, args.User);
             else
-                _audio.PlayPvs(machete.MassacreSlash, args.User);
+                _audio.PlayPvs(weaponEnt.Comp.MassacreSlash, args.User);
         }
 
         Dirty(args.User, userComp);
     }
 
+    // Handles severing a random limb.
     private bool TrySeverRandomLimb(EntityUid victim, float chance)
     {
         if (!_random.Prob(chance))
@@ -186,20 +193,19 @@ public sealed class SlasherMassacreSystem : EntitySystem
         if (severable.Count == 0)
             return false;
 
-        var limb = _random.Pick(severable);
+        var pickedLimb = _random.Pick(severable);
 
-        if (!TryComp<WoundableComponent>(limb, out var limbWoundable) || !limbWoundable.ParentWoundable.HasValue)
+        if (!TryComp<WoundableComponent>(pickedLimb, out var limbWoundable) || !limbWoundable.ParentWoundable.HasValue)
             return false;
 
-        var parent = limbWoundable.ParentWoundable.Value;
-
-        _wounds.AmputateWoundableSafely(parent, limb, limbWoundable);
+        _wounds.AmputateWoundableSafely(limbWoundable.ParentWoundable.Value, pickedLimb, limbWoundable);
 
         if (_net.IsServer)
             _popup.PopupEntity(Loc.GetString("slasher-massacre-limb"), victim, PopupType.Medium);
         return true;
     }
 
+    // Handles decapitation.
     private bool Decapitate(EntityUid victim)
     {
         var parts = _body.GetBodyChildren(victim);
