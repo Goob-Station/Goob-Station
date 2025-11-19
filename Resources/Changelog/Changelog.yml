@@ -4132,3 +4132,20 @@ Entries:
   id: 9211
   time: '2025-11-17T18:07:29.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41461
+- author: Hitlinemoss
+  changes:
+  - message: The CMO's locker no longer contains a duplicate beret/cloak.
+    type: Fix
+  - message: The neck gaiter in the HoS's locker has been moved to their dresser.
+    type: Fix
+  id: 9212
+  time: '2025-11-19T02:58:33.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41487
+- author: korczoczek
+  changes:
+  - message: Packed's evac shuttle will no longer have its air chamber glass break
+      upon loading
+    type: Fix
+  id: 9213
+  time: '2025-11-19T22:15:26.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41500
