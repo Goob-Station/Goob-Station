@@ -30,6 +30,7 @@ using Content.Shared.Heretic;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Components;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio;
@@ -78,7 +79,7 @@ public sealed partial class HereticAbilitySystem
         if (!multipliersApplied)
             return;
 
-        var time = TimeSpan.FromSeconds(30) * stage;
+        var time = TimeSpan.FromMinutes(1) * stage;
         if (heretic.Ascended)
             time += TimeSpan.FromMinutes(1);
 
@@ -93,7 +94,7 @@ public sealed partial class HereticAbilitySystem
         out float stage,
         out bool multipliersApplied)
     {
-        stage = (float) Math.Pow((float) ent.Comp2.PathStage, 0.3f);
+        stage = MathF.Pow(ent.Comp2.PathStage, 0.3f);
         var multiplier = args.Volume.Float() * stage;
         var oldMult = multiplier;
 
@@ -232,6 +233,9 @@ public sealed partial class HereticAbilitySystem
         FixedPoint2 hp,
         EntityUid? hostile)
     {
+        if (_mobstate.IsDead(uid) || HasComp<GhoulComponent>(uid) || HasComp<BorgChassisComponent>(uid))
+            return null;
+
         var xform = Transform(uid);
         if (!_cloning.TryCloning(uid, _xform.GetMapCoordinates(xform), Settings, out var clone))
             return null;
