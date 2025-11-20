@@ -152,7 +152,7 @@
     - MedicalPatch
   - type: Spillable # only way empty the patch is wring it out and spill it on the floor
     solution: drink
-  - type: RefillableSolution  # if tiders can refil theirs why the fuck can't actual doctors
+  - type: RefillableSolution  # I don't know why this wasn't already like this.
     solution: drink
 
 - type: entity

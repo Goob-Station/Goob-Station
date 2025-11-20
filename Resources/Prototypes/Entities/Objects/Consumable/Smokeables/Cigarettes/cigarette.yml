@@ -109,8 +109,8 @@
           - ReagentId: Omnizine
             Quantity: 30
 
-- type: entity
-  id: CigaretteMedical # Goobstation Medicinal cigs
+- type: entity # Goobstation Medicinal cigs
+  id: CigaretteMedical
   suffix: Medical
   description: Smells distinctly like a chemlab, tastes like it too.
   parent: Cigarette
