@@ -1,0 +1,16 @@
+- type: entity
+  id: CigCartonEmpty
+  parent: CigCartonGreen
+  name: Medical carton
+  description: A carton containing 10 packets of empty cigarettes.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi # todo: sprite change
+    layers:
+      - state: closed
+  - type: Item
+    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi # todo: sprite change
+  - type: StorageFill
+    contents:
+      - id: CigPackEmpty
+        amount: 10
