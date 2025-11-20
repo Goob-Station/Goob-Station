@@ -18118,3 +18118,9 @@ Entries:
         instead roll using the existing preferences.
   id: 2040
   time: '2025-11-20T13:11:56.0000000+00:00'
+- author: Aviu00
+  changes:
+    - type: Fix
+      message: Ominous armor is magical contra instead of sec restricted.
+  id: 2041
+  time: '2025-11-20T14:37:40.0000000+00:00'
