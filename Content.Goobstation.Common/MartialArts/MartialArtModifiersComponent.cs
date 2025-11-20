@@ -25,7 +25,7 @@ public sealed partial class MartialArtModifiersComponent : Component
          // Flat negative modifiers will be just clamped to zero so it's fine (probably)
         { MartialArtModifierType.Damage, new Vector4(0.5f, 3f, -20f, 20f)},
         // No modifiers for move speed are supported
-        { MartialArtModifierType.MoveSpeed, new Vector4(0.2f, 2f, 0f, 0f)},
+        { MartialArtModifierType.MoveSpeed, new Vector4(0.2f, 1.5f, 0f, 0f)},
         // No modifiers for healing are supported
         { MartialArtModifierType.Healing, new Vector4(0f, 10f, 0f, 0f)},
     };
