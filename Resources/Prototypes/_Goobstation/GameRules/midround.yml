@@ -38,8 +38,7 @@
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
     definitions:
-    - prefRoles: [ TraitorSleeper ]
-      fallbackRoles: [ Traitor ]
+    - prefRoles: [ Traitor ]
       min: 1
       max: 2
       playerRatio: 10
