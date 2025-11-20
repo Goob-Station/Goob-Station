@@ -1,10 +1,6 @@
-using System.Numerics;
 using Robust.Client.Graphics;
-using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
-using Matrix3x2 = System.Numerics.Matrix3x2;
-using Vector3 = Robust.Shared.Maths.Vector3;
 
 namespace Content.Goobstation.Client.ExplodeServer;
 
@@ -17,19 +13,20 @@ public sealed class ExplodeServerOverlay : Overlay
     private readonly ShaderInstance _blurShader;
 
     public Color TintColor = new();
-
+    
+    public bool IsActive = true;
+    
     public float BlurAmount = 0f;
 
     public ExplodeServerOverlay()
     {
         IoCManager.InjectDependencies(this);
-
         _blurShader = _prototype.Index<ShaderPrototype>("BlurryVisionX").InstanceUnique();
     }
-
+    
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (ScreenTexture == null)
+        if (ScreenTexture == null || !IsActive)
             return;
 
         var worldHandle = args.WorldHandle;
