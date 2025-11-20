@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.ExplodeServer;
+using Content.Shared.GameTicking;
 using Robust.Shared.Timing;
 using Robust.Client.Graphics;
 
@@ -9,48 +10,49 @@ public sealed class ExplodeServerSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IOverlayManager _overlayManager = default!;
+    private bool _overlayStarted = false;
+    private TimeSpan _roundEndOverlayTime; // for how long to have the overlay on
     
-    private TimeSpan? _roundEndOverlayTime; // for how long to have the overlay on
     private ExplodeServerOverlay _overlay = new()
     {
         TintColor = new(255f, 0f, 0f),
-        BlurAmount = 0f
+        BlurAmount = 1f
     };
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        if (_roundEndOverlayTime == null)
+        var remainingTime = _roundEndOverlayTime - _gameTiming.CurTime;
+        if (remainingTime.TotalSeconds <= 0 && !_overlayStarted)
+        {
             return;
-        if (_gameTiming.CurTime <= _roundEndOverlayTime) // Start overlay and blink
+        }
+        if (remainingTime.TotalMilliseconds <= 5105) // Start overlay and blink
         {
             
-            if ((_gameTiming.CurTime.TotalSeconds % 2 == 0))
-            {
-                _overlayManager.AddOverlay(_overlay);
-            }
-            else
-            {
-                _overlayManager.RemoveOverlay(_overlay);
-            }
         }
-
-        if (_gameTiming.CurTime >= _roundEndOverlayTime) // Restart round
+        if (remainingTime.TotalMilliseconds <= 0) // Restart round
         {
-            _overlayManager.RemoveOverlay(_overlay);
-            RaiseLocalEvent(new ExplodeServerEvent());
+            RaiseNetworkEvent(new ExplodeServerEvent());
         }
     }
     public override void Initialize()
     {
         base.Initialize();
-        
+        _overlayStarted = false;
         _overlay.TintColor = Color.FromHex("#ff0000ff");
-        
         SubscribeNetworkEvent<ExplodeServerEvent>(OnExplodeServer);
+        SubscribeNetworkEvent<RoundRestartCleanupEvent>(OnRoundRestart);
     }
-
-    private void OnExplodeServer(ExplodeServerEvent e)
+    private void OnExplodeServer(ExplodeServerEvent ev)
     {
-            _roundEndOverlayTime = _gameTiming.CurTime + TimeSpan.FromMicroseconds(5105);
+        _overlayStarted = true;
+        _roundEndOverlayTime = _gameTiming.CurTime + TimeSpan.FromMilliseconds(5105);
+    }
+    private void OnRoundRestart(RoundRestartCleanupEvent ev)
+    {
+        _overlayStarted = false;
+        _roundEndOverlayTime = TimeSpan.Zero;
+        _overlayManager.RemoveOverlay(_overlay);
     }
 }

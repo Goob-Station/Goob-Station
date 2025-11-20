@@ -16,7 +16,7 @@ public sealed class ExplodeServerSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     
 
-    public void Initialize()
+    public override void Initialize()
     {
         base.Initialize();
         SubscribeNetworkEvent<ExplodeServerEvent>(OnCountdownEnd);
@@ -26,6 +26,7 @@ public sealed class ExplodeServerSystem : EntitySystem
     {
         Filter filter;
         var audio = AudioParams.Default;
+        audio.Volume = 1f;
         bool replay = true;
         var path = new SoundPathSpecifier("/Audio/_Goobstation/Announcements/ExplodeServerAlert.ogg");
         var soundEffect = _audio.ResolveSound(path);
