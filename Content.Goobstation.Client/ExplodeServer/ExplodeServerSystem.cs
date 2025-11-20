@@ -45,6 +45,8 @@ public sealed class ExplodeServerSystem : EntitySystem
     {
         base.Initialize();
         
+        _overlay.TintColor = Color.FromHex("#ff0000ff");
+        
         SubscribeNetworkEvent<ExplodeServerEvent>(OnExplodeServer);
     }
 
