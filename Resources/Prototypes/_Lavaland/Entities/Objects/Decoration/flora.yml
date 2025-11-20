@@ -1,0 +1,47 @@
+- type: entity
+  name: dusty bush
+  id: AshBush
+  description: A bush that is covered in ash. It may look like it's dead, but it's actually alive!
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Decoration/Flora/bush.rsi
+    layers:
+    - state: bush1
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        bush1: ""
+        bush2: ""
+        bush3: ""
+  - type: Clickable
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+  - type: InteractionOutline
+  #- type: Gatherable # TODO add proper loot
+  #  toolWhitelist:
+  #    components:
+  #    - Hands
+  #  loot:
+  #    All: !type:GroupSelector
+  #      children:
+  #      - id: FoodSpaceshroom
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
