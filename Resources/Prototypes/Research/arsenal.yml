@@ -204,6 +204,8 @@
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
+  - PolymerBaton #goob
+  - SpearTelescopic #goob
   # Goobstation R&D Console rework start
   position: 3,3
   technologyPrerequisites:

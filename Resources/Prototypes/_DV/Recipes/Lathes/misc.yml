@@ -23,3 +23,10 @@
   materials:
     Steel: 250
     Plastic: 250
+
+- type: latheRecipe
+  id: DoubleEmergencyWaterVaporTank
+  result: DoubleEmergencyWaterVaporTank
+  completetime: 4
+  materials:
+    Steel: 250

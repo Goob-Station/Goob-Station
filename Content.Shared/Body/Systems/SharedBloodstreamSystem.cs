@@ -3,6 +3,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Alert;
 using Content.Shared.Body.Components;
@@ -150,12 +151,19 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             var total = FixedPoint2.Zero;
             foreach (var (bodyPart, _) in _body.GetBodyChildren(uid))
             {
+                var totalPartBleeds = FixedPoint2.Zero; // Goobstation
                 foreach (var (wound, _) in _wound.GetWoundableWounds(bodyPart))
                 {
                     if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
                         continue;
 
                     total += bleeds.BleedingAmount;
+                    totalPartBleeds = bleeds.BleedingAmount; // Goobstation
+                }
+
+                if (TryComp<WoundableComponent>(bodyPart, out var woundable)) // Goobstation
+                {
+                    woundable.Bleeds = totalPartBleeds; // Goobstation
                 }
             }
 

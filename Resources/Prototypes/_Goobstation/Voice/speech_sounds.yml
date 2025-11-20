@@ -16,12 +16,3 @@
     collection: DuendeSounds
   exclaimSound:
     collection: DuendeSounds
-
-- type: speechSounds
-  id: HellGoose
-  saySound:
-    collection: GooseSounds
-  askSound:
-    collection: GooseSounds
-  exclaimSound:
-    collection: GooseSounds

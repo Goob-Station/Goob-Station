@@ -196,42 +196,6 @@
     event: !type:StealShoesEvent {}
 
 - type: entity
-  parent: BaseAction
-  id: ActionCreateHellPortal
-  name: Make Hell Portal
-  description: Using your demonic powers you can open a portal to hell.
-  components:
-  - type: Action
-    useDelay: 60
-    itemIconStyle: BigAction
-    icon:
-      sprite: /Textures/_Goobstation/Effects/portal.rsi
-      state: portal-hell
-  - type: TargetAction
-    range: 1
-  - type: WorldTargetAction
-    event: !type:WorldSpawnSpellEvent
-      prototypes:
-      - id: HellPortal
-        amount: 1
-      offset: 0, 0
-
-- type: entity
-  parent: BaseAction
-  id: ActionHellGooseTeleport
-  name: Teleport to station
-  description: Teleports you to the station.
-  components:
-  - type: Action
-    useDelay: 30
-    itemIconStyle: BigAction
-    icon:
-      sprite: /Textures/_Goobstation/Effects/portal.rsi
-      state: portal-chrono
-  - type: InstantAction
-    event: !type:GooseTeleportEvent
-
-- type: entity
   id: ActionVehicleWallPush
   name: Wall Launch
   description: Launch yourself off the nearest surface, tiders count as surfaces.

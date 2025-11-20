@@ -1,0 +1,95 @@
+# Species
+- type: loadoutEffectGroup
+  id: WaterBreather
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Feroxi
+
+# Basic
+- type: loadout
+  id: EmergencyWaterVapor
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsWaterVapor
+
+# Clown
+- type: loadout
+  id: EmergencyWaterVaporClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  storage:
+    back:
+    - BoxHugSlotsWaterVapor
+
+# Mime
+- type: loadout
+  id: EmergencyWaterVaporMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  storage:
+    back:
+    - BoxMimeSlotsWaterVapor
+
+# Engineering / Extended
+- type: loadout
+  id: EmergencyWaterVaporExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsEngineeringWaterVapor
+
+# Medical
+- type: loadout
+  id: EmergencyWaterVaporMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsMedicalWaterVapor
+
+# Security
+- type: loadout
+  id: EmergencyWaterVaporSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsSecurityWaterVapor
+
+# Syndicate
+- type: loadout
+  id: EmergencyWaterVaporSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsWaterVapor
+
+# Full EVA Tank, Any Species
+- type: loadout
+  id: LoadoutSpeciesEVAWaterVapor
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  equipment:
+    suitstorage: WaterVaporTankFilled
+
+# Species-appropriate Double Emergency Tank in Pocket 1
+- type: loadout
+  id: LoadoutSpeciesPocketDoubleWaterVapor
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  equipment:
+    pocket1: DoubleEmergencyWaterVaporTankFilled

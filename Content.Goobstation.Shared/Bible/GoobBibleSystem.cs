@@ -89,3 +89,9 @@ public sealed partial class GoobBibleSystem : EntitySystem
         return true;
     }
 }
+
+/// <summary>
+/// Raised on the target once bible smite gets used
+/// </summary>
+[ByRefEvent]
+public record struct BibleSmiteUsed;
