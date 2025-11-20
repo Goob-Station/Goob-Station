@@ -51,6 +51,7 @@
   recipes:
   - Implanter
   - Defibrillator
+  - MedicalCigPack # Goobstation pack watch
   - HandheldHealthAnalyzer
   - DiseaseSwab
   - BodyBag

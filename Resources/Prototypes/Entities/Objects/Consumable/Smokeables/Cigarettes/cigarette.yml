@@ -110,6 +110,21 @@
             Quantity: 30
 
 - type: entity
+  id: CigaretteMedical # Goobstation Medicinal cigs
+  suffix: Medical
+  description: Smells distinctly like a chemlab, tastes like it too.
+  parent: Cigarette
+  name: cigarette
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 25
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 5
+
+- type: entity
   id: CigaretteOmnizine
   parent: SoakedCigarette
   name: Hot Dog Water Flavor Explosion

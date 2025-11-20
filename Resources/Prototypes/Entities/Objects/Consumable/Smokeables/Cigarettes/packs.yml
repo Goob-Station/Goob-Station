@@ -300,6 +300,29 @@
       amount: 10
 
 - type: entity
+  id: CigPackMedical # Goobstation Medicinal cigs
+  parent: [CigPackBase]
+  name: Medicinals packet
+  description: Made for and by big pharma.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi
+  - type: Item
+    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi
+  - type: StorageFill
+    contents:
+    - id: CigaretteMedical
+      amount: 10
+
+- type: latheRecipe
+  id: MedicalCigPack
+  result: CigPackMedical
+  completetime: 2
+  materials:
+    Plastic: 500
+    Cloth: 500
+
+- type: entity
   id: CigPackMixed
   parent: CigPackMixedBase
   name: Dan's soaked smokes
