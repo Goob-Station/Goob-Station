@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.ExplodeServer;
 using Content.Server.Audio;
+using Content.Server.GameTicking;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -13,6 +14,14 @@ public sealed class ExplodeServerSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    
+
+    public void Initialize()
+    {
+        base.Initialize();
+        SubscribeNetworkEvent<ExplodeServerEvent>(OnCountdownEnd);
+    }
+
     public void TriggerOverlay()
     {
         Filter filter;
@@ -22,6 +31,13 @@ public sealed class ExplodeServerSystem : EntitySystem
         var soundEffect = _audio.ResolveSound(path);
         filter = Filter.Empty().AddAllPlayers(_playerManager);
         _entManager.System<ServerGlobalSoundSystem>().PlayAdminGlobal(filter, soundEffect , audio, replay);
-        RaiseNetworkEvent(new ExplodeServerEvent(isExploding:true));
+        RaiseNetworkEvent(new ExplodeServerEvent(isExploding:true, exploded:false));
+    }
+
+    private void OnCountdownEnd(ExplodeServerEvent e)
+    {
+        if (!e.Exploded)
+            return;
+        _entManager.System<GameTicker>().RestartRound();
     }
 }

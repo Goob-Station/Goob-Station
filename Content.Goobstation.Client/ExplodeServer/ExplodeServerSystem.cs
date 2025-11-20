@@ -1,14 +1,13 @@
 using Content.Goobstation.Shared.ExplodeServer;
-using Content.Server.GameTicking;
-using Robust.Client.Graphics;
 using Robust.Shared.Timing;
+using Robust.Client.Graphics;
+
 
 namespace Content.Goobstation.Client.ExplodeServer;
 
 public sealed class ExplodeServerSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IEntityManager _e = default!;
     [Dependency] private readonly IOverlayManager _overlayManager = default!;
     
     private TimeSpan? _roundEndOverlayTime; // for how long to have the overlay on
@@ -38,7 +37,7 @@ public sealed class ExplodeServerSystem : EntitySystem
         if (_gameTiming.CurTime >= _roundEndOverlayTime) // Restart round
         {
             _overlayManager.RemoveOverlay(_overlay);
-            _e.System<GameTicker>().RestartRound();
+            RaiseLocalEvent(new ExplodeServerEvent(isExploding: false, exploded:true));
         }
     }
     public override void Initialize()

@@ -1,8 +1,6 @@
 using Robust.Shared.Console;
 using Content.Server.Administration;
 using Content.Shared.Administration;
-using Robust.Shared.GameObjects;
-using Content.Goobstation.Server.ExplodeServer;
 
 namespace Content.Goobstation.Server.ExplodeServer;
 
