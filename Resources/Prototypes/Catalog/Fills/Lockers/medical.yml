@@ -126,6 +126,7 @@
     - id: BoxSyringe
     - id: BoxBeaker
     - id: BoxBeaker
+    - id: portableChemicalMixer # Goob
       prob: 0.3
     - id: BoxPillCanister
     - id: BoxBottle
