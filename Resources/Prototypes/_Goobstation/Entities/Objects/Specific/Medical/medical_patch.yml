@@ -125,6 +125,10 @@
   - type: Tag
     tags:
     - MedicalPatch
+  - type: InjectableSolution
+    solution: food
+  - type: RefillableSolution
+    solution: food
 
 - type: entity
   parent: BaseMedicalPatch
