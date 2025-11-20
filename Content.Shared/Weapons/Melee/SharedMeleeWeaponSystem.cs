@@ -686,7 +686,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var rangeEv = new GetLightAttackRangeEvent(target, user, component.Range);
         RaiseLocalEvent(meleeUid, ref rangeEv);
         // Not in LOS.
-        if (!InRange(user, target.Value, rangeEv.Cancel ? component.Range : rangeEv.Range, session))
+        if (target != null && !InRange(user, target.Value, rangeEv.Cancel ? component.Range : rangeEv.Range, session))
             return;
         // Goobstation end
 
