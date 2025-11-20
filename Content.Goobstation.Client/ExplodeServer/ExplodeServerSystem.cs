@@ -34,7 +34,6 @@ public sealed class ExplodeServerSystem : EntitySystem
             {
                 _overlay.IsActive = false;
                 _overlayManager.RemoveOverlay(_overlay);
-                return;
             }
             else
             {
