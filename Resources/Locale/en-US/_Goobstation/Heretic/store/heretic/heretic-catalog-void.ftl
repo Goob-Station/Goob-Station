@@ -109,6 +109,6 @@ knowledge-path-void-s9-desc =
     When completed, grants you Aristocrat's Blessing.
     A snowstorm is summoned, everything around you will be turned into snow and the air will constantly be frozen. Those nearby will be silenced and frozen even quicker.
     Lights will shatter when nearby.
-    Lasers will pass through you and bullets will be slowed down at your presense and will also avoid hitting you.
+    Lasers will pass through you and bullets will be slowed down at your presense and will avoid hitting you, the effect is greater if you are either walking or lying down.
     Water, ice and slippery surfaces no slip you.
     You will also become immune to flames, space, and similar environmental hazards. You gain total freedom of movement in zero-gravity.

@@ -42,7 +42,9 @@ using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Doors.Components;
 using Content.Shared.Effects;
 using Content.Shared.Heretic;
+using Content.Shared.Movement.Components;
 using Content.Shared.Projectiles;
+using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio.Systems;
@@ -75,6 +77,7 @@ public sealed class AristocratSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
 
     private static readonly EntProtoId IceTilePrototype = "IceCrust";
     private static readonly ProtoId<ContentTileDefinition> SnowTilePrototype = "FloorAstroSnow";
@@ -157,7 +160,7 @@ public sealed class AristocratSystem : EntitySystem
 
         affected.Aura = ent;
 
-        FreezeBullet((parent, aristocrat, Transform(parent)), (bullet, projectile, affected, physics));
+        FreezeBullet((parent, aristocrat, null, null), (bullet, projectile, affected, physics));
     }
 
     private void OnReflectHitScan(Entity<AristocratComponent> ent, ref HitScanReflectAttemptEvent args)
@@ -414,9 +417,12 @@ public sealed class AristocratSystem : EntitySystem
         ent.Comp1.UpdateStep++;
     }
 
-    private void FreezeBullet(Entity<AristocratComponent, TransformComponent> ent,
+    private void FreezeBullet(Entity<AristocratComponent, TransformComponent?, PhysicsComponent?> ent,
         Entity<ProjectileComponent, AffectedByVoidAuraComponent, PhysicsComponent> bullet)
     {
+        if (!Resolve(ent, ref ent.Comp2, ref ent.Comp3, false))
+            return;
+
         var (uid, proj, affected, physics) = bullet;
 
         if (proj.Shooter == ent)
@@ -434,7 +440,7 @@ public sealed class AristocratSystem : EntitySystem
         var homing = EnsureComp<HomingProjectileComponent>(uid);
         homing.Target = ent;
         var multiplier = MathHelper.Lerp(10f, 0f, Math.Clamp(targetVelocity * 2f / ent.Comp1.Range, 0f, 1f));
-        homing.HomingSpeed = -162f * multiplier;
+        homing.HomingSpeed = -128f * multiplier;
         Dirty(uid, homing);
 
         affected.OldVelocity ??= physics.LinearVelocity.Length();
@@ -450,7 +456,13 @@ public sealed class AristocratSystem : EntitySystem
                   Vector2.Dot(dir, rot.Opposite().ToVec());
         var modifier = MathF.Max(0f, dot);
 
-        targetVelocity = MathF.Max(5f, targetVelocity * (3f + modifier * oldLength));
+        // If heretic is lying down, walking or moving slowly, bullets are slowed down even more
+        var waltzMultiplier = TryComp(ent, out InputMoverComponent? mover) && !mover.Sprinting ||
+            _standing.IsDown(ent) || ent.Comp3.LinearVelocity.Length() <= 2.5f
+            ? 1f
+            : 2f;
+
+        targetVelocity = MathF.Max(5f, targetVelocity * (2f * waltzMultiplier + modifier * oldLength));
         targetVelocity = MathF.Min(targetVelocity, oldLength);
 
         if (MathF.Abs(curVelocity - targetVelocity) < 0.01f)

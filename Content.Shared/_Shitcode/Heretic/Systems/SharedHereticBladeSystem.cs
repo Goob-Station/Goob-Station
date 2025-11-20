@@ -39,6 +39,7 @@ using Content.Shared.Teleportation;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
@@ -60,7 +61,9 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly SharedVoidCurseSystem _voidCurse = default!;
+
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -70,6 +73,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         SubscribeLocalEvent<HereticBladeComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<HereticBladeComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<HereticBladeComponent, GetLightAttackRangeEvent>(OnGetRange);
+        SubscribeLocalEvent<HereticBladeComponent, LightAttackSpecialInteractionEvent>(OnSpecial);
         SubscribeLocalEvent<HereticBladeComponent, AfterInteractEvent>(OnAfterInteract);
     }
 
@@ -81,13 +85,24 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         if (!TryComp(args.User, out HereticComponent? heretic))
             return;
 
-        if (ent.Comp.Path != heretic.CurrentPath)
+        if (ent.Comp.Path != heretic.CurrentPath || heretic.PathStage < 7)
             return;
+
+        // Required for seeking blade, client weapon code should send attack event regardless of distance
+        if (heretic.CurrentPath == "Void")
+        {
+            if (_net.IsServer)
+                return;
+
+            args.Range = 16f;
+            args.Cancel = true;
+            return;
+        }
 
         if (heretic.CurrentPath != "Cosmos")
             return;
 
-        if (heretic.PathStage >= 7 && HasComp<StarMarkComponent>(args.Target.Value))
+        if (HasComp<StarMarkComponent>(args.Target.Value))
         {
             if (heretic.Ascended)
             {
@@ -107,55 +122,77 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     }
 
     // Void seeking blade
+
+    private void OnSpecial(Entity<HereticBladeComponent> ent, ref LightAttackSpecialInteractionEvent args)
+    {
+        if (args.Target == null)
+            return;
+
+        if (SeekingBladeTeleport(ent, args.User, args.Target.Value, args.Range))
+            args.Cancel = true;
+    }
+
     private void OnAfterInteract(Entity<HereticBladeComponent> ent, ref AfterInteractEvent args)
     {
-        // Goobstation start
+        if (args.Target == null)
+            return;
+
+        if (SeekingBladeTeleport(ent, args.User, args.Target.Value))
+            args.Handled = true;
+    }
+
+    private bool SeekingBladeTeleport(Entity<HereticBladeComponent> ent,
+        EntityUid user,
+        EntityUid target,
+        float minRange = 0f,
+        float maxRange = 16f)
+    {
         var ev = new TeleportAttemptEvent();
-        RaiseLocalEvent(args.User, ref ev);
+        RaiseLocalEvent(user, ref ev);
         if (ev.Cancelled)
-            return;
-        // Goobstation end
+            return false;
 
-        if (args.Target == ent || ent.Comp.Path != "Void" || !TryComp(args.User, out HereticComponent? heretic) ||
-            !TryComp(args.User, out CombatModeComponent? combat) ||
-            heretic is not { CurrentPath: "Void", PathStage: >= 7 } || !HasComp<MobStateComponent>(args.Target) ||
-            !TryComp(ent, out MeleeWeaponComponent? melee) ||
-            melee.NextAttack + TimeSpan.FromSeconds(0.5) > _timing.CurTime)
-            return;
+        if (target == user || ent.Comp.Path != "Void" || !TryComp(user, out HereticComponent? heretic) ||
+            !TryComp(user, out CombatModeComponent? combat) ||
+            heretic is not { CurrentPath: "Void", PathStage: >= 7 } || !HasComp<MobStateComponent>(target) ||
+            !TryComp(ent, out MeleeWeaponComponent? melee) || melee.NextAttack > _timing.CurTime)
+            return false;
 
-        var xform = Transform(args.User);
-        var targetXform = Transform(args.Target.Value);
+        var xform = Transform(user);
+        var targetXform = Transform(target);
 
         if (xform.MapID != targetXform.MapID)
-            return;
+            return false;
 
         var coords = _xform.GetWorldPosition(xform);
         var targetCoords = _xform.GetWorldPosition(targetXform);
 
         var dir = targetCoords - coords;
         var len = dir.Length();
-        if (len is <= 0f or >= 16f)
-            return;
+        if (len >= maxRange || len <= minRange)
+            return false;
 
         var normalized = new Vector2(dir.X / len, dir.Y / len);
         var ray = new CollisionRay(coords,
             normalized,
             (int) (CollisionGroup.Impassable | CollisionGroup.InteractImpassable));
-        var result = _physics.IntersectRay(xform.MapID, ray, len, args.User).FirstOrNull();
-        if (result != null && result.Value.HitEntity != args.Target.Value)
-            return;
+        var result = _physics.IntersectRay(xform.MapID, ray, len, user).FirstOrNull();
+        if (result != null && result.Value.HitEntity != target)
+            return false;
 
         var newPos = result?.HitPos ?? targetCoords - normalized * 0.5f;
 
-        _audio.PlayPredicted(ent.Comp.DepartureSound, xform.Coordinates, args.User);
-        _xform.SetWorldPosition(args.User, newPos);
-        var combatMode = _combat.IsInCombatMode(args.User, combat);
-        _combat.SetInCombatMode(args.User, true, combat);
-        if (!_melee.AttemptLightAttack(args.User, ent.Owner, melee, args.Target.Value))
-            melee.NextAttack += TimeSpan.FromSeconds(1f / _melee.GetAttackRate(ent, args.User, melee));
-        _combat.SetInCombatMode(args.User, combatMode, combat);
-        _audio.PlayPredicted(ent.Comp.ArrivalSound, xform.Coordinates, args.User);
-        args.Handled = true;
+        _audio.PlayPredicted(ent.Comp.DepartureSound, xform.Coordinates, user);
+        _xform.SetWorldPosition(user, newPos);
+        var combatMode = _combat.IsInCombatMode(user, combat);
+        _combat.SetInCombatMode(user, true, combat);
+        if (!_melee.AttemptLightAttack(user, ent.Owner, melee, target))
+            melee.NextAttack = _timing.CurTime + TimeSpan.FromSeconds(1f / _melee.GetAttackRate(ent, user, melee));
+        melee.NextAttack += TimeSpan.FromSeconds(0.5);
+        Dirty(ent.Owner, melee);
+        _combat.SetInCombatMode(user, combatMode, combat);
+        _audio.PlayPredicted(ent.Comp.ArrivalSound, xform.Coordinates, user);
+        return true;
     }
 
     public void ApplySpecialEffect(EntityUid performer, EntityUid target, MeleeHitEvent args)
