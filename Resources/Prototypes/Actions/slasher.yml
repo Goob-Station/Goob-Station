@@ -134,7 +134,6 @@
   - type: Action
     raiseOnUser: true
     useDelay: 5
-    range: 2.5
     checkCanInteract: false
     itemIconStyle: BigAction
     icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: SoulSteal }

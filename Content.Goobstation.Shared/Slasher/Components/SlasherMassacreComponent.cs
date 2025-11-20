@@ -79,7 +79,7 @@ public sealed partial class SlasherMassacreMacheteComponent : Component
 
     [DataField]
     public SoundSpecifier MassacreIntro =
-             new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/Massacreintro.ogg")
+             new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/MassacreIntro.ogg")
              {
                  Params = AudioParams.Default
                      .WithRolloffFactor(8f)
@@ -88,7 +88,7 @@ public sealed partial class SlasherMassacreMacheteComponent : Component
 
     [DataField]
     public SoundSpecifier MassacreSlash =
-             new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/Massacreslash.ogg")
+             new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/MassacreSlash.ogg")
              {
                  Params = AudioParams.Default
                      .WithRolloffFactor(8f)

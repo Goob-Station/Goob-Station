@@ -1,13 +1,9 @@
-- files: ["MassacreIntro.ogg"]
+- files: ["SlasherIntro.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Created by loltart using sounds from u_pjxmrd52t5 and Universfield"
-<<<<<<< HEAD
-  source: "https://pixabay.com/music/mystery-dark-thriller-194199/"
-=======
   source:
     - "https://pixabay.com/music/mystery-dark-thriller-194199/"
     - "https://pixabay.com/sound-effects/deep-throat-singing-w-reverb-167098/"
->>>>>>> 8e80a2044f143719ef89e09662b1f3b77d8efe90
 
 - files: ["MassacreDelimb.ogg"]
   license: "CC-BY-SA-3.0"

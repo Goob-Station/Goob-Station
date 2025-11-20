@@ -331,7 +331,7 @@
       briefing:
         text: slasher-role-greeting
         color: Red
-        sound: /Audio/_Goobstation/Effects/Slasher/Slasherintro.ogg
+        sound: /Audio/_Goobstation/Effects/Slasher/SlasherIntro.ogg
       components:
       - type: Slasher
       - type: RandomMetadata

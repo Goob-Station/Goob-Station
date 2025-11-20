@@ -306,7 +306,6 @@
     weight: 3
     duration: null
     earliestStart: 30
-    maxOccurrences: 1
     minimumPlayers: 30
     chaos:
       Hostile: 40
@@ -342,7 +341,7 @@
       briefing:
         text: slasher-role-greeting
         color: Red
-        sound: /Audio/_Goobstation/Effects/Slasher/Slasherintro.ogg
+        sound: /Audio/_Goobstation/Effects/Slasher/SlasherIntro.ogg
       components:
       - type: Slasher
       - type: RandomMetadata

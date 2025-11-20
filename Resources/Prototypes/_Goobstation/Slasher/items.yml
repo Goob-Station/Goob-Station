@@ -52,7 +52,6 @@
       collection: SlasherBreathing
       params:
         volume: -5
-        rollOffFactor: 8
         maxDistance: 8
   - type: SelfUnremovableClothing
   - type: SelfEquipOnly
