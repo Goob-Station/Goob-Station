@@ -48,7 +48,7 @@ public sealed class ExplodeServerSystem : EntitySystem
         SubscribeNetworkEvent<ExplodeServerEvent>(OnExplodeServer);
     }
 
-    protected void OnExplodeServer(ExplodeServerEvent e)
+    private void OnExplodeServer(ExplodeServerEvent e)
     {
         var check = e.IsExploding;
         if (check)
