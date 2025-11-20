@@ -61,27 +61,18 @@ public sealed class SlasherSoulStealSystem : EntitySystem
 
     private void OnMapInit(Entity<SlasherSoulStealComponent> ent, ref MapInitEvent args)
     {
-        if (!_net.IsServer)
-            return;
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEntity, ent.Comp.ActionId);
     }
 
     private void OnShutdown(Entity<SlasherSoulStealComponent> ent, ref ComponentShutdown args)
     {
-        if (_net.IsServer)
-            _actions.RemoveAction(ent.Comp.ActionEntity);
+        _actions.RemoveAction(ent.Comp.ActionEntity);
     }
 
     private void OnSoulSteal(Entity<SlasherSoulStealComponent> ent, ref SlasherSoulStealEvent args)
     {
         if (args.Handled || !args.Target.Valid)
             return;
-
-        if (!_net.IsServer)
-        {
-            args.Handled = true;
-            return;
-        }
 
         var user = ent.Owner;
         var target = args.Target;
@@ -121,9 +112,6 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         // Defer starting the do-after to the next tick to avoid modifying ActiveDoAfterComponent when active.
         Timer.Spawn(_timing.TickPeriod, () =>
         {
-            if (!Exists(user) || !Exists(target))
-                return;
-
             _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.Soulstealdoafterduration,
                 new SlasherSoulStealDoAfterEvent(), user, target: target)
             {
@@ -154,12 +142,6 @@ public sealed class SlasherSoulStealSystem : EntitySystem
     {
         if (ev.Cancelled || ev.Args.Target == null)
             return;
-
-        if (!_net.IsServer)
-        {
-            ev.Handled = true;
-            return;
-        }
 
         var user = ent.Owner;
         var target = ev.Args.Target.Value;
@@ -193,6 +175,7 @@ public sealed class SlasherSoulStealSystem : EntitySystem
 
         // Apply devil clause downside
         _devilContractSystem.AddRandomNegativeClause(target);
+
         // Used to prevent stealing from the same person multiple times
         EnsureComp<SoullessComponent>(target);
 

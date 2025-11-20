@@ -26,15 +26,12 @@ public sealed class SlasherPossessionSystem : EntitySystem
 
     private void OnMapInit(Entity<SlasherPossessionComponent> ent, ref MapInitEvent args)
     {
-        if (!_net.IsServer)
-            return;
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
     }
 
     private void OnShutdown(Entity<SlasherPossessionComponent> ent, ref ComponentShutdown args)
     {
-        if (_net.IsServer)
-            _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
+        _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
     }
 
     private void OnPossess(Entity<SlasherPossessionComponent> ent, ref SlasherPossessionEvent args)
@@ -42,11 +39,6 @@ public sealed class SlasherPossessionSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!_net.IsServer)
-        {
-            args.Handled = true;
-            return;
-        }
 
         if (!HasComp<MobStateComponent>(args.Target))
             return;
@@ -63,9 +55,6 @@ public sealed class SlasherPossessionSystem : EntitySystem
             pacifyPossessed: false,
             hideActions: false, // Doesn't actually work I guess
             polymorphPossessor: true);
-
-        if (!ok)
-            return;
 
         if (TryComp<PossessedComponent>(args.Target, out var possessed))
             _actions.UnHideActions(args.Target, possessed.HiddenActions); // required

@@ -171,12 +171,6 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         if (args.Cancelled || args.Handled)
             return;
 
-        if (!_net.IsServer)
-        {
-            args.Handled = true;
-            return;
-        }
-
         // Re-check observers at completion. If seen, fail.
         var checkRange = ent.Comp.ObserverCheckRange;
         foreach (var other in _lookup.GetEntitiesInRange(ent.Owner, checkRange))

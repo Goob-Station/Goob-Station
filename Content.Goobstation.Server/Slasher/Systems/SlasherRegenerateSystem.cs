@@ -29,27 +29,18 @@ public sealed class SlasherRegenerateSystem : EntitySystem
 
     private void OnMapInit(Entity<SlasherRegenerateComponent> ent, ref MapInitEvent args)
     {
-        if (!_net.IsServer)
-            return;
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
     }
 
     private void OnShutdown(Entity<SlasherRegenerateComponent> ent, ref ComponentShutdown args)
     {
-        if (_net.IsServer)
-            _actions.RemoveAction(ent.Comp.ActionEnt);
+        _actions.RemoveAction(ent.Comp.ActionEnt);
     }
 
     private void OnRegenerate(EntityUid uid, SlasherRegenerateComponent comp, SlasherRegenerateEvent args)
     {
         if (args.Handled)
             return;
-
-        if (!_net.IsServer)
-        {
-            args.Handled = true;
-            return;
-        }
 
         _rejuvenate.PerformRejuvenate(uid);
 

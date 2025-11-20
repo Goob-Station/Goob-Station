@@ -28,26 +28,16 @@ public sealed class SlasherSummonMacheteSystem : EntitySystem
 
     private void OnMapInit(Entity<SlasherSummonMacheteComponent> ent, ref MapInitEvent args)
     {
-        if (!_net.IsServer)
-            return;
-
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
     }
 
     private void OnShutdown(Entity<SlasherSummonMacheteComponent> ent, ref ComponentShutdown args)
     {
-        if (_net.IsServer)
-            _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
+        _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
     }
 
     private void OnSummon(Entity<SlasherSummonMacheteComponent> ent, ref SlasherSummonMacheteEvent args)
     {
-        if (!_net.IsServer)
-        {
-            args.Handled = true;
-            return;
-        }
-
         // Fail if the user has no hands.
         if (!TryComp<HandsComponent>(ent.Owner, out var hands) || hands.Hands.Count == 0)
         {

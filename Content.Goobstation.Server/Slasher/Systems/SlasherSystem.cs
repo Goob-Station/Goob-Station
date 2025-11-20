@@ -21,8 +21,6 @@ public sealed class SlasherSystem : EntitySystem
 
     private void OnStartup(Entity<SlasherComponent> ent, ref ComponentStartup args)
     {
-        if (!_net.IsServer)
-            return;
         ApplyComponents(ent.Owner);
     }
 

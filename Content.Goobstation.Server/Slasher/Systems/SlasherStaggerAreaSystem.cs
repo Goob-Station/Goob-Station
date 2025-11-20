@@ -32,27 +32,18 @@ public sealed class SlasherStaggerAreaSystem : EntitySystem
 
     private void OnMapInit(Entity<SlasherStaggerAreaComponent> ent, ref MapInitEvent args)
     {
-        if (!_net.IsServer)
-            return;
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
     }
 
     private void OnShutdown(Entity<SlasherStaggerAreaComponent> ent, ref ComponentShutdown args)
     {
-        if (_net.IsServer)
-            _actions.RemoveAction(ent.Comp.ActionEnt);
+        _actions.RemoveAction(ent.Comp.ActionEnt);
     }
 
     private void OnUse(Entity<SlasherStaggerAreaComponent> ent, ref SlasherStaggerAreaEvent args)
     {
         if (args.Handled)
             return;
-
-        if (!_net.IsServer)
-        {
-            args.Handled = true;
-            return;
-        }
 
         var (uid, comp) = ent;
 
