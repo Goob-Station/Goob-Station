@@ -1,29 +1,25 @@
 using Content.Goobstation.Shared.EatToGrow;
 using Content.Server.Nutrition.Components;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Nutrition;
-using JetBrains.Annotations;
+using Content.Shared.Mobs; // mobstate changed event
+using Content.Shared.Nutrition; // before fully eaten event
 using Robust.Server.GameObjects;
-using Robust.Shared.GameObjects;
-using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Systems;
-using System.Numerics;
-using System.Runtime.CompilerServices;
-using static Robust.Server.Console.Commands.ScaleCommand;
+using System.Numerics; // using for vectors
 namespace Content.Goobstation.Server.EatToGrow;
 
 
 public sealed class EatToGrowSystem : EntitySystem
 {
-    [Robust.Shared.IoC.Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Robust.Shared.IoC.Dependency] private readonly IEntityManager _entityManager = default!;
-    [Robust.Shared.IoC.Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<FoodComponent, BeforeFullyEatenEvent>(OnFoodEaten);
         SubscribeLocalEvent<EatToGrowComponent, MobStateChangedEvent>(ShrinkOnDeath);
     }
@@ -40,20 +36,17 @@ public sealed class EatToGrowSystem : EntitySystem
         if (comp.CurrentScale >= comp.MaxGrowth)
             return;
 
-        TryGrow(eater, comp, 1f);
+        Grow(eater, comp, 1);
     }
 
-    private void TryGrow(EntityUid eater, EatToGrowComponent comp, float scale)
+    private void Grow(EntityUid eater, EatToGrowComponent comp, float scale)
     {
         // Uses scale variable to  multiply the growth, mainly used for shrinking
         // Add growth
         comp.CurrentScale += comp.Growth;
         comp.CurrentScale = MathF.Min(comp.CurrentScale, comp.MaxGrowth);
 
-        
         EnsureComp<ScaleVisualsComponent>(eater);
-        var @event = new ScaleEntityEvent();
-        RaiseLocalEvent(eater, ref @event);
 
         var appearanceComponent = EnsureComp<AppearanceComponent>(eater);
         if (!_appearance.TryGetData<Vector2>(eater, ScaleVisuals.Scale, out var oldScale, appearanceComponent))
@@ -88,7 +81,7 @@ public sealed class EatToGrowSystem : EntitySystem
         return;
 
         // shrink the entity
-        TryGrow(eater, comp, -comp.TimesGrown); // uses the negative of times grown to shrink the entity back to normal
+        Grow(eater, comp, -comp.TimesGrown); // uses the negative of times grown to shrink the entity back to normal
 
         // Reset data on shrink
         comp.CurrentScale = 1f;

@@ -8,6 +8,7 @@ public sealed class EatToGrowComponentState : ComponentState
 {
     public readonly float Growth;
     public readonly float MaxGrowth;
+
     public readonly float CurrentScale;
     public readonly bool ShrinkOnDeath;
     public readonly int TimesGrown;

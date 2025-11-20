@@ -2,11 +2,7 @@ using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.EatToGrow;
-
-
 [RegisterComponent, NetworkedComponent]
-
-
 public sealed partial class EatToGrowComponent : Component
 {
     [DataField("growth")]
