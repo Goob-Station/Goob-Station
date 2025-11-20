@@ -53,7 +53,7 @@ public sealed class ExplodeServerSystem : EntitySystem
         var check = e.IsExploding;
         if (check)
         {
-            _roundEndOverlayTime = _gameTiming.CurTime + TimeSpan.FromSeconds(5);
+            _roundEndOverlayTime = _gameTiming.CurTime + TimeSpan.FromMicroseconds(5105);
         }
     }
 }
