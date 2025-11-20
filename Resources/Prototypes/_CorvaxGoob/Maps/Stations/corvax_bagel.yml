@@ -26,11 +26,11 @@
             # cargo
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
-            CargoTechnician: [ 4, 4 ]
+            CargoTechnician: [ 3, 3 ]
             # engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 3 ]
-            StationEngineer: [ 5, 5 ]
+            StationEngineer: [ 4, 4 ]
             TechnicalAssistant: [ 4, 4 ]
             # medical
             ChiefMedicalOfficer: [ 1, 1 ]
@@ -42,14 +42,15 @@
             Surgeon: [ 1, 1 ]
             # science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 5, 5 ]
+            Scientist: [ 3, 3 ]
             ResearchAssistant: [ 4, 4 ]
+            Roboticist: [ 1, 1 ]
             # security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
             WardenHelper: [ 1, 1 ]
-            SecurityOfficer: [ 7, 7 ]
-            SecurityCadet: [ 4, 4 ]
+            SecurityOfficer: [ 4, 4 ]
+            SecurityCadet: [ 3, 3 ]
             Detective: [ 1, 1 ]
             Pilot: [ 1, 1]
             Brigmedic: [ 1, 1 ]
@@ -57,15 +58,15 @@
             # service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 2 ]
-            Botanist: [ 2, 3 ]
+            Botanist: [ 2, 2 ]
             Chaplain: [ 1, 1 ]
-            Chef: [ 2, 2 ]
+            Chef: [ 1, 1 ]
             Clown: [ 1, 1 ]
             Janitor: [ 2, 2 ]
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
-            Reporter: [ 2, 2 ]
+            Reporter: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
             Passenger: [ -1, -1 ]
             #silicon
