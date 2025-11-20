@@ -17,15 +17,16 @@ public sealed class ExplodeServerSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     private TimeSpan _roundEndTimer; // to restart the server
-
+    private bool _started;
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        if (_roundEndTimer < _gameTiming.CurTime)
+        if (_roundEndTimer <= _gameTiming.CurTime && _started)
             _entManager.System<GameTicker>().RestartRound();
     }
     public void TriggerOverlay()
     {
+        _started = true;
         Filter filter;
         var audio = AudioParams.Default;
         audio.Volume = 1f;
@@ -34,7 +35,7 @@ public sealed class ExplodeServerSystem : EntitySystem
         var soundEffect = _audio.ResolveSound(path);
         filter = Filter.Empty().AddAllPlayers(_playerManager);
         _entManager.System<ServerGlobalSoundSystem>().PlayAdminGlobal(filter, soundEffect, audio, replay);
-        _roundEndTimer = _gameTiming.CurTime + TimeSpan.FromMilliseconds(5105)
+        _roundEndTimer = _gameTiming.CurTime + TimeSpan.FromMilliseconds(5105);
         RaiseNetworkEvent(new ExplodeServerEvent());
     }
 }

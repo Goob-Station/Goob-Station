@@ -42,10 +42,6 @@ public sealed class ExplodeServerSystem : EntitySystem
                 _overlayManager.AddOverlay(_overlay);
             }
         }
-        if (remainingTime.TotalMilliseconds <= 500d && _started) // Restart round
-        {
-            RaiseNetworkEvent(new ExplodeServerEvent());
-        }
     }
     public override void Initialize()
     {
