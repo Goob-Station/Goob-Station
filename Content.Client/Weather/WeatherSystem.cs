@@ -50,7 +50,7 @@ using AudioComponent = Robust.Shared.Audio.Components.AudioComponent;
 
 namespace Content.Client.Weather;
 
-public sealed class WeatherSystem : SharedWeatherSystem
+public sealed partial class WeatherSystem : SharedWeatherSystem // Goob edit - made partial
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
@@ -168,17 +168,8 @@ public sealed class WeatherSystem : SharedWeatherSystem
             return true;
 
         // Begin DeltaV Additions: Prevent hearing weather in the lobby
-        if (_playerManager.LocalEntity is not {} ent)
+        if (!CanHearWeather(uid, weather))
             return false;
-
-        var map = Transform(uid).MapUid;
-        var entMap = Transform(ent).MapUid;
-
-        if (map == null || entMap != map)
-        {
-            weather.Stream = _audio.Stop(weather.Stream);
-            return false;
-        }
         // End DeltaV Additions
 
         // TODO: Fades (properly)
