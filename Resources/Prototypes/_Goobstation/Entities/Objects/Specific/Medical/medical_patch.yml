@@ -265,7 +265,7 @@
   result: MedicalPatchBasic
   completetime: 2
   materials:
-    Plastic: 50
+    Plastic: 50 # might be fine as 1 cloth 1 plastic, one textile crate will let chem make like 120 patches.
     Cloth: 50
 
 - type: latheRecipe
@@ -302,7 +302,7 @@
       steps:
       - material: Cloth
         amount: 1
-        doAfter: 10
+        doAfter: 5
   - node: medicalPatchMakeshift
     entity: MedicalPatchMakeshift
 
@@ -324,7 +324,7 @@
       steps:
       - material: WebSilk
         amount: 4
-        doAfter: 10
+        doAfter: 5
   - node: silkPatchMakeshift
     entity: MedicalPatchMakeshift
 
