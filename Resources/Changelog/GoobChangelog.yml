@@ -18110,3 +18110,11 @@ Entries:
         hermit.
   id: 2039
   time: '2025-11-19T07:34:12.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Remove
+      message: >-
+        Removed: Midround options of Changlings/Heretics/Devil, they will
+        instead roll using the existing preferences.
+  id: 2040
+  time: '2025-11-20T13:11:56.0000000+00:00'
