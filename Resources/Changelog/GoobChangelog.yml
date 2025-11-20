@@ -18084,3 +18084,43 @@ Entries:
       message: Added max tracking distance for detective BloodTrack!
   id: 2036
   time: '2025-11-18T09:04:30.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix freeze when quitting the game.
+  id: 2037
+  time: '2025-11-18T14:05:04.0000000+00:00'
+- author: Androidonator and Dummy
+  changes:
+    - type: Fix
+      message: NTR Mirrordus suit sprites
+  id: 2038
+  time: '2025-11-18T17:16:11.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Tweak
+      message: >-
+        Made mid sleepers spawn later in the round for the hermit , and fixed
+        traitor sleeper agents spawn in hermit.
+    - type: Remove
+      message: Midround revs
+    - type: Tweak
+      message: >-
+        Reduced the massive amount of antags that spawned round start on the
+        hermit.
+  id: 2039
+  time: '2025-11-19T07:34:12.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Remove
+      message: >-
+        Removed: Midround options of Changlings/Heretics/Devil, they will
+        instead roll using the existing preferences.
+  id: 2040
+  time: '2025-11-20T13:11:56.0000000+00:00'
+- author: Aviu00
+  changes:
+    - type: Fix
+      message: Ominous armor is magical contra instead of sec restricted.
+  id: 2041
+  time: '2025-11-20T14:37:40.0000000+00:00'
