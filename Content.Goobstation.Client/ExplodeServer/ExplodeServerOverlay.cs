@@ -1,0 +1,41 @@
+using Robust.Client.Graphics;
+using Robust.Shared.Enums;
+using Robust.Shared.Prototypes;
+
+namespace Content.Goobstation.Client.ExplodeServer;
+
+public sealed class ExplodeServerOverlay : Overlay
+{
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+
+    public override bool RequestScreenTexture => true;
+    public override OverlaySpace Space => OverlaySpace.WorldSpace;
+    private readonly ShaderInstance _blurShader;
+
+    public Color TintColor = new();
+
+    public float BlurAmount = 0f;
+
+    public ExplodeServerOverlay()
+    {
+        IoCManager.InjectDependencies(this);
+
+        _blurShader = _prototype.Index<ShaderPrototype>("BlurryVisionX").InstanceUnique();
+    }
+
+    protected override void Draw(in OverlayDrawArgs args)
+    {
+        if (ScreenTexture == null)
+            return;
+
+        var worldHandle = args.WorldHandle;
+        var worldBounds = args.WorldBounds;
+
+        _blurShader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
+        _blurShader.SetParameter("BLUR_AMOUNT", BlurAmount);
+
+        worldHandle.UseShader(_blurShader);
+        worldHandle.DrawRect(worldBounds, TintColor);
+        worldHandle.UseShader(null);
+    }
+}

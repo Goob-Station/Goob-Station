@@ -6,6 +6,7 @@ public sealed class ExplodeServerEvent : EntityEventArgs
 
     public ExplodeServerEvent(bool isExploding)
     {
+        
         IsExploding = isExploding;
     }
 }
