@@ -81,7 +81,8 @@
     selectionTime: PostPlayerSpawn
     agentName: changeling-roundend-name
     definitions:
-    - prefRoles: [ Changeling ]
+    - prefRoles: [ SleeperChangeling ]
+    - fallbackRoles: [ Changeling ]
       min: 1
       max: 2
       playerRatio: 10
@@ -124,7 +125,8 @@
     selectionTime: PostPlayerSpawn
     agentName: heretic-roundend-name
     definitions:
-    - prefRoles: [ Heretic ]
+    - prefRoles: [ SleeperHeretic ]
+    - fallbackRoles: [ Heretic ]
       min: 1
       max: 2
       playerRatio: 15
@@ -278,7 +280,8 @@
     selectionTime: PostPlayerSpawn
     agentName: devil-roundend-name
     definitions:
-    - prefRoles: [ Devil ]
+    - prefRoles: [ SleeperDevil ]
+    - fallbackRoles: [ Devil ]
       max: 1
       playerRatio: 15
       blacklist:
