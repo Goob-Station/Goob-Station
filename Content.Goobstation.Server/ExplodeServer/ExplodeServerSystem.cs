@@ -31,13 +31,11 @@ public sealed class ExplodeServerSystem : EntitySystem
         var soundEffect = _audio.ResolveSound(path);
         filter = Filter.Empty().AddAllPlayers(_playerManager);
         _entManager.System<ServerGlobalSoundSystem>().PlayAdminGlobal(filter, soundEffect , audio, replay);
-        RaiseNetworkEvent(new ExplodeServerEvent(isExploding:true, exploded:false));
+        RaiseNetworkEvent(new ExplodeServerEvent());
     }
 
     private void OnCountdownEnd(ExplodeServerEvent e)
     {
-        if (!e.Exploded)
-            return;
         _entManager.System<GameTicker>().RestartRound();
     }
 }

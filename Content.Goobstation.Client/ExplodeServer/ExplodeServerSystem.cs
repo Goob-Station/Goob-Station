@@ -37,7 +37,7 @@ public sealed class ExplodeServerSystem : EntitySystem
         if (_gameTiming.CurTime >= _roundEndOverlayTime) // Restart round
         {
             _overlayManager.RemoveOverlay(_overlay);
-            RaiseLocalEvent(new ExplodeServerEvent(isExploding: false, exploded:true));
+            RaiseLocalEvent(new ExplodeServerEvent());
         }
     }
     public override void Initialize()
@@ -51,10 +51,6 @@ public sealed class ExplodeServerSystem : EntitySystem
 
     private void OnExplodeServer(ExplodeServerEvent e)
     {
-        var check = e.IsExploding;
-        if (check)
-        {
             _roundEndOverlayTime = _gameTiming.CurTime + TimeSpan.FromMicroseconds(5105);
-        }
     }
 }
