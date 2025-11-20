@@ -139,3 +139,11 @@
   materials:
     Plastic: 50
     Cloth: 50
+    
+ - type: latheRecipe
+   id: CigCartonEmpty
+   result: CigCartonEmpty
+   completetime: 20
+   materials:
+    Plastic: 500
+    Cloth: 500
