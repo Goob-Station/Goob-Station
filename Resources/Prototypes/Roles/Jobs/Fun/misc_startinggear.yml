@@ -248,11 +248,12 @@
 - type: startingGear
   id: BrigmedicGear
   equipment: # Heavily goob edited
-    eyes: ClothingEyesGlassesMed
+    eyes: ClothingEyesGlassesMedSec
     id: BrigmedicPDA
-    ears: ClothingHeadsetAltSecurityRegular # Intentionally no medical channel
+    ears: ClothingHeadsetBrigmedic # EE parity like i was told to do
     belt: ClothingBeltMedicalEMTFilled
-    pocket1: WeaponDisabler
+    pocket1: WeaponPistolMk58 # EE parity, make corpsman able to carry weapons like the rest of security
+    pocket2: WeaponDisabler # Goob
   storage:
     back:
     - Flash

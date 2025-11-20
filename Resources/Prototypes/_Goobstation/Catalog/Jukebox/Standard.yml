@@ -302,6 +302,12 @@
     path: /Audio/_Goobstation/Music/Asgore_runs_over_dess_short.ogg
 
 - type: jukebox
+  id: the_final_battle
+  name: Bobik-music - The Final Battle
+  path:
+    path: /Audio/_Goobstation/Music/Colonial_Marines_The_Final_Battle.ogg
+
+- type: jukebox
   id: graytide
   name: Mrjajkes - The Greytide Song
   path:

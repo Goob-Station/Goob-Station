@@ -30,6 +30,7 @@
   - ChevalTranslatorImplanter
   - NewKinPidginTranslator
   - SchechiTranslator
+  - GruntishTranslator
   position: -4, 4
   technologyPrerequisites:
   - AdvancedEntertainment
@@ -61,6 +62,7 @@
   - NewKinPidginTranslatorImplanter
   - AnimalTranslator
   - XenoTranslator
+  - GruntishTranslatorImplanter
   position: -4, 5
   technologyPrerequisites:
   - BasicTranslation

@@ -303,6 +303,33 @@
     - FireExtinguisher
 
 - type: selectableSet
+  id: SyndicateWesternSet
+  name: selectable-set-syndicate-western-name
+  description: selectable-set-syndicate-western-description
+  sprite:
+    sprite: Clothing/Head/Hats/cowboyhatbrown.rsi
+    state: icon
+  content:
+    - HoloCigarWestern
+    - EncryptionKeySyndie
+    - ClothingUniformJumpsuitWestern
+    - ClothingEyesGlassesSunglasses
+    - ClothingOuterPonchoClassicRobust
+    - ClothingShoesBootsCowboyBrownRobust
+    - ClothingHeadHatCowboyBrownRobust
+    - SpeedLoaderMagnumAP # 1
+    - SpeedLoaderMagnumAP # 2
+    - SpeedLoaderMagnumAP # 3
+    - SpeedLoaderMagnumAP # 4
+    - SpeedLoaderMagnumAP # 5
+    - SpeedLoaderMagnumAP # 6
+    - WeaponRevolverPython # 1
+    - WeaponRevolverPython # 2
+    - AdvancedCombatMedipen # 1
+    - AdvancedCombatMedipen # 2
+    - ClothingBeltSyndieHolster
+
+- type: selectableSet
   id: SyndicateSusSet
   name: selectable-set-syndicate-sus-name
   description: selectable-set-syndicate-sus-description

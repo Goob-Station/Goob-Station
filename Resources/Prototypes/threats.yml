@@ -30,12 +30,10 @@
   announcement: terror-lone-operative
   rule: LoneOpsSpawn
 
-# Enable once testing is done
-#- type: ninjaHackingThreat
-#  id: Wraith
-#  announcement: terror-wraith
-#  rule: WraithMidround
-# Goobstation - end
+- type: ninjaHackingThreat
+  id: Wraith
+  announcement: terror-wraith
+  rule: WraithMidround
 
 #- type: ninjaHackingThreat
 #  id: Revenant

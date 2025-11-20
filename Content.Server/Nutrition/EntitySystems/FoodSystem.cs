@@ -145,6 +145,7 @@ using Robust.Server.GameObjects;
 using Content.Shared.Whitelist;
 using Content.Shared.Destructible;
 using Content.Shared.Clothing.EntitySystems;
+using Content.Shared.Heretic; // Goobstation
 
 namespace Content.Server.Nutrition.EntitySystems;
 
@@ -386,7 +387,14 @@ public sealed class FoodSystem : EntitySystem
         }
 
         _reaction.DoEntityReaction(args.Target.Value, solution, ReactionMethod.Ingestion);
-        _stomach.TryTransferSolution(stomachToUse!.Value.Owner, split, stomachToUse);
+        // Goobstation start
+        var volume = split.Volume;
+        if (_stomach.TryTransferSolution(stomachToUse!.Value.Owner, split, stomachToUse))
+        {
+            var ev = new ConsumingFoodEvent(entity.Owner, volume);
+            RaiseLocalEvent(args.Target.Value, ref ev);
+        }
+        // Goobstation end
 
         var flavors = args.FlavorMessage;
 

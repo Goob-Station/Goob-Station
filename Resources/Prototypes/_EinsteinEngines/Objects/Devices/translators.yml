@@ -363,3 +363,20 @@
     requires:
     - TauCetiBasic
     - Schechi
+
+- type: entity                      # Language of onis
+  id: GruntishTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Gruntish translator
+  description: Interprets the mess known as Gruntish and translates it to Galactic Common. Primarily spoken by Onis and Yowie.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Gruntish
+    understood:
+    - Gruntish
+    - TauCetiBasic
+    requires:
+    - TauCetiBasic
+    - Gruntish

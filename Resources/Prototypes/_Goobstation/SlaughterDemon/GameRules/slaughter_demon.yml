@@ -32,7 +32,7 @@
   - type: AntagRandomSpawn
   - type: AntagObjectives
     objectives:
-      - SlaughterKillTheWizardObjective
+      # - SlaughterKillTheWizardObjective
       - SlaughterKillEveryoneObjective
 
 # laughter
