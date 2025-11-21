@@ -18179,3 +18179,11 @@ Entries:
         those cheesy slasher flicks! (In Testing)
   id: 2048
   time: '2025-11-21T18:17:17.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        Ash stroms are now more rare and give more time to prepare for shaft
+        miners on Lavaland.
+  id: 2049
+  time: '2025-11-21T18:24:36.0000000+00:00'
