@@ -45,7 +45,3 @@ public sealed partial class SlasherStaggerAreaComponent : Component
                        .WithMaxDistance(4f)
     };
 }
-
-public sealed partial class SlasherStaggerAreaEvent : InstantActionEvent
-{
-}

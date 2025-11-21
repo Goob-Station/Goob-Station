@@ -37,11 +37,3 @@ public sealed partial class FootprintOwnerComponent : Component
     [DataField]
     public float NextFootOffset = 0.0625f;
 }
-
-/// <summary>
-/// Raised on an entity just before it attempts to leave a footprint or interact with a puddle for footprints.
-/// </summary>
-public sealed class FootprintLeaveAttemptEvent(EntityUid uid) : CancellableEntityEventArgs
-{
-    public EntityUid Uid { get; } = uid;
-}

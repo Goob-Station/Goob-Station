@@ -15,6 +15,7 @@ public sealed class SlasherSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<SlasherComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<SlasherComponent, UpdateMobStateEvent>(OnUpdateMobState, after: [typeof(MobThresholdSystem)]);
     }

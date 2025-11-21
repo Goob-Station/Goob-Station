@@ -34,7 +34,3 @@ public sealed partial class SlasherSummonMeatSpikeComponent : Component
                        .WithMaxDistance(4f)
         };
 }
-
-public sealed partial class SlasherSummonMeatSpikeEvent : InstantActionEvent
-{
-}

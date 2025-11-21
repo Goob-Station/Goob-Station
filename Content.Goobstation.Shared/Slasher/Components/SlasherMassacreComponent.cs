@@ -104,7 +104,3 @@ public sealed partial class SlasherMassacreMacheteComponent : Component
                      .WithMaxDistance(10f)
              };
 }
-
-public sealed partial class SlasherMassacreEvent : InstantActionEvent
-{
-}

@@ -107,7 +107,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         }
 
         // Check if anyone can see them.
-        var checkEv = new SlasherIncorporealObserverCheckEvent(ent.Owner, ent.Comp.ObserverCheckRange);
+        var checkEv = new SlasherIncorporealObserverCheckEvent(GetNetEntity(ent.Owner), ent.Comp.ObserverCheckRange);
         RaiseLocalEvent(ent.Owner, checkEv);
         if (checkEv.Cancelled)
         {
@@ -164,7 +164,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         }
 
         // Check if anyone can see them.
-        var checkEv = new SlasherIncorporealObserverCheckEvent(ent.Owner, ent.Comp.ObserverCheckRange);
+        var checkEv = new SlasherIncorporealObserverCheckEvent(GetNetEntity(ent.Owner), ent.Comp.ObserverCheckRange);
         RaiseLocalEvent(ent.Owner, checkEv);
         if (checkEv.Cancelled)
         {

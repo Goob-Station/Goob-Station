@@ -18,7 +18,6 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.Audio;
 using Robust.Shared.Timing;
 using FixedPoint2 = Content.Goobstation.Maths.FixedPoint.FixedPoint2;
-using Robust.Shared.Network;
 using System.Linq;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
@@ -38,24 +37,20 @@ public sealed class SlasherSoulStealSystem : EntitySystem
     [Dependency] private readonly DevilContractSystem _devilContractSystem = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<SlasherSoulStealComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SlasherSoulStealComponent, ComponentShutdown>(OnShutdown);
-
         SubscribeLocalEvent<SlasherSoulStealComponent, SlasherSoulStealEvent>(OnSoulSteal);
         SubscribeLocalEvent<SlasherSoulStealComponent, SlasherSoulStealDoAfterEvent>(OnSoulStealDoAfterComplete);
-
         SubscribeLocalEvent<SlasherSoulStealMacheteBonusComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
         SubscribeLocalEvent<SlasherSoulStealMacheteBonusComponent, ThrowDoHitEvent>(OnThrowHit);
-
         SubscribeLocalEvent<SlasherSoulStealComponent, SlasherSummonMacheteEvent>(OnSummonMachete);
         SubscribeLocalEvent<SlasherSoulStealComponent, DidEquipHandEvent>(OnDidEquipHand);
-
         SubscribeLocalEvent<SlasherSoulStealComponent, DamageModifyEvent>(OnDamageModify);
     }
 
@@ -69,6 +64,11 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         _actions.RemoveAction(ent.Comp.ActionEntity);
     }
 
+    /// <summary>
+    /// Handles the soul steal event
+    /// </summary>
+    /// <param name="ent">Owner of the SlasherSoulStealComponent</param>
+    /// <param name="args">SlasherSoulStealEvent</param>
     private void OnSoulSteal(Entity<SlasherSoulStealComponent> ent, ref SlasherSoulStealEvent args)
     {
         if (args.Handled || !args.Target.Valid)
@@ -77,7 +77,7 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         var user = ent.Owner;
         var target = args.Target;
 
-        // Require the victim to have a mind
+        // Check rather our victim has a mind
         if (!_mindSystem.TryGetMind(target, out _, out MindComponent? _))
         {
             _popup.PopupEntity(Loc.GetString("slasher-soulsteal-fail-no-mind"), user, user);
@@ -109,7 +109,7 @@ public sealed class SlasherSoulStealSystem : EntitySystem
             return;
         }
 
-        // Defer starting the do-after to the next tick to avoid modifying ActiveDoAfterComponent when active.
+        // DoAfter, starting the do-after to the next tick to avoid modifying ActiveDoAfterComponent when active.
         Timer.Spawn(_timing.TickPeriod, () =>
         {
             _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.Soulstealdoafterduration,
@@ -129,15 +129,20 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         args.Handled = true;
     }
 
-    // Basic checks to ensure they're a valid target
+    // Checks to ensure our target is valid (alive & not downed, incapacitated, or dead)
     private bool CanStartSoulSteal(EntityUid target)
     {
-        if (_mobState.IsCritical(target) || _mobState.IsIncapacitated(target) || _standing.IsDown(target) || _mobState.IsDead(target))
-            return true;
-
-        else return false;
+        return _mobState.IsCritical(target)
+               || _mobState.IsIncapacitated(target)
+               || _standing.IsDown(target)
+               || _mobState.IsDead(target);
     }
 
+    /// <summary>
+    /// Slasher - Handles the soul steal do-after
+    /// </summary>
+    /// <param name="ent">SlasherSoulStealComponent</param>
+    /// <param name="ev">SlasherSoulStealDoAfterEvent</param>
     private void OnSoulStealDoAfterComplete(Entity<SlasherSoulStealComponent> ent, ref SlasherSoulStealDoAfterEvent ev)
     {
         if (ev.Cancelled || ev.Args.Target == null)
@@ -179,7 +184,7 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         // Used to prevent stealing from the same person multiple times
         EnsureComp<SoullessComponent>(target);
 
-        //TryFlavorTwistLimbs(user, target); // Originally intended to take off their limbs and replace them with limbs from random species but I couldn't get it working properly
+        //TryFlavorTwistLimbs(user, target); // TODO Originally intended to take off their limbs and replace them with limbs from random species but I couldn't get it working properly
         ApplyArmorBonus(user, armorBonus, comp);
         ApplyMacheteBonus(user, bruteBonus, comp);
 
@@ -219,15 +224,19 @@ public sealed class SlasherSoulStealSystem : EntitySystem
     // Check machete to increase damage bonus
     private EntityUid? GetMachete(EntityUid user)
     {
-        if (TryComp<SlasherSummonMacheteComponent>(user, out var summon) && summon.MacheteUid != null && Exists(summon.MacheteUid.Value))
+        if (TryComp<SlasherSummonMacheteComponent>(user, out var summon)
+            && summon.MacheteUid != null
+            && Exists(summon.MacheteUid.Value))
             return summon.MacheteUid.Value;
 
         if (!TryComp<HandsComponent>(user, out var hands))
             return null;
 
         foreach (var held in _hands.EnumerateHeld((user, hands)))
+        {
             if (HasComp<SlasherMassacreMacheteComponent>(held))
                 return held;
+        }
 
         return null;
     }
@@ -249,12 +258,19 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         Dirty(machete.Value, bonusComp);
     }
 
+    /// <summary>
+    /// Slasher - Handles the machete bonus damage from stealing souls
+    /// </summary>
+    /// <param name="ent">SlasherSoulStealMacheteBonusComponent</param>
+    /// <param name="args">GetMeleeDamageEvent</param>
     private void OnGetMeleeDamage(Entity<SlasherSoulStealMacheteBonusComponent> ent, ref GetMeleeDamageEvent args)
     {
         if (ent.Comp.SlashBonus <= 0f)
             return;
+
         var add = new DamageSpecifier();
-        add.DamageDict.Add("Slash", (FixedPoint2) ent.Comp.SlashBonus);
+
+        add.DamageDict.Add("Slash", ent.Comp.SlashBonus);
         args.Damage += add;
     }
 
@@ -262,14 +278,22 @@ public sealed class SlasherSoulStealSystem : EntitySystem
     {
         if (ent.Comp.SlashBonus <= 0f || TerminatingOrDeleted(args.Target))
             return;
+
         var dmgAdj = new DamageSpecifier();
-        dmgAdj.DamageDict.Add("Slash", (FixedPoint2) ent.Comp.SlashBonus);
+
+        dmgAdj.DamageDict.Add("Slash", ent.Comp.SlashBonus);
         _damageable.TryChangeDamage(args.Target, dmgAdj, true, origin: args.Component.Thrower);
     }
 
+    /// <summary>
+    /// Slasher - Handles summoning the Machete to the slasher (self)
+    /// </summary>
+    /// <param name="ent">SlasherSoulStealComponent</param>
+    /// <param name="args">SlasherSummonMacheteEvent</param>
     private void OnSummonMachete(Entity<SlasherSoulStealComponent> ent, ref SlasherSummonMacheteEvent args)
     {
         var machete = GetMachete(ent.Owner);
+
         if (machete != null)
         {
             ent.Comp.LastMachete = machete.Value;

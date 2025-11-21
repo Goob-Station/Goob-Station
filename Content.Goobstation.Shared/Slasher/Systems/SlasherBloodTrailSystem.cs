@@ -1,5 +1,6 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Slasher.Components;
+using Content.Goobstation.Shared.Slasher.Events;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Fluids;

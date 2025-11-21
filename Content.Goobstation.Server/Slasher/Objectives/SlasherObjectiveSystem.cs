@@ -14,6 +14,7 @@ public sealed class SlasherObjectiveSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<SlasherAbsorbSoulsConditionComponent, ObjectiveGetProgressEvent>(OnGetAbsorbSoulsProgress);
     }
 

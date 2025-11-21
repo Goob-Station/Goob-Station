@@ -22,6 +22,7 @@ public sealed class RandomIntervalSoundSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<RandomIntervalSoundComponent, MapInitEvent>(OnMapInit);
     }
 

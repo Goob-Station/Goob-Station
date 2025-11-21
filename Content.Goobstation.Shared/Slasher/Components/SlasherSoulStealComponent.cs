@@ -95,10 +95,3 @@ public sealed partial class SlasherSoulStealComponent : Component
     [ViewVariables]
     public EntityUid? LastMachete;
 }
-
-/// <summary>
-/// Soul steal targeted action event.
-/// </summary>
-public sealed partial class SlasherSoulStealEvent : EntityTargetActionEvent
-{
-}

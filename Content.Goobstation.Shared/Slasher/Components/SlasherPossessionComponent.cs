@@ -28,7 +28,3 @@ public sealed partial class SlasherPossessionComponent : Component
     [DataField]
     public bool DoesMindshieldBlock = true;
 }
-
-public sealed partial class SlasherPossessionEvent : EntityTargetActionEvent
-{
-}

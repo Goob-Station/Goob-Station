@@ -28,7 +28,3 @@ public sealed partial class SlasherSummonMacheteComponent : Component
     [ViewVariables]
     public EntityUid? MacheteUid;
 }
-
-public sealed partial class SlasherSummonMacheteEvent : InstantActionEvent
-{
-}

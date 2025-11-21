@@ -1,5 +1,4 @@
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Actions;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -51,8 +50,3 @@ public sealed partial class SlasherBloodTrailComponent : Component
     [ViewVariables]
     public EntityUid? FunkyslasherStream;
 }
-
-/// <summary>
-/// Toggle event for the blood trail action.
-/// </summary>
-public sealed partial class ToggleBloodTrailEvent : InstantActionEvent;

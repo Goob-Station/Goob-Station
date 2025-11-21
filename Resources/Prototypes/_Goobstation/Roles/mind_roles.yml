@@ -69,6 +69,12 @@
     exclusiveAntag: false   # bastard experiment
 
 - type: entity
+  parent: DevilMindRole
+  id: DevilMindRolemidround
+  name: Sleeper Devil Role
+
+# Slasher
+- type: entity
   parent: BaseMindRoleAntag
   id: MindRoleSlasher
   name: Slasher Role
@@ -78,8 +84,3 @@
     exclusiveAntag: true
     roleType: SoloAntagonist
     subtype: role-subtype-slasher
-
-- type: entity
-  parent: DevilMindRole
-  id: DevilMindRolemidround
-  name: Sleeper Devil Role

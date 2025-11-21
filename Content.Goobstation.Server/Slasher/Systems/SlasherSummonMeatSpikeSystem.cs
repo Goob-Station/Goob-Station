@@ -1,9 +1,9 @@
 using Content.Goobstation.Shared.Slasher.Components;
+using Content.Goobstation.Shared.Slasher.Events;
 using Content.Server.Actions;
 using Content.Shared.Popups;
 using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Network;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 
@@ -17,11 +17,11 @@ public sealed class SlasherSummonMeatSpikeSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<SlasherSummonMeatSpikeComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SlasherSummonMeatSpikeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<SlasherSummonMeatSpikeComponent, SlasherSummonMeatSpikeEvent>(OnSummon);

@@ -30,6 +30,4 @@ public sealed partial class SlasherRegenerateComponent : Component
     public float ReagentAmount = 10f;
 }
 
-public sealed partial class SlasherRegenerateEvent : InstantActionEvent
-{
-}
+

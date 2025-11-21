@@ -1,10 +1,10 @@
 using Content.Goobstation.Shared.Slasher.Components;
+using Content.Goobstation.Shared.Slasher.Events;
 using Content.Server.Actions;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Network;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 
@@ -15,7 +15,6 @@ public sealed class SlasherSummonMacheteSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protos = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -36,6 +35,9 @@ public sealed class SlasherSummonMacheteSystem : EntitySystem
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
     }
 
+    /// <summary>
+    /// Slasher - Handles summoning the Machete
+    /// </summary>
     private void OnSummon(Entity<SlasherSummonMacheteComponent> ent, ref SlasherSummonMacheteEvent args)
     {
         // Fail if the user has no hands.
@@ -48,6 +50,7 @@ public sealed class SlasherSummonMacheteSystem : EntitySystem
 
         // Ensure we have or create the machete
         var machete = ent.Comp.MacheteUid;
+
         if (machete == null || Deleted(machete))
         {
             if (!_protos.TryIndex(ent.Comp.MachetePrototype, out EntityPrototype? _))
