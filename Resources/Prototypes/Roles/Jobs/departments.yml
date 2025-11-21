@@ -133,6 +133,7 @@
   - Visitor
   - Zookeeper
   - ServiceWorker
+  - PartyMaker # event-restricted, Goobstation
 
 - type: department
   id: CentralCommand
@@ -188,6 +189,7 @@
   - ERTEngineer
   - DeathSquad
   - HecuOperative
+  - CommandMaid # event-restricted, Goobstation
   primary: false
   weight: 100
 
@@ -230,7 +232,8 @@
   - Warden
   - Brigmedic # Goob
   - Pilot # Corvax-Pilot
-  - WardenHelper # Corvax-Next-WardenHelper
+  - WardenHelper # CorvaxGoob-WardenHelper
+  - SecurityClown # event-restricted, Goob
 
 - type: department
   id: Science

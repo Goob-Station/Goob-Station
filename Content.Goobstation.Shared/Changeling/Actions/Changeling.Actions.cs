@@ -101,4 +101,7 @@ public sealed partial class ActionContortBodyEvent : InstantActionEvent { }
 [DataDefinition]
 public sealed partial class AugmentedEyesightPurchasedEvent : EntityEventArgs;
 
+[DataDefinition]
+public sealed partial class AwakenedInstinctPurchasedEvent : EntityEventArgs;
+
 #endregion

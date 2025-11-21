@@ -60,4 +60,13 @@
   id: JobBrigmedic
 
 - type: playTimeTracker
+  id: JobSecurityClown
+
+- type: playTimeTracker
+  id: JobCommandMaid
+
+- type: playTimeTracker
+  id: JobPartyMaker
+  
+- type: playTimeTracker
   id: JobRoboticist

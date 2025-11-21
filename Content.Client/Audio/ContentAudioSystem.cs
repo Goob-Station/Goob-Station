@@ -9,6 +9,8 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Zekins <zekins3366@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -45,6 +47,7 @@ public sealed partial class ContentAudioSystem : SharedContentAudioSystem
     public const float InterfaceMultiplier = 2f;
     public const float TtsMultiplier = 3f; // CorvaxGoob-TTS
     public const float VoiceChatMultiplier = 5f;
+    public const float BarksMultiplier = 3f; // Goob Station - Barks
 
     public override void Initialize()
     {

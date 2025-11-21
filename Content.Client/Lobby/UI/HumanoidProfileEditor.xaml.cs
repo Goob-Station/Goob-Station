@@ -383,6 +383,17 @@ namespace Content.Client.Lobby.UI
 
             #endregion Gender
 
+            // Goob Station
+            #region Barks
+
+            if (configurationManager.GetCVar(GoobCVars.BarksEnabled))
+            {
+                BarksContainer.Visible = true;
+                InitializeBarkVoice();
+            }
+
+            #endregion
+
             RefreshSpecies();
 
             SpeciesButton.OnItemSelected += args =>
@@ -1026,6 +1037,8 @@ namespace Content.Client.Lobby.UI
             UpdateSaveButton();
             UpdateMarkings();
             UpdateTTSVoicesControls(); // CorvaxGoob-TTS
+            // CorvaxGoob-Revert : DB conflicts
+            // UpdateBarkVoice(); // Goob Station - Barks
             UpdateHairPickers();
             UpdateCMarkingsHair();
             UpdateCMarkingsFacialHair();
@@ -1523,6 +1536,8 @@ namespace Content.Client.Lobby.UI
             ReloadPreview();
             /*
             // begin Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
+            UpdateBarkVoice(); // Goob Station - Barks
+            // begin Goobstation: port EE height/width sliders
             // Changing species provides inaccurate sliders without these
             UpdateHeightWidthSliders();
             UpdateWeight();
@@ -1561,6 +1576,12 @@ namespace Content.Client.Lobby.UI
             IsDirty = true;
         }
         // end Goobstation: port EE height/width sliders*/
+        // private void SetBarkVoice(BarkPrototype newVoice)
+        // {
+        //     Profile = Profile?.WithBarkVoice(newVoice);
+        //     IsDirty = true;
+        // }
+        // Goob Station - End
 
         public bool IsDirty
         {

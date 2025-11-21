@@ -1,0 +1,19 @@
+- type: entity
+  parent: [ BaseItem, BaseMagicalContraband ]
+  id: HellRipScroll
+  name: hell ripte scroll
+  description: A dark scroll written in blood. Its text is brief, yet seems endless. You feel an urge to tear flesh and rip heads just by looking at it.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: contract-written
+  - type: Item
+    sprite: _Goobstation/Objects/Misc/devil_contract.rsi
+    size: Small
+  - type: StaticPrice
+    price: 50000
+  - type: GrantHellRip
+  - type: GuideHelp
+    guides:
+    - HellRip
