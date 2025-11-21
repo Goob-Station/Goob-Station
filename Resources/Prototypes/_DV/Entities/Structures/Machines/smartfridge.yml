@@ -48,7 +48,11 @@
       - Pill
       - Produce
       - Seed
+      - MedicalPatch # goob
       tags:
+      - Cigarette # goob start
+      - CigPack
+      - MedicalPatch # goob end
       - PillCanister
       - Bottle
       - Syringe
