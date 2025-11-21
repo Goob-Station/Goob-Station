@@ -18130,3 +18130,9 @@ Entries:
       message: Fixed being unable to interact when driving vehicles.
   id: 2042
   time: '2025-11-21T17:05:00.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: You can no longer feed your blood crayon to people.
+  id: 2043
+  time: '2025-11-21T17:05:32.0000000+00:00'
