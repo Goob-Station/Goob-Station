@@ -64,6 +64,10 @@
         conditions:
         - !type:ReagentThreshold
           min: 21
+        - !type:PressureThreshold
+          min: 1
+          max: 50
+          worksOnLavaland: true
         damage:
           types:
             Poison: 5
