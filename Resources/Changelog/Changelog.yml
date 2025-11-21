@@ -4164,3 +4164,10 @@ Entries:
   id: 9215
   time: '2025-11-21T11:32:55.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41450
+- author: notafet
+  changes:
+  - message: APCs will now trip off when supplying excessive loads.
+    type: Add
+  id: 9216
+  time: '2025-11-21T15:14:03.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41377
