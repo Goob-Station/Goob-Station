@@ -99,6 +99,7 @@ public sealed partial class GameTicker
 
     private bool StartPreset(ICommonSession[] origReadyPlayers, bool force)
     {
+        _sawmill.Info($"Attempting to start preset '{CurrentPreset?.ID}'");
         var startAttempt = new RoundStartAttemptEvent(origReadyPlayers, force);
         RaiseLocalEvent(startAttempt);
 
@@ -120,9 +121,12 @@ public sealed partial class GameTicker
             var fallbackPresets = _cfg.GetCVar(CCVars.GameLobbyFallbackPreset).Split(",");
             var startFailed = true;
 
+            _sawmill.Info($"Fallback - Failed to start round, attempting to start fallback presets.");
             foreach (var preset in fallbackPresets)
             {
+                _sawmill.Info($"Fallback - Clearing up gamerules");
                 ClearGameRules();
+                _sawmill.Info($"Fallback - Attempting to start '{preset}'");
                 SetGamePreset(preset, resetDelay: 1);
                 AddGamePresetRules();
                 StartGamePresetRules();
@@ -140,6 +144,7 @@ public sealed partial class GameTicker
                     startFailed = false;
                     break;
                 }
+                _sawmill.Info($"Fallback - '{preset}' failed to start.");
             }
 
             if (startFailed)
@@ -151,6 +156,7 @@ public sealed partial class GameTicker
 
         else
         {
+            _sawmill.Info($"Fallback - Failed to start preset but fallbacks are disabled. Returning to Lobby.");
             FailedPresetRestart();
             return false;
         }
