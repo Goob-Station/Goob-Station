@@ -51,3 +51,36 @@
     roleType: Familiar
     subtype: role-subtype-brainwashed
   - type: MindcontrolledRole
+
+- type: entity
+  parent: MindRoleChangeling
+  id: MindRoleChangelingmidround
+  name: Sleeper Changeling Role
+  components:
+  - type: MindRole
+    exclusiveAntag: false           #  bastard experiment
+
+- type: entity
+  parent: MindRoleHeretic
+  id: MindRoleHereticmidround
+  name: Sleeper Heretic Role
+  components:
+  - type: MindRole
+    exclusiveAntag: false   # bastard experiment
+
+- type: entity
+  parent: DevilMindRole
+  id: DevilMindRolemidround
+  name: Sleeper Devil Role
+
+# Slasher
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleSlasher
+  name: Slasher Role
+  components:
+  - type: MindRole
+    antagPrototype: Slasher
+    exclusiveAntag: true
+    roleType: SoloAntagonist
+    subtype: role-subtype-slasher

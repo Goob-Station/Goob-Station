@@ -1,0 +1,22 @@
+- type: constructionGraph
+  id: SpiritCandle
+  start: start
+  graph:
+  - node: start
+    entity: HeadSkeleton
+    edges:
+    - to: spiritCandle
+      steps:
+      - tag: Candle
+        name: construction-graph-candle
+        icon:
+          sprite: Objects/Misc/candles.rsi
+          state: candle-big
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SpiritCandle
+      - !type:DeleteEntity {}
+
+  - node: spiritCandle
+    entity: SpiritCandle
