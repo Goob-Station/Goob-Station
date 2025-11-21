@@ -124,7 +124,7 @@
   id: SlotMachineHighRoller
   parent: BaseSlotMachine
   name: the QM's personal slot machine
-  description: A high roller version of the slot machine, takes a whopping 10k per spin, but has significantly larger prizes!
+  description: A high roller version of the slot machine, takes a whopping 100k per spin, but you can win 1 MILLION from it!
   components:
   - type: Sprite
     noRot: true
@@ -153,14 +153,14 @@
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: SlotMachine
-    spinCost: 10000
-    smallPrizeAmount: 20000
-    mediumPrizeAmount: 50000
-    bigPrizeAmount: 100000
+    spinCost: 100000
+    smallPrizeAmount: 0
+    mediumPrizeAmount: 0
+    bigPrizeAmount: 0
     jackPotPrizeAmount: 1000000
     godPotPrize: Throngler
-    smallWinChance: .1
-    mediumWinChance: .05
-    bigWinChance: .01
-    jackPotWinChance: .001
-    godPotWinChance: .00001
+    smallWinChance: 0
+    mediumWinChance: 0
+    bigWinChance: 0
+    jackPotWinChance: .10
+    godPotWinChance: .001
