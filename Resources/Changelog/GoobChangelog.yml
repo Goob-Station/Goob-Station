@@ -18124,3 +18124,9 @@ Entries:
       message: Ominous armor is magical contra instead of sec restricted.
   id: 2041
   time: '2025-11-20T14:37:40.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Fixed being unable to interact when driving vehicles.
+  id: 2042
+  time: '2025-11-21T17:05:00.0000000+00:00'
