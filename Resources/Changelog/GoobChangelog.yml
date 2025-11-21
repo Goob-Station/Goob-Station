@@ -18163,3 +18163,11 @@ Entries:
       message: Fixed basalt decals not spawning on lavaland.
   id: 2046
   time: '2025-11-21T18:13:51.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix npc critters eating body parts.
+    - type: Remove
+      message: Heads are unedible.
+  id: 2047
+  time: '2025-11-21T18:15:26.0000000+00:00'
