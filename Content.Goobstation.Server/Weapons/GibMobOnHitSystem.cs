@@ -1,8 +1,6 @@
 using Content.Server.Body.Systems;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Damage.Components;
 using Content.Shared.Projectiles;
-using Content.Shared.Gibbing.Components;
 
 namespace Content.Goobstation.Server.Weapons;
 
@@ -36,10 +34,6 @@ public sealed class GibMobOnHitSystem : EntitySystem
 
     public void TryToGibEntity(EntityUid hitEntity)
     {
-        if (HasComp<GibbableComponent>(hitEntity))
-        {
-            if (!HasComp<GodmodeComponent>(hitEntity))
-                _bodySystem.GibBody(hitEntity);
-        }
+        _bodySystem.GibBody(hitEntity);
     }
 }
