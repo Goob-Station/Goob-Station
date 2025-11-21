@@ -94,7 +94,8 @@ public sealed class RandomGiftSystem : EntitySystem
             || component.SelectedEntity == "MeleeDebug200"
             || component.SelectedEntity == "MeleeDebugSever"
             || component.SelectedEntity == "MeleeDebugSever100"
-            || component.SelectedEntity == "MeleeDebugSever200")
+            || component.SelectedEntity == "MeleeDebugSever200"
+            || component.SelectedEntity == "WeaponPistolDebug")
             _audio.PlayGlobal("/Audio/_Goobstation/Music/All_I_Want_For_Gibmas.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
 
 
