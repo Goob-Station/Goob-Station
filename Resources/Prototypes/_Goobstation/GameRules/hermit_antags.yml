@@ -239,3 +239,12 @@
 #    weight: 2 #decreased by 2
 #  - type: GameRule
 #    chaosScore: 600 #increased by 100
+
+# TODO When slasher is ready
+#- type: entity
+#  parent: SlasherSpawn
+#  id: SlasherSpawnHermit
+#  components:
+#  - type: StationEvent
+#    weight: 1
+
