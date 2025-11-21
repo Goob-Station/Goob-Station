@@ -386,11 +386,12 @@ namespace Content.Client.Lobby.UI
             // Goob Station
             #region Barks
 
-            if (configurationManager.GetCVar(GoobCVars.BarksEnabled))
+            // CorvaxGoob-Revert : DB conflicts
+/*            if (configurationManager.GetCVar(GoobCVars.BarksEnabled))
             {
                 BarksContainer.Visible = true;
                 InitializeBarkVoice();
-            }
+            }*/
 
             #endregion
 

@@ -395,7 +395,8 @@ namespace Content.Server.Database
                 loadouts[role.RoleName] = loadout;
             }
 
-            var barkVoice = profile.BarkVoice ?? SharedHumanoidAppearanceSystem.DefaultBarkVoice; // Goob Station - Barks
+            // CorvaxGoob-Revert : DB conflicts
+            // var barkVoice = profile.BarkVoice ?? SharedHumanoidAppearanceSystem.DefaultBarkVoice; // Goob Station - Barks
 
             return new HumanoidCharacterProfile(
                 profile.CharacterName,
@@ -420,8 +421,8 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts,
-                barkVoice // Goob Station - Barks
+                loadouts
+                // barkVoice // Goob Station - Barks // CorvaxGoob-Revert : DB conflicts
             );
         }
 
@@ -473,7 +474,8 @@ namespace Content.Server.Database
                         .Select(t => new Trait { TraitName = t })
             );
 
-            profile.BarkVoice = humanoid.BarkVoice; // Goob Station - Barks
+            // CorvaxGoob-Revert : DB conflicts
+            // profile.BarkVoice = humanoid.BarkVoice; // Goob Station - Barks
 
             profile.Loadouts.Clear();
 

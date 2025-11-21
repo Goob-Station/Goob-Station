@@ -10,7 +10,8 @@ namespace Content.Client.Lobby.UI;
 
 public sealed partial class HumanoidProfileEditor
 {
-    private List<BarkPrototype> _barkPrototypes = new();
+    // CorvaxGoob-Revert : DB conflicts
+/*    private List<BarkPrototype> _barkPrototypes = new();
 
     private void InitializeBarkVoice()
     {
@@ -64,5 +65,5 @@ public sealed partial class HumanoidProfileEditor
 
         var ev = new PreviewBarkEvent(Profile.BarkVoice);
         _entManager.EventBus.RaiseEvent(EventSource.Local, ref ev);
-    }
+    }*/
 }

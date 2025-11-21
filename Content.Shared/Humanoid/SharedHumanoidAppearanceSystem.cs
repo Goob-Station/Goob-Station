@@ -690,7 +690,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         EnsureComp<SpeechSynthesisComponent>(uid, out var comp);
         comp.VoicePrototypeId = voicePrototypeId;
-        humanoid.BarkVoice = voicePrototypeId;
+        // humanoid.BarkVoice = voicePrototypeId; // CorvaxGoob-Revert : DB conflicts
         Dirty(uid, comp);
     }
     #endregion
