@@ -1034,7 +1034,7 @@
             Heat: -0.38
             Cold: -0.38
             Shock: -0.25
-            Caustic: -0.25 
+            Caustic: -0.25
         conditions:
         - !type:HasComponentOnEquipmentCondition
           components:
@@ -1550,3 +1550,53 @@
         reagent: Histamine
         amount: 0.2
         probability: 0.1
+
+# For the slasher antag
+- type: reagent
+  id: slasherium
+  name: reagent-name-slasherium
+  group: Medicine
+  desc: reagent-desc-slasherium
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: medicine
+  color: "#fcf7f9"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.25
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -12
+            Brute: -12
+            Toxin: -12
+            Airloss: -12
+            Genetic: -12
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 3
+        type: Remove
+    Narcotic:
+      metabolismRate: 0.25
+      effects:
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 3
+        type: Remove
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
+      - !type:RemoveComponentEffect
+        component: DelayedKnockdown
+        locale: reagent-effect-guidebook-remove-delayed-knockdown
+      - !type:TakeStaminaDamage
+        amount: -10
+        immediate: true
+      - !type:SuppressPain
+        amount: 1.2
+        time: 30
