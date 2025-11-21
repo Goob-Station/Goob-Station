@@ -135,7 +135,6 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    - Binary
     - Common
     - Command
     - CentCom
@@ -151,7 +150,6 @@
     - Future
   - type: ActiveRadio
     channels:
-    - Binary
     - Common
     - Command
     - CentCom
