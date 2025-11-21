@@ -18171,3 +18171,11 @@ Entries:
       message: Heads are unedible.
   id: 2047
   time: '2025-11-21T18:15:26.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        Added: The Slasher is here! Avoid maints and make sure to study up on
+        those cheesy slasher flicks! (In Testing)
+  id: 2048
+  time: '2025-11-21T18:17:17.0000000+00:00'
