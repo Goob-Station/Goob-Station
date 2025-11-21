@@ -109,6 +109,14 @@ selectable-set-syndicate-carp-description =
     Contains: a scroll of the Way of The Sleeping Carp, 10 dehydrated carp
     (half of which are holo), a carp hardsuit and a syndicate encryption key.
 
+selectable-set-syndicate-western-name = Western Bundle
+selectable-set-syndicate-western-description =
+    Light the western holo-cigar, tip the hat, and let the music play.
+    Contains: western holo-cigar, syndicate encryption key,
+    resonant jumpsuit, sunglasses, classic poncho,
+    cowboy hat and boots, two Python revolvers, six AP speedloaders,
+    and two advanced combat medipens.
+
 selectable-set-syndicate-sus-name = Suspicion Bundle
 selectable-set-syndicate-sus-description =
     When the traitor is sus. The traitor is you, of course.
