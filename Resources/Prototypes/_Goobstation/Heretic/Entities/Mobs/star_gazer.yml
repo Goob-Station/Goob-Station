@@ -25,14 +25,14 @@
     altDisarm: false
     angle: 0
     animation: WeaponArcHereticCosmic
-    attackRate: 1.5
+    attackRate: 1
     canWideSwing: false
     damage:
       types:
         Slash: 10
         Piercing: 10
         Structural: 100
-      armorPenetration: 0.5
+      armorPenetration: 0.2
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
@@ -44,8 +44,6 @@
         density: 1000
         mask:
         - MobMask
-        layer:
-        - MobLayer
   - type: MovementIgnoreGravity
   - type: Speech
   - type: TypingIndicator

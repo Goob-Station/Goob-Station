@@ -253,3 +253,18 @@
     - NewKinPidgin
     requires:
     - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: GruntishTranslatorImplant
+  name: Gruntish translator implant
+  description: An implant giving the ability to understand and speak Gruntish.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Gruntish
+    spoken:
+    - Gruntish
+    requires:
+    - TauCetiBasic

@@ -5,6 +5,8 @@
   name: plague rat
   description: A diseased looking rat.
   components:
+  - type: MindContainer
+    showExamineInfo: true
   - type: CollectiveMind
     defaultChannel: Wraithmind
     channels:
@@ -87,7 +89,7 @@
           Quantity: 100
   - type: MeleeChemicalInjector
     solution: melee
-    transferAmount: 4
+    transferAmount: 0.25
   - type: InputMover
   - type: MobMover
   - type: HTN
@@ -119,6 +121,10 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
+  - type: NightVision # Goobstation - Nigthvision
+    color: "#00FF00"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   id: MobPlagueRatMedium
@@ -127,6 +133,7 @@
   name: plague-ridden rat
   description: A wretched, disgusting rat.
   components:
+  - type: SummonRatDen # allows you to use summon rat den
   - type: ActionGrant
     actions:
     - ActionRatDen
@@ -171,8 +178,8 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.5
-        density: 100
+          radius: 0.3
+        density: 60
         mask:
         - MobMask
         layer:
@@ -244,7 +251,7 @@
           Quantity: 100
   - type: MeleeChemicalInjector
     solution: melee
-    transferAmount: 4
+    transferAmount: 0.25
   - type: InputMover
   - type: MobMover
   - type: HTN

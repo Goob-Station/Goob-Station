@@ -3,6 +3,8 @@
   name: tentacle hook
   categories: [ HideSpawnMenu ]
   components:
+  - type: TimedDespawn
+    lifetime: 12.0 # so spikers don't get 100 tentacles
   - type: EmbeddableProjectile
     deleteOnRemove: true
   - type: Clickable

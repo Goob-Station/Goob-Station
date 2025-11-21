@@ -23,9 +23,9 @@ spellbook-everfull-mug-name = Everfull Mug
 spellbook-everfull-mug-desc =
     A magical mug that can be filled with omnizine at will. Great source of healing.
 
-spellbook-cryo-katana-name = Cryo Katana
-spellbook-cryo-katana-desc =
-    Modified Spider Clan energy katana, imbued with frost magic. Freezes the targets on hit, slowing them down. Able to dash a short distance, slicing anyone on your path. Can't dash while lying down.
+spellbook-echo-katana-name = Echo Katana
+spellbook-echo-katana-desc =
+    Modified Spider Clan energy katana, imbued with hyper-sonic magic. Able to dash a decent distance, slicing anyone on your path. Can't dash while lying down.
 
 spellbook-skates-name = Wizard Skates
 spellbook-skates-desc =
@@ -83,6 +83,17 @@ spellbook-wand-desc =
 spellbook-ninjutsu-name = Ninjutsu Scroll
 spellbook-ninjutsu-desc =
     A scroll that teaches one Ninjutsu, a martial art and set of tactics used by ninja in feudal Japan.
+    Cannot be refunded.
+
+spellbook-hell-rip-name = Hell Ripte Scroll
+spellbook-hell-rip-desc =
+    A scroll that teaches one Hell Ripte, a martial art and set of tactics used by Slaughter Demons.
+    Buying this and Bottle of Blood unlocks purchasing a special slaughter demon heart.
+    Cannot be refunded.
+
+spellbook-demon-heart-name = Heart of the Demon
+spellbook-demon-heart-desc =
+    Upon use, implants itself in your body, granting you slaughter demon blood crawl demonic whisper and the ability to devour bodies to regenerate health.
     Cannot be refunded.
 
 spellbook-staff-animate-name = Staff of Animation

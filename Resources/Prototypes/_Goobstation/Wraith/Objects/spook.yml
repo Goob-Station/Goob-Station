@@ -59,6 +59,10 @@
   - type: BurnLights
   - type: CreateEctoplasm
   - type: CreateSpookSmoke
+    smokeSolution:
+      reagents:
+      - ReagentId: ThickSmoke
+        Quantity: 50
   - type: OpenDoorsSpook
   - type: SapAPC
   - type: RandomSpook

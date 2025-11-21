@@ -35,6 +35,8 @@ public sealed partial class RatBiteEvent : EntityTargetActionEvent;
 
 public sealed partial class RatSlamEvent : InstantActionEvent;
 
+public sealed partial class SummonRatDenEvent : WorldTargetActionEvent;
+
 [Serializable, NetSerializable]
 public sealed partial class EatFilthDoAfterEvent : SimpleDoAfterEvent;
 #endregion

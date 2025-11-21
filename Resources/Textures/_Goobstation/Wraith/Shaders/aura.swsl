@@ -2,9 +2,9 @@
 
 light_mode unshaded;
 
-uniform highp float mango = 0.5;
+uniform highp float mango;
 uniform highp vec3 auraColor;
-uniform highp float distortion = 0.05;
+uniform highp float distortion;
 
 void fragment()
 {

@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Goobstation.Shared.Wraith.WraithPoints;
@@ -43,7 +44,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         var user = args.Performer;
         var target = args.Target;
 
-        if (_tag.HasTag(args.Target, ent.Comp.Tag)) // save the monkeys
+        if (_tag.HasTag(args.Target, ent.Comp.Tag) || !TryComp<WraithAbsorbableComponent>(args.Target, out var absorbable)) // save the monkeys
             return;
 
         if (!_mobState.IsDead(target))
@@ -53,8 +54,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         }
 
         // user already absorbed, stop there
-        if (TryComp<WraithAbsorbableComponent>(args.Target, out var absorbable)
-            && absorbable.Absorbed)
+        if (absorbable.Absorbed)
         {
             _popup.PopupClient(Loc.GetString("wraith-absorb-already"), ent.Owner, ent.Owner);
             return;
@@ -100,11 +100,8 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
         Dirty(ent);
 
         // mark as absorbed
-        if (absorbable != null)
-        {
-            absorbable.Absorbed = true;
-            Dirty(args.Target, absorbable);
-        }
+        absorbable.Absorbed = true;
+        Dirty(args.Target, absorbable);
 
         _admin.Add(LogType.Action, LogImpact.Medium,
             $"{ToPrettyString(ent.Owner)} absorbed the corpse of {ToPrettyString(args.Target)} as a Wraith");

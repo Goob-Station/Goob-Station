@@ -34,7 +34,7 @@ public sealed class MakeRevenentSystem : EntitySystem
             || !TryComp<PerishableComponent>(args.Target, out var perishComp)
             || perishComp.Stage != 1) // should have been an enum... anyways: 1 means its a fresh corpse
         {
-            _popup.PopupClient("wraith-absorb-too-decomposed", ent.Owner, ent.Owner);
+            _popup.PopupClient(Loc.GetString("wraith-absorb-too-decomposed"), ent.Owner, ent.Owner);
             return;
         }
 

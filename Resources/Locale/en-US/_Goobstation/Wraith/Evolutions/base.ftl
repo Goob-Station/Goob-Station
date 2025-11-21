@@ -1,7 +1,7 @@
 wraith-haunt-show = You show yourself.
 
 wraith-decay-human-alert = You feel really tired all of a sudden!
-wraith-decay-object1 = You alter the energy of { CAPITALIZE(SUBJECT($target)) }.
+wraith-decay-object1 = The energy of {THE($target)} gets decayed!
 wraith-decay-nothing = There is nothing to decay here!
 
 wraith-absorb-living = The living consciousness controlling this body shields it from being absorbed.

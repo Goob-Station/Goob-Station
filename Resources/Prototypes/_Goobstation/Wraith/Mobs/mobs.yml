@@ -61,12 +61,12 @@
   - type: Pullable
   - type: ZombieImmune
   - type: Speech
-    speechVerb: Ghost
+    speechVerb: Skeleton
   - type: Destructible
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 40
+          damage: 30
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -82,6 +82,16 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
+  - type: Vocal
+    wilhelm: "/Audio/_Goobstation/Voice/badtothebone.ogg"
+    wilhelmProbability: 0.1
+    sounds:
+      Male: Skeleton
+      Female: Skeleton
+      Unsexed: Skeleton
+  - type: SkeletonAccent
+  - type: TypingIndicator
+    proto: skeleton
 
 - type: entity
   id: MobCrunched
@@ -144,7 +154,7 @@
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 50
+          damage: 40
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -242,6 +252,8 @@
   parent: [ BaseMob, MobCombat ]
   description: A severely disfigured human torso which is forcibly kept alive by the mechanical parts...
   components:
+  - type: MindContainer
+    showExamineInfo: true
   - type: SpamEmitSound
     minInterval: 5
     maxInterval: 25
@@ -266,7 +278,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      60: Dead
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Metallic
@@ -294,7 +306,6 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHeavySuit
-  - type: TileMovement
 
 - type: entity
   id: MobMonstrosityBody
@@ -311,6 +322,8 @@
         volume: -1
         maxDistance: 12
         variation: 0.01
+  - type: MindContainer
+    showExamineInfo: true
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -358,7 +371,7 @@
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 100
+          damage: 60
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -372,7 +385,6 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHeavySuit
-  - type: TileMovement
 
 - type: entity
   name: lion
@@ -394,6 +406,8 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Bingle
+  - type: MindContainer
+    showExamineInfo: true
   - type: MobState
   - type: MobThresholds
     thresholds:
@@ -406,7 +420,7 @@
       collection: Flesh_Stab
     damage:
       types:
-        Slash: 15
+        Slash: 12
   - type: NoSlip
   - type: Pullable
   - type: InputMover
@@ -576,7 +590,7 @@
       collection: Flesh_Stab
     damage:
       types:
-        Slash: 15
+        Slash: 13
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHeavySuit
@@ -670,7 +684,18 @@
   id: MobSkeletonGoonLesser
   suffix: Lesser
   parent: MobSkeletonGoon
+  categories: [ Spawner ]
   components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: WraithMinion
   - type: TriggerOnSpawn
   - type: SpawnOnTrigger
@@ -681,6 +706,16 @@
   suffix: Wraith
   parent: MobSkeletonGoon
   components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: WraithMinion
   - type: VoidSummoned
 
@@ -689,6 +724,16 @@
   suffix: Wraith
   parent: MobCrunched
   components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: WraithMinion
   - type: NpcFactionMember
     factions:
@@ -700,6 +745,16 @@
   suffix: Wraith
   parent: MobShade
   components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: WraithMinion
   - type: VoidSummoned
 
@@ -708,6 +763,16 @@
   suffix: Wraith
   parent: MobMonstrosityHead
   components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: WraithMinion
   - type: VoidSummoned
 
@@ -716,6 +781,16 @@
   suffix: Wraith
   parent: MobMonstrosityBody
   components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: WraithMinion
   - type: VoidSummoned
 
@@ -724,6 +799,16 @@
   suffix: Wraith
   parent: MobLion
   components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: WraithMinion
   - type: VoidSummoned
 
@@ -732,6 +817,16 @@
   suffix: Wraith
   parent: MobAncientRepairBot
   components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: WraithMinion
   - type: VoidSummoned
 
@@ -740,6 +835,16 @@
   suffix: Wraith
   parent: MobAncientGuardBot
   components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: WraithMinion
   - type: VoidSummoned
 
@@ -748,6 +853,16 @@
   suffix: Wraith
   parent: MobAncientRobot1
   components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: WraithMinion
   - type: VoidSummoned
 
@@ -756,6 +871,16 @@
   suffix: Wraith
   parent: MobAncientRobot2
   components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: WraithMinion
   - type: VoidSummoned
 
@@ -764,6 +889,16 @@
   suffix: Wraith
   parent: MobAncientRobot3
   components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: WraithMinion
   - type: VoidSummoned
 
@@ -772,6 +907,16 @@
   suffix: Wraith
   parent: MobAncientLegs
   components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: WraithMinion
   - type: VoidSummoned
 
@@ -780,6 +925,16 @@
   suffix: Wraith
   parent: MobBearGoon
   components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: WraithMinion
   - type: NpcFactionMember
     factions:
@@ -791,6 +946,16 @@
   suffix: Wraith
   parent: MobBrullbar
   components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: WraithMinion
   - type: NpcFactionMember
     factions:
@@ -802,6 +967,16 @@
   suffix: Wraith
   parent: GunBot
   components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: WraithMinion
   - type: NpcFactionMember
     factions:
@@ -829,6 +1004,16 @@
   suffix: Wraith
   parent: NukeBot
   components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-voidsummon-name
+    description: ghost-role-information-voidsummon-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: WraithMinion
   - type: NpcFactionMember
     factions:

@@ -33,6 +33,9 @@ public sealed class CursedActionSystem : EntitySystem
 
     private void OnApplyCurseAction(ApplyCurseActionEvent args)
     {
+        if (args.Curse == null)
+            return;
+
         var attemptEv = new AttemptCurseEvent(args.Performer);
         RaiseLocalEvent(args.Target, ref attemptEv);
 
@@ -51,7 +54,7 @@ public sealed class CursedActionSystem : EntitySystem
             }
         }
 
-        var curseApply = new CurseAppliedEvent(args.Curse, args.Performer);
+        var curseApply = new CurseAppliedEvent(args.Curse.Value, args.Performer);
         RaiseLocalEvent(args.Target, ref curseApply);
 
         if (curseApply.Cancelled)

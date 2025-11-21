@@ -10,6 +10,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 using System.Numerics;
 using Content.Shared.Stunnable;
+using Robust.Shared.Spawners;
 
 namespace Content.Goobstation.Shared.Wraith.Minions.Harbinger;
 
@@ -34,6 +35,7 @@ public sealed class TentacleHookSystem : EntitySystem
         SubscribeLocalEvent<TentacleHookProjectileComponent, ProjectileHitEvent>(OnTentacleHit);
         SubscribeLocalEvent<TentacleHookProjectileComponent, JointRemovedEvent>(OnJointRemoved);
         SubscribeLocalEvent<TentacleHookProjectileComponent, ProjectileEmbedEvent>(OnTentacleEmbed);
+        SubscribeLocalEvent<TentacleHookProjectileComponent, TimedDespawnEvent>(OnDespawn);
     }
 
     private void OnTentacleHook(Entity<TentacleHookComponent> ent, ref TentacleHookEvent args)
@@ -61,6 +63,8 @@ public sealed class TentacleHookSystem : EntitySystem
             Vector2.Zero,
             null,
             ent.Owner);
+
+        args.Handled = true;
     }
 
     private void OnTentacleEmbed(Entity<TentacleHookProjectileComponent> ent, ref ProjectileEmbedEvent args)
@@ -88,6 +92,9 @@ public sealed class TentacleHookSystem : EntitySystem
             return;
         }
 
+        ent.Comp.Target = args.Target;
+        Dirty(ent);
+
         _stun.TrySlowdown(args.Target, ent.Comp.DurationSlow, false, 0.3f, 0.3f);
 
         var tentacle = EnsureComp<TentacleHookedComponent>(args.Target);
@@ -100,5 +107,13 @@ public sealed class TentacleHookSystem : EntitySystem
     {
         if (_netManager.IsServer)
             QueueDel(ent.Owner);
+    }
+
+    private void OnDespawn(Entity<TentacleHookProjectileComponent> ent, ref TimedDespawnEvent args)
+    {
+        if (ent.Comp.Target == null)
+            return;
+
+        RemCompDeferred<TentacleHookedComponent>(ent.Comp.Target.Value);
     }
 }

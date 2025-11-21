@@ -1,0 +1,46 @@
+light_mode unshaded;
+
+uniform lowp int steps;
+uniform lowp float speed;
+// For some reason yaml doesn't support specifying arrays in shader params
+// uniform highp float[6] r;
+// uniform highp float[6] g;
+// uniform highp float[6] b;
+// So whe have to do this bruh
+uniform highp vec4 col0;
+uniform highp vec4 col1;
+uniform highp vec4 col2;
+uniform highp vec4 col3;
+uniform highp vec4 col4;
+uniform highp vec4 col5;
+
+void fragment() {
+
+    highp vec4 sprite = zTexture(UV);
+
+    if (sprite.a == 0.0) {
+        discard;
+    }
+
+    highp float time = TIME * speed;
+    lowp int timei = int(time) * 100 + int((time - floor(time)) * 100.);
+    timei = int(float(timei) / 100.);
+    lowp int s1 = timei % steps;
+    lowp int s2 = (timei + 1) % steps;
+    highp float tfrac = (time - floor(time));
+    highp float m = float((int(tfrac * 100.) + int(time) * 1000) % steps) / 1000. + tfrac;
+    m = clamp(m, 0., 1.);
+
+    // So fucking cursed
+    highp float[6] r = float[6](col0.r, col1.r, col2.r, col3.r, col4.r, col5.r);
+    highp float[6] g = float[6](col0.g, col1.g, col2.g, col3.g, col4.g, col5.g);
+    highp float[6] b = float[6](col0.b, col1.b, col2.b, col3.b, col4.b, col5.b);
+    highp float[6] a = float[6](col0.a, col1.a, col2.a, col3.a, col4.a, col5.a);
+
+    highp float x = mix(r[s1], r[s2], m);
+    highp float y = mix(g[s1], g[s2], m);
+    highp float z = mix(b[s1], b[s2], m);
+    highp float w = mix(a[s1], a[s2], m) * sprite.a;
+
+    COLOR = vec4(x, y, z, w);
+}

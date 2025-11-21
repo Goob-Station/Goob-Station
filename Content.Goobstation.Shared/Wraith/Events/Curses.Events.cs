@@ -20,7 +20,7 @@ public sealed partial class ApplyCurseActionEvent : EntityTargetActionEvent
     /// The curse to apply to the target
     /// </summary>
     [DataField]
-    public ProtoId<CursePrototype> Curse;
+    public ProtoId<CursePrototype>? Curse;
 
     /// <summary>
     /// The sound the curse makes on the target

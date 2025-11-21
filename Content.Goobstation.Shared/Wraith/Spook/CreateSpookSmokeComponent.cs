@@ -14,7 +14,7 @@ public sealed partial class CreateSpookSmokeComponent : Component
     public EntProtoId SmokeProto = "Smoke";
 
     [DataField]
-    public Solution SmokeSolution = new ("ThickSmoke", 50);
+    public Solution SmokeSolution;
 
     /// <summary>
     ///  Duration of the smoke in seconds

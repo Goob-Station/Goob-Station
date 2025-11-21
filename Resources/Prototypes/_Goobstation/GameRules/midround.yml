@@ -19,8 +19,9 @@
   components:
   - type: StationEvent
     earliestStart: 30
-    weight: 10
+    weight: 8
     minimumPlayers: 15
+    maxOccurrences: 1
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
@@ -37,8 +38,10 @@
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
     definitions:
-    - prefRoles: [ Traitor ]
-      max: 1
+    - prefRoles: [ TraitorSleeper ]
+      fallbackRoles: [ Traitor ]
+      min: 1
+      max: 2
       playerRatio: 10
       blacklist:
         components:
@@ -60,6 +63,7 @@
     earliestStart: 20
     weight: 3
     minimumPlayers: 15
+    maxOccurrences: 1
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
@@ -78,7 +82,8 @@
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
-      max: 1
+      min: 1
+      max: 2
       playerRatio: 10
       blacklist:
         components:
@@ -87,7 +92,7 @@
         - BibleUser
       lateJoinAdditional: true
       mindRoles:
-      - MindRoleChangeling
+      - MindRoleChangelingmidround
   - type: Tag
     tags:
       - MidroundAntag
@@ -101,6 +106,7 @@
     earliestStart: 20
     weight: 3
     minimumPlayers: 30
+    maxOccurrences: 1
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
@@ -119,7 +125,8 @@
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 1
+      min: 1
+      max: 2
       playerRatio: 15
       blacklist:
         components:
@@ -242,6 +249,105 @@
     max: 1
     table:
       id: MobFloorGoblin
+  - type: Tag
+
+# Midround Devil
+- type: entity
+  parent: Devil
+  id: Devilmidround
+  components:
+  - type: StationEvent
+    earliestStart: 20
+    weight: 1
+    minimumPlayers: 30
+    maxOccurrences: 1
+    startAnnouncement: station-event-communication-interception
+    startAudio:
+      path: /Audio/Announcements/intercept.ogg
+    duration: null
+    occursDuringRoundEnd: false
+    chaos:
+      Hostile: 200
+      Medical: 150
+      Death: 200
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 400
+  - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
+    agentName: devil-roundend-name
+    definitions:
+    - prefRoles: [ Devil ]
+      max: 1
+      playerRatio: 15
+      blacklist:
+        components:
+        - CommandStaff
+        - AntagImmune
+        - BibleUser
+      lateJoinAdditional: true
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      mindRoles:
+      - DevilMindRole
+  - type: Tag
+    tags:
+      - MidroundAntag
+
+# Slasher
+- type: entity
+  parent: BaseGameRule
+  id: SlasherSpawn
+  components:
+  - type: StationEvent
+    weight: 3
+    duration: null
+    earliestStart: 30
+    minimumPlayers: 30
+    chaos:
+      Hostile: 40
+      Combat: 40
+      Death: 40
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 400
+  - type: AntagRandomSpawn
+  - type: AntagLoadProfileRule
+    speciesOverride: Human
+    speciesOverrideBlacklist:
+    - Yowie
+    - IPC
+    - Diona
+    - Harpy
+    - Plasmaman
+  - type: AntagObjectives
+    objectives:
+    - SlasherSurviveObjective
+    - SlasherAbsorbSoulsObjective
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
+    agentName: slasher-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSlasher
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SlasherGear
+      roleLoadout:
+      - RoleSurvivalEVA
+      briefing:
+        text: slasher-role-greeting
+        color: Red
+        sound: /Audio/_Goobstation/Effects/Slasher/SlasherIntro.ogg
+      components:
+      - type: Slasher
+      - type: RandomMetadata
+        nameSegments:
+        - NamesSlasherTitle
+        - NamesSlasher
+        nameFormat: name-format-slasher
+      mindRoles:
+      - MindRoleSlasher
   - type: Tag
     tags:
     - MidroundAntag

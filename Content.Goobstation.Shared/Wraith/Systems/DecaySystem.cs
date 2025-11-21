@@ -10,6 +10,7 @@ public sealed partial class DecaySystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
 
     public override void Initialize()
     {
@@ -18,7 +19,7 @@ public sealed partial class DecaySystem : EntitySystem
         SubscribeLocalEvent<DecayComponent, DecayEvent>(OnDecay);
     }
 
-    public void OnDecay(Entity<DecayComponent> ent, ref DecayEvent args)
+    private void OnDecay(Entity<DecayComponent> ent, ref DecayEvent args)
     {
         if (HasComp<HumanoidAppearanceComponent>(args.Target))
         {
@@ -28,12 +29,8 @@ public sealed partial class DecaySystem : EntitySystem
             return;
         }
 
-        var emagEvent = new GotEmaggedEvent(args.Target, EmagType.Access);
-        RaiseLocalEvent(args.Target, ref emagEvent);
-
-        if (emagEvent.Handled)
+        if (_emag.TryEmagEffect(ent.Owner, ent.Owner, args.Target, ent.Comp.Emag))
         {
-            _popup.PopupClient(Loc.GetString("wraith-decay-object1", ("target", ent.Owner)), ent.Owner, ent.Owner);
             args.Handled = true;
             return;
         }
