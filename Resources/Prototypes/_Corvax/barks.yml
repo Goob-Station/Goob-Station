@@ -103,7 +103,7 @@
 - type: bark
   id: Slime
   name: Slime
-  volume: 0.2
+  volume: 0.5
   soundCollection:
     collection: SlimeBark
   speciesWhitelist:
@@ -120,7 +120,7 @@
 - type: bark
   id: Vox
   name: Vox
-  volume: 0.15
+  volume: 0.5
   soundCollection:
     collection: VoxBark
   speciesWhitelist:
@@ -299,6 +299,7 @@
 - type: bark
   id: Aviu1
   name: Impudent
+  frequency: 0.7
   soundCollection:
     collection: Aviu1Bark
 
@@ -315,6 +316,7 @@
 - type: bark
   id: Aviu2
   name: Strong
+  frequency: 0.7
   soundCollection:
     collection: Aviu2Bark
 
@@ -331,6 +333,7 @@
 - type: bark
   id: Aviu3
   name: Alien
+  frequency: 0.7
   soundCollection:
     collection: Aviu3Bark
 
@@ -347,5 +350,6 @@
 - type: bark
   id: Aviu4
   name: Ethereal
+  frequency: 0.7
   soundCollection:
     collection: Aviu4Bark
