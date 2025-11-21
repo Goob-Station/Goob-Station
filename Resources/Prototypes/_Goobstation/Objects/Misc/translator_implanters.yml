@@ -39,3 +39,11 @@
   components:
   - type: Implanter
     implant: SpaceItalianTranslatorImplant
+
+- type: entity
+  id: YowKriolTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  suffix: Yow Kriol
+  components:
+  - type: Implanter
+    implant: YowKriolTranslatorImplant
