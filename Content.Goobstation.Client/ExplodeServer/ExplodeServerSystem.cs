@@ -13,7 +13,11 @@ public sealed class ExplodeServerSystem : EntitySystem
     private bool _started;
     private TimeSpan _roundEndOverlayTime; // for how long to have the overlay on
     
-    private ExplodeServerOverlay _overlay = new()
+    private ExplodeServerWorldSpaceOverlay _screenSpaceOverlay = new()
+    {
+        IsActive = false
+    };
+    private ExplodeServerWorldSpaceOverlay _worldSpaceOverlay = new()
     {
         TintColor = new(255f, 0f, 0f),
         BlurAmount = 1f,
@@ -32,21 +36,36 @@ public sealed class ExplodeServerSystem : EntitySystem
         {
             if (remainingTime.TotalSeconds % 1.25d < 0.5d)
             {
-                _overlay.IsActive = false;
-                _overlayManager.RemoveOverlay(_overlay);
+                RemoveOverlays();
             }
             else
             {
-                _overlay.IsActive = true;
-                _overlayManager.AddOverlay(_overlay);
+                AddOverlays();
             }
         }
     }
+
+    private void AddOverlays()
+    {
+        _worldSpaceOverlay.IsActive = true;
+        _screenSpaceOverlay.IsActive = true;
+        _overlayManager.AddOverlay(_worldSpaceOverlay);
+        _overlayManager.AddOverlay(_screenSpaceOverlay);
+    }
+
+    private void RemoveOverlays()
+    {
+        _worldSpaceOverlay.IsActive = false;
+        _worldSpaceOverlay.IsActive = true;
+        _overlayManager.RemoveOverlay(_worldSpaceOverlay);
+        _overlayManager.RemoveOverlay(_screenSpaceOverlay);
+    }
+
     public override void Initialize()
     {
         base.Initialize();
         _started = false;
-        _overlay.TintColor = Color.FromHex("#ff0000ff");
+        _worldSpaceOverlay.TintColor = Color.FromHex("#ff0000ff");
         SubscribeNetworkEvent<ExplodeServerEvent>(OnExplodeServer);
         SubscribeNetworkEvent<RoundRestartCleanupEvent>(OnRoundRestart);
     }
@@ -57,9 +76,8 @@ public sealed class ExplodeServerSystem : EntitySystem
     }
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
     {
-        _overlay.IsActive = false;
+        RemoveOverlays();
         _started = false;
         _roundEndOverlayTime = TimeSpan.Zero;
-        _overlayManager.RemoveOverlay(_overlay);
     }
 }

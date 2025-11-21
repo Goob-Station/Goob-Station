@@ -11,7 +11,6 @@ namespace Content.Goobstation.Server.ExplodeServer;
 
 public sealed class ExplodeServerSystem : EntitySystem
 {
-    [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -21,9 +20,19 @@ public sealed class ExplodeServerSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        if (_roundEndTimer <= _gameTiming.CurTime && _started)
+        if (_roundEndTimer < _gameTiming.CurTime && _started)
+        {
+            _started = false;
             _entManager.System<GameTicker>().RestartRound();
+        }
     }
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        _started = false;
+    }
+
     public void TriggerOverlay()
     {
         _started = true;
