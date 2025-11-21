@@ -126,9 +126,9 @@
     tags:
     - MedicalPatch
   - type: InjectableSolution
-    solution: food
+    solution: drink
   - type: RefillableSolution
-    solution: food
+    solution: drink
 
 - type: entity
   parent: BaseMedicalPatch
