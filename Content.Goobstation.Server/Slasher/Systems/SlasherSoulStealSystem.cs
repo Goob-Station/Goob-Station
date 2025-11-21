@@ -88,7 +88,7 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         // Can't steal soul from the same person multiple times
         if (HasComp<SoullessComponent>(target))
         {
-            _popup.PopupEntity(Loc.GetString("slasher-soulsteal-fail-soulless"), user, user);
+            _popup.PopupEntity(Loc.GetString("slasher-soulsteal-fail-no-mind"), user, user);
             args.Handled = true;
             return;
         }

@@ -95,6 +95,11 @@ public sealed class FootprintSystem : EntitySystem
 
         entity.Comp.Distance -= requiredDistance;
 
+        var attemptEv = new FootprintLeaveAttemptEvent(entity.Owner);
+        RaiseLocalEvent(entity.Owner, attemptEv);
+        if (attemptEv.Cancelled)
+            return;
+
         var transform = Transform(entity);
 
         if (transform.GridUid is null)

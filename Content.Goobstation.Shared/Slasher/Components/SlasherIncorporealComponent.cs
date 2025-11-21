@@ -49,3 +49,27 @@ public sealed partial class SlasherIncorporealizeEvent : InstantActionEvent
 public sealed partial class SlasherCorporealizeEvent : InstantActionEvent
 {
 }
+
+public sealed class SlasherIncorporealObserverCheckEvent : EntityEventArgs
+{
+    public SlasherIncorporealObserverCheckEvent(EntityUid slasher, float range)
+    {
+        Slasher = slasher;
+        Range = range;
+    }
+
+    /// <summary>
+    /// The slasher attempting to go incorporeal.
+    /// </summary>
+    public EntityUid Slasher { get; }
+
+    /// <summary>
+    /// Range to check for observers with line of sight. Takes number from component.
+    /// </summary>
+    public float Range { get; }
+
+    /// <summary>
+    /// True if the attempt should be cancelled.
+    /// </summary>
+    public bool Cancelled { get; set; }
+}

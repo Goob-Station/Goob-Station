@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.PhaseShift;
 using Content.Goobstation.Shared.Slasher.Components;
+using Content.Goobstation.Shared.Slasher.Events;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
@@ -31,7 +32,6 @@ using Content.Shared.Humanoid;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
-
 public sealed class SlasherIncorporealSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
@@ -55,7 +55,8 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
         SubscribeLocalEvent<SlasherIncorporealComponent, SlasherIncorporealizeEvent>(OnIncorporealize);
         SubscribeLocalEvent<SlasherIncorporealComponent, SlasherCorporealizeEvent>(OnCorporealize);
-        SubscribeLocalEvent<SlasherIncorporealComponent, Events.SlasherIncorporealizeDoAfterEvent>(OnIncorporealizeDoAfter);
+        SubscribeLocalEvent<SlasherIncorporealComponent, SlasherIncorporealizeDoAfterEvent>(OnIncorporealizeDoAfter);
+        SubscribeLocalEvent<SlasherIncorporealComponent, SlasherIncorporealObserverCheckEvent>(OnObserverCheck);
 
         SubscribeLocalEvent<SlasherIncorporealComponent, InteractionAttemptEvent>(OnAttemptInteract);
         SubscribeLocalEvent<SlasherIncorporealComponent, InteractionVerbAttemptEvent>(OnAttempt);
@@ -68,6 +69,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         SubscribeLocalEvent<SlasherIncorporealComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
         SubscribeLocalEvent<SlasherIncorporealComponent, BeforeEmoteEvent>(OnBeforeEmote);
         SubscribeLocalEvent<SlasherIncorporealComponent, EmoteAttemptEvent>(OnEmoteAttempt);
+        SubscribeLocalEvent<SlasherIncorporealComponent, FootprintLeaveAttemptEvent>(OnFootprintLeaveAttempt);
 
         SubscribeLocalEvent<ActionComponent, ActionAttemptEvent>(OnAnyActionAttempt);
     }
@@ -104,36 +106,20 @@ public sealed class SlasherIncorporealSystem : EntitySystem
             return;
         }
 
-        // Fail if any valid observer has unobstructed LOS
-        foreach (var other in _lookup.GetEntitiesInRange(ent.Owner, ent.Comp.ObserverCheckRange))
+        // Check if anyone can see them.
+        var checkEv = new SlasherIncorporealObserverCheckEvent(ent.Owner, ent.Comp.ObserverCheckRange);
+        RaiseLocalEvent(ent.Owner, checkEv);
+        if (checkEv.Cancelled)
         {
-            if (other == ent.Owner || !HasComp<EyeComponent>(other))
-                continue;
-
-            if (HasComp<GhostComponent>(other))
-                continue;
-
-            if (!HasComp<HumanoidAppearanceComponent>(other))
-                continue;
-
-            if (_mobState.IsDead(other))
-                continue;
-
-            if (_mobState.IsCritical(other))
-                continue;
-
-            if (_interaction.InRangeUnobstructed(other, ent.Owner, ent.Comp.ObserverCheckRange, CollisionGroup.Opaque))
-            {
-                _popup.PopupEntity(Loc.GetString("slasher-corporealize-fail-seen"), ent.Owner, ent.Owner);
-                return;
-            }
+            _popup.PopupEntity(Loc.GetString("slasher-corporealize-fail-seen"), ent.Owner, ent.Owner);
+            return;
         }
 
         // Start do-after to enter incorporeal
         var doArgs = new DoAfterArgs(EntityManager,
             ent.Owner,
             ent.Comp.IncorporealizeDelay,
-            new Events.SlasherIncorporealizeDoAfterEvent(),
+            new SlasherIncorporealizeDoAfterEvent(),
             ent.Owner,
             target: ent.Owner)
         {
@@ -166,35 +152,24 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnIncorporealizeDoAfter(Entity<SlasherIncorporealComponent> ent, ref Events.SlasherIncorporealizeDoAfterEvent args)
+    private void OnIncorporealizeDoAfter(Entity<SlasherIncorporealComponent> ent, ref SlasherIncorporealizeDoAfterEvent args)
     {
         if (args.Cancelled || args.Handled)
             return;
 
-        // Re-check observers at completion. If seen, fail.
-        var checkRange = ent.Comp.ObserverCheckRange;
-        foreach (var other in _lookup.GetEntitiesInRange(ent.Owner, checkRange))
+        if (!_net.IsServer)
         {
-            if (other == ent.Owner || !HasComp<EyeComponent>(other))
-                continue;
+            args.Handled = true;
+            return;
+        }
 
-            if (HasComp<GhostComponent>(other))
-                continue;
-
-            if (!HasComp<HumanoidAppearanceComponent>(other))
-                continue;
-
-            if (_mobState.IsDead(other))
-                continue;
-
-            if (_mobState.IsCritical(other))
-                continue;
-
-            if (_interaction.InRangeUnobstructed(other, ent.Owner, checkRange, CollisionGroup.Opaque))
-            {
-                _popup.PopupEntity(Loc.GetString("slasher-corporealize-fail-seen"), ent.Owner, ent.Owner);
-                return;
-            }
+        // Check if anyone can see them.
+        var checkEv = new SlasherIncorporealObserverCheckEvent(ent.Owner, ent.Comp.ObserverCheckRange);
+        RaiseLocalEvent(ent.Owner, checkEv);
+        if (checkEv.Cancelled)
+        {
+            _popup.PopupEntity(Loc.GetString("slasher-corporealize-fail-seen"), ent.Owner, ent.Owner);
+            return;
         }
 
         EnterIncorporeal(ent.Owner, ent);
@@ -225,9 +200,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         if (_tags.HasTag(uid, FootstepSoundTag))
             _tags.RemoveTag(uid, FootstepSoundTag);
 
-        // Remove footprint owner component to stop puddle footsteps.
-        if (HasComp<FootprintOwnerComponent>(uid))
-            RemComp<FootprintOwnerComponent>(uid);
+        // Do not leave puddle footsteps while incorporeal (handled via event instead of component removal).
 
         // Mute and block vocal emotes.
         _ = EnsureComp<MutedComponent>(uid);
@@ -258,7 +231,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         _tags.AddTag(uid, SharedDoorSystem.DoorBumpTag);
 
         _tags.AddTag(uid, FootstepSoundTag);
-        EnsureComp<FootprintOwnerComponent>(uid);
+
 
         // Let them speak
         _ = RemComp<MutedComponent>(uid);
@@ -291,13 +264,6 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     {
         if (comp.IsIncorporeal)
             args.Cancel();
-    }
-
-    private void OnAttemptInteract(EntityUid uid, SlasherIncorporealComponent comp, ref InteractionAttemptEvent args)
-    {
-        // Allow self / action usages (target null) so corporealize can still be used
-        if (comp.IsIncorporeal && args.Target != null)
-            args.Cancelled = true;
     }
 
     private void OnAttackAttempt(EntityUid uid, SlasherIncorporealComponent comp, AttackAttemptEvent args)
@@ -342,6 +308,18 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         if (comp.IsIncorporeal)
             args.Cancel();
     }
+    private void OnAttemptInteract(EntityUid uid, SlasherIncorporealComponent comp, ref InteractionAttemptEvent args)
+    {
+        // Allow self / action usages (target null) so corporealize can still be used
+        if (comp.IsIncorporeal && args.Target != null)
+            args.Cancelled = true;
+    }
+
+    private void OnFootprintLeaveAttempt(EntityUid uid, SlasherIncorporealComponent comp, ref FootprintLeaveAttemptEvent args)
+    {
+        if (comp.IsIncorporeal)
+            args.Cancel();
+    }
 
     private void OnAnyActionAttempt(Entity<ActionComponent> action, ref ActionAttemptEvent args)
     {
@@ -352,5 +330,34 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         // Allow only the slasher's "Corporealize" action while incorporeal.
         if (comp.CorporealizeActionEnt != action.Owner)
             args.Cancelled = true;
+    }
+
+    private void OnObserverCheck(EntityUid uid, SlasherIncorporealComponent comp, ref SlasherIncorporealObserverCheckEvent args)
+    {
+        // args.Range may differ from comp.ObserverCheckRange if needed.
+        var checkRange = args.Range;
+        foreach (var other in _lookup.GetEntitiesInRange(uid, checkRange))
+        {
+            if (other == uid || !HasComp<EyeComponent>(other))
+                continue;
+
+            if (HasComp<GhostComponent>(other))
+                continue;
+
+            if (!HasComp<HumanoidAppearanceComponent>(other))
+                continue;
+
+            if (_mobState.IsDead(other))
+                continue;
+
+            if (_mobState.IsCritical(other))
+                continue;
+
+            if (_interaction.InRangeUnobstructed(other, uid, checkRange, CollisionGroup.Opaque))
+            {
+                args.Cancelled = true;
+                return;
+            }
+        }
     }
 }
