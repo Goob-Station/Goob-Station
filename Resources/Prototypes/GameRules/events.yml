@@ -192,7 +192,7 @@
     - id: SleeperAgents
     - id: ChangelingMidround
     - id: HereticMidround
-    - id: Devilmidround
+#   - id: Devilmidround # removed for being shit
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
