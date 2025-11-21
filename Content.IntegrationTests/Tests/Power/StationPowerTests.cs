@@ -7,11 +7,12 @@ using Content.Server.Power.NodeGroups;
 using Content.Server.Power.Pow3r;
 using Content.Shared.Power.Components;
 using Content.Shared.NodeContainer;
+using Robust.Server.GameObjects;
 using Robust.Shared.EntitySerialization;
 
 namespace Content.IntegrationTests.Tests.Power;
 
-[Explicit]
+[Explicit] // Goobstation we are not readyto unexplicit this.
 public sealed class StationPowerTests
 {
     /// <summary>
@@ -25,26 +26,22 @@ public sealed class StationPowerTests
         "Amber",
         "Bagel",
         "Box",
-        "Cluster",
-        "Fland",
-        "Loop",
+        "Core",
         "Marathon",
-        "Meta",
-        "Oasis",
-        "Omega",
-        "Origin",
         "Saltern",
-        "Packed",
         "Reach",
-        "OasisHighPop",
-        "Barratry",
-        "Kettle",
-        "Leonid",
-        "Delta",
-        "Chloris",
-        "Cog"
+        "Train",
+        "Oasis",
+        "Gate",
+        "Amber",
+        "Loop",
+        "Plasma",
+        "Elkridge",
+        "Convex",
+        "Relic",
     ];
 
+    [Explicit]
     [Test, TestCaseSource(nameof(GameMaps))]
     public async Task TestStationStartingPowerWindow(string mapProtoId)
     {
@@ -103,6 +100,54 @@ public sealed class StationPowerTests
                 $"Needs at least {requiredStoredPower - totalStartingCharge} more stored power!");
         });
 
+        await pair.CleanReturnAsync();
+    }
+
+    [Test, TestCaseSource(nameof(GameMaps))]
+    public async Task TestApcLoad(string mapProtoId)
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings
+        {
+            Dirty = true,
+        });
+        var server = pair.Server;
+
+        var entMan = server.EntMan;
+        var protoMan = server.ProtoMan;
+        var ticker = entMan.System<GameTicker>();
+        var xform = entMan.System<TransformSystem>();
+
+        // Load the map
+        await server.WaitAssertion(() =>
+        {
+            Assert.That(protoMan.TryIndex<GameMapPrototype>(mapProtoId, out var mapProto));
+            var opts = DeserializationOptions.Default with { InitializeMaps = true };
+            ticker.LoadGameMap(mapProto, out var mapId, opts);
+        });
+
+        // Wait long enough for power to ramp up, but before anything can trip
+        await pair.RunSeconds(2);
+
+        // Check that no APCs start overloaded
+        var apcQuery = entMan.EntityQueryEnumerator<ApcComponent, PowerNetworkBatteryComponent>();
+        Assert.Multiple(() =>
+        {
+            while (apcQuery.MoveNext(out var uid, out var apc, out var battery))
+            {
+                // Uncomment the following line to log starting APC load to the console
+                //Console.WriteLine($"ApcLoad:{mapProtoId}:{uid}:{battery.CurrentSupply}");
+                if (xform.TryGetMapOrGridCoordinates(uid, out var coord))
+                {
+                    Assert.That(apc.MaxLoad, Is.GreaterThanOrEqualTo(battery.CurrentSupply),
+                            $"APC {uid} on {mapProtoId} ({coord.Value.X}, {coord.Value.Y}) is overloaded {battery.CurrentSupply} / {apc.MaxLoad}");
+                }
+                else
+                {
+                    Assert.That(apc.MaxLoad, Is.GreaterThanOrEqualTo(battery.CurrentSupply),
+                            $"APC {uid} on {mapProtoId} is overloaded {battery.CurrentSupply} / {apc.MaxLoad}");
+                }
+            }
+        });
 
         await pair.CleanReturnAsync();
     }
