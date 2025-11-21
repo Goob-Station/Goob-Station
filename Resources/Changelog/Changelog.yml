@@ -4171,3 +4171,10 @@ Entries:
   id: 9216
   time: '2025-11-21T15:14:03.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41377
+- author: MrPersival
+  changes:
+  - message: Now reptilians can eat hivelord remains.
+    type: Fix
+  id: 9217
+  time: '2025-11-21T18:57:58.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41317
