@@ -137,6 +137,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Coordinates;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -901,6 +902,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         var appliedDamage = new DamageSpecifier();
+        var random = new System.Random((int) Timing.CurTick.Value); // Goobstation
 
         for (var i = targets.Count - 1; i >= 0; i--)
         {
@@ -919,6 +921,11 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             RaiseLocalEvent(entity, attackedEvent);
             var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
             modifiedDamage = DamageSpecifier.ApplyModifierSets(modifiedDamage, attackedEvent.ModifiersList); // Goobstation
+            foreach (var type in modifiedDamage.DamageDict.Keys) // Goobstation
+            {
+                if (!modifiedDamage.WoundSeverityMultipliers.TryAdd(type, component.HeavyAttackWoundMultiplier))
+                    modifiedDamage.WoundSeverityMultipliers[type] *= component.HeavyAttackWoundMultiplier;
+            }
             var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, ignoreResistances: resistanceBypass, partMultiplier: component.HeavyPartDamageMultiplier); // Shitmed Change
             var comboEv = new ComboAttackPerformedEvent(user, entity, meleeUid, ComboAttackType.HarmLight);
             RaiseLocalEvent(user, comboEv);
