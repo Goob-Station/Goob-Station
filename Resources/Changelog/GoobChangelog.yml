@@ -18144,3 +18144,11 @@ Entries:
       message: Fixed hearing weather while in lobby.
   id: 2044
   time: '2025-11-21T18:06:11.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Tweak
+      message: Yowies now speak Yow Kriol instead of Gruntish
+    - type: Tweak
+      message: Carp and dragons now speak Carptongue
+  id: 2045
+  time: '2025-11-21T18:09:40.0000000+00:00'
