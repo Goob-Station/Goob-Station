@@ -69,7 +69,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         SubscribeLocalEvent<NuclearReactorComponent, ReactorItemActionMessage>(OnItemActionMessage);
         SubscribeLocalEvent<NuclearReactorComponent, ReactorControlRodModifyMessage>(OnControlRodMessage);
     }
-    
+
     private void OnEnable(Entity<NuclearReactorComponent> ent, ref AtmosDeviceEnabledEvent args)
     {
         var comp = ent.Comp;
@@ -149,8 +149,8 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         if (!_nodeContainer.TryGetNode(comp.OutletEnt.Value, comp.PipeName, out PipeNode? outlet))
             return;
 
-        _appearance.SetData(uid, ReactorVisuals.Input, inlet.Air.Moles.Sum() > 20);
-        _appearance.SetData(uid, ReactorVisuals.Output, outlet.Air.Moles.Sum() > 20);
+        _appearance.SetData(uid, ReactorVisuals.Input, inlet.Air.TotalMoles > 20);
+        _appearance.SetData(uid, ReactorVisuals.Output, outlet.Air.TotalMoles > 20);
 
         var TempRads = 0;
         var ControlRods = 0;
