@@ -2,7 +2,7 @@
   id: HeadOfSecurityGunCase
   name: head of security's duty case
   description: A case, used to securely store the head of security's ranged weapon of choice.
-  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  parent: [ BaseItem, BaseSetSelector, BaseGrandTheftContraband ]
   components:
   - type: Sprite
     sprite: _Omu/Objects/Misc/GunCases/hoscasegun.rsi
@@ -22,7 +22,7 @@
   id: HeadOfSecurityMeleeCase
   name: head of security's melee case
   description: A case, used to securely store the head of security's melee weapon of choice.
-  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  parent: [ BaseItem, BaseSetSelector, BaseGrandTheftContraband ]
   components:
   - type: Sprite
     sprite: _Omu/Objects/Misc/GunCases/hoscasemelee.rsi
@@ -40,7 +40,7 @@
   id: WardenGunCase
   name: warden's duty case
   description: A case, used to securely store the warden's weapon of choice.
-  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  parent: [ BaseItem, BaseSetSelector, BaseGrandTheftContraband ]
   components:
   - type: Sprite
     sprite: _Omu/Objects/Misc/GunCases/wardencase.rsi
@@ -74,7 +74,7 @@
   id: CaptainGunCase
   name: captain's weapon case
   description: A case, used to securely store your duty weapon of choice.
-  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  parent: [ BaseItem, BaseSetSelector, BaseGrandTheftContraband ]
   components:
   - type: Sprite
     sprite: _Omu/Objects/Misc/GunCases/captaincase.rsi
