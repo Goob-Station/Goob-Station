@@ -18136,3 +18136,11 @@ Entries:
       message: You can no longer feed your blood crayon to people.
   id: 2043
   time: '2025-11-21T17:05:32.0000000+00:00'
+- author: deltanedas, JrInventor05Next, Rouden
+  changes:
+    - type: Fix
+      message: Fixed Ash storms not dealing any damage on Lavaland.
+    - type: Fix
+      message: Fixed hearing weather while in lobby.
+  id: 2044
+  time: '2025-11-21T18:06:11.0000000+00:00'
