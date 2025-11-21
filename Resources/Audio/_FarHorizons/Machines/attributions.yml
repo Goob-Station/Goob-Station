@@ -1,5 +1,5 @@
 - files: ["alarm_beep.ogg"]
-  license: "CC-0"
+  license: "CC-BY-4.0"
   copyright: "Created by JW_Audio, clipped and converted Mono and .ogg by Jhrushbe"
   source: https://freesound.org/people/JW_Audio/sounds/816661/
 
@@ -29,6 +29,6 @@
   source: https://freesound.org/people/Tecc_Source/sounds/746819/
 
 - files: ["relay_click.ogg"]
-  license: "CC-0"
+  license: "CC-BY-4.0" # Its really CC-0 but chud RGA won't accept that
   copyright: "Created by bassmosphere, remixed and converted Mono and .ogg by Jhrushbe"
   source: https://freesound.org/people/bassmosphere/sounds/384698/

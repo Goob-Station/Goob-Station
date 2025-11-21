@@ -81,7 +81,7 @@
         - MachineLayer
         - HighImpassable
   - type: Anchorable
-    flags: 
+    flags:
     - Anchorable
   - type: AtmosDevice
   - type: AtmosMonitoringConsoleDevice # TODO: this doesn't work?
@@ -111,9 +111,6 @@
     unlockOnClick: false
   - type: WarpPoint
     location: Nuclear Reactor
-    blacklist:
-      tags:
-      - GhostOnlyWarp
   - type: GuideHelp
     guides:
     - NuclearReactor
@@ -222,7 +219,7 @@
       map: [ "enum.PipeVisualLayers.Pipe" ]
       visible: false
   - type: Anchorable
-    flags: 
+    flags:
     - Anchorable
   - type: NodeContainer
     nodes:
