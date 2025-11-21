@@ -4149,3 +4149,11 @@ Entries:
   id: 9213
   time: '2025-11-19T22:15:26.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41500
+- author: Nilsy
+  changes:
+  - message: Both rusted variants of Solid and Reinforced walls now take only 4 seconds
+      to brush clean, and just one second to weld clean.
+    type: Tweak
+  id: 9214
+  time: '2025-11-21T06:55:05.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41518
