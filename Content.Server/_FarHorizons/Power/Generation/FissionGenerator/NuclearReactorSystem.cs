@@ -126,8 +126,8 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         if (outlet.ReachableNodes.Count == 0)
             _nodeGroupSystem.QueueReflood(outlet);
 
-        _appearance.SetData(uid, ReactorVisuals.Input, inlet.Air.Moles.Sum() > 20);
-        _appearance.SetData(uid, ReactorVisuals.Output, outlet.Air.Moles.Sum() > 20);
+        _appearance.SetData(uid, ReactorVisuals.Input, inlet.Air.TotalMoles > 20);
+        _appearance.SetData(uid, ReactorVisuals.Output, outlet.Air.TotalMoles > 20);
 
         var AirContents = new GasMixture();
 

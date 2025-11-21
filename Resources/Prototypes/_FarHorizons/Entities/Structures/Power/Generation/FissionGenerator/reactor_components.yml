@@ -12,10 +12,6 @@
   - type: Tag
     tags:
     - ReactorPart
-  - type: Edible # Blame Abby for making them edible
-    transferAmount: null
-    delay: 30
-    forceFeedDelay: 60
   - type: FlavorProfile
     flavors:
       - metal
@@ -34,7 +30,7 @@
     guides:
     - NuclearReactor
     - Power
-  
+
 - type: entity
   id: BaseReactorPart
   abstract: true

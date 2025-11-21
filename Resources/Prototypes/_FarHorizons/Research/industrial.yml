@@ -5,6 +5,7 @@
     sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_parts.rsi
     state: default_rod
   discipline: Industrial
+  position: 1,-3
   tier: 2
   cost: 12500
   recipeUnlocks:
@@ -14,6 +15,6 @@
   - ReactorGasChannel
   - ReactorHeatExchanger
   technologyPrerequisites:
-  - PowerGeneration
+  - AdvancedPowerGeneration
   radioChannels:
   - Engineering
