@@ -8,3 +8,15 @@
     weight: 9 #increased by one point
   - type: GameRule
     chaosScore: 140 #decreased by 10 points
+
+- type: entity # Goobstation
+  id: JobDistributionErrorHermit
+  parent: JobDistributionError
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-job-distribution-error-announcement
+    minimumPlayers: 25
+    weight: 4 # one weight more common
+    duration: 1
+  - type: GameRule
+    chaosScore: 40 # minius 40 chaos score

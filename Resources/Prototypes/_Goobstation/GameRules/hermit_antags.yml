@@ -32,6 +32,7 @@
 #    - id: DerelictCyborgSyndicateSpawnHermit # Goobstation - usually calm
     - id: MalignRiftSpawn # DeltaV
     - id: FloorGoblinSpawn # Goobstation
+    - id: JobDistributionErrorHermit # non lethal hermit thingy
 
 - type: entityTable
   id: HermitAntagEventsTable
