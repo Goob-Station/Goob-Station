@@ -18152,3 +18152,14 @@ Entries:
       message: Carp and dragons now speak Carptongue
   id: 2045
   time: '2025-11-21T18:09:40.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Lavaland now has 3 new biomes: Ashlands, Basalt caves and Lava lakes.
+        Each of them have their own types of dangers, shaft miners should get
+        prepared for everything!
+    - type: Fix
+      message: Fixed basalt decals not spawning on lavaland.
+  id: 2046
+  time: '2025-11-21T18:13:51.0000000+00:00'
