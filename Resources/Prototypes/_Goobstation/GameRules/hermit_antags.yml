@@ -45,7 +45,7 @@
     - id: TraitorMidroundHermit
     - id: ChangelingMidroundHermit
     - id: HereticMidroundHermit
-    - id: RevolutionaryMidroundHermit #remove if despised
+   # - id: RevolutionaryMidroundHermit #removed becuse despised
     - id: DevilmidroundHermit
     - id: ZombieOutbreak
     - id: LoneOpsSpawnHermit
@@ -82,47 +82,47 @@
   id: TraitorMidroundHermit
   components:
   - type: StationEvent
-    earliestStart: 5 #was 30
+    earliestStart: 15 #was 30
     weight: 8  #kept the same pretty high
   - type: GameRule
-    chaosScore: 200 # decreased by 60 points, was 200
+    chaosScore: 200 # decreased by 60 points, was 240
 
 - type: entity
   parent: ChangelingMidround
   id: ChangelingMidroundHermit
   components:
   - type: StationEvent
-    earliestStart: 5 # was 20
+    earliestStart: 15 # was 20
     weight: 5 #increased by two yell at me if its too high for balance
   - type: GameRule
-    chaosScore: 200 #decreased BY 40 points/ was 260
+    chaosScore: 240 #decreased BY 40 points/ was 260
 
 - type: entity
   parent: HereticMidround
   id: HereticMidroundHermit
   components:
   - type: StationEvent
-    earliestStart: 5 # was 20
+    earliestStart: 15 # was 20
     weight: 4.5 #increased by 1.5
   - type: GameRule
-    chaosScore: 200 #decreased by 30/ was 270
+    chaosScore: 250 #decreased by 30/ was 270
 
-- type: entity
-  parent: RevolutionaryMidround
-  id: RevolutionaryMidroundHermit
-  components:
-  - type: StationEvent
-    earliestStart: 20
-    weight: 3.5 #increased by .5
-  - type: GameRule
-    chaosScore: 600 #decreased by 200
+#- type: entity                   Removed for being shit
+#  parent: RevolutionaryMidround
+#  id: RevolutionaryMidroundHermit
+#  components:
+#  - type: StationEvent
+#    earliestStart: 20
+#   weight: 1.5 #increased by .5, nerfed to 1.5
+#  - type: GameRule
+#    chaosScore: 600 #decreased by 200
 
 - type: entity
   parent: ClosetSkeleton
   id: ClosetSkeletonHermit
   components:
   - type: StationEvent
-    weight: 3.5 #decreased by 1.5
+    weight: 4 #decreased by 1
   # Goobstation
   - type: GameRule
     chaosScore: 100 #increased by 40
@@ -141,7 +141,7 @@
   id: DevilmidroundHermit
   components:
   - type: StationEvent
-    earliestStart: 5 #was 20
+    earliestStart: 20
     weight: 1.5 # increased by .5
   - type: GameRule
     chaosScore: 400 #decreased by 100
@@ -161,7 +161,7 @@
   id: LoneAbductorSpawnhermit
   components:
   - type: StationEvent
-    weight: 3 # hermit decreased by 1
+    weight: 2 # hermit decreased by 2
   - type: GameRule
     chaosScore: 400 # increased by 100
 
@@ -170,7 +170,7 @@
   id: DuoAbductorSpawnHermit
   components:
   - type: StationEvent
-    weight: 3 # hermit decreased by 1
+    weight: 2 # hermit decreased by 2
   - type: GameRule
     chaosScore: 450 #increased by 100
 
@@ -197,7 +197,7 @@
   id: NinjaSpawnHermit
   components:
   - type: StationEvent
-    weight: 2 #decreased by 1
+    weight: 1.5 #decreased by 1.5
   - type: GameRule
     chaosScore: 350 #increased by 100
 #is this a internal or external threat? im thinking internal due to deception correct me if im wrong
@@ -216,7 +216,7 @@
   id: LoneOpsSpawnHermit
   components:
   - type: StationEvent
-    weight: 1.5 # decreased by 1
+    weight: 1 # decreased by 1.5
   - type: GameRule
     chaosScore: 750 #increased by 50
 
@@ -234,6 +234,6 @@
   id: WraithMidroundHermit
   components:
   - type: StationEvent
-    weight: 2 #decreased by 2
+    weight: 1.5 #decreased by 2.5
   - type: GameRule
     chaosScore: 600 #increased by 100
