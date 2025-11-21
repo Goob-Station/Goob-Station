@@ -1,0 +1,40 @@
+- files: ["SlasherIntro.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by loltart using sounds from u_pjxmrd52t5 and Universfield"
+  source: "https://pixabay.com/music/mystery-dark-thriller-194199/"
+# "https://pixabay.com/sound-effects/deep-throat-singing-w-reverb-167098/"
+
+- files: ["MassacreDelimb.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by Alban_Gogh, modified by loltart"
+  source: "https://pixabay.com/sound-effects/panic-sound-effect-428440/"
+
+- files: ["MassacreIntro.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by Alban_Gogh, modified by loltart"
+  source: "https://pixabay.com/sound-effects/panic-sound-effect-428440/"
+
+- files: ["MassacreSlash.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by Alban_Gogh, modified by loltart"
+  source: "https://pixabay.com/sound-effects/panic-sound-effect-428440/"
+
+- files: ["SlasherSoulSteal.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by Freesound_community"
+  source: "https://pixabay.com/sound-effects/ghost-sigh3-99231/"
+
+- files: ["SlasherSummonMeantspike.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by Your_Music_666, modified by loltart"
+  source: "https://pixabay.com/sound-effects/open-door-407811/"
+
+- files: ["SlasherStaggerArea.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by VoiceBosch, modified by loltart"
+  source: "https://pixabay.com/sound-effects/anxious-lurker-dark-cinematic-sfx-191975/"
+
+- files: ["SlasherBreathe1.ogg", "SlasherBreathe2.ogg", "SlasherBreathe3.ogg", "SlasherBreathe4.ogg", "SlasherBreathe5.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by AWESOMETRAINMASTER1, modified by loltart"
+  source: "https://pixabay.com/sound-effects/mask-breathing-for-killer-or-other-63789/"
