@@ -34,7 +34,7 @@
   name: Sportacus
   description: ding dong eat it up i gota go
   id: MobSportacus
-  parent: [BaseSimpleMob, MobCombat, MobBloodstream]
+  parent: [BaseSimpleMob, MobCombat, MobBloodstream, FlyingMobBase]
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
@@ -42,10 +42,20 @@
   - type: CombatMode
   - type: Deathgasp
   - type: Hands
+    hands:
+      hand_right:
+        location: Right
+      hand_left:
+        location: Left
+    sortedHands:
+    - hand_right
+    - hand_left
   - type: ComplexInteraction
+  - type: LanguageSpeaker
+  - type: UniversalLanguageSpeaker
   - type: Body
-    prototype: Human
-    requiredLegs: 0
+    bodyType: Simple
+    prototype: Animal
   - type: MeleeWeapon
     damage:
       types:
@@ -175,13 +185,6 @@
   - type: Grammar
     attributes:
       gender: male
-  - type: PassiveDamage
-    allowedStates:
-    - Alive
-    damageCap: 1250
-    damage:
-      types:
-        Heat: -500
 
 - type: entity
   name: Mariah Carey
