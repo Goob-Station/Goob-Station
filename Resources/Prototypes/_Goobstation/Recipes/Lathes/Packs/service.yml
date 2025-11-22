@@ -22,3 +22,9 @@
   recipes:
   - CassetteTape
   - TapeRecorder
+
+- type: latheRecipePack
+  id:  CondimentStatic
+  recipes:
+    - SaltShakerEmpty
+    - PepperShakerEmpty
