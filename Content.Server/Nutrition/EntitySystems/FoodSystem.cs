@@ -135,9 +135,11 @@ using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Stacks;
 using Content.Shared.Storage;
+using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared.Containers.ItemSlots;
@@ -172,6 +174,9 @@ public sealed class FoodSystem : EntitySystem
     [Dependency] private readonly StomachSystem _stomach = default!;
     [Dependency] private readonly UtensilSystem _utensil = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly TagSystem _tag = default!; // Goobstation
+
+    private static readonly ProtoId<TagPrototype> UnedibleTag = "Unedible"; // Goobstaion
 
     public const float MaxFeedDistance = 1.0f;
 
@@ -548,6 +553,9 @@ public sealed class FoodSystem : EntitySystem
     private bool IsDigestibleBy(EntityUid food, FoodComponent component, List<Entity<StomachComponent, OrganComponent>> stomachs)
     {
         var digestible = true;
+
+        if (_tag.HasTag(food, UnedibleTag)) // Goobstation
+            return false;
 
         // Does the mob have enough stomachs?
         if (stomachs.Count < component.RequiredStomachs)

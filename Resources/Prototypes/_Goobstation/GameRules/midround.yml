@@ -293,3 +293,61 @@
   - type: Tag
     tags:
       - MidroundAntag
+
+# Slasher
+- type: entity
+  parent: BaseGameRule
+  id: SlasherSpawn
+  components:
+  - type: StationEvent
+    weight: 3
+    duration: null
+    earliestStart: 30
+    minimumPlayers: 30
+    chaos:
+      Hostile: 40
+      Combat: 40
+      Death: 40
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 400
+  - type: AntagRandomSpawn
+  - type: AntagLoadProfileRule
+    speciesOverride: Human
+    speciesOverrideBlacklist:
+    - Yowie
+    - IPC
+    - Diona
+    - Harpy
+    - Plasmaman
+  - type: AntagObjectives
+    objectives:
+    - SlasherSurviveObjective
+    - SlasherAbsorbSoulsObjective
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
+    agentName: slasher-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSlasher
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SlasherGear
+      roleLoadout:
+      - RoleSurvivalEVA
+      briefing:
+        text: slasher-role-greeting
+        color: Red
+        sound: /Audio/_Goobstation/Effects/Slasher/SlasherIntro.ogg
+      components:
+      - type: Slasher
+      - type: RandomMetadata
+        nameSegments:
+        - NamesSlasherTitle
+        - NamesSlasher
+        nameFormat: name-format-slasher
+      mindRoles:
+      - MindRoleSlasher
+  - type: Tag
+    tags:
+    - MidroundAntag
