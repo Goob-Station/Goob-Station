@@ -1,4 +1,3 @@
-using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Enums;
@@ -7,11 +6,10 @@ namespace Content.Goobstation.Client.ExplodeServer;
 
 public sealed class ExplodeServerScreenSpaceOverlay : Overlay
 {
-    [Dependency] private readonly IClyde _clyde = default!;
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
     public bool IsActive = false;
 
-    private Font _font;
+    private readonly Font _font;
 
     public ExplodeServerScreenSpaceOverlay()
     {
