@@ -29,9 +29,6 @@ using Robust.Shared.Utility;
 using System.Linq;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
-using Content.Shared.Timing;
-using Content.Shared.Trigger;
-using Robust.Shared.Timing;
 
 namespace Content.Server.Payload.EntitySystems;
 
@@ -42,10 +39,7 @@ public sealed class PayloadSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ISerializationManager _serializationManager = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!; // CorvaxGoob-AnomalyGrenade
-    [Dependency] private readonly IGameTiming _timing = default!; // CorvaxGoob-AnomalyGrenade
 
-    private const string DefaultUseDelayId = "default";
     private static readonly ProtoId<TagPrototype> PayloadTag = "Payload";
 
     public override void Initialize()
@@ -83,28 +77,6 @@ public sealed class PayloadSystem : EntitySystem
         // Pass trigger event onto all contained payloads. Payload capacity configurable by construction graphs.
         foreach (var ent in GetAllPayloads(uid, contMan))
         {
-            // CorvaxGoob-AnomalyGrenade-Start
-            if (TryComp<UseDelayComponent>(ent, out var payloadUseDelayComp))
-            {
-                if (!HasComp<UseDelayComponent>(uid))
-                    EnsureComp<UseDelayComponent>(uid);
-
-                if (_useDelay.IsDelayed((ent, payloadUseDelayComp), id: DefaultUseDelayId))
-                {
-                    _useDelay.SetLength(uid, payloadUseDelayComp.Delays[DefaultUseDelayId].EndTime - _timing.CurTime);
-                }
-                else
-                {
-                    _useDelay.SetLength(ent, payloadUseDelayComp.Delay, id: DefaultUseDelayId);
-                    _useDelay.TryResetDelay((ent, payloadUseDelayComp), id: DefaultUseDelayId);
-
-                    _useDelay.SetLength(uid, payloadUseDelayComp.Delay, id: DefaultUseDelayId);
-                }
-
-                _useDelay.TryResetDelay(uid, id: DefaultUseDelayId);
-            }
-            // CorvaxGoob-AnomalyGrenade-End
-
             RaiseLocalEvent(ent, args, false);
         }
     }

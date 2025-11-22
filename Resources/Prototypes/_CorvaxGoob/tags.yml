@@ -4,9 +4,6 @@
   id: AdvancedRetractor
 
 - type: Tag
-  id: AnomalyPayload
-
-- type: Tag
   id: BoneSetter
 
 - type: Tag

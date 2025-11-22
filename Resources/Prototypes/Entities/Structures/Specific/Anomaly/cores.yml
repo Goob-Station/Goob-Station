@@ -50,14 +50,6 @@
   - type: Tag
     tags:
     - ForceableFollow
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    sound:
-      path: /Audio/Machines/button.ogg
-    prototype: FlashPayload
-    whitelist:
-      tags:
-      - AnomalyPayload
-    delay: 1
   - type: AnomalyCore
     timeToDecay: 600
     startPrice: 10000
@@ -104,8 +96,6 @@
     maxLevel: 2 # Non-inert cores can roll max level
     enchants:
     - EnchantKnockback
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadGravity
 
 - type: entity
   parent: BaseAnomalyCore
@@ -124,8 +114,6 @@
     maxLevel: 4 # Non-inert cores can roll max level
     enchants:
     - EnchantProtFire
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadIce
 
 - type: entity
   parent: BaseAnomalyCore
@@ -145,8 +133,6 @@
     maxLevel: 5 # Non-inert cores can roll max level
     enchants:
     - EnchantSharpness
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadFlesh
 
 - type: entity
   parent: BaseAnomalyCore
@@ -166,8 +152,6 @@
     enchants:
     - EnchantProtection
     - EnchantUnbreaking
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadRock
 
 - type: entity
   parent: BaseAnomalyCore
@@ -187,8 +171,6 @@
     enchants:
     - EnchantSlippery
     - EnchantUnslippable
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadChemical
 
 - type: entity
   parent: BaseAnomalyCore
@@ -203,8 +185,6 @@
     energy: 3.5
     color: "#00ccff"
     castShadows: false
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadBluespace
 
 - type: entity
   parent: BaseAnomalyCore
@@ -223,8 +203,6 @@
   - type: Enchanter # Goobstation
     enchants:
     - EnchantInsulated
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadElectro
 
 - type: entity
   parent: BaseAnomalyCore
@@ -245,8 +223,6 @@
     maxLevel: 3 # Non-inert cores can roll max level
     enchants:
     - EnchantThorns
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadFlora
 
 - type: entity
   parent: [ BaseAnomalyCore, BaseShadow ]
@@ -261,8 +237,6 @@
     energy: 2.0
     color: "#793a80"
     castShadows: false
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadShadow
 
 - type: entity
   parent: BaseAnomalyCore
@@ -277,8 +251,6 @@
     energy: 2.0
     color: "#56c1e8"
     castShadows: false
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadTech
 
 - type: entity
   parent: BaseAnomalyCore
@@ -298,8 +270,6 @@
     enchants:
     - EnchantFortune
 
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadPresent
 
 # Inert cores
 
@@ -336,8 +306,6 @@
     enchants:
     - EnchantFireAspect
     - EnchantLavaforged
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadPyro
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -356,8 +324,6 @@
     maxLevel: 1
     enchants:
     - EnchantKnockback
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadGravity
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -376,8 +342,6 @@
     maxLevel: 2
     enchants:
     - EnchantProtFire
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadIce
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -397,8 +361,6 @@
     maxLevel: 3
     enchants:
     - EnchantSharpness
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadFlesh
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -418,8 +380,6 @@
     enchants:
     - EnchantProtection
     - EnchantUnbreaking
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadRock
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -439,8 +399,6 @@
     enchants:
     - EnchantSlippery
     - EnchantUnslippable
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadChemical
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -455,8 +413,6 @@
     energy: 3.5
     color: "#00ccff"
     castShadows: false
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadBluespace
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -475,8 +431,6 @@
     maxLevel: 4 # Insuls rolling
     enchants:
     - EnchantBudgetInsulated
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadElectro
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -497,8 +451,6 @@
     maxLevel: 2
     enchants:
     - EnchantThorns
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadFlora
 
 - type: entity
   parent: [ BaseAnomalyInertCore, BaseShadow ]
@@ -513,8 +465,6 @@
     energy: 2.0
     color: "#793a80"
     castShadows: false
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadShadow
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -529,8 +479,6 @@
     energy: 2.0
     color: "#56c1e8"
     castShadows: false
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadTech
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -549,5 +497,3 @@
     maxLevel: 2
     enchants:
     - EnchantFortune
-  - type: ReplaceOnInteractWith # CorvaxGoob-AnomalyGrenade
-    prototype: AnomalyPayloadPresent
