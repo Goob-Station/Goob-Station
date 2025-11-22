@@ -133,6 +133,9 @@
           bounds: "-0.5,-0.5,0.5,0.5"
         layer:
         - MidImpassable
+  - type: RadiationSource
+    intensity: 2
+    slope: 0.3
   - type: Cascade
   - type: PointLight
     color: "#f3b355"
