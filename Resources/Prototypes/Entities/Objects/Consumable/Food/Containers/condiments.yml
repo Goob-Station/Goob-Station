@@ -611,10 +611,6 @@
         reagents:
         - ReagentId: TableSalt
           Quantity: 20
-  - type: SaltLinePlacer # Goobstation - Wraith
-    saltLine: SaltLine
-  - type: ConsumeOnSaltLine # Goobstation - Wraith
-    amount: 1
 
 - type: entity
   parent: FoodShakerPepperEmpty #Goobstation - shaker making
