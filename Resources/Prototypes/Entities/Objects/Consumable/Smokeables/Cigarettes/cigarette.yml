@@ -109,6 +109,21 @@
           - ReagentId: Omnizine
             Quantity: 30
 
+- type: entity # Goobstation Medicinal cigs
+  id: CigaretteMedical
+  suffix: Medical
+  description: Smells distinctly like a chemlab, tastes like it too.
+  parent: Cigarette
+  name: cigarette
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 25
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 5
+
 - type: entity
   id: CigaretteOmnizine
   parent: SoakedCigarette

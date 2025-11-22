@@ -152,6 +152,8 @@
     - MedicalPatch
   - type: Spillable # only way empty the patch is wring it out and spill it on the floor
     solution: drink
+  - type: RefillableSolution  # I don't know why this wasn't already like this.
+    solution: drink
 
 - type: entity
   parent: BaseHealingItem
@@ -254,8 +256,6 @@
     solutions:
       drink:
         maxVol: 20  # lasts for 40 seconds, effectively half as good as a normal patch
-  - type: RefillableSolution  # So Tiders can fill ther bandages whit hotch and ventcurd
-    solution: drink
   - type: Construction
     graph: MedicalPatchMakeshift
     node: medicalPatchMakeshift
@@ -265,32 +265,32 @@
   result: MedicalPatchBasic
   completetime: 2
   materials:
-    Plastic: 100
-    Cloth: 100
+    Plastic: 50 # might be fine as 1 cloth 1 plastic, one textile crate will let chem make like 120 patches.
+    Cloth: 50
 
 - type: latheRecipe
   id: MedicalPatchRapid
   result: MedicalPatchRapid
   completetime: 2
   materials:
-    Cloth: 100
-    Plastic: 100
+    Cloth: 50
+    Plastic: 50
 
 - type: latheRecipe
   id: MedicalPatchTherapeutic
   result: MedicalPatchTherapeutic
   completetime: 2
   materials:
-    Cloth: 100
-    Plastic: 100
+    Cloth: 50
+    Plastic: 50
 
 - type: latheRecipe
   id: MedicalPatchLarge
   result: MedicalPatchLarge
   completetime: 2
   materials:
-    Plastic: 100
-    Cloth: 100
+    Plastic: 50
+    Cloth: 50
 
 - type: constructionGraph
   id: MedicalPatchMakeshift
@@ -301,8 +301,8 @@
     - to: medicalPatchMakeshift
       steps:
       - material: Cloth
-        amount: 2
-        doAfter: 10
+        amount: 1
+        doAfter: 5
   - node: medicalPatchMakeshift
     entity: MedicalPatchMakeshift
 
@@ -323,8 +323,8 @@
     - to: silkPatchMakeshift
       steps:
       - material: WebSilk
-        amount: 8
-        doAfter: 10
+        amount: 4
+        doAfter: 5
   - node: silkPatchMakeshift
     entity: MedicalPatchMakeshift
 
