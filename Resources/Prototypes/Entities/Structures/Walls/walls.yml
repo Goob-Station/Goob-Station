@@ -228,6 +228,7 @@
     damagePenalty: 0.1
   - type: ExaminableDamage
     messages: WindowMessages
+  - type: GridShieldProtection
   # </Goobstation>
 
 - type: entity

@@ -349,3 +349,17 @@
     Piercing: 5
     Heat: 3
     Structural: 3
+
+- type: damageModifierSet
+  id: GridShield
+  coefficients: # Shields are great against physical damage, but suck against lasers
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Structural: 0.8
+    Heat: 1.5
+  flatReductions:
+    Blunt: 20 # Bigger than most normal tools or bullets, since space ones are actually stronger
+    Slash: 20
+    Piercing: 20
+    Structural: 50 # Low structural damage still passes
