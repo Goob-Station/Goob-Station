@@ -38,11 +38,11 @@
     speaks:
     - TauCetiBasic
     - SolCommon # They originate from Australia - Durk
-    - Gruntish # Regional australian dialect- goob
+    - YowKriol
     understands:
     - TauCetiBasic
     - SolCommon # They originate from Australia - Durk
-    - Gruntish # Regional australian dialect- goob
+    - YowKriol
   - type: Body
     prototype: Yowie
     requiredLegs: 2
