@@ -83,6 +83,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._CorvaxGoob.Players.GhostTimeTracking;
 using Content.Server._CorvaxGoob.Skills;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
@@ -122,6 +123,8 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly SharedJobSystem _jobs = default!;
         [Dependency] private readonly AdminSystem _admin = default!;
         [Dependency] private readonly SkillsSystem _skills = default!; // CorvaxGoob-Skills
+        [Dependency] private readonly GhostTimeTrackingManager _ghostTimeManager = default!; // CorvaxGoob-GhostTimeRequirement
+        [Dependency] private readonly GhostTimeTrackingSystem _ghostTimeSystem = default!; // CorvaxGoob-GhostTimeRequirement
 
         public static readonly EntProtoId ObserverPrototypeName = "MobObserver";
         public static readonly EntProtoId AdminObserverPrototypeName = "AdminObserver";
@@ -503,6 +506,9 @@ namespace Content.Server.GameTicking
             var ghost = _ghost.SpawnGhost(mind.Value);
             if (makeObserver)
                 _roles.MindAddRole(mind.Value, "MindRoleObserver");
+
+            _ghostTimeManager.UpdatePlayerGhostTime(player, TimeSpan.FromHours(100)); // CorvaxGoob-GhostTimeRequirement
+            _ghostTimeSystem.UpdateAndSendGhostTime(player); // CorvaxGoob-GhostTimeRequirement
 
             _adminLogger.Add(LogType.LateJoin,
                 LogImpact.Low,

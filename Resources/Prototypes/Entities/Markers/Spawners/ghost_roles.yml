@@ -116,6 +116,8 @@
     requirements: # Goobstation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
+    - !type:GhostTimeRequirement # CorvaxGoob-GhostTimeRequirement
+      time: 1500 #25 mins
   - type: GhostRoleMobSpawner
     prototype: MobRatKing
   - type: Sprite
@@ -208,6 +210,8 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 18000 #5 hours
+    - !type:GhostTimeRequirement # CorvaxGoob-GhostTimeRequirement
+      time: 1500 #25 mins
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -265,6 +269,8 @@
     requirements: # Goobstation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
+    - !type:GhostTimeRequirement # CorvaxGoob-GhostTimeRequirement
+      time: 1500 #25 mins
   - type: Sprite
     layers:
     - state: green
@@ -287,6 +293,8 @@
     requirements: # Goobstation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
+    - !type:GhostTimeRequirement # CorvaxGoob-GhostTimeRequirement
+      time: 1500 #25 mins
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -307,6 +315,9 @@
     - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
+    requirements: # CorvaxGoob-GhostTimeRequirement
+    - !type:GhostTimeRequirement
+      time: 1500 #25 mins
   - type: Sprite
     layers:
     - sprite: Markers/jobs.rsi

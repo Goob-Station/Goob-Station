@@ -168,6 +168,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Server._CorvaxGoob.TTS;
+using Content.Server._CorvaxGoob.Players.GhostTimeTracking;
 
 namespace Content.Server.Entry
 {
@@ -244,6 +245,7 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<ContentNetworkResourceManager>().Initialize();
                 IoCManager.Resolve<GhostKickManager>().Initialize();
                 IoCManager.Resolve<TTSManager>().Initialize(); // CorvaxGoob-TTS
+                IoCManager.Resolve<GhostTimeTrackingManager>(); // CorvaxGoob-GhostTimeRequirement
                 IoCManager.Resolve<ServerInfoManager>().Initialize();
                 IoCManager.Resolve<ServerApi>().Initialize();
 

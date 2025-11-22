@@ -20,6 +20,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server._CorvaxGoob.Players.GhostTimeTracking;
 using Content.Server.Database;
 using Content.Shared.CCVar;
 using Content.Shared.Players.PlayTimeTracking;
@@ -81,6 +82,7 @@ public sealed class PlayTimeTrackingManager : ISharedPlaytimeManager, IPostInjec
     [Dependency] private readonly ITaskManager _task = default!;
     [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
     [Dependency] private readonly UserDbDataManager _userDb = default!;
+    [Dependency] private readonly GhostTimeTrackingManager _ghostTime = default!; // CorvaxGoob-GhostTimeRequirement
 
     private ISawmill _sawmill = default!;
 
@@ -230,6 +232,9 @@ public sealed class PlayTimeTrackingManager : ISharedPlaytimeManager, IPostInjec
     private void SendPlayTimes(ICommonSession pSession)
     {
         var roles = GetTrackerTimes(pSession);
+
+        roles.GetOrNew("InGhost"); // CorvaxGoob-GhostTimeRequirement
+        roles["InGhost"] = _ghostTime.GetPlayerGhostTime(pSession); // CorvaxGoob-GhostTimeRequirement
 
         var msg = new MsgPlayTime
         {

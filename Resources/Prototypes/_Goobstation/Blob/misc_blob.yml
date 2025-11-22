@@ -69,6 +69,8 @@
       requirements:
       - !type:OverallPlaytimeRequirement
         time: 54000 #15 hours
+      - !type:GhostTimeRequirement # CorvaxGoob-GhostTimeRequirement
+        time: 1500 #25 mins
     - type: Sprite
       sprite: Markers/jobs.rsi
       layers:

@@ -106,6 +106,8 @@
     requirements: # Goobstation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
+    - !type:GhostTimeRequirement # CorvaxGoob-GhostTimeRequirement
+      time: 1500 #25 mins
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateAgentSpy
     selectablePrototypes: ["SyndicateAgentMedic", "SyndicateAgentSpy", "SyndicateAgentThief"]
@@ -129,6 +131,8 @@
     requirements: # Goobstation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
+    - !type:GhostTimeRequirement # CorvaxGoob-GhostTimeRequirement
+      time: 1500 #25 mins
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateAgentNukeops
 
@@ -149,6 +153,8 @@
     requirements: # Goobstation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
+    - !type:GhostTimeRequirement # CorvaxGoob-GhostTimeRequirement
+      time: 1500 #25 mins
   - type: GhostRoleMobSpawner
     prototype: MobMonkeySyndicateAgent
     selectablePrototypes: ["SyndicateMonkey", "SyndicateKobold"]
@@ -181,6 +187,8 @@
     requirements: # Goobstation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
+    - !type:GhostTimeRequirement # CorvaxGoob-GhostTimeRequirement
+      time: 1500 #25 mins
   - type: GhostRoleMobSpawner
     prototype: MobCatSyndy
   - type: EmitSoundOnUse
@@ -204,5 +212,7 @@
       requirements: # Goobstation - ghost roles requirements
       - !type:OverallPlaytimeRequirement
         time: 18000 #5 hours
+      - !type:GhostTimeRequirement # CorvaxGoob-GhostTimeRequirement
+        time: 1500 #25 mins
     - type: GhostRoleMobSpawner
       prototype: PlayerBorgSyndicateAssaultBattery
