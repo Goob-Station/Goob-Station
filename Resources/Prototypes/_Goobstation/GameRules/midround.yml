@@ -351,6 +351,7 @@
       - type: SlasherSummonMeatSpike
       - type: BreathingImmunity
       - type: GunBlocked
+        PopupText: slasher-cannot-use-guns # Seems to be broken inside AntagSelection
       - type: RandomMetadata
         nameSegments:
         - NamesSlasherTitle

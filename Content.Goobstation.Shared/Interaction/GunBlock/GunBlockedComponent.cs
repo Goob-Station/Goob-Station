@@ -5,7 +5,7 @@ namespace Content.Goobstation.Shared.Interaction.GunBlock;
 /// <summary>
 /// Applied to an entity to block gun usage (shoot attempts are cancelled).
 /// </summary>
-[RegisterComponent, NetworkedComponent, ]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class GunBlockedComponent : Component
 {
     [DataField]
