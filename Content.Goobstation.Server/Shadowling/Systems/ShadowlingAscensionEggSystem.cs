@@ -48,7 +48,6 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly ServerGlobalSoundSystem _globalSound = default!;
 
-    /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
@@ -263,7 +262,7 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
             new SoundPathSpecifier("/Audio/_EinsteinEngines/Shadowling/ascension.ogg"),
             Color.Red);
 
-        // let it begin
+        // Begin Global Sound
         _globalSound.DispatchStationEventMusic(uid, component.AscensionTheme, StationEventMusicType.ShadowLing, AudioParams.Default.WithLoop(true));
     }
 }

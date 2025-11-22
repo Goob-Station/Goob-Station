@@ -39,10 +39,14 @@ public sealed class ShadowlingAnnihilateSystem : EntitySystem
     }
 
     private void OnStartup(Entity<ShadowlingAnnihilateComponent> ent, ref MapInitEvent args)
-        => _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+    {
+        _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+    }
 
     private void OnShutdown(Entity<ShadowlingAnnihilateComponent> ent, ref ComponentShutdown args)
-        => _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
+    {
+        _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
+    }
 
     public ProtoId<ExplosionPrototype> ExplosionId = "Corpse";
     private void OnAnnihilate(EntityUid uid, ShadowlingAnnihilateComponent component, AnnihilateEvent args)
