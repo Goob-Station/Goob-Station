@@ -18,15 +18,17 @@ public sealed class ExplodeServerScreenSpaceOverlay : Overlay
         ZIndex = 201;
         var cache = IoCManager.Resolve<IResourceCache>();
         IoCManager.InjectDependencies(this);
-        _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 15);
+        _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 36);
     }
     protected override void Draw(in OverlayDrawArgs args)
     {
         if (!IsActive)
             return;
-        const string text = "SERVER IS GONNA EXPLODE!";
+        const string text = "SERVER EXPLOSION IMMINENT";
         var screenHandle = args.ScreenHandle;
-        var center = _clyde.ScreenSize / 2;
-        screenHandle.DrawString(_font,center, text, Color.White);
+        var size = screenHandle.GetDimensions(_font, text, 1f);
+        var center = args.ViewportBounds.Size / 2f;
+        var pos = center - size / 2f;
+        screenHandle.DrawString(_font, pos, text, Color.White);
     }
 }

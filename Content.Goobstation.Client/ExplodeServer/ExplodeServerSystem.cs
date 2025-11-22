@@ -13,7 +13,7 @@ public sealed class ExplodeServerSystem : EntitySystem
     private bool _started;
     private TimeSpan _roundEndOverlayTime; // for how long to have the overlay on
     
-    private ExplodeServerWorldSpaceOverlay _screenSpaceOverlay = new()
+    private ExplodeServerScreenSpaceOverlay _screenSpaceOverlay = new()
     {
         IsActive = false
     };
