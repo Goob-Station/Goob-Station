@@ -26,5 +26,5 @@
 - type: latheRecipePack
   id:  CondimentStatic
   recipes:
-    - SaltShakerEmpty
-    - PepperShakerEmpty
+    - FoodShakerSaltEmpty
+    - FoodShakerPepperEmpty

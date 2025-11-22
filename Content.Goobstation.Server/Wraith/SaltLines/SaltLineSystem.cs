@@ -1,9 +1,7 @@
-using System.Linq;
 using Content.Goobstation.Shared.Wraith.SaltLines;
 using Content.Server.Administration.Logs;
 using Content.Server.Popups;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Robust.Shared.Map.Components;
@@ -78,13 +76,12 @@ public sealed class SaltLineSystem : EntitySystem
     {
         if (!_solution.TryGetSolution(ent.Owner, "food", out var sol, false))
         {
-            
             args.Cancelled = true;
             return;
         }
-
+        var reagentsalt = "TableSalt";
         var solution = sol.Value;
-        var saltAmount = solution.Comp.Solution.GetTotalPrototypeQuantity("TableSalt");
+        var saltAmount = solution.Comp.Solution.GetTotalPrototypeQuantity(reagentsalt);
         
         if (saltAmount < ent.Comp.Amount)
         {
@@ -92,7 +89,7 @@ public sealed class SaltLineSystem : EntitySystem
             args.Cancelled = true;
             return;
         }
-        _solution.RemoveReagent(solution, "TableSalt", ent.Comp.Amount);
+        _solution.RemoveReagent(solution, reagentsalt, ent.Comp.Amount);
     }
 
     #region Helpers
