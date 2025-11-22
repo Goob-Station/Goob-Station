@@ -18084,3 +18084,116 @@ Entries:
       message: Added max tracking distance for detective BloodTrack!
   id: 2036
   time: '2025-11-18T09:04:30.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix freeze when quitting the game.
+  id: 2037
+  time: '2025-11-18T14:05:04.0000000+00:00'
+- author: Androidonator and Dummy
+  changes:
+    - type: Fix
+      message: NTR Mirrordus suit sprites
+  id: 2038
+  time: '2025-11-18T17:16:11.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Tweak
+      message: >-
+        Made mid sleepers spawn later in the round for the hermit , and fixed
+        traitor sleeper agents spawn in hermit.
+    - type: Remove
+      message: Midround revs
+    - type: Tweak
+      message: >-
+        Reduced the massive amount of antags that spawned round start on the
+        hermit.
+  id: 2039
+  time: '2025-11-19T07:34:12.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Remove
+      message: >-
+        Removed: Midround options of Changlings/Heretics/Devil, they will
+        instead roll using the existing preferences.
+  id: 2040
+  time: '2025-11-20T13:11:56.0000000+00:00'
+- author: Aviu00
+  changes:
+    - type: Fix
+      message: Ominous armor is magical contra instead of sec restricted.
+  id: 2041
+  time: '2025-11-20T14:37:40.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Fixed being unable to interact when driving vehicles.
+  id: 2042
+  time: '2025-11-21T17:05:00.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: You can no longer feed your blood crayon to people.
+  id: 2043
+  time: '2025-11-21T17:05:32.0000000+00:00'
+- author: deltanedas, JrInventor05Next, Rouden
+  changes:
+    - type: Fix
+      message: Fixed Ash storms not dealing any damage on Lavaland.
+    - type: Fix
+      message: Fixed hearing weather while in lobby.
+  id: 2044
+  time: '2025-11-21T18:06:11.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Tweak
+      message: Yowies now speak Yow Kriol instead of Gruntish
+    - type: Tweak
+      message: Carp and dragons now speak Carptongue
+  id: 2045
+  time: '2025-11-21T18:09:40.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Lavaland now has 3 new biomes: Ashlands, Basalt caves and Lava lakes.
+        Each of them have their own types of dangers, shaft miners should get
+        prepared for everything!
+    - type: Fix
+      message: Fixed basalt decals not spawning on lavaland.
+  id: 2046
+  time: '2025-11-21T18:13:51.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix npc critters eating body parts.
+    - type: Remove
+      message: Heads are unedible.
+  id: 2047
+  time: '2025-11-21T18:15:26.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        Added: The Slasher is here! Avoid maints and make sure to study up on
+        those cheesy slasher flicks! (In Testing)
+  id: 2048
+  time: '2025-11-21T18:17:17.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        Ash stroms are now more rare and give more time to prepare for shaft
+        miners on Lavaland.
+  id: 2049
+  time: '2025-11-21T18:24:36.0000000+00:00'
+- author: saschahi
+  changes:
+    - type: Fix
+      message: Omnizine now heals again
+  id: 2050
+  time: '2025-11-22T04:15:15.0000000+00:00'
+- author: JohnJohn, lzk228
+  changes: []
+  id: 2051
+  time: '2025-11-22T14:10:31.0000000+00:00'
