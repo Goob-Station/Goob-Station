@@ -40,8 +40,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <ui:OptionSlider Name="SliderMaxAmbienceSounds" Title="{Loc 'ui-options-ambience-max-sounds'}"
                                  Margin="0 0 0 8" />
                 <!-- Deleted by CorvaxGoob
+                <ui:OptionSlider Name="SliderVolumeBarks" Title="{Loc 'ui-options-barks-volume'}" />-->
+                <ui:OptionSlider Name="SliderHighlightVolume" Title="{Loc 'ui-options-highlight-volume'}" /> <!-- Goobstation - Highlight chat Ping/Audio! -->
                 <CheckBox Name="HearSelfCheckBox" Text="{Loc 'ui-options-hear-self'}" />
-                -->
                 <!-- CorvaxGoob-CombatMode-Sound-Start -->
                 <CheckBox Name="CombatModeSoundCheckBox" Text="{Loc 'ui-options-combat-mode-sound'}" />
                 <!-- CorvaxGoob-CombatMode-Sound-End -->

@@ -83,6 +83,7 @@
     MobOniRandom: 1
     MobChitinidRandom: 1
     MobShadowkinRandom: 1
+    MobAbductor: 0.1
     MobShadowling: 0.01
 
 - type: weightedRandomEntity
@@ -195,11 +196,11 @@
 - type: weightedRandom
   id: WabbajackGroups
   weights:
-    WabbajackMonkey: 1
+    WabbajackMonkey: 0.8
     # WabbajackCluwne: 1
-    WabbajackRobot: 1
-    WabbajackSlime: 1
+    WabbajackRobot: 0.8
+    WabbajackSlime: 0.5
     WabbajackSpecies: 1
     WabbajackAnimal: 1
-    WabbajackXeno: 1
-    WabbajackSpecial: 0.05 # for high-impact transmutations, approximately 1/160 chance with 8 groups
+    WabbajackXeno: 0.1
+    WabbajackSpecial: 0.01 # for high-impact transmutations, approximately 1/160 chance with 8 groups

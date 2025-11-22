@@ -47,7 +47,7 @@
   - OreBananium
   - OreArtifactFragment
   - OreDiamond
-  - BSCrystal
+  - OreBSCrystal
   addComponents:
   - type: FTLDestination
     whitelist:

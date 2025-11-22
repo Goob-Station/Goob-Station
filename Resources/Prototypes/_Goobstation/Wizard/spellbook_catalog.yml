@@ -795,6 +795,36 @@
   - SpellbookEquipment
   disableRefund: true
 
+- type: listing
+  id: SpellbookHellRipScroll
+  name: spellbook-hell-rip-name
+  description: spellbook-hell-rip-desc
+  productEntity: HellRipScroll
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+  disableRefund: true
+
+- type: listing
+  id: SpellOrganMagicSlaughterHeart
+  name: spellbook-demon-heart-name
+  description: spellbook-demon-heart-desc
+  productEntity: OrganMagicSlaughterHeart
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookHellRipScroll
+    - SpellbookBottleOfBlood
+  disableRefund: true
+  blockRefundListings:
+  - SpellbookHellRipScroll
+  - SpellbookBottleOfBlood
+
 # Summons
 - type: listing
   id: SpellbookMagicalLamp

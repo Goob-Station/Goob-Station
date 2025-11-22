@@ -385,10 +385,16 @@
     damage:
       types:
         Blunt: 0
+    soundHit: # goob edit
+      path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     size: Small
     sprite: Objects/Fun/Foam/foam_blade.rsi
-  - type: UseDelay
+  - type: UseDelay # goob edit
+    delay: 1.5
+  - type: EmitSoundOnUse # goob edit
+    sound:
+      path: /Audio/Effects/gib1.ogg
 
 # MISC
 

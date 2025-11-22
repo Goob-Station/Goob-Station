@@ -26,6 +26,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Еретики могут лечить святой урон несколькими способами:
   - Стоя на руне трансмутации.
   - Пьянствуя из Эльдрической фляги.
+  - Using Nightwatcher's Rebirth ashen path ability.
+  - Standing on rust as rusted path heretic.
+  - Hitting living people with your blades as ascended blade heretic.
 
   ## Сверхъестественные влияния
   <Box>
@@ -61,6 +64,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Когда у тебя появятся очки знаний, начинай исследования! Открой хранилище знаний через кнопку действия.
   Меню исследований представляет собой ветвящееся дерево, и твой первый выбор — это путь, определяющий начальные способности и Финальное Вознесение.
   Ты можешь получить способности с других путей в ограниченной мере, но выбранный путь сильно влияет на стиль игры.
+  Follow your [color=red]Living Heart[/color] to your target of choice and incapacitate them through any means necessary. If your target is incapacitated, they're ready to sacrifice.
+  Drag them over a transmutation rune and invoke the [color=yellow]Heartbeat of the Mansus[/color] to sacrifice them.
 
   ## Трансмутация – ключ к успеху
   В конце концов тебе понадобится использовать настоящую магию. Чтобы нарисовать руну трансмутации, нужен инструмент для письма, например ручка или мелок.

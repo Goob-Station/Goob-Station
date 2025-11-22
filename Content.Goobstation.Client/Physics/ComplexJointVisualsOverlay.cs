@@ -100,8 +100,7 @@ public sealed class ComplexJointVisualsOverlay : Overlay
                 if (trueLength <= 0.01f)
                     continue;
 
-                var avg = trueLength / segments;
-                segments = (int) MathF.Ceiling(trueLength / avg);
+                segments = (int) MathF.Ceiling(trueLength / realY);
 
                 var ratio = length / trueLength;
                 var normalized = dir / dirLength;

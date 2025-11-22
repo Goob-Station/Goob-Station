@@ -32,7 +32,7 @@
       Medical: 75
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 300
+    chaosScore: 100
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/abductor_shuttle.yml
@@ -135,7 +135,7 @@
       Medical: 150
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 450
+    chaosScore: 150
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/duo_abductor_shuttle.yml
