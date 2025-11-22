@@ -18,8 +18,6 @@ using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles.Components;
-using Content.Server.NPC;
-using Content.Server.NPC.HTN;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
@@ -44,7 +42,6 @@ namespace Content.Server.Heretic.Abilities;
 public sealed partial class HereticAbilitySystem
 {
     private static readonly ProtoId<CloningSettingsPrototype> Settings = "FleshMimic";
-    private static readonly ProtoId<HTNCompoundPrototype> Compound = "FleshMimicCompound";
     private static readonly SoundSpecifier MimicSpawnSound = new SoundCollectionSpecifier("gib");
 
     protected override void SubscribeFlesh()
@@ -283,7 +280,7 @@ public sealed partial class HereticAbilitySystem
         }
 
         var damage = EnsureComp<DamageOverTimeComponent>(clone.Value);
-        damage.Damage = new DamageSpecifier()
+        damage.Damage = new DamageSpecifier
         {
             DamageDict =
             {
@@ -299,18 +296,12 @@ public sealed partial class HereticAbilitySystem
         if (!makeGhostRole)
             RemCompDeferred<GhostTakeoverAvailableComponent>(clone.Value);
 
-        var htn = EnsureComp<HTNComponent>(clone.Value);
-        htn.RootTask = new HTNCompoundTask { Task = Compound };
-        _npc.SetBlackboard(clone.Value, NPCBlackboard.FollowTarget, user.ToCoordinates(), htn);
-
         var exception = EnsureComp<FactionExceptionComponent>(clone.Value);
         _npcFaction.IgnoreEntity((clone.Value, exception), user);
         if (user != uid)
             _npcFaction.AggroEntity((clone.Value, exception), uid);
         if (hostile != null && hostile.Value != user)
             _npcFaction.AggroEntity((clone.Value, exception), hostile.Value);
-
-        _htn.Replan(htn);
 
         return clone.Value;
     }
