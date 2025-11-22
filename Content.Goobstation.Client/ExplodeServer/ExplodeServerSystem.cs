@@ -1,8 +1,7 @@
 using Content.Goobstation.Shared.ExplodeServer;
 using Content.Shared.GameTicking;
-using Robust.Shared.Timing;
 using Robust.Client.Graphics;
-
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.ExplodeServer;
 
@@ -12,14 +11,15 @@ public sealed class ExplodeServerSystem : EntitySystem
     [Dependency] private readonly IOverlayManager _overlayManager = default!;
     private bool _started;
     private TimeSpan _roundEndOverlayTime; // for how long to have the overlay on
-    
-    private ExplodeServerScreenSpaceOverlay _screenSpaceOverlay = new()
+
+    private readonly ExplodeServerScreenSpaceOverlay _screenSpaceOverlay = new()
     {
         IsActive = false
     };
-    private ExplodeServerWorldSpaceOverlay _worldSpaceOverlay = new()
+
+    private readonly ExplodeServerWorldSpaceOverlay _worldSpaceOverlay = new()
     {
-        TintColor = new(255f, 0f, 0f),
+        TintColor = new Color(255f, 0f, 0f),
         BlurAmount = 1f,
         IsActive = false
     };
@@ -28,20 +28,13 @@ public sealed class ExplodeServerSystem : EntitySystem
     {
         base.Update(frameTime);
         var remainingTime = _roundEndOverlayTime - _gameTiming.CurTime;
-        if (remainingTime.TotalSeconds <= 0 && !_started)
-        {
-            return;
-        }
+        if (remainingTime.TotalSeconds <= 0 && !_started) return;
         if (remainingTime.TotalMilliseconds <= 5105) // Start overlay and blink
         {
             if (remainingTime.TotalSeconds % 1.25d < 0.5d)
-            {
                 RemoveOverlays();
-            }
             else
-            {
                 AddOverlays();
-            }
         }
     }
 
@@ -69,11 +62,13 @@ public sealed class ExplodeServerSystem : EntitySystem
         SubscribeNetworkEvent<ExplodeServerEvent>(OnExplodeServer);
         SubscribeNetworkEvent<RoundRestartCleanupEvent>(OnRoundRestart);
     }
+
     private void OnExplodeServer(ExplodeServerEvent ev)
     {
         _started = true;
         _roundEndOverlayTime = _gameTiming.CurTime + TimeSpan.FromMilliseconds(5105);
     }
+
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
     {
         RemoveOverlays();

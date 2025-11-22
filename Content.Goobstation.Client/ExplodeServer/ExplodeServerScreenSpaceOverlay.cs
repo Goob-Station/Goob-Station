@@ -18,6 +18,7 @@ public sealed class ExplodeServerScreenSpaceOverlay : Overlay
         IoCManager.InjectDependencies(this);
         _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 36);
     }
+
     protected override void Draw(in OverlayDrawArgs args)
     {
         if (!IsActive)

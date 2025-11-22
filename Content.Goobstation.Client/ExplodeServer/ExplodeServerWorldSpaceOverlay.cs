@@ -12,9 +12,9 @@ public sealed class ExplodeServerWorldSpaceOverlay : Overlay
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     private readonly ShaderInstance _blurShader;
     public Color TintColor = new();
-    
+
     public bool IsActive = true;
-    
+
     public float BlurAmount = 0f;
 
     public ExplodeServerWorldSpaceOverlay()
@@ -24,6 +24,7 @@ public sealed class ExplodeServerWorldSpaceOverlay : Overlay
         IoCManager.InjectDependencies(this);
         _blurShader = _prototype.Index<ShaderPrototype>("BlurryVisionX").InstanceUnique();
     }
+
     protected override void Draw(in OverlayDrawArgs args)
     {
         if (ScreenTexture == null || !IsActive)

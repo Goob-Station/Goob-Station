@@ -57,10 +57,7 @@ public sealed class ExplodeServerSystem : EntitySystem
 
     private void OnRoundEnd(StationReportEvent ev)
     {
-        _triggered = true;// to prevent multiple triggers
         if (_random.Prob(0.01f) && !_triggered) // 1% chance to trigger explode server
-        {
             TriggerOverlay();
-        }
     }
 }
