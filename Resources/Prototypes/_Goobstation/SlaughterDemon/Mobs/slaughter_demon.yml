@@ -135,7 +135,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 250
+        density: 1000
         mask:
         - MobMask
         layer:
@@ -175,6 +175,15 @@
     bloodMaxVolume: 300
     bloodReagent: Sulfur
     bleedReductionAmount: 5
+  - type: Temperature
+    coldDamage:
+      types:
+        Cold: 0
+    heatDamage:
+      types:
+        Heat: 0
+    heatDamageThreshold: 666 
+    coldDamageThreshold: 66
 
 # laughter demon
 - type: entity
