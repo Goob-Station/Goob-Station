@@ -8,6 +8,8 @@
   name: Wraith
   description: A VERY spooky ghostie.
   components:
+  - type: MindContainer
+    showExamineInfo: true #show that its dead
   - type: PassiveDamage #passive Healing
     allowedStates:
     - Alive
@@ -69,6 +71,8 @@
   - type: Hands
     showInHands: false
     disableExplosionRecursion: true
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
   - type: LanguageSpeaker # Einstein Engines - Languages
   - type: UniversalLanguageSpeaker # Einstein Engines - Languages
   - type: Reactive
@@ -136,6 +140,18 @@
     spreadAmount: 3
   - type: Puller
     needsHands: false
+  - type: GhostRole
+    name: ghost-role-information-wraith-name
+    description: ghost-role-information-wraith-description
+    rules: ghost-role-information-wraith-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15 hours
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
 
 - type: entity
   id: MobWraithPlague

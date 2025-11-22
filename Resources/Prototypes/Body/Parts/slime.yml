@@ -47,6 +47,8 @@
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: Damageable # Shitmed
     damageModifierSet: Slime
+  - type: Boneless # Goob Edit
+    bonePenalty: 1
 
 - type: entity
   id: ChestSlime

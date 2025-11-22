@@ -24,6 +24,7 @@ using System.Linq;
 using Content.Shared.Humanoid;
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 using Content.Server._Shitcode.Heretic.EntitySystems.PathSpecific;
+using Content.Server.Heretic.Abilities;
 using Content.Server.Medical;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems;
@@ -31,6 +32,7 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Stunnable;
 
@@ -53,6 +55,8 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StarMarkSystem _starMark = default!;
+    [Dependency] private readonly HereticAbilitySystem _ability = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -94,10 +98,10 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
                 break;
 
             case "Flesh":
-                if (TryComp<BloodstreamComponent>(target, out var blood))
+                if (!_mobState.IsDead(target) && !HasComp<GhoulComponent>(target))
                 {
-                    _blood.TryModifyBleedAmount((target, blood), 5f);
-                    _blood.SpillAllSolutions((target, blood));
+                    if (_ability.CreateFleshMimic(target, user, false, true, 50, null) is { } mimic)
+                        EnsureComp<FleshMimickedComponent>(target).FleshMimics.Add(mimic);
                 }
                 break;
 
