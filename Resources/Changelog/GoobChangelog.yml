@@ -18203,3 +18203,9 @@ Entries:
       message: Fire extinguisher spray doesn't create ton of ashes when spraying SM now
   id: 2052
   time: '2025-11-22T17:55:45.0000000+00:00'
+- author: Arraydeess14
+  changes:
+    - type: Tweak
+      message: Mothroaches can grow up to 2 times their size!
+  id: 2053
+  time: '2025-11-22T20:10:49.0000000+00:00'
