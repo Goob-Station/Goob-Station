@@ -45,6 +45,14 @@ public sealed partial class RadioChannelPrototype : IPrototype
     [IdDataField, ViewVariables]
     public string ID { get; private set; } = default!;
 
+    // CorvaxGoob-Anonymous-Radio-Start
+    /// <summary>
+    /// If channel is anonymous - anyone who'll talk on this channel will have "encrypted" name
+    /// </summary>
+    [DataField("anonymous")]
+    public bool Anonymous { get; private set; } = false;
+    // CorvaxGoob-Anonymous-Radio-End
+
     /// <summary>
     /// If channel is long range it doesn't require telecommunication server
     /// and messages can be sent across different stations

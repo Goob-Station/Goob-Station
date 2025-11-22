@@ -121,6 +121,7 @@
   frequency: 1213
   color: "#8f4a4b"
   longRange: true
+  anonymous: true # CorvaxGoob-Anonymous-Radio
 
 - type: radioChannel
   id: Handheld
