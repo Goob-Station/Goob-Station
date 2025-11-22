@@ -1,7 +1,8 @@
+using Content.Goobstation.Shared.Supermatter.Components;
 using Content.Server.Spreader;
 using Content.Shared.Damage;
 
-namespace Content.Server._Slon.Sm;
+namespace Content.Goobstation.Server.Supermatter.Systems;
 
 public sealed class CascadeSystem : EntitySystem
 {

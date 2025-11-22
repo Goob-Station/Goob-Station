@@ -1,7 +1,6 @@
 using Content.Shared.Damage;
-using Robust.Shared.GameStates;
 
-namespace Content.Server._Slon.Sm;
+namespace Content.Goobstation.Shared.Supermatter.Components;
 
 /// <summary>
 /// Works only if the entity has the KudzuComponent
