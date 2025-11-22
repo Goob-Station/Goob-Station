@@ -24,3 +24,14 @@
       - id: TegCirculatorFlatpack
       - id: TegMiddleFlatpack
       - id: ToyFigurineAtmosTech
+
+- type: entity
+  id: CrateEngineeringNuclearReactor
+  parent: CrateEngineeringSecure
+  name: nuclear reactor crate
+  description: Contains a nuclear reactor (somehow).
+  components:
+  - type: StorageFill
+    contents:
+    - id: NuclearFlatpack
+    - id: TurbineFlatpack

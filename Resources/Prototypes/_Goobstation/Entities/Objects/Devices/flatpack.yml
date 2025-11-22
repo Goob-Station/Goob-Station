@@ -182,6 +182,24 @@
 
 - type: entity
   parent: BaseFlatpack
+  id: NuclearFlatpack
+  name: nuclear reactor flatpack
+  description: A flatpack used for constructing a nuclear reactor
+  components:
+  - type: Flatpack
+    entity: BaseNuclearReactor
+
+- type: entity
+  parent: BaseFlatpack
+  id: TurbineFlatpack
+  name: turbine flatpack
+  description: A flatpack used for constructing a gas turbine for a nuclear reactor
+  components:
+  - type: Flatpack
+    entity: Turbine
+
+- type: entity
+  parent: BaseFlatpack
   id: SlotMachineFlatpack
   name: slot machine flatpack
   description: A flatpack used for constructing a slot machine
