@@ -18197,3 +18197,9 @@ Entries:
   changes: []
   id: 2051
   time: '2025-11-22T14:10:31.0000000+00:00'
+- author: oldschoolotaku
+  changes:
+    - type: Fix
+      message: Fire extinguisher spray doesn't create ton of ashes when spraying SM now
+  id: 2052
+  time: '2025-11-22T17:55:45.0000000+00:00'
