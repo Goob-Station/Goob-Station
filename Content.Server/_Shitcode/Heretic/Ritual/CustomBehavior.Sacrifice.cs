@@ -24,6 +24,7 @@ using Content.Shared.Mind;
 using Content.Shared.Heretic;
 using Content.Server.Heretic.EntitySystems;
 using Content.Shared.Gibbing.Events;
+using Content.Shared.Silicons.Borgs.Components;
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -99,6 +100,7 @@ namespace Content.Server.Heretic.Ritual;
         {
             if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) // only mobs
             || OnlyHumanoid && !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) // only humans
+            || args.EntityManager.HasComponent<BorgChassisComponent>(look) // no borgs
             || OnlyTargets
                 && hereticComp.SacrificeTargets.All(x => x.Entity != args.EntityManager.GetNetEntity(look)) // only targets
                 && !args.EntityManager.HasComponent<HereticComponent>(look)) // or other heretics

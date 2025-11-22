@@ -160,7 +160,8 @@ public abstract class SharedMansusGraspSystem : EntitySystem
 
             case "Flesh":
             {
-                if (TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState != MobState.Alive)
+                if (TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState != MobState.Alive &&
+                    !HasComp<BorgChassisComponent>(target))
                 {
                     if (HasComp<GhoulComponent>(target))
                     {

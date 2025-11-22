@@ -25,6 +25,7 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Cloning;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
+using Content.Shared.Ghost;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction.Components;
@@ -313,6 +314,8 @@ public sealed partial class HereticAbilitySystem
 
         if (!makeGhostRole)
             RemCompDeferred<GhostTakeoverAvailableComponent>(clone.Value);
+        else if (TryComp(clone.Value, out GhostRoleComponent? ghostRole))
+            ghostRole.RaffleConfig = null;
 
         var exception = EnsureComp<FactionExceptionComponent>(clone.Value);
         _npcFaction.IgnoreEntity((clone.Value, exception), user);
