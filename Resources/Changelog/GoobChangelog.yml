@@ -18187,3 +18187,9 @@ Entries:
         miners on Lavaland.
   id: 2049
   time: '2025-11-21T18:24:36.0000000+00:00'
+- author: saschahi
+  changes:
+    - type: Fix
+      message: Omnizine now heals again
+  id: 2050
+  time: '2025-11-22T04:15:15.0000000+00:00'
