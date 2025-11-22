@@ -20,13 +20,14 @@ public sealed class ExplodeServerSystem : EntitySystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     private TimeSpan _roundEndTimer; // to restart the server
-    private bool _started;
+    private bool _triggered;
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        if (_roundEndTimer < _gameTiming.CurTime && _started)
+        if (_roundEndTimer < _gameTiming.CurTime && _triggered)
         {
-            _started = false; // it kept restarting in a loop otherwise
+            _triggered = false; // it kept restarting in a loop otherwise
             _entManager.System<GameTicker>().RestartRound(); // restart round now
         }
     }
@@ -34,18 +35,18 @@ public sealed class ExplodeServerSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        _started = false;
+        _triggered = false;
         SubscribeLocalEvent<StationReportEvent>(OnRoundEnd);
     }
 
     public void TriggerOverlay()
     {
         _entManager.System<RoundEndSystem>().EndRound();
-        _started = true;
+        _triggered = true;
         Filter filter;
         var audio = AudioParams.Default;
         audio.Volume = 1f;
-        bool replay = true;
+        var replay = true;
         var path = new SoundPathSpecifier("/Audio/_Goobstation/Announcements/ExplodeServerAlert.ogg");
         var soundEffect = _audio.ResolveSound(path);
         filter = Filter.Empty().AddAllPlayers(_playerManager);
@@ -53,13 +54,13 @@ public sealed class ExplodeServerSystem : EntitySystem
         _roundEndTimer = _gameTiming.CurTime + TimeSpan.FromMilliseconds(5105);
         RaiseNetworkEvent(new ExplodeServerEvent());
     }
+
     private void OnRoundEnd(StationReportEvent ev)
     {
-        var triggered = false; // to prevent multiple triggers
-        if (_random.Prob(0.01f) && !(triggered)) // 1% chance to trigger explode server
+        _triggered = true;// to prevent multiple triggers
+        if (_random.Prob(0.01f) && !_triggered) // 1% chance to trigger explode server
         {
             TriggerOverlay();
-            triggered = true;
         }
     }
 }

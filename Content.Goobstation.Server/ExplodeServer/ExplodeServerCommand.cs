@@ -1,10 +1,10 @@
-using Robust.Shared.Console;
 using Content.Server.Administration;
 using Content.Shared.Administration;
+using Robust.Shared.Console;
 
 namespace Content.Goobstation.Server.ExplodeServer;
 
-/// <inheritdoc/>
+/// <inheritdoc />
 [AdminCommand(AdminFlags.Host)]
 public sealed class ExplodeServerCommand : LocalizedCommands
 {
@@ -12,8 +12,9 @@ public sealed class ExplodeServerCommand : LocalizedCommands
     private const string CommandName = "restartroundexplosive";
     public override string Description => "Ends the round in an explosive way.";
     public override string Command => CommandName;
+
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
-    { 
+    {
         _entityManager.System<ExplodeServerSystem>().TriggerOverlay();
     }
 }
