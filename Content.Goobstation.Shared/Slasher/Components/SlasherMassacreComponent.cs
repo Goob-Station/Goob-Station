@@ -28,7 +28,7 @@ public sealed partial class SlasherMassacreUserComponent : Component
 
     [DataField]
     public SoundSpecifier MassacreIntro =
-         new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/Massacreintro.ogg")
+         new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/MassacreIntro.ogg")
          {
              Params = AudioParams.Default
                  .WithVolume(-5f)
