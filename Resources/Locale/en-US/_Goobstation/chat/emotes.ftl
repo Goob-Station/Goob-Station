@@ -40,13 +40,13 @@ emote-fart-inhale-disarm-notice = You disarm your super fart.
 chat-emote-name-boop = Boop
 chat-emote-name-whirr = Whirr
 
-chat-emote-name-dance-the-from-floor = dance from floor
+chat-emote-name-dance-the-from-floor = Dance from floor
 chat-emote-msg-dance-from-the-floor = dances from the floor!
 
-chat-emote-name-spinning-on-head = spin on head
+chat-emote-name-spinning-on-head = Spin on head
 chat-emote-msg-spinning-on-head = spins on the head!
 
-chat-emote-name-danc = dance
+chat-emote-name-danc = Dance
 chat-emote-msg-dance-1 = dances!
 chat-emote-msg-dance-2 = breaks into a dance!
 chat-emote-msg-dance-3 = rocks the dance floor!
