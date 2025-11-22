@@ -37,6 +37,8 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpCrashingWavesPerformedEvent>(OnSleepingCarpCrashingWaves);
 
         SubscribeLocalEvent<GrantSleepingCarpComponent, UseInHandEvent>(OnGrantSleepingCarp);
+
+        SubscribeLocalEvent<GrantSleepingCarpInitComponent, ComponentStartup>(OnGrantSleepingCarpOnInit);
     }
 
     #region Generic Methods
@@ -114,6 +116,30 @@ public partial class SharedMartialArtsSystem
             PopupType.Medium);
     }
 
+    private void OnGrantSleepingCarpOnInit(Entity<GrantSleepingCarpInitComponent> ent, ref ComponentStartup args) // why do we not have this already
+    {
+        if (_netManager.IsClient)
+            return;
+
+        var comp = new GrantSleepingCarpComponent
+        {
+            MartialArtsForm = ent.Comp.MartialArtsForm,
+            MaximumUses = 1,
+            CurrentUses = 0
+        };
+
+        if (!TryGrantMartialArt(ent.Owner, comp))
+            return;
+
+        _faction.AddFaction(ent.Owner, "Dragon");
+        var userReflect = EnsureComp<ReflectComponent>(ent.Owner);
+        userReflect.Examinable = false;
+        userReflect.ReflectProb = 1;
+        userReflect.Spread = 60;
+        Dirty(ent.Owner, userReflect);
+
+        RemComp<GrantSleepingCarpInitComponent>(ent.Owner);
+    }
     #endregion
 
     #region Combo Methods
