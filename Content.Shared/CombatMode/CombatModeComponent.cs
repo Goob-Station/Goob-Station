@@ -70,5 +70,16 @@ namespace Content.Shared.CombatMode
         /// </summary>
         [DataField, AutoNetworkedField]
         public bool ToggleMouseRotator = true;
+
+        /// <summary>
+        ///     Goobstation edit
+        ///     If true, sets <see cref="MouseRotatorComponent.AngleTolerance"/> to 1 degree and <see cref="MouseRotatorComponent.Simple4DirMode"/>
+        ///     to false when the owner enters combatmode.
+        /// </summary>
+        /// <remarks>
+        ///     Has no effect if <see cref="ToggleMouseRotator"/> is false.
+        /// </remarks>
+        [DataField, AutoNetworkedField]
+        public bool SmoothRotation = true;
     }
 }
