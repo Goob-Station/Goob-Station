@@ -1,4 +1,4 @@
-using Content.Shared._FarHorizons.Materials;
+using Content.Goobstation.Common.Materials._FarHorizons.Materials;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 using Robust.Shared.Utility;
