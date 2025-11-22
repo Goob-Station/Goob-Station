@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.Slasher.Components;
+using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Network;
@@ -40,12 +41,14 @@ public sealed class SlasherSystem : EntitySystem
     private void ApplyComponents(EntityUid uid)
     {
         EnsureComp<SlasherSummonMacheteComponent>(uid);
-        EnsureComp<SlasherIncorporealComponent>(uid);
-        EnsureComp<SlasherBloodTrailComponent>(uid);
-        EnsureComp<SlasherPossessionComponent>(uid);
-        EnsureComp<SlasherRegenerateComponent>(uid);
         EnsureComp<SlasherStaggerAreaComponent>(uid);
+        EnsureComp<SlasherRegenerateComponent>(uid);
+        EnsureComp<SlasherPossessionComponent>(uid);
+        EnsureComp<SlasherBloodTrailComponent>(uid);
+        EnsureComp<SlasherIncorporealComponent>(uid);
         EnsureComp<SlasherSoulStealComponent>(uid);
         EnsureComp<SlasherSummonMeatSpikeComponent>(uid);
+        EnsureComp<BreathingImmunityComponent>(uid);
+        EnsureComp<SlasherGunBlockedComponent>(uid);
     }
 }

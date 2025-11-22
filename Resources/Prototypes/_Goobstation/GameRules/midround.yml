@@ -333,8 +333,6 @@
       max: 1
       pickPlayer: false
       startingGear: SlasherGear
-      roleLoadout:
-      - RoleSurvivalEVA
       briefing:
         text: slasher-role-greeting
         color: Red
