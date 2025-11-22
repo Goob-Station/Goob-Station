@@ -408,18 +408,11 @@
     - Hair
 
 - type: entity
-  parent: [ClothingHeadBase, BaseSyndicateContraband]
+  parent: [ClothingHeadHatCapo, BaseSyndicateContraband]
   id: ClothingHeadHatCapoSyndi
   name: the Capos rim
   description: Pride, it's always a sin, but at least you're making it look right.
   components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/capo.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/capo.rsi
-  - type: HideLayerClothing
-    slots:
-    - Hair
   - type: Armor
     coverage:
     - Head
