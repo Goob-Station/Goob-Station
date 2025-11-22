@@ -143,40 +143,6 @@ SPDX-License-Identifier: MIT
                           </BoxContainer>
                       </PanelContainer>
                   </BoxContainer>
-
-                  <!-- Orders Part -->
-                  <BoxContainer Orientation="Vertical"
-                      VerticalExpand="True">
-
-                      <!-- Title -->
-                      <controls:StripeBack>
-                          <Label Text="{Loc 'cargo-console-menu-orders-label'}"
-                              HorizontalAlignment="Center"
-                              Margin="4"/>
-                      </controls:StripeBack>
-
-                      <PanelContainer VerticalExpand="True"
-                          Margin="0 -4 0 0">
-
-                          <!-- Background -->
-                          <PanelContainer.PanelOverride>
-                              <gfx:StyleBoxFlat BackgroundColor="#040404" />
-                          </PanelContainer.PanelOverride>
-
-                          <BoxContainer Orientation="Vertical"
-                              Margin="6">
-                              <ScrollContainer VerticalExpand="True">
-                                  <BoxContainer Orientation="Vertical"
-                                      StyleClasses="transparentItemList"
-                                      VerticalExpand="True"
-                                      SeparationOverride="6">
-
-                                      <!-- Orders are added here by code -->
-                                  </BoxContainer>
-                              </ScrollContainer>
-                          </BoxContainer>
-                      </PanelContainer>
-                  </BoxContainer>
               </BoxContainer>
           </BoxContainer>
           <!-- Funds tab -->
