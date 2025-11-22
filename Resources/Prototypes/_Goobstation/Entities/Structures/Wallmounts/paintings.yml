@@ -2,7 +2,8 @@
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# Mocho requested so yea.
+# Mocho requested so yea. 
+
 - type: entity
   parent: PaintingBase
   id: PaintingBlunt
@@ -12,3 +13,13 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Wallmounts/Paintings/ps3moira.rsi
     state: bluntpainting
+
+- type: entity
+  parent: PaintingBase
+  id: PaintingBadApple
+  name: Bad Apple
+  description: Holy shit is that a Touhou reference???
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/badapple.rsi
+    state: icon
