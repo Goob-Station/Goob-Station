@@ -1120,10 +1120,18 @@
         time: 14
       - !type:HealthChange # Goobstation - Make Omnizine great again!!!!!!!
         damage:
-          Burn: -3
-          Toxin: -3
-          Airloss: -3
-          Brute: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
+          types: # Goobstation change, Healthchange needs types or groups and groups fuck up the math for some reason and split the groups into types anyway
+            Heat: -3 # Goob change from group to types
+            Shock: -3 # Goob change from group to types
+            Cold: -3 # Goob change from group to types
+            Caustic: -3 # Goob change from group to types
+            Poison: -3 # Goob change from group to types
+            Radiation: -3 # Goob change from group to types
+            Asphyxiation: -3 # Goob change from group to types
+            Bloodloss: -3 # Goob change from group to types
+            Blunt: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
+            Slash: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
+            Piercing: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
 
 - type: reagent
   id: Ultravasculine

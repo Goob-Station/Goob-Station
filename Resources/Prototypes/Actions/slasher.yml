@@ -1,0 +1,146 @@
+- type: entity
+  id: ActionSlasherSummonMachete
+  name: Summon Machete
+  description: Summon your bound machete to your active hand, or create one if lost.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 20
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: SummonMachete }
+  - type: InstantAction
+    event: !type:SlasherSummonMacheteEvent
+
+- type: entity
+  id: ActionSlasherSummonMeatSpike
+  name: Meat Spike
+  description: Conjure a horrific meat spike beneath you to capture your victims.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 15
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: Meatspike }
+  - type: InstantAction
+    event: !type:SlasherSummonMeatSpikeEvent
+
+- type: entity
+  id: ActionSlasherIncorporealize
+  name: Incorporealize
+  description: Become incorporeal, capable of moving through walls and being completely invisible, but unable to interact with the world. Can only be used when unseen.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: Incorporealize }
+  - type: InstantAction
+    event: !type:SlasherIncorporealizeEvent
+
+- type: entity
+  id: ActionSlasherCorporealize
+  name: Corporealize
+  description: Manifest your being from your incorporeal state. Can only be used when incorporeal.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: Corporealize }
+  - type: InstantAction
+    event: !type:SlasherCorporealizeEvent
+
+- type: entity
+  id: ActionSlasherBloodTrail
+  name: Blood Trail
+  description: Begin trailing blood in your wake with some funky music. Spooky!
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 1
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: BloodTrail }
+  - type: InstantAction
+    event: !type:ToggleBloodTrailEvent
+
+- type: entity
+  id: ActionSlasherPossession
+  name: Possession
+  description: Use this on a person to begin to exact your control on them, giving you temporary control of their body for 45 seconds. Once time is up, both bodies return.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 180
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: Possession }
+  - type: TargetAction
+    range: 3.5
+    interactOnMiss: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:SlasherPossessionEvent
+
+- type: entity
+  id: ActionSlasherRegenerate
+  name: Regenerate
+  description: Quickly regenerate your being, restoring all lost health, repairing wounds, and removing all stuns.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 75
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: Regenerate }
+  - type: InstantAction
+    event: !type:SlasherRegenerateEvent
+
+- type: entity
+  id: ActionSlasherStaggerArea
+  name: Stagger Area
+  description: You exert your dark aura to people in range, slowing them down for a short time.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 20
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: StaggerArea }
+  - type: InstantAction
+    event: !type:SlasherStaggerAreaEvent
+
+- type: entity
+  id: ActionSlasherMassacre
+  name: Massacre
+  description: Unleach a brutal chain of attacks. The more hits in a row you hit the more damage you deal. You decapitate your target after 13 hits.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 20
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: SummonMachete }
+  - type: InstantAction
+    event: !type:SlasherMassacreEvent
+
+- type: entity
+  id: ActionSlasherSoulSteal
+  name: Soul Steal
+  description: Siphon a victims soul. Must be used on an incapicated living target (or dead body) to steal their soul, empowering your machete and increasing your health.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 5
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: SoulSteal }
+  - type: TargetAction
+    range: 2.5
+    interactOnMiss: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:SlasherSoulStealEvent
+
