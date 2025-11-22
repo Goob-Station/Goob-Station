@@ -13,7 +13,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   So you're a Heretic? Well, get ready for magic and battle. Grab influences, complete sacrifices, accomplish rituals, and ascend to godhood.
 
   Your ultimate goal is to ascend and become all powerful, but to do that you must gain knowledge.
-  All knowledges cost 1 point, except for "public" ones, which are accessible from any path, or Ascensions.
+  In order to ascend, you must complete your objectives, research final ascension knowledge and perform ascension ritual on transmutation rune.
+  Most knowledges and all side knowledge cost 1 point, some of them cost 2 and ascension costs 3.
 
   You can gain knowledge points and become stronger through a few ways:
   - Draining influences that spawn randomly around the station.
@@ -26,6 +27,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Heretics can heal holy damage a few ways:
   - Standing on a transmutation rune.
   - Drinking from the Eldritch Flask.
+  - Using Nightwatcher's Rebirth ashen path ability.
+  - Standing on rust as rusted path heretic.
+  - Hitting living people with your blades as ascended blade heretic.
 
   ## Eldritch Influences
   <Box>
@@ -54,7 +58,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   Other heretics are an exception. You can always sacrifice another heretic and get 3 knowledge points for doing so.
 
-  Follow your [color=red]Living Heart[/color] to your target of choice and incapacitate them through any means necessary. If your target is dead, they're ready to sacrifice.
+  Follow your [color=red]Living Heart[/color] to your target of choice and incapacitate them through any means necessary. If your target is incapacitated, they're ready to sacrifice.
   Drag them over a transmutation rune and invoke the [color=yellow]Heartbeat of the Mansus[/color] to sacrifice them.
 
   You can reroll your targets by invoking [color=yellow]Relentless Heartbeat[/color] ritual.
