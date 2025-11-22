@@ -2,6 +2,7 @@ using Content.Goobstation.Common.StationReport;
 using Content.Goobstation.Shared.ExplodeServer;
 using Content.Server.Audio;
 using Content.Server.GameTicking;
+using Content.Server.RoundEnd;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -25,8 +26,8 @@ public sealed class ExplodeServerSystem : EntitySystem
         base.Update(frameTime);
         if (_roundEndTimer < _gameTiming.CurTime && _started)
         {
-            _started = false;
-            _entManager.System<GameTicker>().RestartRound();
+            _started = false; // it kept restarting in a loop otherwise
+            _entManager.System<GameTicker>().RestartRound(); // restart round now
         }
     }
 
@@ -39,6 +40,7 @@ public sealed class ExplodeServerSystem : EntitySystem
 
     public void TriggerOverlay()
     {
+        _entManager.System<RoundEndSystem>().EndRound();
         _started = true;
         Filter filter;
         var audio = AudioParams.Default;
@@ -53,9 +55,11 @@ public sealed class ExplodeServerSystem : EntitySystem
     }
     private void OnRoundEnd(StationReportEvent ev)
     {
-        if (_random.Prob(0.01f)) // 1% chance to trigger explode server
+        var triggered = false; // to prevent multiple triggers
+        if (_random.Prob(0.01f) && !(triggered)) // 1% chance to trigger explode server
         {
             TriggerOverlay();
+            triggered = true;
         }
     }
 }
