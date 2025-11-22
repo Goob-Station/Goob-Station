@@ -26,6 +26,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
+using Content.Shared._Shitmed.Surgery;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
@@ -34,6 +35,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.GameTicking;
+using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -123,11 +125,24 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         SubscribeLocalEvent<SurgeryPartComponentConditionComponent, SurgeryValidEvent>(OnPartComponentConditionValid);
         SubscribeLocalEvent<SurgeryOrganOnAddConditionComponent, SurgeryValidEvent>(OnOrganOnAddConditionValid);
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
+        SubscribeLocalEvent<SanitizedComponent, SurgerySanitizationEvent>(OnSanitization);
+        SubscribeLocalEvent<SanitizedComponent, HeldRelayedEvent<SurgerySanitizationEvent>>(OnHeldSanitization);
 
         InitializeSteps();
         InitializeStart();
 
         LoadPrototypes();
+    }
+
+    private void OnHeldSanitization(Entity<SanitizedComponent> ent, ref HeldRelayedEvent<SurgerySanitizationEvent> args)
+    {
+        if (ent.Comp.WorksInHands)
+            args.Args.Handled = true;
+    }
+
+    private void OnSanitization(Entity<SanitizedComponent> ent, ref SurgerySanitizationEvent args)
+    {
+        args.Handled = true;
     }
 
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
@@ -170,7 +185,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         if (args.Handled
             || args.Target is not { } target
             || !IsSurgeryValid(ent, target, args.Surgery, args.Step, args.User, out var surgery, out var part, out var step)
-            || !PreviousStepsComplete(ent, part, surgery, args.Step)
+            || !PreviousStepsComplete(ent, part, surgery, args.Step, args.User)
             || !CanPerformStep(args.User, ent, part, step, tool, false))
         {
             Log.Warning($"{ToPrettyString(args.User)} tried to start invalid surgery.");

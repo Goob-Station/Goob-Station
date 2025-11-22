@@ -47,11 +47,22 @@ public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPira
             if (pending.PirateSpawnTimer >= pending.PirateSpawnTime)
             {
                 // remove spawned order.
-                AllEntityQuery<BecomesStationComponent, StationMemberComponent>().MoveNext(out var eqData, out _, out _);
+                if (!AllEntityQuery<BecomesStationComponent, StationMemberComponent>().MoveNext(out var eqData, out _, out _))
+                {
+                    // No station found, end the rule
+                    _gt.EndGameRule(uid, gamerule);
+                    break;
+                }
+
                 var station = _station.GetOwningStation(eqData);
-                if (!TryComp<StationBankAccountComponent>(station, out var bank))
-                    return;
-                if (station != null && _cargo.TryGetOrderDatabase(station, out var cargoDb) && pending.Order != null)
+                if (station == null || !TryComp<StationBankAccountComponent>(station, out var bank))
+                {
+                    // Invalid station or no bank account, end the rule
+                    _gt.EndGameRule(uid, gamerule);
+                    break;
+                }
+
+                if (_cargo.TryGetOrderDatabase(station, out var cargoDb) && pending.Order != null)
                 {
                     _cargo.RemoveOrder(station.Value, bank.PrimaryAccount, pending.Order.OrderId, cargoDb);
                 }
@@ -69,9 +80,12 @@ public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPira
         base.Started(uid, component, gameRule, args);
 
         // get station
-        AllEntityQuery<BecomesStationComponent, StationMemberComponent>().MoveNext(out var eqData, out _, out _);
+        if (!AllEntityQuery<BecomesStationComponent, StationMemberComponent>().MoveNext(out var eqData, out _, out _))
+            return;
+
         var station = _station.GetOwningStation(eqData);
-        if (station == null) return;
+        if (station == null)
+            return;
 
         var announcer = component.LocAnnouncer;
 

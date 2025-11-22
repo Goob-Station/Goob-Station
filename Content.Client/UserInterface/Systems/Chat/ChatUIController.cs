@@ -968,10 +968,7 @@ public sealed partial class ChatUIController : UIController
 
             // Only play sound if enough time has passed since the last highlight
             // This avoids playing multiple pings in less than a second
-            if (!hadHighlight)
-                return;
-
-            if ((currentTime - LastHighlightTime).TotalMilliseconds >= 500)
+            if (hadHighlight && (currentTime - LastHighlightTime).TotalMilliseconds >= 500)
             {
                 LastHighlightTime = currentTime;
                 PlayHighlightSound();
