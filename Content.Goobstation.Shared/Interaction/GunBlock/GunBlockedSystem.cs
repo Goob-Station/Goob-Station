@@ -1,13 +1,12 @@
-using Content.Goobstation.Shared.Slasher.Components;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Slasher.Systems;
+namespace Content.Goobstation.Shared.Interaction.GunBlock;
 
 /// <summary>
-/// Cancels gun firing attempts for slashers.
+/// Cancels gun firing attempts
 /// </summary>
 public sealed class SlasherGunBlockedSystem : EntitySystem
 {
@@ -22,10 +21,11 @@ public sealed class SlasherGunBlockedSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SlasherGunBlockedComponent, ShotAttemptedEvent>(OnShotAttempted);
+
+        SubscribeLocalEvent<GunBlockedComponent, ShotAttemptedEvent>(OnShotAttempted);
     }
 
-    private void OnShotAttempted<T>(Entity<T> ent, ref ShotAttemptedEvent args) where T : Component
+    private void OnShotAttempted(Entity<GunBlockedComponent> ent, ref ShotAttemptedEvent args)
     {
         if (args.User != ent.Owner)
             return;
@@ -40,6 +40,6 @@ public sealed class SlasherGunBlockedSystem : EntitySystem
             return;
 
         _lastPopup[ent.Owner] = now;
-        _popup.PopupEntity(Loc.GetString("slasher-cannot-use-guns"), ent.Owner, ent.Owner, PopupType.MediumCaution);
+        _popup.PopupEntity(Loc.GetString(ent.Comp.PopupText), ent.Owner, ent.Owner, PopupType.MediumCaution);
     }
 }

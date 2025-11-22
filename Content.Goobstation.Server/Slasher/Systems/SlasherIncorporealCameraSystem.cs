@@ -16,6 +16,7 @@ public sealed class SlasherIncorporealCameraSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<SlasherIncorporealCameraCheckEvent>(OnCameraCheck);
     }
 
