@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.ComponentsRegistry;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class GrantComponentsStatusEffectComponent : Component
 {
     [DataField(required: true)]

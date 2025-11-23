@@ -1,3 +1,4 @@
+using Content.Goobstation.Server.NPC;
 using Content.Shared.EntityEffects;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Prototypes;
@@ -17,13 +18,9 @@ public sealed partial class ChangeFactionNearbyEffect : EntityEffect
     public override void Effect(EntityEffectBaseArgs args)
     {
         var lookupSys = args.EntityManager.System<EntityLookupSystem>();
-        foreach (var entity in lookupSys.GetEntitiesInRange(args.TargetEntity, Radius))
-        {
-            var effect = new ChangeFactionEntityEffect();
-            effect.NewFaction = NewFaction;
-            effect.Duration = Duration;
+        var cf = args.EntityManager.System<ChangeFactionStatusEffectSystem>();
 
-            effect.Effect(new(entity, args.EntityManager));
-        }
+        foreach (var entity in lookupSys.GetEntitiesInRange(args.TargetEntity, Radius))
+            cf.TryChangeFaction(entity, NewFaction, out _, Duration);
     }
 }

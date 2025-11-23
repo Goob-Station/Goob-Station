@@ -20,24 +20,32 @@ public sealed partial class ChangeFactionStatusEffectSystem : EntitySystem
         SubscribeLocalEvent<ChangeFactionStatusEffectComponent, StatusEffectRemovedEvent>(OnStatusRemoved);
     }
 
-    public void ChangeFaction(EntityUid uid, ProtoId<NpcFactionPrototype> newFaction, out EntityUid? statusEffect, float durationInSeconds)
+    public void TryChangeFaction(EntityUid uid, ProtoId<NpcFactionPrototype> newFaction, out EntityUid? statusEffect, float durationInSeconds)
     {
         statusEffect = default;
+        if (!TryComp<NpcFactionMemberComponent>(uid, out var npc))
+            return;
 
         if (durationInSeconds <= 0)
         {
-            var npc = EnsureComp<NpcFactionMemberComponent>(uid);
             SwapFactions((uid, npc), newFaction);
             return;
         }
 
         _status.TryAddStatusEffect(uid, ChangeFactionStatusEffect, out statusEffect, TimeSpan.FromSeconds(durationInSeconds));
-        if (statusEffect != null && TryComp<ChangeFactionStatusEffectComponent>(statusEffect, out var f))
+        if (statusEffect.HasValue && TryComp<ChangeFactionStatusEffectComponent>(statusEffect, out var f))
+        {
             f.NewFaction = newFaction;
+            var args = new StatusEffectAppliedEvent(uid);
+            OnStatusApplied((statusEffect.Value, f), ref args); // mango code
+        }
     }
 
     private void OnStatusApplied(Entity<ChangeFactionStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
+        if (!ent.Comp.NewFaction.HasValue)
+            return;
+
         var npc = EnsureComp<NpcFactionMemberComponent>(args.Target);
         ent.Comp.OldFactions = npc.Factions;
         SwapFactions((args.Target, npc), ent.Comp.NewFaction);

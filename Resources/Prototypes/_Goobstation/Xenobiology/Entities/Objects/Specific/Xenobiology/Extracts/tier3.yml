@@ -99,7 +99,7 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:AdjustReagent
         reagent: XenobioHumanToxin
-        amoun: 5
+        amount: 5
   - type: SlimeExtract
   - type: Tag
     tags:

@@ -13,7 +13,7 @@ public sealed partial class ChangeFactionEntityEffect : EntityEffect
     public override void Effect(EntityEffectBaseArgs args)
     {
         var cf = args.EntityManager.System<ChangeFactionStatusEffectSystem>();
-        cf.ChangeFaction(args.TargetEntity, NewFaction, out _, Duration);
+        cf.TryChangeFaction(args.TargetEntity, NewFaction, out _, Duration);
     }
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)

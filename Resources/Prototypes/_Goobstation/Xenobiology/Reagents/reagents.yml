@@ -12,7 +12,6 @@
         conditions:
         - !type:ReagentThreshold
           min: 1
-          max: 1
         extractBonus: 1
 
 - type: reagent
@@ -29,7 +28,6 @@
         conditions:
         - !type:ReagentThreshold
           min: 1
-          max: 1
         chanceModifier: -0.25
 
 - type: reagent
@@ -65,7 +63,6 @@
         conditions:
         - !type:ReagentThreshold
           min: 1
-          max: 1
         offspringBonus: 2
 
 - type: reagent
@@ -82,7 +79,6 @@
         conditions:
         - !type:ReagentThreshold
           min: 1
-          max: 1
         chanceModifier: 0.25
 
 - type: reagent
@@ -99,15 +95,13 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
-          max: 15
         newSpecies: SlimePerson
       - !type:AdjustReagent
         reagent: XenobioJellyGreen
-        amount: -15.0
+        amount: -50.0
         conditions:
         - !type:ReagentThreshold
           min: 15
-          max: 15
 
 - type: reagent
   parent: Slime
@@ -123,22 +117,20 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
-          max: 15
         newSpecies: Human
       - !type:AdjustReagent
         reagent: XenobioHumanToxin
-        amount: -15.0
+        amount: -50.0
         conditions:
         - !type:ReagentThreshold
           min: 15
-          max: 15
 
 - type: reagent
   parent: Slime
   id: XenobioJellyPink
   name: xenobio-reagent-jelly-pink-name
   desc: xenobio-reagent-jelly-pink-desc
-  color: "#4DFF4D"
+  color: "#FF4DD2"
   metabolismRate: 1
   metabolisms:
     Poison:
@@ -147,7 +139,6 @@
         conditions:
         - !type:ReagentThreshold
           min: 5
-          max: 5
         newFaction: Passive
 
 - type: reagent
@@ -164,14 +155,12 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
-          max: 15
       - !type:AdjustReagent
         reagent: AdvancedMutationToxin
-        amount: -15.0
+        amount: -50.0
         conditions:
         - !type:ReagentThreshold
           min: 15
-          max: 15
 
 - type: reagent
   parent: Slime
@@ -187,15 +176,13 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
-          max: 15
         newSpecies: Felinid
       - !type:AdjustReagent
         reagent: XenobioFelinidToxin
-        amount: -15.0
+        amount: -50.0
         conditions:
         - !type:ReagentThreshold
           min: 15
-          max: 15
 
 - type: reagent
   parent: Slime
@@ -211,11 +198,9 @@
         conditions:
         - !type:ReagentThreshold
           min: 5
-          max: 5
       - !type:AdjustReagent
         reagent: XenobioGenderFluid
-        amount: -15.0
+        amount: -50.0
         conditions:
         - !type:ReagentThreshold
           min: 5
-          max: 5

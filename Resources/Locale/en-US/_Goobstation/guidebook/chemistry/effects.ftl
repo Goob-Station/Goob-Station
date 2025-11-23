@@ -29,3 +29,5 @@ reagent-effect-guidebook-mutate-plants-nearby = Randomly mutates nearby plants.
 reagent-effect-guidebook-dnascramble = Scrambles the person's DNA.
 
 reagent-effect-guidebook-change-species = Turns the target into a {$species}
+
+reagent-effect-guidebook-sex-change = Swaps the person's gender
