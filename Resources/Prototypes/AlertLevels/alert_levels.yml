@@ -183,6 +183,7 @@
       shuttleTime: 600
     doomsday:
       announcement: alert-level-doomsday-announcement
+      selectable: false
       sound: /Audio/Misc/delta_alt.ogg
       color: DarkRed
       disableSelection: true

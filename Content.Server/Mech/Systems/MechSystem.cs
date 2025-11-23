@@ -385,7 +385,7 @@ public sealed partial class MechSystem : SharedMechSystem
             var isStationAiBrainProto = false;
             if (TryComp<MetaDataComponent>(pilotEntity, out var meta) && meta.EntityPrototype != null)
             {
-                isStationAiBrainProto = meta.EntityPrototype.ID == "StationAiBrain";
+                isStationAiBrainProto = meta.EntityPrototype.ID == StationAiBrain;
             }
 
             if (hasStationAiHeld || isStationAiBrainProto)

@@ -47,7 +47,7 @@
       - ZombieBlob
     pilotWhitelist:
       tags:
-      - StationAiBrain # For MalfAi
+      - StationAi # Funkystation - MalfAi
   - type: MechAir
   - type: AirFilter
     # everything except oxygen and nitrogen

@@ -273,7 +273,7 @@
       components:
         - HumanoidAppearance
       tags:
-        - StationAiBrain
+        - StationAi
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -492,7 +492,7 @@
       components:
         - HumanoidAppearance
       tags:
-        - StationAiBrain
+        - StationAi
   - type: MeleeWeapon
     hidden: true
     attackRate: 1

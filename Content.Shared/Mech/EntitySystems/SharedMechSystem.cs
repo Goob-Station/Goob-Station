@@ -62,6 +62,8 @@ using Robust.Shared.Configuration;
 using Content.Shared.Implants.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared._Gabystation.MalfAi.Components;
+using Robust.Shared.Prototypes;
+using Content.Shared.Tag;
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -88,6 +90,8 @@ public abstract partial class SharedMechSystem : EntitySystem
 
     // Goobstation: Local variable for checking if mech guns can be used out of them.
     private bool _canUseMechGunOutside;
+
+    protected static readonly EntProtoId StationAiBrain = "StationAiBrain";
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -413,7 +417,7 @@ public abstract partial class SharedMechSystem : EntitySystem
         var isStationAiBrainProto = false;
         var meta = MetaData(toInsert);
         if (meta.EntityPrototype != null)
-            isStationAiBrainProto = meta.EntityPrototype.ID == "StationAiBrain";
+            isStationAiBrainProto = meta.EntityPrototype.ID == StationAiBrain;
         var allowAi = isAiHeld || hasMalfMarker || isStationAiBrainProto;
         return IsEmpty(component) && (canMove || allowAi);
         // Funkystation - Malf Ai end
