@@ -1,7 +1,7 @@
 {
     "version": 1,
-    "license": "CC-BY-SA-3.0",
-    "copyright": "taken from goonstation https://github.com/goonstation/goonstation/blob/master/icons/obj/large/96x160.dmi",
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/obj/large/96x160.dmi",
     "size": {
         "x": 96,
         "y": 160

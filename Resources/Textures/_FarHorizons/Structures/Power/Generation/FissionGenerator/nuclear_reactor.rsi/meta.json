@@ -1,7 +1,7 @@
 {
     "version": 1,
-    "license": "CC-BY-SA-3.0",
-    "copyright": "taken from goonstation https://github.com/goonstation/goonstation/blob/master/icons/misc/nuclearreactor.dmi",
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/misc/nuclearreactor.dmi",
     "size": {
         "x": 160,
         "y": 160

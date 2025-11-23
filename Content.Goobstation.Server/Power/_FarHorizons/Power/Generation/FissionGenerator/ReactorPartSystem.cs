@@ -8,6 +8,10 @@ using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
 
 namespace Content.Goobstation.Server.Power._FarHorizons.Power.Generation.FissionGenerator;
 
+// Ported and modified from goonstation by Jhrushbe.
+// CC-BY-NC-SA-3.0
+// https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/reactorcomponents.dm
+
 public sealed class ReactorPartSystem : SharedReactorPartSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;

@@ -11,7 +11,7 @@
 - files: ["meltdown_siren.ogg"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Taken from Goonstation"
-  source: https://github.com/goonstation/goonstation/blob/master/sound/machines/meltdown_siren.ogg
+  source: https://github.com/goonstation/goonstation/blob/ff86b044/sound/machines/meltdown_siren.ogg
 
 - files: ["reactor_alarm_1.ogg"]
   license: "CC-BY-4.0"

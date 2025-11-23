@@ -26,6 +26,10 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Power._FarHorizons.Power.Generation.FissionGenerator;
 
+// Ported and modified from goonstation by Jhrushbe.
+// CC-BY-NC-SA-3.0
+// https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/nuclearreactor.dm
+
 public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 {
     // The great wall of dependencies
