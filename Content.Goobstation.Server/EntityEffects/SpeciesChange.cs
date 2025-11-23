@@ -28,7 +28,8 @@ public sealed partial class SpeciesChange : EntityEffect
 
         var humanoidAppearanceSystem = args.EntityManager.System<SharedHumanoidAppearanceSystem>();
 
-        // Eventually this should also add the slime sub-species.
         humanoidAppearanceSystem.SetSpecies(args.TargetEntity, NewSpecies);
+
+        // TODO add slime species specific content here
     }
 }

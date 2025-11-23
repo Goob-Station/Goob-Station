@@ -215,9 +215,6 @@
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
-      # it was supposed to fill the extract with Lead or some other esoteric shit
-      # for no let's just leave it like that.
-      # ~~for parity~~ or until someone changes it.
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-fail" ]

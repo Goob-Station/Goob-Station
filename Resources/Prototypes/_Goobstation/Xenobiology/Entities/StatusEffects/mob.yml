@@ -15,11 +15,15 @@
   parent: MobStatusEffectBase
   id: StatusEffectFireImmune
   components:
-  - type: SpecialHighTempImmunity
-  - type: FireImmunity
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: SpecialHighTempImmunity
+    - type: FireImmunity
 
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectWeatherImmune
   components:
-  - type: WeatherImmune
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: WeatherImmune

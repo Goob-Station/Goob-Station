@@ -76,23 +76,30 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:AdjustReagent
-        reagent: XenobioJellyGreen
-        number: 5
+        reagent: XenobioFelinidToxin # EVIL
+        amount: 5
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
       - !type:PopupMessage
         type: Pvs
-        messages: [ "xeno-extract-reaction-fail" ]
+        messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      # Armok required (golems)
+      - !type:AdjustReagent
+        reagent: XenobioJellyGreen
+        amount: 5
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:CreateEntityReactionEffect
-        entity: MaterialBiomass
-        number: 1
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:AdjustReagent
+        reagent: XenobioHumanToxin
+        amoun: 5
   - type: SlimeExtract
   - type: Tag
     tags:

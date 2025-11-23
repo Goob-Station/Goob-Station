@@ -91,7 +91,7 @@
   name: xenobio-reagent-jelly-green-name
   desc: xenobio-reagent-jelly-green-desc
   color: "#4DFF4D"
-  metabolismRate: 1
+  metabolismRate: 10 # HELLO HYPOSPRAY USERS
   metabolisms:
     Poison:
       effects:
@@ -115,7 +115,7 @@
   name: xenobio-reagent-toxin-human-name
   desc: xenobio-reagent-toxin-human-desc
   color: "#000000"
-  metabolismRate: 1
+  metabolismRate: 10 # HELLO HYPOSPRAY USERS
   metabolisms:
     Poison:
       effects:
@@ -156,7 +156,7 @@
   name: xenobio-reagent-toxin-advanced-name
   desc: xenobio-reagent-toxin-advanced-desc
   color: "#000000"
-  metabolismRate: 1
+  metabolismRate: 10 # HELLO HYPOSPRAY USERS
   metabolisms:
     Poison:
       effects:
@@ -179,7 +179,7 @@
   name: xenobio-reagent-toxin-felinid-name
   desc: xenobio-reagent-toxin-felinid-desc
   color: "#000000"
-  metabolismRate: 1
+  metabolismRate: 10 # HELLO HYPOSPRAY USERS
   metabolisms:
     Poison:
       effects:

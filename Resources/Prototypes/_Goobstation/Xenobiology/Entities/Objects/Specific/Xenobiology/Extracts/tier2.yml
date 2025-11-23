@@ -16,8 +16,6 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      # it was supposed to spawn an electricla explosion
-      # but let's just leave it at that for now.
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-fail" ]

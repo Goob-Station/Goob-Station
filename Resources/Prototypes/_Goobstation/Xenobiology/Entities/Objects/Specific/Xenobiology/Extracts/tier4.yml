@@ -108,7 +108,7 @@
       - !type:Jitter
         time: 3
         frequency: 20
-      - !type:ScrambleNearby
+      - !type:ScrambleNearbyEffect
         radius: 3
         delay: 3
   - type: SlimeExtract
@@ -148,7 +148,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:AdjustReagent
-        reagent: XenobioMutationToxinAdvanced
+        reagent: AdvancedMutationToxin
         amount: 5
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
