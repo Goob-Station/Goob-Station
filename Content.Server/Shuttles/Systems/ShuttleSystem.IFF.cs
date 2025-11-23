@@ -97,12 +97,12 @@ public sealed partial class ShuttleSystem
 
     private void OnIFFConsoleAnchor(EntityUid uid, IFFConsoleComponent component, ref AnchorStateChangedEvent args)
     {
-        if (!TryComp(uid, out TransformComponent? xform)) // CorvaxGoob-IIF-Improves
-            return;
+        var xform = Transform(uid); // CorvaxGoob-IIF-Improves
 
         // If we anchor / re-anchor then make sure flags up to date.
         if (!args.Anchored ||
-            !TryComp<IFFComponent>(xform.GridUid, out var iff)) // CorvaxGoob-IFF-Changes : removed !TryComp(uid, out TransformComponent? xform)
+            // CorvaxGoob-IFF-Changes : removed !TryComp(uid, out TransformComponent? xform)
+            !TryComp<IFFComponent>(xform.GridUid, out var iff))
         {
             _uiSystem.SetUiState(uid, IFFConsoleUiKey.Key, new IFFConsoleBoundUserInterfaceState()
             {

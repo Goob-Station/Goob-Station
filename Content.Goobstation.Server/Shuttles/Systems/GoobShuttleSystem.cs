@@ -23,8 +23,9 @@ public sealed class GoobShuttleSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<IFFConsoleComponent, IFFApplyRadarSettingsMessage>(OnIFFApplyRadarSettings); // CorvaxGoob-IIF-Improves
-        SubscribeLocalEvent<IFFConsoleComponent, GotEmaggedEvent>(OnGotEmagged); // CorvaxGoob-IIF-Improves
+        SubscribeLocalEvent<IFFConsoleComponent, IFFApplyRadarSettingsMessage>(OnIFFApplyRadarSettings);
+        SubscribeLocalEvent<IFFConsoleComponent, GotEmaggedEvent>(OnGotEmagged);
+        SubscribeLocalEvent<IFFConsoleComponent, IFFSettingsChangeAttemptEvent>(OnCheckCanChangeIFF);
     }
 
     public void OnGotEmagged(Entity<IFFConsoleComponent> entity, ref GotEmaggedEvent ev)
@@ -73,16 +74,16 @@ public sealed class GoobShuttleSystem : EntitySystem
         });
     }
 
-    private void OnIFFApplyRadarSettings(Entity<IFFConsoleComponent> entity, ref IFFApplyRadarSettingsMessage args)
+    private void OnIFFApplyRadarSettings(Entity<IFFConsoleComponent> ent, ref IFFApplyRadarSettingsMessage args)
     {
-        if (!TryComp(entity, out TransformComponent? xform) || xform.GridUid is null)
+        var xform = Transform(ent);
+        if (xform.GridUid is null)
             return;
 
-        if (HasComp<BecomesStationComponent>(xform.GridUid))
-        {
-            PopupOnStationIFFError(entity);
+        var ev = new IFFSettingsChangeAttemptEvent();
+        RaiseLocalEvent(ent, ref ev);
+        if (!ev.CanChange)
             return;
-        }
 
         if (MetaData(xform.GridUid.Value).EntityName == args.Name && _shuttle.GetIFFColor(xform.GridUid.Value) == args.Color)
             return;
@@ -92,6 +93,15 @@ public sealed class GoobShuttleSystem : EntitySystem
 
         _meta.SetEntityName(xform.GridUid.Value, args.Name is not null ? args.Name : "");
 
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/Shuttle/radar_ping.ogg"), entity);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/Shuttle/radar_ping.ogg"), ent);
+    }
+
+    private void OnCheckCanChangeIFF(Entity<IFFConsoleComponent> ent, ref IFFSettingsChangeAttemptEvent args)
+    {
+        if (!HasComp<BecomesStationComponent>(ent))
+            return;
+
+        PopupOnStationIFFError(ent);
+        args.CanChange = false;
     }
 }
