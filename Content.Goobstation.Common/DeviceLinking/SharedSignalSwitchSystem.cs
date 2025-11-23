@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._CorvaxGoob.DeviceLinking.Systems;
+namespace Content.Goobstation.Common.DeviceLinking;
 
 [Serializable, NetSerializable]
 public enum SignalSwitchVisuals : byte

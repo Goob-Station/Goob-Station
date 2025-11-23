@@ -11,6 +11,6 @@
     - state: icon
     - state: unlit
       shader: unshaded
-      map: ["enum.StasisBedVisualLayers.IsOn"]
+      map: ["unlit"]
   - type: Machine
     board: StasisOperatingTableCircuitboard
