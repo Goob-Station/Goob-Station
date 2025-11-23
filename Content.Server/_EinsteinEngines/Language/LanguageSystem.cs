@@ -31,7 +31,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         SubscribeNetworkEvent<LanguagesSetMessage>(OnClientSetLanguage);
 
         SubscribeLocalEvent<UniversalLanguageSpeakerComponent, MapInitEvent>((uid, _, _) => UpdateEntityLanguages(uid), after: [typeof(SharedBodySystem), typeof(BorgSystem)]);
-        SubscribeLocalEvent<UniversalLanguageSpeakerComponent, ComponentRemove>((uid, _, _) => UpdateEntityLanguages(uid));
+        SubscribeLocalEvent<UniversalLanguageSpeakerComponent, ComponentShutdown>((uid, _, _) => UpdateEntityLanguages(uid));
     }
 
     #region event handling
