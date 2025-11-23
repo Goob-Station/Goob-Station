@@ -923,11 +923,11 @@ public abstract partial class SharedSurgerySystem
             return 2f; // Shouldnt really happen but just a failsafe.
 
         var speed = toolSpeed;
-        if(TryComp<BuckleComponent>(target, out var buckleComp)) // If the target is buckled to an operating table, apply the surgery speed multiplier from the operating table.
+        if(TryComp<BuckleComponent>(target, out var buckleComp)) // Get buckle component from target.
         {
-            if(TryComp<OperatingTableComponent>(buckleComp.BuckledTo, out var tableComp))
+            if(TryComp<OperatingTableComponent>(buckleComp.BuckledTo, out var tableComp))  // If they are buckled to entity with operating table component
             {
-                speed *= tableComp.SurgerySpeedMultiplier;
+                speed *= tableComp.SurgerySpeedModifier; // apply surgery speed modifier
             }
         }
         if (TryComp(user, out SurgerySpeedModifierComponent? surgerySpeedMod))

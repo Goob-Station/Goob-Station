@@ -11,5 +11,5 @@ namespace Content.Shared._Shitmed.Medical.Surgery;
 public sealed partial class OperatingTableComponent : Component
 {
     [DataField] 
-    public float SurgerySpeedMultiplier = 1f;
+    public float SurgerySpeedModifier = 1f;
 }
