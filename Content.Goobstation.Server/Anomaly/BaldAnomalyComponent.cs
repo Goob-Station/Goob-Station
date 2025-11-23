@@ -36,7 +36,7 @@ public sealed partial class BaldAnomalyComponent : Component
     public bool CanCopy = true;
 
     /// <summary>
-    /// copy to spawn
+    /// Which prototype to copy when they should copy itself
     /// </summary>
     [DataField]
     public EntProtoId CopyProto = "AnomalyBaldCopy";
