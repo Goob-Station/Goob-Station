@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprited by SolsticeOfTheWinter",
+  "copyright": "Sprited by SolsticeOfTheWinter, resprite by VictorJob",
   "size": {
     "x": 32,
     "y": 32
@@ -14,7 +14,7 @@
       "name": "lighter_flame",
       "delays": [
         [
-          0.2,
+          0.1,
           0.1
         ]
       ]
