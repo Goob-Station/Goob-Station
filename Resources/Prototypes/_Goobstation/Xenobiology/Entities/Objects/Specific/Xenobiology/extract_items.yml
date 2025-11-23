@@ -172,6 +172,11 @@
     - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
       color: "#ff3333"
+  - type: ClothingCoating
+    coatingName: clothing-coating-xenobio-volatile
+    components:
+    - type: VeryFlammable
+    - type: SpeedModifierImmunity
 
 - type: entity
   parent: BaseItem

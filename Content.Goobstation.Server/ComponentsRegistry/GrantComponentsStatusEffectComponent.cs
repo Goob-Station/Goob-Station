@@ -7,5 +7,6 @@ namespace Content.Goobstation.Server.ComponentsRegistry;
 public sealed partial class GrantComponentsStatusEffectComponent : Component
 {
     [DataField(required: true)]
+    [AlwaysPushInheritance]
     public ComponentRegistry Components { get; private set; } = new();
 }

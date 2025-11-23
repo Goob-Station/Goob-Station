@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Flammability;
+namespace Content.Goobstation.Common.Flammability;
 
 /// <summary>
 ///     Indicates that, when on fire, it should ignore all fire protection.
