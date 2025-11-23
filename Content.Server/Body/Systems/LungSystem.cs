@@ -136,7 +136,7 @@ public sealed class LungSystem : EntitySystem
                 continue;
 
             var amount = moles * Atmospherics.BreathMolesToReagentMultiplier;
-            amount = Math.Clamp(amount, 0, 15); // Prevent absurd amounts of reagent from being added. The maximum is arbitrary and as once wise Wizden contributor said Suck my Dick.
+            amount = Math.Clamp(amount, 0, 15); // Goobstation - Prevent absurd amounts of reagent from being added. The maximum is arbitrary and as once wise Wizden contributor said Suck my Dick.
             solution.AddReagent(reagent, amount);
         }
     }
