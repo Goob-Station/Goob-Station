@@ -23,6 +23,11 @@
     bulb: Tube
     ejectBulbDelay: 5
     unarmedHitShock: 0
+  - type: DeviceLinkSink
+    ports:
+    - On
+    - Off
+    - Toggle
   - type: ContainerContainer
     containers:
       light_bulb: !type:ContainerSlot
