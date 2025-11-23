@@ -18235,3 +18235,25 @@ Entries:
         and more.
   id: 2055
   time: '2025-11-23T00:08:55.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Protective blades now properly reflect projectiles.
+    - type: Fix
+      message: Firestacks on projectiles can't be applied upon reflect.
+    - type: Fix
+      message: >-
+        Breaking blade as heretic or using scram implanter while pulling someone
+        no longer can teleport you into a wall.
+    - type: Add
+      message: >-
+        You can now throw protective orbiting blades by pressing "throw" key
+        while having empty hand. Old method still works.
+    - type: Add
+      message: Heretics now lose the ability to break blades upon ascension.
+    - type: Tweak
+      message: >-
+        Blade ascension stun/knockdown time is halved, additionally you don't
+        drop your held items on knockdown as ascended blade heretic.
+  id: 2056
+  time: '2025-11-23T18:09:35.0000000+00:00'
