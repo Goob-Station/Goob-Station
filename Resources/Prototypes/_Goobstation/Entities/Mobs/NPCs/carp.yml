@@ -46,4 +46,3 @@
     - type: HTN
       rootTask:
         task: DragonCarpCompound
-    - type: GrantSleepingCarpInit # kill yourself
