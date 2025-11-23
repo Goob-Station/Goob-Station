@@ -924,12 +924,8 @@ public abstract partial class SharedSurgerySystem
 
         var speed = toolSpeed;
         if(TryComp<BuckleComponent>(target, out var buckleComp)) // Get buckle component from target.
-        {
             if(TryComp<OperatingTableComponent>(buckleComp.BuckledTo, out var operatingTableComponent))  // If they are buckled to entity with operating table component
-            {
                 speed *= operatingTableComponent.SpeedModifier; // apply surgery speed modifier
-            }
-        }
         if (TryComp(user, out SurgerySpeedModifierComponent? surgerySpeedMod))
             speed *= surgerySpeedMod.SpeedModifier;
 
