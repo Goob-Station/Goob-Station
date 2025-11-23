@@ -109,15 +109,11 @@
     state: sm_cascade
   - type: EdgeSpreader
     id: Kudzu
-  - type: Damageable
-    damageModifierSet: Wood
-  #- type: KudzuVisuals # I HATE YOU I HATE YOU I HATE YOU I HATE YOU
   - type: Kudzu
     growthTickChance: 1
     spreadChance: 1
     growthLevel: 2
     growthBlock: 9999
-    growthHealth: 9998
     spriteVariants: 1
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.1 # death
@@ -134,8 +130,8 @@
         layer:
         - MidImpassable
   - type: RadiationSource
-    intensity: 2
-    slope: 0.3
+    intensity: 0.1
+    slope: 0.6
   - type: Cascade
   - type: PointLight
     color: "#f3b355"
