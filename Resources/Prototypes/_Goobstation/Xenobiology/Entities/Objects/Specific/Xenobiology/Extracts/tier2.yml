@@ -30,7 +30,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        entity: XenoSlimeBattery
+        entity: XenobioVolatileOrgan
         number: 1
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
@@ -360,9 +360,9 @@
         messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
-        entity: XenobioJellyCerulean
-        number: 1
+      - !type:AdjustReagent
+        reagent: XenobioJellyCerulean
+        amount: 1
   - type: SlimeExtract
   - type: Tag
     tags:

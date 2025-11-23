@@ -39,7 +39,7 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:IgniteNearbyEffect
         radius: 3
-        firestacks: 5
+        fireStacks: 5
       - !type:FlashReactionEffect
         maxRange: 7
         rangePerUnit: 1

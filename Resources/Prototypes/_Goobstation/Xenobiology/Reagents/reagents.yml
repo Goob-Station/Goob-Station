@@ -4,9 +4,9 @@
   name: xenobio-reagent-jelly-purple-name
   desc: xenobio-reagent-jelly-purple-desc
   color: "#BF77F6"
-  metabolismRate: 1
   metabolisms:
     Food:
+      metabolismRate: 1
       effects:
       - !type:ModifySlimeComponent
         conditions:
@@ -20,9 +20,9 @@
   name: xenobio-reagent-jelly-blue-name
   desc: xenobio-reagent-jelly-blue-desc
   color: "#79F6FC"
-  metabolismRate: 1
   metabolisms:
     Food:
+      metabolismRate: 1
       effects:
       - !type:ModifySlimeComponent
         conditions:
@@ -36,9 +36,9 @@
   name: xenobio-reagent-jelly-darkblue-name
   desc: xenobio-reagent-jelly-darkblue-desc
   color: "#1E8CFA"
-  metabolismRate: 1
   metabolisms:
     Food:
+      metabolismRate: 1
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectFireImmune
@@ -55,9 +55,9 @@
   name: xenobio-reagent-jelly-cerulean-name
   desc: xenobio-reagent-jelly-cerulean-desc
   color: "#2A52BE"
-  metabolismRate: 1
   metabolisms:
     Food:
+      metabolismRate: 1
       effects:
       - !type:ModifySlimeComponent
         conditions:
@@ -71,9 +71,9 @@
   name: xenobio-reagent-jelly-red-name
   desc: xenobio-reagent-jelly-red-desc
   color: "#FF3333"
-  metabolismRate: 1
   metabolisms:
     Food:
+      metabolismRate: 1
       effects:
       - !type:ModifySlimeComponent
         conditions:
@@ -87,9 +87,9 @@
   name: xenobio-reagent-jelly-green-name
   desc: xenobio-reagent-jelly-green-desc
   color: "#4DFF4D"
-  metabolismRate: 10 # HELLO HYPOSPRAY USERS
   metabolisms:
     Poison:
+      metabolismRate: 10 # hello hypospray users!
       effects:
       - !type:SpeciesChange
         conditions:
@@ -109,9 +109,9 @@
   name: xenobio-reagent-toxin-human-name
   desc: xenobio-reagent-toxin-human-desc
   color: "#000000"
-  metabolismRate: 10 # HELLO HYPOSPRAY USERS
   metabolisms:
     Poison:
+      metabolismRate: 10 # hello hypospray users!
       effects:
       - !type:SpeciesChange
         conditions:
@@ -131,9 +131,9 @@
   name: xenobio-reagent-jelly-pink-name
   desc: xenobio-reagent-jelly-pink-desc
   color: "#FF4DD2"
-  metabolismRate: 1
   metabolisms:
     Poison:
+      metabolismRate: 1
       effects:
       - !type:ChangeFactionEntityEffect
         conditions:
@@ -147,9 +147,9 @@
   name: xenobio-reagent-toxin-advanced-name
   desc: xenobio-reagent-toxin-advanced-desc
   color: "#000000"
-  metabolismRate: 10 # HELLO HYPOSPRAY USERS
   metabolisms:
     Poison:
+      metabolismRate: 10 # hello hypospray users!
       effects:
       - !type:RandomSpeciesChange
         conditions:
@@ -168,9 +168,9 @@
   name: xenobio-reagent-toxin-felinid-name
   desc: xenobio-reagent-toxin-felinid-desc
   color: "#000000"
-  metabolismRate: 10 # HELLO HYPOSPRAY USERS
   metabolisms:
     Poison:
+      metabolismRate: 10 # hello hypospray users!
       effects:
       - !type:SpeciesChange
         conditions:
@@ -190,9 +190,9 @@
   name: xenobio-reagent-genderfluid-name
   desc: xenobio-reagent-genderfluid-desc
   color: "#FF4DD2"
-  metabolismRate: 1
   metabolisms:
     Narcotic:
+      metabolismRate: 1
       effects:
       - !type:SexChange
         conditions:
