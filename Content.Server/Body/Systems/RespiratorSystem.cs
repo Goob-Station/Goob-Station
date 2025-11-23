@@ -79,6 +79,7 @@
 
 using Content.Goobstation.Common.Body.Components;
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Shared.Body; // goob
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
@@ -148,9 +149,15 @@ public sealed class RespiratorSystem : EntitySystem
     }
 
     // Goobstation start
-    // Can breathe check for grab
+    // Can breathe check for grab or if they need air
     public bool CanBreathe(EntityUid uid, RespiratorComponent respirator)
     {
+        var airEv = new CheckNeedsAirEvent();
+        RaiseLocalEvent(uid, ref airEv);
+
+        if (airEv.Cancelled)
+            return true;
+
         if (respirator.Saturation < respirator.SuffocationThreshold)
             return false;
         if (TryComp<PullableComponent>(uid, out var pullable)
@@ -574,6 +581,14 @@ public sealed class RespiratorSystem : EntitySystem
     {
         if (!Resolve(uid, ref respirator, false))
             return;
+
+        // Goob start
+        var airEv = new CheckNeedsAirEvent();
+        RaiseLocalEvent(uid, ref airEv);
+
+        if (airEv.Cancelled)
+            return;
+        // Goob end
 
         respirator.Saturation += amount;
         respirator.Saturation =
