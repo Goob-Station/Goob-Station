@@ -24,6 +24,9 @@
   - type: Item
     size: Tiny
     sprite: Objects/Weapons/Melee/debug.rsi
+  - type: PlaySoundOnGiftOpen # Goobstation edit. Plays a song based upon Mariah Carey's "All I Want For Christmas Is You" to entire server upon unboxing.
+    sound: /Audio/_Goobstation/Music/All_I_Want_For_Gibmas.ogg
+    isSoundGlobal: true
 
 - type: entity
   name: bang severer 100dmg

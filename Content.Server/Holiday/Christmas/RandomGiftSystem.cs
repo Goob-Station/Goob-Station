@@ -22,6 +22,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._Goobstation.Holiday.Christmas; // GOOBSTATION EDIT
 using Content.Server.Administration.Logs;
 using Content.Server.Hands.Systems;
 using Content.Shared.Database;
@@ -88,15 +89,14 @@ public sealed class RandomGiftSystem : EntitySystem
         if (component.Wrapper is not null)
             Spawn(component.Wrapper, coords);
 
-        if (component.SelectedEntity == "WeaponPistolDebug" // Goobstation
-            || component.SelectedEntity == "MeleeDebugGib"
-            || component.SelectedEntity == "MeleeDebug100"
-            || component.SelectedEntity == "MeleeDebug200"
-            || component.SelectedEntity == "MeleeDebugSever"
-            || component.SelectedEntity == "MeleeDebugSever100"
-            || component.SelectedEntity == "MeleeDebugSever200"
-            || component.SelectedEntity == "WeaponPistolDebug")
-            _audio.PlayGlobal("/Audio/_Goobstation/Music/All_I_Want_For_Gibmas.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+        if (TryComp<PlaySoundOnGiftOpenComponent>(handsEnt, out var uniqueItemSoundComp) && uniqueItemSoundComp.Sound is not null) // Goobstation edit to allow for unique item sounds when played for gift open.
+        {
+            if (uniqueItemSoundComp.IsSoundGlobal)
+                _audio.PlayGlobal(uniqueItemSoundComp.Sound, Filter.Broadcast(), true, AudioParams.Default.WithVolume(uniqueItemSoundComp.SoundVolume)); // Globally played sound
+            else
+                _audio.PlayPvs(uniqueItemSoundComp.Sound, args.User, AudioParams.Default.WithVolume(uniqueItemSoundComp.SoundVolume)); // Locally played sound
+        }
+
 
 
         _audio.PlayPvs(component.Sound, args.User);
