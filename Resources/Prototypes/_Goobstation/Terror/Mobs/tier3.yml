@@ -17,14 +17,11 @@
     states:
       Alive:
         Base: allblack
-      Critical:
-        Base: allblack_dead
       Dead:
         Base: allblack_dead
   - type: MobThresholds
     thresholds:
       0: Alive
-      550: Critical
       600: Dead
   - type: MeleeWeapon
     damage:
@@ -53,14 +50,11 @@
     states:
       Alive:
         Base: princess
-      Critical:
-        Base: princess_dead
       Dead:
         Base: princess_dead
   - type: MobThresholds
     thresholds:
       0: Alive
-      125: Critical
       150: Dead
   - type: MeleeWeapon
     damage:
@@ -86,14 +80,11 @@
     states:
       Alive:
         Base: mother
-      Critical:
-        Base: mother_dead
       Dead:
         Base: mother_dead
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Critical
       100: Dead
   - type: MeleeWeapon
     damage:

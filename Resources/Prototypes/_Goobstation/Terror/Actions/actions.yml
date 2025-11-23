@@ -1,0 +1,117 @@
+- type: entity
+  id: ActionTerrorWeb
+  name: Web
+  description: Spins a Terror Web. These will block some projectiles one time, and ensnare any humanoid who enters them for several seconds.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 3
+    icon:
+      sprite: _Goobstation/Terror/actions.rsi
+      state: web
+  - type: TargetAction
+    range: 1
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SpiderWeb
+        amount: 1
+
+- type: entity
+  id: ActionTerrorThickWeb
+  name: Thick web
+  description: Spins a web that blocks the crew's vision.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 15
+    icon:
+      sprite: _Goobstation/Terror/actions.rsi
+      state: thickweb
+  - type: TargetAction
+    range: 1
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SpiderWeb
+        amount: 1
+
+- type: entity
+  id: ActionTerrorLayEggs
+  name: Lay eggs
+  description: Lay eggs that can hatch into any kind of terror spiders. The more people that have been wrapped by the hive, the higher the odds of better eggs being laid.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 120
+    icon:
+      sprite: _Goobstation/Terror/actions.rsi
+      state: lay
+  - type: TargetAction
+    range: 1
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: TerrorEggRed
+        amount: 1
+
+- type: entity
+  id: ActionTerrorLayEggsGreen
+  name: Lay green eggs
+  description: Lay eggs into a corpse. The corpse has to be wrapped first. Can only hatch into a select few types of terror spiders.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 30
+    icon:
+      sprite: _Goobstation/Terror/actions.rsi
+      state: laygreen
+  - type: TargetAction
+    range: 1
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Cocoon
+    canTargetSelf: false
+    event: !type:TentacleHookEvent
+
+- type: entity
+  id: ActionTerrorWrap
+  name: Wrap
+  description: Wraps up a corpse in a web. All spiders get a bonus to health regeneration for each humanoid corpse they wrap.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 30
+    icon:
+      sprite: _Goobstation/Terror/actions.rsi
+      state: wrap
+  - type: TargetAction
+    range: 1
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:TerrorWrapEvent
+
+- type: entity
+  id: ActionTerrorVentSmash
+  name: Vent Smash
+  description: Smashes open a welded vent or scrubber.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 30
+    icon:
+      sprite: _Goobstation/Terror/actions.rsi
+      state: wrap
+  - type: TargetAction
+    range: 1
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - GasVentScrubber
+      - GasPassiveVent
+    canTargetSelf: false
+    event: !type:TentacleHookEvent

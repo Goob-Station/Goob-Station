@@ -1,0 +1,140 @@
+- type: entity
+  id: BaseTerrorEgg
+  name: terror egg
+  description: The egg of a Terror Spider. Can hatch into anything.
+  abstract: true
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderRed
+    intervalSeconds: 120
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: TimedDespawn
+    lifetime: 120.5
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Terror/Objects/eggs.rsi
+    layers:
+    - state: terroreggs
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        mask:
+        - FullTileMask
+        layer:
+        - Opaque
+        hard: false
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Diona
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: gib
+
+# =========================================================
+# TIER 1
+# =========================================================
+
+- type: entity
+  id: TerrorEggRed
+  parent: BaseTerrorEgg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderRed
+
+- type: entity
+  id: TerrorEggGray
+  parent: BaseTerrorEgg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderGray
+
+- type: entity
+  id: TerrorEggGreen
+  parent: BaseTerrorEgg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderGreen
+
+# =========================================================
+# TIER 2
+# =========================================================
+
+- type: entity
+  id: TerrorEggBlack
+  parent: BaseTerrorEgg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderBlack
+
+- type: entity
+  id: TerrorEggWhite
+  parent: BaseTerrorEgg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderWhite
+
+- type: entity
+  id: TerrorEggPurple
+  parent: BaseTerrorEgg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderPurple
+
+- type: entity
+  id: TerrorEggBrown
+  parent: BaseTerrorEgg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderBrown
+
+# =========================================================
+# TIER 3
+# =========================================================
+
+- type: entity
+  id: TerrorEggPrince
+  parent: BaseTerrorEgg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderPrince
+
+- type: entity
+  id: TerrorEggPrincess
+  parent: BaseTerrorEgg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderPrincess
+
+- type: entity
+  id: TerrorEggMother
+  parent: BaseTerrorEgg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderMother

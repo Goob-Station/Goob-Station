@@ -1,0 +1,41 @@
+# =========================================================
+# QUEEN OF TERROR
+# =========================================================
+- type: entity
+  id: TerrorSpiderQueen
+  parent: TerrorSpiderBaseT1
+  name: queen of terror
+  description: An enormous, terrifying spider. Its egg sac is almost as big as its body, and teeming with spider eggs!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: princess
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: queen
+      Dead:
+        Base: queen_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Toxin
+          Quantity: 1000
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 0.3
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 10
+      types:
+        Structural: 100
+        Ion: 20

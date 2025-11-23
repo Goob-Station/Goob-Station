@@ -1,0 +1,38 @@
+- type: entity
+  id: TerrorCocoon
+  name: cocoon
+  description: Creepy.
+  components:
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Terror/Objects/cocoon.rsi
+    layers:
+    - state: cocoon
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - Opaque
+        hard: false
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Diona
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 25
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: gib

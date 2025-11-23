@@ -17,8 +17,6 @@
     states:
       Alive:
         Base: widow
-      Critical:
-        Base: widow_dead
       Dead:
         Base: widow_dead
   - type: SolutionContainerManager
@@ -26,14 +24,13 @@
       melee:
         reagents:
         - ReagentId: Toxin # Change this to black venom maybe but like it doesn't do anything special.
-          Quantity: 100
+          Quantity: 1000
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 0.2
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Critical
       100: Dead
   - type: MeleeWeapon
     damage:
@@ -59,14 +56,11 @@
     states:
       Alive:
         Base: white
-      Critical:
-        Base: white_dead
       Dead:
         Base: white_dead
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Critical
       200: Dead
   - type: MeleeWeapon
     damage:
@@ -92,8 +86,6 @@
     states:
       Alive:
         Base: purple
-      Critical:
-        Base: purple_dead
       Dead:
         Base: purple_dead
   - type: MovementSpeedModifier
@@ -102,7 +94,6 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      180: Critical
       200: Dead
   - type: MeleeWeapon
     damage:
@@ -129,14 +120,11 @@
     states:
       Alive:
         Base: brown
-      Critical:
-        Base: brown_dead
       Dead:
         Base: brown_dead
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Critical
       100: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed: 2

@@ -13,8 +13,6 @@
     states:
       Alive:
         Base: red
-      Critical:
-        Base: red_dead
       Dead:
         Base: red_dead
   - type: HTN
@@ -36,14 +34,13 @@
         mask: [MobMask]
         layer: [MobLayer]
   - type: MobState
-    allowedStates: [Alive, Critical, Dead]
+    allowedStates: [Alive, Dead]
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 4
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
       200: Dead
   - type: MeleeWeapon
     damage:
@@ -51,6 +48,58 @@
         Brute: 10
   - type: NpcFactionMember
     factions: [SimpleHostile]
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Xeno
+    understands:
+    - Xeno
+  - type: InteractionPopup
+    successChance: 0.1
+    interactSuccessString: petting-success-tarantula
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/snake_hiss.ogg
+  - type: NoSlip
+  - type: Spider
+  - type: IgnoreSpiderWeb
+  - type: Bloodstream
+    bloodMaxVolume: 150
+    bloodReagent: CopperBlood
+  - type: Speech
+    speechVerb: Arachnid
+    speechSounds: Arachnid
+    allowedEmotes: ['Click', 'Chitter']
+  - type: Vocal
+    sounds:
+      Male: UnisexArachnid
+      Female: UnisexArachnid
+      Unsexed: UnisexArachnid
+  - type: TypingIndicator
+    proto: spider
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+  - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute from base.yml.
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Poison: -0.07
+      groups:
+        Brute: -0.07
+        Burn: -0.07
+  - type: NightVision
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
+  - type: TerrorWrap
+  - type: ActionGrant
+    actions:
+      - ActionTerrorWeb
+      - ActionTerrorWrap
+      - ActionTerrorLayEggs
 
 # =========================================================
 # RED TERROR — Juggernaut
@@ -71,8 +120,6 @@
     states:
       Alive:
         Base: red
-      Critical:
-        Base: red_dead
       Dead:
         Base: red_dead
   - type: MovementSpeedModifier
@@ -81,12 +128,18 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      160: Critical
       200: Dead
   - type: MeleeWeapon
     damage:
       groups:
         Brute: 15
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: VentCrawler
 
 # =========================================================
 # GRAY TERROR — Ambusher
@@ -107,14 +160,11 @@
     states:
       Alive:
         Base: grey
-      Critical:
-        Base: grey_dead
       Dead:
         Base: grey_dead
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Critical
       100: Dead
   - type: MeleeWeapon
     damage:
@@ -140,14 +190,11 @@
     states:
       Alive:
         Base: green
-      Critical:
-        Base: green_dead
       Dead:
         Base: green_dead
   - type: MobThresholds
     thresholds:
       0: Alive
-      125: Critical
       150: Dead
   - type: MeleeWeapon
     damage:
