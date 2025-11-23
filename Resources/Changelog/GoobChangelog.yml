@@ -18209,3 +18209,11 @@ Entries:
       message: Mothroaches can grow up to 2 times their size!
   id: 2053
   time: '2025-11-22T20:10:49.0000000+00:00'
+- author: Swatter
+  changes:
+    - type: Tweak
+      message: >-
+        Moths are now slightly slower when weightless, and are as slow as humans
+        if they're prone.
+  id: 2054
+  time: '2025-11-23T00:06:14.0000000+00:00'
