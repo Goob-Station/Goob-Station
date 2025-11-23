@@ -122,7 +122,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:AdjustReagent
-        reagent: XenobioJellyDarkBlue # makes people fire-proof for some time. ash storm immunity included!
+        reagent: XenobioJellyDarkBlue
         amount: 1
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
@@ -359,11 +359,11 @@
       effects:
       - !type:PopupMessage
         type: Pvs
-        messages: [ "xeno-extract-reaction" ]
+        messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        entity: XenobioCeruleanExtractJelly
+        entity: XenobioJellyCerulean
         number: 1
   - type: SlimeExtract
   - type: Tag

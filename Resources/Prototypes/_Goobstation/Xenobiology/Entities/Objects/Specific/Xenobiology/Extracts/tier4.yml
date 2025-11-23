@@ -38,7 +38,7 @@
         frequency: 20
       - !type:ExplosionReactionEffect
         delay: 5
-        explosionType: FireBomb # copied from yellow extract need testing
+        explosionType: FireBomb # bomboclat
         maxIntensity: 1050
         intensitySlope: 4
         intensityPerUnit: 70
@@ -94,9 +94,9 @@
         messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
-        entity: LightPinkExtractJelly
-        number: 1
+      - !type:AdjustReagent
+        reagent: Cognizine
+        amount: 10
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -139,9 +139,6 @@
         messages: [ "xeno-extract-reaction-fail" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      # was supposed to remove random organs
-      # but this is too evil
-      # so just let it do nothing. for parity ofc
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -192,12 +189,15 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
-      effects: # Armok required (golems)
+      effects:
       - !type:PopupMessage
         type: Pvs
-        messages: [ "xeno-extract-reaction-fail" ]
+        messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:CreateEntityReactionEffect
+        entity: XenobioAdamantineBar
+        number: 1
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:

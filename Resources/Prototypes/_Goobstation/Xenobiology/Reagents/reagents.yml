@@ -4,6 +4,7 @@
   name: xenobio-reagent-jelly-purple-name
   desc: xenobio-reagent-jelly-purple-desc
   color: "#BF77F6"
+  metabolismRate: 1
   metabolisms:
     Food:
       effects:
@@ -20,6 +21,7 @@
   name: xenobio-reagent-jelly-blue-name
   desc: xenobio-reagent-jelly-blue-desc
   color: "#79F6FC"
+  metabolismRate: 1
   metabolisms:
     Food:
       effects:
@@ -36,11 +38,18 @@
   name: xenobio-reagent-jelly-darkblue-name
   desc: xenobio-reagent-jelly-darkblue-desc
   color: "#1E8CFA"
-  metabolisis:
+  metabolismRate: 1
+  metabolisms:
     Food:
       effects:
-      - !type:MakeFireImmune
-      - !type:MakeWeatherImmune
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectFireImmune
+        time: 60
+        refresh: false
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectWeatherImmune
+        time: 60
+        refresh: false
 
 - type: reagent
   parent: Slime
@@ -48,6 +57,7 @@
   name: xenobio-reagent-jelly-cerulean-name
   desc: xenobio-reagent-jelly-cerulean-desc
   color: "#2A52BE"
+  metabolismRate: 1
   metabolisms:
     Food:
       effects:
@@ -64,6 +74,7 @@
   name: xenobio-reagent-jelly-red-name
   desc: xenobio-reagent-jelly-red-desc
   color: "#FF3333"
+  metabolismRate: 1
   metabolisms:
     Food:
       effects:
@@ -80,8 +91,9 @@
   name: xenobio-reagent-jelly-green-name
   desc: xenobio-reagent-jelly-green-desc
   color: "#4DFF4D"
+  metabolismRate: 1
   metabolisms:
-    Toxin:
+    Poison:
       effects:
       - !type:SpeciesChange
         conditions:
@@ -89,15 +101,23 @@
           min: 15
           max: 15
         newSpecies: SlimePerson
+      - !type:AdjustReagent
+        reagent: XenobioJellyGreen
+        amount: -15.0
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+          max: 15
 
 - type: reagent
   parent: Slime
-  id: XenoHumanToxin
+  id: XenobioHumanToxin
   name: xenobio-reagent-toxin-human-name
   desc: xenobio-reagent-toxin-human-desc
   color: "#000000"
+  metabolismRate: 1
   metabolisms:
-    Toxin:
+    Poison:
       effects:
       - !type:SpeciesChange
         conditions:
@@ -105,6 +125,30 @@
           min: 15
           max: 15
         newSpecies: Human
+      - !type:AdjustReagent
+        reagent: XenobioHumanToxin
+        amount: -15.0
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+          max: 15
+
+- type: reagent
+  parent: Slime
+  id: XenobioJellyPink
+  name: xenobio-reagent-jelly-pink-name
+  desc: xenobio-reagent-jelly-pink-desc
+  color: "#4DFF4D"
+  metabolismRate: 1
+  metabolisms:
+    Poison:
+      effects:
+      - !type:ChangeFactionEntityEffect
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+          max: 5
+        newFaction: Passive
 
 - type: reagent
   parent: Slime
@@ -112,10 +156,18 @@
   name: xenobio-reagent-toxin-advanced-name
   desc: xenobio-reagent-toxin-advanced-desc
   color: "#000000"
+  metabolismRate: 1
   metabolisms:
-    Toxin:
+    Poison:
       effects:
       - !type:RandomSpeciesChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+          max: 15
+      - !type:AdjustReagent
+        reagent: AdvancedMutationToxin
+        amount: -15.0
         conditions:
         - !type:ReagentThreshold
           min: 15
@@ -123,12 +175,13 @@
 
 - type: reagent
   parent: Slime
-  id: XenoFelinidToxin
+  id: XenobioFelinidToxin
   name: xenobio-reagent-toxin-felinid-name
   desc: xenobio-reagent-toxin-felinid-desc
   color: "#000000"
+  metabolismRate: 1
   metabolisms:
-    Toxin:
+    Poison:
       effects:
       - !type:SpeciesChange
         conditions:
@@ -136,18 +189,33 @@
           min: 15
           max: 15
         newSpecies: Felinid
+      - !type:AdjustReagent
+        reagent: XenobioFelinidToxin
+        amount: -15.0
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+          max: 15
 
 - type: reagent
   parent: Slime
-  id: XenoGenderFluid
+  id: XenobioGenderFluid
   name: xenobio-reagent-genderfluid-name
   desc: xenobio-reagent-genderfluid-desc
   color: "#FF4DD2"
+  metabolismRate: 1
   metabolisms:
     Narcotic:
       effects:
       - !type:SexChange
         conditions:
         - !type:ReagentThreshold
-          min: 15
-          max: 15
+          min: 5
+          max: 5
+      - !type:AdjustReagent
+        reagent: XenobioGenderFluid
+        amount: -15.0
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+          max: 5

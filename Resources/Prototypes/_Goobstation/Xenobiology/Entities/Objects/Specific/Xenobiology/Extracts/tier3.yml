@@ -29,12 +29,12 @@
       effects:
       - !type:PopupMessage
         type: Pvs
-        messages: [ "xeno-extract-reaction" ]
+        messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
-        entity: XenobioRedExtractJelly
-        number: 1
+      - !type:AdjustReagent
+        reagent: XenobioJellyRed
+        amount: 1
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -46,6 +46,7 @@
       - !type:ChangeFactionNearbyEffect
         newFaction: AllHostile # BILLIONS MUST KILL
         radius: 3
+        duration: 30
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -71,12 +72,12 @@
       effects:
       - !type:PopupMessage
         type: Pvs
-        messages: [ "xeno-extract-reaction" ]
+        messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
-        entity: XenobioGreenExtractJelly
-        number: 1
+      - !type:AdjustReagent
+        reagent: XenobioJellyGreen
+        number: 5
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -127,12 +128,12 @@
       effects:
       - !type:PopupMessage
         type: Pvs
-        messages: [ "xeno-extract-reaction" ]
+        messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
-        entity: XenobioPinkExtractJelly
-        number: 1
+      - !type:AdjustReagent
+        reagent: XenobioJellyPink
+        amount: 10
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -143,7 +144,7 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:AdjustReagent
         reagent: XenobioGenderFluid
-        amount: 100
+        amount: 5
   - type: SlimeExtract
   - type: Tag
     tags:

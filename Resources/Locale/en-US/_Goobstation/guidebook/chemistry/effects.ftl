@@ -21,8 +21,11 @@ reagent-effect-guidebook-deal-stamina-damage =
                   } stamina damage
 
 reagent-effect-guidebook-stealth-entities = Camouflages living mobs nearby.
-reagent-effect-guidebook-change-faction = Changes factions of living mobs nearby.
-reagent-effect-guidebook-mutate-plants = Randomly mutates nearby plants.
-reagent-effect-guidebook-scramble-nearby = Scrambles the DNA of nearby humanoids.
-reagent-effect-guidebook-removeorgan-nearby = Removes organs of nearby creatures. This is most likely the heart.
+
+reagent-effect-guidebook-change-faction = Changes the mob's faction to {$faction}.
+
+reagent-effect-guidebook-mutate-plants-nearby = Randomly mutates nearby plants.
+
+reagent-effect-guidebook-dnascramble = Scrambles the person's DNA.
+
 reagent-effect-guidebook-change-species = Turns the target into a {$species}
