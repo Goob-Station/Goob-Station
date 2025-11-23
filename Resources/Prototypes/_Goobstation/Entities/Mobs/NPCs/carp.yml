@@ -39,10 +39,13 @@
 
 # carp but with dragon compound to make it follow the carp caller
 - type: entity
-  id: MobCarpCaller
-  categories: [ HideSpawnMenu ] # no reason to spawn it
+  id: MobCarpSleepy
+  name: Sleepy carp
   parent: MobCarp
   components:
     - type: HTN
       rootTask:
         task: DragonCarpCompound
+    - type: Reflect
+      reflectProb: 1
+      spread: 120

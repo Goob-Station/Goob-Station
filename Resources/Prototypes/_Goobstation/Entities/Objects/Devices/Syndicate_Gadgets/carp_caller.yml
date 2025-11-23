@@ -54,7 +54,7 @@
         layer:
         - MachineLayer
   - type: MobCaller
-    spawnProto: MobCarpCaller
+    spawnProto: MobCarpSleepy
     maxAlive: 5
   - type: Destructible
     thresholds:
