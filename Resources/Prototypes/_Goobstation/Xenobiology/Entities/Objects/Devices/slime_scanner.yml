@@ -7,8 +7,13 @@
   - type: SlimeScanner
   - type: Sprite
     noRot: true
-    sprite: Structures/Machines/artifact_analyzer.rsi
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_scanner.rsi
     drawdepth: HighFloorObjects
     layers:
     - state: icon
     - state: analyzer
+      shader: unshaded
+      visible: true
+  - type: Item
+    heldPrefix: analyzer
+    storedRotation: -90
