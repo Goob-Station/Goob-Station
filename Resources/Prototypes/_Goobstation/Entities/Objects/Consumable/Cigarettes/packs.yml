@@ -15,3 +15,18 @@
     sprite: _Goobstation/Objects/Consumable/Smokeables/Cigarettes/Packs/blueshield.rsi
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Smokeables/Cigarettes/Packs/blueshield.rsi
+
+- type: entity
+  id: CigPackMedical
+  parent: [CigPackBase]
+  name: Chemlab herbals packet
+  description: Made for and by big pharma, laced with god knows what.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi # todo make new sprite, probably fine since there's no fake version of syndicigs
+  - type: Item
+    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi
+  - type: StorageFill
+    contents:
+    - id: CigaretteMedical
+      amount: 10

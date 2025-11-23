@@ -299,29 +299,6 @@
     - id: CigaretteSyndicate
       amount: 10
 
-- type: entity # Good start, You'll look so cool smoking your pain away
-  id: CigPackMedical
-  parent: [CigPackBase]
-  name: Chemlab herbals packet
-  description: Made for and by big pharma, laced with god knows what.
-  components:
-  - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi
-  - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi
-  - type: StorageFill
-    contents:
-    - id: CigaretteMedical
-      amount: 10
-
-- type: latheRecipe
-  id: MedicalCigPack
-  result: CigPackMedical
-  completetime: 2
-  materials:
-    Plastic: 500
-    Cloth: 500 # Goob end packet lathe price is based on cost of patches
-
 - type: entity
   id: CigPackMixed
   parent: CigPackMixedBase
