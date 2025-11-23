@@ -14,7 +14,6 @@
   id: ChemVendInventory
   startingInventory:
     Jug: 4
-    MedicalCigPack: 2 # Goob - giving chem alt med shift start
     JugAluminium: 2
     JugCarbon: 4
     JugChlorine: 1
@@ -46,7 +45,7 @@
   startingInventory:
     Jug: 4
     MedicalPatchBasic: 10 # goob start - so nukies have access to alt med stuff
-    MedicalCigPack: 2 # good end
+    CigPackMedical: 2 # good end
     JugAluminium: 2
     JugCarbon: 4
     JugChlorine: 1
