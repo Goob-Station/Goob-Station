@@ -16,17 +16,13 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      # it was supposed to spawn an electricla explosion
+      # but let's just leave it at that for now.
       - !type:PopupMessage
         type: Pvs
-        messages: [ "xeno-extract-reaction-evil" ]
+        messages: [ "xeno-extract-reaction-fail" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:ExplosionReactionEffect
-        delay: 5
-        explosionType: Electrical
-        maxIntensity: 1050
-        intensitySlope: 4
-        intensityPerUnit: 70
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -77,7 +73,7 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
         entity: SheetPlastic10
-        number: 3
+        number: 3 # in parity it did nothing but this is based
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -94,12 +90,9 @@
       effects:
       - !type:PopupMessage
         type: Pvs
-        messages: [ "xeno-extract-reaction-evil" ]
+        messages: [ "xeno-extract-reaction-fail" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateGas
-        gas: Plasma
-        multiplier: 35
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -125,12 +118,12 @@
       effects:
       - !type:PopupMessage
         type: Pvs
-        messages: [ "xeno-extract-reaction" ]
+        messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
-        entity: XenobioDarkBlueExtractJelly
-        number: 1
+      - !type:AdjustReagent
+        reagent: XenobioJellyDarkBlue # makes people fire-proof for some time. ash storm immunity included!
+        amount: 1
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -182,6 +175,9 @@
         messages: [ "xeno-extract-reaction-evil" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:Jitter
+        time: 5
+        frequency: 20
       - !type:AreaReactionEffect
         duration: 10
         delay: 5
@@ -208,7 +204,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        entity: XenobioGoopBall
+        entity: XenobioGoopBall # acts as a single use atmos holofan. also screams in slime
         number: 3
   - type: SlimeExtract
   - type: Tag
@@ -302,6 +298,9 @@
         messages: [ "xeno-extract-reaction-evil" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:Jitter
+        time: 5
+        frequency: 20
       - !type:CreateEntityReactionEffect
         delay: 5
         entity: XenoExtractChronofield

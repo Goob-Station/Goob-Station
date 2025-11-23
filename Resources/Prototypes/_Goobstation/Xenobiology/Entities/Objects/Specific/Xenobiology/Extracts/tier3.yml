@@ -40,11 +40,12 @@
       effects:
       - !type:PopupMessage
         type: Pvs
-        messages: [ "xeno-extract-reaction-evil" ]
+        messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:ChangeFactionNearbyEffect
-        newFaction: AllHostile
+        newFaction: AllHostile # BILLIONS MUST KILL
+        radius: 3
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -65,7 +66,7 @@
     isReactionsUnlimited: false
     oneUnitReaction: true
     reactions:
-    - reagents: [ Water ]
+    - reagents: [ Radium ]
       methods: [ Touch, Injection ]
       effects:
       - !type:PopupMessage
@@ -141,7 +142,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:AdjustReagent
-        reagent: XenoGenderFluid
+        reagent: XenobioGenderFluid
         amount: 100
   - type: SlimeExtract
   - type: Tag
@@ -172,6 +173,9 @@
         messages: [ "xeno-extract-reaction-evil" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:Jitter
+        time: 3
+        frequency: 20
       - !type:CreateEntityReactionEffect
         entity: RPassiveMobSpawner
         number: 5
@@ -184,6 +188,9 @@
         messages: [ "xeno-extract-reaction-evil" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:Jitter
+        time: 3
+        frequency: 20
       - !type:CreateEntityReactionEffect
         entity: RHostileMobSpawner
         number: 5
@@ -196,6 +203,9 @@
         messages: [ "xeno-extract-reaction-evil" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:Jitter
+        time: 3
+        frequency: 20
       - !type:CreateEntityReactionEffect
         entity: RNeutralMobSpawner
         number: 5

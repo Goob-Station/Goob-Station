@@ -5,46 +5,43 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Diagnostics;
-using System.Linq;
 using Content.Server._Shitmed.StatusEffects;
-using Content.Server.Atmos.Components;
-using Content.Server.Atmos.EntitySystems;
-using Content.Shared._Shitmed.StatusEffects;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
 using Content.Shared.Humanoid;
 using Robust.Shared.Prototypes;
-using SixLabors.ImageSharp.PixelFormats;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.EntityEffects;
 
 /// <summary>
 ///     Scrambles the dna of nearby humanoids.
 /// </summary>
-public sealed partial class ScrambleNearby : EntityEffect
+public sealed partial class ScrambleNearbyEffect : EntityEffect
 {
 
-    [DataField]
-    public float Range = 7;
+    [DataField] public float Radius = 7;
 
     public override bool ShouldLog => true;
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => null;
+        => Loc.GetString("reagent-effect-guidebook-scramble-nearby");
 
     public override LogImpact LogImpact => LogImpact.Medium;
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        if (args is not EntityEffectReagentArgs reagentArgs)
-            return;
+        if (Delay > 0f) Timer.Spawn((int) (Delay * 1000f), () => DoEffect(args));
+        else DoEffect(args);
+    }
 
+    private void DoEffect(EntityEffectBaseArgs args)
+    {
         var entityManager = args.EntityManager;
         var lookupSys = entityManager.System<EntityLookupSystem>();
         var scramSys = entityManager.System<ScrambleDnaEffectSystem>();
 
-        foreach (var entity in lookupSys.GetEntitiesInRange(args.TargetEntity, Range))
+        foreach (var entity in lookupSys.GetEntitiesInRange(args.TargetEntity, Radius))
             if (entityManager.HasComponent<HumanoidAppearanceComponent>(entity))
                 scramSys.Scramble(entity);
     }

@@ -1,7 +1,9 @@
 - type: reagent
-  id: PurpleXenoJelly
   parent: Slime
-  name: reagent-name-purple-xeno-jelly
+  id: XenobioJellyPurple
+  name: xenobio-reagent-jelly-purple-name
+  desc: xenobio-reagent-jelly-purple-desc
+  color: "#BF77F6"
   metabolisms:
     Food:
       effects:
@@ -13,9 +15,11 @@
         extractBonus: 1
 
 - type: reagent
-  id: BlueXenoJelly
   parent: Slime
-  name: reagent-name-blue-xeno-jelly
+  id: XenobioJellyBlue
+  name: xenobio-reagent-jelly-blue-name
+  desc: xenobio-reagent-jelly-blue-desc
+  color: "#79F6FC"
   metabolisms:
     Food:
       effects:
@@ -24,13 +28,26 @@
         - !type:ReagentThreshold
           min: 1
           max: 1
-        chanceModifier: 0.25
-        shouldSubtract: true
+        chanceModifier: -0.25
 
 - type: reagent
-  id: CeruleanXenoJelly
   parent: Slime
-  name: reagent-name-cerulean-xeno-jelly
+  id: XenobioJellyDarkBlue
+  name: xenobio-reagent-jelly-darkblue-name
+  desc: xenobio-reagent-jelly-darkblue-desc
+  color: "#1E8CFA"
+  metabolisis:
+    Food:
+      effects:
+      - !type:MakeFireImmune
+      - !type:MakeWeatherImmune
+
+- type: reagent
+  parent: Slime
+  id: XenobioJellyCerulean
+  name: xenobio-reagent-jelly-cerulean-name
+  desc: xenobio-reagent-jelly-cerulean-desc
+  color: "#2A52BE"
   metabolisms:
     Food:
       effects:
@@ -42,9 +59,11 @@
         offspringBonus: 2
 
 - type: reagent
-  id: RedXenoJelly
   parent: Slime
-  name: reagent-name-red-xeno-jelly
+  id: XenobioJellyRed
+  name: xenobio-reagent-jelly-red-name
+  desc: xenobio-reagent-jelly-red-desc
+  color: "#FF3333"
   metabolisms:
     Food:
       effects:
@@ -54,56 +73,76 @@
           min: 1
           max: 1
         chanceModifier: 0.25
-        shouldSubtract: false
 
-# Species Morphchems
 - type: reagent
-  id: GreenXenoJelly
   parent: Slime
-  name: reagent-name-green-xeno-jelly
+  id: XenobioJellyGreen
+  name: xenobio-reagent-jelly-green-name
+  desc: xenobio-reagent-jelly-green-desc
+  color: "#4DFF4D"
   metabolisms:
-    Food:
+    Toxin:
       effects:
       - !type:SpeciesChange
         conditions:
         - !type:ReagentThreshold
           min: 15
           max: 15
-        sex: SlimePerson
+        newSpecies: SlimePerson
 
 - type: reagent
+  parent: Slime
   id: XenoHumanToxin
-  parent: Slime
-  name: reagent-name-human-mutation-toxin
+  name: xenobio-reagent-toxin-human-name
+  desc: xenobio-reagent-toxin-human-desc
+  color: "#000000"
   metabolisms:
-    Food:
+    Toxin:
       effects:
       - !type:SpeciesChange
         conditions:
         - !type:ReagentThreshold
           min: 15
           max: 15
-        sex: Human
+        newSpecies: Human
 
 - type: reagent
-  id: XenoLizardToxin
   parent: Slime
-  name: reagent-name-lizard-mutation-toxin
+  id: AdvancedMutationToxin
+  name: xenobio-reagent-toxin-advanced-name
+  desc: xenobio-reagent-toxin-advanced-desc
+  color: "#000000"
   metabolisms:
-    Food:
+    Toxin:
+      effects:
+      - !type:RandomSpeciesChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+          max: 15
+
+- type: reagent
+  parent: Slime
+  id: XenoFelinidToxin
+  name: xenobio-reagent-toxin-felinid-name
+  desc: xenobio-reagent-toxin-felinid-desc
+  color: "#000000"
+  metabolisms:
+    Toxin:
       effects:
       - !type:SpeciesChange
         conditions:
         - !type:ReagentThreshold
           min: 15
           max: 15
-        sex: Reptilian
-# End Species Morphchems
+        newSpecies: Felinid
 
 - type: reagent
+  parent: Slime
   id: XenoGenderFluid
-  parent: Slime
-  name: reagent-name-xeno-gender-fluid
+  name: xenobio-reagent-genderfluid-name
+  desc: xenobio-reagent-genderfluid-desc
+  color: "#FF4DD2"
   metabolisms:
     Narcotic:
       effects:

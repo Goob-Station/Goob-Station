@@ -160,3 +160,16 @@
     - Plating
   - type: Stack
     stackType: FloorTileItemSepia
+
+- type: entity
+  id: XenobioVolatileRedExtractJelly
+  parent: BaseItem
+  name: volatile red slime jelly
+  description: Using this on a piece of clothing seems to remove any potential slowdowns. Hovewer, subjects wearing such clothing were burnt to a crisp after a scientist lit his cigarette.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#ff3333"
+

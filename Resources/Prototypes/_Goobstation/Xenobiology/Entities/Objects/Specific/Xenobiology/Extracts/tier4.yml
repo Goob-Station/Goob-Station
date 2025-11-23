@@ -10,6 +10,46 @@
       state: core
       color: "#383936"
       shader: XenoMetallic
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:AdjustReagent
+        reagent: SpaceLube
+        amount: 100
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-evil" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:Jitter
+        time: 5
+        frequency: 20
+      - !type:ExplosionReactionEffect
+        delay: 5
+        explosionType: FireBomb # copied from yellow extract need testing
+        maxIntensity: 1050
+        intensitySlope: 4
+        intensityPerUnit: 70
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-fail" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -33,6 +73,11 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:DoSmokeEntityEffect
         duration: 15
         spreadAmount: 50
@@ -41,22 +86,31 @@
           reagents:
           - ReagentId: Pax
             Quantity: 30
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
         entity: LightPinkExtractJelly
         number: 1
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:ScrambleNearby
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent-evil" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:Jitter
+        time: 3
+        frequency: 20
+      - !type:ScrambleNearby
+        radius: 3
+        delay: 3
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -80,17 +134,31 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:RandomRemoveOrganNearby
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-fail" ]
       - !type:PlaySoundEffect
-        sound: /Audio/Effects/gib3.ogg
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      # was supposed to remove random organs
+      # but this is too evil
+      # so just let it do nothing. for parity ofc
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:AdjustReagent
+        reagent: XenobioMutationToxinAdvanced
+        amount: 5
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-fail" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
@@ -124,12 +192,18 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
-      effects: # Requires Armok... (Golems)
+      effects: # Armok required (golems)
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-fail" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
-      effects: # Requires upstream status effects.
+      effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-fail" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract

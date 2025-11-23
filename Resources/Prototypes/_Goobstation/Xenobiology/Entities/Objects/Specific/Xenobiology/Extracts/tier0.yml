@@ -32,6 +32,9 @@
         messages: [ "xeno-extract-reaction-evil" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:Jitter
+        time: 3
+        frequency: 20
       - !type:CreateEntityReactionEffect
         delay: 3
         entity: MobSlimeXenobioBabyGrey

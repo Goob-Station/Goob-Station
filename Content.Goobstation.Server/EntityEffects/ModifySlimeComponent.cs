@@ -32,14 +32,8 @@ public sealed partial class ModifySlimeComponent : EntityEffect
     [DataField]
     public float? ChanceModifier;
 
-    /// <summary>
-    /// Should we increase, or decrease the mutation chance?
-    /// </summary>
-    [DataField]
-    public bool ShouldSubtract;
-
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => null;
+        => null; // todo add something here
 
     public override void Effect(EntityEffectBaseArgs args)
     {
@@ -49,13 +43,7 @@ public sealed partial class ModifySlimeComponent : EntityEffect
         slime.ExtractsProduced += ExtractBonus ?? 0;
         slime.MaxOffspring += OffspringBonus ?? 0;
 
-        if (ChanceModifier is {} chanceMod)
-        {
-            slime.MutationChance = Math.Clamp(
-                slime.MutationChance + (ShouldSubtract ? -chanceMod : chanceMod),
-                0f,
-                1f
-            );
-        }
+        if (ChanceModifier is { } chanceMod)
+            slime.MutationChance = Math.Clamp(slime.MutationChance + chanceMod, 0f, 1f);
     }
 }

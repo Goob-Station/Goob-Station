@@ -18,8 +18,7 @@ public sealed partial class SexChange : EntityEffect
     /// <summary>
     ///     What sex is the consumer changed to? If not set then swap between male/female.
     /// </summary>
-    [DataField("sex")]
-    public Sex? NewSex;
+    [DataField] public Sex? NewSex;
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-sex-change", ("chance", Probability));

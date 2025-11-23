@@ -12,12 +12,11 @@ public sealed partial class MutateNearbyPlantsEntityEffect : EntityEffect
         var entityManager = args.EntityManager;
         var lookupSys = entityManager.System<EntityLookupSystem>();
 
-        // should only work on plants in theory
-        // but if it works on humans/dionas too then LOL let it be this way
+        // should only work on plants in theorem
         foreach (var entity in lookupSys.GetEntitiesInRange(args.TargetEntity, Radius))
         {
             var mutargs = new PlantAdjustMutationLevel();
-            mutargs.Effect(new(args.TargetEntity, entityManager));
+            mutargs.Effect(new(entity, entityManager));
         }
     }
 

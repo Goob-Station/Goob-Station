@@ -20,41 +20,41 @@ using Content.Shared.Body.Organ;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.EntityEffects;
 using Content.Shared.Examine;
-using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.EntityEffects;
 
 /// <summary>
 ///     Removes a random organ from a mob nearby...
 /// </summary>
-public sealed partial class RandomRemoveOrganNearby : EntityEffect
+public sealed partial class RemoveRandomOrganNearby : EntityEffect
 {
 
-    [DataField]
-    public float Range = 7;
+    [DataField] public float Radius = 7;
 
     /// <summary>
     ///     Up to how far to teleport the organ in tiles.
     /// </summary>
-    [DataField]
-    public MinMax Radius = new MinMax(1, 2);
+    [DataField] public MinMax OrganScrambleRadius = new MinMax(1, 2);
 
     /// <summary>
     ///     How many times to try to pick the destination. Larger number means the teleport is more likely to be safe.
     /// </summary>
-    [DataField]
-    public int TeleportAttempts = 10;
+    [DataField] public int TeleportAttempts = 10;
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => null;
+        => Loc.GetString("reagent-effect-guidebook-removeorgan-nearby");
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        if (args is not EntityEffectReagentArgs reagentArgs)
-            return;
+        if (Delay > 0f) Timer.Spawn((int) (Delay * 1000f), () => DoEffect(args));
+        else DoEffect(args);
+    }
 
+    private void DoEffect(EntityEffectBaseArgs args)
+    {
         var entityManager = args.EntityManager;
         var uid = args.TargetEntity;
 
@@ -66,15 +66,14 @@ public sealed partial class RandomRemoveOrganNearby : EntityEffect
 
         var xform = transformSystem.GetMapCoordinates(uid);
 
-        var entities = lookupSys.GetEntitiesInRange<OrganComponent>(xform, Range);
+        var entities = lookupSys.GetEntitiesInRange<OrganComponent>(xform, Radius);
 
         if (entities.Count == 0)
             return;
 
         var canTarget = entities
-            .Where(entity => entity != null
-                             && occlusionSys.InRangeUnOccluded(uid, entity, Range)
-                             && entity.Comp.Body != null)
+            .Where(entity => occlusionSys.InRangeUnOccluded(uid, entity, Radius)
+                          && entity.Comp.Body != null)
             .ToHashSet();
 
         if (canTarget.Count == 0)
@@ -82,6 +81,6 @@ public sealed partial class RandomRemoveOrganNearby : EntityEffect
 
         var target = canTarget.ElementAt(randomSystem.Next(canTarget.Count));
 
-        teleportSystem.RandomTeleport(target, Radius, TeleportAttempts);
+        teleportSystem.RandomTeleport(target, OrganScrambleRadius, TeleportAttempts);
     }
 }

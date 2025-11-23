@@ -16,29 +16,19 @@ namespace Content.Goobstation.Server.EntityEffects;
 [UsedImplicitly]
 public sealed partial class SpeciesChange : EntityEffect
 {
-    /// <summary>
-    ///     What sex is the consumer changed to? If not set then swap between male/female.
-    /// </summary>
-    // bro.
-    [DataField("sex")]
-    public ProtoId<SpeciesPrototype>? NewSpecies;
+    [DataField(required: true)] public ProtoId<SpeciesPrototype> NewSpecies;
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => null;
+        => Loc.GetString("reagent-effect-guidebook-change-species", ("species", NewSpecies));
 
     public override void Effect(EntityEffectBaseArgs args)
     {
         if (!args.EntityManager.TryGetComponent<HumanoidAppearanceComponent>(args.TargetEntity, out var appearance))
             return;
 
-        var uid = args.TargetEntity;
-        var newSpecies = NewSpecies;
-        var goobHumanoidAppearanceSystem = args.EntityManager.System<SharedGoobHumanoidAppearanceSystem>();
         var humanoidAppearanceSystem = args.EntityManager.System<SharedHumanoidAppearanceSystem>();
 
-
         // Eventually this should also add the slime sub-species.
-        if (newSpecies.HasValue)
-            humanoidAppearanceSystem.SetSpecies(uid, newSpecies.Value);
+        humanoidAppearanceSystem.SetSpecies(args.TargetEntity, NewSpecies);
     }
 }

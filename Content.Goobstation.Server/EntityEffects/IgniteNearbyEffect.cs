@@ -19,11 +19,9 @@ namespace Content.Goobstation.Server.EntityEffects;
 public sealed partial class IgniteNearbyEffect : EntityEffect
 {
 
-    [DataField]
-    public float Range = 7;
+    [DataField] public float Radius = 7;
 
-    [DataField]
-    public float FireStacks = 2;
+    [DataField] public float FireStacks = 2;
 
     public override bool ShouldLog => true;
 
@@ -41,7 +39,7 @@ public sealed partial class IgniteNearbyEffect : EntityEffect
         var lookupSys = entityManager.System<EntityLookupSystem>();
         var flamSys = entityManager.System<FlammableSystem>();
 
-        foreach (var entity in lookupSys.GetEntitiesInRange(args.TargetEntity, Range))
+        foreach (var entity in lookupSys.GetEntitiesInRange(args.TargetEntity, Radius))
             if (entityManager.TryGetComponent(entity, out FlammableComponent? flammable))
                 flamSys.AdjustFireStacks(entity, FireStacks, flammable, true);
     }
