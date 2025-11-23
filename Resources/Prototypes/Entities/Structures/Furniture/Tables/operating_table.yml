@@ -22,7 +22,7 @@
     sprite: Structures/Furniture/Tables/optable.rsi
     state: operating_table
   - type: OperatingTable
-    SurgerySpeedModifier: 1.25
+    surgerySpeedModifier: 10f
   # Begin Shitmed Changes
   - type: Construction
     graph: Machine
