@@ -1,0 +1,150 @@
+# =========================================================
+# BLACK TERROR — Poison
+# =========================================================
+- type: entity
+  id: TerrorSpiderBlack
+  parent: TerrorSpiderBaseT1
+  name: black terror spider
+  description: An ominous-looking spider, black as the darkest night. It has merciless eyes, and a blood-red hourglass pattern on its back.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: allblack
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: widow
+      Critical:
+        Base: widow_dead
+      Dead:
+        Base: widow_dead
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Toxin # Change this to black venom maybe but like it doesn't do anything special.
+          Quantity: 100
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 0.2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      75: Critical
+      100: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 5
+
+# =========================================================
+# WHITE TERROR — Egg Injector
+# =========================================================
+- type: entity
+  id: TerrorSpiderWhite
+  parent: TerrorSpiderBaseT1
+  name: white terror spider
+  description: An ominous-looking white spider, its ghostly eyes and vicious-looking fangs are the stuff of nightmares.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: white
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: white
+      Critical:
+        Base: white_dead
+      Dead:
+        Base: white_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Critical
+      200: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 5
+
+# =========================================================
+# PURPLE TERROR — Nest Guard
+# =========================================================
+- type: entity
+  id: TerrorSpiderPurple
+  parent: TerrorSpiderBaseT1
+  name: purple terror spider
+  description: An ominous-looking purple spider. It looks about warily, as if waiting for something.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: purple
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: purple
+      Critical:
+        Base: purple_dead
+      Dead:
+        Base: purple_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.4
+    baseSprintSpeed: 3.4
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      180: Critical
+      200: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 20
+  - type: Prying
+
+# =========================================================
+# BROWN TERROR — Breacher
+# =========================================================
+- type: entity
+  id: TerrorSpiderBrown
+  parent: TerrorSpiderBaseT1
+  name: brown terror spider
+  description: An ominous-looking spider, colored brown like the dirt it crawled out of. Its forearms have sharp digging claws.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: brown
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: brown
+      Critical:
+        Base: brown_dead
+      Dead:
+        Base: brown_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Critical
+      100: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 20
+      types:
+        Structural: 50
+  - type: Prying

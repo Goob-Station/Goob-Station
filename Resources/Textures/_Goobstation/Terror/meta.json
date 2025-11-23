@@ -1,0 +1,66 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise Station 13 https://github.com/ParadiseSS13/Paradise/blob/d6ed342a6deb49b91e347827b4d6247e1b899a33/icons/mob/terrorspider.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "allblack",
+            "directions": 4
+        },
+        { "name": "allblack_dead" },
+        {
+            "name": "brown",
+            "directions": 4
+        },
+        { "name": "brown_dead" },
+        {
+            "name": "green",
+            "directions": 4
+        },
+        { "name": "green_dead" },
+        {
+            "name": "grey",
+            "directions": 4
+        },
+        { "name": "grey_dead" },
+        {
+            "name": "mother",
+            "directions": 4
+        },
+        { "name": "mother_dead" },
+        {
+            "name": "princess",
+            "directions": 4
+        },
+        { "name": "princess_dead" },
+        {
+            "name": "purple",
+            "directions": 4
+        },
+        { "name": "purple_dead" },
+        {
+            "name": "queen",
+            "directions": 4
+        },
+        { "name": "queen_dead" },
+        {
+            "name": "red",
+            "directions": 4
+        },
+        { "name": "red_dead" },
+        {
+            "name": "white",
+            "directions": 4
+        },
+        { "name": "white_dead" },
+        {
+            "name": "widow",
+            "directions": 4
+        },
+        { "name": "widow_dead" }
+    ]
+}

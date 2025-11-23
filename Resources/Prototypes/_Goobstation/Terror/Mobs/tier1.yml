@@ -1,0 +1,155 @@
+# =========================================================
+# TIER 1 — BASE SPIDER PROTOTYPE
+# =========================================================
+- type: entity
+  id: TerrorSpiderBaseT1
+  name: terror spider
+  parent: SimpleMobBase
+  description: A hostile arachnid.
+  abstract: true
+  components:
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: red
+      Critical:
+        Base: red_dead
+      Dead:
+        Base: red_dead
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: red
+    drawdepth: Mobs
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 250
+        mask: [MobMask]
+        layer: [MobLayer]
+  - type: MobState
+    allowedStates: [Alive, Critical, Dead]
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 4
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 10
+  - type: NpcFactionMember
+    factions: [SimpleHostile]
+
+# =========================================================
+# RED TERROR — Juggernaut
+# =========================================================
+- type: entity
+  id: TerrorSpiderRed
+  parent: TerrorSpiderBaseT1
+  name: red terror spider
+  description: An ominous-looking red spider, it has eight beady red eyes, and nasty, big, pointy fangs! It looks like it has a vicious streak a mile wide.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: red
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: red
+      Critical:
+        Base: red_dead
+      Dead:
+        Base: red_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      160: Critical
+      200: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 15
+
+# =========================================================
+# GRAY TERROR — Ambusher
+# =========================================================
+- type: entity
+  id: TerrorSpiderGray
+  parent: TerrorSpiderBaseT1
+  name: gray terror spider
+  description: An ominous-looking gray spider. It seems to blend into webs, making it hard to see.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: grey
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: grey
+      Critical:
+        Base: grey_dead
+      Dead:
+        Base: grey_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      75: Critical
+      100: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 10
+
+# =========================================================
+# GREEN TERROR — Breeder
+# =========================================================
+- type: entity
+  id: TerrorSpiderGreen
+  parent: TerrorSpiderBaseT1
+  name: green terror spider
+  description: An ominous-looking green spider. It has a small egg-sac attached to it, and dried blood stains on its carapace.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: green
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: green
+      Critical:
+        Base: green_dead
+      Dead:
+        Base: green_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      125: Critical
+      150: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 10

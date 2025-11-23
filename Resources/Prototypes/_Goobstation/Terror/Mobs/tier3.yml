@@ -1,0 +1,101 @@
+# =========================================================
+# PRINCE OF TERROR — Slaughter Mini-boss
+# =========================================================
+- type: entity
+  id: TerrorSpiderPrince
+  parent: TerrorSpiderBaseT1
+  name: prince of terror
+  description: An enormous, terrifying spider. It looks like it is judging everything it sees. Its hide seems armored, and it bears the scars of many battles.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: red
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: allblack
+      Critical:
+        Base: allblack_dead
+      Dead:
+        Base: allblack_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      550: Critical
+      600: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 30
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1
+    baseSprintSpeed: 1
+
+# =========================================================
+# PRINCESS OF TERROR — Mini-Queen
+# =========================================================
+- type: entity
+  id: TerrorSpiderPrincess
+  parent: TerrorSpiderBaseT1
+  name: princess of terror
+  description: An enormous spider. It looks strangely cute and fluffy.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: princess
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: princess
+      Critical:
+        Base: princess_dead
+      Dead:
+        Base: princess_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      125: Critical
+      150: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 5
+
+# =========================================================
+# MOTHER OF TERROR — Support Caste
+# =========================================================
+- type: entity
+  id: TerrorSpiderMother
+  parent: TerrorSpiderBaseT1
+  name: mother of terror
+  description: An enormous spider. Tiny spiderlings are crawling all over it. Their beady little eyes all stare at you. The horror!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: mother
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: mother
+      Critical:
+        Base: mother_dead
+      Dead:
+        Base: mother_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Critical
+      100: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 5
