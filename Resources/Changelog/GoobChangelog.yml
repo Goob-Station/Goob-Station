@@ -18217,3 +18217,21 @@ Entries:
         if they're prone.
   id: 2054
   time: '2025-11-23T00:06:14.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Tweak
+      message: >-
+        Changeling "Void Adaption" has been reworked. It is now fully automatic,
+        and will respect any protection clothing you are wearing.
+    - type: Tweak
+      message: >-
+        Changeling "Adrenaline Reserves" was reworked.  It is now its own status
+        effect, and render the user immune to stuns, stamina damage, sleep and
+        damage slowdown.
+    - type: Tweak
+      message: >-
+        Changeling "Anatomic Panacea" was reworked. It is also its own status
+        effect, will cleanse all chemicals, sober the user, remove disabilities
+        and more.
+  id: 2055
+  time: '2025-11-23T00:08:55.0000000+00:00'
