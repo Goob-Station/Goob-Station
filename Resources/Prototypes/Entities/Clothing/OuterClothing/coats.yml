@@ -153,10 +153,12 @@
     sprite: Clothing/OuterClothing/Coats/detective.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/detective.rsi
-  - type: StorageFill
-    contents:
-    - id: SmokingPipeFilledTobacco
-    - id: FlippoEngravedLighter
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SmokingPipeFilledTobacco
+        - id: FlippoEngravedLighter
   - type: ExplosionResistance
     damageCoefficient: 1 #its a coat. it doesnt do shit
   - type: Armor # Woundmed
@@ -188,10 +190,12 @@
   parent: ClothingOuterCoatDetective
   id: ClothingOuterCoatDetectiveLoadout
   components:
-  - type: StorageFill
-    contents:
-    - id: SmokingPipeFilledTobacco
-    - id: FlippoLighter #Not the steal objective, only difference from normal detective trenchcoat
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SmokingPipeFilledTobacco
+        - id: FlippoLighter #Not the steal objective, only difference from normal detective trenchcoat
 
 - type: entity
   parent: ClothingOuterStorageBase

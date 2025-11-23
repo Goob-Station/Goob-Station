@@ -140,9 +140,9 @@
 
 # Neck
 - type: loadout
-  id: ClothingNeckCloakWhiteCe
+  id: ClothingNeckCloak
   equipment:
-    neck: ClothingNeckCloakWhiteCe
+    neck: ClothingNeckCloak
   groupBy: "cecloak"
 
 - type: loadout

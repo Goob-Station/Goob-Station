@@ -84,7 +84,7 @@
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
-  id: ClothingNeckCloakWhiteCe
+  id: ClothingNeckCloakWhiteCe # Goobstation This is so fucking stupid i blame the guys who approved this for not catching a rename of an internal ID, like why.
   name: chief engineer's white cloak
   description: A white cloak with orange adornments, given to those who proved themselves to master the precise art of engineering.
   components:

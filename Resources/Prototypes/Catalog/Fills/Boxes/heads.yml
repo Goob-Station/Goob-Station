@@ -7,35 +7,40 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: CommsComputerCircuitboard
-        - id: StationRecordsComputerCircuitboard
+        - id: CargoBountyComputerCircuitboard
+        - id: CargoRequestComputerCircuitboard
+        - id: CargoSaleComputerCircuitboard
+        - id: CargoShuttleConsoleCircuitboard
+        - id: SalvageMagnetMachineCircuitboard
+        - id: SalvageJobBoardComputerCircuitboard
+        - id: MailTeleporterMachineCircuitboard
 
 - type: entity
   parent: ToteBase
   id: BoxCECircuitboards
   name: engineering circuit tote
   components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: CargoRequestEngineeringComputerCircuitboard
-        - id: AlertsComputerCircuitboard
-        - id: AtmosMonitoringComputerCircuitboard
-        - id: PowerComputerCircuitboard
-        - id: SolarControlComputerCircuitboard
-
-- type: entity
-  parent: ToteBase
-  id: BoxCMOCircuitboards
-  name: medical circuit tote
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: MedicalTechFabCircuitboard
-        - id: CargoRequestMedicalComputerCircuitboard
+        - id: RubberStampApproved
+        - id: RubberStampDenied
+        - id: RubberStampQm
+  - type: Storage
+    grid:
+    - 0,0,1,1
+    whitelist:
+      components:
+      - Stamp
+  - type: Sprite
+    layers:
+      - state: box
+      - state: stamp
 
 - type: entity
   parent: ToteBase
@@ -55,6 +60,10 @@
   id: BoxHoPStamps
   name: head of personnel's stamp box
   components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -62,6 +71,16 @@
         - id: RubberStampApproved
         - id: RubberStampDenied
         - id: RubberStampHop
+  - type: Storage
+    grid:
+    - 0,0,1,1
+    whitelist:
+      components:
+      - Stamp
+  - type: Sprite
+    layers:
+      - state: box
+      - state: stamp
 
 - type: entity
   parent: ToteBase
@@ -72,8 +91,11 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: SecurityTechFabCircuitboard
-        - id: CargoRequestSecurityComputerCircuitboard
+        - id: CargoRequestEngineeringComputerCircuitboard
+        - id: AlertsComputerCircuitboard
+        - id: AtmosMonitoringComputerCircuitboard
+        - id: PowerComputerCircuitboard
+        - id: SolarControlComputerCircuitboard
 
 - type: entity
   parent: ToteBase
@@ -84,13 +106,8 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: CargoBountyComputerCircuitboard
-        - id: CargoRequestComputerCircuitboard
-        - id: CargoSaleComputerCircuitboard
-        - id: CargoShuttleConsoleCircuitboard
-        - id: SalvageMagnetMachineCircuitboard
-        - id: SalvageJobBoardComputerCircuitboard
-        - id: MailTeleporterMachineCircuitboard
+        - id: CommsComputerCircuitboard
+        - id: StationRecordsComputerCircuitboard
 
 - type: entity
   parent: BoxStamps
@@ -101,9 +118,8 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: RubberStampApproved
-        - id: RubberStampDenied
-        - id: RubberStampQm
+        - id: MedicalTechFabCircuitboard
+        - id: CargoRequestMedicalComputerCircuitboard
 
 - type: entity
   parent: ToteBase
@@ -122,3 +138,16 @@
         - id: AnalysisComputerCircuitboard #Because sometimes round start artis just fucking explode on the pad.
         - id: ArtifactAnalyzerMachineCircuitboard
         - id: StationAiFixerCircuitboard
+
+- type: entity
+  name: circuit tote [HoS]
+  parent: ToteBase
+  id: BoxHoSCircuitboards
+  description: A Tote filled with HoS's Circuit boards.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SecurityTechFabCircuitboard
+        - id: CargoRequestSecurityComputerCircuitboard

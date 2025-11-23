@@ -46,9 +46,10 @@
   name: luxury mining hardsuit crate
   description: Finally, a hardsuit Quartermasters could call their own. Centcomm has heard you, now stop asking.
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingOuterHardsuitLuxury
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: ClothingOuterHardsuitLuxury
 
 - type: entity
   parent: CrateGenericSteel
@@ -56,10 +57,11 @@
   name: parcel wrap crate
   description: All your parcel wrapping needs in one crate, containing three rolls of parcel wrap.
   components:
-  - type: StorageFill
-    contents:
-    - id: ParcelWrap
-      amount: 3
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: ParcelWrap
+        amount: 3
 
 
 - type: entity
@@ -114,14 +116,17 @@
   id: LotteryJunkEntityTable
   table: !type:GroupSelector
     children:
-    - !type:NestedSelector
-      tableId: AllBananaPeelsTable
-      weight: 4
     - id: CigaretteSpent
     - id: FoodBowlBigTrash
     - id: FoodFrozenPopsicleTrash
     - id: FoodCornTrash
+    - id: TrashBananaPeel
+    - id: TrashBananaPeelExplosive
+      weight: 0.01
     - id: FoodTinBeansTrash
+    - id: TrashBakedBananaPeel
+    - id: TrashMimanaPeel
+    - id: TrashBananiumPeel
 
 - type: entityTable
   id: LotteryCanistersEntityTable
@@ -162,10 +167,13 @@
     - id: WeaponShotgunHandmade
     - id: WeaponFlareGun
     - id: Bola
+    - id: ToySword
     - id: Shovel
+    - id: WeaponWaterPistol
+    - id: WeaponWaterBlaster
     - id: WeaponTurretXeno
-    - !type:NestedSelector
-      tableId: AllToyWeaponsTable
+    - id: WeaponRifleFoam
+      weight: 3
 
 - type: entityTable
   id: LotteryClothingEntityTable
@@ -234,7 +242,7 @@
     - id: PlushieLamp
     - id: PlushieSharkBlue
     - id: PlushieMoth
-    # - id: PlushieVulp # AAAAAA Goob
+    # - id: PlushieVulp # AAAAAA Goob todo marty
     - id: PlushieArachind
     - id: PlushieLizardJobMultiweh # the exceedingly rare multiweh!
     - id: PlushieThrongler #hehe

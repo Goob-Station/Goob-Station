@@ -31,9 +31,10 @@
   name: packaged antimatter reactor crate
   description: 9 parts for the main body of an antimatter reactor, or for expanding an existing one.
   components:
-  - type: StorageFill
-    contents:
-      - id: AmePartFlatpack
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: AmePartFlatpack
         amount: 9
 
 - type: entity
@@ -42,9 +43,10 @@
   name: antimatter containment jar crate
   description: 3 antimatter jars, for fuelling an antimatter reactor.
   components:
-  - type: StorageFill
-    contents:
-      - id: AmeJar
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: AmeJar
         amount: 3
 
 - type: entity
@@ -53,9 +55,10 @@
   name: antimatter control unit crate
   description: The control unit of an antimatter reactor.
   components:
-  - type: StorageFill
-    contents:
-      - id: AmeControllerUnanchored
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: AmeControllerUnanchored
 
 # Singularity
 
@@ -65,9 +68,10 @@
   name: emitter crate
   description: An emitter, best used for singularity engines.
   components:
-  - type: StorageFill
-    contents:
-      - id: EmitterFlatpack
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: EmitterFlatpack
 
 - type: entity
   parent: CrateEngineeringSecure
@@ -75,10 +79,12 @@
   name: radiation collector crate
   description: A radiation collector, best used for singularity engines. Plasma is included.
   components:
-  - type: StorageFill
-    contents:
-      - id: RadiationCollectorFlatpack
-      - id: PlasmaTankFilled
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: RadiationCollectorFlatpack
+        - id: PlasmaTankFilled
 
 - type: entity
   parent: CrateEngineeringSecure
@@ -86,9 +92,10 @@
   name: containment field generator crate
   description: A containment field generator, keeps the singulo in submission.
   components:
-  - type: StorageFill
-    contents:
-      - id: ContainmentFieldGeneratorFlatpack
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: ContainmentFieldGeneratorFlatpack
 
 - type: entity
   parent: CrateEngineeringSecure
@@ -96,9 +103,10 @@
   name: singularity generator crate
   description: A singularity generator, the mother of the beast.
   components:
-  - type: StorageFill
-    contents:
-      - id: SingularityGeneratorFlatpack
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: SingularityGeneratorFlatpack
 
 # Particle Accelerator
 
@@ -108,15 +116,17 @@
   name: PA board crate
   description: Complex to setup, but rewarding as fuck. Contains boards for all particle accelerator components.
   components:
-  - type: StorageFill
-    contents:
-      - id: MachineParticleAcceleratorEndCapCircuitboard
-      - id: MachineParticleAcceleratorEmitterStarboardCircuitboard
-      - id: MachineParticleAcceleratorEmitterForeCircuitboard
-      - id: MachineParticleAcceleratorEmitterPortCircuitboard
-      - id: MachineParticleAcceleratorFuelChamberCircuitboard
-      - id: MachineParticleAcceleratorPowerBoxCircuitboard
-      - id: ParticleAcceleratorComputerCircuitboard
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MachineParticleAcceleratorEndCapCircuitboard
+        - id: MachineParticleAcceleratorEmitterStarboardCircuitboard
+        - id: MachineParticleAcceleratorEmitterForeCircuitboard
+        - id: MachineParticleAcceleratorEmitterPortCircuitboard
+        - id: MachineParticleAcceleratorFuelChamberCircuitboard
+        - id: MachineParticleAcceleratorPowerBoxCircuitboard
+        - id: ParticleAcceleratorComputerCircuitboard
 
 # Non-functional for some reason
 
@@ -126,10 +136,10 @@
 #  name:  singularity crate
 #  description:  "Prank the station!"
 #  components:
-#  - type: StorageFill
-#    contents:
-#      - id: Singularity
-#        amount: 1
+#  - type: EntityTableContainerFill
+#    containers:
+#      entity_storage:
+#        id: Singularity
 
 - type: entity
   parent: CrateEngineering
@@ -137,9 +147,10 @@
   name:  generator crate
   suffix: DEBUG
   components:
-  - type: StorageFill
-    contents:
-      - id: DebugGenerator # TODO change to flatpack
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: DebugGenerator # TODO change to flatpack
 
 - type: entity
   parent: CrateEngineering
@@ -147,12 +158,14 @@
   name: solar assembly crate
   description: A kit with solar flatpacks and glass to construct ten solar panels.
   components:
-  - type: StorageFill
-    contents:
-      - id: SolarAssemblyFlatpack
-        amount: 10
-      - id: SheetGlass10
-        amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: SolarAssemblyFlatpack
+          amount: 10
+        - id: SheetGlass10
+          amount: 2
 
 - type: entity
   parent: CrateEngineeringSecure
@@ -160,12 +173,14 @@
   name: shuttle powering crate
   description: A crate containing all needs for shuttle powering.
   components:
-  - type: StorageFill
-    contents:
-      - id: WallmountSubstationElectronics
-      - id: WallmountGeneratorAPUElectronics
-      - id: HandheldGPSBasic
-      - id: InflatableDoorStack1
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WallmountSubstationElectronics
+        - id: WallmountGeneratorAPUElectronics
+        - id: HandheldGPSBasic
+        - id: InflatableDoorStack1
 
 - type: entity
   parent: CrateEngineeringSecure
@@ -173,9 +188,10 @@
   name: tesla generator crate
   description: A tesla generator. God save you.
   components:
-  - type: StorageFill
-    contents:
-      - id: TeslaGeneratorFlatpack
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: TeslaGeneratorFlatpack
 
 - type: entity
   parent: CrateEngineeringSecure
@@ -183,9 +199,10 @@
   name: tesla coil crate
   description: Tesla coil. Attracts lightning and generates energy from it.
   components:
-  - type: StorageFill
-    contents:
-      - id: TeslaCoilFlatpack
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: TeslaCoilFlatpack
 
 - type: entity
   parent: CrateEngineeringSecure
@@ -193,6 +210,7 @@
   name: tesla grounding rod crate
   description: Grounding rod, best for lightning protection.
   components:
-  - type: StorageFill
-    contents:
-      - id: TeslaGroundingRodFlatpack
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: TeslaGroundingRodFlatpack
