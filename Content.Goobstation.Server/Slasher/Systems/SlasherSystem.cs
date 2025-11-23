@@ -16,13 +16,7 @@ public sealed class SlasherSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SlasherComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<SlasherComponent, UpdateMobStateEvent>(OnUpdateMobState, after: [typeof(MobThresholdSystem)]);
-    }
-
-    private void OnStartup(Entity<SlasherComponent> ent, ref ComponentStartup args)
-    {
-        ApplyComponents(ent.Owner);
     }
 
     // This doesn't really get rid of the crit state but it does put the user into a sort of soft crit state due to server / client mismatch.
@@ -35,17 +29,5 @@ public sealed class SlasherSystem : EntitySystem
 
         if (args.State == MobState.Critical)
             args.State = MobState.Alive;
-    }
-
-    private void ApplyComponents(EntityUid uid)
-    {
-        EnsureComp<SlasherSummonMacheteComponent>(uid);
-        EnsureComp<SlasherIncorporealComponent>(uid);
-        EnsureComp<SlasherBloodTrailComponent>(uid);
-        EnsureComp<SlasherPossessionComponent>(uid);
-        EnsureComp<SlasherRegenerateComponent>(uid);
-        EnsureComp<SlasherStaggerAreaComponent>(uid);
-        EnsureComp<SlasherSoulStealComponent>(uid);
-        EnsureComp<SlasherSummonMeatSpikeComponent>(uid);
     }
 }
