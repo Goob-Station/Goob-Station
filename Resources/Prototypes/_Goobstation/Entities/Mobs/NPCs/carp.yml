@@ -40,7 +40,7 @@
 # carp but with dragon compound to make it follow the carp caller
 - type: entity
   id: MobCarpSleepy
-  name: Sleepy carp
+  name: sleepy carp
   parent: MobCarp
   components:
     - type: HTN
@@ -48,4 +48,4 @@
         task: DragonCarpCompound
     - type: Reflect
       reflectProb: 1
-      spread: 120
+      spread: 65
