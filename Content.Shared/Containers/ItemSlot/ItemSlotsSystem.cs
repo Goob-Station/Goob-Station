@@ -443,7 +443,7 @@ namespace Content.Shared.Containers.ItemSlots
         private bool CanInsertWhitelist(EntityUid usedUid, ItemSlot slot)
         {
             if (_whitelistSystem.IsWhitelistFail(slot.Whitelist, usedUid)
-                || _whitelistSystem.IsBlacklistPass(slot.Blacklist, usedUid))
+                || _whitelistSystem.IsWhitelistPass(slot.Blacklist, usedUid))
                 return false;
             return true;
         }

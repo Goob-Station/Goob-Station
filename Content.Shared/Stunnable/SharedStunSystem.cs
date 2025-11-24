@@ -194,7 +194,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         if (args.OurFixtureId != ent.Comp.FixtureId)
             return;
 
-        if (_entityWhitelist.IsBlacklistPass(ent.Comp.Blacklist, args.OtherEntity))
+        if (_entityWhitelist.IsWhitelistPass(ent.Comp.Blacklist, args.OtherEntity))
             return;
         TryUpdateStunDuration(args.OtherEntity, ent.Comp.Duration);
         TryKnockdown(args.OtherEntity, ent.Comp.Duration, force: true);
