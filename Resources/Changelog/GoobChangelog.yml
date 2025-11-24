@@ -18277,3 +18277,17 @@ Entries:
       message: Force guns throw shit further away.
   id: 2059
   time: '2025-11-24T12:43:37.0000000+00:00'
+- author: John John, Yonsim
+  changes:
+    - type: Add
+      message: 'Added coin flipping machine: double or nothing!'
+    - type: Add
+      message: 'Added claw machine: dispenses plushies, just don''t emag it'
+    - type: Tweak
+      message: Slot machines now have 4 directional sprites
+    - type: Tweak
+      message: >-
+        Slot machines now cost 250 per spin rewards are as follow: Small= 250,
+        Medium = 500, Big = 5000, JackPot = 20000;
+  id: 2060
+  time: '2025-11-24T12:46:28.0000000+00:00'
