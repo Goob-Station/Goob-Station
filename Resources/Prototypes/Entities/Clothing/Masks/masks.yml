@@ -466,7 +466,7 @@
         Piercing: 0.9
         Heat: 0.9
   - type: IngestionBlocker
-    BlockSmokeIngestion: true # Goobstation      
+    blockSmokeIngestion: true # Goobstation      
 
 - type: entity
   parent: ClothingMaskBase
