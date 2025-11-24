@@ -13,6 +13,11 @@ public sealed partial class SlasherIncorporealizeEvent : InstantActionEvent;
 [ByRefEvent]
 public sealed partial class SlasherCorporealizeEvent : InstantActionEvent;
 
+[ByRefEvent]
+public sealed class SlasherIncorporealEnteredEvent : EntityEventArgs
+{
+}
+
 [Serializable, NetSerializable]
 public sealed class SlasherIncorporealObserverCheckEvent : EntityEventArgs
 {

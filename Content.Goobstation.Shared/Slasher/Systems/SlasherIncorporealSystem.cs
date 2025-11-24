@@ -29,6 +29,11 @@ using Content.Shared.Ghost;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Humanoid;
+using Content.Shared.Electrocution;
+using Content.Shared.Standing;
+using Content.Goobstation.Shared.Supermatter.Components;
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
@@ -44,6 +49,8 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
 
     private const string FootstepSoundTag = "FootstepSound";
 
@@ -70,6 +77,11 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         SubscribeLocalEvent<SlasherIncorporealComponent, BeforeEmoteEvent>(OnBeforeEmote);
         SubscribeLocalEvent<SlasherIncorporealComponent, EmoteAttemptEvent>(OnEmoteAttempt);
         SubscribeLocalEvent<SlasherIncorporealComponent, FootprintLeaveAttemptEvent>(OnFootprintLeaveAttempt);
+        SubscribeLocalEvent<SlasherIncorporealComponent, GettingInteractedWithAttemptEvent>(OnGettingInteractedWithAttempt);
+        SubscribeLocalEvent<SlasherIncorporealComponent, ElectrocutionAttemptEvent>(OnElectrocutionAttempt);
+        SubscribeLocalEvent<SlasherIncorporealComponent, DownAttemptEvent>(OnDownAttempt);
+
+        SubscribeLocalEvent<DamageableComponent, BeforeDamageChangedEvent>(OnBeforeDamageBodyPart);
 
         SubscribeLocalEvent<ActionComponent, ActionAttemptEvent>(OnAnyActionAttempt);
     }
@@ -191,6 +203,9 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         ent.Comp.IsIncorporeal = true;
         Dirty(ent);
 
+        // Force stand up when entering incorporeal
+        _standing.Stand(uid, force: true);
+
         // main component.
         var phase = EnsureComp<PhaseShiftedComponent>(uid);
         phase.MovementSpeedBuff = 3.5f;
@@ -198,6 +213,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         // don't wanna let people see them obviously.
         var stealth = EnsureComp<StealthComponent>(uid);
         _stealth.SetVisibility(uid, stealth.MinVisibility, stealth);
+        _stealth.SetThermalsImmune(uid, true, stealth);
 
         _actions.SetEnabled(ent.Comp.IncorporealizeActionEnt, false);
         _actions.SetEnabled(ent.Comp.CorporealizeActionEnt, true);
@@ -209,8 +225,6 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         // Remove footstep sounds while incorporeal.
         if (_tags.HasTag(uid, FootstepSoundTag))
             _tags.RemoveTag(uid, FootstepSoundTag);
-
-        // Do not leave puddle footsteps while incorporeal (handled via event instead of component removal).
 
         // Mute and block vocal emotes.
         _ = EnsureComp<MutedComponent>(uid);
@@ -224,6 +238,13 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         _ = EnsureComp<SpecialBreathingImmunityComponent>(uid);
         _ = EnsureComp<SpecialLowTempImmunityComponent>(uid);
         _ = EnsureComp<SpecialHighTempImmunityComponent>(uid);
+
+        // Supermatter immunity
+        _ = EnsureComp<SupermatterImmuneComponent>(uid);
+
+        // Raise event for server systems to handle additional logic (like disabling lights)
+        var enteredEv = new SlasherIncorporealEnteredEvent();
+        RaiseLocalEvent(uid, ref enteredEv);
     }
 
     private void ExitIncorporeal(EntityUid uid, Entity<SlasherIncorporealComponent> ent)
@@ -255,9 +276,24 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         _ = RemComp<SpecialBreathingImmunityComponent>(uid);
         _ = RemComp<SpecialLowTempImmunityComponent>(uid);
         _ = RemComp<SpecialHighTempImmunityComponent>(uid);
+
+        // Remove supermatter immunity
+        _ = RemComp<SupermatterImmuneComponent>(uid);
     }
 
     // Event hell below
+    private void OnDownAttempt(EntityUid uid, SlasherIncorporealComponent comp, DownAttemptEvent args)
+    {
+        if (comp.IsIncorporeal)
+            args.Cancel();
+    }
+
+    private void OnElectrocutionAttempt(EntityUid uid, SlasherIncorporealComponent comp, ElectrocutionAttemptEvent args)
+    {
+        if (comp.IsIncorporeal)
+            args.Cancel();
+    }
+
     private void OnBeforeEmote(EntityUid uid, SlasherIncorporealComponent comp, ref BeforeEmoteEvent args)
     {
         if (comp.IsIncorporeal)
@@ -313,11 +349,28 @@ public sealed class SlasherIncorporealSystem : EntitySystem
             args.Cancelled = true;
     }
 
+    private void OnBeforeDamageBodyPart(EntityUid uid, DamageableComponent damageable, ref BeforeDamageChangedEvent args)
+    {
+        // Check if this is a body part, and if so, check if the parent body is an incorporeal slasher
+        if (!TryComp<BodyPartComponent>(uid, out var bodyPart) || bodyPart.Body == null)
+            return;
+
+        // Check if the parent body has the incorporeal component and is incorporeal
+        if (TryComp<SlasherIncorporealComponent>(bodyPart.Body.Value, out var slasherComp) && slasherComp.IsIncorporeal)
+            args.Cancelled = true;
+    }
+
     private void OnDropAttempt(EntityUid uid, SlasherIncorporealComponent comp, DropAttemptEvent args)
     {
         if (comp.IsIncorporeal)
             args.Cancel();
     }
+    private void OnGettingInteractedWithAttempt(EntityUid uid, SlasherIncorporealComponent comp, ref GettingInteractedWithAttemptEvent args)
+    {
+        if (comp.IsIncorporeal)
+            args.Cancelled = true;
+    }
+
     private void OnAttemptInteract(EntityUid uid, SlasherIncorporealComponent comp, ref InteractionAttemptEvent args)
     {
         // Allow self / action usages (target null) so corporealize can still be used

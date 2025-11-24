@@ -103,6 +103,7 @@
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Pointing.Components;
+using Content.Shared.Stealth.Components; // Goobstation
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Examine;
@@ -248,6 +249,13 @@ namespace Content.Server.Pointing.EntitySystems
                 // this is a pointing arrow. no pointing here...
                 return false;
             }
+
+            // Goobstation Begin: Disallow pointing at stealthed entities.
+            if (pointed != player && TryComp<StealthComponent>(pointed, out var stealth) && stealth.Enabled)
+            {
+                return false;
+            }
+            // Goobstation End.
 
             if (!CanPoint(player))
             {
