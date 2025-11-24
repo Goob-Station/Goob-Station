@@ -18263,3 +18263,9 @@ Entries:
       message: Operating table now make you do surgery 50% faster!
   id: 2057
   time: '2025-11-23T22:23:24.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: Fixed chaplain's gun dupe.
+  id: 2058
+  time: '2025-11-24T12:26:09.0000000+00:00'
