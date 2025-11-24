@@ -19,13 +19,13 @@
 - type: entity
   id: CigPackMedical
   parent: [CigPackBase]
-  name: Chemlab herbals packet
-  description: Made for and by big pharma, laced with god knows what.
+  name: Chemlab cigarette packet
+  description: Made for and by big pharma. contains 10 super absorbant cigerattes.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi # todo make new sprite, probably fine since there's no fake version of syndicigs
+    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/blue.rsi # todo make new sprite, probably orange for chem
   - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi
+    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/blue.rsi
   - type: StorageFill
     contents:
     - id: CigaretteMedical
