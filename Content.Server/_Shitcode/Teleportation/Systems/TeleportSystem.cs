@@ -66,7 +66,7 @@ public sealed class TeleportSystem : EntitySystem
                 return;
             }
 
-            // It's consumed on use and it's not a stack so delete it
+            // It's consumed on use, and it's not a stack so delete it
             QueueDel(uid);
         }
 
@@ -96,7 +96,7 @@ public sealed class TeleportSystem : EntitySystem
     public Vector2 GetTeleportVector(float minRadius, float extraRadius)
     {
         // Generate a random number from 0 to 1 and multiply by radius to get distance we should teleport to
-        // A square root is taken from the random number so we get an uniform distribution of teleports, else you would get more teleports close to you
+        // A square root is taken from the random number so we get a uniform distribution of teleports, else you would get more teleports close to you
         var distance = minRadius + extraRadius * MathF.Sqrt(_random.NextFloat());
         // Generate a random vector with the length we've chosen
         return _random.NextAngle().ToVec() * distance;
@@ -117,10 +117,8 @@ public sealed class TeleportSystem : EntitySystem
         if (TryComp<PullableComponent>(uid, out var pullable) && _pullingSystem.IsPulled(uid, pullable))
             _pullingSystem.TryStopPull(uid, pullable, ignoreGrab: true);
         // if we teleport check if we're pulling someone and teleport them too if kidnap is true
-        EntityUid? pullableEntity = null;
-        if (TryComp<PullerComponent>(uid, out var puller) && kidnap)
-            pullableEntity = puller.Pulling;
-        else
+        EntityUid? pullableEntity;
+        if (!(HasComp<PullerComponent>(uid) && kidnap))
             _pullingSystem.StopAllPulls(uid);
         var entityCoords = xform.Coordinates.ToMap(EntityManager, _xform);
 
@@ -144,7 +142,7 @@ public sealed class TeleportSystem : EntitySystem
             targetCoords = entityCoords.Offset(GetTeleportVector(radius.Min, extraRadius));
 
             // Try to not teleport into open space
-            if (!_mapManager.TryFindGridAt(targetCoords, out var gridUid, out var grid))
+            if (!_mapManager.TryFindGridAt(targetCoords, out _, out var grid))
                 continue;
             // Check if we picked a position inside a solid object
             var valid = true;
