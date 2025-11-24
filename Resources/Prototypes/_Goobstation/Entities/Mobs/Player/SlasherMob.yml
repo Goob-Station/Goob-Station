@@ -18,7 +18,6 @@
   - type: SlasherSummonMeatSpike
   - type: BreathingImmunity
   - type: GunBlocked
-    PopupText: slasher-cannot-use-guns
   - type: WeakToHoly
   - type: NightVision
     activateSound: null
