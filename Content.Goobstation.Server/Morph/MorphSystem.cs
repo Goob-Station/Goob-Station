@@ -122,7 +122,8 @@ public sealed class MorphSystem : SharedMorphSystem
 
         Spawn(component.MorphPrototype, morphSpawnCoords);
         _audio.PlayPvs(component.ReplicateSound, uid, null);
-        MorphComponent.Children += 1;
+        component.Children++;
+        MorphComponent.TotalChildren++;
     }
     # endregion
 

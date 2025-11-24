@@ -4,20 +4,15 @@ using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Morph;
 
-public sealed partial class MorphReplicateEvent : InstantActionEvent
-{
-}
+[ByRefEvent]
+public sealed partial class MorphReplicateEvent : InstantActionEvent;
 
-public sealed partial class MorphEvent : EntityTargetActionEvent
-{
-}
+[ByRefEvent]
+public sealed partial class MorphEvent : EntityTargetActionEvent;
 
-public sealed partial class UnMorphEvent : InstantActionEvent
-{
-}
+[ByRefEvent]
+public sealed partial class UnMorphEvent : InstantActionEvent;
 
 [Serializable, NetSerializable]
-public sealed partial class ReplicateDoAfterEvent : SimpleDoAfterEvent
-{
-}
+public sealed partial class ReplicateDoAfterEvent : SimpleDoAfterEvent;
 

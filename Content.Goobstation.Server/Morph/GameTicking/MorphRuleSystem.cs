@@ -8,7 +8,7 @@ using Content.Shared.GameTicking.Components;
 namespace Content.Goobstation.Server.Morph.GameTicking;
 
 /// <summary>
-/// Sets round end breif for morphs.
+/// Sets round end brief for morphs.
 /// </summary>
 public sealed class MorphRuleSystem : GameRuleSystem<MorphRuleComponent>
 {
@@ -23,10 +23,9 @@ public sealed class MorphRuleSystem : GameRuleSystem<MorphRuleComponent>
         base.AppendRoundEndText(uid, component, gameRule, ref args);
 
         var sessionData = _antag.GetAntagIdentifiers(uid);
-        foreach (var (mind, data, name) in sessionData)
+        foreach (var (_, data, name) in sessionData)
         {
-            _role.MindHasRole<MorphComponent>(mind, out var role);
-            var count = MorphComponent.Children;
+            var count = MorphComponent.TotalChildren;
 
             if (count != 1)
                 args.AddLine(Loc.GetString("morph-name-user", ("name", name), ("username", data.UserName), ("count", count)));

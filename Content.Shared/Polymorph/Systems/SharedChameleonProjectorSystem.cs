@@ -32,7 +32,7 @@ namespace Content.Shared.Polymorph.Systems;
 /// Handles disguise validation, disguising and revealing.
 /// Most appearance copying is done clientside.
 /// </summary>
-public abstract class SharedChameleonProjectorSystem : EntitySystem
+public abstract partial class SharedChameleonProjectorSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
@@ -88,20 +88,13 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
         TryReveal(ent.Comp.User);
     }
 
+    /*
+    // Goobstation - Refer to SharedChameleonProjectorSystem.Goob.cs
     private void OnDisguiseShutdown(Entity<ChameleonDisguiseComponent> ent, ref ComponentShutdown args)
     {
-        // Goobstation - Start
-        if (ent.Comp.RemoveActions)
-            _actions.RemoveProvidedActions(ent.Comp.User, ent.Comp.Projector);
-        else
-        {
-            if (!TryComp<ChameleonProjectorComponent>(ent.Comp.Projector, out var comp))
-                return;
-
-            _actions.RemoveAction(comp.AnchorActionEntity);
-            _actions.RemoveAction(comp.NoRotActionEntity);
-        }//Goobstation - End
+        _actions.RemoveProvidedActions(ent.Comp.User, ent.Comp.Projector);
     }
+    */
 
     #endregion
 

@@ -1,4 +1,4 @@
-﻿using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Alert;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
@@ -38,10 +38,15 @@ public sealed partial class MorphComponent : Component
     public float ReplicationDelay = 5f;
 
     /// <summary>
-    /// Amount of morphs this morph has produced, used for end round text
+    /// Amount of morphs this specific morph has produced
     /// </summary>
     [DataField]
-    public static int Children = 0;
+    public int Children = 0;
+
+    /// <summary>
+    /// Total number of morphs produced by all morphs (global count)
+    /// </summary>
+    public static int TotalChildren = 0;
 
     /// <summary>
     /// What mob to spawn on replicate, could be used for some sort of sac to spawn morphs on, just uses morph prototype for now

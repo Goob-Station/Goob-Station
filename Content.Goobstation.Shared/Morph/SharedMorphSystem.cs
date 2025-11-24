@@ -34,6 +34,7 @@ public abstract class SharedMorphSystem : EntitySystem
     {
         if (!_chamleon.TryDisguise(ent, arg.Performer, arg.Target))
             return;
+
         DisguiseInventory(ent, arg.Target);
     }
 
@@ -46,6 +47,7 @@ public abstract class SharedMorphSystem : EntitySystem
 
         if (!TryComp<ChameleonDisguisedComponent>(user, out var chamelion))
             return;
+
         var disguise = chamelion.Disguise;
 
         if (TryComp<HumanoidAppearanceComponent>(target,out var targetHumanoidAppearance))

@@ -3,7 +3,6 @@
 namespace Content.Goobstation.Shared.Morph;
 
 [RegisterComponent, NetworkedComponent]
-//[AutoGenerateComponentState]
 public sealed partial class MorphDisguiseComponent : Component
 {
     /// <summary>

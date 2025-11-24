@@ -312,3 +312,28 @@
   - type: AntagObjectives
     objectives:
     - SlaughterHugAndTickleObjective
+
+# Harmony Morph
+- type: entity
+  parent: MorphMidround
+  id: TokenMorph
+  components:
+  - type: StationEvent
+    isSelectable: false
+  - type: AntagSelection
+    agentName: morph-name-user
+    definitions:
+    - spawnerPrototype: SpawnPointGhostMorphToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      briefing:
+        text: morph-role-greeting
+        color: lime
+        sound: /Audio/_Harmony/Misc/mutate.ogg
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+  - type: Tag
+    tags:
+    - MidroundAntag
+
