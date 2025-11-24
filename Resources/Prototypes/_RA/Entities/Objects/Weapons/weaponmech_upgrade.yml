@@ -58,7 +58,7 @@
     - WeaponUpgradeMech
   - type: GunUpgrade
     tags: [ WeaponUpgradeMech ]
-    examineText: gun-upgrade-examine-text-recharge-admeme
+    examineText: gun-upgrade-examine-text-speed-admeme
     capacityCost: 50
     unique: true
   - type: GunComponentUpgrade

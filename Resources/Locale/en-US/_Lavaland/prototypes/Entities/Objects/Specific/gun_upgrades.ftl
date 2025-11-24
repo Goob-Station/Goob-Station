@@ -18,6 +18,5 @@ gun-upgrade-examine-text-clown = Contains a [color=#fcbdfc][bold]silly[/bold][/c
 gun-upgrade-examine-text-pressure = Contains an illegal [color=orangered][bold]pressure[/bold][/color] upgrade.
 gun-upgrade-examine-text-capacity-cost = Requires {$value} capacity.
 
-gun-upgrade-examine-text-speed = Contains a [color=#4262ff][bold]weight[/bold][/color] upgrade.
-gun-upgrade-examine-text-recharge = Contains a [color=#ff4242][bold]recharge[/bold][/color] upgrade.
-gun-upgrade-examine-text-recharge-admeme = Contains a [color=#32bf32][bold]recharge[/bold][/color] upgrade.
+gun-upgrade-examine-text-speed = Contains a [color=#4262ff][bold]micrograv[/bold][/color] upgrade.
+gun-upgrade-examine-text-speed-admeme = Contains a [color=#32bf32][bold]micrograv[/bold][/color] upgrade.
