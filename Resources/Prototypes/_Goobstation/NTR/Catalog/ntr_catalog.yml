@@ -624,3 +624,19 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: NTRExecutiveCasettePlayer
+  name: ntr-executive-cassette-name
+  description: ntr-executive-cassette-desc
+  productEntity: SpawnPodNTRCassettePlayer
+  icon:
+    sprite: _Goobstation/Objects/Fun/executive_cassette_player.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 3
+  categories:
+    - NTRpersonal
+  restockTime: 0
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 300
