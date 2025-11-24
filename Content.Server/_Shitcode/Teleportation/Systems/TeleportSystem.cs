@@ -173,12 +173,12 @@ public sealed class TeleportSystem : EntitySystem
             targetCoords = entityCoords.Offset(GetTeleportVector(radius.Min, extraRadiusBase));
 
         // if we teleport the pulled entity goes with us
-        EntityUid? pullableEntity = null;
+        pullableEntity = null;
         var stage = GrabStage.No;
-        if (TryComp<PullerComponent>(uid, out var puller))
+        if (TryComp<PullerComponent>(uid, out var comp))
         {
-            stage = puller.GrabStage;
-            pullableEntity = puller.Pulling;
+            stage = comp.GrabStage;
+            pullableEntity = comp.Pulling;
         }
 
         _pullingSystem.StopAllPulls(uid);
