@@ -19,6 +19,7 @@ using System.Linq;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
+using Content.Shared.CombatMode;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
@@ -37,6 +38,25 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpCrashingWavesPerformedEvent>(OnSleepingCarpCrashingWaves);
 
         SubscribeLocalEvent<GrantSleepingCarpComponent, UseInHandEvent>(OnGrantSleepingCarp);
+        SubscribeLocalEvent<ToggleCombatActionEvent>(OnCombatModeToggle);
+    }
+
+    private void OnCombatModeToggle(ToggleCombatActionEvent ev)
+    {
+        if(TryComp<SleepingCarpStudentComponent>(ev.Performer, out var studentComp) && studentComp.Stage >= 3 &&
+            TryComp<CombatModeComponent>(ev.Performer, out var combat) && combat.IsInCombatMode)
+        {
+            var userReflect = EnsureComp<ReflectComponent>(ev.Performer);
+            userReflect.Examinable = false; // no doxxing scarp users by examining lmao
+            userReflect.ReflectProb = 1;
+            userReflect.Spread = 60;
+            Dirty(ev.Performer, userReflect);
+        }
+        else
+        {
+            if(HasComp<SleepingCarpStudentComponent>(ev.Performer))
+                RemComp<ReflectComponent>(ev.Performer);
+        }
     }
 
     #region Generic Methods
@@ -87,11 +107,6 @@ public partial class SharedMartialArtsSystem
                 if (!TryGrantMartialArt(args.User, ent.Comp))
                     return;
                 _faction.AddFaction(args.User, "Dragon");
-                var userReflect = EnsureComp<ReflectComponent>(args.User);
-                userReflect.Examinable = false; // no doxxing scarp users by examining lmao
-                userReflect.ReflectProb = 1;
-                userReflect.Spread = 60;
-                Dirty(args.User, userReflect);
                 _popupSystem.PopupEntity(
                     Loc.GetString("carp-scroll-complete"),
                     ent,
