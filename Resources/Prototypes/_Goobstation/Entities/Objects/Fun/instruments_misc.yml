@@ -27,8 +27,6 @@
       "Synth": { 62: 0 }
       "Friend": { 2: 0 }
       "Overdriven": { 29: 0 }
-  - type: Sprite
-    state: icon
   - type: Item
     size: Small
   - type: Clothing
