@@ -362,9 +362,7 @@ public sealed class FaceHuggerSystem : EntitySystem
         if (_inventory.TryGetSlotEntity(target, "mask", out var maskUid))
         {
             // If the mask is a breath tool (gas mask) and is functional, block the facehugger
-            if (TryComp<BreathToolComponent>(maskUid, out var breathTool) && breathTool.IsFunctional &&
-                TryComp<IngestionBlockerComponent>(maskUid, out var ingestionBlocker) &&
-                ingestionBlocker.BlockSmokeIngestion)
+            if (TryComp<IngestionBlockerComponent>(maskUid, out var ingestionBlocker) && ingestionBlocker.BlockSmokeIngestion)
             {
                 blocker = maskUid;
                 return true;
