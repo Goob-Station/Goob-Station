@@ -29,8 +29,6 @@ using Content.Shared.Destructible;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage;
 using Content.Shared.Actions.Components;
-using Content.Shared.Interaction;
-using Content.Shared.Interaction.Components; 
 
 namespace Content.Goobstation.Shared.Vehicles;
 
@@ -44,7 +42,6 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
 
     public static readonly EntProtoId HornActionId = "ActionHorn";
     public static readonly EntProtoId SirenActionId = "ActionSiren";
@@ -240,10 +237,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
     private void Mount(EntityUid driver, EntityUid vehicle)
     {
-
-        var irelay = EnsureComp<InteractionRelayComponent>(driver);
         _mover.SetRelay(driver, vehicle);
-        _interaction.SetRelay(driver, vehicle, irelay);
 
         if (HasComp<TileMovementComponent>(driver))
             EnsureComp<TileMovementComponent>(vehicle);
@@ -257,7 +251,6 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         if (vehicleComp.Driver != driver)
             return;
 
-        RemComp<InteractionRelayComponent>(driver);
         RemComp<RelayInputMoverComponent>(driver);
 
         vehicleComp.Driver = null;
