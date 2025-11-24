@@ -3,7 +3,7 @@
   id: XenomorphsInfestationRoundstart
   components:
   - type: GameRule
-    chaosScore: 400
+    chaosScore: 1000
     minPlayers: 30
   - type: AntagObjectives
     objectives:
