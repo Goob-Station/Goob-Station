@@ -67,7 +67,7 @@ public abstract partial class SharedHereticAbilitySystem
 
         if (!IsTileRust(xform.Coordinates, out _))
         {
-            Popup.PopupPredicted(Loc.GetString("heretic-ability-fail-tile-underneath-not-rusted"), ent, ent);
+            Popup.PopupClient(Loc.GetString("heretic-ability-fail-tile-underneath-not-rusted"), ent, ent);
             return;
         }
 
