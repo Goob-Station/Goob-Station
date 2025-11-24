@@ -192,8 +192,8 @@
   - type: UseDelayBlockMelee # Goobstation
     delays:
     - stunbaton
-  - type: LandAtCursor
-  - type: Battery
+  - type: LandAtCursor # it deals stamina damage when thrown
+  - type: PredictedBattery
     maxCharge: 1000
     startingCharge: 1000
   - type: UseDelay

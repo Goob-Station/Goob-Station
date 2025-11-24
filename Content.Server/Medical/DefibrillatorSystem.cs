@@ -104,7 +104,7 @@ using Content.Server.Electrocution;
 using Content.Server.EUI;
 using Content.Server.Ghost;
 using Content.Server.Popups;
-using Content.Server.PowerCell;
+using Content.Shared.PowerCell;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.Chat; // Einstein Engines - Languages
 using Content.Shared.Chat;

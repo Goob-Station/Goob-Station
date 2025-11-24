@@ -5,17 +5,17 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Ninja.Events;
-using Content.Server.Power.EntitySystems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Ninja.Components;
 using Content.Shared.Ninja.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Power.EntitySystems;
 
 namespace Content.Server.Ninja.Systems;
 
 public sealed class ItemCreatorSystem : SharedItemCreatorSystem
 {
-    [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private readonly PredictedBatterySystem _battery = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
@@ -30,7 +30,7 @@ public sealed class ItemCreatorSystem : SharedItemCreatorSystem
     private void OnCreateItem(Entity<ItemCreatorComponent> ent, ref CreateItemEvent args)
     {
         var (uid, comp) = ent;
-        if (comp.Battery is not {} battery)
+        if (comp.Battery is not { } battery)
             return;
 
         args.Handled = true;

@@ -146,12 +146,12 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.65 # Lavaland change // Slightly slower than regular walkspeed, makes it not annoying as fuck to catch
     baseSprintSpeed: 1.65 # Lavaland change
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: WatcherBolt
     fireCost: 50
-  - type: BatterySelfRecharger
+  - type: PredictedBatterySelfRecharger
     autoRechargeRate: 50
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 1000
     startingCharge: 1000
   - type: Gun
@@ -236,7 +236,7 @@
     radius: 1
     energy: 3
     color: orangered
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: WatcherBoltMagmawing
     fireCost: 50
   - type: Butcherable # Lavaland Change

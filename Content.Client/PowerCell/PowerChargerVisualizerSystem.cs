@@ -10,6 +10,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Power;
+using Content.Shared.Power.Components;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.PowerCell;

@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.PowerCell;
+using Content.Shared.PowerCell;
 using Content.Shared.Pinpointer;
 using Robust.Server.GameObjects;
 
