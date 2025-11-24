@@ -18269,3 +18269,11 @@ Entries:
       message: Fixed chaplain's gun dupe.
   id: 2058
   time: '2025-11-24T12:26:09.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Thether guns have more pulling force now.
+    - type: Tweak
+      message: Force guns throw shit further away.
+  id: 2059
+  time: '2025-11-24T12:43:37.0000000+00:00'
