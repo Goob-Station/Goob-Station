@@ -274,6 +274,7 @@
   - type: InteractionVerbs
     allowedVerbs:
     - KnockOn
+  - type: SoundBlocker # Trauma
   placement:
     mode: SnapgridCenter
 

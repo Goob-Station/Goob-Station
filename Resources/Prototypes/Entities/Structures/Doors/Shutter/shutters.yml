@@ -151,6 +151,8 @@
   - type: InteractionVerbs # EE: Interaction Verbs
     allowedVerbs:
     - KnockOn
+  - type: SoundBlocker # Trauma
+    soundBlockPercent: 0.5
 
 - type: entity
   id: ShuttersNormal

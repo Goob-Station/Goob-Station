@@ -87,6 +87,7 @@
   - type: InteractionVerbs # EE: Interaction Verbs
     allowedVerbs:
     - KnockOn
+  - type: SoundBlocker # Trauma
 
 - type: entity
   parent: BaseMaterialDoor
