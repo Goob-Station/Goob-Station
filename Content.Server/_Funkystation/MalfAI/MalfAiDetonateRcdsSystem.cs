@@ -9,6 +9,8 @@ using Robust.Shared.Containers;
 using Content.Shared.Store.Components;
 using Robust.Shared.Timing;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Funkystation.MalfAI;
 
@@ -23,9 +25,12 @@ public sealed class MalfAiDetonateRcdsSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedContainerSystem _containers = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly PrototypeManager _proto = default!;
 
     private static readonly TimeSpan RcdDetonationDelay = TimeSpan.FromSeconds(5);
     private static readonly SoundSpecifier RcdBeepSound = new SoundPathSpecifier("/Audio/Effects/beep1.ogg");
+    private static readonly ProtoId<TagPrototype> TagProto = "BorgTool";
 
     public override void Initialize()
     {
@@ -48,6 +53,9 @@ public sealed class MalfAiDetonateRcdsSystem : EntitySystem
         if (!Exists(origin))
             return;
 
+        if (!_proto.TryIndex(TagProto, out var tagProto))
+            return;
+
         var perfXform = Transform(origin);
         var gridUid = perfXform.GridUid;
         if (gridUid == null)
@@ -59,8 +67,8 @@ public sealed class MalfAiDetonateRcdsSystem : EntitySystem
             if (xform.GridUid != gridUid)
                 continue;
 
-            // Skip detonation if RCD has a cyborg module component (engi borgs protection)
-            if (HasComp<BorgModuleComponent>(rcdUid))
+            // Skip detonation if RCD has a BorgTool tag (engi borgs protection)
+            if (_tag.HasTag(rcdUid, tagProto))
                 continue;
 
             if (_containers.TryGetContainingContainer((rcdUid, xform, null), out var container))
