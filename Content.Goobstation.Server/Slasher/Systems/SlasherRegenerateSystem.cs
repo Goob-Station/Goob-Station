@@ -50,10 +50,6 @@ public sealed class SlasherRegenerateSystem : EntitySystem
         if (args.Handled)
             return;
 
-        // Block regeneration if the user is dead
-        if (_mobState.IsDead(uid))
-            return;
-
         _rejuvenate.PerformRejuvenate(uid);
 
         TryInjectReagent(uid, comp);
