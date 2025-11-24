@@ -25,6 +25,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
+using Content.Shared.CombatMode;
 
 namespace Content.Shared._Goobstation.Heretic.Systems;
 
@@ -69,7 +70,10 @@ public sealed class RiposteeSystem : EntitySystem
         if (!TryComp(weapon.Value, out MeleeWeaponComponent? melee) ||
             !TryComp(user.Value, out RiposteeComponent? ripostee))
             return;
-
+        
+        if(TryComp(user.Value, out CombatModeComponent? combat) && combat.IsInCombatMode)
+            return;
+        
         CounterAttack((weapon.Value, melee), (user.Value, ripostee), target.Value, ev.Data);
     }
 
@@ -145,6 +149,9 @@ public sealed class RiposteeSystem : EntitySystem
             if (!data.CanRiposteWhileProne && _standing.IsDown(ent))
                 continue;
 
+            if (TryComp<CombatModeComponent>(ent.Owner, out var combat) && !combat.IsInCombatMode) // Don't riposte out of combat mode
+                continue;
+            
             if (data.RiposteChance is > 0f and < 1f)
             {
                 if (!_random.Prob(data.RiposteChance))
