@@ -346,7 +346,6 @@
       - type: SlasherSummonMeatSpike
       - type: BreathingImmunity
       - type: GunBlocked
-        PopupText: slasher-cannot-use-guns # Seems to be broken inside AntagSelection
       - type: WeakToHoly
       - type: NightVision
         activateSound: null
