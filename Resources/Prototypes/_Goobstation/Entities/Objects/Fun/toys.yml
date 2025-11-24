@@ -824,3 +824,58 @@
       sprite: Objects/Weapons/Melee/Throngler-in-hand.rsi
     - type: DisarmMalus
       malus: 0
+
+
+- type: entity
+  name: evil Xeve plush
+  parent: PlushieXeve
+  id: EvilPlushieXeve
+  suffix: Evil
+
+- type: entity
+  name: evil Boggle plush
+  parent: PlushieBoggle
+  id: EvilPlushieBoggle
+  suffix: Evil
+
+- type: entity
+  name: evil Brizby plush
+  parent: PlushieBrizby
+  id: EvilPlushieBrizby
+  suffix: Evil
+
+- type: entity
+  name: evil Nigel plush
+  parent: PlushieNigel
+  id: EvilPlushieNigel
+  suffix: Evil
+
+- type: entity
+  name: evil Fern plush
+  parent: PlushieFern
+  id: EvilPlushieFern
+  suffix: Evil
+
+- type: entity
+  name: evil Jvne plush
+  parent: PlushieJvne
+  id: EvilPlushieJvne
+  suffix: Evil
+
+- type: entity
+  name: evil Mnwaar plush
+  parent: PlushieMnwaar
+  id: EvilPlushieMnwaar
+  suffix: Evil
+
+- type: entity
+  name: evil Durk plush
+  parent: PlushieDurk
+  id: EvilPlushieDurk
+  suffix: Evil
+
+- type: entity
+  name: evil Louie plush
+  parent: PlushieLouie
+  id: EvilPlushieLouie
+  suffix: Evil

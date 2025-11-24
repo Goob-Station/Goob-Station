@@ -1,0 +1,219 @@
+- type: entity
+  name: machete
+  parent: [ BaseSword, BaseMajorContraband ]
+  id: SlasherMachete
+  description: A large, vicious looking blade.
+  components:
+  - type: Tag
+    tags:
+    - Machete
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/machete.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 15
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 30
+  - type: Item
+    storedSprite:
+      state: storage
+      sprite: _Goobstation/Objects/Specific/Slasher/machete.rsi
+    shape:
+    - 0,0,0,2
+  - type: DisarmMalus
+  - type: SlasherMassacreMachete
+
+- type: entity
+  parent: WeldingMaskBase
+  id: ClothingHeadHatSlasherMask
+  name: slasher mask
+  description: A head-mounted face cover designed to protect the wearer completely from space-arc eye.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - WeldingMask
+  - type: RandomIntervalSound
+    requireEquipped: True
+    requireAlive: True
+    sound:
+      collection: SlasherBreathing
+      params:
+        volume: -5
+        maxDistance: 8
+  - type: SelfUnremovableClothing
+  - type: SelfEquipOnly
+    unequipRequireConscious: false
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 1
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      NerveDamage: 0
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
+        Caustic: 0.90
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterSlasherApron
+  name: slasher apron
+  description: A fancy apron for a stylish person.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/apron.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Specific/Slasher/apron.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+  - type: SelfUnremovableClothing
+  - type: SelfEquipOnly
+    unequipRequireConscious: false
+  - type: Tag
+    tags:
+    - Apron
+    - WhitelistChameleon
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      NerveDamage: 0
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
+        Caustic: 0.90
+
+- type: entity
+  parent: ClothingHandsGlovesColorBlack
+  id: ClothingHandsSlasherGloves
+  name: slasher gloves
+  description: Heavy black gloves, stained by time.
+  components:
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      NerveDamage: 0
+    coverage:
+    - Hand
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
+        Caustic: 0.90
+
+- type: entity
+  parent: ClothingShoesLeather
+  id: ClothingShoesSlasher
+  name: slasher shoes
+  description: Old leather boots that have seen better days.
+  components:
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      NerveDamage: 0
+    coverage:
+    - Foot
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
+        Caustic: 0.90
+
+- type: entity
+  id: SlasherMeatSpike
+  parent: BaseStructure
+  name: Ominous Meat Spike
+  description: You might want to run.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: Structures/meat_spike.rsi
+    state: spike
+    layers:
+    - state: spike
+      map: ["base"]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -4
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+  - type: Anchorable
+  - type: Pullable
+  - type: Appearance
+  - type: BlockHandsOnBuckle
+  - type: Strap
+    position: Down
+    rotation: -180
+    selfUnBuckleDelay: 60
+    blacklist:
+      components:
+        - Slasher # no lmao
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: AntiRotOnBuckle
+  - type: Fixtures
+    fixtures:
+      spike:
+        shape: !type:PhysShapeAabb { bounds: "-0.25,-0.25,0.25,0.25" }
+        density: 5
+        mask: []
+        layer: []

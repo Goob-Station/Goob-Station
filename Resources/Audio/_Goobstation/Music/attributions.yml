@@ -37,13 +37,18 @@
   license: "CC-BY-4.0"
   copyright: "Original music by @Bobik-music"
   source: "https://www.youtube.com/watch?v=tLfHbai7yzc"
-  
+
 - files: ["the_gray_tide_song.ogg"]
   license: "CC-BY-3.0"
   copyright: "Original music by @mrjajkes, (youtube)"
   source: "https://www.youtube.com/watch?v=fYU8LI2qC-s"
-  
+
 - files: ["91476_Glorious_morning.ogg"]
   license: "CC-BY-3.0"
   copyright: "Original music by Waterflame"
   source: "https://www.newgrounds.com/audio/listen/91476"
+
+- files: ["slasher_serial_killer_murder_frenzy_insane_horror_soundtrack.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Original music by Melodyayresgriffiths"
+  source: "https://pixabay.com/music/video-games-slasher-serial-killer-murder-frenzy-insane-horror-soundtrack-148247/"

@@ -48,6 +48,7 @@
       - Monkey
       - Kobold
       - Cheval
+      - YowKriol
 
     understood:
       - TauCetiBasic
@@ -84,6 +85,7 @@
       - Monkey
       - Kobold
       - Cheval
+      - YowKriol
 
 
 
@@ -123,3 +125,18 @@
     - SpaceItalian
     spoken:
     - SpaceItalian
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: YowKriolTranslatorImplant
+  name: Yow Kriol translator implant
+  description: An implant giving the ability to understand and speak Yow Kriol.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - YowKriol
+    spoken:
+    - YowKriol
+    requires:
+    - TauCetiBasic

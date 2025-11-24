@@ -15,4 +15,16 @@ alerts-changeling-biomass-desc =
 
 alerts-changeling-fleshmend-name = Fleshmend
 alerts-changeling-fleshmend-desc =
-    Brute damage is being rapidly healed! Burn and asphyxiation damage is healed at a lower amount. [color=red]Healing will cease while on fire.[/color]
+    Brute damage is being rapidly healed! Burn and asphyxiation damage is healed at a lower amount. [color=red]Effects will cease while on fire or dead.[/color]
+
+alerts-changeling-adrenaline-name = Adrenaline Reserves
+alerts-changeling-adrenaline-desc =
+    Stuns, knockdowns and most incapacitation methods have zero effect!
+
+alerts-changeling-panacea-name = Anatomic Panacea
+alerts-changeling-panacea-desc =
+    Non-physical damage is being healed! Illness, chemicals and the influence of drugs are being cleansed. [color=red]Effects will cease while on fire or dead.[/color]
+
+alerts-changeling-voidadapt-name = Void Adaption
+alerts-changeling-voidadapt-desc =
+    The low extremes are being adapted to. [color=yellow]Chemical regeneration is decreased by 25%[/color]. [color=red]Effects will cease while on fire.[/color]

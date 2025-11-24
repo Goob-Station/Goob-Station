@@ -7,6 +7,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# add any future disability components to \Resources\Prototypes\_Goobstation\Medical\disabilities_lists.yml
+
 - type: trait
   id: WheelchairBound
   name: trait-wheelchair-bound-name

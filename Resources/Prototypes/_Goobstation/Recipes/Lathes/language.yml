@@ -3,3 +3,19 @@
   id: ChevalTranslatorImplanter
   subname: lathe-recipe-ChevalTranslatorImplanter-subname
   result: ChevalTranslatorImplanter
+
+- type: latheRecipe
+  id: YowKriolTranslator
+  result: YowKriolTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: YowKriolTranslatorImplanter
+  subname: lathe-recipe-YowKriolTranslatorImplanter-subname
+  result: YowKriolTranslatorImplanter

@@ -18,83 +18,430 @@
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# Lava, but Land
+
+# First we lava, then we land... Let's Lavaland!
 - type: biomeTemplate
   id: LavaLand
   layers:
-    - !type:BiomeEntityLayer
-      threshold: 1
-      noise:
-        frequency: 1
-        seed: 15
-      allowedTiles:
-        - FloorBasaltLavaland
-      entities:
-        - BasaltOne
-        - BasaltTwo
-        - BasaltThree
-        - BasaltFour
-        - BasaltFive
-    - !type:BiomeDecalLayer
-      allowedTiles:
-        - FloorBasaltLavaland
-      threshold: 0.95
-      divisions: 1
-      noise:
-        seed: 25
-        frequency: 1
-      decals:
-        - Basalt1
-        - Basalt2
-        - Basalt3
-        - Basalt4
-        - Basalt5
-        - Basalt6
-        - Basalt7
-        - Basalt8
-        - Basalt9
-    - !type:BiomeEntityLayer
-      threshold: 0.95
-      noise:
-        seed: 0
-        noiseType: OpenSimplex2
-        frequency: 2
-      allowedTiles:
-        - FloorBasaltLavaland
-      entities:
-        - FloraRockSolid
-    - !type:BiomeEntityLayer
-      threshold: 0.2
-      noise:
-        seed: 10
-        frequency: 0.025
-        fractalType: FBm
-        octaves: 5
-        lacunarity: 2
-        gain: 0.4
-      allowedTiles:
-        - FloorBasaltLavaland
-      entities:
-        - FloorLavaEntity
-    # Rock formations
-    - !type:BiomeEntityLayer
-      allowedTiles:
-        - FloorBasaltLavaland
-      threshold: -0.25
-      noise:
-        seed: 5
-        noiseType: Cellular
-        frequency: 0.05
-        lacunarity: 2
-        fractalType: FBm
-        octaves: 5
-        cellularDistanceFunction: Euclidean
-        cellularReturnType: Distance2
-      entities:
-        - WallRockBasalt
-    - !type:BiomeDummyLayer
-      id: Loot
-    # Fill basalt
-    - !type:BiomeTileLayer
-      threshold: -1
-      tile: FloorBasaltLavaland
+  - !type:BiomeMetaLayer
+    threshold: -1.0
+    template: LavaCaves
+  - !type:BiomeMetaLayer
+    template: LavaWastelands
+    threshold: -0.5
+    noise:
+      frequency: 0.003
+      noiseType: OpenSimplex2
+      fractalType: FBm
+      octaves: 2
+      lacunarity: 2
+  - !type:BiomeMetaLayer
+    template: Ashlands
+    threshold: 0
+    noise:
+      frequency: 0.003
+      noiseType: OpenSimplex2
+      fractalType: FBm
+      octaves: 2
+      lacunarity: 2
+  - !type:BiomeMetaLayer
+    template: LavaLakes
+    threshold: 0.5
+    noise:
+      frequency: 0.003
+      noiseType: OpenSimplex2
+      fractalType: FBm
+      octaves: 2
+      lacunarity: 2
+
+# Default wastelands, edited Wizden's Lava biome
+- type: biomeTemplate
+  id: LavaWastelands
+  layers:
+  - !type:BiomeEntityLayer
+    threshold: 0.95
+    noise:
+      frequency: 1
+      seed: 15
+    allowedTiles:
+    - FloorBasaltLavaland
+    entities:
+    - BasaltOne
+    - BasaltTwo
+    - BasaltThree
+    - BasaltFour
+    - BasaltFive
+  - !type:BiomeDecalLayer
+    allowedTiles:
+    - FloorBasaltLavaland
+    threshold: 0.95
+    divisions: 1
+    noise:
+      seed: 25
+      frequency: 1
+    decals:
+    - Basalt1
+    - Basalt2
+    - Basalt3
+    - Basalt4
+    - Basalt5
+    - Basalt6
+    - Basalt7
+    - Basalt8
+    - Basalt9
+  - !type:BiomeEntityLayer
+    threshold: 0.95
+    noise:
+      seed: 0
+      noiseType: OpenSimplex2
+      frequency: 2
+    allowedTiles:
+    - FloorBasaltLavaland
+    entities:
+    - FloraRockSolid
+  - !type:BiomeEntityLayer
+    threshold: 0.2
+    noise:
+      seed: 10
+      frequency: 0.025
+      fractalType: FBm
+      octaves: 5
+      lacunarity: 2
+      gain: 0.4
+    allowedTiles:
+    - FloorBasaltLavaland
+    entities:
+    - FloorLavaEntity
+  # Rock formations
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorBasaltLavaland
+    threshold: -0.25
+    noise:
+      seed: 5
+      noiseType: Cellular
+      frequency: 0.05
+      lacunarity: 2
+      fractalType: FBm
+      octaves: 5
+      cellularDistanceFunction: Euclidean
+      cellularReturnType: Distance2
+    entities:
+    - WallRockBasalt
+  - !type:BiomeDummyLayer
+    id: Loot
+  # Fill basalt
+  - !type:BiomeTileLayer
+    threshold: -1
+    tile: FloorBasaltLavaland
+
+# Ashlands - wasteland with more life, but fully covered in ash
+- type: biomeTemplate
+  id: Ashlands
+  layers:
+  # Normal lavaland things included on basalt tiles
+  - !type:BiomeEntityLayer
+    threshold: 0.95
+    noise:
+      frequency: 1
+      seed: 15
+    allowedTiles:
+    - FloorPlanetAsh
+    - FloorBasaltLavaland
+    entities:
+    - BasaltOne
+    - BasaltTwo
+    - BasaltThree
+    - BasaltFour
+    - BasaltFive
+  - !type:BiomeDecalLayer
+    allowedTiles:
+    - FloorPlanetAsh
+    - FloorBasaltLavaland
+    threshold: 0.95
+    divisions: 1
+    noise:
+      seed: 25
+      frequency: 1
+    decals:
+    - Basalt1
+    - Basalt2
+    - Basalt3
+    - Basalt4
+    - Basalt5
+    - Basalt6
+    - Basalt7
+    - Basalt8
+    - Basalt9
+  - !type:BiomeEntityLayer
+    threshold: 0.95
+    noise:
+      seed: 0
+      noiseType: OpenSimplex2
+      frequency: 2
+    allowedTiles:
+    - FloorPlanetAsh
+    - FloorBasaltLavaland
+    entities:
+    - FloraRockSolid # Rock is flora apparently by the way.
+  # Instead of lava lakes there are only lava rivers
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorPlanetAsh
+    - FloorBasaltLavaland
+    threshold: 0.95
+    noise:
+      seed: 4
+      noiseType: OpenSimplex2
+      frequency: 0.003
+      lacunarity: 1.50
+      fractalType: Ridged
+      octaves: 1
+    entities:
+    - FloorLavaEntity
+  # Rock formations
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorPlanetAsh
+    threshold: -0.2 # +0.05 compared to default lavaland so walls appear less
+    noise:
+      seed: 5
+      noiseType: Cellular
+      frequency: 0.05
+      lacunarity: 2
+      fractalType: FBm
+      octaves: 5
+      cellularDistanceFunction: Euclidean
+      cellularReturnType: Distance2
+    entities:
+    - AsteroidRock
+  #
+  # Actual Ashlands from here!
+  #
+  # Vegetation
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorPlanetAsh
+    threshold: 0.85
+    noise:
+      seed: 2
+      noiseType: OpenSimplex2
+      fractalType: PingPong
+    entities:
+    - AshBush
+  # Food (mushrooms)
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorPlanetAsh
+    threshold: 0.9
+    noise:
+      seed: 2
+      noiseType: OpenSimplex2
+      fractalType: PingPong
+    entities:
+    - Lavashroom
+  # Trees
+  - !type:BiomeEntityLayer
+    threshold: 0.6
+    noise:
+      seed: 0
+      noiseType: OpenSimplex2
+      fractalType: FBm
+      frequency: 2
+    allowedTiles:
+    - FloorPlanetAsh
+    entities:
+    - FloraAshtree
+  - !type:BiomeDummyLayer
+    id: Loot
+  # Fill basalt & ash grass
+  - !type:BiomeTileLayer
+    threshold: -1.0
+    tile: FloorBasaltLavaland
+  - !type:BiomeTileLayer
+    threshold: -0.5 # 1/4 from all the lavaland, since there are 4 biomes it has to be like that
+    tile: FloorPlanetAsh
+    noise:
+      seed: 0
+      frequency: 0.02
+      fractalType: None
+
+# Lava caves - has no lava, but rarely spawns chasms
+- type: biomeTemplate
+  id: LavaCaves
+  layers:
+  # Basic stuff
+  - !type:BiomeEntityLayer
+    threshold: 0.95
+    noise:
+      frequency: 1
+      seed: 15
+    allowedTiles:
+    - FloorBasaltLavaland
+    entities:
+    - BasaltOne
+    - BasaltTwo
+    - BasaltThree
+    - BasaltFour
+    - BasaltFive
+  - !type:BiomeDecalLayer
+    allowedTiles:
+    - FloorBasaltLavaland
+    threshold: 0.95
+    divisions: 1
+    noise:
+      seed: 25
+      frequency: 1
+    decals:
+    - Basalt1
+    - Basalt2
+    - Basalt3
+    - Basalt4
+    - Basalt5
+    - Basalt6
+    - Basalt7
+    - Basalt8
+    - Basalt9
+  - !type:BiomeEntityLayer
+    threshold: 0.95
+    noise:
+      seed: 0
+      noiseType: OpenSimplex2
+      frequency: 2
+    allowedTiles:
+    - FloorBasaltLavaland
+    entities:
+    - FloraRockSolid
+  # Crystals to signal the biome type
+  - !type:BiomeEntityLayer
+    threshold: 0.85
+    noise:
+      seed: 2
+      noiseType: OpenSimplex2
+      fractalType: PingPong
+    allowedTiles:
+    - FloorBasaltLavaland
+    entities:
+    - CrystalGreen
+    - CrystalPink
+    - CrystalOrange
+    - CrystalBlack
+    - CrystalBlue
+    - CrystalYellow
+    - CrystalCyan
+  # Be careful here!
+  - !type:BiomeEntityLayer
+    threshold: 0.7
+    noise:
+      seed: 10
+      frequency: 0.025
+      fractalType: FBm
+      octaves: 5
+      lacunarity: 2
+      gain: 0.4
+    allowedTiles:
+    - FloorBasaltLavaland
+    entities:
+    - FloorChasmEntity
+  # Rock formations - copied from Caves
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorBasaltLavaland
+    threshold: -0.5
+    invert: true
+    noise:
+      seed: 0
+      noiseType: Perlin
+      fractalType: Ridged
+      octaves: 1
+      frequency: 0.1
+      gain: 0.5
+    entities:
+    - WallRockBasalt
+  - !type:BiomeDummyLayer
+    id: Loot
+  # Fill basalt
+  - !type:BiomeTileLayer
+    threshold: -1
+    tile: FloorBasaltLavaland
+
+# Lava lakes - has much more lava, but doesn't appear so often
+- type: biomeTemplate
+  id: LavaLakes
+  layers:
+  - !type:BiomeEntityLayer
+    threshold: 0.95
+    noise:
+      frequency: 1
+      seed: 15
+    allowedTiles:
+    - FloorBasaltLavaland
+    entities:
+    - BasaltOne
+    - BasaltTwo
+    - BasaltThree
+    - BasaltFour
+    - BasaltFive
+  - !type:BiomeDecalLayer
+    allowedTiles:
+    - FloorBasaltLavaland
+    threshold: 0.95
+    divisions: 1
+    noise:
+      seed: 25
+      frequency: 1
+    decals:
+    - Basalt1
+    - Basalt2
+    - Basalt3
+    - Basalt4
+    - Basalt5
+    - Basalt6
+    - Basalt7
+    - Basalt8
+    - Basalt9
+  - !type:BiomeEntityLayer
+    threshold: 0.95
+    noise:
+      seed: 0
+      noiseType: OpenSimplex2
+      frequency: 2
+    allowedTiles:
+    - FloorBasaltLavaland
+    entities:
+    - FloraRockSolid
+  - !type:BiomeEntityLayer
+    threshold: 0 # The only difference is right here
+    noise:
+      seed: 10
+      frequency: 0.025
+      fractalType: FBm
+      octaves: 3
+      lacunarity: 3
+      gain: 0.4
+    allowedTiles:
+    - FloorBasaltLavaland
+    entities:
+    - FloorLavaEntity
+  # Rock formations
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorBasaltLavaland
+    threshold: -0.1 # Fewer stones
+    noise:
+      seed: 5
+      noiseType: Cellular
+      frequency: 0.05
+      lacunarity: 2
+      fractalType: FBm
+      octaves: 5
+      cellularDistanceFunction: Euclidean
+      cellularReturnType: Distance2
+    entities:
+    - WallRockBasalt
+  - !type:BiomeDummyLayer
+    id: Loot
+  # Fill basalt
+  - !type:BiomeTileLayer
+    threshold: -1
+    tile: FloorBasaltLavaland

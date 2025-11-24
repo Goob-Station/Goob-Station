@@ -274,7 +274,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         StatusEffectsComponent? status = null)
     {
         var modifierEv = new GetClothingStunModifierEvent(uid);
-        RaiseLocalEvent(modifierEv);
+        RaiseLocalEvent(uid, modifierEv, true);
         time *= modifierEv.Modifier;
 
         if (time <= TimeSpan.Zero)
@@ -285,6 +285,14 @@ public abstract partial class SharedStunSystem : EntitySystem
 
         if (!_statusEffect.TryAddStatusEffect<StunnedComponent>(uid, "Stun", time, refresh))
             return false;
+
+        // goob start
+        var ignoreEv = new BeforeStunEvent();
+        RaiseLocalEvent(uid, ref ignoreEv);
+
+        if (ignoreEv.Cancelled)
+            return false;
+        // goob end
 
         // goob edit
         _jitter.DoJitter(uid, time, refresh);
@@ -305,7 +313,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         DropHeldItemsBehavior behavior, StatusEffectsComponent? status = null, bool standOnRemoval = true) // Shitmed Change
     {
         var modifierEv = new GetClothingStunModifierEvent(uid);
-        RaiseLocalEvent(modifierEv);
+        RaiseLocalEvent(uid, modifierEv, true);
         time *= modifierEv.Modifier;
 
         if (!HasComp<LayingDownComponent>(uid)) // Goobstation - only knockdown mobs that can lie down
@@ -313,6 +321,14 @@ public abstract partial class SharedStunSystem : EntitySystem
 
         if (time <= TimeSpan.Zero || !Resolve(uid, ref status, false))
             return false;
+
+        // goob start
+        var ignoreEv = new BeforeKnockdownEvent();
+        RaiseLocalEvent(uid, ref ignoreEv);
+
+        if (ignoreEv.Cancelled)
+            return false;
+        // goob end
 
         var component = _componentFactory.GetComponent<KnockedDownComponent>();
         component.DropHeldItemsBehavior = behavior;
@@ -341,7 +357,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         StatusEffectsComponent? status = null)
     {
         var modifierEv = new GetClothingStunModifierEvent(uid);
-        RaiseLocalEvent(modifierEv);
+        RaiseLocalEvent(uid, modifierEv, true);
         time *= modifierEv.Modifier;
 
         if (!HasComp<LayingDownComponent>(uid)) // Goobstation - only knockdown mobs that can lie down
@@ -355,6 +371,14 @@ public abstract partial class SharedStunSystem : EntitySystem
 
         if (!_statusEffect.TryAddStatusEffect<KnockedDownComponent>(uid, "KnockedDown", time, refresh))
             return false;
+
+        // goob start
+        var ignoreEv = new BeforeStunEvent();
+        RaiseLocalEvent(uid, ref ignoreEv);
+
+        if (ignoreEv.Cancelled)
+            return false;
+        // goob end
 
         var ev = new KnockedDownEvent();
         RaiseLocalEvent(uid, ref ev);
@@ -387,6 +411,14 @@ public abstract partial class SharedStunSystem : EntitySystem
 
         if (time <= TimeSpan.Zero)
             return false;
+
+        // goob start
+        var ignoreEv = new BeforeTrySlowdownEvent();
+        RaiseLocalEvent(uid, ref ignoreEv);
+
+        if (ignoreEv.Cancelled)
+            return false;
+        // goob end
 
         if (_statusEffect.TryAddStatusEffect<SlowedDownComponent>(uid, "SlowedDown", time, refresh, status))
         {

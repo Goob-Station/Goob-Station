@@ -51,9 +51,6 @@
   - type: Appearance
   - type: StaticPrice
     price: 100
-  - type: Tag
-    tags:
-    - Trash
 
 - type: entity
   abstract: true
@@ -202,6 +199,7 @@
   - type: Tag
     tags:
       - Head
+      - Unedible # Goobstation
   - type: Woundable
     boneEntity: BoneNeck
     integrity: 80

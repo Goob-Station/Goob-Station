@@ -16,3 +16,4 @@ lathe-recipe-MarishTranslatorImplanter-subname = marish translator implant
 lathe-recipe-SchechiTranslatorImplanter-subname = schechi translator implant
 lathe-recipe-NewKinPidginTranslatorImplanter-subname = ka'rakk translator implant
 lathe-recipe-ChevalTranslatorImplanter-subname = cheval translator implant
+lathe-recipe-YowKriolTranslatorImplanter-subname = yow kriol translator implant

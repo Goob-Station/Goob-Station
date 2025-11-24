@@ -1,0 +1,16 @@
+- type: entity
+  id: YowKriolTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Yow Kriol translator
+  description: Translates speech between Yow Kriol and Basic. Nah, yeah, nah, like a true Earthman!
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - YowKriol
+    understood:
+    - YowKriol
+    - TauCetiBasic
+    requires:
+    - TauCetiBasic
+    - YowKriol

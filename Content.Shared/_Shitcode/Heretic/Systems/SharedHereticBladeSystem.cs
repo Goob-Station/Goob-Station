@@ -40,6 +40,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
+using Content.Shared.Popups;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -59,6 +60,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -199,8 +201,14 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
     private void OnInteract(Entity<HereticBladeComponent> ent, ref UseInHandEvent args)
     {
-        if (!HasComp<HereticComponent>(args.User))
+        if (!TryComp<HereticComponent>(args.User, out var heretic))
             return;
+
+        if (heretic.Ascended)
+        {
+            _popup.PopupClient(Loc.GetString("heretic-blade-break-fail-acended-message"), args.User, args.User);
+            return;
+        }
 
         if (!TryComp<RandomTeleportComponent>(ent, out var rtp))
             return;
@@ -212,25 +220,19 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
         RandomTeleport(args.User, ent, rtp);
         _audio.PlayPredicted(ent.Comp.ShatterSound, args.User, args.User);
+        _popup.PopupClient(Loc.GetString("heretic-blade-use"), args.User, args.User);
         args.Handled = true;
     }
 
     private void OnExamine(Entity<HereticBladeComponent> ent, ref ExaminedEvent args)
     {
-        if (!HasComp<HereticComponent>(args.Examiner))
+        if (!TryComp<HereticComponent>(args.Examiner, out var heretic) || heretic.Ascended)
             return;
 
-        var canBreak = HasComp<RandomTeleportComponent>(ent);
-
-        if (!canBreak)
+        if (!HasComp<RandomTeleportComponent>(ent))
             return;
 
-        var sb = new StringBuilder();
-
-        if (canBreak)
-            sb.AppendLine(Loc.GetString("heretic-blade-examine"));
-
-        args.PushMarkup(sb.ToString());
+        args.PushMarkup(Loc.GetString("heretic-blade-examine"));
     }
 
     private void OnMeleeHit(Entity<HereticBladeComponent> ent, ref MeleeHitEvent args)

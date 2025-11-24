@@ -146,6 +146,7 @@
   parent: Window
   id: TintedWindow
   name: tinted window
+  description: Smart tinted window with state switching option.
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -162,6 +163,20 @@
     price: 70
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WindowCosmicCult
+  - type: ToggleableOccluder # Goob
+  - type: DeviceLinkSink # Goob
+    ports:
+    - On
+    - Off
+    - Toggle
+
+- type: entity # Goob
+  parent: TintedWindow
+  id: TintedWindowTransparent
+  suffix: Transparent
+  components:
+  - type: Occluder
+    enabled: false
 
 - type: entity
   id: WindowRCDResistant

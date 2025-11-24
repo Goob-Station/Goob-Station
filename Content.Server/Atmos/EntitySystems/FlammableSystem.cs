@@ -124,6 +124,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Atmos; // goob edit
 using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
@@ -209,8 +210,11 @@ namespace Content.Server.Atmos.EntitySystems
             SubscribeLocalEvent<FlammableComponent, ResistFireAlertEvent>(OnResistFireAlert);
             Subs.SubscribeWithRelay<FlammableComponent, ExtinguishEvent>(OnExtinguishEvent);
 
+            SubscribeLocalEvent<FlammableComponent, GetFireStateEvent>(OnGetFireStateEvent); // goob edit - retrieve fire state
+
             SubscribeLocalEvent<IgniteOnCollideComponent, StartCollideEvent>(IgniteOnCollide);
             SubscribeLocalEvent<IgniteOnCollideComponent, LandEvent>(OnIgniteLand);
+            SubscribeLocalEvent<IgniteOnCollideComponent, ProjectileHitEvent>(OnProjectileHit); // Goobstation
 
             SubscribeLocalEvent<IgniteOnMeleeHitComponent, MeleeHitEvent>(OnMeleeHit);
 
@@ -247,8 +251,26 @@ namespace Content.Server.Atmos.EntitySystems
             RemCompDeferred<IgniteOnCollideComponent>(uid);
         }
 
+        private void OnProjectileHit(Entity<IgniteOnCollideComponent> ent, ref ProjectileHitEvent args) // Goobstation
+        {
+            var otherEnt = args.Target;
+
+            if (!TryComp(otherEnt, out FlammableComponent? flammable))
+                return;
+
+            flammable.FireStacks += ent.Comp.FireStacks;
+            Ignite(otherEnt, ent, flammable);
+            ent.Comp.Count--;
+
+            if (ent.Comp.Count == 0)
+                RemCompDeferred<IgniteOnCollideComponent>(ent);
+        }
+
         private void IgniteOnCollide(EntityUid uid, IgniteOnCollideComponent component, ref StartCollideEvent args)
         {
+            if (args.OurFixtureId == SharedProjectileSystem.ProjectileFixture) // Goobstation
+                return;
+
             if (!args.OtherFixture.Hard || component.Count == 0)
                 return;
 
@@ -258,7 +280,7 @@ namespace Content.Server.Atmos.EntitySystems
                 return;
 
             //Only ignite when the colliding fixture is projectile or ignition.
-            if (args.OurFixtureId != component.FixtureId && args.OurFixtureId != SharedProjectileSystem.ProjectileFixture)
+            if (args.OurFixtureId != component.FixtureId) // Goob edit
             {
                 return;
             }
@@ -523,6 +545,13 @@ namespace Content.Server.Atmos.EntitySystems
 
 
         }
+
+        // goob start - retrieve fire state
+        private void OnGetFireStateEvent(Entity<FlammableComponent> ent, ref GetFireStateEvent args)
+        {
+            args.OnFire = ent.Comp.OnFire;
+        }
+        // goob end
 
         public void Resist(EntityUid uid,
             FlammableComponent? flammable = null)

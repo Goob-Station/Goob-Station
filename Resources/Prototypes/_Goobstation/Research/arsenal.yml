@@ -110,6 +110,10 @@
   - WeaponMechCombatUltraRifle
   technologyPrerequisites:
   - RipleyAPLU
+  - AdvancedRiotControl
+  - PortableMicrofusionWeaponry
+  - SmartWeaponry
+  - ThermalVisionTech
   position: 2,-1
 
 - type: technology

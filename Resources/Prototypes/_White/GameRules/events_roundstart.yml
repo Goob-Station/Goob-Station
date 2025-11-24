@@ -1,0 +1,27 @@
+- type: entity
+  parent: BaseGameRule
+  id: XenomorphsInfestationRoundstart
+  components:
+  - type: GameRule
+    chaosScore: 400
+    minPlayers: 30
+  - type: AntagObjectives
+    objectives:
+    - XenomorphSurviveObjective
+  - type: VentSpawnRule
+  - type: AntagSpawner
+    prototype: MobXenomorphLarva
+  - type: AntagSelection
+    selectionTime: PrePlayerSpawn
+    agentName: xenomorph-round-end-agent-name
+    definitions:
+    - prefRoles: [ XenomorphsInfestationRoundstart ]
+      spawnerPrototype: SpawnPointGhostXenomorph
+      min: 2
+      max: 4
+      pickPlayer: true
+      mindRoles:
+      - MindRoleXenomorph
+      briefing:
+        text: xenomorph-role-greeting
+        color: "#8c3986"

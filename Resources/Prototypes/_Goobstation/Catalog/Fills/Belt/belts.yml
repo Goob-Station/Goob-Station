@@ -179,7 +179,7 @@
     - Magic
   - type: Tag
     tags:
-    - Nullrod
+    - ChaplainsHolster
 
 - type: entityTable
   id: BeltAssaultBSOEntityTable

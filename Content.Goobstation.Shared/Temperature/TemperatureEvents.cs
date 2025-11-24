@@ -12,3 +12,9 @@ public sealed class TemperatureImmunityEvent(float currentTemperature) : EntityE
     public float CurrentTemperature = currentTemperature;
     public readonly float IdealTemperature = Atmospherics.T37C;
 }
+
+[ByRefEvent]
+public record struct BeforeTemperatureChange(
+    float CurrentTemperature,
+    float LastTemperature,
+    float TemperatureDelta);

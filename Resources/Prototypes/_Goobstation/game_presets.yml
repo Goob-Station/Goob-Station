@@ -245,11 +245,24 @@
   - SecretPlusHermit
 
 - type: gamePreset
+  id: Xenomorphs
+  alias:
+  - ayyliens
+  name: xenomorph-title
+  description: xenomorph-description
+  showInVote: false
+  minPlayers: 1
+  rules:
+  - XenomorphsInfestationRoundstart
+  - SubGamemodesRule
+  - SecretPlusRampingMid
+
+- type: gamePreset
   id: OopsAllThieves
   alias:
-  - oopsallthieves
-  - allthieves
-  - thieves
+    - oopsallthieves
+    - allthieves
+    - thieves
   name: oops-all-thieves-title
   description: oops-all-thieves-description
   showInVote: false

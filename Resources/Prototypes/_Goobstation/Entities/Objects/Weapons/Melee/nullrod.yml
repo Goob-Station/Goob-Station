@@ -595,6 +595,9 @@
       path: /Audio/Weapons/chainsawwield.ogg
     endSound:
       path: /Audio/Weapons/chainsaw.ogg
+  - type: Tag
+    tags:
+      - HolyChainsaw
 
 # Casul & Jackal
 - type: entity

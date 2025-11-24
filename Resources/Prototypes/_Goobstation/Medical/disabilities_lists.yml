@@ -1,0 +1,29 @@
+
+- type: disabilityList
+  parent: [ TraitDisabilities ] # parents off of EVERY disability list
+  id: AllDisabilities
+
+  # disabilities from traits
+- type: disabilityList
+  id: TraitDisabilities
+  components:
+    - type: BlackAndWhiteOverlay
+    - type: Deaf
+    - type: LegsParalyzed
+    - type: LegsStartParalyzed
+    - type: MovementImpaired
+    - type: Muted
+    - type: Narcolepsy # the fields are just so no errors throw
+      timeBetweenIncidents: 0, 0
+      durationOfIncident: 0, 0
+    - type: Paracusia # the fields are just so no errors throw
+      minTimeBetweenIncidents: 0
+      maxTimeBetweenIncidents: 0
+      maxSoundDistance: 0
+      sounds:
+        collection: Paracusia
+    - type: PainNumbness
+    - type: PermanentBlindness
+    - type: SocialAnxiety
+    - type: TileMovement
+    - type: Unrevivable

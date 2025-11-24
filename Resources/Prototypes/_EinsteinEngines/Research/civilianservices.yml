@@ -31,6 +31,7 @@
   - NewKinPidginTranslator
   - SchechiTranslator
   - GruntishTranslator
+  - YowKriolTranslator # goob edit - yowie language
   position: -4, 4
   technologyPrerequisites:
   - AdvancedEntertainment
@@ -63,6 +64,7 @@
   - AnimalTranslator
   - XenoTranslator
   - GruntishTranslatorImplanter
+  - YowKriolTranslatorImplanter # goob edit - yowie language
   position: -4, 5
   technologyPrerequisites:
   - BasicTranslation
