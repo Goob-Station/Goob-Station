@@ -4,12 +4,13 @@ using Content.Server.Singularity.Events;
 using Content.Server.SurveillanceCamera;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.Atmos.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Physics;
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
-using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.Spawners;
 
@@ -26,6 +27,7 @@ public sealed class SlasherIncorporealCameraSystem : EntitySystem
     [Dependency] private readonly PoweredLightSystem _light = default!;
     [Dependency] private readonly SharedHandheldLightSystem _handheld = default!;
     [Dependency] private readonly UnpoweredFlashlightSystem _unpowered = default!;
+    [Dependency] private readonly FlammableSystem _flammable = default!;
 
     private EntityQuery<PointLightComponent> _pointLightQuery;
     private EntityQuery<PoweredLightComponent> _poweredLightQuery;
@@ -83,6 +85,12 @@ public sealed class SlasherIncorporealCameraSystem : EntitySystem
 
     private void OnIncorporealEntered(Entity<SlasherIncorporealComponent> ent, ref SlasherIncorporealEnteredEvent args)
     {
+        // Extinguish any fires on the slasher
+        if (TryComp<FlammableComponent>(ent, out var flammable))
+        {
+            _flammable.Extinguish(ent, flammable);
+        }
+
         DisableLightsInArea(ent);
     }
 

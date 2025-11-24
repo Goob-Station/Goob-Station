@@ -332,6 +332,8 @@
         text: slasher-role-greeting
         color: Red
         sound: /Audio/_Goobstation/Effects/Slasher/SlasherIntro.ogg
+      mindRoles:
+      - MindRoleSlasher
       components:
       - type: Slasher
       - type: SlasherSummonMachete
