@@ -18319,3 +18319,9 @@ Entries:
       message: fixed the typos its called cassette not casette
   id: 2062
   time: '2025-11-25T03:07:21.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: 'Tweaked: Round-start Xenomorph''s should be as rare as round-start Blobs.'
+  id: 2063
+  time: '2025-11-25T03:11:18.0000000+00:00'
