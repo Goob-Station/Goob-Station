@@ -43,6 +43,7 @@
     chemicalComposition:
       Zinc: 7.5
 
+# region SMG Power Cells
 - type: entity
   id: BaseMilitaryPowerCellSMG
   abstract: true
@@ -75,7 +76,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_lethal.rsi
   - type: HitscanBatteryAmmoProvider
-    proto: SmallRedLaser
+    proto: SMGLaser
     fireCost: 50
 
 - type: entity
@@ -88,7 +89,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_xray.rsi
   - type: HitscanBatteryAmmoProvider
-    proto: SmallXrayLaser
+    proto: SMGLaserXray
     fireCost: 50
 
 - type: entity
@@ -101,7 +102,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_overcharge.rsi
   - type: HitscanBatteryAmmoProvider
-    proto: SmallOverchargedLaser
+    proto: SMGLaserOvercharged
     fireCost: 100
 
 - type: entity
@@ -114,7 +115,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_pulse.rsi
   - type: HitscanBatteryAmmoProvider
-    proto: SmallPulseLaser
+    proto: SMGLaserPulse
     fireCost: 50
 
 - type: entity
@@ -127,10 +128,11 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_ion.rsi
   - type: HitscanBatteryAmmoProvider
-    proto: SmallIonLaser
+    proto: SMGLaserIon
     fireCost: 50
+# endregion SMG Power Cells
 
-
+# region Sniper Power Cells
 - type: entity
   id: BaseMilitaryPowerCellSniper
   abstract: true
@@ -171,7 +173,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_lethal.rsi
   - type: HitscanBatteryAmmoProvider
-    proto: MediumRedLaser
+    proto: SniperRedLaser
     fireCost: 100
 
 - type: entity
@@ -184,7 +186,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_xray.rsi
   - type: HitscanBatteryAmmoProvider
-    proto: MediumXrayLaser
+    proto: SniperXrayLaser
     fireCost: 100
 
 - type: entity
@@ -197,7 +199,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_overcharge.rsi
   - type: HitscanBatteryAmmoProvider
-    proto: MediumOverchargedLaser
+    proto: SniperOverchargedLaser
     fireCost: 200
 
 - type: entity
@@ -210,7 +212,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_pulse.rsi
   - type: HitscanBatteryAmmoProvider
-    proto: MediumPulseLaser
+    proto: SniperPulseLaser
     fireCost: 100
 
 - type: entity
@@ -223,10 +225,11 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_ion.rsi
   - type: HitscanBatteryAmmoProvider
-    proto: MediumIonLaser
+    proto: SniperIonLaser
     fireCost: 100
+# endregion Sniper Power Cells
 
-
+# region Revolver Power Cells
 - type: entity
   id: BaseMilitaryPowerCellRevolver
   abstract: true
@@ -277,7 +280,7 @@
             state: lethal
             shader: null
   - type: HitscanBatteryAmmoProvider
-    proto: MediumRedLaser
+    proto: RevolverRedLaser
     fireCost: 62.5
 
 - type: entity
@@ -303,7 +306,7 @@
             state: xray
             shader: null
   - type: HitscanBatteryAmmoProvider
-    proto: MediumXrayLaser
+    proto: RevolverXrayLaser
     fireCost: 62.5
 
 - type: entity
@@ -329,7 +332,7 @@
             state: overcharge
             shader: null
   - type: HitscanBatteryAmmoProvider
-    proto: MediumOverchargedLaser
+    proto: RevolverOverchargedLaser
     fireCost: 125
 
 - type: entity
@@ -355,7 +358,7 @@
             state: pulse
             shader: null
   - type: HitscanBatteryAmmoProvider
-    proto: MediumPulseLaser
+    proto: RevolverPulseLaser
     fireCost: 62.5
 
 - type: entity
@@ -381,10 +384,11 @@
             state: ion
             shader: null
   - type: HitscanBatteryAmmoProvider
-    proto: MediumIonLaser
+    proto: RevolverIonLaser
     fireCost: 62.5
+# endregion Revolver Power Cells
 
-
+# region LMG Power Cell
 - type: entity
   id: MilitaryPowerCellLMG
   parent: BaseMilitaryPowerCell
@@ -409,7 +413,7 @@
   - type: BatteryDrinkerSource
     maxAmount: 500
   - type: HitscanBatteryAmmoProvider
-    proto: SmallRedLaser
+    proto: LMGLaser
     fireCost: 15
   - type: Tag
     tags:
@@ -425,3 +429,4 @@
       Plasma: 200
     chemicalComposition:
       Zinc: 20
+# endregion LMG Power Cell
