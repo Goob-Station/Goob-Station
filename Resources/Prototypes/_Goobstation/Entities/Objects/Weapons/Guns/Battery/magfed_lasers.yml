@@ -225,10 +225,10 @@
     minAngle: -20
     maxAngle: -20
   - type: Gun
-    minAngle: 24
-    maxAngle: 45
-    angleIncrease: 4
-    angleDecay: 16
+    minAngle: 45
+    maxAngle: 12
+    angleIncrease: -4
+    angleDecay: -16
     fireRate: 10
     selectedMode: FullAuto
     availableModes:
