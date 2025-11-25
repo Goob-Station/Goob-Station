@@ -25,7 +25,8 @@ slasher-massacre-target-change = The focus shifts to a new target.
 slasher-massacre-decap = A decisive blow is struck!
 slasher-massacre-limb = A powerful hit lands!
 
-slasher-corporealize-fail-seen = You cannot corporealize while being watched!
+slasher-corporealize-fail-seen = You cannot incorporealize while being watched!
+slasher-corporealize-fail-camera = You cannot corporealize when there's a camera watching!
 
 reagent-name-slasherium = Slasherium
 reagent-desc-slasherium = Used by the Slasher to heal themselves.
@@ -37,3 +38,5 @@ slasher-objective-absorb-souls-desc = The Crew has no need for such things.
 
 roles-antag-slasher-name = The Slasher
 roles-antag-slasher-objectives = Slaughter and terrorize the living as The Slasher!
+
+slasher-cannot-use-guns = Your otherworldly form rejects firearms.
