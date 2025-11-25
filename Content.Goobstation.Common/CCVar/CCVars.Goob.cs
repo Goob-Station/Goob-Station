@@ -291,6 +291,9 @@ public sealed partial class GoobCVars
 
     #endregion
 
+    public static readonly CVarDef<string> PatronSupportLastShown =
+        CVarDef.Create("patron.support_last_shown", "", CVar.CLIENTONLY | CVar.ARCHIVE);
+
     #region Goobcoins
 
     public static readonly CVarDef<int> GoobcoinsPerPlayer =
