@@ -127,16 +127,6 @@ namespace Content.Shared.GameTicking
     }
 
     [Serializable, NetSerializable]
-    public sealed class TickerInGameInfoEvent : EntityEventArgs
-    {
-        public string InGameTextBlob { get; }
-
-        public TickerInGameInfoEvent(string textBlob)
-        {
-            InGameTextBlob = textBlob;
-        }
-    }
-    [Serializable, NetSerializable]
     public sealed class TickerConnectionStatusEvent : EntityEventArgs
     {
         public TimeSpan RoundStartTimeSpan { get; }
