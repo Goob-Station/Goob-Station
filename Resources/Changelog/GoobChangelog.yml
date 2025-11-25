@@ -18407,3 +18407,11 @@ Entries:
       message: Redspace Lifeline Implanter admeme
   id: 2072
   time: '2025-11-25T09:50:40.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: >-
+        Major bugfixes and changes to the slasher. Check out the pull request
+        for more info
+  id: 2073
+  time: '2025-11-25T20:37:36.0000000+00:00'
