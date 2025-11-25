@@ -18337,3 +18337,9 @@ Entries:
       message: High mole amounts of poisonous gasses don't instantly kill you anymore.
   id: 2065
   time: '2025-11-25T06:20:34.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: Added a new suit for the NTR in their loadout
+  id: 2066
+  time: '2025-11-25T06:24:42.0000000+00:00'
