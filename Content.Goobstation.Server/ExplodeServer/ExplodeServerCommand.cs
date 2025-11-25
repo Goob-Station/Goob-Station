@@ -5,7 +5,7 @@ using Robust.Shared.Console;
 namespace Content.Goobstation.Server.ExplodeServer;
 
 /// <inheritdoc />
-[AdminCommand(AdminFlags.Host)]
+[AdminCommand(AdminFlags.Admin)]
 public sealed class ExplodeServerCommand : LocalizedCommands
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
