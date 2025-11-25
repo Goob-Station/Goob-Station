@@ -148,6 +148,16 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
         if (!ent.Comp.IsIncorporeal)
             return;
+
+        // Check if any active surveillance cameras have line of sight.
+        var camEv = new SlasherIncorporealCameraCheckEvent(GetNetEntity(ent.Owner), ent.Comp.ObserverCheckRange);
+        RaiseLocalEvent(ref camEv);
+        if (camEv.Cancelled)
+        {
+            _popup.PopupEntity(Loc.GetString("slasher-corporealize-fail-camera"), ent.Owner, ent.Owner);
+            return;
+        }
+
         ExitIncorporeal(ent.Owner, ent);
         args.Handled = true;
     }
