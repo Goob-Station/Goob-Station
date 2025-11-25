@@ -14,7 +14,7 @@
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
-      - id: SpiderWeb
+      - id: TerrorSpiderWeb
         amount: 1
 
 - type: entity
@@ -33,7 +33,7 @@
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
-      - id: SpiderWeb
+      - id: TerrorSpiderWeb
         amount: 1
 
 - type: entity

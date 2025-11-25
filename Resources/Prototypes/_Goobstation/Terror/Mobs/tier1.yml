@@ -171,6 +171,7 @@
     damage:
       groups:
         Brute: 10
+  - type: GrayTerror
 
 # =========================================================
 # GREEN TERROR — Breeder

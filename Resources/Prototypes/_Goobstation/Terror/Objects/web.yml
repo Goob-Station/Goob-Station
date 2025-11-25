@@ -31,11 +31,12 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: TerrorWeb
+  - type: InvisibleOnTile
   - type: StepTrigger
     stepOn: true
-  - type: SpeedModifierContacts
-    walkSpeedModifier: 0.5
-    sprintSpeedModifier: 0.5
+  - type: SpeedModifierContacts # No slowdown, but triggers effects
+    walkSpeedModifier: 1
+    sprintSpeedModifier: 1
     ignoreWhitelist:
       components:
       - IgnoreSpiderWeb
