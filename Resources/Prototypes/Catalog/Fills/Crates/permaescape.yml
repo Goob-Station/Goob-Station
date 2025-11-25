@@ -286,7 +286,6 @@
       - id: DnaScramblerImplanter
         prob: 0.005
 
-
 - type: entity
   id: CratePermaEscapeMerc
   parent: CrateGenericSteel
