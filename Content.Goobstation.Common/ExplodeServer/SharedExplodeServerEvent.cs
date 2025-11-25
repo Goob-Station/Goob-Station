@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.ExplodeServer;
+namespace Content.Goobstation.Common.ExplodeServer;
 
 [Serializable, NetSerializable]
 public sealed class ExplodeServerEvent : EntityEventArgs;
