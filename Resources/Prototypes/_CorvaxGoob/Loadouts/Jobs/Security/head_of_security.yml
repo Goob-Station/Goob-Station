@@ -8,3 +8,11 @@
   id: HeadofSecurityJumpskirtBlack
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoSBlack
+
+- type: loadout
+  id: HeadofSecurityCloakExperimental
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterHoS
+  equipment:
+    outerClothing: ClothingNeckCloakHosExperimental
