@@ -18363,3 +18363,13 @@ Entries:
       message: Salt shaker has to use salt to create salt lines
   id: 2068
   time: '2025-11-25T06:45:51.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        Reverted the changes to security loadout, allowing you to pick judo
+        belts again.
+    - type: Add
+      message: Security truncheons no longer science reseach.
+  id: 2069
+  time: '2025-11-25T07:08:32.0000000+00:00'
