@@ -11,13 +11,13 @@
       effects:
       - !type:HealShadowling
         damage:
-          groups:
-            Burn: -9
-            Brute: -9
+          groups: # goob edit
+            Burn: -12
+            Brute: -12
           types:
-            Caustic: -9
-            Poison: -9
-            Bloodloss: -9
+            Caustic: -12
+            Poison: -12
+            Bloodloss: -12
     Narcotic:
       effects:
       - !type:BlindNonShadowling

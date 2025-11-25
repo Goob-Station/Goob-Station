@@ -18291,3 +18291,119 @@ Entries:
         Medium = 500, Big = 5000, JackPot = 20000;
   id: 2060
   time: '2025-11-24T12:46:28.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Tweak
+      message: >-
+        Combat mechs are quite complicated, so you should be quite knowledgeable
+        in arsenal technology to build those. Made Gygax technology have
+        Advanced Riot Control, Portable Microfusion Weaponry, Smart Weaponry,
+        and Thermal Vision Tech as prerequisites. 
+  id: 2061
+  time: '2025-11-24T13:48:38.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: Crew cassette players to play your tunes on the go.
+    - type: Add
+      message: >-
+        Executive cassette player to play your tunes while closing important
+        deals
+    - type: Add
+      message: Recipe in autolathe for crew one.
+    - type: Add
+      message: Listing in ntr suitcase for the executive one.
+    - type: Add
+      message: Loadout option to equip one round start in the trinkets category.
+    - type: Fix
+      message: fixed the typos its called cassette not casette
+  id: 2062
+  time: '2025-11-25T03:07:21.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: 'Tweaked: Round-start Xenomorph''s should be as rare as round-start Blobs.'
+  id: 2063
+  time: '2025-11-25T03:11:18.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Only masks with combat filters can block facehuggers.
+  id: 2064
+  time: '2025-11-25T06:20:02.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: High mole amounts of poisonous gasses don't instantly kill you anymore.
+  id: 2065
+  time: '2025-11-25T06:20:34.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: Added a new suit for the NTR in their loadout
+  id: 2066
+  time: '2025-11-25T06:24:42.0000000+00:00'
+- author: ThanosDeGraf
+  changes:
+    - type: Fix
+      message: IPCs can now correctly gauge ambient temperatures.
+    - type: Tweak
+      message: IPCs now take heat damage from hot environments, though at around 450K.
+    - type: Tweak
+      message: >-
+        IPCs now overheat at 1200K instead of 403K, so they have a chance to
+        survive.
+  id: 2067
+  time: '2025-11-25T06:45:14.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: Salt and pepper shaker into service lathe
+    - type: Fix
+      message: Salt shaker has to use salt to create salt lines
+  id: 2068
+  time: '2025-11-25T06:45:51.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        Reverted the changes to security loadout, allowing you to pick judo
+        belts again.
+    - type: Add
+      message: Security truncheons no longer science reseach.
+  id: 2069
+  time: '2025-11-25T07:08:32.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Add
+      message: >-
+        Criminal Records Computers can look for partial fingerprints and DNA.
+        Use '#' as wildcard characters.
+  id: 2070
+  time: '2025-11-25T07:14:53.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Add
+      message: >-
+        Ascending as a shadowling will play some harrowing music for the station
+        to hear.
+    - type: Tweak
+      message: >-
+        Ascended shadowlings will now snap their fingers and explode whoever
+        they use annihilate on
+    - type: Tweak
+      message: changelings and heretics cannot be converted by shadowlings anymore
+    - type: Fix
+      message: >-
+        Shadowlings and their thralls should now be able to use their collective
+        mind (+Q)
+    - type: Fix
+      message: Ascended shadowling annihilate will no longer target inanimate objects
+  id: 2071
+  time: '2025-11-25T07:17:58.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: Redspace Lifeline Implanter admeme
+  id: 2072
+  time: '2025-11-25T09:50:40.0000000+00:00'
