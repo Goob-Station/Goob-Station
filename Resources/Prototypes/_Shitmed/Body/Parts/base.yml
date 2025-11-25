@@ -28,11 +28,8 @@
       - ReagentId: Blood
         Quantity: 10
   # Goob edit start
-  - type: Tag
-    tags:
-    - Trash
-    - Meat
   - type: Food
+  - type: BadFood
   - type: SolutionContainerManager
     solutions:
       food:

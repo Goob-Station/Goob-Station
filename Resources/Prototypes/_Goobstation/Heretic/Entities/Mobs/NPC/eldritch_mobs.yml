@@ -88,7 +88,7 @@
     - MansusLink
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: HereticSummonCompound
     blackboard:
       NavSmash: !type:Bool
         true
@@ -200,9 +200,9 @@
   components:
   - type: Ghoul
     spawnOnDeathPrototype: SheetPlasma1
+    totalHealth: 15
     ghostRoleName: ghostrole-fire-shark-name
     ghostRoleDesc: ghostrole-fire-shark-desc
-    totalHealth: 20
   - type: Sprite
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     state: fire_shark
@@ -227,9 +227,9 @@
       path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Heat: 10
-        Slash: 5
-        Piercing: 5
+        Heat: 6
+        Slash: 6
+        Piercing: 6
   - type: Flammable
     canResistFire: false
     damage:
@@ -389,7 +389,7 @@
   - type: FlashImmunity
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: HereticSummonCompound
     blackboard:
       NavSmash: !type:Bool
         true
