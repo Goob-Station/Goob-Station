@@ -52,4 +52,12 @@
 
   Deals 40 damage and stuns for 2 seconds. Only works on downed opponents.
 
+  ### Dragon Domination
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
+
+  Deals a little blunt damage and knocks down opponent for a few seconds.
 </Document>

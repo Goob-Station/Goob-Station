@@ -22,6 +22,7 @@ public abstract partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, DragonClawPerformedEvent>(OnDragonClaw);
         SubscribeLocalEvent<CanPerformComboComponent, DragonTailPerformedEvent>(OnDragonTail);
         SubscribeLocalEvent<CanPerformComboComponent, DragonStrikePerformedEvent>(OnDragonStrike);
+        SubscribeLocalEvent<CanPerformComboComponent, DragonDominationPerformedEvent>(OnDragonDomination);
 
         SubscribeLocalEvent<GrantKungFuDragonComponent, UseInHandEvent>(OnGrantCQCUse);
 
@@ -96,6 +97,20 @@ public abstract partial class SharedMartialArtsSystem
 
         _stun.TrySlowdown(target, args.SlowdownTime, true, args.WalkSpeedModifier, args.SprintSpeedModifier);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
+        _audio.PlayPvs(args.Sound, target);
+        ComboPopup(ent, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
+    }
+
+    private void OnDragonDomination(Entity<CanPerformComboComponent> ent, ref DragonDominationPerformedEvent args)
+    {
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto, out var target, out _))
+            return;
+
+       _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
