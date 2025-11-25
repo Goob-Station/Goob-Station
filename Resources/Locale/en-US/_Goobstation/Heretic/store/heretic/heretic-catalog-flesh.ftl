@@ -35,8 +35,10 @@ knowledge-path-flesh-s2-desc =
     My new found desires drove me to greater and greater heights.
 
     Your Mansus Grasp gains the ability to create a ghoul out of corpse with a soul.
-    Ghouls have only 50 health and look like husks to the heathens' eyes, but can use Bloody Blades effectively.
-    All ghouls get their own bloody blade that cannot be shattered and disappears on ghoul death.
+    Ghouls have only 50 health and look like husks to the heathens' eyes.
+    All ghouls get their own Bloody Blade that cannot be shattered and disappears on ghoul death.
+    You are now able to consume raw flesh. Eating meat, organs and body parts will empower you temporarily, the effect scales with your path stage.
+    You also become immune to damage from poisons.
 
 knowledge-path-flesh-s3-name = Imperfect Ritual
 knowledge-path-flesh-s3-desc =
@@ -44,23 +46,25 @@ knowledge-path-flesh-s3-desc =
 
     Allows you to transmute a corpse and a muzzle to create a Voiceless Dead.
     The corpse does not need to have a soul.
-    Voiceless Dead are mute ghouls and only have 100 health, but can use Bloody Blades effectively.
+    Voiceless Dead are mute ghouls, which have 100 health and a Bloody Blade.
+    Voiceless Dead are stronger than regular ones at using Bloody Blades.
+    You can only create two at a time.
 
 knowledge-path-flesh-s4-name = Mark of Flesh
 knowledge-path-flesh-s4-desc =
     That's when I saw them, the marked ones. They were out of reach. They screamed, and screamed.
 
     Your Mansus Grasp now applies the Mark of Flesh. The mark is triggered from an attack with your Bloody Blade.
-    When triggered, the victim violently spills all it's blood on the ground.
+    When triggered, the victim will split into flesh mimic that will attack them.
+    Flesh mimics are identical to ghouls risen by mansus grasp but they receive damage over time that increases slowly.
 
 knowledge-path-flesh-s5-name = Knitting of Flesh
 knowledge-path-flesh-s5-desc =
     But they were not out of my reach for long. With every step, the screams grew, until at last
     I learned that they could be silenced.
 
-    Grants you the spell Knit Flesh. This spell allows you to remove organs from victims
-    without requiring a lengthy surgery. This process is much longer if the target is not dead.
-    This spell also allows you to heal your minions and summons, or restore failing organs to acceptable status.
+    Grants you the spell Knit Flesh. This touch spell acts as a great surgery tool that bypasses surgery steps, clothing, doesn't cause pain and doesn't deal poison damage. Also acts as medical hud and health analyzer.
+    This spell also allows you to heal your minions and summons.
 
 knowledge-path-flesh-s6-name = Raw Ritual
 knowledge-path-flesh-s6-desc =
@@ -68,7 +72,9 @@ knowledge-path-flesh-s6-desc =
     The screams... once constant, now silenced by their wretched appearance. Nothing was out of reach.
 
     Allows you to transmute a pair of eyes, a stomach, and a pool of blood to create a Raw Prophet.
-    Raw Prophets have a long range jaunt and the ability to link minds to communicate with ease, but are very fragile and weak in combat.
+    Raw Prophets have a greatly increased sight range and x-ray vision, as well as a long range jaunt and the ability to link minds to communicate with ease, but are very fragile and weak in combat.
+    Raw Prophets passively heal heretics and ghouls around themselves.
+    You can only create two at a time.
 
 knowledge-path-flesh-s7-name = Bleeding Steel
 knowledge-path-flesh-s7-desc =
@@ -83,14 +89,13 @@ knowledge-path-flesh-s8-desc =
     An ever shapeshifting mass of flesh, it knew well my goals. The Marshal approved.
 
     Allows you to transmute a heart, a stomach, lungs and a pen to create a Stalker.
-    Stalkers can jaunt, release EMPs, and are strong in combat.
+    Stalkers can jaunt, release EMPs, shapeshift into different creatures, and are strong in combat.
 
 knowledge-path-flesh-s9-name = Priest’s Final Hymn
 knowledge-path-flesh-s9-desc =
     The ascension ritual of the Path of Flesh. Bring 4 corpses to a transmutation rune to complete the ritual.
-    When completed, you instantly shed your human form and become the Lord of the Night, a supremely powerful creature.
-    Just the act of transforming causes nearby heathens great fear and trauma.
-    While in the Lord of the Night form, you can consume the living to heal.
-    You will also become immune to flames, space, and similar environmental hazards.
-
-    WARNING - THIS RITUAL IS A POINT OF NO RETURN. YOU WILL BE UNABLE TO TRANSFORM BACK AFTER THE RITUAL IS PERFORMED!
+    When completed, you will become even stronger from consuming flesh.
+    Additionally, upon taking damage, your body will split into mute flesh mimic. They will be given a Bloody Blade.
+    Mute flesh mimics are identical to Voiceless Dead but they receive damage over time that increases slowly.
+    You can only sustain 10 flesh mimics at once, taking even more damage will instead heal existing mimics.
+    You will also become immune to extreme temperatures and pressure.

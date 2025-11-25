@@ -1,0 +1,59 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Goonstation 13 https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/icons/mob/wraith_ui.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "health1"
+        },
+        {
+            "name": "health2"
+        },
+        {
+            "name": "health3"
+        },
+        {
+            "name": "health4"
+        },
+        {
+            "name": "health5"
+        },
+        {
+            "name": "health6"
+        },
+        {
+            "name": "health7"
+        },
+        {
+            "name": "health8"
+        },
+        {
+            "name": "revhealth1"
+        },
+        {
+            "name": "revhealth2"
+        },
+        {
+            "name": "revhealth3"
+        },
+        {
+            "name": "revhealth4"
+        },
+        {
+            "name": "revhealth5"
+        },
+        {
+            "name": "revhealth6"
+        },
+        {
+            "name": "revhealth7"
+        },
+        {
+            "name": "revhealth8"
+        }
+    ]
+}

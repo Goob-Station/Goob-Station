@@ -795,25 +795,26 @@
   - UplinkChemicals
 
 
-- type: listing
-  id: UplinkZombieBundle
-  name: uplink-zombie-bundle-name
-  description: uplink-zombie-bundle-desc
-  icon: { sprite: /Textures/Structures/Wallmounts/signs.rsi, state: bio }
-  productEntity: ClothingBackpackDuffelZombieBundle
-  cost:
-    Telecrystal: 200 # goob
-  categories:
-  - UplinkChemicals
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+# Goobstaiton - Disable Zombie Kit
+#- type: listing
+#  id: UplinkZombieBundle
+#  name: uplink-zombie-bundle-name
+#  description: uplink-zombie-bundle-desc
+#  icon: { sprite: /Textures/Structures/Wallmounts/signs.rsi, state: bio }
+#  productEntity: ClothingBackpackDuffelZombieBundle
+#  cost:
+#    Telecrystal: 200 # goob
+#  categories:
+#  - UplinkChemicals
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - NukeOpsUplink
+#  - !type:BuyerWhitelistCondition
+#    blacklist:
+#      components:
+#      - SurplusBundle
 
 - type: listing
   id: UplinkNocturineChemistryBottle
@@ -1248,24 +1249,24 @@
       components:
       - SurplusBundle
 
-- type: listing
-  id: UplinkStarterKit
-  name: uplink-starter-kit-name
-  description: uplink-starter-kit-desc
-  productEntity: ClothingBackpackDuffelSyndicateFilledStarterKit
-  cost:
-    Telecrystal: 200
-  categories:
-  - UplinkDisruption
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-        - NukeOpsUplink
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-        - SurplusBundle
+#- type: listing
+#  id: UplinkStarterKit
+#  name: uplink-starter-kit-name
+#  description: uplink-starter-kit-desc
+#  productEntity: ClothingBackpackDuffelSyndicateFilledStarterKit
+#  cost:
+#    Telecrystal: 200
+#  categories:
+#  - UplinkDisruption
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#        - NukeOpsUplink
+#    - !type:BuyerWhitelistCondition
+#      blacklist:
+#        components:
+#        - SurplusBundle
 
 
 - type: listing

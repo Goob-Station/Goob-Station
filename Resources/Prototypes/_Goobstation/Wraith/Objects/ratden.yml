@@ -1,0 +1,67 @@
+- type: entity
+  id: RatDen
+  name: rat den
+  description: A pile of garbage vaguely ressembling a nest.
+  components:
+  - type: DamageNearby
+    whitelist:
+      components:
+      - WraithMinion
+    damage:
+      groups:
+        Brute: -3
+        Burn: -3
+        Airloss: -3
+        Toxin: -3
+        Genetic: -3
+    delay: 9
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobMadRat
+    intervalSeconds: 30
+    maximumEntitiesSpawned: 2
+  - type: Transform
+    anchored: True
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Wraith/Objects/ratden.rsi
+    layers:
+    - state: ratden
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - Opaque
+        hard: false
+  - type: SpamEmitSound
+    minInterval: 5
+    maxInterval: 20
+    sound:
+      path: /Audio/Animals/mouse_squeak.ogg
+      params:
+        volume: 3
+        maxDistance: 10
+        variation: 0.1
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Diona
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 25
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: gib

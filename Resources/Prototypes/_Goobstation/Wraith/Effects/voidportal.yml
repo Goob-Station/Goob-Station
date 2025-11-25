@@ -1,0 +1,263 @@
+- type: entity
+  id: VoidPortalBase
+  abstract: true
+  name: Harbinger portal
+  components:
+  - type: Transform
+    anchored: True
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Wraith/Effects
+    layers:
+    - state: void_portal
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: AmbientSound
+    volume: -8
+    range: 1
+    sound:
+      path: /Audio/_Goobstation/Ambience/horror_crowd_ambience.ogg
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Goobstation/Wraith/flameswoosh.ogg
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.05
+  - type: FadingIn # New component used to fade in a sprite once it is spawned.
+    fadeInTime: 2
+  - type: FadingTimedDespawn
+    lifetime: 7
+    fadeOutTime: 2
+  - type: PointLight
+    radius: 6
+    netsync: false
+    energy: 5
+    color: "#ebb02b"
+
+- type: entity
+  id: VoidPortalEmpty
+  parent: VoidPortalBase
+  name: Harbinger portal
+
+- type: entity
+  id: VoidPortalSkeletonGoonWraith
+  parent: VoidPortalBase
+  name: Harbinger portal
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobSkeletonGoonWraith
+    intervalSeconds: 5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: VoidPortalCrunchedWraith
+  parent: VoidPortalBase
+  name: Harbinger portal
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobCrunchedWraith
+    intervalSeconds: 5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: VoidPortalShadeWraith
+  parent: VoidPortalBase
+  name: Harbinger portal
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobShadeWraith
+    intervalSeconds: 5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: VoidPortalMonstrosityHeadWraith
+  parent: VoidPortalBase
+  name: Harbinger portal
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobMonstrosityHeadWraith
+    intervalSeconds: 5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: VoidPortalMonstrosityBodyWraith
+  parent: VoidPortalBase
+  name: Harbinger portal
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobMonstrosityBodyWraith
+    intervalSeconds: 5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: VoidPortalLionWraith
+  parent: VoidPortalBase
+  name: Harbinger portal
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobLionWraith
+    intervalSeconds: 5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: VoidPortalAncientRepairBotWraith
+  parent: VoidPortalBase
+  name: Harbinger portal
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobAncientRepairBotWraith
+    intervalSeconds: 5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: VoidPortalAncientGuardBotWraith
+  parent: VoidPortalBase
+  name: Harbinger portal
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobAncientGuardBotWraith
+    intervalSeconds: 5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: VoidPortalAncientRobot1Wraith
+  parent: VoidPortalBase
+  name: Harbinger portal
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobAncientRobot1Wraith
+    intervalSeconds: 5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: VoidPortalAncientRobot2Wraith
+  parent: VoidPortalBase
+  name: Harbinger portal
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobAncientRobot2Wraith
+    intervalSeconds: 5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: VoidPortalAncientRobot3Wraith
+  parent: VoidPortalBase
+  name: Harbinger portal
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobAncientRobot3Wraith
+    intervalSeconds: 5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: VoidPortalAncientLegsWraith
+  parent: VoidPortalBase
+  name: Harbinger portal
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobAncientLegsWraith
+    intervalSeconds: 5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: VoidPortalBearGoonWraith
+  parent: VoidPortalBase
+  name: Harbinger portal
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobBearGoonWraith
+    intervalSeconds: 5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: VoidPortalBrullbarWraith
+  parent: VoidPortalBase
+  name: Harbinger portal
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobBrullbarWraith
+    intervalSeconds: 5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: VoidPortalBGunbotWraith
+  parent: VoidPortalBase
+  name: Harbinger portal
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobBGunbotWraith
+    intervalSeconds: 5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: VoidPortalNukebotWraith
+  parent: VoidPortalBase
+  name: Harbinger portal
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobNukebotWraith
+    intervalSeconds: 5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+

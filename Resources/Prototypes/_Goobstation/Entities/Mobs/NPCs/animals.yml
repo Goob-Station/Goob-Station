@@ -572,20 +572,23 @@
   name: brullbar
   id: MobBrullbar
   parent: [ SimpleSpaceMobBase, MobCombat ]
-  description: It's like a bear, but not as huggable.
+  description: Oh god.
   components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
   - type: SpamEmitSound
-    minInterval: 15
-    maxInterval: 45
+    minInterval: 5
+    maxInterval: 15
     sound:
-      path: /Audio/_Goobstation/Animals/Meatzone_Howl.ogg
+      path: /Audio/_Goobstation/Wraith/Mobs/brullbar/brullbar_roar.ogg
       params:
-          volume: -5
+          volume: 1
           maxDistance: 20
-          variation: 0.05
+          variation: 0.01
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -675,7 +678,7 @@
         Base: beardead
   - type: MovementSpeedModifier
     baseWalkSpeed : 4
-    baseSprintSpeed : 7
+    baseSprintSpeed : 4
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -714,7 +717,7 @@
           Base: wolfdead
     - type: MovementSpeedModifier
       baseWalkSpeed : 3
-      baseSprintSpeed : 6
+      baseSprintSpeed : 5
     - type: MobThresholds
       thresholds:
         0: Alive
@@ -737,7 +740,6 @@
       - Dog
       understands:
       - Dog
-
 
 - type: entity
   name: horse

@@ -83,9 +83,6 @@
     - TauCetiBasic
     understands:
     - TauCetiBasic
-  - type: InteractionVerbs # EE: Interaction Verbs
-    allowedVerbs:
-    - KnockOn
 
 - type: entity
   abstract: true

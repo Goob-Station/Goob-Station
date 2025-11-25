@@ -11,11 +11,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: loadout
-  id: SecurityJudoBelt
-  equipment:
-    belt: ClothingBeltCorporateJudoFilled
-
-- type: loadout
   id: WinterCoatSeniorSecArmored
   effects:
   - !type:GroupLoadoutEffect
@@ -36,18 +31,6 @@
   storage:
     back:
     - CombatKnife
-
-- type: loadout
-  id: SecurityMeleePolyBaton
-  storage:
-    back:
-    - PolymerBaton
-
-- type: loadout
-  id: SecurityMeleeSpear
-  storage:
-    back:
-    - SpearTelescopic
 
 - type: loadout
   id: SecurityOfficerEnvirosuit

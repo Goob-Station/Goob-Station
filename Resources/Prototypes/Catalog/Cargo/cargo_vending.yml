@@ -160,7 +160,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockMedicalFilled
-  cost: 2300
+  cost: 2980 # Goobstation - added gauze to vends so the restock crate price increased
   category: cargoproduct-category-name-medical
   group: market
 
@@ -270,7 +270,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockTankDispenserFilled
-  cost: 1000
+  cost: 2000 # Goob, raise cost as it now contains water vapour tanks
   category: cargoproduct-category-name-atmospherics
   group: market
 

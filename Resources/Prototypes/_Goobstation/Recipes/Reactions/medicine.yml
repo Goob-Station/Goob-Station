@@ -119,7 +119,7 @@
       amount: 2
     Sigynate: # check 2
       amount: 2
-    Silicon: 
+    Silicon:
       amount: 1
     Aluite:
       amount: 5
@@ -212,7 +212,7 @@
     Antihol: 3
 
 - type: reaction # This will do until we get molecular chemistry in
-  id: Ibuprofen 
+  id: Ibuprofen
   reactants:
     Charcoal:
       amount: 1
@@ -381,7 +381,7 @@
     PotassiumIodide:
       amount: 1
   products:
-    Hercuri: 5  
+    Hercuri: 5
 
 - type: reaction
   id: Herignis
@@ -421,3 +421,17 @@
       catalyst: true
   products:
     Oxycodone: 1
+
+# Wraith
+- type: reaction
+  minTemp: 424
+  id: Formaldehyde
+  reactants:
+    Ethanol:
+      amount: 1
+    Iron:
+      amount: 1
+    Silver:
+      amount: 1
+  products:
+    Formaldehyde: 2
