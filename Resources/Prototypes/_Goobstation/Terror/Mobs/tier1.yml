@@ -140,6 +140,7 @@
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: VentCrawler
+  - type: BerserkerRage
 
 # =========================================================
 # GRAY TERROR — Ambusher

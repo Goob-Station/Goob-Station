@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -12,4 +13,7 @@ public sealed partial class TerrorWebComponent : Component
     [DataField]
     public TimeSpan SnareTime = TimeSpan.FromSeconds(5);
 
+
+    [DataField]
+    public SoundSpecifier CaughtSound = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
 }

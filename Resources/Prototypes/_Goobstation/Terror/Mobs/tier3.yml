@@ -27,9 +27,17 @@
     damage:
       groups:
         Brute: 30
+      types:
+        Structural: 100
   - type: MovementSpeedModifier
     baseWalkSpeed: 1
     baseSprintSpeed: 1
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/crowbar.ogg
 
 # =========================================================
 # PRINCESS OF TERROR — Mini-Queen
@@ -60,6 +68,12 @@
     damage:
       groups:
         Brute: 5
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/crowbar.ogg
 
 # =========================================================
 # MOTHER OF TERROR — Support Caste
@@ -90,3 +104,9 @@
     damage:
       groups:
         Brute: 5
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/crowbar.ogg
