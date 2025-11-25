@@ -40,3 +40,4 @@ public sealed class ExplodeServerSystem : EntitySystem
         RaiseNetworkEvent(new ExplodeServerEvent());
     }
 }
+
