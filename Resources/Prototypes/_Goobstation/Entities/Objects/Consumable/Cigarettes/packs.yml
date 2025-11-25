@@ -23,9 +23,9 @@
   description: Made for and by big pharma. contains 10 super absorbant cigerattes.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/blue.rsi # todo make new sprite, probably orange for chem
+    sprite: _Goobstation/Objects/Consumable/Smokeables/Cigarettes/Packs/chem.rsi
   - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/blue.rsi
+    sprite: _Goobstation/Objects/Consumable/Smokeables/Cigarettes/Packs/chem.rsi
   - type: StorageFill
     contents:
     - id: CigaretteMedical
