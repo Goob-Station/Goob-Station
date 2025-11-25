@@ -246,3 +246,20 @@
       path: /Audio/_Goobstation/Misc/berserker-implant-activate.ogg
   - type: InstantAction
     event: !type:ActivateBerserkerImplantActionEvent
+
+- type: entity
+  parent: BaseSuicideAction
+  id: ActionActivateRedspaceLifeline
+  name: Activate Redspace Lifeline
+  description: Activates your redspace lifeline implant, teleporting you far-far away from this station. You won't be able to come back.
+  components:
+    - type: Action
+      checkCanInteract: false
+      checkConsciousness: false
+      itemIconStyle: BigAction
+      priority: -20
+      icon:
+        sprite: _Goobstation/Effects/redspace_lifeline.rsi
+        state: redspace_lifeline
+    - type: InstantAction
+      event: !type:ActivateImplantEvent
