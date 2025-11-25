@@ -5,7 +5,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.HisGrace;
 using Content.Goobstation.Shared.Overlays;
@@ -32,10 +31,12 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
+using JetBrains.FormatRipper.Elf;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Goobstation.Server.HisGrace;
 
@@ -325,7 +326,7 @@ public sealed class HisGraceSystem : SharedHisGraceSystem
         if (_state.IsDead(user)
             && _threshold.TryGetDeadThreshold(user, out var deadThreshold)
             && TryComp<DamageableComponent>(user, out var damageable)
-            && damageable.TotalDamage < deadThreshold
+            && _threshold.CheckVitalDamage(user, damageable) < deadThreshold
             && hisGrace.Comp.IsHeld)
         {
             _state.ChangeMobState(user, MobState.Critical);
