@@ -1,5 +1,6 @@
 using Content.Client.Lobby;
 using Content.Goobstation.Common.CCVar;
+using Content.Shared.CCVar;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Configuration;
@@ -27,7 +28,7 @@ public sealed class PatronSupportUIController : UIController, IOnStateEntered<Lo
             if (DateTime.TryParse(lastShown, out var lastShownDate))
             {
                 var daysSinceLastShown = (now - lastShownDate).TotalDays;
-                if (daysSinceLastShown < 7)
+                if (daysSinceLastShown < _cfg.GetCVar(GoobCVars.PatronAskSupport))
                     return;
             }
         }
@@ -56,7 +57,9 @@ public sealed class PatronSupportUIController : UIController, IOnStateEntered<Lo
 
         _supportWindow.PatreonButton.OnPressed += _ =>
         {
-            _uriOpener.OpenUri(new Uri("https://www.patreon.com/goobstation14"));
+            var patreonLink = _cfg.GetCVar(CCVars.InfoLinksPatreon);
+            if (!string.IsNullOrEmpty(patreonLink))
+                _uriOpener.OpenUri(new Uri(patreonLink));
             _supportWindow?.Close();
         };
 

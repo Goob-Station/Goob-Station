@@ -5,8 +5,8 @@
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client"
     xmlns:maths="clr-namespace:Robust.Shared.Maths;assembly=Robust.Shared.Maths"
     Title="{Loc 'patron-support-window-title'}"
-    MinSize="555 970"
-    SetSize="555 970">
+    MinSize="555 300"
+    SetSize="555 400">
     <BoxContainer Orientation="Vertical">
         <PanelContainer StyleClasses="AngleRect">
             <BoxContainer Orientation="Vertical" Margin="10 8" HorizontalExpand="True">
