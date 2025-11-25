@@ -57,6 +57,7 @@
   damage:
     types:
       Heat: 15
+    armorPenetration: -0.2
   muzzleFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: muzzle_beam_light_overcharged
@@ -138,6 +139,7 @@
   damage:
     types:
       Heat: 21
+    armorPenetration: -0.2
   muzzleFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: muzzle_beam_light_overcharged
@@ -236,6 +238,7 @@
   damage:
     types:
       Heat: 18
+    armorPenetration: -0.2
   muzzleFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: muzzle_beam_light_overcharged
