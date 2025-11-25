@@ -310,6 +310,7 @@
   loadouts:
   - CaptainHead
   - CaptainCap
+  - CaptainCapcapSenior # goob
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -331,6 +332,7 @@
   - CaptainCloakFormal
   - CaptainMantle
   - VeteranCaptainCloak # goob
+  - CaptainEnsemble # goob
 
 - type: loadoutGroup
   id: CaptainBackpack
@@ -372,6 +374,7 @@
   loadouts:
   - HoPCloak
   - HoPMantle
+  - HeadOfPersonnelEnsemble # goob
 
 - type: loadoutGroup
   id: HoPBackpack
@@ -869,6 +872,7 @@
   loadouts:
   - QuartermasterCloak
   - QuartermasterMantle
+  - QuartermasterEnsemble # goob
 
 - type: loadoutGroup
   id: QuartermasterOuterClothing
@@ -976,6 +980,7 @@
   loadouts:
   - ChiefEngineerCloak
   - ChiefEngineerMantle
+  - ChiefEngineerEnsemble # goob
 
 - type: loadoutGroup
   id: ChiefEngineerOuterClothing
@@ -1121,6 +1126,7 @@
   loadouts:
   - ResearchDirectorMantle
   - ResearchDirectorCloak
+  - ResearchDirectorEnsemble # goob
 
 - type: loadoutGroup
   id: ResearchDirectorJumpsuit
@@ -1258,6 +1264,7 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   - Bodycam # Goobstation - Body cameras
+  - HeadOfSecurityEnsemble # goob
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -1450,6 +1457,7 @@
   loadouts:
   - ChiefMedicalOfficerCloak
   - ChiefMedicalOfficerMantle
+  - ChiefMedicalOfficerEnsemble # goob
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerShoes
