@@ -18331,3 +18331,9 @@ Entries:
       message: Only masks with combat filters can block facehuggers.
   id: 2064
   time: '2025-11-25T06:20:02.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: High mole amounts of poisonous gasses don't instantly kill you anymore.
+  id: 2065
+  time: '2025-11-25T06:20:34.0000000+00:00'
