@@ -33,7 +33,7 @@ using Content.Shared.Electrocution;
 using Content.Shared.Standing;
 using Content.Goobstation.Shared.Supermatter.Components;
 using Content.Shared.Body.Part;
-using Content.Shared.Body.Systems;
+using Content.Shared.Pointing;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
@@ -50,7 +50,6 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
 
     private const string FootstepSoundTag = "FootstepSound";
 
@@ -80,6 +79,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         SubscribeLocalEvent<SlasherIncorporealComponent, GettingInteractedWithAttemptEvent>(OnGettingInteractedWithAttempt);
         SubscribeLocalEvent<SlasherIncorporealComponent, ElectrocutionAttemptEvent>(OnElectrocutionAttempt);
         SubscribeLocalEvent<SlasherIncorporealComponent, DownAttemptEvent>(OnDownAttempt);
+        SubscribeLocalEvent<SlasherIncorporealComponent, PointAttemptEvent>(OnPointAttempt);
 
         SubscribeLocalEvent<DamageableComponent, BeforeDamageChangedEvent>(OnBeforeDamageBodyPart);
 
@@ -94,7 +94,6 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         _actions.AddAction(ent.Owner, ref ent.Comp.IncorporealizeActionEnt, ent.Comp.IncorporealizeActionId);
         _actions.AddAction(ent.Owner, ref ent.Comp.CorporealizeActionEnt, ent.Comp.CorporealizeActionId);
         _actions.SetEnabled(ent.Comp.CorporealizeActionEnt, false);
-
     }
 
     private void OnShutdown(Entity<SlasherIncorporealComponent> ent, ref ComponentShutdown args)
@@ -209,6 +208,9 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         // main component.
         var phase = EnsureComp<PhaseShiftedComponent>(uid);
         phase.MovementSpeedBuff = 3.5f;
+        // Set collision to GhostImpassable layer only so they exist on their own layer
+        phase.CollisionLayer = (int) CollisionGroup.GhostImpassable;
+        phase.CollisionMask = (int) CollisionGroup.GhostImpassable;
 
         // don't wanna let people see them obviously.
         var stealth = EnsureComp<StealthComponent>(uid);
@@ -263,7 +265,6 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
         _tags.AddTag(uid, FootstepSoundTag);
 
-
         // Let them speak
         _ = RemComp<MutedComponent>(uid);
 
@@ -282,6 +283,12 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     }
 
     // Event hell below
+    private void OnPointAttempt(EntityUid uid, SlasherIncorporealComponent comp, PointAttemptEvent args)
+    {
+        if (comp.IsIncorporeal)
+            args.Cancel();
+    }
+
     private void OnDownAttempt(EntityUid uid, SlasherIncorporealComponent comp, DownAttemptEvent args)
     {
         if (comp.IsIncorporeal)
@@ -365,6 +372,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         if (comp.IsIncorporeal)
             args.Cancel();
     }
+
     private void OnGettingInteractedWithAttempt(EntityUid uid, SlasherIncorporealComponent comp, ref GettingInteractedWithAttemptEvent args)
     {
         if (comp.IsIncorporeal)

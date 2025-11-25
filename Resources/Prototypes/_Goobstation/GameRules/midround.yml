@@ -356,6 +356,10 @@
       - type: NightVision
         activateSound: null
         deactivateSound: null
+      - type: Hunger
+        baseDecayRate: 0
+      - type: Thirst
+        baseDecayRate: 0
       - type: RandomMetadata
         nameSegments:
         - NamesSlasherTitle

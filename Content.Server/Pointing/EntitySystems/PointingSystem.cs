@@ -103,7 +103,6 @@
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Pointing.Components;
-using Content.Shared.Stealth.Components; // Goobstation
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Examine;
@@ -132,7 +131,7 @@ using Robust.Shared.Timing;
 namespace Content.Server.Pointing.EntitySystems
 {
     [UsedImplicitly]
-    internal sealed class PointingSystem : SharedPointingSystem
+    internal sealed partial class PointingSystem : SharedPointingSystem // Goobstation: Partial Class
     {
         [Dependency] private readonly IConfigurationManager _config = default!;
         [Dependency] private readonly IReplayRecordingManager _replay = default!;
@@ -251,7 +250,7 @@ namespace Content.Server.Pointing.EntitySystems
             }
 
             // Goobstation Begin: Disallow pointing at stealthed entities.
-            if (pointed != player && TryComp<StealthComponent>(pointed, out var stealth) && stealth.Enabled)
+            if (!CanPointAtStealthedEntity(player, pointed))
             {
                 return false;
             }
