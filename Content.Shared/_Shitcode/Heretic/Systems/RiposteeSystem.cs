@@ -26,6 +26,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Content.Shared.CombatMode;
+using Content.Shared.Heretic.Components;
 
 namespace Content.Shared._Goobstation.Heretic.Systems;
 
@@ -149,7 +150,7 @@ public sealed class RiposteeSystem : EntitySystem
             if (!data.CanRiposteWhileProne && _standing.IsDown(ent))
                 continue;
 
-            if (TryComp<CombatModeComponent>(ent.Owner, out var combat) && !combat.IsInCombatMode) // Don't riposte out of combat mode
+            if (TryComp<CombatModeComponent>(ent.Owner, out var combat) && !combat.IsInCombatMode && (TryComp<MartialArtsKnowledgeComponent>(ent.Owner, out var martial) && martial.MartialArtsForm == MartialArtsForms.CloseQuartersCombat) || !HasComp<HereticBladeComponent>(ent.Owner)) // Don't riposte out of combat mode
                 continue;
             
             if (data.RiposteChance is > 0f and < 1f)
