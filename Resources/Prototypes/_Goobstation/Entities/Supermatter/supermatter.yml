@@ -95,8 +95,6 @@
       understands:
       - TauCetiBasic
 
-# slon
-
 - type: entity
   id: SupermatterCascade
   parent: BaseKudzu
@@ -108,6 +106,7 @@
     sprite: _Slon/Supermatter/supermatter_cascade.rsi
     state: sm_cascade
   - type: EdgeSpreader
+    ignoreBlockedTiles: false
     id: Kudzu
   - type: Kudzu
     growthTickChance: 1
@@ -133,6 +132,7 @@
     intensity: 0.1
     slope: 0.6
   - type: Cascade
+  - type: SyncSprite
   - type: PointLight
     color: "#f3b355"
     radius: 2.25
@@ -143,3 +143,9 @@
     volume: 0
     sound:
       path: /Audio/_Goobstation/Supermatter/calm.ogg
+
+- type: entity
+  id: SupermatterCascadeEndRound
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EndRoundAfterCascade

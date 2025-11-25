@@ -1,6 +1,8 @@
 using Content.Goobstation.Shared.Supermatter.Components;
 using Content.Server.Spreader;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
+using Robust.Shared.Physics.Events;
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -8,28 +10,30 @@ public sealed class CascadeSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
 
-    public override void Update(float frameTime)
+    public override void Initialize()
     {
-        var query = EntityQueryEnumerator<CascadeComponent, KudzuComponent, TransformComponent>();
+        base.Initialize();
+        SubscribeLocalEvent<CascadeComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<CascadeComponent, StartCollideEvent>(OnCollide);
+    }
 
-        while (query.MoveNext(out var uid, out var cascade, out var kudzu, out var xform))
-        {
-            cascade.Timer -= frameTime;
-            if (cascade.Timer > 0)
-                continue;
+    private void OnCollide(EntityUid uid, CascadeComponent component, StartCollideEvent args)
+    {
+        _bodySystem.GibBody(uid);
+    }
 
-            cascade.Timer = cascade.Interval;
-
-            foreach (var ent in _lookup.GetEntitiesInRange(uid, cascade.Radius))
+    private void OnMapInit(EntityUid uid, CascadeComponent component, MapInitEvent args)
+    {
+            foreach (var ent in _lookup.GetEntitiesInRange(uid, component.Radius))
             {
                 if (ent == uid)
                     continue;
 
                 if (HasComp<CascadeComponent>(ent))
                     continue;
-                _damageable.TryChangeDamage(ent, cascade.Damage, origin: uid);
+                _damageable.TryChangeDamage(ent, component.Damage, origin: uid);
             }
-        }
     }
 }

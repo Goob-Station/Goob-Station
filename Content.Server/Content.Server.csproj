@@ -62,8 +62,5 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
     <ProjectReference Include="..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="_Slon\Sm\" />
-  </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
 </Project>
