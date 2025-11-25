@@ -106,7 +106,6 @@
     sprite: _Slon/Supermatter/supermatter_cascade.rsi
     state: sm_cascade
   - type: EdgeSpreader
-    ignoreBlockedTiles: false
     id: Kudzu
   - type: Kudzu
     growthTickChance: 1
