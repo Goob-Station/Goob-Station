@@ -44,6 +44,7 @@
       Zinc: 7.5
 
 # region SMG Power Cells
+# base smg power cell
 - type: entity
   id: BaseMilitaryPowerCellSMG
   abstract: true
@@ -65,7 +66,7 @@
     tags:
     - MilitaryPowerCellSMG
     - MilitaryPowerCell
-
+# basic smg power cell
 - type: entity
   name: SMG power cell
   description: A militarized power cell compatible with SMG scale lasers.
@@ -78,7 +79,7 @@
   - type: HitscanBatteryAmmoProvider
     proto: SMGLaser
     fireCost: 50
-
+# x-ray smg power cell
 - type: entity
   name: x-ray SMG power cell
   description: A militarized power cell compatible with SMG scale lasers that fires x-rays.
@@ -91,7 +92,7 @@
   - type: HitscanBatteryAmmoProvider
     proto: SMGLaserXray
     fireCost: 50
-
+# overclocked smg power cell
 - type: entity
   name: overclocked SMG power cell
   description: A militarized power cell compatible with SMG scale lasers that has been overclocked.
@@ -104,20 +105,20 @@
   - type: HitscanBatteryAmmoProvider
     proto: SMGLaserOvercharged
     fireCost: 100
-
+# bluespace smg power cell
 - type: entity
-  name: pulse SMG power cell
-  description: A militarized power cell compatible with SMG scale lasers that fires pulse beams.
-  id: PowerCellPulseSMG
+  name: bluespace SMG power cell
+  description: A militarized power cell compatible with SMG scale lasers that fires bluespace beams.
+  id: PowerCellBluespaceSMG
   suffix: Full
   parent: BaseMilitaryPowerCellSMG
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_pulse.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_bluespace.rsi
   - type: HitscanBatteryAmmoProvider
-    proto: SMGLaserPulse
+    proto: SMGLaserBluespace
     fireCost: 50
-
+# ion smg power cell
 - type: entity
   name: ion SMG power cell
   description: A militarized power cell compatible with SMG scale lasers that fires ion beams.
@@ -133,6 +134,7 @@
 # endregion SMG Power Cells
 
 # region Sniper Power Cells
+# base sniper power cell
 - type: entity
   id: BaseMilitaryPowerCellSniper
   abstract: true
@@ -162,7 +164,7 @@
       Plasma: 60
     chemicalComposition:
       Zinc: 10
-
+# basic sniper power cell
 - type: entity
   name: sniper power cell
   description: A militarized power cell compatible with laser snipers.
@@ -175,7 +177,7 @@
   - type: HitscanBatteryAmmoProvider
     proto: SniperRedLaser
     fireCost: 100
-
+# x-ray sniper power cell
 - type: entity
   name: x-ray sniper power cell
   description: A militarized power cell compatible with laser snipers that fires x-rays.
@@ -188,7 +190,7 @@
   - type: HitscanBatteryAmmoProvider
     proto: SniperXrayLaser
     fireCost: 100
-
+# overclocked sniper power cell
 - type: entity
   name: overclocked sniper power cell
   description: A militarized power cell compatible with laser snipers that has been overclocked.
@@ -201,20 +203,20 @@
   - type: HitscanBatteryAmmoProvider
     proto: SniperOverchargedLaser
     fireCost: 200
-
+# bluespace sniper power cell
 - type: entity
-  name: pulse sniper power cell
-  description: A militarized power cell compatible with laser snipers that fires pulse beams.
-  id: PowerCellPulseSniper
+  name: bluespace sniper power cell
+  description: A militarized power cell compatible with laser snipers that fires bluespace beams.
+  id: PowerCellBluespaceSniper
   suffix: Full
   parent: BaseMilitaryPowerCellSniper
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_pulse.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_bluespace.rsi
   - type: HitscanBatteryAmmoProvider
-    proto: SniperPulseLaser
+    proto: SniperBluespaceLaser
     fireCost: 100
-
+# ion sniper power cell
 - type: entity
   name: ion sniper power cell
   description: A militarized power cell compatible with laser snipers that fires ion beams.
@@ -230,6 +232,7 @@
 # endregion Sniper Power Cells
 
 # region Revolver Power Cells
+# base revolver power cell
 - type: entity
   id: BaseMilitaryPowerCellRevolver
   abstract: true
@@ -256,7 +259,7 @@
       Plasma: 20
     chemicalComposition:
       Zinc: 5
-
+# basic revolver power cell
 - type: entity
   name: revolver power cell
   description: A militarized power cell compatible with laser revolvers.
@@ -282,7 +285,7 @@
   - type: HitscanBatteryAmmoProvider
     proto: RevolverRedLaser
     fireCost: 62.5
-
+# x-ray revolver power cell
 - type: entity
   name: x-ray revolver power cell
   description: A militarized power cell compatible with laser revolvers that fires x-rays.
@@ -308,7 +311,7 @@
   - type: HitscanBatteryAmmoProvider
     proto: RevolverXrayLaser
     fireCost: 62.5
-
+# overclocked revolver power cell
 - type: entity
   name: overclocked revolver power cell
   description: A militarized power cell compatible with laser revolvers that has been overclocked.
@@ -334,33 +337,33 @@
   - type: HitscanBatteryAmmoProvider
     proto: RevolverOverchargedLaser
     fireCost: 125
-
+# bluespace revolver power cell
 - type: entity
-  name: pulse revolver power cell
-  description: A militarized power cell compatible with laser revolvers that fires pulse beams.
-  id: PowerCellPulseRevolver
+  name: bluespace revolver power cell
+  description: A militarized power cell compatible with laser revolvers that fires bluespace beams.
+  id: PowerCellBluespaceRevolver
   suffix: Full
   parent: BaseMilitaryPowerCellRevolver
   components:
   - type: Sprite
     layers:
     - map: [ "base" ]
-      state: pulse_charge
+      state: bluespace_charge
       shader: unshaded
   - type: GenericVisualizer
     visuals:
       enum.AmmoVisuals.HasAmmo:
         base:
           True:
-            state: pulse_charge
+            state: bluespace_charge
             shader: unshaded
           False:
-            state: pulse
+            state: bluespace
             shader: null
   - type: HitscanBatteryAmmoProvider
-    proto: RevolverPulseLaser
+    proto: RevolverBluespaceLaser
     fireCost: 62.5
-
+# ion revolver power cell
 - type: entity
   name: ion revolver power cell
   description: A militarized power cell compatible with laser revolvers that fires ion beams.
@@ -389,6 +392,7 @@
 # endregion Revolver Power Cells
 
 # region LMG Power Cell
+# basic lmg power cell
 - type: entity
   id: MilitaryPowerCellLMG
   parent: BaseMilitaryPowerCell

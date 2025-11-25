@@ -3,6 +3,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# ER-5 Torrent SMG
 - type: entity
   name: ER-5 Torrent
   parent: [ BaseWeaponCustomCell, BaseSecurityContraband ]
@@ -59,7 +60,7 @@
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_smg.ogg
   - type: AmmoCounter
 
-
+# ES-7 Multilens Sniper Rifle
 - type: entity
   name:  ES-7 Multilens
   parent: [ BaseWeaponCustomCell, BaseGunWieldable, BaseSecurityContraband ]
@@ -126,7 +127,7 @@
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_lmg.ogg
   - type: AmmoCounter
 
-
+# EG-1 Taro Revolver
 - type: entity
   name: EG-1 Taro
   parent: [ BaseWeaponCustomCellSmall, BaseSecurityContraband ]
@@ -200,7 +201,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: AmmoCounter
 
-
+# EL-20 HAMRR
 - type: entity
   name: EL-20 HAMRR
   parent: [BaseItem, BaseSecurityContraband]

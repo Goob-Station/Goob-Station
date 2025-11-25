@@ -4,6 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # region SMG Lasers
+# basic SMG laser
 - type: hitscan
   id: SMGLaser
   damage:
@@ -18,7 +19,7 @@
   impactFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: impact_beam_light
-
+# ion SMG laser
 - type: hitscan
   id: SMGLaserIon
   damage:
@@ -33,7 +34,7 @@
   impactFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: impact_beam_light_ion
-
+# xray SMG laser
 - type: hitscan
   id: SMGLaserXray
   damage:
@@ -49,7 +50,7 @@
   impactFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: impact_beam_light_xray
-
+# overcharged SMG laser
 - type: hitscan
   id: SMGLaserOvercharged
   fireStacks: 0.4
@@ -65,9 +66,9 @@
   impactFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: impact_beam_light_overcharged
-
+# bluespace SMG laser
 - type: hitscan
-  id: SMGLaserPulse
+  id: SMGLaserBluespace
   damage:
     types:
       Heat: 12
@@ -83,6 +84,7 @@
 # endregion SMG Lasers
 
 # region Sniper Lasers
+# basic sniper laser
 - type: hitscan
   id: SniperRedLaser
   damage:
@@ -97,7 +99,7 @@
   impactFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: impact_beam_light
-
+# ions sniper laser
 - type: hitscan
   id: SniperIonLaser
   damage:
@@ -112,7 +114,7 @@
   impactFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: impact_beam_light_ion
-
+# xray sniper laser
 - type: hitscan
   id: SniperXrayLaser
   damage:
@@ -128,7 +130,7 @@
   impactFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: impact_beam_light_xray
-
+# overcharged sniper laser
 - type: hitscan
   id: SniperOverchargedLaser
   fireStacks: 0.7
@@ -144,9 +146,9 @@
   impactFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: impact_beam_light_overcharged
-
+# bluespace sniper laser
 - type: hitscan
-  id: SniperPulseLaser
+  id: SniperBluespaceLaser
   damage:
     types:
       Heat: 17
@@ -179,6 +181,7 @@
 # endregion LMG Lasers
 
 # region Revolver Lasers
+# revolver basic laser
 - type: hitscan
   id: RevolverRedLaser
   damage:
@@ -193,7 +196,7 @@
   impactFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: impact_beam_light
-
+# revolver ion laser
 - type: hitscan
   id: RevolverIonLaser
   damage:
@@ -208,7 +211,7 @@
   impactFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: impact_beam_light_ion
-
+# revolver xray laser
 - type: hitscan
   id: RevolverXrayLaser
   damage:
@@ -224,7 +227,7 @@
   impactFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: impact_beam_light_xray
-
+# revolver overcharged laser
 - type: hitscan
   id: RevolverOverchargedLaser
   fireStacks: 0.7
@@ -240,9 +243,9 @@
   impactFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: impact_beam_light_overcharged
-
+# revolver bluespace laser
 - type: hitscan
-  id: RevolverPulseLaser
+  id: RevolverBluespaceLaser
   damage:
     types:
       Heat: 17
