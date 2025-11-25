@@ -35,7 +35,7 @@ public sealed class ExplodeServerSystem : EntitySystem
         _gameTicker.EndRound();
         var audio = AudioParams.Default;
         audio.Volume = 1f;
-        _globalSound.PlayAdminGlobal(Filter.Empty().AddAllPlayers(_playerManager), _audio.ResolveSound(new SoundPathSpecifier("/Audio/_Goobstation/Announcements/ExplodeServerAlert.ogg")), AudioParams.Default.WithVolume(1f)); 
+        _globalSound.PlayAdminGlobal(Filter.Empty().AddAllPlayers(_playerManager), _audio.ResolveSound(new SoundPathSpecifier("/Audio/_Goobstation/Announcements/explode_server_alert.ogg")), AudioParams.Default.WithVolume(1f)); 
         _roundEndTimer = _gameTiming.CurTime + TimeSpan.FromMilliseconds(5105);
         RaiseNetworkEvent(new ExplodeServerEvent());
     }
