@@ -18343,3 +18343,15 @@ Entries:
       message: Added a new suit for the NTR in their loadout
   id: 2066
   time: '2025-11-25T06:24:42.0000000+00:00'
+- author: ThanosDeGraf
+  changes:
+    - type: Fix
+      message: IPCs can now correctly gauge ambient temperatures.
+    - type: Tweak
+      message: IPCs now take heat damage from hot environments, though at around 450K.
+    - type: Tweak
+      message: >-
+        IPCs now overheat at 1200K instead of 403K, so they have a chance to
+        survive.
+  id: 2067
+  time: '2025-11-25T06:45:14.0000000+00:00'
