@@ -1,5 +1,5 @@
 using Content.Client.Lobby;
-using Content.Shared.CCVar;
+using Content.Goobstation.Common.CCVar;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Configuration;
@@ -19,7 +19,7 @@ public sealed class PatronSupportUIController : UIController, IOnStateEntered<Lo
         if (_hasShownThisSession)
             return;
 
-        var lastShown = _cfg.GetCVar(CCVars.PatronSupportLastShown);
+        var lastShown = _cfg.GetCVar(GoobCVars.PatronSupportLastShown);
         var now = DateTime.UtcNow;
 
         if (!string.IsNullOrEmpty(lastShown))
@@ -65,7 +65,7 @@ public sealed class PatronSupportUIController : UIController, IOnStateEntered<Lo
 
     private void OnWindowClosed()
     {
-        _cfg.SetCVar(CCVars.PatronSupportLastShown, DateTime.UtcNow.ToString("O"));
+        _cfg.SetCVar(GoobCVars.PatronSupportLastShown, DateTime.UtcNow.ToString("O"));
         _cfg.SaveToFile();
     }
 }

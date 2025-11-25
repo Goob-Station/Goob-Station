@@ -71,7 +71,8 @@ public sealed class LinkAccountManager : IPostInjectInit
                 tier.GhostColor,
                 tier.LobbyMessage,
                 tier.RoundEndShoutout,
-                tier.Name
+                tier.Name,
+                tier.Icon
             );
 
         SharedRMCLobbyMessage? lobbyMessage = null;

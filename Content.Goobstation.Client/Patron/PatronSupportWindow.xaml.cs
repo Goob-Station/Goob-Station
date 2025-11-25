@@ -5,7 +5,7 @@ using Robust.Client.UserInterface.XAML;
 namespace Content.Goobstation.Client.Patron;
 
 [GenerateTypedNameReferences]
-public sealed class PatronSupportWindow : FancyWindow
+public sealed partial class PatronSupportWindow : FancyWindow
 {
     public PatronSupportWindow()
     {
