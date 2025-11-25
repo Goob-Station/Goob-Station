@@ -407,7 +407,11 @@
         maxVol: 50
         reagents:
         - ReagentId: Stimulants
-          Quantity: 50
+          Quantity: 25
+        - ReagentId: Ichor
+          Quantity: 10
+        - ReagentId: Dylovene
+          Quantity: 15
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
