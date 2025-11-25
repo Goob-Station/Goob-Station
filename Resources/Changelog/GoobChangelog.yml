@@ -18401,3 +18401,9 @@ Entries:
       message: Ascended shadowling annihilate will no longer target inanimate objects
   id: 2071
   time: '2025-11-25T07:17:58.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: Redspace Lifeline Implanter admeme
+  id: 2072
+  time: '2025-11-25T09:50:40.0000000+00:00'
