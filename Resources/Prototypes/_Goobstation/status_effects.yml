@@ -68,8 +68,3 @@
   id: ShadowCloak
   alert: ShadowCloak
   alwaysAllowed: true
-
-- type: statusEffect
-  id: Fleshmend
-  alert: Fleshmend
-  alwaysAllowed: true

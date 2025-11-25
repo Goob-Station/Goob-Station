@@ -10,9 +10,10 @@
   weights:
     Dragon: 1
     # Revenant: 1 # Goob - Removed in favor of LoneOperative
-    SlaughterDemon: 1
-    # Wraith: 1 # Goob - Wraith
+    SlaughterDemon: 1 # Goobstation
+    # Wraith: 1 # Goobstation
     LoneOperative: 1 # Goobstation
+    #TODO When Slasher is ready Slasher: 1 # Goobstation
 
 - type: ninjaHackingThreat
   id: Dragon
@@ -35,6 +36,12 @@
 #  id: Wraith
 #  announcement: terror-wraith
 #  rule: WraithMidround
+
+# TODO When Slasher is ready
+#- type: ninjaHackingThreat
+#  id: Slasher
+#  announcement: terror-slasher
+#  rule: SlasherSpawn
 
 #- type: ninjaHackingThreat
 #  id: Revenant
