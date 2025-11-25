@@ -208,9 +208,6 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         // main component.
         var phase = EnsureComp<PhaseShiftedComponent>(uid);
         phase.MovementSpeedBuff = 3.5f;
-        // Set collision to GhostImpassable layer only so they exist on their own layer
-        phase.CollisionLayer = (int) CollisionGroup.GhostImpassable;
-        phase.CollisionMask = (int) CollisionGroup.GhostImpassable;
 
         // don't wanna let people see them obviously.
         var stealth = EnsureComp<StealthComponent>(uid);
