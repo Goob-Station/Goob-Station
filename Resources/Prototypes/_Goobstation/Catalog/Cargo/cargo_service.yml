@@ -22,3 +22,23 @@
   cost: 1000
   category: cargoproduct-category-name-service
   group: market
+
+- type: cargoProduct
+  id: CoinFlipperCargo
+  icon:
+    sprite: _Goobstation/Structures/Machines/slotmachines/coinflipper.rsi
+    state: Coinflipper
+  product: CrateCoinFlipper
+  cost: 5000
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: ClawMachineCargo
+  icon:
+    sprite: _Goobstation/Structures/Machines/slotmachines/claw_machine.rsi
+    state: clawmachine
+  product: CrateClawMachine
+  cost: 1000
+  category: cargoproduct-category-name-service
+  group: market
