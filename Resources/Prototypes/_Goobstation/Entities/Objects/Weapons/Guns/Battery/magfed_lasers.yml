@@ -222,11 +222,11 @@
     - 0,0,4,3
   - type: Wieldable
   - type: GunWieldBonus
-    minAngle: -20
-    maxAngle: -20
+    minAngle: -15
+    maxAngle: -15
   - type: Gun
-    minAngle: 40
-    maxAngle: 10
+    minAngle: 50
+    maxAngle: 20
     angleIncrease: -5
     angleDecay: -80
     fireRate: 10
