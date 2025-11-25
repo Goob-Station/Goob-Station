@@ -118,6 +118,19 @@
   - type: HitscanBatteryAmmoProvider
     proto: SMGLaserBluespace
     fireCost: 50
+# pulse smg power cell
+- type: entity
+  name: pulse SMG power cell
+  description: A militarized power cell compatible with SMG scale lasers that fires pulse beams.
+  id: PowerCellPulseSMG
+  suffix: Full
+  parent: BaseMilitaryPowerCellSMG
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_bluespace.rsi
+    - type: HitscanBatteryAmmoProvider
+      proto: SMGLaserPulse
+      fireCost: 50
 # ion smg power cell
 - type: entity
   name: ion SMG power cell
@@ -216,6 +229,19 @@
   - type: HitscanBatteryAmmoProvider
     proto: SniperBluespaceLaser
     fireCost: 100
+# pulse sniper power cell
+- type: entity
+  name: pulse sniper power cell
+  description: A militarized power cell compatible with laser snipers that fires pulse beams.
+  id: PowerCellPulseSniper
+  suffix: Full
+  parent: BaseMilitaryPowerCellSniper
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_bluespace.rsi
+    - type: HitscanBatteryAmmoProvider
+      proto: SniperPulseLaser
+      fireCost: 100
 # ion sniper power cell
 - type: entity
   name: ion sniper power cell
