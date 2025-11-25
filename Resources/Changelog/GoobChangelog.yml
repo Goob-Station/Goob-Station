@@ -18373,3 +18373,11 @@ Entries:
       message: Security truncheons no longer science reseach.
   id: 2069
   time: '2025-11-25T07:08:32.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Add
+      message: >-
+        Criminal Records Computers can look for partial fingerprints and DNA.
+        Use '#' as wildcard characters.
+  id: 2070
+  time: '2025-11-25T07:14:53.0000000+00:00'
