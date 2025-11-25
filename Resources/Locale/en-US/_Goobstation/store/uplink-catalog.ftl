@@ -349,6 +349,3 @@ uplink-bloodred-casette-desc = Provided by the most egotistical fashion designer
 
 uplink-syndiedrobe-name = Syndiedrobe
 uplink-syndiedrobe-desc = A vending machine stocked with Syndicate-branded clothing. Simple, sharp, and unmistakably red-and-black, it offers operatives a way to dress with Syndicate style.
-
-uplink-kidnap-implanter-name = Kidnap Implanter
-uplink-kidnap-implanter-desc = A device that teleports you and the guy you are pulling to a random location on the station. Perfect for kidnappings and quick escapes.

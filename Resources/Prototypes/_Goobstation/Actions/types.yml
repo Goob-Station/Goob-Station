@@ -246,20 +246,3 @@
       path: /Audio/_Goobstation/Misc/berserker-implant-activate.ogg
   - type: InstantAction
     event: !type:ActivateBerserkerImplantActionEvent
-
-- type: entity
-  parent: BaseAction
-  id: ActionActivateKidnapImplant
-  name: Kidnap!
-  description: Randomly teleports you and the person you are pulling within a large distance.
-  components:
-    - type: Action
-      checkCanInteract: false
-      useDelay: 360
-      itemIconStyle: BigAction
-      priority: -20
-      icon:
-        sprite: Structures/Specific/anomaly.rsi
-        state: anom4
-    - type: InstantAction
-      event: !type:UseScramImplantEvent

@@ -1,8 +1,0 @@
-# Goob Implanters
-- type: entity
-  id: KidnapImplanter
-  suffix: Kidnapping
-  parent: BaseImplantOnlyImplanterSyndi
-  components:
-    - type: Implanter
-      implant: KidnapImplant

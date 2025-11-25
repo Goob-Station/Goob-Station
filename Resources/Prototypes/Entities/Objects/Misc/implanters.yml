@@ -92,7 +92,6 @@
       - KravMagaImplant
       - NutrimentPumpImplant
       - SmokeImplant
-      - KidnapImplant
       # - StypticStimulatorImplant # Uncomment if given to traitors, currently it's DS only implant
       - BinaryImplant
       - ChameleonControllerImplant
