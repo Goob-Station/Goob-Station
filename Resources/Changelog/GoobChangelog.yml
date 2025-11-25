@@ -18381,3 +18381,23 @@ Entries:
         Use '#' as wildcard characters.
   id: 2070
   time: '2025-11-25T07:14:53.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Add
+      message: >-
+        Ascending as a shadowling will play some harrowing music for the station
+        to hear.
+    - type: Tweak
+      message: >-
+        Ascended shadowlings will now snap their fingers and explode whoever
+        they use annihilate on
+    - type: Tweak
+      message: changelings and heretics cannot be converted by shadowlings anymore
+    - type: Fix
+      message: >-
+        Shadowlings and their thralls should now be able to use their collective
+        mind (+Q)
+    - type: Fix
+      message: Ascended shadowling annihilate will no longer target inanimate objects
+  id: 2071
+  time: '2025-11-25T07:17:58.0000000+00:00'
