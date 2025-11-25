@@ -45,7 +45,7 @@
         amount: 1.5
         conditions:
         - !type:PressureThreshold
-          min: 0
+          min: 1
           max: 50
           worksOnLavaland: true
       - !type:HealthChange
@@ -57,7 +57,7 @@
             Bloodloss: -1.25
         conditions:
         - !type:PressureThreshold
-          min: 0
+          min: 1
           max: 50
           worksOnLavaland: true
       - !type:HealthChange
@@ -119,7 +119,7 @@
             Airloss: -1.5
         conditions:
           - !type:PressureThreshold
-            min: 0
+            min: 1
             max: 50
             worksOnLavaland: true
       # Cuts the amount healed roughly by 50% when in normal pressure.
