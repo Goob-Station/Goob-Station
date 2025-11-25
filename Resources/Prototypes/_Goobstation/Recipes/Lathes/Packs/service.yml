@@ -23,3 +23,9 @@
   - CassetteTape
   - TapeRecorder
   - CrewCassette
+
+- type: latheRecipePack
+  id:  CondimentStatic
+  recipes:
+    - FoodShakerSaltEmpty
+    - FoodShakerPepperEmpty
