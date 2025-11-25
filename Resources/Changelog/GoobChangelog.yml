@@ -18301,3 +18301,21 @@ Entries:
         and Thermal Vision Tech as prerequisites. 
   id: 2061
   time: '2025-11-24T13:48:38.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: Crew cassette players to play your tunes on the go.
+    - type: Add
+      message: >-
+        Executive cassette player to play your tunes while closing important
+        deals
+    - type: Add
+      message: Recipe in autolathe for crew one.
+    - type: Add
+      message: Listing in ntr suitcase for the executive one.
+    - type: Add
+      message: Loadout option to equip one round start in the trinkets category.
+    - type: Fix
+      message: fixed the typos its called cassette not casette
+  id: 2062
+  time: '2025-11-25T03:07:21.0000000+00:00'
