@@ -352,6 +352,14 @@
       - type: BreathingImmunity
       - type: GunBlocked
         PopupText: slasher-cannot-use-guns # Seems to be broken inside AntagSelection
+      - type: WeakToHoly
+      - type: NightVision
+        activateSound: null
+        deactivateSound: null
+      - type: Hunger
+        baseDecayRate: 0
+      - type: Thirst
+        baseDecayRate: 0
       - type: RandomMetadata
         nameSegments:
         - NamesSlasherTitle

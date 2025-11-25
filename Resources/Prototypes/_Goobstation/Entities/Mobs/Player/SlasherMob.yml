@@ -1,0 +1,33 @@
+- type: entity
+  name: Urist McSlasher
+  parent: MobHuman
+  id: MobSlasher
+  description: A terrifying slasher with supernatural abilities.
+  suffix: Debug
+  components:
+  - type: Loadout
+    prototypes: [ SlasherGear ]
+  - type: Slasher
+  - type: SlasherSummonMachete
+  - type: SlasherStaggerArea
+  - type: SlasherRegenerate
+  - type: SlasherPossession
+  - type: SlasherBloodTrail
+  - type: SlasherIncorporeal
+  - type: SlasherSoulSteal
+  - type: SlasherSummonMeatSpike
+  - type: BreathingImmunity
+  - type: GunBlocked
+  - type: WeakToHoly
+  - type: NightVision
+    activateSound: null
+    deactivateSound: null
+  - type: Hunger
+    baseDecayRate: 0
+  - type: Thirst
+    baseDecayRate: 0
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSlasherTitle
+    - NamesSlasher
+    nameFormat: name-format-slasher
