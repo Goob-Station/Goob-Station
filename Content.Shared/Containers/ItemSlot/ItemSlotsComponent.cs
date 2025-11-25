@@ -285,10 +285,23 @@ namespace Content.Shared.Containers.ItemSlots
         /// <summary>
         ///     Lavaland Change: Can light go through the container of this ItemSlot?
         /// </summary>
-
         [DataField]
         [Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute)]
         public bool OccludesLight = true;
+
+        /// <summary>
+        ///     Lavaland Change: if specified, doesn't insert the item instantly, but instead after a do-after passes.
+        /// </summary>
+        [DataField]
+        [Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute)]
+        public float? InsertDelay;
+
+        /// <summary>
+        ///     Lavaland Change: if specified, doesn't remove the item instantly, but instead after a do-after passes.
+        /// </summary>
+        [DataField]
+        [Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute)]
+        public float? EjectDelay;
 
         public void CopyFrom(ItemSlot other)
         {

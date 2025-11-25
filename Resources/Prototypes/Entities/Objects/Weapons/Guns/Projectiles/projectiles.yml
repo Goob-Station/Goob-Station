@@ -681,10 +681,10 @@
       shader: unshaded
   - type: GatheringProjectile
   - type: DamageMarkerOnCollide
-    onlyWorkOnFauna: true # Lavaland Change
     whitelist:
       components:
       - MobState
+      - Fauna
     damage:
       types:
     # Lavaland Change start

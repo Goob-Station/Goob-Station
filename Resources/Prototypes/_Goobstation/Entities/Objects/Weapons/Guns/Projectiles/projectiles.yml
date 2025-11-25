@@ -421,7 +421,6 @@
       shader: unshaded
   - type: GatheringProjectile
   - type: DamageMarkerOnCollide
-    onlyWorkOnFauna: false
     whitelist:
       components:
       - MobState

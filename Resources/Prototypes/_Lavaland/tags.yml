@@ -58,3 +58,12 @@
 
 - type: Tag
   id: MarkerBeacon
+
+- type: Tag
+  id: CrusherUpgrade
+
+- type: Tag
+  id: CrusherUpgradeMarker
+
+- type: Tag
+  id: CrusherUpgradeBuster
