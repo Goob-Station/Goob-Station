@@ -332,11 +332,12 @@ public sealed class RadioSystem : EntitySystem
         }
         return false;
     }
-
+    // goob start - intermap transmitters
     /// <inheritdoc cref="TelecomServerComponent"/>
     private bool HasActiveTransmitter(MapId mapId)
     {
         return EntityQuery<TelecomTransmitterComponent, ApcPowerReceiverComponent, TransformComponent>()
             .Any(server => server.Item3.MapID == mapId && server.Item2.Powered);
     }
+    // goob end
 }
