@@ -100,6 +100,8 @@ public abstract partial class SharedMartialArtsSystem
         if (!TryComp<KravMagaActionComponent>(actionEnt, out var kravActionComp))
             return;
 
+        args.Handled = true;
+
         _popupSystem.PopupClient(Loc.GetString("krav-maga-ready", ("action", kravActionComp.Name)), ent, ent);
         ent.Comp.SelectedMove = kravActionComp.Configuration;
         ent.Comp.SelectedMoveComp = kravActionComp;

@@ -1,0 +1,203 @@
+# Used for Skeleton Commander.
+- type: entity
+  id: ActionRally
+  name: Rally
+  description: Buff all surrounding critters to help you fight.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/Mobs/ghostbreath.ogg
+    useDelay: 60
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: rally
+  - type: InstantAction
+    event: !type:RallyEvent
+
+- type: entity
+  id: ActionSummonLesserSkeleton
+  name: Summon lesser skeleton
+  description: Materialize a skeleton from the void to help you.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/Mobs/ghostbreath.ogg
+    useDelay: 30
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: skeleton
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: MobSkeletonGoonLesser
+        amount: 1
+      offset: 0, 1
+
+# Used for Void Piker.
+- type: entity
+  id: ActionTentacleHook
+  name: Tentacle Hook
+  description: Launch a tentacle at your target and drag it to you
+  components:
+  - type: Action
+    useDelay: 30
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Misc/Hastur/tentacle_hit.ogg
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: hook
+  - type: TargetAction
+    range: 15
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:TentacleHookEvent
+
+- type: entity
+  id: ActionShuffle
+  name: Shuffle
+  description: Squish yourself down to cancel stuns, squeeze through doors and escape assailants.
+  components:
+  - type: Action
+    useDelay: 50
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: shuffle
+  - type: InstantAction
+    event: !type:SpikerShuffleEvent
+
+- type: entity
+  id: ActionLash
+  name: Lash
+  description: Go into a bloody frenzy on a target and rip them to shreds.
+  components:
+  - type: Action
+    useDelay: 50
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: lash
+  - type: TargetAction
+    range: 2
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:SpikerLashEvent
+
+# Used for Void Hound.
+
+- type: entity
+  id: ActionRushdown
+  name: Rushdown
+  description: Leap forward and knock down those in your way.
+  components:
+  - type: Action
+    useDelay: 40
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: pounce
+  - type: InstantAction
+    event: !type:RushdownEvent
+
+- type: entity
+  id: ActionCloak
+  name: Cloak
+  description: Slip into the void and make yourself hard to discern for a short time.
+  components:
+  - type: Action
+    useDelay: 40
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: cloak
+  - type: InstantAction
+    event: !type:CloakEvent
+
+# Used for Diseased Rat, and its variants.
+
+- type: entity
+  id: ActionEatFilth
+  name: Eat filth
+  description: Eat some filth, healing you a little bit and slowly growing.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Heretic/eatfood.ogg #Why is this generic eating sound stored in the heretic folder?
+    useDelay: 2
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: eatfilth
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:EatFilthEvent
+
+- type: entity
+  id: ActionRatBite
+  name: Bite
+  description: Bite a living creature, doing a little damage and injecting them with some rat poison.
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wraith/Attack/handcuffs.ogg
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: ratbite
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:RatBiteEvent
+
+- type: entity
+  id: ActionRatDen
+  name: Spawn rat den
+  description: Spawn your rat nest, healing you when in range and summoning some tiny diseased mice.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 40
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: ratden
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:SummonRatDenEvent
+
+- type: entity
+  id: ActionRatSlam
+  name: Slam
+  description: Slam into something. Emits a powerful shockwave on collision.
+  components:
+  - type: Action
+    useDelay: 40
+    icon:
+      sprite: _Goobstation/Wraith/Mobs/actions.rsi
+      state: ratrush
+  - type: InstantAction
+    event: !type:RushdownEvent
+
+# Used for summon void creature ghost entity
+- type: entity
+  id: ActionChooseVoidCreature
+  name: Choose your fighter
+  description: Choose one of the three void creatures to spawn in.
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Wraith/actions.rsi
+      state: summon_creature
+  - type: InstantAction
+    event: !type:ChooseVoidCreatureEvent

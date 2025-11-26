@@ -104,12 +104,16 @@
   - GygaxLLeg
   - GygaxRArm
   - GygaxRLeg
-  - GygaxCentralElectronics
+#  - GygaxCentralElectronics
   - GygaxPeripheralsElectronics
   - GygaxTargetingElectronics
   - WeaponMechCombatUltraRifle
   technologyPrerequisites:
   - RipleyAPLU
+  - AdvancedRiotControl
+  - PortableMicrofusionWeaponry
+  - SmartWeaponry
+  - ThermalVisionTech
   position: 2,-1
 
 - type: technology
@@ -197,7 +201,7 @@
   - DurandLLeg
   - DurandRArm
   - DurandRLeg
-  - DurandCentralElectronics
+#  - DurandCentralElectronics
   - DurandPeripheralsElectronics
   - DurandTargetingElectronics
   - WeaponMechCombatShotgun

@@ -5,5 +5,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-secret-title = Secret
-secret-description = It's a secret to everyone. The threats you encounter are randomized.
+secret-title = Secret Classic
+secret-description = It's a secret to everyone. The threats you encounter are randomized. This is the classic version of secret that simply picks a gamemode and doesn't scale with station chaos

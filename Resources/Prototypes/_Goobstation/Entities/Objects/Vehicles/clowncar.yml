@@ -29,7 +29,7 @@
     acceleration: 1
     friction: 1
     baseWalkSpeed: 4.5
-    baseSprintSpeed: 7
+    baseSprintSpeed: 10
   - type: ItemSlots
     slots:
       key_slot:
@@ -86,7 +86,6 @@
       - HumanoidAppearance
       - KnockedDown
       - Item
-      - SlowContacts
       - Puddle
       - Airlock
       - Door
@@ -122,6 +121,13 @@
   - type: Damageable
     damageContainer: ClowncarDamageContainer
     damageModifierSet: Metallic
+  - type: Jukebox
+  - type: ActivatableUI
+    key: enum.JukeboxUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.JukeboxUiKey.Key:
+        type: JukeboxBoundUserInterface
 
 - type: entity
   parent: VehicleClowncarBase

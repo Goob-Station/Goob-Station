@@ -75,3 +75,15 @@
   name: collective-mind-bingle
   keycode: 'w'
   color: "#386a9b"
+
+- type: collectiveMind
+  id: Shadowmind
+  name: collective-mind-shadow-mind
+  keycode: 'q'
+  color: "#77698d"
+
+- type: collectiveMind
+  id: Xenomorphivemind
+  name: collective-mind-xeno
+  keycode: 'z'
+  color: "#8c3986"

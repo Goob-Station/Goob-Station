@@ -123,6 +123,14 @@
   name: base cup
   abstract: true
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/other/Cup/pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/other/Cup/drop.ogg
+  # Goobstation edit end
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -450,7 +458,7 @@
     solutions:
       drink:
         reagents:
-        - ReagentId: Water
+        - ReagentId: JuiceGrape
           Quantity: 20
   - type: Sprite
     sprite: Objects/Consumable/Drinks/lean.rsi

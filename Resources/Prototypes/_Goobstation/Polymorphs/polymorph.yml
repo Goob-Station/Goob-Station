@@ -76,9 +76,7 @@
     entity: MobFrog
     forced: true
     inventory: Transfer
-    revertOnDeath: true
     transferName: true
-    revertOnCrit: true
 
 - type: polymorph
   id: BinglePolymorph

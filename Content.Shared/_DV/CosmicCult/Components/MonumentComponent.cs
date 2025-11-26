@@ -28,7 +28,7 @@ public sealed partial class MonumentComponent : Component
     /// the list of glyphs that this monument is allowed to scribe
     /// </summary>
     [DataField, AutoNetworkedField]
-    public HashSet<ProtoId<GlyphPrototype>> UnlockedGlyphs = [];
+    public HashSet<ProtoId<GlyphPrototype>> UnlockedGlyphs = new();
 
     /// <summary>
     /// the glyph that will be scribed when the button is pressed
@@ -118,6 +118,15 @@ public sealed partial class MonumentComponent : Component
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? PhaseOutTimer;
+}
+
+/// <summary>
+/// Added to a glyph entity to track which monument it belongs to for cleanup.
+/// </summary>
+[RegisterComponent]
+public sealed partial class MonumentGlyphComponent : Component
+{
+    public EntityUid Monument;
 }
 
 [Serializable, NetSerializable]

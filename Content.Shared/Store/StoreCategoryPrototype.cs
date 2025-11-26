@@ -16,7 +16,6 @@ namespace Content.Shared.Store;
 ///     Used to define different categories for a store.
 /// </summary>
 [Prototype]
-[Serializable, NetSerializable, DataDefinition]
 public sealed partial class StoreCategoryPrototype : IPrototype
 {
     private string _name = string.Empty;
@@ -30,4 +29,8 @@ public sealed partial class StoreCategoryPrototype : IPrototype
 
     [DataField("priority")]
     public int Priority { get; private set; } = 0;
+
+    [DataField]
+    public bool Evil { get; private set; } = false; // Goobstation
 }
+

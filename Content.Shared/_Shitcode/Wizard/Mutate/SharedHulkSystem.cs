@@ -11,6 +11,7 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Slippery;
 using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Prototypes;
 
@@ -25,7 +26,7 @@ public abstract class SharedHulkSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HulkComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
-        SubscribeLocalEvent<HulkComponent, BeforeStatusEffectAddedEvent>(OnBeforeStatusEffect);
+        SubscribeLocalEvent<HulkComponent, OldBeforeStatusEffectAddedEvent>(OnBeforeStatusEffect);
         SubscribeLocalEvent<HulkComponent, SlipAttemptEvent>(OnSlipAttempt);
         SubscribeLocalEvent<HulkComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<HulkComponent, ComponentStartup>(OnStartup);
@@ -56,7 +57,7 @@ public abstract class SharedHulkSystem : EntitySystem
         args.NoSlip = true;
     }
 
-    private void OnBeforeStatusEffect(Entity<HulkComponent> ent, ref BeforeStatusEffectAddedEvent args)
+    private void OnBeforeStatusEffect(Entity<HulkComponent> ent, ref OldBeforeStatusEffectAddedEvent args)
     {
         if (args.Key is not ("KnockedDown" or "Stun"))
             return;

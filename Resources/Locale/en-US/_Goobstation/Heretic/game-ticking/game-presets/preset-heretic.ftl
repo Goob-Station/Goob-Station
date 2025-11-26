@@ -42,11 +42,17 @@ heretic-ghoul-greeting-noname =
     Obey the orders of your masters no matter what.
 
 ghostrole-ghoul-name = Ghoul
+ghostrole-flesh-mimic-name = Flesh Mimic
 ghostrole-prophet-name = Raw Prophet
 ghostrole-stalker-name = Flesh Stalker
+ghostrole-fire-shark-name = Fire Shark
 ghostrole-rustwalker-name = Rust Walker
+ghostrole-stargazer-name = Star Gazer
 ghostrole-ghoul-desc = Aid your summoner in achieving ascension.
-ghostrole-prophet-desc = Aid your summoner in achieving ascension. Connect other believers to the Mansus Link.
+ghostrole-flesh-mimic-desc = Aid your summoner in achieving ascension. Be aware that you die over time.
+ghostrole-prophet-desc = Aid your summoner in achieving ascension. Connect other believers to the Mansus Link. Passively heal heretics and eldritch creatures.
 ghostrole-stalker-desc = Aid your summoner in achieving ascension. Jaunt and sabotage crew's lighting.
+ghostrole-fire-shark-desc = Aid your summoner in achieving ascension. Burn your victims.
 ghostrole-rustwalker-desc = Aid your summoner in achieving ascension. Spread rust everywhere.
+ghostrole-stargazer-desc = Aid your summoner in wreaking havoc everywhere.
 ghostrole-ghoul-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the one who summoned you and other eldritch beings.

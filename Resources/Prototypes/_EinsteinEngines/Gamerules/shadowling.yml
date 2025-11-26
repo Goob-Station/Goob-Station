@@ -1,0 +1,24 @@
+- type: entity
+  parent: BaseGameRule
+  id: Shadowling
+  components:
+  - type: ShadowlingRule
+  - type: GameRule
+    minPlayers: 30
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Shadowling ]
+      playerRatio: 30
+      chaosScore: 500
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      blacklist:
+        components:
+        - CommandStaff
+      mindRoles:
+      - MindRoleShadowling
+  - type: AntagObjectives
+    objectives:
+    - ShadowlingAscendObjective
+  - type: Tag
+    tags:
+      - RoundstartAntag

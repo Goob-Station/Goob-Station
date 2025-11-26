@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["slotmachine_bigwin.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from Charlotte Pollock on youtube."
+  source: "https://www.youtube.com/watch?v=Xa2tDZxnm6w"
+
+- files: ["slotmachine_spin.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from Sara Tinnick on youtube"
+  source: "https://www.youtube.com/watch?v=0afvjj9bwbc"
+
+- files: ["slotmachine_bigwin.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from SoundEffectsFactory on youtube"
+  source: "https://www.youtube.com/watch?v=LBjAw8VC1Ok"
+
+- files: ["slotmachine_godpot.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from goonstation"
+  source: "https://github.com/goonstation/goonstation/commit/4059e4be90832b02b1228b1bee3db342094e4f1e"

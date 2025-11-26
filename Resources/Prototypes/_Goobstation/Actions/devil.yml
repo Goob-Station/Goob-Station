@@ -7,103 +7,119 @@
 # Devil Specific
 
 - type: entity
+  parent: BaseAction
   id: ActionCreateContract
   name: Summon infernal contract
   description: Creates an infernal contract in the Devil's hand.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 10
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Actions/devil.rsi
       state: summon-contract
+  - type: InstantAction
     event: !type:CreateContractEvent {}
 
 - type: entity
+  parent: BaseAction
   id: ActionCreateRevivalContract
   name: Summon revival contract
   description: Creates a revival contract in the Devil's hand.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 30
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Actions/devil.rsi
       state: summon-contract-revival
+  - type: InstantAction
     event: !type:CreateRevivalContractEvent {}
 
 - type: entity
+  parent: BaseAction
   id: ActionShadowJaunt
   name: Shadow jaunt
   description: Melt into the shadows.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 40 # Stop running you cowardly fucks.
     itemIconStyle: NoItem
+    checkCanInteract: false
+    checkConsciousness: false
     icon:
       sprite: _Goobstation/Actions/devil.rsi
       state: shadow-jaunt
+  - type: InstantAction
     event: !type:ShadowJauntEvent {}
 
 - type: entity
+  parent: BaseAction
   id: ActionDevilPossess
   name: Possess target
   description: Temporarily possess a target.
   categories: [ HideSpawnMenu ]
   components:
-  - type: EntityTargetAction
+  - type: Action
     useDelay: 70
-    whitelist:
-      components:
-      - Body
-    canTargetSelf: false
-    interactOnMiss: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Actions/devil.rsi
       state: possess
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - Body
     event: !type:DevilPossessionEvent {}
 
 - type: entity
+  parent: BaseAction
   id: ActionEndPossession
   name: End possession
   description: Cancel this possession early.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: NoItem
     checkCanInteract: false
     checkConsciousness: false
     icon:
       sprite: _Goobstation/Actions/devil.rsi
       state: possess
+  - type: InstantAction
     event: !type:EndPossessionEarlyEvent {}
 
 - type: entity
+  parent: BaseAction
   id: ActionDevilGrip
   name: Devils Grip
   description: What little fraction of your power remains in this realm, channeled into your hands.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Actions/devil.rsi
       state: devil-grip
+  - type: InstantAction
     event: !type:DevilGripEvent {}
 
 # Deals
 
 - type: entity
+  parent: BaseAction
   id: ActionCheatDeath
   name: Cheat Death
   description: Laugh in the Grim Reapers face. You've still got time.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: NoItem
     useDelay: 250
     checkCanInteract: false
@@ -111,4 +127,5 @@
     icon:
       sprite: _Goobstation/Actions/devil.rsi
       state: cheat-death
+  - type: InstantAction
     event: !type:CheatDeathEvent {}

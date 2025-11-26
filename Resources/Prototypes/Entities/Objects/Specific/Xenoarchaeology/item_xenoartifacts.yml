@@ -138,18 +138,21 @@
       reagents:
       - ReagentId: Artifexium
         Quantity: 10
-  - type: StaticPrice
-    price: 0
+  # Lavaland Change start
+  #- type: StaticPrice
+  #  price: 0
+  # Lavaland Change end
   - type: Stack
     stackType: ArtifactFragment
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: GuideHelp
     guides:
     - Xenoarchaeology
+  # Lavaland Change start
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      ArtifactFragment: 100
+  # Lavaland Change end
 
 - type: entity
   parent: ArtifactFragment

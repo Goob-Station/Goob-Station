@@ -1,0 +1,55 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+
+- type: weightedRandom
+  id: CorporateObjectiveGroups
+  weights:
+    CorporateObjectiveGroupSteal: 1
+    CorporateObjectiveGroupKill: 1
+    CorporateObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
+    CorporateObjectiveGroupSocial: 0.5
+
+- type: weightedRandom
+  id: CorporateObjectiveGroupSteal
+  weights:
+    CorporateCaptainIDStealObjective: 1
+    CorporateCMOHyposprayStealObjective: 1
+    # CMOCrewMonitorStealObjective: 1
+    CorporateCMORapidSyringeGunStealObjective: 1
+    CorporateRDHardsuitStealObjective: 1
+    CorporateNukeDiskStealObjective: 1
+    CorporateMagbootsStealObjective: 1
+    # CorporateCERocketLauncherStealObjective: 1
+    CorporateCorgiMeatStealObjective: 1
+    CorporateClipboardStealObjective: 1
+    CorporateCaptainGunStealObjective: 0.5
+    CorporateCaptainJetpackStealObjective: 0.5
+    CorporateHandTeleporterStealObjective: 0.5
+    CorporateEnergyShotgunStealObjective: 0.5
+    CorporateStealSupermatterSliverObjective: 0.5 # Goobstation - supermatter
+    CorporateLawbringerStealObjective: 0.5 # Goobstation specific
+    CorporateGeminiProjectorStealObjective: 0.5 # Goobstation specific
+
+- type: weightedRandom
+  id: CorporateObjectiveGroupKill
+  weights:
+    CorporateKillRandomPersonObjective: 0.3
+    CorporatePermaKillRandomPersonObjective: 0.3 # Goobstation specific straight up kill someone with no maroons
+    CorporatePermaKillRandomTraitorObjective: 0.8 # Goobstation Specific target traitor
+    CorporateKillRandomHeadObjective: 0.8
+    CorporateHijackShuttleObjective: 0.1 # Basically their DAGD (Goodluck rolling it lmao)
+
+- type: weightedRandom
+  id: CorporateObjectiveGroupState
+  weights:
+    CorporateEscapeShuttleObjective: 1
+
+- type: weightedRandom
+  id: CorporateObjectiveGroupSocial
+  weights:
+    RandomCorporateAliveObjective: 1
+    RandomCorporateProgressObjective: 1

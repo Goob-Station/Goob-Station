@@ -21,6 +21,9 @@
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -82,6 +85,9 @@ public sealed class LightReplacerSystem : SharedLightReplacerSystem
             {
                 args.PushMarkup(Loc.GetString("comp-light-replacer-light-listing", ("amount", amount), ("name", name)));
             }
+
+            var percent = component.GlassRecycled / component.GlassRequired * 100; // Goobstation
+            args.PushMarkup(Loc.GetString("comp-light-replacer-recycle-progress", ("num", percent))); // Goobstation
         }
     }
 
@@ -185,10 +191,20 @@ public sealed class LightReplacerSystem : SharedLightReplacerSystem
         }
 
         // insert it into fixture
-        var wasReplaced = _poweredLight.ReplaceBulb(fixtureUid, bulb, fixture);
+        var wasReplaced = _poweredLight.ReplaceBulb(fixtureUid, bulb, out var oldBulb, fixture); // Goobstation - Recycle bulbs!
         if (wasReplaced)
         {
             _audio.PlayPvs(replacer.Sound, replacerUid);
+
+            Del(oldBulb); // Goobstation - Start
+            replacer.GlassRecycled += replacer.GlassPerBulb;
+
+            if (replacer.GlassRecycled >= replacer.GlassRequired)
+            {
+                replacer.GlassRecycled -= replacer.GlassRequired;
+                TrySpawnInContainer(replacer.LightBulbProto, replacerUid, "light_replacer_storage", out _);
+            } // Goobstation - End
+
         }
 
         return wasReplaced;

@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Edited by PuroSlavKing",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "acid_gland"
+    },
+    {
+      "name": "brain"
+    },
+    {
+      "name": "egg_sack"
+    },
+    {
+      "name": "embryon"
+    },
+    {
+      "name": "eyeball-l"
+    },
+    {
+      "name": "eyeball-r"
+    },
+    {
+      "name": "heart-off"
+    },
+    {
+      "name": "heart-on"
+    },
+    {
+      "name": "hive_node"
+    },
+    {
+      "name": "liver"
+    },
+    {
+      "name": "neurotoxin_gland"
+    },
+    {
+      "name": "plasma_vessel"
+    },
+    {
+      "name": "plasma_vessel_large"
+    },
+    {
+      "name": "plasma_vessel_small"
+    },
+    {
+      "name": "plasma_vessel_tiny"
+    },
+    {
+      "name": "resin_spinner"
+    },
+    {
+      "name": "stomach"
+    },
+    {
+      "name": "tongue"
+    }
+  ]
+}
+

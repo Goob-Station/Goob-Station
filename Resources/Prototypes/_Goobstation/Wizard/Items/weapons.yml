@@ -86,6 +86,9 @@
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: AmmoCounter
   - type: EnchantedBoltActionRifle
+  - type: Wieldable
+  - type: MeleeWeapon
+    resetOnHandSelected: false
 
 - type: entity
   name: supermatter halberd
@@ -106,6 +109,10 @@
         Piercing: 2
         Radiation: 5
         Structural: 5
+      armorPenetration: 0.8
+      woundSeverityMultipliers:
+        Slash: 2.5
+        Piercing: 2.5
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
   - type: Wieldable
@@ -116,6 +123,7 @@
         Piercing: 8
         Radiation: 15
         Structural: 10
+      armorPenetration: 0.8
   - type: Item
     size: Huge
   - type: Clothing
@@ -204,6 +212,8 @@
       types:
         Slash: 5
         Structural: 10
+      woundSeverityMultipliers:
+        Slash: 2
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
     animation: WeaponArcHighFreq
@@ -251,6 +261,8 @@
     damage:
       types:
         Slash: 30
+      woundSeverityMultipliers:
+        Slash: 2
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
   - type: Clothing
@@ -280,3 +292,48 @@
     key: enum.SpellbladeUiKey.Key
   - type: StaticPrice
     price: 50000
+
+- type: entity
+  name: echo katana
+  description: Vibrations are constantly flowing through this sword, like they desperately try to find a way out.
+  parent: [ LavalandBaseKatana, BaseMagicalContraband ]
+  id: EchoKatana
+  components:
+  - type: Sprite
+    layers:
+    - state: blade
+      color: "#be69ff"
+    - state: handle
+  - type: Item
+    #storedSprite:
+    #  state: storage
+    #  sprite: Objects/Weapons/Melee/katana_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
+    inhandVisuals:
+      left:
+      - state: handle-inhand-left
+      - state: blade-inhand-left
+        color: "#be69ff"
+      right:
+      - state: handle-inhand-right
+      - state: blade-inhand-right
+        color: "#be69ff"
+  - type: Clothing
+    clothingVisuals:
+      back:
+      - state: handle-equipped-BACKPACK
+      - state: blade-equipped-BACKPACK
+        color: "#be69ff"
+      belt:
+      - state: handle-equipped-BELT
+      - state: blade-equipped-BELT
+        color: "#be69ff"
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 25
+      woundSeverityMultipliers:
+        Slash: 3 # Epic delimbing
+  - type: MeleeDash
+    length: 5.5
+  - type: UseDelay
+    delay: 1.5

@@ -14,15 +14,17 @@ using Content.Shared.Chemistry.Hypospray.Events;
 using Content.Shared.Climbing.Components;
 using Content.Shared.Climbing.Events;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Medical;
 using Content.Shared.Popups;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Stunnable;
+using Content.Shared.Throwing;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Network;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -30,31 +32,21 @@ namespace Content.Shared.Clumsy;
 
 public sealed class ClumsySystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!; // Goobstation
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<ClumsyComponent, SelfBeforeHyposprayInjectsEvent>(BeforeHyposprayEvent);
         SubscribeLocalEvent<ClumsyComponent, SelfBeforeDefibrillatorZapsEvent>(BeforeDefibrillatorZapsEvent);
         SubscribeLocalEvent<ClumsyComponent, SelfBeforeGunShotEvent>(BeforeGunShotEvent);
+        SubscribeLocalEvent<ClumsyComponent, CatchAttemptEvent>(OnCatchAttempt);
         SubscribeLocalEvent<ClumsyComponent, SelfBeforeClimbEvent>(OnBeforeClimbEvent);
-        SubscribeLocalEvent<ClumsyComponent, ComponentInit>(OnInit); // Goobstation
-    }
-
-    private void OnInit(Entity<ClumsyComponent> ent, ref ComponentInit args) // Goobstation
-    {
-        if (ent.Comp.GunShootFailDamage != null)
-            return;
-
-        ent.Comp.GunShootFailDamage = new DamageSpecifier(_prototype.Index<DamageGroupPrototype>("Brute"), 12f);
-        Dirty(ent);
     }
 
     // If you add more clumsy interactions add them in this section!
@@ -67,12 +59,15 @@ public sealed class ClumsySystem : EntitySystem
         if (!ent.Comp.ClumsyHypo)
             return;
 
-        if (!_random.Prob(ent.Comp.ClumsyDefaultCheck))
+        // TODO: Replace with RandomPredicted once the engine PR is merged
+        var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(ent).Id });
+        var rand = new System.Random(seed);
+        if (!rand.Prob(ent.Comp.ClumsyDefaultCheck))
             return;
 
         args.TargetGettingInjected = args.EntityUsingHypospray;
-        args.InjectMessageOverride = "hypospray-component-inject-self-clumsy-message";
-        _audio.PlayPvs(ent.Comp.ClumsySound, ent);
+        args.InjectMessageOverride = Loc.GetString(ent.Comp.HypoFailedMessage);
+        _audio.PlayPredicted(ent.Comp.ClumsySound, ent, args.EntityUsingHypospray);
     }
 
     private void BeforeDefibrillatorZapsEvent(Entity<ClumsyComponent> ent, ref SelfBeforeDefibrillatorZapsEvent args)
@@ -83,12 +78,46 @@ public sealed class ClumsySystem : EntitySystem
         if (!ent.Comp.ClumsyDefib)
             return;
 
-        if (!_random.Prob(ent.Comp.ClumsyDefaultCheck))
+        // TODO: Replace with RandomPredicted once the engine PR is merged
+        var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(ent).Id });
+        var rand = new System.Random(seed);
+        if (!rand.Prob(ent.Comp.ClumsyDefaultCheck))
             return;
 
         args.DefibTarget = args.EntityUsingDefib;
         _audio.PlayPvs(ent.Comp.ClumsySound, ent);
 
+    }
+
+    private void OnCatchAttempt(Entity<ClumsyComponent> ent, ref CatchAttemptEvent args)
+    {
+        // Clumsy people sometimes fail to catch items!
+
+        // checks if ClumsyCatching is false, if so, skips.
+        if (!ent.Comp.ClumsyCatching)
+            return;
+
+        // TODO: Replace with RandomPredicted once the engine PR is merged
+        var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(args.Item).Id });
+        var rand = new System.Random(seed);
+        if (!rand.Prob(ent.Comp.ClumsyDefaultCheck))
+            return;
+
+        args.Cancelled = true; // fail to catch
+
+        if (ent.Comp.CatchingFailDamage != null)
+            _damageable.TryChangeDamage(ent, ent.Comp.CatchingFailDamage, origin: args.Item);
+
+        // Collisions don't work properly with PopupPredicted or PlayPredicted.
+        // So we make this server only.
+        if (_net.IsClient)
+            return;
+
+        var selfMessage = Loc.GetString(ent.Comp.CatchingFailedMessageSelf, ("item", ent.Owner), ("catcher", Identity.Entity(ent.Owner, EntityManager)));
+        var othersMessage = Loc.GetString(ent.Comp.CatchingFailedMessageOthers, ("item", ent.Owner), ("catcher", Identity.Entity(ent.Owner, EntityManager)));
+        _popup.PopupEntity(selfMessage, ent.Owner, ent.Owner);
+        _popup.PopupEntity(othersMessage, ent.Owner, Filter.PvsExcept(ent.Owner), true);
+        _audio.PlayPvs(ent.Comp.ClumsySound, ent);
     }
 
     private void BeforeGunShotEvent(Entity<ClumsyComponent> ent, ref SelfBeforeGunShotEvent args)
@@ -102,7 +131,10 @@ public sealed class ClumsySystem : EntitySystem
         if (args.Gun.Comp.ClumsyProof)
             return;
 
-        if (!_random.Prob(ent.Comp.ClumsyDefaultCheck))
+        // TODO: Replace with RandomPredicted once the engine PR is merged
+        var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(args.Gun).Id });
+        var rand = new System.Random(seed);
+        if (!rand.Prob(ent.Comp.ClumsyDefaultCheck))
             return;
 
         if (ent.Comp.GunShootFailDamage != null)
@@ -114,7 +146,7 @@ public sealed class ClumsySystem : EntitySystem
         _audio.PlayPvs(ent.Comp.GunShootFailSound, ent);
         _audio.PlayPvs(ent.Comp.ClumsySound, ent);
 
-        _popup.PopupEntity(Loc.GetString("gun-clumsy"), ent, ent);
+        _popup.PopupEntity(Loc.GetString(ent.Comp.GunFailedMessage), ent, ent);
         args.Cancel();
     }
 
@@ -124,14 +156,10 @@ public sealed class ClumsySystem : EntitySystem
         if (!ent.Comp.ClumsyVaulting)
             return;
 
-        // This event is called in shared, thats why it has all the extra prediction stuff.
-        var rand = new System.Random((int)_timing.CurTick.Value);
-
-        // If someone is putting you on the table, always get past the guard.
-        // Goobstation - Fix bugged table bonks.
-        if (!_cfg.GetCVar(CCVars.GameTableBonk)
-            || args.PuttingOnTable != ent.Owner
-            || !rand.Prob(ent.Comp.ClumsyDefaultCheck))
+        // TODO: Replace with RandomPredicted once the engine PR is merged
+        var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(ent).Id });
+        var rand = new System.Random(seed);
+        if (!_cfg.GetCVar(CCVars.GameTableBonk) && !rand.Prob(ent.Comp.ClumsyDefaultCheck))
             return;
 
         HitHeadClumsy(ent, args.BeingClimbedOn);

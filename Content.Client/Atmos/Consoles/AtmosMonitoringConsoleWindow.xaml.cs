@@ -1,5 +1,8 @@
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -19,6 +22,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Numerics;
 
 namespace Content.Client.Atmos.Consoles;
 
@@ -38,6 +42,8 @@ public sealed partial class AtmosMonitoringConsoleWindow : FancyWindow
     private readonly Color _unfocusedDeviceColor = Color.DimGray;
     private ProtoId<NavMapBlipPrototype> _navMapConsoleProtoId = "NavMapConsole";
     private ProtoId<NavMapBlipPrototype> _gasPipeSensorProtoId = "GasPipeSensor";
+
+    private readonly Vector2[] _pipeLayerOffsets = { new Vector2(0f, 0f), new Vector2(0.25f, 0.25f), new Vector2(-0.25f, -0.25f) };
 
     public AtmosMonitoringConsoleWindow(AtmosMonitoringConsoleBoundUserInterface userInterface, EntityUid? owner)
     {
@@ -59,7 +65,7 @@ public sealed partial class AtmosMonitoringConsoleWindow : FancyWindow
             consoleCoords = xform.Coordinates;
             NavMap.MapUid = xform.GridUid;
 
-            // Assign station name      
+            // Assign station name
             if (_entManager.TryGetComponent<MetaDataComponent>(xform.GridUid, out var stationMetaData))
                 stationName = stationMetaData.EntityName;
 
@@ -244,6 +250,10 @@ public sealed partial class AtmosMonitoringConsoleWindow : FancyWindow
 
         var blinks = proto.Blinks || _focusEntity == metaData.NetEntity;
         var coords = _entManager.GetCoordinates(metaData.NetCoordinates);
+
+        if (proto.Placement == NavMapBlipPlacement.Offset && metaData.PipeLayer > 0)
+            coords = coords.Offset(_pipeLayerOffsets[(int)metaData.PipeLayer]);
+
         var blip = new NavMapBlip(coords, _spriteSystem.Frame0(new SpriteSpecifier.Texture(texture)), color, blinks, proto.Selectable, proto.Scale);
         NavMap.TrackedEntities[metaData.NetEntity] = blip;
     }

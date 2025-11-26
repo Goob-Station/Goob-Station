@@ -14,6 +14,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Shared.Actions;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Hands.EntitySystems;
@@ -113,6 +114,13 @@ public sealed class DashAbilitySystem : EntitySystem
 
     public bool CheckDash(EntityUid uid, EntityUid user)
     {
+        // Goobstation start
+        var attemptEv = new TeleportAttemptEvent();
+        RaiseLocalEvent(user, ref attemptEv);
+        if (attemptEv.Cancelled)
+            return false;
+        // Goobstation end
+
         var ev = new CheckDashEvent(user);
         RaiseLocalEvent(uid, ref ev);
         return !ev.Cancelled;

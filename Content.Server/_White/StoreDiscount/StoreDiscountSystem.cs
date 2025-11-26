@@ -43,6 +43,7 @@ public sealed class StoreDiscountSystem : EntitySystem
             listing.OldCost = listing.Cost;
             listing.DiscountValue = 100 - (newCost[key] / listing.Cost[key] * 100).Int();
             listing.Cost = newCost;
+            listing.SaleCost = newCost;
             listing.Categories = new() { store.Sales.SalesCategory };
         }
     }

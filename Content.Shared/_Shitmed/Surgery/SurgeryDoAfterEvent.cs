@@ -14,10 +14,12 @@ public sealed partial class SurgeryDoAfterEvent : SimpleDoAfterEvent
 {
     public readonly EntProtoId Surgery;
     public readonly EntProtoId Step;
+    public readonly bool ToolUsed;
 
-    public SurgeryDoAfterEvent(EntProtoId surgery, EntProtoId step)
+    public SurgeryDoAfterEvent(EntProtoId surgery, EntProtoId step, bool toolUsed)
     {
         Surgery = surgery;
         Step = step;
+        ToolUsed = toolUsed;
     }
 }

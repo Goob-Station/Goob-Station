@@ -91,30 +91,36 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitQM
 
+
 - type: loadout
   id: QuartermasterJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtQM
+
 
 - type: loadout
   id: QuartermasterTurtleneck
   equipment:
     jumpsuit: ClothingUniformJumpsuitQMTurtleneck
 
+
 - type: loadout
   id: QuartermasterTurtleneckSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtQMTurtleneck
+
 
 - type: loadout
   id: QuartermasterFormalSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitQMFormal
 
+
 - type: loadout # goob
   id: QuartermasterMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryQM
+
 
 # Head
 - type: loadout
@@ -122,10 +128,12 @@
   equipment:
     head: ClothingHeadHatQMsoft
 
+
 - type: loadout
   id: QuartermasterBeret
   equipment:
     head: ClothingHeadHatBeretQM
+
 
 # Neck
 - type: loadout
@@ -135,7 +143,7 @@
 
 - type: loadout
   id: QuartermasterMantle
-  equipment: 
+  equipment:
     neck: ClothingNeckMantleQM
   effects:
   - !type:GroupLoadoutEffect

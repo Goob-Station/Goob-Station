@@ -45,6 +45,9 @@ permanent-blindness-trait-examined = [color=lightblue]{CAPITALIZE(POSS-ADJ($targ
 trait-lightweight-name = Lightweight drunk
 trait-lightweight-desc = Alcohol has a stronger effect on you.
 
+trait-monochromacy-name = Monochromacy
+trait-monochromacy-desc = You are fully colorblind, everything you perceive ranges from blacks to whites.
+
 trait-muted-name = Muted
 trait-muted-desc = You can't speak.
 
@@ -95,3 +98,9 @@ trait-dementia-desc = I-... uh, what was this one about again? Oh thats right! Y
 
 trait-painnumbness-name = Numb
 trait-painnumbness-desc = You lack any sense of feeling pain, being unaware of how hurt you may be.
+
+trait-newyork-name = New York accent
+trait-newyork-desc = You speak with a thick New York accent. I'm fuckin' walkin' 'ere!
+
+trait-british-name = British accent
+trait-british-desc = You speak proper, unlike those bloody yanks.

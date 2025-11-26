@@ -172,6 +172,14 @@
       - WeaponPistolCasul
       item2:
       - WeaponPistolJackal
+  - type: DivineIntervention
+  - type: Reflect
+    reflectProb: 1
+    reflects:
+    - Magic
+  - type: Tag
+    tags:
+    - ChaplainsHolster
 
 - type: entityTable
   id: BeltAssaultBSOEntityTable

@@ -1,0 +1,79 @@
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Spoken by slime race and slimes.
+# Derived from Basque Language - Goob
+- type: language
+  id: Bubblish
+  isVisibleLanguage: true
+  speech:
+    color: "#24d1b9" # Goob Edit - Original "#00a3e2dd"
+    fontId: SourGummy # Goob Edit - Different Font
+    boldFontId: SourGummyBold
+    fontSize: 13 # Goob Edit - Increased by 1 to account for slight font size difference.
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 5 # Goob Edit - Make it more chaotic.
+    replacement:
+    - blob
+    - plop
+    - plip
+    - pip
+    - pop
+    - bop
+    - boop
+    - gurgle
+    - glop
+    - glip
+    - gloop
+    - gwup
+    - gwip
+    - glorp
+    # Basque
+    - ez
+    - txa
+    - zun
+    - gor
+    - itz
+    - jar
+    - eus
+    - bak
+    - ber
+    - lur
+    - ko
+    - ur
+    - xa
+    - aiz
+    - zoa
+    - etxea
+    - jarrai
+    - kide
+    - gunea
+    - herria
+    - lana
+    - zarra
+    - buru
+    - aldia
+    - leku
+    - ondo
+    - egi
+    - zain
+    - keta
+    - itz
+    - txu
+    - rru
+    - ska
+    - zoa
+    - zai
+    - ñu
+    - lku
+    - xar
+    - nka
+    - doi
+    - zku
+    - eko
+    - oa

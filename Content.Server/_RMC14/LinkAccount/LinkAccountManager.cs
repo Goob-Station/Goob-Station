@@ -26,12 +26,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Shared._RMC14.LinkAccount;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Color = System.Drawing.Color;
 
@@ -42,12 +44,15 @@ public sealed class LinkAccountManager : IPostInjectInit
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly UserDbDataManager _userDb = default!;
 
     private readonly Dictionary<NetUserId, TimeSpan> _lastRequest = new();
     private readonly TimeSpan _minimumWait = TimeSpan.FromSeconds(0.5);
     private readonly Dictionary<NetUserId, SharedRMCPatronFull> _connected = new();
     private readonly List<SharedRMCPatron> _allPatrons = [];
+    private readonly List<(string Message, string User)> _lobbyMessages = [];
+    private readonly List<string> _shoutouts = [];
 
     public event Action? PatronsReloaded;
     public event Action<(NetUserId Id, SharedRMCPatronFull Patron)>? PatronUpdated;
@@ -77,6 +82,7 @@ public sealed class LinkAccountManager : IPostInjectInit
         SharedRMCRoundEndShoutouts? shoutouts = null;
         if (ntName != null)
             shoutouts = new SharedRMCRoundEndShoutouts(ntName);
+
 
         Robust.Shared.Maths.Color? ghostColor = null;
         if (patron?.GhostColor is { } patronColor)
@@ -186,14 +192,38 @@ public sealed class LinkAccountManager : IPostInjectInit
     public async Task RefreshAllPatrons()
     {
         var patrons = await _db.GetAllPatrons();
+        var messages = await _db.GetLobbyMessages();
+        var shoutouts = await _db.GetShoutouts();
 
         _allPatrons.Clear();
+        _lobbyMessages.Clear();
+        _shoutouts.Clear();
+
         foreach (var patron in patrons)
         {
             _allPatrons.Add(new SharedRMCPatron(patron.Player.LastSeenUserName, patron.Tier.Name));
         }
 
+        _lobbyMessages.AddRange(messages);
+        _shoutouts.AddRange(shoutouts);
+
         PatronsReloaded?.Invoke();
+    }
+
+    public (string Message, string User)? GetRandomLobbyMessage()
+    {
+        if (_lobbyMessages.Count == 0)
+            return null;
+
+        return _random.Pick(_lobbyMessages);
+    }
+
+    public string GetRandomShoutout()
+    {
+        if (_shoutouts.Count == 0)
+            return "John Nanotrasen";
+
+        return _random.Pick(_shoutouts);
     }
 
     public void SendPatronsToAll()

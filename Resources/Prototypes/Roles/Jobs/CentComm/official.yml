@@ -44,6 +44,10 @@
   requirements:
   - !type:AgeRequirement
     requiredAge: 21
+  - !type:SpeciesRequirement # Goob - None Felinid
+    inverted: true
+    species:
+    - Felinid
   accessGroups:
   - AllAccess
   access:
@@ -77,3 +81,11 @@
     - BoxFolderCentComClipboard # Solely for holding and looking menacing.
     - DeterrentCaseFilled
 # Goobstation - End
+
+- type: chameleonOutfit
+  id: CentralCommandOfficialOutfit
+  job: CentralCommandOfficial
+  hasMindShield: true
+  equipment:
+    neck: ClothingNeckScarfStripedCentcom
+    mask: ClothingMaskGasCentcom

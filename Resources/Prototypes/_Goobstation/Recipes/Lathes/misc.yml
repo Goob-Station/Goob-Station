@@ -1,0 +1,7 @@
+- type: latheRecipe
+  id: CrewCassette
+  result: CrewCassette
+  completetime: 2
+  materials:
+    Steel: 200
+    Glass: 200

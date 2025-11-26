@@ -1,0 +1,20 @@
+- type: body
+  id: XenomorphLarva
+  name: xenomorph larva
+  root: chest
+  slots:
+    head:
+      part: HeadXenomorph
+      connections:
+      - chest
+      organs:
+        brain: OrganXenomorphBrain
+        eyes: OrganXenomorphEyes
+        hive_node: OrganXenomorphHiveNode
+    chest:
+      part: ChestXenomorph
+      connections:
+      - head
+      organs:
+        liver: OrganXenomorphLiver
+        plasma_vessel: OrganXenomorphPlasmaVesselTiny

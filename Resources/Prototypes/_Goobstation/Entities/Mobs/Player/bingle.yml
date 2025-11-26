@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
@@ -17,6 +18,25 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# This is for random skins
+- type: entity
+  id: MobBingleRandom
+  parent: MarkerBase
+  name: bingle
+  suffix: Random
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Bingle/bingle.rsi
+    state: alive
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: MobBingle
+        weight: 49    # 49/50
+      - id: MobTurkle
+        weight: 1     # 01/50
+
+# Base bingle
 - type: entity
   name: bingle
   id: MobBingle
@@ -24,6 +44,7 @@
   description: bingle
   components:
   - type: Bingle
+    upgradedID: MobBingleUpgraded
   - type: GhostTakeoverAvailable
   - type: GhostRole
     name: ghost-role-information-bingle-name
@@ -54,7 +75,6 @@
       - Alive
       - Dead
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: alive
@@ -97,8 +117,10 @@
   - type: Speech
     speechVerb: Bingle
     speechSounds: Slime
-  - type: ReplacementAccent # prevent talking
-    accent: bingle
+  - type: LanguageKnowledge
+    speaks:
+    - Bingle
+    understands: []
   - type: CollectiveMind
     defaultChannel: Binglemind
     respectAccents: true
@@ -118,6 +140,8 @@
     activateSound: null
     deactivateSound: null
   - type: FlashImmunity
+  - type: ScannableForPoints # NTR update
+    points: 2 # this would be abused so much if i made it more
   - type: Butcherable
     spawned:
     - id: FoodMeatBingle
@@ -130,6 +154,7 @@
   components:
   - type: Bingle
     prime: true
+  - type: ScannableForPoints # NTR update, 5 points is the default.
 
 - type: entity
   id: MobBingleUpgraded
@@ -148,7 +173,6 @@
       state: combat
       visible: false
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: Upgraded
@@ -168,3 +192,51 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: BingleUpgraded
+
+# Skin - turkle
+- type: entity
+  name: turkle
+  id: MobTurkle
+  parent: MobBingle
+  description: A bingle from foreign lands lost to time. Seems very proud of their homeland.
+  components:
+  - type: Bingle
+    upgradedID: MobTurkleUpgraded
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Bingle/turkle.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: alive
+    - map: ["enum.BingleVisual.Upgraded"]
+      state: Upgraded
+      visible: false
+    - map: ["enum.BingleVisual.Combat"]
+      state: combat
+      visible: false
+  - type: NightVision
+    color: "#802000"
+    activateSound: null
+    deactivateSound: null
+  - type: PointLight
+    radius: 1.2
+    energy: 2
+    color: "#ad2a33"
+
+- type: entity
+  id: MobTurkleUpgraded
+  parent: MobBingleUpgraded
+  suffix: Upgraded
+  components:
+  - type: Bingle
+    upgraded: true
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Bingle/turkle.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
+      state: Upgraded
+    - map: [ "enum.BingleVisual.Combat" ]
+      state: combat
+      visible: false
+

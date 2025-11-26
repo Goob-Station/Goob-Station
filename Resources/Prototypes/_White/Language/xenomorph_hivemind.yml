@@ -1,0 +1,12 @@
+- type: language
+  id: XenoHivemind
+  speech:
+    requireSpeech: false
+    color: '#8c3986'
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 8 # I was crazy once
+    replacement:
+    - s
+    - S

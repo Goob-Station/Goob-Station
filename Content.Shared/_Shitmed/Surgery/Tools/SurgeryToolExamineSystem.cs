@@ -61,7 +61,7 @@ public sealed class SurgeryToolExamineSystem : EntitySystem
             Loc.GetString("surgery-tool-examinable-verb-message"));
     }
 
-    private void OnExamined(EntityUid uid, ISurgeryToolComponent comp, ref SurgeryToolExaminedEvent args)
+    public void OnExamined(EntityUid uid, ISurgeryToolComponent comp, ref SurgeryToolExaminedEvent args)
     {
         var msg = args.Message;
         var color = comp.Speed switch

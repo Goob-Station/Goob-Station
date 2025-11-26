@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Cprn-Sprkl <sprkl7992@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Mnemotechnican <69920617+Mnemotechnician@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["harpy_coo1, harpy_coo2, harpy_coo3, harpy_coo4, harpy_coo5"]
+  license: "CC0-1.0"
+  copyright: "original by WagnerTamborin, converted to mono and had its volue lowered by Mnemotechniain (Github)"
+  source: "https://freesound.org/s/394098/"

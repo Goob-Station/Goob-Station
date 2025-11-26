@@ -20,6 +20,54 @@
   components:
   - type: InteractionOutline
   - type: EldritchInfluence
+    possibleExamineEffects:
+    # Ash
+    - - !type:FlammableReaction
+        multiplier: 5
+        multiplierOnExisting: 5
+      - !type:Ignite
+    # Rust
+    - - !type:ChemVomit
+        thirstAmount: -50
+        hungerAmount: -50
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        component: KnockedDown
+        time: 20
+        type: Add
+      - !type:HealthChange
+        damage:
+          types:
+            Ion: 40
+    # Void
+    - - !type:VoidCurse
+        stacks: 5
+    # Blade
+    - - !type:HealthChange
+        damage:
+          types:
+            Slash: 30
+    # Moon
+    - - !type:GenericStatusEffect
+        key: Pacified
+        component: Pacified
+        time: 60
+        type: Add
+    # Cosmos
+    - - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
+        time: 20
+        type: Add
+    # Flesh
+    - - !type:SpillBlood
+        amount: 100
+    # Lock
+    - - !type:GenericStatusEffect
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        time: 20
+        type: Add
+      - !type:RemoveAccess
   - type: Sprite
     sprite: _Goobstation/Heretic/reality_fracture.rsi
     state: icon
@@ -32,21 +80,22 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
-    lifetime: 30
+    lifetime: 600
   - type: SpawnOnDespawn
     prototype: EldritchInfluenceSpent
 
 - type: entity
+  parent: EldritchInfluence
   id: EldritchInfluenceSpent
   name: reality fracture
   description: A reality fracture. Something keeps leaking out of it, should you really be near this thing?
   placement:
     mode: SnapgridCenter
   components:
-  - type: InteractionOutline
   - type: Sprite
     sprite: _Goobstation/Heretic/reality_fracture.rsi
     state: icon_harvested
-  - type: Clickable
   - type: Visibility
-    layer: 64 # keep in sync with VisibilityFlags.EldritchInfluenceSpent for upstream merges
+    layer: 64
+  - type: EldritchInfluence
+    spent: true

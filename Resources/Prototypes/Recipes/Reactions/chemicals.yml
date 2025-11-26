@@ -449,6 +449,7 @@
 - type: reaction
   id: Ethyloxyephedrine
   impact: Medium
+  minTemp: 370    #Goobstation edit
   reactants:
     Desoxyephedrine:
       amount: 1
@@ -563,3 +564,13 @@
       amount: 1
   products:
     Tazinide: 1
+
+- type: reaction
+  id: ArtifactGlue
+  reactants:
+    SpaceGlue:
+      amount: 1
+    Artifexium:
+      amount: 1
+  products:
+    ArtifactGlue: 2

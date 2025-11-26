@@ -24,10 +24,10 @@ rmc-ui-shoutout-example = Example:
 rmc-ui-shoutout-info = Each name is randomly chosen between all the Patrons of this tier.
   Make sure the names you choose are in-character and don't break the rules.
   If you aren't sure, ask in AHelp! (F1)
+rmc-ui-save = Save
 
 rmc-ui-ghost-color = Ghost Color
 rmc-ui-ghost-color-clear = Clear
-rmc-ui-ghost-color-save = Save
 
 rmc-ui-shoutout-nt = [bold]Nanotrasen funded by: [color=green]{$name}[/color]![/bold]
 

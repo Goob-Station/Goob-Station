@@ -77,6 +77,9 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Hagvan <22118902+Hagvan@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -136,16 +139,34 @@ namespace Content.Client.Forensics
             }
             text.AppendLine();
             text.AppendLine(Loc.GetString("forensic-scanner-interface-dnas"));
-            foreach (var dna in msg.TouchDNAs)
+            // Goobstation Start
+            foreach (var (dna, freshnessTimestamp) in msg.TouchDNAs)
             {
-                text.AppendLine(dna);
+                var timePassed = _gameTiming.CurTime - freshnessTimestamp;
+                if (timePassed < TimeSpan.FromMinutes(1f))
+                {
+                    text.AppendLine(Loc.GetString("forensic-scanner-interface-message-below-minute", ("dna", dna), ("time-in-seconds", timePassed.Seconds)));
+                }
+                else
+                {
+                    text.AppendLine(Loc.GetString("forensic-scanner-interface-message-over-minute", ("dna", dna), ("time-in-minutes", timePassed.Minutes)));
+                }
             }
-            foreach (var dna in msg.SolutionDNAs)
+            foreach (var (dna, freshnessTimestamp) in msg.SolutionDNAs)
             {
-                if (msg.TouchDNAs.Contains(dna))
+                if (msg.TouchDNAs.Contains((dna, freshnessTimestamp)))
                     continue;
-                text.AppendLine(dna);
+                var timePassed = _gameTiming.CurTime - freshnessTimestamp;
+                if (timePassed < TimeSpan.FromMinutes(1f))
+                {
+                    text.AppendLine(Loc.GetString("forensic-scanner-interface-message-below-minute", ("dna", dna), ("time-in-seconds", timePassed.Seconds)));
+                }
+                else
+                {
+                    text.AppendLine(Loc.GetString("forensic-scanner-interface-message-over-minute", ("dna", dna), ("time-in-minutes", timePassed.Minutes)));
+                }
             }
+            // Goobstation End
             text.AppendLine();
             text.AppendLine(Loc.GetString("forensic-scanner-interface-residues"));
             foreach (var residue in msg.Residues)

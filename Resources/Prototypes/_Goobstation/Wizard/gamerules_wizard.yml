@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
@@ -43,8 +44,14 @@
       - RoleSurvivalEVA
       components:
       - type: Wizard
-      - type: RandomMetadata
       - type: CanEnchant
+      - type: LanguageKnowledge
+        speaks: []
+        understands: []
+      - type: UniversalLanguageSpeaker
+      - type: TowerOfBabel
+      - type: LanguageSpeaker
+      - type: RandomMetadata
         nameSegments:
         - WizardFirst
         - WizardLast
@@ -56,6 +63,7 @@
     speciesOverride: Human
     speciesOverrideBlacklist:
     - Yowie # Penalized by wearing robes, still should be possible to select them in magic mirror.
+    - Plasmaman # EE
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/wizden.yml
@@ -100,6 +108,12 @@
       - type: Wizard
       - type: RandomMetadata
       - type: CanEnchant
+      - type: LanguageKnowledge
+        speaks: []
+        understands: []
+      - type: UniversalLanguageSpeaker
+      - type: TowerOfBabel
+      - type: LanguageSpeaker
         nameSegments:
         - WizardFirst
         - WizardLast
@@ -131,6 +145,12 @@
       components:
       - type: Apprentice
       - type: CanEnchant
+      - type: LanguageKnowledge
+        speaks: []
+        understands: []
+      - type: UniversalLanguageSpeaker
+      - type: TowerOfBabel
+      - type: LanguageSpeaker
       - type: NpcFactionMember
         factions:
         - Wizard
@@ -186,4 +206,3 @@
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - SubGamemodesRule
-    - LavalandStormScheduler # Lavaland Change

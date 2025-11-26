@@ -90,6 +90,8 @@
   - chat-speech-verb-skeleton-1
   - chat-speech-verb-skeleton-2
   - chat-speech-verb-skeleton-3
+  - chat-speech-verb-skeleton-4
+  - chat-speech-verb-skeleton-5
 
 - type: speechVerb
   id: Slime
@@ -185,3 +187,12 @@
   - chat-speech-verb-electricity-1
   - chat-speech-verb-electricity-2
   - chat-speech-verb-electricity-3
+
+- type: speechVerb
+  id: Wawa
+  name: chat-speech-verb-name-wawa
+  speechVerbStrings:
+  - chat-speech-verb-wawa-1
+  - chat-speech-verb-wawa-2
+  - chat-speech-verb-wawa-3
+  - chat-speech-verb-wawa-4

@@ -92,7 +92,8 @@
     speechVerb: Robotic
     speechSounds: Pai
   - type: Storage
-    clickInsert: false # incredibly annoying
+    clickInsert: false # incredibly annoying for linking it
+    openOnActivate: false # use the verb, UI is higher priority
     grid:
     - 0,0,3,3
   - type: SurgerySpeedModifier

@@ -16,6 +16,7 @@ popup-grab-soft-others = {CAPITALIZE($puller)} grabbed {CAPITALIZE($target)} sof
 popup-grab-hard-others = {CAPITALIZE($puller)} grabbed {CAPITALIZE($target)} firmly.
 popup-grab-suffocate-others = {CAPITALIZE($puller)} started to choke {CAPITALIZE($target)}!
 popup-grab-no-others = {CAPITALIZE($puller)} stopped grabbing {CAPITALIZE($target)}.
+popup-grab-release-too-soon = You are still tired after the previous attempt.
 popup-grab-release-fail-self = You are trying to escape.
 popup-grab-release-success-self = You escaped from grab!
 popup-grab-release-success-puller = {CAPITALIZE($target)} escaped!

@@ -1,0 +1,23 @@
+- type: entity
+  name: explosive payload
+  parent: [ BasePayload, BaseSyndicateContraband ]
+  id: ExplosivePayload
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/payload.rsi
+    state: icon
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 5
+    intensitySlope: 3
+    totalIntensity: 85
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

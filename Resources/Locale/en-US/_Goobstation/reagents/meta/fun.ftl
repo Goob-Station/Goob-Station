@@ -52,3 +52,6 @@ reagent-desc-nostalgia = Why is this here?
 
 reagent-name-tilenol = tilenol
 reagent-desc-tilenol = You can feel yourself becoming more robust just by holding this.
+
+reagent-name-crapotoxin = crapotoxin
+reagent-desc-crapotoxin = Causes the metabolizer to fart uncontrollably.

@@ -14,6 +14,7 @@ using Robust.Shared.Spawners;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Actions.Components;
 
 namespace Content.Server._Shitmed.Antags.Abductor;
 
@@ -23,8 +24,8 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
 
-    private static readonly EntProtoId<InstantActionComponent> SendYourself = "ActionSendYourself";
-    private static readonly EntProtoId<InstantActionComponent> ExitAction = "ActionExitConsole";
+    private static readonly EntProtoId<ActionComponent> SendYourself = "ActionSendYourself";
+    private static readonly EntProtoId<ActionComponent> ExitAction = "ActionExitConsole";
     private static readonly EntProtoId TeleportationEffect = "EffectTeleportation";
     private static readonly EntProtoId TeleportationEffectEntity = "EffectTeleportationEntity";
 

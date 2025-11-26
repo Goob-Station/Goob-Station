@@ -105,6 +105,15 @@ public sealed class MeleeHitEvent : HandledEntityEventArgs
 public record struct GetMeleeDamageEvent(EntityUid Weapon, DamageSpecifier Damage, List<DamageModifierSet> Modifiers, EntityUid User, bool ResistanceBypass = false);
 
 /// <summary>
+/// Goobstation: Raised on the user to calculate potential damage bonuses or decreases.
+/// </summary>
+/// <remarks>
+/// Can't be in common because of DamageSpecifier and DamageModifierSet.
+/// </remarks>
+[ByRefEvent]
+public record struct GetUserMeleeDamageEvent(EntityUid Weapon, DamageSpecifier Damage, List<DamageModifierSet> Modifiers);
+
+/// <summary>
 /// Raised on a melee weapon to calculate the attack rate.
 /// </summary>
 [ByRefEvent]

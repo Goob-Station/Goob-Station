@@ -85,6 +85,7 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         { "o-o", "chatsan-wide-eyed" },
         { "o.o", "chatsan-wide-eyed" },
         { "._.", "chatsan-surprised" },
+        { "!", "chatsan-surprised"},
         { ".-.", "chatsan-confused" },
         { "-_-", "chatsan-unimpressed" },
         { "smh", "chatsan-unimpressed" },

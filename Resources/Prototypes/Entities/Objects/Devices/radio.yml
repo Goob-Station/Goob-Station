@@ -35,6 +35,10 @@
   - type: RadioSpeaker
     channels:
     - Handheld
+  - type: ListenBlacklist # Goobstation - annoying as shit
+    blacklist:
+      components:
+      - Advertise
   - type: Speech
     speechVerb: Robotic
   - type: Sprite

@@ -1,0 +1,22 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakCOG
+  name: Old robe
+  description: An ancient crimson draping from a now-defunct cult.
+  components:
+  - type: Sprite
+    scale: 0.6, 0.6
+    sprite: _Mono/Clothing/Neck/Cloaks/cogcloakicon.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Neck/Cloaks/cogcloak.rsi
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:Container { }
+      storagebase: !type:Container
+        ents: [ ]
+  - type: ToggleableClothing
+    requiredSlot: neck
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadHatCOG

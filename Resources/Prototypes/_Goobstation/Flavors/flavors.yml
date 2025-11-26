@@ -110,3 +110,8 @@
   id: robust
   flavorType: Base
   description: flavor-base-robust
+
+- type: flavor
+  id: chuddy
+  flavorType: Base
+  description: flavor-base-chuddy

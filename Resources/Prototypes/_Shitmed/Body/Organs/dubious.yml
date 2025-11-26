@@ -267,3 +267,20 @@
     onAdd:
     - type: VentCrawler
       allowInventory: false
+
+- type: entity
+  id: OrganDubiousRepairable
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: species
+  - type: Organ
+    onAdd:
+    - type: Repairable
+      fuelCost: 5
+      doAfterDelay: 3
+      damage:
+        types:
+          Blunt: -10
+          Piercing: -10
+          Slash: -10

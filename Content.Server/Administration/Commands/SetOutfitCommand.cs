@@ -101,42 +101,24 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Administration.UI;
+using Content.Server.Clothing.Systems;
 using Content.Server.EUI;
-using Content.Server.Hands.Systems;
-using Content.Server.Preferences.Managers;
-using Content.Server.Storage.EntitySystems;
-using Content.Shared.Access.Components;
 using Content.Shared.Administration;
-using Content.Shared.Clothing;
-using Content.Shared.Hands.Components;
-using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
-using Content.Shared.PDA;
-using Content.Shared.Preferences;
-using Content.Shared.Preferences.Loadouts;
-using Content.Shared.Roles;
-using Content.Shared.Station;
 using Robust.Shared.Console;
-using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
-using Content.Shared._EinsteinEngines.Silicon.IPC; // Goobstation
-using Content.Shared.Radio.Components;
-using Content.Shared.Storage; // Goobstation
 
 namespace Content.Server.Administration.Commands
 {
     [AdminCommand(AdminFlags.Admin)]
-    public sealed class SetOutfitCommand : IConsoleCommand
+    public sealed class SetOutfitCommand : LocalizedEntityCommands
     {
-        [Dependency] private readonly IEntityManager _entities = default!;
+        [Dependency] private readonly EuiManager _euiManager = default!;
+        [Dependency] private readonly OutfitSystem _outfitSystem = default!;
 
-        public string Command => "setoutfit";
+        public override string Command => "setoutfit";
+        public override string Description => Loc.GetString("cmd-setoutfit-desc", ("requiredComponent", nameof(InventoryComponent)));
 
-        public string Description => Loc.GetString("set-outfit-command-description", ("requiredComponent", nameof(InventoryComponent)));
-
-        public string Help => Loc.GetString("set-outfit-command-help-text", ("command", Command));
-
-        public void Execute(IConsoleShell shell, string argStr, string[] args)
+        public override void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             if (args.Length < 1)
             {
@@ -152,13 +134,13 @@ namespace Content.Server.Administration.Commands
 
             var nent = new NetEntity(entInt);
 
-            if (!_entities.TryGetEntity(nent, out var target))
+            if (!EntityManager.TryGetEntity(nent, out var target))
             {
                 shell.WriteLine(Loc.GetString("shell-invalid-entity-id"));
                 return;
             }
 
-            if (!_entities.HasComponent<InventoryComponent>(target))
+            if (!EntityManager.HasComponent<InventoryComponent>(target))
             {
                 shell.WriteLine(Loc.GetString("shell-target-entity-does-not-have-message", ("missing", "inventory")));
                 return;
@@ -168,17 +150,17 @@ namespace Content.Server.Administration.Commands
             {
                 if (shell.Player is not { } player)
                 {
-                    shell.WriteError(Loc.GetString("set-outfit-command-is-not-player-error"));
+                    shell.WriteError(Loc.GetString("cmd-setoutfit-is-not-player-error"));
                     return;
                 }
 
-                var eui = IoCManager.Resolve<EuiManager>();
                 var ui = new SetOutfitEui(nent);
-                eui.OpenEui(ui, player);
+                _euiManager.OpenEui(ui, player);
                 return;
             }
 
-            var doSpecial = true; // Default to true if not specified - Goobstation Start
+            // Default to true if not specified - Goobstation Start
+            var doSpecial = true;
 
             // Parse optional boolean argument
             if (args.Length == 3)
@@ -190,128 +172,8 @@ namespace Content.Server.Administration.Commands
                 }
             }
 
-            if (!SetOutfit(target.Value, args[1], doSpecial, _entities)) // Goobstation - End
-                shell.WriteLine(Loc.GetString("set-outfit-command-invalid-outfit-id-error"));
-        }
-
-        public static bool SetOutfit(EntityUid target, string gear, bool doSpecialAction , IEntityManager entityManager, Action<EntityUid, EntityUid>? onEquipped = null) // Goobstation
-        {
-            if (!entityManager.TryGetComponent(target, out InventoryComponent? inventoryComponent))
-                return false;
-
-            var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
-            if (!prototypeManager.TryIndex<StartingGearPrototype>(gear, out var startingGear))
-                return false;
-
-            HumanoidCharacterProfile? profile = null;
-            ICommonSession? session = null;
-            // Check if we are setting the outfit of a player to respect the preferences
-            if (entityManager.TryGetComponent(target, out ActorComponent? actorComponent))
-            {
-                session = actorComponent.PlayerSession;
-                var userId = actorComponent.PlayerSession.UserId;
-                var preferencesManager = IoCManager.Resolve<IServerPreferencesManager>();
-                var prefs = preferencesManager.GetPreferences(userId);
-                profile = prefs.SelectedCharacter as HumanoidCharacterProfile;
-            }
-
-            var invSystem = entityManager.System<InventorySystem>();
-            var storageSystem = entityManager.System<StorageSystem>(); // Goobstation
-            if (invSystem.TryGetSlots(target, out var slots))
-            {
-                foreach (var slot in slots)
-                {
-                    invSystem.TryUnequip(target, slot.Name, true, true, false, inventoryComponent);
-                    var gearStr = ((IEquipmentLoadout) startingGear).GetGear(slot.Name);
-
-                    if (gearStr == string.Empty)
-                        continue; // Goobstation - No useless brackets!!
-
-                    var equipmentEntity = entityManager.SpawnEntity(gearStr, entityManager.GetComponent<TransformComponent>(target).Coordinates);
-                    if (slot.Name == "id" &&
-                        entityManager.TryGetComponent(equipmentEntity, out PdaComponent? pdaComponent) &&
-                        entityManager.TryGetComponent<IdCardComponent>(pdaComponent.ContainedId, out var id))
-                    {
-                        id.FullName = entityManager.GetComponent<MetaDataComponent>(target).EntityName;
-                    }
-
-                    invSystem.TryEquip(target, equipmentEntity, slot.Name, silent: true, force: true, inventory: inventoryComponent);
-
-                    onEquipped?.Invoke(target, equipmentEntity);
-
-                    if (startingGear.Storage.Count <= 0 // Goobstation - Start
-                    || slot.SlotFlags != SlotFlags.BACK
-                    || !entityManager.TryGetComponent<StorageComponent>(equipmentEntity, out var storage))
-                    continue;
-
-                    foreach (var (_, entProtos) in startingGear.Storage)
-                    {
-                        if (entProtos.Count == 0)
-                            continue;
-
-                        foreach (var entProto in entProtos)
-                        {
-                            var spawnedEntity = entityManager.SpawnEntity(entProto, entityManager.GetComponent<TransformComponent>(target).Coordinates);
-                            storageSystem.Insert(equipmentEntity, spawnedEntity, out _, storageComp: storage, playSound: false);
-                        }
-
-                    } // Goobstation - End
-                }
-            }
-
-            if (entityManager.TryGetComponent(target, out HandsComponent? handsComponent))
-            {
-                var handsSystem = entityManager.System<HandsSystem>();
-                var coords = entityManager.GetComponent<TransformComponent>(target).Coordinates;
-                foreach (var prototype in startingGear.Inhand)
-                {
-                    var inhandEntity = entityManager.SpawnEntity(prototype, coords);
-                    handsSystem.TryPickup(target, inhandEntity, checkActionBlocker: false, handsComp: handsComponent);
-                }
-            }
-
-            // See if this starting gear is associated with a job
-            var jobs = prototypeManager.EnumeratePrototypes<JobPrototype>();
-            foreach (var job in jobs)
-            {
-                if (job.StartingGear != gear)
-                    continue;
-
-                // Goobstation - Implants for set-outfits
-                if (doSpecialAction)
-                    foreach (var jobSpecial in job.Special)
-                        jobSpecial.AfterEquip(target);
-
-                var jobProtoId = LoadoutSystem.GetJobPrototype(job.ID);
-                if (!prototypeManager.TryIndex<RoleLoadoutPrototype>(jobProtoId, out var jobProto))
-                    break;
-
-                // Don't require a player, so this works on Urists
-                profile ??= entityManager.TryGetComponent<HumanoidAppearanceComponent>(target, out var comp)
-                    ? HumanoidCharacterProfile.DefaultWithSpecies(comp.Species)
-                    : new HumanoidCharacterProfile();
-                // Try to get the user's existing loadout for the role
-                profile.Loadouts.TryGetValue(jobProtoId, out var roleLoadout);
-
-                if (roleLoadout == null)
-                {
-                    // If they don't have a loadout for the role, make a default one
-                    roleLoadout = new RoleLoadout(jobProtoId);
-                    roleLoadout.SetDefault(profile, session, prototypeManager);
-                }
-
-                // Equip the target with the job loadout
-                var stationSpawning = entityManager.System<SharedStationSpawningSystem>();
-                stationSpawning.EquipRoleLoadout(target, roleLoadout, jobProto);
-            }
-
-            if (entityManager.HasComponent<EncryptionKeyHolderComponent>(target))
-            {
-                var encryption = entityManager.System<InternalEncryptionKeySpawner>();
-                encryption.TryInsertEncryptionKey(target, startingGear);
-            }
-
-            return true;
+            if (!_outfitSystem.SetOutfit(target.Value, args[1], doSpecial: doSpecial))
+                shell.WriteLine(Loc.GetString("cmd-setoutfit-invalid-outfit-id-error"));
         }
     }
 }

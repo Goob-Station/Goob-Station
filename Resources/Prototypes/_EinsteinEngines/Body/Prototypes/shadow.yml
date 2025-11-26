@@ -1,0 +1,55 @@
+- type: body
+  id: Shadow
+  name: Shadow
+  root: chest
+  slots:
+    head:
+      part: HeadShadow
+      connections:
+      - chest
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    chest:
+      part: ChestShadow
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head
+      organs:
+        heart: OrganHumanHeart
+        lungs: OrganHumanLungs
+    groin:
+      part: GroinShadow
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganHumanStomach
+        liver: OrganHumanLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmShadow
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmShadow
+      connections:
+      - left hand
+    right hand:
+      part: RightHandShadow
+    left hand:
+      part: LeftHandShadow
+    right leg:
+      part: RightLegShadow
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegShadow
+      connections:
+      - left foot
+    right foot:
+      part: RightFootShadow
+    left foot:
+      part: LeftFootShadow

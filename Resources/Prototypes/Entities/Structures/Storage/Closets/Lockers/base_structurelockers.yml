@@ -83,6 +83,8 @@
     materialComposition:
       Steel: 125
   - type: RecyclableOnUnlock
+  - type: Paintable
+    group: Locker
 
 - type: entity
   id: LockerBaseSecure

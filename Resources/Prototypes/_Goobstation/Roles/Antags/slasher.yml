@@ -1,0 +1,60 @@
+- type: antag
+  id: Slasher
+  name: roles-antag-slasher-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-slasher-objectives
+  guides: [ Slasher ]
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostSlasher
+  components:
+  - type: GhostRole
+    name: ghost-role-information-slasher-name
+    description: ghost-role-information-slasher-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: _Goobstation/Objects/Specific/Slasher/machete.rsi
+      state: icon
+
+- type: startingGear
+  id: SlasherGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+    back: ClothingBackpackSatchel
+    head: ClothingHeadHatSlasherMask
+    gloves: ClothingHandsSlasherGloves
+    outerClothing: ClothingOuterSlasherApron
+    shoes: ClothingShoesSlasher
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostSlasherToken
+  components:
+  - type: GhostRole
+    name: ghost-role-information-slasher-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: short
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: _Goobstation/Objects/Specific/Slasher/machete.rsi
+      state: icon

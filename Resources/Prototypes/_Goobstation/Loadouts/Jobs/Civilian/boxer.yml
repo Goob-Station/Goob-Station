@@ -1,0 +1,17 @@
+- type: loadout
+  id: BoxerEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitBoxing
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: BoxerEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmBoxing
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

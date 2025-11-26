@@ -1,0 +1,21 @@
+- type: entity
+  name: Ancient Xeno AI Timed Spawner
+  id: AncientXenoAITimedSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+      - state: blue
+      - sprite: _Goobstation/Mobs/Xenos/drone.rsi
+        state: drone
+      - state: ai
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+      - CMMobXenoDrone
+      - CMMobXenoBurrower
+      - CMMobXenoWarrior
+      chance: 0.85
+      intervalSeconds: 30
+      minimumEntitiesSpawned: 2
+      maximumEntitiesSpawned: 4

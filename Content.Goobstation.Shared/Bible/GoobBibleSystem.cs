@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Exorcism;
 using Content.Goobstation.Shared.Religion;
@@ -81,10 +82,16 @@ public sealed partial class GoobBibleSystem : EntitySystem
             };
 
             _doAfter.TryStartDoAfter(doAfterArgs);
-            var popup = Loc.GetString("devil-banish-begin", ("target", target), ("user", target));
+            var popup = Loc.GetString("devil-banish-begin", ("target", target), ("user", performer));
             _popupSystem.PopupEntity(popup, target, PopupType.LargeCaution);
         }
 
         return true;
     }
 }
+
+/// <summary>
+/// Raised on the target once bible smite gets used
+/// </summary>
+[ByRefEvent]
+public record struct BibleSmiteUsed;

@@ -31,7 +31,9 @@
     proto: CartridgeCaselessRifleSAPHE
   - type: Sprite
     layers:
-    - state: practice # it's orange, orange means explosions
+    - state: base # it's orange, orange means explosions
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#cf9130"

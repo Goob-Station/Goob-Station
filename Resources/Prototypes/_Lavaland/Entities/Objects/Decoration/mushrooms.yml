@@ -1,0 +1,48 @@
+- type: entity
+  name: lavashroom
+  parent: BaseStructure
+  id: Lavashroom
+  suffix: Structure
+  description: A wild mushroom that likes to grow in hot, moist environments.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Decoration/Flora/lavashroom.rsi
+    layers:
+    - state: shroom1
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        shroom1: ""
+        shroom2: ""
+        shroom3: ""
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+  - type: InteractionOutline
+  - type: Gatherable
+    toolWhitelist:
+      components:
+      - Hands
+    loot:
+      All: !type:GroupSelector
+        children:
+        - id: FoodSpaceshroom # TODO
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

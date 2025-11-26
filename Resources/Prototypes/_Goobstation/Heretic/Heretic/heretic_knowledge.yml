@@ -213,6 +213,7 @@
   id: GraspOfFlesh
   path: Flesh
   stage: 2
+  event: !type:EventHereticFleshPassive
 
 - type: hereticKnowledge
   id: ImperfectRitual
@@ -293,12 +294,19 @@
   path: Void
   stage: 4
 
+#- type: hereticKnowledge
+#  id: VoidBlast
+#  path: Void
+#  stage: 5
+#  actionPrototypes:
+#  - ActionHereticVoidBlast
+
 - type: hereticKnowledge
-  id: VoidBlast
+  id: MysteriesOfCreation
   path: Void
   stage: 5
   actionPrototypes:
-  - ActionHereticVoidBlast
+  - ActionHereticIceSpear
 
 - type: hereticKnowledge
   id: VoidPhase
@@ -346,13 +354,15 @@
   id: GraspOfRust
   path: Rust
   stage: 2
+  event: !type:HereticLeechingWalkEvent
 
 - type: hereticKnowledge
-  id: LeechingWalk
+  id: AggressiveSpread
   path: Rust
   sideKnowledge: true
   stage: 3
-  event: !type:HereticLeechingWalkEvent
+  actionPrototypes:
+  - ActionHereticAggressiveSpread
 
 - type: hereticKnowledge
   id: MarkOfRust
@@ -367,12 +377,12 @@
   - ActionHereticRustConstruction
 
 - type: hereticKnowledge
-  id: AggressiveSpread
+  id: EntropicPlume
   path: Rust
   sideKnowledge: true
   stage: 6
   actionPrototypes:
-  - ActionHereticAggressiveSpread
+  - ActionHereticEntropicPlume
 
 - type: hereticKnowledge
   id: ToxicBlade
@@ -380,12 +390,12 @@
   stage: 7
 
 - type: hereticKnowledge
-  id: EntropicPlume
+  id: RustCharge
   path: Rust
   sideKnowledge: true
   stage: 8
   actionPrototypes:
-  - ActionHereticEntropicPlume
+  - ActionHereticRustCharge
 
 - type: hereticKnowledge
   id: AscensionRust
@@ -399,6 +409,76 @@
   stage: 10
   path: Rust
   event: !type:HereticAscensionRustEvent
+
+## cosmos path
+- type: hereticKnowledge
+  id: EternalGate
+  path: Cosmos
+  stage: 1
+  ritualPrototypes:
+  - BladeCosmos
+
+- type: hereticKnowledge
+  id: GraspOfCosmos
+  path: Cosmos
+  stage: 2
+
+- type: hereticKnowledge
+  id: CosmicRunes
+  path: Cosmos
+  sideKnowledge: true
+  stage: 3
+  actionPrototypes:
+  - ActionHereticCosmicRune
+
+- type: hereticKnowledge
+  id: MarkOfCosmos
+  path: Cosmos
+  stage: 4
+  event: !type:EventHereticCosmosPassive
+
+- type: hereticKnowledge
+  id: StarTouch
+  path: Cosmos
+  stage: 5
+  actionPrototypes:
+  - ActionHereticStarTouch
+
+- type: hereticKnowledge
+  id: StarBlast
+  path: Cosmos
+  sideKnowledge: true
+  stage: 6
+  actionPrototypes:
+  - ActionHereticStarBlast
+
+- type: hereticKnowledge
+  id: CosmicBlade
+  path: Cosmos
+  stage: 7
+
+- type: hereticKnowledge
+  id: CosmicExpansion
+  path: Cosmos
+  sideKnowledge: true
+  stage: 8
+  actionPrototypes:
+  - ActionHereticCosmicExpansion
+
+- type: hereticKnowledge
+  id: AscensionCosmos
+  stage: 9
+  path: Cosmos
+  ritualPrototypes:
+  - AscensionCosmos
+
+- type: hereticKnowledge
+  id: CreatorsGift
+  stage: 10
+  path: Cosmos
+  event: !type:HereticAscensionCosmosEvent
+  actionPrototypes:
+  - ActionResetStarGazerConsciousness
 
 ### side paths
 - type: hereticKnowledge
@@ -437,11 +517,11 @@
   - VoidCloak
 
 - type: hereticKnowledge
-  id: MysteriesOfCreation
+  id: ScorchingShark
   sideKnowledge: true
   stage: 3
-  actionPrototypes:
-  - ActionHereticIceSpear
+  ritualPrototypes:
+  - ScorchingShark
 
 ## stage 6
 - type: hereticKnowledge
@@ -465,10 +545,3 @@
   stage: 8
   actionPrototypes:
   - ActionHereticCleave
-
-- type: hereticKnowledge
-  id: RustCharge
-  sideKnowledge: true
-  stage: 8
-  actionPrototypes:
-  - ActionHereticRustCharge

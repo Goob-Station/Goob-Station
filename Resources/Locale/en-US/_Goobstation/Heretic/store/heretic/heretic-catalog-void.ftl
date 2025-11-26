@@ -28,7 +28,8 @@ knowledge-path-void-s1-desc =
     I start to realize the emptiness of existence. Something's watching me.
 
     Opens up the Path of Void to you.
-    Allows you to transmute a knife in sub-zero temperatures into a Void Blade. Limit of two at a time.
+    Allows you to transmute a knife in sub-zero temperatures into a Void Blade.
+    You can only create two at a time.
 
 knowledge-path-void-s2-name = Grasp of Void
 knowledge-path-void-s2-desc =
@@ -66,13 +67,13 @@ knowledge-path-void-s6-desc =
     They disappear, and I am left in the blizzard.
 
     Grants you Void Phase, a long range targeted teleport spell.
-    Additionally stuns heathens around your original and target destination.
+    Additionally causes damage to heathens around your original and target destination.
 
 knowledge-path-void-s7-name = Seeking Blade
 knowledge-path-void-s7-desc =
     Fleeting memories, fleeting feet. I mark my way with frozen blood upon the snow. Covered and forgotten.
 
-    Your blade freezes enemies. Additionally, when a target is marked, activate the Void Blade in your hand to teleport right next to them without breaking the blade.
+    Your blade now freezes enemies. Additionally, you can now attack distant targets with your Void Blade, teleporting directly next to them.
 
 knowledge-path-void-s8-name = Void Pull
 knowledge-path-void-s8-desc =

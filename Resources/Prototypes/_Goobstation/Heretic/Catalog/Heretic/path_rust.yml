@@ -2,7 +2,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 #
@@ -31,6 +33,7 @@
     - Lock
     - Void
     - Rust
+    - Cosmos
 
 - type: listing
   id: HereticRustPath2
@@ -50,12 +53,30 @@
     whitelist:
     - Rust
 
+#- type: listing
+#  id: HereticRustPath3
+#  name: knowledge-path-rust-s3-name
+#  description: knowledge-path-rust-s3-desc
+#  icon: { sprite: _Goobstation/Heretic/tiles.rsi, state: plating_rust }
+#  productHereticKnowledge: LeechingWalk
+#  cost:
+#    KnowledgePoint: 1
+#  categories:
+#  - HereticPathRust
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+#  - !type:HereticPathCondition
+#    stage: 2
+#    whitelist:
+#    - Rust
+
 - type: listing
   id: HereticRustPath3
   name: knowledge-path-rust-s3-name
   description: knowledge-path-rust-s3-desc
-  icon: { sprite: _Goobstation/Heretic/tiles.rsi, state: plating_rust }
-  productHereticKnowledge: LeechingWalk
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: aggressive_spread }
+  productHereticKnowledge: AggressiveSpread
   cost:
     KnowledgePoint: 1
   categories:
@@ -65,6 +86,8 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 2
+    whitelist:
+    - Rust
 
 - type: listing
   id: HereticRustPath4
@@ -106,8 +129,8 @@
   id: HereticRustPath6
   name: knowledge-path-rust-s6-name
   description: knowledge-path-rust-s6-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: aggressive_spread }
-  productHereticKnowledge: AggressiveSpread
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: entropic_plume }
+  productHereticKnowledge: EntropicPlume
   cost:
     KnowledgePoint: 1
   categories:
@@ -117,6 +140,8 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 5
+    whitelist:
+    - Rust
 
 - type: listing
   id: HereticRustPath7
@@ -138,10 +163,10 @@
 
 - type: listing
   id: HereticRustPath8
-  name: knowledge-path-rust-s8-name
-  description: knowledge-path-rust-s8-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: entropic_plume }
-  productHereticKnowledge: EntropicPlume
+  name: knowledge-path-rust-s8-rust-charge-name
+  description: knowledge-path-rust-s8-rust-charge-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: rust_charge }
+  productHereticKnowledge: RustCharge
   cost:
     KnowledgePoint: 1
   categories:
@@ -151,6 +176,8 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 7
+    whitelist:
+    - Rust
 
 - type: listing
   id: HereticRustPath9

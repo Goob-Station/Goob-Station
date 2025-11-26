@@ -13,7 +13,6 @@
     sprite: _DV/CosmicCult/Tileset/cosmicwall.rsi
   - type: Icon
     sprite: _DV/CosmicCult/Tileset/cosmicwall.rsi
-  - type: RCDDeconstructable
   - type: Destructible
     thresholds:
     - trigger:
@@ -122,7 +121,6 @@
     snap:
     - Wall
   components:
-  - type: RCDDeconstructable
   - type: CosmicCultExamine
     cultistText: cosmic-examine-text-forthecult
   - type: Sprite

@@ -8,6 +8,8 @@
 
 using Content.Shared.Damage;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Chemistry.Reagent;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Heretic.Components;
 
@@ -15,7 +17,7 @@ namespace Content.Shared._Goobstation.Heretic.Components;
 public sealed partial class LeechingWalkComponent : Component
 {
     [DataField]
-    public float AscensuionMultiplier = 3f;
+    public FixedPoint2 BoneHeal = -5;
 
     [DataField]
     public DamageSpecifier ToHeal = new()
@@ -39,13 +41,19 @@ public sealed partial class LeechingWalkComponent : Component
     };
 
     [DataField]
-    public float StaminaHeal = 10f;
+    public float StaminaHeal = 5f;
+
+    [DataField]
+    public float ChemPurgeRate = 2f;
+
+    [DataField]
+    public ProtoId<ReagentPrototype> ExcludedReagent = "EldritchEssence";
 
     [DataField]
     public FixedPoint2 BloodHeal = 5f;
 
     [DataField]
-    public TimeSpan StunReduction = TimeSpan.FromSeconds(1f);
+    public TimeSpan StunReduction = TimeSpan.FromSeconds(0.5f);
 
     [DataField]
     public float TargetTemperature = 310f;

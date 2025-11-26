@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
@@ -29,7 +30,8 @@
     damage:
       types:
         Slash: 10
-        Asphyxiation: 5
+        Cold: 2.5
+        Asphyxiation: 2.5
         Structural: 15
         Ion: 25
     soundHit:
@@ -70,7 +72,8 @@
     damage:
       types:
         Slash: 5
-        Asphyxiation: 5
+        Cold: 2.5
+        Asphyxiation: 2.5
         Structural: 5
   - type: DisarmMalus
   - type: Item
@@ -90,9 +93,6 @@
   description: An unnerving spear, wrought of indescribable material. Being near it feels like a prickle of static spreading through your nerves.
   components:
   - type: CosmicEquipment
-  - type: EmbeddableProjectile
-    removalTime: 2
-    sound: /Audio/_DV/CosmicCult/cosmiclance_impact.ogg
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/cosmiclance.rsi
     layers:
@@ -107,7 +107,8 @@
     damage:
       types:
         Piercing: 15
-        Asphyxiation: 10
+        Cold: 5
+        Asphyxiation: 5
         Ion: 25
     soundHit:
       path: /Audio/_DV/CosmicCult/cosmiclance_hit.ogg
@@ -124,12 +125,14 @@
       params:
         variation: 0.2
         volume: -11
+  - type: Boomerang # Goob edit
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 35
-        Asphyxiation: 35
-        Ion: 35
+        Piercing: 5
+        Cold: 5
+        Asphyxiation: 5
+        Ion: 17.5
   - type: Wieldable
     wieldSound:
       path: /Audio/_DV/CosmicCult/cosmic_wield.ogg
@@ -145,7 +148,8 @@
     damage:
       types:
         Piercing: 10
-        Asphyxiation: 5
+        Cold: 2.5
+        Asphyxiation: 2.5
   - type: Item
     size: Large
     shape:
@@ -202,12 +206,12 @@
       groups:
         Brute: -10
   - type: Gun
-    projectileSpeed: 4
+    projectileSpeed: 5
     soundGunshot: /Audio/_DV/CosmicCult/projectile_razor.ogg
     fireRate: 1.75
     useKey: false
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.1
+    rechargeCooldown: 0.3
     rechargeSound:
       path: /Audio/_DV/CosmicCult/projectile_razor_reload.ogg
   - type: BasicEntityAmmoProvider
@@ -223,7 +227,8 @@
     damage:
       types:
         Slash: 6
-        Asphyxiation: 4
+        Cold: 2
+        Asphyxiation: 2
         Ion: 6
         Structural: 15
     soundHit:

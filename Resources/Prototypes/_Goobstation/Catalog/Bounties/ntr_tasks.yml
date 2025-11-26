@@ -1,0 +1,651 @@
+- type: ntrTask
+  id: TaskStampHos
+  proto: SecurityDocument
+  reward: 3
+  cooldown: 180
+  description: task-ntr-stamp-hos
+  entries:
+  - name: task-ntr-stamp-base-name
+    stamps:
+    - stamp-component-stamped-name-nanorep
+    - stamp-component-stamped-name-hos
+    whitelist:
+      tags:
+        - Document
+
+- type: ntrTask
+  id: TaskStampHop
+  proto: ServiceDocument
+  reward: 3
+  cooldown: 180
+  description: task-ntr-stamp-hop
+  entries:
+  - name: task-ntr-stamp-base-name
+    stamps:
+    - stamp-component-stamped-name-nanorep
+    - stamp-component-stamped-name-hop
+    whitelist:
+      tags:
+        - Document
+
+- type: ntrTask
+  id: TaskStampCe
+  proto: EngineeringDocument
+  reward: 3
+  cooldown: 180
+  description: task-ntr-stamp-ce
+  entries:
+  - name: task-ntr-stamp-base-name
+    stamps:
+    - stamp-component-stamped-name-nanorep
+    - stamp-component-stamped-name-ce
+    whitelist:
+      tags:
+        - Document
+
+- type: ntrTask
+  id: TaskStampCmo
+  proto: MedicalDocument
+  reward: 3
+  cooldown: 180
+  description: task-ntr-stamp-cmo
+  entries:
+  - name: task-ntr-stamp-base-name
+    stamps:
+    - stamp-component-stamped-name-nanorep
+    - stamp-component-stamped-name-cmo
+    whitelist:
+      tags:
+        - Document
+
+- type: ntrTask
+  id: TaskStampRd
+  proto: ScienceDocument
+  reward: 3
+  cooldown: 180
+  description: task-ntr-stamp-rd
+  entries:
+  - name: task-ntr-stamp-base-name
+    stamps:
+    - stamp-component-stamped-name-nanorep
+    - stamp-component-stamped-name-rd
+    whitelist:
+      tags:
+        - Document
+
+- type: ntrTask
+  id: TaskStampQm
+  proto: CargoDocument
+  reward: 3
+  cooldown: 180
+  description: task-ntr-stamp-qm
+  entries:
+  - name: task-ntr-stamp-base-name
+    stamps:
+    - stamp-component-stamped-name-nanorep
+    - stamp-component-stamped-name-qm
+    whitelist:
+      tags:
+        - Document
+
+# Reagent tasks
+- type: ntrTask
+  id: TaskLingBlood
+  proto: TaskVial
+  reward: 15
+  weight: 0.005
+  cooldown: 600
+  description: task-ntr-ling-blood-desc
+  reagentTask: true
+  solutionName: beaker
+  reagents:
+    BloodChangeling: 3000
+  entries:
+  - name: task-ntr-ling-blood-name
+    stamps: [ ] # idk how to make it not fuck up checkfails without it
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskArtifexium
+  proto: TaskVial
+  reward: 10
+  weight: 0.001
+  cooldown: 600
+  description: task-ntr-artifexium-desc
+  reagentTask: true
+  solutionName: beaker
+  reagents:
+    Artifexium: 3000
+  entries:
+  - name: task-ntr-artifexium-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskDexalin
+  proto: TaskVial
+  solutionName: beaker
+  reward: 3
+  weight: 0.05
+  cooldown: 600
+  description: task-ntr-dexalin-desc
+  reagentTask: true
+  reagents:
+    DexalinPlus: 3000
+  entries:
+  - name: task-ntr-chem-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskWeh
+  proto: TaskVial
+  solutionName: beaker
+  reward: 5
+  weight: 0.1
+  cooldown: 600
+  description: task-ntr-weh-desc
+  reagentTask: true
+  reagents:
+    JuiceThatMakesYouWeh: 3000
+  entries:
+  - name: task-ntr-weh-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskHew
+  proto: TaskVial
+  solutionName: beaker
+  reward: 10
+  weight: 0.001
+  cooldown: 3600
+  description: task-ntr-hew-desc
+  reagentTask: true
+  reagents:
+    JuiceThatMakesYouHew: 3000
+  entries:
+  - name: task-ntr-hew-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskEthyl
+  proto: TaskVial
+  solutionName: beaker
+  reward: 7
+  weight: 0.01
+  cooldown: 3600
+  description: task-ntr-ethyl-desc
+  reagentTask: true
+  reagents:
+    Ethylredoxrazine: 3000
+  entries:
+  - name: task-ntr-chem-base-name
+    stamps: []
+    whitelist:
+      tags: []
+      components: []
+
+- type: ntrTask
+  id: TaskIpecac
+  proto: TaskVial
+  reward: 4
+  weight: 0.03
+  cooldown: 3600
+  description: task-ntr-ipecac-desc
+  reagentTask: true
+  solutionName: beaker
+  reagents:
+    Ipecac: 3000
+  entries:
+  - name: task-ntr-chem-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskTRAcid
+  proto: TaskVial
+  solutionName: beaker
+  reward: 5
+  weight: 0.02
+  cooldown: 3600
+  description: task-ntr-tr-acid-desc
+  reagentTask: true
+  reagents:
+    TranexamicAcid: 3000
+  entries:
+  - name: task-ntr-chem-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskSigynate
+  solutionName: beaker
+  proto: TaskVial
+  reward: 5
+  weight: 0.02
+  cooldown: 3600
+  description: task-ntr-sigynate-desc
+  reagentTask: true
+  reagents:
+    Sigynate: 3000
+  entries:
+  - name: task-ntr-chem-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskCogni
+  proto: TaskVial
+  solutionName: beaker
+  reward: 10
+  weight: 0.0005
+  cooldown: 3600
+  description: task-ntr-cogni-desc
+  reagentTask: true
+  reagents:
+    Cognizine: 1000
+  entries:
+  - name: task-ntr-cogni-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskHoly
+  proto: TaskVial
+  solutionName: beaker
+  reward: 6
+  weight: 0.005
+  cooldown: 3600
+  description: task-ntr-holy-desc
+  reagentTask: true
+  reagents:
+    Holywater: 3000
+  entries:
+  - name: task-ntr-holy-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskRazorium
+  solutionName: beaker
+  proto: TaskJug
+  reward: 7
+  weight: 0.005
+  cooldown: 1800
+  description: task-ntr-razorium-desc
+  reagentTask: true
+  reagents:
+    Razorium: 10000
+  entries:
+  - name: task-ntr-razorium-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskPunct
+  proto: TaskJug
+  solutionName: beaker
+  reward: 8
+  weight: 0.005
+  cooldown: 1800
+  description: task-ntr-punct-desc
+  reagentTask: true
+  reagents:
+    Puncturase: 10000
+  entries:
+  - name: task-ntr-punct-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskTrico
+  proto: TaskJug
+  solutionName: beaker
+  reward: 5
+  weight: 0.02
+  cooldown: 1800
+  description: task-ntr-trico-desc
+  reagentTask: true
+  reagents:
+    Tricordrazine: 10000
+  entries:
+  - name: task-ntr-trico-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskMeth
+  proto: TaskJug
+  solutionName: beaker
+  reward: 10
+  weight: 0.001
+  cooldown: 1800
+  description: task-ntr-meth-desc
+  reagentTask: true
+  reagents:
+    Desoxyephedrine: 10000
+  entries:
+  - name: task-ntr-meth-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskTHC
+  proto: TaskJug
+  solutionName: beaker
+  reward: 7
+  weight: 0.005
+  cooldown: 1800
+  description: task-ntr-thc-desc
+  reagentTask: true
+  reagents:
+    THC: 10000
+  entries:
+  - name: task-ntr-thc-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+# Drink tasks
+- type: ntrTask
+  id: TaskKiraSpecial
+  proto: TaskBottle
+  reward: 2
+  weight: 0.2
+  cooldown: 300
+  description: task-ntr-kira-special-desc
+  reagentTask: true
+  reagents:
+    KiraSpecial: 3000
+  entries:
+  - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskNuclearCola
+  proto: TaskBottle
+  reward: 5
+  weight: 0.05
+  cooldown: 600
+  description: task-ntr-nuclear-cola-desc
+  reagentTask: true
+  reagents:
+    NuclearCola: 3000
+  entries:
+  - name: task-ntr-special-drink-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskGildlager
+  proto: TaskBottle
+  reward: 3
+  weight: 0.15
+  cooldown: 400
+  description: task-ntr-gildlager-desc
+  reagentTask: true
+  reagents:
+    Gildlager: 3000
+  entries:
+  - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskGrog
+  proto: TaskBottle
+  reward: 3
+  weight: 0.1
+  cooldown: 300
+  description: task-ntr-grog-desc
+  reagentTask: true
+  reagents:
+    Grog: 3000
+  entries:
+  - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskHippiesDelight
+  proto: TaskBottle
+  reward: 5
+  weight: 0.05
+  cooldown: 600
+  description: task-ntr-hippies-delight-desc
+  reagentTask: true
+  reagents:
+    HippiesDelight: 3000
+  entries:
+  - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskIrishCarBomb
+  proto: TaskBottle
+  reward: 3
+  weight: 0.15
+  cooldown: 450
+  description: task-ntr-irish-car-bomb-desc
+  reagentTask: true
+  reagents:
+    IrishCarBomb: 3000
+  entries:
+  - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskLongIslandIcedTea
+  proto: TaskBottle
+  reward: 3
+  weight: 0.1
+  cooldown: 450
+  description: task-ntr-long-island-desc
+  reagentTask: true
+  reagents:
+    LongIslandIcedTea: 3000
+  entries:
+  - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskManhattan
+  proto: TaskBottle
+  reward: 4
+  weight: 0.08
+  cooldown: 500
+  description: task-ntr-manhattan-desc
+  reagentTask: true
+  reagents:
+    Manhattan: 3000
+  entries:
+  - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskManlyDorf
+  proto: TaskBottle
+  reward: 2
+  weight: 0.25
+  cooldown: 350
+  description: task-ntr-manly-dorf-desc
+  reagentTask: true
+  reagents:
+    ManlyDorf: 3000
+  entries:
+  - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskPinaColada
+  proto: TaskBottle
+  reward: 3
+  weight: 0.1
+  cooldown: 400
+  description: task-ntr-pina-colada-desc
+  reagentTask: true
+  reagents:
+    PinaColada: 3000
+  entries:
+  - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskCogChamp
+  proto: TaskBottle
+  reward: 3
+  weight: 0.15
+  cooldown: 450
+  description: task-ntr-cogchamp-desc
+  reagentTask: true
+  reagents:
+    CogChamp: 3000
+  entries:
+  - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskSingulo
+  proto: TaskBottle
+  reward: 5
+  weight: 0.05
+  cooldown: 600
+  description: task-ntr-singulo-desc
+  reagentTask: true
+  reagents:
+    Singulo: 3000
+  entries:
+  - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskTequilaSunrise
+  proto: TaskBottle
+  reward: 3
+  weight: 0.2
+  cooldown: 400
+  description: task-ntr-tequila-sunrise-desc
+  reagentTask: true
+  reagents:
+    TequilaSunrise: 3000
+  entries:
+  - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskWhiteRussian
+  proto: TaskBottle
+  reward: 2
+  weight: 0.25
+  cooldown: 400
+  description: task-ntr-white-russian-desc
+  reagentTask: true
+  reagents:
+    WhiteRussian: 3000
+  entries:
+  - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskBudgetInsulsDrink
+  proto: TaskBottle
+  reward: 4
+  weight: 0.05
+  cooldown: 400
+  description: task-ntr-budget-insuls-desc
+  reagentTask: true
+  reagents:
+    BudgetInsulsDrink: 3000
+  entries:
+  - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+
+- type: ntrTask
+  id: TaskZombieCocktail
+  proto: TaskBottle
+  reward: 5
+  weight: 0.005
+  cooldown: 900
+  description: task-ntr-zombie-cocktail-desc
+  reagents:
+    ZombieCocktail: 3000
+  reagentTask: true
+  entries:
+  - name: task-ntr-special-drink-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]

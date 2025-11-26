@@ -102,12 +102,6 @@
   maxOreYield: 1
 
 - type: ore
-  id: BSCrystal
-  oreEntity: MaterialBSCrystal1Unprocessed # lavaland change
-  minOreYield: 1
-  maxOreYield: 2
-
-- type: ore
   id: OreQuartzCrab
   oreEntity: MobSpawnCrabQuartz
 
@@ -128,12 +122,16 @@
   oreEntity: MobSpawnCrabGold
 
 - type: ore
+  id: OreBananiumCrab
+  oreEntity: MobSpawnCrabBananium
+
+- type: ore
   id: OreUraniumCrab
   oreEntity: MobSpawnCrabUranium
 
 - type: ore
   id: OreArtifactFragment
-  oreEntity: ArtifactFragment1
+  oreEntity: ArtifactFragmentOre1Unprocessed # Lavaland Change
   minOreYield: 1
   maxOreYield: 3
 
@@ -148,7 +146,7 @@
     OreSilver: 2 # previously rarer than gold, even though they are both typically used in similar amounts for crafting
     OreGold: 2
     OreUranium: 1
-    BSCrystal: 0.5 # to account for higher points (250)
+    OreBSCrystal: 0.5 # to account for higher points (250)
     OreBananium: 0.25 # to account for it being a useless meme ore
     OreDiamond: 0.1 # to account for its much higher points (1000), as well as its use in endgame schematics
   # Lavaland Change End
@@ -161,3 +159,6 @@
     OreIronCrab: 5
     OreUraniumCrab: 2
     OreSilverCrab: 3
+    OreBananiumCrab: 1
+    OreCoalCrab: 5
+    OreGoldCrab: 2

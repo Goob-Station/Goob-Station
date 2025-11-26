@@ -1,0 +1,7 @@
+- type: entity
+  id: BaseSalvageContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ SalvageSpecialist ]

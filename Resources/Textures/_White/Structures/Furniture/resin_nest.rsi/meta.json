@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "copyright": "Taken from tgstation on https://github.com/tgstation/tgstation/blob/master/icons/obj/smooth_structures/alien/nest.dmi | Edited by Kai518 (Github)",
+    "states": [
+        {
+            "name": "full"
+        },
+        {
+            "name": "resin_nest0",
+            "directions": 4
+        },
+        {
+            "name": "resin_nest1",
+            "directions": 4
+        },
+        {
+            "name": "resin_nest2",
+            "directions": 4
+        },
+        {
+            "name": "resin_nest3",
+            "directions": 4
+        },
+        {
+            "name": "resin_nest4",
+            "directions": 4
+        },
+        {
+            "name": "resin_nest5",
+            "directions": 4
+        },
+        {
+            "name": "resin_nest6",
+            "directions": 4
+        },
+        {
+            "name": "resin_nest7",
+            "directions": 4
+        }
+    ]
+}

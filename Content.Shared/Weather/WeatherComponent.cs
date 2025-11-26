@@ -50,6 +50,18 @@ public sealed partial class WeatherComponent : Component
     [DataField]
     public Dictionary<ProtoId<WeatherPrototype>, WeatherData> Weather = new();
 
+    /// <summary>
+    /// DeltaV: How long to wait between updating weather effects.
+    /// </summary>
+    [DataField]
+    public TimeSpan UpdateDelay = TimeSpan.FromSeconds(1);
+
+    /// <summary>
+    /// DeltaV: When to next update weather effects (damage).
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan NextUpdate = TimeSpan.Zero;
+
     public static readonly TimeSpan StartupTime = TimeSpan.FromSeconds(15);
     public static readonly TimeSpan ShutdownTime = TimeSpan.FromSeconds(15);
 }

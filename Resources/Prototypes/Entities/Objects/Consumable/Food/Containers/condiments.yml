@@ -309,6 +309,16 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 2
     fillBaseName: packet-solid-
+  - type: StatusEffectOnCollideGhost # Goobstation - Wraith
+    whitelist:
+      tags:
+      - WeakToSalt
+    statusEffect: Corporeal
+    duration: 15
+  - type: SaltLinePlacer # Goobstation - Wraith
+    saltLine: SaltLine
+  - type: ConsumeOnSaltLine # Goobstation - Wraith
+    amount: 1
 
 - type: entity
   parent: BaseFoodCondimentPacket
@@ -608,6 +618,16 @@
   - type: Tag
     tags:
       - SaltShaker
+  - type: StatusEffectOnCollideGhost # Goobstation - Wraith
+    whitelist:
+      tags:
+      - WeakToSalt
+    statusEffect: Corporeal
+    duration: 15
+  - type: SaltLinePlacer # Goobstation - Wraith
+    saltLine: SaltLine
+  - type: ConsumeOnSaltLine # Goobstation - Wraith
+    amount: 1
 
 - type: entity
   parent: BaseFoodShaker

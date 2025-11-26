@@ -1,0 +1,111 @@
+- type: entity
+  id: ActionFlipLights
+  name: Flip light switches
+  description: Light switches that are on turn off and off on.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wraith/UI/spook.rsi
+    state: flip
+  - type: Action
+    useDelay: 60
+    icon:
+      sprite: _Goobstation/Wraith/UI/spook.rsi
+      state: flip
+  - type: InstantAction
+    event: !type:FlipLightsEvent
+
+- type: entity
+  id: ActionBurnLights
+  name: Burn lights
+  description: Breaks up to four light tubes and bulbs in the area, creating sparks that can ignite flammables.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wraith/UI/spook.rsi
+    state: burn
+  - type: Action
+    useDelay: 60
+    icon:
+      sprite: _Goobstation/Wraith/UI/spook.rsi
+      state: burn
+  - type: InstantAction
+    event: !type:BurnLightsEvent
+
+- type: entity
+  id: ActionOpenDoors
+  name: Open doors, lockers, crates
+  description: Opens and closes a few random doors, lockers, and crates in the area.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wraith/UI/spook.rsi
+    state: open
+  - type: Action
+    useDelay: 60
+    icon:
+      sprite: _Goobstation/Wraith/UI/spook.rsi
+      state: open
+  - type: InstantAction
+    event: !type:OpenDoorsSpookEvent
+
+- type: entity
+  id: ActionCreateSmoke
+  name: Create smoke
+  description: Creates multiple clouds of smoke near you that can completely obscure people's vision. Clouds persist for about a minute.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wraith/UI/spook.rsi
+    state: smoke
+  - type: Action
+    useDelay: 60
+    icon:
+      sprite: _Goobstation/Wraith/UI/spook.rsi
+      state: smoke
+  - type: InstantAction
+    event: !type:CreateSmokeSpookEvent
+
+- type: entity
+  id: ActionCreateEctoplasm
+  name: Create ectoplasm
+  description: Spawns a few globs of ectoplasm in the area.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wraith/UI/spook.rsi
+    state: ectoplasm
+  - type: Action
+    useDelay: 60
+    icon:
+      sprite: _Goobstation/Wraith/UI/spook.rsi
+      state: ectoplasm
+  - type: InstantAction
+    event: !type:CreateEctoplasmEvent
+
+- type: entity
+  id: ActionSapApc
+  name: Sap APC
+  description: Drains a bit of power from the area's APC. The higher your WP regen rate, the more power drained. Cannot drain multiple APCs.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wraith/UI/spook.rsi
+    state: apc
+  - type: Action
+    useDelay: 60
+    icon:
+      sprite: _Goobstation/Wraith/UI/spook.rsi
+      state: apc
+  - type: InstantAction
+    event: !type:SapApcEvent
+
+- type: entity
+  id: ActionSpookRandom
+  name: Random
+  description: Does one random action.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wraith/UI/spook.rsi
+    state: random
+  - type: Action
+    useDelay: 60
+    icon:
+      sprite: _Goobstation/Wraith/UI/spook.rsi
+      state: random
+  - type: InstantAction
+    event: !type:RandomSpookEvent

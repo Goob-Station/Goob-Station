@@ -52,6 +52,7 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 25
     damagePenalty: 0.1
+  - type: Structure # WD EDIT. TODO: Kill me pls
 
 - type: entity
   # This means that it's not anchored on spawn.
@@ -60,10 +61,10 @@
   abstract: true
   components:
 # These might/might not be a good idea
-#  - type: MovedByPressure
-#  - type: DamageOnHighSpeedImpact
-#  - type: TileFrictionModifier
-#    modifier: 0.5
+  #  - type: MovedByPressure
+  #  - type: DamageOnHighSpeedImpact
+  #  - type: TileFrictionModifier
+  #    modifier: 0.5
   - type: Transform
     anchored: false
   - type: Clickable

@@ -1,0 +1,21 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from CMSS13",
+    "size": {
+        "x": 64,
+        "y": 64
+    },
+    "states": [
+        {
+            "name": "crusher",
+            "directions": 4
+        },
+        {
+            "name": "dead"
+        },
+        {
+            "name": "crit"
+        }
+    ]
+}

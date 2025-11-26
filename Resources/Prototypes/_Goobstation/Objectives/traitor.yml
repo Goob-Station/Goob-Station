@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -96,6 +97,18 @@
     owner: job-name-hos
 
 - type: entity
+  parent: BaseTraitorStealObjective
+  id: JusticeStealObjective
+  components:
+  - type: Objective
+    difficulty: 5 #Cannot be pocketed/bagged like Lawbringer or similar, requires your belt slot or hand to hold.
+  - type: NotJobRequirement
+    job: HeadOfSecurity
+  - type: StealCondition
+    stealGroup: WeaponSecHeadSword
+    owner: job-name-hos
+
+- type: entity
   parent: BaseCMOStealObjective
   id: CMORapidSyringeGunStealObjective
   components:
@@ -103,6 +116,17 @@
     stealGroup: RapidSyringeGun
   - type: Objective
     difficulty: 3 # Slightly more than normal as it does not fit into storage implant
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: ExecutiveBriefcaseStealObjective
+  components:
+  - type: Objective
+    difficulty: 3 # its an item that you cant store anywhere without being noticed, good luck
+  - type: NotJobRequirement
+    job: NanotrasenRepresentative
+  - type: StealCondition
+    stealGroup: ExecutiveBriefcase
 
 - type: entity
   parent: BaseRDStealObjective

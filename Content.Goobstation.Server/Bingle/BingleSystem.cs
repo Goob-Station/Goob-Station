@@ -12,12 +12,15 @@
 using System.Numerics;
 using Content.Goobstation.Common.Bingle;
 using Content.Goobstation.Shared.Bingle;
-using Content.Server.Flash.Components;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.CombatMode;
+using Content.Shared.Flash.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
+using Content.Shared.Actions;
+using Content.Shared.Polymorph;
+using Content.Shared.Actions.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 
@@ -28,6 +31,7 @@ public sealed class BingleSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -35,6 +39,7 @@ public sealed class BingleSystem : EntitySystem
         SubscribeLocalEvent<BingleComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<BingleComponent, Shared.Overlays.ToggleNightVisionEvent>(OnNightvision);
         SubscribeLocalEvent<BingleComponent, ToggleCombatActionEvent>(OnCombatToggle);
+        SubscribeLocalEvent<BingleComponent, BingleUpgradeActionEvent>(OnUpgradeAction);
     }
 
     private void OnMapInit(EntityUid uid, BingleComponent component, MapInitEvent args)
@@ -50,11 +55,18 @@ public sealed class BingleSystem : EntitySystem
         else
         {
             var query = EntityQueryEnumerator<BinglePitComponent>();
+            EntityUid? closestPit = null;
+            float closestPitDistance = float.MaxValue; // This is literally done so the algorithm below doesn't spaz out
             while (query.MoveNext(out var queryUid, out var _))
             {
-                if (cords == Transform(queryUid).Coordinates)
-                    component.MyPit = queryUid;
+                Transform(queryUid).Coordinates.TryDistance(EntityManager, cords, out var closenessOfPit);
+                if (closenessOfPit < closestPitDistance)
+                {
+                    closestPit = queryUid;
+                    closestPitDistance = closenessOfPit;
+                }
             }
+            component.MyPit = closestPit;
         }
     }
 
@@ -64,11 +76,27 @@ public sealed class BingleSystem : EntitySystem
         if (component.Upgraded)
             return;
 
-        var polyComp = EnsureComp<PolymorphableComponent>(uid);
-        _polymorph.CreatePolymorphAction("BinglePolymorph",(uid, polyComp ));
+        _actions.AddAction(uid, "ActionBingleUpgrade", uid);
 
         _popup.PopupEntity(Loc.GetString("bingle-upgrade-success"), uid, uid);
         component.Upgraded = true;
+    }
+
+    private void OnUpgradeAction(EntityUid uid, BingleComponent component, BingleUpgradeActionEvent args)
+    {
+        // This is to support 1 unified way for every bingle variant to polymorph
+        // Excuse the hard coding, I really wanted to just make a copy of BinglePolymorph prototype and use it
+        // But holy fucking shit polymorph system sucks
+        _polymorph.PolymorphEntity(uid, new PolymorphConfiguration
+        {
+            Entity = component.UpgradedID,
+            Forced = true,
+            TransferName = true,
+            TransferHumanoidAppearance = false,
+            Inventory = PolymorphInventoryChange.Drop,
+            RevertOnDeath = false,
+            RevertOnCrit = false,
+        });
     }
 
     private void OnAttackAttempt(EntityUid uid, BingleComponent component, AttackAttemptEvent args)

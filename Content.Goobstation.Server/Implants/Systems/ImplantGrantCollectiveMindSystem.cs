@@ -16,21 +16,25 @@ public sealed class ImplantGrantCollectiveMindSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ImplantGrantCollectiveMindComponent, ImplantImplantedEvent>(OnImplanted);
-        SubscribeLocalEvent<CollectiveMindComponent, ImplantRemovedFromEvent>(OnUnimplanted);
+        SubscribeLocalEvent<ImplantGrantCollectiveMindComponent, ImplantRemovedEvent>(OnRemoved);
     }
 
-    public void OnImplanted(EntityUid uid, ImplantGrantCollectiveMindComponent comp, ref ImplantImplantedEvent ev)
+    public void OnImplanted(Entity<ImplantGrantCollectiveMindComponent> ent, ref ImplantImplantedEvent args)
     {
-        if (ev.Implanted == null)
+        if (args.Implanted is not {} mob)
             return;
 
-        var mind = EnsureComp<CollectiveMindComponent>(ev.Implanted.Value);
-        mind.Channels.Add(comp.CollectiveMind);
+        var mind = EnsureComp<CollectiveMindComponent>(mob);
+        mind.Channels.Add(ent.Comp.CollectiveMind);
     }
 
-    public void OnUnimplanted(Entity<CollectiveMindComponent> ent, ref ImplantRemovedFromEvent args)
+    public void OnRemoved(Entity<ImplantGrantCollectiveMindComponent> ent, ref ImplantRemovedEvent args)
     {
-        if (TryComp<ImplantGrantCollectiveMindComponent>(args.Implant, out var implant))
-            ent.Comp.Channels.Remove(implant.CollectiveMind);
+        if (!TryComp<CollectiveMindComponent>(args.Implanted, out var comp))
+            return;
+
+        comp.Channels.Remove(ent.Comp.CollectiveMind);
+        if (comp.Channels.Count == 0)
+            RemComp(args.Implanted, comp);
     }
 }

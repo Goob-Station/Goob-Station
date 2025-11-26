@@ -1,0 +1,58 @@
+- type: damageModifierSet
+  id: Shadowling
+  coefficients:
+    Radiation: 0.3
+    Poison: 0.7
+    Cold: 0.5
+    Cellular: 0.1
+    Caustic: 0.1
+  ignoreArmorPierceFlags: All
+
+- type: damageModifierSet
+  id: ShadowlingAscending
+  coefficients:
+    Blunt: 0.0
+    Slash: 0.0
+    Piercing: 0.0
+    Shock: 0.0
+    Heat: 0.0
+    Holy: 0.0
+    Radiation: 0.0
+    Poison: 0.0
+    Cold: 0.0
+    Cellular: 0.0
+    Caustic: 0.0
+    Asphyxiation: 0.0
+  ignoreArmorPierceFlags: All
+
+- type: damageModifierSet
+  id: ShadowlingAscendant
+  coefficients:
+    Blunt: 0.4
+    Slash: 0.4
+    Piercing: 0.4
+    Shock: 0.4
+    Heat: 0.1
+    Holy: 0.1
+    Radiation: 0.0
+    Poison: 0.0
+    Cold: 0.0
+    Cellular: 0.0
+    Caustic: 0.0
+  ignoreArmorPierceFlags: All
+
+- type: damageModifierSet
+  id: ShadowlingAbomination
+  coefficients:
+    Blunt: 2.0
+    Slash: 2.0
+    Piercing: 2.0
+    Shock: 2.0
+    Heat: 2.0
+    Holy: 2.0
+    Radiation: 2.0
+    Poison: 2.0
+    Cold: 2.0
+    Cellular: 2.0
+    Caustic: 2.0
+  ignoreArmorPierceFlags: All

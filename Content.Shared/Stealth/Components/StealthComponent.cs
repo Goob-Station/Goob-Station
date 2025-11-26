@@ -120,4 +120,10 @@ public sealed partial class StealthComponent : Component
     [DataField]
     public float Threshold = 5;// Goobstation - Stealth change
 
+    /// <summary>
+    /// Is detectable by thermals?
+    /// </summary>
+    [DataField]
+    [AutoNetworkedField]
+    public bool ThermalsImmune = false; // Goobstation - Stealth change
 }

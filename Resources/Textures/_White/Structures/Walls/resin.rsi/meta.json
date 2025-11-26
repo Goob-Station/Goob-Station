@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "copyright": "Taken from https://github.com/tgstation/tgstation/blob/master/icons/obj/smooth_structures/alien/resin_wall.dmi",
+    "states": [
+        {
+            "name": "full"
+        },
+        {
+            "name": "resinwall0",
+            "directions": 4
+        },
+        {
+            "name": "resinwall1",
+            "directions": 4
+        },
+        {
+            "name": "resinwall2",
+            "directions": 4
+        },
+        {
+            "name": "resinwall3",
+            "directions": 4
+        },
+        {
+            "name": "resinwall4",
+            "directions": 4
+        },
+        {
+            "name": "resinwall5",
+            "directions": 4
+        },
+        {
+            "name": "resinwall6",
+            "directions": 4
+        },
+        {
+            "name": "resinwall7",
+            "directions": 4
+        }
+    ]
+}

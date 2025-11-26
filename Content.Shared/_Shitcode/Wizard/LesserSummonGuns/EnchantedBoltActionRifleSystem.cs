@@ -9,6 +9,7 @@ using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Throwing;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -30,6 +31,7 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly SharedWieldableSystem _wieldable = default!;
+    [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
 
     public override void Initialize()
     {
@@ -59,15 +61,15 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
         if (!TryComp(user, out HandsComponent? hands))
             return;
 
-        var oldHand = hands.ActiveHand;
+        var oldHand = _hands.GetActiveHand((user, hands));
 
-        if (oldHand == null || oldHand.HeldEntity != uid)
+        if (oldHand == null || _hands.GetHeldItem((user, hands), oldHand) != uid)
             return;
 
         if (TryComp(uid, out WieldableComponent? wieldable))
             _wieldable.TryUnwield(uid, wieldable, user, true);
 
-        if (!_hands.TryDrop(user, oldHand, null, false, false, hands))
+        if (!_hands.TryDrop((user, hands), oldHand, null, false, false))
             return;
 
         // This is required so that muzzle flash faces where it should face
@@ -89,16 +91,16 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
         if (comp.Caster != null && comp.Caster != user)
             return;
 
-        Hand? otherHand = null;
+        string? otherHand = null;
 
-        foreach (var hand in _hands.EnumerateHands(user, hands))
+        foreach (var hand in _hands.EnumerateHands((user, hands)))
         {
             if (hand == oldHand)
                 continue;
 
             otherHand = hand;
 
-            if (hand.HeldEntity == null)
+            if (IsHandValid((user, hands), hand))
                 break;
         }
 
@@ -108,8 +110,8 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
 
         if (otherHand != null)
         {
-            _hands.SetActiveHand(user, otherHand, hands);
-            if (otherHand.HeldEntity != null)
+            _hands.SetActiveHand((user, hands), otherHand);
+            if (!IsHandValid((user, hands), otherHand))
                 ResetDelays(gun);
             else
                 pickUpHand = otherHand;
@@ -117,7 +119,7 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
         else
             ResetDelays(gun);
 
-        if (!_hands.TryPickup(user, gun, pickUpHand, false, false, hands))
+        if (!_hands.TryPickup(user, gun, pickUpHand, false, false, false, hands))
             QueueDel(gun);
 
         var newComp = EnsureComp<EnchantedBoltActionRifleComponent>(gun);
@@ -127,6 +129,11 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
 
         if (TryComp(gun, out WieldableComponent? newWieldable))
             _wieldable.TryWield(gun, newWieldable, user, false);
+    }
+
+    private bool IsHandValid(Entity<HandsComponent> ent, string hand)
+    {
+        return _hands.GetHeldItem(ent!, hand) == null;
     }
 
     private void ResetDelays(EntityUid uid)

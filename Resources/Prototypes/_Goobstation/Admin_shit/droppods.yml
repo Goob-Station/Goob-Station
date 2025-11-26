@@ -1,0 +1,69 @@
+- type: entity
+  parent: BaseItem
+  id: DropPodspawner
+  name: drop pod
+  description: Place items you want players to recieve in the bag, activate it over where you want the pod to drop. Players cannot see the pod. To drop living beings, drag them into the pod (like strapping someone onto a chair).
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/DropPod/item.rsi
+    state: DROPPOD
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    grid:
+    - 0,0,20,20
+    maxItemSize: Ginormous
+  - type: Visibility
+    layer: 2 #ghost layer
+  - type: DragInsertContainer
+    containerId: clowncar_container
+    entryDelay: 0
+    useVerbs: false
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      clowncar_container: !type:Container
+  - type: ExtendedContainer
+    containerName: clowncar_container
+    deleteContentsOnBreak: false
+    capacity: 999
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ExplosionResistance
+    damageCoefficient: 0
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: OnUseTimerTrigger
+    delay: 0.9
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        offset: 0
+        spawn:
+          SpawnSupplyEmpty:
+            min: 1
+            max: 1
+    - trigger:
+        !type:DamageTrigger
+        damage: 1100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: TwoStageTrigger
+    triggerDelay: 1
+    components:
+      - type: DamageOverTime
+        damage:
+          types:
+            Slash: 50
+        interval: 0.5
+        ignoreResistances: true
+      - type: AnchorOnTrigger
+

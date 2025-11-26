@@ -170,7 +170,26 @@
   - type: StaticPrice
     price: 500
   - type: Multishot # Goobstation V
+    missChance: 0.4
     spreadMultiplier: 2
+    spreadAddition: 40
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
+  - type: EmitSoundOnPickup
+    sound:
+      collection: PistolsPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: PistolsDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: PistolsDrop
+  # Goobstation edit end
   - type: AltFireMelee
     attackType: Heavy
   - type: MeleeWeapon
@@ -214,6 +233,8 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 1000
 
 - type: entity
   name: echis
@@ -299,6 +320,8 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 1500
 
 - type: entity
   name: mk 58

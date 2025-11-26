@@ -19,3 +19,21 @@
     proto: MasterBotanist
   equipment:
     head: ClothingHeadHatBeretSeniorBotanist
+
+- type: loadout
+  id: BotanistEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitHydroponics
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: BotanistEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmHydroponics
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

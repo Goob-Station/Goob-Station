@@ -67,7 +67,7 @@ namespace Content.Server._Goobstation.Antag
             if (success)
                 _sawmill.Debug($"Successfully set LastRolledAntag for {userId} from {oldTime} to {time}");
             else
-                _sawmill.Error($"Failed to set LastRolledAntag for {userId}. Player not found or other issue.");
+                _sawmill.Debug($"Failed to set LastRolledAntag for {userId}. Player not found or other issue.");
         }
 
         /// <summary>

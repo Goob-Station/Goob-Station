@@ -57,7 +57,7 @@ public partial class CloneProjectorSystem
         var destroyedPopup = Loc.GetString("gemini-projector-clone-destroyed");
         _popup.PopupEntity(destroyedPopup, host, host, PopupType.LargeCaution);
 
-        if (!projector.Comp.StunOnDestroyed)
+        if (!projector.Comp.DoStun)
             return;
 
         _stun.TryParalyze(host, projector.Comp.StunDuration, true);
@@ -87,7 +87,7 @@ public partial class CloneProjectorSystem
             duration = projector.Comp.StunDuration;
 
         TryInsertClone(projector, true);
-        if (projector.Comp.StunOnDestroyed)
+        if (projector.Comp.DoStun)
             _stun.TryParalyze(host, duration, true);
 
         var destroyedPopup = Loc.GetString("gemini-projector-clone-destroyed");

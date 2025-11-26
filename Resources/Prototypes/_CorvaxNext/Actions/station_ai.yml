@@ -1,14 +1,18 @@
+# SPDX-FileCopyrightText: 2025 AgentePanela <agentepanela@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 ImHoks <142083149+ImHoks@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 KillanGenifer <killangenifer@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: BaseAction
   id: ActionBackToAi
   name: Back to Ai
   description: Sends your mind back to the core.
   components:
-  - type: InstantAction
+  - type: Action
     checkConsciousness: false
     checkCanInteract: false
     priority: -9
@@ -16,19 +20,22 @@
     icon:
       sprite: Interface/Actions/actions_ai.rsi
       state: ai_core
+  - type: InstantAction
     event: !type:ReturnMindIntoAiEvent
-    
+
 - type: entity
+  parent: BaseAction
   id: ActionOpenRemoteDevicesMenu
   name: Open list of remote devices
   description: Opens a menu with available remote devices.
   components:
-  - type: InstantAction
+  - type: Action
     checkConsciousness: false
     checkCanInteract: false
     priority: -9
     itemIconStyle: BigAction
-    event: !type:ToggleRemoteDevicesScreenEvent
     icon:
-      sprite: Mobs/Silicon/chassis.rsi
-      state: robot
+      sprite: Interface/Actions/actions_ai.rsi
+      state: borg_control
+  - type: InstantAction
+    event: !type:ToggleRemoteDevicesScreenEvent

@@ -10,18 +10,6 @@
 reagent-name-stasizium = Stasizium
 reagent-desc-stasizium = An unstable fluid of future capable of restoring the patient's body to its original state. However, an overdose can tear the body apart.
 
-reagent-name-fleshmend = Changeling Fleshmenders
-reagent-desc-fleshmend = Tons of singlecell organisms focused soley on restoring the changeling to peak physical health
-reagent-popup-fleshmend = Our wounds knit together and dissipate.
-
-reagent-name-panacea = Changeling Panacea
-reagent-desc-panacea = Tons of singlecell organisms focused soley on purging the changeling of toxic chemicals.
-reagent-popup-panacea = Our cells reconstruct.
-
-reagent-name-lingdrenaline = Changeling Adrenaline
-reagent-desc-lingdrenaline = A reserve of potent adrenaline stored in a gland capable of immediately recovering a changeling from any fatigue.
-reagent-popup-lingdrenaline = Our entire body violently jitters and shakes.
-
 reagent-name-probital = probital
 reagent-desc-probital = Forces patient's body to spend its energy creating more healing compounds. Overdose exhausts body, forcing what effectively amounts to power naps.
 

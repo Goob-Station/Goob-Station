@@ -18,3 +18,20 @@
 #     entries:
 #     - id: MobSkibidiToilet
 #       prob: 0.05
+
+- type: entity
+  parent: BaseGameRule
+  id: FloorGoblinSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 0
+    minimumPlayers: 15
+    weight: 5
+    reoccurrenceDelay: 30
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: 0
+  - type: VentCrittersRule
+    max: 1
+    table:
+      id: MobFloorGoblin

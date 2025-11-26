@@ -1,0 +1,56 @@
+{
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/tgstation/tgstation/blob/master/icons/mob/actions/actions_xeno.dmi",
+    "version": 1,
+    "size": { "y": 32, "x": 32 },
+    "states": [
+        {
+            "name": "harm"
+        },
+        {
+            "name": "help"
+        },
+        {
+            "name": "vision_on"
+        },
+        {
+            "name": "vision_off"
+        },
+        {
+            "name": "leap_off"
+        },
+        {
+            "name": "leap_on"
+        },
+        {
+            "name": "plant_seed"
+        },
+        {
+            "name": "tail_attack"
+        },
+        {
+            "name": "plasma_transfer_off"
+        },
+        {
+            "name": "plasma_transfer_on"
+        },
+        {
+            "name": "promote"
+        },
+        {
+            "name": "acid"
+        },
+        {
+            "name": "egg"
+        },
+        {
+            "name": "evolve"
+        },
+        {
+            "name": "evolve_praetorian"
+        },
+        {
+            "name": "evolve_queen"
+        }
+    ]
+}

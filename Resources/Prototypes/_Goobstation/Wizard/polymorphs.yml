@@ -69,6 +69,7 @@
     inventory: None
     revertOnCrit: true
     revertOnDeath: true
+    skipRevertConfirmation: true
 
 - type: polymorph
   id: WizardWabbajack

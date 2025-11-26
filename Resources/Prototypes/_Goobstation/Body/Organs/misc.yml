@@ -17,3 +17,35 @@
   - type: Organ
     onAdd:
     - type: SandevistanUser
+
+- type: entity
+  parent: [OrganHumanHeart, BaseSyndicateContraband]
+  id: SyndicateBerserkerHeart
+  name: berserker heart
+  description: A next-gen combat circulatory core that allows the user to enter a berserk state, greatly increasing their speed and reflexes for a short time at the cost of endurance and some pain resistance. Highly illegal.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/berserker_heart.rsi
+    state: icon
+    scale: 0.5, 0.5
+  - type: OrganActions
+    actions:
+    - ActionActivateBerserkerImplant
+
+- type: entity
+  parent: [OrganHumanHeart, BaseSyndicateContraband]
+  id: SyndicateJumpstarterHeart
+  name: jumpstarter heart
+  description: A next-gen combat circulatory core that injects a large amount of omnizine into the user's bloodstream when they are critically injured, saving them from death. Highly illegal.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/jumpstarter_heart.rsi
+    state: icon
+    scale: 0.5, 0.5
+  - type: Organ
+    onAdd:
+    - type: InjectOnMobState
+      reagents:
+        Omnizine: 75
+        TranexamicAcid: 5
+        DexalinPlus: 15

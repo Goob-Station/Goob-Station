@@ -1,0 +1,55 @@
+- type: language
+  id: Cheval
+  isVisibleLanguage: true
+  speech:
+    color: "#964B00"
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 2
+    replacement:
+      - h'an
+      - brron
+      - ch'neigh
+      - d'huff
+      - d'whinn
+      - h'el
+      - henn
+      - h'et
+      - h'rru
+      - f'rrr
+      - fil'ip
+      - f'snort
+      - g'harr
+      - h'il
+      - j'hee
+      - l'naay
+      - le'hay
+      - l'hick
+      - m'naay
+      - m'heh
+      - m'hinny
+      - m'hon
+      - neigh
+      - n'hon
+      - n'huu
+      - h'un
+      - h'ouff
+      - p'harr
+      - p'heu
+      - p'hee
+      - p'hoof
+      - qu'whick
+      - qu'hee
+      - r'hay
+      - s'naay
+      - s'neh
+      - s'hee
+      - t'heh
+      - t'wha
+      - t'hon
+      - t'huu
+      - v'hay
+      - v'herr
+      - v'hee
+      - v'huu

@@ -1,0 +1,105 @@
+# MARAUDER
+
+- type: entity
+  id: ShipMediumPlasmaProjectile
+  name: plasma projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 500
+        Heat: 200
+        Ion: 50
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
+    layers:
+    - state: plasmashot
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 2.5
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 3.3
+  - type: PointLight
+    radarColor: "#C92BCC"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 80
+    intensitySlope: 4
+    maxIntensity: 15
+    maxTileBreak: 2
+
+# RUBICON
+
+- type: entity
+  id: ShipRubiconProjectile
+  name: EMP projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 600
+        Heat: 250
+        Ion: 100
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#035EFC"
+    scale: 2
+    requireNoGrid: true
+    shape: circle
+  - type: TimedDespawn
+    lifetime: 3.3
+  - type: PointLight
+    color: "#FB00FF"
+  - type: EmpOnTrigger
+    range: 4
+    energyConsumption: 2700000
+    disableDuration: 5
+
+# DYMERE
+
+- type: entity
+  id: ShipDymereProjectile
+  name: Ionized Gas Projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 1000
+        Heat: 500
+      armorPenetration: 1
+    penetrationThreshold: 1000
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/turbolaser_shot.rsi
+    layers:
+    - state: turbolaser-shot
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 3.5
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 4.4
+  - type: PointLight
+    color: "#6BC1FF"
+  - type: GatheringProjectile

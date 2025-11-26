@@ -67,3 +67,27 @@
       effects:
       - !type:SatiateThirst
         factor: 4
+
+- type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottlePlasticSmallBaseFull]
+  id: DrinkMilkBottleFull
+  name: milk bottle
+  description: How do plasmamen even drink this?
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Milk
+          Quantity: 30
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/waterbottle.rsi
+  - type: SolutionContainerVisuals
+    inHandsMaxFillLevels: 2
+    inHandsFillBaseName: -fill-
+  - type: Label
+    currentLabel: reagent-name-milk
+  - type: Sealable
+  - type: Tag # Goobstation
+    tags:
+    - DrinkBottle

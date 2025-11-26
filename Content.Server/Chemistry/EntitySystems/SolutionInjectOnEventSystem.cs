@@ -18,6 +18,7 @@ using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Components;
 using Content.Shared.Chemistry.Components; // GoobStation
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
@@ -191,7 +192,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             // Adjust solution amount based on transfer efficiency
             var solutionToInject = removedSolution.SplitSolution(removedSolution.Volume * injector.Comp.TransferEfficiency);
             // Inject our portion into the target's bloodstream
-            if (_bloodstream.TryAddToChemicals(target, solutionToInject, bloodstream))
+            if (_bloodstream.TryAddToChemicals((target, bloodstream), solutionToInject))
                 anySuccess = true;
         }
         // Goobstation - Armor resisting syringe gun

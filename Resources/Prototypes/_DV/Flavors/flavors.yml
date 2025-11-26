@@ -1,0 +1,9 @@
+- type: flavor
+  id: UnholyWater
+  flavorType: Complex
+  description: flavor-complex-unholy-water
+
+- type: flavor
+  id: BeastBlood
+  flavorType: Complex
+  description: flavor-complex-beast-blood

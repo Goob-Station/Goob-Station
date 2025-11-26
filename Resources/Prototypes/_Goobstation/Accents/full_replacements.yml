@@ -2,8 +2,13 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 loltart <159829224+loltart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 unknown <Administrator@DESKTOP-PMRIVVA.kommune.indresogn.no>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -14,17 +19,12 @@
   fullReplacements:
   - accent-words-gondola-1
 
+
 - type: accent
-  id: bingle
+  id: horse
   fullReplacements:
-  - bingle-accent-1  # for the odds
-  - bingle-accent-1
-  - bingle-accent-1
-  - bingle-accent-1
-  - bingle-accent-1
-  - bingle-accent-1
-  - bingle-accent-1
-  - bingle-accent-2
-  - bingle-accent-3
-  - bingle-accent-4
-  - bingle-accent-5
+  - accent-words-horsemob-1
+  - accent-words-horsemob-2
+  - accent-words-horsemob-3
+  - accent-words-horsemob-4
+  - accent-words-horsemob-5

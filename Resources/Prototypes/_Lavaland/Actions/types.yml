@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseAction
+  id: ActionTogglePKALight
+  name: Toggle PKA Light
+  description: Toggle the PKA light on and off.
+  components:
+  - type: Action
+    useDelay: 0.5
+    icon: { sprite: Objects/Tools/seclite.rsi, state: seclite }
+  - type: InstantAction
+    event: !type:ToggleActionEvent

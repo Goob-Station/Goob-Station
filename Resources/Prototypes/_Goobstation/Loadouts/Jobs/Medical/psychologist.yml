@@ -1,0 +1,17 @@
+- type: loadout
+  id: PsychologistEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitEnviroslacksPsychologist
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: PsychologistEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmMedicalDoctor
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

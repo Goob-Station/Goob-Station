@@ -81,10 +81,12 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitReporter
 
+
 - type: loadout
   id: ReporterDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtReporter
+
 
 - type: loadout
   id: JournalistJumpsuit

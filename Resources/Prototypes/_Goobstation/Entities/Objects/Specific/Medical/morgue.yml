@@ -1,0 +1,34 @@
+- type: entity
+  id: ChemistryBottleFormaldehyde
+  suffix: formaldehyde
+  name: embalming fluid bottle
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-formaldehyde
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Formaldehyde
+          Quantity: 30
+
+- type: entity
+  id: CrateMorgue
+  parent: CrateMedical
+  name: morgue supplies
+  description: Contains 1x bible, 1x syringe, 2x "embalming fluid bottle", 10x body bag, 1x coffin.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ChemistryBottleFormaldehyde
+      amount: 2
+    - id: Bible
+      amount: 1
+    - id: Syringe
+      amount: 1
+    - id: BoxBodyBag
+      amount: 10
+    - id: CrateCoffin
+      amount: 1

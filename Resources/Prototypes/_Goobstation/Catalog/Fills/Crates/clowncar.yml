@@ -17,6 +17,19 @@
     - id: BikeHorn
 
 - type: entity
+  id: CrateFunClownCarNukieUplink
+  parent: CrateSyndicate
+  name: clown car crate
+  description: Contains one car, Clown not included
+  suffix: Uplink item
+  components:
+  - type: StorageFill
+    contents:
+    - id: VehicleClowncarAntag
+    - id: BikeHorn
+    - id: ClumsyImplanter
+
+- type: entity
   id: CrateFunClownCarCargo
   parent: CrateLivestock
   name: clown car crate

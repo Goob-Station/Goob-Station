@@ -119,6 +119,8 @@ public sealed class SuicideCommandTests
   components:
   - type: MaterialReclaimer";
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
+    private static readonly ProtoId<DamageTypePrototype> DamageType = "Slash";
+
     /// <summary>
     /// Run the suicide command in the console
     /// Should successfully kill the player and ghost them
@@ -212,8 +214,8 @@ public sealed class SuicideCommandTests
             mobThresholdsComp = entManager.GetComponent<MobThresholdsComponent>(player);
             damageableComp = entManager.GetComponent<DamageableComponent>(player);
 
-            if (protoMan.TryIndex<DamageTypePrototype>("Slash", out var slashProto))
-                damageableSystem.TryChangeDamage(player, new DamageSpecifier(slashProto, FixedPoint2.New(47)));
+            if (protoMan.TryIndex(DamageType, out var slashProto))
+                damageableSystem.TryChangeDamage(player, new DamageSpecifier(slashProto, FixedPoint2.New(46.5)));
         });
 
         // Check that running the suicide command kills the player
@@ -335,7 +337,7 @@ public sealed class SuicideCommandTests
         await server.WaitPost(() =>
         {
             var item = entManager.SpawnEntity("SharpTestObject", transformSystem.GetMapCoordinates(player));
-            Assert.That(handsSystem.TryPickup(player, item, handsComponent.ActiveHand!));
+            Assert.That(handsSystem.TryPickup(player, item, handsComponent.ActiveHandId!));
             entManager.TryGetComponent<ExecutionComponent>(item, out var executionComponent);
             Assert.That(executionComponent, Is.Not.EqualTo(null));
         });
@@ -410,7 +412,7 @@ public sealed class SuicideCommandTests
         await server.WaitPost(() =>
         {
             var item = entManager.SpawnEntity("MixedDamageTestObject", transformSystem.GetMapCoordinates(player));
-            Assert.That(handsSystem.TryPickup(player, item, handsComponent.ActiveHand!));
+            Assert.That(handsSystem.TryPickup(player, item, handsComponent.ActiveHandId!));
             entManager.TryGetComponent<ExecutionComponent>(item, out var executionComponent);
             Assert.That(executionComponent, Is.Not.EqualTo(null));
         });

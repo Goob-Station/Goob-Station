@@ -22,6 +22,23 @@
   name: signal-port-name-contraband-detected
   description: signal-port-description-contraband-detected
 
+- type: sourcePort
+  id: Powered
+  name: signal-port-name-powered
+  description: signal-port-description-powered
+
+# Plumbing
+
+- type: sourcePort
+  id: PlumbingOutput
+  name: signal-port-name-plumbing-output
+  description: signal-port-description-plumbing-output
+
+- type: sourcePort
+  id: PlumbingDispenser
+  name: signal-port-name-plumbing-dispenser
+  description: signal-port-description-plumbing-dispenser
+
 # Robotic Arm
 
 - type: sourcePort
@@ -126,6 +143,13 @@
   id: AutomationSlotGasTank
   name: signal-port-name-automation-slot-gas-tank
   description: signal-port-description-automation-slot-gas-tank
+
+# ChemMaster
+
+- type: sourcePort
+  id: AutomationSlotBottles
+  name: signal-port-name-automation-slot-bottles
+  description: signal-port-description-automation-slot-bottles
 
 # Radiation Collector
 

@@ -1,0 +1,368 @@
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mnemotechnican <69920617+Mnemotechnician@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# One of 5 languages that Tajara could speak, lore-wise best choice since others (lore wise) rely on gesticulation too
+# Short name is Maas
+# To quote: "The traditionally employed tongue of Adhomai, comprised of expressive yowls and chirps. Native to the Tajara"
+- type: language
+  id: SiikMaas
+  isVisibleLanguage: true
+  speech:
+    color: "#d6a36eee" # Goob Edit - Make more unique from Vulpkanin
+    # fontId: Noganas # Rugged, like the people and the land #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 2 # this is mostly based on the name generator, 2-4 is there so it goes here too
+    maxSyllables: 4
+    replacement:
+    - mrr
+    - rr
+    - tajr
+    - kir
+    - raj
+    - kii
+    - mir
+    - kra
+    - ahk
+    - nal
+    - vah
+    - khaz
+    - jri
+    - ran
+    - darr
+    - mi
+    - jri
+    - dynh
+    - manq
+    - rhe
+    - zar
+    - rrhaz
+    - kal
+    - chur
+    - eech
+    - thaa
+    - dra
+    - jurl
+    - mah
+    - sanu
+    - dra
+    - ii'r
+    - ka
+    - aasi
+    - far
+    - wa
+    - baq
+    - ara
+    - qara
+    - zir
+    - sam
+    - mak
+    - hrar
+    - nja
+    - rir
+    - khan
+    - jun
+    - dar
+    - rik
+    - kah
+    - hal
+    - ket
+    - jurl
+    - mah
+    - tul
+    - cresh
+    - azu
+    - ragh
+    - mro
+    - mra
+    - mrro
+    - mrra
+
+# Tajaran sign language. Crucially, only tajara can "speak" it, due to need for tajara body language
+# (if they cut off your tail or ears you shouldn't be able to speak it, but well)
+- type: language
+  id: NalRasan
+  speech:
+    allowRadio: false
+    requireSpeech: false
+    requireLOS: true # Floofstation - Check Line-Of-Sight
+    color: "#dddddd"
+    messageWrapOverrides:
+      Speak: chat-sign-tajaran-language-message-wrap
+      Whisper: chat-sign-tajaran-language-whisper-wrap
+    speechVerbOverrides:
+    - chat-speech-verb-sign-nalrasan-1
+    - chat-speech-verb-sign-nalrasan-2
+    - chat-speech-verb-sign-nalrasan-3
+    - chat-speech-verb-sign-nalrasan-4
+    - chat-speech-verb-sign-nalrasan-5
+    - chat-speech-verb-sign-nalrasan-6
+    - chat-speech-verb-sign-nalrasan-7
+    - chat-speech-verb-sign-nalrasan-8
+    - chat-speech-verb-sign-nalrasan-9
+    - chat-speech-verb-sign-nalrasan-10
+    - chat-speech-verb-sign-nalrasan-11
+    - chat-speech-verb-sign-nalrasan-12
+    - chat-speech-verb-sign-nalrasan-13
+    - chat-speech-verb-sign-nalrasan-14
+    - chat-speech-verb-sign-nalrasan-15
+    - chat-speech-verb-sign-nalrasan-16
+    - chat-speech-verb-sign-nalrasan-17
+  obfuscation:
+    !type:ReplacementObfuscation
+    replacement:
+    - "" # basically we can't get around this, so let's pretend that it's alright while crying
+
+# One of 5 languages that Tajara could speak, this one is Tajara exclusive, and get some cool stuff thanks to that (non-verbal element)
+# Short name is Tajr
+# To quote: "Language native to the Tajara, it employs both verbal and non-verbal elements"
+- type: language
+  id: SiikTajr
+  isVisibleLanguage: true
+  speech:
+    color: "#f58c9aee" # Bright red, to push this energy through
+    fontId: Sriracha # relatively energetic, portraying the body movement I suppose
+    allowRadio: true # It's actually ok, since message wrap overrides are broken for radio, yipee?
+    requireSpeech: false
+    messageWrapOverrides:
+      Speak: chat-sign-tajaran-language-message-wrap
+      Whisper: chat-sign-tajaran-language-whisper-wrap
+    speechVerbOverrides:
+    - chat-speech-verb-sign-siiktajr-1
+    - chat-speech-verb-sign-siiktajr-2
+    - chat-speech-verb-sign-siiktajr-3
+    - chat-speech-verb-sign-siiktajr-4
+    - chat-speech-verb-sign-siiktajr-5
+    - chat-speech-verb-sign-siiktajr-6
+    - chat-speech-verb-sign-siiktajr-7
+    - chat-speech-verb-sign-siiktajr-8
+    - chat-speech-verb-sign-siiktajr-9
+    - chat-speech-verb-sign-siiktajr-10
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 2
+    maxSyllables: 3 # shorter cuz dual lingo i suppose
+    replacement:
+    - mrr
+    - rr
+    - tajr
+    - kir
+    - raj
+    - kii
+    - mir
+    - kra
+    - ahk
+    - nal
+    - vah
+    - khaz
+    - jri
+    - ran
+    - darr
+    - mi
+    - jri
+    - dynh
+    - manq
+    - rhe
+    - zar
+    - rrhaz
+    - kal
+    - chur
+    - eech
+    - thaa
+    - dra
+    - jurl
+    - mah
+    - sanu
+    - dra
+    - ii'r
+    - ka
+    - aasi
+    - far
+    - wa
+    - baq
+    - ara
+    - qara
+    - zir
+    - sam
+    - mak
+    - hrar
+    - nja
+    - rir
+    - khan
+    - jun
+    - dar
+    - rik
+    - kah
+    - hal
+    - ket
+    - jurl
+    - mah
+    - tul
+    - cresh
+    - azu
+    - ragh
+    - mro
+    - mra
+    - mrro
+    - mrra
+
+
+# One of 5 languages that Tajara could speak, this one is your classic "The Nobility Language", also should have no translators availible
+# Short name is Yas
+# To quote: "The traditional language of the tajaran nobility"
+- type: language
+  id: YaSsa
+  isVisibleLanguage: true
+  speech:
+    color: "#9a69f5ee" # More or less the color of nobility
+    fontId: GrenzeGotisch # Old and distinguished, but not unreadable
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 3
+    maxSyllables: 5 # since it's for nobility, we can make it a lil longer
+    replacement:
+    - hrr
+    - rhr
+    - tarj
+    - khir
+    - rajh
+    - kir
+    - mier
+    - kre
+    - ahek
+    - nlhal
+    - veh
+    - khaz
+    - dri
+    - rhan
+    - darrer
+    - mi
+    - jhri
+    - dynher
+    - manqi
+    - rhas
+    - shar
+    - drhaz
+    - kalh
+    - shur
+    - echi
+    - tha
+    - draer
+    - jurl
+    - maher
+    - sanii
+    - dra
+    - ii'r
+    - kan
+    - aesi
+    - fare
+    - we
+    - bash
+    - arha
+    - quara
+    - zhir
+    - sem
+    - make
+    - hrer
+    - nja
+    - rir
+    - can
+    - jhun
+    - dar
+    - rik
+    - kah
+    - hal
+    - kete
+    - juril
+    - mah
+    - tul
+    - cresh
+    - azu
+    - ragh
+    - miro
+    - mara
+    - mrero
+    - mrara
+
+
+# One of 5 languages that Tajara could speak, this one is the dialect lingo
+# Short name is Del
+# To quote: "A dialect developed by the Zhan-Khazan communities, commonly used in religious
+# ceremonies dedicated to the Snow God and amongst settlements comprised mostly of Zhan-Khazan"
+- type: language
+  id: Delvahii
+  isVisibleLanguage: true
+  speech:
+    color: "#b1c472ee" # Green, color of grass, of change, and of spring
+    fontId: RubikDirt # Aptly named
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 2
+    maxSyllables: 4 # again, normal length
+    replacement:
+    - mrr
+    - rr
+    - tajr
+    - kir
+    - raj
+    - kii
+    - mir
+    - kra
+    - ahk
+    - nal
+    - vah
+    - khaz
+    - jri
+    - ran
+    - darr
+    - mi
+    - jri
+    - dynh
+    - manq
+    - rhe
+    - zar
+    - rrhaz
+    - kal
+    - chur
+    - eech
+    - thaa
+    - dra
+    - jurl
+    - mah
+    - sanu
+    - dra
+    - ii'r
+    - ka
+    - aasi
+    - far
+    - wa
+    - baq
+    - ara
+    - qara
+    - zir
+    - sam
+    - mak
+    - hrar
+    - nja
+    - rir
+    - khan
+    - jun
+    - dar
+    - rik
+    - kah
+    - hal
+    - ket
+    - jurl
+    - mah
+    - tul
+    - cresh
+    - azu
+    - ragh
+    - mro
+    - mra
+    - mrro
+    - mrra

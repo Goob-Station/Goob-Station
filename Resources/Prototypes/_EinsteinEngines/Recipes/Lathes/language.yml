@@ -1,0 +1,290 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Translators
+- type: latheRecipe
+  id: CanilunztTranslator
+  result: CanilunztTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: BubblishTranslator
+  result: BubblishTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: NekomimeticTranslator
+  result: NekomimeticTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: DraconicTranslator
+  result: DraconicTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: SolCommonTranslator
+  result: SolCommonTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: RootSpeakTranslator
+  result: RootSpeakTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: MofficTranslator
+  result: MofficTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: XenoTranslator
+  result: XenoTranslator
+  completetime: 2
+  materials:
+    Steel: 200
+    Plastic: 50
+    Gold: 50
+    Plasma: 50
+    Silver: 50
+
+- type: latheRecipe
+  id: AnimalTranslator
+  result: AnimalTranslator
+  completetime: 2
+  materials:
+    Steel: 200
+    Plastic: 50
+    Gold: 50
+    Plasma: 50
+    Silver: 5
+
+- type: latheRecipe
+  id: ValyrianStandardTranslator
+  result: ValyrianStandardTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: ChittinTranslator
+  result: ChittinTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: SiikMaasTranslator
+  result: SiikMaasTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: MarishTranslator
+  result: MarishTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: SchechiTranslator
+  result: SchechiTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: NewKinPidginTranslator
+  result: NewKinPidginTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: GruntishTranslator
+  result: GruntishTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+# Implanters
+- type: latheRecipe
+  abstract: true
+  id: BaseTranslatorImplanter
+  name: lathe-recipe-BaseTranslatorImplanter-name
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: BasicGalaticCommonTranslatorImplanter
+  subname: lathe-recipe-BasicGalaticCommonTranslatorImplanter-subname
+  result: BasicGalaticCommonTranslatorImplanter
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: AdvancedGalaticCommonTranslatorImplanter
+  subname: lathe-recipe-AdvancedGalaticCommonTranslatorImplanter-subname
+  result: AdvancedGalaticCommonTranslatorImplanter
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: BubblishTranslatorImplanter
+  subname: lathe-recipe-BubblishTranslatorImplanter-subname
+  result: BubblishTranslatorImplanter
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: NekomimeticTranslatorImplanter
+  subname: lathe-recipe-NekomimeticTranslatorImplanter-subname
+  result: NekomimeticTranslatorImplanter
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: DraconicTranslatorImplanter
+  subname: lathe-recipe-DraconicTranslatorImplanter-subname
+  result: DraconicTranslatorImplanter
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: CanilunztTranslatorImplanter
+  subname: lathe-recipe-CanilunztTranslatorImplanter-subname
+  result: CanilunztTranslatorImplanter
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: SolCommonTranslatorImplanter
+  subname: lathe-recipe-SolCommonTranslatorImplanter-subname
+  result: SolCommonTranslatorImplanter
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: RootSpeakTranslatorImplanter
+  subname: lathe-recipe-RootSpeakTranslatorImplanter-subname
+  result: RootSpeakTranslatorImplanter
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: MofficTranslatorImplanter
+  subname: lathe-recipe-MofficTranslatorImplanter-subname
+  result: MofficTranslatorImplanter
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: ValyrianStandardTranslatorImplanter
+  subname: lathe-recipe-ValyrianStandardTranslatorImplanter-subname
+  result: ValyrianStandardTranslatorImplanter
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: ChittinTranslatorImplanter
+  subname: lathe-recipe-ChittinTranslatorImplanter-subname
+  result: ChittinTranslatorImplanter
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: SiikMaasTranslatorImplanter
+  subname: lathe-recipe-SiikMaasTranslatorImplanter-subname
+  result: SiikMaasTranslatorImplanter
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: MarishTranslatorImplanter
+  subname: lathe-recipe-MarishTranslatorImplanter-subname
+  result: MarishTranslatorImplanter
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: SchechiTranslatorImplanter
+  subname: lathe-recipe-SchechiTranslatorImplanter-subname
+  result: SchechiTranslatorImplanter
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: NewKinPidginTranslatorImplanter
+  subname: lathe-recipe-NewKinPidginTranslatorImplanter-subname
+  result: NewKinPidginTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+- type: latheRecipe
+  id: GruntishTranslatorImplanter
+  result: GruntishTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50

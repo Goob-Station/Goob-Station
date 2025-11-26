@@ -601,8 +601,10 @@
   id: Opporozidone
   minTemp: 400 #Maybe if a method of reducing reagent temp exists one day, this could be -50
   reactants:
-    Cognizine:
-      amount: 1
+    # Cognizine: # Goob
+    #   amount: 1
+    Phalanximine:
+      amount: 2 # Goob - Easier recipe so that cloning isn't the only viable anti-rot method
     Plasma:
       amount: 2
     Doxarubixadone:

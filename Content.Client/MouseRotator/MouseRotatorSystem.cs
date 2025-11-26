@@ -67,7 +67,8 @@ public sealed class MouseRotatorSystem : SharedMouseRotatorSystem
                 rotation += 2 * Math.PI;
             RaisePredictiveEvent(new RequestMouseRotatorRotationEvent
             {
-                Rotation = rotation
+                Rotation = rotation,
+                User = GetNetEntity(player)
             });
 
             return;
@@ -87,7 +88,8 @@ public sealed class MouseRotatorSystem : SharedMouseRotatorSystem
 
         RaisePredictiveEvent(new RequestMouseRotatorRotationEvent
         {
-            Rotation = angle
+            Rotation = angle,
+            User = GetNetEntity(player)
         });
     }
 }

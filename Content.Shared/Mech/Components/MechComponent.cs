@@ -9,6 +9,9 @@
 // SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -112,6 +115,10 @@ public sealed partial class MechComponent : Component
 
     [DataField]
     public EntityWhitelist? PilotWhitelist;
+
+    [DataField]
+    public EntityWhitelist? PilotBlacklist; // Goobstation Change
+
 
     /// <summary>
     /// A container for storing the equipment entities.

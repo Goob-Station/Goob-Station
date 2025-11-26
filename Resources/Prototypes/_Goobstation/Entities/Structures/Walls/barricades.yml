@@ -1,0 +1,147 @@
+- type: entity
+  abstract: true
+  parent: BaseStructure
+  id: BaseMetalBarricade
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    layers:
+    - state: base
+  - type: Fixtures
+    fixtures:
+      cade:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.38"
+        density: 500
+        mask:
+        - FullTileMask
+        layer:
+        - TableLayer
+        - LowImpassable # no mice or crawling chuds allowed, its flush with the floor
+  - type: RotationDrawDepth
+    southDrawDepth: OverMobs
+  - type: Anchorable
+  - type: Rotatable
+  - type: Climbable
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: Barricade
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path: /Audio/_RMC14/Structures/metalhit.ogg
+  - type: Destructible
+    thresholds:
+    # these values are common to all barricades to avoid copy pasting a bunch of shit
+    # their damage modifier sets actually control how strong they are
+    - trigger: !type:DamageTrigger
+        damage: 250 # for nuke
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger: !type:DamageTrigger
+        damage: 200 # for normal destruction
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    node: base
+
+- type: entity
+  abstract: true
+  parent: BaseMetalBarricade
+  id: BaseMetalBarricadeFolding
+  components:
+  - type: Sprite
+    layers:
+    - state: folding
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Appearance
+  - type: Door
+    openSpriteState: folding_folded
+    closedSpriteState: folding
+    # all of these are what RMC uses
+    canPry: false
+    occludes: false
+    changeAirtight: false
+    bumpOpen: false
+    clickOpen: true
+    canCrush: false
+    closeTimeOne: 0
+    closeTimeTwo: 0
+    openTimeOne: 0
+    openTimeTwo: 0
+    openingAnimationTime: 0
+    closingAnimationTime: 0
+    # Allow you to close barricades while people are standing on them or multiple are wrenched in the same tile
+    performCollisionCheck: false
+    openSound:
+      path: /Audio/Items/ratchet.ogg
+    closeSound:
+      path: /Audio/Items/ratchet.ogg
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xenomorph
+  - type: AnimationPlayer
+  - type: Construction
+    node: folding
+
+# Steel
+
+- type: entity
+  abstract: true
+  id: BaseBarricadeSteel
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Walls/Barricades/steel.rsi
+  - type: Damageable
+    damageModifierSet: BarricadeSteel
+  - type: Construction
+    graph: BarricadeSteel
+
+- type: entity
+  parent: [BaseMetalBarricade, BaseBarricadeSteel]
+  id: BarricadeSteel
+  name: steel barricade
+  description: A tough barricade built to keep the bad out.
+
+- type: entity
+  parent: [BaseMetalBarricadeFolding, BaseBarricadeSteel]
+  id: BarricadeSteelFolding
+  name: folding steel barricade
+  description: A tough barricade built to keep the bad out. This one can be opened with a latch.
+  components:
+  - type: Damageable
+    damageModifierSet: BarricadeSteelFolding
+
+# Plasteel
+
+- type: entity
+  abstract: true
+  id: BaseBarricadePlasteel
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Walls/Barricades/plasteel.rsi
+  - type: Damageable
+    damageModifierSet: BarricadePlasteel
+  - type: Construction
+    graph: BarricadePlasteel
+
+- type: entity
+  parent: [BaseMetalBarricade, BaseBarricadePlasteel]
+  id: BarricadePlasteel
+  name: plasteel barricade
+  description: A hardened barricade built to keep the extra bad out.
+
+- type: entity
+  parent: [BaseMetalBarricadeFolding, BaseBarricadePlasteel]
+  id: BarricadePlasteelFolding
+  name: folding plasteel barricade
+  description: A hardened barricade built to keep the extra bad out. This one can be opened with a latch.
+  components:
+  - type: Damageable
+    damageModifierSet: BarricadePlasteelFolding

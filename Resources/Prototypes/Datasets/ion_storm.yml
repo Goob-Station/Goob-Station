@@ -70,13 +70,19 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 KamTheSythe <kamil.dolowiec01@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Thomas <87614336+Aeshus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Utmanarn <Utmanarn@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -366,6 +372,7 @@
   - URANUS
   - VENUS
   - YOUR DREAMS AND/OR NIGHTMARES
+  - EQUESTRIA # Goobstation
 
 # Abstract concepts for the law holder to decide on it's own definition of.
 - type: dataset
@@ -1009,6 +1016,29 @@
   - TRAITORS
   - TRASH
   - VEGETABLES
+  # Goobstation - THE ROT CONSUMES
+  - BALDMINS
+  - SHITMINS
+  - CHUDMINS
+  - SHITCODERS
+  - CHUDTAINERS
+  - MAINTAINERS WHO DONT PLAY THE GAME
+  - SHITCODE
+  - SUPERCODE
+  - GOIDACODE
+  - JOB
+  - EMPLOYMENT
+  - CHUDS
+  - DURK'S STEAK AND WINE
+  - THE SWAP
+  - FELINID-FREE COMMAND
+  - FIVE HUNDRED CIGARETTES
+  - PONIES
+  - EVERYPONY
+  - CUTIE MARKS
+  - DARKHOOF DREADMANE
+  - RUSSIAN RAIDERS
+  - FEDERAL AGENTS
 
 # Specific actions that either harm humans or must be done to not
 # harm humans. Make sure they're plural and "not" can be tacked

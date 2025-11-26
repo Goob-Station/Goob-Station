@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from TG Station's Files",
+  "copyright": "Taken from TG Station's Files, gauntlet shader fixed by ShieldAcrados",
   "size": {
     "x": 32,
     "y": 32
@@ -37,6 +37,10 @@
     },
     {
       "name": "equipped-HAND-sealed",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HAND-sealed-unshaded",
       "directions": 4
     },
     {

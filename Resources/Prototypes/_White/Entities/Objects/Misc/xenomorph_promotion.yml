@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseItem
+  id: XenomorphPromotion
+  name: royal parasite
+  description: Inject this into one of your grown children to promote her to a Praetorian!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Misc/xenomorph_promotion.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+  - type: Unremoveable
+    deleteOnDrop: true
+  - type: XenomorphPromotion
+  - type: Tag
+    tags:
+    - XenomorphItem

@@ -52,6 +52,7 @@ surgery-popup-step-SurgeryStepOpenOrganSlot = {$user} is opening a cavity in {$t
 
 surgery-popup-procedure-SurgeryRemoveBrain-step-SurgeryStepRemoveOrgan = {$user} is removing the brain from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryRemoveHeart-step-SurgeryStepRemoveOrgan = {$user} is removing the heart from {$target}'s {$part}!
+surgery-popup-procedure-SurgeryRemovePump-step-SurgeryStepRemoveOrgan = {$user} is removing the pump from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryRemoveLiver-step-SurgeryStepRemoveOrgan = {$user} is removing the liver from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryRemoveLungs-step-SurgeryStepRemoveOrgan = {$user} is removing the lungs from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryRemoveEyes-step-SurgeryStepRemoveOrgan = {$user} is removing the eyes from {$target}'s {$part}!
@@ -62,6 +63,7 @@ surgery-popup-step-SurgeryStepInsertLungs = {$user} is inserting lungs into {$ta
 surgery-popup-step-SurgeryStepInsertLiver = {$user} is inserting a liver into {$target}'s {$part}!
 surgery-popup-step-SurgeryStepInsertEyes = {$user} is inserting eyes into {$target}'s {$part}!
 surgery-popup-step-SurgeryStepInsertHeart = {$user} is inserting a heart into {$target}'s {$part}!
+surgery-popup-step-SurgeryStepInsertPump = {$user} is inserting a pump into {$target}'s {$part}!
 surgery-popup-step-SurgeryStepInsertStomach = {$user} is inserting a stomach into {$target}'s {$part}!
 
 surgery-popup-step-SurgeryStepSealOrganWound = {$user} is sealing the wounds on {$target}'s {$part}.
@@ -69,3 +71,29 @@ surgery-popup-step-SurgeryStepLobotomize = {$user} is lobotomizing {$target}!
 surgery-popup-step-SurgeryStepMendBrainTissue = {$user} is mending the brain tissue on {$target}'s {$part}.
 
 surgery-popup-step-SurgeryStepRemoveOrgan-failed = You couldn't remove the organ for some reason...
+
+surgery-step-acid-popup = Acidic blood squirts out of {$target}'s {$part}!
+surgery-popup-step-SurgeryStepXenoCutExoskeleton = {$user} is scoring the exoskeleton of {$target}'s {$part}.
+surgery-popup-step-SurgeryStepXenoClampBleeders = {$user} is clamping acid vessels of {$target}'s {$part}.
+surgery-popup-step-SurgeryStepXenoSeverPlasma = {$user} is severing plasma connections of {$target}'s {$part}.
+surgery-popup-step-SurgeryStepXenoRetractExoskeleton = {$user} is retracting the exoskeleton of {$target}'s {$part}.
+surgery-popup-step-SurgeryStepXenoSawExoskeleton = {$user} is sawing through the exoskeleton of {$target}'s {$part}.
+surgery-popup-step-SurgeryStepXenoMendExoskeleton = {$user} is rejoining the exoskeleton of {$target}'s {$part}.
+surgery-popup-step-SurgeryStepXenoCloseExoskeleton = {$user} is closing the exoskeleton of {$target}'s {$part}.
+surgery-popup-step-SurgeryStepXenoRetractEndoskeleton = {$user} is retracting the endoskeleton of {$target}'s {$part}.
+surgery-popup-step-SurgeryStepXenoSawEndoskeleton = {$user} is sawing through the endoskeleton of {$target}'s {$part}.
+surgery-popup-step-SurgeryStepXenoMendEndoskeleton = {$user} is rejoining the endoskeleton of {$target}'s {$part}.
+surgery-popup-step-SurgeryStepXenoCloseEndoskeleton = {$user} is closing the endoskeleton of {$target}'s {$part}.
+surgery-popup-step-SurgeryStepXenoCloseIncision = {$user} is closing the incision on {$target}'s {$part}.
+surgery-popup-step-SurgeryStepXenoSealOrganWound = {$user} is sealing the wounds on {$target}'s {$part}.
+surgery-popup-step-SurgeryStepXenoNeutralizeAcid = {$user} is neutralizing acid on {$target}'s {$part}.
+surgery-popup-step-SurgeryStepXenoRemoveFeature = {$user} is amputating {$target}'s {$part}!
+surgery-popup-step-SurgeryStepXenoRemoveOrgan = {$user} is removing an organ from {$target}'s {$part}!
+surgery-popup-step-SurgeryStepInsertHiveNode = {$user} is inserting a hive node into {$target}'s {$part}!
+surgery-popup-step-SurgeryStepInsertResinSpinner = {$user} is inserting a resin spinner into {$target}'s {$part}!
+surgery-popup-step-SurgeryStepInsertNeurotoxinGland = {$user} is inserting a neurotoxin gland into {$target}'s {$part}!
+surgery-popup-step-SurgeryStepInsertAcidGland = {$user} is inserting an acid gland into {$target}'s {$part}!
+surgery-popup-step-SurgeryStepInsertPlasmaVessel = {$user} is inserting a plasma vessel into {$target}'s {$part}!
+surgery-popup-step-SurgeryStepInsertEggSack = {$user} is inserting an egg sack into {$target}'s {$part}!
+surgery-popup-step-SurgeryStepXenoTakeSample = {$user} is carefully removing a piece of {$target}'s {$part}.
+surgery-popup-step-SurgeryStepGraftXenoSample = {$user} is grafting xeno tissue onto {$target}'s {$part}!

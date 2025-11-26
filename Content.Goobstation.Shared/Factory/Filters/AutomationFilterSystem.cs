@@ -4,11 +4,17 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Construction.Components;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Cuffs;
+using Content.Shared.Cuffs.Components;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Item.ItemToggle;
 using Content.Shared.Labels.Components;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Robust.Shared.Prototypes;
@@ -18,11 +24,16 @@ namespace Content.Goobstation.Shared.Factory.Filters;
 public sealed class AutomationFilterSystem : EntitySystem
 {
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
+    [Dependency] private readonly ItemToggleSystem _toggle = default!;
+    [Dependency] private readonly SharedCuffableSystem _cuffable = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
 
+    private EntityQuery<AnchorableComponent> _anchorableQuery;
+    private EntityQuery<CuffableComponent> _cuffableQuery;
     private EntityQuery<FilterSlotComponent> _slotQuery;
     private EntityQuery<LabelComponent> _labelQuery;
+    private EntityQuery<MobStateComponent> _mobQuery;
     private EntityQuery<StackComponent> _stackQuery;
 
     public static readonly int GateCount = Enum.GetValues(typeof(LogicGate)).Length;
@@ -31,8 +42,11 @@ public sealed class AutomationFilterSystem : EntitySystem
     {
         base.Initialize();
 
+        _anchorableQuery = GetEntityQuery<AnchorableComponent>();
+        _cuffableQuery = GetEntityQuery<CuffableComponent>();
         _slotQuery = GetEntityQuery<FilterSlotComponent>();
         _labelQuery = GetEntityQuery<LabelComponent>();
+        _mobQuery = GetEntityQuery<MobStateComponent>();
         _stackQuery = GetEntityQuery<StackComponent>();
 
         Subs.BuiEvents<LabelFilterComponent>(LabelFilterUiKey.Key, subs =>
@@ -72,6 +86,17 @@ public sealed class AutomationFilterSystem : EntitySystem
         });
         SubscribeLocalEvent<PressureFilterComponent, ExaminedEvent>(OnPressureExamined);
         // OnPressureFilter is in server because atmos is serverside
+
+        SubscribeLocalEvent<AnchorFilterComponent, AutomationFilterEvent>(OnAnchorFilter);
+
+        Subs.BuiEvents<MobFilterComponent>(MobFilterUiKey.Key, subs =>
+        {
+            subs.Event<MobFilterToggleMessage>(OnMobToggle);
+        });
+        SubscribeLocalEvent<MobFilterComponent, ExaminedEvent>(OnMobExamined);
+        SubscribeLocalEvent<MobFilterComponent, AutomationFilterEvent>(OnMobFilter);
+
+        SubscribeLocalEvent<CuffFilterComponent, AutomationFilterEvent>(OnCuffFilter);
 
         SubscribeLocalEvent<FilterSlotComponent, ComponentInit>(OnSlotInit);
     }
@@ -295,6 +320,63 @@ public sealed class AutomationFilterSystem : EntitySystem
             return;
 
         args.PushMarkup(Loc.GetString("pressure-filter-examine", ("min", ent.Comp.Min), ("max", ent.Comp.Max)));
+    }
+
+    /* Anchor filter */
+
+    private void OnAnchorFilter(Entity<AnchorFilterComponent> ent, ref AutomationFilterEvent args)
+    {
+        // only care about anchorable objects, not walls etc which aren't useful to filter
+        if (!_anchorableQuery.HasComp(args.Item))
+            return;
+
+        var setting = _toggle.IsActivated(ent.Owner);
+        args.Allowed = Transform(args.Item).Anchored == setting;
+        args.CouldAllow = true; // wrench
+    }
+
+    /* Mob filter */
+
+    private void OnMobToggle(Entity<MobFilterComponent> ent, ref MobFilterToggleMessage args)
+    {
+        // no chudding out
+        if (args is not { State: MobState.Alive or MobState.Dead or MobState.Critical })
+            return;
+
+        if (!ent.Comp.States.Remove(args.State))
+            ent.Comp.States.Add(args.State);
+        Dirty(ent);
+    }
+
+    private void OnMobFilter(Entity<MobFilterComponent> ent, ref AutomationFilterEvent args)
+    {
+        if (!_mobQuery.TryComp(args.Item, out var mob))
+            return;
+
+        args.Allowed = ent.Comp.States.Contains(mob.CurrentState);
+        args.CouldAllow = true; // dying and defibbing etc
+    }
+
+    private void OnMobExamined(Entity<MobFilterComponent> ent, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        args.PushMarkup(ent.Comp.States.Count == 0
+            ? Loc.GetString("mob-filter-examine-unset")
+            : Loc.GetString("mob-filter-examine-set", ("states", string.Join(", ", ent.Comp.States))));
+    }
+
+    /* Cuff filter */
+
+    private void OnCuffFilter(Entity<CuffFilterComponent> ent, ref AutomationFilterEvent args)
+    {
+        if (!_cuffableQuery.TryComp(args.Item, out var cuffable))
+            return;
+
+        var setting = _toggle.IsActivated(ent.Owner);
+        args.Allowed = _cuffable.IsCuffed((args.Item, cuffable)) == setting;
+        args.CouldAllow = true;
     }
 
     /* Filter slot */

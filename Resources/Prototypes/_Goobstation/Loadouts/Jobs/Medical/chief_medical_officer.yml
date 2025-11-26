@@ -1,0 +1,17 @@
+- type: loadout
+  id: ChiefMedicalOfficerEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitCMO
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: ChiefMedicalOfficerEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmCMO
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

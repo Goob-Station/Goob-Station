@@ -1,0 +1,18 @@
+- type: entity
+  id: MobXenomorphFaceHuggerLamarr
+  parent: MobXenomorphFaceHugger
+  name: Lamarr
+  description: A former nightmare candidate, now an exemplary pet.
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorphs/old_facehugger.rsi
+  - type: FaceHugger
+    knockdownTime: 0
+    infectionPrototype: null
+    damageOnImpact:
+      types:
+        Blunt: 2
+  - type: UseDelay
+    delay: 7
+  - type: StealTarget
+    stealGroup: AnimalLamarr

@@ -1,0 +1,63 @@
+- type: entity
+  parent: [ SimpleSpaceMobBase, BaseWeaponBallisticTurret ] # Using SimpleSpaceMobBase since there is no current way to give them space immunity.
+  id: MonkeyTurretDartBase
+  name: dart monkey
+  description: A monkey trained to fire sharp metal darts at any daring balloons. This monkey can be anchored in place, just don't ask how...
+  components:
+  - type: NpcFactionMember
+    factions:
+      - Passive
+      - Monkey
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/Monkey_Turrets/dartmonkey.rsi
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: base
+  - type: BallisticAmmoProvider
+    proto: ProjectileMonkeyDart
+    capacity: 99999 # Can't get it to reload nor be infinite.
+    cycleable: false
+  - type: Gun
+    fireRate: 1
+    selectedMode: FullAuto
+    soundGunshot: /Audio/Effects/toss.ogg
+    showExamineText: false
+  - type: HTN
+    rootTask:
+      task: TurretCompound
+    blackboard:
+      SoundTargetInLOS: !type:SoundPathSpecifier
+        path: /Audio/Effects/toss.ogg # Can't seem to remove this sound.
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: base
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: Deathgasp
+    prototype: MonkeyDeathgasp
+  - type: Physics 
+    bodyType: Dynamic # Allows mob to be moved since BaseWeaponBallisticTurret sets entity to Static.
+  - type: Transform 
+    anchored: false
+  - type: Anchorable # Initially set to unanchored so individuals can position it and then anchor it to avoid turrets moving.
+  - type: MobPrice
+    price: 400 # MobPrice and in-game price don't really match up, so the actual sell price is higher.
+  - type: InteractionPopup
+    interactDelay: 2.0
+    successChance: 0.9
+    interactSuccessString: petting-success-monkey
+    interactFailureString: petting-failure-monkey
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/ferret_happy.ogg
+    interactFailureSound:
+      path: /Audio/Items/wirecutter.ogg

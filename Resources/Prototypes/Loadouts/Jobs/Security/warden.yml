@@ -74,16 +74,19 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Head
 - type: loadout
   id: WardenHead
   equipment:
     head: ClothingHeadHatWarden
 
+
 - type: loadout
   id: WardenBeret
   equipment:
     head: ClothingHeadHatBeretWarden
+
 
 # Jumpsuit
 - type: loadout
@@ -91,10 +94,12 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitWarden
 
+
 - type: loadout
   id: WardenJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtWarden
+
 
 # OuterClothing
 - type: loadout

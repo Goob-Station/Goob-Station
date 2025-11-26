@@ -293,12 +293,14 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
 
         var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent, MobStateComponent, TransformComponent>();
         var zombers = GetEntityQuery<ZombieComponent>();
+        var zombieImmune = GetEntityQuery<ZombieImmuneComponent>(); // Goobstation
         while (players.MoveNext(out var uid, out _, out _, out var mob, out var xform))
         {
             // Einstein Engines - Zombie Improvements Take 2
             if (!_mobState.IsAlive(uid, mob)
                 || HasComp<PendingZombieComponent>(uid) // Do not include infected players in the "Healthy players" list.
                 || HasComp<ZombifyOnDeathComponent>(uid)
+                || zombieImmune.HasComponent(uid) // Goobstation
                 || zombers.HasComponent(uid)
                 || !includeOffStation && !stationGrids.Contains(xform.GridUid ?? EntityUid.Invalid))
                 continue;

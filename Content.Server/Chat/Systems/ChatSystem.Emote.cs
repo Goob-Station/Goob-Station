@@ -14,9 +14,12 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 // SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Mnemotechnican <69920617+Mnemotechnician@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 //
@@ -24,9 +27,12 @@
 
 using System.Collections.Frozen;
 using Content.Goobstation.Common.MisandryBox;
-using Content.Shared.Chat;
+using Content.Shared.Chat; // Einstein Engines - Languages & Goobmod
+using Content.Server.Popups;
 using Content.Shared.Chat.Prototypes;
+using Content.Shared.Emoting;
 using Content.Shared.Speech;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -35,6 +41,8 @@ namespace Content.Server.Chat.Systems;
 // emotes using emote prototype
 public partial class ChatSystem
 {
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
+
     private FrozenDictionary<string, EmotePrototype> _wordEmoteDict = FrozenDictionary<string, EmotePrototype>.Empty;
 
     protected override void OnPrototypeReload(PrototypesReloadedEventArgs obj)
@@ -76,7 +84,8 @@ public partial class ChatSystem
     /// <param name="range">Conceptual range of transmission, if it shows in the chat window, if it shows to far-away ghosts or ghosts at all...</param>
     /// <param name="nameOverride">The name to use for the speaking entity. Usually this should just be modified via <see cref="TransformSpeakerNameEvent"/>. If this is set, the event will not get raised.</param>
     /// <param name="forceEmote">Bypasses whitelist/blacklist/availibility checks for if the entity can use this emote</param>
-    public void TryEmoteWithChat(
+    /// <returns>True if an emote was performed. False if the emote is unvailable, cancelled, etc.</returns>
+    public bool TryEmoteWithChat(
         EntityUid source,
         string emoteId,
         ChatTransmitRange range = ChatTransmitRange.Normal,
@@ -88,9 +97,8 @@ public partial class ChatSystem
         )
     {
         if (!_prototypeManager.TryIndex<EmotePrototype>(emoteId, out var proto))
-            return;
-
-        TryEmoteWithChat(source, proto, range, hideLog: hideLog, nameOverride, ignoreActionBlocker: ignoreActionBlocker, forceEmote: forceEmote, voluntary: voluntary);
+            return false;
+        return TryEmoteWithChat(source, proto, range, hideLog: hideLog, nameOverride, ignoreActionBlocker: ignoreActionBlocker, forceEmote: forceEmote, voluntary: voluntary);
     }
 
     /// <summary>
@@ -103,68 +111,73 @@ public partial class ChatSystem
     /// <param name="range">Conceptual range of transmission, if it shows in the chat window, if it shows to far-away ghosts or ghosts at all...</param>
     /// <param name="nameOverride">The name to use for the speaking entity. Usually this should just be modified via <see cref="TransformSpeakerNameEvent"/>. If this is set, the event will not get raised.</param>
     /// <param name="forceEmote">Bypasses whitelist/blacklist/availibility checks for if the entity can use this emote</param>
-    public void TryEmoteWithChat(
+    /// <returns>True if an emote was performed. False if the emote is unvailable, cancelled, etc.</returns>
+    public bool TryEmoteWithChat(
         EntityUid source,
         EmotePrototype emote,
         ChatTransmitRange range = ChatTransmitRange.Normal,
         bool hideLog = false,
         string? nameOverride = null,
         bool ignoreActionBlocker = false,
-        bool forceEmote = false, // Goob - emotespam
+        bool forceEmote = false,
         bool voluntary = false // Goob - emotespam
         )
     {
         if (!forceEmote && !AllowedToUseEmote(source, emote))
-            return;
+            return false;
+
+        var didEmote = TryEmoteWithoutChat(source, emote, ignoreActionBlocker, voluntary: voluntary); // Goob - emotespam
 
         // check if proto has valid message for chat
-        if (emote.ChatMessages.Count != 0)
+        if (didEmote && emote.ChatMessages.Count != 0)
         {
             // not all emotes are loc'd, but for the ones that are we pass in entity
             var action = Loc.GetString(_random.Pick(emote.ChatMessages), ("entity", source));
-            SendEntityEmote(source, action, range, nameOverride, hideLog: hideLog, checkEmote: false, ignoreActionBlocker: ignoreActionBlocker);
+            var language = _language.GetLanguage(source); // Einstein Engines - Language
+            SendEntityEmote(source, action, range, nameOverride, language, hideLog: hideLog, checkEmote: false, ignoreActionBlocker: ignoreActionBlocker); // Einstein Engines - Language
         }
 
-        // do the rest of emote event logic here
-        TryEmoteWithoutChat(source, emote, ignoreActionBlocker, voluntary: voluntary); // Goob - emotespam
+        return didEmote;
     }
 
     /// <summary>
     ///     Makes selected entity to emote using <see cref="EmotePrototype"/> without sending any messages to chat.
     /// </summary>
-    public void TryEmoteWithoutChat(EntityUid uid, string emoteId, bool ignoreActionBlocker = false, bool voluntary = false) // Goob - emotespam
+    /// <returns>True if an emote was performed. False if the emote is unvailable, cancelled, etc.</returns>
+    public bool TryEmoteWithoutChat(EntityUid uid, string emoteId, bool ignoreActionBlocker = false, bool voluntary = false) // Goob - emotespam
     {
         if (!_prototypeManager.TryIndex<EmotePrototype>(emoteId, out var proto))
-            return;
+            return false;
 
-        TryEmoteWithoutChat(uid, proto, ignoreActionBlocker, voluntary); // Goob - emotespam
+        return TryEmoteWithoutChat(uid, proto, ignoreActionBlocker, voluntary); // Goob - emotespam
     }
 
     /// <summary>
     ///     Makes selected entity to emote using <see cref="EmotePrototype"/> without sending any messages to chat.
     /// </summary>
-    public void TryEmoteWithoutChat(EntityUid uid, EmotePrototype proto, bool ignoreActionBlocker = false, bool voluntary = false) // Goob - emotespam
+    /// <returns>True if an emote was performed. False if the emote is unvailable, cancelled, etc.</returns>
+    public bool TryEmoteWithoutChat(EntityUid uid, EmotePrototype proto, bool ignoreActionBlocker = false, bool voluntary = false) // Goob - emotespam
     {
         if (!_actionBlocker.CanEmote(uid) && !ignoreActionBlocker)
-            return;
+            return false;
 
-        InvokeEmoteEvent(uid, proto, voluntary); // Goob - emotespam
+        return TryInvokeEmoteEvent(uid, proto, voluntary); // Goob - emotespam
     }
 
     /// <summary>
     ///     Tries to find and play relevant emote sound in emote sounds collection.
     /// </summary>
     /// <returns>True if emote sound was played.</returns>
-    public bool TryPlayEmoteSound(EntityUid uid, EmoteSoundsPrototype? proto, EmotePrototype emote)
+    public bool TryPlayEmoteSound(EntityUid uid, EmoteSoundsPrototype? proto, EmotePrototype emote, AudioParams? audioParams = null)
     {
-        return TryPlayEmoteSound(uid, proto, emote.ID);
+        return TryPlayEmoteSound(uid, proto, emote.ID, audioParams);
     }
 
     /// <summary>
     ///     Tries to find and play relevant emote sound in emote sounds collection.
     /// </summary>
     /// <returns>True if emote sound was played.</returns>
-    public bool TryPlayEmoteSound(EntityUid uid, EmoteSoundsPrototype? proto, string emoteId)
+    public bool TryPlayEmoteSound(EntityUid uid, EmoteSoundsPrototype? proto, string emoteId, AudioParams? audioParams = null)
     {
         if (proto == null)
             return false;
@@ -178,8 +191,8 @@ public partial class ChatSystem
                 return false;
         }
 
-        // if general params for all sounds set - use them
-        var param = proto.GeneralParams ?? sound.Params;
+        // optional override params > general params for all sounds in set > individual sound params
+        var param = audioParams ?? proto.GeneralParams ?? sound.Params;
 
         // Goobstation/MisandryBox - Emote spam countermeasures
         var ev = new EmoteSoundPitchShiftEvent();
@@ -196,17 +209,17 @@ public partial class ChatSystem
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="textInput"></param>
-    private void TryEmoteChatInput(EntityUid uid, string textInput)
+    /// <returns>True if the chat message should be displayed (because the emote was explicitly cancelled), false if it should not be.</returns>
+    private bool TryEmoteChatInput(EntityUid uid, string textInput)
     {
         var actionTrimmedLower = TrimPunctuation(textInput.ToLower());
         if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emote))
-            return;
+            return true;
 
         if (!AllowedToUseEmote(uid, emote))
-            return;
+            return true;
 
-        InvokeEmoteEvent(uid, emote, voluntary: true); // Goob - emotespam
-        return;
+        return TryInvokeEmoteEvent(uid, emote, voluntary: true); // Goob - emotespam
 
         static string TrimPunctuation(string textInput)
         {
@@ -256,11 +269,50 @@ public partial class ChatSystem
         return true;
     }
 
-
-    private void InvokeEmoteEvent(EntityUid uid, EmotePrototype proto, bool voluntary = false) // Goob - emotespam
+    /// <summary>
+    /// Creates and raises <see cref="BeforeEmoteEvent"/> and then <see cref="EmoteEvent"/> to let other systems do things like play audio.
+    /// In the case that the Before event is cancelled, EmoteEvent will NOT be raised, and will optionally show a message to the player
+    /// explaining why the emote didn't happen.
+    /// </summary>
+    /// <param name="uid">The entity which is emoting</param>
+    /// <param name="proto">The emote which is being performed</param>
+    /// <returns>True if the emote was performed, false otherwise.</returns>
+    private bool TryInvokeEmoteEvent(EntityUid uid, EmotePrototype proto, bool voluntary = false)
     {
-        var ev = new EmoteEvent(proto, voluntary); // Goob - emotespam
-        RaiseLocalEvent(uid, ref ev, true); // goob edit
+        var beforeEv = new BeforeEmoteEvent(uid, proto);
+        RaiseLocalEvent(uid, ref beforeEv);
+
+        if (beforeEv.Cancelled)
+        {
+            if (beforeEv.Blocker != null)
+            {
+                _popupSystem.PopupEntity(
+                    Loc.GetString(
+                        "chat-system-emote-cancelled-blocked",
+                        ("emote", Loc.GetString(proto.Name).ToLower()),
+                        ("blocker", beforeEv.Blocker.Value)
+                    ),
+                    uid,
+                    uid
+                );
+            }
+            else
+            {
+                _popupSystem.PopupEntity(
+                    Loc.GetString("chat-system-emote-cancelled-generic",
+                        ("emote", Loc.GetString(proto.Name).ToLower())),
+                    uid,
+                    uid
+                );
+            }
+
+            return false;
+        }
+
+        var ev = new EmoteEvent(proto, voluntary);
+        RaiseLocalEvent(uid, ref ev);
+
+        return true;
     }
 }
 
@@ -269,9 +321,8 @@ public partial class ChatSystem
 ///     Use it to play sound, change sprite or something else.
 /// </summary>
 [ByRefEvent]
-public struct EmoteEvent
+public sealed class EmoteEvent : HandledEntityEventArgs
 {
-    public bool Handled;
     public readonly EmotePrototype Emote;
     public bool Voluntary; // Goob - emotespam
 

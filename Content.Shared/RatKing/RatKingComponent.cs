@@ -2,6 +2,9 @@
 // SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -53,17 +56,17 @@ public sealed partial class RatKingComponent : Component
     public float HungerPerDomainUse = 50f;
 
     /// <summary>
-    ///     How many moles of ammonia are released after one us of Domain
+    ///     How many moles of ammonia are released after one use of Domain
     /// </summary>
     [DataField("molesAmmoniaPerDomain"), ViewVariables(VVAccess.ReadWrite)]
-    public float MolesAmmoniaPerDomain = 200f;
+    public float MolesAmmoniaPerDomain = 300f;
 
     /// <summary>
     /// The current order that the Rat King assigned.
     /// </summary>
     [DataField("currentOrders"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
-    public RatKingOrderType CurrentOrder = RatKingOrderType.Loose;
+    public RatKingOrderType CurrentOrder = RatKingOrderType.Follow; // Trauma, changed "Loose" to "Follow"
 
     /// <summary>
     /// The servants that the rat king is currently controlling

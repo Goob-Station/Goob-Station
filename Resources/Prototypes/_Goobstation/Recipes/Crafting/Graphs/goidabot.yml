@@ -1,0 +1,39 @@
+- type: constructionGraph
+  id: GoidaBot
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bot
+      steps:
+      - tag: Ushanka
+        icon:
+          sprite: Clothing/Head/Hats/ushanka.rsi
+          state: icon
+        name: construction-graph-tag-ushanka
+      - tag: BaseballBat
+        icon:
+          sprite: Objects/Weapons/Melee/baseball_bat.rsi
+          state: icon
+        name: construction-graph-tag-baseball-bat
+        doAfter: 2
+      - component: Heart
+        icon:
+          sprite: Mobs/Species/Human/organs.rsi
+          state: heart-on
+        name: construction-graph-tag-heart
+        doAfter: 2
+      - tag: ProximitySensor
+        icon:
+          sprite: Objects/Misc/proximity_sensor.rsi
+          state: icon
+        name: construction-graph-tag-proximity-sensor
+        doAfter: 2
+      - tag: BorgArm
+        icon:
+          sprite: Mobs/Silicon/drone.rsi
+          state: l_hand
+        name: construction-graph-tag-borg-arm
+        doAfter: 2
+  - node: bot
+    entity: MobGoidaBot

@@ -45,15 +45,22 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
 
         var state = ent.Comp.Path.ToLower();
 
+        int? index = state == "cosmos" ? 0 : null; // Cosmos mark should be behind the sprite
+
         if (sprite.LayerMapTryGet(HereticCombatMarkKey.Key, out var layer))
         {
-            sprite.LayerSetState(layer, state);
-            return;
+            if (index == 0)
+                sprite.RemoveLayer(layer);
+            else
+            {
+                sprite.LayerSetState(layer, state);
+                return;
+            }
         }
 
         var rsi = new SpriteSpecifier.Rsi(ent.Comp.ResPath, state);
 
-        layer = sprite.AddLayer(rsi);
+        layer = sprite.AddLayer(rsi, index);
         sprite.LayerMapSet(HereticCombatMarkKey.Key, layer);
         sprite.LayerSetShader(layer, "unshaded");
     }

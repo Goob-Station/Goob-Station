@@ -1,0 +1,244 @@
+## Xeno Biology surgeries that are done on humanoids
+
+# Organ slots
+
+- type: entity
+  abstract: true
+  parent: SurgeryOpenCavityBase
+  id: BaseSurgeryOpenXenoCavity
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepGraftXenoSample
+    - SurgeryStepOpenOrganSlot
+  - type: SurgeryPartCondition
+    part: Head
+  - type: SurgeryBodyComponentCondition
+    components:
+    - type: XenoCompatible
+
+- type: entity
+  parent: BaseSurgeryOpenXenoCavity
+  id: SurgeryOpenXenoCavityHiveNode
+  name: Open Hive Node Cavity
+  components:
+  - type: SurgeryOrganSlotCondition
+    organSlot: hive_node
+
+- type: entity
+  parent: BaseSurgeryOpenXenoCavity
+  id: SurgeryOpenXenoCavityResinSpinner
+  name: Open Resin Spinner Cavity
+  components:
+  - type: SurgeryOrganSlotCondition
+    organSlot: resin_spinner
+
+- type: entity
+  parent: BaseSurgeryOpenXenoCavity
+  id: SurgeryOpenXenoCavityNeurotoxinGland
+  name: Open Neurotoxin Gland Cavity
+  components:
+  - type: SurgeryOrganSlotCondition
+    organSlot: neurotoxin_gland
+
+- type: entity
+  parent: BaseSurgeryOpenXenoCavity
+  id: SurgeryOpenXenoCavityAcidGland
+  name: Open Acid Gland Cavity
+  components:
+  - type: SurgeryOrganSlotCondition
+    organSlot: acid_gland
+
+- type: entity
+  parent: BaseSurgeryOpenXenoCavity
+  id: SurgeryOpenXenoCavityPlasmaVessel
+  name: Open Plasma Vessel Cavity
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenRibcage
+  - type: SurgeryPartCondition
+    part: Chest
+  - type: SurgeryOrganSlotCondition
+    organSlot: plasma_vessel
+
+- type: entity
+  parent: BaseSurgeryOpenXenoCavity
+  id: SurgeryOpenXenoCavityEggSack
+  name: Open Egg Sack Cavity
+  components:
+  - type: SurgeryPartCondition
+    part: Groin
+  - type: SurgeryOrganSlotCondition
+    organSlot: egg_sack
+
+# Insert organs (human surgeries)
+
+- type: entity
+  parent: BaseSurgeryInsertOrgan
+  id: SurgeryInsertHiveNode
+  name: Transplant Hive Node
+  components:
+  - type: Surgery
+    steps:
+    - SurgeryStepOpenIncisionScalpel
+    - SurgeryStepClampBleeders
+    - SurgeryStepInsertHiveNode
+    - SurgeryStepSealOrganWound
+  - type: SurgeryOrganSlotCondition
+    organSlot: hive_node
+  - type: SurgeryOrganCondition
+    organ:
+    - type: HiveNode
+
+- type: entity
+  parent: BaseSurgeryInsertOrgan
+  id: SurgeryInsertResinSpinner
+  name: Transplant Resin Spinner
+  components:
+  - type: Surgery
+    steps:
+    - SurgeryStepOpenIncisionScalpel
+    - SurgeryStepClampBleeders
+    - SurgeryStepInsertResinSpinner
+    - SurgeryStepSealOrganWound
+  - type: SurgeryOrganSlotCondition
+    organSlot: resin_spinner
+  - type: SurgeryOrganCondition
+    organ:
+    - type: ResinSpinner
+
+- type: entity
+  parent: BaseSurgeryInsertOrgan
+  id: SurgeryInsertNeurotoxinGland
+  name: Transplant Neurotoxin Gland
+  components:
+  - type: Surgery
+    steps:
+    - SurgeryStepOpenIncisionScalpel
+    - SurgeryStepClampBleeders
+    - SurgeryStepInsertNeurotoxinGland
+    - SurgeryStepSealOrganWound
+  - type: SurgeryOrganSlotCondition
+    organSlot: neurotoxin_gland
+  - type: SurgeryOrganCondition
+    organ:
+    - type: NeurotoxinGland
+
+- type: entity
+  parent: BaseSurgeryInsertOrgan
+  id: SurgeryInsertAcidGland
+  name: Transplant Acid Gland
+  components:
+  - type: Surgery
+    steps:
+    - SurgeryStepOpenIncisionScalpel
+    - SurgeryStepClampBleeders
+    - SurgeryStepInsertAcidGland
+    - SurgeryStepSealOrganWound
+  - type: SurgeryOrganSlotCondition
+    organSlot: acid_gland
+  - type: SurgeryOrganCondition
+    organ:
+    - type: AcidGland
+
+- type: entity
+  parent: BaseSurgeryInsertOrgan
+  id: SurgeryInsertPlasmaVessel
+  name: Transplant Plasma Vessel
+  components:
+  - type: Surgery
+    steps:
+    - SurgeryStepOpenIncisionScalpel
+    - SurgeryStepClampBleeders
+    - SurgeryStepInsertPlasmaVessel
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    part: Chest
+  - type: SurgeryOrganSlotCondition
+    organSlot: plasma_vessel
+  - type: SurgeryOrganCondition
+    organ:
+    - type: PlasmaVessel
+
+- type: entity
+  parent: BaseSurgeryInsertOrgan
+  id: SurgeryInsertEggSack
+  name: Transplant Egg Sack
+  components:
+  - type: Surgery
+    steps:
+    - SurgeryStepOpenIncisionScalpel
+    - SurgeryStepClampBleeders
+    - SurgeryStepInsertEggSack
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    part: Groin
+  - type: SurgeryOrganSlotCondition
+    organSlot: egg_sack
+  - type: SurgeryOrganCondition
+    organ:
+    - type: EggSack
+
+# Remove Organs
+
+- type: entity
+  parent: BaseSurgeryRemoveOrgan
+  id: SurgeryRemoveHiveNode
+  name: Remove Transplanted Hive Node
+  components:
+  - type: SurgeryOrganCondition
+    organ:
+    - type: HiveNode
+
+- type: entity
+  parent: BaseSurgeryRemoveOrgan
+  id: SurgeryRemoveResinSpinner
+  name: Remove Transplanted Resin Spinner
+  components:
+  - type: SurgeryOrganCondition
+    organ:
+    - type: ResinSpinner
+
+- type: entity
+  parent: BaseSurgeryRemoveOrgan
+  id: SurgeryRemoveNeurotoxinGland
+  name: Remove Transplanted Neurotoxin Gland
+  components:
+  - type: SurgeryOrganCondition
+    organ:
+    - type: NeurotoxinGland
+
+- type: entity
+  parent: BaseSurgeryRemoveOrgan
+  id: SurgeryRemoveAcidGland
+  name: Remove Transplanted Acid Gland
+  components:
+  - type: SurgeryOrganCondition
+    organ:
+    - type: AcidGland
+
+- type: entity
+  parent: BaseSurgeryRemoveOrgan
+  id: SurgeryRemovePlasmaVessel
+  name: Remove Transplanted Plasma Vessel
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenRibcage
+  - type: SurgeryPartCondition
+    part: Chest
+  - type: SurgeryOrganCondition
+    organ:
+    - type: PlasmaVessel
+
+- type: entity
+  parent: BaseSurgeryRemoveOrgan
+  id: SurgeryRemoveEggSack
+  name: Remove Transplanted Egg Sack
+  components:
+  - type: SurgeryPartCondition
+    part: Groin
+  - type: SurgeryOrganCondition
+    organ:
+    - type: EggSack

@@ -37,13 +37,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300
+        damage: 450
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 225
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -73,13 +73,13 @@
   - type: StaticPrice
     price: 215
   - type: RadiationBlocker
-    resistance: 20
+    resistance: 20 # Goobstation - Radiation Overhaul
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WindowCosmicCult
 
 - type: entity
   id: UraniumReinforcedWindowDirectional
-  parent: WindowDirectional
+  parent: WindowDirectionalRCDResistant
   name: directional reinforced uranium window
   description: Don't smudge up the glass down there.
   placement:
@@ -103,17 +103,19 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
+  - type: Damageable
+    damageModifierSet: RGlass
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 225
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 113
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -131,7 +133,7 @@
   - type: StaticPrice
     price: 110
   - type: RadiationBlocker
-    resistance: 10
+    resistance: 10 # Goobstation - Radiation Overhaul
 
 - type: entity
   parent: ReinforcedUraniumWindow

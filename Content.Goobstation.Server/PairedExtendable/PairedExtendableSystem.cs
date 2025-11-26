@@ -26,11 +26,21 @@ public sealed class PairedExtendableSystem : EntitySystem
     public bool ToggleExtendable (EntityUid user, string protoId, HandLocation side, out EntityUid? newExtendable, EntityUid? currentExtendable = null, bool makeUnremovable = true)
     {
         newExtendable = null;
-        var hand = _hands.EnumerateHands(user).FirstOrDefault(hand => hand.Location == side);
-        if (hand == null)
+        string? pickedHand = null;
+        foreach (var hand in _hands.EnumerateHands(user))
+        {
+            if (!_hands.TryGetHand(user, hand, out var handPos)
+                || handPos.Value.Location != side)
+                continue;
+
+            pickedHand = hand;
+            break;
+        }
+
+        if (pickedHand == null)
             return false;
 
-        if (hand.HeldEntity is { } activeItem
+        if (_hands.GetHeldItem(user, pickedHand) is { } activeItem
             && activeItem == currentExtendable)
         {
             Del(activeItem);
@@ -38,7 +48,7 @@ public sealed class PairedExtendableSystem : EntitySystem
         }
 
         newExtendable = Spawn(protoId, Transform(user).Coordinates);
-        if (!_hands.TryPickup(user, newExtendable.Value, hand.Name))
+        if (!_hands.TryPickup(user, newExtendable.Value, pickedHand))
         {
             Del(newExtendable);
             newExtendable = null;

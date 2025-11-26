@@ -1,0 +1,54 @@
+- type: language
+  id: Gruntish
+  isVisibleLanguage: true
+  speech:
+    fontSize: 14
+    color: "#8C5353"
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 3
+    replacement:
+    - bah
+    - gaagh
+    - grr
+    - ugh
+    - bunga
+    - agh
+    - brugh
+    - unga
+    - ooga
+    - hooh
+    - grog
+    - hmph
+    - hmm
+    - aargh
+    - ooga
+    - haaa!
+    - pffft
+    - ahh-ugh'
+    - tch'
+    - waa!
+    - chk'
+    - eh
+    - oop
+    - rah
+    - hrrgn
+    - snrr
+    - blugh
+    - guh
+    - boog
+    - ugga
+    - rah
+    - Ough
+    - ye'
+    - oof
+    - yagh!
+    - maha
+    - huh
+    - yagh
+    - oomph
+    - ehhh
+    - oooh
+    - uhhh!
+    - rah!

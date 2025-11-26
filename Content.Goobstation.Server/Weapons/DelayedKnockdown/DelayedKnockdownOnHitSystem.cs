@@ -5,6 +5,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -14,6 +15,7 @@ using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Stunnable;
 using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Shitcode.Weapons.Misc;
 using Content.Shared.Armor;
 using Content.Shared.Damage.Events;
 using Content.Shared.Inventory;

@@ -1,0 +1,18 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprites taken from VStation 13",
+    "size": {
+        "x": 64,
+        "y": 64
+    },
+    "states": [
+        {
+            "name": "abyss_crawler",
+            "directions": 4
+        },
+        {
+            "name": "crawler_dead"
+        }
+    ]
+}

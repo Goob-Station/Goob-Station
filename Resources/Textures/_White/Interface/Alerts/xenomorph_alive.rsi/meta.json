@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation on https://github.com/tgstation/tgstation/blob/master/icons/hud/screen_alien.dmi | Edited by PuroSlavKing (Github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "health0"
+    },
+    {
+      "name": "health1"
+    },
+    {
+      "name": "health2"
+    },
+    {
+      "name": "health3"
+    },
+    {
+      "name": "health4"
+    },
+    {
+      "name": "health5"
+    }
+  ]
+}

@@ -24,12 +24,14 @@
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ertanic <36124833+Ertanic@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 YotaXP <yotaxp@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -38,6 +40,7 @@ using System.Numerics;
 using Content.Client.Lobby;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.MenuBar.Widgets;
+using Content.Goobstation.Common.CCVar; // Goobstation
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Whitelist;
 using Robust.Client.GameObjects;
@@ -46,6 +49,7 @@ using Robust.Client.Placement;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Configuration; // Goobstation
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
@@ -69,13 +73,14 @@ namespace Content.Client.Construction.UI
 
         private readonly IConstructionMenuView _constructionView;
         private readonly EntityWhitelistSystem _whitelistSystem;
+        private readonly IConfigurationManager _cfg; // Goobstation
 
         private ConstructionSystem? _constructionSystem;
         private ConstructionPrototype? _selected;
         private List<ConstructionPrototype> _favoritedRecipes = [];
-        private Dictionary<string, ContainerButton> _recipeButtons = new();
+        private readonly Dictionary<string, ContainerButton> _recipeButtons = new();
         private string _selectedCategory = string.Empty;
-
+        private bool _autoFocusSearch = false; // Goobstation
         private const string FavoriteCatName = "construction-category-favorites";
         private const string ForAllCategoryName = "construction-category-all";
 
@@ -125,6 +130,7 @@ namespace Content.Client.Construction.UI
             _constructionView = new ConstructionMenu();
             _whitelistSystem = _entManager.System<EntityWhitelistSystem>();
             _spriteSystem = _entManager.System<SpriteSystem>();
+            _cfg = IoCManager.Resolve<IConfigurationManager>(); // Goobstation
 
             // This is required so that if we load after the system is initialized, we can bind to it immediately
             if (_systemManager.TryGetEntitySystem<ConstructionSystem>(out var constructionSystem))
@@ -155,7 +161,14 @@ namespace Content.Client.Construction.UI
 
             SetFavorites(_preferencesManager.Preferences?.ConstructionFavorites ?? []);
             OnViewPopulateRecipes(_constructionView, (string.Empty, string.Empty));
+
+            // Goobstation EDIT START
+            _autoFocusSearch = _cfg.GetCVar(GoobCVars.AutoFocusSearchOnBuildMenu);
+            _cfg.OnValueChanged(GoobCVars.AutoFocusSearchOnBuildMenu, UpdateAutoFocus, false);
+            // Goobstation EDIT END
         }
+
+        private void UpdateAutoFocus(bool value) { _autoFocusSearch = value; } // Goobstation EDIT
 
         public void OnHudCraftingButtonToggled(BaseButton.ButtonToggledEventArgs args)
         {
@@ -252,8 +265,8 @@ namespace Content.Client.Construction.UI
                 var itemButton = new ContainerButton()
                 {
                     VerticalAlignment = Control.VAlignment.Center,
-                    Name = recipe.TargetPrototype.Name,
-                    ToolTip = recipe.TargetPrototype.Name,
+                    Name = recipe.Prototype.Name,
+                    ToolTip = recipe.Prototype.Name,
                     ToggleMode = true,
                     Children = { protoView },
                 };
@@ -270,7 +283,7 @@ namespace Content.Client.Construction.UI
 
                     if (buttonToggledEventArgs.Pressed &&
                         _selected != null &&
-                        _recipeButtons.TryGetValue(_selected.Name!, out var oldButton))
+                        _recipeButtons.TryGetValue(_selected.ID, out var oldButton))
                     {
                         oldButton.Pressed = false;
                         SelectGridButton(oldButton, false);
@@ -280,7 +293,7 @@ namespace Content.Client.Construction.UI
                 };
 
                 recipesGrid.AddChild(itemButtonPanelContainer);
-                _recipeButtons[recipe.Prototype.Name!] = itemButton;
+                _recipeButtons[recipe.Prototype.ID] = itemButton;
                 var isCurrentButtonSelected = _selected == recipe.Prototype;
                 itemButton.Pressed = isCurrentButtonSelected;
                 SelectGridButton(itemButton, isCurrentButtonSelected);
@@ -342,7 +355,7 @@ namespace Content.Client.Construction.UI
             if (button.Parent is not PanelContainer buttonPanel)
                 return;
 
-            button.Modulate = select ? Color.Green : Color.Transparent;
+            button.Children.Single().Modulate = select ? Color.Green : Color.White;
             var buttonColor = select ? StyleNano.ButtonColorDefault : Color.Transparent;
             buttonPanel.PanelOverride = new StyleBoxFlat { BackgroundColor = buttonColor };
         }
@@ -620,6 +633,12 @@ namespace Content.Client.Construction.UI
         private void SystemOnToggleMenu(object? sender, EventArgs eventArgs)
         {
             ToggleMenu();
+            // Goobstation EDIT START
+            if (_autoFocusSearch)
+            {
+                _constructionView.SearchBar.GrabKeyboardFocus();
+            }
+            // Goobstation EDIT END
         }
 
         public void ToggleMenu()

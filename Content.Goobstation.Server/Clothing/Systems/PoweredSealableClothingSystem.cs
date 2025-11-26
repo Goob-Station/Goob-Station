@@ -8,6 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Clothing.Components;
 using Content.Goobstation.Shared.Clothing.Systems;
 using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
@@ -30,15 +31,14 @@ public sealed partial class PoweredSealableClothingSystem : SharedPoweredSealabl
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Shared.Clothing.Components.SealableClothingRequiresPowerComponent, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnMovementSpeedChange);
-        SubscribeLocalEvent<Shared.Clothing.Components.SealableClothingRequiresPowerComponent, PowerCellChangedEvent>(OnPowerCellChanged);
-        SubscribeLocalEvent<Shared.Clothing.Components.SealableClothingRequiresPowerComponent, PowerCellSlotEmptyEvent>(OnPowerCellEmpty);
-        SubscribeLocalEvent<Shared.Clothing.Components.SealableClothingRequiresPowerComponent, ClothingControlSealCompleteEvent>(OnRequiresPowerSealCompleteEvent);
-        SubscribeLocalEvent<Shared.Clothing.Components.SealableClothingRequiresPowerComponent, InventoryRelayedEvent<FindInventoryBatteryEvent>>(OnFindInventoryBatteryEvent);
-
+        SubscribeLocalEvent<SealableClothingRequiresPowerComponent, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnMovementSpeedChange);
+        SubscribeLocalEvent<SealableClothingRequiresPowerComponent, PowerCellChangedEvent>(OnPowerCellChanged);
+        SubscribeLocalEvent<SealableClothingRequiresPowerComponent, PowerCellSlotEmptyEvent>(OnPowerCellEmpty);
+        SubscribeLocalEvent<SealableClothingRequiresPowerComponent, ClothingControlSealCompleteEvent>(OnRequiresPowerSealCompleteEvent);
+        SubscribeLocalEvent<SealableClothingRequiresPowerComponent, InventoryRelayedEvent<FindBatteryEvent>>(OnFindBatteryEvent);
     }
 
-    private void OnPowerCellChanged(Entity<Shared.Clothing.Components.SealableClothingRequiresPowerComponent> entity, ref PowerCellChangedEvent args)
+    private void OnPowerCellChanged(Entity<SealableClothingRequiresPowerComponent> entity, ref PowerCellChangedEvent args)
     {
         if (!entity.Comp.IsPowered && _powerCellSystem.HasDrawCharge(entity))
         {
@@ -51,7 +51,7 @@ public sealed partial class PoweredSealableClothingSystem : SharedPoweredSealabl
         UpdateClothingPowerAlert(entity);
     }
 
-    private void OnPowerCellEmpty(Entity<Shared.Clothing.Components.SealableClothingRequiresPowerComponent> entity, ref PowerCellSlotEmptyEvent args)
+    private void OnPowerCellEmpty(Entity<SealableClothingRequiresPowerComponent> entity, ref PowerCellSlotEmptyEvent args)
     {
         entity.Comp.IsPowered = false;
         Dirty(entity);
@@ -62,7 +62,7 @@ public sealed partial class PoweredSealableClothingSystem : SharedPoweredSealabl
     /// <summary>
     /// Enables or disables power cell draw on seal/unseal complete
     /// </summary>
-    private void OnRequiresPowerSealCompleteEvent(Entity<Shared.Clothing.Components.SealableClothingRequiresPowerComponent> entity, ref ClothingControlSealCompleteEvent args)
+    private void OnRequiresPowerSealCompleteEvent(Entity<SealableClothingRequiresPowerComponent> entity, ref ClothingControlSealCompleteEvent args)
     {
         if (!TryComp(entity, out PowerCellDrawComponent? drawComp))
             return;
@@ -73,9 +73,9 @@ public sealed partial class PoweredSealableClothingSystem : SharedPoweredSealabl
         ModifySpeed(entity);
     }
 
-    private void OnMovementSpeedChange(Entity<Shared.Clothing.Components.SealableClothingRequiresPowerComponent> entity, ref InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
+    private void OnMovementSpeedChange(Entity<SealableClothingRequiresPowerComponent> entity, ref InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
-        if (!TryComp(entity, out Shared.Clothing.Components.SealableClothingControlComponent? controlComp))
+        if (!TryComp(entity, out SealableClothingControlComponent? controlComp))
             return;
 
         // If suit is unsealed - don't care about penalty
@@ -88,7 +88,7 @@ public sealed partial class PoweredSealableClothingSystem : SharedPoweredSealabl
 
     private void ModifySpeed(EntityUid uid)
     {
-        if (!TryComp(uid, out Shared.Clothing.Components.SealableClothingControlComponent? controlComp) || controlComp.WearerEntity == null)
+        if (!TryComp(uid, out SealableClothingControlComponent? controlComp) || controlComp.WearerEntity == null)
             return;
 
         _movementSpeed.RefreshMovementSpeedModifiers(controlComp.WearerEntity.Value);
@@ -97,11 +97,11 @@ public sealed partial class PoweredSealableClothingSystem : SharedPoweredSealabl
     /// <summary>
     /// Sets power alert to wearer when clothing is sealed
     /// </summary>
-    private void UpdateClothingPowerAlert(Entity<Shared.Clothing.Components.SealableClothingRequiresPowerComponent> entity)
+    private void UpdateClothingPowerAlert(Entity<SealableClothingRequiresPowerComponent> entity)
     {
         var (uid, comp) = entity;
 
-        if (!TryComp<Shared.Clothing.Components.SealableClothingControlComponent>(uid, out var controlComp) || controlComp.WearerEntity == null)
+        if (!TryComp<SealableClothingControlComponent>(uid, out var controlComp) || controlComp.WearerEntity == null)
             return;
 
         if (!_powerCellSystem.TryGetBatteryFromSlot(entity, out var battery) || !controlComp.IsCurrentlySealed)
@@ -117,12 +117,12 @@ public sealed partial class PoweredSealableClothingSystem : SharedPoweredSealabl
     /// <summary>
     /// Tries to find battery for charger
     /// </summary>
-    private void OnFindInventoryBatteryEvent(Entity<Shared.Clothing.Components.SealableClothingRequiresPowerComponent> entity, ref InventoryRelayedEvent<FindInventoryBatteryEvent> args)
+    private void OnFindBatteryEvent(Entity<SealableClothingRequiresPowerComponent> entity, ref InventoryRelayedEvent<FindBatteryEvent> args)
     {
         if (args.Args.FoundBattery != null)
             return;
 
-        if (_powerCellSystem.TryGetBatteryFromSlot(entity, out var batteryEnt, out var battery))
-            args.Args.FoundBattery = (batteryEnt.Value, battery);
+        if (_powerCellSystem.TryGetBatteryFromSlot(entity, out var battery, out var batteryComp))
+            args.Args.FoundBattery = (battery.Value, batteryComp);
     }
 }

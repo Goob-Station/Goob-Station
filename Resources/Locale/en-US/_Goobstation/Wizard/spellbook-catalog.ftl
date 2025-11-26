@@ -173,7 +173,7 @@ spellbook-soul-tap-desc =
 
 spellbook-thrown-lightning-name = Thrown Lightning
 spellbook-thrown-lightning-desc =
-    Forged from eldritch energies, a packet of pure power, known as a spell packet will appear in your hand, that when thrown will deal a lot of stamina damage to your target.
+    Forged from eldritch energies, a packet of pure power, known as a spell packet will appear in your hand, that when thrown will paralyze your target.
     Doesn't require wizard's robe and hat to cast.
 
 spellbook-knock-name = Knock

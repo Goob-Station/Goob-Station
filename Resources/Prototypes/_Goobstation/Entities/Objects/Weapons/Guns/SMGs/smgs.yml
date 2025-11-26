@@ -24,10 +24,10 @@
     shape:
     - 0,0,2,1
   - type: Gun
-    fireRate: 15
-    projectileSpeed: 20 # half regular bullet speed
-    minAngle: 23
-    maxAngle: 66
+    fireRate: 12.5 # Reduced fireRate and increased projectileSpeed
+    projectileSpeed: 30
+    minAngle: 15 # More controlled than before
+    maxAngle: 55
     angleDecay: -8 # Intentionally negative, loses accuracy while not shooting
     angleIncrease: -1.15 # Intentionally negative, gains accuracy while shooting
     availableModes:

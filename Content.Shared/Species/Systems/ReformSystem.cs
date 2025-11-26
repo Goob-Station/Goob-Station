@@ -2,7 +2,10 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -13,12 +16,13 @@ using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.Mind;
 using Content.Shared.Zombies;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
-namespace Content.Shared.Species;
+namespace Content.Shared.Species.Systems;
 
 public sealed partial class ReformSystem : EntitySystem
 {
@@ -30,6 +34,7 @@ public sealed partial class ReformSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {
@@ -97,9 +102,22 @@ public sealed partial class ReformSystem : EntitySystem
         if (_netMan.IsClient)
             return;
 
-        // Spawn a new entity
-        // This is, to an extent, taken from polymorph. I don't use polymorph for various reasons- most notably that this is permanent.
-        var child = Spawn(comp.ReformPrototype, Transform(uid).Coordinates);
+        EntityUid child;
+
+        // Madness: If you just goidaspawn entities when they're in a container - Transform(ent).Coordinates will just give 0,0 and the box as the parent
+        // But you're not spawning them in the parent, you're spawning them next to it while thinking they're in the container
+        // Which by a mysterious mean scams networking into thinking you NEVER LEFT the container, and frankly never even got back in into the world.
+        // So anyone who was out of PVS range when you respawned will not and cannot see you as you're nonexistant.
+        // Your entire state hinges on the idea that you're still in the container.
+
+        if (_container.TryGetContainingContainer((uid, null, null), out var container))
+        {
+            child = TrySpawnInContainer(comp.ReformPrototype, container.Owner, container.ID, out var containedChild)
+                ? containedChild.Value
+                : SpawnNextToOrDrop(comp.ReformPrototype, container.Owner);
+        }
+        else
+            child = Spawn(comp.ReformPrototype, Transform(uid).Coordinates);
 
         // This transfers the mind to the new entity
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))

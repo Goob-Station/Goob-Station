@@ -48,3 +48,9 @@
   - Atmospherics
   - GenpopEnter
   - GenpopLeave
+  - Robotics #Goob
+
+- type: accessGroup
+  id: General
+  tags:
+  - Maintenance

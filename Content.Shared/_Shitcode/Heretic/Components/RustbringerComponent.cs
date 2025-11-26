@@ -8,6 +8,7 @@
 
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Heretic.Components;
 
@@ -25,4 +26,13 @@ public sealed partial class RustbringerComponent : Component
             { "Cellular", 0f },
         },
     };
+
+    [DataField]
+    public EntProtoId Effect = "TileHereticRustRune";
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float Accumulator;
+
+    [DataField]
+    public float Delay = 0.2f;
 }

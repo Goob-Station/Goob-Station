@@ -37,5 +37,3 @@ lich-greeting =
     You're a lich.
 
 objective-condition-wizard-alive-title = Ensure wizard {$targetName} stays alive.
-
-stamp-component-stamped-name-wizard = Wizard

@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation on https://github.com/tgstation/tgstation/blob/master/icons/hud/screen_alien.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "close",
+      "delays": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "far",
+      "delays": [
+        [
+          4.0,
+          4.0
+        ]
+      ]
+    },
+    {
+      "name": "medium",
+      "delays": [
+        [
+          2.0,
+          2.0
+        ]
+      ]
+    },
+    {
+      "name": "queen_finder"
+    },
+    {
+      "name": "reached",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "unknown"
+    }
+  ]
+}

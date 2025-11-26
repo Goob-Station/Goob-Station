@@ -231,14 +231,24 @@
   materials:
     Steel: 600
 
+#- type: latheRecipe - Goobstation - Nuked due to sprinting.
+#  id: ClothingShoesBootsSpeed
+#  result: ClothingShoesBootsSpeed
+#  completetime: 2
+#  materials:
+#    Steel: 1500
+#    Plastic: 1000
+#    Silver: 500
+
 - type: latheRecipe
-  id: ClothingShoesBootsSpeed
-  result: ClothingShoesBootsSpeed
+  id: ClothingShoesBootsJump
+  result: ClothingShoesBootsJump
   completetime: 2
   materials:
-    Steel: 1500
-    Plastic: 1000
-    Silver: 500
+    Steel: 1400
+    Plastic: 600
+    Silver: 200
+    Plasma: 200
 
 - type: latheRecipe
   id: ModularReceiver
@@ -339,3 +349,4 @@
   completetime: 1
   materials:
     Steel: 30
+    

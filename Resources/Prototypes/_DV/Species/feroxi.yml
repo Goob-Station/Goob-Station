@@ -1,0 +1,171 @@
+- type: species
+  id: Feroxi
+  name: species-name-feroxi
+  roundStart: true
+  prototype: MobFeroxi
+  sprites: MobFeroxiSprites
+  defaultSkinTone: "#8DB9D6"
+  markingLimits: MobFeroxiMarkingLimits
+  dollPrototype: MobFeroxiDummy
+  skinColoration: Hues
+  maleFirstNames: NamesFeroxiFirstMale
+  femaleFirstNames: NamesFeroxiFirstFemale
+  lastNames: NamesFeroxiLast
+
+- type: speciesBaseSprites
+  id: MobFeroxiSprites
+  sprites:
+    Head: MobFeroxiHead
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobFeroxiChest
+    Groin: MobFeroxiGroin
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Eyes: MobHumanoidEyes
+    LArm: MobFeroxiLArm
+    RArm: MobFeroxiRArm
+    LHand: MobFeroxiLHand
+    RHand: MobFeroxiRHand
+    LLeg: MobFeroxiLLeg
+    RLeg: MobFeroxiRLeg
+    LFoot: MobFeroxiLFoot
+    RFoot: MobFeroxiRFoot
+
+- type: markingPoints
+  id: MobFeroxiMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Head:
+      points: 3
+      required: false
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ FeroxiEars ]
+    Snout:
+      points: 1
+      required: true
+      defaultMarkings: [ FeroxiSnout ]
+    Chest:
+      points: 3
+      required: false
+    Arms:
+      points: 1
+      required: false
+    Legs:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ FeroxiTailAndDorsal ]
+
+- type: humanoidBaseSprite
+  id: MobFeroxiHead
+  baseSprite:
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobFeroxiHeadMale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobFeroxiHeadFemale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobFeroxiChest
+  baseSprite:
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: chest_m
+
+- type: humanoidBaseSprite
+  id: MobFeroxiChestMale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: chest_m
+
+- type: humanoidBaseSprite
+  id: MobFeroxiChestFemale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobFeroxiGroin
+  baseSprite:
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobFeroxiGroinMale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobFeroxiGroinFemale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: groin_f
+
+- type: humanoidBaseSprite
+  id: MobFeroxiLLeg
+  baseSprite:
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobFeroxiLHand
+  baseSprite:
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobFeroxiLArm
+  baseSprite:
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobFeroxiLFoot
+  baseSprite:
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobFeroxiRLeg
+  baseSprite:
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobFeroxiRHand
+  baseSprite:
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobFeroxiRArm
+  baseSprite:
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobFeroxiRFoot
+  baseSprite:
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: r_foot

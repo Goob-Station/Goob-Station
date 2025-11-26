@@ -26,7 +26,7 @@ public sealed class TileConstructionTests : InteractionTest
         await SetTile(null);
         await InteractUsing(Rod);
         await AssertTile(Lattice);
-        Assert.That(Hands.ActiveHandEntity, Is.Null);
+        Assert.That(HandSys.GetActiveItem((SEntMan.GetEntity(Player), Hands)), Is.Null);
         await InteractUsing(Cut);
         await AssertTile(null);
         await AssertEntityLookup((Rod, 1));
@@ -58,7 +58,7 @@ public sealed class TileConstructionTests : InteractionTest
         AssertGridCount(1);
 
         // Cut lattice
-        Assert.That(Hands.ActiveHandEntity, Is.Null);
+        Assert.That(HandSys.GetActiveItem((SEntMan.GetEntity(Player), Hands)), Is.Null);
         await InteractUsing(Cut);
         await AssertTile(null);
         AssertGridCount(0);
@@ -92,13 +92,13 @@ public sealed class TileConstructionTests : InteractionTest
 
         // Lattice -> Plating
         await InteractUsing(FloorItem);
-        Assert.That(Hands.ActiveHandEntity, Is.Null);
+        Assert.That(HandSys.GetActiveItem((SEntMan.GetEntity(Player), Hands)), Is.Null);
         await AssertTile(Plating);
         AssertGridCount(1);
 
         // Plating -> Tile
         await InteractUsing(FloorItem);
-        Assert.That(Hands.ActiveHandEntity, Is.Null);
+        Assert.That(HandSys.GetActiveItem((SEntMan.GetEntity(Player), Hands)), Is.Null);
         await AssertTile(Floor);
         AssertGridCount(1);
 

@@ -1,0 +1,34 @@
+# Wraith Health Alert
+- type: alert
+  id: WraithHealth
+  category: Health
+  icons:
+  - sprite: /Textures/_Goobstation/Wraith/UI/health.rsi
+    state: health1
+  - sprite: /Textures/_Goobstation/Wraith/UI/health.rsi
+    state: health2
+  - sprite: /Textures/_Goobstation/Wraith/UI/health.rsi
+    state: health3
+  - sprite: /Textures/_Goobstation/Wraith/UI/health.rsi
+    state: health4
+  - sprite: /Textures/_Goobstation/Wraith/UI/health.rsi
+    state: health5
+  - sprite: /Textures/_Goobstation/Wraith/UI/health.rsi
+    state: health5
+  - sprite: /Textures/_Goobstation/Wraith/UI/health.rsi
+    state: health6
+  - sprite: /Textures/_Goobstation/Wraith/UI/health.rsi
+    state: health7
+  name: alerts-health-name
+  description: alerts-health-desc
+  minSeverity: 1
+  maxSeverity: 7
+
+- type: alert
+  id: WraithDead
+  category: Health
+  icons:
+  - sprite: /Textures/_Goobstation/Wraith/UI/health.rsi
+    state: health8
+  name: alerts-crit-name
+  description: alerts-crit-desc

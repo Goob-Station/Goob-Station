@@ -28,7 +28,7 @@ namespace Content.Server._Lavaland.Procedural.Components;
 public sealed partial class LavalandMapComponent : Component
 {
     [ViewVariables]
-    public EntityUid Outpost;
+    public List<EntityUid> SpawnedGrids;
 
     [ViewVariables]
     public int Seed;

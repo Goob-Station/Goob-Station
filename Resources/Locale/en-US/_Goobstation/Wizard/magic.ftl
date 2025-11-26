@@ -39,7 +39,7 @@ spell-fail-mindswap-dead = You don't particularly want to be dead!
 spell-requirements-failed-clothes = Missing requirements to cast this spell! You need to wear wizard robes and hat.
 spell-requirements-failed-speech = Missing requirements to cast this spell! You can't speak.
 
-instant-summons-item-marked = Sucessfully marked {$item}.
+instant-summons-item-marked = Successfully marked {$item}.
 instant-summons-confirm-popup = This action will remove the current mark! Use it again to confirm.
 
 chuuni-invocation-confirm-popup = This action will force you to wear unremoveable eyepatch! Use it again to confirm.

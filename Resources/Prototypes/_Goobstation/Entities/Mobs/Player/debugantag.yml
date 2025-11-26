@@ -1,0 +1,125 @@
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  categories:
+  parent: MobHuman
+  id: MobHumanWizardDebug
+  name: Wizard
+  suffix: DEBUG
+  components:
+  - type: Loadout
+    prototypes: [ WizardGear ]
+    roleLoadout: [ RoleSurvivalExtended ]
+  - type: RandomMetadata
+    nameSegments:
+    - WizardFirst
+    - WizardLast
+    nameFormat: name-format-standard
+
+- type: entity
+  categories: [  ]
+  parent: MobHumanWizardDebug
+  id: MobHumanWizardDebugSuit
+  name: Wizard Suit
+  suffix: DEBUG
+  components:
+  - type: Loadout
+    prototypes: [ WizardHardsuitGearDebug ]
+
+- type: entity
+  categories:
+  parent: MobHuman
+  id: MobHumanChangelingArmor
+  name: Urist McChangeling
+  suffix: DEBUG
+  components:
+  - type: Loadout
+    prototypes: [ ChangelingArmor ]
+    roleLoadout: [ RoleSurvivalExtended ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+  - type: AutoImplant
+    implants:
+      - AntagImplantChangeling
+
+- type: entity
+  categories:
+  parent: MobHuman
+  id: MobHumanNinjaArmor
+  name: Urist Ninja
+  suffix: DEBUG
+  components:
+  - type: Loadout
+    prototypes: [ SpaceNinjaGear ]
+    roleLoadout: [ RoleSurvivalExtended ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+  - type: AutoImplant
+    implants:
+    - AntagImplantSpaceNinja
+
+- type: entity
+  categories:
+  parent: MobHuman
+  id: MobHumanHereticArmor
+  name: Urist Heretic
+  suffix: DEBUG
+  components:
+  - type: Loadout
+    prototypes: [ HereticArmor ]
+    roleLoadout: [ RoleSurvivalExtended ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+  - type: AutoImplant
+    implants:
+    - AntagImplantHeretic
+
+- type: entity
+  categories:
+  parent: MobHuman
+  id: MobHumanCaptainHardsuit
+  name: Urist McCaptain
+  suffix: DEBUG
+  components:
+  - type: Loadout
+    prototypes: [ CaptainHardsuit ]
+    roleLoadout: [ RoleSurvivalExtended ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+
+- type: entity
+  categories:
+  parent: [ MobHuman, MobHumanCaptainHardsuit ]
+  id: MobHumanCaptainModsuit
+  name: Urist McCaptain Mogsuit
+  suffix: DEBUG
+  components:
+  - type: Loadout
+    prototypes: [ CaptainModsuit ]
+    roleLoadout: [ RoleSurvivalExtended ]
+
+- type: entity
+  categories:
+  parent: [ MobHuman, MobHumanCaptainHardsuit ]
+  id: MobHumanCaptainDebug
+  name: Urist McCaptain
+  suffix: DEBUG
+  components:
+  - type: Loadout
+    prototypes: [ VisitorCaptain ]
+    roleLoadout: [ RoleSurvivalExtended ]
+
+

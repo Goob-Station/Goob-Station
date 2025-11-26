@@ -440,9 +440,9 @@ namespace Content.Server.Database
 
         Task SetNTShoutout(Guid player, string name);
 
-        Task<(string Message, string User)?> GetRandomLobbyMessage();
+        Task<List<(string, string)>> GetLobbyMessages();
 
-        Task<string?> GetRandomShoutout();
+        Task<List<string>> GetShoutouts();
 
         #endregion
 
@@ -1225,16 +1225,16 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.SetNTShoutout(player, name));
         }
 
-        public Task<(string Message, string User)?> GetRandomLobbyMessage()
+        public Task<List<(string, string)>> GetLobbyMessages()
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetRandomLobbyMessage());
+            return RunDbCommand(() => _db.GetLobbyMessages());
         }
 
-        public Task<string?> GetRandomShoutout()
+        public Task<List<string>> GetShoutouts()
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetRandomShoutout());
+            return RunDbCommand(() => _db.GetShoutouts());
         }
 
         #endregion

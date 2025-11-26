@@ -1,4 +1,6 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
+// SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
@@ -68,12 +70,12 @@ public sealed class CosmicSiphonSystem : EntitySystem
 
         var doargs = new DoAfterArgs(EntityManager, uid, uid.Comp.CosmicSiphonDelay, new EventCosmicSiphonDoAfter(), uid, args.Target)
         {
-            DistanceThreshold = 2f,
+            DistanceThreshold = 2.5f,
             Hidden = true,
-            BreakOnHandChange = true,
-            BreakOnDamage = true,
-            BreakOnMove = true,
-            BreakOnDropItem = true,
+            BreakOnHandChange = false,
+            BreakOnDamage = false,
+            BreakOnMove = false,
+            BreakOnDropItem = false,
         };
         args.Handled = true;
         _doAfter.TryStartDoAfter(doargs);
@@ -113,13 +115,15 @@ public sealed class CosmicSiphonSystem : EntitySystem
             _cultRule.IncrementCultObjectiveEntropy(uid);
         }
 
-        if (uid.Comp.CosmicEmpowered) // if you're empowered there's a 50% chance to flicker lights on siphon
+        if (uid.Comp.CosmicEmpowered) // if you're empowered there's a 20% chance to flicker lights on siphon
         {
             _lights.Clear();
-            _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(uid).Coordinates, 5, _lights, LookupFlags.StaticSundries);
+            _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(uid).Coordinates, uid.Comp.FlickerRange, _lights, LookupFlags.StaticSundries);
+            uid.Comp.EntropyStored += uid.Comp.CosmicSiphonQuantity;
+            uid.Comp.EntropyBudget += uid.Comp.CosmicSiphonQuantity;
             foreach (var light in _lights) // static range of 5. because.
             {
-                if (!_random.Prob(0.5f))
+                if (!_random.Prob(uid.Comp.FlickerProbability))
                     continue;
 
                 _ghost.DoGhostBooEvent(light);

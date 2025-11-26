@@ -31,3 +31,5 @@
     transmitFrequencyId: SurveillanceCamera
   - type: WiredNetworkConnection
   - type: SurveillanceCameraMonitor
+  - type: StaticPrice
+    price: 2000

@@ -6,6 +6,8 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 yglop <95057024+yglop@users.noreply.github.com>
 //
@@ -56,12 +58,9 @@ public sealed partial class HereticAbilitySystem
         if (TryComp<StaminaComponent>(ent, out var stam))
         {
             if (stam.StaminaDamage >= stam.CritThreshold)
-            {
                 _stam.ExitStamCrit(ent, stam);
-            }
 
-            stam.StaminaDamage = 0;
-            RemComp<ActiveStaminaComponent>(ent);
+            _stam.ToggleStaminaDrain(ent, args.StaminaRegenRate, true, true, args.StaminaRegenKey, ent);
             Dirty(ent, stam);
         }
 

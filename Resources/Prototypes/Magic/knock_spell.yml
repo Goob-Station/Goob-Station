@@ -12,11 +12,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: BaseAction
   id: ActionKnock
   name: Knock
   description: Opens nearby doors and lockers. # Goob edit
   components:
-  - type: InstantAction
+  - type: Action
     raiseOnUser: true # Goobstation
     checkCanInteract: false # Goobstation
     useDelay: 10
@@ -26,6 +27,7 @@
     icon:
       sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: knock
+  - type: InstantAction
     event: !type:KnockSpellEvent
       range: 3 # Goob edit
   - type: Magic # Goobstation

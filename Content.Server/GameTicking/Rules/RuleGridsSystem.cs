@@ -1,6 +1,10 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -60,8 +64,9 @@ public sealed class RuleGridsSystem : GameRuleSystem<RuleGridsComponent>
         var query = EntityQueryEnumerator<SpawnPointComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out _, out var xform))
         {
-            if (xform.MapID != ent.Comp.Map)
-                continue;
+            // Goobstation - Map checked was removed because some rules with shuttle (like abductors) was broken after shuttle FTL. Should not affect rules critically.
+            /*if (xform.MapID != ent.Comp.Map)
+                continue;*/
 
             if (xform.GridUid is not {} grid || !ent.Comp.MapGrids.Contains(grid))
                 continue;

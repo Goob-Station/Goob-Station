@@ -16,11 +16,14 @@ namespace Content.Server._Goobstation.Heretic.Effects;
 
 public sealed partial class VoidCurse : EntityEffect
 {
+    [DataField]
+    public int Stacks = 1;
+
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => "Inflicts void curse.";
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        args.EntityManager.System<VoidCurseSystem>().DoCurse(args.TargetEntity);
+        args.EntityManager.System<VoidCurseSystem>().DoCurse(args.TargetEntity, Stacks);
     }
 }

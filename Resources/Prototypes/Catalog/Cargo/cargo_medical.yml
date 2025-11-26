@@ -176,6 +176,6 @@
     sprite: Structures/Storage/Crates/surgery.rsi
     state: icon
   product: CrateMedicalSurgery
-  cost: 1600
+  cost: 2300
   category: cargoproduct-category-name-medical
   group: market

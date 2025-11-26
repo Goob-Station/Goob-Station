@@ -177,6 +177,23 @@
     stealGroup: IDCard
   - type: MiningPoints # DeltaV
   - type: NanoChatCard # DeltaV
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/card_pickup.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/card_drop.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/card_drop.ogg
+      params:
+        volume: -5
+  # Goobstation edit end
 
 #IDs with layers
 
@@ -966,6 +983,7 @@
     - state: idcluwne
   - type: IdCard
     jobTitle: job-title-cluwne
+    jobIcon: JobIconCluwne
   - type: Unremoveable
   - type: NanoChatCard # DeltaV
     listNumber: false

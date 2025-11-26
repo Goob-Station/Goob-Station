@@ -47,7 +47,8 @@ public sealed partial class ChangeTileReaction : ITileReaction
             return FixedPoint2.Zero;
 
         var tileDefManager = IoCManager.Resolve<ITileDefinitionManager>();
-        var tileDef = tile.Tile.GetContentTileDefinition(tileDefManager);
+        var turfSystem = entityManager.System<TurfSystem>();
+        var tileDef = turfSystem.GetContentTileDefinition(tile);
 
         if (tileDef.ID == NewTileId)
             return FixedPoint2.Zero;
@@ -56,7 +57,7 @@ public sealed partial class ChangeTileReaction : ITileReaction
             return FixedPoint2.Zero;
 
         var newTileDef = tileDefManager[NewTileId];
-        entityManager.System<MapSystem>().SetTile(gridUid, mapGrid, tile.GridIndices, new Tile(newTileDef.TileId));
+        entityManager.System<MapSystem>().SetTile(gridUid, mapGrid, gridIndices, new Tile(newTileDef.TileId));
 
         if (Effect != null)
             entityManager.SpawnEntity(Effect.Value, new EntityCoordinates(gridUid, gridIndices));

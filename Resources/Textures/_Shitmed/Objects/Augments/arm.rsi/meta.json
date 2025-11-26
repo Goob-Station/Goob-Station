@@ -1,0 +1,32 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "taken from /tg/ station at commit https://github.com/tgstation/tgstation/blob/c7e20fe50f0185e7f1898b518ac8715c47ac56b0/icons/obj/medical/organs/organs.dmi. strength.png modified from surgical.png by deltanedas (github)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "base"
+        },
+        {
+            "name": "base_cables"
+        },
+        {
+            "name": "botany"
+        },
+        {
+            "name": "paperwork"
+        },
+        {
+            "name": "engineering"
+        },
+        {
+            "name": "surgical"
+        },
+        {
+            "name": "strength"
+        }
+    ]
+}

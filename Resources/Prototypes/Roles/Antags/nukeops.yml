@@ -88,6 +88,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 #
@@ -105,6 +106,10 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 36000 # 10h Goobstation
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -122,6 +127,10 @@
   - !type:RoleTimeRequirement
     role: JobChemist
     time: 18000 # 5h Goobstation
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -139,7 +148,11 @@
   - !type:DepartmentTimeRequirement
     department: Command
     time: 18000 # 5h Goobstation
-  # should be changed to nukie playtime when thats tracked (wyci)
+# should be changed to nukie playtime when thats tracked (wyci)
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
   guides: [ NuclearOperatives ]
 
 - type: startingGear
@@ -169,6 +182,15 @@
   equipment:
     pocket2: BaseUplinkRadio225TC # Goobstation - Telecrystal rework
 
+- type: chameleonOutfit
+  id: NukeopsOutfit
+  name: roles-antag-nuclear-operative-name
+  startingGear: SyndicateOperativeGearFullNoUplink
+  icon: "JobIconSyndicate"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndie
+    neck: ClothingNeckScarfStripedSyndieRed
+
 #Nuclear Operative Commander Gear
 - type: startingGear
   id: SyndicateCommanderGearFull
@@ -177,8 +199,18 @@
     neck: SyndicateWhistle
     pocket2: BaseUplinkRadio350TC # goobstation - im rich :fire::fire:
     #outerClothing: ClothingOuterHardsuitSyndieCommander # goobstation - duke nukies
+    ears: ClothingHeadsetAltSyndicateCommander # goob - loudspeaker
   inhand:
   - NukeOpsDeclarationOfWar
+
+- type: chameleonOutfit
+  id: NukeopsCommanderOutfit
+  name: roles-antag-nuclear-operative-commander-name
+  startingGear: SyndicateCommanderGearFull
+  icon: "JobIconSyndicate"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndieCommander
+    neck: ClothingNeckScarfStripedSyndieGreen
 
 #Nuclear Operative Medic Gear
 - type: startingGear
@@ -205,10 +237,19 @@
     - DeathAcidifierImplanter
     - MedkitCombatFilled # Goobstation
 
+- type: chameleonOutfit
+  id: NukeopsMedicOutfit
+  name: roles-antag-nuclear-operative-agent-name
+  startingGear: SyndicateOperativeMedicFull
+  icon: "JobIconSyndicate"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndieMedic
+    neck: ClothingNeckScarfStripedLightBlue
+
 #Lone Operative Gear
 - type: startingGear
   id: SyndicateLoneOperativeGearFull
   parent: SyndicateOperativeGearFull
   equipment:
     # Goobstation - Telecrystal rework
-    pocket2: BaseUplinkRadio350TC
+    pocket2: LoneOpsUplink350TC #Goobstation

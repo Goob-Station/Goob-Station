@@ -221,8 +221,13 @@
     WeaponSubMachineGunC20r: 1
     WeaponRifleAk: 1
     WeaponRifleM90: 1
+    WeaponRifleEstoc: 1
     WeaponRifleAnnie: 1
     WeaponRifleWSPR: 1
     WeaponRifleBurner: 1
     WeaponSniperHristov: 1
     WeaponLaserCannon: 1
+    WeaponSubMachineSmart: 1
+    WeaponLeverChester: 0.25
+    WeaponShotgunCombat: 0.25
+    WeaponSubMachineGunAtreides: 0.5

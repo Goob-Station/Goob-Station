@@ -138,8 +138,26 @@
 - type: entity
   parent: MonkeyCube
   id: ShadowkinCube
-  name: Shadowkin cube
+  name: shadowkin cube
   components:
   - type: Rehydratable
     possibleSpawns:
     - MobShadowkinRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: ChitinidCube
+  name: chitinid cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobChitinidRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: FeroxiCube
+  name: feroxi cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobFeroxiRandom

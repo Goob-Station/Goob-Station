@@ -1,0 +1,247 @@
+#this is for the hermit game mode,but it is only the edited events for the gamemode and the table to make the gamemode work.
+
+
+- type: entityTable
+  id: HermitCalmEventsTable #for the Hermit gamemode
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: AnomalySpawn
+    - id: BluespaceArtifact
+    - id: BluespaceLocker
+    - id: BreakerFlip
+    - id: BureaucraticError
+    - id: ClericalError
+    - id: CockroachMigrationHermit
+    - id: GasLeak
+    - id: GreytideVirus
+    - id: IonStormHermit # its a bit more frequent on hermit- not that it didnt happen every round origonaly
+    - id: KudzuGrowth
+    - id: MassHallucinations
+    - id: MimicVendorRule
+    - id: MouseMigrationHermit
+    - id: PowerGridCheck
+    - id: RandomSentience
+    - id: SlimesSpawnHermit
+    - id: SolarFlare
+    - id: SnakeSpawnHermit
+    - id: SpiderClownSpawnHermit
+    - id: SpiderSpawnHermit
+    - id: VentClog
+    - id: TidemindDevelop # Goobstation - Tidemind
+    - id: MothroachSpawn # DeltaV
+    - id: DerelictCyborgSyndicateSpawnHermit # Goobstation - usually calm
+    - id: MalignRiftSpawn # DeltaV
+    - id: FloorGoblinSpawn # Goobstation
+
+- type: entityTable
+  id: HermitAntagEventsTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: ClosetSkeletonHermit
+    - id: DragonSpawnHermit
+    - id: KingRatMigrationHermit
+    - id: NinjaSpawnHermit
+    - id: ParadoxCloneSpawnHermit
+    - id: TraitorMidroundHermit
+    - id: ChangelingMidroundHermit
+    - id: HereticMidroundHermit
+   # - id: RevolutionaryMidroundHermit #removed becuse despised
+    - id: DevilmidroundHermit
+    - id: ZombieOutbreak
+    - id: LoneOpsSpawnHermit
+    - id: DerelictCyborgSpawnHermit
+    - id: BlobMidroundHermit # Goobstation - Where is the orignal? armok changed this version which isnt the version this uses
+    - id: LoneAbductorSpawnhermit # Shitmed - Starlight Abductors
+    - id: DuoAbductorSpawnHermit # Shitmed - Starlight Abductors
+    - id: BingleSpawnHermit #Goobstation - Bingle
+    - id: SlaughterDemonMidroundHermit # Goobstation - Slaughter Demon
+    - id: XenomorphsInfestationHermit # WD EDIT
+    - id: WraithMidroundHermit # GHOSTS
+
+- type: entity
+  parent: DerelictCyborgSyndicateSpawn
+  id: DerelictCyborgSyndicateSpawnHermit
+  components:
+  - type: GameRule
+    chaosScore: 300
+  - type: StationEvent
+    weight: 2.5 # rarer by one point
+
+- type: entity
+  id: BingleSpawnHermit
+  parent: BingleSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 50
+    weight: 2 #decreased by 1 point
+  - type: GameRule
+    chaosScore: 700 #increased by 100
+
+- type: entity
+  parent: TraitorMidround
+  id: TraitorMidroundHermit
+  components:
+  - type: StationEvent
+    earliestStart: 15 #was 30
+    weight: 8  #kept the same pretty high
+  - type: GameRule
+    chaosScore: 200 # decreased by 60 points, was 240
+
+- type: entity
+  parent: ChangelingMidround
+  id: ChangelingMidroundHermit
+  components:
+  - type: StationEvent
+    earliestStart: 15 # was 20
+    weight: 5 #increased by two yell at me if its too high for balance
+  - type: GameRule
+    chaosScore: 240 #decreased BY 40 points/ was 260
+
+- type: entity
+  parent: HereticMidround
+  id: HereticMidroundHermit
+  components:
+  - type: StationEvent
+    earliestStart: 15 # was 20
+    weight: 4.5 #increased by 1.5
+  - type: GameRule
+    chaosScore: 250 #decreased by 30/ was 270
+
+#- type: entity                   Removed for being shit
+#  parent: RevolutionaryMidround
+#  id: RevolutionaryMidroundHermit
+#  components:
+#  - type: StationEvent
+#    earliestStart: 20
+#   weight: 1.5 #increased by .5, nerfed to 1.5
+#  - type: GameRule
+#    chaosScore: 600 #decreased by 200
+
+- type: entity
+  parent: ClosetSkeleton
+  id: ClosetSkeletonHermit
+  components:
+  - type: StationEvent
+    weight: 4 #decreased by 1
+  # Goobstation
+  - type: GameRule
+    chaosScore: 100 #increased by 40
+
+- type: entity
+  parent: BlobMidround
+  id: BlobMidroundHermit
+  components:
+  - type: StationEvent
+    weight: 1 #kept the same low as it goes also this isnt the one that the og gamemode uses idk where the one it uses is
+  - type: GameRule
+    chaosScore: 1100 #increased by 100
+
+- type: entity
+  parent: Devilmidround
+  id: DevilmidroundHermit
+  components:
+  - type: StationEvent
+    earliestStart: 20
+    weight: 1.5 # increased by .5
+  - type: GameRule
+    chaosScore: 400 #decreased by 100
+
+# MIDROUND KILL SLASH MURDER RIP
+- type: entity
+  parent: SlaughterDemonMidround
+  id: SlaughterDemonMidroundHermit
+  components:
+  - type: StationEvent
+    weight: 1 #kept the same, at rock bottom
+  - type: GameRule
+    chaosScore: 1000 #increased by 100
+
+- type: entity
+  parent: LoneAbductorSpawn
+  id: LoneAbductorSpawnhermit
+  components:
+  - type: StationEvent
+    weight: 2 # hermit decreased by 2
+  - type: GameRule
+    chaosScore: 400 # increased by 100
+
+- type: entity
+  parent: DuoAbductorSpawn
+  id: DuoAbductorSpawnHermit
+  components:
+  - type: StationEvent
+    weight: 2 # hermit decreased by 2
+  - type: GameRule
+    chaosScore: 450 #increased by 100
+
+- type: entity
+  parent: XenomorphsInfestation
+  id: XenomorphsInfestationHermit
+  components:
+  - type: StationEvent
+    weight: 1 #kept the same
+  - type: GameRule
+    chaosScore: 600 #increased by 100
+
+- type: entity
+  parent: DragonSpawn
+  id: DragonSpawnHermit
+  components:
+  - type: StationEvent
+    weight: 1 #decreased by 1.5
+  - type: GameRule
+    chaosScore: 600 #increased by 200
+
+- type: entity
+  parent: NinjaSpawn
+  id: NinjaSpawnHermit
+  components:
+  - type: StationEvent
+    weight: 1.5 #decreased by 1.5
+  - type: GameRule
+    chaosScore: 350 #increased by 100
+#is this a internal or external threat? im thinking internal due to deception correct me if im wrong
+
+- type: entity
+  parent: ParadoxCloneSpawn
+  id: ParadoxCloneSpawnHermit
+  components:
+  - type: StationEvent
+    weight: 6 #increased by one
+  - type: GameRule
+    chaosScore: 75 # decreased by 5
+
+- type: entity
+  parent: LoneOpsSpawn
+  id: LoneOpsSpawnHermit
+  components:
+  - type: StationEvent
+    weight: 1 # decreased by 1.5
+  - type: GameRule
+    chaosScore: 750 #increased by 50
+
+- type: entity
+  parent: DerelictCyborgSpawn
+  id: DerelictCyborgSpawnHermit
+  components:
+  - type: StationEvent
+    weight: 3.5 #decreased by 1.5
+  - type: GameRule
+    chaosScore: 100 #increased by 20
+
+- type: entity
+  parent: WraithMidround
+  id: WraithMidroundHermit
+  components:
+  - type: StationEvent
+    weight: 1.5 #decreased by 2.5
+  - type: GameRule
+    chaosScore: 600 #increased by 100
+
+# TODO When slasher is ready
+#- type: entity
+#  parent: SlasherSpawn
+#  id: SlasherSpawnHermit
+#  components:
+#  - type: StationEvent
+#    weight: 1

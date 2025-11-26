@@ -20,6 +20,14 @@
 		{
 			"name": "equipped-HEAD-sealed",
 			"directions": 4
+		},
+		{
+			"name": "equipped-HEAD-vox",
+			"directions": 4
+		},
+		{
+			"name": "equipped-HEAD-sealed-vox",
+			"directions": 4
 		}
   ]
 }

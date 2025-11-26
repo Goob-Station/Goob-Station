@@ -14,6 +14,7 @@
     - type: Stealth
       minVisibility: 0.1
       lastVisibility: 0.1
+      thermalsImmune: true # Goobstation
   - type: PowerCellDraw
     drawRate: 3.6 # 100 seconds
   - type: ToggleCellDraw

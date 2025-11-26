@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Goonstation 13 https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/icons/mob/wraith_critters.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "spiker",
+            "directions": 4
+        },
+        {
+            "name": "voidHound",
+            "directions": 4
+        },
+        {
+            "name": "shuffling_spiker",
+            "directions": 4
+        },
+        {
+            "name": "dead_spiker"
+        },
+        {
+            "name": "dead_voidhound"
+        }
+    ]
+}

@@ -258,3 +258,19 @@
         reagents:
         - ReagentId: Heroin
           Quantity: 15
+
+- type: entity
+  suffix: microplastics
+  parent: PrefilledSyringe
+  id: SyringeMicroplastics
+  description: Humanity used to macrodose themselves with this. Now its just a medicine for vox.
+  components:
+  - type: Label
+    currentLabel: reagent-name-microplastics
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Microplastics
+          Quantity: 15

@@ -21,7 +21,7 @@ public abstract partial class SharedHisGraceSystem : EntitySystem
     protected void DoAscensionVisuals(Entity<HisGraceComponent> ent, string key)
     {
         if (TryComp<AppearanceComponent>(ent, out var appearance))
-            _appearance.SetData(ent, ToggleVisuals.Toggled, true, appearance);
+            _appearance.SetData(ent, ToggleableVisuals.Enabled, true, appearance);
         _item.SetHeldPrefix(ent, key);
 
         VisualsChanged(ent, key);

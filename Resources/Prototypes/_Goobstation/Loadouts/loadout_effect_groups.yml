@@ -1,0 +1,13 @@
+- type: loadoutEffectGroup
+  id: PlasmaBreather
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+
+- type: loadoutEffectGroup
+  id: Silicon
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - IPC

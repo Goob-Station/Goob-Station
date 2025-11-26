@@ -56,6 +56,8 @@ using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio;
+using Content.Goobstation.Maths.FixedPoint; // Goob Station - Round End Screen
+using Content.Shared.Mobs; // Goob Station - Round End Screen
 
 namespace Content.Shared.GameTicking
 {
@@ -67,8 +69,7 @@ namespace Content.Shared.GameTicking
         // See ideally these would be pulled from the job definition or something.
         // But this is easier, and at least it isn't hardcoded.
         //TODO: Move these, they really belong in StationJobsSystem or a cvar.
-        [ValidatePrototypeId<JobPrototype>]
-        public const string FallbackOverflowJob = "Passenger";
+        public static readonly ProtoId<JobPrototype> FallbackOverflowJob = "Passenger";
 
         public const string FallbackOverflowJobName = "job-name-passenger";
 
@@ -149,7 +150,7 @@ namespace Content.Shared.GameTicking
     public sealed class TickerLobbyStatusEvent : EntityEventArgs
     {
         public bool IsRoundStarted { get; }
-        public LobbyBackgroundPrototype? LobbyBackground { get; } // Goobstation - Lobby Background Credits
+        public ProtoId<LobbyBackgroundPrototype>? LobbyBackground { get; } // Goobstation - Lobby Background Credits
         public bool YouAreReady { get; }
         // UTC.
         public TimeSpan StartTime { get; }
@@ -157,7 +158,7 @@ namespace Content.Shared.GameTicking
         public bool Paused { get; }
 
         // Goobstation - Lobby Background Credits
-        public TickerLobbyStatusEvent(bool isRoundStarted, LobbyBackgroundPrototype? lobbyBackground, bool youAreReady, TimeSpan startTime, TimeSpan preloadTime, TimeSpan roundStartTimeSpan, bool paused)
+        public TickerLobbyStatusEvent(bool isRoundStarted, ProtoId<LobbyBackgroundPrototype>? lobbyBackground, bool youAreReady, TimeSpan startTime, TimeSpan preloadTime, TimeSpan roundStartTimeSpan, bool paused)
         {
             IsRoundStarted = isRoundStarted;
             LobbyBackground = lobbyBackground;
@@ -245,6 +246,14 @@ namespace Content.Shared.GameTicking
             public bool Observer;
 
             public bool Connected;
+
+            #region Goob Station
+            public string? LastWords;
+
+            public MobState EntMobState;
+
+            public Dictionary<string, FixedPoint2> DamagePerGroup;
+            #endregion
         }
 
         public string GamemodeTitle { get; }

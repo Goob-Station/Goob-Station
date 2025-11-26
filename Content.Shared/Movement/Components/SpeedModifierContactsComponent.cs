@@ -45,4 +45,8 @@ public sealed partial class SpeedModifierContactsComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? IgnoreWhitelist;
+
+    // Goobstation
+    [DataField]
+    public EntityWhitelist? Whitelist;
 }

@@ -206,7 +206,7 @@
     sprite: _Goobstation/Wizard/actions.rsi
     state: barn
   cost:
-    WizCoin: 2
+    WizCoin: 1
   categories:
   - SpellbookOffensive
   conditions:

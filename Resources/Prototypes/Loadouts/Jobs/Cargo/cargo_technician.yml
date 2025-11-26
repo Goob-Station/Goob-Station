@@ -81,21 +81,25 @@
   equipment:
     head: ClothingHeadHatCargosoft
 
+
 # Jumpsuit
 - type: loadout
   id: CargoTechnicianJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCargo
 
+
 - type: loadout
   id: CargoTechnicianJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCargo
 
+
 - type: loadout # goob
   id: CargoTechMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryCargo
+
 
 # Back
 - type: loadout

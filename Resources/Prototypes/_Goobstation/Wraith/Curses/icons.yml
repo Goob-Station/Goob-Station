@@ -1,0 +1,39 @@
+- type: curseStatusIcon
+  id: BaseCurseStatusIcon
+  abstract: true
+  visibleToOwner: false
+  showTo:
+    components:
+    - Wraith
+  priority: 11
+  locationPreference: Right
+  offset: 0
+  layer: Mod
+
+- type: curseStatusIcon
+  parent: BaseCurseStatusIcon
+  id: CurseWeaknessIcon
+  icon:
+    sprite: /Textures/_Goobstation/Wraith/UI/status.rsi
+    state: weak_status
+
+- type: curseStatusIcon
+  parent: BaseCurseStatusIcon
+  id: CurseBlindnessIcon
+  icon:
+    sprite: /Textures/_Goobstation/Wraith/UI/status.rsi
+    state: blind_status
+
+- type: curseStatusIcon
+  parent: BaseCurseStatusIcon
+  id: CurseBloodIcon
+  icon:
+    sprite: /Textures/_Goobstation/Wraith/UI/status.rsi
+    state: blood_status
+
+- type: curseStatusIcon
+  parent: BaseCurseStatusIcon
+  id: CurseRotIcon
+  icon:
+    sprite: /Textures/_Goobstation/Wraith/UI/status.rsi
+    state: rot_status

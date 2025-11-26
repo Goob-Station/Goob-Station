@@ -63,7 +63,7 @@
 # TODO: Needs to be more robust
 - type: biomeMarkerLayer
   id: Xenos
-  prototype: MobXeno
+  prototype: CMMobXenoDrone
 
 - type: biomeMarkerLayer
   id: Carps

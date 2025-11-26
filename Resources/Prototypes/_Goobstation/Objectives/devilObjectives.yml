@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   abstract: true
   parent: BaseObjective
@@ -21,3 +27,18 @@
     title: objective-condition-contract-title
     description: objective-condition-contract-description
   - type: SignContractCondition
+
+- type: entity
+  parent: BaseDevilObjective
+  id: DevilWeightObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Economy/cash.rsi
+      state: cash_5000
+  - type: NumberObjective
+    min: 150
+    max: 200
+    title: objective-condition-weight-title
+    description: objective-condition-weight-description
+  - type: MeetContractWeightCondition

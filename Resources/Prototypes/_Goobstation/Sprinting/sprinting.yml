@@ -1,0 +1,59 @@
+- type: entity
+  id: SprintAnimation
+  categories: [ HideSpawnMenu ]
+  name: Dust cloud
+  description: Whoa, watch out!
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _Goobstation/Effects/sprinting.rsi
+    layers:
+      - map: [ "enum.SprintVisualLayers.Base" ]
+        sprite: _Goobstation/Effects/sprinting.rsi
+        state: sprint_cloud
+  - type: TimedDespawn
+    lifetime: 0.48
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+
+- type: entity
+  id: SmallSprintAnimation
+  name: Small dust cloud
+  description: Whoa, watch out!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _Goobstation/Effects/sprinting.rsi
+    layers:
+      - map: [ "enum.SprintVisualLayers.Base" ]
+        sprite: _Goobstation/Effects/sprinting.rsi
+        state: sprint_cloud_small
+  - type: TimedDespawn
+    lifetime: 0.34
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+
+- type: entity
+  id: TinySprintAnimation
+  name: Tiny dust cloud
+  description: Whoa, watch out!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _Goobstation/Effects/sprinting.rsi
+    layers:
+      - map: [ "enum.SprintVisualLayers.Base" ]
+        sprite: _Goobstation/Effects/sprinting.rsi
+        state: sprint_cloud_tiny
+  - type: TimedDespawn
+    lifetime: 0.25
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer

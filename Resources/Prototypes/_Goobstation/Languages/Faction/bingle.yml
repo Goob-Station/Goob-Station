@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: language
+  id: Bingle
+  speech:
+    fontId: Eatday
+    boldFontId: Eatday
+    color: "#33528d"
+  obfuscation:
+    !type:PhraseObfuscation
+    proportion: 0.66
+    minPhrases: 1
+    maxPhrases: 6
+    replacement:
+    - Bingle
+    - Bongle
+    - BINGLE
+    - Bong
+    - Bing
+    - BONGLE

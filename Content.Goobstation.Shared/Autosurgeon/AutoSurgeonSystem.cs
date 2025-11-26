@@ -37,6 +37,10 @@ public sealed class AutoSurgeonSystem : EntitySystem
         SubscribeLocalEvent<AutoSurgeonComponent, ItemToggleActivateAttemptEvent>(OnActivated);
         SubscribeLocalEvent<AutoSurgeonComponent, AutoSurgeonDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<AutoSurgeonComponent, ExaminedEvent>(OnExamined);
+
+        SubscribeLocalEvent<AutoSurgeonMultipleComponent, ItemToggleActivateAttemptEvent>(OnActivated);
+        SubscribeLocalEvent<AutoSurgeonMultipleComponent, AutoSurgeonDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<AutoSurgeonMultipleComponent, ExaminedEvent>(OnExamined);
     }
 
     private void OnActivated(Entity<AutoSurgeonComponent> ent, ref ItemToggleActivateAttemptEvent args)
@@ -248,6 +252,147 @@ public sealed class AutoSurgeonSystem : EntitySystem
     private void OnExamined(Entity<AutoSurgeonComponent> ent, ref ExaminedEvent args) =>
         args.PushMarkup(ent.Comp.Used ? Loc.GetString("gun-cartridge-spent") : Loc.GetString("gun-cartridge-unspent")); // Yes gun locale, and?
 
+    private void OnActivated(Entity<AutoSurgeonMultipleComponent> ent, ref ItemToggleActivateAttemptEvent args)
+    {
+        _audio.Stop(ent.Comp.ActiveSound);
+        args.Cancelled = true;
+
+        if (ent.Comp.Used || args.User == null)
+            return;
+
+        if (!_doAfter.TryStartDoAfter(new DoAfterArgs(
+                EntityManager,
+                ent.Owner,
+                ent.Comp.DoAfterTime,
+                new AutoSurgeonDoAfterEvent(),
+                ent.Owner,
+                args.User,
+                ent.Owner)
+            {
+                BreakOnMove = true,
+                DistanceThreshold = 0.1f,
+                MovementThreshold = 0.1f,
+            }))
+            return;
+
+        var ev = new TransferDnaEvent { Donor = args.User.Value, Recipient = ent };
+        RaiseLocalEvent(args.User.Value, ref ev);
+
+        if (_netManager.IsClient) // Fuck sound networking
+            return;
+
+        var sound = _audio.PlayPvs(ent.Comp.Sound, ent);
+        if (sound.HasValue)
+            ent.Comp.ActiveSound = sound.Value.Entity;
+    }
+
+    private void OnDoAfter(Entity<AutoSurgeonMultipleComponent> ent, ref AutoSurgeonDoAfterEvent args)
+    {
+        if (args.Cancelled
+        || ent.Comp.Used
+        || args.Target == null)
+        {
+            _audio.Stop(ent.Comp.ActiveSound);
+            return;
+        }
+
+        foreach (var entry in ent.Comp.Entries)
+        {
+            var isBodyPart = entry.TargetOrgan == null;
+
+            // Handle replacing the part
+            if (entry.NewPartProto != null)
+            {
+                var parent = _body.GetBodyChildrenOfType(args.Target.Value, entry.TargetBodyPart, symmetry: entry.TargetBodyPartSymmetry)
+                    .FirstOrDefault()
+                    .Id;
+
+                if (!parent.Valid
+                || !TryComp<BodyPartComponent>(parent, out var parentComp))
+                {
+                    _audio.Stop(ent.Comp.ActiveSound);
+                    return;
+                }
+
+                var newPart = Spawn(entry.NewPartProto, Transform(args.Target.Value).Coordinates);
+
+                if (isBodyPart)
+                {
+                    if (!TryComp<BodyPartComponent>(newPart, out var newPartComp)
+                    || !parentComp.Children.ContainsKey(_body.GetSlotFromBodyPart(newPartComp))) // why is there no method for this
+                    {
+                        Del(newPart);
+                        continue;
+                    }
+
+                    var oldPart = _body.GetBodyChildrenOfType(args.Target.Value, newPartComp.PartType, symmetry: newPartComp.Symmetry)
+                        .FirstOrDefault()
+                        .Id;
+
+                    if (oldPart.Valid)
+                        _body.DetachPart(parent, _body.GetSlotFromBodyPart(newPartComp), oldPart);
+
+                    _body.AttachPart(parent, _body.GetSlotFromBodyPart(newPartComp), newPart);
+                }
+                else
+                {
+                    if (!TryComp<OrganComponent>(newPart, out var newOrganComp)
+                    || !_body.CanInsertOrgan(parent, newOrganComp.SlotId))
+                    {
+                        Del(newPart);
+                        continue;
+                    }
+
+                    var oldOrgan = _body.GetPartOrgans(parent)
+                        .FirstOrDefault(organ => organ.Component.SlotId == newOrganComp.SlotId)
+                        .Id;
+
+                    if (!_body.AddOrganToFirstValidSlot(parent, newPart) && oldOrgan.Valid)
+                    {
+                        _body.RemoveOrgan(oldOrgan);
+                        _body.InsertOrgan(parent, newPart, newOrganComp.SlotId);
+                    }
+                }
+
+                continue;
+            }
+
+            // If we didn't replace it, then we upgrade it.
+            var part = isBodyPart
+                ? _body.GetBodyChildrenOfType(args.Target.Value, entry.TargetBodyPart, symmetry: entry.TargetBodyPartSymmetry)
+                    .FirstOrDefault()
+                    .Id
+                : _body.GetBodyOrgans(args.Target)
+                    .FirstOrDefault(organ => organ.Component.SlotId == entry.TargetOrgan)
+                    .Id;
+
+            if (!part.Valid)
+            {
+                _audio.Stop(ent.Comp.ActiveSound);
+                return;
+            }
+
+            var addedToPart = AddComponents(part, entry.ComponentsToPart); // if none were actually added the part is probably already upgraded
+
+            if (addedToPart != null // null indicates there were no components to add in the first place, so it's fine
+            && !addedToPart.Any())
+                continue;
+
+            if (entry.TargetOrgan == null)
+                HandleBodyPart(args.Target.Value, part, entry.ComponentsToUser);
+            else
+                HandleOrgan(args.Target.Value, part, entry.ComponentsToUser);
+        }
+
+        _audio.Stop(ent.Comp.ActiveSound);
+        if (ent.Comp.OneTimeUse)
+            ent.Comp.Used = true;
+        Dirty(ent);
+    }
+
+    private void OnExamined(Entity<AutoSurgeonMultipleComponent> ent, ref ExaminedEvent args) =>
+        args.PushMarkup(ent.Comp.Used ? Loc.GetString("gun-cartridge-spent") : Loc.GetString("gun-cartridge-unspent")); // Yes gun locale, and?
+
     private ComponentRegistry? AddComponents(EntityUid ent, ComponentRegistry? comps) // Returns actually added components
     {
         if (comps == null)
@@ -257,14 +402,14 @@ public sealed class AutoSurgeonSystem : EntitySystem
 
         foreach (var (name, data) in comps)
         {
-            var newComp = (Component)_componentFactory.GetComponent(name);
+            var newComp = (Component) _componentFactory.GetComponent(name);
             if (HasComp(ent, newComp.GetType()))
                 continue;
 
             newComp.Owner = ent;
             object? temp = newComp;
             _serializationManager.CopyTo(data.Component, ref temp);
-            EntityManager.AddComponent(ent, (Component)temp!);
+            EntityManager.AddComponent(ent, (Component) temp!, true);
 
             result.Add(name, data);
         }

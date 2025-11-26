@@ -1,0 +1,97 @@
+- type: entity
+  id: NTRCrateSpesosSmall
+  parent: CratePrivateSecure
+  name: Spesos grant bonus
+  description: Tough times require capitalist solutions.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SpaceCash500
+        amount: 20 # Why? cuz a whole ass crate for 1 cash stack is wierd
+
+- type: entity
+  id: NTRCratePointDisks
+  parent: CrateScienceSecure
+  name: Point disks grant bonus
+  description: Progress, my friend, progress.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ResearchDisk
+        amount: 10 # 10 x 1000 = 10000 points, should be enough for sci, and also, a whole crate for 1 disk is stupid so 10 disks is good
+
+- type: entity
+  id: NTRCrateEmergencyMed
+  parent: CrateMedicalSecure
+  name: Emergency medical supplies
+  description: Think about how would you explain this to NT.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MedkitBurnFilled
+      - id: MedkitToxinFilled
+      - id: MedkitOxygenFilled
+      - id: MedkitBruteFilled
+      - id: MedkitRadiationFilled # its an emergency med crate, not war med crate so no combat medkits
+
+- type: entity
+  id: NTRCrateDisablers
+  parent: CrateCommandSecure
+  name: Disablers crate
+  description: A crate with disablers, why would you need this?
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponDisablerSMG # yknow maybe its too good for tier 1, i hope i dont forget about this before doing a pr
+      - id: WeaponDisabler
+        amount: 3
+
+- type: entity
+  id: NTRCrateToolsSmall
+  parent: CrateEngineeringSecure
+  name: Tools crate
+  description: A crate with standard NanoTrasen tools.
+  components:
+  - type: StorageFill
+    contents:
+      - id: Wirecutter
+      - id: Screwdriver
+      - id: Wrench
+      - id: Multitool
+      - id: NetworkConfigurator
+      - id: ClothingBeltUtility
+      - id: Crowbar
+
+- type: entity
+  id: NTRBoardTelecom
+  parent: CrateCommandSecure
+  name: Telecom server computer board crate
+  description: A crate, containing 2 telecom server machine boards.
+  components:
+  - type: StorageFill
+    contents:
+    - id: TelecomServerCircuitboard
+    - id: TelecomServerCircuitboard
+
+- type: entity
+  id: NTRBoardHolopad
+  parent: CrateCommandSecure
+  name: Holopad crate
+  description: A crate, that contains 2 holopad machine boards.
+  components:
+  - type: StorageFill
+    contents:
+    - id: HolopadMachineCircuitboard
+    - id: HolopadMachineCircuitboard # what is the point of having 1 holopad?
+
+- type: entity
+  id: NTRBoardShuttle
+  parent: CrateEngineeringSecure
+  name: Shuttle-maker bundle crate
+  components:
+  - type: StorageFill
+    contents:
+    - id: ThrusterFlatpack
+      amount: 4
+    - id: ShuttleConsoleCircuitboard
+    - id: GyroscopeFlatpack

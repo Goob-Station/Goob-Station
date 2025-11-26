@@ -1,0 +1,55 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: HeatExchanger
+  id: HeatExchangerInline
+  name: inline radiator
+  description: Transfers heat between the pipe and its surroundings. Doesn't need gas flow.
+  components:
+  - type: Sprite
+    sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe.rsi
+      state: pipeStraight
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: heInlineStraight
+      map: [ "enum.SubfloorLayers.FirstLayer" ]
+  - type: HeatExchanger
+    inlet: pipe
+    outlet: pipe
+  - type: NodeContainer
+    nodes:
+      pipe:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: Longitudinal
+  - type: Construction
+    graph: GasBinary
+    node: inlineradiator
+
+- type: entity
+  parent: HeatExchangerInline
+  id: HeatExchangerInlineBend
+  components:
+    - type: Sprite
+      layers:
+      - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        state: pipeBend
+        map: [ "enum.PipeVisualLayers.Pipe" ]
+      - state: heInlineBend
+        map: [ "enum.SubfloorLayers.FirstLayer" ]
+    - type: HeatExchanger
+      inlet: pipe
+      outlet: pipe
+    - type: NodeContainer
+      nodes:
+        pipe:
+          !type:PipeNode
+          nodeGroupID: Pipe
+          pipeDirection: SWBend
+    - type: Construction
+      graph: GasBinary
+      node: bendinlineradiator

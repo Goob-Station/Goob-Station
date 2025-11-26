@@ -27,12 +27,6 @@
   size: 512
 
 - type: biomeMarkerLayer
-  id: ChasmLavaland
-  prototype: FloorChasmEntity
-  minGroupSize: 4
-  maxGroupSize: 8
-
-- type: biomeMarkerLayer
   id: RandomMobLavaland
   prototype: SpawnerRandomMobLavaland
   radius: 32

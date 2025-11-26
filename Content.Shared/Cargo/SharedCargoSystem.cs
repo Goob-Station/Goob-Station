@@ -20,15 +20,9 @@ public abstract class SharedCargoSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
 
-    private static bool _initialized = false; // Goob, see comment in Initialize()
     public override void Initialize()
     {
         base.Initialize();
-
-        // Goob - double init from <see cref="Server._DV.Cargo.Systems.LogisticStatsSystem"/>. Bandaid fix - Shielding from double subscription
-        if (_initialized)
-            return;
-        _initialized = true;
 
         SubscribeLocalEvent<StationBankAccountComponent, MapInitEvent>(OnMapInit);
     }

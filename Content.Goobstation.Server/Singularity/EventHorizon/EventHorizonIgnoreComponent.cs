@@ -11,5 +11,5 @@ namespace Content.Goobstation.Server.Singularity.EventHorizon;
 public sealed partial class EventHorizonIgnoreComponent : Component
 {
     [DataField]
-    public EntityWhitelist HorizonWhitelist = new();
+    public EntityWhitelist? HorizonWhitelist;
 }

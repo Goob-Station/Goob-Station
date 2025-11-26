@@ -1,0 +1,63 @@
+- type: entity # Goob, the normal revolver but no ammo counter
+  name: Russian Revolver
+  parent: BaseItem
+  id: WeaponRussianRevolver
+  description: The latest in Nanotrasen’s recreational department, a normal revolver but with built guards around the cylinder to prevent seeing what slot bullets are in, has special sensors preventing it from shooting anyone who isn't cuffed or isn't the user, fun for the whole family!.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
+    state: icon
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Gun
+    selectedMode: SemiAuto
+    fireRate: 0 # Good luck firing it
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+  - type: UseDelay
+    delay: 0.66
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeMagnum
+        - SpeedLoaderMagnum
+    capacity: 6
+    proto: null
+    chambers: [ null, null, null, null, null, null ]
+    ammoSlots: [ null, null, null, null, null, null ]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+  - type: StaticPrice
+    price: 500
+  - type: Multishot # Goobstation V
+    missChance: 0.4
+    spreadMultiplier: 3
+    spreadAddition: 40
+  - type: EmitSoundOnPickup
+    sound:
+      collection: RevolversPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: RevolversDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: RevolversDrop

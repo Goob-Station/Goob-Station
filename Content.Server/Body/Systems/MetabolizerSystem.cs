@@ -59,17 +59,20 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Bed.Sleep; // Shitmed Change
 using Content.Shared.Body.Organ;
+using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Collections;
@@ -79,7 +82,8 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Body.Systems
 {
-    public sealed class MetabolizerSystem : EntitySystem
+    /// <inheritdoc/>
+    public sealed class MetabolizerSystem : SharedMetabolizerSystem
     {
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -106,7 +110,7 @@ namespace Content.Server.Body.Systems
 
         private void OnMapInit(Entity<MetabolizerComponent> ent, ref MapInitEvent args)
         {
-            ent.Comp.NextUpdate = _gameTiming.CurTime + ent.Comp.UpdateInterval;
+            ent.Comp.NextUpdate = _gameTiming.CurTime + ent.Comp.AdjustedUpdateInterval;
         }
 
         private void OnUnpaused(Entity<MetabolizerComponent> ent, ref EntityUnpausedEvent args)
@@ -126,20 +130,9 @@ namespace Content.Server.Body.Systems
             }
         }
 
-        private void OnApplyMetabolicMultiplier(
-            Entity<MetabolizerComponent> ent,
-            ref ApplyMetabolicMultiplierEvent args)
+        private void OnApplyMetabolicMultiplier(Entity<MetabolizerComponent> ent, ref ApplyMetabolicMultiplierEvent args)
         {
-            // TODO REFACTOR THIS
-            // This will slowly drift over time due to floating point errors.
-            // Instead, raise an event with the base rates and allow modifiers to get applied to it.
-            if (args.Apply)
-            {
-                ent.Comp.UpdateInterval *= args.Multiplier;
-                return;
-            }
-
-            ent.Comp.UpdateInterval /= args.Multiplier;
+            ent.Comp.UpdateIntervalMultiplier = args.Multiplier;
         }
 
         public override void Update(float frameTime)
@@ -160,7 +153,7 @@ namespace Content.Server.Body.Systems
                 if (_gameTiming.CurTime < metab.NextUpdate)
                     continue;
 
-                metab.NextUpdate += metab.UpdateInterval;
+                metab.NextUpdate += metab.AdjustedUpdateInterval;
                 TryMetabolize((uid, metab));
             }
         }
@@ -234,7 +227,12 @@ namespace Content.Server.Body.Systems
                 if (ent.Comp1.MetabolismGroups is null)
                     continue;
 
-                foreach (var group in ent.Comp1.MetabolismGroups)
+                // Goob edit start
+                var ev = new ExcludeMetabolismGroupsEvent(ent.Owner);
+                RaiseLocalEvent(solutionEntityUid.Value, ref ev);
+                var exclude = ev.Groups ?? new();
+
+                foreach (var group in ent.Comp1.MetabolismGroups.ExceptBy(exclude, x => x.Id)) // Goob edit end
                 {
                     if (!proto.Metabolisms.TryGetValue(group.Id, out var entry))
                         continue;

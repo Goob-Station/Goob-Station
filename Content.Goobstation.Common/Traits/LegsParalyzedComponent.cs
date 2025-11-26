@@ -14,4 +14,8 @@ namespace Content.Goobstation.Common.Traits;
 /// Set player speed to zero and standing state to down, simulating leg paralysis.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class LegsParalyzedComponent : Component;
+public sealed partial class LegsParalyzedComponent : Component
+{
+    [DataField] public float CrawlMoveSpeed = 2;
+    [DataField] public float CrawlMoveAcceleration = 2;
+};

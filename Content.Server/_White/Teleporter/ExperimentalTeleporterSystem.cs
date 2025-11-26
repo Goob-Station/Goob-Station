@@ -6,6 +6,7 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Server.Body.Systems;
 using Content.Shared._White.Standing;
 using Content.Shared.Charges.Systems;
@@ -34,6 +35,7 @@ public sealed class ExperimentalTeleporterSystem : EntitySystem
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly TelefragSystem _telefrag = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     public override void Initialize()
     {
@@ -47,6 +49,11 @@ public sealed class ExperimentalTeleporterSystem : EntitySystem
             || !TryComp<TransformComponent>(args.User, out var xform)
             || (_containerSystem.IsEntityInContainer(args.User)
                 && !_containerSystem.TryRemoveFromContainer(args.User)))
+            return;
+
+        var ev = new TeleportAttemptEvent(false);
+        RaiseLocalEvent(args.User, ref ev);
+        if (ev.Cancelled)
             return;
 
         var oldCoords = xform.Coordinates;
@@ -100,7 +107,7 @@ public sealed class ExperimentalTeleporterSystem : EntitySystem
 
     private bool TryCheckWall(EntityCoordinates coords)
     {
-        if (!coords.TryGetTileRef(out var tile)
+        if (!_turf.TryGetTileRef(coords, out var tile)
             || !TryComp<MapGridComponent>(tile.Value.GridUid, out var mapGridComponent))
             return false;
 

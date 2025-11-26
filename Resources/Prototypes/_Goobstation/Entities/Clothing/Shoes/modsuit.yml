@@ -11,10 +11,32 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+## Parent File to easily add more attributes, here it's used for plasmaman mostly
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesModsuitBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Modsuits/standard.rsi
+    layers:
+    - state: boots
+    - state: boots-sealed
+      map: [ "sealed" ]
+  - type: Tag
+    tags:
+    - PlasmamanSafe
+    - WhitelistChameleon
+  - type: IgniteFromGasImmunity
+    parts:
+    - LeftFoot
+    - RightFoot
+
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsStandard
-  name: standard hardsuit boots
+  name: standard modsuit boots
   description: A special modular suit boots designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
@@ -40,11 +62,10 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
-
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsSecurity
-  name: soldat hardsuit boots
+  name: soldat modsuit boots
   description: THE IRON BOOTS OF THE LAW.
   categories: [ HideSpawnMenu ]
   components:
@@ -70,6 +91,8 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
   - type: ModifyStandingUpTime
@@ -90,7 +113,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsHeadOfSecurity
-  name: bulwark hardsuit boots
+  name: bulwark modsuit boots
   description: I call these my commie stompers.
   categories: [ HideSpawnMenu ]
   components:
@@ -116,6 +139,8 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
   - type: ModifyStandingUpTime
@@ -136,7 +161,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsParamedic
-  name: sanitater hardsuit boots
+  name: sanitater modsuit boots
   description: Made to get bloody.
   categories: [ HideSpawnMenu ]
   components:
@@ -162,11 +187,12 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
-
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsEngineer
-  name: sapper hardsuit boots
+  name: sapper modsuit boots
   description: Made to get oily.
   categories: [ HideSpawnMenu ]
   components:
@@ -192,6 +218,8 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
   - type: ItemToggle
   - type: ToggleClothing
     action: ActionToggleMagboots
@@ -207,7 +235,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsAtmostech
-  name: aeolus hardsuit boots
+  name: aeolus modsuit boots
   description: Made to get burnt.
   categories: [ HideSpawnMenu ]
   components:
@@ -233,14 +261,16 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
   - type: FireProtection # lmao
     reduction: 0.25
 
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsResearchDirector
-  name: minerva hardsuit boots
-  description: Wont stop you slipping on your own blood when the holocarp gets to you.
+  name: minerva modsuit boots
+  description: Won't stop you slipping on your own blood when the holocarp gets to you.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -265,11 +295,12 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
-
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsCaptain
-  name: magnate hardsuit boots
+  name: magnate modsuit boots
   description: These boots were designed by THE Michael Jordan and crafted with ancient alloys, man.
   categories: [ HideSpawnMenu ]
   components:
@@ -295,3 +326,5 @@
     clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox

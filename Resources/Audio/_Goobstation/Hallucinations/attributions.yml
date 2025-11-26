@@ -1,0 +1,8 @@
+- files: 
+  - behind_you1.ogg
+  - i_see_you1.ogg
+  - im_here1.ogg
+  - turn_around1.ogg
+  license: "CC-BY-3.0"
+  copyright: "Unknown, taken from TG Station"
+  source: "https://github.com/tgstation/tgstation/blob/a363eece3242c196ae62f201d46ef5c2e1dfb3c2/code/_globalvars/lists/ambience.dm#L172"

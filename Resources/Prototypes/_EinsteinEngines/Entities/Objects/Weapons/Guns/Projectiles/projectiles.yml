@@ -1,0 +1,76 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BulletGrenadeSpreadBeanbag
+  categories: [ HideSpawnMenu ]
+  parent: PelletShotgun
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgunBeanbag
+    count: 8
+    spread: 25
+
+- type: entity
+  id: BulletGrenadeSpreadBirdshot
+  categories: [ HideSpawnMenu ]
+  parent: PelletShotgun
+  components:
+  - type: ProjectileSpread
+    proto: BulletGrenadeBirdshot
+    count: 50
+    spread: 25
+
+- type: entity
+  id: BulletGrenadeBirdshot
+  categories: [ HideSpawnMenu ]
+  parent: PelletShotgun
+  components:
+  - type: Sprite
+    scale: 0.5, 0.5
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 10
+
+- type: entity
+  id: BulletGrenadeSpread00Buckshot
+  categories: [ HideSpawnMenu ]
+  parent: PelletShotgun
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgun00Buckshot
+    count: 32
+    spread: 25
+
+- type: entity
+  id: BulletGrenadeSpread0000Buckshot
+  categories: [ HideSpawnMenu ]
+  parent: PelletShotgun
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgun0000Buckshot
+    count: 24
+    spread: 25
+
+- type: entity
+  id: BulletGrenadeSlug
+  name: slug grenade
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 250 # At this point you're firing a cannon shell at someone.
+        Structural: 800 # Will instantly destroy pretty much any structure it hits.
+  - type: StaminaDamageOnCollide
+    damage: 150 # JUST IN CASE THEY SOMEHOW SURVIVE IT.

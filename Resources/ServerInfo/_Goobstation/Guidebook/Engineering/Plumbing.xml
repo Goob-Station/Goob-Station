@@ -1,0 +1,20 @@
+<Document>
+<Box>
+<GuideEntityEmbed Entity="PlumbingPump"/>
+<GuideEntityEmbed Entity="ChemMaster"/>
+<GuideEntityEmbed Entity="ReagentGrinderIndustrial"/>
+<GuideEntityEmbed Entity="BaseGasCondenser"/>
+</Box>
+
+Modern technology allows space creatures like you and I to automate the movement of liquids.
+
+Research and build a liquid pump and some automation upgrade kits.
+You can upgrade certain liquid handling machines like ChemMasters and industrial reagent grinders.
+Link the pump to the Plumbing Input/Output ports and it will start pumping.
+
+Pumps can only transfer between 2 machines, but you can click them to assign a filter. Only that filtered reagent will be moved by the pump.
+Use multiple pumps for advanced stuff.
+
+Because it's just multitool based you don't need to build any pipes or anything, just link pumps to machines and watch the liquids move!
+
+</Document>

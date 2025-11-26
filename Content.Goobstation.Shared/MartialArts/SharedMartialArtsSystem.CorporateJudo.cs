@@ -17,7 +17,6 @@ using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Goobstation.Maths.FixedPoint;
@@ -136,16 +135,10 @@ public partial class SharedMartialArtsSystem
 
         var knockdownTime = TimeSpan.FromSeconds(proto.ParalyzeTime);
 
-        if (TryComp<StaminaComponent>(target, out var stamina))
-        {
-            var ev = new TakeStaminaDamageEvent((target, stamina));
-            RaiseLocalEvent(target, ev);
+        var ev = new BeforeStaminaDamageEvent(1f);
+        RaiseLocalEvent(target, ref ev);
 
-            if (ev.Handled)
-                return;
-
-            knockdownTime *= ev.Multiplier;
-        }
+        knockdownTime *= ev.Value;
 
         _stun.TryKnockdown(target, knockdownTime, true, proto.DropHeldItemsBehavior);
 
@@ -169,16 +162,10 @@ public partial class SharedMartialArtsSystem
 
         var knockdownTime = TimeSpan.FromSeconds(proto.ParalyzeTime);
 
-        if (TryComp<StaminaComponent>(target, out var stamina))
-        {
-            var ev = new TakeStaminaDamageEvent((target, stamina));
-            RaiseLocalEvent(target, ev);
+        var ev = new BeforeStaminaDamageEvent(1f);
+        RaiseLocalEvent(target, ref ev);
 
-            if (ev.Handled)
-                return;
-
-            knockdownTime *= ev.Multiplier;
-        }
+        knockdownTime *= ev.Value;
 
         if (!HasComp<ArmbarredComponent>(target))
         {

@@ -1,0 +1,67 @@
+- type: entity
+  id: SecurityJobUnlock
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    minimumPlayers: 0
+    weight: 0
+  - type: LateJobUnlockRule
+    jobsToAdd:
+      SecurityOfficer: 2
+
+- type: entity
+  id: ScienceJobUnlock
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    minimumPlayers: 0
+    weight: 0
+  - type: LateJobUnlockRule
+    jobsToAdd:
+      Scientist: 2
+
+- type: entity
+  id: ServiceJobUnlock
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    minimumPlayers: 0
+    weight: 0
+  - type: LateJobUnlockRule
+    jobsToAdd:
+      Janitor: 1
+      ServiceWorker: 1
+
+- type: entity
+  id: CargoJobUnlock
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    minimumPlayers: 0
+    weight: 0
+  - type: LateJobUnlockRule
+    jobsToAdd:
+      CargoTechnician: 1
+      SalvageSpecialist: 1
+
+- type: entity
+  id: EngineeringJobUnlock
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    minimumPlayers: 0
+    weight: 0
+  - type: LateJobUnlockRule
+    jobsToAdd:
+      StationEngineer: 2
+
+- type: entity
+  parent: BaseGameRule
+  id: MedicalJobUnlock
+  components:
+  - type: StationEvent
+    minimumPlayers: 0
+    weight: 0
+  - type: LateJobUnlockRule
+    jobsToAdd:
+      MedicalDoctor: 2

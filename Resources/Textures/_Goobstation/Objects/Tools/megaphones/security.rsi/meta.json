@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "taken from tg at https://github.com/tgstation/tgstation/blob/master/icons/mob/inhands/items/megaphone_lefthand.dmi, https://github.com/tgstation/tgstation/blob/master/icons/mob/inhands/items/megaphone_righthand.dmi and https://github.com/tgstation/tgstation/blob/master/icons/obj/devices/voice.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "inhand-left",
+            "directions" : 4
+        },
+        {
+            "name": "inhand-right",
+            "directions" : 4
+        }
+    ]
+}

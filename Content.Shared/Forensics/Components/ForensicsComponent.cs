@@ -6,6 +6,10 @@
 // SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Hagvan <22118902+Hagvan@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -23,7 +27,7 @@ namespace Content.Shared.Forensics.Components // Goob/Einstein Engins - Shared F
         public HashSet<string> Fibers = new();
 
         [DataField, AutoNetworkedField] // Einstein Engines - Network that shit
-        public HashSet<string> DNAs = new();
+        public HashSet<(string, TimeSpan)> DNAs = new(); // Goobstation
 
         [DataField, AutoNetworkedField] // Einstein Engines - Scent Tracking
         public string Scent = String.Empty;

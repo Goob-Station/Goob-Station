@@ -18,7 +18,7 @@
   - type: Hunger
   - type: Thirst
   - type: Sprite # smaller size
-    scale: 0.8, 0.8
+    # scale: 0.8, 0.8 # Goobstation: port EE height/width sliders
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -69,6 +69,13 @@
   - type: Speech
     speechVerb: Felinid
     speechSounds: Alto
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    - SiikMaas
+    understands:
+    - TauCetiBasic
+    - SiikMaas
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -99,6 +106,7 @@
         Blunt: 1
   - type: Stamina
     critThreshold: 75 # Goobstation - Siouxcide, felinids take 3 disabler shots to down
+    animationThreshold: 40 # Goob edit
   - type: TypingIndicator
     proto: felinid
   - type: PseudoItem

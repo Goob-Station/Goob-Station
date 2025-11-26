@@ -13,6 +13,9 @@ public sealed partial class RustObjectsInRadiusComponent : Component
     public float LookupRange = 0.1f;
 
     [DataField]
+    public int RustStrength = 10;
+
+    [DataField]
     public EntProtoId TileRune = "TileHereticRustRune";
 
     [DataField, AutoPausedField]

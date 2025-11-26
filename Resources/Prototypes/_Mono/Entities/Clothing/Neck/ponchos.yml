@@ -1,0 +1,96 @@
+# SPDX-FileCopyrightText: 2025 Hyenh
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckPonchoBlack
+  name: black cold weather poncho
+  description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. The truth is that it's itchy, stuffy, and a little baggy - but at least it's not cold. This one is black.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Ponchos/black.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Neck/Ponchos/black.rsi
+  - type: Item
+    size: Normal
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.5
+
+- type: entity
+  parent: ClothingNeckPonchoBlack
+  id: ClothingNeckPonchoArctic
+  name: cold weather poncho
+  description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. The truth is that it's itchy, stuffy, and a little baggy - but at least it's not cold.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Ponchos/arctic.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Neck/Ponchos/arctic.rsi
+
+- type: entity
+  parent: ClothingNeckPonchoBlack
+  id: ClothingNeckPonchoSyndicate
+  name: black and red cold weather poncho
+  description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. The truth is that it's itchy, stuffy, and a little baggy - but at least it's not cold. This one seems vaguely sinister...
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Ponchos/syndicate.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Neck/Ponchos/syndicate.rsi
+
+- type: entity
+  parent: ClothingNeckPonchoBlack
+  id: ClothingNeckPonchoSmallPink
+  name: small pink cold weather poncho
+  description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. This stylish rendition comes in a smaller size. This one is pink and white.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Ponchos/pinksmall.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Neck/Ponchos/pinksmall.rsi
+
+- type: entity
+  parent: ClothingNeckPonchoBlack
+  id: ClothingNeckPonchoSmallRed
+  name: small red cold weather poncho
+  description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. This stylish rendition comes in a smaller size with a cuter design. This one is red and black.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Ponchos/redsmall.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Neck/Ponchos/redsmall.rsi
+
+- type: entity
+  parent: ClothingNeckPonchoBlack
+  id: ClothingNeckPonchoSmallPurple
+  name: small purple cold weather poncho
+  description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. This stylish rendition comes in a smaller size with a cuter design. This one is purple with a fish decal.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Ponchos/purplesmall.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Neck/Ponchos/purplesmall.rsi
+
+- type: entity
+  parent: ClothingNeckPonchoBlack
+  id: ClothingNeckPonchoSmallBlack
+  name: small black cold weather poncho
+  description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. This rendition comes in a smaller size. This one is black.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Ponchos/blacksmall.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Neck/Ponchos/blacksmall.rsi
+
+- type: entity
+  parent: ClothingNeckPonchoBlack
+  id: ClothingNeckPonchoSmallWhite
+  name: small cold weather poncho
+  description: The Cold Weather Poncho, advertised as a masterpiece of elemental protection. This rendition comes in a smaller size.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Ponchos/whitesmall.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Neck/Ponchos/whitesmall.rsi
