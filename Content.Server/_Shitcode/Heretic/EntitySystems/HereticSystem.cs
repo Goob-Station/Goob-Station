@@ -174,7 +174,7 @@ public sealed class HereticSystem : EntitySystem
         var size = comp.InfluenceGainTextFontSize;
         var loc = Loc.GetString(baseMessage, ("size", size), ("text", message));
         SharedChatSystem.UpdateFontSize(size, ref message, ref loc);
-        _chatMan.ChatMessageToOne(ChatChannel.Server, message, loc, default, false, session.Channel, canCoalesce: false);
+        _chatMan.ChatMessageToOne(ChatChannel.Server, message, loc, default, false, session.Channel);
     }
 
     public HashSet<ProtoId<TagPrototype>>? TryGetRequiredKnowledgeTags(Entity<HereticComponent> ent)
