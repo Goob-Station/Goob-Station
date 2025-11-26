@@ -18401,3 +18401,57 @@ Entries:
       message: Ascended shadowling annihilate will no longer target inanimate objects
   id: 2071
   time: '2025-11-25T07:17:58.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Add
+      message: Redspace Lifeline Implanter admeme
+  id: 2072
+  time: '2025-11-25T09:50:40.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: >-
+        Major bugfixes and changes to the slasher. Check out the pull request
+        for more info
+  id: 2073
+  time: '2025-11-25T20:37:36.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added icons for patrons in OOC chat.
+  id: 2074
+  time: '2025-11-26T08:07:46.0000000+00:00'
+- author: JohnJohn, c4llv07e
+  changes:
+    - type: Tweak
+      message: The Cargo transfer menu has new UI
+  id: 2075
+  time: '2025-11-26T10:21:40.0000000+00:00'
+- author: LuciferEOS, deltanedas
+  changes:
+    - type: Add
+      message: Added back tide ID cards and very basic makeshift crafting.
+  id: 2076
+  time: '2025-11-26T10:29:13.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: 'Space law- Officers should sentence if no HOS or Warden present. '
+    - type: Tweak
+      message: >-
+        Space law- Sec no longer should be using space animal organs(Mostly the
+        heart) as they should be seen and identifiable - Should extend to
+        command by definition of space law.
+  id: 2077
+  time: '2025-11-26T11:15:39.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Add
+      message: >-
+        Topicals now spread their heal starting from the targeted limb, then
+        going head -> torso -> crotch -> everything else. No more waste of
+        topicals on scratches.
+    - type: Fix
+      message: Woundmed bleeding.
+  id: 2078
+  time: '2025-11-26T11:58:31.0000000+00:00'
