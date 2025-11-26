@@ -3,6 +3,7 @@
   parent: SpiderWebBase
   name: terror web
   description: You probably shouldn't step on it.
+  abstract: true
   components:
   - type: Sprite
     color: "#ffffffdd"
@@ -40,3 +41,18 @@
     ignoreWhitelist:
       components:
       - IgnoreSpiderWeb
+
+- type: entity
+  id: SpiderlingGrowthBase
+  abstract: true
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderRed
+    intervalSeconds: 45     # Growth time
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: TimedDespawn
+    lifetime: 45.1
+

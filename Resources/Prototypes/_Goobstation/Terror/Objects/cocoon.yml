@@ -22,6 +22,12 @@
         layer:
         - Opaque
         hard: false
+  - type: EntityStorage
+    capacity: 1
+    airtight: true
+    itemCanStoreMobs: true
+    openOnMove: false
+  - type: ResistLocker
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Diona

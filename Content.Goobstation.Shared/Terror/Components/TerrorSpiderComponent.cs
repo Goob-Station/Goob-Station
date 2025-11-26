@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Terror.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class TerrorSpiderComponent : Component
 {
     /// <summary>
@@ -22,11 +22,10 @@ public sealed partial class TerrorSpiderComponent : Component
     /// How often the terror spider regenerates.
     /// </summary>
     [DataField]
-    public TimeSpan RegenCooldown = TimeSpan.FromSeconds(5);
+    public TimeSpan RegenCooldown = TimeSpan.FromSeconds(3);
 
-    /// <summary>
-    /// Multiplies rate at which the terror spider regenerates based on how many creatures it has wrapped.
-    /// </summary>
-    [DataField]
-    public int RegenMultiplier;
+    public TimeSpan NextRegenTime;
+
+    [DataField, AutoNetworkedField]
+    public float RegenAccumulator = 0f;
 }

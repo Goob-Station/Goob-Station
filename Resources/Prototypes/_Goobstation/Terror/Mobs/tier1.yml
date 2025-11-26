@@ -81,19 +81,22 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
-  - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute from base.yml.
-    allowedStates:
-    - Alive
-    damage:
-      types:
-        Poison: -0.07
-      groups:
-        Brute: -0.07
-        Burn: -0.07
   - type: NightVision
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: TerrorSpider
+    TerrorRegen:
+        types:
+          Blunt: -0.5
+          Slash: -1
+          Piercing: -1
+          Heat: -1
+          Shock: -0.1
+          Cold: -0.5
+          Poison: -0.5
+          Radiation: -0.2
+          Asphyxiation: -0.5
   - type: TerrorWrap
   - type: ActionGrant
     actions:
