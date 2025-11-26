@@ -131,7 +131,7 @@
     spawned:
     - id: FoodMeatHuman
       amount: 5
-  - type: LanguageKnowledge # Einstein Engines - Languages
+  - type: LanguageGrant # Einstein Engines - Languages
     speaks:
     - TauCetiBasic
     - SolCommon

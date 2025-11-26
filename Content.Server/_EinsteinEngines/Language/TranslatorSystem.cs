@@ -50,7 +50,7 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
     {
         if (!component.Enabled
             || component.LifeStage >= ComponentLifeStage.Removing
-            || !TryComp<LanguageKnowledgeComponent>(uid, out var knowledge)
+            || !TryComp<LanguageGrantComponent>(uid, out var knowledge)
             || !_powerCell.HasActivatableCharge(uid))
             return;
 
@@ -59,7 +59,7 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
 
     private void OnProxyDetermineLanguages(EntityUid uid, HoldsTranslatorComponent component, DetermineEntityLanguagesEvent ev)
     {
-        if (!TryComp<LanguageKnowledgeComponent>(uid, out var knowledge))
+        if (!TryComp<LanguageGrantComponent>(uid, out var knowledge))
             return;
 
         foreach (var (translator, translatorComp) in component.Translators.ToArray())
@@ -172,7 +172,7 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
             _language.UpdateEntityLanguages(holderCont.Owner);
     }
 
-    private void CopyLanguages(BaseTranslatorComponent from, DetermineEntityLanguagesEvent to, LanguageKnowledgeComponent knowledge)
+    private void CopyLanguages(BaseTranslatorComponent from, DetermineEntityLanguagesEvent to, LanguageGrantComponent knowledge)
     {
         var addSpoken = CheckLanguagesMatch(from.RequiredLanguages, knowledge.SpokenLanguages, from.RequiresAllLanguages);
         var addUnderstood = CheckLanguagesMatch(from.RequiredLanguages, knowledge.UnderstoodLanguages, from.RequiresAllLanguages);

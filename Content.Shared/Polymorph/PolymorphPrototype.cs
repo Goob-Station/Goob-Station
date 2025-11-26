@@ -169,7 +169,7 @@ public sealed partial record PolymorphConfiguration
     [DataField(serverOnly: true)]
     public HashSet<string> CopiedComponents = new()
     {
-        "LanguageKnowledge",
+        "LanguageGrant",
         "LanguageSpeaker",
         "Grammar"
     };

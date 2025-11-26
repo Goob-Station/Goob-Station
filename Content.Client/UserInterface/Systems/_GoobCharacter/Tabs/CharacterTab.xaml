@@ -1,0 +1,20 @@
+<Control xmlns="https://spacestation14.io"
+         xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls">
+    <BoxContainer Orientation="Vertical">
+        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+            <BoxContainer Orientation="Vertical" Margin="8">
+                <Label Name="RoleType" VerticalAlignment="Top" Margin="0 6 0 10" HorizontalAlignment="Center" StyleClasses="LabelHeading" Access="Public"/>
+                <BoxContainer Orientation="Horizontal">
+                    <SpriteView OverrideDirection="South" Scale="2 2" Name="SpriteView" Access="Public" SetSize="64 64"/>
+                    <BoxContainer Orientation="Vertical" VerticalAlignment="Top">
+                        <Label Name="NameLabel" Access="Public"/>
+                        <Label Name="SubText" VerticalAlignment="Top" StyleClasses="LabelSubText" Access="Public"/>
+                    </BoxContainer>
+                </BoxContainer>
+                <Label Name="ObjectivesLabel" Access="Public" Text="{Loc 'ui-character-info-objectives-label'}" HorizontalAlignment="Center"/>
+                <BoxContainer Orientation="Vertical" Name="Objectives" Access="Public"/>
+                <controls:Placeholder Name="RolePlaceholder" Access="Public" PlaceholderText="{Loc 'ui-character-info-placeholder-text'}"/>
+            </BoxContainer>
+        </ScrollContainer>
+    </BoxContainer>
+</Control>

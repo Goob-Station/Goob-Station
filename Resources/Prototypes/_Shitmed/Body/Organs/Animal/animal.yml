@@ -20,7 +20,7 @@
     integrityThresholds:
       Normal: 28
       Damaged: 16
-      Destroyed: 0    
+      Destroyed: 0
   - type: Input
     context: "ghost"
   - type: Brain
@@ -60,6 +60,7 @@
   - type: ConsciousnessRequired
     identifier: "nerveSystem"
     causesDeath: true
+  - type: KnowledgeContainer # Goobstation - Knowledge
 
 - type: entity
   id: OrganAnimalEyes
@@ -75,7 +76,7 @@
     integrityThresholds:
       Normal: 12
       Damaged: 6
-      Destroyed: 0    
+      Destroyed: 0
   - type: Eyes
   # end-backmen: surgery
   - type: Sprite

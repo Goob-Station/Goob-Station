@@ -12,6 +12,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Client.UserInterface.Systems._GoobCharacter; // Goobstation edit
 using Content.Client.UserInterface.Systems.Actions;
 using Content.Client.UserInterface.Systems.Admin;
 using Content.Client.UserInterface.Systems.Bwoink;
@@ -32,7 +33,7 @@ public sealed class GameTopMenuBarUIController : UIController
 {
     [Dependency] private readonly EscapeUIController _escape = default!;
     [Dependency] private readonly AdminUIController _admin = default!;
-    [Dependency] private readonly CharacterUIController _character = default!;
+    [Dependency] private readonly GoobCharacterUIController _character = default!; // Goobstation edit
     [Dependency] private readonly CraftingUIController _crafting = default!;
     [Dependency] private readonly AHelpUIController _ahelp = default!;
     [Dependency] private readonly ActionUIController _action = default!;

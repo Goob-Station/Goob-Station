@@ -24,7 +24,7 @@
   - type: Speech
     speechSounds: Baritone
     speechVerb: Oni
-  - type: LanguageKnowledge # Einstein Engines - Languages
+  - type: LanguageGrant # Einstein Engines - Languages
     speaks:
     - TauCetiBasic # Nothing else because Rouge said she was adding a language for Oni
     - Gruntish # Goob - Oni Language

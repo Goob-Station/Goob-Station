@@ -125,6 +125,13 @@ public sealed partial class ConstructionPrototype : IPrototype
     public ProtoId<ConstructionPrototype>[] AlternativePrototypes = [];
 
     public IReadOnlyList<IConstructionCondition> Conditions => _conditions;
+
+    /// <summary>
+    /// Goobstation
+    /// Construction groups that are required to be able to use this craft.
+    /// </summary>
+    [DataField(required: true)]
+    public ProtoId<ConstructionGroupPrototype>[] Groups = [];
 }
 
 public enum ConstructionType

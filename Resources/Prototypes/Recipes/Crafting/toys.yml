@@ -12,6 +12,10 @@
   targetNode: plushie
   category: construction-category-misc
   objectType: Item
+  # Goobstation start
+  groups:
+  - Toys
+  # Goobstation end
 
 - type: construction
   id: ClothingOuterSuitIan
@@ -20,6 +24,10 @@
   targetNode: suit
   category: construction-category-misc
   objectType: Item
+  # Goobstation start
+  groups:
+  - Toys
+  # Goobstation end
 
 - type: construction
   id: MoproachShoes
@@ -28,3 +36,8 @@
   targetNode: shoes
   category: construction-category-misc
   objectType: Item
+  # Goobstation start
+  groups:
+  - AdvancedHandmade
+  - Toys
+  # Goobstation end

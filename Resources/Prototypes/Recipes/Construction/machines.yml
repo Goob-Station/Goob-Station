@@ -29,6 +29,10 @@
   category: construction-category-machines
   placementMode: SnapgridCenter
   canBuildInImpassable: false
+  # Goobstation start
+  groups:
+  - Electronics
+  # Goobstation end
 
 - type: construction
   id: MachineFrame
@@ -38,6 +42,10 @@
   category: construction-category-machines
   placementMode: SnapgridCenter
   canBuildInImpassable: false
+  # Goobstation start
+  groups:
+  - Electronics
+  # Goobstation end
 
 # Switching
 - type: construction
@@ -50,6 +58,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Electronics
+  # Goobstation end
 
 - type: construction
   id: LightSwitchRecipe
@@ -64,6 +76,10 @@
   conditions:
     - !type:WallmountCondition
   hide: true #TODO: Fix the lightswitch, issue #34659. Until then, keep hidden so people don't build it and get confused.
+  # Goobstation start
+  groups:
+  - Electronics
+  # Goobstation end
 
 - type: construction
   id: SignalSwitchRecipe
@@ -77,6 +93,10 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+  # Goobstation start
+  groups:
+  - Electronics
+  # Goobstation end
 
 - type: construction
   id: SignalButtonRecipe
@@ -90,6 +110,10 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+  # Goobstation start
+  groups:
+  - Electronics
+  # Goobstation end
 
 - type: construction
   id: LightSwitchDirectionalRecipe
@@ -105,6 +129,10 @@
   conditions:
     - !type:WallmountCondition
   hide: true #TODO: Fix the lightswitch, issue #34659. Until then, keep hidden so people don't build it and get confused.
+  # Goobstation start
+  groups:
+  - Electronics
+  # Goobstation end
 
 - type: construction
   id: SignalSwitchDirectionalRecipe
@@ -119,6 +147,10 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+  # Goobstation start
+  groups:
+  - Electronics
+  # Goobstation end
 
 - type: construction
   id: SignalButtonDirectionalRecipe
@@ -133,3 +165,7 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+  # Goobstation start
+  groups:
+  - Electronics
+  # Goobstation end

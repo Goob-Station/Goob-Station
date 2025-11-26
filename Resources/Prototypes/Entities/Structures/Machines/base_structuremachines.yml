@@ -78,7 +78,7 @@
         sound:
           collection: MetalBreak
   - type: LanguageSpeaker # Einstein Engines - Language - Yes, on BASE MACHINE. This is all I need to make sure that in 99% of cases, machines use the language system.
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - TauCetiBasic
     understands:

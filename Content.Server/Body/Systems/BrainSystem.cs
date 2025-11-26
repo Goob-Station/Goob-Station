@@ -20,6 +20,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server.Body.Components;
 using Content.Server.Ghost.Components;
 using Content.Shared.Body.Components;
@@ -32,6 +33,9 @@ using Content.Shared.Pointing;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Body.Systems;
 using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Common.Knowledge;
+using Content.Server.Silicons.Borgs;
+using Content.Shared.Silicons.Borgs.Components;
 
 
 namespace Content.Server.Body.Systems
@@ -48,6 +52,7 @@ namespace Content.Server.Body.Systems
         // Shitmed Change Start
             SubscribeLocalEvent<BrainComponent, OrganRemovedFromBodyEvent>(HandleRemoval);
             SubscribeLocalEvent<BrainComponent, PointAttemptEvent>(OnPointAttempt);
+
         }
 
         private void HandleRemoval(EntityUid uid, BrainComponent brain, ref OrganRemovedFromBodyEvent args)

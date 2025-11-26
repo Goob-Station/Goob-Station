@@ -19,6 +19,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: TallCabinet
@@ -31,6 +35,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: ChestDrawer
@@ -43,6 +51,11 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - SimpleFurniture
+  - Technological
+  # Goobstation end
 
 # ItemCabinets
 - type: construction
@@ -56,6 +69,10 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 # Shelfs
 # Normals
@@ -69,6 +86,11 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+  # Goobstation start
+  groups:
+  - SimpleFurniture
+  - Technological
+  # Goobstation end
 
 - type: construction
   id: ShelfMetal
@@ -80,6 +102,10 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: ShelfGlass
@@ -91,6 +117,10 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 # Reinforced
 - type: construction
@@ -103,6 +133,11 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+  # Goobstation start
+  groups:
+  - SimpleFurniture
+  - Technological
+  # Goobstation end
 
 - type: construction
   id: ShelfRMetal
@@ -114,6 +149,10 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: ShelfRGlass
@@ -125,6 +164,10 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 # Departmental
 - type: construction
@@ -137,6 +180,10 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: ShelfKitchen
@@ -148,6 +195,10 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end
 
 - type: construction
   id: ShelfChemistry
@@ -159,3 +210,7 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
+  # Goobstation start
+  groups:
+  - Furniture
+  # Goobstation end

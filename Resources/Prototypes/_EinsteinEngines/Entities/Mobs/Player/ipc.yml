@@ -29,7 +29,7 @@
   name: Urist McPositronic
   description: A positronic brain in a metal body.
   components:
-  - type: LanguageKnowledge # Einstein Engines - Languages
+  - type: LanguageGrant # Einstein Engines - Languages
     speaks:
     - TauCetiBasic
     - RobotTalk

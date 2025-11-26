@@ -51,7 +51,7 @@ using static Robust.Client.UserInterface.Controls.BaseButton;
 namespace Content.Client.UserInterface.Systems.Character;
 
 [UsedImplicitly]
-public sealed class CharacterUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>, IOnSystemChanged<CharacterInfoSystem>
+public sealed class CharacterUIController : UIController // Goobstation edit - basically fully disabled this UI. Modify GoobCharacterUIController instead!!!!!!
 {
     [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
@@ -64,13 +64,14 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
     {
         base.Initialize();
 
-        SubscribeNetworkEvent<MindRoleTypeChangedEvent>(OnRoleTypeChanged);
+        //SubscribeNetworkEvent<MindRoleTypeChangedEvent>(OnRoleTypeChanged); // Goobstation edit
     }
 
     private CharacterWindow? _window;
     private MenuButton? CharacterButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.CharacterButton;
 
-    public void OnStateEntered(GameplayState state)
+
+    /*public void OnStateEntered(GameplayState state) // Goobstation edit - basically fully disabled this UI. Modify GoobCharacterUIController instead!!!!!!
     {
         DebugTools.Assert(_window == null);
 
@@ -107,7 +108,7 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
     {
         system.OnCharacterUpdate -= CharacterUpdated;
         _player.LocalPlayerDetached -= CharacterDetached;
-    }
+    }*/ // Goobstation edit
 
     public void UnloadButton()
     {
@@ -156,7 +157,7 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
             return;
         }
 
-        var (entity, job, objectives, briefing, entityName) = data;
+        var (entity, job, objectives, briefing, entityName, _) = data;
 
         _window.SpriteView.SetEntity(entity);
 

@@ -14,3 +14,5 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+  groups:
+  - SimpleFurniture
