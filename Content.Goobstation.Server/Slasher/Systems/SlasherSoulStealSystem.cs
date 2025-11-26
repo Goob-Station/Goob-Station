@@ -2,7 +2,9 @@ using Content.Goobstation.Server.Devil.Contract;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Goobstation.Shared.Slasher.Events;
 using Content.Goobstation.Shared.Slasher.Objectives;
+using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Actions;
+using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
@@ -38,6 +40,7 @@ public sealed class SlasherSoulStealSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly AtmosphereSystem _atmos = default!;
 
     public override void Initialize()
     {
@@ -153,6 +156,10 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         var comp = ent.Comp;
 
         _audio.PlayPvs(ent.Comp.SoulStealSound, target);
+
+        // Release ammonia gas into the atmosphere
+        var tileMix = _atmos.GetTileMixture(target, excite: true);
+        tileMix?.AdjustMoles(Gas.Ammonia, comp.MolesAmmonia);
 
         var alive = _mobState.IsAlive(target);
 

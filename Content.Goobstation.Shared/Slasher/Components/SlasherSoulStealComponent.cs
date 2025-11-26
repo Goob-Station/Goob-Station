@@ -1,4 +1,3 @@
-using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
@@ -67,9 +66,14 @@ public sealed partial class SlasherSoulStealComponent : Component
                new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/SlasherSoulSteal.ogg")
                {
                    Params = AudioParams.Default
-                       .WithVolume(-8f)
                        .WithMaxDistance(10f)
                };
+
+    /// <summary>
+    /// Amount of ammonia gas moles to release on successful soul steal.
+    /// </summary>
+    [DataField]
+    public float MolesAmmonia = 1000f;
 
     /// <summary>
     /// Total alive souls stolen.
