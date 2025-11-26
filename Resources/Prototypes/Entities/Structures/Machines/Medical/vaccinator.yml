@@ -33,3 +33,15 @@
       machine_board: !type:Container
       machine_parts: !type:Container
   - type: RequireProjectileTarget
+  - type: ItemSlots
+    slots:
+      disease_swab_slot:
+        name: Swab
+        whitelist:
+          components:
+          - DiseaseSwab
+  - type: VirologyMachine
+    idleState: icon
+    runningState: running
+  - type: Vaccinator
+    analysisDuration: 10
