@@ -213,6 +213,7 @@
   id: GraspOfFlesh
   path: Flesh
   stage: 2
+  event: !type:EventHereticFleshPassive
 
 - type: hereticKnowledge
   id: ImperfectRitual
@@ -353,13 +354,15 @@
   id: GraspOfRust
   path: Rust
   stage: 2
+  event: !type:HereticLeechingWalkEvent
 
 - type: hereticKnowledge
-  id: LeechingWalk
+  id: AggressiveSpread
   path: Rust
   sideKnowledge: true
   stage: 3
-  event: !type:HereticLeechingWalkEvent
+  actionPrototypes:
+  - ActionHereticAggressiveSpread
 
 - type: hereticKnowledge
   id: MarkOfRust
@@ -374,12 +377,12 @@
   - ActionHereticRustConstruction
 
 - type: hereticKnowledge
-  id: AggressiveSpread
+  id: EntropicPlume
   path: Rust
   sideKnowledge: true
   stage: 6
   actionPrototypes:
-  - ActionHereticAggressiveSpread
+  - ActionHereticEntropicPlume
 
 - type: hereticKnowledge
   id: ToxicBlade
@@ -387,12 +390,12 @@
   stage: 7
 
 - type: hereticKnowledge
-  id: EntropicPlume
+  id: RustCharge
   path: Rust
   sideKnowledge: true
   stage: 8
   actionPrototypes:
-  - ActionHereticEntropicPlume
+  - ActionHereticRustCharge
 
 - type: hereticKnowledge
   id: AscensionRust
@@ -542,10 +545,3 @@
   stage: 8
   actionPrototypes:
   - ActionHereticCleave
-
-- type: hereticKnowledge
-  id: RustCharge
-  sideKnowledge: true
-  stage: 8
-  actionPrototypes:
-  - ActionHereticRustCharge

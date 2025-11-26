@@ -154,19 +154,3 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 7
-
-- type: listing
-  id: HereticSidePath8RustCharge
-  name: knowledge-path-side-s8-rust-charge-name
-  description: knowledge-path-side-s8-rust-charge-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: rust_charge }
-  productHereticKnowledge: RustCharge
-  cost:
-    KnowledgePoint: 1
-  categories:
-  - HereticPathSide
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:HereticPathCondition
-    stage: 7

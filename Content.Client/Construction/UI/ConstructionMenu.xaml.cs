@@ -52,6 +52,7 @@ namespace Content.Client.Construction.UI
         // It isn't optimal to expose UI controls like this, but the UI control design is
         // questionable so it can't be helped.
         string[] Categories { get; set; }
+        LineEdit SearchBar { get; } // Goobstation
         OptionButton OptionCategories { get; }
 
         bool EraseButtonPressed { get; set; }

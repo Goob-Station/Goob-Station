@@ -19,9 +19,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Actions;
+using Content.Shared.Alert;
+using Content.Shared.Damage;
 using Content.Shared.StatusEffect;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Changeling.Actions;
 
@@ -76,21 +80,52 @@ public sealed partial class StingLayEggsEvent : EntityTargetActionEvent { }
 
 #region Events - Utility
 
-public sealed partial class ActionAnatomicPanaceaEvent : InstantActionEvent { }
+public sealed partial class ActionAnatomicPanaceaEvent : InstantActionEvent
+{
+    [DataField]
+    public ProtoId<AlertPrototype> Alert = "AnatomicPanacea";
+
+    [DataField]
+    public float Duration = 10f;
+}
 public sealed partial class ActionBiodegradeEvent : InstantActionEvent { }
 public sealed partial class ActionChameleonSkinEvent : InstantActionEvent { }
-public sealed partial class ActionAdrenalineReservesEvent : InstantActionEvent { }
+public sealed partial class ActionAdrenalineReservesEvent : InstantActionEvent
+{
+    [DataField]
+    public ProtoId<AlertPrototype> Alert = "AdrenalineReserves";
+
+    [DataField]
+    public float Duration = 10f;
+
+    [DataField]
+    public DamageSpecifier? PassiveDamage = new DamageSpecifier()
+    {
+        DamageDict =
+        {
+            { "Poison", 1.5 }
+        }
+    };
+}
 public sealed partial class ActionFleshmendEvent : InstantActionEvent
 {
     [DataField]
-    public ProtoId<StatusEffectPrototype> StatusID = "Fleshmend";
+    public ProtoId<AlertPrototype> Alert = "Fleshmend";
 
     [DataField]
-    public TimeSpan Duration = TimeSpan.FromSeconds(10);
+    public SoundSpecifier PassiveSound = new SoundPathSpecifier("/Audio/_Goobstation/SpecialPassives/fleshmend_sfx.ogg");
+
+    [DataField]
+    public ResPath ResPath = new("_Goobstation/SpecialPassives/fleshmend_visuals.rsi");
+
+    [DataField]
+    public string EffectState = "mend_active";
+
+    [DataField]
+    public float Duration = 10f;
 }
 public sealed partial class ActionLastResortEvent : InstantActionEvent { }
 public sealed partial class ActionLesserFormEvent : InstantActionEvent { }
-public sealed partial class ActionVoidAdaptEvent : InstantActionEvent { }
 public sealed partial class ActionHivemindAccessEvent : InstantActionEvent { }
 public sealed partial class ActionContortBodyEvent : InstantActionEvent { }
 
@@ -100,5 +135,11 @@ public sealed partial class ActionContortBodyEvent : InstantActionEvent { }
 
 [DataDefinition]
 public sealed partial class AugmentedEyesightPurchasedEvent : EntityEventArgs;
+
+[DataDefinition]
+public sealed partial class AwakenedInstinctPurchasedEvent : EntityEventArgs;
+
+[DataDefinition]
+public sealed partial class VoidAdaptionPurchasedEvent : EntityEventArgs;
 
 #endregion

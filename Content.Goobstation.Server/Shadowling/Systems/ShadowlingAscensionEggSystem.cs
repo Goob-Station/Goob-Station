@@ -3,6 +3,7 @@ using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Thrall;
 using Content.Server.AlertLevel;
+using Content.Server.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
@@ -11,6 +12,7 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Station.Systems;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Actions;
+using Content.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Examine;
@@ -44,8 +46,8 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
     [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly ServerGlobalSoundSystem _globalSound = default!;
 
-    /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
@@ -259,5 +261,8 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
             false,
             new SoundPathSpecifier("/Audio/_EinsteinEngines/Shadowling/ascension.ogg"),
             Color.Red);
+
+        // Begin Global Sound
+        _globalSound.DispatchStationEventMusic(uid, component.AscensionTheme, StationEventMusicType.ShadowLing, AudioParams.Default.WithLoop(true));
     }
 }
