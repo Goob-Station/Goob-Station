@@ -18444,3 +18444,14 @@ Entries:
         command by definition of space law.
   id: 2077
   time: '2025-11-26T11:15:39.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Add
+      message: >-
+        Topicals now spread their heal starting from the targeted limb, then
+        going head -> torso -> crotch -> everything else. No more waste of
+        topicals on scratches.
+    - type: Fix
+      message: Woundmed bleeding.
+  id: 2078
+  time: '2025-11-26T11:58:31.0000000+00:00'
