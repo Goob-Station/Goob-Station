@@ -385,27 +385,28 @@ public sealed class HealingSystem : EntitySystem
         var healedTotal = new DamageSpecifier(); // Goobstation
         FixedPoint2 modifiedBleedStopAbility = 0;
         // Heal some bleeds
-        bool healedBleedWound = false;
         bool healedBleedLevel = false;
         if (healing.BloodlossModifier != 0)
         {
-            healedBleedWound = _wounds.TryHealBleedingWounds(targetedWoundable, healing.BloodlossModifier, out modifiedBleedStopAbility, woundableComp);
-            if (healedBleedWound)
-                _popupSystem.PopupClient(modifiedBleedStopAbility > 0
-                        ? Loc.GetString("rebell-medical-item-stop-bleeding-fully")
-                        : Loc.GetString("rebell-medical-item-stop-bleeding-partially"),
-                    ent,
-                    args.User);
             // Goobstation start
-            if (healing.BloodlossModifier + modifiedBleedStopAbility < 0)
+            var bleedBefore = 0.0;
+            if (TryComp<BloodstreamComponent>(ent, out var bloodstream))
+                bleedBefore = bloodstream.BleedAmountFromWounds + bloodstream.BleedAmountNotFromWounds;
+            _wounds.TryHealBleedingWounds(targetedWoundable, healing.BloodlossModifier, out modifiedBleedStopAbility, woundableComp);
+            if (healing.BloodlossModifier + modifiedBleedStopAbility < 0.0)
                 _bloodstreamSystem.TryModifyBleedAmount(ent, (healing.BloodlossModifier + modifiedBleedStopAbility).Float()); // Use the leftover bleed heal
+            _popupSystem.PopupClient(bleedBefore + healing.BloodlossModifier <= 0.0
+                    ? Loc.GetString("rebell-medical-item-stop-bleeding-fully")
+                    : Loc.GetString("rebell-medical-item-stop-bleeding-partially"),
+                ent,
+                args.User);
             // Goobstation end
         }
 
         if (healing.ModifyBloodLevel != 0)
             healedBleedLevel = _bloodstreamSystem.TryModifyBloodLevel(ent, -healing.ModifyBloodLevel);
 
-        healedBleed = healedBleedWound || healedBleedLevel;
+        //healedBleed = healedBleedWound || healedBleedLevel;
 
         // Goobstation start
         // Create parts to go over queue: targetted part -> head -> torso -> groin -> everything else
@@ -434,7 +435,7 @@ public sealed class HealingSystem : EntitySystem
             {
                 canHeal = false;
 
-                if (!healedBleed)
+                if (!healedBleedLevel)
                 {
                     leftoverHealAndTrauma = true;
                     continue;
