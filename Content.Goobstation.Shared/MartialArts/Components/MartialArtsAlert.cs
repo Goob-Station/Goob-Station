@@ -8,9 +8,15 @@ namespace Content.Goobstation.Shared.MartialArts.Components;
 /// This is used for...
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class MartialArtsAlert : Component
+[AutoGenerateComponentState(fieldDeltas:true)]
+public sealed partial class MartialArtsAlertComponent : Component
 {
     [DataField] 
     public ProtoId<AlertPrototype> MartialArtProtoId = "MartialArtsStance";
     public override bool SendOnlyToOwner => true;
+    [DataField, AutoNetworkedField]
+    public bool Stance; // True = Defensive, False = Passive
+    
 }
+
+public sealed partial class ToggleMartialArtsStanceEvent : BaseAlertEvent;

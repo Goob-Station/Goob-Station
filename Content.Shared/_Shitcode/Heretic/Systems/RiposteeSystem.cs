@@ -71,7 +71,7 @@ public sealed class RiposteeSystem : EntitySystem
             return;
         
         if (TryComp(user.Value, out MartialArtsKnowledgeComponent? martial) && !martial.Stance || !HasComp<HereticBladeComponent>(user.Value))
-            return; // Don't riposte with stance off but still riposte if you have a heretic blade.
+            return;
         
         CounterAttack((weapon.Value, melee), (user.Value, ripostee), target.Value, ev.Data);
     }
