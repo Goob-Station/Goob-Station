@@ -18455,3 +18455,15 @@ Entries:
       message: Woundmed bleeding.
   id: 2078
   time: '2025-11-26T11:58:31.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Alert carving now lets you teleport to its location after someone has
+        stepped on it.
+    - type: Tweak
+      message: Carving knife rune carve time 5s -> 3.
+    - type: Tweak
+      message: Carvings are less visible.
+  id: 2079
+  time: '2025-11-26T17:39:27.0000000+00:00'
