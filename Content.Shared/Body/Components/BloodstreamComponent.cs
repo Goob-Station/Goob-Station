@@ -63,6 +63,15 @@ public sealed partial class BloodstreamComponent : Component
     public float BleedAmount;
 
     /// <summary>
+    /// Separated bleeding to base bleediing for simple mobs and abilities and bleeds
+    /// based on BleedInflictors from wounds
+    [DataField, AutoNetworkedField]
+    public float BleedAmountFromWounds;
+
+    [DataField, AutoNetworkedField]
+    public float BleedAmountNotFromWounds;
+
+    /// <summary>
     /// How much should bleeding be reduced every update interval?
     /// </summary>
     [DataField, AutoNetworkedField]
