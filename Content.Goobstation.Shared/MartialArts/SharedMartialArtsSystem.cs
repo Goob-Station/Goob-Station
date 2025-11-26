@@ -447,7 +447,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         DirtyField(ent.AsNullable(), nameof(ent.Comp.Stance), null);
         if (martial.Stance)
         {
-            _popupSystem.PopupEntity(Loc.GetString("martial-arts-action-toggle-stance-mode-on"), ent.Owner, args.User);
+            _popupSystem.PopupPredicted(Loc.GetString("martial-arts-action-toggle-stance-mode-on"), ent.Owner, args.User);
             if (TryComp<SleepingCarpStudentComponent>(ent.Owner, out var studentComp) && studentComp.Stage >= 3)
             {
                 var userReflect = EnsureComp<ReflectComponent>(ent.Owner);
@@ -456,14 +456,12 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                 userReflect.Spread = 60;
                 Dirty(ent.Owner, userReflect);
             }
-            else
-            {
-                    RemComp<ReflectComponent>(ent.Owner);
-            }
         }
         else
         {
-            _popupSystem.PopupEntity(Loc.GetString("martial-arts-action-toggle-stance-mode-off"), ent.Owner, args.User);
+            _popupSystem.PopupPredicted(Loc.GetString("martial-arts-action-toggle-stance-mode-off"), ent.Owner, args.User);
+            if(!(TryComp<SleepingCarpStudentComponent>(ent.Owner, out var studentComp) && studentComp.Stage >= 3))
+                RemComp<ReflectComponent>(ent.Owner);
         }
         args.Handled = true;
     }
