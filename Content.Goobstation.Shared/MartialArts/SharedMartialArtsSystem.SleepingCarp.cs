@@ -16,6 +16,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
@@ -38,25 +39,6 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpCrashingWavesPerformedEvent>(OnSleepingCarpCrashingWaves);
 
         SubscribeLocalEvent<GrantSleepingCarpComponent, UseInHandEvent>(OnGrantSleepingCarp);
-        SubscribeLocalEvent<ToggleCombatActionEvent>(OnCombatModeToggle);
-    }
-
-    private void OnCombatModeToggle(ToggleCombatActionEvent ev)
-    {
-        if(TryComp<SleepingCarpStudentComponent>(ev.Performer, out var studentComp) && studentComp.Stage >= 3 &&
-            TryComp<CombatModeComponent>(ev.Performer, out var combat) && combat.IsInCombatMode)
-        {
-            var userReflect = EnsureComp<ReflectComponent>(ev.Performer);
-            userReflect.Examinable = false; // no doxxing scarp users by examining lmao
-            userReflect.ReflectProb = 1;
-            userReflect.Spread = 60;
-            Dirty(ev.Performer, userReflect);
-        }
-        else
-        {
-            if(HasComp<SleepingCarpStudentComponent>(ev.Performer))
-                RemComp<ReflectComponent>(ev.Performer);
-        }
     }
 
     #region Generic Methods

@@ -59,3 +59,6 @@ alerts-loss-of-surprise-desc = Your intentions are known! It will take you a few
 
 alerts-martial-arts-toggle-name = Martial Arts Stance
 alerts-martial-arts-toggle-desc = You shift your stance.
+
+martial-arts-action-toggle-stance-mode-on = You assume a fighting stance.
+martial-arts-action-toggle-stance-mode-off = You relax your stance.

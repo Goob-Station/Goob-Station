@@ -61,6 +61,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -434,7 +435,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             target,
             target);
     }
-    
+    # region Stance Icon Toggle
     private void OnToggleStanceMode(Entity<MartialArtsAlertComponent> ent, ref ToggleMartialArtsStanceEvent args)
     {
         if (args.Handled)
@@ -444,6 +445,26 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         martial.Stance = !martial.Stance;
         _alerts.ShowAlert(ent.Owner, ent.Comp.MartialArtProtoId, (short)(ent.Comp.Stance ? 1 : 0));
         DirtyField(ent.AsNullable(), nameof(ent.Comp.Stance), null);
+        if (martial.Stance)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("martial-arts-action-toggle-stance-mode-on"), ent.Owner, args.User);
+            if (TryComp<SleepingCarpStudentComponent>(ent.Owner, out var studentComp) && studentComp.Stage >= 3)
+            {
+                var userReflect = EnsureComp<ReflectComponent>(ent.Owner);
+                userReflect.Examinable = false; // no doxxing scarp users by examining lmao
+                userReflect.ReflectProb = 1;
+                userReflect.Spread = 60;
+                Dirty(ent.Owner, userReflect);
+            }
+            else
+            {
+                    RemComp<ReflectComponent>(ent.Owner);
+            }
+        }
+        else
+        {
+            _popupSystem.PopupEntity(Loc.GetString("martial-arts-action-toggle-stance-mode-off"), ent.Owner, args.User);
+        }
         args.Handled = true;
     }
     
@@ -457,6 +478,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if(TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledge) && (knowledge.MartialArtsForm == MartialArtsForms.SleepingCarp || knowledge.MartialArtsForm == MartialArtsForms.CloseQuartersCombat))
             _alerts.ShowAlert(ent, ent.Comp.MartialArtProtoId, 0);
     }
+    #endregion
     #endregion
 
     #region Helper Methods
