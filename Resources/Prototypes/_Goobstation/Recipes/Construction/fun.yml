@@ -13,7 +13,6 @@
 - type: construction
   id: BananiumSword
   graph: BananiumSword
-  startNode: start
   targetNode: bananiumSword
   category: construction-category-weapons
   objectType: Item
@@ -24,7 +23,6 @@
 - type: construction
   id: boomerang
   graph: boomerangGraph
-  startNode: start
   targetNode: boomerangFinish
   category: construction-category-weapons
   objectType: Item

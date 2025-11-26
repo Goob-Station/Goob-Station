@@ -9,7 +9,6 @@
 - type: construction
   id: Molotov
   graph: MolotovConstruction
-  startNode: start
   targetNode: LitMolotov
   category: construction-category-weapons
   objectType: Item
@@ -21,7 +20,6 @@
   name: recipes-wooden-wand-name
   id: woodenWand
   graph: WoodenWand
-  startNode: start
   targetNode: woodenWand
   category: construction-category-weapons
   objectType: Item

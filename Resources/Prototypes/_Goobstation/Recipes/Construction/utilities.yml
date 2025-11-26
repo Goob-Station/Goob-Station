@@ -11,7 +11,6 @@
 - type: construction
   id: DisposalBlocker
   graph: DisposalPipe
-  startNode: start
   targetNode: blocker
   category: construction-category-utilities
   placementMode: SnapgridCenter
@@ -23,7 +22,6 @@
 - type: construction
   id: GasFilterInline
   graph: GasTrinary
-  startNode: start
   targetNode: inline_filter
   category: construction-category-utilities
   placementMode: SnapgridCenter
@@ -37,7 +35,6 @@
 - type: construction
   id: HeatExchangerInline
   graph: GasBinary
-  startNode: start
   targetNode: inlineradiator
   category: construction-category-utilities
   placementMode: SnapgridCenter
@@ -49,7 +46,6 @@
 - type: construction
   id: HeatExchangerInlineBend
   graph: GasBinary
-  startNode: start
   targetNode: bendinlineradiator
   category: construction-category-utilities
   placementMode: SnapgridCenter

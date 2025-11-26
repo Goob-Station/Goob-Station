@@ -9,7 +9,6 @@
 - type: construction
   id: WallDirectional
   graph: WallDirectional
-  startNode: start
   targetNode: wallDirectional
   category: construction-category-structures
   objectType: Structure
@@ -22,7 +21,6 @@
 - type: construction
   id: SolarPanel
   graph: SolarPanel
-  startNode: start
   targetNode: solarassembly
   category: construction-category-structures
   objectType: Structure
@@ -35,7 +33,6 @@
 - type: construction
   id: BarricadeSteel
   graph: BarricadeSteel
-  startNode: start
   targetNode: base
   category: construction-category-structures
   objectType: Structure
@@ -48,7 +45,6 @@
 - type: construction
   id: BarricadeSteelFolding
   graph: BarricadeSteel
-  startNode: start
   targetNode: folding
   category: construction-category-structures
   objectType: Structure
@@ -61,7 +57,6 @@
 - type: construction
   id: BarricadePlasteel
   graph: BarricadePlasteel
-  startNode: start
   targetNode: base
   category: construction-category-structures
   objectType: Structure
@@ -74,7 +69,6 @@
 - type: construction
   id: BarricadePlasteelFolding
   graph: BarricadePlasteel
-  startNode: start
   targetNode: folding
   category: construction-category-structures
   objectType: Structure

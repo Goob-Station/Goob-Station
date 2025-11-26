@@ -177,6 +177,7 @@
   - PlushieSpaceLizard
   - PersonalAI # Goobstation
   - GoldenPersonalAI # Goobstation
+  - CrewCassette # Goobstation
   - ThreeCandles
   - Lighter
   - CigPackGreen
@@ -1329,6 +1330,7 @@
   loadouts:
   - SecurityBelt
   - SecurityWebbing
+  - SecurityJudoBelt # Goobstation - Martial Arts
 
 - type: loadoutGroup
   id: SecurityOuterClothing

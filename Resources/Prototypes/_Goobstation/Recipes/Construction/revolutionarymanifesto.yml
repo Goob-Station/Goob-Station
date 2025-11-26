@@ -1,7 +1,6 @@
 - type: construction
   id: RevolutionaryManifesto
   graph: RevolutionaryManifesto
-  startNode: start
   targetNode: revolutionaryManifesto
   category: construction-category-weapons
   objectType: Item

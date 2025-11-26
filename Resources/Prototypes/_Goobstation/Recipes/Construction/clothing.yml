@@ -18,7 +18,6 @@
 - type: construction
   id: GoliathCloak
   graph: GoliathCloak
-  startNode: start
   targetNode: cloak
   category: construction-category-clothing
   objectType: Item
@@ -30,7 +29,6 @@
 - type: construction
   id: makeshiftvoicechanger
   graph: VoiceMaskCraftable
-  startNode: start
   targetNode: end
   category: construction-category-clothing
   objectType: Item
@@ -43,7 +41,6 @@
 - type: construction
   id: MedicalGlasses
   graph: GlassesMedHUD
-  startNode: start
   targetNode: glassesMed
   category: construction-category-clothing
   objectType: Item
@@ -56,7 +53,6 @@
 - type: construction
   id: DiagnosticGlasses
   graph: GlassesDiagHUD
-  startNode: start
   targetNode: glassesDiag
   category: construction-category-clothing
   objectType: Item
@@ -69,7 +65,6 @@
 - type: construction
   id: MedicalSecurityGlasses
   graph: GlassesMedSecHUD
-  startNode: start
   targetNode: glassesMedSec
   category: construction-category-clothing
   objectType: Item
@@ -82,7 +77,6 @@
 - type: construction
   id: GlassesMedDiag
   graph: GlassesMedDiagHUD
-  startNode: start
   targetNode: glassesMedDiag
   category: construction-category-clothing
   objectType: Item
@@ -95,7 +89,6 @@
 - type: construction
   id: HudMedDiagHUD
   graph: HudMedDiag
-  startNode: start
   targetNode: meddiagHud
   category: construction-category-clothing
   objectType: Item

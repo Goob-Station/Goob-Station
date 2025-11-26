@@ -696,3 +696,9 @@
 
 - type: Tag
   id: DisposableBattery
+
+- type: Tag
+  id: HolyChainsaw
+  
+- type: Tag
+  id: ChaplainsHolster
