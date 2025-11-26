@@ -23,11 +23,6 @@
         sprite:
           sprite: _Goobstation/Clothing/Neck/Ensembles/cap.rsi
           state: icon
-        components:
-        - type: PointLight
-          radius: 1.2
-          energy: 1.2
-          color: "#b7f8e6"
       mantle: !type:ItemSwitchState
         verb: mantle
         sprite:
@@ -38,11 +33,6 @@
         sprite:
           sprite: _Goobstation/Clothing/Neck/Ensembles/cap.rsi
           state: cloak-icon
-        components:
-        - type: PointLight
-          radius: 1.2
-          energy: 1.2
-          color: "#b7f8e6"
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -105,21 +95,11 @@
         sprite:
           sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
           state: icon
-        components:
-        - type: PointLight
-          radius: 1.5
-          energy: 1.5
-          color: "#e35644"
       mantle: !type:ItemSwitchState
         verb: mantle
         sprite:
           sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
           state: mantle-icon
-        components:
-        - type: PointLight
-          radius: 1.5
-          energy: 1.5
-          color: "#e35644"
       cloak: !type:ItemSwitchState
         verb: cloak
         sprite:

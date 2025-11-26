@@ -406,7 +406,3 @@
     sprite: _Goobstation/Clothing/Head/Hats/cap_senior.rsi
   - type: Item
     sprite: _Goobstation/Clothing/Head/Hats/cap_senior.rsi
-  - type: PointLight
-    radius: 1.2
-    energy: 1.2
-    color: "#b7f8e6"
