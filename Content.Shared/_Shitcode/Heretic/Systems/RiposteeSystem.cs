@@ -70,8 +70,8 @@ public sealed class RiposteeSystem : EntitySystem
             !TryComp(user.Value, out RiposteeComponent? ripostee))
             return;
         
-        if (TryComp(user.Value, out MartialArtsKnowledgeComponent? martial) && !martial.Stance || !HasComp<HereticBladeComponent>(user.Value))
-            return;
+        if (TryComp(user.Value, out MartialArtsKnowledgeComponent? martial) && !martial.Stance && !HasComp<HereticBladeComponent>(user.Value))
+            return; // dont riposte out of stance
         
         CounterAttack((weapon.Value, melee), (user.Value, ripostee), target.Value, ev.Data);
     }
