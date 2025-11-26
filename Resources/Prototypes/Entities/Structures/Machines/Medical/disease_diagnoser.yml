@@ -33,6 +33,7 @@
     board: DiagnoserMachineCircuitboard
   # <Goobstation>
   - type: DiseaseAnalyzer
+  - type: VirologyMachine
     idleState: icon
     runningState: running
   - type: ItemSlots

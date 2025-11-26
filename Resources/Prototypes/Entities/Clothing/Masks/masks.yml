@@ -563,7 +563,10 @@
     coverage: MOUTH
   - type: PhysicalComposition
     materialComposition:
+      Plastic: 25
       Cloth: 25
+  - type: StaticPrice
+    price: 5
   # Goobstation
   - type: DiseaseProtection
     # really strong protection
