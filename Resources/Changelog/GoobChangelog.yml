@@ -18467,3 +18467,13 @@ Entries:
       message: Carvings are less visible.
   id: 2079
   time: '2025-11-26T17:39:27.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Tweak
+      message: >-
+        Shadowkin's slowed breaths are now actually here, breathing 3x slower
+        than humans.
+    - type: Tweak
+      message: Shadowkin suffocate much slower (lore)
+  id: 2080
+  time: '2025-11-26T17:49:17.0000000+00:00'
