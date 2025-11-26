@@ -62,7 +62,7 @@ public sealed class ExplodeServerSystem : EntitySystem
 
     private void OnExplodeServer(ExplodeServerEvent ev)
     {
-        _roundEndOverlayTime = _gameTiming.CurTime + TimeSpan.FromMilliseconds(5105);
+        _roundEndOverlayTime = _gameTiming.CurTime + TimeSpan.FromSeconds(5.1f);
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
