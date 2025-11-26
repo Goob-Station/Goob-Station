@@ -18433,3 +18433,14 @@ Entries:
       message: Added back tide ID cards and very basic makeshift crafting.
   id: 2076
   time: '2025-11-26T10:29:13.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: 'Space law- Officers should sentence if no HOS or Warden present. '
+    - type: Tweak
+      message: >-
+        Space law- Sec no longer should be using space animal organs(Mostly the
+        heart) as they should be seen and identifiable - Should extend to
+        command by definition of space law.
+  id: 2077
+  time: '2025-11-26T11:15:39.0000000+00:00'
