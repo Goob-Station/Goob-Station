@@ -73,7 +73,7 @@
   damage:
     types:
       Heat: 8
-    armorPenetration: 0.5
+    armorPenetration: 0.3
   muzzleFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: muzzle_beam_light_pulse
@@ -171,7 +171,7 @@
   damage:
     types:
       Heat: 12
-    armorPenetration: 0.5
+    armorPenetration: 0.3
   muzzleFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: muzzle_beam_light_pulse
@@ -204,7 +204,7 @@
   id: LMGLaser
   damage:
     types:
-      Heat: 10.5
+      Heat: 10
   muzzleFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: muzzle_beam_light
@@ -214,6 +214,22 @@
   impactFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: impact_beam_light
+
+- type: hitscan
+  id: LMGLaserBluespace
+  damage:
+    types:
+      Heat: 8
+    armorPenetration: 0.3
+  muzzleFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+    state: muzzle_beam_light_pulse
+  travelFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+    state: beam_light_pulse
+  impactFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+    state: impact_beam_light_pulse
 # endregion LMG Lasers
 
 # region Revolver Lasers
@@ -286,7 +302,7 @@
   damage:
     types:
       Heat: 10
-    armorPenetration: 0.5
+    armorPenetration: 0.3
   muzzleFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: muzzle_beam_light_pulse

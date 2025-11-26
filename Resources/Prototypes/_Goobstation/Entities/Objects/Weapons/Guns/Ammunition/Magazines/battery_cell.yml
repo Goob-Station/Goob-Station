@@ -108,16 +108,19 @@
 # bluespace smg power cell
 - type: entity
   name: bluespace SMG power cell
-  description: A militarized power cell compatible with SMG scale lasers that fires bluespace beams.
+  description: A militarized power cell compatible with SMG scale lasers that fires beams of calibrated bluespace particles that bypass few inches of armor.
   id: PowerCellBluespaceSMG
   suffix: Full
   parent: BaseMilitaryPowerCellSMG
   components:
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 1500
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_bluespace.rsi
   - type: HitscanBatteryAmmoProvider
     proto: SMGLaserBluespace
-    fireCost: 50
+    fireCost: 75
 # pulse smg power cell
 - type: entity
   name: pulse SMG power cell
@@ -219,16 +222,19 @@
 # bluespace sniper power cell
 - type: entity
   name: bluespace sniper power cell
-  description: A militarized power cell compatible with laser snipers that fires bluespace beams.
+  description: A militarized power cell compatible with laser snipers that fires beams of calibrated bluespace particles that bypass few inches of armor.
   id: PowerCellBluespaceSniper
   suffix: Full
   parent: BaseMilitaryPowerCellSniper
   components:
+  - type: Battery
+    maxCharge: 1800
+    startingCharge: 1800
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_bluespace.rsi
   - type: HitscanBatteryAmmoProvider
     proto: SniperBluespaceLaser
-    fireCost: 100
+    fireCost: 150
 # pulse sniper power cell
 - type: entity
   name: pulse sniper power cell
@@ -366,7 +372,7 @@
 # bluespace revolver power cell
 - type: entity
   name: bluespace revolver power cell
-  description: A militarized power cell compatible with laser revolvers that fires bluespace beams.
+  description: A militarized power cell compatible with laser revolvers that fires beams of calibrated bluespace particles that bypass few inches of armor.
   id: PowerCellBluespaceRevolver
   suffix: Full
   parent: BaseMilitaryPowerCellRevolver
@@ -376,6 +382,9 @@
     - map: [ "base" ]
       state: bluespace_charge
       shader: unshaded
+  - type: Battery
+    maxCharge: 750
+    startingCharge: 750    
   - type: GenericVisualizer
     visuals:
       enum.AmmoVisuals.HasAmmo:
@@ -388,7 +397,7 @@
             shader: null
   - type: HitscanBatteryAmmoProvider
     proto: RevolverBluespaceLaser
-    fireCost: 62.5
+    fireCost: 93.75
 # ion revolver power cell
 - type: entity
   name: ion revolver power cell
@@ -459,4 +468,45 @@
       Plasma: 200
     chemicalComposition:
       Zinc: 20
+      
+- type: entity
+  id: MilitaryPowerCellBluespaceLMG
+  parent: BaseMilitaryPowerCell
+  name: bluespace LMG battery
+  description: Highly advanced bluespace battery firing energized bluespace photonic particles calibrated to easily bypass few inches of armor.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_lmg_bluespace.rsi
+      layers:
+        - map: [ "enum.PowerCellVisualLayers.Base" ]
+          state: icon
+        - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+          state: o4
+          shader: unshaded
+    - type: Item
+      size: Large
+      shape:
+        - 0,0,2,1
+    - type: Battery
+      maxCharge: 2100
+      startingCharge: 2100
+    - type: BatteryDrinkerSource
+      maxAmount: 500
+    - type: HitscanBatteryAmmoProvider
+      proto: LMGLaserBluespace
+      fireCost: 15
+    - type: Tag
+      tags:
+        - MilitaryPowerCellLMG
+        - MilitaryPowerCell
+    - type: Clothing
+      slots: BELT
+    - type: PhysicalComposition
+      materialComposition:
+        Steel: 300
+        Gold: 40
+        Glass: 160
+        Plasma: 200
+      chemicalComposition:
+        Zinc: 20
 # endregion LMG Power Cell

@@ -76,6 +76,9 @@
         },
         {
             "name": "ion"
+        },
+        {
+            "name": "bluespace_research"
         }
     ]
 }

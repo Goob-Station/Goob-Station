@@ -225,3 +225,22 @@
   technologyPrerequisites:
   - UraniumMunitions
   position: 4,2
+
+- type: technology
+  id: BlueSpaceMunitions
+  name: research-technology-bluespace-munitions
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_revolver.rsi
+    state: bluespace_research
+  discipline: Arsenal
+  tier: 3
+  cost: 50000
+  recipeUnlocks:
+  - PowerCellBluespaceRevolver
+  - PowerCellBluespaceSMG
+  - PowerCellBluespaceSniper
+  - MilitaryPowerCellBluespaceLMG
+  technologyPrerequisites:
+  - WeaponLaserCellLMGTech
+  - WeaponLaserCellSniperTech
+  position: 7, -1

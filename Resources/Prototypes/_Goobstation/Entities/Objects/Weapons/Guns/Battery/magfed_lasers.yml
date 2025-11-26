@@ -72,10 +72,10 @@
     shape:
     - 0,0,6,1
   - type: Gun
-    burstFireRate: 10
+    burstFireRate: 15
     shotsPerBurst: 3
-    burstCooldown: 0.8
-    fireRate: 0.8
+    burstCooldown: 1.5
+    fireRate: 1.5
     lockOnTargetBurst: true
     selectedMode: Burst
     availableModes:
