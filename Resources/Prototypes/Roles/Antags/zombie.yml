@@ -22,6 +22,7 @@
     - IPC
     - Plasmaman
   guides: [ Zombies ]
+  medicalRecord: antag-record-disease # Goobstation
 
 - type: antag
   id: Zombie

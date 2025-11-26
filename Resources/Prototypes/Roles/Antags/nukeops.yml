@@ -111,6 +111,7 @@
     species:
     - Plasmaman
   guides: [ NuclearOperatives ]
+  criminalRecord: antag-record-criminal-connections # Goobstation
 
 - type: antag
   id: NukeopsMedic
@@ -132,6 +133,7 @@
     species:
     - Plasmaman
   guides: [ NuclearOperatives ]
+  criminalRecord: antag-record-criminal-connections # Goobstation
 
 - type: antag
   id: NukeopsCommander
@@ -154,6 +156,7 @@
     species:
     - Plasmaman
   guides: [ NuclearOperatives ]
+  criminalRecord: antag-record-criminal-connections # Goobstation
 
 - type: startingGear
   id: SyndicateOperativeGearFullNoUplink

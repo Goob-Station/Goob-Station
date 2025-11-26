@@ -89,6 +89,7 @@
   setPreference: true
   objective: roles-antag-thief-objective
   guides: [ Thieves ]
+  criminalRecord: antag-record-criminal # Goobstation
 
 - type: startingGear
   id: ThiefGear

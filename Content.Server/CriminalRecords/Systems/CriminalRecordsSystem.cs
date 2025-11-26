@@ -18,6 +18,10 @@ using Content.Server.GameTicking;
 using Content.Server.Station.Systems;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
+using Content.Shared.Preferences;
+using Robust.Shared.Prototypes;
+using Content.Shared.Roles;
+using Robust.Shared.Random;
 
 namespace Content.Server.CriminalRecords.Systems;
 
@@ -35,6 +39,8 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
     [Dependency] private readonly StationRecordsSystem _records = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly CartridgeLoaderSystem _cartridge = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -49,7 +55,12 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
 
     private void OnGeneralRecordCreated(AfterGeneralRecordCreatedEvent ev)
     {
-        _records.AddRecordEntry(ev.Key, new CriminalRecord());
+        // Goobstation start
+        var record = new CriminalRecord();
+        RandomizeCrimeHistory(record, ev.Profile);
+        // Goobstation end
+
+        _records.AddRecordEntry(ev.Key, record);     // Goobstation edit
         _records.Synchronize(ev.Key);
     }
 
@@ -135,7 +146,7 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
         if (index >= record.History.Count)
             return false;
 
-        var history = record.History[(int)index];
+        var history = record.History[(int) index];
         record.History.RemoveAt((int) index);
 
         var args = new CriminalHistoryRemovedEvent(history);
@@ -189,4 +200,24 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
 
         _cartridge.UpdateCartridgeUiState(loaderUid, state);
     }
+
+    // Goobstation start
+    private void RandomizeCrimeHistory(CriminalRecord record, HumanoidCharacterProfile profile)
+    {
+        Dictionary<string, bool> records = new();
+
+        foreach (var item in _proto.EnumeratePrototypes<AntagPrototype>().Where(x => x.SetPreference && x.CriminalRecord != null))
+        {
+            if (records.ContainsKey(item.CriminalRecord!))
+                continue;
+
+            records.Add(item.CriminalRecord!, _random.Prob(profile.AntagPreferences.Contains(item.ID) ? item.RecordsProb : item.FakeRecordsProb));
+        }
+
+        foreach (var item in records.Where(x => x.Value))
+        {
+            record.History.Add(new CrimeHistory(TimeSpan.Zero, item.Key, null));
+        }
+    }
+    // Goobstation end
 }

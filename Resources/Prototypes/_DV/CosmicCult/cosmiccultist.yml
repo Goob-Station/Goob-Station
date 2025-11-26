@@ -8,3 +8,4 @@
   - !type:OverallPlaytimeRequirement
     time: 43200 # 12h
   guides: [ CosmicCult ]
+  criminalRecord: antag-record-cultist # Goobstation
