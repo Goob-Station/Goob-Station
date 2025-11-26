@@ -357,7 +357,7 @@
     - type: Tag
       tags:
         - SecBeltEquip
-        - Tourniquet #Goobstation
+        - Tourniquet
     - type: Sprite
       state: tourniquet
 
