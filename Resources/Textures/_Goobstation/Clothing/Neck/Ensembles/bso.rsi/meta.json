@@ -8,24 +8,37 @@
   },
   "states": [
     {
-      "name": "icon"
+      "name": "cloakwhite-icon"
     },
     {
-      "name": "cloak-icon"
+      "name": "cloakblack-icon"
     },
         {
       "name": "mantle-icon"
     },
-
     {
-      "name": "both-equipped-NECK",
+      "name": "cloakwhitemantle-icon"
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "cloakwhite-equipped-NECK",
       "directions": 4
     },
     {
-      "name": "cloak-equipped-NECK",
+      "name": "cloakblack-equipped-NECK",
       "directions": 4
     },
-     {
+    {
+      "name": "cloakblackmantle-equipped-NECK",
+      "directions": 4
+    },
+    {
+      "name": "cloakwhitemantle-equipped-NECK",
+      "directions": 4
+    },
+    {
       "name": "mantle-equipped-NECK",
       "directions": 4
     },

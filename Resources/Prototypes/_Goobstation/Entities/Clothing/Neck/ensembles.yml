@@ -204,7 +204,6 @@
   name: quartermaster's ensemble
   description: Delicately crafted with the most premium materials purchaseable with spesos; a cloak that truly represents the Spirit of Cargonia... and your bank account.
   suffix: DO NOT MAP
-  heldPrefix: both
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/qm.rsi
@@ -282,28 +281,38 @@
     sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
-    equippedPrefix: both
+    equippedPrefix: cloakblackmantle
     slots:
     - Neck
   - type: ItemSwitch
-    state: both
+    state: cloakblackmantle
     showLabel: true
     states:
-      both: !type:ItemSwitchState
-        verb: both
+      cloakblackmantle: !type:ItemSwitchState
+        verb: cloakblack&mantle
         sprite:
           sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
           state: icon
+      cloakwhitemantle: !type:ItemSwitchState
+        verb: cloakwhite&mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
+          state: cloakwhitemantle-icon
+      cloakwhite: !type:ItemSwitchState
+        verb: cloakwhite
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
+          state: cloakwhite-icon
+      cloakblack: !type:ItemSwitchState
+        verb: cloakblack
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
+          state: cloakblack-icon
       mantle: !type:ItemSwitchState
         verb: mantle
         sprite:
           sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
           state: mantle-icon
-      cloak: !type:ItemSwitchState
-        verb: cloak
-        sprite:
-          sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
-          state: cloak-icon
 
 - type: entity
   parent: [ClothingNeckBase, BaseCentcommCommandContraband]
@@ -344,7 +353,6 @@
   id: ClothingNeckEnsembleTrans
   name: trans ensemble
   description: Worn by high ranking vampires of the transylvanian society of vampires.
-  suffix: DO NOT MAP
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/trans.rsi
@@ -352,6 +360,35 @@
     sprite: _Goobstation/Clothing/Neck/Ensembles/trans.rsi
     slots:
     - Neck
+  - type: ItemSwitch
+    state: all
+    showLabel: true
+    states:
+      all: !type:ItemSwitchState
+        verb: all
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/trans.rsi
+          state: icon
+      cloak: !type:ItemSwitchState
+        verb: cloak
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/trans.rsi
+          state: cloak-icon
+      cloakJewelry: !type:ItemSwitchState
+        verb: cloak&jewelry
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/trans.rsi
+          state: cloak-icon
+      cloakSash: !type:ItemSwitchState
+        verb: cloak&sash
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/trans.rsi
+          state: cloakSash-icon
+      cloakSashL: !type:ItemSwitchState
+        verb: altcloak&mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/trans.rsi
+          state: cloakSashL-icon
 
 - type: entity
   parent: ClothingNeckBase
@@ -376,13 +413,23 @@
         sprite:
           sprite: _Goobstation/Clothing/Neck/Ensembles/salvager.rsi
           state: icon
-      mantle: !type:ItemSwitchState
-        verb: mantle
-        sprite:
-          sprite: _Goobstation/Clothing/Neck/Ensembles/salvager.rsi
-          state: mantle-icon
       cloak: !type:ItemSwitchState
         verb: cloak
         sprite:
           sprite: _Goobstation/Clothing/Neck/Ensembles/salvager.rsi
           state: cloak-icon
+      mantle: !type:ItemSwitchState
+        verb: mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/salvager.rsi
+          state: mantle-icon
+      altcloak: !type:ItemSwitchState
+        verb: altcloak
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/salvager.rsi
+          state: altcloak-icon
+      altcloakmantle: !type:ItemSwitchState
+        verb: altcloak&mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/salvager.rsi
+          state: altcloakmantle-icon
