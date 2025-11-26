@@ -70,9 +70,6 @@ public sealed class RiposteeSystem : EntitySystem
             !TryComp(user.Value, out RiposteeComponent? ripostee))
             return;
         
-        if (TryComp(user.Value, out MartialArtsKnowledgeComponent? martial) && !martial.Stance && !HasComp<HereticBladeComponent>(user.Value))
-            return; // dont riposte out of stance
-        
         CounterAttack((weapon.Value, melee), (user.Value, ripostee), target.Value, ev.Data);
     }
 
@@ -148,8 +145,8 @@ public sealed class RiposteeSystem : EntitySystem
             if (!data.CanRiposteWhileProne && _standing.IsDown(ent))
                 continue;
 
-            if (TryComp<CombatModeComponent>(ent.Owner, out var combat) && !combat.IsInCombatMode && (TryComp<MartialArtsKnowledgeComponent>(ent.Owner, out var martial) && martial.MartialArtsForm == MartialArtsForms.CloseQuartersCombat) || !HasComp<HereticBladeComponent>(ent.Owner)) // Don't riposte out of combat mode
-                continue;
+            if (TryComp(ent.Owner, out MartialArtsKnowledgeComponent? martial) && !martial.Stance && !HasComp<HereticBladeComponent>(ent.Owner))
+                return; // dont riposte out of stance
             
             if (data.RiposteChance is > 0f and < 1f)
             {
