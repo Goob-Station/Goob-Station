@@ -1,0 +1,54 @@
+- type: entity
+  parent: BaseStructure
+  id: AwesomeStatue
+  name: golden statue of the founder
+  description: "A majestic, golden statue of the founder of this station. By her will, you are trapped here. The name was crossed out by someone dissatisfied with the station's quality before you. Only the first and last letters are visible: B and U."
+  components:
+  - type: Sprite
+    noRot: true
+    layers:
+    - state: awesome
+      sprite: _CorvaxGoob/Structures/Furniture/Memorials/awesome.rsi
+      scale: "1.0, 1.0"
+      drawDepth: WallMountedItems
+      offset: "0.5, 0.5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.25,0.0,0.75,1.0"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 500
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              IngotGold:
+                min: 10
+                max: 20
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              HeadSkeleton:
+                min: 1
+                max: 1
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: Anchorable
+  - type: Transform
+    noRot: true
+    
