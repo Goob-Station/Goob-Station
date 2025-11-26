@@ -6,7 +6,7 @@ patron-support-window-description2 = Your support helps us keep the servers runn
 patron-support-window-tiers-header = Patron Tiers and Rewards
 
 patron-support-window-tier1-name = Assistant ($5/month)
-patron-support-window-tier1-perk1 = • 3x Goob Coin earnings
+patron-support-window-tier1-perk1 = • 2x Goob Coin earnings
 patron-support-window-tier1-perk2 = • Priority role queue access
 patron-support-window-tier1-perk3 = • Purple OOC name color
 patron-support-window-tier1-perk4 = • Thanks in the credits in-game
