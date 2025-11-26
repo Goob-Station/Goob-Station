@@ -18421,3 +18421,9 @@ Entries:
       message: Added icons for patrons in OOC chat.
   id: 2074
   time: '2025-11-26T08:07:46.0000000+00:00'
+- author: JohnJohn, c4llv07e
+  changes:
+    - type: Tweak
+      message: The Cargo transfer menu has new UI
+  id: 2075
+  time: '2025-11-26T10:21:40.0000000+00:00'
