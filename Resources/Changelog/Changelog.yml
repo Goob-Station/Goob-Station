@@ -4238,3 +4238,10 @@ Entries:
   id: 9226
   time: '2025-11-24T17:04:34.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41379
+- author: YoungThugSS14
+  changes:
+  - message: Tourniquets can now fit in medical belts
+    type: Tweak
+  id: 9227
+  time: '2025-11-26T17:29:56.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41584
