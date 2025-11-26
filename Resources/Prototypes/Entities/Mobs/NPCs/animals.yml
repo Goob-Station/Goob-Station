@@ -940,7 +940,10 @@
           32:
             sprite: Mobs/Animals/mothroach/displacement.rsi
             state: neck
-
+  - type: EatToGrow # Goobstation Eat To Grow System
+    growth: 0.05
+    maxGrowth: 2
+    
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
 # The white duck is more akin to a pekin or call duck.
 
