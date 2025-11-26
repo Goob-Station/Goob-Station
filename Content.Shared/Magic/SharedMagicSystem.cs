@@ -275,6 +275,12 @@ public abstract class SharedMagicSystem : EntitySystem
         var hasReqs = true;
 
         // Goobstation start
+        if (comp.BlockedBySpectral && HasComp<SpectralComponent>(args.Performer))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
         var requiresSpeech = comp.RequiresSpeech;
         var flags = SlotFlags.OUTERCLOTHING | SlotFlags.HEAD;
         var requiredSlots = 2;

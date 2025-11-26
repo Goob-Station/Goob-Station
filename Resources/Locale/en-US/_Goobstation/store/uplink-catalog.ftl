@@ -344,8 +344,8 @@ uplink-undetermined-bundle-desc = This crate comes with three random bundles and
 uplink-energy-pickaxe-name = Energy Pickaxe
 uplink-energy-pickaxe-desc = A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
 
-uplink-bloodred-casette-name = Bloodred Casette Player
-uplink-bloodred-casette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!
+uplink-bloodred-cassette-name = Bloodred Casette Player
+uplink-bloodred-cassette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!
 
 uplink-syndiedrobe-name = Syndiedrobe
 uplink-syndiedrobe-desc = A vending machine stocked with Syndicate-branded clothing. Simple, sharp, and unmistakably red-and-black, it offers operatives a way to dress with Syndicate style.

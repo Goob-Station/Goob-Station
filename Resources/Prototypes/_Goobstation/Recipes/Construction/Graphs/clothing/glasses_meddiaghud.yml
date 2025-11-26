@@ -9,7 +9,6 @@
 
 - type: constructionGraph
   id: GlassesMedDiagHUD
-  start: start
   graph:
     - node: start
       edges:

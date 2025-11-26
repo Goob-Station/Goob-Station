@@ -650,6 +650,11 @@
     isConsumable: true
 
 - type: entity
+  parent: SurgeryStepInsertOrgan
+  id: SurgeryStepInsertPump
+  name: Add pump
+
+- type: entity
   parent: SurgeryStepBase
   id: SurgeryStepSealOrganWound
   name: Seal wounds

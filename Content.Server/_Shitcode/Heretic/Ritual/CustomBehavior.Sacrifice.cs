@@ -98,7 +98,7 @@ namespace Content.Server.Heretic.Ritual;
                 && !args.EntityManager.HasComponent<HereticComponent>(look)) // or other heretics
                 continue;
 
-            if (mobstate.CurrentState == Shared.Mobs.MobState.Dead)
+            if (mobstate.CurrentState != Shared.Mobs.MobState.Alive)
                 uids.Add(look);
         }
 

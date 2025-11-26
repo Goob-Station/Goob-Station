@@ -5,7 +5,7 @@
   description: Feels vaguely ominous!
   components:
   - type: Item
-    size: Tiny
+    size: Small
     inhandVisuals:
       left:
       - state: inhand-left
@@ -53,7 +53,8 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: GuideHelp
-    guides: [ Wraith ]
+    guides: [ Chaplain ]
+
 
 
 # dummy entity for detecting
