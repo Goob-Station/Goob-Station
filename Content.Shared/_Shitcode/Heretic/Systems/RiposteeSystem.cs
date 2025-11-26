@@ -45,14 +45,12 @@ public sealed class RiposteeSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<RiposteeComponent, BeforeHarmfulActionEvent>(OnHarmAttempt,
             before: new[] { typeof(SharedHereticAbilitySystem) });
-
         SubscribeNetworkEvent<RiposteUsedEvent>(OnRiposteUsed);
     }
 
@@ -72,8 +70,8 @@ public sealed class RiposteeSystem : EntitySystem
             !TryComp(user.Value, out RiposteeComponent? ripostee))
             return;
         
-        if(TryComp(user.Value, out CombatModeComponent? combat) && combat.IsInCombatMode)
-            return;
+        if (TryComp(user.Value, out MartialArtsKnowledgeComponent? martial) && !martial.Stance || !HasComp<HereticBladeComponent>(user.Value))
+            return; // Don't riposte with stance off but still riposte if you have a heretic blade.
         
         CounterAttack((weapon.Value, melee), (user.Value, ripostee), target.Value, ev.Data);
     }

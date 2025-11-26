@@ -50,6 +50,9 @@ public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideCo
     [AutoNetworkedField]
     public string OriginalFistDamageType;
 
+    [DataField] 
+    [AutoNetworkedField]
+    public bool Stance; // True = Defensive, False = Passive
 }
 
 public enum MartialArtsForms

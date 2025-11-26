@@ -106,7 +106,6 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedSprintingSystem _sprinting = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -124,14 +123,17 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ShotAttemptedEvent>(OnShotAttempt);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComboAttackPerformedEvent>(OnComboAttackPerformed);
-
+        SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentInit>(OnCompInitKnowledge);
+        
         SubscribeLocalEvent<KravMagaSilencedComponent, SpeakAttemptEvent>(OnSilencedSpeakAttempt);
 
         SubscribeLocalEvent<MartialArtModifiersComponent, GetMeleeAttackRateEvent>(OnGetMeleeAttackRate);
         SubscribeLocalEvent<MartialArtModifiersComponent, RefreshMovementSpeedModifiersEvent>(OnGetMovespeed);
-
         SubscribeLocalEvent<MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<InteractHandEvent>(OnInteract);
+
+        SubscribeLocalEvent<MartialArtsAlert, ComponentInit>(OnCompInitAlert);
+        SubscribeLocalEvent<MartialArtsAlert, ToggleMartialArtsStanceEvent>(OnToggleStanceMode);
     }
 
     public override void Update(float frameTime)
@@ -432,7 +434,30 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             target,
             target);
     }
-
+    
+    private void OnToggleStanceMode(Entity<MartialArtsAlert> ent, ref ToggleMartialArtsStanceEvent args)
+    {
+        if (args.Handled)
+            return;
+        var martial = Comp<MartialArtsKnowledgeComponent>(ent.Owner);
+        martial.Stance = !martial.Stance;
+        
+        _alerts.ShowAlert(ent.Owner, ent.Comp.MartialArtProtoId, (short)(martial.Stance ? 1 : 0));
+        //Dirty(args.User, ent.Comp);
+        Dirty(args.User, martial);
+        args.Handled = true;
+    }
+    
+    private void OnCompInitKnowledge(Entity<MartialArtsKnowledgeComponent> ent, ref ComponentInit args)
+    {
+        EnsureComp<MartialArtsAlert>(ent);
+    }
+    private void OnCompInitAlert(Entity<MartialArtsAlert> ent, ref ComponentInit args)
+    {
+        if(TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledge) && (knowledge.MartialArtsForm == MartialArtsForms.SleepingCarp || knowledge.MartialArtsForm == MartialArtsForms.CloseQuartersCombat))
+            return;
+        _alerts.ShowAlert(ent, ent.Comp.MartialArtProtoId, 0);
+    }
     #endregion
 
     #region Helper Methods

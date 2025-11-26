@@ -56,3 +56,6 @@ alerts-sneak-attack-desc = To a true shinobi, the first strike and the last stri
 
 alerts-loss-of-surprise-name = Loss Of Surprise
 alerts-loss-of-surprise-desc = Your intentions are known! It will take you a few moments to sneak attack again.
+
+alerts-martial-arts-toggle-name = Martial Arts Stance
+alerts-martial-arts-toggle-desc = You shift your stance.
