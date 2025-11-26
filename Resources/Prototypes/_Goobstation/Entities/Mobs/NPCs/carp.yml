@@ -41,7 +41,7 @@
 - type: entity
   id: MobCarpSleepy
   name: Sleepy carp
-  parent: MobCarp
+  parent: BaseMobCarp # to make it not rainbow
   components:
     - type: HTN
       rootTask:
@@ -49,3 +49,5 @@
     - type: Reflect
       reflectProb: 1
       spread: 120
+    - type: Sprite
+      sprite: _Goobstation/Mobs/Animals/carp.rsi
