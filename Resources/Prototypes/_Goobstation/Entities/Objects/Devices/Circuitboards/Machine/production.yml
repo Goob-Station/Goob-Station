@@ -120,3 +120,17 @@
       GlassBeaker:
         amount: 2
         defaultPrototype: Beaker
+
+- type: entity
+  id: TelecomTransmitterCircuitboard
+  parent: BaseMachineCircuitboard
+  name: telecommunication transmitter machine board
+  description: A machine printed circuit board for an telecommunication transmitter.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: TelecomTransmitter
+    stackRequirements:
+      Steel: 5
+      Cable: 5

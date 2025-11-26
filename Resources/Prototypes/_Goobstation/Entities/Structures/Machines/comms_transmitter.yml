@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseMachinePowered ] #ConstructibleMachine
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: TelecomTransmitter
   name: telecommunication transmitter
   description: When powered, it allows telecomunication servers to expand their signal.
@@ -63,3 +63,5 @@
     anchored: true
   - type: Pullable
   - type: TelecomTransmitter
+  - type: Machine
+    board: TelecomTransmitterCircuitboard

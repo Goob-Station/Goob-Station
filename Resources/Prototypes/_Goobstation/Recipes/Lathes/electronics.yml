@@ -109,3 +109,11 @@
     state: ca_on
   id: RadiationCollectorCircuitboard
   result: RadiationCollectorCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
+  id: TelecomTransmitterCircuitboard
+  icon:
+    sprite:  Structures/Machines/server.rsi
+    state: server
+  result: TelecomTransmitterCircuitboard
