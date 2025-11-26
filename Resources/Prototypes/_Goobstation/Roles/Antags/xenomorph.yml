@@ -1,0 +1,10 @@
+- type: antag
+  id: XenomorphsInfestationRoundstart
+  name: roles-antag-xenomorph-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-xenomorph-objective
+  guides: [ Xenomorphs ]
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 180000

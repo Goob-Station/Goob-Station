@@ -1532,11 +1532,11 @@
     - Dwarf # Rock and stone
 
 - type: listing
-  id: UplinkBloodredCasette
-  name: uplink-bloodred-casette-name
-  description: uplink-bloodred-casette-desc
-  icon: { sprite: _Goobstation/Objects/Fun/bloodmonica.rsi, state: icon }
-  productEntity: BloodredCasette
+  id: UplinkBloodredCassette
+  name: uplink-bloodred-cassette-name
+  description: uplink-bloodred-cassette-desc
+  icon: { sprite: _Goobstation/Objects/Fun/bloodred_cassette_player.rsi, state: icon }
+  productEntity: BloodredCassette
   cost:
     Telecrystal: 3
   categories:
