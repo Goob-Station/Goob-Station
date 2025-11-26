@@ -120,7 +120,7 @@ public partial class ChatBox : UIWidget
         // Adding first and then removing does not produce any visual effects.
         // The other option is to copypaste into Content all of OutputPanel and everything it uses but is intertanl to Robust namespace.
         // Thanks robustengine, very cool.
-        if (_coalescence && _lastLine == tup)
+        if (_coalescence && msg.CanCoalesce && _lastLine == tup)
         {
             _lastLineRepeatCount++;
             AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);

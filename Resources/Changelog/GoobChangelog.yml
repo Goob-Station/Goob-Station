@@ -18427,3 +18427,53 @@ Entries:
       message: The Cargo transfer menu has new UI
   id: 2075
   time: '2025-11-26T10:21:40.0000000+00:00'
+- author: LuciferEOS, deltanedas
+  changes:
+    - type: Add
+      message: Added back tide ID cards and very basic makeshift crafting.
+  id: 2076
+  time: '2025-11-26T10:29:13.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: 'Space law- Officers should sentence if no HOS or Warden present. '
+    - type: Tweak
+      message: >-
+        Space law- Sec no longer should be using space animal organs(Mostly the
+        heart) as they should be seen and identifiable - Should extend to
+        command by definition of space law.
+  id: 2077
+  time: '2025-11-26T11:15:39.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Add
+      message: >-
+        Topicals now spread their heal starting from the targeted limb, then
+        going head -> torso -> crotch -> everything else. No more waste of
+        topicals on scratches.
+    - type: Fix
+      message: Woundmed bleeding.
+  id: 2078
+  time: '2025-11-26T11:58:31.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Alert carving now lets you teleport to its location after someone has
+        stepped on it.
+    - type: Tweak
+      message: Carving knife rune carve time 5s -> 3.
+    - type: Tweak
+      message: Carvings are less visible.
+  id: 2079
+  time: '2025-11-26T17:39:27.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Tweak
+      message: >-
+        Shadowkin's slowed breaths are now actually here, breathing 3x slower
+        than humans.
+    - type: Tweak
+      message: Shadowkin suffocate much slower (lore)
+  id: 2080
+  time: '2025-11-26T17:49:17.0000000+00:00'
