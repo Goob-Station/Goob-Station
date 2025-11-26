@@ -29,26 +29,25 @@ knowledge-path-lock-s1-desc =
     Opens up the Path of Lock to you.
     Allows you to transmute a knife and a crowbar into a Key Blade.
     You can only create two at a time and they function as fast crowbars.
-    In addition, they can fit into utility belts.
 
 knowledge-path-lock-s2-name = Grasp of Lock
 knowledge-path-lock-s2-desc =
     Nothing may remain closed from my touch.
 
-    Your mansus grasp allows you to access anything! Right click on an airlock or a locker to force it open.
+    Your mansus grasp allows you to access anything! Click on an airlock or a locker to force it open.
     All locks will break. Any mech pilot will be instantly ejected. Consoles will break.
     Makes a distinctive knocking sound on use.
 
 knowledge-path-lock-s3-name = Key Keeper's Burden
 knowledge-path-lock-s3-desc =
-    The Keeper sneered. These plastic rectangles are a mockery of keys, and I curse every door that desires them.
+    The Keeper sneered. "These plastic rectangles are a mockery of keys, and I curse every door that desires them."
 
-    Allows you to use your mansus grasp on an ID card to transform it into an Eldritch Card.
-    Hit a pair of airlocks with it to create a pair of portals, which will teleport you between them, but teleport non-heretics randomly.
+    Allows you to transmute a door, an iron rod, and an ID card to create an Eldritch Card.
+    Click on a pair of airlocks with it to create a pair of portals, which will teleport you between them, but teleport non-heretics randomly.
+    You can alt-click the card to invert this behavior for created portals.
     Each card may only sustain a single pair of portals at the same time.
     It also functions and appears the same as a regular ID Card.
-    Attacking a normal ID card with it consumes the card and gains its access.
-    Does not preserve the originally used card.
+    Using it on a normal ID card consumes it and gains its access, and you can use it in-hand to change its appearance to a card you fused.
 
 knowledge-path-lock-s4-name = Mark of Lock
 knowledge-path-lock-s4-desc =
@@ -60,10 +59,10 @@ knowledge-path-lock-s4-desc =
 
 knowledge-path-lock-s6-name = Concierge's Rite
 knowledge-path-lock-s6-desc =
-    The Concierge scribbled my name into the Handbook. Welcome to your new home, fellow Steward.
+    The Concierge scribbled my name into the Handbook. "Welcome to your new home, fellow Steward."
 
-    Allows you to transmute a stick of chalk, a wooden plank, and a multitool to create a Labyrinth Handbook.
-    It can materialize a barricade at range that only you and people resistant to magic can pass. Has limited uses.
+    Allows you to transmute a crayon, a wooden plank, and a multitool to create a Labyrinth Handbook.
+    It can materialize a barricade at range that only you and people resistant to magic can pass. Has 5 charges which regenerate over time.
 
 knowledge-path-lock-s7-name = Burglar's Finesse
 knowledge-path-lock-s7-desc =
@@ -75,7 +74,7 @@ knowledge-path-lock-s8-name = Opening Blade
 knowledge-path-lock-s8-desc =
     The Pilgrim-Surgeon was not an Steward. Nonetheless, its blades and sutures proved a match for their keys.
 
-    Your blade has a chance to remove a random organ on attack.
+    Your blade has better wounding and a chance to cause a weeping avulsion on attack.
 
 knowledge-path-lock-s9-name = Caretaker's Last Refuge
 knowledge-path-lock-s9-desc =
@@ -87,7 +86,8 @@ knowledge-path-lock-s9-desc =
 
 knowledge-path-lock-s10-name = Unlock the Labyrinth
 knowledge-path-lock-s10-desc =
-    The ascension ritual of the Path of Lock.
-    Bring 3 corpses without organs in their torso to a transmutation rune to complete the ritual.
-    When completed, you will create a tear to the Labyrinth's heart; a tear in reality located at the site of this ritual.
+    The ascension ritual of the Path of Knock.
+    Bring 3 corpses without groin to a transmutation rune to complete the ritual.
+    When completed, you gain the ability to transform into empowered eldritch creatures and your keyblades will become even deadlier.
+    In addition, you will create a tear to the Labyrinth's heart; a tear in reality located at the site of this ritual.
     Eldritch creatures will endlessly pour from this rift who are bound to obey your instructions.

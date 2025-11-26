@@ -344,6 +344,21 @@
   outputKnowledge: CreatorsGift
   outputEvent: !type:EventHereticAscension
 
+### lock path
+- type: hereticRitual
+  id: BladeLock
+  locName: knowledge-path-lock-s1-name
+  locDesc: knowledge-path-lock-s1-desc
+  icon:
+    sprite: _Goobstation/Heretic/Blades/blade_lock.rsi
+    state: icon
+  requiredTags:
+    Knife: 1
+    Crowbar: 1
+  output:
+    HereticBladeLock: 1
+  limit: 2
+
 ### side knowledge
 - type: hereticRitual
   id: RitualOfKnowledge
@@ -375,6 +390,7 @@
       Flesh: ClothingOuterArmorHereticFlesh
       Blade: ClothingOuterArmorHereticBlade
       Cosmos: ClothingOuterArmorHereticCosmos
+      Lock: ClothingOuterArmorHereticLock
       Rust: ClothingOuterArmorHeretic
 
 - type: hereticRitual

@@ -161,6 +161,8 @@
     state: icon
   - type: Item
     sprite: _Goobstation/Heretic/Blades/blade_lock-inhand.rsi
+  - type: Prying
+    speedModifier: 1.5
 
 - type: entity
   parent: HereticBladeBase
