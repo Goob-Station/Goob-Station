@@ -4245,3 +4245,11 @@ Entries:
   id: 9227
   time: '2025-11-26T17:29:56.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41584
+- author: CDWimmer
+  changes:
+  - message: The Syndicate now commits one less war crime; the Syndicate medical bundle
+      cross is now blue.
+    type: Fix
+  id: 9228
+  time: '2025-11-26T21:13:37.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41541
