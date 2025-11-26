@@ -49,39 +49,8 @@ public sealed class InteractorSystem : SharedInteractorSystem
             return;
         }
 
-        // Mono
-        for (var i = count - 1; i >= 0; i--)
-        {
-            var netEnt = ent.Comp.TargetEntities[i].Item1;
-            var target = GetEntity(netEnt);
-            _constructionQuery.TryComp(target, out var construction);
-            var originalCount = construction?.InteractionQueue?.Count ?? 0;
-            if (!InteractWith(ent, target))
-            {
-                // have to remove it since user's filter was bad due to unhandled interaction
-                // RemoveTarget(ent, target); // Mono
-                Machine.Failed(ent.Owner);
-                continue; // Mono
-            }
-
-            // construction supercode queues it instead of starting a doafter now, assume that queuing means it has started
-            var newCount = construction?.InteractionQueue?.Count ?? 0;
-            if (newCount > originalCount
-                || HasDoAfter(ent))
-            {
-                Machine.Started(ent.Owner);
-                UpdateAppearance(ent, InteractorState.Active);
-            }
-            else
-            {
-                // no doafter, complete it immediately
-                TryRemoveTarget(ent, target);
-                Machine.Completed(ent.Owner);
-                UpdateAppearance(ent);
-            }
-            break; // Mono
         _constructionQuery.TryComp(target, out var construction);
-        var originalCount = construction?.InteractionQueue?.Count ?? 0;
+        var originalCount = construction?.InteractionQueue.Count ?? 0;
         if (!InteractWith(ent, target))
         {
             // have to remove it since user's filter was bad due to unhandled interaction
