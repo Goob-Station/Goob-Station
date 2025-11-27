@@ -20,7 +20,7 @@ using Robust.Client.GameObjects;
 namespace Content.Client.VoiceMask;
 
 [GenerateTypedNameReferences]
-public partial class VoiceMaskNameChangeWindow : FancyWindow
+public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
 {
     [Dependency] private readonly IEntitySystemManager _entitySystem = default!; // Goob radio icons
     private readonly SpriteSystem _spriteSystem; // Goob radio icons

@@ -38,7 +38,7 @@ public sealed class VoiceMaskBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _window = this.CreateWindow<VoiceMaskNameChangeWindow>(); // GabyStation Radio icons
+        _window = this.CreateWindow<VoiceMaskNameChangeWindow>();
         _window.ReloadVerbs(_protomanager);
         _window.AddVerbs();
 
