@@ -67,7 +67,6 @@ using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems.Abilities;
-using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Damage.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.MartialArts.Components;
@@ -339,7 +338,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), ent, AudioParams.Default.WithVolume(-3f));
     }
 
-    public ProtoId<CollectiveMindPrototype> MansusLinkMind = "MansusLink";
+    public static ProtoId<CollectiveMindPrototype> MansusLinkMind = "MansusLink";
     private void OnMansusLink(Entity<GhoulComponent> ent, ref EventHereticMansusLink args)
     {
         if (!TryUseAbility(ent, args))
@@ -396,24 +395,21 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         RaiseLocalEvent(ent, toggleEvent);
     }
 
-    private (float mult, float mod) GetFleshHealMultiplierModifier(Entity<MartialArtModifiersComponent> ent)
+    private float GetFleshHealMultiplier(Entity<MartialArtModifiersComponent> ent)
     {
         var mult = 1f;
-        var mod = 0f;
         const MartialArtModifierType type = MartialArtModifierType.Healing;
         foreach (var data in ent.Comp.Data.Where(x => (x.Type & type) != 0))
         {
             mult *= data.Multiplier;
-            mod += data.Modifier;
         }
 
         foreach (var (_, limit) in ent.Comp.MinMaxModifiersMultipliers.Where(x => (x.Key & type) != 0))
         {
             mult = Math.Clamp(mult, limit.X, limit.Y);
-            mod = Math.Clamp(mod, limit.Z, limit.W);
         }
 
-        return (mult, mod);
+        return mult;
     }
 
     public override void Update(float frameTime)
@@ -421,7 +417,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         base.Update(frameTime);
 
         var bloodQuery = GetEntityQuery<BloodstreamComponent>();
-        var solutionQuery = GetEntityQuery<SolutionContainerManagerComponent>();
 
         var fleshQuery = EntityQueryEnumerator<FleshPassiveComponent, MartialArtModifiersComponent, DamageableComponent>();
         while (fleshQuery.MoveNext(out var uid, out var flesh, out var modifiers, out var dmg))
@@ -433,7 +428,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
             flesh.Accumulator = 0f;
 
-            var (mult, _) = GetFleshHealMultiplierModifier((uid, modifiers));
+            var mult = GetFleshHealMultiplier((uid, modifiers));
 
             var realMult = mult - 1;
 
@@ -444,25 +439,10 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             var boneHeal = -realMult * flesh.BoneHealMultiplier;
             var painHeal = -realMult * flesh.PainHealMultiplier;
             var woundHeal = -realMult * flesh.WoundHealMultiplier;
-
-            IHateWoundMed((uid, dmg, null, null), toHeal, boneHeal, painHeal, woundHeal);
-
-            if (!bloodQuery.TryComp(uid, out var blood))
-                continue;
-
             var bloodHeal = realMult * flesh.BloodHealMultiplier;
             var bleedHeal = -realMult * flesh.BleedReductionMultiplier;
 
-            if (blood.BleedAmount > 0f)
-                _blood.TryModifyBleedAmount((uid, blood), bleedHeal);
-
-            if (solutionQuery.TryComp(uid, out var sol) &&
-                _solution.ResolveSolution((uid, sol), blood.BloodSolutionName, ref blood.BloodSolution) &&
-                blood.BloodSolution.Value.Comp.Solution.Volume < blood.BloodMaxVolume)
-            {
-                _blood.TryModifyBloodLevel((uid, blood),
-                    FixedPoint2.Min(bloodHeal, blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume));
-            }
+            IHateWoundMed((uid, dmg, null, null), toHeal, boneHeal, painHeal, woundHeal, bloodHeal, bleedHeal);
         }
 
         var rustChargeQuery = EntityQueryEnumerator<RustObjectsInRadiusComponent, TransformComponent>();
@@ -553,24 +533,18 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             var toHeal = leech.ToHeal * multiplier;
 
             if (shouldHeal && damageable != null)
-                IHateWoundMed((uid, damageable, null, null), toHeal, boneHeal, otherHeal, otherHeal);
+            {
+                IHateWoundMed((uid, damageable, null, null),
+                    toHeal,
+                    boneHeal,
+                    otherHeal,
+                    otherHeal,
+                    leech.BloodHeal * multiplier,
+                    null);
+            }
 
             if (bloodQuery.TryComp(uid, out var blood))
-            {
-                if (blood.BleedAmount > 0f)
-                    _blood.TryModifyBleedAmount((uid, blood), -blood.BleedAmount);
-
-                if (solutionQuery.TryComp(uid, out var sol) &&
-                    _solution.ResolveSolution((uid, sol), blood.BloodSolutionName, ref blood.BloodSolution) &&
-                    blood.BloodSolution.Value.Comp.Solution.Volume < blood.BloodMaxVolume)
-                {
-                    _blood.TryModifyBloodLevel((uid, blood),
-                        FixedPoint2.Min(leech.BloodHeal * multiplier,
-                            blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume));
-                }
-
                 _blood.FlushChemicals((uid, blood), leech.ExcludedReagent, leech.ChemPurgeRate * multiplier);
-            }
 
             if (temperatureQuery.TryComp(uid, out var temperature))
                 _temperature.ForceChangeTemperature(uid, leech.TargetTemperature, temperature);

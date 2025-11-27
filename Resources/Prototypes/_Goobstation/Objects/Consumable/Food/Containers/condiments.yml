@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseFoodShaker
+  id: FoodShakerSaltEmpty
+  name: salt shaker
+  description: An empty salt shaker.
+  components:
+    - type: Sprite
+      state: shaker-salt
+    - type: Icon
+      state: shaker-salt
+    - type: Tag
+      tags:
+        - SaltShaker
+    - type: StatusEffectOnCollideGhost # Goobstation - Wraith
+      whitelist:
+        tags:
+          - WeakToSalt
+      statusEffect: Corporeal
+      duration: 15
+    - type: SaltLinePlacer # Goobstation - Wraith
+      saltLine: SaltLine
+    - type: ConsumeOnSaltLine # Goobstation - Wraith
+      amount: 1
+
+- type: entity
+  parent: BaseFoodShaker
+  id: FoodShakerPepperEmpty
+  name: pepper shaker
+  description: An empty pepper shaker.
+  components:
+    - type: Sprite
+      state: shaker-pepper
+    - type: Icon
+      state: shaker-pepper
+    - type: Tag
+      tags:
+        - PepperShaker

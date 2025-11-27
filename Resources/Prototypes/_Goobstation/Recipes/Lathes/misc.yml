@@ -1,3 +1,27 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: latheRecipe
+  id: FoodShakerSaltEmpty
+  result: FoodShakerSaltEmpty
+  categories:
+  - Tools
+  completetime: 2
+  materials:
+    Steel: 50
+    Glass: 100
+
+- type: latheRecipe
+  id: FoodShakerPepperEmpty
+  result: FoodShakerPepperEmpty
+  categories:
+    - Tools
+  completetime: 2
+  materials:
+    Steel: 50
+    Glass: 100
+
 - type: latheRecipe
   id: CrewCassette
   result: CrewCassette

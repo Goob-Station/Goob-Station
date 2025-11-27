@@ -10,6 +10,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Slasher/machete.rsi
   - type: MeleeWeapon
+    canWideSwing: false # Wideswing causes issues with massacre.
     damage:
       types:
         Slash: 15
@@ -27,6 +28,9 @@
     - 0,0,0,2
   - type: DisarmMalus
   - type: SlasherMassacreMachete
+  - type: Prying
+    pryPowered: True
+    speedModifier: 1.5
 
 - type: entity
   parent: WeldingMaskBase
@@ -110,6 +114,10 @@
         Piercing: 0.90
         Heat: 0.90
         Caustic: 0.90
+  - type: StaminaResistance
+    damageCoefficient: 0.1
+  - type: ModifyDelayedKnockdown
+    cancel: true
 
 - type: entity
   parent: ClothingHandsGlovesColorBlack

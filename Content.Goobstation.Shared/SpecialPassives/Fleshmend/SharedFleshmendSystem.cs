@@ -160,7 +160,7 @@ public sealed class SharedFleshmendSystem : EntitySystem
 
         // heal bleeding and restore blood
         _bloodstream.TryModifyBleedAmount(ent.Owner, ent.Comp.BleedingAdjust);
-        _wound.TryHealMostSevereBleedingWoundables(ent, -ent.Comp.BleedingAdjust, out _);
+        //_wound.TryHealMostSevereBleedingWoundables(ent, -ent.Comp.BleedingAdjust, out _); - moved to trymodifybleedamount
         _bloodstream.TryModifyBloodLevel(ent.Owner, ent.Comp.BloodLevelAdjust);
     }
 

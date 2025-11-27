@@ -1441,11 +1441,11 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -12
-            Brute: -12
-            Toxin: -12
-            Airloss: -12
-            Genetic: -12
+            Burn: -3
+            Brute: -3
+            Toxin: -3
+            Airloss: -3
+            Genetic: -3
       - !type:GenericStatusEffect
         key: Stun
         time: 3
@@ -1461,13 +1461,14 @@
         effectProto: StatusEffectForcedSleeping
         time: 3
         type: Remove
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 10
+        type: Remove
       - !type:GenericStatusEffect
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 5
-      - !type:RemoveComponentEffect
-        component: DelayedKnockdown
-        locale: reagent-effect-guidebook-remove-delayed-knockdown
       - !type:TakeStaminaDamage
         amount: -10
         immediate: true

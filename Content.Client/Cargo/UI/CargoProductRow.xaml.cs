@@ -14,7 +14,7 @@ using Robust.Client.UserInterface.XAML;
 namespace Content.Client.Cargo.UI
 {
     [GenerateTypedNameReferences]
-    public sealed partial class CargoProductRow : PanelContainer
+    public sealed partial class CargoProductRow : BoxContainer // Changed to BoxContainer from PanelContainer by Goobstation
     {
         public CargoProductPrototype? Product { get; set; }
 

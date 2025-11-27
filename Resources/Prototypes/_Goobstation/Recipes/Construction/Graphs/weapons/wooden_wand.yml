@@ -5,7 +5,6 @@
 
 - type: constructionGraph
   id: WoodenWand
-  start: start
   graph:
   - node: start
     edges:

@@ -39,7 +39,7 @@
 - type: entity
   id: CrateClawMachine
   parent: CrateGenericSteel
-  name: slot machine crate
+  name: claw machine crate
   description: A crate with a claw machine inside, plushies included with every purchase!
   components:
   - type: StorageFill
