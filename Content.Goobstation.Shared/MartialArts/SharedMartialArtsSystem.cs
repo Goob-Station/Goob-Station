@@ -460,7 +460,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         else
         {
             _popupSystem.PopupPredicted(Loc.GetString("martial-arts-action-toggle-stance-mode-off"), ent.Owner, args.User);
-            if(!(TryComp<SleepingCarpStudentComponent>(ent.Owner, out var studentComp) && studentComp.Stage >= 3))
+            if(TryComp<SleepingCarpStudentComponent>(ent.Owner, out var studentComp) && studentComp.Stage >= 3)
                 RemComp<ReflectComponent>(ent.Owner);
         }
         args.Handled = true;

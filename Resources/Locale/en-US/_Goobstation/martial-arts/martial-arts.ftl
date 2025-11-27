@@ -6,6 +6,7 @@
 
 cqc-fail-notself = You can't teach anyone with {CAPITALIZE(THE($manual))}.
 
+cqc-fail-used = There is fish bite marks on the {CAPITALIZE(THE($manual))}. You can't discern what it says.
 cqc-fail-changeling = We are beyond using this.
 cqc-fail-knowanother = You already know another martial art.
 cqc-fail-already = You already know a martial art.
