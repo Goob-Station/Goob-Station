@@ -1,11 +1,34 @@
 # Lava
 - type: tile
   id: FloorBasaltLavaland
-  name: basalt floor [Planetmap]
+  name: tiles-basalt-floor-planetmap
   sprite: /Textures/Tiles/Planet/basalt.png
   isSubfloor: true
   footstepSounds:
     collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: FloorPlanetAsh
+  name: tiles-ash-planet-floor
+  sprite: /Textures/_Lavaland/Tiles/Planet/Ash/ash.png
+  edgeSpritePriority: 2
+  edgeSprites:
+    SouthEast: /Textures/_Lavaland/Tiles/Planet/Ash/single_edge.png
+    NorthEast: /Textures/_Lavaland/Tiles/Planet/Ash/single_edge.png
+    NorthWest: /Textures/_Lavaland/Tiles/Planet/Ash/single_edge.png
+    SouthWest: /Textures/_Lavaland/Tiles/Planet/Ash/single_edge.png
+    South: /Textures/_Lavaland/Tiles/Planet/Ash/double_edge.png
+    East: /Textures/_Lavaland/Tiles/Planet/Ash/double_edge.png
+    North: /Textures/_Lavaland/Tiles/Planet/Ash/double_edge.png
+    West: /Textures/_Lavaland/Tiles/Planet/Ash/double_edge.png
+  baseTurf: FloorBasaltLavaland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepGrass
+  itemDrop: FloorTileItemGrass
   heatCapacity: 10000
   weather: true
   indestructible: true
