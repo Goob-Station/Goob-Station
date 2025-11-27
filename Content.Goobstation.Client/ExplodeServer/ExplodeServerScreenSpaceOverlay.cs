@@ -7,8 +7,7 @@ namespace Content.Goobstation.Client.ExplodeServer;
 public sealed class ExplodeServerScreenSpaceOverlay : Overlay
 {
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
-    public bool IsActive = false;
-
+    public bool IsActive = false; 
     private readonly Font _font;
 
     public ExplodeServerScreenSpaceOverlay()
@@ -23,11 +22,10 @@ public sealed class ExplodeServerScreenSpaceOverlay : Overlay
     {
         if (!IsActive)
             return;
-        const string text = "SERVER EXPLOSION IMMINENT";
         var screenHandle = args.ScreenHandle;
-        var size = screenHandle.GetDimensions(_font, text, 1f);
+        var size = screenHandle.GetDimensions(_font, Loc.GetString("server-explosion-imminent"), 1f);
         var center = args.ViewportBounds.Size / 2f;
         var pos = center - size / 2f;
-        screenHandle.DrawString(_font, pos, text, Color.White);
+        screenHandle.DrawString(_font, pos, Loc.GetString("server-explosion-imminent"), Color.White);
     }
 }

@@ -35,23 +35,6 @@ public sealed class ExplodeServerSystem : EntitySystem
                 AddOverlays();
         }
     }
-
-    private void AddOverlays()
-    {
-        _worldSpaceOverlay.IsActive = true;
-        _screenSpaceOverlay.IsActive = true;
-        _overlayManager.AddOverlay(_worldSpaceOverlay);
-        _overlayManager.AddOverlay(_screenSpaceOverlay);
-    }
-
-    private void RemoveOverlays()
-    {
-        _worldSpaceOverlay.IsActive = false;
-        _worldSpaceOverlay.IsActive = true;
-        _overlayManager.RemoveOverlay(_worldSpaceOverlay);
-        _overlayManager.RemoveOverlay(_screenSpaceOverlay);
-    }
-
     public override void Initialize()
     {
         base.Initialize();
@@ -70,4 +53,22 @@ public sealed class ExplodeServerSystem : EntitySystem
         RemoveOverlays();
         _roundEndOverlayTime = TimeSpan.Zero;
     }
+
+    #region Overlay Management
+    private void AddOverlays()
+    {
+        _worldSpaceOverlay.IsActive = true;
+        _screenSpaceOverlay.IsActive = true;
+        _overlayManager.AddOverlay(_worldSpaceOverlay);
+        _overlayManager.AddOverlay(_screenSpaceOverlay);
+    }
+    
+    private void RemoveOverlays()
+    {
+        _worldSpaceOverlay.IsActive = false;
+        _worldSpaceOverlay.IsActive = true;
+        _overlayManager.RemoveOverlay(_worldSpaceOverlay);
+        _overlayManager.RemoveOverlay(_screenSpaceOverlay);
+    }
+    #endregion
 }
