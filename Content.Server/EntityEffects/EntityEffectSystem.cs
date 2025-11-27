@@ -783,7 +783,7 @@ public sealed class EntityEffectSystem : EntitySystem
                 amt *= reagentArgs.Scale.Float();
             }
 
-            _bloodstream.TryModifyBleedAmount(args.Args.TargetEntity, amt); // todo marty no blood component passed
+            _bloodstream.TryModifyBleedAmount(args.Args.TargetEntity, amt); //todo goobstream test
         }
     }
 
@@ -799,7 +799,7 @@ public sealed class EntityEffectSystem : EntitySystem
                 amt *= reagentArgs.Scale;
             }
 
-            _bloodstream.TryModifyBloodLevel(args.Args.TargetEntity, amt); // todo marty no blood component passed
+            _bloodstream.TryModifyBloodLevel(args.Args.TargetEntity, amt); //todo goobstream test
         }
     }
 

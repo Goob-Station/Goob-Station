@@ -118,6 +118,7 @@ using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Temperature.Components;
@@ -128,7 +129,7 @@ namespace Content.Server.Temperature.Components;
 /// and taking fire damage from high temperature.
 /// </summary>
 [RegisterComponent]
-public sealed partial class TemperatureComponent : Component
+public sealed partial class TemperatureComponent : SharedTemperatureComponent
 {
     /// <summary>
     /// Surface temperature which is modified by the environment.
