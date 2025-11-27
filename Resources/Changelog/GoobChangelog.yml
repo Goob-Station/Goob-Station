@@ -18477,3 +18477,65 @@ Entries:
       message: Shadowkin suffocate much slower (lore)
   id: 2080
   time: '2025-11-26T17:49:17.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Flesh ascension is weaker but more consistent at spawning mimics.
+    - type: Fix
+      message: Mute ghoul ritual now works on non-humanoids.
+    - type: Add
+      message: Mansus link access for all ghouls.
+    - type: Add
+      message: You can ghoul crit people using your grasp as flesh heretic.
+    - type: Fix
+      message: Flesh heretics can no longer make borg ghouls/mimics.
+    - type: Tweak
+      message: 'Buffed the effects of flesh eating for flesh heretics. '
+    - type: Fix
+      message: Fixed foreigner trait causing ascension mimics to spawn with translator.
+  id: 2081
+  time: '2025-11-27T02:11:20.0000000+00:00'
+- author: LuciferEOS and the Oni metagrudgers
+  changes:
+    - type: Tweak
+      message: Terminus damage halved.
+    - type: Tweak
+      message: Terminus ammo capacity +50%
+  id: 2082
+  time: '2025-11-27T07:48:25.0000000+00:00'
+- author: Deatherd
+  changes:
+    - type: Add
+      message: >-
+        R&D is now able to extend station comms coverage with extended
+        communication research. 
+  id: 2083
+  time: '2025-11-27T11:02:16.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Miner's Salve OD only works on lavaland.
+  id: 2084
+  time: '2025-11-27T11:06:42.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added item-form signal timer.
+    - type: Tweak
+      message: Signal timers now allow you to enter non-integer delay values.
+  id: 2085
+  time: '2025-11-27T11:08:23.0000000+00:00'
+- author: KarmaKitsuna, Fishbait
+  changes:
+    - type: Add
+      message: Added teatch a lesson objective
+  id: 2086
+  time: '2025-11-27T11:12:04.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Traitor "teach a lession" objectives are now considered less difficult
+        by code and thus should roll more
+  id: 2087
+  time: '2025-11-27T11:52:16.0000000+00:00'
