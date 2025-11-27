@@ -143,3 +143,24 @@
   id: DiscountedItems
   name: store-discounted-items
   priority: 200
+
+# Malf AI (custom in-window tabs)
+- type: storeCategory
+  id: Deception
+  name: Deception
+  priority: 0
+
+- type: storeCategory
+  id: Factory
+  name: Factory
+  priority: 1
+
+- type: storeCategory
+  id: Disruption
+  name: Disruption
+  priority: 2
+
+- type: storeCategory
+  id: MalfAI
+  name: MalfAI
+  priority: 3

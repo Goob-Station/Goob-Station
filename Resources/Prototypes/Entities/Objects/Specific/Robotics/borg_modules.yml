@@ -762,7 +762,7 @@
   - type: ItemBorgModule
     moduleId: RCD
     items:
-    - RCDRecharging
+    - BorgRCD # Goobstation
     - RPDRecharging # Goobstation
     - BorgFireExtinguisher
     - BorgHandheldGPSBasic

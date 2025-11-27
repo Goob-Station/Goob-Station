@@ -9,3 +9,9 @@
   values:
     prefix: comp-window-damaged-
     count: 6
+
+- type: localizedDataset
+  id: StationAiCoreMessages
+  values:
+    prefix: station-ai-core-damaged-
+    count: 5

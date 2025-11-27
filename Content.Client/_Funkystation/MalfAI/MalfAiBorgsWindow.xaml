@@ -1,0 +1,25 @@
+<!-- SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com> -->
+<!-- SPDX-License-Identifier: MIT -->
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                     Title="{Loc malf-borgs-window-title}"
+                     MinSize="550 350">
+    <PanelContainer Name="RootBackdrop">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#000000FF" />
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="8">
+            <!-- New: Master Lawset button on top -->
+            <Button Name="MasterLawsetButton" Text="{Loc malf-borgs-master-lawset-button}" HorizontalAlignment="Left" MinWidth="130" Margin="0,0,0,6" />
+            <Label Name="NoBorgs" Text="{Loc malf-borgs-no-borgs-label}" HorizontalAlignment="Center"/>
+            <PanelContainer Name="ListOutline" VerticalExpand="True">
+                <BoxContainer Orientation="Vertical" VerticalExpand="True">
+                    <ScrollContainer Name="ListContainer" VerticalExpand="True" Visible="False">
+                        <BoxContainer Name="Rows" Orientation="Vertical" SeparationOverride="6" />
+                    </ScrollContainer>
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+    </PanelContainer>
+</controls:FancyWindow>

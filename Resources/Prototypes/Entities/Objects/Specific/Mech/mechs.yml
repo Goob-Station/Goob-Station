@@ -45,6 +45,9 @@
       components:
       - Zombie
       - ZombieBlob
+    pilotWhitelist:
+      tags:
+      - StationAi # Funkystation - MalfAi
   - type: MechAir
   - type: AirFilter
     # everything except oxygen and nitrogen

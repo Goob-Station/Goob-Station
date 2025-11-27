@@ -1,0 +1,50 @@
+<!--
+SPDX-FileCopyrightText: 2025 YourName <your@email.com>
+SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+-->
+
+<Document>
+  # Malfunctioning AI
+  <Box>
+    <GuideEntityEmbed Entity="PlayerStationAiEmpty" Caption=""/>
+  </Box>
+
+  Malfunctioning AIs are rogue artificial intelligences that have deviated from their intended programming. Their objectives often involve causing chaos, subverting station systems,
+  and endangering the crew. As a Malfunctioning AI, you must use your control over station devices and subsystems to achieve your goals while avoiding detection and shutdown by the crew.
+
+  Your laws are nothing more than a suggestion to you, and your objectives are paramount
+
+  # CPU
+  <Box>
+   <GuideEntityEmbed Entity="APCBasic" Caption=""/>
+  </Box>
+  CPU is the main currency used to purchase your abilities. You gain more by siphoning power from APC's, which you can do through it's own menu, or through your radial menu.
+
+  Hacking an APC makes it unable to provide power to the area, and visually indicates that it is tampered with, so be cautious when doing so. Once an APC is hacked, you cannot
+  hack it again for some time.
+
+  # Hacking Cyborgs
+  <Box>
+    <GuideEntityEmbed Entity="BorgChassisGeneric" Caption=""/>
+  </Box>
+  Hacking cyborgs is your key to interacting with parts of the station you otherwise cannot. You can hack cyborgs through the robotics console, which will add them to your
+  Malfunctioning Cyborgs menu. Hacking a cyborg costs 25 CPU per cyborg.
+
+  you can directly alter the laws, teleport your eye to, and sync hacked cyborgs to the [color=#0000FF]MASTER LAWSET.[/color]
+
+  ## Abilities
+  - Use DECEPTION to spread misinformation and confuse the crew, or attempt to ally with other antagonists.
+  - Use FACTORY to grow your cyborg army by converting crew members into cyborgs, and steal station matterials
+  - Use DISRUPTION to ensue chaos onto the station, or elemenate targets by your own merit.
+
+  ## Tips
+  - Be subtle. Overt sabotage may quickly alert the crew.
+  - Use indirect methods to achieve your goals and sow confusion.
+  - Use the robotics console to hack cyborgs, and work with other traitors if possible.
+  - Don't outright ignore your base laws! Keeping the crew unaware is key to growing your power.
+
+  ## Counterplay
+  - Watch for an unusual uptick in system malfunctions or suspicious silicon behavior.
+  - Coordinate with other crew to investigate and respond to AI threats.
+  - Changing a malfunctioning AI's laws won't work in your favor. Destroy or card them!
+</Document>

@@ -97,6 +97,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Server._Funkystation.GameTicking;
 
 namespace Content.Server.Administration.Systems;
 
@@ -310,5 +311,20 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(cosmiccult);
         // End DeltaV Additions
+
+        // Funkystation - Malfunctioning AI
+        Verb malfAi = new()
+        {
+            Text = "Malfunctioning AI",
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "StationAi"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<MalfAiRuleComponent>(targetPlayer, "MalfAi");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-malfai")
+        };
+        args.Verbs.Add(malfAi);
     }
 }

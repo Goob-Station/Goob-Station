@@ -8,10 +8,15 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # General
-ai-wire-snipped = Wire has been cut at {$coords}.
+ai-wire-snipped = One of your systems' wires has been cut at {$source}.
 wire-name-ai-vision-light = AIV
 wire-name-ai-act-light = AIA
 station-ai-takeover = AI takeover
+station-ai-eye-name = AI eye - {$name}
+station-ai-has-no-power-for-upload = Upload failed - the AI core is unpowered.
+station-ai-is-too-damaged-for-upload = Upload failed - the AI core must be repaired.
+station-ai-core-losing-power = Your AI core is now running on reserve battery power.
+station-ai-core-critical-power = Your AI core is critically low on power. External power must be re-established or severe data corruption may occur!
 
 # Radial actions
 ai-open = Open actions
@@ -31,6 +36,14 @@ toggle-light = Toggle light
 ai-device-not-responding = Device is not responding
 
 ai-consciousness-download-warning = Your consciousness is being downloaded.
+ai-core-under-attack = WARNING: Your AI core is under attack!
+
+# Examine messages for AI core damage levels
+station-ai-core-damaged-1 = The core is in perfect condition.
+station-ai-core-damaged-2 = The AI core shows minor signs of wear with a few small scratches on its surface.
+station-ai-core-damaged-3 = [color=yellow]The AI core has visible damage with several dents and cracks.[/color]
+station-ai-core-damaged-4 = [color=orange]The AI core is heavily damaged, with its panels peeling off. [/color]
+station-ai-core-damaged-5 = [color=red]The AI core is critically damaged, bearly holding together with exposed circuitry and sparking components.[/color]
 
 # UI
 station-ai-customization-menu = AI customization

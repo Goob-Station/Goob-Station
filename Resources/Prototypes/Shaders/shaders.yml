@@ -138,3 +138,9 @@
   id: Hologram
   kind: source
   path: "/Textures/Shaders/hologram.swsl"
+
+# Malf AI Doomsday ripple shader
+- type: shader
+  id: MalfDoomsdayRipple
+  kind: source
+  path: "/Textures/Shaders/malf_doomsday_ripple.swsl"

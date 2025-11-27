@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+# SPDX-FileCopyrightText: 2025 YourName
+#
+# SPDX-License-Identifier: MIT
+
+- type: antag
+  id: MalfunctioningAI
+  name: roles-antag-malfunctioning-ai-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-malfunctioning-ai-objective
+  guides: [ MalfunctioningAI ]
+  requirements:
+  - !type:RoleTimeRequirement
+    role: JobStationAi
+    time: 18000

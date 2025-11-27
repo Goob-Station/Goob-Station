@@ -52,6 +52,7 @@
   - Xenomorphs # WD - Xenomorphs
   - Wraith
   - Slasher # Goob content
+  - MalfunctioningAI # Gaby content
 
 - type: guideEntry
   id: Traitors
@@ -87,3 +88,8 @@
   id: Thieves
   name: guide-entry-thieves
   text: "/ServerInfo/Guidebook/Antagonist/Thieves.xml"
+
+- type: guideEntry
+  id: MalfunctioningAI
+  name: guide-entry-malfunctioningai
+  text: "/ServerInfo/Guidebook/Antagonist/MalfunctioningAI.xml" # gaby

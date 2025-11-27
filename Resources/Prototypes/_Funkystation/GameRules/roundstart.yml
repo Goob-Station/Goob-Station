@@ -1,0 +1,29 @@
+- type: entity
+  id: MalfAi
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 20
+  - type: MalfAiRule
+  - type: AntagObjectives
+    objectives:
+    - MalfAiSurviveObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: MalfAiSabotageObjectives
+      maxPicks: 3
+    maxDifficulty: 8
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
+    definitions:
+    - prefRoles: [ MalfunctioningAI ]
+      max: 1
+      allowNonHumans: true
+      briefing:
+        text: roles-antag-malfunctioning-ai-briefing
+        color: Red
+        sound: "/Audio/_Funkystation/Ambience/Antag/malfai_start.ogg"
+      components:
+      - type: MalfunctioningAi
+      mindRoles:
+      - MindRoleMalfAi

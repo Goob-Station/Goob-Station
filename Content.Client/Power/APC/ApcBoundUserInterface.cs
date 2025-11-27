@@ -20,11 +20,20 @@
 // SPDX-FileCopyrightText: 2024 TIMMY <timmytriggers@cock.li>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Dreykor <160512778+Dreykor@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GabyChangelog <agentepanela2@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kyoth25f <kyoth25f@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+// SPDX-FileCopyrightText: 2025 funkystationbot <funky@funkystation.org>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Power.APC.UI;
+using Content.Shared._Gabystation.MalfAi.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.APC;
 using JetBrains.Annotations;
@@ -48,14 +57,23 @@ namespace Content.Client.Power.APC
             _menu = this.CreateWindow<ApcMenu>();
             _menu.SetEntity(Owner);
             _menu.OnBreaker += BreakerPressed;
+            _menu.OnSiphon += SiphonPressed; // Funkystation -> Malf AI
 
             var hasAccess = false;
+            var isMalfAi = false; // Funkystation -> Malf AI
+
             if (PlayerManager.LocalEntity != null)
             {
+                var player = (EntityUid) PlayerManager.LocalEntity;
                 var accessReader = EntMan.System<AccessReaderSystem>();
-                hasAccess = accessReader.IsAllowed((EntityUid)PlayerManager.LocalEntity, Owner);
+                hasAccess = accessReader.IsAllowed(player, Owner);
+
+                // Funkystation -> Malf AI. Only Malf AI should see the siphon button.
+                isMalfAi = EntMan.HasComponent<MalfunctioningAiComponent>(player);
             }
+
             _menu?.SetAccessEnabled(hasAccess);
+            _menu?.SetSiphonVisible(isMalfAi); // Funkystation -> Malf AI
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)
@@ -69,6 +87,12 @@ namespace Content.Client.Power.APC
         public void BreakerPressed()
         {
             SendMessage(new ApcToggleMainBreakerMessage());
+        }
+
+        // Funkystation -> Malf AI
+        public void SiphonPressed()
+        {
+            SendMessage(new ApcSiphonCpuMessage());
         }
     }
 }

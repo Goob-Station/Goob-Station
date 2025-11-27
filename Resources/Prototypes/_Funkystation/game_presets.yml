@@ -1,0 +1,19 @@
+
+- type: gamePreset
+  id: MalfAi
+  alias:
+  - malfai
+  - malf
+  name: malfai-title
+  description: malfai-description
+  showInVote: false
+  rules:
+  - Traitor
+  - SubGamemodesRule
+  - MalfAi
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+

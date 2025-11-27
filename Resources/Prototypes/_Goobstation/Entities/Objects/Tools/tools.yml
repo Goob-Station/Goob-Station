@@ -237,6 +237,16 @@
     rechargeDuration: 10
 
 - type: entity
+  id: BorgRCD
+  parent: RCDRecharging
+  name: borg RCD
+  suffix: Cyborg, AutoRecharge
+  components:
+  - type: Tag
+    tags:
+    - BorgTool
+
+- type: entity
   parent: RCD
   id: RCDRechargingCE
   name: experimental RCD

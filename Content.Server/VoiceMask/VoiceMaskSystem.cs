@@ -13,10 +13,15 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2025 GabyChangelog <agentepanela2@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kyoth25f <kyoth25f@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Gabystation.VoiceMask;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -26,6 +31,7 @@ using Content.Shared.Database;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
+using Content.Shared.Roles.Jobs;
 using Content.Shared.Speech;
 using Content.Shared.VoiceMask;
 using Robust.Shared.Configuration;
@@ -41,6 +47,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedJobSystem _job = default!; // GabyStation -> Radio icons
 
     // CCVar.
     private int _maxNameLength;
@@ -49,8 +56,10 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<VoiceMaskComponent, InventoryRelayedEvent<TransformSpeakerNameEvent>>(OnTransformSpeakerName);
+        SubscribeLocalEvent<VoiceMaskComponent, InventoryRelayedEvent<TransformSpeakerJobIconEvent>>(OnTransformJobIcon); // GabyStation -> Radio icons
         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeNameMessage>(OnChangeName);
         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeVerbMessage>(OnChangeVerb);
+        SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeJobIconMessage>(OnChangeJobIcon); // Gaby Station -> Job icons
         SubscribeLocalEvent<VoiceMaskComponent, ClothingGotEquippedEvent>(OnEquip);
         SubscribeLocalEvent<VoiceMaskSetNameEvent>(OpenUI);
 
@@ -61,6 +70,16 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     {
         args.Args.VoiceName = GetCurrentVoiceName(entity);
         args.Args.SpeechVerb = entity.Comp.VoiceMaskSpeechVerb ?? args.Args.SpeechVerb;
+    }
+
+    // GabyStation -> Radio icons
+    private void OnTransformJobIcon(Entity<VoiceMaskComponent> ent, ref InventoryRelayedEvent<TransformSpeakerJobIconEvent> args)
+    {
+        if (ent.Comp.JobIconProtoId is { } jobIcon)
+            args.Args.JobIcon = jobIcon;
+
+        if (!string.IsNullOrWhiteSpace(ent.Comp.JobName))
+            args.Args.JobName = ent.Comp.JobName;
     }
 
     #region User inputs from UI
@@ -92,6 +111,24 @@ public sealed partial class VoiceMaskSystem : EntitySystem
 
         UpdateUI(entity);
     }
+
+    // GabyStation -> Radio icons
+    private void OnChangeJobIcon(Entity<VoiceMaskComponent> entity, ref VoiceMaskChangeJobIconMessage ev)
+    {
+        if (!_proto.TryIndex(ev.JobIconProtoId, out var proto)
+            || !proto.AllowSelection)
+            return;
+
+        entity.Comp.JobIconProtoId = proto.ID;
+
+        if (_job.TryFindJobFromIcon(proto, out var job))
+            entity.Comp.JobName = job.LocalizedName;
+        else
+            entity.Comp.JobName = null;
+
+        _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-success"), entity, ev.Actor);
+        UpdateUI(entity);
+    }
     #endregion
 
     #region UI
@@ -118,7 +155,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     private void UpdateUI(Entity<VoiceMaskComponent> entity)
     {
         if (_uiSystem.HasUi(entity, VoiceMaskUIKey.Key))
-            _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(GetCurrentVoiceName(entity), entity.Comp.VoiceMaskSpeechVerb));
+            _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(GetCurrentVoiceName(entity), entity.Comp.VoiceMaskSpeechVerb, entity.Comp.JobIconProtoId)); // GabyStation -> Radio icons
     }
     #endregion
 

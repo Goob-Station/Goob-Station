@@ -5,6 +5,7 @@ role-type-free-agent-name = Free Agent
 role-type-familiar-name = Familiar
 role-type-silicon-name = Silicon
 role-type-silicon-antagonist-name = Altered Silicon
+role-type-malfunctioning-silicon-name = Malfunctioning Silicon
 
 role-type-update-message = Your role is [color = {$color}]{$role}[/color]
 
@@ -17,6 +18,7 @@ role-type-free-agent-color = #ffff00
 role-type-familiar-color = #6495ed
 role-type-silicon-color = #6495ed
 role-type-silicon-antagonist-color =#c832e6
+role-type-malfunctioning-silicon-color = #d82000
 
 # Ideally, subtype names should be short
 role-subtype-traitor = Traitor
