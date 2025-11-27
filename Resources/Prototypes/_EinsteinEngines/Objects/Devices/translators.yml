@@ -241,6 +241,7 @@
     - Kobold
     - Hissing
     - Deer
+    - Carptongue # goob edit - carp language
     requires:
     - TauCetiBasic
     setLanguageOnInteract: false
@@ -368,7 +369,7 @@
   id: GruntishTranslator
   parent: [ TranslatorPoweredBase ]
   name: Gruntish translator
-  description: Interprets the mess known as Gruntish and translates it to Galactic Common. Primarily spoken by Onis and Yowie.
+  description: Interprets the mess known as Gruntish and translates it to Galactic Common. Primarily spoken by oni.
   components:
   - type: HandheldTranslator
     spoken:
