@@ -44,8 +44,6 @@
   id: ChemVendInventorySyndicate
   startingInventory:
     Jug: 4
-    MedicalPatchBasic: 10 # goob start - so nukies have access to alt med stuff
-    CigPackMedical: 2 # good end
     JugAluminium: 2
     JugCarbon: 4
     JugChlorine: 1
