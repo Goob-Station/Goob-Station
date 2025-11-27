@@ -194,6 +194,7 @@
     state: full
   customBehaviors:
   - !type:RitualMuteGhoulifyBehavior
+    onlyHumanoid: false
   requiredTags:
     Muzzle: 1
   limit: 2
@@ -426,11 +427,12 @@
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     state: fire_shark_icon
   requiredTags:
-    Ash: 1
+    Ash: 3
     Liver: 1
-    SheetPlasma: 1
+    SheetPlasma: 3
   output:
-    MobGhoulFireShark: 1
+    MobGhoulFireShark: 3
+  limit: 15
 
 ## stage 6
 

@@ -78,6 +78,8 @@
       types:
         Slash: 13
         Holy: 10
+      woundSeverityMultipliers:
+        Slash: 2.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Wieldable
@@ -576,6 +578,9 @@
         Slash: 3
         Structural: 20
         Holy: 6
+      woundSeverityMultipliers:
+        Slash: 2
+        Blunt: 2
     soundHit:
       path: /Audio/Weapons/chainsaw.ogg
       params:
@@ -590,6 +595,9 @@
       path: /Audio/Weapons/chainsawwield.ogg
     endSound:
       path: /Audio/Weapons/chainsaw.ogg
+  - type: Tag
+    tags:
+      - HolyChainsaw
 
 # Casul & Jackal
 - type: entity

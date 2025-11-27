@@ -569,6 +569,8 @@
     requirement: SurgeryOpenRibcage
   - type: SurgeryPartCondition
     part: Chest
+  - type: SurgeryOrganSlotCondition
+    organSlot: heart # there's an identical surgery for ipc hearts but they go in the "pump" slot
   - type: SurgeryOrganCondition
     organ:
     - type: Heart
@@ -588,6 +590,40 @@
     part: Chest
   - type: SurgeryOrganSlotCondition
     organSlot: heart
+  - type: SurgeryOrganCondition
+    organ:
+    - type: Heart
+
+- type: entity
+  parent: BaseSurgeryRemoveOrgan
+  id: SurgeryRemovePump
+  name: Remove Pump
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenRibcage
+  - type: SurgeryPartCondition
+    part: Chest
+  - type: SurgeryOrganSlotCondition
+    organSlot: pump
+  - type: SurgeryOrganCondition
+    organ:
+    - type: Heart
+
+- type: entity
+  parent: BaseSurgeryInsertOrgan
+  id: SurgeryInsertPump
+  name: Insert Pump
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenRibcage
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepInsertPump
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    part: Chest
+  - type: SurgeryOrganSlotCondition
+    organSlot: pump
   - type: SurgeryOrganCondition
     organ:
     - type: Heart

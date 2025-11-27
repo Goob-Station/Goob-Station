@@ -34,6 +34,12 @@ public sealed partial class BloodtrakComponent : Component
     public TimeSpan MaximumTrackingDuration = TimeSpan.FromSeconds(480f);
 
     /// <summary>
+    /// Maximum tracking distance. If target further - shows Unknown.
+    /// </summary>
+    [DataField]
+    public float MaxDistance = 128f;
+
+    /// <summary>
     /// The distance defined as being a medium distance away.
     /// </summary>
     [DataField]
