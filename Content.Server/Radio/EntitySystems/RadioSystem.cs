@@ -65,6 +65,7 @@ using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Shared.Access.Systems; // Goobstation
 using Content.Shared.Access.Components; // Goobstation
+using Content.Shared.Chat.RadioIconsEvents; // Goobstation
 using Content.Shared.PDA; // Goobstation
 using Content.Shared.Whitelist;
 using Content.Shared.StatusIcon; // Goobstation
@@ -82,7 +83,7 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+    [Dependency] private readonly AccessReaderSystem _accessReader = default!; // Goobstation - radio icons
     [Dependency] private readonly LanguageSystem _language = default!; // Einstein Engines - Language
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // Goobstation - Whitelisted radio channels
 
@@ -286,8 +287,8 @@ public sealed class RadioSystem : EntitySystem
         string name,
         string message,
         LanguagePrototype language,
-        string iconId = "JobIconNoId",
-        string? jobName = null)
+        string iconId = "JobIconNoId", // Gaby Radio icons
+        string? jobName = null) // Gaby Radio icons
     {
         // TODO: code duplication with ChatSystem.WrapMessage
         var speech = _chat.GetSpeechVerb(source, message);
@@ -358,7 +359,11 @@ public sealed class RadioSystem : EntitySystem
         return false;
     }
 
-    // Gabystation -> IntrinsicVoiceModulator
+    /// <summary>
+    /// This handles the radio job icons that are displayed next to a players name when sending a message over radio
+    /// </summary>
+    /// <param name="EntityUID"></param>
+    /// <returns></returns>
     private (ProtoId<JobIconPrototype>, string?) GetJobIcon(EntityUid ent)
     {
         if (_accessReader.FindAccessItemsInventory(ent, out var items))
@@ -385,7 +390,6 @@ public sealed class RadioSystem : EntitySystem
         return ("JobIconNoId", null);
     }
 
-    // goob start - intermap transmitters
     /// <inheritdoc cref="TelecomServerComponent"/>
     private bool HasActiveTransmitter(MapId mapId)
     {

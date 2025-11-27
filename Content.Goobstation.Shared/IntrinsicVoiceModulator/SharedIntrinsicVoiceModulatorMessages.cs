@@ -3,14 +3,12 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared._Gabystation.IntrinsicVoiceModulator.Components;
-using Content.Shared.Actions;
 using Content.Shared.Speech;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Gabystation.IntrinsicVoiceModulator;
+namespace Content.Goobstation.Shared.IntrinsicVoiceModulator;
 
 [Serializable, NetSerializable]
 public enum IntrinsicVoiceModulatorUiKey : byte

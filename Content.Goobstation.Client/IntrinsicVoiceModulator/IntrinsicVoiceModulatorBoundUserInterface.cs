@@ -6,13 +6,13 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared._Gabystation.IntrinsicVoiceModulator;
+using Content.Goobstation.Shared.IntrinsicVoiceModulator;
 using Content.Shared.Speech;
 using Content.Shared.StatusIcon;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._Gabystation.IntrinsicVoiceModulator;
+namespace Content.Goobstation.Client.IntrinsicVoiceModulator;
 
 public sealed class IntrinsicVoiceModulatorBoundUserInterface : BoundUserInterface
 {

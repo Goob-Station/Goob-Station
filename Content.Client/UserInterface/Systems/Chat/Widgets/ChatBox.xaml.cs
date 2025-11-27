@@ -135,6 +135,11 @@ public partial class ChatBox : UIWidget
         } // WD EDIT END
     }
 
+    private void OnHighlightsUpdated(string highlights)
+    {
+        ChatInput.FilterButton.Popup.UpdateHighlights(highlights);
+    }
+
     private void OnChannelSelect(ChatSelectChannel channel)
     {
         _controller.UpdateSelectedChannel(this);
@@ -142,7 +147,6 @@ public partial class ChatBox : UIWidget
 
     public void Repopulate()
     {
-        Contents.RemoveAllChildren();
         Contents.Clear();
 
         foreach (var message in _controller.History)
@@ -153,7 +157,6 @@ public partial class ChatBox : UIWidget
 
     private void OnChannelFilter(ChatChannel channel, bool active)
     {
-        Contents.RemoveAllChildren();
         Contents.Clear();
 
         foreach (var message in _controller.History)
@@ -165,6 +168,11 @@ public partial class ChatBox : UIWidget
         {
             _controller.ClearUnfilteredUnreads(channel);
         }
+    }
+
+    private void OnNewHighlights(string highlighs)
+    {
+        _controller.UpdateHighlights(highlighs);
     }
 
     public void AddLine(string message, Color color, int repeat = 0)
@@ -279,14 +287,4 @@ public partial class ChatBox : UIWidget
         ChatInput.ChannelSelector.OnChannelSelect -= OnChannelSelect;
         _cfg.UnsubValueChanged(GoobCVars.CoalesceIdenticalMessages, UpdateCoalescence); // WD EDIT
     }
-    // Goobstation - start
-    private void OnHighlightsUpdated(string highlights)
-    {
-        ChatInput.FilterButton.Popup.UpdateHighlights(highlights);
-    }
-    private void OnNewHighlights(string highlighs)
-    {
-        _controller.UpdateHighlights(highlighs);
-    }
-    // Goobstation - end
 }

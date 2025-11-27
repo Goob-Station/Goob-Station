@@ -7,7 +7,7 @@ using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Gabystation.VoiceMask;
+namespace Content.Goobstation.Shared.IntrinsicVoiceModulator.VoiceMask;
 
 [Serializable, NetSerializable]
 public sealed class VoiceMaskChangeJobIconMessage : BoundUserInterfaceMessage

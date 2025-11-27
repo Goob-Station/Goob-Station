@@ -5,6 +5,6 @@
 
 using Content.Shared.Actions;
 
-namespace Content.Shared._Gabystation.IntrinsicVoiceModulator.Events;
+namespace Content.Goobstation.Shared.IntrinsicVoiceModulator.Events;
 
 public sealed partial class OpenIntrinsicVoiceModulatorMenuEvent : InstantActionEvent { }
