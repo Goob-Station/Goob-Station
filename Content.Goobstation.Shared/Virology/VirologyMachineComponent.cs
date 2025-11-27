@@ -18,6 +18,9 @@ public sealed partial class VirologyMachineComponent : Component
     public EntProtoId PaperPrototype = "DiagnosisReportPaper";
 
     [DataField]
+    public EntProtoId VaccinePrototype = "Vaccine";
+
+    [DataField]
     public SoundSpecifier AnalyzedSound = new SoundPathSpecifier("/Audio/Machines/diagnoser_printing.ogg");
 
     [DataField, ViewVariables]
