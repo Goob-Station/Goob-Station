@@ -18539,3 +18539,11 @@ Entries:
         by code and thus should roll more
   id: 2087
   time: '2025-11-27T11:52:16.0000000+00:00'
+- author: JohnJohn, yonsim
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Xeno hunter sprites looking weird and fixed xeno hunter
+        unconscious being the same as dead
+  id: 2088
+  time: '2025-11-27T15:19:45.0000000+00:00'
