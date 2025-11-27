@@ -215,3 +215,12 @@
   components:
   - type: Flatpack
     entity: ClawMachine
+
+- type: entity
+  parent: BaseFlatpack
+  id: ChemistryHotplateFlatPack
+  name: hotplate flat pack
+  description: A flatpack used to goida construct the hotplate machine.
+  components:
+  - type: Flatpack
+    entity: ChemistryHotplate
