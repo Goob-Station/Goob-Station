@@ -4253,3 +4253,17 @@ Entries:
   id: 9228
   time: '2025-11-26T21:13:37.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41541
+- author: Compilatron144
+  changes:
+  - message: Plasma got a Christmas makeover.
+    type: Add
+  id: 9229
+  time: '2025-11-27T10:42:38.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41573
+- author: slarticodefast
+  changes:
+  - message: Fixed helmet lights.
+    type: Fix
+  id: 9230
+  time: '2025-11-27T16:13:30.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41599
