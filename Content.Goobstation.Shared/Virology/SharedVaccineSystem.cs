@@ -18,7 +18,6 @@ public sealed class SharedVaccineSystem : EntitySystem
 
     private void OnAfterInteract(Entity<VaccineComponent> ent, ref AfterInteractEvent args)
     {
-        /*
         if (!TryComp<ImmunityComponent>(args.Target, out var immunity)
             || ent.Comp.Genotype == null
             || ent.Comp.Used
@@ -27,7 +26,6 @@ public sealed class SharedVaccineSystem : EntitySystem
 
         immunity.ImmuneTo.Add(ent.Comp.Genotype.Value);
         ent.Comp.Used = true;
-        */
 
         _audio.PlayPredicted(ent.Comp.InjectSound, args.User, args.User);
         _appearance.SetData(ent, VaccineVisuals.Used, true);
