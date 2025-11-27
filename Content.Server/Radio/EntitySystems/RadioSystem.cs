@@ -359,6 +359,7 @@ public sealed class RadioSystem : EntitySystem
         return false;
     }
 
+    // Goob start
     /// <summary>
     /// This handles the radio job icons that are displayed next to a players name when sending a message over radio
     /// </summary>
