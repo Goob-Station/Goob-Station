@@ -18503,3 +18503,11 @@ Entries:
       message: Terminus ammo capacity +50%
   id: 2082
   time: '2025-11-27T07:48:25.0000000+00:00'
+- author: Deatherd
+  changes:
+    - type: Add
+      message: >-
+        R&D is now able to extend station comms coverage with extended
+        communication research. 
+  id: 2083
+  time: '2025-11-27T11:02:16.0000000+00:00'
