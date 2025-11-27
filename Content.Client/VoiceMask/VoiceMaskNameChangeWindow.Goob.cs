@@ -16,7 +16,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Client.VoiceMask;
 
 
-public sealed partial class VoiceMaskNameChangeWindowGoob : VoiceMaskNameChangeWindow
+public sealed partial class VoiceMaskNameChangeWindow
 {
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
 
@@ -26,9 +26,6 @@ public sealed partial class VoiceMaskNameChangeWindowGoob : VoiceMaskNameChangeW
     private ProtoId<JobIconPrototype>? _currentJobIconId = new();
     private Dictionary<ProtoId<JobIconPrototype>, Button> _jobIconButtons = new();
     private ButtonGroup? _jobIconButtonGroup = new();
-
-    private readonly SpriteSystem _spriteSystem = default!; // Goob radio icons
-
 
     private const int JobIconColumnCount = 10;
 
