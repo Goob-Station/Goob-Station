@@ -18477,3 +18477,21 @@ Entries:
       message: Shadowkin suffocate much slower (lore)
   id: 2080
   time: '2025-11-26T17:49:17.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Flesh ascension is weaker but more consistent at spawning mimics.
+    - type: Fix
+      message: Mute ghoul ritual now works on non-humanoids.
+    - type: Add
+      message: Mansus link access for all ghouls.
+    - type: Add
+      message: You can ghoul crit people using your grasp as flesh heretic.
+    - type: Fix
+      message: Flesh heretics can no longer make borg ghouls/mimics.
+    - type: Tweak
+      message: 'Buffed the effects of flesh eating for flesh heretics. '
+    - type: Fix
+      message: Fixed foreigner trait causing ascension mimics to spawn with translator.
+  id: 2081
+  time: '2025-11-27T02:11:20.0000000+00:00'
