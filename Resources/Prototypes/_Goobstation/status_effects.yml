@@ -68,3 +68,10 @@
   id: ShadowCloak
   alert: ShadowCloak
   alwaysAllowed: true
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectStaminaResistanceModifier
+  name: stamina resistance modifier
+  components:
+  - type: StaminaResistanceModifierStatusEffect
