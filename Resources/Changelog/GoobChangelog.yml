@@ -18547,3 +18547,19 @@ Entries:
         unconscious being the same as dead
   id: 2088
   time: '2025-11-27T15:19:45.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Stun baton/stun prod buffed, now they are guidebook-accurate.
+    - type: Tweak
+      message: Judo changed, now discombobulate reduces target stamersists temporarily
+    - type: Add
+      message: Judo belt to officer loadout.
+    - type: Add
+      message: Wonderprod buffed, abductors can also dual-wield it.
+    - type: Tweak
+      message: Disabler stamina damage reduced.
+    - type: Tweak
+      message: Krav maga action cooldowns reduced.
+  id: 2089
+  time: '2025-11-27T16:40:17.0000000+00:00'
