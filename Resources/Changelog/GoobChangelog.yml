@@ -18525,3 +18525,9 @@ Entries:
       message: Signal timers now allow you to enter non-integer delay values.
   id: 2085
   time: '2025-11-27T11:08:23.0000000+00:00'
+- author: KarmaKitsuna, Fishbait
+  changes:
+    - type: Add
+      message: Added teatch a lesson objective
+  id: 2086
+  time: '2025-11-27T11:12:04.0000000+00:00'
