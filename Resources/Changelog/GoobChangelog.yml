@@ -18531,3 +18531,11 @@ Entries:
       message: Added teatch a lesson objective
   id: 2086
   time: '2025-11-27T11:12:04.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Traitor "teach a lession" objectives are now considered less difficult
+        by code and thus should roll more
+  id: 2087
+  time: '2025-11-27T11:52:16.0000000+00:00'
