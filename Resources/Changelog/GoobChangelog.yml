@@ -18563,3 +18563,11 @@ Entries:
       message: Krav maga action cooldowns reduced.
   id: 2089
   time: '2025-11-27T16:40:17.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: >-
+        Fixed: Round-start Xenomorphs will properly use the system to handle a
+        single queen to rule them all.
+  id: 2090
+  time: '2025-11-27T22:43:15.0000000+00:00'
