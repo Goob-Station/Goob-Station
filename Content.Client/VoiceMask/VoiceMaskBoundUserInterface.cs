@@ -28,7 +28,7 @@ public sealed class VoiceMaskBoundUserInterface : BoundUserInterface
     [Dependency] private readonly IPrototypeManager _protomanager = default!;
 
     [ViewVariables]
-    private VoiceMaskNameChangeWindowGoob? _window;
+    private VoiceMaskNameChangeWindow? _window;
 
     public VoiceMaskBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -38,7 +38,7 @@ public sealed class VoiceMaskBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _window = this.CreateWindow<VoiceMaskNameChangeWindowGoob>(); // GabyStation Radio icons
+        _window = this.CreateWindow<VoiceMaskNameChangeWindow>(); // GabyStation Radio icons
         _window.ReloadVerbs(_protomanager);
         _window.AddVerbs();
 
