@@ -141,13 +141,8 @@ public sealed class RiposteeSystem : EntitySystem
                 if (!ev.Handled)
                     continue;
             }
-
             if (!data.CanRiposteWhileProne && _standing.IsDown(ent))
                 continue;
-
-            if (TryComp(ent.Owner, out MartialArtsKnowledgeComponent? martial) && !martial.Stance && !HasComp<HereticBladeComponent>(ent.Owner))
-                return; // dont riposte out of stance
-            
             if (data.RiposteChance is > 0f and < 1f)
             {
                 if (!_random.Prob(data.RiposteChance))

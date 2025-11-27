@@ -121,7 +121,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         InitializeNinjutsu();
         InitializeHellRip();
         InitializeCanPerformCombo();
-
+        InitializeIcon();
+        
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ShotAttemptedEvent>(OnShotAttempt);
@@ -137,9 +138,6 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
         SubscribeLocalEvent<MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<InteractHandEvent>(OnInteract);
-
-        SubscribeLocalEvent<MartialArtsAlertComponent, ComponentInit>(OnCompInitAlert);
-        SubscribeLocalEvent<MartialArtsAlertComponent, ToggleMartialArtsStanceEvent>(OnToggleStanceMode);
     }
 
     public override void Update(float frameTime)
@@ -451,48 +449,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             target,
             target);
     }
-    # region Stance Icon Toggle
-    private void OnToggleStanceMode(Entity<MartialArtsAlertComponent> ent, ref ToggleMartialArtsStanceEvent args)
-    {
-        if (args.Handled)
-            return;
-        var martial = Comp<MartialArtsKnowledgeComponent>(ent);
-        ent.Comp.Stance = !ent.Comp.Stance;
-        martial.Stance = !martial.Stance;
-        _alerts.ShowAlert(ent.Owner, ent.Comp.MartialArtProtoId, (short)(ent.Comp.Stance ? 1 : 0));
-        DirtyField(ent.AsNullable(), nameof(ent.Comp.Stance), null);
-        if (martial.Stance)
-        {
-            _popupSystem.PopupPredicted(Loc.GetString("martial-arts-action-toggle-stance-mode-on"), ent.Owner, args.User);
-            if (TryComp<SleepingCarpStudentComponent>(ent.Owner, out var studentComp) && studentComp.Stage >= 3)
-            {
-                var userReflect = EnsureComp<ReflectComponent>(ent.Owner);
-                userReflect.Examinable = false; // no doxxing scarp users by examining lmao
-                userReflect.ReflectProb = 1;
-                userReflect.Spread = 60;
-                Dirty(ent.Owner, userReflect);
-            }
-        }
-        else
-        {
-            _popupSystem.PopupPredicted(Loc.GetString("martial-arts-action-toggle-stance-mode-off"), ent.Owner, args.User);
-            if(TryComp<SleepingCarpStudentComponent>(ent.Owner, out var studentComp) && studentComp.Stage >= 3)
-                RemComp<ReflectComponent>(ent.Owner);
-        }
-        args.Handled = true;
-    }
-    
-    private void OnCompInitKnowledge(Entity<MartialArtsKnowledgeComponent> ent, ref ComponentInit args)
-    {
-        if (TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledge) && (knowledge.MartialArtsForm == MartialArtsForms.SleepingCarp || knowledge.MartialArtsForm == MartialArtsForms.CloseQuartersCombat))
-            EnsureComp<MartialArtsAlertComponent>(ent);
-    }
-    private void OnCompInitAlert(Entity<MartialArtsAlertComponent> ent, ref ComponentInit args)
-    {
-        if(TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledge) && (knowledge.MartialArtsForm == MartialArtsForms.SleepingCarp || knowledge.MartialArtsForm == MartialArtsForms.CloseQuartersCombat))
-            _alerts.ShowAlert(ent, ent.Comp.MartialArtProtoId, 0);
-    }
-    #endregion
+
     #endregion
 
     #region Helper Methods
