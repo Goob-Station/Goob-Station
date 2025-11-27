@@ -296,7 +296,7 @@
   - type: SubdermalImplant
     implantAction: ActionActivateScramImplant
   - type: TriggerOnActivateImplant
-  - type: ScramOnTrigger #todo marty new trigger doublecheck shit
+  - type: ScramOnTrigger
     targetUser: true
 
 - type: entity

@@ -122,7 +122,7 @@ public sealed class DelayedKnockdownOnHitSystem : EntitySystem
             if (comp.Time > 0)
                 continue;
 
-            //_stun.TryKnockdown(uid, TimeSpan.FromSeconds(comp.KnockdownTime), comp.Refresh, status); todo marty stun
+            _stun.TryKnockdown(uid, TimeSpan.FromSeconds(comp.KnockdownTime), comp.Refresh);
 
             RemCompDeferred(uid, comp);
         }
