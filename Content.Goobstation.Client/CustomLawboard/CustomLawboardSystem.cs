@@ -11,7 +11,7 @@ public sealed class CustomLawboardSystem : SharedCustomLawboardSystem
         base.Initialize();
     }
 
-    protected override void DirtyUI(EntityUid uid, CustomLawboardComponent? thermoMachine, UserInterfaceComponent? ui = null)
+    protected override void DirtyUI(EntityUid uid, CustomLawboardComponent? customLawboard, UserInterfaceComponent? ui = null)
     {
         if (_ui.TryGetOpenUi<CustomLawboardBoundInterface>(uid, CustomLawboardUiKey.Key, out var bui))
         {

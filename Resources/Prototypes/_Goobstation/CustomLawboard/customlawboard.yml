@@ -2,7 +2,7 @@
   id: SyndicateCustomLawboard
   parent: [BaseElectronics, BaseSyndicateAnchoredContraband]
   name: experimental syndicate lawboard
-  description: goida
+  description: A strange looking experimental lawboard. Judging by the giant Syndicate display on it, it's probaly used for nefarious purposes.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -10,13 +10,12 @@
   - type: SiliconLawProvider
     laws: AntimovLawset
     lawUploadSound: /Audio/Ambience/Antag/silicon_lawboard_antimov.ogg
-#  - type: UserInterface
-#      interfaces:
-#        interfaces:
-#          enum.CustomLawboardUiKey.Key:
-#            type: CustomLawboardBoundInterface
-#  - type: ActivatableUI
-#      inHandsOnly: false
-#      key: enum.CustomLawboardUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CustomLawboardUiKey.Key:
+        type: CustomLawboardBoundInterface
+  - type: ActivatableUI
+    inHandsOnly: false
+    key: enum.CustomLawboardUiKey.Key
   - type: StaticPrice
     price: 10000
