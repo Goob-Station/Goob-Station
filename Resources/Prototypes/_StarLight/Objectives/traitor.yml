@@ -24,7 +24,7 @@
   description: Ensure they die at least once this shift. They know what they did.
   components:
   - type: Objective
-    difficulty: 1.5
+    difficulty: 0.5 #slightly under 1/3rd the diffculty of RR
     unique: false
   - type: TargetObjective
     title: objective-condition-teach-lesson-title
@@ -38,7 +38,7 @@
   components:
   - type: Objective
     # technically it's still possible for TeachRandomPersonObjective to roll a head but this is guaranteed, so higher difficulty
-    difficulty: 2.5
+    difficulty: 1
     # killing 1 head is enough
     unique: true
   - type: TargetObjective
