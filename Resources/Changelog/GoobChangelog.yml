@@ -18517,3 +18517,11 @@ Entries:
       message: Miner's Salve OD only works on lavaland.
   id: 2084
   time: '2025-11-27T11:06:42.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added item-form signal timer.
+    - type: Tweak
+      message: Signal timers now allow you to enter non-integer delay values.
+  id: 2085
+  time: '2025-11-27T11:08:23.0000000+00:00'
