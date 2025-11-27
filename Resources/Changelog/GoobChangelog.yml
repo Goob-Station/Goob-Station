@@ -18511,3 +18511,9 @@ Entries:
         communication research. 
   id: 2083
   time: '2025-11-27T11:02:16.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Miner's Salve OD only works on lavaland.
+  id: 2084
+  time: '2025-11-27T11:06:42.0000000+00:00'
