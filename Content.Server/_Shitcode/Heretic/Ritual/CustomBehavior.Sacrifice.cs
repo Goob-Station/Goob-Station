@@ -24,6 +24,7 @@ using Content.Shared.Mind;
 using Content.Shared.Heretic;
 using Content.Server.Heretic.EntitySystems;
 using Content.Shared.Gibbing.Events;
+using Content.Shared.Silicons.Borgs.Components;
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -51,6 +52,12 @@ namespace Content.Server.Heretic.Ritual;
     /// </summary>
     [DataField]
     public bool OnlyTargets;
+
+    /// <summary>
+    ///     Should we count only humanoids?
+    /// </summary>
+    [DataField]
+    public bool OnlyHumanoid = true;
 
     // this is awful but it works so i'm not complaining
     protected SharedMindSystem _mind = default!;
@@ -92,7 +99,8 @@ namespace Content.Server.Heretic.Ritual;
         foreach (var look in lookup)
         {
             if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) // only mobs
-            || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) // only humans
+            || OnlyHumanoid && !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) // only humans
+            || args.EntityManager.HasComponent<BorgChassisComponent>(look) // no borgs
             || OnlyTargets
                 && hereticComp.SacrificeTargets.All(x => x.Entity != args.EntityManager.GetNetEntity(look)) // only targets
                 && !args.EntityManager.HasComponent<HereticComponent>(look)) // or other heretics
