@@ -18495,3 +18495,11 @@ Entries:
       message: Fixed foreigner trait causing ascension mimics to spawn with translator.
   id: 2081
   time: '2025-11-27T02:11:20.0000000+00:00'
+- author: LuciferEOS and the Oni metagrudgers
+  changes:
+    - type: Tweak
+      message: Terminus damage halved.
+    - type: Tweak
+      message: Terminus ammo capacity +50%
+  id: 2082
+  time: '2025-11-27T07:48:25.0000000+00:00'
