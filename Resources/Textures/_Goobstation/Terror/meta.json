@@ -61,6 +61,10 @@
             "name": "widow",
             "directions": 4
         },
-        { "name": "widow_dead" }
+        { "name": "widow_dead" },
+        {
+            "name": "spiderling"
+        },
+        { "name": "spiderling_dead" }
     ]
 }

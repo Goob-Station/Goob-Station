@@ -71,12 +71,21 @@ public sealed class TerrorWrapSystem : EntitySystem
             return;
         }
 
-        var cocoon = PredictedSpawnAtPosition(ent.Comp.CocoonProto, Transform(target).Coordinates);
+        var cocoon = EntityManager.SpawnEntity(ent.Comp.CocoonProto, Transform(target).Coordinates);
+
         _storage.Insert(target, cocoon);
 
         if (TryComp<TerrorSpiderComponent>(ent.Owner, out var spider))
         {
             spider.WrappedAmount += 1;
+            Dirty(new Entity<TerrorSpiderComponent>(ent.Owner, spider));
+        }
+        // Used to increase the odds of better eggs being laid by the Queen.
+        var queens = EntityQueryEnumerator<TerrorQueenComponent>();
+        while (queens.MoveNext(out var queenUid, out var queenComp))
+        {
+            queenComp.HiveTotalWrappedAmount += 1;
+            Dirty(new Entity<TerrorQueenComponent>(queenUid, queenComp));
         }
         _admin.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(ent.Owner)} cocooned {ToPrettyString(target)} as a Terror Spider.");
         args.Handled = true;

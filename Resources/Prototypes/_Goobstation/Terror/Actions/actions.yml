@@ -49,11 +49,9 @@
       state: lay
   - type: TargetAction
     range: 1
-  - type: WorldTargetAction
-    event: !type:WorldSpawnSpellEvent
-      prototypes:
-      - id: TerrorEggRed
-        amount: 1
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:TerrorLayEvent
 
 - type: entity
   id: ActionTerrorLayEggsGreen
@@ -115,3 +113,22 @@
       - GasPassiveVent
     canTargetSelf: false
     event: !type:TentacleHookEvent
+
+- type: entity
+  id: ActionTerrorSummonSpiderlings
+  name: Summon brood
+  description: Spawns five spiderlings which do not grow into terror spiders. Useful as a distraction, or to give you some company.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 60
+    icon:
+      sprite: _Goobstation/Terror/actions.rsi
+      state: summon
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SpiderlingFake
+        amount: 5

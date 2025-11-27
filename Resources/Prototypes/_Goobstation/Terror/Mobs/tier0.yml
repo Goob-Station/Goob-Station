@@ -81,3 +81,113 @@
     damage:
       types:
         Piercing: 0
+
+# =========================================================
+# SPIDERLING GROWTH BASE
+# =========================================================
+
+- type: entity
+  id: SpiderlingGrowthBase
+  abstract: true
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderRed   # Dummy, overridden below
+    intervalSeconds: 45
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: TimedDespawn
+    lifetime: 45.1
+
+# =========================================================
+# SPIDERLINGS (EACH VARIANT GROWS INTO ITS SPIDER)
+# =========================================================
+
+- type: entity
+  id: SpiderlingFake
+  parent: MobSpiderlingBase
+  components:
+  - type: Timer
+  - type: TimedDespawn
+    lifetime: 45
+
+- type: entity
+  id: SpiderlingRed
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderRed
+
+- type: entity
+  id: SpiderlingGray
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderGray
+
+- type: entity
+  id: SpiderlingGreen
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderGreen
+
+- type: entity
+  id: SpiderlingBlack
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderBlack
+
+- type: entity
+  id: SpiderlingWhite
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderWhite
+
+- type: entity
+  id: SpiderlingPurple
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderPurple
+
+- type: entity
+  id: SpiderlingBrown
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderBrown
+
+- type: entity
+  id: SpiderlingPrince
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderPrince
+
+- type: entity
+  id: SpiderlingPrincess
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderPrincess
+
+- type: entity
+  id: SpiderlingMother
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderMother

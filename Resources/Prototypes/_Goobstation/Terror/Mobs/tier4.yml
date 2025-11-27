@@ -11,7 +11,7 @@
     sprite: _Goobstation/Terror
     layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
-        state: princess
+        state: queen
   - type: DamageStateVisuals
     rotate: true
     states:
@@ -29,6 +29,7 @@
         reagents:
         - ReagentId: Toxin
           Quantity: 1000
+  - type: TerrorQueen
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 0.3

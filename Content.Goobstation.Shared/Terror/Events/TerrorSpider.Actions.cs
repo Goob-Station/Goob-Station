@@ -8,13 +8,11 @@ public sealed partial class TerrorWebEvent : InstantActionEvent;
 
 public sealed partial class TerrorWrapEvent : EntityTargetActionEvent;
 
-public sealed partial class TerrorLayEggEvent : InstantActionEvent;
-
-public sealed partial class TerrorLayEggGreenEvent : EntityTargetActionEvent;
-
+public sealed partial class TerrorLayEvent : EntityTargetActionEvent;
 
 [Serializable, NetSerializable]
 public sealed partial class TerrorWebDoAfterEvent : SimpleDoAfterEvent;
 
 [Serializable, NetSerializable]
 public sealed partial class TerrorWrapDoAfterEvent : SimpleDoAfterEvent;
+

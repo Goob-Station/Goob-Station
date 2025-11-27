@@ -57,7 +57,7 @@
   components:
   - type: TimedSpawner
     prototypes:
-    - TerrorSpiderRed
+    - SpiderlingRed
 
 - type: entity
   id: TerrorEggGray
@@ -65,7 +65,7 @@
   components:
   - type: TimedSpawner
     prototypes:
-    - TerrorSpiderGray
+    - SpiderlingGray
 
 - type: entity
   id: TerrorEggGreen
@@ -73,7 +73,7 @@
   components:
   - type: TimedSpawner
     prototypes:
-    - TerrorSpiderGreen
+    - SpiderlingGreen
 
 # =========================================================
 # TIER 2
@@ -85,7 +85,7 @@
   components:
   - type: TimedSpawner
     prototypes:
-    - TerrorSpiderBlack
+    - SpiderlingBlack
 
 - type: entity
   id: TerrorEggWhite
@@ -93,7 +93,7 @@
   components:
   - type: TimedSpawner
     prototypes:
-    - TerrorSpiderWhite
+    - SpiderlingWhite
 
 - type: entity
   id: TerrorEggPurple
@@ -101,7 +101,7 @@
   components:
   - type: TimedSpawner
     prototypes:
-    - TerrorSpiderPurple
+    - SpiderlingPurple
 
 - type: entity
   id: TerrorEggBrown
@@ -109,7 +109,7 @@
   components:
   - type: TimedSpawner
     prototypes:
-    - TerrorSpiderBrown
+    - SpiderlingBrown
 
 # =========================================================
 # TIER 3
@@ -121,7 +121,7 @@
   components:
   - type: TimedSpawner
     prototypes:
-    - TerrorSpiderPrince
+    - SpiderlingPrince
 
 - type: entity
   id: TerrorEggPrincess
@@ -129,7 +129,7 @@
   components:
   - type: TimedSpawner
     prototypes:
-    - TerrorSpiderPrincess
+    - SpiderlingPrincess
 
 - type: entity
   id: TerrorEggMother
@@ -137,4 +137,4 @@
   components:
   - type: TimedSpawner
     prototypes:
-    - TerrorSpiderMother
+    - SpiderlingMother

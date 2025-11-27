@@ -98,11 +98,13 @@
           Radiation: -0.2
           Asphyxiation: -0.5
   - type: TerrorWrap
+  - type: TerrorLay
   - type: ActionGrant
     actions:
       - ActionTerrorWeb
       - ActionTerrorWrap
       - ActionTerrorLayEggs
+      - ActionTerrorSummonSpiderlings
 
 # =========================================================
 # RED TERROR — Juggernaut
@@ -206,3 +208,4 @@
     damage:
       groups:
         Brute: 10
+  - type: GreenTerror
