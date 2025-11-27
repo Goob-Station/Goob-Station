@@ -100,21 +100,34 @@ public sealed partial class VirologyMachinesSystem : EntitySystem
         if (!_itemSlots.TryGetSlot(ent, VirologyMachineComponent.SwabSlotId, out var slot) || slot.Item == null)
             return;
 
-        if(TryComp<DiseaseAnalyzerComponent>(ent, out var diseaseAnalyzerComp))
+        if(TryComp<DiseaseAnalyzerComponent>(ent, out var diseaseAnalyzerComp)) // evil anti ecs design perhaps?
             AnalyzeSwab((ent, diseaseAnalyzerComp), (slot.Item.Value, null), ent);
         else if (TryComp<VaccinatorComponent>(ent, out var vaccinatorComp))
-            CreateVaccine(ent);
+            CreateVaccine((ent, vaccinatorComp), (slot.Item.Value, null), ent);
     }
 
-    private void CreateVaccine(Entity<VirologyMachineComponent> ent)
+    private void CreateVaccine(Entity<VaccinatorComponent> vaccinator, Entity<DiseaseSwabComponent?> swab, Entity<VirologyMachineComponent> machine)
     {
         // create a vaccine
+        if (!Resolve(swab, ref swab.Comp))
+            return;
 
+        if (!TryComp<DiseaseComponent>(swab.Comp.DiseaseUid, out var disease))
+            return;
+
+        var vaccine = Spawn(machine.Comp.VaccinePrototype, Transform(vaccinator).Coordinates);
+        if (!TryComp<VaccineComponent>(vaccine, out var vaccineComponent))
+            return;
+
+        if(swab.Comp.DiseaseUid != null)
+            vaccineComponent.Genotype = disease.Genotype;
+
+        _itemSlots.TryEject(vaccinator, machine.Comp.SwabSlot, null, out _);
     }
 
-    private void AnalyzeSwab(Entity<DiseaseAnalyzerComponent?> analyzer, Entity<DiseaseSwabComponent?> swab, Entity<VirologyMachineComponent> machine)
+    private void AnalyzeSwab(Entity<DiseaseAnalyzerComponent> analyzer, Entity<DiseaseSwabComponent?> swab, Entity<VirologyMachineComponent> machine)
     {
-        if (!Resolve(analyzer, ref analyzer.Comp) || !Resolve(swab, ref swab.Comp))
+        if (!Resolve(swab, ref swab.Comp))
             return;
 
         if (!TryComp<DiseaseComponent>(swab.Comp.DiseaseUid, out var disease))

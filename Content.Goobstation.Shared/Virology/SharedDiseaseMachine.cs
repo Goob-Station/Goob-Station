@@ -5,5 +5,5 @@ namespace Content.Goobstation.Shared.Virology;
 [Serializable, NetSerializable]
 public enum DiseaseMachineVisuals : byte
 {
-    IsRunning
+    IsRunning,
 }
