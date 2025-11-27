@@ -25,8 +25,6 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
-using Content.Shared.CombatMode;
-using Content.Shared.Heretic.Components;
 
 namespace Content.Shared._Goobstation.Heretic.Systems;
 
@@ -69,7 +67,6 @@ public sealed class RiposteeSystem : EntitySystem
         if (!TryComp(weapon.Value, out MeleeWeaponComponent? melee) ||
             !TryComp(user.Value, out RiposteeComponent? ripostee))
             return;
-        
         CounterAttack((weapon.Value, melee), (user.Value, ripostee), target.Value, ev.Data);
     }
 
