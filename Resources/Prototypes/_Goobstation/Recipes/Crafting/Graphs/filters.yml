@@ -6,7 +6,6 @@
 
 - type: constructionGraph
   id: AutomationFilter
-  start: start
   graph:
   - node: start
     edges:
