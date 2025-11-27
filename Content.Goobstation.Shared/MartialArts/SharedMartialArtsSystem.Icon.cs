@@ -11,6 +11,7 @@ public partial class SharedMartialArtsSystem
     {
         SubscribeLocalEvent<MartialArtsAlertComponent, ComponentInit>(OnCompInitAlert);
         SubscribeLocalEvent<MartialArtsAlertComponent, ToggleMartialArtsStanceEvent>(OnToggleStanceMode);
+        SubscribeLocalEvent<MartialArtsKnowledgeComponent,  ComponentInit>(OnCompInitKnowledge);  
     }
 
     private void OnToggleStanceMode(Entity<MartialArtsAlertComponent> ent, ref ToggleMartialArtsStanceEvent args)

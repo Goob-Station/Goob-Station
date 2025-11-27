@@ -127,7 +127,6 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ShotAttemptedEvent>(OnShotAttempt);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComboAttackPerformedEvent>(OnComboAttackPerformed);
-        SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentInit>(OnCompInitKnowledge);
         
         SubscribeLocalEvent<KravMagaSilencedComponent, SpeakAttemptEvent>(OnSilencedSpeakAttempt);
 
