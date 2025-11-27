@@ -132,6 +132,16 @@
   - type: Item
     size: Tiny
   - type: Sprite
+    # <Goobstation>
     sprite: Objects/Specific/Medical/medipen.rsi
-    state: salpen
+    layers:
+    - state: salpen
+  - type: Appearance
   - type: Vaccine
+  - type: GenericVisualizer
+    visuals:
+      enum.VaccineVisuals.Used:
+        salpen:
+          True: { state: salpen_empty }
+          False: { state: salpen }
+  # </Goobstation>
