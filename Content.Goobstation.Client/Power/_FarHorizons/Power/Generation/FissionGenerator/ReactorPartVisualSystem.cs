@@ -11,10 +11,10 @@ public sealed class ReactorPartVisualSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartVisualComponent, AppearanceChangeEvent>(OnAppearanceChange);
+        SubscribeLocalEvent<ReactorPartVisualComponent, AppearanceChangeEvent>(OnAppearanceChange);
     }
 
-    private void OnAppearanceChange(EntityUid uid, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartVisualComponent comp, ref AppearanceChangeEvent args)
+    private void OnAppearanceChange(EntityUid uid, ReactorPartVisualComponent comp, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null)
             return;

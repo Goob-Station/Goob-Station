@@ -21,15 +21,15 @@ public sealed partial class NuclearReactorWindow : FancyWindow
     private readonly LockSystem _lock;
 
     private StyleBoxFlat[,] _reactorGrid;
-    private TextureRect[,] _reactorRect = new TextureRect[Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridHeight];
+    private TextureRect[,] _reactorRect = new TextureRect[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
 
-    private double[,] _temperatureGrid = new double[Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridHeight];
-    private int[,] _neutronGrid = new int[Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridHeight];
-    private string[,] _iconGrid = new string[Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridHeight];
-    private string[,] _partName = new string[Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth , Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridHeight];
+    private double[,] _temperatureGrid = new double[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
+    private int[,] _neutronGrid = new int[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
+    private string[,] _iconGrid = new string[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
+    private string[,] _partName = new string[NuclearReactorComponent.ReactorGridWidth , NuclearReactorComponent.ReactorGridHeight];
 
     // You thought 2 dimensions was bad
-    private double[,,] _partInfo = new double[Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth , Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridHeight , 3];
+    private double[,,] _partInfo = new double[NuclearReactorComponent.ReactorGridWidth , NuclearReactorComponent.ReactorGridHeight , 3];
 
     private byte _displayMode = 1<<0;
 
@@ -69,12 +69,12 @@ public sealed partial class NuclearReactorWindow : FancyWindow
     [MemberNotNull(nameof(_reactorGrid))]
     public void InitReactorGrid()
     {
-        _reactorGrid = new StyleBoxFlat[Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridHeight];
-        _reactorRect = new TextureRect[Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridHeight];
+        _reactorGrid = new StyleBoxFlat[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
+        _reactorRect = new TextureRect[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
 
-        for (var x = 0; x < Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth; x++)
+        for (var x = 0; x < NuclearReactorComponent.ReactorGridWidth; x++)
         {
-            for (var y = 0; y < Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridHeight; y++)
+            for (var y = 0; y < NuclearReactorComponent.ReactorGridHeight; y++)
             {
                 var styleBox = new StyleBoxFlat();
                 var icon = new TextureRect() {
@@ -106,13 +106,13 @@ public sealed partial class NuclearReactorWindow : FancyWindow
         Array.Clear(_partName);
         Array.Clear(_partInfo);
 
-        var zoff = Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth * Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridHeight;
+        var zoff = NuclearReactorComponent.ReactorGridWidth * NuclearReactorComponent.ReactorGridHeight;
 
-        for (var x = 0; x < Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth; x++)
+        for (var x = 0; x < NuclearReactorComponent.ReactorGridWidth; x++)
         {
-            for (var y = 0; y < Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridHeight; y++)
+            for (var y = 0; y < NuclearReactorComponent.ReactorGridHeight; y++)
             {
-                var loc = (x * Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth) + y;
+                var loc = (x * NuclearReactorComponent.ReactorGridWidth) + y;
                 _temperatureGrid[x,y] = msg.TemperatureGrid[loc];
                 _neutronGrid[x,y] = msg.NeutronGrid[loc];
                 _iconGrid[x,y] = msg.IconGrid[loc];
@@ -157,9 +157,9 @@ public sealed partial class NuclearReactorWindow : FancyWindow
         base.FrameUpdate(args);
 
         //Update the grid
-        for (var x = 0; x < Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth; x++)
+        for (var x = 0; x < NuclearReactorComponent.ReactorGridWidth; x++)
         {
-            for (var y = 0; y < Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridHeight; y++)
+            for (var y = 0; y < NuclearReactorComponent.ReactorGridHeight; y++)
             {
                 var box = _reactorGrid[x,y];
                 if (_displayMode % 2 == 1)
@@ -277,7 +277,7 @@ public sealed partial class NuclearReactorWindow : FancyWindow
     #region Move Target
     private void OnXIncrement()
     {
-        if (_targetX >= Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth - 1)
+        if (_targetX >= NuclearReactorComponent.ReactorGridWidth - 1)
         {
             XIncrement.Disabled = true;
             return;
@@ -286,7 +286,7 @@ public sealed partial class NuclearReactorWindow : FancyWindow
         _targetX++;
         XPos.Text = _targetX.ToString();
 
-        XIncrement.Disabled = _targetX >= Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth - 1;
+        XIncrement.Disabled = _targetX >= NuclearReactorComponent.ReactorGridWidth - 1;
         XDecrement.Disabled = _targetX <= 0;
     }
 
@@ -301,13 +301,13 @@ public sealed partial class NuclearReactorWindow : FancyWindow
         _targetX--;
         XPos.Text = _targetX.ToString();
 
-        XIncrement.Disabled = _targetX >= Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth - 1;
+        XIncrement.Disabled = _targetX >= NuclearReactorComponent.ReactorGridWidth - 1;
         XDecrement.Disabled = _targetX <= 0;
     }
 
     private void OnYIncrement()
     {
-        if (_targetY >= Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth - 1)
+        if (_targetY >= NuclearReactorComponent.ReactorGridWidth - 1)
         {
             YIncrement.Disabled = true;
             return;
@@ -316,7 +316,7 @@ public sealed partial class NuclearReactorWindow : FancyWindow
         _targetY++;
         YPos.Text = _targetY.ToString();
 
-        YIncrement.Disabled = _targetY >= Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridHeight - 1;
+        YIncrement.Disabled = _targetY >= NuclearReactorComponent.ReactorGridHeight - 1;
         YDecrement.Disabled = _targetY <= 0;
     }
 
@@ -331,7 +331,7 @@ public sealed partial class NuclearReactorWindow : FancyWindow
         _targetY--;
         YPos.Text = _targetY.ToString();
 
-        YIncrement.Disabled = _targetY >= Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridHeight - 1;
+        YIncrement.Disabled = _targetY >= NuclearReactorComponent.ReactorGridHeight - 1;
         YDecrement.Disabled = _targetY <= 0;
     }
     #endregion

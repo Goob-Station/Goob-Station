@@ -24,9 +24,9 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     /// <param name="reactorEnt">The entity representing the reactor this part is inserted into.</param>
     /// <param name="inGas">The gas to be processed.</param>
     /// <returns></returns>
-    public GasMixture? ProcessGas(Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartComponent reactorPart, Entity<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent> reactorEnt, AtmosDeviceUpdateEvent args, GasMixture inGas)
+    public GasMixture? ProcessGas(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, AtmosDeviceUpdateEvent args, GasMixture inGas)
     {
-        if (reactorPart.RodType != (byte)Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartComponent.RodTypes.GasChannel)
+        if (reactorPart.RodType != (byte)ReactorPartComponent.RodTypes.GasChannel)
             return null;
 
         GasMixture? ProcessedGas = null;
@@ -92,7 +92,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     }
 
     /// <inheritdoc/>
-    public override List<ReactorNeutron> ProcessNeutronsGas(Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartComponent reactorPart, List<ReactorNeutron> neutrons)
+    public override List<ReactorNeutron> ProcessNeutronsGas(ReactorPartComponent reactorPart, List<ReactorNeutron> neutrons)
     {
         if (reactorPart.AirContents == null) return neutrons;
 
@@ -118,7 +118,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     /// </summary>
     /// <param name="reactorPart"></param>
     /// <returns></returns>
-    private int GasNeutronInteract(Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartComponent reactorPart)
+    private int GasNeutronInteract(ReactorPartComponent reactorPart)
     {
         if (reactorPart.AirContents == null)
             return 0;

@@ -1,5 +1,5 @@
-using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Goobstation.Common.Materials._FarHorizons.Systems;
+using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Server.Administration.Logs;
 using Content.Server.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
@@ -50,30 +50,30 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
 
-    private static readonly int _gridWidth = Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridWidth;
-    private static readonly int _gridHeight = Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent.ReactorGridHeight;
+    private static readonly int _gridWidth = NuclearReactorComponent.ReactorGridWidth;
+    private static readonly int _gridHeight = NuclearReactorComponent.ReactorGridHeight;
 
     private readonly float _threshold = 0.5f;
-    private float _accumulator = 0f;
+    private float _accumulator;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent, AtmosDeviceUpdateEvent>(OnUpdate);
-        SubscribeLocalEvent<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent, AtmosDeviceEnabledEvent>(OnEnable);
-        SubscribeLocalEvent<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent, GasAnalyzerScanEvent>(OnAnalyze);
+        SubscribeLocalEvent<NuclearReactorComponent, AtmosDeviceUpdateEvent>(OnUpdate);
+        SubscribeLocalEvent<NuclearReactorComponent, AtmosDeviceEnabledEvent>(OnEnable);
+        SubscribeLocalEvent<NuclearReactorComponent, GasAnalyzerScanEvent>(OnAnalyze);
 
         // Item events
-        SubscribeLocalEvent<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent, EntInsertedIntoContainerMessage>(OnPartChanged);
-        SubscribeLocalEvent<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent, EntRemovedFromContainerMessage>(OnPartChanged);
+        SubscribeLocalEvent<NuclearReactorComponent, EntInsertedIntoContainerMessage>(OnPartChanged);
+        SubscribeLocalEvent<NuclearReactorComponent, EntRemovedFromContainerMessage>(OnPartChanged);
 
         // BUI events
-        SubscribeLocalEvent<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent, ReactorItemActionMessage>(OnItemActionMessage);
-        SubscribeLocalEvent<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent, ReactorControlRodModifyMessage>(OnControlRodMessage);
+        SubscribeLocalEvent<NuclearReactorComponent, ReactorItemActionMessage>(OnItemActionMessage);
+        SubscribeLocalEvent<NuclearReactorComponent, ReactorControlRodModifyMessage>(OnControlRodMessage);
     }
 
-    private void OnEnable(Entity<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent> ent, ref AtmosDeviceEnabledEvent args)
+    private void OnEnable(Entity<NuclearReactorComponent> ent, ref AtmosDeviceEnabledEvent args)
     {
         var comp = ent.Comp;
         for (var x = 0; x < _gridWidth; x++)
@@ -85,7 +85,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         }
     }
 
-    private void OnAnalyze(EntityUid uid, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent comp, ref GasAnalyzerScanEvent args)
+    private void OnAnalyze(EntityUid uid, NuclearReactorComponent comp, ref GasAnalyzerScanEvent args)
     {
         if (!comp.InletEnt.HasValue || !comp.OutletEnt.HasValue)
             return;
@@ -109,10 +109,10 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         }
     }
 
-    private void OnPartChanged(EntityUid uid, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent component, ContainerModifiedMessage args) => ReactorTryGetSlot(uid, "part_slot", out component.PartSlot!);
+    private void OnPartChanged(EntityUid uid, NuclearReactorComponent component, ContainerModifiedMessage args) => ReactorTryGetSlot(uid, "part_slot", out component.PartSlot!);
 
     #region Main Loop
-    private void OnUpdate(Entity<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent> ent, ref AtmosDeviceUpdateEvent args)
+    private void OnUpdate(Entity<NuclearReactorComponent> ent, ref AtmosDeviceUpdateEvent args)
     {
         var comp = ent.Comp;
         var uid = ent.Owner;
@@ -134,7 +134,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             {
                 for (var y = 0; y < _gridHeight; y++)
                 {
-                    comp.ComponentGrid[x, y] = prefab[x, y] != null ? new Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartComponent(prefab[x, y]!) : null;
+                    comp.ComponentGrid[x, y] = prefab[x, y] != null ? new ReactorPartComponent(prefab[x, y]!) : null;
                 }
             }
 
@@ -196,7 +196,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                     _partSystem.ProcessHeat(ReactorComp, ent, GetGridNeighbors(comp, x, y), this);
                     comp.TemperatureGrid[x, y] = ReactorComp.Temperature;
 
-                    if (ReactorComp.RodType == (byte)Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartComponent.RodTypes.Control && ReactorComp.IsControlRod)
+                    if (ReactorComp.RodType == (byte)ReactorPartComponent.RodTypes.Control && ReactorComp.IsControlRod)
                     {
                         AvgControlRodInsertion += ReactorComp.NeutronCrossSection;
                         ReactorComp.ConfiguredInsertionLevel = comp.ControlRodInsertion;
@@ -290,7 +290,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         UpdateTempIndicators(ent);
     }
 
-    private void ProcessCaseRadiation(Entity<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent> ent)
+    private void ProcessCaseRadiation(Entity<NuclearReactorComponent> ent)
     {
         var comp = EnsureComp<RadiationSourceComponent>(ent.Owner);
 
@@ -298,7 +298,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         ent.Comp.RadiationLevel /= 2;
     }
 
-    private void InitGrid(Entity<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent> ent)
+    private void InitGrid(Entity<NuclearReactorComponent> ent)
     {
         var xspace = 18f / 32f;
         var yspace = 15f / 32f;
@@ -315,7 +315,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         }
     }
 
-    private static Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartComponent?[,] SelectPrefab(string select) => select switch
+    private static ReactorPartComponent?[,] SelectPrefab(string select) => select switch
     {
         "normal" => NuclearReactorPrefabs.Normal,
         "debug" => NuclearReactorPrefabs.Debug,
@@ -324,9 +324,9 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         _ => NuclearReactorPrefabs.Empty,
     };
 
-    private static List<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartComponent?> GetGridNeighbors(Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent reactor, int x, int y)
+    private static List<ReactorPartComponent?> GetGridNeighbors(NuclearReactorComponent reactor, int x, int y)
     {
-        var neighbors = new List<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartComponent?>();
+        var neighbors = new List<ReactorPartComponent?>();
         if (x - 1 < 0)
             neighbors.Add(null);
         else
@@ -346,7 +346,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         return neighbors;
     }
 
-    private GasMixture? ProcessCasingGas(Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent reactor, AtmosDeviceUpdateEvent args, GasMixture inGas)
+    private GasMixture? ProcessCasingGas(NuclearReactorComponent reactor, AtmosDeviceUpdateEvent args, GasMixture inGas)
     {
         GasMixture? ProcessedGas = null;
         if (reactor.AirContents != null)
@@ -369,8 +369,8 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             reactor.AirContents.Temperature = (float)Math.Clamp(reactor.AirContents.Temperature +
                 (MaxDeltaE / _atmosphereSystem.GetHeatCapacity(reactor.AirContents, true)), Coldest, Hottest);
 
-            reactor.Temperature = (float)Math.Clamp(reactor.Temperature -
-                ((_atmosphereSystem.GetThermalEnergy(reactor.AirContents) - ThermalEnergy) / reactor.ThermalMass), Coldest, Hottest);
+            reactor.Temperature = Math.Clamp(reactor.Temperature -
+                                             ((_atmosphereSystem.GetThermalEnergy(reactor.AirContents) - ThermalEnergy) / reactor.ThermalMass), Coldest, Hottest);
 
             if (reactor.AirContents.Temperature < 0 || reactor.Temperature < 0)
                 throw new Exception("Reactor casing temperature calculation resulted in sub-zero value.");
@@ -409,7 +409,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         return Math.Max(0, actualMolesTransfered * inlet.Air.Temperature * Atmospherics.R / inlet.Air.Pressure);
     }
 
-    private void CatastrophicOverload(Entity<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent> ent)
+    private void CatastrophicOverload(Entity<NuclearReactorComponent> ent)
     {
         var comp = ent.Comp;
         var uid = ent.Owner;
@@ -438,7 +438,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                     if (RC == null)
                         return;
                     MeltdownBadness += ((RC.Properties!.Radioactivity * 2) + (RC.Properties.NeutronRadioactivity * 5) + (RC.Properties.FissileIsotopes * 10)) * (RC.Melted ? 2 : 1);
-                    if (RC.RodType == (byte)Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartComponent.RodTypes.GasChannel)
+                    if (RC.RodType == (byte)ReactorPartComponent.RodTypes.GasChannel)
                         _atmosphereSystem.Merge(comp.AirContents, RC.AirContents ?? new());
                 }
             }
@@ -469,7 +469,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         UpdateGridVisual(comp);
     }
 
-    private void UpdateVisuals(Entity<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent> ent)
+    private void UpdateVisuals(Entity<NuclearReactorComponent> ent)
     {
         var comp = ent.Comp;
         var uid = ent.Owner;
@@ -514,7 +514,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         }
     }
 
-    private void UpdateAudio(Entity<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent> ent)
+    private void UpdateAudio(Entity<NuclearReactorComponent> ent)
     {
         var comp = ent.Comp;
         var uid = ent.Owner;
@@ -559,7 +559,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             comp.AlarmAudioHighRads = _audio.Stop(comp.AlarmAudioHighRads);
     }
 
-    private void UpdateRadio(Entity<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent> ent)
+    private void UpdateRadio(Entity<NuclearReactorComponent> ent)
     {
         var comp = ent.Comp;
         var uid = ent.Owner;
@@ -651,7 +651,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
     }
     private void AccUpdate()
     {
-        var query = EntityQueryEnumerator<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent>();
+        var query = EntityQueryEnumerator<NuclearReactorComponent>();
 
         while (query.MoveNext(out var uid, out var reactor))
         {
@@ -659,7 +659,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         }
     }
 
-    private void UpdateUI(EntityUid uid, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent reactor)
+    private void UpdateUI(EntityUid uid, NuclearReactorComponent reactor)
     {
         if (!_uiSystem.IsUiOpen(uid, NuclearReactorUiKey.Key))
             return;
@@ -713,7 +713,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
            });
     }
 
-    private void OnItemActionMessage(Entity<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent> ent, ref ReactorItemActionMessage args)
+    private void OnItemActionMessage(Entity<NuclearReactorComponent> ent, ref ReactorItemActionMessage args)
     {
         var comp = ent.Comp;
         var pos = args.Position;
@@ -731,16 +731,16 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             }
 
             var item = SpawnInContainerOrDrop(part!.ProtoId, ent.Owner, "part_slot");
-            _entityManager.RemoveComponent<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartComponent>(item);
-            _entityManager.AddComponent(item, new Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartComponent(part!));
+            _entityManager.RemoveComponent<ReactorPartComponent>(item);
+            _entityManager.AddComponent(item, new ReactorPartComponent(part!));
 
             _adminLog.Add(LogType.Action, $"{ToPrettyString(args.Actor):actor} removed {ToPrettyString(item):item} from position {args.Position} in {ToPrettyString(ent):target}");
             comp.ComponentGrid[(int)pos.X, (int)pos.Y] = null;
         }
         else
         {
-            if (TryComp(comp.PartSlot.Item, out Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartComponent? reactorPart))
-                comp.ComponentGrid[(int)pos.X, (int)pos.Y] = new Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartComponent(reactorPart);
+            if (TryComp(comp.PartSlot.Item, out ReactorPartComponent? reactorPart))
+                comp.ComponentGrid[(int)pos.X, (int)pos.Y] = new ReactorPartComponent(reactorPart);
             else
                 return;
 
@@ -754,7 +754,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         UpdateUI(ent.Owner, comp);
     }
 
-    private void OnControlRodMessage(Entity<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent> ent, ref ReactorControlRodModifyMessage args)
+    private void OnControlRodMessage(Entity<NuclearReactorComponent> ent, ref ReactorControlRodModifyMessage args)
     {
         ent.Comp.ControlRodInsertion = Math.Clamp(ent.Comp.ControlRodInsertion + args.Change, 0, 2);
         _adminLog.Add(LogType.Action, $"{ToPrettyString(args.Actor):actor} set control rod insertion of {ToPrettyString(ent):target} to {ent.Comp.ControlRodInsertion}");

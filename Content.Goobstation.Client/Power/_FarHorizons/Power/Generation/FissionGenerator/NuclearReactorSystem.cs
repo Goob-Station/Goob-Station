@@ -11,10 +11,10 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent, ClientExaminedEvent>(ReactorExamined);
+        SubscribeLocalEvent<NuclearReactorComponent, ClientExaminedEvent>(ReactorExamined);
     }
 
-    private void ReactorExamined(EntityUid uid, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.NuclearReactorComponent comp, ClientExaminedEvent args)
+    private void ReactorExamined(EntityUid uid, NuclearReactorComponent comp, ClientExaminedEvent args)
     {
         Spawn(ArrowPrototype, new EntityCoordinates(uid, 0, 0));
     }

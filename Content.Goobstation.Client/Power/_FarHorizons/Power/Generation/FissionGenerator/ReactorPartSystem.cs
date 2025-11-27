@@ -13,10 +13,10 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartComponent, AppearanceChangeEvent>(OnAppearanceChange);
+        SubscribeLocalEvent<ReactorPartComponent, AppearanceChangeEvent>(OnAppearanceChange);
     }
 
-    private void OnAppearanceChange(EntityUid uid, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartComponent component, ref AppearanceChangeEvent args)
+    private void OnAppearanceChange(EntityUid uid, ReactorPartComponent component, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null)
             return;
@@ -30,7 +30,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
 
     protected override void AccUpdate()
     {
-        var query = EntityQueryEnumerator<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.ReactorPartComponent>();
+        var query = EntityQueryEnumerator<ReactorPartComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
             _sprite.LayerSetColor((uid, EntityManager.GetComponent<SpriteComponent>(uid)), 0, _proto.Index(component.Material).Color);

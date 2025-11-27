@@ -52,11 +52,11 @@ public sealed class TurbineSystem : SharedTurbineSystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.TurbineComponent, AtmosDeviceUpdateEvent>(OnUpdate);
-        SubscribeLocalEvent<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.TurbineComponent, GasAnalyzerScanEvent>(OnAnalyze);
+        SubscribeLocalEvent<TurbineComponent, AtmosDeviceUpdateEvent>(OnUpdate);
+        SubscribeLocalEvent<TurbineComponent, GasAnalyzerScanEvent>(OnAnalyze);
     }
 
-    private void OnAnalyze(EntityUid uid, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.TurbineComponent comp, ref GasAnalyzerScanEvent args)
+    private void OnAnalyze(EntityUid uid, TurbineComponent comp, ref GasAnalyzerScanEvent args)
     {
         if (!comp.InletEnt.HasValue || !comp.OutletEnt.HasValue)
             return;
@@ -81,7 +81,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
     }
 
     #region Main Loop
-    private void OnUpdate(EntityUid uid, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.TurbineComponent comp, ref AtmosDeviceUpdateEvent args)
+    private void OnUpdate(EntityUid uid, TurbineComponent comp, ref AtmosDeviceUpdateEvent args)
     {
         var supplier = Comp<PowerSupplierComponent>(uid);
         comp.SupplierMaxSupply = supplier.MaxSupply;
@@ -234,7 +234,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
         }
     }
 
-    private float CalculateTransferVolume(Shared.Power._FarHorizons.Power.Generation.FissionGenerator.TurbineComponent comp, PipeNode inlet, PipeNode outlet, float dt)
+    private float CalculateTransferVolume(TurbineComponent comp, PipeNode inlet, PipeNode outlet, float dt)
     {
         var wantToTransfer = comp.FlowRate * _atmosphereSystem.PumpSpeedup() * dt;
         var transferVolume = Math.Min(inlet.Air.Volume, wantToTransfer);
@@ -244,7 +244,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
         return Math.Max(0, actualMolesTransfered * inlet.Air.Temperature * Atmospherics.R / inlet.Air.Pressure);
     }
 
-    private void TearApart(EntityUid uid, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.TurbineComponent comp)
+    private void TearApart(EntityUid uid, TurbineComponent comp)
     {
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/metal_break5.ogg"), uid, AudioParams.Default);
         _popupSystem.PopupEntity(Loc.GetString("turbine-explode", ("owner", uid)), uid, PopupType.LargeCaution);
@@ -279,7 +279,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
     private void AccUpdate()
     {
-        var query = EntityQueryEnumerator<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.TurbineComponent>();
+        var query = EntityQueryEnumerator<TurbineComponent>();
 
         while (query.MoveNext(out var uid, out var turbine))
         {
@@ -287,7 +287,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
         }
     }
 
-    protected override void UpdateUI(EntityUid uid, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.TurbineComponent turbine)
+    protected override void UpdateUI(EntityUid uid, TurbineComponent turbine)
     {
         if (!_uiSystem.IsUiOpen(uid, TurbineUiKey.Key))
             return;

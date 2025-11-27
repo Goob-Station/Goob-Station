@@ -21,28 +21,28 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.TurbineComponent, ClientExaminedEvent>(ReactorExamined);
+        SubscribeLocalEvent<TurbineComponent, ClientExaminedEvent>(ReactorExamined);
     }
 
-    protected override void UpdateUI(EntityUid uid, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.TurbineComponent turbine)
+    protected override void UpdateUI(EntityUid uid, TurbineComponent turbine)
     {
         if (_userInterfaceSystem.TryGetOpenUi(uid, TurbineUiKey.Key, out var bui))
         {
             bui.Update();
         }
     }
-    protected override void OnRepairTurbineFinished(Entity<Shared.Power._FarHorizons.Power.Generation.FissionGenerator.TurbineComponent> ent, ref RepairFinishedEvent args)
+    protected override void OnRepairTurbineFinished(Entity<TurbineComponent> ent, ref RepairFinishedEvent args)
     {
         if (args.Cancelled)
             return;
 
-        if (!TryComp(ent.Owner, out Shared.Power._FarHorizons.Power.Generation.FissionGenerator.TurbineComponent? comp))
+        if (!TryComp(ent.Owner, out TurbineComponent? comp))
             return;
 
         _popupSystem.PopupClient(Loc.GetString("turbine-repair", ("target", ent.Owner), ("tool", args.Used!)), ent.Owner, args.User);
     }
 
-    private void ReactorExamined(EntityUid uid, Shared.Power._FarHorizons.Power.Generation.FissionGenerator.TurbineComponent comp, ClientExaminedEvent args)
+    private void ReactorExamined(EntityUid uid, TurbineComponent comp, ClientExaminedEvent args)
     {
         Spawn(ArrowPrototype, new EntityCoordinates(uid, 0, 0));
     }
