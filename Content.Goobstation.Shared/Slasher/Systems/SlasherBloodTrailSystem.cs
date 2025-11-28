@@ -32,7 +32,7 @@ public sealed class SlasherBloodTrailSystem : EntitySystem
         SubscribeLocalEvent<SlasherBloodTrailComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<SlasherBloodTrailComponent, ToggleBloodTrailEvent>(OnToggle);
 
-        SubscribeLocalEvent<SlasherBloodTrailComponent, SlasherIncorporealizeEvent>(OnIncorporealize);
+        SubscribeLocalEvent<SlasherBloodTrailComponent, SlasherIncorporealizeDoAfterEvent>(OnIncorporealize);
     }
 
     private void OnMapInit(Entity<SlasherBloodTrailComponent> ent, ref MapInitEvent args)
@@ -81,12 +81,16 @@ public sealed class SlasherBloodTrailSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnIncorporealize(Entity<SlasherBloodTrailComponent> ent, ref SlasherIncorporealizeEvent args)
+    private void OnIncorporealize(Entity<SlasherBloodTrailComponent> ent, ref SlasherIncorporealizeDoAfterEvent args)
     {
         if (!_net.IsServer)
             return;
 
-        // Always disable the trail when attempting to become incorporeal.
+        // Only disable the trail if the slasher successfully entered incorporeal state.
+        if (args.Cancelled)
+            return;
+
+        // Always disable the trail when entering incorporeal.
         if (!ent.Comp.IsActive)
             return;
 
