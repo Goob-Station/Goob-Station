@@ -1,11 +1,14 @@
+using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.LightDetection.Systems;
 using Content.Goobstation.Shared.Mindcontrol;
 using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
+using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
@@ -83,9 +86,12 @@ public abstract class SharedShadowlingSystem : EntitySystem
         _lightDamage.AddResistance((ent.Owner, lightDet), -ent.Comp.LightResistanceModifier);
     }
 
+    public ProtoId<CollectiveMindPrototype> ShadowMind = "Shadowmind";
     private void OnInit(EntityUid uid, ShadowlingComponent component, ref MapInitEvent args)
     {
         _actions.AddAction(uid, ref component.ActionHatchEntity, component.ActionHatch);
+
+        EnsureComp<CollectiveMindComponent>(uid).Channels.Add(ShadowMind);
     }
 
     private void OnHatch(Entity<ShadowlingComponent> ent, ref HatchEvent args)
@@ -205,7 +211,9 @@ public abstract class SharedShadowlingSystem : EntitySystem
     {
         return HasComp<MobStateComponent>(target)
                && !HasComp<ShadowlingComponent>(target)
-               && !HasComp<ThrallComponent>(target);
+               && !HasComp<ThrallComponent>(target)
+               && !HasComp<HereticComponent>(target)
+               && !HasComp<ChangelingComponent>(target);
     }
 
     public void DoEnthrall(EntityUid uid, EntProtoId components, SimpleDoAfterEvent args)
