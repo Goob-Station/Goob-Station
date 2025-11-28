@@ -1,16 +1,17 @@
 
 
 using Content.Shared.Administration.Logs;
+using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
 using Robust.Shared.Utility;
+using System.Linq;
 namespace Content.Goobstation.Shared.CustomLawboard;
 
 public abstract class SharedCustomLawboardSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -23,10 +24,11 @@ public abstract class SharedCustomLawboardSystem : EntitySystem
         var provider = EnsureComp<SiliconLawProviderComponent>(uid);
         var lawset = new SiliconLawset();
         lawset.Laws = args.Laws;
+
+        customLawboard.Laws = args.Laws;
         provider.Lawset = lawset;
-        _adminLogger.Add(LogType.Unknown, $"{ToPrettyString(args.Actor)} changed laws on {ToPrettyString(uid)}"); // TODO IN A BIT DONT FORGET PLEASE
+        _adminLogger.Add(LogType.Action, $"{ToPrettyString(args.Actor)} changed laws on {ToPrettyString(uid)}");
         Dirty(uid, customLawboard);
-        DirtyUI(uid, customLawboard);
     }
 
     protected virtual void DirtyUI(EntityUid uid, CustomLawboardComponent? customLawboard, UserInterfaceComponent? ui = null) { }

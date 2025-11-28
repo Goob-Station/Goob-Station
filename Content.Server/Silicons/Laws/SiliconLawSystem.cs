@@ -106,6 +106,7 @@
 using System.Linq;
 using Content.Goobstation.Common.Silicons.Components;
 using Content.Goobstation.Maths.FixedPoint; // Goob edit
+using Content.Goobstation.Shared.CustomLawboard;
 using Content.Server.Administration;
 using Content.Server.Chat.Managers;
 using Content.Server.Radio.Components;
@@ -444,8 +445,22 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             ApplyExperimentalLaws(ent, (args.Entity, experimentalLaws, provider));
             return;
         }
+
+        // Still a Goob edit so this comment is TECHNICALLY unnecessary, but this part is for custom lawboards as there's no lawset prototype for them.
+
+        List<SiliconLaw>? lawset;
+
+        if (TryComp(args.Entity, out CustomLawboardComponent? customLawboard))
+        {
+            lawset = customLawboard.Laws;
+        }
+        else
+        {
+            lawset = GetLawset(provider.Laws).Laws;
+        }
+
         // Goob edit end
-        var lawset = GetLawset(provider.Laws).Laws;
+
         var query = EntityManager.CompRegistryQueryEnumerator(ent.Comp.Components);
 
         while (query.MoveNext(out var update))

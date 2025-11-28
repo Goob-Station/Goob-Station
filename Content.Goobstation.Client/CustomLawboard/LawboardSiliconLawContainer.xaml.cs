@@ -84,8 +84,6 @@ namespace Content.Goobstation.Client.CustomLawboard;
 [GenerateTypedNameReferences]
 public sealed partial class LawboardSiliconLawContainer : BoxContainer
 {
-    public const string StyleClassSiliconLawPositionLabel = "SiliconLawPositionLabel";
-
     private SiliconLaw? _law;
 
     public event Action<SiliconLaw>? MoveLawUp;
@@ -109,8 +107,8 @@ public sealed partial class LawboardSiliconLawContainer : BoxContainer
     public void SetLaw(SiliconLaw law)
     {
         _law = law;
+        LawNumberLabel.Text = Loc.GetString("laws-ui-law-header", ("id", law.Order));
         LawContent.TextRope = new Rope.Leaf(Loc.GetString(law.LawString));
-        PositionText.Text = law.Order.ToString();
         LawContent.OnTextChanged += _ => ChangeLawEvent?.Invoke(_law!);
     }
 }

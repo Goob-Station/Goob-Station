@@ -24,7 +24,7 @@ public sealed class CustomLawboardBoundInterface : BoundUserInterface
 
         _window = this.CreateWindow<LawboardSiliconLawUi>();
 
-        _window.LawsChangedEvent += _ => OnLawsChanged(_);
+        _window.LawsChangedEvent += args => OnLawsChanged(args);
         _window.Entity = Owner;
         Update();
     }
