@@ -323,3 +323,12 @@
   - type: SpawnOnDespawn
     prototype: WaterCoolerGold
 
+- type: entity
+  id: SpawnPodNTRCassettePlayer
+  categories: [ HideSpawnMenu ]
+  name: SpawnPodNTRCassettePlayer
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: ExecutiveCassette
+    
