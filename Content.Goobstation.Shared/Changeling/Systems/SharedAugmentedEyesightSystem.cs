@@ -39,10 +39,7 @@ public sealed partial class SharedAugmentedEyesightSystem : EntitySystem
     {
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
 
-        if (!TryComp<EyeComponent>(ent, out var eyeComp)) // without this you'll get an error after transforming from things like polymorph
-            return;
-
-        _eye.SetDrawFov(ent, true, eyeComp);
+        SetVision(ent, true);
     }
 
     #region Event Handlers
@@ -75,12 +72,15 @@ public sealed partial class SharedAugmentedEyesightSystem : EntitySystem
 
     #region Helper Methods
 
-    private void SetVision(Entity<AugmentedEyesightComponent> ent)
+    private void SetVision(Entity<AugmentedEyesightComponent> ent, bool? state = null)
     {
         if (_net.IsClient) // prevent fov flickering
             return;
 
-        _eye.SetDrawFov(ent, ent.Comp.Enabled);
+        if (!TryComp<EyeComponent>(ent, out var eyeComp))
+            return;
+
+        _eye.SetDrawFov(ent, state ?? ent.Comp.Enabled, eyeComp);
     }
     #endregion
 }
