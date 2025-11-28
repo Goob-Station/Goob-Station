@@ -40,3 +40,8 @@
       types:
         Structural: 100
         Ion: 20
+  - type: ActionGrant
+    actions:
+      - ActionTerrorAirtightWeb
+      - ActionTerrorLayEggs
+      - ActionTerrorSummonSpiderlings

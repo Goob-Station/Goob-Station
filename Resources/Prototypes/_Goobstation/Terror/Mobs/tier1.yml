@@ -108,13 +108,7 @@
   - type: ActionGrant
     actions:
       - ActionTerrorWeb
-      - ActionTerrorThickWeb
-      - ActionTerrorSlimyWeb
-      - ActionTerrorPoisonWeb
-      - ActionTerrorInfestedWeb
       - ActionTerrorWrap
-      - ActionTerrorLayEggs
-      - ActionTerrorSummonSpiderlings
 
 # =========================================================
 # RED TERROR — Juggernaut
@@ -219,3 +213,6 @@
       groups:
         Brute: 10
   - type: GreenTerror
+  - type: ActionGrant
+    actions:
+      - ActionTerrorSlimyWeb

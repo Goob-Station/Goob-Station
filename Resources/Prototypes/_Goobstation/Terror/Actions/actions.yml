@@ -1,7 +1,7 @@
 - type: entity
   id: ActionTerrorWeb
-  name: Web
-  description: Spins a Terror Web. These will block some projectiles one time, and ensnare any humanoid who enters them for several seconds.
+  name: Spin web
+  description: Spins a Terror Web. These will ensnare any humanoid who enters them for several seconds.
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -19,7 +19,7 @@
 
 - type: entity
   id: ActionTerrorThickWeb
-  name: Thick web
+  name: Spin thick web
   description: Spins a web that blocks the crew's vision.
   components:
   - type: Action
@@ -38,7 +38,7 @@
 
 - type: entity
   id: ActionTerrorSlimyWeb
-  name: Slimy web
+  name: Spin slimy web
   description: Spins a web that blurs vision of anyone who walks over it.
   components:
   - type: Action
@@ -57,7 +57,7 @@
 
 - type: entity
   id: ActionTerrorPoisonWeb
-  name: Dark web
+  name: Spin poison web
   description: Spins a web that poisons anyone who comes in contact with it.
   components:
   - type: Action
@@ -76,7 +76,7 @@
 
 - type: entity
   id: ActionTerrorInfestedWeb
-  name: Infested web
+  name: Spin infested web
   description: Spins a web that infests anyone who walks over it.
   components:
   - type: Action
@@ -94,6 +94,25 @@
         amount: 1
 
 - type: entity
+  id: ActionTerrorAirtightWeb
+  name: Spin airtight web
+  description: Spins a web that prevents passage of air.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 30
+    icon:
+      sprite: _Goobstation/Terror/actions.rsi
+      state: airtightWeb
+  - type: TargetAction
+    range: 1
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: WallWeb
+        amount: 1
+
+- type: entity
   id: ActionTerrorLayEggs
   name: Lay eggs
   description: Lay eggs that can hatch into any kind of terror spiders. The more people that have been wrapped by the hive, the higher the odds of better eggs being laid.
@@ -108,6 +127,12 @@
     range: 1
   - type: EntityTargetAction
     canTargetSelf: false
+    blacklist:
+      - Wall
+      - GravityGenerator
+      - AnomalyGenerator
+      - TegGenerator
+      - TegCirculator
     event: !type:TerrorLayEvent
 
 - type: entity
@@ -189,3 +214,22 @@
       prototypes:
       - id: SpiderlingFake
         amount: 5
+
+- type: entity
+  id: ActionTerrorRoyalJelly
+  name: Produce royal jelly
+  description: Produces a highly nutritious jelly that can be eaten to heal friend or foe alike.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 60
+    icon:
+      sprite: _Goobstation/Terror/actions.rsi
+      state: royal
+  - type: TargetAction
+    range: 1
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: TerrorRoyalJelly
+        amount: 1

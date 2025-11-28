@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from Paradise Station 13",
+    "copyright": "Made by OnsenCapy",
     "size": {
         "x": 32,
         "y": 32
@@ -12,12 +12,14 @@
         { "name": "layqueen" },
         { "name": "web" },
         { "name": "thickWeb" },
+        { "name": "airtightWeb" },
         { "name": "slimyWeb" },
         { "name": "darkWeb" },
         { "name": "eggWeb" },
         { "name": "ventsmash" },
         { "name": "wrap" },
         { "name": "queensense" },
+        { "name": "royal" },
         { "name": "summon" }
     ]
 }

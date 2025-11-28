@@ -36,6 +36,9 @@
     damage:
       groups:
         Brute: 5
+  - type: ActionGrant
+    actions:
+      - ActionTerrorPoisonWeb
 
 # =========================================================
 # WHITE TERROR — Egg Injector
@@ -72,6 +75,9 @@
     speedModifier: 2
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: ActionGrant
+    actions:
+      - ActionTerrorInfestedWeb
 
 # =========================================================
 # PURPLE TERROR — Nest Guard
@@ -114,6 +120,9 @@
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: BerserkerRage
+  - type: ActionGrant
+    actions:
+      - ActionTerrorThickWeb
 
 # =========================================================
 # BROWN TERROR — Breacher

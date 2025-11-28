@@ -55,6 +55,10 @@
   - type: Sprite
     sprite: _Goobstation/Terror/Structures/web.rsi
     state: slimyWeb
+  - type: TerrorWeb
+  - type: SlimyWeb
+    reagentId: Vodka
+    alcoholAmount: 20  
 
 - type: entity
   id: TerrorSpiderWebPoison
@@ -64,6 +68,10 @@
   - type: Sprite
     sprite: _Goobstation/Terror/Structures/web.rsi
     state: darkWeb
+  - type: TerrorWeb
+  - type: PoisonWeb
+    reagentId: Toxin
+    reagentAmount: 1
 
 - type: entity
   id: TerrorSpiderWebInfested
@@ -74,6 +82,8 @@
   - type: Sprite
     sprite: _Goobstation/Terror/Structures/web.rsi
     state: eggWeb
+  - type: TerrorWeb
+  - type: InfestedWeb
 
 - type: entity
   id: TerrorHeavyWebBase
@@ -117,6 +127,8 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: StepTrigger
+    stepOn: true
   - type: AtmosExposed
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.8
