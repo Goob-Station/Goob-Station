@@ -126,14 +126,13 @@ public sealed class SlasherMassacreSystem : EntitySystem
         userComp.CurrentVictim = victim.Value;
         userComp.HitCount++;
 
-
-
         // Calculate damage bonus/penalty.
         var totalBonus = -weaponEnt.Comp.BaseDamagePenalty + weaponEnt.Comp.PerHitBonus * (userComp.HitCount - 1);
         if (totalBonus != 0)
         {
-            new DamageSpecifier().DamageDict.Add("Slash", totalBonus);
-            args.BonusDamage += new DamageSpecifier();
+            var spec = new DamageSpecifier();
+            spec.DamageDict.Add("Slash", totalBonus);
+            args.BonusDamage += spec;
         }
 
         // If the victim died end the chain silently.

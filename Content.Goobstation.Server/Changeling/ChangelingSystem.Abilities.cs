@@ -40,6 +40,9 @@ using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Goobstation.Shared.Body.Components;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goobstation.Shared.SpecialPassives.BoostedImmunity.Components;
+using Content.Goobstation.Shared.SpecialPassives.Fleshmend.Components;
+using Content.Goobstation.Shared.SpecialPassives.SuperAdrenaline.Components;
 using Content.Server.Light.Components;
 using Content.Server.Nutrition.Components;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
@@ -114,7 +117,6 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionFleshmendEvent>(OnHealUltraSwag);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionLastResortEvent>(OnLastResort);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionLesserFormEvent>(OnLesserForm);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ActionVoidAdaptEvent>(OnVoidAdapt);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionHivemindAccessEvent>(OnHivemindAccess);
         SubscribeLocalEvent<ChangelingIdentityComponent, AbsorbBiomatterEvent>(OnAbsorbBiomatter);
         SubscribeLocalEvent<ChangelingIdentityComponent, AbsorbBiomatterDoAfterEvent>(OnAbsorbBiomatterDoAfter);
@@ -741,14 +743,19 @@ public sealed partial class ChangelingSystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        var reagents = new Dictionary<string, FixedPoint2>
-        {
-            { "LingPanacea", 10f },
-        };
-        if (TryInjectReagents(uid, reagents))
-            _popup.PopupEntity(Loc.GetString("changeling-panacea"), uid, uid);
-        else return;
-        PlayMeatySound(uid, comp);
+        _popup.PopupEntity(Loc.GetString("changeling-panacea"), uid, uid);
+
+        var panacea = _compFactory.GetComponent<BoostedImmunityComponent>();
+        panacea.AlertId = args.Alert;
+        panacea.Duration = args.Duration;
+
+        AddComp(uid, panacea, true);
+
+        _alerts.ShowAlert(
+            uid,
+            args.Alert,
+            cooldown: (_timing.CurTime, _timing.CurTime + TimeSpan.FromSeconds(args.Duration)),
+            autoRemove: true);
     }
     public void OnBiodegrade(EntityUid uid, ChangelingIdentityComponent comp, ref ActionBiodegradeEvent args)
     {
@@ -817,63 +824,49 @@ public sealed partial class ChangelingSystem
             comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
         }
     }
-    public void OnVoidAdapt(EntityUid uid, ChangelingIdentityComponent comp, ref ActionVoidAdaptEvent args)
-    {
-        if (!TryUseAbility(uid, comp, args))
-            return;
 
-        if (!comp.VoidAdaptActive)
-        {
-            EnsureComp<SpecialBreathingImmunityComponent>(uid);
-            EnsureComp<SpecialPressureImmunityComponent>(uid);
-            EnsureComp<SpecialLowTempImmunityComponent>(uid);
-            _popup.PopupEntity(Loc.GetString("changeling-voidadapt-start"), uid, uid);
-            comp.VoidAdaptActive = true;
-            comp.ChemicalRegenMultiplier -= 0.25f; // chem regen slowed by a flat 25%
-        }
-        else
-        {
-            RemComp<SpecialBreathingImmunityComponent>(uid);
-            RemComp<SpecialPressureImmunityComponent>(uid);
-            RemComp<SpecialLowTempImmunityComponent>(uid);
-            _popup.PopupEntity(Loc.GetString("changeling-voidadapt-end"), uid, uid);
-            comp.VoidAdaptActive = false;
-            comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
-        }
-    }
     public void OnAdrenalineReserves(EntityUid uid, ChangelingIdentityComponent comp, ref ActionAdrenalineReservesEvent args)
     {
         if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
 
-        var stam = EnsureComp<StaminaComponent>(uid);
-        stam.StaminaDamage = 0;
+        _popup.PopupEntity(Loc.GetString("changeling-adrenaline"), uid, uid);
 
-        var reagents = new Dictionary<string, FixedPoint2>
-        {
-            { "LingAdrenaline", 5f }
-        };
-        if (TryInjectReagents(uid, reagents))
-            _popup.PopupEntity(Loc.GetString("changeling-inject"), uid, uid);
-        else
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-inject-fail"), uid, uid);
-        }
+        var adrenaline = _compFactory.GetComponent<SuperAdrenalineComponent>();
+        adrenaline.AlertId = args.Alert;
+        adrenaline.Duration = args.Duration;
+        adrenaline.PassiveDamage = args.PassiveDamage;
+
+        AddComp(uid, adrenaline, true);
+
+        _alerts.ShowAlert(
+            uid,
+            args.Alert,
+            cooldown: (_timing.CurTime, _timing.CurTime + TimeSpan.FromSeconds(args.Duration)),
+            autoRemove: true);
     }
     // john space made me do this
     public void OnHealUltraSwag(EntityUid uid, ChangelingIdentityComponent comp, ref ActionFleshmendEvent args)
     {
-        if (!TryUseAbility(uid, comp, args)
-            || !TryComp(uid, out StatusEffectsComponent? status))
+        if (!TryUseAbility(uid, comp, args))
             return;
 
-        _statusEffects.TryAddStatusEffect<FleshmendComponent>(uid,
-                    args.StatusID,
-                    args.Duration,
-                    true,
-                    status);
-
         _popup.PopupEntity(Loc.GetString("changeling-fleshmend"), uid, uid);
+
+        var fleshmend = _compFactory.GetComponent<FleshmendComponent>();
+        fleshmend.AlertId = args.Alert;
+        fleshmend.Duration = args.Duration;
+        fleshmend.PassiveSound = args.PassiveSound;
+        fleshmend.ResPath = args.ResPath;
+        fleshmend.EffectState = args.EffectState;
+
+        AddComp(uid, fleshmend, true);
+
+        _alerts.ShowAlert(
+            uid,
+            args.Alert,
+            cooldown: (_timing.CurTime, _timing.CurTime + TimeSpan.FromSeconds(args.Duration)),
+            autoRemove: true);
     }
     public void OnLastResort(EntityUid uid, ChangelingIdentityComponent comp, ref ActionLastResortEvent args)
     {
