@@ -50,8 +50,6 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
         // so this doesnt mess over any other abilities or systems
         ent.Comp.HadLightDetection = HasComp<LightDetectionComponent>(ent);
 
-        EnsureComp<LightDetectionComponent>(ent);
-
         var nightVision = _compFactory.GetComponent<NightVisionComponent>();
         nightVision.IsActive = false;
         nightVision.Color = Color.FromHex("#565b7a");
@@ -72,9 +70,6 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
 
         RemComp<NightVisionComponent>(ent);
 
-        if (!ent.Comp.HadLightDetection)
-            RemComp<LightDetectionComponent>(ent);
-
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
     }
 
@@ -87,10 +82,12 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
 
         if (!ent.Comp.Active)
         {
+            AdjustAdaption(ent, ent.Comp.Active);
             HandleSpecialComponents(ent);
             HandleAlerts(ent, ent.Comp.Active);
-            SetChemicalModifier(ent, ent.Comp.Active);
         }
+        else
+            EnsureComp<LightDetectionComponent>(ent);
 
         DoPopup(ent, popup);
     }
@@ -110,15 +107,19 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
         HandleAlerts(ent, state);
     }
 
-    private void AdjustAdaption(Entity<DarknessAdaptionComponent> ent, bool state)
+    private void AdjustAdaption(Entity<DarknessAdaptionComponent> ent, bool adapting)
     {
-        EnsureAndSetStealth(ent, state);
-        SetChemicalModifier(ent, state);
+        if (adapting)
+            EnsureAndSetStealth(ent);
+        else
+            RemComp<StealthComponent>(ent);
+
+        SetChemicalModifier(ent, adapting);
 
         if (!_nvgQuery.TryComp(ent, out var nvg))
             return;
 
-        nvg.IsActive = state;
+        nvg.IsActive = adapting;
         Dirty(ent, nvg);
     }
 
@@ -188,22 +189,21 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
         Dirty(ent, ling);
     }
 
-    private void EnsureAndSetStealth(Entity<DarknessAdaptionComponent> ent, bool state)
+    private void EnsureAndSetStealth(Entity<DarknessAdaptionComponent> ent)
     {
         if (_chameleonQuery.TryComp(ent, out var chameleon)) // so it doesnt interfere
             chameleon.Active = false;
 
         EnsureComp<StealthComponent>(ent, out var stealth);
 
-        _stealth.SetEnabled(ent, state, stealth);
-        _stealth.SetVisibility(ent, ent.Comp.Visibility, stealth);
         stealth.RevealOnAttack = false;
         stealth.RevealOnDamage = false;
 
+        _stealth.SetEnabled(ent, true, stealth);
+        _stealth.SetVisibility(ent, ent.Comp.Visibility, stealth);
+
         if (_stealthOnMoveQuery.HasComp(ent))
             RemCompDeferred<StealthOnMoveComponent>(ent);
-
-        Dirty(ent, stealth);
     }
 
     private void HandleSpecialComponents(Entity<DarknessAdaptionComponent> ent)
@@ -213,6 +213,9 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
             nvg.IsActive = false;
             Dirty(ent, nvg);
         }
+
+        if (!ent.Comp.HadLightDetection)
+            RemComp<LightDetectionComponent>(ent); // saves on performance if the ability isn't active
 
         RemComp<StealthComponent>(ent);
         RemComp<StealthOnMoveComponent>(ent);

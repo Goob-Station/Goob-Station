@@ -88,7 +88,7 @@ changeling-chameleon-end = Our body loses its translucency.
 changeling-chameleon-fire = Our translucency is lost as the flames burn us!
 
 changeling-darkadapt-active = We prepare to adjust to the dark.
-changeling-darkadapt-inactive = Our body stops adjusting to the dark.
+changeling-darkadapt-inactive = We stop preparing for the dark.
 
 changeling-voidadapt-lowpressure-start = We adapt to the surrounding low pressure.
 changeling-voidadapt-lowpressure-end = The surrounding pressure is no longer low. We cast off our adaption.
