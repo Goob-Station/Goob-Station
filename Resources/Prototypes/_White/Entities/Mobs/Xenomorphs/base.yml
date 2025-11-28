@@ -25,6 +25,10 @@
     canToggle: false
     canEmag: false
     canExamine: false
+  - type: NightVision
+    color: white
+    activateSound: null
+    deactivateSound: null
   - type: ThermalVision
     isActive: true
     color: white
