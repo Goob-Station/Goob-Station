@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from ss13 wiki",
+    "size": {
+        "x": 64,
+        "y": 64
+    },
+    "states": [
+        {
+            "name": "BloodTrail"
+        },
+        {
+            "name": "Corporealize"
+        },
+        {
+            "name": "Incorporealize"
+        },
+        {
+            "name": "Possession"
+        },
+        {
+            "name": "Regenerate"
+        },
+        {
+            "name": "SoulSteal"
+        },
+        {
+            "name": "StaggerArea"
+        },
+        {
+            "name": "SummonMachete"
+        },
+        {
+            "name": "Meatspike"
+        },
+        {
+            "name":  "Survive"
+        }
+    ]
+}

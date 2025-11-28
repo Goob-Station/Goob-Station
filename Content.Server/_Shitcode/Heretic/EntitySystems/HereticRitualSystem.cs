@@ -39,6 +39,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
+    [Dependency] private readonly GhoulSystem _ghoul = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/castsummon.ogg");
 
@@ -192,10 +193,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
                 var spawned = Spawn(ent, Transform(platform).Coordinates);
 
                 if (ghoulQuery.TryComp(spawned, out var ghoul))
-                {
-                    ghoul.BoundHeretic = performer;
-                    Dirty(spawned, ghoul);
-                }
+                    _ghoul.SetBoundHeretic((spawned, ghoul), performer);
 
                 if (limited == null)
                     continue;
