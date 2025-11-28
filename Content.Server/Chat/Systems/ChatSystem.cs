@@ -109,13 +109,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Chat;
+using Content.Goobstation.Common.Traits;
+using Content.Goobstation.Shared.Loudspeaker.Events; // goob - loudspeakers
 using Content.Server._CorvaxGoob.Announcer;
 using Content.Server._EinsteinEngines.Language; // Einstein Engines - Language
-using Content.Goobstation.Shared.Loudspeaker.Events; // goob - loudspeakers
-using System.Collections.Immutable; // Goobstation - Starlight collective mind port
-using System.Globalization;
-using System.Linq;
-using System.Text;
 using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -128,6 +126,7 @@ using Content.Server.Speech.EntitySystems;
 using Content.Server.Speech.Prototypes;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Shared._CorvaxGoob.Chat;
 using Content.Shared._EinsteinEngines.Language; // Einstein Engines - Language
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Starlight.CollectiveMind; // Goobstation - Starlight collective mind port
@@ -144,8 +143,6 @@ using Content.Shared.Players;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
 using Content.Shared.Whitelist;
-using Content.Goobstation.Common.Chat;
-using Content.Goobstation.Common.Traits;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -158,8 +155,12 @@ using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using System.Collections.Immutable; // Goobstation - Starlight collective mind port
+using System.Collections.Immutable; // Goobstation - Starlight collective mind port
+using System.Globalization;
 using System.Globalization;
 using System.Linq;
+using System.Linq;
+using System.Text;
 using System.Text;
 
 namespace Content.Server.Chat.Systems;
@@ -522,7 +523,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             }
             // CorvaxGoob-CustomAnnouncers-End
 
-            _audio.PlayGlobal(announcementSound == null ? DefaultAnnouncementSound : _audio.ResolveSound(announcementSound), Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+            // CorvaxGoob-Announcements-Volume
+            SendGlobalSound(announcementSound ?? new SoundPathSpecifier(DefaultAnnouncementSound), Filter.Broadcast(), AudioParams.Default.WithVolume(-2f));
         }
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {sender}: {message}");
     }
@@ -552,7 +554,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         _chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, message, wrappedMessage, source ?? default, false, true, colorOverride);
         if (playSound)
         {
-            _audio.PlayGlobal(announcementSound ?? new SoundPathSpecifier(DefaultAnnouncementSound), filter, true, AudioParams.Default.WithVolume(-2f));
+            // CorvaxGoob-Announcements-Volume
+            SendGlobalSound(announcementSound ?? new SoundPathSpecifier(DefaultAnnouncementSound), filter, AudioParams.Default.WithVolume(-2f));
         }
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement from {sender}: {message}");
     }
@@ -592,10 +595,18 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         if (playDefaultSound)
         {
-            _audio.PlayGlobal(announcementSound ?? new SoundPathSpecifier(DefaultAnnouncementSound), filter, true, AudioParams.Default.WithVolume(-2f));
+            // CorvaxGoob-Announcements-Volume
+            SendGlobalSound(announcementSound ?? new SoundPathSpecifier(DefaultAnnouncementSound), filter, AudioParams.Default.WithVolume(-2f));
         }
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement on {station} from {sender}: {message}");
+    }
+
+    // CorvaxGoob-AnnouncementsVolume
+    public void SendGlobalSound(SoundSpecifier sound, Filter playerFilter, AudioParams? audioParams = null)
+    {
+        foreach (var recipient in playerFilter.Recipients)
+            RaiseNetworkEvent(new PlayGlobalSoundEvent(sound, audioParams), recipient);
     }
 
     #endregion

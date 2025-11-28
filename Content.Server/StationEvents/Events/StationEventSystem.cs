@@ -79,7 +79,8 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
         if (AnnouncerSystem.TryGetAnnouncerToday(out var announcerPrototype) && stationEvent.AnnouncersStartAudio.ContainsKey(announcerPrototype.ID))
             startAudio = stationEvent.AnnouncersStartAudio[announcerPrototype.ID];
 
-        Audio.PlayGlobal(startAudio, allPlayersInGame, true);
+        if (startAudio is not null)
+            ChatSystem.SendGlobalSound(startAudio, allPlayersInGame);
         // CorvaxGoob-CustomAnnouncers-End
     }
 
@@ -125,7 +126,8 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
         if (AnnouncerSystem.TryGetAnnouncerToday(out var announcerPrototype) && stationEvent.AnnouncersEndAudio.ContainsKey(announcerPrototype.ID))
             endAudio = stationEvent.AnnouncersEndAudio[announcerPrototype.ID];
 
-        Audio.PlayGlobal(endAudio, allPlayersInGame, true);
+        if (endAudio is not null)
+            ChatSystem.SendGlobalSound(endAudio, allPlayersInGame);
         // CorvaxGoob-CustomAnnouncers-End
     }
 

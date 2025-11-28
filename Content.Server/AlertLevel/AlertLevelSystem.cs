@@ -224,7 +224,7 @@ public sealed class AlertLevelSystem : EntitySystem
             {
                 var filter = _stationSystem.GetInOwningStation(station);
 
-                _audio.PlayGlobal(audio, filter, true, audio.Params);
+                _chatSystem.SendGlobalSound(audio, filter, audio.Params);
             } // CorvaxGoob-CustomAnnouncers-End
             else
             {

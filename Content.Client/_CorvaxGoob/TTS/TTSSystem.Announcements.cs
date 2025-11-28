@@ -2,6 +2,7 @@ using Content.Shared._CorvaxGoob;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Components;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
@@ -9,6 +10,13 @@ namespace Content.Client._CorvaxGoob.TTS;
 
 public sealed partial class TTSSystem
 {
+    private float _announcementsVolume = 0.0f;
+
+    private void OnAnnouncementsVolumeChanged(float volume)
+    {
+        _announcementsVolume = volume;
+    }
+
     private void PlayTTS(byte[] data)
     {
         var filePath = new ResPath($"{_fileIdx++}.ogg");
@@ -18,7 +26,7 @@ public sealed partial class TTSSystem
         audioResource.Load(IoCManager.Instance!, Prefix / filePath);
 
         var audioParams = AudioParams.Default
-            .WithVolume(AdjustVolume(false) + 2);
+            .WithVolume((AdjustVolume(false) + SharedAudioSystem.GainToVolume(_announcementsVolume)) / 2);
 
         var soundSpecifier = new SoundPathSpecifier(Prefix / filePath);
 

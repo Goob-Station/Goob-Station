@@ -104,4 +104,10 @@ public sealed class CCCVars
 
     public static readonly CVarDef<bool> CombatModeSoundEnabled =
         CVarDef.Create("audio.combat_mode_sound_enabled", true, CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    /// <summary>
+    /// Default volume setting of announcements sound.
+    /// </summary>
+    public static readonly CVarDef<float> AnnouncementsSound =
+        CVarDef.Create("audio.announcements_volume", 0.5f, CVar.CLIENTONLY | CVar.ARCHIVE);
 }
