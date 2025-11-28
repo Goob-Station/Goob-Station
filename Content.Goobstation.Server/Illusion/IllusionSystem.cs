@@ -102,10 +102,14 @@ public sealed class IllusionSystem : EntitySystem
         if (!args.IsHit || !ShouldSpawnIllusion(ent, args.User, args.HitEntities))
             return;
 
-        SpawnIllusion(args.User, ent.Comp.Lifetime, ent.Comp.HealthMultiplier, args.HitEntities);
+        SpawnIllusion(args.User, ent.Comp.Lifetime, ent.Comp.HealthMultiplier, args.HitEntities, ent.Comp.Components);
     }
 
-    private void SpawnIllusion(EntityUid user, float lifetime, float healthMultiplier, IReadOnlyList<EntityUid> targets)
+    private void SpawnIllusion(EntityUid user,
+        float lifetime,
+        float healthMultiplier,
+        IReadOnlyList<EntityUid> targets,
+        ComponentRegistry components)
     {
         if (lifetime <= 0f || healthMultiplier <= 0f)
             return;
@@ -175,6 +179,8 @@ public sealed class IllusionSystem : EntitySystem
         _npcFaction.AggroEntities((clone.Value, exception), targets);
 
         _htn.Replan(htn);
+
+        EntityManager.AddComponents(clone.Value, components);
     }
 
     private bool ShouldSpawnIllusion(Entity<IllusionOnMeleeHitComponent> ent,

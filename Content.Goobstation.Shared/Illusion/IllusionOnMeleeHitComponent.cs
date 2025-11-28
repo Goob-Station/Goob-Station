@@ -20,4 +20,7 @@ public sealed partial class IllusionOnMeleeHitComponent : Component
 
     [DataField]
     public List<ProtoId<NpcFactionPrototype>> FactionWhitelist = new();
+
+    [DataField]
+    public ComponentRegistry Components = new();
 }
