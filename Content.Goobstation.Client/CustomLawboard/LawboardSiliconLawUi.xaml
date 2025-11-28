@@ -14,7 +14,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     MinSize="600 400"
 >
     <BoxContainer Orientation="Vertical">
-        <BoxContainer Orientation="Horizontal" Align="End" Margin="0 20 0 0">
+        <BoxContainer Orientation="Horizontal" Align="End" Margin="0 15 0 0">
             <Button Name="NewLawButton" Text="{Loc silicon-law-ui-new-law}" MaxSize="256 64" StyleClasses="OpenRight"></Button>
             <Button Name="Save" Text="{Loc silicon-law-ui-save}" MaxSize="256 64" Access="Public" StyleClasses="OpenLeft"></Button>
         </BoxContainer>
