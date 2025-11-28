@@ -27,13 +27,70 @@
     useDelay: 15
     icon:
       sprite: _Goobstation/Terror/actions.rsi
-      state: thickweb
+      state: thickWeb
   - type: TargetAction
     range: 1
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
-      - id: TerrorSpiderWeb
+      - id: TerrorHeavyWeb
+        amount: 1
+
+- type: entity
+  id: ActionTerrorSlimyWeb
+  name: Slimy web
+  description: Spins a web that blurs vision of anyone who walks over it.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 15
+    icon:
+      sprite: _Goobstation/Terror/actions.rsi
+      state: slimyWeb
+  - type: TargetAction
+    range: 1
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: TerrorSpiderWebSlimy
+        amount: 1
+
+- type: entity
+  id: ActionTerrorPoisonWeb
+  name: Dark web
+  description: Spins a web that poisons anyone who comes in contact with it.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 30
+    icon:
+      sprite: _Goobstation/Terror/actions.rsi
+      state: darkWeb
+  - type: TargetAction
+    range: 1
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: TerrorSpiderWebPoison
+        amount: 1
+
+- type: entity
+  id: ActionTerrorInfestedWeb
+  name: Infested web
+  description: Spins a web that infests anyone who walks over it.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 60
+    icon:
+      sprite: _Goobstation/Terror/actions.rsi
+      state: eggWeb
+  - type: TargetAction
+    range: 1
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: TerrorSpiderWebInfested
         amount: 1
 
 - type: entity

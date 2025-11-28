@@ -85,6 +85,12 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: ThermalVision
+    isActive: true
+    color: white
+    drawOverlay: false
+    lightRadius: 0
+    toggleAction: null
   - type: TerrorSpider
     TerrorRegen:
         types:
@@ -102,6 +108,10 @@
   - type: ActionGrant
     actions:
       - ActionTerrorWeb
+      - ActionTerrorThickWeb
+      - ActionTerrorSlimyWeb
+      - ActionTerrorPoisonWeb
+      - ActionTerrorInfestedWeb
       - ActionTerrorWrap
       - ActionTerrorLayEggs
       - ActionTerrorSummonSpiderlings

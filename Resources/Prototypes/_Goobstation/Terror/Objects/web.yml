@@ -1,7 +1,6 @@
 - type: entity
-  id: TerrorSpiderWeb
+  id: TerrorSpiderWebBase
   parent: SpiderWebBase
-  name: terror web
   description: You probably shouldn't step on it.
   abstract: true
   components:
@@ -19,7 +18,7 @@
         - MidImpassable
   - type: Destructible
     thresholds:
-    - trigger: # Excess damage, don't spawn entities
+    - trigger:
         !type:DamageTrigger
         damage: 50
       behaviors:
@@ -30,15 +29,106 @@
         damage: 10
       behaviors:
       - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: TerrorWeb
-  - type: InvisibleOnTile
+        acts: ["Destruction"]
   - type: StepTrigger
     stepOn: true
-  - type: SpeedModifierContacts # No slowdown, but triggers effects
+  - type: SpeedModifierContacts
     walkSpeedModifier: 1
     sprintSpeedModifier: 1
     ignoreWhitelist:
       components:
       - IgnoreSpiderWeb
 
+- type: entity
+  id: TerrorSpiderWeb
+  parent: TerrorSpiderWebBase
+  name: terror web
+  components:
+  - type: TerrorWeb
+  - type: InvisibleOnTile
+
+- type: entity
+  id: TerrorSpiderWebSlimy
+  parent: TerrorHeavyWebBase
+  name: slimy web
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Structures/web.rsi
+    state: slimyWeb
+
+- type: entity
+  id: TerrorSpiderWebPoison
+  parent: TerrorHeavyWebBase
+  name: dark web
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Structures/web.rsi
+    state: darkWeb
+
+- type: entity
+  id: TerrorSpiderWebInfested
+  parent: TerrorHeavyWebBase
+  name: infested web
+  description: Looks to be crawling with spiderlings. You REALLY shouldn't step on it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Structures/web.rsi
+    state: eggWeb
+
+- type: entity
+  id: TerrorHeavyWebBase
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path: "/Audio/Weapons/slash.ogg"
+  - type: Sprite
+    sprite: _Goobstation/Terror/Structures/web.rsi
+    state: heavyWeb
+    drawdepth: Overdoors
+  - type: Appearance
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        density: 7
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - MidImpassable
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: AtmosExposed
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.8
+    sprintSpeedModifier: 0.8
+    ignoreWhitelist:
+      components:
+      - IgnoreSpiderWeb
+
+- type: entity
+  id: TerrorHeavyWeb
+  parent: TerrorHeavyWebBase
+  name: thick web
+  description: The thick web blocks movement and hinders vision.
+  components:
+  - type: Occluder  
