@@ -1,7 +1,7 @@
 - type: entity
   id: SyndicateCustomLawboard
   parent: [BaseElectronics, BaseSyndicateAnchoredContraband]
-  name: experimental syndicate lawboard
+  name: experimental syndicate law board
   description: A strange looking experimental lawboard. Judging by the Syndicate display on it, it's probaly used for nefarious purposes.
   components:
   - type: Sprite
