@@ -46,7 +46,7 @@ public sealed partial class AbducteeReturnPopup : FancyWindow
 
     private void ResetTimer()
     {
-        _remainingTime = (float)TimeSpan.FromSeconds(10f).TotalSeconds; // Set how long to show the popup for
+        _remainingTime = (float)TimeSpan.FromSeconds(7f).TotalSeconds; // Set how long to show the popup for
         UpdateCloseButtonText();
     }
 
