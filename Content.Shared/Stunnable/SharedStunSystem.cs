@@ -274,7 +274,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         StatusEffectsComponent? status = null)
     {
         var modifierEv = new GetClothingStunModifierEvent(uid);
-        RaiseLocalEvent(modifierEv);
+        RaiseLocalEvent(uid, modifierEv, true);
         time *= modifierEv.Modifier;
 
         if (time <= TimeSpan.Zero)
@@ -313,7 +313,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         DropHeldItemsBehavior behavior, StatusEffectsComponent? status = null, bool standOnRemoval = true) // Shitmed Change
     {
         var modifierEv = new GetClothingStunModifierEvent(uid);
-        RaiseLocalEvent(modifierEv);
+        RaiseLocalEvent(uid, modifierEv, true);
         time *= modifierEv.Modifier;
 
         if (!HasComp<LayingDownComponent>(uid)) // Goobstation - only knockdown mobs that can lie down
@@ -357,7 +357,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         StatusEffectsComponent? status = null)
     {
         var modifierEv = new GetClothingStunModifierEvent(uid);
-        RaiseLocalEvent(modifierEv);
+        RaiseLocalEvent(uid, modifierEv, true);
         time *= modifierEv.Modifier;
 
         if (!HasComp<LayingDownComponent>(uid)) // Goobstation - only knockdown mobs that can lie down
@@ -418,6 +418,8 @@ public abstract partial class SharedStunSystem : EntitySystem
 
         if (ignoreEv.Cancelled)
             return false;
+
+        var hadComp = HasComp<SlowedDownComponent>(uid);
         // goob end
 
         if (_statusEffect.TryAddStatusEffect<SlowedDownComponent>(uid, "SlowedDown", time, refresh, status))
@@ -427,8 +429,18 @@ public abstract partial class SharedStunSystem : EntitySystem
             walkSpeedMultiplier = Math.Clamp(walkSpeedMultiplier, 0f, 1f);
             runSpeedMultiplier = Math.Clamp(runSpeedMultiplier, 0f, 1f);
 
-            slowed.WalkSpeedModifier *= walkSpeedMultiplier;
-            slowed.SprintSpeedModifier *= runSpeedMultiplier;
+            // Goob edit start
+            if (hadComp)
+            {
+                slowed.WalkSpeedModifier *= walkSpeedMultiplier;
+                slowed.SprintSpeedModifier *= runSpeedMultiplier;
+            }
+            else
+            {
+                slowed.WalkSpeedModifier = walkSpeedMultiplier;
+                slowed.SprintSpeedModifier = runSpeedMultiplier;
+            }
+            // Goob edit end
 
             _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
             return true;
