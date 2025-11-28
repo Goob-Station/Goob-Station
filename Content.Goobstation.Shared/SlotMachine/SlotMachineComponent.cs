@@ -61,19 +61,19 @@ public sealed partial class SlotMachineComponent : Component
     #region Prize Amounts
 
     [DataField, AutoNetworkedField]
-    public int SpinCost = 300;
+    public int SpinCost = 250;
 
     [DataField, AutoNetworkedField]
-    public int SmallPrizeAmount = 100;
+    public int SmallPrizeAmount = 250;
 
     [DataField, AutoNetworkedField]
     public int MediumPrizeAmount = 500;
 
     [DataField, AutoNetworkedField]
-    public int BigPrizeAmount = 1500;
+    public int BigPrizeAmount = 5000;
 
     [DataField, AutoNetworkedField]
-    public int JackPotPrizeAmount = 10000;
+    public int JackPotPrizeAmount = 20000;
 
     #endregion
 

@@ -1,3 +1,4 @@
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Tag;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -20,13 +21,13 @@ public sealed partial class FleshPassiveComponent : Component
     public EntityUid? FleshStomach;
 
     [DataField]
-    public float BaseMoveSpeedPerFlesh = 0.0002f;
+    public float BaseMoveSpeedPerFlesh = 0.0007f;
 
     [DataField]
-    public float BaseAttackRatePerFlesh = 0.001f;
+    public float BaseAttackRatePerFlesh = 0.005f;
 
     [DataField]
-    public float BaseHealingPerFlesh = 0.001f;
+    public float BaseHealingPerFlesh = 0.002f;
 
     [DataField]
     public float OrganMultiplier = 2f;
@@ -72,4 +73,10 @@ public sealed partial class FleshPassiveComponent : Component
 
     [ViewVariables]
     public float Accumulator;
+
+    [DataField]
+    public FixedPoint2 TrackedDamage;
+
+    [DataField]
+    public FixedPoint2 MimicDamage = 10;
 }
