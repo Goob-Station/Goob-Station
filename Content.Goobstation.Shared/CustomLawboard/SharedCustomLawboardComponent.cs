@@ -16,9 +16,11 @@ public enum CustomLawboardUiKey : byte
 public sealed class CustomLawboardChangeLawsMessage : BoundUserInterfaceMessage
 {
     public List<SiliconLaw> Laws { get; }
+    public bool Popup;
 
-    public CustomLawboardChangeLawsMessage(List<SiliconLaw> laws)
+    public CustomLawboardChangeLawsMessage(List<SiliconLaw> laws, bool popup)
     {
         Laws = laws;
+        Popup = popup;
     }
 }

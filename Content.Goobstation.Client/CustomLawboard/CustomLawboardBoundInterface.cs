@@ -3,6 +3,7 @@ using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.Controls;
 
 namespace Content.Goobstation.Client.CustomLawboard;
 
@@ -25,7 +26,8 @@ public sealed class CustomLawboardBoundInterface : BoundUserInterface
 
         _window = this.CreateWindow<LawboardSiliconLawUi>();
 
-        _window.LawsChangedEvent += args => OnLawsChanged(args);
+        _window.LawsChangedEvent += (laws, popup) => OnLawsChanged(laws, popup);
+
         _window.Entity = Owner;
         var lawProvider = EntMan.EnsureComponent<SiliconLawProviderComponent>(Owner);
         if (lawProvider.Lawset != null)
@@ -36,8 +38,8 @@ public sealed class CustomLawboardBoundInterface : BoundUserInterface
         Update();
     }
 
-    private void OnLawsChanged(List<SiliconLaw> value)
+    private void OnLawsChanged(List<SiliconLaw> value, bool popup)
     {
-        SendPredictedMessage(new CustomLawboardChangeLawsMessage(value));
+        SendPredictedMessage(new CustomLawboardChangeLawsMessage(value, popup));
     }
 }
