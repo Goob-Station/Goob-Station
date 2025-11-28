@@ -34,13 +34,15 @@ public sealed partial class ReactorPartComponent : Component
     /// Byte indicating what type of rod this reactor part is
     /// </summary>
     [DataField]
-    public byte RodType = (byte)RodTypes.Generic;
+    public RodTypes RodType = RodTypes.Generic;
 
-    public enum RodTypes : byte
+    public enum RodTypes
     {
         Generic = 1 << 0,
-        Control = 1 << 1,
-        GasChannel = 1 << 2,
+        FuelRod = 1 << 1,
+        ControlRod = 1 << 2,
+        GasChannel = 1 << 3,
+        HeatExchanger = 1 << 4,
     }
 
     #region Variables
@@ -176,7 +178,7 @@ public static class BaseReactorComponents
 {
     public static readonly ReactorPartComponent ControlRod = new()
     {
-        RodType = (byte)ReactorPartComponent.RodTypes.Control,
+        RodType = ReactorPartComponent.RodTypes.ControlRod,
         ProtoId = "BohrumReactorControlRod",
         IconStateInserted = "control",
         IconStateCap = "control_cap",
@@ -188,6 +190,7 @@ public static class BaseReactorComponents
 
     public static readonly ReactorPartComponent FuelRod = new()
     {
+        RodType = ReactorPartComponent.RodTypes.FuelRod,
         ProtoId = "CerenkiteReactorFuelRod",
         IconStateInserted = "fuel",
         IconStateCap = "fuel_cap",
@@ -199,7 +202,7 @@ public static class BaseReactorComponents
 
     public static readonly ReactorPartComponent GasChannel = new()
     {
-        RodType = (byte)ReactorPartComponent.RodTypes.GasChannel,
+        RodType = ReactorPartComponent.RodTypes.GasChannel,
         ProtoId = "SteelReactorGasChannel",
         IconStateInserted = "gas",
         IconStateCap = "gas_cap",
@@ -210,6 +213,7 @@ public static class BaseReactorComponents
 
     public static readonly ReactorPartComponent HeatExchanger = new()
     {
+        RodType = ReactorPartComponent.RodTypes.HeatExchanger,
         ProtoId = "SteelReactorHeatExchanger",
         IconStateInserted = "heat",
         IconStateCap = "heat_cap",

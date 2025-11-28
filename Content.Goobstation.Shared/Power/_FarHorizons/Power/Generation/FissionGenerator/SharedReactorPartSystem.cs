@@ -23,8 +23,25 @@ public abstract class SharedReactorPartSystem : EntitySystem
     [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
+    /// <summary>
+    /// Changes the overall rate of events
+    /// </summary>
     private readonly float _rate = 5;
+
+    /// <summary>
+    /// Changes the likelyhood of neutron interactions
+    /// </summary>
     private readonly float _bias = 1.5f;
+
+    /// <summary>
+    /// The amount of a property consumed by a reaction
+    /// </summary>
+    private readonly float _reactant = 0.01f;
+
+    /// <summary>
+    /// The amount of a property resultant from a reaction
+    /// </summary>
+    private readonly float _product = 0.005f;
 
     private readonly float _threshold  = 0.5f;
     private float _accumulator = 0f;
@@ -172,7 +189,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
         reactorPart.ThermalCrossSection = 20f;
         reactorPart.IsControlRod = false;
 
-        if(reactorPart.RodType == (byte)ReactorPartComponent.RodTypes.GasChannel)
+        if(reactorPart.RodType == ReactorPartComponent.RodTypes.GasChannel)
             reactorPart.GasThermalCrossSection = 0.1f;
     }
 
@@ -256,8 +273,8 @@ public abstract class SharedReactorPartSystem : EntitySystem
             {
                 if (neutron.velocity <= 1 && Prob(_rate * reactorPart.Properties.NeutronRadioactivity * _bias)) // neutron stimulated emission
                 {
-                    reactorPart.Properties.NeutronRadioactivity -= 0.001f;
-                    reactorPart.Properties.Radioactivity += 0.0005f;
+                    reactorPart.Properties.NeutronRadioactivity -= _reactant;
+                    reactorPart.Properties.Radioactivity += _product;
                     for (var i = 0; i < _random.Next(3, 5 + 1); i++) // was 1, 5+1
                     {
                         neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(2, 3 + 1) });
@@ -268,8 +285,8 @@ public abstract class SharedReactorPartSystem : EntitySystem
                 }
                 else if (neutron.velocity <= 5 && Prob(_rate * reactorPart.Properties.Radioactivity * _bias)) // stimulated emission
                 {
-                    reactorPart.Properties.Radioactivity -= 0.001f;
-                    reactorPart.Properties.FissileIsotopes += 0.0005f;
+                    reactorPart.Properties.Radioactivity -= _reactant;
+                    reactorPart.Properties.FissileIsotopes += _product;
                     for (var i = 0; i < _random.Next(3, 5 + 1); i++)// was 1, 5+1
                     {
                         neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
@@ -280,12 +297,11 @@ public abstract class SharedReactorPartSystem : EntitySystem
                 }
                 else
                 {
-                    // Put control rods first so they'd have a bigger effect
-                    if (reactorPart.IsControlRod)
-                        neutron.velocity = 0;
-                    else if (Prob(_rate * reactorPart.Properties.Hardness)) // reflection, based on hardness
+                    if (Prob(_rate * reactorPart.Properties.Hardness)) // reflection, based on hardness
                         // A really complicated way of saying do a 180 or a 180+/-45
                         neutron.dir = (neutron.dir.GetOpposite().ToAngle() + (_random.NextAngle() / 4) - (MathF.Tau / 8)).GetDir();
+                    else if (reactorPart.IsControlRod)
+                        neutron.velocity = 0;
                     else
                         neutron.velocity--;
 
@@ -304,8 +320,8 @@ public abstract class SharedReactorPartSystem : EntitySystem
             {
                 neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = 3 });
             }
-            reactorPart.Properties.NeutronRadioactivity -= 0.001f;
-            reactorPart.Properties.Radioactivity += 0.0005f;
+            reactorPart.Properties.NeutronRadioactivity -= _reactant / 2;
+            reactorPart.Properties.Radioactivity += _product / 2;
             //This code has been deactivated so neutrons would have a bigger impact
             //reactorPart.Temperature += 13; // 20 * 0.65
             //thermalEnergy += 13 * reactorPart.ThermalMass;
@@ -317,14 +333,14 @@ public abstract class SharedReactorPartSystem : EntitySystem
             {
                 neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
             }
-            reactorPart.Properties.Radioactivity -= 0.001f;
-            reactorPart.Properties.FissileIsotopes += 0.0005f;
+            reactorPart.Properties.Radioactivity -= _reactant / 2;
+            reactorPart.Properties.FissileIsotopes += _product / 2;
             //This code has been deactivated so neutrons would have a bigger impact
             //reactorPart.Temperature += 6.5f; // 10 * 0.65
             //thermalEnergy += 6.5f * reactorPart.ThermalMass;
         }
 
-        if (reactorPart.RodType == (byte)ReactorPartComponent.RodTypes.Control)
+        if (reactorPart.RodType == ReactorPartComponent.RodTypes.ControlRod)
         {
             if (!reactorPart.Melted && (reactorPart.NeutronCrossSection != reactorPart.ConfiguredInsertionLevel))
             {
@@ -336,7 +352,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
             }
         }
 
-        if (reactorPart.RodType == (byte)ReactorPartComponent.RodTypes.GasChannel)
+        if (reactorPart.RodType == ReactorPartComponent.RodTypes.GasChannel)
             neutrons = ProcessNeutronsGas(reactorPart, neutrons);
 
         neutrons ??= [];

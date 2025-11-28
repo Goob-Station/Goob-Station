@@ -1,12 +1,11 @@
-using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.NodeContainer.EntitySystems;
-using Content.Server.NodeContainer.Nodes;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Atmos;
 using Content.Shared.Database;
@@ -14,10 +13,14 @@ using Content.Shared.Explosion.Components;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
+using Content.Server.NodeContainer.Nodes;
+using Content.Shared.DeviceLinking.Events;
+using Content.Server.DeviceLinking.Systems;
+using Content.Shared.Construction.Components;
+using Robust.Shared.Physics;
 
-namespace Content.Goobstation.Server.Power._FarHorizons.Power.Generation.FissionGenerator;
+namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
 // Ported and modified from goonstation by Jhrushbe.
 // CC-BY-NC-SA-3.0
@@ -32,9 +35,10 @@ public sealed class TurbineSystem : SharedTurbineSystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
+    [Dependency] private readonly DeviceLinkSystem _signal = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public event Action<string>? TurbineRepairMessage;
 
@@ -52,8 +56,22 @@ public sealed class TurbineSystem : SharedTurbineSystem
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<TurbineComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<TurbineComponent, ComponentShutdown>(OnShutdown);
+
         SubscribeLocalEvent<TurbineComponent, AtmosDeviceUpdateEvent>(OnUpdate);
         SubscribeLocalEvent<TurbineComponent, GasAnalyzerScanEvent>(OnAnalyze);
+
+        SubscribeLocalEvent<TurbineComponent, SignalReceivedEvent>(OnSignalReceived);
+
+        SubscribeLocalEvent<TurbineComponent, AnchorStateChangedEvent>(OnAnchorChanged);
+        SubscribeLocalEvent<TurbineComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
+    }
+
+    private void OnInit(EntityUid uid, TurbineComponent comp, ref ComponentInit args)
+    {
+        _signal.EnsureSourcePorts(uid, comp.SpeedHighPort, comp.SpeedLowPort);
+        _signal.EnsureSinkPorts(uid, comp.StatorLoadIncreasePort, comp.StatorLoadDecreasePort);
     }
 
     private void OnAnalyze(EntityUid uid, TurbineComponent comp, ref GasAnalyzerScanEvent args)
@@ -80,6 +98,12 @@ public sealed class TurbineSystem : SharedTurbineSystem
         }
     }
 
+    private void OnShutdown(EntityUid uid, TurbineComponent comp, ref ComponentShutdown args)
+    {
+        QueueDel(comp.InletEnt);
+        QueueDel(comp.OutletEnt);
+    }
+
     #region Main Loop
     private void OnUpdate(EntityUid uid, TurbineComponent comp, ref AtmosDeviceUpdateEvent args)
     {
@@ -92,6 +116,8 @@ public sealed class TurbineSystem : SharedTurbineSystem
             comp.InletEnt = SpawnAttachedTo("TurbineGasPipe", new(uid, -1, -1), rotation: Angle.FromDegrees(-90));
         if (!comp.OutletEnt.HasValue || EntityManager.Deleted(comp.OutletEnt.Value))
             comp.OutletEnt = SpawnAttachedTo("TurbineGasPipe", new(uid, 1, -1), rotation: Angle.FromDegrees(90));
+
+        CheckAnchoredPipes(uid, comp);
 
         if (!_nodeContainer.TryGetNode(comp.InletEnt.Value, comp.PipeName, out PipeNode? inlet))
             return;
@@ -183,10 +209,6 @@ public sealed class TurbineSystem : SharedTurbineSystem
             if (NewRPM < 0 || NextRPM < 0)
             {
                 // Stator load is too high
-                if (!_audio.IsPlaying(comp.AlarmAudioUnderspeed) && !comp.Undertemp && comp.FlowRate > 0)
-                {
-                    comp.AlarmAudioUnderspeed = _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/alarm_beep.ogg"), uid, AudioParams.Default.WithLoop(true).WithVolume(-4))?.Entity;
-                }
                 comp.Stalling = true;
                 comp.RPM = 0;
             }
@@ -195,8 +217,10 @@ public sealed class TurbineSystem : SharedTurbineSystem
                 comp.Stalling = false;
                 comp.RPM = NextRPM;
             }
-
-            if (_audio.IsPlaying(comp.AlarmAudioUnderspeed) && (comp.FlowRate <= 0 || comp.Undertemp || comp.RPM > 10))
+            
+            if (!_audio.IsPlaying(comp.AlarmAudioUnderspeed) && !comp.Undertemp && comp.FlowRate > 0 && comp.Stalling)
+                 PlayAudio(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/alarm_beep.ogg"), uid, out comp.AlarmAudioUnderspeed, AudioParams.Default.WithLoop(true).WithVolume(-4));
+            else if (_audio.IsPlaying(comp.AlarmAudioUnderspeed) && (comp.FlowRate <= 0 || comp.Undertemp || comp.RPM > 10))
                 comp.AlarmAudioUnderspeed = _audio.Stop(comp.AlarmAudioUnderspeed);
 
             if (comp.RPM > 10)
@@ -220,7 +244,6 @@ public sealed class TurbineSystem : SharedTurbineSystem
                 // TODO: damage flash
                 _audio.PlayPvs(new SoundPathSpecifier(_damageSoundList[_random.Next(0, _damageSoundList.Count - 1)]), uid, AudioParams.Default.WithVariation(0.25f).WithVolume(-1));
                 comp.BladeHealth--;
-                Dirty(uid, comp);
                 UpdateHealthIndicators(uid, comp);
             }
 
@@ -232,6 +255,14 @@ public sealed class TurbineSystem : SharedTurbineSystem
         {
             TearApart(uid, comp);
         }
+
+        // Send signals to device network
+        if (comp.RPM > comp.BestRPM*1.05)
+            _signal.InvokePort(uid, comp.SpeedHighPort);
+        else if (comp.RPM < comp.BestRPM*0.95)
+            _signal.InvokePort(uid, comp.SpeedLowPort);
+
+        Dirty(uid, comp);
     }
 
     private float CalculateTransferVolume(TurbineComponent comp, PipeNode inlet, PipeNode outlet, float dt)
@@ -313,4 +344,48 @@ public sealed class TurbineSystem : SharedTurbineSystem
            });
     }
     #endregion
+
+    private void OnSignalReceived(EntityUid uid, TurbineComponent comp, ref SignalReceivedEvent args)
+    {
+        if (args.Port == comp.StatorLoadIncreasePort)
+            AdjustStatorLoad(comp, 1000);
+        else if (args.Port == comp.StatorLoadDecreasePort)
+            AdjustStatorLoad(comp, -1000);
+
+        _adminLogger.Add(LogType.Action, $"{ToPrettyString(args.Trigger):trigger} set the stator load on {ToPrettyString(uid):target} to {comp.StatorLoad}");
+    }
+
+    private void OnAnchorChanged(EntityUid uid, TurbineComponent comp, ref AnchorStateChangedEvent args)
+    {
+        if (!args.Anchored)
+            CleanUp(comp);
+    }
+
+    private void OnUnanchorAttempt(EntityUid uid, TurbineComponent comp, ref UnanchorAttemptEvent args)
+    {
+        if (comp.RPM>1)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("turbine-unanchor-warning"), args.User, args.User, PopupType.LargeCaution);
+            args.Cancel();
+        }
+    }
+
+    private void CheckAnchoredPipes(EntityUid uid, TurbineComponent comp)
+    {
+        if (comp.InletEnt == null || comp.OutletEnt == null)
+            return;
+
+        if (!Transform(comp.InletEnt.Value).Anchored || !Transform(comp.OutletEnt.Value).Anchored)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("turbine-anchor-warning"), uid, PopupType.MediumCaution);
+            CleanUp(comp);
+            _transform.Unanchor(uid);
+        }
+    }
+
+    private void CleanUp(TurbineComponent comp)
+    {
+        QueueDel(comp.InletEnt);
+        QueueDel(comp.OutletEnt);
+    }
 }

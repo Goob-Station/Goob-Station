@@ -518,7 +518,7 @@
     #- AtmosTools - Goobstation - Moved to Engifab
     #- EngineeringWeapons - Goobstation - Moved to Scifab and Engifab
     #- Chemistry - Goobstation
-    - ReactorPartsBasic
+    - ReactorPartsBasic # goobstation
     - Janitor
     - Instruments
     - Equipment # Goobstation note: handheld mass scanner is removed
@@ -599,6 +599,7 @@
     #- MechBoards - Goobstation - split between departmental lathes
     - ShuttleBoards
     # Goobstation Packs
+    - ReactorCircuitboards
     - SharedBoards
     - ShuttleBoardsGoob
   - type: MaterialStorage

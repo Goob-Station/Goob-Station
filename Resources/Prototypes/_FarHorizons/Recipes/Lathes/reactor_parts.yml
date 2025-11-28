@@ -4,47 +4,262 @@
   abstract: true
   id: BaseReactorPartRecipe
   categories:
-  - Parts
+  - Engineering
   completetime: 10
 
 ## Recipes
 
 # Fuel Rods
+# 5 Steel + 3 Fuel
 - type: latheRecipe
   parent: BaseReactorPartRecipe
-  id: CerenkiteFuelRod
+  id: CerenkiteReactorFuelRod
   result: CerenkiteReactorFuelRod
   materials:
-    Steel: 1500
-    Plasma: 500
-    Uranium: 1000
+    Steel: 500
+    Plasma: 200
+    Uranium: 100
 
 - type: latheRecipe
   parent: BaseReactorPartRecipe
-  id: UraniumFuelRod
+  id: UraniumReactorFuelRod
   result: UraniumReactorFuelRod
   materials:
     Steel: 500
-    Uranium: 3000
+    Uranium: 300
 
-# Other Parts
 - type: latheRecipe
   parent: BaseReactorPartRecipe
-  id: ReactorControlRod
+  id: PlutoniumReactorFuelRod
+  result: PlutoniumReactorFuelRod
+  materials:
+    Steel: 500
+    Plutonium: 300
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: BananiumReactorFuelRod
+  result: BananiumReactorFuelRod
+  materials:
+    Steel: 500
+    Bananium: 300
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: PlasmaReactorFuelRod
+  result: PlasmaReactorFuelRod
+  materials:
+    Steel: 500
+    Plasma: 300
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: UraniumGlassReactorFuelRod
+  result: UraniumGlassReactorFuelRod
+  materials:
+    Steel: 500
+    UraniumGlass: 300
+
+# Control Rods
+# 5 Steel + 10 Material
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: BohrumReactorControlRod
   result: BohrumReactorControlRod
   materials:
-    Steel: 4000
+    Steel: 1000
+    Plasteel: 500
 
 - type: latheRecipe
   parent: BaseReactorPartRecipe
-  id: ReactorGasChannel
+  id: SteelReactorControlRod
+  result: SteelReactorControlRod
+  materials:
+    Steel: 1500
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: GoldReactorControlRod
+  result: GoldReactorControlRod
+  materials:
+    Steel: 500
+    Gold: 1000
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: SilverReactorControlRod
+  result: SilverReactorControlRod
+  materials:
+    Steel: 500
+    Silver: 1000
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: BrassReactorControlRod
+  result: BrassReactorControlRod
+  materials:
+    Steel: 500
+    Brass: 1000
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: PlasteelReactorControlRod
+  result: PlasteelReactorControlRod
+  materials:
+    Steel: 500
+    Plasteel: 1000
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: GlassReactorControlRod
+  result: GlassReactorControlRod
+  materials:
+    Steel: 500
+    Glass: 1000
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: PlasmaGlassReactorControlRod
+  result: PlasmaGlassReactorControlRod
+  materials:
+    Steel: 500
+    PlasmaGlass: 1000
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: DiamondReactorControlRod
+  result: DiamondReactorControlRod
+  materials:
+    Steel: 500
+    Diamond: 1000
+
+
+# Gas Channel Rods
+# 5 Steel + 5 Material
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: SteelReactorGasChannel
   result: SteelReactorGasChannel
   materials:
-    Steel: 2500
+    Steel: 1000
 
 - type: latheRecipe
   parent: BaseReactorPartRecipe
-  id: ReactorHeatExchanger
+  id: GoldReactorGasChannel
+  result: GoldReactorGasChannel
+  materials:
+    Steel: 500
+    Gold: 500
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: SilverReactorGasChannel
+  result: SilverReactorGasChannel
+  materials:
+    Steel: 500
+    Silver: 500
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: BrassReactorGasChannel
+  result: BrassReactorGasChannel
+  materials:
+    Steel: 500
+    Brass: 500
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: PlasteelReactorGasChannel
+  result: PlasteelReactorGasChannel
+  materials:
+    Steel: 500
+    Plasteel: 500
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: GlassReactorGasChannel
+  result: GlassReactorGasChannel
+  materials:
+    Steel: 500
+    Glass: 500
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: PlasmaGlassReactorGasChannel
+  result: PlasmaGlassReactorGasChannel
+  materials:
+    Steel: 500
+    PlasmaGlass: 500
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: DiamondReactorGasChannel
+  result: DiamondReactorGasChannel
+  materials:
+    Steel: 500
+    Diamond: 500
+
+# Heat Exchanger Rods
+# 5 Steel + 7.5 Material
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: SteelReactorHeatExchanger
   result: SteelReactorHeatExchanger
   materials:
-    Steel: 3000
+    Steel: 1250
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: GoldReactorHeatExchanger
+  result: GoldReactorHeatExchanger
+  materials:
+    Steel: 500
+    Gold: 750
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: SilverReactorHeatExchanger
+  result: SilverReactorHeatExchanger
+  materials:
+    Steel: 500
+    Silver: 750
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: BrassReactorHeatExchanger
+  result: BrassReactorHeatExchanger
+  materials:
+    Steel: 500
+    Brass: 750
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: PlasteelReactorHeatExchanger
+  result: PlasteelReactorHeatExchanger
+  materials:
+    Steel: 500
+    Plasteel: 750
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: GlassReactorHeatExchanger
+  result: GlassReactorHeatExchanger
+  materials:
+    Steel: 500
+    Glass: 750
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: PlasmaGlassReactorHeatExchanger
+  result: PlasmaGlassReactorHeatExchanger
+  materials:
+    Steel: 500
+    PlasmaGlass: 750
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: DiamondReactorHeatExchanger
+  result: DiamondReactorHeatExchanger
+  materials:
+    Steel: 500
+    Diamond: 750

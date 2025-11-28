@@ -1,11 +1,17 @@
-using Content.Shared.Atmos;
-using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Materials;
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Audio;
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Atmos;
 using Robust.Shared.Prototypes;
+using Content.Shared.Materials;
+using Content.Shared.DeviceLinking;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
+namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
+
+// Ported and modified from goonstation by Jhrushbe.
+// CC-BY-NC-SA-3.0
+// https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/nuclearreactor.dm
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class NuclearReactorComponent : Component
@@ -42,7 +48,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// Reactor casing temperature
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public float Temperature = Atmospherics.T20C;
 
     /// <summary>
@@ -158,7 +164,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// Flag indicating the reactor should apply the selected prefab
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public bool ApplyPrefab = true;
 
     /// <summary>
@@ -173,6 +179,12 @@ public sealed partial class NuclearReactorComponent : Component
     public EntityUid? InletEnt;
     [ViewVariables]
     public EntityUid? OutletEnt;
+
+    [DataField("controlRodRetractPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
+    public string ControlRodRetractPort = "RetractControlRods";
+
+    [DataField("controlRodInsertPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
+    public string ControlRodInsertPort = "InsertControlRods";
 
     #region Debug
     [ViewVariables(VVAccess.ReadOnly)]

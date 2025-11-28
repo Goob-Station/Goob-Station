@@ -1,9 +1,15 @@
-using Content.Shared.Atmos;
-using Content.Shared.Tools;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.GameStates;
+using Content.Shared.Tools;
+using Content.Shared.Atmos;
+using Content.Shared.DeviceLinking;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
+namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
+
+// Ported and modified from goonstation by Jhrushbe.
+// CC-BY-NC-SA-3.0
+// https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/turbine.dm
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class TurbineComponent : Component
@@ -37,6 +43,12 @@ public sealed partial class TurbineComponent : Component
     /// </summary>
     [DataField]
     public float BestRPM = 600;
+
+    /// <summary>
+    /// RPM the animation is playing at
+    /// </summary>
+    [ViewVariables]
+    public float AnimRPM = 0;
 
     /// <summary>
     /// Volume of gas to process per tick for power generation
@@ -121,9 +133,9 @@ public sealed partial class TurbineComponent : Component
     [DataField]
     public float PowerMultiplier = 1;
 
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? AlarmAudioOvertemp;
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? AlarmAudioUnderspeed;
 
     /// <summary>
@@ -150,6 +162,18 @@ public sealed partial class TurbineComponent : Component
     public EntityUid? InletEnt;
     [ViewVariables]
     public EntityUid? OutletEnt;
+
+    [DataField("speedHighPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+    public string SpeedHighPort = "TurbineSpeedHigh";
+
+    [DataField("speedLowPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+    public string SpeedLowPort = "TurbineSpeedLow";
+
+    [DataField("statorLoadIncreasePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
+    public string StatorLoadIncreasePort = "IncreaseStatorLoad";
+
+    [DataField("statorLoadDecreasePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
+    public string StatorLoadDecreasePort = "DecreaseStatorLoad";
 
     #region Debug
     [ViewVariables(VVAccess.ReadOnly)]

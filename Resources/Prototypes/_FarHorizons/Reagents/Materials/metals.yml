@@ -28,9 +28,10 @@
 
 - type: material
   id: Plutonium
-  stackEntity: SheetUranium1 # TODO: Materials
+  stackEntity: IngotPlutonium1
   name: materials-plutonium
-  icon: { sprite: Objects/Materials/Sheets/other.rsi, state: uranium } # TODO: Materials
+  unit: materials-unit-bar
+  icon: { sprite: Objects/Materials/ingots.rsi, state: iron } # Why iron? Because I haven't gotten a spriter to make better
   color: "#404888"
   price: 1.75 # $175 for 1 unit, arbitrary
   properties:

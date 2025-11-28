@@ -165,7 +165,7 @@
   name: materials-bananium
   unit: materials-unit-bunch
   icon: { sprite: Objects/Materials/materials.rsi, state: bananium }
-  color: "#32a852"
+  color: "#bfc031" # FH edit
   price: 1.0 # $100 for 1 unit
   # Interpolated properties, 50/50 biomass/uranium
   properties: # FH edit

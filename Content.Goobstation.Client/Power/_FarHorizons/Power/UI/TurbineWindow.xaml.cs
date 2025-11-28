@@ -93,9 +93,10 @@ public sealed partial class TurbineWindow : FancyWindow
             if (!_suppressSliderEvents)
                 TurbineStatorLoadChanged?.Invoke(TurbineStatorLoadSlider.Value);
         };
-
-        StatorLoadDecrease.OnPressed += _ => TurbineStatorLoadChanged?.Invoke(TurbineStatorLoadSlider.Value * 0.9f);
-        StatorLoadIncrease.OnPressed += _ => TurbineStatorLoadChanged?.Invoke(TurbineStatorLoadSlider.Value * 1.1f);
+        StatorLoadDecreaseLarge.OnPressed += _ => TurbineStatorLoadChanged?.Invoke(TurbineStatorLoadSlider.Value - 1000);
+        StatorLoadDecrease.OnPressed += _ => TurbineStatorLoadChanged?.Invoke(TurbineStatorLoadSlider.Value - 100);
+        StatorLoadIncrease.OnPressed += _ => TurbineStatorLoadChanged?.Invoke(TurbineStatorLoadSlider.Value + 100);
+        StatorLoadIncreaseLarge.OnPressed += _ => TurbineStatorLoadChanged?.Invoke(TurbineStatorLoadSlider.Value + 1000);
     }
 
     #region Graphics

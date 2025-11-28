@@ -73,7 +73,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-2.5,-2.5,2.5,2.5"
+          bounds: "-2.5,-2.5,2.5,2"
         density: 190
         mask:
         - MachineMask
@@ -81,8 +81,6 @@
         - MachineLayer
         - HighImpassable
   - type: Anchorable
-    flags:
-    - Anchorable
   - type: AtmosDevice
   - type: AtmosMonitoringConsoleDevice # TODO: this doesn't work?
     navMapBlip: Thermoregulator
@@ -98,6 +96,15 @@
           components:
             - ReactorPart
   - type: NuclearReactor
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+      - InsertControlRods
+      - RetractControlRods
   - type: ActivatableUI
     key: enum.NuclearReactorUiKey.Key
   - type: ActivatableUIRequiresAnchor
@@ -111,10 +118,29 @@
     unlockOnClick: false
   - type: WarpPoint
     location: Nuclear Reactor
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: GuideHelp
     guides:
     - NuclearReactor
     - Power
+
+- type: entity
+  id: NuclearReactorEmpty
+  parent: BaseNuclearReactor
+  suffix: Empty
+  components:
+  - type: NuclearReactor
+    prefab: empty
+
+- type: entity
+  id: NuclearReactorMeltdown
+  parent: BaseNuclearReactor
+  suffix: Meltdown
+  components:
+  - type: NuclearReactor
+    prefab: meltdown
 
 # Visual parts on the reactor
 - type: entity
@@ -219,7 +245,7 @@
       map: [ "enum.PipeVisualLayers.Pipe" ]
       visible: false
   - type: Anchorable
-    flags:
+    flags: 
     - Anchorable
   - type: NodeContainer
     nodes:

@@ -11,6 +11,8 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<NuclearReactorComponent, ClientExaminedEvent>(ReactorExamined);
     }
 

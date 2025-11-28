@@ -1,8 +1,8 @@
-using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
+using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Client.Power._FarHorizons.Power.Generation.FissionGenerator;
+namespace Content.Client._FarHorizons.Power.Generation.FissionGenerator;
 
 public sealed class ReactorPartSystem : SharedReactorPartSystem
 {
@@ -14,6 +14,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
         base.Initialize();
 
         SubscribeLocalEvent<ReactorPartComponent, AppearanceChangeEvent>(OnAppearanceChange);
+        SubscribeLocalEvent<ReactorPartComponent, ComponentInit>(OnComponentInit);
     }
 
     private void OnAppearanceChange(EntityUid uid, ReactorPartComponent component, ref AppearanceChangeEvent args)
@@ -28,12 +29,6 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
         _sprite.LayerSetColor((uid, args.Sprite), 0, _proto.Index(component.Material).Color);
     }
 
-    protected override void AccUpdate()
-    {
-        var query = EntityQueryEnumerator<ReactorPartComponent>();
-        while (query.MoveNext(out var uid, out var component))
-        {
-            _sprite.LayerSetColor((uid, EntityManager.GetComponent<SpriteComponent>(uid)), 0, _proto.Index(component.Material).Color);
-        }
-    }
+    private void OnComponentInit(Entity<ReactorPartComponent> ent, ref ComponentInit args)
+        => _sprite.LayerSetColor((ent.Owner, EntityManager.GetComponent<SpriteComponent>(ent.Owner)), 0, _proto.Index(ent.Comp.Material).Color);
 }

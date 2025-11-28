@@ -32,6 +32,10 @@ turbine-repair = You repair some of the damage to the {$target} using the {$tool
 turbine-no-damage = There is no damage to repair on the {$target} using the {$tool}.
 turbine-show-damage = BladeHealth {$health}, BladeHealthMax {$healthMax}.
 
+# Anchoring warnings
+turbine-unanchor-warning = You cannot unanchor the gas turbine while it's spinning!
+turbine-anchor-warning = Invalid anchor position.
+
 ### UI
 
 # Shown when using the UI
@@ -47,4 +51,4 @@ comp-turbine-ui-stator-load = Stator Load
 
 comp-turbine-ui-locked-message = Controls locked.
 comp-turbine-ui-footer-left = Danger: fast-moving machinery.
-comp-turbine-ui-footer-right = 1.1 REV 2
+comp-turbine-ui-footer-right = 1.1 REV 3

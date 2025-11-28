@@ -40,6 +40,42 @@
                     0.05
                 ]
             ]
+        },
+        {
+            "name": "turbinerun_00"
+        },
+        {
+            "name": "turbinerun_01"
+        },
+        {
+            "name": "turbinerun_02"
+        },
+        {
+            "name": "turbinerun_03"
+        },
+        {
+            "name": "turbinerun_04"
+        },
+        {
+            "name": "turbinerun_05"
+        },
+        {
+            "name": "turbinerun_06"
+        },
+        {
+            "name": "turbinerun_07"
+        },
+        {
+            "name": "turbinerun_08"
+        },
+        {
+            "name": "turbinerun_09"
+        },
+        {
+            "name": "turbinerun_10"
+        },
+        {
+            "name": "turbinerun_11"
         }
     ]
 }

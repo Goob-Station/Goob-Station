@@ -16,6 +16,9 @@
 
 	## Reactor Rods
 	<Box>
+		<GuideEntityEmbed Entity="NuclearFabricator"/>
+	</Box>
+	<Box>
 		<GuideEntityEmbed Entity="CerenkiteReactorFuelRod" Caption="fuel rod"/>
 		<GuideEntityEmbed Entity="BohrumReactorControlRod" Caption="control rod"/>
 		<GuideEntityEmbed Entity="SteelReactorGasChannel" Caption="gas channel"/>
@@ -34,7 +37,7 @@
 
 	If it is hotter than 80C you'll need gloves to be able to handle them. At 500C, not even gloves will protect you.
 
-	There are four different types of Reactor Rods that can be manufactured and placed into the Reactor grid: Fuel Rods, Control Rods, Gas Channels, and Heat Exchangers.
+	There are four different types of Reactor Rods that can be manufactured from a variety of materials and placed into the Reactor grid: Fuel Rods, Control Rods, Gas Channels, and Heat Exchangers.
 
 	### Fuel Rods
 	Fuel Rods are the source of neutrons and heat within the Reactor.
@@ -46,6 +49,13 @@
 	- [bold]Radioactivity[/bold]: Creates neutrons and heat. Decays into Spent Fuel.
 
 	They also keep track of how much [bold]Spent Fuel[/bold] they contain, which does not affect the Fuel Rod's performance, but can indicate when it is time to replace it.
+	
+	<Box>
+		<GuideEntityEmbed Entity="NuclearCentrifuge"/>
+		<GuideEntityEmbed Entity="IngotPlutonium"/>
+	</Box>
+
+	Once a Fuel Rod contains enough [bold]Spent Fuel[/bold], it can be reprocessed by a nuclear centrifuge to create plutonium, which can be used to make plutonium fuel rods.
 
 	### Control Rods
 	Control rods control the flow of neutrons within the Reactor.

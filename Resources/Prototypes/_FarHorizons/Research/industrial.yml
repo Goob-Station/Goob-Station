@@ -5,14 +5,47 @@
     sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_parts.rsi
     state: default_rod
   discipline: Industrial
-  position: 1,-3
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - NuclearFabricatorMachineCircuitboard
+  - UraniumReactorFuelRod
+  - PlasmaReactorFuelRod
+  - UraniumGlassReactorFuelRod
+  - SilverReactorControlRod
+  - PlasteelReactorControlRod
+  - PlasmaGlassReactorControlRod
+  - SilverReactorGasChannel
+  - PlasteelReactorGasChannel
+  - PlasmaGlassReactorGasChannel
+  - SilverReactorHeatExchanger
+  - PlasteelReactorHeatExchanger
+  - PlasmaGlassReactorHeatExchanger
+  technologyPrerequisites:
+  - PowerGeneration
+  radioChannels:
+  - Engineering
+ 
+- type: technology
+  id: NuclearPowerRecycling
+  name: research-technology-nuclear-recycling
+  icon:
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/nuclear_waste.rsi
+    state: nuclear_waste
+  discipline: Industrial
   tier: 2
   cost: 12500
   recipeUnlocks:
-  - CerenkiteFuelRod
-  - UraniumFuelRod
-  - ReactorControlRod
-  - ReactorGasChannel
-  - ReactorHeatExchanger
+  - NuclearCentrifugeMachineCircuitboard
+  - PlutoniumReactorFuelRod
+  - BananiumReactorFuelRod
+  - GoldReactorControlRod
+  - DiamondReactorControlRod
+  - GoldReactorGasChannel
+  - DiamondReactorGasChannel
+  - GoldReactorHeatExchanger
+  - DiamondReactorHeatExchanger
   technologyPrerequisites:
-  - AdvancedPowerGeneration
+  - NuclearPowerGeneration
+  radioChannels:
+  - Engineering

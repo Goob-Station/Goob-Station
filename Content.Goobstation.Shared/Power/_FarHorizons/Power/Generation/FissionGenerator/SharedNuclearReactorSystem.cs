@@ -3,7 +3,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Administration.Logs;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
+namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
 // Ported and modified from goonstation by Jhrushbe.
 // CC-BY-NC-SA-3.0
@@ -12,7 +12,6 @@ namespace Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.Fission
 public abstract class SharedNuclearReactorSystem : EntitySystem
 {
     [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     [Dependency] private readonly ItemSlotsSystem _slotsSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
@@ -129,6 +128,8 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
             }
         }
     }
+
+    protected static void AdjustControlRods(NuclearReactorComponent comp, float change) => comp.ControlRodInsertion = Math.Clamp(comp.ControlRodInsertion + change, 0, 2);
 }
 
 public static class NuclearReactorPrefabs
@@ -260,6 +261,56 @@ public static class NuclearReactorPrefabs
         },
         {
             c, null, null, null, null, null, c
+        }
+    };
+
+    public static readonly ReactorPartComponent?[,] Arachne =
+    {
+        {
+            g, h, g, h, g, h, g
+        },
+        {
+            h, f, c, f, c, f, h
+        },
+        {
+            g, c, c, g, c, c, g
+        },
+        {
+            h, f, g, c, g, f, h
+        },
+        {
+            g, c, c, g, c, c, g
+        },
+        {
+            h, f, c, f, c, f, h
+        },
+        {
+            g, h, g, h, g, h, g
+        }
+    };
+
+    public static readonly ReactorPartComponent?[,] Lens =
+    {
+        {
+            g, h, g, h, g, h, g
+        },
+        {
+            h, f, c, g, c, f, h
+        },
+        {
+            g, c, c, h, c, c, g
+        },
+        {
+            h, g, h, f, h, g, h
+        },
+        {
+            g, c, c, h, c, c, g
+        },
+        {
+            h, f, c, g, c, f, h
+        },
+        {
+            g, h, g, h, g, h, g
         }
     };
 }

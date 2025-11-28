@@ -27,11 +27,16 @@
   description: A fuel rod for a nuclear reactor.
   components:
   - type: ReactorPart
+    rodType: FuelRod
     iconStateInserted: "fuel"
     iconStateCap: "fuel_cap"
     neutronCrossSection: 1.0
     thermalCrossSection: 10
     thermalMass: 420000 # specific heat capacity of steel (420 J/KgK) * mass of component (1000Kg)
+  - type: Edible # Blame Abby for making them edible
+    transferAmount: null
+    delay: 30
+    forceFeedDelay: 60
   - type: FlavorProfile
     flavors:
       - metal
@@ -52,7 +57,7 @@
 - type: entity
   id: CerenkiteReactorFuelRod
   parent: BaseReactorFuelRod
-  name: cerenkite fuel rod
+  name: cerenkite fuel rod # These are your basic, semi-harmless fuel rods
   components:
   - type: ReactorPart
     material: Cerenkite
@@ -83,8 +88,20 @@
     material: Bananium
 
 - type: entity
-  id: CerenkiteFuelRod # Dummy protoype to help mappers
-  parent: Error
+  id: PlasmaReactorFuelRod
+  parent: BaseReactorFuelRod
+  name: plasma fuel rod
+  components:
+  - type: ReactorPart
+    material: Plasma
+
+- type: entity
+  id: UraniumGlassReactorFuelRod
+  parent: BaseReactorFuelRod
+  name: uranium glass fuel rod
+  components:
+  - type: ReactorPart
+    material: UraniumGlass
 
 # Control Rods
 - type: entity
@@ -95,7 +112,7 @@
   description: A control rod assembly for a nuclear reactor.
   components:
   - type: ReactorPart
-    rodType: 2 #1<<1
+    rodType: ControlRod
     iconStateInserted: "control"
     iconStateCap: "control_cap"
     isControlRod: true
@@ -103,11 +120,75 @@
 
 - type: entity
   id: BohrumReactorControlRod
-  parent: BaseReactorControlRod
+  parent: BaseReactorControlRod # what the crew start with
   name: bohrum control rod
   components:
   - type: ReactorPart
     material: Bohrum
+
+- type: entity
+  id: SteelReactorControlRod
+  parent: BaseReactorControlRod
+  name: steel control rod
+  components:
+  - type: ReactorPart
+    material: Steel
+
+- type: entity
+  id: GoldReactorControlRod
+  parent: BaseReactorControlRod
+  name: gold control rod
+  components:
+  - type: ReactorPart
+    material: Gold
+
+- type: entity
+  id: SilverReactorControlRod
+  parent: BaseReactorControlRod
+  name: silver control rod
+  components:
+  - type: ReactorPart
+    material: Silver
+
+- type: entity
+  id: BrassReactorControlRod
+  parent: BaseReactorControlRod
+  name: brass control rod
+  components:
+  - type: ReactorPart
+    material: Brass
+
+- type: entity
+  id: PlasteelReactorControlRod
+  parent: BaseReactorControlRod
+  name: plasteel control rod
+  components:
+  - type: ReactorPart
+    material: Plasteel
+
+- type: entity
+  id: GlassReactorControlRod
+  parent: BaseReactorControlRod
+  name: glass control rod
+  components:
+  - type: ReactorPart
+    material: Glass
+
+- type: entity
+  id: PlasmaGlassReactorControlRod
+  parent: BaseReactorControlRod
+  name: plasma glass control rod
+  components:
+  - type: ReactorPart
+    material: PlasmaGlass
+
+- type: entity
+  id: DiamondReactorControlRod
+  parent: BaseReactorControlRod
+  name: diamond control rod
+  components:
+  - type: ReactorPart
+    material: Diamond
 
 # Gas Channel Rods
 - type: entity
@@ -118,7 +199,7 @@
   description: A gas channel for a nuclear reactor.
   components:
   - type: ReactorPart
-    rodType: 4 #1<<2
+    rodType: GasChannel
     iconStateInserted: "gas"
     iconStateCap: "gas_cap"
     thermalCrossSection: 15
@@ -134,12 +215,60 @@
     material: Steel
 
 - type: entity
+  id: GoldReactorGasChannel
+  parent: BaseReactorGasChannel
+  name: gold gas channel rod
+  components:
+  - type: ReactorPart
+    material: Gold
+
+- type: entity
+  id: SilverReactorGasChannel
+  parent: BaseReactorGasChannel
+  name: silver gas channel rod
+  components:
+  - type: ReactorPart
+    material: Silver
+
+- type: entity
   id: BrassReactorGasChannel
   parent: BaseReactorGasChannel
   name: brass gas channel rod
   components:
   - type: ReactorPart
     material: Brass
+
+- type: entity
+  id: PlasteelReactorGasChannel
+  parent: BaseReactorGasChannel
+  name: plasteel gas channel rod
+  components:
+  - type: ReactorPart
+    material: Plasteel
+
+- type: entity
+  id: GlassReactorGasChannel
+  parent: BaseReactorGasChannel
+  name: glass gas channel rod
+  components:
+  - type: ReactorPart
+    material: Glass
+
+- type: entity
+  id: PlasmaGlassReactorGasChannel
+  parent: BaseReactorGasChannel
+  name: plasma glass gas channel rod
+  components:
+  - type: ReactorPart
+    material: PlasmaGlass
+
+- type: entity
+  id: DiamondReactorGasChannel
+  parent: BaseReactorGasChannel
+  name: diamond gas channel rod
+  components:
+  - type: ReactorPart
+    material: Diamond
 
 # Heat Exchanger Rods
 - type: entity
@@ -150,6 +279,7 @@
   description: A heat exchanger for a nuclear reactor.
   components:
   - type: ReactorPart
+    rodType: HeatExchanger
     iconStateInserted: "heat"
     iconStateCap: "heat_cap"
     neutronCrossSection: 0.1
@@ -164,9 +294,57 @@
     material: Steel
 
 - type: entity
+  id: GoldReactorHeatExchanger
+  parent: BaseReactorHeatExchanger
+  name: gold heat exchanger rod
+  components:
+  - type: ReactorPart
+    material: Gold
+
+- type: entity
+  id: SilverReactorHeatExchanger
+  parent: BaseReactorHeatExchanger
+  name: silver heat exchanger rod
+  components:
+  - type: ReactorPart
+    material: Silver
+
+- type: entity
   id: BrassReactorHeatExchanger
   parent: BaseReactorHeatExchanger
   name: brass heat exchanger rod
   components:
   - type: ReactorPart
     material: Brass
+
+- type: entity
+  id: PlasteelReactorHeatExchanger
+  parent: BaseReactorHeatExchanger
+  name: plasteel heat exchanger rod
+  components:
+  - type: ReactorPart
+    material: Plasteel
+
+- type: entity
+  id: GlassReactorHeatExchanger
+  parent: BaseReactorHeatExchanger
+  name: glass heat exchanger rod
+  components:
+  - type: ReactorPart
+    material: Glass
+
+- type: entity
+  id: PlasmaGlassReactorHeatExchanger
+  parent: BaseReactorHeatExchanger
+  name: plasma glass heat exchanger rod
+  components:
+  - type: ReactorPart
+    material: PlasmaGlass
+
+- type: entity
+  id: DiamondReactorHeatExchanger
+  parent: BaseReactorHeatExchanger
+  name: diamond heat exchanger rod
+  components:
+  - type: ReactorPart
+    material: Diamond

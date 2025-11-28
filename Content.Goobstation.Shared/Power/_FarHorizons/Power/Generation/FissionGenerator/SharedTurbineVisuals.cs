@@ -25,16 +25,3 @@ public enum TurbineVisualLayers
     DamageSmoke,
     TurbineSpeed,
 }
-
-/// <summary>
-/// Turbine speeds.
-/// </summary>
-[Serializable, NetSerializable]
-public enum TurbineSpeed
-{
-    SpeedStill,
-    SpeedSlow,
-    SpeedMid,
-    SpeedFast,
-    SpeedOverspeed,
-}

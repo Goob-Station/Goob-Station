@@ -25,14 +25,6 @@
         enum.TurbineVisualLayers.TurbineRuined:
           True: { visible: true }
           False: { visible: false }
-      enum.TurbineVisuals.TurbineSpeed:
-        enum.TurbineVisualLayers.TurbineSpeed:
-          SpeedStill: { state: turbine }
-          # Allows for multiple speed anims, even if there is only one
-          SpeedSlow: { state: turbinerun }
-          SpeedMid: { state: turbinerun }
-          SpeedFast: { state: turbinerun }
-          SpeedOverspeed: { state: turbinerun }
       enum.TurbineVisuals.DamageSpark:
         enum.TurbineVisualLayers.DamageSpark:
           True: { visible: true }
@@ -59,8 +51,6 @@
         layer:
         - MachineLayer
   - type: Anchorable
-    flags: 
-    - Anchorable
   - type: NodeContainer
     examinable: true
     nodes:
@@ -86,6 +76,19 @@
     maxIntensity: 70
     repeatable: true
   - type: Turbine
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSource
+    ports:
+      - TurbineSpeedHigh
+      - TurbineSpeedLow
+  - type: DeviceLinkSink
+    ports:
+      - IncreaseStatorLoad
+      - DecreaseStatorLoad
   - type: ActivatableUI
     key: enum.TurbineUiKey.Key
   - type: ActivatableUIRequiresAnchor

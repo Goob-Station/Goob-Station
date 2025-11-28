@@ -4,6 +4,9 @@ reactor-smoke-stop = The {$owner} stops smoking.
 reactor-fire-start = The {$owner} begins to burn!
 reactor-fire-stop = The {$owner} stops burning.
 
+reactor-unanchor-warning = You cannot unanchor the nuclear reactor while it's not empty or hotter than 80C!
+reactor-anchor-warning = Invalid anchor position.
+
 ### Messages
 reactor-smoke-start-message = ALERT: The {$owner} has reached a dangerous temperature: {$temperature}K. Intervene immediately to prevent meltdown.
 reactor-smoke-stop-message = The {$owner} has cooled below dangerous temperature. Have a nice day.
