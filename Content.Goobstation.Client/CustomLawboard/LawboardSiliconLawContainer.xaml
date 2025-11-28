@@ -16,7 +16,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <RichTextLabel StyleClasses="LabelKeyText" Name="LawNumberLabel"></RichTextLabel>
         <BoxContainer>
             <PanelContainer
-                Margin="20 10 10 5"
+                Margin="20 10 10 0"
                 MinHeight="128"
             >
                 <PanelContainer.PanelOverride>
@@ -35,7 +35,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         </BoxContainer>
 
         <BoxContainer Orientation="Horizontal" Margin="0 5 0 0" MaxHeight="64" Align="End">
-            <Button Name="Delete" Text="{Loc silicon-law-ui-delete}" ModulateSelfOverride="Red"></Button>
+            <Button Name="Delete" Text="{Loc silicon-law-ui-delete}" ModulateSelfOverride="Firebrick"></Button>
         </BoxContainer>
     </BoxContainer>
+    <PanelContainer StyleClasses="HighDivider" Margin="0,1,0,2"/>
 </BoxContainer>

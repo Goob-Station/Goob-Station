@@ -5,7 +5,6 @@ using Content.Shared.Database;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
 using Robust.Shared.Prototypes;
-using Content.Shared.Chat;
 
 
 namespace Content.Goobstation.Shared.CustomLawboard;
@@ -51,8 +50,8 @@ public abstract class SharedCustomLawboardSystem : EntitySystem
         var sanitizedLaws = new List<SiliconLaw>();
         foreach (SiliconLaw law in listToSanitize)
         {
-            // SanitizeAnnouncement gets the job done so who really cares honestly
-            var sanitizedLaw = SharedChatSystem.SanitizeAnnouncement(law.LawString, MaxLawLength, 0);
+
+            var sanitizedLaw = law.LawString.Replace("\n", " "); // Remove newlines cause they mess chat up when the law is stated
             sanitizedLaws.Add(new SiliconLaw()
             {
                 LawString = sanitizedLaw,

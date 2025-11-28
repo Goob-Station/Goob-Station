@@ -9,23 +9,24 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <controls:FancyWindow
     xmlns="https://spacestation14.io"
     xmlns:controls="using:Content.Client.UserInterface.Controls"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     Title="{Loc custom-lawboard-ui-title}"
     MinSize="600 400"
 >
-    <!--
-        this shit does not layout properly unless I put the horizontal boxcontainer inside of a vertical one
-        ????
-    -->
-
     <BoxContainer Orientation="Vertical">
-        <BoxContainer Orientation="Horizontal" Align="End">
+        <BoxContainer Orientation="Horizontal" Align="End" Margin="0 20 0 0">
             <Button Name="NewLawButton" Text="{Loc silicon-law-ui-new-law}" MaxSize="256 64" StyleClasses="OpenRight"></Button>
             <Button Name="Save" Text="{Loc silicon-law-ui-save}" MaxSize="256 64" Access="Public" StyleClasses="OpenLeft"></Button>
         </BoxContainer>
     </BoxContainer>
     <BoxContainer Orientation="Vertical" Margin="4 60 0 0">
         <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
-            <BoxContainer Orientation="Vertical" Name="LawContainer" Access="Public" VerticalExpand="True" />
+            <PanelContainer VerticalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#80808005" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Vertical" Name="LawContainer" Access="Public" VerticalExpand="True" />
+            </PanelContainer>
         </ScrollContainer>
     </BoxContainer>
 </controls:FancyWindow>
