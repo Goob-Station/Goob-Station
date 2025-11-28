@@ -145,7 +145,7 @@ public partial class WoundSystem
             {
                 anyHealed = true;
                 healed += -modifiedBleed - remainingHealAmount;
-                remainingHealAmount = (float) -modifiedBleed;
+                remainingHealAmount -= (float) modifiedBleed; // Goobstation fix
 
                 if (remainingHealAmount <= 0)
                     break;
@@ -157,7 +157,7 @@ public partial class WoundSystem
 
     public bool TryHealBleedingWounds(EntityUid woundable, float bleedStopAbility, out FixedPoint2 modifiedBleed, WoundableComponent? component = null)
     {
-        modifiedBleed = FixedPoint2.New(-bleedStopAbility);
+        modifiedBleed = FixedPoint2.Zero; // Goobstation
         if (!Resolve(woundable, ref component))
             return false;
 
@@ -167,22 +167,22 @@ public partial class WoundSystem
                 || !bleeds.IsBleeding)
                 continue;
 
-            if (modifiedBleed > bleeds.BleedingAmount)
+            if (-bleedStopAbility > bleeds.BleedingAmount) // Goobstation
             {
-                modifiedBleed -= bleeds.BleedingAmountRaw;
+                modifiedBleed = bleeds.BleedingAmount; // Goobstation
                 bleeds.BleedingAmountRaw = 0;
                 bleeds.IsBleeding = false;
                 bleeds.Scaling = 0;
             }
             else
             {
-                bleeds.BleedingAmountRaw -= modifiedBleed;
-                modifiedBleed = 0;
+                bleeds.BleedingAmountRaw += bleedStopAbility; // Goobstation
+                modifiedBleed = -bleedStopAbility; // Goobstation
             }
 
             Dirty(wound, bleeds);
         }
-        return modifiedBleed != -bleedStopAbility;
+        return modifiedBleed <= -bleedStopAbility; // Goobstation
     }
 
     public void ForceHealWoundsOnWoundable(EntityUid woundable,
