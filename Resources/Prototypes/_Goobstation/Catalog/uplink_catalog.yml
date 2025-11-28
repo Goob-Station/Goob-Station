@@ -1571,3 +1571,13 @@
     Telecrystal: 40
   categories:
   - UplinkPointless
+
+- type: listing
+  id: UplinkCustomLawboard
+  name: uplink-customboard-name
+  description: uplink-customboard-desc
+  productEntity: SyndicateCustomLawboard
+  cost:
+    Telecrystal: 50 # Same price as what Antimov was. Might be worth increasing the price for nukies as they can do some BAD things with this.
+  categories:
+  - UplinkDisruption

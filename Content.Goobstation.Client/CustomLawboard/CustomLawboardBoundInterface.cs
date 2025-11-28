@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.CustomLawboard;
 using Content.Shared.Silicons.Laws;
+using Content.Shared.Silicons.Laws.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
@@ -26,6 +27,12 @@ public sealed class CustomLawboardBoundInterface : BoundUserInterface
 
         _window.LawsChangedEvent += args => OnLawsChanged(args);
         _window.Entity = Owner;
+        var lawProvider = EntMan.EnsureComponent<SiliconLawProviderComponent>(Owner);
+        if (lawProvider.Lawset != null)
+        {
+            _window.LawProvider = lawProvider;
+            _window.SetLaws(lawProvider.Lawset.Laws);
+        }
         Update();
     }
 

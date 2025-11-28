@@ -1,22 +1,44 @@
 
 
 using Content.Shared.Administration.Logs;
-using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
-using Robust.Shared.Utility;
-using System.Linq;
+using Robust.Shared.Prototypes;
+
 namespace Content.Goobstation.Shared.CustomLawboard;
 
 public abstract class SharedCustomLawboardSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<CustomLawboardComponent, CustomLawboardChangeLawsMessage>(OnChangeLaws);
+        SubscribeLocalEvent<CustomLawboardComponent, ComponentInit>(OnComponentInit);
+    }
+
+    private void OnComponentInit(Entity<CustomLawboardComponent> ent, ref ComponentInit args)
+    {
+        var provider = EnsureComp<SiliconLawProviderComponent>(ent);
+
+        // This part was shamelessly stolen from SiliconLawSystem.GetLaws
+
+        var proto = _prototype.Index(provider.Laws);
+        var laws = new SiliconLawset()
+        {
+            Laws = new List<SiliconLaw>(proto.Laws.Count)
+        };
+        foreach (var law in proto.Laws)
+        {
+            laws.Laws.Add(_prototype.Index<SiliconLawPrototype>(law).ShallowClone());
+        }
+        laws.ObeysTo = proto.ObeysTo;
+
+        ent.Comp.Laws = laws.Laws;
+        provider.Lawset = laws;
     }
 
     private void OnChangeLaws(EntityUid uid, CustomLawboardComponent customLawboard, CustomLawboardChangeLawsMessage args)

@@ -446,7 +446,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             return;
         }
 
-        // Still a Goob edit so this comment is TECHNICALLY unnecessary, but this part is for custom lawboards as there's no lawset prototype for them.
+        // This part is for custom lawboards as there's no lawset prototype for them.
 
         List<SiliconLaw>? lawset;
 

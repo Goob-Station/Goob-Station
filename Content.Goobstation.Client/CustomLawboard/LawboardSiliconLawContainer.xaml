@@ -8,33 +8,34 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 <BoxContainer
     xmlns="https://spacestation14.io"
-    xmlns:graphics="using:Robust.Client.Graphics;assembly=Robust.Client"
-    xmlns:customControls="using:Content.Client.Administration.UI.CustomControls"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     HorizontalExpand="True"
     Orientation="Vertical"
     >
-    <customControls:HSeparator></customControls:HSeparator>
     <BoxContainer>
         <RichTextLabel StyleClasses="LabelKeyText" Name="LawNumberLabel"></RichTextLabel>
-        <PanelContainer
-            Margin="20 10 0 0"
-            MinHeight="128"
-        ><!--
-            <PanelContainer.PanelOverride>
-                <graphics:StyleBoxFlat BackgroundColor="#1B1B1B"></graphics:StyleBoxFlat>
-            </PanelContainer.PanelOverride>-->
-            <BoxContainer Orientation="Horizontal" SeparationOverride="5">
-                <TextEdit Name="LawContent" HorizontalExpand="True" Editable="True" MinWidth="500" MinHeight="80"></TextEdit>
-            </BoxContainer>
-        </PanelContainer>
-    </BoxContainer>
-    <BoxContainer Orientation="Horizontal" Margin="0 5 0 0" MaxHeight="64" Align="Begin">
-        <BoxContainer Orientation="Horizontal" Margin="0 5 0 0" MaxHeight="20" Align="Begin">
+        <BoxContainer>
+            <PanelContainer
+                Margin="20 10 0 0"
+                MinHeight="128"
+            >
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1B"></gfx:StyleBoxFlat>
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Horizontal" SeparationOverride="5">
+                    <TextEdit Name="LawContent" HorizontalExpand="True" Editable="True" MinWidth="500" MinHeight="80"></TextEdit>
+                </BoxContainer>
+            </PanelContainer>
         </BoxContainer>
-        <Button Name="MoveUp" Text="{Loc silicon-law-ui-minus-one}" StyleClasses="OpenRight"></Button>
-        <Button Name="MoveDown" Text="{Loc silicon-law-ui-plus-one}" StyleClasses="OpenLeft"></Button>
     </BoxContainer>
-    <BoxContainer Orientation="Horizontal" Align="End" Margin="0 10 5 10">
-        <Button Name="Delete" Text="{Loc silicon-law-ui-delete}" ModulateSelfOverride="Red"></Button>
+    <BoxContainer Orientation="Horizontal" Margin="0 5 0 0" MaxHeight="64">
+        <BoxContainer Orientation="Horizontal" Margin="0 5 0 0" MaxHeight="64" Align="Begin" HorizontalExpand="True">
+            <Button Name="MoveUp" Text="{Loc custom-lawboard-up-arrow}" StyleClasses="OpenRight"></Button>
+            <Button Name="MoveDown" Text="{Loc custom-lawboard-down-arrow}" StyleClasses="OpenLeft"></Button>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Horizontal" Margin="0 5 0 0" MaxHeight="64" Align="End">
+            <Button Name="Delete" Text="{Loc silicon-law-ui-delete}" ModulateSelfOverride="Red"></Button>
+        </BoxContainer>
     </BoxContainer>
 </BoxContainer>

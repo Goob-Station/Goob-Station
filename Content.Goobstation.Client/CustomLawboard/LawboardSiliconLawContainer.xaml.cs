@@ -85,7 +85,6 @@ namespace Content.Goobstation.Client.CustomLawboard;
 public sealed partial class LawboardSiliconLawContainer : BoxContainer
 {
     private SiliconLaw? _law;
-
     public event Action<SiliconLaw>? MoveLawUp;
     public event Action<SiliconLaw>? MoveLawDown;
     public event Action<SiliconLaw>? DeleteAction;
