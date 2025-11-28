@@ -65,12 +65,12 @@
         fix1:
           shape:
             !type:PhysShapeCircle
-            radius: 0.40
-          density: 100
+            radius: 0.3
+          density: 50
           mask:
-            - LargeMobMask
+            - MobMask
           layer:
-            - LargeMobLayer
+            - MobLayer
     - type: MobThresholds
       thresholds:
         0: Alive
@@ -85,7 +85,7 @@
         path: /Audio/_Goobstation/Misc/Hastur/tentacle_hit.ogg
       damage:
         types:
-          Piercing: 20
+          Piercing: 15
           Slash: 15
           Structural: 50
     - type: Insulated
@@ -127,6 +127,16 @@
         collection: TentacleWalk
     - type: Puller
       needsHands: false
+    - type: Prying
+      pryPowered: true
+      force: true
+      speedModifier: 2.5
+      useSound:
+        path: /Audio/Items/crowbar.ogg
+    - type: NightVision # Goobstation - Nigthvision
+      color: "#808080"
+      activateSound: null
+      deactivateSound: null
     - type: Speech
       speechVerb: HolierThanThou
       speechSounds: Hastur
