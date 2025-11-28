@@ -10,7 +10,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     xmlns="https://spacestation14.io"
     xmlns:controls="using:Content.Client.UserInterface.Controls"
     Title="{Loc custom-lawboard-ui-title}"
-    MinSize="560 400"
+    MinSize="600 400"
 >
     <!--
         this shit does not layout properly unless I put the horizontal boxcontainer inside of a vertical one

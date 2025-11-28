@@ -5,6 +5,8 @@ using Content.Shared.Database;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
 using Robust.Shared.Prototypes;
+using Content.Shared.Chat;
+
 
 namespace Content.Goobstation.Shared.CustomLawboard;
 
@@ -12,6 +14,9 @@ public abstract class SharedCustomLawboardSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+
+    public static readonly int MaxLaws = 15;
+    public static readonly int MaxLawLength = 512; // These 2 are random arbitrary numbers (These don't seem like they're worth making cvars for)
     public override void Initialize()
     {
         base.Initialize();
@@ -41,13 +46,31 @@ public abstract class SharedCustomLawboardSystem : EntitySystem
         provider.Lawset = laws;
     }
 
+    public List<SiliconLaw> SanitizeLaws(List<SiliconLaw> listToSanitize)
+    {
+        var sanitizedLaws = new List<SiliconLaw>();
+        foreach (SiliconLaw law in listToSanitize)
+        {
+            // SanitizeAnnouncement gets the job done so who really cares honestly
+            var sanitizedLaw = SharedChatSystem.SanitizeAnnouncement(law.LawString, MaxLawLength, 0);
+            sanitizedLaws.Add(new SiliconLaw()
+            {
+                LawString = sanitizedLaw,
+                Order = law.Order,
+                LawIdentifierOverride = law.LawIdentifierOverride
+            });
+        }
+        return sanitizedLaws;
+    }
+
     private void OnChangeLaws(EntityUid uid, CustomLawboardComponent customLawboard, CustomLawboardChangeLawsMessage args)
     {
         var provider = EnsureComp<SiliconLawProviderComponent>(uid);
         var lawset = new SiliconLawset();
-        lawset.Laws = args.Laws;
+        var sanitizedLaws = SanitizeLaws(args.Laws);
+        lawset.Laws = sanitizedLaws; // Sanitizing is done so you can't make newlines in a law.
 
-        customLawboard.Laws = args.Laws;
+        customLawboard.Laws = sanitizedLaws;
         provider.Lawset = lawset;
         _adminLogger.Add(LogType.Action, $"{ToPrettyString(args.Actor)} changed laws on {ToPrettyString(uid)}");
         Dirty(uid, customLawboard);

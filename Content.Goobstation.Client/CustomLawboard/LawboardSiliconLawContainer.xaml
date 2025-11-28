@@ -16,7 +16,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <RichTextLabel StyleClasses="LabelKeyText" Name="LawNumberLabel"></RichTextLabel>
         <BoxContainer>
             <PanelContainer
-                Margin="20 10 0 0"
+                Margin="20 10 10 5"
                 MinHeight="128"
             >
                 <PanelContainer.PanelOverride>
