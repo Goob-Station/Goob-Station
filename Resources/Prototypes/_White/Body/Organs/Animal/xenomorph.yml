@@ -55,13 +55,11 @@
   components: # Goobstation - eyes give you xeno vision
   - type: Organ
     onAdd:
-    - type: ThermalVision
-      toggleAction: ToggleThermalVisionXenomorph
-      color: "#7d0cc9"
-      lightRadius: 10
-      strength: 0
-      noise: 0
-      tint: 3, 3, 3
+    isActive: true
+    color: white
+    drawOverlay: false
+    lightRadius: 0
+    toggleAction: null
 
 - type: entity
   parent: [BaseXenomorphOrgan, OrganHumanTongue]
