@@ -46,7 +46,7 @@
     idleState: icon
     runningState: running
     analysisDuration: 20
-  - type: Vaccinator
+    vaccinator: true
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:

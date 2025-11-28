@@ -137,10 +137,10 @@
     layers:
     - state: salpen
   - type: Appearance
-  - type: Vaccine
+  - type: DiseasePen
   - type: GenericVisualizer
     visuals:
-      enum.VaccineVisuals.Used:
+      enum.DiseasePenVisuals.Used:
         salpen:
           True: { state: salpen_empty }
           False: { state: salpen }
