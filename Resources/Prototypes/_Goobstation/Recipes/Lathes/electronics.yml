@@ -109,3 +109,17 @@
     state: ca_on
   id: RadiationCollectorCircuitboard
   result: RadiationCollectorCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseEngineeringMachineRecipeCategory ]
+  id: TelecomTransmitterCircuitboard
+  completetime: 4
+  materials:
+    Steel: 1500
+    Glass: 500
+    Gold: 500
+    Silver: 500
+  icon:
+    sprite:  _Goobstation/Structures/Machines/comms_transmitter.rsi
+    state: base
+  result: TelecomTransmitterCircuitboard
