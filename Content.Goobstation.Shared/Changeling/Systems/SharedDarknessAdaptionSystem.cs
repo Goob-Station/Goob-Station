@@ -26,7 +26,6 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
     private EntityQuery<ChangelingIdentityComponent> _lingQuery;
     private EntityQuery<ChameleonSkinComponent> _chameleonQuery;
     private EntityQuery<NightVisionComponent> _nvgQuery;
-    private EntityQuery<StealthComponent> _stealthQuery;
     private EntityQuery<StealthOnMoveComponent> _stealthOnMoveQuery;
 
     public override void Initialize()
@@ -36,7 +35,6 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
         _lingQuery = GetEntityQuery<ChangelingIdentityComponent>();
         _chameleonQuery = GetEntityQuery<ChameleonSkinComponent>();
         _nvgQuery = GetEntityQuery<NightVisionComponent>();
-        _stealthQuery = GetEntityQuery<StealthComponent>();
         _stealthOnMoveQuery = GetEntityQuery<StealthOnMoveComponent>();
 
         SubscribeLocalEvent<DarknessAdaptionComponent, MapInitEvent>(OnMapInit);
@@ -80,6 +78,8 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
     }
 
+    #region Event Handlers
+
     private void OnToggleAbility(Entity<DarknessAdaptionComponent> ent, ref ActionDarknessAdaptionEvent args)
     {
         ent.Comp.Active = !ent.Comp.Active;
@@ -94,7 +94,9 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
 
         DoPopup(ent, popup);
     }
+    #endregion
 
+    #region Helper Methods
     protected void DoAbility(Entity<DarknessAdaptionComponent> ent, bool state)
     {
         if (FireInvalidCheck(ent))
@@ -215,4 +217,5 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
         RemComp<StealthComponent>(ent);
         RemComp<StealthOnMoveComponent>(ent);
     }
+    #endregion
 }

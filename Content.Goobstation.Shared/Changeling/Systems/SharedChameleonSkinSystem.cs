@@ -6,7 +6,6 @@ using Content.Shared.Atmos;
 using Content.Shared.Popups;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
-using Microsoft.VisualBasic;
 using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
@@ -50,6 +49,8 @@ public sealed partial class SharedChameleonSkinSystem : EntitySystem
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
     }
 
+    #region Event Handlers
+
     private void OnToggleAbility(Entity<ChameleonSkinComponent> ent, ref ActionChameleonSkinEvent args)
     {
         // cancel and refund if darkness adaption is active (prevents issues)
@@ -89,6 +90,9 @@ public sealed partial class SharedChameleonSkinSystem : EntitySystem
         ent.Comp.Active = false;
         _stealth.SetEnabled(ent, false, stealth);
     }
+    #endregion
+
+    #region Helper Methods
 
     private void EnsureStealth(Entity<ChameleonSkinComponent> ent)
     {
@@ -127,4 +131,5 @@ public sealed partial class SharedChameleonSkinSystem : EntitySystem
 
         _popup.PopupEntity(Loc.GetString(popup), ent, ent, popupType);
     }
+    #endregion
 }
