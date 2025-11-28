@@ -43,6 +43,7 @@ namespace Content.Client.PDA
         [Dependency] private readonly IClipboardManager _clipboard = null!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
+        [Dependency] private readonly ILocalizationManager _locMan = default!; // CorvaxGoob-custom-alert-instructions-in-pda // I made this for no warning by me
         private readonly ClientGameTicker _gameTicker;
 
         public const int HomeView = 0;
@@ -57,7 +58,6 @@ namespace Content.Client.PDA
         private string _stationName = Loc.GetString("comp-pda-ui-unknown");
         private string _alertLevel = Loc.GetString("comp-pda-ui-unknown");
         private string _instructions = Loc.GetString("comp-pda-ui-unknown");
-        
 
         private int _currentView;
 
@@ -150,7 +150,7 @@ namespace Content.Client.PDA
                 _clipboard.SetText(_instructions);
             };
 
-            
+
 
 
             HideAllViews();
@@ -190,7 +190,6 @@ namespace Content.Client.PDA
             _stationName = state.StationName ?? Loc.GetString("comp-pda-ui-unknown");
             StationNameLabel.SetMarkup(Loc.GetString("comp-pda-ui-station",
                 ("station", _stationName)));
-            
 
             var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
 
@@ -199,15 +198,36 @@ namespace Content.Client.PDA
 
             var alertLevel = state.PdaOwnerInfo.StationAlertLevel;
             var alertColor = state.PdaOwnerInfo.StationAlertColor;
-            var alertLevelKey = alertLevel != null ? $"alert-level-{alertLevel}" : "alert-level-unknown";
-            _alertLevel = Loc.GetString(alertLevelKey);
+            // CorvaxGoob-custom-alert-instructions-in-pda-start
+            var alertInstructions = state.PdaOwnerInfo.StationAlertInstructions;
+            if (alertLevel != null)
+            {
+                if (_locMan.TryGetString($"alert-level-{alertLevel}", out var locName))
+                    _alertLevel = locName;
+                else
+                    _alertLevel = alertLevel;
+            }
+            else
+                _alertLevel = Loc.GetString("alert-level-unknown");
 
             StationAlertLevelLabel.SetMarkup(Loc.GetString(
                 "comp-pda-ui-station-alert-level",
                 ("color", alertColor),
                 ("level", _alertLevel)
             ));
-            _instructions = Loc.GetString($"{alertLevelKey}-instructions");
+
+            if (alertInstructions != null)
+                if (alertInstructions == String.Empty)
+                    if (_locMan.TryGetString($"alert-level-{alertLevel}-instructions", out var locInstruction))
+                        _instructions = locInstruction;
+                    else
+                        _instructions = Loc.GetString("alert-level-unknown-instructions");
+                else
+                    _instructions = alertInstructions;
+            else
+                _instructions = Loc.GetString("alert-level-unknown-instructions");
+            // CorvaxGoob-custom-alert-instructions-in-pda-end
+
             StationAlertLevelInstructions.SetMarkup(Loc.GetString(
                 "comp-pda-ui-station-alert-level-instructions",
                 ("instructions", _instructions))

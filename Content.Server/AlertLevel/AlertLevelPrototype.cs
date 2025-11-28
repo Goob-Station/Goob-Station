@@ -48,6 +48,13 @@ public sealed partial class AlertLevelDetail
     /// </summary>
     [DataField("announcement")] public string Announcement { get; private set; } = string.Empty;
 
+    // CorvaxGoob-custom-alert-instructions-in-pda-start
+    /// <summary>
+    /// Instruction of alert level in pda
+    /// </summary>
+    [DataField("instruction")] public string AlertLevelInstruction { get; private set; } = string.Empty;
+    // CorvaxGoob-custom-alert-instructions-in-pda-end
+
     /// <summary>
     /// Whether this alert level is selectable from a communications console.
     /// </summary>

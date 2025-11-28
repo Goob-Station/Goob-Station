@@ -66,6 +66,7 @@ namespace Content.Shared.PDA
         public string? IdOwner;
         public string? JobTitle;
         public string? StationAlertLevel;
+        public string? StationAlertInstructions; // CorvaxGoob-custom-alert-instructions-in-pda
         public Color StationAlertColor;
     }
 }
