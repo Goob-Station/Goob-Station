@@ -1,103 +1,103 @@
 - type: voice
   id: rHWSYoq8UlV0YIBKMryp
-  name: Jerry
+  name: Jerry B. - California Surfer Dude
   sex: Male
   silicon: false
   voice: 1
 
 - type: voice
   id: wo6udizrrtpIxWGp2qJk
-  name: Terry
+  name: Northern Terry
   sex: Male
   silicon: false
   voice: 2
 
 - type: voice
-  id: 1V1sMUWX4xIxVORD86RD
+  id: XCcTFOhufXh2qxSgDqyG
   name: Eight
   sex: Male
   silicon: false
   voice: 3
 
 - type: voice
-  id: Uxoc3diZvlOgley7DPAG
+  id: 6J9TfV3ZGkZcRTHn4w3C
   name: Announcer
   sex: Female
   silicon: false
   voice: 4
 
 - type: voice
-  id: INNQ4Wc85nrnHOPYh9Tp
+  id: 53RsuhrtZ25ps5AfZjdD
   name: Hatsune Miku
   sex: Female
   silicon: false
   voice: 5
 
 - type: voice
-  id: INf6KQEMi8Zl9wR2XoyJ
-  name: Johnny
+  id: 5r7kOJbNIhsCS648MHjl
+  name: Johnny Silverhand
   sex: Male
   silicon: false
   voice: 6
 
 - type: voice
-  id: 2qzAcSfnHjHxl7O5kP7N
+  id: sStFQiot0QCExMr1wz87
   name: Billy
   sex: Male
   silicon: false
   voice: 7
 
 - type: voice
-  id: 9U1kNETZLekGznuEgHiw
+  id: 2VLcX0iYAUJdQKC5ZVhD
   name: K'nuckles
   sex: Male
   silicon: false
   voice: 8
 
 - type: voice
-  id: qOaBBuX9SbPXW5j00QzL
+  id: YhEjiljIiGxGOugoruwx
   name: Moonmoon
   sex: Male
   silicon: false
   voice: 9
 
 - type: voice
-  id: ILUb62E4DDUMY52FrefA
+  id: 54HyjL6DcHjrrmrSf7vD
   name: Sazza
   sex: Female
   silicon: false
   voice: 10
 
 - type: voice
-  id: jGBBWZzFHgZEHA38znV9
+  id: WvZ1i1Ct4sQgxY4iTex4
   name: Crusher
   sex: Male
   silicon: false
   voice: 11
 
 - type: voice
-  id: ew7xY5VVQOl20Pn3KIsS
+  id: tz5CXXq6No8QUXxFYeze
   name: Solid Snake
   sex: Male
   silicon: false
   voice: 12
 
 - type: voice
-  id: vS40YJ16NT5bGQEvgfIK
+  id: uUFEBsy4EBB576CfMG6p
   name: Karlach
   sex: Female
   silicon: false
   voice: 13
 
 - type: voice
-  id: 6PCKUH2ZKnCaRZjj5Gtl
+  id: caTGFw3gqM9QaAw9txox
   name: Arthur
   sex: Male
   silicon: false
   voice: 14
 
 - type: voice
-  id: LV3E99J5nR2WulzxYVvO
+  id: ImrJAOdauSrfOSIyTf1g
   name: Gilbert
   sex: Male
   silicon: false
@@ -118,50 +118,50 @@
   voice: 17
 
 - type: voice
-  id: JtxRCgJ4RBROb6EcKAOu
+  id: qv4Ry9xMdEhalEztaTQb
   name: Kiryu
   sex: Male
   silicon: false
   voice: 18
 
 - type: voice
-  id: sEBlK6HG7xkSW4BSHZzx
+  id: LofvEhqhRmQ00hnEps8J
   name: Shadowheart
   sex: Female
   silicon: false
   voice: 19
 
 - type: voice
-  id: 6lzOuoNBO1bBN4jLCW6X
-  name: Duke
+  id: 3VsQAlWqvwaKhyG9BH4E
+  name: Duke Nukem
   sex: Male
   silicon: false
   voice: 20
 
 - type: voice
-  id: 63AqbT21Nj7hd05efFbJ
+  id: IpKhYPMwqAkZ5AYLO7Fg
   name: Obiwan
   sex: Male
   silicon: false
   voice: 21
 
 - type: voice
-  id: xBdrkqKcP5zVLmkdC5C1
+  id: GgVhnhn7YUdXXEtRC7r3
   name: Simaris
   sex: Male
   silicon: false
   voice: 22
 
 - type: voice
-  id: rhCkPglhGaLQEkKTbHMh
+  id: 7qIXxtkEnBknGtlu2qSC
   name: Lahey
   sex: Male
   silicon: false
   voice: 23
 
 - type: voice
-  id: O21VhfE61YFwuThz5SaG
-  name: Oldie
+  id: 40yp9KZIGfc0SPMrjx5h
+  name: Dwarf
   sex: Male
   silicon: false
   voice: 24
@@ -195,14 +195,14 @@
   voice: 28
 
 - type: voice
-  id: ZhHNkVJW5gN171ttyjk8
+  id: 0zRi4lKuhR5wZr9eWkrP
   name: Vegeta
   sex: Male
   silicon: false
   voice: 29
 
 - type: voice
-  id: FeN6vYjdUAvIqox0nYFR
+  id: BHAndJCNbx7uWGp3guTL
   name: Lois
   sex: Female
   silicon: false
