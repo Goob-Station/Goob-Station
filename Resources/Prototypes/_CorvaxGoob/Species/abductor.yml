@@ -1,0 +1,9 @@
+- type: markingPoints # TODO: add more markings
+  id: MobAbductorMarkingLimits
+  points:
+    Special:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: false

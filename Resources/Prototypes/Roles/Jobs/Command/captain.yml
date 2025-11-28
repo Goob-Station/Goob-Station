@@ -158,6 +158,10 @@
       inverted: true
       species:
       - Felinid
+    - !type:SpeciesRequirement # CorvaxGoob-Species
+      inverted: true
+      species:
+      - Abductor
       #any MRP using our code might eventually want to use it
     # - !type:SaturationRequirement # MisandryBox - no neon hair on captain
     #   hairColorSaturation: 0.30

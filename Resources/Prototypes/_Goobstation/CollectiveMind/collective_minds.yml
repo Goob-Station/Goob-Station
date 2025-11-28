@@ -43,7 +43,7 @@
 - type: collectiveMind
   id: Abductormind
   name: collective-mind-abductormind
-  keycode: 'a'
+  keycode: 'g' # Corvax-Goob-GreySpecies
   color: "#d600bd"
 
 - type: collectiveMind

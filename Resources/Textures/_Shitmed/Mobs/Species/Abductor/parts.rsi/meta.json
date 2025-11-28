@@ -4,7 +4,7 @@
     "x": 32,
     "y": 32
   },
-  "copyright": "Taked From Paradise Station",
+  "copyright": "Taked From Paradise Station. A bit edited (added eyes state) by CorvaxGoob repo",
   "license": "CC-BY-SA-3.0",
   "states": [
     {
@@ -52,6 +52,10 @@
     },
     {
       "name": "groin",
+      "directions": 4
+    },
+	{
+      "name": "eyes",
       "directions": 4
     }
   ]

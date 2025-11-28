@@ -63,6 +63,7 @@
   - AnimalTranslator
   - XenoTranslator
   - GruntishTranslatorImplanter
+  - XeeplianTranslator # CorvaxGoob
   position: -4, 5
   technologyPrerequisites:
   - BasicTranslation

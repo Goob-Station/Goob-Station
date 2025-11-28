@@ -7,6 +7,9 @@
   description: trait-language-foreigner-light-desc
   category: LanguageTraits
   cost: -1
+  blacklist: # CorvaxGoob-Species
+    tags:
+    - Abductor
   components:
   - type: ForeignerTrait
     cantUnderstand: false
@@ -18,6 +21,9 @@
   description: trait-language-foreigner-desc
   category: LanguageTraits
   cost: -2
+  blacklist: # CorvaxGoob-Species
+    tags:
+    - Abductor
   components:
   - type: ForeignerTrait
     baseTranslator: TranslatorForeigner
@@ -28,6 +34,9 @@
   description: trait-language-signlanguage-desc
   category: LanguageTraits
   cost: 1
+  blacklist: # CorvaxGoob-Species
+    tags:
+    - Abductor
   components:
   - type: LanguageSpeaker
   languagesSpoken:
@@ -42,6 +51,9 @@
   description: trait-language-solcommon-desc
   category: LanguageTraits
   cost: 1
+  blacklist: # CorvaxGoob-Species
+    tags:
+    - Abductor
   components:
   - type: LanguageSpeaker
   languagesSpoken:
@@ -55,6 +67,9 @@
   description: trait-language-tradeband-desc
   category: LanguageTraits
   cost: 1
+  blacklist: # CorvaxGoob-Species
+    tags:
+    - Abductor
   components:
   - type: LanguageSpeaker
   languagesSpoken:
@@ -74,6 +89,9 @@
     - Freespeak
   languagesUnderstood:
     - Freespeak
+  blacklist: # CorvaxGoob-Species
+    tags:
+    - Abductor
 
 - type: trait
   id: Elyran
@@ -81,6 +99,9 @@
   description: trait-language-elyran-desc
   category: LanguageTraits
   cost: 1
+  blacklist: # CorvaxGoob-Species
+    tags:
+    - Abductor
   components:
   - type: LanguageSpeaker
   languagesSpoken:
@@ -108,6 +129,9 @@
   description: trait-language-novunederic-desc
   category: LanguageTraits
   cost: 1
+  blacklist: # CorvaxGoob-Species
+    tags:
+    - Abductor
   components:
   - type: LanguageSpeaker
   languagesSpoken:

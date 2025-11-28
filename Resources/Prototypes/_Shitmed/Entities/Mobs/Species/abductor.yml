@@ -20,6 +20,7 @@
   - MobBloodstream
   - MobFlammable
   - BaseMobSpecies
+  - MobAtmosStandard # Corvax-Goob-GreySpecies
   id: MobAbductor
   components:
   - type: Absorbable # BLOOD FOR THE BLOOD GOD
@@ -43,6 +44,7 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+    - Abductor # CorvaxGoob-Species
   - type: CollectiveMind
     defaultChannel: Abductormind
     channels:
@@ -73,6 +75,23 @@
   - type: SurgeryTarget
   - type: Bloodstream
     bloodReagent: AlienBlood
+  # Corvax-Goob-GreySpecies-start
+  - type: Flammable
+    damage:
+      types:
+        Heat: 1
+  - type: Temperature
+    heatDamageThreshold: 320
+    currentTemperature: 310.15
+    specificHeat: 46
+    heatDamage:
+      types:
+        Heat : 2
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.07
+  # Corvax-Goob-GreySpecies-end
 
 - type: entity
   parent: BaseSpeciesDummy

@@ -23,6 +23,7 @@
   - NewKinPidginTranslator
   - SchechiTranslator
   - GruntishTranslator
+  - XeeplianTranslator # CorvaxGoob
 
 - type: latheRecipePack
   id: TranslatorImplanters

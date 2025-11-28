@@ -1,0 +1,5 @@
+- type: collectiveMind
+  id: AbductormindAntag
+  name: collective-mind-abductormindAntag
+  keycode: 'a'
+  color: "#cb00d6"

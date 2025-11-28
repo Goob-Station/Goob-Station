@@ -41,6 +41,20 @@
       - CanPilot
       - FootstepSound
       - DoorBumpOpener
+  # Corvax-Goob-GreySpecies-start
+  - type: PressureImmunity
+  - type: SpecialHighTempImmunity
+  - type: SpecialLowTempImmunity
+  - type: Flammable
+    damage:
+      types:
+        Heat: 0.5
+  - type: CollectiveMind
+    defaultChannel: AbductormindAntag
+    channels:
+    - AbductormindAntag
+    - Abductormind
+  # Corvax-Goob-GreySpecies-end
 
 - type: entity
   name: lone abductor

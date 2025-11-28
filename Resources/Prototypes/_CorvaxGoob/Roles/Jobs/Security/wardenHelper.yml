@@ -7,6 +7,10 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 72000 #20 hrs
+    - !type:SpeciesRequirement # CorvaxGoob-Species
+      inverted: true
+      species:
+      - Abductor
   startingGear: WardenHelperGear
   icon: "JobIconWardenHelper"
   supervisors: job-supervisors-hos

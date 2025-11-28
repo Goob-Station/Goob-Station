@@ -156,6 +156,10 @@
       inverted: true
       species:
       - Felinid
+    - !type:SpeciesRequirement # CorvaxGoob-Species
+      inverted: true
+      species:
+      - Abductor
   #goobcoins: 40 #Goob content Corvax-Goob-coins
   weight: 20
   startingGear: HoPGear

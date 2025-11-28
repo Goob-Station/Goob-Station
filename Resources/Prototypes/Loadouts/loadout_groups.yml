@@ -285,6 +285,7 @@
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVapor # Delta-V
   - EmergencySilicon
+  - LoadoutSpeciesAbductorTranslator # CorvaxGoob-Species
 
 # nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup

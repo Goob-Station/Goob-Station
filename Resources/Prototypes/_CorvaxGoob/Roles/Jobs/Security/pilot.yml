@@ -11,6 +11,10 @@
     inverted: true
     traits:
     - Muted
+  - !type:SpeciesRequirement # CorvaxGoob-Species
+    inverted: true
+    species:
+    - Abductor
   startingGear: PilotGear
   icon: "JobIconPilot"
   supervisors: job-supervisors-hos

@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: AbductorLastNames
+  values:
+    prefix: abductor-names-last-dataset-
+    count: 36

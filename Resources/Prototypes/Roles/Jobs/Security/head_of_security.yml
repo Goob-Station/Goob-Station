@@ -155,6 +155,10 @@
       inverted: true
       species:
       - Felinid
+    - !type:SpeciesRequirement # CorvaxGoob-Species
+      inverted: true
+      species:
+      - Abductor
   #  - !type:StyleRequirement
   #    styles:
   #    - HumanHairFloorlengthBedhead
