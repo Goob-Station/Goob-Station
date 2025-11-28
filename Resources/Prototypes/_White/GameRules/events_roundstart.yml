@@ -8,6 +8,7 @@
   - type: AntagObjectives
     objectives:
     - XenomorphSurviveObjective
+  - type: XenomorphsRule # Goobstation - Required for Evolution Logic
   - type: VentSpawnRule
   - type: AntagSpawner
     prototype: MobXenomorphLarva
