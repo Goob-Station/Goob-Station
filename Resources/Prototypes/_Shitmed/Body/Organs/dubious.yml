@@ -21,7 +21,6 @@
   - type: Sprite
     sprite: _Shitmed/Mobs/Species/Misc/Dubious/organs.rsi
     state: gland
-  - type: AbductorOrgan
 
 - type: entity
   id: OrganDubiousHealth
@@ -256,7 +255,7 @@
         - SlipTile
         - SlipEntity
         - ContrabandDetector
-          
+
 - type: entity
   id: OrganDubiousVentcrawler
   parent: OrganDubiousBase
