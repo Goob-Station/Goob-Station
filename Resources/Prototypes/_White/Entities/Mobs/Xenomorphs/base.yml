@@ -27,6 +27,7 @@
     canExamine: false
   - type: NightVision
     color: white
+    drawOverlay: false
     activateSound: null
     deactivateSound: null
   - type: ThermalVision
