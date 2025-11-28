@@ -31,4 +31,13 @@ public sealed partial class VirologyMachineComponent : Component
 
     [DataField]
     public string? RunningState;
+
+    // is this machine a vaccinator or analyzer?
+    // holy fuck goida
+    [DataField]
+    public bool Vaccinator;
+
+    // vaccine or live injector mode?
+    [DataField]
+    public bool InjectorMode;
 }
