@@ -55,6 +55,7 @@
   components: # Goobstation - eyes give you xeno vision
   - type: Organ
     onAdd:
+    - type: ThermalVision
     isActive: true
     color: white
     drawOverlay: false
