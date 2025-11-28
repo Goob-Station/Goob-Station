@@ -18571,3 +18571,9 @@ Entries:
         single queen to rule them all.
   id: 2090
   time: '2025-11-27T22:43:15.0000000+00:00'
+- author: krawh
+  changes:
+    - type: Remove
+      message: Wraith Is Disabled from spawning naturally.
+  id: 2091
+  time: '2025-11-28T12:13:54.0000000+00:00'
