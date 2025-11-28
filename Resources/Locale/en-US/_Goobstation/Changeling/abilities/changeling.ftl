@@ -83,8 +83,12 @@ changeling-fleshmend = We begin to seal our wounds and regenerate dead cells.
 changeling-panacea = We begin to reconstruct our cellular structure and immune system.
 changeling-adrenaline = We inject highly potent adrenaline into our body.
 
-changeling-chameleon-start = We adapt our skin to the environment
-changeling-chameleon-end = Our skin is losing its translucency
+changeling-chameleon-start = Our body starts to become translucent.
+changeling-chameleon-end = Our body loses its translucency.
+changeling-chameleon-fire = Our translucency is lost as the flames burn us!
+
+changeling-darkadapt-active = We prepare to adjust to the dark.
+changeling-darkadapt-inactive = Our body stops adjusting to the dark.
 
 changeling-voidadapt-lowpressure-start = We adapt to the surrounding low pressure.
 changeling-voidadapt-lowpressure-end = The surrounding pressure is no longer low. We cast off our adaption.
@@ -98,4 +102,4 @@ changeling-lastresort-activate = CURRENT BODY WILL BE LOST! Use it again to conf
 changeling-onfire = Our cells writhe with agony, failing to perform the action!
 changeling-voidadapt-onfire = Our adaptions become too painful to maintain on fire! We cast them off!
 
-changeling-rejuvenate = An strange energy pulses through our body, rejuvenating our cells and restoring our chemicals!
+changeling-rejuvenate = A strange energy pulses through our body, rejuvenating our cells and restoring our chemicals!

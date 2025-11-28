@@ -242,10 +242,11 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   <Box>
     [color=#999999][italic] 4 Evolution Points / 0 Chems [italic][/color]
   </Box>
-  - Changeling can toggle eyesight between flash resistant and thermal vision.
-  - While using thermal vision, flashes stun the changeling for twice as long.
-  - Thermal vision also provides changeling with night vision.
+  - While active, the changeling is immune to being blinded by flashes or welding.
+  - While disabled, the changeling gains X-ray vision, but becomes very vulnerable to flashes.
+  - Flash protection, such as welding masks, do not protect from flashes while the X-ray is active.
   - Can be used while cuffed or in lesser form.
+  - Can be used while on fire.
 
   ## Biodegrade
   <Box>
@@ -261,11 +262,20 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   <Box>
     [color=#999999][italic] 4 Evolution Points / 20 Chems [italic][/color]
   </Box>
-  - Changeling gains invisibility.
-  - Invisibility increases while standing still.
-  - Invisibility rapidly decreases while moving.
+  - Changeling gains invisibility while standing still for a short moment.
+  - Invisbility is instantly dropped when moving, attacking, being hit or being on fire.
   - Can be used while cuffed.
-  - Slows down chem regen rate by 25%.
+
+  ## Darkness Adaption
+  <Box>
+    [color=#999999][italic] 4 Evolution Points / 10 Chems [italic][/color]
+  </Box>
+  - Changeling is able to adjust their body while shrouded in darkness.
+  - While in the dark, you become very translucent and gain night vision.
+  - The translucency cannot be reduced even while moving, attacking or interacting.
+  - Both the translucency and night vision is lost when not shrouded in darkness, or while on fire.
+  - While active and adjusting to the dark, chem regen rate is decreased by 15%.
+  - Can be used while cuffed.
 
   ## Adrenaline Reserves
   <Box>

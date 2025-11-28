@@ -24,7 +24,7 @@ public sealed partial class ChangelingBiomassSystem : SharedChangelingBiomassSys
 
         var alert = args.SpriteViewEnt;
         var normalized = Math.Round(ent.Comp.Biomass / ent.Comp.MaxBiomass * 16);
-        normalized = Math.Clamp(normalized, 0, ent.Comp.MaxBiomass);
+        normalized = Math.Clamp(normalized, 0, 16);
 
         _sprite.LayerSetRsiState((alert.Owner, alert.Comp), AlertVisualLayers.Base, $"{normalized}");
     }

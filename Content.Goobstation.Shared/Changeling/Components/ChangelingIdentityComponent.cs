@@ -135,10 +135,22 @@ public sealed partial class ChangelingIdentityComponent : Component
     public float BonusChemicalRegen = 0.0f;
 
     /// <summary>
+    ///     The multiplier applied to passive chemical generation while on fire.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float FireChemicalMultiplier = 0.25f;
+
+    /// <summary>
     ///     Chemicals regeneration rate multiplier from certain abilities.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float ChemicalRegenMultiplier = 1.0f;
+
+    /// <summary>
+    ///     The base amount of chemicals that are passively generated.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float ChemicalRegenAmount = 1.0f;
 
     /// <summary>
     ///     Cooldown between chem regen events.

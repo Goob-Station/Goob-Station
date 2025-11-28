@@ -547,6 +547,7 @@
   components:
   - type: Action
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: lay_egg
@@ -588,7 +589,7 @@
   parent: BaseAction
   id: ActionAugmentedEyesight
   name: Augmented Eyesight
-  description: Toggle thermal vision.
+  description: Toggle X-Ray/Flash protection.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -599,7 +600,7 @@
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: augmented_eyesight
   - type: InstantAction
-    event: !type:ToggleThermalVisionEvent {}
+    event: !type:ActionAugmentedEyesightEvent {}
 
 - type: entity
   parent: BaseAction
@@ -640,6 +641,26 @@
     event: !type:ActionChameleonSkinEvent {}
   - type: ChangelingAction
     chemicalCost: 20
+
+- type: entity
+  parent: BaseAction
+  id: ActionDarknessAdaption
+  name: Darkness Adaption
+  description: Toggle becoming translucent and gaining night vision in the darkness. Costs 10 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: darkness_adaption
+  - type: InstantAction
+    event: !type:ActionDarknessAdaptionEvent {}
+  - type: ChangelingAction
+    chemicalCost: 10
 
 - type: entity
   parent: BaseAction

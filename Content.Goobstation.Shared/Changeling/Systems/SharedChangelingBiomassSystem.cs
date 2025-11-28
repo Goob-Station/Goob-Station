@@ -158,7 +158,7 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
     #region Helper Methods
     private void UpdateBiomass(Entity<ChangelingBiomassComponent> ent)
     {
-        var newBiomass = ent.Comp.Biomass -= ent.Comp.DrainAmount;
+        var newBiomass = ent.Comp.Biomass - ent.Comp.DrainAmount;
         ent.Comp.Biomass = Math.Clamp(newBiomass, 0, ent.Comp.MaxBiomass);
 
         _alerts.ShowAlert(ent, ent.Comp.AlertId);

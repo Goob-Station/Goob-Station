@@ -57,6 +57,14 @@ namespace Content.Shared.Stealth.Components
         [DataField]
         [AutoNetworkedField]
         public TimeSpan NoMoveTime = TimeSpan.Zero;
+
+        // goobstation - break stealth on move
+        /// <summary>
+        /// Should stealth break upon moving?
+        /// </summary>
+        [DataField]
+        [AutoNetworkedField]
+        public bool BreakOnMove;
         // </Goobstation>
     }
 }

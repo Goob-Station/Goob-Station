@@ -188,6 +188,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         SubscribeLocalEvent<ChangelingIdentityComponent, AwakenedInstinctPurchasedEvent>(OnAwakenedInstinctPurchased);
         SubscribeLocalEvent<ChangelingIdentityComponent, AugmentedEyesightPurchasedEvent>(OnAugmentedEyesightPurchased);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ChameleonSkinPurchasedEvent>(OnChameleonSkinPurchased);
+        SubscribeLocalEvent<ChangelingIdentityComponent, DarknessAdaptionPurchasedEvent>(OnDarknessAdaptionPurchased);
         SubscribeLocalEvent<ChangelingIdentityComponent, VoidAdaptionPurchasedEvent>(OnVoidAdaptionPurchased);
 
         SubscribeAbilities();
@@ -208,12 +210,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             configuration.Reagents.Select(x => (x.Key, x.Value / ent.Comp.ReagentDivisor)).ToDictionary());
     }
 
-    protected override void UpdateFlashImmunity(EntityUid uid, bool active)
-    {
-        if (TryComp(uid, out FlashImmunityComponent? flashImmunity))
-            flashImmunity.Enabled = active;
-    }
-
     private void OnAwakenedInstinctPurchased(Entity<ChangelingIdentityComponent> ent, ref AwakenedInstinctPurchasedEvent args)
     {
         EnsureComp<ChangelingBiomassComponent>(ent);
@@ -221,28 +217,22 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private void OnAugmentedEyesightPurchased(Entity<ChangelingIdentityComponent> ent, ref AugmentedEyesightPurchasedEvent args)
     {
-        InitializeAugmentedEyesight(ent);
+        EnsureComp<AugmentedEyesightComponent>(ent);
+    }
+
+    private void OnChameleonSkinPurchased(Entity<ChangelingIdentityComponent> ent, ref ChameleonSkinPurchasedEvent args)
+    {
+        EnsureComp<ChameleonSkinComponent>(ent);
+    }
+
+    private void OnDarknessAdaptionPurchased(Entity<ChangelingIdentityComponent> ent, ref DarknessAdaptionPurchasedEvent args)
+    {
+        EnsureComp<DarknessAdaptionComponent>(ent);
     }
 
     private void OnVoidAdaptionPurchased(Entity<ChangelingIdentityComponent> ent, ref VoidAdaptionPurchasedEvent args)
     {
         EnsureComp<VoidAdaptionComponent>(ent);
-    }
-
-    public void InitializeAugmentedEyesight(EntityUid uid)
-    {
-        EnsureComp<FlashImmunityComponent>(uid);
-        EnsureComp<EyeProtectionComponent>(uid);
-
-        var thermalVision = _compFactory.GetComponent<Shared.Overlays.ThermalVisionComponent>();
-        thermalVision.Color = Color.FromHex("#FB9898");
-        thermalVision.LightRadius = 15f;
-        thermalVision.FlashDurationMultiplier = 2f;
-        thermalVision.ActivateSound = null;
-        thermalVision.DeactivateSound = null;
-        thermalVision.ToggleAction = null;
-
-        AddComp(uid, thermalVision);
     }
 
     private void OnRefreshSpeed(Entity<ChangelingIdentityComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
@@ -274,16 +264,28 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     }
     public void Cycle(EntityUid uid, ChangelingIdentityComponent comp)
     {
-        UpdateChemicals(uid, comp, manualAdjust: false);
+        RegenerateChemicals(uid, comp);
         UpdateAbilities(uid, comp);
     }
 
-    private void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null, bool manualAdjust = true)
+    private void RegenerateChemicals(EntityUid uid, ChangelingIdentityComponent comp) // this happens passively
     {
-        if (manualAdjust)
-            AdjustChemicals(uid, comp, amount ?? 1);
-        else
-            RegenerateChemicals(uid, comp, amount ?? 1);
+        var chemicals = comp.Chemicals;
+        var fireMult = CheckFireStatus(uid) ? comp.FireChemicalMultiplier : 1f;
+
+        chemicals += (comp.ChemicalRegenAmount + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier * fireMult;
+        comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
+
+        Dirty(uid, comp);
+        _alerts.ShowAlert(uid, "ChangelingChemicals");
+    }
+
+    public override void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null)
+    {
+        var chemicals = comp.Chemicals;
+
+        chemicals += amount ?? 0;
+        comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
 
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingChemicals");
@@ -303,32 +305,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (comp.IsInStasis && comp.StasisTime > 0f)
             comp.StasisTime -= 1f;
 
-    }
-
-    private void RegenerateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float amount) // this happens passively
-    {
-        var chemicals = comp.Chemicals;
-
-        if (CheckFireStatus(uid)) // if on fire, reduce total chemicals restored to a 1/4 //
-        {
-            chemicals += (amount + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier * 0.25f;
-            comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
-            return;
-        }
-
-        chemicals += (amount + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier;
-        comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
-        return;
-
-    }
-
-    private void AdjustChemicals(EntityUid uid, ChangelingIdentityComponent comp, float amount) // this happens via abilities and such
-    {
-        var chemicals = comp.Chemicals;
-
-        chemicals += amount;
-        comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
-        return;
     }
 
     #region Helper Methods
@@ -572,7 +548,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             _audio.PlayPvs(comp.ArmourSound, uid, AudioParams.Default);
 
             comp.ActiveArmor = newArmor;
-            comp.ChemicalRegenMultiplier -= 0.25f; // base chem regen slowed by a flat 25%
             return true;
         }
         else
@@ -584,7 +559,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             _audio.PlayPvs(comp.ArmourStripSound, uid, AudioParams.Default);
 
             comp.ActiveArmor = null!;
-            comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
             return true;
         }
     }
@@ -640,6 +614,28 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         return true;
     }
 
+    private static readonly List<Type> TypeCopies = new()
+    {
+        typeof(HeadRevolutionaryComponent),
+        typeof(RevolutionaryComponent),
+        typeof(GhoulComponent),
+        typeof(HereticComponent),
+        typeof(StoreComponent),
+        typeof(FlashImmunityComponent),
+        typeof(EyeProtectionComponent),
+        typeof(Shared.Overlays.NightVisionComponent),
+        typeof(Shared.Overlays.ThermalVisionComponent),
+        // ADD MORE TYPES HERE
+    };
+    private static readonly List<Type> LingTypeCopies = new()
+    {
+        typeof(AugmentedEyesightComponent),
+        typeof(ChangelingBiomassComponent),
+        typeof(ChameleonSkinComponent),
+        typeof(DarknessAdaptionComponent),
+        typeof(VoidAdaptionComponent),
+    };
+
     private ChangelingIdentityComponent? CopyChangelingComponent(EntityUid target, ChangelingIdentityComponent comp)
     {
         EnsureComp<ChangelingComponent>(target);
@@ -661,22 +657,20 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         return comp;
     }
-    private void CopyBiomassComponent(EntityUid target, ChangelingBiomassComponent comp)
+
+    private void CopyComponents(EntityUid uid, EntityUid newEnt, List<Type> types)
     {
-        var newComp = EnsureComp<ChangelingBiomassComponent>(target);
-
-        newComp.MaxBiomass = comp.MaxBiomass;
-        newComp.Biomass = comp.Biomass;
-
-        newComp.FirstWarnReached = comp.FirstWarnReached;
-        newComp.SecondWarnReached = comp.SecondWarnReached;
-        newComp.ThirdWarnReached = comp.ThirdWarnReached;
+        foreach (var type in types)
+            if (EntityManager.TryGetComponent(uid, type, out var icomp))
+                CopyComp(uid, newEnt, icomp);
     }
+
     private EntityUid? TransformEntity(
         EntityUid uid,
         TransformData? data = null,
         EntProtoId? protoId = null,
         ChangelingIdentityComponent? comp = null,
+        bool transferProgress = true,
         bool dropInventory = false,
         bool transferDamage = true,
         bool persistentDna = false)
@@ -703,7 +697,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             RevertOnDeath = false
         };
 
-
         var newUid = _polymorph.PolymorphEntity(uid, config);
 
         if (newUid == null)
@@ -725,17 +718,24 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         if (comp != null)
         {
-            // copy our stuff
-            var newLingComp = CopyChangelingComponent(newEnt, comp);
-            if (!persistentDna && data != null)
-                newLingComp?.AbsorbedDNA.Remove(data);
-            RemCompDeferred<ChangelingIdentityComponent>(uid);
-
-            if (TryComp<ChangelingBiomassComponent>(uid, out var bioComp))
+            if (transferProgress)
             {
-                CopyBiomassComponent(newEnt, bioComp);
-                RemCompDeferred<ChangelingBiomassComponent>(uid);
+                // copy our stuff
+                var newLingComp = CopyChangelingComponent(newEnt, comp);
+
+                CopyComponents(uid, newEnt, LingTypeCopies);
+
+                if (!persistentDna
+                    && data != null)
+                    newLingComp?.AbsorbedDNA.Remove(data);
             }
+            else
+            {
+                EnsureComp<ChangelingComponent>(newEnt);
+                EnsureComp<ChangelingIdentityComponent>(newEnt);
+            }
+
+            RemCompDeferred<ChangelingIdentityComponent>(uid);
         }
 
         //    if (TryComp<StoreComponent>(uid, out var storeComp))
@@ -746,34 +746,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         //    }
         //}
 
-        // exceptional comps check
-        // there's no foreach for types i believe so i gotta thug it out yandev style.
-        List<Type> types = new()
-        {
-            typeof(HeadRevolutionaryComponent),
-            typeof(RevolutionaryComponent),
-            typeof(GhoulComponent),
-            typeof(HereticComponent),
-            typeof(StoreComponent),
-            typeof(FlashImmunityComponent),
-            typeof(EyeProtectionComponent),
-            typeof(Shared.Overlays.NightVisionComponent),
-            typeof(Shared.Overlays.ThermalVisionComponent),
-
-            // changeling related
-            typeof(VoidAdaptionComponent),
-            // ADD MORE TYPES HERE
-        };
-        foreach (var type in types)
-        {
-            if (EntityManager.TryGetComponent(uid, type, out var icomp))
-            {
-                var newComp = (Component) _compFactory.GetComponent(_compFactory.GetComponentName(type));
-                var temp = (object) newComp;
-                _serialization.CopyTo(icomp, ref temp, notNullableOverride: true);
-                EntityManager.AddComponent(newEnt, (Component) temp!);
-            }
-        }
+        CopyComponents(uid, newEnt, TypeCopies);
 
         RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(uid)), newEnt);
 
@@ -781,6 +754,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         return newUid;
     }
+
     public bool TryTransform(EntityUid target, ChangelingIdentityComponent comp, bool sting = false, bool persistentDna = false)
     {
         if (HasComp<AbsorbedComponent>(target))

@@ -22,7 +22,6 @@ public sealed class ChangelingEggSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly ChangelingSystem _changeling = default!;
 
     public override void Update(float frameTime)
     {
@@ -42,13 +41,13 @@ public sealed class ChangelingEggSystem : EntitySystem
 
     public void Cycle(EntityUid uid, ChangelingEggComponent comp)
     {
-        if (comp.active == false)
+        if (comp.Active == false)
         {
-            comp.active = true;
+            comp.Active = true;
             return;
         }
 
-        if (TerminatingOrDeleted(comp.lingMind))
+        if (TerminatingOrDeleted(comp.LingMind))
         {
             _bodySystem.GibBody(uid);
             return;
@@ -57,14 +56,11 @@ public sealed class ChangelingEggSystem : EntitySystem
         var newUid = Spawn("MobMonkey", Transform(uid).Coordinates);
 
         EnsureComp<MindContainerComponent>(newUid);
-        _mind.TransferTo(comp.lingMind, newUid);
+        _mind.TransferTo(comp.LingMind, newUid);
 
         EnsureComp<ChangelingIdentityComponent>(newUid);
 
-        EntityManager.AddComponent(newUid, comp.lingStore);
-
-        if (comp.AugmentedEyesightPurchased)
-            _changeling.InitializeAugmentedEyesight(newUid);
+        EntityManager.AddComponent(newUid, comp.LingStore);
 
         _bodySystem.GibBody(uid);
     }

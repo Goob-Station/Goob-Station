@@ -24,6 +24,9 @@
     equippedPrefix: transform
   - type: ChangePrefixAfterDelay
     delay: 1
+  - type: ChangelingEquipment
+    requiredSlot: HEAD
+    #no chem modifier as it relies entirely on the actual outer armor
   - type: FireProtection
     reduction: 0.15
   - type: Armor
@@ -42,7 +45,6 @@
         Piercing: 0.55
         Heat: 0.55
         Caustic: 0.55
-  - type: Unremoveable
   - type: IdentityBlocker
   - type: IngestionBlocker
   - type: HideClothingLayerClothing
