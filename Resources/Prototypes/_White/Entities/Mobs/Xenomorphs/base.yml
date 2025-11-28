@@ -166,12 +166,6 @@
   - type: Stripping
   - type: SurgeryTarget
   - type: UserInterface
-    - type: ThermalVision
-    isActive: true
-    color: white
-    drawOverlay: false
-    lightRadius: 0
-    toggleAction: null
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
