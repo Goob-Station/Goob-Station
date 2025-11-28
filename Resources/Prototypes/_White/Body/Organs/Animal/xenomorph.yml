@@ -54,13 +54,6 @@
   description: It turned out they had them after all!
   components: # Goobstation - eyes give you xeno vision
   - type: Organ
-    onAdd:
-    - type: ThermalVision
-    isActive: true
-    color: white
-    drawOverlay: false
-    lightRadius: 0
-    toggleAction: null
 
 - type: entity
   parent: [BaseXenomorphOrgan, OrganHumanTongue]
