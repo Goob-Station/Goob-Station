@@ -9,12 +9,12 @@ public sealed class HasturVeilSystem : EntitySystem
 {
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<HasturVeilComponent, VeilOfTheVoidEvent>(OnVeil);
-
         SubscribeLocalEvent<HasturVeilComponent, HasturDevourEvent>(OnDevour);
     }
 

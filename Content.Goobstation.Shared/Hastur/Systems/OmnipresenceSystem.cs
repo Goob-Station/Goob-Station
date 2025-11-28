@@ -19,6 +19,7 @@ public sealed class OmnipresenceSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<OmnipresenceComponent, OmnipresenceEvent>(OnOmnipresence);
     }
 
