@@ -28,3 +28,25 @@
     component:
     - type: VentCrawler
       allowInventory: true
+
+- type: entity #Omu - Starlight Port
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpsuitEliteBlueShield
+  name: elite blueshield officer's suit
+  description: Suit of an Elite Blueshield. To reach such a level, you must have protected command from a [REDACTED] threat.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/eliteblueshield.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/eliteblueshield.rsi
+
+- type: entity #Omu - Starlight Port
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpsuitBlueShieldCaptain
+  name: blueshield officer's shirt
+  description: A classic suit in theme with a blueshield.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/blueshieldshirt.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/blueshieldshirt.rsi

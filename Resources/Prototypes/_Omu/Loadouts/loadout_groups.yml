@@ -1,0 +1,10 @@
+﻿# Blueshield Officer
+
+- type: loadoutGroup
+  id: BlueshieldOfficerBelt
+  name: loadout-group-bso-belt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BeltAssaultFilled
+  - BeltBlueshieldEliteFilled #Starlight Sprite Port
