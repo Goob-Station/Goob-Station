@@ -77,6 +77,7 @@
     speedModifier: 2
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: PrincessTerror
   - type: ActionGrant
     actions:
       - ActionTerrorAirtightWeb
