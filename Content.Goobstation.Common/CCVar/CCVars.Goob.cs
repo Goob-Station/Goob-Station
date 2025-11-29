@@ -638,5 +638,11 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> AscensionRequiresObjectives =
         CVarDef.Create("heretic.ascension_requires_objectives", true, CVar.SERVERONLY);
 
+    /// <summary>
+    /// A multiplier for bloodloss damage and heal.
+    /// </summary>
+    public static readonly CVarDef<float> BleedMultiplier =
+        CVarDef.Create("medical.bloodloss_multiplier", 3.0f, CVar.SERVERONLY | CVar.REPLICATED);
+
     #endregion
 }

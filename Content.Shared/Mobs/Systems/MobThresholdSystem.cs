@@ -408,33 +408,39 @@ public sealed class MobThresholdSystem : EntitySystem
     // Goobstation start
     public FixedPoint2 CheckVitalDamage(EntityUid target, DamageableComponent damageableComponent)
     {
-        if (TryComp<BodyComponent>(target, out var body) && body.BodyType == BodyType.Complex)
-        {
-            if (body.RootContainer.ContainedEntity is not { } rootPart)
-                return damageableComponent.TotalDamage;
+        var damage = damageableComponent.TotalDamage;
 
-            var result = FixedPoint2.Zero;
-            foreach (var (woundable, component) in _wound.GetAllWoundableChildren(rootPart))
-            {
-                if (TryComp<DamageableComponent>(woundable, out var woundableDamageableComponent) && TryComp<BodyPartComponent>(woundable, out var bodyPartComponent))
-                {
-                    switch (bodyPartComponent.PartType)
-                    {
-                        case BodyPartType.Head:
-                            result += woundableDamageableComponent.TotalDamage;
-                            break;
-                        case BodyPartType.Chest:
-                            result += woundableDamageableComponent.TotalDamage;
-                            break;
-                        case BodyPartType.Groin:
-                            result += woundableDamageableComponent.TotalDamage;
-                            break;
-                    }
-                }
-            }
-            return result;
+        if (!TryComp(target, out BodyComponent? body) ||
+            body.BodyType != BodyType.Complex)
+        {
+            return damage;
         }
-        return damageableComponent.TotalDamage;
+
+        if (body.RootContainer?.ContainedEntity is not EntityUid rootPart)
+            return damage;
+
+        FixedPoint2 result = FixedPoint2.Zero;
+
+        var criticalParts = new[]
+        {
+            BodyPartType.Head,
+            BodyPartType.Chest,
+            BodyPartType.Groin
+        };
+
+        foreach (var (woundable, _) in _wound.GetAllWoundableChildren(rootPart))
+        {
+            if (!TryComp(woundable, out DamageableComponent? wdc) ||
+                !TryComp(woundable, out BodyPartComponent? bpc))
+            {
+                continue;
+            }
+
+            if (criticalParts.Contains(bpc.PartType))
+                result += wdc.TotalDamage;
+        }
+
+        return result;
     }
     // Goobstation end
 
