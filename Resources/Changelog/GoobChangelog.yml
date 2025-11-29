@@ -18625,3 +18625,9 @@ Entries:
         Antimov one.
   id: 2097
   time: '2025-11-29T17:29:29.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Remove
+      message: 'Removed: The King In Yellow'
+  id: 2098
+  time: '2025-11-29T18:08:27.0000000+00:00'
