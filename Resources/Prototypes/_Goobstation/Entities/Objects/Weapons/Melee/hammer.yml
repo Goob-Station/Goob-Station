@@ -38,3 +38,6 @@
     - Hammering
     useSound:
       path: /Audio/Items/trayhit2.ogg
+  - type: Construction
+    graph: Hammer
+    node: hammer

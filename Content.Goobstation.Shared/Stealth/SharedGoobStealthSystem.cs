@@ -14,6 +14,7 @@ using Content.Shared.Ninja.Systems;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Throwing;
+using Content.Goobstation.Shared.Slasher.Components; // For SlasherIncorporealComponent
 
 namespace Content.Goobstation.Shared.Stealth;
 
@@ -31,6 +32,22 @@ public sealed class SharedGoobStealthSystem : EntitySystem
         SubscribeLocalEvent<StealthComponent, SelfBeforeGunShotEvent> (OnGunShootAttack);
         SubscribeLocalEvent<StealthComponent, BeforeDamageChangedEvent>(OnTakeDamage);
         SubscribeLocalEvent<StealthComponent, BeforeThrowEvent>(OnThrow);
+        SubscribeLocalEvent<SlasherIncorporealComponent, MoveEvent>(OnSlasherMove);
+    }
+
+    private void OnSlasherMove(EntityUid uid, SlasherIncorporealComponent comp, ref MoveEvent args)
+    {
+        // Failsafe to stop incorporeal slashers from gaining visibility from movement (Singularity pull)
+        if (!comp.IsIncorporeal)
+            return;
+
+        if (!TryComp<StealthComponent>(uid, out var stealth))
+            return;
+
+        // Keep stealth at minimum visibility when incorporeal.
+        var currentVisibility = _stealth.GetVisibility(uid, stealth);
+        if (currentVisibility > stealth.MinVisibility)
+            _stealth.SetVisibility(uid, stealth.MinVisibility, stealth);
     }
 
     private void OnTakeDamage(Entity<StealthComponent> ent, ref BeforeDamageChangedEvent args)
@@ -69,6 +86,11 @@ public sealed class SharedGoobStealthSystem : EntitySystem
     private void OnThrow(Entity<StealthComponent> ent, ref BeforeThrowEvent args)
     {
         if (!ent.Comp.RevealOnAttack)
+            return;
+
+        // Some goida stuff. If a slasher attempts to throw an item it stops them from throwing it BUTTTTT THEY STILL GET REVEALED, so here we are.
+        // Slasher
+        if (TryComp<SlasherIncorporealComponent>(ent.Owner, out var slasher) && slasher.IsIncorporeal)
             return;
 
         _stealth.ModifyVisibility(ent.Owner, ent.Comp.MaxVisibility, ent.Comp);

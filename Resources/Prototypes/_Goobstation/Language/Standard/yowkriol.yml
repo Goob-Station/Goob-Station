@@ -1,0 +1,112 @@
+# language for yowies based on australian kriol, realistically they'd pick up on aboriginal languages in addition to english
+- type: language
+  id: YowKriol
+  isVisibleLanguage: true
+  speech:
+    color: "#a12e11"
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 3
+    replacement:
+      # actual syllables
+      - a
+      - an
+      - ap
+      - at
+      - ai
+      - be
+      - bek
+      - ben
+      - bon
+      - ba
+      - bat
+      - bi
+      - bala
+      - bla
+      # no c
+      - dan
+      - da
+      - di
+      - dis
+      - dro
+      - dra
+      - du
+      - en
+      - ev
+      - el
+      - fai
+      - fa
+      - fo
+      - fe
+      - go
+      - gow
+      - ga
+      - gel
+      - hi
+      - ha
+      - hou
+      - hab
+      - hu
+      - im
+      - in
+      - it
+      - ka
+      - kri
+      - ja
+      - jan
+      - kin
+      - ken
+      - kos
+      - la
+      - lan
+      - luk
+      - ma
+      - mi
+      - mo
+      - matj
+      - mok
+      - mob
+      - nid
+      - ni
+      - no
+      - na
+      - nah
+      - o
+      - ol
+      - on
+      - om
+      - pa
+      - pu
+      - pul
+      # no q
+      - ri
+      - ra
+      - ran
+      - sa
+      - sam
+      - ska
+      - stra
+      - ta
+      - tu
+      - the
+      - tra
+      # no v
+      - wa
+      - wan
+      - wal
+      - wei
+      - we
+      # no x
+      - yu
+      - ya
+      - ye
+      - yo
+      - yow
+      # no z
+      # some random slang for fun
+      - skis
+      - fuk
+      - fuken
+      - kunt
+      - ganja

@@ -1,6 +1,5 @@
 - type: constructionGraph
   id: BarricadePlasteel
-  start: start
   graph:
   - node: start
     actions:

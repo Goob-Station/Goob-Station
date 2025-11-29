@@ -160,6 +160,7 @@
     - id: GasLeak
     - id: GreytideVirus
     - id: IonStorm # its calm like 90% of the time smh
+    - id: JobDistributionError
     - id: KudzuGrowth
     - id: MassHallucinations
     - id: MimicVendorRule
@@ -201,7 +202,10 @@
     - id: BingleSpawn #Goobstation - Bingle
     - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
-    - id: WraithMidround # Goobstation - Wraith
+    #- id: WraithMidround # Goobstation - Wraith
+    #TODO When Slasher is Ready - id: SlasherSpawn # Goobstation - The Slasher
+    #TODO When Hastur / King in Yellow is ready - id: HasturMidround # Goobstation - The King in Yellow
+
 
 - type: entity
   id: BaseStationEvent
