@@ -18595,3 +18595,9 @@ Entries:
       message: Added a burger perfect for greenshifts
   id: 2094
   time: '2025-11-29T10:37:22.0000000+00:00'
+- author: 0xRai
+  changes:
+    - type: Remove
+      message: Shadowkin's unique description
+  id: 2095
+  time: '2025-11-29T12:53:09.0000000+00:00'
