@@ -60,6 +60,9 @@ ntr-executive-1984-desc = A standard Deckard sidearm for personal defense.
 ntr-executive-combatmed-name = Combat medkit
 ntr-executive-combatmed-desc = For when you need more than just basic first aid supplies.
 
+ntr-executive-cassette-name = Executive cassette player
+ntr-executive-cassette-desc = A cassette player to listen to tunes while you close important deals.
+
 # response teams
 
 ntr-executive-ert-sec-name = Call ERT Security

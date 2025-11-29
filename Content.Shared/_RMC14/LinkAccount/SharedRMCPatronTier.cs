@@ -38,5 +38,6 @@ public sealed record SharedRMCPatronTier(
     bool LobbyMessage,
     bool RoundEndShoutout,
     string Tier
+    string? Icon
 );
 CorvaxGoob-Coins-end */
