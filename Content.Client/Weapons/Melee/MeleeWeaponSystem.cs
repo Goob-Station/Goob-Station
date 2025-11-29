@@ -186,7 +186,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             if (!TryComp<AltFireMeleeComponent>(weaponUid, out var altFireComponent) || altDown != BoundKeyState.Down)
                 return;
 
-            switch (altFireComponent.AttackType)
+            switch(altFireComponent.AttackType)
             {
                 case AltFireAttackType.Light:
                     ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
@@ -229,7 +229,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             if (TryComp(weaponUid, out MeleeDashComponent? dash))
             {
                 var direction = GetDirection();
-                // Goobedit start
                 if (direction == Vector2.Zero)
                     return;
 
@@ -265,7 +264,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                     // no delay → dash immediately
                     RaisePredictiveEvent(new MeleeDashEvent(GetNetEntity(weaponUid), direction));
                 }
-                // Goobedit end
 
                 return;
             }

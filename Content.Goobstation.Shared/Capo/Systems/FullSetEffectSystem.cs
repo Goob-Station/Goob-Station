@@ -1,22 +1,18 @@
+using Content.Goobstation.Common.Weapons.MeleeDash;
 using Content.Goobstation.Shared.Capo.Components;
 using Content.Goobstation.Shared.Overlays;
-using Content.Goobstation.Common.Weapons.MeleeDash;
-using Content.Shared.Inventory;
 using Content.Shared.Body.Systems;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Weapons.Reflect;
 using Content.Shared.Weapons.Melee;
-using Content.Shared.Item;
+using Content.Shared.Weapons.Reflect;
 using Content.Shared.Wieldable;
-using Robust.Shared.Log;
-using Robust.Shared.Timing;
 using Robust.Shared.Audio;
-using System.Collections.Generic;
-using System.Diagnostics;
+using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.CaposOutfit;
+namespace Content.Goobstation.Shared.Capo.Systems;
 
 public sealed class CaposFullSetEffectSystem : EntitySystem
 {
@@ -25,7 +21,6 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     private readonly Dictionary<EntityUid, int> _capoPieceCounts = new();
 
@@ -75,7 +70,7 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
     {
 
         _movementSpeedModifierSystem.ChangeBaseSpeed(player, 5, 5, 20);
-        var thermal = _entityManager.AddComponent<ThermalVisionComponent>(player);
+        var thermal = EntityManager.AddComponent<ThermalVisionComponent>(player);
         thermal.LightRadius = 15;
         thermal.Color = Color.FromHex("#ffffff");
         foreach (var held in _hands.EnumerateHeld(player))
@@ -90,7 +85,7 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
 
     private void RemoveFullSetEffect(EntityUid player)
     {
-        _entityManager.RemoveComponent<ThermalVisionComponent>(player);
+        EntityManager.RemoveComponent<ThermalVisionComponent>(player);
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(player);
         _bodySystem.UpdateMovementSpeed(player);
 
@@ -118,7 +113,7 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
         }
         if (TryComp<MeleeDashComponent>(ent, out var dash))
         {
-            _entityManager.RemoveComponent<MeleeDashComponent>(ent);
+            EntityManager.RemoveComponent<MeleeDashComponent>(ent);
         }
     }
 
@@ -134,10 +129,11 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
         }
         if (!TryComp<MeleeDashComponent>(ent, out var dash))
         {
-            dash = _entityManager.AddComponent<MeleeDashComponent>(ent);
+            dash = EntityManager.AddComponent<MeleeDashComponent>(ent);
             dash.DashSound = new SoundPathSpecifier("/Audio/_Goobstation/Weapons/Effects/tigersclawdash.ogg");
             dash.DoAfter = 0.6f;
             dash.DashSprite = "ability-icon";
+            Dirty(ent, dash);
         }
 
         if (_capoPieceCounts.TryGetValue(user, out var count) && count >= 5)
