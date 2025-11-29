@@ -278,6 +278,7 @@
     - LatheMiscStatic
     - ChemistryStatic
     - TapeRecorderStatic
+    - CondimentStatic
     dynamicPacks:
     - Janitor
     - Instruments

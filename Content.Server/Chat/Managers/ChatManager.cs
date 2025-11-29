@@ -443,13 +443,29 @@ internal sealed partial class ChatManager : IChatManager
             var prefs = _preferencesManager.GetPreferences(player.UserId);
             colorOverride = prefs.AdminOOCColor;
         }
-        if (  _netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor) &&
-              player.Channel.UserData.PatronTier is { } patron && PatronOocColors.TryGetValue(patron, out var patronColor)) // CorvaxGoob-Coins
-            //_linkAccount.GetPatron(player)?.Tier != null) // RMC - Patreon
+
+        /* CorvaxGoob-Revert : DB conflicts
+        // RMC - Heavily modified for patreon.
+        if (_netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor) &&
+            _linkAccount.GetPatron(player)?.Tier is { } tier)
         {
-            //wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", "#aa00ff"),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message))); // RMC - Patreon // CorvaxGoob-Coins
-            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", patronColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+            if (tier.Icon != null)
+            {
+                wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message",
+                    ("tierIcon", tier.Icon),
+                    ("patronColor", "#aa00ff"),
+                    ("playerName", player.Name),
+                    ("message", FormattedMessage.EscapeText(message)));
+            }
+            else
+            {
+                wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message-no-icon",
+                    ("patronColor", "#aa00ff"),
+                    ("playerName", player.Name),
+                    ("message", FormattedMessage.EscapeText(message)));
+            }
         }
+        */
 
         // CorvaxGoob-Sponsors-Start
         if (_sponsorsManager != null && _sponsorsManager.TryGetServerOocColor(player.UserId, out var oocColor))

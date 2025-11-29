@@ -1,7 +1,7 @@
-# - type: construction # Commented by CorvaxGoob
+# CorvaxGoob-Revert : Not today
+# - type: construction
 #   id: GoidaBot
 #   graph: GoidaBot
-#   startNode: start
 #   targetNode: bot
 #   category: construction-category-utilities
 #   objectType: Item

@@ -24,6 +24,7 @@
   - SchechiTranslator
   - GruntishTranslator
   - XeeplianTranslator # CorvaxGoob
+  - YowKriolTranslator # goob edit - yowie language
 
 - type: latheRecipePack
   id: TranslatorImplanters
@@ -45,3 +46,4 @@
   - NewKinPidginTranslatorImplanter
   - SchechiTranslatorImplanter
   - GruntishTranslatorImplanter
+  - YowKriolTranslatorImplanter # goob edit - yowie language

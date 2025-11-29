@@ -445,6 +445,7 @@
     - SecurityWeaponsStatic
     - SecurityAmmoStatic
     # Goobstation
+    - SecurityWeaponsStaticGoob
     - SecurityAmmoStaticGoob
     - SyndicateAmmoLightStatic
     - ScienceExplosives
@@ -773,6 +774,7 @@
     - PowerCellsStatic
     - ScienceExplosives
     - GrenadeTriggersStatic
+    - SecurityWeaponsStaticGoob
     - SecurityWeaponsNonEmaggableStaticGoob
     - SecurityAmmoStaticCorvaxGoob # Corvax-Goob-UncleStyopa
     dynamicPacks:

@@ -279,6 +279,8 @@
     sprite: Clothing/Mask/gascaptain.rsi
   - type: BreathMask
   - type: IngestionBlocker
+    blockSmokeIngestion: true # Goobstation
+    
 
 - type: entity
   parent: [ ClothingMaskGasAtmos, BaseCentcommContraband ]
@@ -292,6 +294,7 @@
     sprite: Clothing/Mask/gascentcom.rsi
   - type: BreathMask
   - type: IngestionBlocker
+    blockSmokeIngestion: true # Goobstation
 
 - type: entity
   parent: [ClothingMaskGas, BaseCargoContraband]
@@ -365,6 +368,8 @@
         Piercing: 0.9
         Heat: 0.9
         Caustic: 0.9
+  - type: IngestionBlocker # Goobstation
+    blockSmokeIngestion: true # Goobstation      
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -460,6 +465,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: IngestionBlocker
+    blockSmokeIngestion: true # Goobstation      
 
 - type: entity
   parent: ClothingMaskBase
