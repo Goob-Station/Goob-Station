@@ -19,21 +19,24 @@ public partial class XenobiologySystem
 {
     private void SubscribeBreeding()
     {
+        SubscribeLocalEvent<PendingSlimeSpawnComponent, MapInitEvent>(OnPendingSlimeMapInit);
         SubscribeLocalEvent<SlimeComponent, MapInitEvent>(OnSlimeMapInit);
+    }
+
+    private void OnPendingSlimeMapInit(Entity<PendingSlimeSpawnComponent> ent, ref MapInitEvent args)
+    {
+        // it sucks but it works and now y*ml warriors can add more slimes 500% faster
+        SpawnSlime(ent, ent.Comp.BasePrototype, ent.Comp.Breed);
+
+        // there's like a million entities in a single round. nothing can go wrong this way.
+        // surely. :)
+        // QueueDel(ent);
     }
 
     private void OnSlimeMapInit(Entity<SlimeComponent> ent, ref MapInitEvent args)
     {
         Subs.CVar(_configuration, GoobCVars.BreedingInterval, val => ent.Comp.UpdateInterval = TimeSpan.FromSeconds(val), true);
         ent.Comp.NextUpdateTime = _gameTiming.CurTime + ent.Comp.UpdateInterval;
-
-        // just respawn it and toggle a switch
-        // it sucks but it works and now y*ml warriors can add more slimes 500% faster
-        if (HasComp<PendingSlimeSpawnComponent>(ent))
-        {
-            SpawnSlime(ent, ent.Comp.DefaultSlimeProto, ent.Comp.Breed);
-            QueueDel(ent);
-        }
     }
 
     /// <summary>
@@ -87,7 +90,15 @@ public partial class XenobiologySystem
             if (_random.Prob(ent.Comp.MutationChance) && ent.Comp.PotentialMutations.Count > 0)
                 selectedBreed = _random.Pick(ent.Comp.PotentialMutations);
 
-            SpawnSlime(ent, ent.Comp.DefaultSlimeProto, selectedBreed);
+            var sl = SpawnSlime(ent, ent.Comp.DefaultSlimeProto, selectedBreed);
+            if (sl.HasValue)
+            {
+                // carries over generations. type shit.
+                sl.Value.Comp.Tamer = ent.Comp.Tamer;
+                sl.Value.Comp.MutationChance = ent.Comp.MutationChance;
+                sl.Value.Comp.MaxOffspring = ent.Comp.MaxOffspring;
+                sl.Value.Comp.ExtractsProduced = ent.Comp.ExtractsProduced;
+            }
         }
 
         _containerSystem.EmptyContainer(ent.Comp.Stomach);
@@ -108,10 +119,6 @@ public partial class XenobiologySystem
         var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent, null, newBreed.Components);
         if (!_slimeQuery.TryComp(newEntityUid, out var newSlime))
             return null;
-
-        // we transfer the tamer too
-        if (_slimeQuery.TryComp(parent, out var slime))
-            newSlime.Tamer = slime.Tamer;
 
         if (newSlime.ShouldHaveShader && newSlime.Shader != null)
             _appearance.SetData(newEntityUid, XenoSlimeVisuals.Shader, newSlime.Shader);
