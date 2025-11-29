@@ -265,7 +265,7 @@
   reactants:
     Haloperidol:
       amount: 3
-    Cognizine:
+    Psicodine:
       amount: 2
     CarpoToxin:
       amount: 2
@@ -279,7 +279,7 @@
   reactants:
     Haloperidol:
       amount: 3
-    Cognizine:
+    Psicodine:
       amount: 2
     Happiness:
       amount: 2
