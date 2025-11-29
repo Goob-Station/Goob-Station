@@ -199,7 +199,7 @@ public sealed partial class AudioMuffleSystem
                     if (TileDataDict.ContainsKey(neighbor))
                         continue;
 
-                    if (ManhattanDistance(origin, neighbor) > amount)
+                    if (Vector2.Distance(origin, neighbor) > AudioRange)
                         continue;
 
                     var moveCost = 1f;
@@ -300,7 +300,7 @@ public sealed partial class AudioMuffleSystem
                     if (!invalidated.Contains(neighbor))
                         continue;
 
-                    if (ManhattanDistance(node.Indices, neighbor) > amount)
+                    if (Vector2.Distance(node.Indices, neighbor) > AudioRange)
                         continue;
 
                     invalidated.Remove(neighbor);

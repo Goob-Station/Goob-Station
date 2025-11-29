@@ -70,9 +70,8 @@ public sealed partial class AudioMuffleSystem : SharedAudioMuffleSystem
 
     private const int AudioRange = (int) SharedAudioSystem.DefaultSoundRange;
 
-    private const int PathfindingRange = AudioRange + 3;
-
-    private const float ShortAudioLength = 4f;
+    // sqrt(2 * AudioRange^2)
+    private const int PathfindingRange = 22;
 
     private bool _raycastEnabled = true;
 
@@ -159,6 +158,9 @@ public sealed partial class AudioMuffleSystem : SharedAudioMuffleSystem
 
     private void OnInit(Entity<AudioComponent> ent, ref ComponentInit args)
     {
+        if (!_pathfindingEnabled && !_raycastEnabled)
+            return;
+
         if (!CanMuffle(ent.Comp))
             return;
 
@@ -218,7 +220,7 @@ public sealed partial class AudioMuffleSystem : SharedAudioMuffleSystem
             var reset = (behavior & AudioProcessBehavior.Reset) != 0x0;
 
             if (recalc && player != null)
-                ReCalculateAudioMuffle(player.Value, (uid, audio), _xform.GetMapCoordinates(uid, xform), reset, false);
+                ReCalculateAudioMuffle(player.Value, (uid, audio), _xform.GetMapCoordinates(uid, xform), reset);
             else if (reset)
                 ResetAudioMuffle((uid, audio, muffle));
         }
@@ -382,12 +384,15 @@ public sealed partial class AudioMuffleSystem : SharedAudioMuffleSystem
             else if (muffle.OriginalVolume == null)
             {
                 if (float.IsInfinity(audioComp.Params.Volume))
-                    return;
+                    continue;
 
                 muffle.OriginalVolume = audioComp.Params.Volume;
             }
 
-            ReCalculateAudioMuffle(player, (ent.Value, audioComp, muffle), _xform.GetMapCoordinates(ent.Value));
+            ReCalculateAudioMuffle(player,
+                (ent.Value, audioComp, muffle),
+                _xform.GetMapCoordinates(ent.Value),
+                ignorePredictionReset: true);
         }
     }
 
@@ -638,7 +643,7 @@ public sealed partial class AudioMuffleSystem : SharedAudioMuffleSystem
         Entity<AudioComponent?, AudioMuffleComponent?> audio,
         MapCoordinates audioPos,
         bool reset = true,
-        bool ignoreShort = true)
+        bool ignorePredictionReset = false)
     {
         if (!Resolve(audio, ref audio.Comp1, ref audio.Comp2, false))
             return;
@@ -663,7 +668,7 @@ public sealed partial class AudioMuffleSystem : SharedAudioMuffleSystem
                     if (audioIndices == oldIndices)
                     {
                         if (reset)
-                            ResetAudioMuffle(audio, ignoreShort);
+                            ResetAudioMuffle(audio, ignorePredictionReset);
                         return;
                     }
 
@@ -685,7 +690,7 @@ public sealed partial class AudioMuffleSystem : SharedAudioMuffleSystem
                 }
 
                 if (reset)
-                    ResetAudioMuffle(audio, ignoreShort);
+                    ResetAudioMuffle(audio, ignorePredictionReset);
                 return;
             }
         }
@@ -696,7 +701,7 @@ public sealed partial class AudioMuffleSystem : SharedAudioMuffleSystem
         if (audioPos.Position.EqualsApprox(playerPos.Position))
         {
             if (reset)
-                ResetAudioMuffle(audio, ignoreShort);
+                ResetAudioMuffle(audio, ignorePredictionReset);
             return;
         }
 
@@ -738,7 +743,7 @@ public sealed partial class AudioMuffleSystem : SharedAudioMuffleSystem
         }
 
         if (reset)
-            ResetAudioMuffle(audio, ignoreShort);
+            ResetAudioMuffle(audio, ignorePredictionReset);
     }
 
     public Entity<MapGridComponent>? TryFindCommonPlayerGrid(MapCoordinates pos, MapCoordinates other)
@@ -750,34 +755,32 @@ public sealed partial class AudioMuffleSystem : SharedAudioMuffleSystem
         return null;
     }
 
-    private void ResetAudioMuffle(Entity<AudioComponent?, AudioMuffleComponent?> audio, bool ignoreShort = false)
+    private void ResetAudioMuffle(Entity<AudioComponent?, AudioMuffleComponent?> audio,
+        bool ignorePredictionReset = false)
     {
         if (!Exists(audio) || !Resolve(audio, ref audio.Comp1, ref audio.Comp2, false))
             return;
 
-        if (!CanMuffle(audio.Comp1))
+        if (!CanMuffle(audio.Comp1) || !audio.Comp1.Loaded || ResolvePlayer() is not { } player)
             return;
 
-        // This should be nuked but without this audio clips when moving or when player is moving
-        if (!ignoreShort)
-        {
-            var offset = ((audio.Comp1.PauseTime ?? _timing.CurTime) - audio.Comp1.AudioStart).TotalSeconds;
-            if (offset < ShortAudioLength)
-                return;
-        }
-
-        if (audio.Comp1.State == AudioState.Stopped || !audio.Comp1.Loaded ||
-            ResolvePlayer() is not { } player)
-            return;
-
-        var muffleLevel = 0f;
         var xform = Transform(player);
         var playerPos = _xform.GetMapCoordinates(player, xform);
 
+        if (Vector2.Distance(_xform.GetWorldPosition(audio), playerPos.Position) > AudioRange)
+        {
+            SetVolume(audio, 0f, 16f);
+            return;
+        }
+
+        if (!ignorePredictionReset && _stateMan is ClientGameStateManager { PredictionNeedsResetting: true })
+            return;
+
+        var muffleLevel = 0f;
+
         // ResolvePlayer returns nearest entity that provides ai vision, if it cannot find any, it returns ai eye
         // itself, which means no cameras nearby => all audio is muffled
-        if (_aiEyeQuery.HasComp(player) ||
-            ManhattanDistance(_xform.GetWorldPosition(audio), playerPos.Position) > AudioRange)
+        if (_aiEyeQuery.HasComp(player))
             muffleLevel = 16f;
         else if (_pathfindingEnabled && ResolvePlayerGrid(playerPos) is { } grid &&
                  audio.Comp2.Indices is { } pos && TileDataDict.TryGetValue(pos, out var tileData))
@@ -924,7 +927,6 @@ public sealed partial class AudioMuffleSystem : SharedAudioMuffleSystem
         if (audio.LifeStage > ComponentLifeStage.Running)
             return false;
 
-        // For some reason looping doesn't work with audio muffle
-        return audio is { Global: false, Looping: false };
+        return !audio.Global;
     }
 }
