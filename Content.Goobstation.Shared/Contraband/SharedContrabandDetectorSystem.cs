@@ -87,19 +87,22 @@ public abstract class SharedContrabandDetectorSystem : EntitySystem
             itemsToCheck.AddRange(RecursiveFindInStorage(uid));
 
         // Check items in inventory slots and storages
-        var enumerator = _inventorySystem.GetSlotEnumerator(uid, check);
-        while (enumerator.MoveNext(out var slot))
+        if (check != SlotFlags.NONE)
         {
-            var item = slot.ContainedEntity;
+            var enumerator = _inventorySystem.GetSlotEnumerator(uid, check);
+            while (enumerator.MoveNext(out var slot))
+            {
+                var item = slot.ContainedEntity;
 
-            if (item == null)
-                continue;
+                if (item == null)
+                    continue;
 
-            itemsToCheck.Add(item.Value);
-            if (recursive)
-                itemsToCheck.AddRange(RecursiveFindInStorage(item.Value));
+                itemsToCheck.Add(item.Value);
+                if (recursive)
+                    itemsToCheck.AddRange(RecursiveFindInStorage(item.Value));
+            }
         }
-
+        
         // Check items in hands
         var handEnumerator = _handsSystem.EnumerateHeld(uid);
         foreach (var handItem in handEnumerator)

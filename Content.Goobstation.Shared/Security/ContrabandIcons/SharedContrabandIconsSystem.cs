@@ -66,11 +66,11 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
     {
         if (HasComp<IdCardComponent>(args.Unequipped) && uid == args.User)
             return;
-        ContrabandDetect(args.User, component);
+        ContrabandDetect(args.User, component, SlotFlags.NONE);
     }
 
     private void OnEquipHands(EntityUid uid, VisibleContrabandComponent component, DidEquipHandEvent args)
     {
-        ContrabandDetect(args.User, component);
+        ContrabandDetect(args.User, component, SlotFlags.NONE);
     }
 }
