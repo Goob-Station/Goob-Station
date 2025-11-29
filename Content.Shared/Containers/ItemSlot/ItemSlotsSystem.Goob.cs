@@ -69,25 +69,33 @@ public sealed partial class ItemSlotsSystem
 
         foreach (var slot in slots)
         {
-            // Handle do-after insert
-            if (doAfter && TryStartInsertDoAfter(slot, toInsert, user))
-                return true; // We are delaying it to some time
-
-            // Drop the held item onto the floor. Return if the user cannot drop.
-            if (_handsSystem.IsHolding(user, toInsert) && !_handsSystem.TryDrop(user, toInsert)) // Goobstation - don't try to drop if not holding
-                return false;
-
-            if (slot.Item != null)
-                _handsSystem.TryPickupAnyHand(user, slot.Item.Value, handsComp: hands);
-
-            Insert(uid, slot, toInsert, user, excludeUserAudio: true);
-
-            if (slot.InsertSuccessPopup.HasValue)
-                _popupSystem.PopupClient(Loc.GetString(slot.InsertSuccessPopup), uid, user);
-            return true;
+            TryInsertOrDoAfter(uid, (user, hands), toInsert, slot, doAfter);
         }
 
         return false;
+    }
+
+    /// <summary>
+    /// Tries to start a do-after if it can, otherwise
+    /// </summary>
+    public bool TryInsertOrDoAfter(EntityUid uid, Entity<HandsComponent?> user, EntityUid toInsert, ItemSlot slot, bool doAfter = true)
+    {
+        // Handle do-after insert
+        if (doAfter && TryStartInsertDoAfter(slot, toInsert, user))
+            return true; // We are delaying it to some time
+
+        // Drop the held item onto the floor. Return if the user cannot drop.
+        if (_handsSystem.IsHolding(user, toInsert) && !_handsSystem.TryDrop(user, toInsert)) // Goobstation - don't try to drop if not holding
+            return false;
+
+        if (slot.Item != null)
+            _handsSystem.TryPickupAnyHand(user, slot.Item.Value, handsComp: user.Comp);
+
+        Insert(uid, slot, toInsert, user, excludeUserAudio: true);
+
+        if (slot.InsertSuccessPopup.HasValue)
+            _popupSystem.PopupClient(Loc.GetString(slot.InsertSuccessPopup), uid, user);
+        return true;
     }
 
     private bool TryStartInsertDoAfter(ItemSlot slot, EntityUid item, EntityUid? user)

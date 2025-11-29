@@ -763,7 +763,7 @@ namespace Content.Shared.Containers.ItemSlots
                     AlternativeVerb verb = new()
                     {
                         IconEntity = GetNetEntity(args.Using),
-                        Act = () => Insert(uid, slot, args.Using.Value, args.User, excludeUserAudio: true)
+                        Act = () => TryInsertOrDoAfter(uid, args.User, args.Using.Value, slot) // Lavaland Change
                     };
 
                     if (slot.InsertVerbText != null)
@@ -886,7 +886,7 @@ namespace Content.Shared.Containers.ItemSlots
                 InteractionVerb insertVerb = new()
                 {
                     IconEntity = GetNetEntity(args.Using),
-                    Act = () => Insert(uid, slot, args.Using.Value, args.User, excludeUserAudio: true)
+                    Act = () => TryInsertOrDoAfter(uid, args.User, args.Using.Value, slot) // Lavaland Change
                 };
 
                 if (slot.InsertVerbText != null)
