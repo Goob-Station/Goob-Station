@@ -25,6 +25,8 @@ public partial class XenobiologySystem
 
     private void OnPendingSlimeMapInit(Entity<PendingSlimeSpawnComponent> ent, ref MapInitEvent args)
     {
+        if (!_net.IsServer) return;
+
         // it sucks but it works and now y*ml warriors can add more slimes 500% faster
         SpawnSlime(ent, ent.Comp.BasePrototype, ent.Comp.Breed);
 
@@ -35,6 +37,8 @@ public partial class XenobiologySystem
 
     private void OnSlimeMapInit(Entity<SlimeComponent> ent, ref MapInitEvent args)
     {
+        if (!_net.IsServer) return;
+
         Subs.CVar(_configuration, GoobCVars.BreedingInterval, val => ent.Comp.UpdateInterval = TimeSpan.FromSeconds(val), true);
         ent.Comp.NextUpdateTime = _gameTiming.CurTime + ent.Comp.UpdateInterval;
     }
