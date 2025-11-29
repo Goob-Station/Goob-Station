@@ -191,22 +191,15 @@
         sprite: _Goobstation/Xenobiology/Mobs/slimesAdult.rsi
         displayName: adult
 
-# Pending slimes
-# They only exist to provide as base parent for all the other ones
-# it's shitcode!!!
-
 - type: entity
   abstract: true
-  parent: MobSlimeXenobioBaby
+  parent: MarkerBase
   id: MobSlimeXenobioBabyPending
   name: undetermined slime
   components:
   - type: PendingSlimeSpawn
-
-- type: entity
-  abstract: true
-  parent: MobSlimeXenobioAdult
-  id: MobSlimeXenobioAdultPending
-  name: undetermined slime
-  components:
-  - type: PendingSlimeSpawn
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
+        state: base

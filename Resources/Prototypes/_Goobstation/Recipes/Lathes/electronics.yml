@@ -115,8 +115,6 @@
   icon:
     sprite:  Structures/Power/Generation/Singularity/collector.rsi
     state: ca_on
-  id: RadiationCollectorCircuitboard
-  result: RadiationCollectorCircuitboard
 
 - type: latheRecipe
   parent: [ BaseEngineeringMachineRecipeCategory ]
