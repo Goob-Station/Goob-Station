@@ -18601,3 +18601,11 @@ Entries:
       message: Shadowkin's unique description
   id: 2095
   time: '2025-11-29T12:53:09.0000000+00:00'
+- author: John John
+  changes:
+    - type: Add
+      message: Added the hotdog outfit from ss13
+    - type: Add
+      message: Added the pickle outfit from ss13
+  id: 2096
+  time: '2025-11-29T17:28:12.0000000+00:00'
