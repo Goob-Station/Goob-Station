@@ -128,11 +128,12 @@
   - type: EntityTargetAction
     canTargetSelf: false
     blacklist:
-      - Wall
-      - GravityGenerator
-      - AnomalyGenerator
-      - TegGenerator
-      - TegCirculator
+      tags:
+        - Wall
+        - GravityGenerator
+        - AnomalyGenerator
+        - TegGenerator
+        - TegCirculator
     event: !type:TerrorLayEvent
 
 - type: entity

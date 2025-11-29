@@ -16,3 +16,12 @@ public sealed partial class TerrorWebDoAfterEvent : SimpleDoAfterEvent;
 [Serializable, NetSerializable]
 public sealed partial class TerrorWrapDoAfterEvent : SimpleDoAfterEvent;
 
+public sealed class TerrorSpiderDiedEvent : EntityEventArgs
+{
+    public readonly EntityUid Spider;
+
+    public TerrorSpiderDiedEvent(EntityUid spider)
+    {
+        Spider = spider;
+    }
+}

@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Terror.Components;
@@ -22,4 +23,7 @@ public sealed partial class TerrorQueenComponent : Component
     /// </summary>
     [DataField]
     public float Tier3EggChance = 0.01f;
+
+    [DataField]
+    public SoundSpecifier DeathSound = new SoundPathSpecifier("/Audio/_RMC14/Xeno/alien_queen_died.ogg");
 }

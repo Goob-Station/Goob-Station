@@ -4,7 +4,7 @@
 - type: entity
   id: TerrorSpiderBaseT1
   name: terror spider
-  parent: SimpleMobBase
+  parent: [ SimpleMobBase, ShowMedicalIcons ]
   description: A hostile arachnid.
   abstract: true
   components:

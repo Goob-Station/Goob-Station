@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Terror.Components;
@@ -28,4 +29,7 @@ public sealed partial class TerrorSpiderComponent : Component
 
     [DataField, AutoNetworkedField]
     public float RegenAccumulator = 0f;
+
+    [DataField]
+    public SoundSpecifier DeathSound = new SoundPathSpecifier("/Audio/Animals/Blob/attackblob.ogg");
 }
