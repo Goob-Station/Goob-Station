@@ -4275,3 +4275,11 @@ Entries:
   id: 9231
   time: '2025-11-28T21:53:59.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41609
+- author: NoreUhh
+  changes:
+  - message: Caninase/Felinase now require Psicodine instead of Cognizine in their
+      recipes and now provide their respective accents at a lower chem threshold.
+    type: Tweak
+  id: 9232
+  time: '2025-11-29T07:32:40.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41527
