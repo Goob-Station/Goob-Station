@@ -18577,3 +18577,15 @@ Entries:
       message: Wraith Is Disabled from spawning naturally.
   id: 2091
   time: '2025-11-28T12:13:54.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Wraith Absorb Corpse doesn't round remove.
+  id: 2092
+  time: '2025-11-28T18:55:41.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added the King in Yellow.
+  id: 2093
+  time: '2025-11-29T01:00:47.0000000+00:00'
