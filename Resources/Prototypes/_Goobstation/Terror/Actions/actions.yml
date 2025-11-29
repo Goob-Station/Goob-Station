@@ -1,7 +1,7 @@
 - type: entity
   id: ActionTerrorWeb
   name: Spin web
-  description: Spins a Terror Web. These will ensnare any humanoid who enters them for several seconds.
+  description: Spins a web. These will ensnare any humanoid who enters them for several seconds.
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -14,7 +14,7 @@
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
-      - id: TerrorSpiderWeb
+      - id: SpiderWeb
         amount: 1
 
 - type: entity
@@ -179,23 +179,19 @@
 - type: entity
   id: ActionTerrorVentSmash
   name: Vent Smash
-  description: Smashes open a welded vent or scrubber.
+  description: Smashes open a welded vent, door or container.
   components:
   - type: Action
     itemIconStyle: BigAction
-    useDelay: 30
+    useDelay: 2
     icon:
       sprite: _Goobstation/Terror/actions.rsi
-      state: wrap
+      state: ventsmash
   - type: TargetAction
-    range: 1
+    range: 2
   - type: EntityTargetAction
-    whitelist:
-      components:
-      - GasVentScrubber
-      - GasPassiveVent
     canTargetSelf: false
-    event: !type:TentacleHookEvent
+    event: !type:TerrorVentSmashEvent
 
 - type: entity
   id: ActionTerrorSummonSpiderlings
@@ -234,3 +230,16 @@
       prototypes:
       - id: TerrorRoyalJelly
         amount: 1
+
+- type: entity
+  id: ActionTerrorQueenSense
+  name: Hive sense
+  description: Reach out to your brood telepathically, sensing their locations and types.
+  components:
+  - type: Action
+    useDelay: 3
+    icon:
+      sprite: _Goobstation/Terror/actions.rsi
+      state: queensense
+  - type: InstantAction
+    event: !type:TerrorQueenSenseEvent

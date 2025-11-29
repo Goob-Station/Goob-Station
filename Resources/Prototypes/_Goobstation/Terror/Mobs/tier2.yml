@@ -161,6 +161,10 @@
   - type: Prying
     pryPowered: true
     force: true
-    speedModifier: 1
+    speedModifier: 5 # Brown spooder is literally made for this shiet
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: TerrorVentSmash
+  - type: ActionGrant
+    actions:
+      - ActionTerrorVentSmash

@@ -5,7 +5,7 @@
   id: TerrorSpiderBaseT1
   name: terror spider
   parent: [ SimpleMobBase, ShowMedicalIcons ]
-  description: A hostile arachnid.
+  description: Oh the misery!
   abstract: true
   components:
   - type: DamageStateVisuals
@@ -61,7 +61,6 @@
     interactSuccessSound:
       path: /Audio/Animals/snake_hiss.ogg
   - type: NoSlip
-  - type: Spider
   - type: IgnoreSpiderWeb
   - type: Bloodstream
     bloodMaxVolume: 150

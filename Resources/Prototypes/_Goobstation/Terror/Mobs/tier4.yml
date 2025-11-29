@@ -30,9 +30,16 @@
         - ReagentId: Toxin
           Quantity: 1000
   - type: TerrorQueen
+  - type: TerrorQueenSense
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 0.3
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 4 # Fast but not as fast as the brown blur
+    useSound:
+      path: /Audio/Items/crowbar.ogg
   - type: MeleeWeapon
     damage:
       groups:
@@ -45,3 +52,4 @@
       - ActionTerrorAirtightWeb
       - ActionTerrorLayEggs
       - ActionTerrorSummonSpiderlings
+      - ActionTerrorQueenSense
