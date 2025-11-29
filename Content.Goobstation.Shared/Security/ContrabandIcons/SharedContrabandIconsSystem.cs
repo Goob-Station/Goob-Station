@@ -7,6 +7,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Containers;
 using Content.Goobstation.Shared.Inventory;
+using Content.Goobstation.Shared.Security.ContrabandIcons.Prototypes;
 
 namespace Content.Shared._Goobstation.Security.ContrabandIcons;
 
@@ -16,9 +17,9 @@ namespace Content.Shared._Goobstation.Security.ContrabandIcons;
 public abstract class SharedContrabandIconsSystem : EntitySystem
 {
     [Dependency] private readonly SharedContrabandDetectorSystem _detectorSystem = default!;
-    public void ContrabandDetect(EntityUid intentory, VisibleContrabandComponent component)
+    public void ContrabandDetect(EntityUid intentory, VisibleContrabandComponent component, SlotFlags slotFlags = SlotFlags.WITHOUT_POCKET)
     {
-        var list = _detectorSystem.FindContraband(intentory, false, SlotFlags.WITHOUT_POCKET);
+        var list = _detectorSystem.FindContraband(intentory, false, slotFlags);
         bool isDetected = list.Count > 0;
         component.StatusIcon = StatusToIcon(isDetected ? ContrabandStatus.Contraband : ContrabandStatus.None);
         Dirty(intentory, component);
