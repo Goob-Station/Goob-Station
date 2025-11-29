@@ -122,6 +122,8 @@
     ClothingSuitCapo: 3 # Goobstation
     ClothingHandsGlovesCapo: 3 # Goobstation
     ClothingShoesCapo: 3 # Goobstation
+    ClothingOuterSuitHotDog: 1 # Goob
+    ClothingOuterSuitPickle: 1 # Goob
   contrabandInventory:
     ClothingHeadHatRichard: 1
     ClothingShoesBling: 1

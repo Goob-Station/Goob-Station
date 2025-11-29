@@ -1,6 +1,5 @@
 - type: constructionGraph
   id: FieryStakeGraph
-  start: start
   graph:
   - node: start
     actions:
