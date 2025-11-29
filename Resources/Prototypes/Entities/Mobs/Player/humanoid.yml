@@ -652,6 +652,8 @@
       roleLoadout: [ RoleSurvivalExtended ]
     - type: AutoImplant
       implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
+    - type: SurgerySpeedModifier # CorvaxGoob-ERT-Skills
+      speedModifier: 2.5
 
 - type: entity
   id: RandomHumanoidSpawnerERTMedicalEVA

@@ -134,7 +134,7 @@
   - id: ShelterCapsuleLuxury
     cost: 3000
   - id: ClothingBackpackDuffelSalvageSCAF # Corvax-Goob SCAF
-    cost: 7000
+    cost: 3000
   - id: ClothingEyesNightVisionGoggles
     cost: 3500
   - id: MiningDrillDiamond

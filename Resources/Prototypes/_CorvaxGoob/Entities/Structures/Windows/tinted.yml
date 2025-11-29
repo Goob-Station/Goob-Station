@@ -68,6 +68,6 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
-  - type: Penetratable # Corvax-Next - Better snipers
+  - type: Penetratable
     penetrateDamage: 25
     damagePenalty: 0.1

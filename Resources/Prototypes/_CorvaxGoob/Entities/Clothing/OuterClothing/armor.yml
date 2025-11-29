@@ -33,8 +33,8 @@
     unequipDelay: 3
   - type: AllowSuitStorage
     whitelist:
-      tags:
-      - GasTank
+      components:
+      - Item
   - type: Geiger
     attachedToSuit: true
   - type: Item

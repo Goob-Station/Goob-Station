@@ -52,6 +52,6 @@
     whitelist:
       components: # Only mobs and storages
       - EntityStorage
-      - MobThresholds
+      - MobMover
   - type: Machine
     board: QuantumTelepadMachineCircuitboard

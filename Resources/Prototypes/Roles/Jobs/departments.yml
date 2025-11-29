@@ -216,7 +216,7 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
-  - Surgeon # Corvax-Next-Surgeon
+  - Surgeon # CorvaxGoob-Surgeon
 
 - type: department
   id: Security

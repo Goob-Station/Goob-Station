@@ -28,6 +28,12 @@ public sealed class AnnouncerPrototype : IPrototype
     public int MaxDaysInMonth { get; private set; } = 7;
 
     /// <summary>
+    /// Chance to be selected in a certain day.
+    /// </summary>
+    [DataField]
+    public float Chance { get; private set; } = 0.3f;
+
+    /// <summary>
     /// Will play sound on shuttle recall.
     /// </summary>
     [DataField]

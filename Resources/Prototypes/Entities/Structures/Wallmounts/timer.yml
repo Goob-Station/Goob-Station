@@ -52,7 +52,7 @@
   - type: Sprite
     drawdepth: SmallObjects
     sprite: Structures/Wallmounts/switch.rsi
-    state: on
+    state: dead # CorvaxGoob-ButtonsVisuals
   - type: Appearance
   - type: Rotatable
   - type: SignalTimer

@@ -109,6 +109,30 @@
     animationThreshold: 40 # Goob edit
   - type: TypingIndicator
     proto: felinid
+  - type: Inventory
+    speciesId: reptilian # whyyy
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _CorvaxGoob/Mobs/Species/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _CorvaxGoob/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _CorvaxGoob/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _CorvaxGoob/Mobs/Species/displacement.rsi
+            state: shoes
   - type: PseudoItem
     storedOffset: 0,17
     shape:
@@ -140,3 +164,27 @@
   components:
   - type: HumanoidAppearance
     species: Tajaran
+  - type: Inventory
+    speciesId: reptilian # whyyy
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _CorvaxGoob/Mobs/Species/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _CorvaxGoob/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _CorvaxGoob/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _CorvaxGoob/Mobs/Species/displacement.rsi
+            state: shoes

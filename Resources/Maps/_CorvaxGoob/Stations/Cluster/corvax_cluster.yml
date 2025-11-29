@@ -58460,17 +58460,6 @@ entities:
     - type: Transform
       pos: -12.627577,-0.98003674
       parent: 1
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 7657
     - type: Physics
       canCollide: True
   - uid: 6048
@@ -58483,17 +58472,6 @@ entities:
     - type: Transform
       pos: -9.487129,-11.383612
       parent: 1
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 5793
     - type: Physics
       canCollide: True
   - uid: 9589

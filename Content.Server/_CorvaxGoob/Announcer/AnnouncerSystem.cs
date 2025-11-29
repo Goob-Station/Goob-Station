@@ -1,10 +1,8 @@
 using Content.Server.GameTicking;
-using Content.Server.StationEvents.Components;
 using Content.Shared._CorvaxGoob.CCCVars;
-using Content.Shared.CCVar;
-using Content.Shared.Prototypes;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
@@ -15,6 +13,7 @@ public sealed class AnnouncerSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     private bool _enabled;
     private AnnouncerPrototype? _announcerToday = null;
@@ -26,7 +25,7 @@ public sealed class AnnouncerSystem : EntitySystem
     {
         base.Initialize();
 
-        Subs.CVar(_configManager, CCCVars.CalendarAnnouncerEnabled, value => _enabled = value);
+        Subs.CVar(_configManager, CCCVars.CalendarAnnouncerEnabled, value => _enabled = value, true);
 
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnGameRunLevelChanged);
     }
@@ -103,7 +102,7 @@ public sealed class AnnouncerSystem : EntitySystem
             int maxRandomDays = random.Next(announcerPrototype.MinDaysInMonth, announcerPrototype.MaxDaysInMonth);
             for (int i = 0; announcerPrototype.MinDaysInMonth > i && i < maxRandomDays; i++)
                 if (now.Day == random.Next(1, daysInMonth)) // return if today announcer's day 
-                    return announcerPrototype;
+                    return _random.Prob(announcerPrototype.Chance) ? announcerPrototype : null;
         }
 
         return null;

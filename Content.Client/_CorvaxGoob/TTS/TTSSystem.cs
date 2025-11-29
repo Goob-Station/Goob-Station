@@ -116,6 +116,7 @@ public sealed partial class TTSSystem : EntitySystem
             audio = _audio.PlayGlobal(audioResource.AudioStream, soundSpecifier, audioParams);
         }
 
+        // Edits TimedDespawn time property for correctly pitch appling
         if (audio.HasValue
             && ev.Pitch.HasValue
             && ev.Pitch.Value != 1

@@ -113,9 +113,9 @@ public sealed partial class QuantumTelepadSystem : EntitySystem
                 break;
 
             if (entity.Comp.Blacklist is not null && _whitelist.IsBlacklistPass(entity.Comp.Blacklist, lookupEntity))
-                return;
+                continue;
             if (entity.Comp.Whitelist is not null && _whitelist.IsWhitelistFail(entity.Comp.Whitelist, lookupEntity))
-                return;
+                continue;
 
             _xform.SetWorldPosition(lookupEntity, _xform.GetWorldPosition(teleportTo));
 
