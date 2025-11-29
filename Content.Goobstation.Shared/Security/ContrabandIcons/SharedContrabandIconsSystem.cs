@@ -29,8 +29,8 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
         SubscribeLocalEvent<VisibleContrabandComponent, GotEquippedHandEvent>(OnEquippedHands);
         SubscribeLocalEvent<VisibleContrabandComponent, GotUnequippedHandEvent>(OnUnequippedHands);
     }
-    
-    public void ContrabandDetect(EntityUid ent, VisibleContrabandComponent component)
+
+    private void ContrabandDetect(EntityUid ent, VisibleContrabandComponent component)
     {
         var list = _detectorSystem.FindContraband(ent, false, SlotFlags.WITHOUT_POCKET);
         bool isDetected = list.Count > 0;
