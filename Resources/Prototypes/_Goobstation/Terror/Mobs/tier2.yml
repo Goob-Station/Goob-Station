@@ -75,6 +75,7 @@
     speedModifier: 2
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: WhiteTerror
   - type: ActionGrant
     actions:
       - ActionTerrorInfestedWeb
@@ -120,6 +121,7 @@
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: BerserkerRage
+  - type: PurpleTerror
   - type: ActionGrant
     actions:
       - ActionTerrorThickWeb

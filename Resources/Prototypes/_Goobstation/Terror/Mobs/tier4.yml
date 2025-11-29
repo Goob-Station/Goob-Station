@@ -47,9 +47,11 @@
       types:
         Structural: 100
         Ion: 20
+  - type: TerrorVentSmash
   - type: ActionGrant
     actions:
       - ActionTerrorAirtightWeb
       - ActionTerrorLayEggs
       - ActionTerrorSummonSpiderlings
       - ActionTerrorQueenSense
+      - ActionTerrorVentSmash

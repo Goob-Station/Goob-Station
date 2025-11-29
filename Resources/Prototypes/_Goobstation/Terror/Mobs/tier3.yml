@@ -77,11 +77,13 @@
     speedModifier: 2
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: TerrorVentSmash
   - type: PrincessTerror
   - type: ActionGrant
     actions:
       - ActionTerrorAirtightWeb
       - ActionTerrorLayEggs
+      - ActionTerrorVentSmash
 
 # =========================================================
 # MOTHER OF TERROR — Support Caste
@@ -118,7 +120,9 @@
     speedModifier: 2
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: TerrorVentSmash
   - type: ActionGrant
     actions:
       - ActionTerrorAirtightWeb
       - ActionTerrorRoyalJelly
+      - ActionTerrorVentSmash
