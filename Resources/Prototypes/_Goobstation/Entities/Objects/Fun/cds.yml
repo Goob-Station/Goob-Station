@@ -1,0 +1,5 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  components:
+  - type: Cd
