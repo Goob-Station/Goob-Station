@@ -378,29 +378,60 @@
     - PlushieMoth
     - PlushieHuman
     - PlushiePenguin
-    - PlushieXeve
-    - PlushieDurk
-    - PlushieMnwaar
-    - PlushieLouie
+    - PlushieThrongler
     - FoamWonderprod
     - PlushieBingle
     - PlushieBongle
     - PlushieBinglePony
     - PlushieAbductor
-    - PlushieJvne
-    - PlushieFern
-    - PlushieNigel
-    - PlushieBrizby
-    - PlushieBoggle
-    - PlushieLehmin
-    evilRewards:
-    - EvilPlushieXeve
-    - EvilPlushieBoggle
-    - EvilPlushieBrizby
-    - EvilPlushieNigel
-    - EvilPlushieFern
-    - EvilPlushieJvne
-    - EvilPlushieMnwaar
-    - EvilPlushieDurk
-    - EvilPlushieLouie
+    - PlushieGhost
+    - FoamBlade
+    - FoamCrossbow
+    - ToySword
+    - RevolverCapGun
+    - ToyHammer
+    - FoamCutlass
+    - PlushieRouny
+    # - PlushieXeve
+    # - PlushieDurk
+    # - PlushieMnwaar
+    # - PlushieLouie
+    # - PlushieJvne
+    # - PlushieFern
+    # - PlushieNigel
+    # - PlushieBrizby
+    # - PlushieBoggle
+    # - PlushieLehmin
+    evilRewards: # CorvaxGoob-Edits : Same but with lethal and fun things
+    - PlushieMoth
+    - PlushieHuman
+    - PlushiePenguin
+    - PlushieThrongler
+    - FoamWonderprod
+    - PlushieBingle
+    - PlushieBongle
+    - PlushieBinglePony
+    - PlushieAbductor
+    - PlushieGhost
+    - FoamBlade
+    - FoamCrossbow
+    - ToySword
+    - RevolverCapGun
+    - ToyHammer
+    - FoamCutlass
+    - PlushieRouny
+    - GrenadeDummy
+    - SyndieTrickyBomb
+    - NukeDiskFake
+    - BalloonSyn
+    - SoapSyndie
+    # - EvilPlushieXeve
+    # - EvilPlushieBoggle
+    # - EvilPlushieBrizby
+    # - EvilPlushieNigel
+    # - EvilPlushieFern
+    # - EvilPlushieJvne
+    # - EvilPlushieMnwaar
+    # - EvilPlushieDurk
+    # - EvilPlushieLouie
   - type: DoAfter
