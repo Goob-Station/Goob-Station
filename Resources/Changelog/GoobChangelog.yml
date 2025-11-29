@@ -18601,3 +18601,27 @@ Entries:
       message: Shadowkin's unique description
   id: 2095
   time: '2025-11-29T12:53:09.0000000+00:00'
+- author: John John
+  changes:
+    - type: Add
+      message: Added the hotdog outfit from ss13
+    - type: Add
+      message: Added the pickle outfit from ss13
+  id: 2096
+  time: '2025-11-29T17:28:12.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Add
+      message: >-
+        Traitors and nukies can now buy a custom lawboard for 50TC, allowing
+        them to insert whatever laws they want into the AI!
+    - type: Remove
+      message: >-
+        The Antimov lawboard is no longer obtainable through uplinks. It's so
+        over.
+    - type: Tweak
+      message: >-
+        The hacker undetermined bundle now has a custom lawboard instead of an
+        Antimov one.
+  id: 2097
+  time: '2025-11-29T17:29:29.0000000+00:00'
