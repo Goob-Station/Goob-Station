@@ -323,6 +323,8 @@ namespace Content.Shared.Containers.ItemSlots
             Swap = other.Swap;
             Priority = other.Priority;
             OccludesLight = other.OccludesLight; // Lavaland Change
+            InsertDelay = other.InsertDelay; // Lavaland Change
+            EjectDelay = other.EjectDelay; // Lavaland Change
         }
     }
 

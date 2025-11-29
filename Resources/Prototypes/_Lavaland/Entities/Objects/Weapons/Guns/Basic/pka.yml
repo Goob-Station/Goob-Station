@@ -53,9 +53,6 @@
     count: 1
   - type: UpgradeableGun
     maxUpgradeCapacity: 70
-    whitelist:
-      tags:
-      - PKAUpgrade
   - type: GunRequiresWield
   - type: Item
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_shotgun.rsi
@@ -103,9 +100,6 @@
     count: 3
   - type: UpgradeableGun
     maxUpgradeCapacity: 70
-    whitelist:
-      tags:
-      - PKAUpgrade
   - type: Item
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
     shape:
@@ -142,9 +136,6 @@
     count: 1
   - type: UpgradeableGun
     maxUpgradeCapacity: 200
-    whitelist:
-      tags:
-      - PKAUpgrade
   - type: Gun
     availableModes:
     - FullAuto

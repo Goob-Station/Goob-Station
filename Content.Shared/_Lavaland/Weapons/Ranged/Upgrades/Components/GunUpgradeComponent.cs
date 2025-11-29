@@ -32,11 +32,14 @@ public sealed partial class GunUpgradeComponent : Component
     [DataField]
     public List<ProtoId<TagPrototype>> Tags = new();
 
-    [DataField]
+    [DataField(required: true)]
     public LocId ExamineText;
 
+    /// <summary>
+    /// If specified, this gun can
+    /// </summary>
     [DataField]
-    public int CapacityCost = 30; // By default drains 30% of the capacity.
+    public int? CapacityCost;
 
     /// <summary>
     /// If true, only one such upgrade can be inserted into a gun.

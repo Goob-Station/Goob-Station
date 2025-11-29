@@ -87,17 +87,16 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
-using System.Linq; // Goob Edit
+using System.Linq; // Goobstation edit
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
-using Content.Shared.DoAfter; // Lavaland Change
+using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Materials;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
@@ -124,7 +123,6 @@ namespace Content.Shared.Containers.ItemSlots
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-        [Dependency] private readonly SharedDoAfterSystem _doAfter = default!; // Lavaland Change
 
         public override void Initialize()
         {
@@ -149,8 +147,8 @@ namespace Content.Shared.Containers.ItemSlots
             SubscribeLocalEvent<ItemSlotsComponent, ComponentHandleState>(HandleItemSlotsState);
 
             SubscribeLocalEvent<ItemSlotsComponent, ItemSlotButtonPressedEvent>(HandleButtonPressed);
-            SubscribeLocalEvent<ItemSlotsComponent, GotReclaimedEvent>(OnReclaimed); // Goobstation - Recycle update
-            SubscribeLocalEvent<ItemSlotsComponent, ItemSlotInteractionDoAfterEvent>(HandleDoAfter); // Lavaland Change
+
+            InitializeGoob(); // Goobstation edit
         }
 
         #region ComponentManagement
@@ -302,7 +300,10 @@ namespace Content.Shared.Containers.ItemSlots
             if (args.Handled)
                 return;
 
-            if (!TryComp(args.User, out HandsComponent? hands))
+            args.Handled = TryInsertWithConditions(uid, itemSlots, args.User, args.Used); // Lavaland Change
+
+            // Lavaland change: ported the code below to a public TryInsertWithConditions method.
+            /*if (!TryComp(args.User, out HandsComponent? hands))
                 return;
 
             if (itemSlots.Slots.Count == 0)
@@ -369,7 +370,8 @@ namespace Content.Shared.Containers.ItemSlots
 
                 args.Handled = true;
                 return;
-            }
+            }*/
+            // Lavaland change end
         }
 
         #endregion
@@ -388,24 +390,6 @@ namespace Content.Shared.Containers.ItemSlots
             EntityUid? user,
             bool excludeUserAudio = false)
         {
-            // Lavaland Change start
-            if (slot.InsertDelay != null && user != null)
-            {
-                _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager,
-                    user.Value,
-                    slot.InsertDelay.Value,
-                    new ItemSlotInteractionDoAfterEvent(slot.ID!, false, true),
-                    item)
-                {
-                    BreakOnHandChange = true,
-                    BreakOnMove = true,
-                    BreakOnDropItem = true,
-                    BreakOnDamage = true,
-                });
-                return;
-            }
-            // Lavaland Change end
-
             bool? inserted = slot.ContainerSlot != null ? _containers.Insert(item, slot.ContainerSlot) : null;
             // ContainerSlot automatically raises a directed EntInsertedIntoContainerMessage
 
@@ -655,24 +639,11 @@ namespace Content.Shared.Containers.ItemSlots
         /// </summary>
         /// <param name="excludeUserAudio">If true, will exclude the user when playing sound. Does nothing client-side.
         /// Useful for predicted interactions</param>
-        private void Eject(EntityUid uid, ItemSlot slot, EntityUid item, EntityUid? user, bool excludeUserAudio = false)
+        private void Eject(EntityUid uid, ItemSlot slot, EntityUid item, EntityUid? user, bool excludeUserAudio = false, bool doAfter = true)
         {
             // Lavaland Change start
-            if (slot.EjectDelay != null && user != null)
-            {
-                _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager,
-                    user.Value,
-                    slot.EjectDelay.Value,
-                    new ItemSlotInteractionDoAfterEvent(slot.ID!, true, false),
-                    item)
-                {
-                    BreakOnHandChange = true,
-                    BreakOnMove = true,
-                    BreakOnDropItem = true,
-                    BreakOnDamage = true,
-                });
+            if (doAfter && TryStartInsertDoAfter(slot, item, user))
                 return;
-            }
             // Lavaland Change end
 
             bool? ejected = slot.ContainerSlot != null ? _containers.Remove(item, slot.ContainerSlot) : null;
@@ -695,7 +666,8 @@ namespace Content.Shared.Containers.ItemSlots
             ItemSlot slot,
             EntityUid? user,
             [NotNullWhen(true)] out EntityUid? item,
-            bool excludeUserAudio = false)
+            bool excludeUserAudio = false,
+            bool doAfter = true)
         {
             item = null;
 
@@ -709,7 +681,7 @@ namespace Content.Shared.Containers.ItemSlots
             if (user != null && item != null && !_actionBlockerSystem.CanPickup(user.Value, item.Value))
                 return false;
 
-            Eject(uid, slot, item!.Value, user, excludeUserAudio);
+            Eject(uid, slot, item!.Value, user, excludeUserAudio, doAfter);
             return true;
         }
 
@@ -722,7 +694,8 @@ namespace Content.Shared.Containers.ItemSlots
             EntityUid? user,
             [NotNullWhen(true)] out EntityUid? item,
             ItemSlotsComponent? itemSlots = null,
-            bool excludeUserAudio = false)
+            bool excludeUserAudio = false,
+            bool doAfter = true)
         {
             item = null;
 
@@ -732,7 +705,7 @@ namespace Content.Shared.Containers.ItemSlots
             if (!itemSlots.Slots.TryGetValue(id, out var slot))
                 return false;
 
-            return TryEject(uid, slot, user, out item, excludeUserAudio);
+            return TryEject(uid, slot, user, out item, excludeUserAudio, doAfter);
         }
 
         /// <summary>
@@ -743,9 +716,14 @@ namespace Content.Shared.Containers.ItemSlots
         ///     False if the id is not valid, the item slot is locked, or it has no item inserted. True otherwise, even
         ///     if the user has no hands.
         /// </returns>
-        public bool TryEjectToHands(EntityUid uid, ItemSlot slot, EntityUid? user, bool excludeUserAudio = false)
+        public bool TryEjectToHands(EntityUid uid, ItemSlot slot, EntityUid? user, bool excludeUserAudio = false, bool doAfter = true)
         {
-            if (!TryEject(uid, slot, user, out var item, excludeUserAudio))
+            // Lavaland Change start
+            if (doAfter && slot.EjectDelay != null)
+                return TryStartEjectDoAfter(slot, uid, user);
+            // Lavaland Change end
+
+            if (!TryEject(uid, slot, user, out var item, excludeUserAudio, doAfter))
                 return false;
 
             if (user != null)
@@ -1044,32 +1022,6 @@ namespace Content.Shared.Containers.ItemSlots
         private void GetItemSlotsState(EntityUid uid, ItemSlotsComponent component, ref ComponentGetState args)
         {
             args.State = new ItemSlotsComponentState(component.Slots);
-        }
-
-        // Goobstation - Recycle update - Empty container in recycle
-        private void OnReclaimed(EntityUid uid, ItemSlotsComponent component, GotReclaimedEvent args)
-        {
-            foreach (var slot in component.Slots.Values)
-            {
-                if (slot.ContainerSlot != null)
-                    _containers.EmptyContainer(slot.ContainerSlot, destination: args.ReclaimerCoordinates);
-            }
-        }
-
-        /// <summary>
-        /// Lavaland Change
-        /// </summary>
-        private void HandleDoAfter(EntityUid uid, ItemSlotsComponent component, ItemSlotInteractionDoAfterEvent args)
-        {
-            if (args.Handled
-                || args.Cancelled
-                || !component.Slots.TryGetValue(args.SlotId, out var slot))
-                return;
-
-            if (args.TryEject && slot.HasItem)
-                TryEjectToHands(uid, slot, args.User, true);
-            else if (args.TryInsert && !slot.HasItem)
-                TryInsertFromHand(uid, slot, args.User);
         }
     }
 }

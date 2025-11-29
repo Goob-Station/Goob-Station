@@ -19,7 +19,7 @@
 - type: entity
   id: CrusherUpgradeMarker
   parent: BaseCrusherUpgrade
-  name: PKA modkit (light)
+  name: crusher upgrade marker
   components:
   - type: Sprite
     layers:
@@ -33,7 +33,6 @@
   - type: GunUpgrade
     tags: [ CrusherUpgradeMarker ]
     examineText: gun-upgrade-examine-text-light
-    capacityCost: 10
     unique: true
-  - type: GunComponentUpgrade
-    components:
+  #- type: GunComponentUpgrade
+  #  components:

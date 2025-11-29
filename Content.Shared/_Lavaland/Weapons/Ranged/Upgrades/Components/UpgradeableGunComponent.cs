@@ -20,7 +20,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
@@ -28,15 +27,9 @@ namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedGunUpgradeSystem))]
 public sealed partial class UpgradeableGunComponent : Component
 {
+    /// <summary>
+    /// If specified, upgrades that support capacity will block any new upgrades from being inserted
+    /// </summary>
     [DataField]
-    public string UpgradesContainerId = "upgrades";
-
-    [DataField]
-    public EntityWhitelist Whitelist = new();
-
-    [DataField]
-    public int? MaxUpgradeCount;
-
-    [DataField]
-    public int MaxUpgradeCapacity = 100;
+    public int? MaxUpgradeCapacity;
 }

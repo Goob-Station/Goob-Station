@@ -59,9 +59,40 @@
     spreadMultiplier: 3
     spreadAddition: 20
   - type: UpgradeableGun
-    whitelist:
-      tags:
-      - PKAUpgrade
+  - type: ContainerContainer
+    containers:
+      upgrade_slot_1: !type:ContainerSlot
+      upgrade_slot_2: !type:ContainerSlot
+      upgrade_slot_3: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      upgrade_slot_1:
+        name: weapon-upgrade-slot-name-first
+        swap: false # can't use the swap...
+        priority: 4
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PKAUpgrade
+      upgrade_slot_2:
+        name: weapon-upgrade-slot-name-second
+        swap: false
+        priority: 3
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PKAUpgrade
+      upgrade_slot_3:
+        name: weapon-upgrade-slot-name-third
+        swap: false
+        priority: 2
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PKAUpgrade
   #- type: GunWieldBonus
   #  minAngle: -43
   #  maxAngle: -43

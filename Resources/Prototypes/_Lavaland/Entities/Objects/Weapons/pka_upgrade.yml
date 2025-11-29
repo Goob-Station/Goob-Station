@@ -124,7 +124,7 @@
     capacityCost: 10
     unique: true
   - type: GunComponentUpgrade
-    components:
+    toAdd:
     - type: UnpoweredFlashlight
     - type: PointLight
       color: "#ffeead"
