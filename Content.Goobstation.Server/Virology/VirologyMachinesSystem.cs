@@ -37,36 +37,6 @@ public sealed partial class VirologyMachinesSystem : EntitySystem
         SubscribeLocalEvent<VirologyMachineComponent, GetVerbsEvent<AlternativeVerb>>(AddAltVerb);
     }
 
-    private void AddAltVerb(Entity<VirologyMachineComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
-    {
-        if (!ent.Comp.Vaccinator)
-            return;
-
-        AlternativeVerb verb = new()
-        {
-            Act = () =>
-            {
-                ent.Comp.InjectorMode = !ent.Comp.InjectorMode;
-
-                if (ent.Comp.InjectorMode)
-                {
-                    ent.Comp.VaccinePrototype = new EntProtoId("LiveInjector");
-                    _popup.PopupEntity("Injector mode", ent);
-                }
-                else
-                {
-                    ent.Comp.VaccinePrototype = new EntProtoId("Vaccine");
-                    _popup.PopupEntity("Vaccine mode", ent);
-                }
-            },
-            Text = "Switch Mode",
-            Priority = 1, // Higher priority verbs appear first
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Nano/button.svg.96dpi.png")), // Optional
-        };
-
-        args.Verbs.Add(verb);
-    }
-
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<ActiveVirologyMachineComponent>();
@@ -203,5 +173,35 @@ public sealed partial class VirologyMachinesSystem : EntitySystem
     private void SetAppearance(EntityUid uid, bool state)
     {
         _appearance.SetData(uid, DiseaseMachineVisuals.IsRunning, state);
+    }
+
+    private void AddAltVerb(Entity<VirologyMachineComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!ent.Comp.Vaccinator)
+            return;
+
+        AlternativeVerb verb = new()
+        {
+            Act = () =>
+            {
+                ent.Comp.InjectorMode = !ent.Comp.InjectorMode;
+
+                if (ent.Comp.InjectorMode)
+                {
+                    ent.Comp.VaccinePrototype = new EntProtoId("LiveInjector");
+                    _popup.PopupEntity(Loc.GetString("vaccinator-toggle-live-injector"), ent);
+                }
+                else
+                {
+                    ent.Comp.VaccinePrototype = new EntProtoId("Vaccine");
+                    _popup.PopupEntity(Loc.GetString("vaccinator-toggle-vaccine"), ent);
+                }
+            },
+            Text = "Switch Mode",
+            Priority = 1, // Higher priority verbs appear first
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Nano/button.svg.96dpi.png")), // Optional
+        };
+
+        args.Verbs.Add(verb);
     }
 }
