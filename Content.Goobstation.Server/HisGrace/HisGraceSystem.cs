@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.HisGrace;
 using Content.Goobstation.Shared.Overlays;
@@ -31,12 +32,10 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
-using JetBrains.FormatRipper.Elf;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
-using System.Linq;
 
 namespace Content.Goobstation.Server.HisGrace;
 

@@ -47,7 +47,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
     [Dependency] private readonly SharedDrunkSystem _drunkSystem = default!;
     [Dependency] private readonly SharedStutteringSystem _stutteringSystem = default!;
 
-    private float _bloodlossMultiplier = 3f; // Goobstation
+    private float _bloodlossMultiplier = 4f; // Goobstation
 
     public override void Initialize()
     {
@@ -65,7 +65,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
 
         InitializeWounds();
 
-        Subs.CVar(_cfg, GoobCVars.MinimumPuddleSizeForFootprints, value => _bloodlossMultiplier = value, true); // Goobstation
+        Subs.CVar(_cfg, GoobCVars.BleedMultiplier, value => _bloodlossMultiplier = value, true); // Goobstation
     }
 
     public override void Update(float frameTime)

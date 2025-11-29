@@ -642,7 +642,7 @@ public sealed partial class GoobCVars
     /// A multiplier for bloodloss damage and heal.
     /// </summary>
     public static readonly CVarDef<float> BleedMultiplier =
-        CVarDef.Create("medical.bloodloss_multiplier", 3.0f, CVar.SERVERONLY | CVar.REPLICATED);
+        CVarDef.Create("medical.bloodloss_multiplier", 4.0f, CVar.SERVER);
 
     #endregion
 }
