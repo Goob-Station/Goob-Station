@@ -21,7 +21,7 @@ public sealed class ShowContrabandIconsSystem : EquipmentHudSystem<ShowContraban
     {
         if (!IsActive)
             return;
-
+        
         if (_prototype.TryIndex(component.StatusIcon, out var iconPrototype))
             ev.StatusIcons.Add(iconPrototype);
     }
