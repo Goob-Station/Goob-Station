@@ -18407,3 +18407,197 @@ Entries:
       message: Redspace Lifeline Implanter admeme
   id: 2072
   time: '2025-11-25T09:50:40.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: >-
+        Major bugfixes and changes to the slasher. Check out the pull request
+        for more info
+  id: 2073
+  time: '2025-11-25T20:37:36.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added icons for patrons in OOC chat.
+  id: 2074
+  time: '2025-11-26T08:07:46.0000000+00:00'
+- author: JohnJohn, c4llv07e
+  changes:
+    - type: Tweak
+      message: The Cargo transfer menu has new UI
+  id: 2075
+  time: '2025-11-26T10:21:40.0000000+00:00'
+- author: LuciferEOS, deltanedas
+  changes:
+    - type: Add
+      message: Added back tide ID cards and very basic makeshift crafting.
+  id: 2076
+  time: '2025-11-26T10:29:13.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: 'Space law- Officers should sentence if no HOS or Warden present. '
+    - type: Tweak
+      message: >-
+        Space law- Sec no longer should be using space animal organs(Mostly the
+        heart) as they should be seen and identifiable - Should extend to
+        command by definition of space law.
+  id: 2077
+  time: '2025-11-26T11:15:39.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Add
+      message: >-
+        Topicals now spread their heal starting from the targeted limb, then
+        going head -> torso -> crotch -> everything else. No more waste of
+        topicals on scratches.
+    - type: Fix
+      message: Woundmed bleeding.
+  id: 2078
+  time: '2025-11-26T11:58:31.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Alert carving now lets you teleport to its location after someone has
+        stepped on it.
+    - type: Tweak
+      message: Carving knife rune carve time 5s -> 3.
+    - type: Tweak
+      message: Carvings are less visible.
+  id: 2079
+  time: '2025-11-26T17:39:27.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Tweak
+      message: >-
+        Shadowkin's slowed breaths are now actually here, breathing 3x slower
+        than humans.
+    - type: Tweak
+      message: Shadowkin suffocate much slower (lore)
+  id: 2080
+  time: '2025-11-26T17:49:17.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Flesh ascension is weaker but more consistent at spawning mimics.
+    - type: Fix
+      message: Mute ghoul ritual now works on non-humanoids.
+    - type: Add
+      message: Mansus link access for all ghouls.
+    - type: Add
+      message: You can ghoul crit people using your grasp as flesh heretic.
+    - type: Fix
+      message: Flesh heretics can no longer make borg ghouls/mimics.
+    - type: Tweak
+      message: 'Buffed the effects of flesh eating for flesh heretics. '
+    - type: Fix
+      message: Fixed foreigner trait causing ascension mimics to spawn with translator.
+  id: 2081
+  time: '2025-11-27T02:11:20.0000000+00:00'
+- author: LuciferEOS and the Oni metagrudgers
+  changes:
+    - type: Tweak
+      message: Terminus damage halved.
+    - type: Tweak
+      message: Terminus ammo capacity +50%
+  id: 2082
+  time: '2025-11-27T07:48:25.0000000+00:00'
+- author: Deatherd
+  changes:
+    - type: Add
+      message: >-
+        R&D is now able to extend station comms coverage with extended
+        communication research. 
+  id: 2083
+  time: '2025-11-27T11:02:16.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Miner's Salve OD only works on lavaland.
+  id: 2084
+  time: '2025-11-27T11:06:42.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added item-form signal timer.
+    - type: Tweak
+      message: Signal timers now allow you to enter non-integer delay values.
+  id: 2085
+  time: '2025-11-27T11:08:23.0000000+00:00'
+- author: KarmaKitsuna, Fishbait
+  changes:
+    - type: Add
+      message: Added teatch a lesson objective
+  id: 2086
+  time: '2025-11-27T11:12:04.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Traitor "teach a lession" objectives are now considered less difficult
+        by code and thus should roll more
+  id: 2087
+  time: '2025-11-27T11:52:16.0000000+00:00'
+- author: JohnJohn, yonsim
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Xeno hunter sprites looking weird and fixed xeno hunter
+        unconscious being the same as dead
+  id: 2088
+  time: '2025-11-27T15:19:45.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Stun baton/stun prod buffed, now they are guidebook-accurate.
+    - type: Tweak
+      message: Judo changed, now discombobulate reduces target stamersists temporarily
+    - type: Add
+      message: Judo belt to officer loadout.
+    - type: Add
+      message: Wonderprod buffed, abductors can also dual-wield it.
+    - type: Tweak
+      message: Disabler stamina damage reduced.
+    - type: Tweak
+      message: Krav maga action cooldowns reduced.
+  id: 2089
+  time: '2025-11-27T16:40:17.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: >-
+        Fixed: Round-start Xenomorphs will properly use the system to handle a
+        single queen to rule them all.
+  id: 2090
+  time: '2025-11-27T22:43:15.0000000+00:00'
+- author: krawh
+  changes:
+    - type: Remove
+      message: Wraith Is Disabled from spawning naturally.
+  id: 2091
+  time: '2025-11-28T12:13:54.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Wraith Absorb Corpse doesn't round remove.
+  id: 2092
+  time: '2025-11-28T18:55:41.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added the King in Yellow.
+  id: 2093
+  time: '2025-11-29T01:00:47.0000000+00:00'
+- author: Arraydeess14
+  changes:
+    - type: Add
+      message: Added a burger perfect for greenshifts
+  id: 2094
+  time: '2025-11-29T10:37:22.0000000+00:00'
+- author: 0xRai
+  changes:
+    - type: Remove
+      message: Shadowkin's unique description
+  id: 2095
+  time: '2025-11-29T12:53:09.0000000+00:00'

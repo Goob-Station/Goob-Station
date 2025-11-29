@@ -66,7 +66,7 @@ public sealed partial class SlasherMassacreMacheteComponent : Component
     /// <summary>
     /// Chance to sever a random limb.
     /// </summary>
-    [DataField] public float LimbSeverChance = 0.50f;
+    [DataField] public float LimbSeverChance = 0.40f;
 
     /// <summary>
     /// How many hits to decapitate
