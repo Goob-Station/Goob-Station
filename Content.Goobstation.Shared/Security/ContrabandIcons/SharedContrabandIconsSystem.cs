@@ -16,28 +16,13 @@ namespace Content.Shared._Goobstation.Security.ContrabandIcons;
 public abstract class SharedContrabandIconsSystem : EntitySystem
 {
     [Dependency] private readonly SharedContrabandDetectorSystem _detectorSystem = default!;
-    /// <inheritdoc/>
-    public override void Initialize()
+    public void ContrabandDetect(EntityUid intentory, VisibleContrabandComponent component)
     {
-        base.Initialize();
-
-        SubscribeLocalEvent<VisibleContrabandComponent, MapInitEvent>(OnMapInit);
-
-        SubscribeLocalEvent<VisibleContrabandComponent, GotEquippedEvent>(OnEquipped);
-        SubscribeLocalEvent<VisibleContrabandComponent, GotUnequippedEvent>(OnUnequipped);
-
-        SubscribeLocalEvent<VisibleContrabandComponent, GotEquippedHandEvent>(OnEquippedHands);
-        SubscribeLocalEvent<VisibleContrabandComponent, GotUnequippedHandEvent>(OnUnequippedHands);
-    }
-
-    private void ContrabandDetect(EntityUid ent, VisibleContrabandComponent component)
-    {
-        var list = _detectorSystem.FindContraband(ent, false, SlotFlags.WITHOUT_POCKET);
+        var list = _detectorSystem.FindContraband(intentory, false, SlotFlags.WITHOUT_POCKET);
         bool isDetected = list.Count > 0;
-        component.StatusIcon = StatusToIcon(isDetected ? ContrabandStatus.None : ContrabandStatus.Contraband);
-        Dirty(ent, component);
+        component.StatusIcon = StatusToIcon(isDetected ? ContrabandStatus.Contraband : ContrabandStatus.None);
+        Dirty(intentory, component);
     }
-
     private string StatusToIcon(ContrabandStatus status)
     {
         return status switch
@@ -46,30 +31,5 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
             ContrabandStatus.Contraband => "ContrabandIconContraband",
             _ => "NoneIcon"
         };
-    }
-
-    private void OnMapInit(EntityUid uid, VisibleContrabandComponent component, MapInitEvent args)
-    {
-        ContrabandDetect(uid, component);
-    }
-
-    private void OnEquipped(EntityUid uid, VisibleContrabandComponent component, GotEquippedEvent args)
-    {
-        ContrabandDetect(uid, component);
-    }
-
-    private void OnUnequipped(EntityUid uid, VisibleContrabandComponent component, GotUnequippedEvent args)
-    {
-        ContrabandDetect(uid, component);
-    }
-
-    private void OnUnequippedHands(EntityUid uid, VisibleContrabandComponent component, GotUnequippedHandEvent args)
-    {
-        ContrabandDetect(uid, component);
-    }
-
-    private void OnEquippedHands(EntityUid uid, VisibleContrabandComponent component, GotEquippedHandEvent args)
-    {
-        ContrabandDetect(uid, component);
     }
 }
