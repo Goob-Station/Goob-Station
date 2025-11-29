@@ -44,7 +44,7 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
         return status switch
         {
             ContrabandStatus.None => "NoneIcon",
-            ContrabandStatus.Contraband => "ContrabandIcon",
+            ContrabandStatus.Contraband => "ContrabandIconContraband",
             _ => "NoneIcon"
         };
     }
