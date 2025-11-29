@@ -32,10 +32,9 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
     
     public void ContrabandDetect(EntityUid ent, VisibleContrabandComponent component)
     {
-        bool IsDetected = false;
-        var list = _detectorSystem.FindContraband(ent, false);
-        IsDetected = list.Count > 0;
-        component.StatusIcon = StatusToIcon(IsDetected ? ContrabandStatus.None : ContrabandStatus.Contraband);
+        var list = _detectorSystem.FindContraband(ent, false, SlotFlags.WITHOUT_POCKET);
+        bool isDetected = list.Count > 0;
+        component.StatusIcon = StatusToIcon(isDetected ? ContrabandStatus.None : ContrabandStatus.Contraband);
         Dirty(ent, component);
     }
 

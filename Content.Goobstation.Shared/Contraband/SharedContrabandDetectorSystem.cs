@@ -75,7 +75,7 @@ public abstract class SharedContrabandDetectorSystem : EntitySystem
         return false;
     }
 
-    public List<EntityUid> FindContraband(EntityUid uid, bool recursive = true)
+    public List<EntityUid> FindContraband(EntityUid uid, bool recursive = true, SlotFlags check = SlotFlags.All)
     {
         List<EntityUid> listOfContraband = new();
         List<EntityUid> itemsToCheck = new();
@@ -87,7 +87,7 @@ public abstract class SharedContrabandDetectorSystem : EntitySystem
             itemsToCheck.AddRange(RecursiveFindInStorage(uid));
 
         // Check items in inventory slots and storages
-        var enumerator = _inventorySystem.GetSlotEnumerator(uid);
+        var enumerator = _inventorySystem.GetSlotEnumerator(uid, check);
         while (enumerator.MoveNext(out var slot))
         {
             var item = slot.ContainedEntity;

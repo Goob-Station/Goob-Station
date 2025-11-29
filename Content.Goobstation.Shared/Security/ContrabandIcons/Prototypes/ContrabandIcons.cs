@@ -4,7 +4,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Shared._Goobstation.Security.ContrabandIcons.Prototypes;
 
-[Prototype]
+[Prototype("contrabandIcon")]
 public sealed partial class ContrabandIconPrototype : StatusIconPrototype, IInheritingPrototype
 {
         /// <inheritdoc />

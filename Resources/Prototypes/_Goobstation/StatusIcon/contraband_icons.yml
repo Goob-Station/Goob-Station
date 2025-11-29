@@ -13,9 +13,9 @@
     sprite: /Textures/_Goobstation/Interface/Misc/security_icons.rsi
     state: hud_contraband
     
-- type: contrabandIcon
-  parent: ContrabandIcon
-  id: ContrabandIconNone
-  icon:
-    sprite: /Textures/_Goobstation/Interface/Misc/security_icons.rsi
-    state: hud_none
+#- type: contrabandIcon
+#  parent: ContrabandIcon
+#  id: ContrabandIconNone
+#  icon:
+#    sprite: /Textures/_Goobstation/Interface/Misc/security_icons.rsi
+#    state: hud_none

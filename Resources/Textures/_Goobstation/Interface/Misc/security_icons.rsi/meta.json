@@ -14,15 +14,11 @@
             [
                 [1.0,1.0]
             ]
-        }
-    ],
-    "states": [
+        },
         {
             "name": "hud_contraband"
-        }
-    ],
-    "states": [
-        {
+        },
+        {   
             "name": "hud_none"
         }
     ]
