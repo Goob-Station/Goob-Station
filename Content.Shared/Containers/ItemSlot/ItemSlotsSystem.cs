@@ -178,6 +178,7 @@ namespace Content.Shared.Containers.ItemSlots
             foreach (var (id, slot) in itemSlots.Slots)
             {
                 slot.ContainerSlot = _containers.EnsureContainer<ContainerSlot>(uid, id);
+                slot.ContainerSlot.OccludesLight = slot.OccludesLight; // Lavaland Change
             }
             itemSlots.Slots = itemSlots.Slots.OrderByDescending((pair => pair.Value.Priority)).ToDictionary(); //Goob Edit - Ordered lists are good.
         }
@@ -1009,6 +1010,7 @@ namespace Content.Shared.Containers.ItemSlots
                 {
                     itemSlot.CopyFrom(serverSlot);
                     itemSlot.ContainerSlot = _containers.EnsureContainer<ContainerSlot>(uid, serverKey);
+                    itemSlot.ContainerSlot.OccludesLight = serverSlot.OccludesLight; // Lavaland Change
                 }
                 else
                 {

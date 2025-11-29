@@ -34,12 +34,15 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using System.Linq;
 using Content.Shared._Goobstation.Weapons.Ranged;
+using Content.Shared.Actions;
 using Robust.Shared.Containers;
 
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades;
 
 public abstract partial class SharedGunUpgradeSystem : EntitySystem
 {
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
 
@@ -54,6 +57,9 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
         SubscribeLocalEvent<UpgradeableGunComponent, RechargeBasicEntityAmmoGetCooldownModifiersEvent>(RelayEvent);
         SubscribeLocalEvent<UpgradeableGunComponent, GunShotEvent>(RelayEvent);
         SubscribeLocalEvent<UpgradeableGunComponent, ProjectileShotEvent>(RelayEvent);
+        SubscribeLocalEvent<UpgradeableGunComponent, GetRelayMeleeWeaponEvent>(RelayEvent);
+
+        SubscribeLocalEvent<UpgradeableGunComponent, GetItemActionsEvent>(RelayGetActionEvent);
 
         SubscribeLocalEvent<GunUpgradeComponent, ExaminedEvent>(OnUpgradeExamine);
 
@@ -68,6 +74,29 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
         }
     }
 
+    // Because of how action container work we need that workaround for GetItemActionsEvent
+    private void RelayGetActionEvent(Entity<UpgradeableGunComponent> ent, ref GetItemActionsEvent args)
+    {
+        foreach (var upgrade in GetCurrentUpgrades(ent))
+        {
+            var ev = new GetItemActionsEvent(_actionContainer, args.User, upgrade.Owner, isEquipping: args.IsEquipping);
+            RaiseLocalEvent(upgrade.Owner, ev);
+
+            if (ev.Actions.Count == 0)
+                continue;
+
+            if (!args.IsEquipping)
+            {
+                _actions.RemoveProvidedActions(args.User, upgrade.Owner);
+                _actions.SaveActions(args.User);
+                continue;
+            }
+
+            _actions.GrantActions(args.User, ev.Actions, upgrade.Owner);
+            _actions.LoadActions(args.User);
+        }
+    }
+
     private void OnExamine(Entity<UpgradeableGunComponent> ent, ref ExaminedEvent args)
     {
         var usedCapacity = 0;
@@ -75,7 +104,8 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
         {
             foreach (var upgrade in GetCurrentUpgrades(ent))
             {
-                args.PushMarkup(Loc.GetString(upgrade.Comp.ExamineText));
+                if (upgrade.Comp.InsertedTextType != null)
+                    args.PushMarkup(Loc.GetString(upgrade.Comp.InsertedTextType.Value, ("name", Loc.GetString(upgrade.Comp.Name))));
                 if (upgrade.Comp.CapacityCost != null)
                     usedCapacity += upgrade.Comp.CapacityCost.Value;
             }
@@ -87,9 +117,11 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
 
     private void OnUpgradeExamine(Entity<GunUpgradeComponent> ent, ref ExaminedEvent args)
     {
-        args.PushMarkup(Loc.GetString(ent.Comp.ExamineText));
+        if (ent.Comp.ExamineTextType != null) // TODO add a list of all weapon types that this gun upgrade can be inserted to
+            args.PushMarkup(Loc.GetString(ent.Comp.ExamineTextType.Value, ("name", Loc.GetString(ent.Comp.Name))));
+
         if (ent.Comp.CapacityCost != null)
-            args.PushMarkup(Loc.GetString("gun-upgrade-examine-text-capacity-cost", ("value", ent.Comp.CapacityCost.Value)));
+            args.PushMarkup(Loc.GetString("gun-upgrade-capacity-cost", ("value", ent.Comp.CapacityCost.Value)));
     }
 
     private void OnUpgradeInserted(Entity<UpgradeableGunComponent> ent, ref EntInsertedIntoContainerMessage args)

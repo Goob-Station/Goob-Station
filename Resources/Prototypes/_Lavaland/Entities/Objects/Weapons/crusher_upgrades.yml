@@ -31,8 +31,7 @@
     - state: overlay-3
       color: "#9bf134"
   - type: GunUpgrade
-    tags: [ CrusherUpgradeMarker ]
-    examineText: gun-upgrade-examine-text-light
+    name: gun-upgrade-crusher-marker-name
     unique: true
   #- type: GunComponentUpgrade
   #  components:

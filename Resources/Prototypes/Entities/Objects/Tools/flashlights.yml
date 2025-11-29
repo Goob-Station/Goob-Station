@@ -198,7 +198,11 @@
     quickEquip: false
     slots:
       - Belt
-  - type: AttachmentFlashlight # Lavaland Change
+  - type: GunUpgrade # Lavaland Change
+    name: gun-upgrade-flashlight-name
+    examineTextType: gun-upgrade-examine-type-can-use
+    insertedTextType: gun-upgrade-inserted-examine-type-attached
+  - type: GunUpgradeFlashlight # Lavaland Change
 
 - type: entity
   parent: FlashlightLantern

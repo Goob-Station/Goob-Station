@@ -32,16 +32,15 @@
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_shotgun.rsi
     layers:
     - state: icon
-      map: [ "enum.WeaponVisualLayers.Base" ]
-    - state: bayonet
-      map: [ "enum.WeaponVisualLayers.Bayonet" ]
-      visible: false
-    - state: flight
-      map: [ "enum.WeaponVisualLayers.FlightOff" ]
-      visible: false
-    - state: flight-on
-      map: [ "enum.WeaponVisualLayers.FlightOn" ]
-      visible: false
+    #- state: bayonet
+    #  map: [ "enum.WeaponVisualLayers.Bayonet" ]
+    #  visible: false
+    #- state: flight
+    #  map: [ "enum.WeaponVisualLayers.FlightOff" ]
+    #  visible: false
+    #- state: flight-on
+    #  map: [ "enum.WeaponVisualLayers.FlightOn" ]
+    #  visible: false
     - state: animation-icon
       visible: false
       map: [ "empty-icon" ]
@@ -69,19 +68,18 @@
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
     layers:
     - state: icon
-      map: [ "enum.WeaponVisualLayers.Base" ]
-    - state: bayonet
-      map: [ "enum.WeaponVisualLayers.Bayonet" ]
-      visible: false
-    - state: flight
-      map: [ "enum.WeaponVisualLayers.FlightOff" ]
-      visible: false
-    - state: flight-on
-      map: [ "enum.WeaponVisualLayers.FlightOn" ]
-      visible: false
-    - state: animation-icon
-      visible: false
-      map: [ "empty-icon" ]
+    #- state: bayonet
+    #  map: [ "enum.WeaponVisualLayers.Bayonet" ]
+    #  visible: false
+    #- state: flight
+    #  map: [ "enum.WeaponVisualLayers.FlightOff" ]
+    #  visible: false
+    #- state: flight-on
+    #  map: [ "enum.WeaponVisualLayers.FlightOn" ]
+    #  visible: false
+    #- state: animation-icon
+    #  visible: false
+    #  map: [ "empty-icon" ]
   - type: Clothing
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
   - type: Gun
@@ -115,19 +113,18 @@
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_pistol.rsi
     layers:
     - state: icon
-      map: [ "enum.WeaponVisualLayers.Base" ]
-    - state: bayonet
-      map: [ "enum.WeaponVisualLayers.Bayonet" ]
-      visible: false
-    - state: flight
-      map: [ "enum.WeaponVisualLayers.FlightOff" ]
-      visible: false
-    - state: flight-on
-      map: [ "enum.WeaponVisualLayers.FlightOn" ]
-      visible: false
-    - state: animation-icon
-      visible: false
-      map: [ "empty-icon" ]
+    #- state: bayonet
+    #  map: [ "enum.WeaponVisualLayers.Bayonet" ]
+    #  visible: false
+    #- state: flight
+    #  map: [ "enum.WeaponVisualLayers.FlightOff" ]
+    #  visible: false
+    #- state: flight-on
+    #  map: [ "enum.WeaponVisualLayers.FlightOn" ]
+    #  visible: false
+    #- state: animation-icon
+    #  visible: false
+    #  map: [ "empty-icon" ]
   - type: Clothing
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_pistol.rsi
   - type: BasicEntityAmmoProvider

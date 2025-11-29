@@ -54,10 +54,10 @@
     - state: overlay-3
       color: "#eb4c13"
   - type: GunUpgrade
+    name: gun-upgrade-damage-name
     capacityCost: 40
-    tags: [ GunUpgradeDamage ]
-    examineText: gun-upgrade-examine-text-damage
   - type: GunUpgradeDamage
+    #modifier: 1.25
     damage:
       types:
         Blunt: 10
@@ -77,9 +77,8 @@
     - state: overlay-3
       color: "#1373eb"
   - type: GunUpgrade
-    tags: [ GunUpgradeRange ]
+    name: gun-upgrade-range-name
     capacityCost: 20
-    examineText: gun-upgrade-examine-text-range
   - type: GunUpgradeSpeed
     coefficient: 1.5
 
@@ -98,38 +97,10 @@
     - state: overlay-3
       color: "#9bf134"
   - type: GunUpgrade
-    tags: [ GunUpgradeReloadSpeed ]
+    name: gun-upgrade-reload-name
     capacityCost: 40
-    examineText: gun-upgrade-examine-text-reload
   - type: GunUpgradeFireRate
     coefficient: 1.5
-
-- type: entity
-  id: PKAUpgradeLight
-  parent: BasePKAUpgrade
-  name: PKA modkit (light)
-  components:
-  - type: Sprite
-    layers:
-    - state: base
-    - state: overlay-1
-      color: "#bbf134"
-    - state: overlay-2
-      color: "#07901b"
-    - state: overlay-3
-      color: "#9bf134"
-  - type: GunUpgrade
-    tags: [ GunUpgradeReloadSpeed ]
-    examineText: gun-upgrade-examine-text-light
-    capacityCost: 10
-    unique: true
-  - type: GunComponentUpgrade
-    toAdd:
-    - type: UnpoweredFlashlight
-    - type: PointLight
-      color: "#ffeead"
-      enabled: false
-      radius: 4
 
 - type: entity
   id: PKAUpgradePressure
@@ -146,7 +117,6 @@
     - state: overlay-3
       color: "#ff4500"
   - type: GunUpgrade
-    tags: [ GunUpgradePressure ]
-    examineText: gun-upgrade-examine-text-pressure
+    name: gun-upgrade-pressure-name
     unique: true
   - type: GunUpgradePressure

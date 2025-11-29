@@ -19,10 +19,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Shared._Lavaland.Weapons;
+using Robust.Shared.GameStates;
+
+namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 
 /// <summary>
-///     Component to indicate a weapon attachment
+///     Component to indicate a valid bayonet for weapon attachment
 /// </summary>
-public abstract partial class AttachmentComponent : Component
-{ }
+[RegisterComponent, NetworkedComponent]
+public sealed partial class GunUpgradeBayonetComponent : Component;

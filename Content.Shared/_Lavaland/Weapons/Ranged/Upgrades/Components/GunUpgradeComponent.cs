@@ -20,20 +20,30 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Tag;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedGunUpgradeSystem))]
 public sealed partial class GunUpgradeComponent : Component
 {
-    [DataField]
-    public List<ProtoId<TagPrototype>> Tags = new();
-
+    /// <summary>
+    /// Literal name of this upgrade that is shown on all examine texts.
+    /// </summary>
     [DataField(required: true)]
-    public LocId ExamineText;
+    public LocId Name;
+
+    /// <summary>
+    /// Text to use when examining the upgrade itself.
+    /// </summary>
+    [DataField]
+    public LocId? ExamineTextType = "gun-upgrade-examine-type-upgrade";
+
+    /// <summary>
+    /// Text template to use when examining a weapon where this upgrade is inserted to.
+    /// </summary>
+    [DataField]
+    public LocId? InsertedTextType = "gun-upgrade-inserted-examine-type-contains";
 
     /// <summary>
     /// If specified, this gun can

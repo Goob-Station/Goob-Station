@@ -19,9 +19,13 @@ public abstract partial class SharedGunUpgradeSystem
         SubscribeLocalEvent<GunUpgradeFireRateComponent, RechargeBasicEntityAmmoGetCooldownModifiersEvent>(OnFireRateRefreshRecharge);
 
         SubscribeLocalEvent<GunUpgradeSpeedComponent, GunRefreshModifiersEvent>(OnSpeedRefresh);
+
         SubscribeLocalEvent<GunUpgradeComponentsComponent, GunShotEvent>(OnDamageGunShotComps);
+
         SubscribeLocalEvent<GunUpgradeVampirismComponent, GunShotEvent>(OnVampirismGunShot);
         SubscribeLocalEvent<ProjectileVampirismComponent, ProjectileHitEvent>(OnVampirismProjectileHit);
+
+        SubscribeLocalEvent<GunUpgradeBayonetComponent, GetRelayMeleeWeaponEvent>(OnGetMeleeRelay);
     }
 
     private void OnFireRateRefresh(Entity<GunUpgradeFireRateComponent> ent, ref GunRefreshModifiersEvent args)
@@ -79,5 +83,14 @@ public abstract partial class SharedGunUpgradeSystem
         if (!HasComp<MobStateComponent>(args.Target))
             return;
         _damage.TryChangeDamage(args.Shooter, ent.Comp.DamageOnHit);
+    }
+
+    private void OnGetMeleeRelay(Entity<GunUpgradeBayonetComponent> ent, ref GetRelayMeleeWeaponEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Found = ent.Owner;
+        args.Handled = true;
     }
 }
