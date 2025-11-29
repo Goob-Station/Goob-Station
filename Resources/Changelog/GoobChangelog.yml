@@ -18583,3 +18583,9 @@ Entries:
       message: Wraith Absorb Corpse doesn't round remove.
   id: 2092
   time: '2025-11-28T18:55:41.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added the King in Yellow.
+  id: 2093
+  time: '2025-11-29T01:00:47.0000000+00:00'
