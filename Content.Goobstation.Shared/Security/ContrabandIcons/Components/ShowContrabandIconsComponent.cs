@@ -6,4 +6,4 @@ namespace Content.Goobstation.Shared.Security.ContrabandIcons.Components;
 ///     This component allows you to see Security Conraband Icons overlay.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public abstract partial class ShowContrabandIconsComponent : Component;
+public sealed partial class ShowContrabandIconsComponent : Component;
