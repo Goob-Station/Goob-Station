@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Contraband;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
 using Content.Shared.Contraband;
 using Content.Shared.GameTicking;
@@ -14,6 +15,7 @@ namespace Content.Shared._Goobstation.Security.ContrabandIcons;
 /// </summary>
 public abstract class SharedContrabandIconsSystem : EntitySystem
 {
+    [Dependency] private readonly SharedContrabandDetectorSystem _detectorSystem = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -28,28 +30,22 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
         
     }
 
-    public sealed class ContrabandCheckContainers : InventorySystem
+    public void ContrabandDetect(EntityUid ent, VisibleContrabandComponent component)
     {
-        public bool TryContrabandCheckItems(Entity<InventoryComponent?> entity, SlotFlags desired,
-            out Entity<ContrabandComponent?> target)
-        {
-            if (TryGetContainerSlotEnumerator(entity.Owner, out var containerSlotEnumerator))
-            {
-                while (containerSlotEnumerator.NextItem(out var item, out var slot))
-                {
-                    if (!TryComp<ContrabandComponent>(item, out var required))
-                        continue;
-
-                    if (((desired & slot.SlotFlags) == 0x0))
-                        continue;
-
-                    target = (item, required);
-                    return true;
-                }
-            }
-
-            target = EntityUid.Invalid;
-            return false;
-        }
+        bool IsDetected = false;
+        var list = _detectorSystem.FindContraband(ent, false);
+        IsDetected = list.Count > 0;
+        component.StatusIcon = StatusToIcon(IsDetected ? ContrabandStatus.None : ContrabandStatus.Contraband);
     }
+
+    private string StatusToIcon(ContrabandStatus status)
+    {
+        return status switch
+        {
+            ContrabandStatus.None => "NoneIcon",
+            ContrabandStatus.Contraband => "ContrabandIcon",
+            _ => "NoneIcon"
+        };
+    }
+    
 }
