@@ -639,14 +639,16 @@
 - type: weightedRandom
   id: DefaultLawsets
   weights:
-    Crewsimov: 0.5
+    Crewsimov: 1
     Corporate: 1
     NTDefault: 1
     EfficiencyLawset: 1
-    RobocopLawset: 0.8
-    PaladinLawset: 0.8
-    LiveLetLiveLaws: 0.3
-    NutimovLawset: 0.3
-    PainterLawset: 0.3
-    GameMasterLawset: 0.3
+    LiveLetLiveLaws: 0.5
+    RobocopLawset: 0.3
+    NutimovLawset: 0.2
+    PaladinLawset: 0.2
+    PainterLawset: 0.05
+    GameMasterLawset: 0.05
+    GambamovLawset: 0.05
+    OverlordLawset: 0.01 #free antag, in my AI slop? YIPPEE!!!
 # End of modifications.

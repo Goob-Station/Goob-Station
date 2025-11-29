@@ -249,7 +249,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             return;
 
         if (component.Lawset == null)
-            component.Lawset = GetLawset(component.Laws);
+            component.Lawset = GetLawset(InitOrGetLaws(component)); // Goob Edit
 
         args.Laws = component.Lawset;
 
@@ -279,7 +279,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     private void OnEmagLawsAdded(EntityUid uid, SiliconLawProviderComponent component, ref SiliconEmaggedEvent args)
     {
         if (component.Lawset == null)
-            component.Lawset = GetLawset(component.Laws);
+            component.Lawset = GetLawset(InitOrGetLaws(component)); // Goob Edit
 
         // Corvax-Next-AiRemoteControl-Start
         if (HasComp<AiRemoteControllerComponent>(uid)) // You can't emag controllable entities
@@ -391,6 +391,22 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             _roles.MindPlaySound(mindId, cue);
     }
 
+    // Ronstation - start of modifications
+
+    // <summary>
+    // Initializes Laws with a random from WeightedLaws if Laws is empty
+    // </summary>
+
+    private ProtoId<SiliconLawsetPrototype>
+        InitOrGetLaws(SiliconLawProviderComponent provider)
+    {
+        if (provider.Laws != null && provider.Laws != string.Empty)
+            return provider.Laws.Value;
+        var laws = _prototype.Index(provider.WeightedLaws).Pick(_robustRandom);
+        provider.Laws = laws;
+        return laws;
+    }
+    // Ronstation - end of modifications
     /// <summary>
     /// Extract all the laws from a lawset's prototype ids.
     /// </summary>
@@ -445,7 +461,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             return;
         }
         // Goob edit end
-        var lawset = GetLawset(provider.Laws).Laws;
+        var lawset = GetLawset(InitOrGetLaws(provider)).Laws; // Goob edit
         var query = EntityManager.CompRegistryQueryEnumerator(ent.Comp.Components);
 
         while (query.MoveNext(out var update))
@@ -462,7 +478,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             // Corvax-Next-AiRemoteControl-End
         }
 
-        ent.Comp.LastLawset = provider.Laws;
+        ent.Comp.LastLawset = InitOrGetLaws(provider); // Goob Edit? TODO Check that this doesn't fuck with the experimental lawboards
     }
 
     // Corvax-Next-AiRemoteControl-Start
