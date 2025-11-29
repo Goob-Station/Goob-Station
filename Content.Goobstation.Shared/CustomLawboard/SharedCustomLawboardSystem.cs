@@ -1,5 +1,3 @@
-
-
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Popups;
@@ -13,7 +11,6 @@ namespace Content.Goobstation.Shared.CustomLawboard;
 public abstract class SharedCustomLawboardSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public static readonly int MaxLaws = 15;
