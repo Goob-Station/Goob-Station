@@ -140,4 +140,51 @@ roles-slaughter-demon-name-token = Slaughter Demon (Token)
 roles-laughter-demon-name-token = Laughter Demon (Token)
 ghost-role-information-ancient-rogue-king-name-token = Ancient Rogue King (Token)
 ghost-role-information-wraith-name-token = Wraith (Token)
+
+# Misc-Midround Antags
+
+ghost-role-information-grey-tide-name = The Grey Tide
+ghost-role-information-grey-tide-description = Against all the evil that shitsec can conjure, all the wickedness that sci can produce, we will send unto them only you. Robust and shit until it is done.
+grey-tide-role-greeting = Long forgotten in the depths of maints, you are [color=#880808]THE GREY-TIDE [/color], the clothes you wear have fused with your body from extensive robusting, this station isn't theirs to conquer...
+tide-objective-kill-everyone-desc = This station has wronged you for the last time, robust and tide until they are all dead.
+tide-objective-condition-kill-everyone-else-title = Robust everyone.
+
+ghost-role-information-tunnel-clown-name = Tunnel Clown
+ghost-role-information-tunnel-clown-description = A clown gang member whos made their home in maintenance.
+tunnel-clown-role-greeting = You are a [color=#880808]tunnel clown[/color], a clown gang member who has made their home in maintenance, see your character sheet for your objectives.
+tunnel-clown-objective-maints-slasher-desc = This stations maintenance has been your home for as long as you can remember, hiding from the crew in lockers is all that you knew until now. Thoses station goers have invaded your home for the last time, kill anyone who dares to distrupt your home.
+tunnel-clown-objective-condition-maints-slasher-title = Protect maintenance.
+tunnel-clown-business-card = Tunnel Clown, licensed to kill.
+
+ghost-role-information-Singuloth-Knight-name = Singuloth Knight
+ghost-role-information-Singuloth-Knight-description = Once master engineers, now followers of Lord Singuloth. Wielding a singularity hammer they are a force to be reckoned with!
+Singuloth-Knight-role-greeting = Thou art a [color=#880808]Singuloth Knight[/color], a devout followeth'r of Lord Singuloth, checketh thy charact'r sheet f'r thy objectives.
+objective-issuer-lord-singuloth = [color=#320022]Lord Singuloth[/color]
+
+ghost-role-information-dark-lord-name = Dark Lord
+ghost-role-information-dark-lord-description = A syndicate agent themed after a sith lord, use your lightning powers and energy sword to complete your objectives!
+dark-lord-role-greeting = You are a [color=#880808]Dark Lord[/color] sent by the syndicate to this station to do their dirty work, check your character sheet for your objectives.
+
+ghost-role-information-chosen-one-name = The Chosen One
+ghost-role-information-chosen-one-description = A special agent sent to the station by Nanotrasen to defeat a dark lord.
+chosen-one-role-greeting = You are the [color=#0087FF]Chosen One[/color], you have been sent to this station to defeat a Dark Lord sent by the syndicate, check your character sheet for your objectives.
+objective-condition-dark-lord-kill-title = Ensure Dark Lord {$targetName} dies.
+
+ghost-role-information-mime-Assassin-name = Mime Assassin
+ghost-role-information-mime-Assassin-description = An assassin that uses mime clothes and favors silent kills, their name? well they probably can't tell you, but thats what makes then so good!
+mime-Assassin-role-greeting = You are a [color=#880808]Mime Assassin[/color], you have been sent to this station by the syndicate to kill some members of command that they need taken out of the equation, the syndicate have supplied you with some tools to get the job done, quietly... check your character sheet for your objectives, and don't get caught.
+
+ghost-role-information-dark-priest-name = Dark Priest
+ghost-role-information-dark-priest-description = An agent of the dark gods, sent to kill someone, protect someone and hire someone who has roused their interest as their apprentice, Carries the "blessing of the reaper".
+dark-priest-role-greeting = You are a [color=#880808]Dark Priest[/color], you have been sent to this station to pick someone to become your apprentice, kill someone and protect someone, check your character sheet for your objectives.
+objective-condition-other-alive-title = Ensure crew member {$targetName}, {CAPITALIZE($job)} stays alive.
+objective-issuer-self = [color=#7851A9]For your own interests[/color]
+
+ghost-role-information-vox-raider-name = Vox Raider
+ghost-role-information-vox-raider-description = Vox that swear their loyalty to the Shoal. It is unclear what their intentions or whether they plan on trading or thieving from the station. It is always best to use caution when they show up.
+vox-raider-role-greeting = You are a [color=#7851A9]Vox Raider[/color], a Vox that has sworn their loyalty to the Shoal, you are tasked with stealing items from the station or trading for them, it doesn't matter which you decide to do, all that matters is that you obtain all the items you need to complete your objectives and complete "The Heist", check your character sheet for your objectives.
+
+ghost-role-information-clown-goblin-name = Clown goblin
+ghost-role-information-clown-goblin-description = A terrible creature, born out of hell.
+
 ghost-role-information-slasher-token = The Slasher (Token)
