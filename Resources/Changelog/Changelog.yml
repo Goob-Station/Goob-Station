@@ -4297,3 +4297,10 @@ Entries:
   id: 9234
   time: '2025-11-29T20:48:23.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41624
+- author: aada
+  changes:
+  - message: Hardsuits and other toggleable clothing now show in the strip menu.
+    type: Fix
+  id: 9235
+  time: '2025-11-30T05:20:03.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41631
