@@ -22,6 +22,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._Goobstation.Holiday.Christmas; // GOOBSTATION EDIT
 using Content.Server.Administration.Logs;
 using Content.Server.Hands.Systems;
 using Content.Shared.Database;
@@ -87,6 +88,16 @@ public sealed class RandomGiftSystem : EntitySystem
         _adminLogger.Add(LogType.EntitySpawn, LogImpact.Low, $"{ToPrettyString(args.User)} used {ToPrettyString(uid)} which spawned {ToPrettyString(handsEnt)}");
         if (component.Wrapper is not null)
             Spawn(component.Wrapper, coords);
+
+        if (TryComp<PlaySoundOnGiftOpenComponent>(handsEnt, out var uniqueItemSoundComp) && uniqueItemSoundComp.Sound is not null) // Goobstation edit to allow for unique item sounds when played for gift open.
+        {
+            if (uniqueItemSoundComp.IsSoundGlobal)
+                _audio.PlayGlobal(uniqueItemSoundComp.Sound, Filter.Broadcast(), true, AudioParams.Default.WithVolume(uniqueItemSoundComp.SoundVolume)); // Globally played sound
+            else
+                _audio.PlayPvs(uniqueItemSoundComp.Sound, args.User, AudioParams.Default.WithVolume(uniqueItemSoundComp.SoundVolume)); // Locally played sound
+        }
+
+
 
         _audio.PlayPvs(component.Sound, args.User);
 

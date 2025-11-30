@@ -18,45 +18,26 @@
   - type: Item
     size: Tiny
     sprite: Objects/Weapons/Melee/debug.rsi
+  - type: PlaySoundOnGiftOpen # Goobstation edit. Plays holy sound upon christmas unwrapping (local sound).
+    sound: /Audio/Effects/holy.ogg
 
 - type: entity
   name: holy blast stick 200dmg
-  parent: BaseItem
+  parent: MeleeDebugGibHoly100
   id: MeleeDebugGibHoly200
-  description: Behold, the power of GOD!!
-  suffix: DEBUG
   components:
-  - type: Tag
-    tags:
-    - Debug
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/debug.rsi
-    state: icon
   - type: MeleeWeapon
     damage:
       types:
         Holy: 200
-  - type: Item
-    size: Tiny
-    sprite: Objects/Weapons/Melee/debug.rsi
 
 - type: entity
   name: holy smite stick # This ones just for fun
-  parent: BaseItem
+  parent: MeleeDebugGibHoly100
   id: MeleeDebugGibHoly200000
   description: BEGONE SINNER
-  suffix: DEBUG
   components:
-  - type: Tag
-    tags:
-    - Debug
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/debug.rsi
-    state: icon
   - type: MeleeWeapon
     damage:
       types:
         Holy: 20000
-  - type: Item
-    size: Tiny
-    sprite: Objects/Weapons/Melee/debug.rsi
