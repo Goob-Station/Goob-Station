@@ -6,6 +6,7 @@
     state: default_rod
   discipline: Industrial
   tier: 1
+  position: 1,-3
   cost: 7500
   recipeUnlocks:
   - NuclearFabricatorMachineCircuitboard
@@ -22,10 +23,10 @@
   - PlasteelReactorHeatExchanger
   - PlasmaGlassReactorHeatExchanger
   technologyPrerequisites:
-  - PowerGeneration
+  - AdvancedPowerGeneration
   radioChannels:
   - Engineering
- 
+
 - type: technology
   id: NuclearPowerRecycling
   name: research-technology-nuclear-recycling
@@ -34,6 +35,7 @@
     state: nuclear_waste
   discipline: Industrial
   tier: 2
+  position: 2,-3
   cost: 12500
   recipeUnlocks:
   - NuclearCentrifugeMachineCircuitboard
@@ -47,5 +49,3 @@
   - DiamondReactorHeatExchanger
   technologyPrerequisites:
   - NuclearPowerGeneration
-  radioChannels:
-  - Engineering
