@@ -1,0 +1,55 @@
+- type: entity
+  id: AnomalyBald
+  parent: BaseAnomaly
+  suffix: Bald
+  components:
+  - type: Anomaly
+    corePrototype: null
+    coreInertPrototype: null
+    supercriticalSoundAtAnimationStart:
+      collection: AnomalyGravitySupercritical
+    supercriticalDuration: 10s
+    minPointsPerSecond: 1
+    maxPointsPerSecond: 50
+  - type: Sprite
+    sprite: _Goobstation/Structures/Specific/anomality.rsi
+    layers:
+    - state: anom
+      map: [ "enum.AnomalyVisualLayers.Base","Safe" ]
+      shader: unshaded
+    - state: anom-2
+      map: [ "Unsafe" ]
+      visible: false
+      shader: unshaded
+    - state: anom-3
+      map: [ "Danger" ]
+      visible: false
+      shader: unshaded
+    - state: pulse
+      map: [ "enum.AnomalyVisualLayers.Animated" ]
+      visible: false
+      shader: unshaded
+  - type: PointLight
+    radius: 2.0
+    energy: 10
+    color: "#333333"
+  - type: Physics
+    bodyType: Dynamic
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  - type: RandomWalk
+  - type: BaldAnomaly
+
+- type: entity
+  id: AnomalyBaldCopy
+  parent: AnomalyBald
+  suffix: Bald 2
+  components:
+  - type: BaldAnomaly
+    canCopy: false
+
+- type: localizedDataset
+  id: BaldIsAwesomeStringDataset
+  values:
+    prefix: anomaly-bald-say-
+    count: 6
