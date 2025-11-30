@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "size": {
     "x": 32,
     "y": 32
@@ -90,6 +90,14 @@
           0.6
         ]
       ]
+    },
+    {
+      "name": "equipped-NECK",
+      "directions": 4
+    },
+    {
+      "name": "mouth-equipped-NECK",
+      "directions": 4
     }
   ]
 }
