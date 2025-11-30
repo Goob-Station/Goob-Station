@@ -1,0 +1,35 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Title="{Loc 'book-binder-menu-title'}"
+    SetSize="740 500">
+    <BoxContainer
+        Orientation="Vertical"
+        HorizontalExpand="True"
+        VerticalExpand="True">
+        <BoxContainer
+            HorizontalExpand="True"
+            Orientation="Horizontal"
+            VerticalExpand="True">
+            <BoxContainer
+                Name="LayersContainer"
+                HorizontalExpand="True"
+                Orientation="Horizontal"
+                SizeFlagsStretchRatio="4"
+                VerticalExpand="True"/>
+            <SpriteView
+                Name="Preview"
+                VerticalAlignment="Top"
+                HorizontalExpand="True"
+                VerticalExpand="True"
+                SizeFlagsStretchRatio="1"
+                Scale="3 3"/>
+        </BoxContainer>
+        <Button
+            Name="SelectButton"
+            Text="Select"
+            SetHeight="48"/>
+    </BoxContainer>
+</controls:FancyWindow>

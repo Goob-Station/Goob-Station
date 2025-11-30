@@ -1,0 +1,147 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Title="{Loc 'book-admin-verification-menu-title'}"
+    SetSize="940 550">
+    <BoxContainer
+        HorizontalExpand="True"
+        Orientation="Horizontal"
+        VerticalExpand="True">
+        <BoxContainer
+            HorizontalExpand="True"
+            Orientation="Vertical"
+            MinWidth="450"
+            SetWidth="450"
+            VerticalExpand="True">
+            <Label
+                Text="Pending books"
+                Margin="4"
+                HorizontalExpand="True"
+                SizeFlagsStretchRatio="4" />
+            <PanelContainer
+                Margin="4"
+                HorizontalExpand="True"
+                SizeFlagsStretchRatio="7"
+                VerticalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat
+                        BackgroundColor="#12151aFF"
+                        BorderColor="#273c54FF"
+                        BorderThickness="2" />
+                </PanelContainer.PanelOverride>
+                <ScrollContainer
+                    Margin="4"
+                    HScrollEnabled="False"
+                    HorizontalExpand="True"
+                    VerticalExpand="True">
+                    <BoxContainer
+                        Name="BooksContainer"
+                        HorizontalExpand="True"
+                        Orientation="Vertical"
+                        VerticalExpand="True" />
+                </ScrollContainer>
+            </PanelContainer>
+        </BoxContainer>
+        <customControls:VSeparator Margin="2"/>
+        <BoxContainer
+            HorizontalExpand="True"
+            Orientation="Vertical"
+            SizeFlagsStretchRatio="1"
+            VerticalExpand="True">
+            <BoxContainer
+                Orientation="Horizontal"
+                SizeFlagsStretchRatio="1"
+                VerticalExpand="True"
+                HorizontalExpand="True">
+                <SpriteView
+                    Name="Preview"
+                    Scale="2 2"
+                    HorizontalExpand="True"
+                    VerticalExpand="True"
+                    SizeFlagsStretchRatio="1"/>
+                <BoxContainer
+                    HorizontalExpand="True"
+                    Orientation="Vertical"
+                    SizeFlagsStretchRatio="2"
+                    VerticalExpand="True">
+                    <RichTextLabel
+                        Name="TitleLabel"
+                        Margin="4"
+                        HorizontalExpand="True"
+                        SizeFlagsStretchRatio="1"
+                        VerticalExpand="True" />
+                    <RichTextLabel
+                        Name="GenreLabel"
+                        Margin="4"
+                        HorizontalExpand="True"
+                        SizeFlagsStretchRatio="1"
+                        VerticalExpand="True" />
+                    <RichTextLabel
+                        Name="AuthorNameLabel"
+                        Margin="4"
+                        HorizontalExpand="True"
+                        SizeFlagsStretchRatio="1"
+                        VerticalExpand="True" />
+                </BoxContainer>
+            </BoxContainer>
+            <BoxContainer
+                Orientation="Horizontal"
+                HorizontalExpand="True"
+                SizeFlagsStretchRatio="3"
+                Margin="4"
+                VerticalExpand="True">
+                <RichTextLabel
+                    Name="DescLabel"
+                    HorizontalExpand="True"
+                    SizeFlagsStretchRatio="3"
+                    VerticalAlignment="Top"
+                    VerticalExpand="True" />
+            </BoxContainer>
+            <PanelContainer
+                Margin="4"
+                HorizontalExpand="True"
+                SizeFlagsStretchRatio="5"
+                VerticalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat
+                        BackgroundColor="#12151aFF"
+                        BorderColor="#273c54FF"
+                        BorderThickness="2" />
+                </PanelContainer.PanelOverride>
+                <ScrollContainer
+                    Margin="4"
+                    HScrollEnabled="False"
+                    HorizontalExpand="True"
+                    VerticalExpand="True">
+                    <BoxContainer
+                        Name="PagesContainer"
+                        HorizontalExpand="True"
+                        Orientation="Vertical"
+                        VerticalExpand="True" />
+                </ScrollContainer>
+            </PanelContainer>
+            <BoxContainer
+                SizeFlagsStretchRatio="1"
+                HorizontalExpand="True"
+                VerticalExpand="True"
+                Margin="0 4">
+                <Button
+                    Name="DeclineButton"
+                    Text="{Loc 'book-admin-decline-button'}"
+                    SizeFlagsStretchRatio="1"
+                    HorizontalExpand="True"
+                    VerticalExpand="True"
+                    Margin="4 0"/>
+                <Button
+                    Name="CreateButton"
+                    Text="{Loc 'book-admin-approve-button'}"
+                    SizeFlagsStretchRatio="1"
+                    HorizontalExpand="True"
+                    VerticalExpand="True"
+                    Margin="4 0"/>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

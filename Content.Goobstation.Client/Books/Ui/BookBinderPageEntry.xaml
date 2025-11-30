@@ -1,0 +1,18 @@
+<Control xmlns="https://spacestation14.io"
+         Margin="5">
+    <PanelContainer StyleClasses="PdaBorderRect">
+        <BoxContainer Orientation="Vertical">
+            <Button Name="EjectButton"
+                VerticalAlignment="Top"
+                SetHeight="30"
+                HorizontalExpand="True"
+                Text="Eject"
+                Margin="4 0 4 16"
+                Access="Public"/>
+            <TextEdit Name="TextEdit"
+                HorizontalExpand="True"
+                VerticalExpand="True"
+                Access="Public"/>
+        </BoxContainer>
+    </PanelContainer>
+</Control>
