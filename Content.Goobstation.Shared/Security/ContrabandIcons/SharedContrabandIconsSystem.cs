@@ -1,13 +1,13 @@
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.Contraband;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
+using Content.Goobstation.Shared.Security.ContrabandIcons.Prototypes;
 using Content.Shared.Hands;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
-using Content.Goobstation.Shared.Security.ContrabandIcons.Prototypes;
 using Robust.Shared.Configuration;
 
-namespace Content.Shared._Goobstation.Security.ContrabandIcons;
+namespace Content.Goobstation.Shared.Security.ContrabandIcons;
 
 /// <summary>
 /// This handles...
@@ -16,7 +16,8 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
 {
     [Dependency] private readonly SharedContrabandDetectorSystem _detectorSystem = default!;
     [Dependency] private readonly IConfigurationManager _configuration = default!;
-    bool _isEnabled = true;
+    private bool _isEnabled = true;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -24,18 +25,19 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
         SubscribeLocalEvent<VisibleContrabandComponent, DidUnequipEvent>(OnUnequip);
 
         SubscribeLocalEvent<VisibleContrabandComponent, DidEquipHandEvent>(OnEquipHands);
-        SubscribeLocalEvent<VisibleContrabandComponent, DidUnequipHandEvent>(OnUnequippHands);
-        
-        Subs.CVar(_configuration,GoobCVars.ContrabandIconsEnabled, value => _isEnabled = value);
+        SubscribeLocalEvent<VisibleContrabandComponent, DidUnequipHandEvent>(OnUnequipHands);
+
+        Subs.CVar(_configuration, GoobCVars.ContrabandIconsEnabled, value => _isEnabled = value);
     }
-    public void ContrabandDetect(EntityUid intentory, VisibleContrabandComponent component, SlotFlags slotFlags = SlotFlags.WITHOUT_POCKET)
+
+    protected void ContrabandDetect(EntityUid inventory, VisibleContrabandComponent component, SlotFlags slotFlags = SlotFlags.WITHOUT_POCKET)
     {
         if (!_isEnabled)
             return;
-        var list = _detectorSystem.FindContraband(intentory, false, slotFlags);
-        bool isDetected = list.Count > 0;
+        var list = _detectorSystem.FindContraband(inventory, false, slotFlags);
+        var isDetected = list.Count > 0;
         component.StatusIcon = StatusToIcon(isDetected ? ContrabandStatus.Contraband : ContrabandStatus.None);
-        Dirty(intentory, component);
+        Dirty(inventory, component);
     }
     private string StatusToIcon(ContrabandStatus status)
     {
@@ -57,7 +59,7 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
         ContrabandDetect(args.Equipee, component, args.SlotFlags);
     }
 
-    private void OnUnequippHands(EntityUid uid, VisibleContrabandComponent component, DidUnequipHandEvent args)
+    private void OnUnequipHands(EntityUid uid, VisibleContrabandComponent component, DidUnequipHandEvent args)
     {
         ContrabandDetect(args.User, component, SlotFlags.NONE);
     }
