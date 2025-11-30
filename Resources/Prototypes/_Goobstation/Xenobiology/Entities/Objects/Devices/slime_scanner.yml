@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseItem
+  id: SlimeScannerXenobio
+  name: slime scanner
+  description: Using it on a slime will give you all the necessary info you've ever wanted. Now comes in multiple colors!
+  components:
+  - type: SlimeScanner
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_scanner.rsi
+    drawdepth: HighFloorObjects
+    layers:
+    - state: icon
+    - state: analyzer
+      shader: unshaded
+      visible: true
+  - type: Item
+    heldPrefix: analyzer
+    storedRotation: -90
