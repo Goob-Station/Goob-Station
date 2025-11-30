@@ -1,0 +1,25 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnPointGhostCorticalBorer
+  name: ghost role spawn point
+  suffix: cortical borer
+  components:
+  - type: GhostRole
+    name: cortical-borer-ghostrole-name
+    description: cortical-borer-ghostrole-desc
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 # 5 hrs
+  - type: GhostRoleMobSpawner
+    prototype: MobCorticalBorer
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: _Mono/Mobs/Aliens/cortical_borer.rsi
+        state: cortical_borer

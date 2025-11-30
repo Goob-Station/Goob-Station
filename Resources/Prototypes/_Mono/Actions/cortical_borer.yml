@@ -1,0 +1,108 @@
+- type: entity
+  parent: BaseAction
+  id: ActionCorticalBorerChemMenu
+  name: Chemicals
+  description: Open the chemicals menu.
+  components:
+  - type: Action
+    useDelay: 1
+    icon:
+      sprite: _Mono/Interface/Actions/borer.rsi
+      state: borer_chem
+  - type: InstantAction
+    event: !type:CorticalChemMenuActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionCorticalBorerInfest
+  name: Infest
+  description: Infest target Humanoid. Target host must have a bloodstream.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Mono/Interface/Actions/borer.rsi
+      state: borer_infest
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - Body
+    event: !type:CorticalInfestEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionCorticalBorerEject
+  name: Eject Host
+  description: Eject yourself from your host.
+  components:
+  - type: Action
+    useDelay: 5
+    icon:
+      sprite: _Mono/Interface/Actions/borer.rsi
+      state: borer_eject
+  - type: InstantAction
+    event: !type:CorticalEjectEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionCheckBlood
+  name: Check Blood
+  description: Inspect the blood of your host to see how they are doing.
+  components:
+  - type: Action
+    useDelay: 2
+    icon:
+      sprite: _Mono/Interface/Actions/borer.rsi
+      state: borer_bloodcheck
+  - type: InstantAction
+    event: !type:CorticalCheckBloodEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionControlHost
+  name: Take Control
+  description: Take full control of your host, lasts for 40 seconds on awake hosts Costs 150 chemicals.
+  components:
+  - type: Action
+    useDelay: 20
+    icon:
+      sprite: _Mono/Interface/Actions/borer.rsi
+      state: borer_control
+  - type: InstantAction
+    event: !type:CorticalTakeControlEvent
+  - type: CorticalBorerAbilityRequiresChemicals
+    chemicals: 150
+
+- type: entity
+  parent: BaseAction
+  id: ActionEndControlHost
+  name: Relinquish Control
+  description: Give up hold of the host's body early.
+  components:
+  - type: Action
+    useDelay: 5
+    icon:
+      sprite: _Mono/Interface/Actions/borer.rsi
+      state: borer_eject
+  - type: InstantAction
+    event: !type:CorticalEndControlEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionLayEggHost
+  name: Lay Egg
+  description: Force your host to vomit an egg. Costs 50 chemicals.
+  components:
+  - type: Action
+    useDelay: 180
+    icon:
+      sprite: _Mono/Interface/Actions/borer.rsi
+      state: borer_egg
+  - type: InstantAction
+    event: !type:CorticalLayEggEvent
+  - type: CorticalBorerAbilityRequiresChemicals
+    chemicals: 50

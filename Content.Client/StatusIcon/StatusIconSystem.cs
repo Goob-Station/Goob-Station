@@ -10,6 +10,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.CorticalBorer.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Ghost;
 using Content.Shared.StatusIcon;
@@ -102,6 +103,9 @@ public sealed class StatusIconSystem : SharedStatusIconSystem
             return false;
 
         if (data.ShowTo != null && !_entityWhitelist.IsValid(data.ShowTo, viewer))
+            return false;
+
+        if (HasComp<CorticalBorerComponent>(ent)) // Goobstation
             return false;
 
         return true;

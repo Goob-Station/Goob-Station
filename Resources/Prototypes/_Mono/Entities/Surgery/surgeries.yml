@@ -1,0 +1,17 @@
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryCorticalBorerRemoval
+  name: Remove Cortical Borer
+  description: Removal the Cortical Borer infestation from the body.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    priority: -1
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepClampInternalBleeders
+    - SurgeryStepRemoveCorticalBorer
+  - type: SurgeryCorticalBorerCondition
+  - type: SurgeryPartCondition
+    part: Head

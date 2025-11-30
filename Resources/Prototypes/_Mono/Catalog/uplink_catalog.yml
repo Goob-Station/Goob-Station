@@ -1,0 +1,32 @@
+- type: listing
+  id: UplinkCorticalBorerEgg
+  name: uplink-cortical-borer-egg-name
+  description: uplink-cortical-borer-egg-desc
+  icon: { sprite: /Textures/_Mono/Mobs/Aliens/cortical_borer_egg.rsi, state: icon }
+  productEntity: CorticalBorerEgg
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkAllies
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink
+          - ContravendUplink
+
+- type: listing # Cost for NukeOps
+  id: NukeOpsUplinkCorticalBorerEgg
+  name: uplink-cortical-borer-egg-name
+  description: uplink-cortical-borer-egg-desc
+  icon: { sprite: /Textures/_Mono/Mobs/Aliens/cortical_borer_egg.rsi, state: icon }
+  productEntity: CorticalBorerEgg
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkAllies
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NukeOpsUplink

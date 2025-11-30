@@ -1,0 +1,5 @@
+- type: guideEntry
+  id: CorticalBorerGuide
+  name: guide-entry-cortical-borer
+  text: "/ServerInfo/_Mono/Guidebook/CorticalBorer.xml"
+  priority: 1
