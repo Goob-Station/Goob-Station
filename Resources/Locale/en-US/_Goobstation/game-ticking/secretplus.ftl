@@ -11,4 +11,4 @@ survivalplus-title = Survival+
 survivalplus-description = Starts pretty calm. Ends up not quite.
 
 hermitplus-title = The Hermit
-hermitplus-description = A game mode that focuses on internal threats, rather then external ones.
+hermitplus-description = A game mode that focuses on only internal threats, rather then external ones.
