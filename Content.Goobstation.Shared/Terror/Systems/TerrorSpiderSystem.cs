@@ -5,12 +5,42 @@ using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
+
+
+/// <summary>
+/// <code>
+///      |/|    < --- Reserved for a specific role :)
+///      |/|
+///      |/|
+///      |/|
+///      |/|
+///      |/|
+///      |/| /¯)
+///      |/|/\/
+///      |/|\/
+///     (¯¯¯)
+///     (¯¯¯)
+///     (¯¯¯)
+///     (¯¯¯)
+///     (¯¯¯)
+///     /¯¯/\
+///    / ,^./\
+///   / /   \/\
+///  / /     \/\
+/// ( (       )/
+/// | |       |/|
+/// | |       |/|
+/// | |       |/|
+/// ( (       )/)
+///  \ \     / /
+///   \ `---' /
+///    `-----'
+/// </code>
+/// </summary>
 
 public sealed class TerrorSpiderSystem : EntitySystem
 {
