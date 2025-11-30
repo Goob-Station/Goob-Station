@@ -26,13 +26,13 @@
     canEmag: false
     canExamine: false
   - type: ThermalVision
-      toggleAction: ToggleThermalVisionXenomorph
-      color: white
-      drawOverlay: false
-      lightRadius: 10
-      strength: 0
-      noise: 0
-      tint: 3, 3, 3
+    toggleAction: ToggleThermalVisionXenomorph
+    color: white
+    drawOverlay: false
+    lightRadius: 10
+    strength: 0
+    noise: 0
+    tint: 3, 3, 3
   - type: NameIdentifier
     group: GenericNumber
   - type: CombatMode
