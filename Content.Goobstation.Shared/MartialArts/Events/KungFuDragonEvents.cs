@@ -37,3 +37,6 @@ public sealed partial class DragonTailPerformedEvent : BaseKungFuDragonEvent
 
 [DataDefinition]
 public sealed partial class DragonStrikePerformedEvent : BaseKungFuDragonEvent;
+
+[DataDefinition]
+public sealed partial class DragonDominationPerformedEvent : BaseKungFuDragonEvent;

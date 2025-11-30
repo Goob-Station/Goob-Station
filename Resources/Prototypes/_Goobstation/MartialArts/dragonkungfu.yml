@@ -6,17 +6,18 @@
 - type: comboList
   id: KungFuDragonMoves
   combos:
-  - DragonClaw
-  - DragonTail
-  - DragonStrike
+    - DragonClaw
+    - DragonTail
+    - DragonStrike
+    - DragonDomination
 
 - type: combo
   id: DragonClaw
   name: Dragon Claw
   martialArtsForm: KungFuDragon
   attacks:
-  - Disarm
-  - Disarm
+    - Disarm
+    - Disarm
   event: !type:DragonClawPerformedEvent
     sound:
       path: /Audio/Weapons/genhit3.ogg
@@ -27,9 +28,9 @@
   name: Dragon Tail
   martialArtsForm: KungFuDragon
   attacks:
-  - Disarm
-  - Grab
-  - Harm
+    - Disarm
+    - Grab
+    - Harm
   event: !type:DragonTailPerformedEvent
     sound:
       path: /Audio/Weapons/genhit2.ogg
@@ -42,11 +43,25 @@
   name: Dragon Strike
   martialArtsForm: KungFuDragon
   attacks:
-  - Disarm
-  - Harm
-  - Harm
+    - Disarm
+    - Harm
+    - Harm
   event: !type:DragonStrikePerformedEvent
     sound:
       path: /Audio/Weapons/genhit1.ogg
   extraDamage: 40
   paralyzeTime: 2 # Actual paralyze
+
+- type: combo
+  id: DragonDomination
+  name: Dragon Domination
+  martialArtsForm: KungFuDragon
+  attacks:
+    - Harm
+    - Disarm
+  event: !type:DragonDominationPerformedEvent
+    sound:
+      path: /Audio/Weapons/genhit1.ogg
+  extraDamage: 5
+  paralyzeTime: 4
+  dropHeldItemsBehavior: NoDrop
