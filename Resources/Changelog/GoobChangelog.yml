@@ -18571,3 +18571,83 @@ Entries:
         single queen to rule them all.
   id: 2090
   time: '2025-11-27T22:43:15.0000000+00:00'
+- author: krawh
+  changes:
+    - type: Remove
+      message: Wraith Is Disabled from spawning naturally.
+  id: 2091
+  time: '2025-11-28T12:13:54.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Wraith Absorb Corpse doesn't round remove.
+  id: 2092
+  time: '2025-11-28T18:55:41.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added the King in Yellow.
+  id: 2093
+  time: '2025-11-29T01:00:47.0000000+00:00'
+- author: Arraydeess14
+  changes:
+    - type: Add
+      message: Added a burger perfect for greenshifts
+  id: 2094
+  time: '2025-11-29T10:37:22.0000000+00:00'
+- author: 0xRai
+  changes:
+    - type: Remove
+      message: Shadowkin's unique description
+  id: 2095
+  time: '2025-11-29T12:53:09.0000000+00:00'
+- author: John John
+  changes:
+    - type: Add
+      message: Added the hotdog outfit from ss13
+    - type: Add
+      message: Added the pickle outfit from ss13
+  id: 2096
+  time: '2025-11-29T17:28:12.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Add
+      message: >-
+        Traitors and nukies can now buy a custom lawboard for 50TC, allowing
+        them to insert whatever laws they want into the AI!
+    - type: Remove
+      message: >-
+        The Antimov lawboard is no longer obtainable through uplinks. It's so
+        over.
+    - type: Tweak
+      message: >-
+        The hacker undetermined bundle now has a custom lawboard instead of an
+        Antimov one.
+  id: 2097
+  time: '2025-11-29T17:29:29.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Remove
+      message: 'Removed: The King In Yellow'
+  id: 2098
+  time: '2025-11-29T18:08:27.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Fix
+      message: Fixed Agent ID Cards sometimes showing broken popup text when used.
+  id: 2099
+  time: '2025-11-29T20:05:59.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: 'Fixed: Pressure Modkit not working with other modkits'
+  id: 2100
+  time: '2025-11-30T12:10:40.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Fix
+      message: >-
+        Fixed the ammo counter of shotguns & other ballistics not updating when
+        reloaded manually.
+  id: 2101
+  time: '2025-11-30T14:05:11.0000000+00:00'
