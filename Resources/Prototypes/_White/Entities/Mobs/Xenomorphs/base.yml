@@ -25,17 +25,14 @@
     canToggle: false
     canEmag: false
     canExamine: false
-  - type: NightVision
-    color: white
-    drawOverlay: false
-    activateSound: null
-    deactivateSound: null
   - type: ThermalVision
-    isActive: true
-    color: white
-    drawOverlay: false
-    lightRadius: 0
-    toggleAction: null
+      toggleAction: ToggleThermalVisionXenomorph
+      color: white
+      drawOverlay: false
+      lightRadius: 10
+      strength: 0
+      noise: 0
+      tint: 3, 3, 3
   - type: NameIdentifier
     group: GenericNumber
   - type: CombatMode
