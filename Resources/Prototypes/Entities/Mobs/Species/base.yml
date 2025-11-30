@@ -459,6 +459,9 @@
       enum.WizardTeleportUiKey.Key: # Goobstation - wizard
         type: WizardTeleportBoundUserInterface
         requireInputValidation: false
+      enum.RevivalContractUiKey.Key: # Goobstation - Devil
+        type: RevivalContractBoundUserInterface
+        requireInputValidation: false
   - type: Puller
   - type: Speech
     speechSounds: Alto

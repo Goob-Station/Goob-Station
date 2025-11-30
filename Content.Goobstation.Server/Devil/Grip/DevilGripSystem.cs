@@ -51,8 +51,8 @@ public sealed class DevilGripSystem : EntitySystem
 
         if (_divineIntervention.ShouldDeny(target))
         {
-            _actions.SetCooldown(devilComp.DevilGrip, ent.Comp.CooldownAfterUse);
-            devilComp.DevilGrip = null;
+            _actions.SetCooldown(devilComp.DevilGripEntity, ent.Comp.CooldownAfterUse);
+            devilComp.DevilGripEntity = null;
             InvokeGrasp(args.User, ent);
             QueueDel(ent);
             args.Handled = true;
@@ -66,8 +66,8 @@ public sealed class DevilGripSystem : EntitySystem
             _language.DoRatvarian(target, ent.Comp.SpeechTime, true, status);
         }
 
-        _actions.SetCooldown(devilComp.DevilGrip, ent.Comp.CooldownAfterUse);
-        devilComp.DevilGrip = null;
+        _actions.SetCooldown(devilComp.DevilGripEntity, ent.Comp.CooldownAfterUse);
+        devilComp.DevilGripEntity = null;
         InvokeGrasp(args.User, ent);
         QueueDel(ent);
         args.Handled = true;

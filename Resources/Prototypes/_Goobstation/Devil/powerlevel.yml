@@ -5,3 +5,5 @@
     - "ActionCreateRevivalContract"
     Moderate:
     - "ActionDevilPossess"
+    Powerful:
+    - "ActionSummonGoldenFiddle"

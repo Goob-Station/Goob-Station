@@ -24,6 +24,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Implants;
 using Content.Server.Mind;
 using Content.Server.Polymorph.Systems;
+using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
@@ -58,6 +59,8 @@ public sealed partial class DevilContractSystem : EntitySystem
 
     private ISawmill _sawmill = null!;
 
+    private Regex _clauseRegex = null!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -80,8 +83,6 @@ public sealed partial class DevilContractSystem : EntitySystem
         // The contractor is the entity offering the deal.
         ["devil-contract-contractor"] = comp => comp.ContractOwner,
     };
-
-    private Regex _clauseRegex = null!;
 
     private void InitializeRegex()
     {
