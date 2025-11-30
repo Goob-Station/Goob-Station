@@ -35,21 +35,17 @@ using Content.Shared.Mobs.Events;
 using Robust.Shared.GameStates;
 
 // Shitmed Change
-using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Network;
-using Robust.Shared.Utility;
-using Content.Shared.Body.Part; // GoobStation
 
 namespace Content.Shared.Mobs.Systems;
 
-public sealed class MobThresholdSystem : EntitySystem
+public sealed partial class MobThresholdSystem : EntitySystem
 {
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
@@ -404,46 +400,6 @@ public sealed class MobThresholdSystem : EntitySystem
         Dirty(uid, component);
         VerifyThresholds(uid, component);
     }
-
-    // Goobstation start
-    public FixedPoint2 CheckVitalDamage(EntityUid target, DamageableComponent damageableComponent)
-    {
-        var damage = damageableComponent.TotalDamage;
-
-        if (!TryComp(target, out BodyComponent? body) ||
-            body.BodyType != BodyType.Complex)
-        {
-            return damage;
-        }
-
-        if (body.RootContainer?.ContainedEntity is not EntityUid rootPart)
-            return damage;
-
-        FixedPoint2 result = FixedPoint2.Zero;
-
-        var criticalParts = new[]
-        {
-            BodyPartType.Head,
-            BodyPartType.Chest,
-            BodyPartType.Groin
-        };
-
-        foreach (var (woundable, _) in _wound.GetAllWoundableChildren(rootPart))
-        {
-            if (!TryComp(woundable, out DamageableComponent? wdc) ||
-                !TryComp(woundable, out BodyPartComponent? bpc))
-            {
-                continue;
-            }
-
-            if (criticalParts.Contains(bpc.PartType))
-                result += wdc.TotalDamage;
-        }
-
-        return result;
-    }
-    // Goobstation end
-
     #endregion
 
     #region Private Implementation
