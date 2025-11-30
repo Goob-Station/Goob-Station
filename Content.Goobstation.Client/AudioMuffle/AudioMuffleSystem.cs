@@ -1,11 +1,11 @@
 using System.Numerics;
+using Content.Goobstation.Common.CCVar;
+using Content.Goobstation.Shared.AudioMuffle;
 using Content.Shared.GameTicking;
 using Content.Shared.Ghost;
 using Content.Shared.Movement.Components;
 using Content.Shared.Physics;
 using Content.Shared.StationAi;
-using Content.Trauma.Common.CCVar;
-using Content.Trauma.Shared.AudioMuffle;
 using Robust.Client.Audio;
 using Robust.Client.GameObjects;
 using Robust.Client.GameStates;
@@ -20,7 +20,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
-namespace Content.Trauma.Client.AudioMuffle;
+namespace Content.Goobstation.Client.AudioMuffle;
 
 public sealed partial class AudioMuffleSystem : SharedAudioMuffleSystem
 {
@@ -116,8 +116,8 @@ public sealed partial class AudioMuffleSystem : SharedAudioMuffleSystem
 
         SubscribeNetworkEvent<RoundRestartCleanupEvent>(OnRestart);
 
-        Subs.CVar(_cfg, TraumaCVars.AudioMuffleRaycast, value => _raycastEnabled = value, true);
-        Subs.CVar(_cfg, TraumaCVars.AudioMufflePathfinding, value => _pathfindingEnabled = value, true);
+        Subs.CVar(_cfg, GoobCVars.AudioMuffleRaycast, value => _raycastEnabled = value, true);
+        Subs.CVar(_cfg, GoobCVars.AudioMufflePathfinding, value => _pathfindingEnabled = value, true);
     }
 
     private void OnRestart(RoundRestartCleanupEvent ev)

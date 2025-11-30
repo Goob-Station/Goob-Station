@@ -638,5 +638,17 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> AscensionRequiresObjectives =
         CVarDef.Create("heretic.ascension_requires_objectives", true, CVar.SERVERONLY);
 
+    /// <summary>
+    /// Is audio muffle raycast behavior enabled?
+    /// </summary>
+    public static readonly CVarDef<bool> AudioMuffleRaycast =
+        CVarDef.Create("trauma.audio_muffle_raycast", true, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Is audio muffle pathfinding behavior enabled?
+    /// </summary>
+    public static readonly CVarDef<bool> AudioMufflePathfinding =
+        CVarDef.Create("trauma.audio_muffle_pathfinding", true, CVar.SERVER | CVar.REPLICATED);
+
     #endregion
 }

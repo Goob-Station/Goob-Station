@@ -1,6 +1,5 @@
 using System.Numerics;
 using Content.Client.Resources;
-using Content.Trauma.Shared.AudioMuffle;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.ResourceManagement;
@@ -10,7 +9,7 @@ using Robust.Shared.Audio.Components;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 
-namespace Content.Trauma.Client.AudioMuffle;
+namespace Content.Goobstation.Client.AudioMuffle;
 
 public sealed class AudioMuffleOverlay : Overlay
 {
@@ -104,7 +103,7 @@ public sealed class AudioMuffleOverlay : Overlay
         var offset2 = new Vector2(lineHeight, 0);
 
         var blockerSet =
-            _system.ReverseBlockerIndicesDict.GetValueOrDefault(index, new HashSet<Entity<SoundBlockerComponent>>());
+            _system.ReverseBlockerIndicesDict.GetValueOrDefault(index, new HashSet<Entity<Shared.AudioMuffle.SoundBlockerComponent>>());
         var blockersCount = blockerSet.Count;
         var audioSet = _system.ReverseAudioPosDict.GetValueOrDefault(index, new HashSet<Entity<AudioComponent, AudioMuffleComponent>>());
         var audioCount = audioSet.Count;

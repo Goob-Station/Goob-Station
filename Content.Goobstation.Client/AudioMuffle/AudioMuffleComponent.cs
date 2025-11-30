@@ -1,6 +1,6 @@
-using Content.Trauma.Shared.AudioMuffle;
+using Content.Goobstation.Shared.AudioMuffle;
 
-namespace Content.Trauma.Client.AudioMuffle;
+namespace Content.Goobstation.Client.AudioMuffle;
 
 /// <summary>
 /// Component added to all muffleable audio clientside, stores audio muffle data.

@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Trauma.Shared.AudioMuffle;
+namespace Content.Goobstation.Shared.AudioMuffle;
 
 /// <summary>
 /// Added to AI eye entities, used for audio muffle calculations.

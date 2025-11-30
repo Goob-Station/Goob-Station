@@ -1,7 +1,7 @@
 using Content.Shared.Doors;
 using Content.Shared.Doors.Components;
 
-namespace Content.Trauma.Shared.AudioMuffle;
+namespace Content.Goobstation.Shared.AudioMuffle;
 
 public abstract class SharedAudioMuffleSystem : EntitySystem
 {

@@ -1,7 +1,7 @@
 using Robust.Client.Graphics;
 using Robust.Shared.Console;
 
-namespace Content.Trauma.Client.AudioMuffle;
+namespace Content.Goobstation.Client.AudioMuffle;
 
 public sealed class ShowAudioMuffleCommand : LocalizedCommands
 {
