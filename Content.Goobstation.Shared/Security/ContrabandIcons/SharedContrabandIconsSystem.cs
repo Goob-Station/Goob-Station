@@ -58,20 +58,20 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
 
     private void OnEquip(EntityUid uid, VisibleContrabandComponent component, DidEquipEvent args)
     {
-        ContrabandDetect(args.Equipee, component, args.SlotFlags);
+        ContrabandDetect(uid, component, args.SlotFlags);
     }
 
     private void OnUnequip(EntityUid uid, VisibleContrabandComponent component, DidUnequipEvent args)
     {
-        ContrabandDetect(args.Equipee, component, args.SlotFlags);
+        ContrabandDetect(uid, component, args.SlotFlags);
     }
 
     private void OnUnequipHands(EntityUid uid, VisibleContrabandComponent component, DidUnequipHandEvent args)
     {
-        ContrabandDetect(args.User, component, SlotFlags.NONE);
+        ContrabandDetect(uid, component, SlotFlags.NONE);
     }
     private void OnEquipHands(EntityUid uid, VisibleContrabandComponent component, DidEquipHandEvent args)
     {
-        ContrabandDetect(args.User, component, SlotFlags.NONE);
+        ContrabandDetect(uid, component, SlotFlags.NONE);
     }
 }
