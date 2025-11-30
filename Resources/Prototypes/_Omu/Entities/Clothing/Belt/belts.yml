@@ -1,7 +1,0 @@
-- type: loadout #BSO's belt - Moved to Loadout
-  id: BeltAssaultFilled
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorBlueshieldOfficer
-  equipment:
-    belt: ClothingBeltAssaultFilled

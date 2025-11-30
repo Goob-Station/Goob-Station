@@ -41,6 +41,8 @@
   equipment:
     head: ClothingHeadHatBeretBlueShieldElite
 
+# Belt
+
 - type: loadout #Omu - Starlight repurposing
   id: BeltBlueshieldEliteFilled
   effects:
