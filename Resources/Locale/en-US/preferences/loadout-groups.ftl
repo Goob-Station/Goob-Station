@@ -97,6 +97,7 @@ loadout-group-clown-jumpsuit = Clown jumpsuit
 loadout-group-clown-backpack = Clown backpack
 loadout-group-clown-outerclothing = Clown outer clothing
 loadout-group-clown-shoes = Clown shoes
+loadout-group-clown-neck = Clown vanity
 
 loadout-group-mime-head = Mime head
 loadout-group-mime-mask = Mime mask

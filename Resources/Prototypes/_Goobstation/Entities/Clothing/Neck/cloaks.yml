@@ -63,3 +63,14 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/sanabi.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckClownVanity
+  name: clown cape
+  description: Finely crafted from silk fibers imported from a far away place.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/clown.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Cloaks/clown.rsi

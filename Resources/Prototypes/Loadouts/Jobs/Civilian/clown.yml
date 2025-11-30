@@ -149,3 +149,9 @@
   id: ClownWintercoat
   equipment:
     outerClothing: ClothingOuterWinterClown
+
+# Neck
+- type: loadout
+  id: ClownVanity
+  equipment:
+    neck: ClothingNeckClownVanity

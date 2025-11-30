@@ -715,6 +715,14 @@
   - JesterShoes
 
 - type: loadoutGroup
+  id: ClownNeck
+  name: loadout-group-clown-neck
+  minLimit: 0
+  loadouts:
+  - ClownVanity
+
+
+- type: loadoutGroup
   id: SurvivalClown
   name: loadout-group-survival-clown
   minLimit: 2
