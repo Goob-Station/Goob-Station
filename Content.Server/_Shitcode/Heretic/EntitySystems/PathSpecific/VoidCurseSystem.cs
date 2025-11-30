@@ -32,7 +32,14 @@ public sealed class VoidCurseSystem : SharedVoidCurseSystem
         {
             if (comp.Lifetime <= 0)
             {
-                RemCompDeferred(uid, comp);
+                if (comp.Stacks <= 1)
+                    RemCompDeferred(uid, comp);
+                else
+                {
+                    comp.Stacks -= 1;
+                    RefreshLifetime(comp);
+                    Dirty(uid, comp);
+                }
                 continue;
             }
 
@@ -47,12 +54,12 @@ public sealed class VoidCurseSystem : SharedVoidCurseSystem
         }
     }
 
-    protected override void Cycle(Entity<VoidCurseComponent> ent)
+    private void Cycle(Entity<VoidCurseComponent> ent)
     {
         if (TryComp<TemperatureComponent>(ent, out var temp))
         {
             // temperaturesystem is not idiotproof :(
-            var t = temp.CurrentTemperature - 2f * ent.Comp.Stacks;
+            var t = temp.CurrentTemperature - 3f * ent.Comp.Stacks;
             _temp.ForceChangeTemperature(ent, Math.Clamp(t, Atmospherics.TCMB, Atmospherics.Tmax), temp);
         }
 

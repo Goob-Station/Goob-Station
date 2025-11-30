@@ -17,8 +17,8 @@ public sealed partial class HasComponentCondition : EntityEffectCondition
     [DataField(required: true)]
     public HashSet<string> Components = new();
 
-    [DataField(required: true)]
-    public string GuidebookComponentName = default!;
+    [DataField]
+    public LocId? GuidebookComponentName;
 
     [DataField]
     public bool Invert;
@@ -40,6 +40,9 @@ public sealed partial class HasComponentCondition : EntityEffectCondition
 
     public override string GuidebookExplanation(IPrototypeManager prototype)
     {
+        if (GuidebookComponentName == null)
+            return string.Empty;
+
         return Loc.GetString("reagent-effect-condition-guidebook-has-component",
             ("comp", Loc.GetString(GuidebookComponentName)),
             ("invert", Invert));
