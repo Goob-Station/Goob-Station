@@ -1,4 +1,5 @@
 research-technology-nuclear-power = Nuclear Power
+research-technology-nuclear-power-advanced = Advanced Nuclear Power
 research-technology-nuclear-recycling = Nuclear Waste Recycling
 
 research-technology-mechanised-security = Mechanised security

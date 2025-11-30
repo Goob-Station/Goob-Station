@@ -26,6 +26,31 @@
   - AdvancedPowerGeneration
 
 - type: technology
+  id: AdvancedNuclearPowerGeneration
+  name: research-technology-nuclear-power-advanced
+  icon:
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_parts.rsi
+    state: default_rod
+  discipline: Industrial
+  tier: 2
+  position: 3,-3
+  cost: 15000
+  recipeUnlocks:
+  - CerenkiteReactorFuelRod
+  - BohrumReactorControlRod
+  - SteelReactorControlRod
+  - BrassReactorControlRod
+  - GlassReactorControlRod
+  - SteelReactorGasChannel
+  - BrassReactorGasChannel
+  - GlassReactorGasChannel
+  - SteelReactorHeatExchanger
+  - BrassReactorHeatExchanger
+  - GlassReactorHeatExchanger
+  technologyPrerequisites:
+  - NuclearPowerRecycling
+
+- type: technology
   id: NuclearPowerRecycling
   name: research-technology-nuclear-recycling
   icon:
