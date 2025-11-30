@@ -1,0 +1,103 @@
+- type: entity
+  parent: [ ClothingBeltMilitaryWebbingCMO, BaseCentcommContraband ]
+  id: ClothingBeltMilitaryWebbingBSO
+  name: blueshield chest rig
+  description: A robust chest rig with deep pockets and hooks, for use by a Blueshield Officer.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Belt/blueshieldwebbing.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Belt/blueshieldwebbing.rsi
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    whitelist: # I have no idea why is, say, wrench here, but it's just copied from medical belt.
+      tags:
+        - Wrench
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - SurgeryTool
+        - Dropper
+        - Tourniquet #Goobstation
+        - MedicalPatch # Goobstation
+        - AutoinjectorCartridge # Goobstation
+        - HandheldCrewMonitor # Goobstation
+      components:
+        - Flash
+        - Handcuff
+        - Whistle
+        - Hypospray
+        - Injector
+        - Pill
+        - HandLabeler
+        - SurgeryTool # Shitmed Change
+        - Defibrillator # Goobstation
+        - GunApplySolution # Goobstation - Syndicate dart gun
+        - FitsInDispenser
+
+- type: entity
+  parent: ClothingBeltSecurity
+  id: ClothingBeltHOSCQC
+  name: Qua Nar'Vulna
+  description: A ceremonial belt of an ancient martial art that gives its wearer terrifying power.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Belt/clothingbelthoscqc.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Belt/clothingbelthoscqc.rsi
+  - type: GrantCqc
+  - type: Storage
+    whitelist:
+      tags:
+      - CigPack
+      - Taser
+      - SecBeltEquip
+      - Radio
+      - Sidearm
+      - MagazinePistol
+      - MagazineMagnum
+      - CombatKnife
+      - Truncheon
+      - BolaEnergy
+      - EnergySpeedloader
+      - MilitaryPowerCell
+      - HandGrenade
+      components:
+      - FlashOnTrigger
+      - SmokeOnTrigger
+      - Flash
+      - Handcuff
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      - DoorRemote
+      - Whistle
+      - BalloonPopper
+      - ScatteringGrenade
+  - type: GuideHelp
+    guides:
+    - CQC
+  - type: StealTarget
+    stealGroup: WeaponSecHeadSword
+
+- type: entity
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase]
+  id: ClothingBeltMilitaryWebbingAsakim
+  name: chest rig
+  description: Ideal for storing everything from ammo to weapons and combat essentials.
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/militarywebbing.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/militarywebbing.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: StaticPrice
+    price: 500
