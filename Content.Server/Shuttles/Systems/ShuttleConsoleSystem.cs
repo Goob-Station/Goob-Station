@@ -137,6 +137,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Utility;
 using Content.Shared.UserInterface;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -153,11 +154,14 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     [Dependency] private readonly TagSystem _tags = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedContentEyeSystem _eyeSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     [Dependency] private readonly _Lavaland.Shuttles.Systems.DockingConsoleSystem _dockingConsole = default!; // Lavaland Change: FTL
 
     private EntityQuery<MetaDataComponent> _metaQuery;
     private EntityQuery<TransformComponent> _xformQuery;
+
+    private TimeSpan _nextConsolesRefresh = TimeSpan.Zero; // CorvaxGoob-LinkableDrones
 
     private readonly HashSet<Entity<ShuttleConsoleComponent>> _consoles = new();
 
@@ -169,6 +173,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
 
         _metaQuery = GetEntityQuery<MetaDataComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
+        _nextConsolesRefresh = _timing.CurTime; // CorvaxGoob-LinkableDrones
 
         InitializeNf(); // Frontier
 
@@ -411,6 +416,12 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
 
         var toRemove = new ValueList<(EntityUid, PilotComponent)>();
         var query = EntityQueryEnumerator<PilotComponent>();
+
+        if (_nextConsolesRefresh < _timing.CurTime) // CorvaxGoob-LinkableDrones : Automatic update shuttles UI
+        {
+            _nextConsolesRefresh = _timing.CurTime + TimeSpan.FromSeconds(10);
+            RefreshShuttleConsoles();
+        }
 
         while (query.MoveNext(out var uid, out var comp))
         {
