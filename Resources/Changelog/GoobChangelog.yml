@@ -18637,3 +18637,9 @@ Entries:
       message: Fixed Agent ID Cards sometimes showing broken popup text when used.
   id: 2099
   time: '2025-11-29T20:05:59.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: 'Fixed: Pressure Modkit not working with other modkits'
+  id: 2100
+  time: '2025-11-30T12:10:40.0000000+00:00'
