@@ -1,5 +1,5 @@
 - type: entity
-  parent: [BaseStructureFlatpack, BaseEngineeringContraband]
+  parent: [BaseFlatpack, BaseEngineeringContraband]
   id: NuclearReactorFlatpack
   name: nuclear reactor flatpack
   description: A flatpack used for constructing a nuclear reactor. Parts sold separately.
@@ -12,7 +12,7 @@
     entity: NuclearReactorEmpty
 
 - type: entity
-  parent: [BaseStructureFlatpack, BaseEngineeringContraband]
+  parent: [BaseFlatpack, BaseEngineeringContraband]
   id: GasTurbineFlatpack
   name: gas turbine flatpack
   description: A flatpack used for constructing a gas turbine.

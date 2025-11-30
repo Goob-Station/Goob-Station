@@ -1,6 +1,6 @@
 - type: entity
   id: NuclearFabricator
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer]
   name: nuclear fabricator
   description: It makes nuclear parts.
   components:
@@ -25,7 +25,6 @@
         - Sheet
         - RawMaterial
         - Ingot
-  - type: OreSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
