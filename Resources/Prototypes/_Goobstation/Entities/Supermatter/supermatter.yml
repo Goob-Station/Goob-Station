@@ -94,3 +94,57 @@
       - TauCetiBasic
       understands:
       - TauCetiBasic
+
+- type: entity
+  id: SupermatterCascade
+  parent: BaseKudzu
+  suffix: DO NOT MAP
+  name: supermatter cascade
+  description: You feel a sudden urge to run looking at it.
+  components:
+  - type: Sprite
+    sprite: _Slon/Supermatter/supermatter_cascade.rsi
+    state: sm_cascade
+  - type: EdgeSpreader
+    id: Kudzu
+  - type: Kudzu
+    growthTickChance: 1
+    spreadChance: 1
+    growthLevel: 2
+    growthBlock: 9999
+    spriteVariants: 1
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.1 # death
+    sprintSpeedModifier: 0.1
+  - type: Clickable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        density: 7
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - MidImpassable
+  - type: RadiationSource
+    intensity: 0.1
+    slope: 0.6
+  - type: Cascade
+  - type: SyncSprite
+  - type: PointLight
+    color: "#f3b355"
+    radius: 2.25
+    energy: 4
+    castShadows: false
+  - type: AmbientSound
+    range: 8
+    volume: 0
+    sound:
+      path: /Audio/_Goobstation/Supermatter/calm.ogg
+
+- type: entity
+  id: SupermatterCascadeEndRound
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EndRoundAfterCascade
