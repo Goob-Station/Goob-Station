@@ -7,7 +7,7 @@
   - type: Sprite
     sprite: Objects/Devices/flatpack.rsi
     layers:
-    - state: large
+    - state: base
   - type: Flatpack
     entity: NuclearReactorEmpty
 
@@ -20,6 +20,6 @@
   - type: Sprite
     sprite: Objects/Devices/flatpack.rsi
     layers:
-    - state: large
+    - state: base
   - type: Flatpack
     entity: Turbine
