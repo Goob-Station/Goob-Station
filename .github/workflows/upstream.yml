@@ -15,7 +15,7 @@ jobs:
     env:
       REMOTE_URL: 'https://github.com/space-wizards/space-station-14.git'
       REMOTE_BRANCH: 'stable'
-      TARGET_BRANCH: 'master'
+      TARGET_BRANCH: 'rebase'
       SYNC_BRANCH: 'automated-upstream-branch'
 
     steps:
