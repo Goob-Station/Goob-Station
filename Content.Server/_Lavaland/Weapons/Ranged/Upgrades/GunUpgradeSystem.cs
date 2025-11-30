@@ -64,13 +64,14 @@ public sealed class GunUpgradeSystem : SharedGunUpgradeSystem
         if (!TryComp<ProjectileComponent>(args.FiredProjectile, out var projectile))
             return;
 
-        var multiplier = 1f;
+        var pressureMultiplier = 1f;
 
         if (TryComp<PressureDamageChangeComponent>(Transform(ent).ParentUid, out var pressure)
             && _pressure.ApplyModifier((Transform(ent).ParentUid, pressure)))
-            multiplier = pressure.AppliedModifier;
+            pressureMultiplier = pressure.AppliedModifier;
 
-        projectile.Damage += ent.Comp.Damage * multiplier * ent.Comp.PelletModifier;
+        projectile.Damage += ent.Comp.Damage * pressureMultiplier;
+        projectile.Damage *= ent.Comp.Modifier;
     }
 
     private void OnPressureUpgradeInserted(Entity<GunUpgradePressureComponent> ent, ref EntGotInsertedIntoContainerMessage args)

@@ -32,16 +32,6 @@
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_shotgun.rsi
     layers:
     - state: icon
-      map: [ "enum.WeaponVisualLayers.Base" ]
-    - state: bayonet
-      map: [ "enum.WeaponVisualLayers.Bayonet" ]
-      visible: false
-    - state: flight
-      map: [ "enum.WeaponVisualLayers.FlightOff" ]
-      visible: false
-    - state: flight-on
-      map: [ "enum.WeaponVisualLayers.FlightOn" ]
-      visible: false
     - state: animation-icon
       visible: false
       map: [ "empty-icon" ]
@@ -53,14 +43,21 @@
     count: 1
   - type: UpgradeableGun
     maxUpgradeCapacity: 70
-    whitelist:
-      tags:
-      - PKAUpgrade
   - type: GunRequiresWield
   - type: Item
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_shotgun.rsi
     shape:
     - 0,0,4,0
+  - type: ItemMapper
+    mapLayers:
+      bayonet:
+        whitelist:
+          components:
+          - GunUpgradeBayonet
+      flight:
+        whitelist:
+          components:
+          - GunUpgradeFlashlight
 
 - type: entity
   name: proto-kinetic repeater
@@ -72,19 +69,6 @@
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
     layers:
     - state: icon
-      map: [ "enum.WeaponVisualLayers.Base" ]
-    - state: bayonet
-      map: [ "enum.WeaponVisualLayers.Bayonet" ]
-      visible: false
-    - state: flight
-      map: [ "enum.WeaponVisualLayers.FlightOff" ]
-      visible: false
-    - state: flight-on
-      map: [ "enum.WeaponVisualLayers.FlightOn" ]
-      visible: false
-    - state: animation-icon
-      visible: false
-      map: [ "empty-icon" ]
   - type: Clothing
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
   - type: Gun
@@ -103,13 +87,20 @@
     count: 3
   - type: UpgradeableGun
     maxUpgradeCapacity: 70
-    whitelist:
-      tags:
-      - PKAUpgrade
   - type: Item
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
     shape:
     - 0,0,2,1
+  - type: ItemMapper
+    mapLayers:
+      bayonet:
+        whitelist:
+          components:
+          - GunUpgradeBayonet
+      flight:
+        whitelist:
+          components:
+          - GunUpgradeFlashlight
 
 - type: entity
   name: proto-kinetic pistol
@@ -121,19 +112,6 @@
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_pistol.rsi
     layers:
     - state: icon
-      map: [ "enum.WeaponVisualLayers.Base" ]
-    - state: bayonet
-      map: [ "enum.WeaponVisualLayers.Bayonet" ]
-      visible: false
-    - state: flight
-      map: [ "enum.WeaponVisualLayers.FlightOff" ]
-      visible: false
-    - state: flight-on
-      map: [ "enum.WeaponVisualLayers.FlightOn" ]
-      visible: false
-    - state: animation-icon
-      visible: false
-      map: [ "empty-icon" ]
   - type: Clothing
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_pistol.rsi
   - type: BasicEntityAmmoProvider
@@ -142,9 +120,6 @@
     count: 1
   - type: UpgradeableGun
     maxUpgradeCapacity: 200
-    whitelist:
-      tags:
-      - PKAUpgrade
   - type: Gun
     availableModes:
     - FullAuto
@@ -155,3 +130,13 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
+  - type: ItemMapper
+    mapLayers:
+      bayonet:
+        whitelist:
+          components:
+          - GunUpgradeBayonet
+      flight:
+        whitelist:
+          components:
+          - GunUpgradeFlashlight

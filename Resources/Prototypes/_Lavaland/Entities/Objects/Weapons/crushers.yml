@@ -34,9 +34,6 @@
   - type: Tag
     tags:
       - Pickaxe
-  - type: Sprite
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_spear.rsi
-    state: icon
   - type: AmmoCounter
   - type: UseDelayOnShoot
   - type: UseDelay
@@ -66,7 +63,7 @@
     tags:
       - Pickaxe
   - type: Sprite
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_spear.rsi
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_glaive.rsi
     state: icon
   - type: AmmoCounter
   - type: UseDelayOnShoot
@@ -99,7 +96,7 @@
   - type: GunRequiresWield
   - type: Item
     size: Ginormous
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_spear-inhands.rsi
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_glaive-inhands.rsi
   - type: DisarmMalus
   - type: Wieldable
   - type: Sharp
