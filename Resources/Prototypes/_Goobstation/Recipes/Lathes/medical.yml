@@ -107,3 +107,43 @@
     Glass: 750
     Plasma: 1500
     Silver: 300
+
+- type: latheRecipe
+  id: MedicalPatchBasic
+  result: MedicalPatchBasic
+  completetime: 2
+  materials:
+    Plastic: 50 # might be fine as 1 cloth 1 plastic, one textile crate will let chem make like 120 patches.
+    Cloth: 50
+
+- type: latheRecipe
+  id: MedicalPatchRapid
+  result: MedicalPatchRapid
+  completetime: 2
+  materials:
+    Cloth: 50
+    Plastic: 50
+
+- type: latheRecipe
+  id: MedicalPatchTherapeutic
+  result: MedicalPatchTherapeutic
+  completetime: 2
+  materials:
+    Cloth: 50
+    Plastic: 50
+
+- type: latheRecipe
+  id: MedicalPatchLarge
+  result: MedicalPatchLarge
+  completetime: 2
+  materials:
+    Plastic: 50
+    Cloth: 50
+
+- type: latheRecipe
+  id: MedicalCigPack
+  result: CigPackMedical
+  completetime: 8 # slows down mass printing entities
+  materials:
+    Plastic: 500
+    Cloth: 500
