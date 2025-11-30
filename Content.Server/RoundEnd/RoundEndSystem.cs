@@ -93,6 +93,7 @@ namespace Content.Server.RoundEnd
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
 
+        public bool IsBlocked { get; set; } = false; // Goobstation
         public TimeSpan DefaultCooldownDuration { get; set; } = TimeSpan.FromSeconds(30);
 
         /// <summary>
@@ -193,9 +194,10 @@ namespace Content.Server.RoundEnd
             RequestRoundEnd(duration, requester, checkCooldown, text, name);
         }
 
-        public void RequestRoundEnd(TimeSpan countdownTime, EntityUid? requester = null, bool checkCooldown = true, string text = "round-end-system-shuttle-called-announcement", string name = "round-end-system-shuttle-sender-announcement")
+        public void RequestRoundEnd(TimeSpan countdownTime, EntityUid? requester = null, bool checkCooldown = true, string text = "round-end-system-shuttle-called-announcement", string name = "round-end-system-shuttle-sender-announcement", bool ignoreBlocker = false) // Goobstation edit - added ignoreBlocker
         {
-            if (_gameTicker.RunLevel != GameRunLevel.InRound)
+            if (_gameTicker.RunLevel != GameRunLevel.InRound
+                || IsBlocked && !ignoreBlocker) // Goobstation edit
                 return;
 
             if (checkCooldown && _cooldownTokenSource != null)
