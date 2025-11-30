@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BoуterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
@@ -263,39 +263,6 @@
         type: ChameleonBoundUserInterface
 
 - type: entity
-  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing ]
-  id: TemplarArmor
-  name: templar armor
-  description: An armoured set from a time long ago.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Armor/chaplain_armor.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/Armor/chaplain_armor.rsi
-  - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Leg
-    - Tail
-    modifiers:
-      coefficients:
-        Blunt: 0.65
-        Slash: 0.10
-        Piercing: 0.65
-        Heat: 1.5
-  - type: ModifyDelayedKnockdown
-    delayDelta: 1
-    knockdownTimeDelta: -1
-  - type: TemperatureProtection
-    heatingCoefficient: 1.1 # plate armor keeps you warm but lets go of heat poorly
-    coolingCoefficient: 0.5
-  - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 0.8
-
-- type: entity
   parent: [ ClothingOuterBaseMedium, ClothingOuterStorageToggleableBase, AllowSuitStorageClothing, BaseSyndicateContraband ]
   id: ClothingOuterArmorCloakSith
   name: dark lord cloak
@@ -354,20 +321,6 @@
   - type: TemperatureProtection # No
     heatingCoefficient: 1
     coolingCoefficient: 1
-
-- type: entity
-  parent: [ ClothingOuterClownPriest ]
-  id: MonkRobes
-  name: monk's robes
-  description: The robes of a long forgotten tradition.
-  components:
-  - type: Sprite
-    sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
-  - type: Clothing
-    sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
-  - type: ModifyDelayedKnockdown
-    delayDelta: 0
-    knockdownTimeDelta: 0
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
@@ -440,3 +393,121 @@
     knockdownTimeDelta: -2
   - type: StaminaResistance
     damageCoefficient: 0.7
+
+# Shitchap
+- type: entity
+  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing ]
+  id: ClothingOuterArmorTemplar
+  name: crusader armour
+  description: God wills it!
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/templar.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/templar.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Leg
+    - Tail
+    - Hand
+    - Foot
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: FireProtection
+    reduction: 0.6
+
+- type: entity
+  parent: ClothingOuterArmorTemplar
+  id: ClothingOuterArmorStudent
+  name: student robe
+  description: The uniform of a bygone institute of learning.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/student.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/student.rsi
+
+- type: entity
+  parent: ClothingOuterArmorTemplar
+  id: ClothingOuterArmorWitchhunter
+  name: witch hunter garb
+  description: This worn outfit saw much use back in the day.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/witchhunter.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/witchhunter.rsi
+
+- type: entity
+  parent: ClothingOuterArmorTemplar
+  id: ClothingOuterArmorAncient
+  name: ancient armour
+  description: Defend the treasure...
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/ancient.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/ancient.rsi
+
+- type: entity
+  parent: [ClothingOuterArmorTemplar, ClothingOuterBaseToggleable]
+  id: ClothingOuterArmorAdept
+  name: adept robes
+  description: The ideal outfit for burning the unfaithful.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/adept.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/adept.rsi
+  - type: ToggleableClothing
+    stripDelay: null
+    clothingPrototypes:
+      head: ClothingHeadHatHelmetAdept
+
+- type: entity
+  parent: ClothingOuterArmorTemplar
+  id: ClothingOuterArmorClock
+  name: forgotten armour
+  description: It sounds like hissing steam, ticking cogs, gone silent, It looks like a dead machine, trying to tick with life.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/clock.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/clock.rsi
+
+- type: entity
+  parent: [ClothingOuterArmorTemplar, ClothingOuterBaseToggleable]
+  id: ClothingOuterArmorMonk
+  name: monk's habit
+  description: A few steps above rended sackcloth.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
+  - type: ToggleableClothing
+    stripDelay: null
+    clothingPrototypes:
+      head: ClothingHeadHatHelmetMonk
+
+- type: entity
+  parent: ClothingOuterArmorTemplar
+  id: ClothingOuterArmorBishop
+  name: bishop's robes
+  description: Glad to see the tithes you collected were well spent.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/bishop.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/bishop.rsi
