@@ -56,11 +56,13 @@
   - type: Organ
     onAdd:
     - type: ThermalVision
-      isActive: true
+      toggleAction: ToggleThermalVisionXenomorph
       color: white
       drawOverlay: false
-      lightRadius: 0
-      toggleAction: null
+      lightRadius: 10
+      strength: 0
+      noise: 0
+      tint: 3, 3, 3
 
 - type: entity
   parent: [BaseXenomorphOrgan, OrganHumanTongue]
