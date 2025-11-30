@@ -501,6 +501,7 @@
   - type: Sprinter # Goobstation
   - type: SprintingAffectedByScale # Goobstation: port EE height/width sliders
   - type: MindControllable # Goobstation
+  - type: VisibleContraband # Goobstation
 
 - type: entity
   save: false
