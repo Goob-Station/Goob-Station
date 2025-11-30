@@ -141,3 +141,6 @@ roles-laughter-demon-name-token = Laughter Demon (Token)
 ghost-role-information-ancient-rogue-king-name-token = Ancient Rogue King (Token)
 ghost-role-information-wraith-name-token = Wraith (Token)
 ghost-role-information-slasher-token = The Slasher (Token)
+ghost-role-information-morph-name-token = Morph (Token)
+
+

@@ -1,0 +1,56 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by KentuckyFried(Discord)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "biomass0",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "0"
+        },
+        {
+            "name": "1"
+        },
+        {
+            "name": "2"
+        },
+        {
+            "name": "3"
+        },
+        {
+            "name": "4"
+        },
+        {
+            "name": "5"
+        },
+        {
+            "name": "6"
+        },
+        {
+            "name": "7"
+        },
+        {
+            "name": "8"
+        },
+        {
+            "name": "9"
+        }
+    ]
+}

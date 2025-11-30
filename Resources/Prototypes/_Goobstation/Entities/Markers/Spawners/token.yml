@@ -131,3 +131,24 @@
     rules: ghost-role-information-wraith-rules
     raffle:
       settings: short
+
+# Harmony Morph
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostMorph
+  id: SpawnPointGhostMorphToken
+  components:
+  - type: GhostRole
+    name: ghost-role-information-morph-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-rules-team-antagonist
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    layers:
+    - sprite: Markers/jobs.rsi
+      state: green
+    - sprite: _Harmony/Mobs/Animals/morph.rsi
+      state: morph
