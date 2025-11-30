@@ -1,0 +1,28 @@
+- type: entity
+  parent: BaseGameRule
+  id: TerrorQueenRoundstart
+  components:
+  - type: GameRule
+    chaosScore: 400
+    minPlayers: 30
+  - type: AntagObjectives
+    objectives:
+    - XenomorphSurviveObjective
+  - type: VentSpawnRule
+  - type: AntagSpawner
+    prototype: TerrorSpiderQueen
+  - type: AntagSelection
+    selectionTime: PrePlayerSpawn
+    agentName: terror-spider-round-end-agent-name
+    definitions:
+    - prefRoles: [ XenomorphsInfestationRoundstart ]
+      spawnerPrototype: SpawnPointGhostTerrorQueen
+      min: 1
+      max: 1
+      pickPlayer: true
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+      briefing:
+        text: terror-queen-briefing
+        sound: /Audio/_Goobstation/Wraith/Ambience/Void_Calls.ogg
+        color: "#8b0000"

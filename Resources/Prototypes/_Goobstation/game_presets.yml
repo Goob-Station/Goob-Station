@@ -273,3 +273,16 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+
+- type: gamePreset
+  id: TerrorSpiders
+  alias:
+  - ssscary
+  name: terror-spider-title
+  description: terror-spider-description
+  showInVote: false
+  minPlayers: 1
+  rules:
+  - TerrorQueenRoundstart
+  - SubGamemodesRule
+  - SecretPlusRampingMid
