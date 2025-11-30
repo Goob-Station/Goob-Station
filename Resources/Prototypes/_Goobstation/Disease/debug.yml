@@ -17,11 +17,14 @@
   components:
   - type: DiseaseEffect
     complexity: 1000
-  - type: DiseaseDamageEffect
-    damage:
-      types:
-        Cellular: 50
-        Blunt: 50
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:HealthChange
+      scaleByQuantity: false
+      damage:
+        types:
+          Cellular: 50
+          Blunt: 50
 
 - type: entity
   id: DiseaseBehaviorSpreadDebug
@@ -74,10 +77,13 @@
   components:
   - type: DiseaseEffect
     complexity: 1000
-  - type: DiseaseDamageEffect
-    damage:
-      types:
-        Blunt: 30
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:HealthChange
+      scaleByQuantity: false
+      damage:
+        types:
+          Blunt: 50
 
 - type: entity
   id: DiseaseBehaviorDeconstructFloor
