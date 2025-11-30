@@ -12,10 +12,16 @@
   components:
   - type: DiseaseEffect
     complexity: 40
-  - type: DiseaseDamageEffect
-    damage:
-      types:
-        Cellular: 0.2
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:HealthChange
+      scaleByQuantity: true
+      damage:
+        types:
+          Cellular: 0.2
+  - type: DiseasePeriodicCondition
+    delayMin: 5
+    delayMax: 10
 
 - type: entity
   id: DiseaseBehaviorPoison
@@ -25,10 +31,16 @@
   components:
   - type: DiseaseEffect
     complexity: 16
-  - type: DiseaseDamageEffect
-    damage:
-      types:
-        Poison: 0.3
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:HealthChange
+      scaleByQuantity: true
+      damage:
+        types:
+          Poison: 0.3
+  - type: DiseasePeriodicCondition
+    delayMin: 5
+    delayMax: 10
 
 - type: entity
   id: DiseaseBehaviorBlunt
@@ -38,10 +50,16 @@
   components:
   - type: DiseaseEffect
     complexity: 10
-  - type: DiseaseDamageEffect
-    damage:
-      types:
-        Blunt: 0.3
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:HealthChange
+      scaleByQuantity: true
+      damage:
+        types:
+          Blunt: 0.3
+  - type: DiseasePeriodicCondition
+    delayMin: 5
+    delayMax: 10
 
 - type: entity
   id: DiseaseBehaviorVomit
@@ -51,10 +69,11 @@
   components:
   - type: DiseaseEffect
     complexity: 12 # can make you constantly hungry
-  - type: DiseaseVomitEffect
-    severityScale: false
-    progressScale: false
-    timeScale: false # doesn't cause us to vomit harder if, say, the disease update interval is increased
+  - type: DiseaseReagentEffect
+    ignoreEffectScale: true
+    scale: false
+    effects:
+    - !type:ChemVomit
   - type: DiseasePeriodicCondition
     delayMin: 20
     delayMax: 60

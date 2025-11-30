@@ -3,27 +3,45 @@ using Content.Server.Medical;
 using Content.Goobstation.Shared.Disease;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
-using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
-
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.Disease.Components;
+using Content.Shared.EntityEffects;
 namespace Content.Goobstation.Server.Disease;
 
 public sealed partial class DiseaseSystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly VomitSystem _vomit = default!;
 
     protected override void InitializeEffects()
     {
         base.InitializeEffects();
 
+        SubscribeLocalEvent<DiseaseReagentEffectComponent, DiseaseEffectEvent>(OnReagentEffect); // can get moved to shared after we get shared entity effects
         SubscribeLocalEvent<DiseaseEmoteEffectComponent, DiseaseEffectEvent>(OnEmoteEffect);
-        SubscribeLocalEvent<DiseaseVomitEffectComponent, DiseaseEffectEvent>(OnVomitEffect);
     }
 
+    private void OnReagentEffect(EntityUid uid, DiseaseReagentEffectComponent reagentEffect, DiseaseEffectEvent args)
+    {
+        var reagentArgs = new EntityEffectReagentArgs(
+            targetEntity: args.Ent,
+            entityManager: EntityManager,
+            organEntity: null,
+            source: null,
+            quantity: FixedPoint2.New(1),
+            reagent: null,
+            method: null,
+            scale: !reagentEffect.IgnoreEffectScale ? FixedPoint2.New(GetScale(args, reagentEffect)) : FixedPoint2.New(1)
+        );
+
+        foreach (var effect in reagentEffect.Effects)
+        {
+            if (effect.ShouldApply(reagentArgs, _random))
+                effect.Effect(reagentArgs);
+        }
+    }
     private void OnEmoteEffect(EntityUid uid, DiseaseEmoteEffectComponent effect, DiseaseEffectEvent args)
     {
         var emote = _proto.Index(effect.Emote);
@@ -31,11 +49,6 @@ public sealed partial class DiseaseSystem
             _chat.TryEmoteWithChat(args.Ent, emote);
         else
             _chat.TryEmoteWithoutChat(args.Ent, emote);
-    }
-
-    private void OnVomitEffect(EntityUid uid, DiseaseVomitEffectComponent effect, DiseaseEffectEvent args)
-    {
-        _vomit.Vomit(args.Ent, effect.ThirstChange * GetScale(args, effect), effect.FoodChange * GetScale(args, effect));
     }
 
     #region public API

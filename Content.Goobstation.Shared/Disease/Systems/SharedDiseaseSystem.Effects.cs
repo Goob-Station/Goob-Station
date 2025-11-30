@@ -38,7 +38,6 @@ public partial class SharedDiseaseSystem
     protected virtual void InitializeEffects()
     {
         SubscribeLocalEvent<DiseaseAudioEffectComponent, DiseaseEffectEvent>(OnAudioEffect);
-        SubscribeLocalEvent<DiseaseDamageEffectComponent, DiseaseEffectEvent>(OnDamageEffect);
         SubscribeLocalEvent<DiseaseSpreadEffectComponent, DiseaseEffectEvent>(OnDiseaseSpreadEffect);
         SubscribeLocalEvent<DiseaseForceSpreadEffectComponent, DiseaseEffectEvent>(OnDiseaseForceSpreadEffect);
         SubscribeLocalEvent<DiseaseFightImmunityEffectComponent, DiseaseEffectEvent>(OnFightImmunityEffect);
@@ -58,15 +57,6 @@ public partial class SharedDiseaseSystem
 
         _audio.PlayPvs(sound, args.Ent);
     }
-
-    private void OnDamageEffect(EntityUid uid, DiseaseDamageEffectComponent effect, DiseaseEffectEvent args)
-    {
-        if (_net.IsClient) // this desyncs if ran on client too somehow
-            return;
-
-        _damageable.TryChangeDamage(args.Ent, effect.Damage * GetScale(args, effect), true, false);
-    }
-
     private void OnDiseaseSpreadEffect(EntityUid uid, DiseaseSpreadEffectComponent effect, DiseaseEffectEvent args)
     {
         // for gear that makes you less(/more?) infective to others
@@ -186,7 +176,7 @@ public partial class SharedDiseaseSystem
 
     private Entity<DiseaseEffectComponent>? AddRandomEffect(EntityUid uid, DiseaseComponent disease)
     {
-        if (!_proto.TryIndex<WeightedRandomPrototype>(disease.AvailableEffects, out var effects))
+        if (!_proto.TryIndex(disease.AvailableEffects, out var effects))
         {
             Log.Error($"Disease {ToPrettyString(uid)} attempted to mutate to add an effect, but there are no valid effects for its type.");
             return null;

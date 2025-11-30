@@ -8,147 +8,107 @@ namespace Content.Goobstation.Shared.Disease;
 /// <summary>
 /// This event is raised on diseases on update.
 /// </summary>
-public sealed class DiseaseUpdateEvent : EntityEventArgs
+public sealed class DiseaseUpdateEvent(Entity<DiseaseCarrierComponent> ent) : EntityEventArgs
 {
-    public Entity<DiseaseCarrierComponent> Ent;
-
-    public DiseaseUpdateEvent(Entity<DiseaseCarrierComponent> ent)
-    {
-        Ent = ent;
-    }
+    public Entity<DiseaseCarrierComponent> Ent = ent;
 }
 
 /// <summary>
 /// This event is raised on disease effects when triggered.
 /// </summary>
-public sealed class DiseaseEffectEvent : EntityEventArgs
+public sealed class DiseaseEffectEvent(EntityUid ent, Entity<DiseaseComponent> disease, DiseaseEffectComponent comp) : EntityEventArgs
 {
     /// <summary>
     /// The DiseaseEffectComponent of the effect entity this is fired on.
     /// </summary>
-    public readonly DiseaseEffectComponent Comp;
+    public readonly DiseaseEffectComponent Comp = comp;
 
     /// <summary>
     /// The entity this effect should affect.
     /// </summary>
-    public readonly EntityUid Ent;
+    public readonly EntityUid Ent = ent;
 
     /// <summary>
     /// The host disease of this effect.
     /// </summary>
-    public readonly Entity<DiseaseComponent> Disease;
-
-    public DiseaseEffectEvent(EntityUid ent, Entity<DiseaseComponent> disease, DiseaseEffectComponent comp)
-    {
-        Ent = ent;
-        Disease = disease;
-        Comp = comp;
-    }
+    public readonly Entity<DiseaseComponent> Disease = disease;
 }
 
 /// <summary>
 /// This event is raised on entities that got a new disease.
 /// </summary>
-public sealed class DiseaseGainedEvent : EntityEventArgs
+public sealed class DiseaseGainedEvent(Entity<DiseaseComponent> ent) : EntityEventArgs
 {
-    public Entity<DiseaseComponent> DiseaseGained;
-
-    public DiseaseGainedEvent(Entity<DiseaseComponent> ent)
-    {
-        DiseaseGained = ent;
-    }
+    public Entity<DiseaseComponent> DiseaseGained = ent;
 }
 
 /// <summary>
 /// This event is raised on entities which just lost a disease.
 /// </summary>
-public sealed class DiseaseCuredEvent : EntityEventArgs
+public sealed class DiseaseCuredEvent(Entity<DiseaseComponent> ent) : EntityEventArgs
 {
-    public Entity<DiseaseComponent> DiseaseCured;
-
-    public DiseaseCuredEvent(Entity<DiseaseComponent> ent)
-    {
-        DiseaseCured = ent;
-    }
+    public Entity<DiseaseComponent> DiseaseCured = ent;
 }
 
 /// <summary>
 /// Raised on a newly created base disease entity to clone the provided entity onto it.
 /// </summary>
-public sealed class DiseaseCloneEvent : EntityEventArgs
+public sealed class DiseaseCloneEvent(Entity<DiseaseComponent> ent) : EntityEventArgs
 {
-    public Entity<DiseaseComponent> Source;
-
-    public DiseaseCloneEvent(Entity<DiseaseComponent> ent)
-    {
-        Source = ent;
-    }
+    public Entity<DiseaseComponent> Source = ent;
 }
 
 /// <summary>
 /// This event is raised on an entity just before it's infected. Set <see cref="CanInfect"/> to false to prevent the infection.
 /// </summary>
 [ByRefEvent]
-public sealed class DiseaseInfectAttemptEvent : EntityEventArgs
+public sealed class DiseaseInfectAttemptEvent(Entity<DiseaseComponent> ent) : EntityEventArgs
 {
-    public readonly Entity<DiseaseComponent> Disease;
+    public readonly Entity<DiseaseComponent> Disease = ent;
     public bool CanInfect = true;
-
-    public DiseaseInfectAttemptEvent(Entity<DiseaseComponent> ent)
-    {
-        Disease = ent;
-    }
 }
 
 /// <summary>
 /// This event is raised on a disease effect just before it's triggered to check whether the effect should be triggered.
 /// </summary>
 [ByRefEvent]
-public sealed class DiseaseCheckConditionsEvent : EntityEventArgs
+public sealed class DiseaseCheckConditionsEvent(
+    EntityUid ent,
+    Entity<DiseaseComponent> disease,
+    DiseaseEffectComponent comp)
+    : EntityEventArgs
 {
     /// <summary>
     /// The DiseaseEffectComponent of the effect entity this is fired on.
     /// </summary>
-    public readonly DiseaseEffectComponent Comp;
+    public readonly DiseaseEffectComponent Comp = comp;
 
     /// <summary>
     /// The entity this effect should affect.
     /// </summary>
-    public readonly EntityUid Ent;
+    public readonly EntityUid Ent = ent;
 
     /// <summary>
     /// The host disease of this effect.
     /// </summary>
-    public readonly Entity<DiseaseComponent> Disease;
+    public readonly Entity<DiseaseComponent> Disease = disease;
 
     /// <summary>
     /// Whether this effect should fire.
     /// </summary>
     public bool DoEffect = true;
-
-    public DiseaseCheckConditionsEvent(EntityUid ent, Entity<DiseaseComponent> disease, DiseaseEffectComponent comp)
-    {
-        Ent = ent;
-        Disease = disease;
-        Comp = comp;
-    }
 }
 
 /// <summary>
 /// This event is raised on a diseased entity to get its immune resistance.
 /// </summary>
 [ByRefEvent]
-public sealed class GetImmunityEvent : EntityEventArgs
+public sealed class GetImmunityEvent(Entity<DiseaseComponent> disease) : EntityEventArgs
 {
-    public readonly Entity<DiseaseComponent> Disease;
+    public readonly Entity<DiseaseComponent> Disease = disease;
 
     public float ImmunityGainRate = 0f;
     public float ImmunityStrength = 0f;
-
-    public GetImmunityEvent(Entity<DiseaseComponent> disease)
-    {
-        Disease = disease;
-    }
 }
 
 /// <summary>

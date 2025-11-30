@@ -73,16 +73,6 @@ public abstract partial class ScalingDiseaseEffect : Component
 }
 
 /// <summary>
-/// Deals damage over time to host
-/// </summary>
-[RegisterComponent]
-public sealed partial class DiseaseDamageEffectComponent : ScalingDiseaseEffect
-{
-    [DataField]
-    public DamageSpecifier Damage = default!;
-}
-
-/// <summary>
 /// Decrease immunity progress on disease, use for incurable-once-developed diseases
 /// </summary>
 [RegisterComponent]
@@ -250,4 +240,3 @@ public sealed partial class DiseaseEmoteEffectComponent : Component
     [DataField]
     public bool WithChat = true;
 }
-

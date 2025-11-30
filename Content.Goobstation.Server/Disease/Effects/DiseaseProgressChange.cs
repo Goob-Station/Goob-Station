@@ -1,9 +1,6 @@
-using Content.Shared.Chemistry.Components;
 using Content.Goobstation.Shared.Disease;
-using Content.Goobstation.Shared.Disease.Chemistry;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Disease.Chemistry;
 
