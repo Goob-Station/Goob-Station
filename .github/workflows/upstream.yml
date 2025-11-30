@@ -31,7 +31,7 @@ jobs:
 
       - name: Sync Branch and Create PR
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
           git remote add upstream "$REMOTE_URL"
           git fetch upstream "$REMOTE_BRANCH"
