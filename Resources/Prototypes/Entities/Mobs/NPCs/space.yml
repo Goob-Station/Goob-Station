@@ -491,6 +491,9 @@
         - MobMask
         layer:
         - MobLayer
+  - type: NpcFactionMember
+    factions:
+    - Xeno
   - type: MeleeWeapon
     hidden: true
     soundHit:
