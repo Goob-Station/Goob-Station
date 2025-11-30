@@ -224,18 +224,43 @@ namespace Content.Server.EntityEffects.Effects
                 if (damageSpec.GetTotal() == FixedPoint2.Zero)
                     return;
             }
-            // Goobstation end
+            // Goobstation change - poisons and overdose damage apply to vital parts, healing still works like before
 
-            args.EntityManager.System<DamageableSystem>()
-                .TryChangeDamage(
+            var dmgSys = args.EntityManager.System<DamageableSystem>();
+
+            // Split damage into positive (actual damage) and negative (healing) so we can
+            // target damage to vital parts while keeping healing behaviour unchanged.
+            var scaled = damageSpec * scale;
+            var positive = DamageSpecifier.GetPositive(scaled);
+            var negative = DamageSpecifier.GetNegative(scaled);
+
+            // Apply positive damage to vital parts
+            if (positive.AnyPositive())
+            {
+                dmgSys.TryChangeDamage(
                     args.TargetEntity,
-                    damageSpec * scale,
+                    positive,
+                    IgnoreResistances,
+                    interruptsDoAfters: false,
+                    targetPart: TargetBodyPart.Vital,
+                    ignoreBlockers: IgnoreBlockers,
+                    splitDamage: SplitDamage);
+            }
+
+            // Apply healing (negative) with original targeting behavior
+            if (!negative.Empty)
+            {
+                dmgSys.TryChangeDamage(
+                    args.TargetEntity,
+                    negative,
                     IgnoreResistances,
                     interruptsDoAfters: false,
                     targetPart: UseTargeting ? TargetPart : null,
                     ignoreBlockers: IgnoreBlockers,
-                    splitDamage: SplitDamage); // Shitmed Change
+                    splitDamage: SplitDamage);
+            }
 
+            // Goobstation end
         }
     }
 }

@@ -116,7 +116,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
 
                 _damageableSystem.TryChangeDamage(uid, amt,
                     ignoreResistances: false, interruptsDoAfters: false,
-                    splitDamage: SplitDamageBehavior.SplitEnsureAll); // Goobstation
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll, targetPart: TargetBodyPart.Vital); // Goobstation
 
                 // Apply dizziness as a symptom of bloodloss.
                 // The effect is applied in a way that it will never be cleared without being healthy.
