@@ -93,15 +93,22 @@
   - type: TerrorSpider
     TerrorRegen:
         types:
-          Blunt: -0.5
+          Blunt: -1
           Slash: -1
           Piercing: -1
           Heat: -1
-          Shock: -0.1
-          Cold: -0.5
-          Poison: -0.5
-          Radiation: -0.2
-          Asphyxiation: -0.5
+          Shock: -1
+          Cold: -1
+          Poison: -1
+          Radiation: -1
+          Asphyxiation: -1
+  - type: CollectiveMind
+    defaultChannel: TerrorSpiderHivemind
+    respectAccents: true
+    channels:
+    - TerrorSpiderHivemind
+  - type: Puller
+    needsHands: false
   - type: TerrorWrap
   - type: TerrorLay
   - type: ActionGrant
@@ -149,6 +156,17 @@
       path: /Audio/Items/crowbar.ogg
   - type: VentCrawler
   - type: BerserkerRage
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-red-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
 
 # =========================================================
 # GRAY TERROR — Ambusher
@@ -181,6 +199,17 @@
         Brute: 10
   - type: GrayTerror
   - type: BonusDamageOnStunned
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-gray-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
 
 # =========================================================
 # GREEN TERROR — Breeder
@@ -215,3 +244,14 @@
   - type: ActionGrant
     actions:
       - ActionTerrorSlimyWeb
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-green-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+

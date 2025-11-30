@@ -35,7 +35,18 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 5
+        Brute: 10
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-black-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
   - type: ActionGrant
     actions:
       - ActionTerrorPoisonWeb
@@ -68,7 +79,17 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 5
+        Brute: 10
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-white-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
   - type: Prying
     pryPowered: true
     force: true
@@ -111,7 +132,7 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 20
+        Brute: 25
       types:
         Structural: 100
   - type: Prying
@@ -125,6 +146,16 @@
   - type: ActionGrant
     actions:
       - ActionTerrorThickWeb
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-purple-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
 
 # =========================================================
 # BROWN TERROR — Breacher
@@ -157,9 +188,9 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 20
+        Brute: 30
       types:
-        Structural: 100
+        Structural: 300
   - type: Prying
     pryPowered: true
     force: true
@@ -170,3 +201,13 @@
   - type: ActionGrant
     actions:
       - ActionTerrorVentSmash
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-brown-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable

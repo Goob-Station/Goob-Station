@@ -29,6 +29,22 @@
         reagents:
         - ReagentId: Toxin
           Quantity: 1000
+  - type: HitscanBatteryAmmoProvider
+    proto: BulletAcid
+    fireCost: 50
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 200
+  - type: Gun
+    fireRate: 1
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
   - type: TerrorQueen
   - type: TerrorQueenSense
   - type: MeleeChemicalInjector
@@ -45,8 +61,8 @@
       groups:
         Brute: 10
       types:
-        Structural: 100
-        Ion: 20
+        Structural: 300
+        Ion: 30 # Fuck them clankas trying to act as secborgs
   - type: TerrorVentSmash
   - type: ActionGrant
     actions:
@@ -55,3 +71,14 @@
       - ActionTerrorSummonSpiderlings
       - ActionTerrorQueenSense
       - ActionTerrorVentSmash
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-queen-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+

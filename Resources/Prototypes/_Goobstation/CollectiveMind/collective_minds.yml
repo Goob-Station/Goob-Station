@@ -87,3 +87,9 @@
   name: collective-mind-xeno
   keycode: 'z'
   color: "#8c3986"
+
+- type: collectiveMind
+  id: TerrorSpiderHivemind
+  name: collective-mind-xeno # Intentional
+  keycode: 't'
+  color: "#8b0000"

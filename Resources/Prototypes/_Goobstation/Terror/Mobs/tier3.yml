@@ -26,21 +26,32 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 25
+        Brute: 40
       types:
-        Structural: 100
+        Structural: 300
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2
-    baseSprintSpeed: 2
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
   - type: Prying
     pryPowered: true
     force: true
-    speedModifier: 2
+    speedModifier: 5
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: ActionGrant
     actions:
       - ActionTerrorThickWeb
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-prince-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
 
 # =========================================================
 # PRINCESS OF TERROR — Mini-Queen
@@ -70,7 +81,10 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 5
+        Brute: 15
+  - type: Damageable
+    damageContainer: BiologicalMetaphysical # 50% resist to everything as a replacement to being immune to most basic weapons
+    damageModifierSet: DevilDealPositive
   - type: Prying
     pryPowered: true
     force: true
@@ -84,6 +98,17 @@
       - ActionTerrorAirtightWeb
       - ActionTerrorLayEggs
       - ActionTerrorVentSmash
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-princess-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
 
 # =========================================================
 # MOTHER OF TERROR — Support Caste
@@ -113,7 +138,7 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 5
+        Brute: 10
   - type: Prying
     pryPowered: true
     force: true
@@ -126,3 +151,14 @@
       - ActionTerrorAirtightWeb
       - ActionTerrorRoyalJelly
       - ActionTerrorVentSmash
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-mother-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+

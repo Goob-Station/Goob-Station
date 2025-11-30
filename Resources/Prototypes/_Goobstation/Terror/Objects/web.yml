@@ -10,6 +10,7 @@
   id: TerrorSpiderWebSlimy
   parent: TerrorHeavyWebBase
   name: slimy web
+  description: This web is partly composed of strands of green slime.
   components:
   - type: Sprite
     sprite: _Goobstation/Terror/Structures/web.rsi
@@ -22,7 +23,8 @@
 - type: entity
   id: TerrorSpiderWebPoison
   parent: TerrorHeavyWebBase
-  name: dark web
+  name: sinister web
+  description: This web has beads of a dark fluid on its strands.
   components:
   - type: Sprite
     sprite: _Goobstation/Terror/Structures/web.rsi
@@ -30,13 +32,13 @@
   - type: TerrorWeb
   - type: PoisonWeb
     reagentId: Toxin
-    reagentAmount: 1
+    reagentAmount: 5
 
 - type: entity
   id: TerrorSpiderWebInfested
   parent: TerrorHeavyWebBase
   name: infested web
-  description: Looks to be crawling with spiderlings. You REALLY shouldn't step on it.
+  description: This web is covered in hundreds of tiny, biting spiders - and their eggs.
   components:
   - type: Sprite
     sprite: _Goobstation/Terror/Structures/web.rsi
@@ -100,6 +102,6 @@
   id: TerrorHeavyWeb
   parent: TerrorHeavyWebBase
   name: thick web
-  description: The thick web blocks movement and hinders vision.
+  description: This web is so thick, most cannot see beyond it.
   components:
   - type: Occluder  
