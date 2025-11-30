@@ -632,3 +632,23 @@
     HelpimovLawset: 0.6 #Goobstation
     Drone: 0.5
     Ninja: 0.25
+
+# Start of modifications.
+# starting station ai lawsets
+# Goob: Messing with weights
+- type: weightedRandom
+  id: DefaultLawsets
+  weights:
+    Crewsimov: 1
+    Corporate: 1
+    NTDefault: 1
+    EfficiencyLawset: 1
+    LiveLetLiveLaws: 0.5
+    RobocopLawset: 0.3
+    NutimovLawset: 0.2
+    PaladinLawset: 0.2
+    PainterLawset: 0.05
+    GameMasterLawset: 0.05
+    GambamovLawset: 0.05
+    OverlordLawset: 0.01 #free antag, in my AI slop? YIPPEE!!!
+# End of modifications.
