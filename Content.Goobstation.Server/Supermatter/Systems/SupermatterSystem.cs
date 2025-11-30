@@ -586,19 +586,31 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     private void OnCollideEvent(EntityUid uid, SupermatterComponent sm, ref StartCollideEvent args)
     {
-        if (!sm.Activated)
-        {
-            _adminLog.Add(LogType.Supermatter,
-                          HasComp<MobStateComponent>(args.OtherEntity) ? LogImpact.Extreme : LogImpact.High, // for mice activating it
-                          $"{ToPrettyString(args.OtherEntity):actor} activated Supermatter {ToPrettyString(uid):subject}");
-            sm.Activated = true;
-        }
-
         var target = args.OtherEntity;
+
+        // Stop immune entities from activating the sm.
         if (args.OtherBody.BodyType == BodyType.Static
             || HasComp<SupermatterImmuneComponent>(target)
             || _container.IsEntityInContainer(uid))
             return;
+
+        if (!sm.Activated)
+        {
+            // Extra logging for supermatter
+            var activator = ToPrettyString(args.OtherEntity);
+            var isMob = HasComp<MobStateComponent>(args.OtherEntity);
+            var impact = isMob ? LogImpact.Extreme : LogImpact.High;
+
+            // Original log entry
+            _adminLog.Add(LogType.Supermatter, impact,
+                $"{activator:actor} activated Supermatter {ToPrettyString(uid):subject}");
+
+            // New admin alert
+            _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                $"SUPERMATTER ACTIVATED BY {activator} AT {Transform(uid).Coordinates}");
+
+            sm.Activated = true;
+        }
 
         if (TryComp<SupermatterFoodComponent>(target, out var food))
             sm.Power += food.Energy;
@@ -621,13 +633,13 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     private void OnHandInteract(EntityUid uid, SupermatterComponent sm, ref InteractHandEvent args)
     {
-        if (!sm.Activated)
-            sm.Activated = true;
-
         var target = args.User;
 
         if (HasComp<SupermatterImmuneComponent>(target))
             return;
+
+        if (!sm.Activated)
+            sm.Activated = true;
 
         sm.MatterPower += 200;
 
@@ -638,6 +650,9 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     private void OnItemInteract(EntityUid uid, SupermatterComponent sm, ref InteractUsingEvent args)
     {
+        if (HasComp<SupermatterImmuneComponent>(args.User))
+            return;
+
         if (!sm.Activated)
             sm.Activated = true;
 

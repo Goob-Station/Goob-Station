@@ -1,4 +1,4 @@
-﻿# Poggers examine system
+# Poggers examine system
 
 examine-name = It's [bold]{$name}[/bold]!
 examine-name-selfaware = It's you!

@@ -14,6 +14,7 @@
 
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.MartialArts;
@@ -35,6 +36,9 @@ public sealed class MartialArtPrototype : IPrototype
 
     [DataField]
     public FixedPoint2 BaseDamageModifier;
+
+    [DataField]
+    public ProtoId<DamageTypePrototype> DamageModifierType = "Blunt";
 
     [DataField]
     public bool RandomDamageModifier;

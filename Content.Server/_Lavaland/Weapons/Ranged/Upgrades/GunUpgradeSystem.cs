@@ -51,7 +51,8 @@ public sealed class GunUpgradeSystem : SharedGunUpgradeSystem
             var multiplier = 1f;
 
             if (TryComp<PressureDamageChangeComponent>(Transform(ent).ParentUid, out var pressure)
-                && _pressure.ApplyModifier((Transform(ent).ParentUid, pressure)))
+                && _pressure.ApplyModifier((Transform(ent).ParentUid, pressure))
+                && pressure.ApplyToProjectiles)
                 multiplier = pressure.AppliedModifier;
 
             if (TryComp<ProjectileComponent>(ammo, out var proj))
@@ -67,7 +68,8 @@ public sealed class GunUpgradeSystem : SharedGunUpgradeSystem
         var multiplier = 1f;
 
         if (TryComp<PressureDamageChangeComponent>(Transform(ent).ParentUid, out var pressure)
-            && _pressure.ApplyModifier((Transform(ent).ParentUid, pressure)))
+            && _pressure.ApplyModifier((Transform(ent).ParentUid, pressure))
+            && pressure.ApplyToProjectiles)
             multiplier = pressure.AppliedModifier;
 
         projectile.Damage += ent.Comp.Damage * multiplier * ent.Comp.PelletModifier;

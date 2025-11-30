@@ -27,8 +27,10 @@
   - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
     - TauCetiBasic # Nothing else because Rouge said she was adding a language for Oni
+    - Gruntish # Goob - Oni Language
     understands:
     - TauCetiBasic
+    - Gruntish # Goob - Oni Language
   - type: HumanoidAppearance
     species: Oni
   - type: Sprite
