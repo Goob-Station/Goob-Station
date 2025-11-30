@@ -349,3 +349,21 @@
       head: ClothingHeadHelmetHardsuitExperimentalNanorep
   - type: FireProtection
     reduction: 0.4
+
+# Detective's Hardsuit
+
+- type: entity
+  parent: [ClothingOuterVoidsuitSecurity, BaseSecurityContraband]
+  id: ClothingOuterHardsuitDetective
+  name: detective hardsuit
+  description: A hardsuit custom-made for the Detective. It has a strong smell of alcohol and cigarettes.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/detective.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/detective.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitDetective
+
+
