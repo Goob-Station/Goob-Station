@@ -36,16 +36,13 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
         if (!_isEnabled)
             return;
         if (HasComp<ThievingComponent>(inventory))
-        {
-            component.StatusIcon = StatusToIcon(ContrabandStatus.None);
-            Dirty(inventory, component);
             return;
-        }
         var list = _detectorSystem.FindContraband(inventory, false, slotFlags);
         var isDetected = list.Count > 0;
         component.StatusIcon = StatusToIcon(isDetected ? ContrabandStatus.Contraband : ContrabandStatus.None);
         Dirty(inventory, component);
     }
+    
     private string StatusToIcon(ContrabandStatus status)
     {
         return status switch
