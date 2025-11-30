@@ -49,9 +49,6 @@ public sealed partial class HereticAbilitySystem
         SubscribeLocalEvent<HereticComponent, EventHereticEntropicPlume>(OnEntropicPlume);
         SubscribeLocalEvent<HereticComponent, HereticAscensionRustEvent>(OnAscensionRust);
 
-        SubscribeLocalEvent<RustSpreaderComponent, MapInitEvent>(OnSpreaderMapInit);
-        SubscribeLocalEvent<RustSpreaderComponent, SpreadNeighborsEvent>(OnSpread);
-
         SubscribeLocalEvent<SpriteRandomOffsetComponent, ComponentStartup>(OnRandomOffsetStartup);
 
         SubscribeLocalEvent<RustbringerComponent, FlashAttemptEvent>(OnFlashAttempt);
@@ -65,64 +62,10 @@ public sealed partial class HereticAbilitySystem
         args.Cancelled = true;
     }
 
-    private void OnSpread(Entity<RustSpreaderComponent> ent, ref SpreadNeighborsEvent args)
-    {
-        var (uid, _) = ent;
-
-        if (args.NeighborFreeTiles.Count == 0)
-        {
-            RemCompDeferred<ActiveEdgeSpreaderComponent>(uid);
-            return;
-        }
-
-        var prototype = MetaData(uid).EntityPrototype?.ID;
-
-        if (prototype == null)
-        {
-            RemCompDeferred<ActiveEdgeSpreaderComponent>(uid);
-            return;
-        }
-
-        _random.Shuffle(args.NeighborFreeTiles);
-
-        foreach (var (gridComp, tile) in args.NeighborFreeTiles)
-        {
-            Spawn(prototype, _map.GridTileToLocal(tile.GridUid, gridComp, tile.GridIndices));
-            args.Updates--;
-            if (args.Updates <= 0)
-                return;
-        }
-    }
-
     private void OnAscensionRust(Entity<HereticComponent> ent, ref HereticAscensionRustEvent args)
     {
         EnsureComp<LeechingWalkComponent>(ent); // Just in case
         EnsureComp<RustbringerComponent>(ent);
-    }
-
-    private void OnSpreaderMapInit(Entity<RustSpreaderComponent> ent, ref MapInitEvent args)
-    {
-        var (uid, comp) = ent;
-
-        var xform = Transform(uid);
-        if (!_mapMan.TryFindGridAt(_transform.GetMapCoordinates(xform), out var gridUid, out var mapGrid))
-        {
-            EnsureComp<RequiresTileComponent>(uid);
-            return;
-        }
-
-        var tileRef = _map.GetTileRef(gridUid, mapGrid, xform.Coordinates);
-        var tileDef = (ContentTileDefinition) _tileDefinitionManager[tileRef.Tile.TypeId];
-
-        if (!CanRustTile(tileDef))
-            return;
-
-        MakeRustTile(gridUid, mapGrid, tileRef, comp.TileRune);
-
-        foreach (var toRust in Lookup.GetEntitiesInRange(xform.Coordinates, comp.LookupRange, LookupFlags.Static))
-        {
-            TryMakeRustWall(toRust);
-        }
     }
 
     private void OnHereticAggressiveSpread(Entity<HereticComponent> ent, ref EventHereticAggressiveSpread args)
