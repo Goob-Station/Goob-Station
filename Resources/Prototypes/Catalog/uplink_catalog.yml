@@ -2139,7 +2139,7 @@
   description: uplink-holy-hand-grenade-desc
   productEntity: HolyHandGrenade
   cost:
-    Telecrystal: 100 # goob
+    Telecrystal: 50 # goob, was 100
   categories:
   - UplinkJob
   conditions:
