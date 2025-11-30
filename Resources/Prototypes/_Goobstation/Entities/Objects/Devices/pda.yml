@@ -302,7 +302,7 @@
     state: pda-virology
   - type: GuideHelp
     guides:
-    - Medical Doctor # TODO guidebook: virology
+    - MedicalDoctor # TODO guidebook: virology
 
 # event-resctricted jobs
 - type: entity

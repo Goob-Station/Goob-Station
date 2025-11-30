@@ -33,7 +33,7 @@ public sealed partial class DiseaseSystem
             quantity: FixedPoint2.New(1),
             reagent: null,
             method: null,
-            scale: !reagentEffect.IgnoreEffectScale ? FixedPoint2.New(GetScale(args, reagentEffect)) : FixedPoint2.New(1)
+            scale: reagentEffect.Scale ? FixedPoint2.New(GetScale(args, reagentEffect)) : FixedPoint2.New(1)
         );
 
         foreach (var effect in reagentEffect.Effects)

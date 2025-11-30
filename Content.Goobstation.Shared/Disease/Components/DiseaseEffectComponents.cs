@@ -128,6 +128,9 @@ public sealed partial class DiseaseForceSpreadEffectComponent : ScalingDiseaseEf
     /// </summary>
     [DataField]
     public bool AddIcon = true;
+
+    [DataField]
+    public DiseaseSpreadSpecifier SpreadParams = new(1f, 1f, "Debug");
 }
 
 /// <summary>
