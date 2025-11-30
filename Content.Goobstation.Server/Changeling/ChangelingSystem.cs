@@ -66,6 +66,7 @@ using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Camera;
+using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Cuffs;
@@ -270,14 +271,10 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private void RegenerateChemicals(EntityUid uid, ChangelingIdentityComponent comp) // this happens passively
     {
-        var chemicals = comp.Chemicals;
         var fireMult = CheckFireStatus(uid) ? comp.FireChemicalMultiplier : 1f;
+        var amount = (comp.ChemicalRegenAmount + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier * fireMult;
 
-        chemicals += (comp.ChemicalRegenAmount + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier * fireMult;
-        comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
-
-        Dirty(uid, comp);
-        _alerts.ShowAlert(uid, "ChangelingChemicals");
+        UpdateChemicals(uid, comp, amount);
     }
 
     public override void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null)
