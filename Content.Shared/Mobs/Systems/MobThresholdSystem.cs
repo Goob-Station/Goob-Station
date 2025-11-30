@@ -45,6 +45,7 @@ using Content.Shared.Body.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Network;
 using Robust.Shared.Utility;
+using Content.Shared.Body.Part; // GoobStation
 
 namespace Content.Shared.Mobs.Systems;
 
@@ -404,6 +405,45 @@ public sealed class MobThresholdSystem : EntitySystem
         VerifyThresholds(uid, component);
     }
 
+    // Goobstation start
+    public FixedPoint2 CheckVitalDamage(EntityUid target, DamageableComponent damageableComponent)
+    {
+        var damage = damageableComponent.TotalDamage;
+
+        if (!TryComp(target, out BodyComponent? body) ||
+            body.BodyType != BodyType.Complex)
+        {
+            return damage;
+        }
+
+        if (body.RootContainer?.ContainedEntity is not EntityUid rootPart)
+            return damage;
+
+        FixedPoint2 result = FixedPoint2.Zero;
+
+        var criticalParts = new[]
+        {
+            BodyPartType.Head,
+            BodyPartType.Chest,
+            BodyPartType.Groin
+        };
+
+        foreach (var (woundable, _) in _wound.GetAllWoundableChildren(rootPart))
+        {
+            if (!TryComp(woundable, out DamageableComponent? wdc) ||
+                !TryComp(woundable, out BodyPartComponent? bpc))
+            {
+                continue;
+            }
+
+            if (criticalParts.Contains(bpc.PartType))
+                result += wdc.TotalDamage;
+        }
+
+        return result;
+    }
+    // Goobstation end
+
     #endregion
 
     #region Private Implementation
@@ -413,7 +453,7 @@ public sealed class MobThresholdSystem : EntitySystem
     {
         foreach (var (threshold, mobState) in thresholdsComponent.Thresholds.Reverse())
         {
-            if (damageableComponent.TotalDamage < threshold)
+            if (CheckVitalDamage(target, damageableComponent) < threshold) // GoobStation
                 continue;
 
             TriggerThreshold(target, mobState, mobStateComponent, thresholdsComponent, origin);
@@ -479,7 +519,7 @@ public sealed class MobThresholdSystem : EntitySystem
             }
 
             if (TryGetNextState(target, currentMobState, out var nextState, threshold) &&
-                TryGetPercentageForState(target, nextState.Value, damageable.TotalDamage, out var percentage))
+                TryGetPercentageForState(target, nextState.Value, CheckVitalDamage(target, damageable), out var percentage)) // Goobstation
             {
                 percentage = FixedPoint2.Clamp(percentage.Value, 0, 1);
 
