@@ -15,6 +15,9 @@ voice-mask-name-change-info = Type in the name you want to mimic.
 voice-mask-name-change-speech-style = Speech style
 voice-mask-name-change-set = Set name
 voice-mask-name-change-set-description = Change the name others hear to something else.
+voice-mask-name-current-name = Current name
 
 voice-mask-popup-success = Name set successfully.
 voice-mask-popup-failure = Name could not be set.
+
+voice-mask-icon-label = Job (for your radio icon)
