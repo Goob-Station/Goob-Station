@@ -54,11 +54,9 @@ using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Mobs;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
-using Robust.Shared.Maths; // Goobstation
 using Robust.Shared.Utility;
 
 namespace Content.Server.Guardian
@@ -66,7 +64,7 @@ namespace Content.Server.Guardian
     /// <summary>
     /// A guardian has a host it's attached to that it fights for. A fighting spirit.
     /// </summary>
-    public sealed class GuardianSystem : EntitySystem
+    public sealed partial class GuardianSystem : EntitySystem
     {
         [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
@@ -378,6 +376,10 @@ namespace Content.Server.Guardian
             CheckGuardianMove(component.Host.Value, uid, guardianComponent: component);
         }
 
+        // Goobstation - Fix Rare Guardian movement overflow
+        // Refer to GuardianSystem.Goob.cs for this chunk of the code
+        #region in .Goob
+        /*
         /// <summary>
         /// Retract the guardian if either the host or the guardian move away from each other.
         /// </summary>
@@ -418,6 +420,8 @@ namespace Content.Server.Guardian
                 }
             }
         }
+        */
+        #endregion
 
         private void ReleaseGuardian(EntityUid host, GuardianHostComponent hostComponent, EntityUid guardian, GuardianComponent guardianComponent)
         {
