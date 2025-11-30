@@ -5,6 +5,7 @@ using Content.Shared.Repairable;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Client.Popups;
 using Content.Client.Examine;
+using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
 using Robust.Client.Animations;
 
 namespace Content.Client._FarHorizons.Power.Generation.FissionGenerator;

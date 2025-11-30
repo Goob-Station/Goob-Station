@@ -1,16 +1,17 @@
-<controls:FancyWindow xmlns="https://spacestation14.io"
+<controls1:FancyWindow xmlns="https://spacestation14.io"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
             xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+            xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
             MinSize="525 390" Title="Gas Turbine">
     <BoxContainer Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="10">
 		<!--Main Content-->
 		<BoxContainer Name="MainContent" Orientation="Horizontal" VerticalExpand="True" Margin="4">
-			
+
 			<!--View of turbine sprite-->
 			<BoxContainer Name="TurbineVeiw" Orientation="Horizontal" VerticalExpand="True" Margin="4">
 				<SpriteView Name="EntityView" SetSize="96 160" Scale="2 2" OverrideDirection="South" Margin="15" />
 			</BoxContainer>
-			
+
 			<!--RPM gauge-->
 			<PanelContainer Name="Speed" StyleClasses="Inset">
 				<BoxContainer Orientation="Vertical">
@@ -19,8 +20,8 @@
 					</GridContainer>
 				</BoxContainer>
 			</PanelContainer>
-			
-			
+
+
 			<!--Right panel-->
 			<BoxContainer Name="RightPanel" Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="10" HorizontalExpand="True" VerticalExpand="True">
 				<!--Indicator Lights-->
@@ -36,9 +37,9 @@
 						<TextureRect Name="TurbineUndertemp" SetSize="16 16" HorizontalAlignment="Left" HorizontalExpand="True"/>
 					</GridContainer>
 				</PanelContainer>
-				
+
 				<!--Inputs-->
-				<controls:StripeBack VerticalExpand="True">
+				<controls1:StripeBack VerticalExpand="True">
 					<BoxContainer Name="Inputs" Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="10" HorizontalExpand="True" >
 						<PanelContainer StyleClasses="Inset" Margin="0 0 0 8">
 							<BoxContainer Orientation="Vertical">
@@ -68,10 +69,10 @@
 						</PanelContainer>
 					</BoxContainer>
 					<Label Name="LockedMessage" Text="{Loc comp-turbine-ui-locked-message}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-				</controls:StripeBack>
+				</controls1:StripeBack>
 			</BoxContainer>
 		</BoxContainer>
-		
+
 		<!--Footer-->
 		<BoxContainer Name="Footer" Orientation="Vertical">
 			<PanelContainer StyleClasses="LowDivider" />
@@ -84,4 +85,4 @@
 			</BoxContainer>
 		</BoxContainer>
     </BoxContainer>
-</controls:FancyWindow>
+</controls1:FancyWindow>

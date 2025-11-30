@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
 using Robust.Shared.GameStates;
 using Robust.Shared.Audio;
 using Content.Shared.Containers.ItemSlots;

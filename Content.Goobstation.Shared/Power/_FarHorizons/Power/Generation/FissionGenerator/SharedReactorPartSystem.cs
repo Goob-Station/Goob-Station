@@ -4,6 +4,7 @@ using Content.Shared.Examine;
 using Content.Shared.Radiation.Components;
 using Content.Goobstation.Common.Materials._FarHorizons.Systems;
 using Content.Goobstation.Common.Materials._FarHorizons.Materials;
+using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;

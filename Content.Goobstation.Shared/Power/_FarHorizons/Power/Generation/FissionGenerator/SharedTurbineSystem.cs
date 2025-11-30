@@ -1,3 +1,4 @@
+using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Examine;

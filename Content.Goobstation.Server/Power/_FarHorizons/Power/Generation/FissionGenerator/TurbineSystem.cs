@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Explosion.EntitySystems;
@@ -217,7 +218,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
                 comp.Stalling = false;
                 comp.RPM = NextRPM;
             }
-            
+
             if (!_audio.IsPlaying(comp.AlarmAudioUnderspeed) && !comp.Undertemp && comp.FlowRate > 0 && comp.Stalling)
                  PlayAudio(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/alarm_beep.ogg"), uid, out comp.AlarmAudioUnderspeed, AudioParams.Default.WithLoop(true).WithVolume(-4));
             else if (_audio.IsPlaying(comp.AlarmAudioUnderspeed) && (comp.FlowRate <= 0 || comp.Undertemp || comp.RPM > 10))

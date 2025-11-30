@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Popups;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Administration.Logs;

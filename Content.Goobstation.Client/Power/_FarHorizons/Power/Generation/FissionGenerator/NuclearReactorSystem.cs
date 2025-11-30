@@ -1,5 +1,6 @@
 using Content.Client.Examine;
 using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
+using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 

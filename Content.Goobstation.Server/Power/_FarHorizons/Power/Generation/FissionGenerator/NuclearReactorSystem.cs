@@ -21,8 +21,10 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Goobstation.Common.Materials._FarHorizons.Systems;
+using Content.Goobstation.Server.Power._FarHorizons.Power.Generation.FissionGenerator;
+using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos.Piping.Components;
-using Content.Shared._FarHorizons.Materials.Systems;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
@@ -93,7 +95,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         SubscribeLocalEvent<NuclearReactorComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
     }
 
-    
+
 
     private void OnInit(EntityUid uid, NuclearReactorComponent comp, ref ComponentInit args)
     {
@@ -185,8 +187,8 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             UpdateGasVolume(comp);
         }
 
-        _appearance.SetData(uid, ReactorVisuals.Input, inlet.Air.Moles.Sum() > 20);
-        _appearance.SetData(uid, ReactorVisuals.Output, outlet.Air.Moles.Sum() > 20);
+        _appearance.SetData(uid, ReactorVisuals.Input, inlet.Air.TotalMoles > 20);
+        _appearance.SetData(uid, ReactorVisuals.Output, outlet.Air.TotalMoles > 20);
 
         var TempRads = 0;
         var ControlRods = 0;

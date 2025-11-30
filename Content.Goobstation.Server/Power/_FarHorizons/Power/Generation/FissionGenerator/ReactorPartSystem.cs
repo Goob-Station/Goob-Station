@@ -2,6 +2,7 @@ using Content.Goobstation.Common.Materials._FarHorizons.Systems;
 using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
+using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos;
 using Robust.Shared.Random;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;

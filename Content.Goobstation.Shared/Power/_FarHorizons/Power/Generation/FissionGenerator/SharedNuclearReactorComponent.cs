@@ -1,3 +1,4 @@
+using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
