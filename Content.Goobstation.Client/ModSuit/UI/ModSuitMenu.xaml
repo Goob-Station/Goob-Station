@@ -1,0 +1,94 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+                      Title="{Loc 'base-mod-title'}"
+                      Resizable="False"
+                      MinSize="450 540"
+                      MaxSize="450 540"
+                      SetSize="450 540">
+    <TextureRect TexturePath="/Textures/_Goobstation/Interface/Backgrounds/Modsuits/nanotrasen_background.png"
+                HorizontalAlignment="Center"
+                Name="BackTexture"
+                Access="Public" />
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+        <BoxContainer Margin="10 10 10 10" Orientation="Horizontal" HorizontalExpand="True">
+            <SpriteView Name="MechView"
+                        Margin="10 0 0 0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        OverrideDirection="South"
+                        SetSize="64 64"
+                        MaxSize="64 64"
+                        Scale="2 2"/>
+            <PanelContainer Name="ComplexityPanel"
+                           Margin="10 0 0 0"
+                           HorizontalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#101A2899" />
+                </PanelContainer.PanelOverride>
+                <Label Name="ModComplex"
+                       Text="base MOD"
+                       VerticalAlignment="Center"
+                       Margin="4"
+                       HorizontalExpand="True"
+                       ModulateSelfOverride="#ffffff"/>
+            </PanelContainer>
+            <PanelContainer Name="StatePanel"
+                           Margin="10 0 0 0"
+                           HorizontalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#101A2899" />
+                </PanelContainer.PanelOverride>
+                <Label Name="ModState"
+                       VerticalAlignment="Center"
+                       Margin="4"
+                       HorizontalExpand="True"
+                       ModulateSelfOverride="#ffffff"/>
+            </PanelContainer>
+        </BoxContainer>
+        <BoxContainer VerticalExpand="True" Margin="10 0 10 10" Orientation="Vertical">
+            <PanelContainer Name="ScrollPanel"
+                          VerticalExpand="True"
+                          MinSize="0 200">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#101A2899"/>
+                </PanelContainer.PanelOverride>
+                <ScrollContainer
+                    HScrollEnabled="False"
+                    HorizontalExpand="True"
+                    MinSize="400 256"
+                    MaxSize="600 1000"
+                    VerticalExpand="True">
+                    <BoxContainer
+                        Name="EquipmentControlContainer"
+                        MinSize="100 256"
+                        Orientation="Vertical"
+                        VerticalExpand="True"/>
+                </ScrollContainer>
+            </PanelContainer>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Vertical" Margin="10 0 10 10">
+            <Button Name="LockButton"
+                    Text="🔓 Lock"
+                    HorizontalExpand="True"
+                    Margin="0 0 0 5"
+                    StyleClasses="ButtonSquare"
+                    Access="Public"/>
+
+            <PanelContainer Name="UsernamePanel"
+                          HorizontalExpand="True"
+                          Margin="0">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#101A2899" />
+                </PanelContainer.PanelOverride>
+                <Label Name="ModUsername"
+                       Text="Username;3"
+                       VerticalAlignment="Center"
+                       HorizontalExpand="True"
+                       Margin="5 0"
+                       ModulateSelfOverride="#ffffff"/>
+            </PanelContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>
