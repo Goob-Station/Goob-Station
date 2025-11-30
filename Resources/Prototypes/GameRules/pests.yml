@@ -49,11 +49,9 @@
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
-      - id: MobMouse
-      - id: MobMouse1
-      - id: MobMouse2
-      - id: MobMouseCancer # Goobstation
-        weight: 0.05 # 1/60
+      - id: SpawnMobMouse
+      - id: MobMouseCancer
+        weight: 0.02
 # Events always spawn a critter regardless of Probability https://github.com/space-wizards/space-station-14/issues/28480 I added the Rat King to their own event with a player cap.
 
 - type: entity
@@ -78,13 +76,12 @@
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
-      - id: MobMouse
-      - id: MobMouse1
-      - id: MobMouse2
-      - id: MobMouseCancer # Goobstation
-        weight: 0.05
+      # Goobstation
+      - id: SpawnMobMouse
+      - id: MobMouseCancer
+        weight: 0.02
       - id: MobLootbug # Goobstation
-        weight: 0.25
+        weight: 0.08
     specialEntries:
     - id: SpawnPointGhostRatKing
       prob: 0.001

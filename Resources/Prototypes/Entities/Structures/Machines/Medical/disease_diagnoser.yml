@@ -22,13 +22,40 @@
     sprite: Structures/Machines/diagnoser.rsi
     layers:
     - state: icon
-      map: ["enum.DiseaseMachineVisualLayers.IsRunning"]
+    - state: running
+      visible: false
+      map: ["running"]
     - state: unlit
       shader: unshaded
-      map: ["enum.DiseaseMachineVisualLayers.IsOn"]
+      map: ["enum.PowerDeviceVisualLayers.Powered"] # Goobstation
   - type: Appearance
   - type: Machine
     board: DiagnoserMachineCircuitboard
+  # <Goobstation>
+  - type: VirologyMachine
+    idleState: icon
+    runningState: running
+  - type: ItemSlots
+    slots:
+      disease_swab_slot:
+        name: Swab
+        whitelist:
+          components:
+          - DiseaseSwab
+  - type: ContainerContainer
+    containers:
+      disease_swab_slot: !type:ContainerSlot {}
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      enum.DiseaseMachineVisuals.IsRunning:
+        running:
+          True: { visible: true }
+          False: { visible: false }
+  # </Goobstation>
 
 - type: entity
   name: disease diagnoser report
@@ -52,6 +79,3 @@
     headerMargin: 0.0, 0.0, 0.0, 6.0
     backgroundImageTile: true
     backgroundPatchMargin: 0.0, 6.0, 0.0, 6.0
-    contentMargin: 12.0, 0.0, 12.0, 0.0
-    # This is a narrow piece of paper
-    maxWritableArea: 128.0, 0.0

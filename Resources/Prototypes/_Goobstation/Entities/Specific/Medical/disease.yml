@@ -1,0 +1,23 @@
+﻿- type: entity
+  parent: BaseItem
+  id: LiveInjector
+  name: live injector
+  description: Injects people with a disease.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    # <Goobstation>
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: livepen
+  - type: Appearance
+  - type: DiseasePen
+    vaccine: false
+  - type: GenericVisualizer
+    visuals:
+      enum.DiseasePenVisuals.Used:
+        salpen:
+          True: { state: livepen_empty }
+          False: { state: livepen }
+  # </Goobstation>

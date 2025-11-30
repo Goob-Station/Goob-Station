@@ -21,14 +21,13 @@
     sprite: Structures/Machines/vaccinator.rsi
     layers:
     - state: icon
-      map: ["enum.DiseaseMachineVisualLayers.IsRunning"]
     - state: unlit
       shader: unshaded
-      map: ["enum.DiseaseMachineVisualLayers.IsOn"]
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: running
+      visible: false
+      map: ["running"]
   - type: Appearance
-  - type: DiseaseMachineVisuals
-    idleState: icon
-    runningState: running
   - type: Machine
     board: VaccinatorMachineCircuitboard
   - type: ContainerContainer
@@ -36,3 +35,25 @@
       machine_board: !type:Container
       machine_parts: !type:Container
   - type: RequireProjectileTarget
+  - type: ItemSlots
+    slots:
+      disease_swab_slot:
+        name: Swab
+        whitelist:
+          components:
+          - DiseaseSwab
+  - type: VirologyMachine
+    idleState: icon
+    runningState: running
+    analysisDuration: 20
+    vaccinator: true
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      enum.DiseaseMachineVisuals.IsRunning:
+        running:
+          True: { visible: true }
+          False: { visible: false }

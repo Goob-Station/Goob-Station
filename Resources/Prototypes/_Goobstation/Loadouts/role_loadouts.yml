@@ -230,3 +230,19 @@
   - CommonBackpack
   - Survival
   - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobVirologist
+  groups:
+   - GroupTankHarness
+   - MedicalDoctorHead
+   - MedicalMask
+   - VirologistJumpsuit
+   - MedicalGloves
+   - VirologistBackpack
+   - VirologistOuterClothing
+   - MedicalShoes
+   - VirologistPDA
+   - SurvivalMedical
+   - Trinkets
+   - GroupSpeciesBreathToolMedical
