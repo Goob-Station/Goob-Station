@@ -24,19 +24,7 @@ public abstract class SharedChangelingSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ChangelingIdentityComponent, SwitchableOverlayToggledEvent>(OnVisionToggle);
         SubscribeLocalEvent<ChangelingIdentityComponent, TransferredToCloneEvent>(OnTransferredToClone);
-    }
-
-    private void OnVisionToggle(Entity<ChangelingIdentityComponent> ent, ref SwitchableOverlayToggledEvent args)
-    {
-        if (args.User != ent.Owner)
-            return;
-
-        if (TryComp(ent, out EyeProtectionComponent? eyeProtection))
-            eyeProtection.ProtectionTime = args.Activated ? TimeSpan.Zero : TimeSpan.FromSeconds(10);
-
-        UpdateFlashImmunity(ent, !args.Activated);
     }
 
     private void OnTransferredToClone(Entity<ChangelingIdentityComponent> ent, ref TransferredToCloneEvent args)
@@ -50,5 +38,8 @@ public abstract class SharedChangelingSystem : EntitySystem
         Body.GibBody(ent);
     }
 
-    protected virtual void UpdateFlashImmunity(EntityUid uid, bool active) { }
+    public virtual void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null)
+    {
+
+    }
 }
