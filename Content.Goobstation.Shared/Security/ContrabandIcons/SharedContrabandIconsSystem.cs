@@ -28,6 +28,7 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
         SubscribeLocalEvent<VisibleContrabandComponent, DidEquipHandEvent>(OnEquipHands);
         SubscribeLocalEvent<VisibleContrabandComponent, DidUnequipHandEvent>(OnUnequipHands);
 
+        SubscribeLocalEvent<ThievingComponent, ComponentInit>(OnThievingInit);
         Subs.CVar(_configuration, GoobCVars.ContrabandIconsEnabled, value => _isEnabled = value);
     }
 
@@ -69,5 +70,14 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
     private void OnEquipHands(EntityUid uid, VisibleContrabandComponent component, DidEquipHandEvent args)
     {
         ContrabandDetect(args.User, component, SlotFlags.NONE);
+    }
+
+    private void OnThievingInit(EntityUid uid, ThievingComponent component, ComponentInit args)
+    {
+        if(TryComp<VisibleContrabandComponent>(uid, out var contrabandComponent))
+        {
+            contrabandComponent.StatusIcon = StatusToIcon(ContrabandStatus.None);
+            Dirty(uid, contrabandComponent);
+        }
     }
 }
