@@ -99,7 +99,7 @@ public sealed class GrabThrownSystem : EntitySystem
         Vector2 vector,
         float grabThrownSpeed,
         DamageSpecifier? damageToUid = null,
-        DropHeldItemsBehavior behavior = DropHeldItemsBehavior.AlwaysDrop)
+        DropHeldItemsBehavior behavior = DropHeldItemsBehavior.NoDrop) // Goob edit
     {
         var comp = EnsureComp<GrabThrownComponent>(uid);
         comp.IgnoreEntity.Add(thrower);

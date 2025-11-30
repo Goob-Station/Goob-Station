@@ -226,6 +226,7 @@
   - type: UseDelay
     delay: 1
   - type: Prying
+  - type: GrabbingItem
 
 - type: entity
   parent: BaseNullrod

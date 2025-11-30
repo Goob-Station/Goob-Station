@@ -88,6 +88,9 @@ public sealed class SharedGoobStealthSystem : EntitySystem
         if (!ent.Comp.RevealOnAttack)
             return;
 
+        if (ent.Owner != args.PlayerUid)
+            return;
+
         // Some goida stuff. If a slasher attempts to throw an item it stops them from throwing it BUTTTTT THEY STILL GET REVEALED, so here we are.
         // Slasher
         if (TryComp<SlasherIncorporealComponent>(ent.Owner, out var slasher) && slasher.IsIncorporeal)
