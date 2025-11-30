@@ -4312,3 +4312,10 @@ Entries:
   id: 9236
   time: '2025-11-30T10:37:36.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41600
+- author: Princess-Cheeseballs
+  changes:
+  - message: Contacting another entity while on fire will transfer less firestacks.
+    type: Fix
+  id: 9237
+  time: '2025-11-30T14:10:57.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41636
