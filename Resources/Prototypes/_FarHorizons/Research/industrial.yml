@@ -24,8 +24,6 @@
   - PlasmaGlassReactorHeatExchanger
   technologyPrerequisites:
   - AdvancedPowerGeneration
-  radioChannels:
-  - Engineering
 
 - type: technology
   id: NuclearPowerRecycling

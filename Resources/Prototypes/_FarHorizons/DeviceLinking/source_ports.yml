@@ -1,9 +1,3 @@
-- type: sourcePort
-  id: VitalsMonitorSender
-  name: signal-port-name-vitals-monitor-sender
-  description: signal-port-description-vitals-monitor-sender
-  defaultLinks: [ VitalsMonitorReceiverMed, VitalsMonitorReceiverStasis, BodyScannerReceiver ]
-
   # Gas Turbine
 - type: sourcePort
   id: TurbineSpeedHigh
