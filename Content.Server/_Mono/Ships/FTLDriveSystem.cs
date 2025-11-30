@@ -15,12 +15,12 @@ public sealed class FTLDriveSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FTLDriveGeneratorComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<FTLDriveGeneratorComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<FTLDriveGeneratorComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<FTLDriveGeneratorComponent, PowerChangedEvent>(OnPowerChanged);
     }
 
-    private void OnStartup(EntityUid uid, FTLDriveGeneratorComponent generatorComponent, ComponentStartup args)
+    private void OnStartup(EntityUid uid, FTLDriveGeneratorComponent generatorComponent, MapInitEvent args)
     {
         // Set initial power state
         if (!TryComp<ApcPowerReceiverComponent>(uid, out var powerReceiver))
