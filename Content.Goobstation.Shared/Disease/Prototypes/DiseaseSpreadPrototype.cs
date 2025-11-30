@@ -12,9 +12,12 @@ namespace Content.Goobstation.Shared.Disease
         public string ID { get; private set; } = default!;
 
         [DataField(required: true)]
-        private LocId Name { get; set; }
+        private string Name { get; set; } = default!;
 
         [ViewVariables(VVAccess.ReadOnly)]
-        public string LocalizedName => Loc.GetString(Name);
-    }
+        public string LocalizedName => Loc.GetString("disease-spread-" + Name.ToLower());
+
+        [DataField]
+        public bool BlockedByInternals; // TODO: not implemented in the system
+         }
 }

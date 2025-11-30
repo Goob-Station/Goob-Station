@@ -70,7 +70,6 @@
   - type: DiseaseEffect
     complexity: 12 # can make you constantly hungry
   - type: DiseaseReagentEffect
-    ignoreEffectScale: true
     scale: false
     effects:
     - !type:ChemVomit
@@ -93,6 +92,24 @@
     delayMax: 60
   - type: DiseaseProgressCondition
     minProgress: 0.4
+
+- type: entity
+  id: DiseaseBehaviorHyperactive
+  parent: DiseaseBehaviorBase
+  name: Feeling hyper
+  descripting: Makes you feel hyper.
+  - type: DiseaseEffect
+    complexity: 12 # can make you constantly hungry
+  - type: DiseaseReagentEffect
+    scale: false
+    effects:
+    - !type:MovespeedModifier
+      walkSpeedModifier: 1.35
+      sprintSpeedModifier: 1.35
+    - !type:GenericStatusEffect
+      key: Stutter
+      component: StutteringAccent
+    - !type:Jitter
 
 - type: entity
   id: DiseaseBehaviorHeadache

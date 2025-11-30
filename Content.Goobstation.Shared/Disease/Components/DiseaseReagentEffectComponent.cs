@@ -35,5 +35,5 @@ public sealed partial class DiseaseReagentEffectComponent : ScalingDiseaseEffect
     /// Whether to use the effect scale or not, some reagent effects do not scale.
     /// </summary>
     [DataField]
-    public bool IgnoreEffectScale = true;
+    public bool Scale = true;
 }

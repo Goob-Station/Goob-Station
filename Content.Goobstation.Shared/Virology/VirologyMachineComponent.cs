@@ -8,7 +8,7 @@ namespace Content.Goobstation.Shared.Virology;
 [RegisterComponent]
 public sealed partial class VirologyMachineComponent : Component
 {
-    [DataField]
+    [ViewVariables]
     public const string SwabSlotId = "disease_swab_slot";
 
     [DataField]

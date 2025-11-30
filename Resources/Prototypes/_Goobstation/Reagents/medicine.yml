@@ -1500,7 +1500,7 @@
   name: reagent-name-spaceacilin
   group: Medicine
   desc: reagent-desc-spaceacilin
-  physicalDesc: reagent-physical-desc-transcluent
+  physicalDesc: reagent-physical-desc-translucent
   flavor: medicine
   color: "#559955"
   metabolisms:

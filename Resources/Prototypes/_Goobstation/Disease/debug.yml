@@ -42,11 +42,8 @@
     progressScale: false
     timeScale: false
   - type: DiseaseSpreadEffect
-    spreadType: DebugSpread
     arc: 180
     range: 4
-    infectionChance: 0.5
-    timeScale: false
 
 - type: entity
   id: DiseaseBehaviorForceSpreadDebug
@@ -59,7 +56,6 @@
   - type: DiseaseChanceCondition # mostly for performance concerns
     chance: 1
     timeScale: false
-    progresScale: false
   - type: DiseaseForceSpreadEffect
     range: 1.5
     chance: 1
@@ -67,7 +63,7 @@
     spreadParams:
       chance: 1
       power: 1
-      type: Debug
+      spreadType: Debug
 
 - type: entity
   id: DiseaseBehaviorTurboBlunt
