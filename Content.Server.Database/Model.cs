@@ -776,13 +776,7 @@ namespace Content.Server.Database
         // Data that changes with each round
         public List<Round> Rounds { get; set; } = null!;
         public List<AdminLogPlayer> AdminLogs { get; set; } = null!;
-
-        public int ServerCurrency { get; set; } // Goobstation - Goob coin
-
-        public TimeSpan? LastRolledAntag { get; set; } // Goobstation
-
         public DateTime? LastReadRules { get; set; }
-
         public List<AdminNote> AdminNotesReceived { get; set; } = null!;
         public List<AdminNote> AdminNotesCreated { get; set; } = null!;
         public List<AdminNote> AdminNotesLastEdited { get; set; } = null!;
@@ -806,6 +800,11 @@ namespace Content.Server.Database
         public RMCPatron? Patron { get; set; }
         public RMCLinkingCodes? LinkingCodes { get; set; }
         public List<RMCLinkedAccountLogs> LinkedAccountLogs { get; set; } = default!;
+
+        // Goob Station
+        public int ServerCurrency { get; set; }
+        public TimeSpan? LastRolledAntag { get; set; }
+        public DbSet<Achievement> Achievement { get; set; } = null!;
     }
 
     [Table("whitelist")]
