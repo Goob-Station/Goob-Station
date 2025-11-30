@@ -36,6 +36,9 @@
       - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
         state: mouth
         shader: unshaded
+      - map: [ "neck" ]
+        state: equipped-NECK
+        visible: false
     - type: DamageStateVisuals
       states:
         Alive:
@@ -50,10 +53,10 @@
     - type: RandomSprite
       available:
       - enum.DamageStateVisualLayers.Base:
-          alive: Rainbow
+          alive: "Rainbow"
         enum.DamageStateVisualLayers.BaseUnshaded:
           mouth: ""
-        rainbow:
+        neck:
           equipped-NECK: Rainbow
     - type: FireVisuals
       sprite: Mobs/Effects/onfire.rsi
@@ -141,7 +144,7 @@
       quickEquip: false
       clothingVisuals:
         neck:
-        - map: [ "rainbow" ]
+        - map: [ "neck" ]
           state: equipped-NECK
         - state: mouth-equipped-NECK
           shader: unshaded
