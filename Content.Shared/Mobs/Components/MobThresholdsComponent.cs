@@ -19,7 +19,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Mobs.Components;
 
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(MobThresholdSystem))]
+//[Access(typeof(MobThresholdSystem))] Goobstation - Dont step on my freedom to access components
 public sealed partial class MobThresholdsComponent : Component
 {
     [DataField("thresholds", required: true)]

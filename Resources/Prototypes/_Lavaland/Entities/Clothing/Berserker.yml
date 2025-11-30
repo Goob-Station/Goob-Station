@@ -1,0 +1,50 @@
+- type: entity
+  id: LavalandHardsuitBerserker
+  parent: [ BaseMajorContraband, ClothingOuterHardsuitSalvage ]
+  name: berserker hardsuit
+  description: the berserk dont care from who the blood flows
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/berserker_suit.rsi
+  - type: Clothing
+    sprite: _Lavaland/Equipment/berserker_suit.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: ClothingGrantComponent
+    component:
+    - type: PreventGunUse
+    - type: ModifyMeleeDamage
+      modifier: 1.10 # 10% more melee damage
+    - type: BleedingIncreaseMeleeDamage # damage increase if bleededing
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: LavalandHardsuitBerserkerHelmet
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitSalvage
+  id: LavalandHardsuitBerserkerHelmet
+  name: berserker helmet
+  description: has the mark of a god of war
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Equipment/berserker_suit.rsi
+    layers:
+    - state: icon-HELMET
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: Clothing
+    sprite: _Lavaland/Equipment/berserker_suit.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  - type: PointLight
+    color: red
+  - type: Tag
+    tags:
+    - WhitelistChameleon
