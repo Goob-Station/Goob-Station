@@ -27,19 +27,20 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
 
         SubscribeLocalEvent<VisibleContrabandComponent, DidEquipHandEvent>(OnEquipHands);
         SubscribeLocalEvent<VisibleContrabandComponent, DidUnequipHandEvent>(OnUnequipHands);
-
+        
         Subs.CVar(_configuration, GoobCVars.ContrabandIconsEnabled, value => _isEnabled = value);
     }
 
-    protected void ContrabandDetect(EntityUid inventory, VisibleContrabandComponent component,
-        SlotFlags slotFlags = SlotFlags.WITHOUT_POCKET)
+    protected void ContrabandDetect(EntityUid inventory, VisibleContrabandComponent component, SlotFlags slotFlags = SlotFlags.WITHOUT_POCKET)
     {
         if (!_isEnabled)
             return;
-        
         if (HasComp<ThievingComponent>(inventory))
+        {
+            component.StatusIcon = StatusToIcon(ContrabandStatus.None);
+            Dirty(inventory, component);
             return;
-        
+        }
         var list = _detectorSystem.FindContraband(inventory, false, slotFlags);
         var isDetected = list.Count > 0;
         component.StatusIcon = StatusToIcon(isDetected ? ContrabandStatus.Contraband : ContrabandStatus.None);
@@ -57,20 +58,20 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
 
     private void OnEquip(EntityUid uid, VisibleContrabandComponent component, DidEquipEvent args)
     {
-        ContrabandDetect(args.Equipee, component, args.SlotFlags);
+        ContrabandDetect(uid, component, args.SlotFlags);
     }
 
     private void OnUnequip(EntityUid uid, VisibleContrabandComponent component, DidUnequipEvent args)
     {
-        ContrabandDetect(args.Equipee, component, args.SlotFlags);
+        ContrabandDetect(uid, component, args.SlotFlags);
     }
 
     private void OnUnequipHands(EntityUid uid, VisibleContrabandComponent component, DidUnequipHandEvent args)
     {
-        ContrabandDetect(args.User, component, SlotFlags.NONE);
+        ContrabandDetect(uid, component, SlotFlags.NONE);
     }
     private void OnEquipHands(EntityUid uid, VisibleContrabandComponent component, DidEquipHandEvent args)
     {
-        ContrabandDetect(args.User, component, SlotFlags.NONE);
+        ContrabandDetect(uid, component, SlotFlags.NONE);
     }
 }
