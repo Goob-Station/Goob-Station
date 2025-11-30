@@ -1,0 +1,56 @@
+- type: latheRecipePack
+  id: ReactorCircuitboards
+  recipes:
+  - NuclearFabricatorMachineCircuitboard
+  - NuclearCentrifugeMachineCircuitboard
+
+- type: latheRecipePack
+  id: ReactorPartsBasic
+  recipes:
+  - CerenkiteReactorFuelRod
+  - BohrumReactorControlRod
+  - SteelReactorControlRod
+  - BrassReactorControlRod
+  - GlassReactorControlRod
+  - SteelReactorGasChannel
+  - BrassReactorGasChannel
+  - GlassReactorGasChannel
+  - SteelReactorHeatExchanger
+  - BrassReactorHeatExchanger
+  - GlassReactorHeatExchanger
+
+- type: latheRecipePack
+  id: ReactorFuelRods
+  recipes:
+  - UraniumReactorFuelRod
+  - PlutoniumReactorFuelRod
+  - BananiumReactorFuelRod
+  - PlasmaReactorFuelRod
+  - UraniumGlassReactorFuelRod
+
+- type: latheRecipePack
+  id: ReactorControlRods
+  recipes:
+  - GoldReactorControlRod
+  - SilverReactorControlRod
+  - PlasteelReactorControlRod
+  - PlasmaGlassReactorControlRod
+  - DiamondReactorControlRod
+
+- type: latheRecipePack
+  id: ReactorGasChannels
+  recipes:
+  - GoldReactorGasChannel
+  - SilverReactorGasChannel
+  - PlasteelReactorGasChannel
+  - PlasmaGlassReactorGasChannel
+  - DiamondReactorGasChannel
+
+- type: latheRecipePack
+  id: ReactorHeatExchangers
+  recipes:
+  - GoldReactorHeatExchanger
+  - SilverReactorHeatExchanger
+  - PlasteelReactorHeatExchanger
+  - PlasmaGlassReactorHeatExchanger
+  - DiamondReactorHeatExchanger
