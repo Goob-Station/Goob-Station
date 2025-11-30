@@ -102,6 +102,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
@@ -320,7 +321,23 @@ namespace Content.Server.Explosion.EntitySystems
                 return;
 
             // Gets location of the implant
-            var posText = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(uid));
+            // Lavaland change start - added ReportCoordinates check
+            string posText;
+            if (component.ReportCoordinates)
+            {
+                posText = "Unknown";
+                var mapCoords = _transformSystem.GetMapCoordinates(uid);
+                if (mapCoords.MapId != MapId.Nullspace)
+                {
+                    var x = (int) mapCoords.Position.X;
+                    var y = (int) mapCoords.Position.Y;
+                    posText = $"({x}, {y})";
+                }
+            }
+            else
+                posText = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(uid));
+            // Lavaland change end
+
             var critMessage = Loc.GetString(component.CritMessage, ("user", implanted.ImplantedEntity.Value), ("position", posText));
             var deathMessage = Loc.GetString(component.DeathMessage, ("user", implanted.ImplantedEntity.Value), ("position", posText));
 
