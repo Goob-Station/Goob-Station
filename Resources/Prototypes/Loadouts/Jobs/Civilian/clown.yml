@@ -153,5 +153,17 @@
 # Neck
 - type: loadout
   id: ClownVanity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ClownVanityTimer
   equipment:
     neck: ClothingNeckClownVanity
+
+- type: loadoutEffectGroup
+  id: ClownVanityTimer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobClown
+      time: 360000 #100 hrs
