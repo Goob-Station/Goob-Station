@@ -97,7 +97,7 @@
   id: DiseaseBehaviorHyperactive
   parent: DiseaseBehaviorBase
   name: Feeling hyper
-  descripting: Makes you feel hyper.
+  description: Makes you feel hyper.
   components:
   - type: DiseaseEffect
     complexity: 20
