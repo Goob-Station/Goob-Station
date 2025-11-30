@@ -491,9 +491,9 @@
         - MobMask
         layer:
         - MobLayer
-  - type: NpcFactionMember
+  - type: NpcFactionMember # Goobstation
     factions:
-    - Xeno
+    - Xeno # Aligning them with Space Adders
   - type: MeleeWeapon
     hidden: true
     soundHit:
