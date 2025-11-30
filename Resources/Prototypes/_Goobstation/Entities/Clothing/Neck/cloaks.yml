@@ -75,6 +75,7 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Cloaks/clown.rsi
 
+- type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckCloakVetCap
   name: Veteran Captain's cloak
