@@ -1,5 +1,8 @@
 - type: entity
   abstract: true
+  name: cd disk
+  id: BaseCdDisk
+  description: A cd disk usually contains ads.
   parent: BaseItem
   components:
   - type: Cd
