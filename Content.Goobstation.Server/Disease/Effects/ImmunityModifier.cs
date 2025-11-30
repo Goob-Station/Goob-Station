@@ -1,4 +1,3 @@
-using Content.Shared.Chemistry.Components;
 using Content.Goobstation.Shared.Disease.Chemistry;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
