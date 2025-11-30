@@ -491,6 +491,16 @@
   categories:
     -  UplinkWeaponry
 
+- type: listing
+  id: UplinkWeaponTigersClawSword
+  name: uplink-tigers-claw-name
+  description: uplink-tigers-claw-desc
+  productEntity: TigersClawSword
+  cost:
+    Telecrystal: 60
+  categories:
+    -  UplinkWeaponry
+
 # Wearables
 
 - type: listing
@@ -576,6 +586,17 @@
   productEntity: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
   cost:
     Telecrystal: 75
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkClothingCaposOutfitSyndi
+  name: uplink-clothing-capo-outfit-name
+  description: uplink-clothing-capo-outfit-desc
+  icon: { sprite: _Goobstation/Clothing/Head/Hats/capo.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledCaposOutfit
+  cost:
+    Telecrystal: 40
   categories:
   - UplinkWearables
 

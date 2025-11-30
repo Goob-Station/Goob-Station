@@ -392,3 +392,36 @@
     - Recyclable
     - WhitelistChameleon
     - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCapo
+  name: Capos rim
+  description: Pride, it's always a sin, but at least you're making it look right.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/capo.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/capo.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+- type: entity
+  parent: [ClothingHeadHatCapo, BaseSyndicateContraband]
+  id: ClothingHeadHatCapoSyndi
+  name: the Capos rim
+  description: Pride, it's always a sin, but at least you're making it look right.
+  components:
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.8
+        Radiation: 0.25
+        Caustic: 0.25
+  - type: Caposoutfit
