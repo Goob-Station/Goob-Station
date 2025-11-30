@@ -123,7 +123,7 @@
           attackRate: 1
           damage:
             types:
-              Shock: 0
+              Ion: 30
           angle: 60
           animation: WeaponArcThrust
         - type: InjectOnHit
@@ -132,18 +132,3 @@
             Quantity: 5
           limit: 20
           needsRestrain: true
-
-      damage: !type:ItemSwitchState
-        verb: damage
-        sprite:
-          sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
-          state: damage-icon
-        components:
-        - type: MeleeWeapon
-          wideAnimationRotation: -135
-          attackRate: 0.75
-          angle: 60
-          animation: WeaponArcThrust
-          damage:
-            types:
-              Heat: 30
