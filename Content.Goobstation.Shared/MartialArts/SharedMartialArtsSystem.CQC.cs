@@ -59,7 +59,13 @@ public partial class SharedMartialArtsSystem
     {
         if (args.Handled)
             return;
-
+        
+        if(!ent.Comp.Stance)
+        {
+            args.Handled = false;
+            return;
+        }
+        
         if (!ent.Comp.Blocked)
         {
             args.Handled = true;

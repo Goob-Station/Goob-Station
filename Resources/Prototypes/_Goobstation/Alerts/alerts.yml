@@ -129,3 +129,16 @@
   description: alerts-medigun-uber-desc
   minSeverity: 0
   maxSeverity: 11
+  
+- type: alert
+  id: MartialArtsStance
+  clickEvent: !type:ToggleMartialArtsStanceEvent
+  icons:
+    - sprite: /Textures/_Goobstation/Interface/Alerts/martial_arts_stance.rsi
+      state: martial-off
+    - sprite: /Textures/_Goobstation/Interface/Alerts/martial_arts_stance.rsi
+      state: martial-on
+  name: alerts-martial-arts-toggle-name
+  description: alerts-martial-arts-toggle-desc
+  minSeverity: 0
+  maxSeverity: 1

@@ -43,14 +43,12 @@ public sealed class RiposteeSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<RiposteeComponent, BeforeHarmfulActionEvent>(OnHarmAttempt,
             before: new[] { typeof(SharedHereticAbilitySystem) });
-
         SubscribeNetworkEvent<RiposteUsedEvent>(OnRiposteUsed);
     }
 
@@ -69,7 +67,6 @@ public sealed class RiposteeSystem : EntitySystem
         if (!TryComp(weapon.Value, out MeleeWeaponComponent? melee) ||
             !TryComp(user.Value, out RiposteeComponent? ripostee))
             return;
-
         CounterAttack((weapon.Value, melee), (user.Value, ripostee), target.Value, ev.Data);
     }
 
@@ -141,10 +138,8 @@ public sealed class RiposteeSystem : EntitySystem
                 if (!ev.Handled)
                     continue;
             }
-
             if (!data.CanRiposteWhileProne && _standing.IsDown(ent))
                 continue;
-
             if (data.RiposteChance is > 0f and < 1f)
             {
                 if (!_random.Prob(data.RiposteChance))

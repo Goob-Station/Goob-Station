@@ -6,6 +6,7 @@
 
 cqc-fail-notself = You can't teach anyone with {CAPITALIZE(THE($manual))}.
 
+cqc-fail-used = There is fish bite marks on the {CAPITALIZE(THE($manual))}. You can't discern what it says.
 cqc-fail-changeling = We are beyond using this.
 cqc-fail-knowanother = You already know another martial art.
 cqc-fail-already = You already know a martial art.
@@ -56,3 +57,9 @@ alerts-sneak-attack-desc = To a true shinobi, the first strike and the last stri
 
 alerts-loss-of-surprise-name = Loss Of Surprise
 alerts-loss-of-surprise-desc = Your intentions are known! It will take you a few moments to sneak attack again.
+
+alerts-martial-arts-toggle-name = Martial Arts Stance
+alerts-martial-arts-toggle-desc = You shift your stance.
+
+martial-arts-action-toggle-stance-mode-on = You assume a fighting stance.
+martial-arts-action-toggle-stance-mode-off = You relax your stance.
