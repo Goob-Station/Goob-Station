@@ -98,8 +98,9 @@
   parent: DiseaseBehaviorBase
   name: Feeling hyper
   descripting: Makes you feel hyper.
+  components:
   - type: DiseaseEffect
-    complexity: 12 # can make you constantly hungry
+    complexity: 20
   - type: DiseaseReagentEffect
     scale: false
     effects:
