@@ -49,6 +49,22 @@ public sealed partial class ObjectiveComponent : Component
     /// </summary>
     [DataField]
     public SpriteSpecifier? Icon;
+
+    //Goobstation -start
+
+    /// <summary>
+    /// Server currency awarded for if this completed at round end
+    /// </summary>
+    [DataField]
+    public int ServerCurrency = 5;
+
+    /// <summary>
+    /// shud % of the currency be rewarded if % of the objective is completed
+    /// </summary>
+    [DataField]
+    public bool ServerCurrencyRewardPartial;
+
+    //Goobstation - end
 }
 
 /// <summary>
