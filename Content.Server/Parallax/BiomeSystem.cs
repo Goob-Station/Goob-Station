@@ -12,7 +12,13 @@
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DoutorWhite <thedoctorwhite@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
@@ -468,6 +474,14 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
 
         foreach (var chunk in active)
         {
+            // Lavaland Change start: optimization real
+            var ev = new _Lavaland.Procedural.BeforeLoadChunkEvent(chunk);
+            RaiseLocalEvent(gridUid, ev);
+
+            if (ev.Cancelled)
+                continue;
+            // Lavaland Change end
+
             LoadChunkMarkers(component, gridUid, grid, chunk, seed);
 
             if (!component.LoadedChunks.Add(chunk))
@@ -910,7 +924,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
             var ev = new _Lavaland.Procedural.UnLoadChunkEvent(chunk);
             RaiseLocalEvent(gridUid, ev);
 
-            if(ev.Cancelled)
+            if (ev.Cancelled)
                 continue;
             // Lavaland Change end
 

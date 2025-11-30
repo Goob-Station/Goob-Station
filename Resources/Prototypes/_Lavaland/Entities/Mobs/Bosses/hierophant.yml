@@ -23,7 +23,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: LavalandBossHierophant
+  id: MobHierophant
   name: hierophant
   description: A massive metal club that hangs in the air as though waiting. It'll make you dance to its beat.
   components:
@@ -36,11 +36,16 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-0.35,-0.6,0.35,0.6"
-        density: 50
+        density: 10000 # 10 tons. Can't really push this thing
         mask:
         - MobMask
         layer:
         - MobLayer
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/hierophant.rsi
+    state: hierophant
   - type: Clickable
   - type: InteractionOutline
   - type: InputMover
@@ -61,15 +66,10 @@
     active: False
   - type: CombatMode
   - type: MobState
-  # Actual boss from here
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Hierophant
-  - type: Sprite
-    noRot: true
-    drawdepth: Mobs
-    sprite: _Lavaland/Mobs/Bosses/hierophant.rsi
-    state: hierophant
+  - type: NoSlip
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.5
     baseSprintSpeed: 1.5
@@ -80,14 +80,46 @@
   - type: Tag
     tags:
     - CannotSuicide
-  - type: NoSlip
-  - type: HierophantBoss # boss specific component. defines pattern/scripted attacks and other stuff
-  - type: Megafauna
-    loot: LavalandHierophantClub
-  - type: DamageSquareImmunity
-    isImmune: true
-  - type: Aggressive # also required component for aggro checking
-    forgiveRange: 20.0
+  # Actual boss from here
+  - type: ActionGrant
+    actions:
+    - ActionHierophantBox
+    - ActionHierophantCrosses
+    - ActionHierophantChasers
+    - ActionHierophantBlink
+  - type: Fauna
+  - type: Anger
+    totalHp: 2500
+  - type: Aggressive
+    forgiveRange: 25
+  - type: MobPhases
+    phaseThresholds:
+      0:    1
+      1000: 2
+      2000: 3
   - type: BossMusic
     soundId: Hierophant
-  - type: Fauna
+  - type: TileMovement
+  - type: DamageSquareImmunity
+  - type: SpawnLootOnDeath
+    loot: LavalandHierophantClub
+    deleteOnDeath: true
+  - type: MegafaunaAi
+    actionDelay: 0.5
+    selector: !type:NestedMegafaunaSelector
+      id: Hierophant
+  - type: AngerPlayerScaling
+    angerScale: 1.1
+    hpScale: 1.2
+  - type: MegafaunaFieldGenerator
+    wallId: WallHierophantArenaTemporary
+    wallShape: !type:NestedEntityShape
+      id: BoxHollow
+      size: 11 # Radius of the arena
+  - type: MegafaunaAnchor
+  - type: MegafaunaBlink
+    spawnOnTarget: HierophantShapeBlink
+    spawnOnUsed: HierophantShapeBlink
+  - type: MegafaunaBlinkInactive
+  - type: MegafaunaGodmode
+  - type: MegafaunaRejuvenate
