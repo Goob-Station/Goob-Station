@@ -13,13 +13,13 @@ public sealed partial class InfestedComponent : Component
     /// Time before spawns get triggered.
     /// </summary>
     [DataField]
-    public TimeSpan Timer = TimeSpan.FromSeconds(60);
+    public TimeSpan Timer = TimeSpan.FromSeconds(89);
 
     /// <summary>
     /// Time before spawns get triggered.
     /// </summary>
     [DataField]
-    public TimeSpan TimeToCure = TimeSpan.FromSeconds(300);
+    public TimeSpan TimeToCure = TimeSpan.FromSeconds(180);
 
     /// Internal accumulators for timing.
      public TimeSpan Accumulator = TimeSpan.Zero;

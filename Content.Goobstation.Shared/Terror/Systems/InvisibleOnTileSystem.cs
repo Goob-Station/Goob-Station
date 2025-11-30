@@ -1,9 +1,7 @@
 using Content.Goobstation.Shared.Terror.Components;
-using Content.Shared.Spider;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Content.Shared.StepTrigger.Systems;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Terror.Systems;

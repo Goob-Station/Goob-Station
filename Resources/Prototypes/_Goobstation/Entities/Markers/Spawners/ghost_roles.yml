@@ -39,3 +39,21 @@
     - state: green
     - sprite: Mobs/Silicon/chassis.rsi
       state: synd_sec
+
+- type: entity
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostTerrorQueen
+  categories: [ HideSpawnMenu, Spawner ]
+  suffix: queen of terror
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Goobstation/Terror
+      state: queen_dead
+  - type: GhostRole
+    name: terror-spider-round-end-agent-name
+    description: ghost-role-information-terror-description
+    rules: ghost-role-information-terror-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist

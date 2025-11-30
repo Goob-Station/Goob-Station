@@ -1,7 +1,6 @@
 using Content.Goobstation.Shared.Terror.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -42,7 +41,11 @@ public sealed class InfestedSystem : EntitySystem
 
             if (comp.CureAccumulator >= comp.TimeToCure)
             {
-                _popup.PopupPredicted("Seems like the spiderlings are all gone.", uid, uid, PopupType.SmallCaution);
+                _popup.PopupPredicted(
+                    Loc.GetString("infested-cured"),
+                    uid,
+                    uid,
+                    PopupType.SmallCaution);
                 RemComp<InfestedComponent>(uid);
                 continue;
             }
@@ -52,7 +55,12 @@ public sealed class InfestedSystem : EntitySystem
                 comp.Accumulator -= comp.Timer;
                 SpawnSpiderlings(uid, comp);
                 _audio.PlayPredicted(comp.SpawnSound, uid, uid);
-                _popup.PopupPredicted("Suddenly, spiderlings spawn all over you!", uid, uid, PopupType.MediumCaution);
+
+                _popup.PopupPredicted(
+                    Loc.GetString("infested-spawn"),
+                    uid,
+                    uid,
+                    PopupType.MediumCaution);
             }
         }
     }

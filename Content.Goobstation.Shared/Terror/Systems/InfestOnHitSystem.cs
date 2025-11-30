@@ -1,6 +1,6 @@
 using Content.Goobstation.Shared.Terror.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.GameObjects;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
 
@@ -11,18 +11,16 @@ public sealed class InfestOnHitSystem : EntitySystem
 {
     public override void Initialize()
     {
-        // Subscribe to melee hit events on any entity
-        SubscribeLocalEvent<MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<WhiteTerrorComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
-    private void OnMeleeHit(MeleeHitEvent ev)
+    private void OnMeleeHit(Entity<WhiteTerrorComponent> ent, ref MeleeHitEvent args)
     {
-        if (!EntityManager.HasComponent<WhiteTerrorComponent>(ev.User))
-            return;
-
-        foreach (var target in ev.HitEntities)
+        foreach (var target in args.HitEntities)
         {
-            // Ensure the InfestedComponent exists
+            if (!EntityManager.HasComponent<BodyComponent>(target))
+                continue;
+
             EntityManager.EnsureComponent<InfestedComponent>(target);
         }
     }

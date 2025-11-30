@@ -31,7 +31,10 @@ public sealed class TerrorLaySystem : EntitySystem
         {
             if (!HasComp<CocoonComponent>(args.Target))
             {
-                _popup.PopupClient("You can only lay eggs on cocoons.", uid, uid);
+                _popup.PopupClient(
+                    Loc.GetString("terror-lay-only-cocoon"),
+                    uid,
+                    uid);
                 return;
             }
 

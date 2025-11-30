@@ -91,5 +91,5 @@
 - type: collectiveMind
   id: TerrorSpiderHivemind
   name: collective-mind-xeno # Intentional
-  keycode: 't'
+  keycode: 'r'
   color: "#8b0000"

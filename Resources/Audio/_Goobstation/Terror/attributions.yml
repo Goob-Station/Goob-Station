@@ -1,0 +1,9 @@
+- files: ["outbreak_terror"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from ParadiseStation 13"
+  source: "https://github.com/ParadiseSS13/Paradise/blob/9a21d7363c1053a624d42ded9bc4ea865df29891/sound/AI/outbreak_terror.ogg"
+
+- files: ["terrorspider"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from ParadiseStation 13"
+  source: "https://github.com/ParadiseSS13/Paradise/blob/9a21d7363c1053a624d42ded9bc4ea865df29891/sound/ambience/antag/terrorspider.ogg"

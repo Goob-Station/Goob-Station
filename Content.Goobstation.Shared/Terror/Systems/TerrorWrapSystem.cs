@@ -6,15 +6,12 @@ using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
-using Content.Shared.Traits.Assorted;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
 
 public sealed class TerrorWrapSystem : EntitySystem
 {
-    [Dependency] private readonly TerrorSpiderSystem _terrorSpider = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly ISharedAdminLogManager _admin = default!;
@@ -42,7 +39,7 @@ public sealed class TerrorWrapSystem : EntitySystem
         // TO DO: Change this FTL
         if (!_mobState.IsDead(target))
         {
-            _popup.PopupClient(Loc.GetString("They must be dead to be wrapped."), uid, uid);
+            _popup.PopupClient(Loc.GetString("terror-wrap-fail"), uid, uid);
             return;
         }
 

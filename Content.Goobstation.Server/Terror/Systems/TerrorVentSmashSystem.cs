@@ -1,6 +1,5 @@
 using Content.Goobstation.Shared.Terror.Components;
 using Content.Goobstation.Shared.Terror.Events;
-using Content.Server.Atmos.Piping.Unary.Components;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Audio.Systems;
 

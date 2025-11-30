@@ -5,7 +5,6 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Drunk;
 using Content.Shared.Popups;
 using Content.Shared.Spider;
 using Content.Shared.StepTrigger.Systems;
@@ -49,21 +48,43 @@ public sealed class StickyWebTrapSystem : EntitySystem
 
         if (HasComp<InfestedWebComponent>(uid))
         {
-            _popup.PopupPredicted("The sticky web ensnares you! Spiderlings begin to crawl all over you!", args.Tripper, args.Tripper, PopupType.MediumCaution);
+            _popup.PopupPredicted(
+                Loc.GetString("sticky-web-infested"),
+                args.Tripper,
+                args.Tripper,
+                PopupType.MediumCaution);
+
             EnsureComp<InfestedComponent>(args.Tripper);
         }
         else if (TryComp<PoisonWebComponent>(uid, out var poison))
         {
-            _popup.PopupPredicted("The sticky web ensnares you! You don't feel too good...", args.Tripper, args.Tripper, PopupType.MediumCaution);
+            _popup.PopupPredicted(
+                Loc.GetString("sticky-web-poison"),
+                args.Tripper,
+                args.Tripper,
+                PopupType.MediumCaution);
+
             Inject(args.Tripper, poison.ReagentId, poison.ReagentAmount);
         }
         else if (TryComp<SlimyWebComponent>(uid, out var slimy))
         {
-            _popup.PopupPredicted("The sticky web ensnares you! You start to feel woozy...", args.Tripper, args.Tripper, PopupType.MediumCaution);
+            _popup.PopupPredicted(
+                Loc.GetString("sticky-web-slimy"),
+                args.Tripper,
+                args.Tripper,
+                PopupType.MediumCaution);
+
             Inject(args.Tripper, slimy.ReagentId, slimy.AlcoholAmount);
         }
         else
-            _popup.PopupPredicted("The sticky web ensnares you!", args.Tripper, args.Tripper, PopupType.MediumCaution);
+        {
+            _popup.PopupPredicted(
+                Loc.GetString("sticky-web-generic"),
+                args.Tripper,
+                args.Tripper,
+                PopupType.MediumCaution);
+        }
+
     }
 
     private void Inject(EntityUid target, ProtoId<ReagentPrototype> reagent, FixedPoint2 amount)

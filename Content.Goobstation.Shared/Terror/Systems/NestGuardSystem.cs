@@ -42,11 +42,7 @@ public sealed class NestGuardSystem : EntitySystem
             guard.DamageAccumulator = 0;
             guard.DeathCounter++;
 
-            _popup.PopupEntity(
-                "You feel your life slipping away… the queen is too far away!",
-                uid,
-                uid,
-                PopupType.MediumCaution);
+            _popup.PopupEntity(Loc.GetString("terror-far-from-queen"), uid, uid, PopupType.MediumCaution);
 
             if (guard.DeathCounter >= 15)
             {

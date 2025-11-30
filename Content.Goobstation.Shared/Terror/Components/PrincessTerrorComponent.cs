@@ -9,11 +9,11 @@ public sealed partial class PrincessTerrorComponent : Component
     /// The chance that a tier 2 egg will be spawned instead of a tier 1.
     /// </summary>
     [DataField]
-    public float Tier2EggChance = 0.05f;
+    public float Tier2EggChance = 0.08f;
 
     /// <summary>
     /// The chance that a tier 3 egg will be spawned instead of a tier 1.
     /// </summary>
     [DataField]
-    public float Tier3EggChance = 0.01f;
+    public float Tier3EggChance = 0.02f;
 }

@@ -101,7 +101,12 @@ public sealed class TerrorSpiderSystem : EntitySystem
         {
             if (!_net.IsClient)
             {
-                _popup.PopupEntity($"A member of the hive has fallen… ({ToPrettyString(deadSpider.Owner)})", spiderPlayerUid, spiderPlayerUid,PopupType.Medium);
+                _popup.PopupEntity(
+                    Loc.GetString("hive-member-fallen", ("name", ToPrettyString(deadSpider.Owner))),
+                    spiderPlayerUid,
+                    spiderPlayerUid,
+                    PopupType.Medium);
+
 
                 _audio.PlayPredicted(comp.DeathSound, spiderPlayerUid, spiderPlayerUid);
             }

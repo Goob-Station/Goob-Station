@@ -36,11 +36,15 @@ public sealed class TerrorQueenSenseSystem : EntitySystem
         var msg = BuildSpiderList();
         if (string.IsNullOrEmpty(msg))
         {
-            _popup.PopupEntity("Your brood is silent. No living spiders detected.", queenUid, queenUid);
+            _popup.PopupEntity(
+                Loc.GetString("queen-sense-none"),
+                queenUid,
+                queenUid);
             return;
         }
 
         _popup.PopupEntity(msg, queenUid, queenUid);
+
     }
 
     private string BuildSpiderList()
@@ -49,7 +53,7 @@ public sealed class TerrorQueenSenseSystem : EntitySystem
         var result = new System.Text.StringBuilder();
         var found = false;
 
-        result.AppendLine("Living brood:");
+        result.AppendLine(Loc.GetString("queen-sense-header"));
 
         while (query.MoveNext(out var uid, out _, out var mob))
         {
@@ -59,7 +63,13 @@ public sealed class TerrorQueenSenseSystem : EntitySystem
             found = true;
             var loc = _navMap.GetNearestBeaconString(uid);
             var clean = FormattedMessage.RemoveMarkupOrThrow(loc);
-            result.AppendLine($"{ToPrettyString(uid)} — {clean}");
+
+            result.AppendLine(
+                Loc.GetString(
+                    "queen-sense-entry",
+                    ("name", ToPrettyString(uid)),
+                    ("location", clean)
+                ));
         }
 
         return found ? result.ToString() : string.Empty;

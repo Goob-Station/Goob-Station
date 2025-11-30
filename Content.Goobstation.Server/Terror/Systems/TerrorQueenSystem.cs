@@ -1,10 +1,7 @@
 using Content.Goobstation.Shared.Terror.Components;
-using Content.Goobstation.Shared.Terror.Events;
 using Content.Shared.Body.Systems;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -65,13 +62,21 @@ public sealed class TerrorQueenSystem : EntitySystem
             if (_random.Prob(0.5f))
             {
                 // 50% chance: gib the spider
-                _popup.PopupEntity("A blood-chilling psychic scream echoes through the hive as the Terror Queen is slain! Your body is torn apart by the psychic feedback!", spiderUid, spiderUid, PopupType.LargeCaution);
+                _popup.PopupEntity(
+                    Loc.GetString("queen-death-gib"),
+                    spiderUid,
+                    spiderUid,
+                    PopupType.LargeCaution);
                 _body.GibBody(spiderUid);
             }
             else
             {
                 // Otherwise: give berserker rage
-                _popup.PopupEntity("A blood-chilling psychic scream echoes through the hive as the Terror Queen is slain! You are filled with rage, your attacks dealing more damage the lower your health. Avenge her!", spiderUid, spiderUid, PopupType.Medium);
+                _popup.PopupEntity(
+                    Loc.GetString("queen-death-rage"),
+                    spiderUid,
+                    spiderUid,
+                    PopupType.Medium);
                 EnsureComp<BerserkerRageComponent>(spiderUid);
             }
         }
