@@ -1,15 +1,10 @@
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.Contraband;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
-using Content.Shared.Contraband;
-using Content.Shared.GameTicking;
 using Content.Shared.Hands;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
-using Robust.Shared.Containers;
-using Content.Goobstation.Shared.Inventory;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Prototypes;
-using Content.Shared.Access.Components;
 using Robust.Shared.Configuration;
 
 namespace Content.Shared._Goobstation.Security.ContrabandIcons;
