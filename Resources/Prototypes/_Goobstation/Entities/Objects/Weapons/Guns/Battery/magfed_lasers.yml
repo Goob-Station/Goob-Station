@@ -3,6 +3,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# ER-5 Torrent SMG
 - type: entity
   name: ER-5 Torrent
   parent: [ BaseWeaponCustomCell, BaseSecurityContraband ]
@@ -59,7 +60,7 @@
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_smg.ogg
   - type: AmmoCounter
 
-
+# ES-7 Multilens Sniper Rifle
 - type: entity
   name:  ES-7 Multilens
   parent: [ BaseWeaponCustomCell, BaseGunWieldable, BaseSecurityContraband ]
@@ -71,10 +72,10 @@
     shape:
     - 0,0,6,1
   - type: Gun
-    burstFireRate: 10
+    burstFireRate: 15
     shotsPerBurst: 3
-    burstCooldown: 0.8
-    fireRate: 0.8
+    burstCooldown: 1.5
+    fireRate: 1.5
     lockOnTargetBurst: true
     selectedMode: Burst
     availableModes:
@@ -126,7 +127,7 @@
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_lmg.ogg
   - type: AmmoCounter
 
-
+# EG-1 Taro Revolver
 - type: entity
   name: EG-1 Taro
   parent: [ BaseWeaponCustomCellSmall, BaseSecurityContraband ]
@@ -200,7 +201,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: AmmoCounter
 
-
+# EL-20 HAMRR
 - type: entity
   name: EL-20 HAMRR
   parent: [BaseItem, BaseSecurityContraband]
@@ -221,13 +222,13 @@
     - 0,0,4,3
   - type: Wieldable
   - type: GunWieldBonus
-    minAngle: -20
-    maxAngle: -20
+    minAngle: -15
+    maxAngle: -15
   - type: Gun
-    minAngle: 24
-    maxAngle: 45
-    angleIncrease: 4
-    angleDecay: 16
+    minAngle: 50
+    maxAngle: 20
+    angleIncrease: -5
+    angleDecay: -80
     fireRate: 10
     selectedMode: FullAuto
     availableModes:
