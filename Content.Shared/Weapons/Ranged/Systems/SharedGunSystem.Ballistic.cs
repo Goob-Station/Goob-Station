@@ -149,6 +149,7 @@ public abstract partial class SharedGunSystem
         Audio.PlayPredicted(component.SoundInsert, uid, args.User);
         args.Handled = true;
         UpdateBallisticAppearance(uid, component);
+        UpdateAmmoCount(uid);
         DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.Entities));
     }
 
