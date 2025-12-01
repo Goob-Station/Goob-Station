@@ -4,12 +4,12 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/01/2025 10:57:55
-  entityCount: 6795
+  time: 11/08/2025 11:06:30
+  entityCount: 6793
 maps: []
 grids:
 - 1668
-orphans: 
+orphans:
 - 1668
 nullspace: []
 tilemap:
@@ -19248,7 +19248,7 @@ entities:
       pos: -11.5,-22.5
       parent: 1668
     - type: Door
-      secondsUntilStateChange: -13447.629
+      secondsUntilStateChange: -13377.107
       state: Closing
 - proto: CurtainsOrangeOpen
   entities:
@@ -27921,7 +27921,7 @@ entities:
   - uid: 5336
     components:
     - type: Transform
-      pos: 23.45941,8.09344
+      pos: 23.519432,7.6256037
       parent: 1668
 - proto: PlushieJvne
   entities:
@@ -27933,13 +27933,6 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: PlushieLeguia
-  entities:
-  - uid: 6531
-    components:
-    - type: Transform
-      pos: 23.412535,7.46844
-      parent: 1668
 - proto: PlushieLehmin
   entities:
   - uid: 5459
@@ -27952,7 +27945,7 @@ entities:
   - uid: 4925
     components:
     - type: Transform
-      pos: 23.55316,8.93719
+      pos: 23.443027,8.689883
       parent: 1668
 - proto: PlushieMnwaar
   entities:
@@ -27967,13 +27960,6 @@ entities:
     components:
     - type: Transform
       pos: 29.526373,8.608606
-      parent: 1668
-- proto: PlushiePasha
-  entities:
-  - uid: 6532
-    components:
-    - type: Transform
-      pos: 23.42816,6.68719
       parent: 1668
 - proto: PlushieRainbowCarp
   entities:

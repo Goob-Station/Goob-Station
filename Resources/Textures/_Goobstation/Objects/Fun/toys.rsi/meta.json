@@ -146,6 +146,21 @@
     {
       "name": "plushieleguia-inhand-right",
       "directions": 4
+    },
+    {
+      "name": "plushie_grug"
+    },
+    {
+      "name": "plushiegrug-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "plushiegrug-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "plushiegrug-inhand-right",
+      "directions": 4
     }
   ]
 }
