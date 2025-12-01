@@ -123,6 +123,10 @@
     {
       "name": "plushiepasha-equipped-HELMET",
       "directions": 4
+    },    
+	{
+      "name": "plushiepasha-equipped-HELMET-vox",
+      "directions": 4
     },
     {
       "name": "plushiepasha-inhand-left",
