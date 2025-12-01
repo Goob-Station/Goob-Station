@@ -14,21 +14,23 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 {
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     private bool _isEnabled = true;
+
     public override void Initialize()
     {
         base.Initialize();
         Subs.CVar(_configuration, GoobCVars.ContrabandIconsEnabled, value => _isEnabled = value);
-        if(!_isEnabled)
-            return;
-        SubscribeLocalEvent<VisibleContrabandComponent, MapInitEvent>(OnMapInit);
+        if (_isEnabled)
+        {
+            SubscribeLocalEvent<VisibleContrabandComponent, MapInitEvent>(OnMapInit);
 
-        SubscribeLocalEvent<VisibleContrabandComponent, DidEquipEvent>(OnEquip);
-        SubscribeLocalEvent<VisibleContrabandComponent, DidUnequipEvent>(OnUnequip);
+            SubscribeLocalEvent<VisibleContrabandComponent, DidEquipEvent>(OnEquip);
+            SubscribeLocalEvent<VisibleContrabandComponent, DidUnequipEvent>(OnUnequip);
 
-        SubscribeLocalEvent<VisibleContrabandComponent, DidEquipHandEvent>(OnEquipHands);
-        SubscribeLocalEvent<VisibleContrabandComponent, DidUnequipHandEvent>(OnUnequipHands);
+            SubscribeLocalEvent<VisibleContrabandComponent, DidEquipHandEvent>(OnEquipHands);
+            SubscribeLocalEvent<VisibleContrabandComponent, DidUnequipHandEvent>(OnUnequipHands);
+        }
     }
-    
+
     private void OnMapInit(EntityUid uid, VisibleContrabandComponent component, MapInitEvent args)
     {
         ContrabandDetect(uid, component, SlotFlags.WITHOUT_POCKET);
