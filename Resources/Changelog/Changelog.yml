@@ -4319,3 +4319,10 @@ Entries:
   id: 9237
   time: '2025-11-30T14:10:57.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41636
+- author: slarticodefast
+  changes:
+  - message: Fixed the RCD placement ghost getting stuck for engi borgs.
+    type: Fix
+  id: 9238
+  time: '2025-12-01T01:35:25.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41648
