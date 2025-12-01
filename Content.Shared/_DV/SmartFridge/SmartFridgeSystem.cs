@@ -44,7 +44,7 @@ public sealed class SmartFridgeSystem : EntitySystem
 
     // Goobstation changes - Drag & Drop insert START
     /// <summary>
-    /// Try to insert <paramref name="thingToInsert"/> into the smartfridge (<paramref name="ent"/>).<br/>
+    /// Try to insert <paramref name="thingToInsert"/> into the smartfridge (<paramref name="ent"/>).
     /// </summary>
     /// <param name="ent">The smartfridge entity.</param>
     /// <param name="user">The user trying to insert something.</param>
