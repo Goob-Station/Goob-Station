@@ -51,21 +51,26 @@ public sealed class VehicleSystem : SharedVehicleSystem
             || !_appearance.TryGetData(ent, VehicleState.DrawOver, out _))
             return;
 
-        _sprite.SetDrawDepth((ent,spriteComp), (int)Content.Shared.DrawDepth.DrawDepth.Objects);
+        _sprite.SetDrawDepth((ent, spriteComp), (int)Content.Shared.DrawDepth.DrawDepth.Objects);
 
         if (ent.Comp.RenderOver == VehicleRenderOver.None)
             return;
 
-        var vehicleDir = (Transform(ent).LocalRotation + _eye.CurrentEye.Rotation).GetCardinalDir();
-        var renderOver = (VehicleRenderOver) (1 << (int) vehicleDir);
+        var dir = (Transform(ent).LocalRotation + _eye.CurrentEye.Rotation).GetCardinalDir();
+        var renderOverFlag = dir switch
+        {
+            Direction.North => VehicleRenderOver.North,
+            Direction.NorthEast => VehicleRenderOver.NorthEast,
+            Direction.East => VehicleRenderOver.East,
+            Direction.SouthEast => VehicleRenderOver.SouthEast,
+            Direction.South => VehicleRenderOver.South,
+            Direction.SouthWest => VehicleRenderOver.SouthWest,
+            Direction.West => VehicleRenderOver.West,
+            Direction.NorthWest => VehicleRenderOver.NorthWest,
+            _ => VehicleRenderOver.None,
+        };
 
-        if ((ent.Comp.RenderOver & renderOver) == renderOver)
-        {
-            _sprite.SetDrawDepth((ent,spriteComp), (int)Content.Shared.DrawDepth.DrawDepth.OverMobs);
-        }
-        else
-        {
-            _sprite.SetDrawDepth((ent, spriteComp), (int) Content.Shared.DrawDepth.DrawDepth.Objects);
-        }
+        if ((ent.Comp.RenderOver & renderOverFlag) == renderOverFlag)
+            _sprite.SetDrawDepth((ent, spriteComp), (int) Content.Shared.DrawDepth.DrawDepth.OverMobs);
     }
 }

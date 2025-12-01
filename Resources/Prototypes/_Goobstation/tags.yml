@@ -708,3 +708,6 @@
 
 - type: Tag
   id: ForkliftKeys
+
+- type: Tag
+  id: Crate

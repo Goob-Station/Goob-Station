@@ -24,7 +24,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Vehicle
-    renderOver: East, SouthEast, South, SouthWest, West
+    renderOver: None
   - type: Strap
     position: Stand
     blockMovement: false
@@ -294,26 +294,47 @@
       Plastic: 125
 
 - type: entity
+  id: VehicleForkliftOverlay
+  name: forklift overlay
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Vehicles/forklift.rsi
+    state: forklift1
+    noRot: true
+    drawdepth: OverMobs # Set the drawdepth here to be above players non-clickable
+  - type: Tag
+    tags:
+      - HideContextMenu
+- type: entity
   id: VehicleForklift
   parent: BaseVehicle
-  name: Forklift
+  name: forklift
   description: NanoTrasen approved Forklift Certification required.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Vehicles/forklift.rsi
     layers:
-      - state: forklift
-      - state: forklift1
-        drawdepth: OverMobs
-        visible: false
-        map: [ "overmob" ]
+    - state: forklift
+    - state: forklift_crate
+      map: [ "crateLayer0" ]
+      visible: false
+    - state: forklift_crate2
+      map: [ "crateLayer1" ]
+      visible: false
+    - state: forklift_crate3
+      map: [ "crateLayer2" ]
+      visible: false
+    - state: forklift_crate4
+      map: [ "crateLayer3" ]
+      visible: false
     noRot: true
   - type: Vehicle
+    overlayPrototype: VehicleForkliftOverlay
     hornSound:
       collection: BikeHorn
       params:
         variation: 0.125
-    overmobState: forklift1
   - type: ItemSlots
     slots:
       key_slot:
@@ -327,9 +348,34 @@
           path: /Audio/Effects/Vehicle/vehiclestartup.ogg
           params:
             volume: -3
+  - type: ContainerContainer
+    containers:
+      crate_storage: !type:Container
   - type: GenericVisualizer
     visuals:
-      enum.VehicleOverMob.Enabled:
-        overmob:
-          True: { visible: true }
-          False: { visible: false }
+      enum.ForkliftVisuals.CrateState:
+        crateLayer0:
+          Empty: { visible: false }
+          OneCrate: { visible: true }
+          TwoCrates: { visible: true }
+          ThreeCrates: { visible: true }
+          FourCrates: { visible: true }
+        crateLayer1:
+          Empty: { visible: false }
+          OneCrate: { visible: false }
+          TwoCrates: { visible: true }
+          ThreeCrates: { visible: true }
+          FourCrates: { visible: true }
+        crateLayer2:
+          Empty: { visible: false }
+          OneCrate: { visible: false }
+          TwoCrates: { visible: false }
+          ThreeCrates: { visible: true }
+          FourCrates: { visible: true }
+        crateLayer3:
+          Empty: { visible: false }
+          OneCrate: { visible: false }
+          TwoCrates: { visible: false }
+          ThreeCrates: { visible: false }
+          FourCrates: { visible: true }
+  - type: DragDropTargetable

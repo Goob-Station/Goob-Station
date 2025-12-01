@@ -41,6 +41,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private static readonly EntProtoId HornActionId = "ActionHorn";
     private static readonly EntProtoId SirenActionId = "ActionSiren";
@@ -176,12 +177,22 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         ent.Comp.Driver = driver;
         _appearance.SetData(ent, VehicleState.DrawOver, true);
-        _appearance.SetData(ent, VehicleOverMob.Enabled, true); // allows for an always overmob state toggled on buckle
+
+        SetupOverlay(ent, driver);
 
         if (!ent.Comp.EngineRunning)
             return;
 
         Mount(driver, ent);
+    }
+
+    private void SetupOverlay(Entity<VehicleComponent> ent, EntityUid driver)
+    {
+        if (ent.Comp.OverlayPrototype == null)
+            return;
+        var overlay = EntityManager.SpawnEntity(ent.Comp.OverlayPrototype, Transform(ent).Coordinates);
+        _transform.SetParent(overlay, ent);
+        ent.Comp.ActiveOverlay = overlay;
     }
 
     private void OnUnstrapped(Entity<VehicleComponent> ent, ref UnstrappedEvent args)
@@ -191,18 +202,16 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         Dismount(args.Buckle.Owner, ent);
         _appearance.SetData(ent, VehicleState.DrawOver, false);
-        _appearance.SetData(ent, VehicleOverMob.Enabled, false); // allows for an always overmob state
     }
 
-    private void OnDropped(EntityUid uid, VehicleComponent comp, VirtualItemDeletedEvent args)
+    private void OnDropped(Entity<VehicleComponent> ent, ref VirtualItemDeletedEvent args)
     {
-        if (comp.Driver != args.User)
+        if (ent.Comp.Driver != args.User)
             return;
 
         _buckle.TryUnbuckle(args.User, args.User);
-
-        Dismount(args.User, uid);
-        _appearance.SetData(uid, VehicleState.DrawOver, false);
+        Dismount(args.User, ent);
+        _appearance.SetData(ent, VehicleState.DrawOver, false);
     }
 
     private void AddHorns(EntityUid driver, EntityUid vehicle)
@@ -227,15 +236,17 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
     private void Dismount(EntityUid driver, EntityUid vehicle)
     {
-        if (!TryComp<VehicleComponent>(vehicle, out var vehicleComp))
+        if (!TryComp<VehicleComponent>(vehicle, out var vehicleComp) || vehicleComp.Driver != driver)
             return;
-
-        if (vehicleComp.Driver != driver)
-            return;
-
-        RemComp<RelayInputMoverComponent>(driver);
 
         vehicleComp.Driver = null;
+
+        if (vehicleComp.ActiveOverlay.HasValue)
+        {
+            EntityManager.QueueDeleteEntity(vehicleComp.ActiveOverlay.Value);
+            vehicleComp.ActiveOverlay = null;
+        }
+        RemComp<RelayInputMoverComponent>(driver);
 
         if (vehicleComp.HornAction != null)
             _actions.RemoveAction(driver, vehicleComp.HornAction);
@@ -287,7 +298,3 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     }
 
 }
-
-public sealed partial class HornActionEvent : InstantActionEvent;
-
-public sealed partial class SirenActionEvent : InstantActionEvent;
