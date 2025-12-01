@@ -1,8 +1,4 @@
-using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
-using System.Collections.Generic;
-
-namespace Content.Goobstation.Shared.Disease;
+namespace Content.Goobstation.Shared.Disease.Components;
 
 /// <summary>
 /// Modifies strength of incoming and/or outgoing disease spread attempts for the entity or the wearer of the entity

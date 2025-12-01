@@ -1,9 +1,6 @@
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using System;
-using System.Collections.Generic;
 
-namespace Content.Goobstation.Shared.Disease;
+namespace Content.Goobstation.Shared.Disease.Components;
 
 /// <summary>
 /// For entities that have the ability to naturally fight back diseases

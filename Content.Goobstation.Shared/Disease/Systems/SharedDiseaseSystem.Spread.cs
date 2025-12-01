@@ -1,9 +1,8 @@
-using Robust.Shared.GameObjects;
+using Content.Goobstation.Shared.Disease.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using System;
 
-namespace Content.Goobstation.Shared.Disease;
+namespace Content.Goobstation.Shared.Disease.Systems;
 
 public partial class SharedDiseaseSystem
 {

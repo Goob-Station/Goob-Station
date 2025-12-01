@@ -1,14 +1,10 @@
 using Content.Shared.Chat.Prototypes;
-using Content.Shared.Damage;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using System;
-using System.Collections.Generic;
-using System.Numerics;
 
-namespace Content.Goobstation.Shared.Disease;
+namespace Content.Goobstation.Shared.Disease.Components;
 
 /// <summary>
 /// Component for disease behaviors

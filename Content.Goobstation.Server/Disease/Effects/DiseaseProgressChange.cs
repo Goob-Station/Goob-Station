@@ -34,11 +34,11 @@ public sealed partial class DiseaseProgressChange : EntityEffect
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        if (args.EntityManager.TryGetComponent<DiseaseCarrierComponent>(args.TargetEntity, out var carrier))
+        if (args.EntityManager.TryGetComponent<Shared.Disease.Components.DiseaseCarrierComponent>(args.TargetEntity, out var carrier))
         {
             foreach (var diseaseUid in carrier.Diseases)
             {
-                if (!args.EntityManager.TryGetComponent<DiseaseComponent>(diseaseUid, out var disease))
+                if (!args.EntityManager.TryGetComponent<Shared.Disease.Components.DiseaseComponent>(diseaseUid, out var disease))
                     continue;
                 if (disease.DiseaseType != AffectedType)
                     continue;

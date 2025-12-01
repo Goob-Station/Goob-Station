@@ -1,9 +1,6 @@
-using Content.Goobstation.Shared.Disease;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
-using System;
 
-namespace Content.Goobstation.Shared.Disease;
+namespace Content.Goobstation.Shared.Disease.Components;
 
 /// <summary>
 /// Causes this effect to only trigger with a specified chance

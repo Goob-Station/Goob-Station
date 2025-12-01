@@ -1,8 +1,7 @@
-using Content.Goobstation.Shared.Disease;
+using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.GameObjects;
 
-namespace Content.Goobstation.Shared.Disease.DiseaseOnHit;
+namespace Content.Goobstation.Shared.Disease.Systems;
 
 public sealed partial class DiseaseOnHitSystem : EntitySystem
 {

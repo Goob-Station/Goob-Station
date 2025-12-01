@@ -1,7 +1,7 @@
+using Content.Goobstation.Shared.Disease.Components;
 using Robust.Shared.Random;
-using System;
 
-namespace Content.Goobstation.Shared.Disease;
+namespace Content.Goobstation.Shared.Disease.Systems;
 
 public partial class SharedDiseaseSystem
 {
@@ -52,7 +52,7 @@ public partial class SharedDiseaseSystem
     protected float GetScale(DiseaseCheckConditionsEvent args, ScalingDiseaseEffect effect)
     {
         return (effect.SeverityScale ? args.Comp.Severity : 1f)
-            * (effect.TimeScale ? (float)UpdateInterval.TotalSeconds : 1f)
+            * (effect.TimeScale ? (float)_updateInterval.TotalSeconds : 1f)
             * (effect.ProgressScale ? args.Disease.Comp.InfectionProgress : 1f);
     }
 }
