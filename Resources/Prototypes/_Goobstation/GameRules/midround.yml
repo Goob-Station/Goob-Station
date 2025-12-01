@@ -38,7 +38,8 @@
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
     definitions:
-    - prefRoles: [ Traitor ]
+    - prefRoles: [ TraitorSleeper ]
+      fallbackRoles: [ Traitor ]
       min: 1
       max: 2
       playerRatio: 10
@@ -80,8 +81,7 @@
     selectionTime: PostPlayerSpawn
     agentName: changeling-roundend-name
     definitions:
-    - prefRoles: [ SleeperChangeling ]
-    - fallbackRoles: [ Changeling ]
+    - prefRoles: [ Changeling ]
       min: 1
       max: 2
       playerRatio: 10
@@ -124,8 +124,7 @@
     selectionTime: PostPlayerSpawn
     agentName: heretic-roundend-name
     definitions:
-    - prefRoles: [ SleeperHeretic ]
-    - fallbackRoles: [ Heretic ]
+    - prefRoles: [ Heretic ]
       min: 1
       max: 2
       playerRatio: 15
@@ -279,8 +278,7 @@
     selectionTime: PostPlayerSpawn
     agentName: devil-roundend-name
     definitions:
-    - prefRoles: [ SleeperDevil ]
-    - fallbackRoles: [ Devil ]
+    - prefRoles: [ Devil ]
       max: 1
       playerRatio: 15
       blacklist:
@@ -295,3 +293,78 @@
   - type: Tag
     tags:
       - MidroundAntag
+
+# Slasher
+- type: entity
+  parent: BaseGameRule
+  id: SlasherSpawn
+  components:
+  - type: StationEvent
+    weight: 3
+    duration: null
+    earliestStart: 30
+    minimumPlayers: 30
+    chaos:
+      Hostile: 40
+      Combat: 40
+      Death: 40
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 400
+  - type: AntagRandomSpawn
+  - type: AntagLoadProfileRule
+    speciesOverride: Human
+    speciesOverrideBlacklist:
+    - Yowie
+    - IPC
+    - Diona
+    - Harpy
+    - Plasmaman
+  - type: AntagObjectives
+    objectives:
+    - SlasherSurviveObjective
+    - SlasherAbsorbSoulsObjective
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
+    agentName: slasher-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSlasher
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SlasherGear
+      briefing:
+        text: slasher-role-greeting
+        color: Red
+        sound: /Audio/_Goobstation/Effects/Slasher/SlasherIntro.ogg
+      mindRoles:
+      - MindRoleSlasher
+      components:
+      - type: Slasher
+      - type: SlasherSummonMachete
+      - type: SlasherStaggerArea
+      - type: SlasherRegenerate
+      - type: SlasherPossession
+      - type: SlasherBloodTrail
+      - type: SlasherIncorporeal
+      - type: SlasherSoulSteal
+      - type: SlasherSummonMeatSpike
+      - type: BreathingImmunity
+      - type: GunBlocked
+        PopupText: slasher-cannot-use-guns # Seems to be broken inside AntagSelection
+      - type: WeakToHoly
+      - type: NightVision
+        activateSound: null
+        deactivateSound: null
+      - type: Hunger
+        baseDecayRate: 0
+      - type: Thirst
+        baseDecayRate: 0
+      - type: RandomMetadata
+        nameSegments:
+        - NamesSlasherTitle
+        - NamesSlasher
+        nameFormat: name-format-slasher
+  - type: Tag
+    tags:
+    - MidroundAntag

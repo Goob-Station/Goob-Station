@@ -586,6 +586,14 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     private void OnCollideEvent(EntityUid uid, SupermatterComponent sm, ref StartCollideEvent args)
     {
+        var target = args.OtherEntity;
+
+        // Stop immune entities from activating the sm.
+        if (args.OtherBody.BodyType == BodyType.Static
+            || HasComp<SupermatterImmuneComponent>(target)
+            || _container.IsEntityInContainer(uid))
+            return;
+
         if (!sm.Activated)
         {
             // Extra logging for supermatter
@@ -603,12 +611,6 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
             sm.Activated = true;
         }
-
-        var target = args.OtherEntity;
-        if (args.OtherBody.BodyType == BodyType.Static
-            || HasComp<SupermatterImmuneComponent>(target)
-            || _container.IsEntityInContainer(uid))
-            return;
 
         if (TryComp<SupermatterFoodComponent>(target, out var food))
             sm.Power += food.Energy;
@@ -631,13 +633,13 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     private void OnHandInteract(EntityUid uid, SupermatterComponent sm, ref InteractHandEvent args)
     {
-        if (!sm.Activated)
-            sm.Activated = true;
-
         var target = args.User;
 
         if (HasComp<SupermatterImmuneComponent>(target))
             return;
+
+        if (!sm.Activated)
+            sm.Activated = true;
 
         sm.MatterPower += 200;
 
@@ -648,6 +650,9 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     private void OnItemInteract(EntityUid uid, SupermatterComponent sm, ref InteractUsingEvent args)
     {
+        if (HasComp<SupermatterImmuneComponent>(args.User))
+            return;
+
         if (!sm.Activated)
             sm.Activated = true;
 

@@ -45,6 +45,12 @@ public sealed partial class HealingAuraComponent : Component
     public FixedPoint2 BoneHeal = -3f;
 
     [DataField]
+    public FixedPoint2 BleedHeal = -1f;
+
+    [DataField]
+    public FixedPoint2 BloodHeal = 10f;
+
+    [DataField]
     public FixedPoint2 WoundHeal = -3f;
 
     /// <summary>

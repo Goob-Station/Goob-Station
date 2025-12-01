@@ -196,7 +196,7 @@
     state: std_mod
   content:
   - EncryptionKeySyndie
-  - AntimovCircuitBoard
+  - SyndicateCustomLawboard
   - AccessBreaker
   - Emag
   - RadioJammer

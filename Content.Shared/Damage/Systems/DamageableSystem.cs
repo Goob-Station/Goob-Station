@@ -372,12 +372,26 @@ namespace Content.Shared.Damage
                         return null;
                 }
 
-                var damagePerPart = ApplySplitDamageBehaviors(splitDamageBehavior, adjustedDamage, targetedBodyParts);
+                // Goob edit start
+                List<float>? multipliers = null;
+                var damagePerPart = adjustedDamage;
+                if (targetedBodyParts.Count > 0 && adjustedDamage.PartDamageVariation != 0f)
+                {
+                    multipliers =
+                        GetDamageVariationMultipliers(adjustedDamage.PartDamageVariation, targetedBodyParts.Count);
+                }
+                else
+                    damagePerPart = ApplySplitDamageBehaviors(splitDamageBehavior, adjustedDamage, targetedBodyParts);
                 var appliedDamage = new DamageSpecifier();
                 var surplusHealing = new DamageSpecifier();
-                foreach (var (partId, _, partDamageable) in targetedBodyParts)
+                for (var i = 0; i < targetedBodyParts.Count; i++)
                 {
-                    var modifiedDamage = damagePerPart + surplusHealing;
+                    var (partId, _, partDamageable) = targetedBodyParts[i];
+                    var modifiedDamage = damagePerPart;
+                    if (multipliers != null && multipliers.Count == targetedBodyParts.Count)
+                        modifiedDamage *= multipliers[i];
+                    modifiedDamage += surplusHealing;
+                    // Goob edit end
 
                     // Apply damage to this part
                     var partDamageResult = TryChangeDamage(partId, modifiedDamage, ignoreResistances,
@@ -513,7 +527,9 @@ namespace Content.Shared.Damage
 
             damage = ApplyUniversalAllModifiers(damage);
 
-            var delta = new DamageSpecifier();
+            var delta = new DamageSpecifier(damage.ArmorPenetration,
+                damage.PartDamageVariation,
+                damage.WoundSeverityMultipliers); // Goob edit
             delta.DamageDict.EnsureCapacity(damage.DamageDict.Count);
             var dict = damageable.Damage.DamageDict;
 
@@ -647,6 +663,30 @@ namespace Content.Shared.Damage
                 ignoreBlockers: ignoreBlockers);
 
             return true;
+        }
+
+        public List<float> GetDamageVariationMultipliers(float variation, int count)
+        {
+            DebugTools.AssertNotEqual(count, 0);
+            var list = new List<float>(count);
+            var weights = new List<float>(count);
+            var totalWeight = 0f;
+            var random = new System.Random((int) _timing.CurTick.Value);
+            for (var i = 0; i < count; i++)
+            {
+                var weight = random.NextFloat() * MathF.Abs(variation) + 1f;
+                weights.Add(weight);
+                totalWeight += weight;
+            }
+
+            DebugTools.AssertNotEqual(totalWeight, 0f);
+
+            foreach (var weight in weights)
+            {
+                list.Add(weight / totalWeight);
+            }
+
+            return list;
         }
 
         public DamageSpecifier ApplySplitDamageBehaviors(SplitDamageBehavior splitDamageBehavior,
@@ -787,8 +827,16 @@ namespace Content.Shared.Damage
 
                 // Create wounds if damage was applied
                 if (newValue > 0 && woundable.AllowWounds)
+                {
                     foreach (var (type, value) in component.Damage.DamageDict)
-                        _wounds.TryInduceWound(uid, type, value, out _, woundable);
+                    {
+                        _wounds.TryInduceWound(uid,
+                            type,
+                            value * component.Damage.WoundSeverityMultipliers.GetValueOrDefault(type, 1),
+                            out _,
+                            woundable);
+                    }
+                }
             }
         }
 
