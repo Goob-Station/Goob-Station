@@ -292,3 +292,37 @@
     materialComposition:
       Steel: 125
       Plastic: 125
+
+- type: entity
+  id: CritterBall
+  parent: BaseVehicle
+  name: critter ball
+  description: A luxury hoverchair, kick back and relax.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Vehicles/critterball.rsi
+    layers:
+    - state: vehicle
+    noRot: true
+  - type: Vehicle
+    requiredHands: 0
+    engineRunning: true
+    renderOver: None
+  - type: MovementSpeedModifier
+    acceleration: 1
+    friction: 1
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 10
+  - type: StaticPrice
+    price: 100
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 125
+  - type: SpaceImmunityOnBuckle
+  - type: Strap
+    buckleOnInteractHand: false
+    addBuckleverb: false
+    allowOthersToUnbuckle: false
+    whitelist:
+      tags:
+        - VimPilot  # Small creatures only

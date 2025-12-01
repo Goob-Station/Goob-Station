@@ -72,11 +72,13 @@ public sealed partial class VehicleComponent : Component
     /// </summary>
     [DataField]
     public bool PreventEjectOfKey  = true;
+
     /// <summary>
     /// if the Vehicle is broken
     /// </summary>
     [DataField]
     public bool IsBroken  = false;
+
 }
 [Serializable, NetSerializable]
 public enum VehicleState : byte
