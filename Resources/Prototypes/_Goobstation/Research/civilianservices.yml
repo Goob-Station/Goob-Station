@@ -67,6 +67,21 @@
 # Tier 2
 
 - type: technology
+  id: ExtendedCommunications
+  name: research-technology-extended-communication
+  icon:
+    sprite: _Goobstation/Structures/Machines/comms_transmitter.rsi
+    state: base
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - TelecomTransmitterCircuitboard
+  position: 2,5
+  technologyPrerequisites:
+  - AudioVisualCommunication
+
+- type: technology
   id: HONKWeapons
   name: research-technology-honk-weapons
   icon:

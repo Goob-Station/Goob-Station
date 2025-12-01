@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 262.0.0
+  engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/15/2025 02:52:04
-  entityCount: 18020
+  time: 11/20/2025 22:02:16
+  entityCount: 18018
 maps:
 - 1
 grids:
@@ -369,6 +369,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -5225,6 +5230,7 @@ entities:
     - type: BecomesStation
       id: Loop
     - type: ImplicitRoof
+    - type: FTLDrive
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3
@@ -41183,8 +41189,8 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
   - uid: 6500
@@ -41214,8 +41220,8 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
   - uid: 6501
@@ -41245,8 +41251,8 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
   - uid: 6502
@@ -41281,8 +41287,8 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
   - uid: 6504
@@ -41322,8 +41328,8 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
   - uid: 6507
@@ -41363,8 +41369,8 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
   - uid: 6510
@@ -41399,8 +41405,8 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
 - proto: ClothingBackpackDuffelSurgeryFilled
@@ -54182,14 +54188,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -18.5,31.5
       parent: 2
-  - uid: 8356
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -4.5,4.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#990000FF'
   - uid: 8357
     components:
     - type: Transform
@@ -54910,14 +54908,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
-  - uid: 8451
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -4.5,6.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#990000FF'
   - uid: 8452
     components:
     - type: Transform
@@ -61343,11 +61333,9 @@ entities:
   - uid: 9296
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -3.5,5.5
+      rot: -1.5707963267948966 rad
+      pos: -3.5,4.5
       parent: 2
-    - type: AtmosPipeColor
-      color: '#990000FF'
   - uid: 9297
     components:
     - type: Transform
@@ -66801,6 +66789,11 @@ entities:
     - type: Transform
       pos: -23.5,83.5
       parent: 2
+  - uid: 10028
+    components:
+    - type: Transform
+      pos: -4.5,5.5
+      parent: 2
   - uid: 13325
     components:
     - type: Transform
@@ -66873,6 +66866,18 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -49.5,70.5
+      parent: 2
+  - uid: 8356
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -4.5,4.5
+      parent: 2
+  - uid: 8451
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,6.5
       parent: 2
   - uid: 10013
     components:
@@ -66992,14 +66997,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
-  - uid: 10028
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -3.5,4.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#990000FF'
   - uid: 10029
     components:
     - type: Transform
