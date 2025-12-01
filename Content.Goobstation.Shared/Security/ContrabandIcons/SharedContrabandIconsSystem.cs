@@ -2,11 +2,14 @@ using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.Contraband;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Prototypes;
+using Content.Shared.Access.Components;
 using Content.Shared.Hands;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Content.Shared.PDA;
 using Content.Shared.Strip.Components;
 using Robust.Shared.Configuration;
+using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Shared.Security.ContrabandIcons;
 
@@ -30,7 +33,6 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
         
         Subs.CVar(_configuration, GoobCVars.ContrabandIconsEnabled, value => _isEnabled = value);
     }
-
     protected void ContrabandDetect(EntityUid inventory, VisibleContrabandComponent component, SlotFlags slotFlags = SlotFlags.WITHOUT_POCKET)
     {
         if (!_isEnabled || HasComp<ThievingComponent>(inventory))
@@ -63,10 +65,11 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
 
     private void OnUnequipHands(EntityUid uid, VisibleContrabandComponent component, DidUnequipHandEvent args)
     {
-        ContrabandDetect(uid, component, SlotFlags.NONE);
+        if (!HasComp<IdCardComponent>(args.Unequipped) && uid == args.User)
+            ContrabandDetect(uid, component);
     }
     private void OnEquipHands(EntityUid uid, VisibleContrabandComponent component, DidEquipHandEvent args)
     {
-        ContrabandDetect(uid, component, SlotFlags.NONE);
+            ContrabandDetect(uid, component);
     }
 }
