@@ -33,6 +33,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;  // goob - intermap transmitters
+using Content.Goobstation.Shared.Communications; // goob - intermap transmitters
 using Content.Goobstation.Shared.Loudspeaker.Events; // goob - loudspeakers
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
@@ -193,12 +195,16 @@ public sealed class RadioSystem : EntitySystem
         //     null);
         // var chatMsg = new MsgChatMessage { Message = chat };
         // var ev = new RadioReceiveEvent(message, messageSource, channel, radioSource, chatMsg);
-        var msg = new ChatMessage(ChatChannel.Radio, content, wrappedMessage, NetEntity.Invalid, null); // Einstein Engines - Language
+        // Goobstation - Chat Pings
+        // Added GetNetEntity(messageSource), to source
+        var msg = new ChatMessage(ChatChannel.Radio, content, wrappedMessage, GetNetEntity(messageSource), null);
 
         // Einstein Engines - Language begin
         var obfuscated = _language.ObfuscateSpeech(content, language);
         var obfuscatedWrapped = WrapRadioMessage(messageSource, channel, name, obfuscated, language);
-        var notUdsMsg = new ChatMessage(ChatChannel.Radio, obfuscated, obfuscatedWrapped, NetEntity.Invalid, null);
+        // Goobstation - Chat Pings
+        // Added GetNetEntity(messageSource), to source
+        var notUdsMsg = new ChatMessage(ChatChannel.Radio, obfuscated, obfuscatedWrapped, GetNetEntity(messageSource), null);
         var ev = new RadioReceiveEvent(messageSource, channel, msg, notUdsMsg, language, radioSource);
         // Einstein Engines - Language end
 
@@ -221,7 +227,8 @@ public sealed class RadioSystem : EntitySystem
                     continue;
             }
 
-            if (!channel.LongRange && transform.MapID != sourceMapId && !radio.GlobalReceive)
+            if (!channel.LongRange && transform.MapID != sourceMapId && !radio.GlobalReceive
+                && !(HasActiveTransmitter(transform.MapID) && HasActiveTransmitter(sourceMapId))) // goob - intermap transmitters
                 continue;
 
             // don't need telecom server for long range channels or handheld radios and intercoms
@@ -325,4 +332,12 @@ public sealed class RadioSystem : EntitySystem
         }
         return false;
     }
+    // goob start - intermap transmitters
+    /// <inheritdoc cref="TelecomServerComponent"/>
+    private bool HasActiveTransmitter(MapId mapId)
+    {
+        return EntityQuery<TelecomTransmitterComponent, ApcPowerReceiverComponent, TransformComponent>()
+            .Any(server => server.Item3.MapID == mapId && server.Item2.Powered);
+    }
+    // goob end
 }

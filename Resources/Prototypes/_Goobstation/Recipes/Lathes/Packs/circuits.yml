@@ -29,3 +29,5 @@
   - ConstructorCircuitboard
   - StorageBinCircuitboard
   - InteractorCircuitboard
+  - PlumbingPumpCircuitboard
+  - TelecomTransmitterCircuitboard

@@ -61,7 +61,7 @@
   - type: Pullable
   - type: ZombieImmune
   - type: Speech
-    speechVerb: Ghost
+    speechVerb: Skeleton
   - type: Destructible
     thresholds:
       - trigger:
@@ -82,6 +82,16 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
+  - type: Vocal
+    wilhelm: "/Audio/_Goobstation/Voice/badtothebone.ogg"
+    wilhelmProbability: 0.1
+    sounds:
+      Male: Skeleton
+      Female: Skeleton
+      Unsexed: Skeleton
+  - type: SkeletonAccent
+  - type: TypingIndicator
+    proto: skeleton
 
 - type: entity
   id: MobCrunched
@@ -242,6 +252,8 @@
   parent: [ BaseMob, MobCombat ]
   description: A severely disfigured human torso which is forcibly kept alive by the mechanical parts...
   components:
+  - type: MindContainer
+    showExamineInfo: true
   - type: SpamEmitSound
     minInterval: 5
     maxInterval: 25
@@ -294,7 +306,6 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHeavySuit
-  - type: TileMovement
 
 - type: entity
   id: MobMonstrosityBody
@@ -311,6 +322,8 @@
         volume: -1
         maxDistance: 12
         variation: 0.01
+  - type: MindContainer
+    showExamineInfo: true
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -372,7 +385,6 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHeavySuit
-  - type: TileMovement
 
 - type: entity
   name: lion
@@ -394,6 +406,8 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Bingle
+  - type: MindContainer
+    showExamineInfo: true
   - type: MobState
   - type: MobThresholds
     thresholds:

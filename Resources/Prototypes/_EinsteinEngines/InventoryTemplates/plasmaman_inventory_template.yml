@@ -98,7 +98,7 @@
       stripTime: 3
       uiWindowPos: 2,0
       strippingWindowPos: 2,5
-      dependsOn: outerClothing
+      dependsOn: jumpsuit # Goobstation - plasmamen can use the envirosuit as gasholder
       dependsOnComponents:
       - type: AllowSuitStorage
       displayName: Suit Storage

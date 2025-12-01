@@ -64,6 +64,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         SubscribeLocalEvent<VehicleComponent, ItemSlotEjectAttemptEvent>(OnItemSlotEject);
         SubscribeLocalEvent<VehicleComponent, BreakageEventArgs>(OnBreak);
         SubscribeLocalEvent<VehicleComponent, DamageChangedEvent>(OnRepair);
+        SubscribeLocalEvent<VehicleComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
     }
 
     private void OnInit(EntityUid uid, VehicleComponent component, ComponentInit args)
@@ -236,21 +237,10 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
     private void Mount(EntityUid driver, EntityUid vehicle)
     {
-        if (TryComp<AccessComponent>(vehicle, out var accessComp))
-        {
-            var accessSources = _access.FindPotentialAccessItems(driver);
-            var access = _access.FindAccessTags(driver, accessSources);
-
-            foreach (var tag in access)
-            {
-                accessComp.Tags.Add(tag);
-            }
-        }
+        _mover.SetRelay(driver, vehicle);
 
         if (HasComp<TileMovementComponent>(driver))
             EnsureComp<TileMovementComponent>(vehicle);
-
-        _mover.SetRelay(driver, vehicle);
     }
 
     private void Dismount(EntityUid driver, EntityUid vehicle)
@@ -272,9 +262,6 @@ public abstract partial class SharedVehicleSystem : EntitySystem
             _actions.RemoveAction(driver, vehicleComp.SirenAction);
 
         _virtualItem.DeleteInHandsMatching(driver, vehicle);
-
-        if (TryComp<AccessComponent>(vehicle, out var accessComp))
-            accessComp.Tags.Clear();
 
         if (HasComp<TileMovementComponent>(vehicle))
             RemComp<TileMovementComponent>(vehicle);
@@ -314,6 +301,15 @@ public abstract partial class SharedVehicleSystem : EntitySystem
             return;
         if (args.Damageable.TotalDamage == FixedPoint2.Zero)
             component.IsBroken = false;
+    }
+
+    private void OnGetAdditionalAccess(EntityUid uid, VehicleComponent component, ref GetAdditionalAccessEvent args)
+    {
+        var driver = component.Driver;
+        if (driver == null)
+            return;
+
+        args.Entities.Add(driver.Value);
     }
 
 }

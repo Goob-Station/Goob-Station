@@ -123,6 +123,11 @@
   - type: IconSmooth
     key: walls
     base: window
+  - type: InteractionPopup
+    interactSuccessString: comp-window-knock
+    messagePerceivedByOthers: comp-window-knock
+    interactSuccessSound:
+      path: /Audio/Effects/glass_knock.ogg
   - type: Construction
     graph: Window
     node: window
@@ -136,14 +141,12 @@
   - type: StaticPrice
     price: 100
   - type: BlockWeather
-  - type: InteractionVerbs # GoobStation: EE Interaction Verbs
-    allowedVerbs:
-      - KnockOn
 
 - type: entity
   parent: Window
   id: TintedWindow
   name: tinted window
+  description: Smart tinted window with state switching option.
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -160,6 +163,20 @@
     price: 70
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WindowCosmicCult
+  - type: ToggleableOccluder # Goob
+  - type: DeviceLinkSink # Goob
+    ports:
+    - On
+    - Off
+    - Toggle
+
+- type: entity # Goob
+  parent: TintedWindow
+  id: TintedWindowTransparent
+  suffix: Transparent
+  components:
+  - type: Occluder
+    enabled: false
 
 - type: entity
   id: WindowRCDResistant
@@ -195,6 +212,11 @@
   - type: Icon
     sprite: Structures/Windows/directional.rsi
     state: window
+  - type: InteractionPopup
+    interactSuccessString: comp-window-knock
+    messagePerceivedByOthers: comp-window-knock
+    interactSuccessSound:
+      path: /Audio/Effects/glass_knock.ogg
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -257,9 +279,6 @@
       sprite: Structures/Windows/cracks_directional.rsi
   - type: StaticPrice
     price: 10
-  - type: InteractionVerbs # GoobStation: EE Interaction Verbs
-    allowedVerbs:
-    - KnockOn
 
 - type: entity
   id: WindowDirectionalRCDResistant

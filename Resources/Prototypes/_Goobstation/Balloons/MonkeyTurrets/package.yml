@@ -1,0 +1,27 @@
+- type: entity
+  parent: BaseItem
+  id: DartMonkeyCube
+  name: dart monkey cube
+  description: A compressed cube, that when used, produces a stationary monkey that shoots darts at balloons.
+  components: 
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/Monkey_Turrets/dartmonkey.rsi
+    state: cube
+  - type: Item
+    size: Tiny
+  - type: SpawnItemsOnUse
+    items:
+    - id: MonkeyTurretDartBase
+      path: /Audio/Effects/unwrap.ogg
+   
+    
+- type: entity
+  id: CrateDartMonkey
+  parent: CratePlastic
+  name: dart monkey crate
+  description: A crate containing a highly compressed dart monkey. Perfect for popping balloons, just don't question the ethics of it...
+  components:
+  - type: StorageFill
+    contents:
+    - id: DartMonkeyCube
+      amount: 1

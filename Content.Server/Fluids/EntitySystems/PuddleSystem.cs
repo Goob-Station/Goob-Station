@@ -823,7 +823,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
                 continue;
             // Corvax-Next-Footprints-End
 
-            if (TryAddSolution(ent.Value, solution, sound, puddleComponent: puddle))
+            if (TryAddSolution(ent.Value, solution.SplitSolution(solution.Volume), sound, puddleComponent: puddle)) // goobstation
             {
                 EnsureComp<ActiveEdgeSpreaderComponent>(ent.Value);
             }
@@ -835,7 +835,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         var coords = _map.GridTileToLocal(gridId, mapGrid, tileRef.GridIndices);
         puddleUid = Spawn("Puddle", coords);
         EnsureComp<PuddleComponent>(puddleUid);
-        if (TryAddSolution(puddleUid, solution, sound))
+        if (TryAddSolution(puddleUid, solution.SplitSolution(solution.Volume), sound)) // goobstation
         {
             EnsureComp<ActiveEdgeSpreaderComponent>(puddleUid);
         }
