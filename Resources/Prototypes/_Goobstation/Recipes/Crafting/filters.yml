@@ -7,7 +7,6 @@
 - type: construction
   id: AutomationFilterLabel
   graph: AutomationFilter
-  startNode: start
   targetNode: label
   category: construction-category-misc
   objectType: Item
@@ -15,7 +14,6 @@
 - type: construction
   id: AutomationFilterName
   graph: AutomationFilter
-  startNode: start
   targetNode: name
   category: construction-category-misc
   objectType: Item
@@ -23,7 +21,6 @@
 - type: construction
   id: AutomationFilterStack
   graph: AutomationFilter
-  startNode: start
   targetNode: stack
   category: construction-category-misc
   objectType: Item
@@ -31,7 +28,6 @@
 - type: construction
   id: AutomationFilterPressure
   graph: AutomationFilter
-  startNode: start
   targetNode: pressure
   category: construction-category-misc
   objectType: Item
@@ -39,7 +35,6 @@
 - type: construction
   id: AutomationFilterCombined
   graph: AutomationFilter
-  startNode: start
   targetNode: combined
   category: construction-category-misc
   objectType: Item
@@ -47,7 +42,6 @@
 - type: construction
   id: AutomationFilterAnchor
   graph: AutomationFilter
-  startNode: start
   targetNode: anchor
   category: construction-category-misc
   objectType: Item
@@ -55,7 +49,6 @@
 - type: construction
   id: AutomationFilterMob
   graph: AutomationFilter
-  startNode: start
   targetNode: mob
   category: construction-category-misc
   objectType: Item
@@ -63,7 +56,6 @@
 - type: construction
   id: AutomationFilterCuff
   graph: AutomationFilter
-  startNode: start
   targetNode: cuff
   category: construction-category-misc
   objectType: Item

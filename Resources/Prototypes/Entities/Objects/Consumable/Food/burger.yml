@@ -1086,3 +1086,32 @@
   - type: Tag
     tags:
     - Meat
+    
+## Goobstation
+- type: entity
+  name: nothing burger
+  parent: FoodBurgerBase
+  id: FoodBurgerChud
+  description: A burger for when nothing happens.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - nothing
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/chud_burger.rsi
+    state: icon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 6
+        - ReagentId: Nothing
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Meat
