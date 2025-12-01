@@ -27,9 +27,9 @@ highp vec3 hsv2rgb(highp vec3 c) {
 }
 
 
-highp float getNeightbor(highp vec2 uv, lowp float x, lowp float y) {
-    lowp float xdif = x / pixelSize;
-    lowp float ydif = y / pixelSize;
+highp float getNeighbor(highp vec2 uv, lowp int x, lowp int y) {
+    lowp float xdif = float(x) / pixelSize;
+    lowp float ydif = float(y) / pixelSize;
     highp vec2 res = vec2(uv.x + xdif, uv.y + ydif);
     if (res.x < 0.0 || res.x > 1.0 || res.y < 0.0 || res.y > 1.0)
         return 0.0;
@@ -45,7 +45,7 @@ void fragment() {
     highp float s = 0.0;
     for(int y = -2; y <= 2; y++) {
         for(int x = -2; x <= 2; x++) {
-            s = s + getNeightbor(UV, x, y) * 0.4;
+            s = s + getNeighbor(UV, x, y) * 0.4;
         }
     }
     highp vec3 hsv = rgb2hsv(sprite.xyz);
