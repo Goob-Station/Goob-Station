@@ -1,15 +1,8 @@
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.Contraband;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
-using Content.Goobstation.Shared.Security.ContrabandIcons.Prototypes;
-using Content.Shared.Access.Components;
-using Content.Shared.Hands;
 using Content.Shared.Inventory;
-using Content.Shared.Inventory.Events;
-using Content.Shared.PDA;
-using Content.Shared.Strip.Components;
 using Robust.Shared.Configuration;
-using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Shared.Security.ContrabandIcons;
 
@@ -30,7 +23,7 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
     }
     protected void ContrabandDetect(EntityUid inventory, VisibleContrabandComponent component, SlotFlags slotFlags = SlotFlags.WITHOUT_POCKET)
     {
-        if (!_isEnabled || HasComp<ThievingComponent>(inventory))
+        if (!_isEnabled)
             return;
         var list = _detectorSystem.FindContraband(inventory, false, slotFlags);
         var isDetected = list.Count > 0;

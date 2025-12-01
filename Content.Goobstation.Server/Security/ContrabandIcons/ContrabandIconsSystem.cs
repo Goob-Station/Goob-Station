@@ -4,6 +4,7 @@ using Content.Shared.Access.Components;
 using Content.Shared.Hands;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Strip.Components;
 
 namespace Content.Goobstation.Server.Security.ContrabandIcons;
 
@@ -45,6 +46,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnEquipHands(EntityUid uid, VisibleContrabandComponent component, DidEquipHandEvent args)
     {
-        ContrabandDetect(uid, component);
+        if(!HasComp<ThievingComponent>(args.User))
+            ContrabandDetect(uid, component);
     }
 }
