@@ -83,7 +83,7 @@ public sealed partial class DamageableSystem
     {
         //! Empty just checks if the DamageSpecifier is _literally_ empty, as in, is internal dictionary of damage types is empty.
         // If you deal 0.0 of some damage type, Empty will be false!
-        return !TryChangeDamage(ent, damage, out _, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers, canBeCancelled, partMultiplier, targetPart, ignoreBlockers, splitDamage, canMiss);
+        return TryChangeDamage(ent, damage, out _, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers, canBeCancelled, partMultiplier, targetPart, ignoreBlockers, splitDamage, canMiss);
     }
 
     /// <summary>
