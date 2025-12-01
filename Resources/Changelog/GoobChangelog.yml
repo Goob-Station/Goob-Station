@@ -18651,3 +18651,9 @@ Entries:
         reloaded manually.
   id: 2101
   time: '2025-11-30T14:05:11.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Remove
+      message: 'Removed: The Hermit GameType.'
+  id: 2102
+  time: '2025-12-01T19:05:11.0000000+00:00'
