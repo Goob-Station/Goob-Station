@@ -182,9 +182,9 @@ public sealed partial class DiseaseFlashEffectComponent : ScalingDiseaseEffect
 public sealed partial class DiseasePopupEffectComponent : Component
 {
     [DataField]
-    public string String = "disease-effect-popup-default";
+    public LocId String = "disease-effect-popup-default";
 
-    [DataField]
+    [DataField("popupType")]
     public PopupType Type = PopupType.SmallCaution;
 
     /// <summary>
