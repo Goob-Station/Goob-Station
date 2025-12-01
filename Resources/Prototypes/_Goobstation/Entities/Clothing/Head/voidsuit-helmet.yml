@@ -345,3 +345,9 @@
     rotation: 30
     energy: 10
     radius: 5
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide
+    - FacialHair

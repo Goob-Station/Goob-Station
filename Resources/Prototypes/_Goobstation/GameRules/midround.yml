@@ -298,6 +298,15 @@
   parent: BaseGameRule
   id: GreyTideAntagMidround
   components:
+  - type: StationEvent
+    weight: 3
+    duration: null
+    earliestStart: 20
+    minimumPlayers: 40
+    chaos:
+      Hostile: 50
+      Combat: 20
+    eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 220
   - type: AntagSpawner
@@ -324,6 +333,15 @@
   parent: BaseGameRule
   id: TunnelClownMidround
   components:
+  - type: StationEvent
+    weight: 4
+    duration: null
+    earliestStart: 15
+    minimumPlayers: 20
+    chaos:
+      Hostile: 15
+      Combat: 20
+    eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 200
   - type: AntagSpawner
@@ -350,6 +368,15 @@
   parent: BaseGameRule
   id: SingulothKnightsMidround
   components:
+  - type: StationEvent
+    weight: 2.5
+    duration: null
+    earliestStart: 45
+    minimumPlayers: 50
+    chaos:
+      Hostile: 75
+      Combat: 40
+    eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 350
   - type: AntagSpawner
@@ -378,6 +405,16 @@
   parent: BaseGameRule
   id: DarkLordMidround
   components:
+  - type: StationEvent
+    weight: 2
+    duration: null
+    earliestStart: 30
+    minimumPlayers: 30
+    chaos:
+      Death: 100
+      Combat: 85
+      Hostile: 40
+    eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 400
   - type: AntagSpawner
@@ -407,7 +444,7 @@
   id: ChosenOneMidround
   components:
   - type: GameRule
-    chaosScore: 9999
+    chaosScore: 50
   - type: AntagSpawner
     prototype: MobHumanChosenOne
   - type: AntagSelection
@@ -432,6 +469,15 @@
   parent: BaseGameRule
   id: MimeAssassinMidround
   components:
+  - type: StationEvent
+    weight: 4
+    duration: null
+    earliestStart: 30
+    minimumPlayers: 30
+    chaos:
+      Hostile: 40
+      Combat: 50
+    eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 200
   - type: AntagSpawner
@@ -461,6 +507,14 @@
   parent: BaseGameRule
   id: DarkPriestMidround
   components:
+  - type: StationEvent
+    weight: 3
+    duration: null
+    earliestStart: 30
+    minimumPlayers: 30
+    chaos:
+      Death: 60
+    eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 250
   - type: AntagSpawner
@@ -500,7 +554,7 @@
       maxPicks: 2
     - groups: ThiefObjectiveGroups
       maxPicks: 15
-    maxDifficulty: 2.5
+    maxDifficulty: 2
   - type: StationEvent
     earliestStart: 35
     weight: 2.5
@@ -550,7 +604,7 @@
     table:
       id: MobClownGoblin
   - type: Tag
- 
+
 # Slasher
 - type: entity
   parent: BaseGameRule
