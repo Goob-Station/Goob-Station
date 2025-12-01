@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.Security.ContrabandIcons.Prototypes;
+using Content.Goobstation.Shared.Security.ContrabandIcons.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 

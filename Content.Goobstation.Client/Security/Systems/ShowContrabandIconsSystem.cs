@@ -1,8 +1,7 @@
 using Content.Client.Overlays;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
-using ShowContrabandIconsComponent = Content.Goobstation.Shared.Security.ContrabandIcons.Components.ShowContrabandIconsComponent;
-using VisibleContrabandComponent = Content.Goobstation.Shared.Security.ContrabandIcons.Components.VisibleContrabandComponent;
+using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
 
 namespace Content.Goobstation.Client.Security.Systems;
 
