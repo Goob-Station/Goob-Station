@@ -225,7 +225,7 @@
     maxCharge: 720
     startingCharge: 720
   - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
-    proto: RedMediumLaser
+    proto: RedLaser
     fireCost: 90 # 8 shots
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
@@ -271,7 +271,7 @@
     maxCharge: 1080
     startingCharge: 1080
   - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
-    proto: RedMediumLaser
+    proto: RedLaser
     fireCost: 90 # 12 shots
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
@@ -318,7 +318,7 @@
     startingCharge: 1800
   - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
     proto: RedHeavyLaser
-    fireCost: 150 # 12 shots
+    fireCost: 225 # 8 shots
 
 - type: entity
   id: PowerCellHyperPrinted
@@ -360,7 +360,7 @@
     # Goobstation
     canEmp: true
   - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
-    proto: RedMediumLaser
+    proto: RedLaser
     fireCost: 90 # 8 shots
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
@@ -407,8 +407,8 @@
       autoRecharge: true
       autoRechargeRate: 40
     - type: HitscanBatteryAmmoProvider # goob edit - svalinn buff fix
-      proto: RedHeavyLaser
-      fireCost: 150 # 8 shots
+      proto: RedLaser
+      fireCost: 75 # 16 shots
 
 # Power cage (big heavy power cell for big devices)
 
