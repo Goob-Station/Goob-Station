@@ -68,3 +68,53 @@
           Quantity: 5
         - ReagentId: Fiber
           Quantity: 4
+
+
+- type: entity
+  name: blueSpace tomato
+  parent: FoodBlueTomato
+  id: FoodBlueSpaceTomato
+  description: This one is blue.
+  components:
+  - type: BlueSpaceTomato
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: ParadoxalJuice
+          Quantity: 1
+        - ReagentId: Vitamin
+          Quantity: 4
+        canReact: false
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Hydroponics/bluespace_tomato.rsi
+  - type: Item
+    heldPrefix: produce
+  - type: Produce
+    seedId: blueSpaceTomato
+  - type: Extractable
+    grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: ParadoxalJuice
+        Quantity: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpillBehavior
+        solution: food
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - Fruit
+    - Vegetable
