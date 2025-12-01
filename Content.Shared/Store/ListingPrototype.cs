@@ -156,6 +156,9 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
 
     public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> OldCost = new();
 
+    // Goobstation
+    public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>? SaleCost;
+
     [DataField]
     public List<string> Components = new();
     // WD END
@@ -261,6 +264,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             SaleBlacklist = SaleBlacklist,
             DiscountValue = DiscountValue,
             OldCost = OldCost,
+            SaleCost = SaleCost,
             Components = Components,
             // WD END
         };

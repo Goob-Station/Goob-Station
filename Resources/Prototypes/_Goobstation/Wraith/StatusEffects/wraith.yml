@@ -1,0 +1,36 @@
+# Revenant - Touch of Evil
+# Results -> Increased damage buff + Punches throw people across X amount of distance
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectTouchOfEvil
+  name: touch of evil
+  components:
+  - type: ActiveTouchOfEvil
+
+# Skeleton Commander - Rally
+# Results -> Buffs attack damage and attack speed
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectRally
+  name: rally
+  components:
+  - type: Rallied
+
+# Spiker - Shuffle
+# Results -> Makes it a small mob and removes all stuns
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectShuffle
+  name: shuffle
+  components:
+  - type: SpikerShuffleEffect
+
+# Wraith - Weakened Wraith
+# Results -> Removes your ability to use any actions
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectWeakenedWraith
+  name: weakened
+  components:
+  - type: WraithWeakened

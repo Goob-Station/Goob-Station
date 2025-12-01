@@ -963,6 +963,7 @@
     - BorgDropper
     - BorgVial
     - GeigerCounter
+    - HolofanProjector # Goobstation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: node-scanner-module }
 
@@ -984,6 +985,7 @@
     - HandLabeler
     - SheetRGlassLingering0
     - SheetRPGlassLingering0
+    - SheetPlasteelLingering0 # Goobstation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: anomaly-module }
 

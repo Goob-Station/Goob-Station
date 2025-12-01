@@ -24,3 +24,8 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+
+- type: loadout
+  id: RoboticistPDA
+  equipment:
+    id: RoboticistPDA

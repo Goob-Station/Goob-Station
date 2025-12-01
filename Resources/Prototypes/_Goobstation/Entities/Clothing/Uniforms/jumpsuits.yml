@@ -56,6 +56,25 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/breverb.rsi
 
 - type: entity
+  parent: [ClothingUniformJumpsuitResonant, BaseMajorContraband]
+  id: ClothingUniformJumpsuitWestern
+  name: authentic cowboy's jumpsuit
+  description: Let's show the head of security how we used to do things out west.
+  components:
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Heat: 0.90
+
+- type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNanotrasenRepresentative
   name: nanotrasen representative suit
@@ -65,6 +84,17 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/nanotrasen_representative.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/nanotrasen_representative.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitNanotrasenRepresentativeFancy
+  name: fancy nanotrasen representative suit
+  description: A fancy black suit worn by officials, embellished with more golden threads than Normal.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/fancy_nanotrasen_representative.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/fancy_nanotrasen_representative.rsi
 
 - type: entity
   parent: ClothingUniformBase

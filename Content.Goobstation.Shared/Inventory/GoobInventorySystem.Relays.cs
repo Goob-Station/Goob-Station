@@ -12,6 +12,7 @@ using Content.Goobstation.Shared.Chemistry;
 using Content.Goobstation.Shared.Clothing;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Flashbang;
+using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
 using Content.Goobstation.Shared.Stunnable;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._White.Standing;
@@ -24,8 +25,6 @@ namespace Content.Goobstation.Shared.Inventory;
 
 public partial class GoobInventorySystem
 {
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-
     public void InitializeRelays()
     {
         base.Initialize();
@@ -42,6 +41,7 @@ public partial class GoobInventorySystem
         SubscribeLocalEvent<InventoryComponent, IsEyesCoveredCheckEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<Overlays.NightVisionComponent>>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<Overlays.ThermalVisionComponent>>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowContrabandIconsComponent>>(RefRelayInventoryEvent);
     }
 
     private void RefRelayInventoryEvent<T>(EntityUid uid, InventoryComponent component, ref T args) where T : IInventoryRelayEvent

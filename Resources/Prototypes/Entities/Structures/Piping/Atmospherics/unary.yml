@@ -607,6 +607,12 @@
   - type: PowerSwitch
   - type: AtmosMonitoringConsoleDevice
     navMapBlip: Thermoregulator
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedSolution
+      solutionName: tank
+      input: PlumbingInput
+      output: PlumbingOutput
   - type: GuideHelp
     guides:
     - GasCondensing

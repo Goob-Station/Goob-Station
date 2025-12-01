@@ -922,6 +922,7 @@
   loadouts:
   - NanotrasenRepresentativeJumpsuit
   - NanotrasenRepresentativeJumpskirt
+  - NanotrasenRepresentativeFancyJumpsuit
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeBelt
@@ -1205,6 +1206,64 @@
   minLimit: 0
   loadouts:
   - CaptainMask
+
+# roboticist
+
+- type: loadoutGroup
+  id: RoboticistHead
+  name: loadout-group-roboticist-head
+  minLimit: 0
+  loadouts:
+  - RoboticistCap
+  - SkullBandana
+
+- type: loadoutGroup
+  id: RoboticistJumpsuit
+  name: loadout-group-roboticist-jumpsuit
+  loadouts:
+  - RoboticistJumpsuit
+  - RoboticistJumpskirt
+  - ResearchMJ # goob
+
+- type: loadoutGroup
+  id: RoboticistBackpack
+  name: loadout-group-roboticist-backpack
+  loadouts:
+  - ScientistBackpack
+  - ScientistSatchel
+  - ScientistDuffel
+
+- type: loadoutGroup
+  id: RoboticistOuterClothing
+  name: loadout-group-roboticist-outerclothing
+  minLimit: 0
+  loadouts:
+  - RegularLabCoat
+  - RoboticistLabCoat
+  - RoboticistWintercoat
+
+- type: loadoutGroup
+  id: RoboticistShoes
+  name: loadout-group-roboticist-shoes
+  loadouts:
+  - WhiteShoes
+  - BlackShoes
+  - ScienceWinterBoots
+
+- type: loadoutGroup
+  id: RoboticistGloves
+  name: loadout-group-roboticist-gloves
+  minLimit: 0
+  loadouts:
+  - LatexGloves
+  - PurpleGloves
+  - RobohandsGloves
+
+- type: loadoutGroup
+  id: RoboticistPDA
+  name: loadout-group-roboticist-id
+  loadouts:
+  - RoboticistPDA
 
 # Salvage / Miner
 

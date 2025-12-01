@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-4.0",
-  "copyright": "BeeRobynn, George Gimme, and Ahti, Abductor by Shy Bandit, plushie_jvne by Jvne, plushie_samantha by SolsticeOfTheWinter, fern by Bobbble, plushie_nigel by SS14:gorgan_freemen/Discord:Dummy, plushie_mnwaar by ShieldAcrados based on the Einstein Engines shadowkin plushie, plushiemnwaar-inhand-left and plushiemnwaar-inhand-right by MarkerWicker, plushie_brizby and plushie_baldzby by Zethine, plushie_boggle and plushie_lehmin by KipperSkipp",
+  "copyright": "BeeRobynn, George Gimme, and Ahti, Abductor by Shy Bandit, plushie_jvne by Jvne, plushie_samantha by SolsticeOfTheWinter, fern by Bobbble, plushie_nigel by SS14:gorgan_freemen/Discord:Dummy, plushie_mnwaar by ShieldAcrados based on the Einstein Engines shadowkin plushie, plushiemnwaar-inhand-left and plushiemnwaar-inhand-right by MarkerWicker, plushie_brizby and plushie_baldzby by Zethine, plushie_boggle and plushie_lehmin by KipperSkipp, plushie xeve by Yonsim",
   "size": {
     "x": 32,
     "y": 32
@@ -24,6 +24,9 @@
     },
     {
       "name": "plushie_mnwaar"
+    },
+    {
+      "name": "plushie_xeve"
     },
     {
       "name": "plushiejvne-inhand-left",
