@@ -1,0 +1,30 @@
+- type: entity
+  id: VinylPlayer
+  parent: BaseMachinePowered
+  name: vinyl player
+  description: An old school vinyl record player sat on a set of drawers.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/StationRadio/vinylplayer.rsi
+    state: vinylplayer
+  - type: VinylPlayer
+  - type: Transform
+    noRot: true
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ItemSlots
+    slots:
+      vinyl:
+        name: vinyl
+        whitelist:
+          components:
+          - Vinyl

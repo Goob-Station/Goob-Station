@@ -74,6 +74,9 @@
   components:
   - type: Sprite
     state: ai-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/SpaceJazz.ogg
 
 - type: entity
   name: devil vinyl disk
@@ -92,6 +95,9 @@
   components:
   - type: Sprite
     state: pizza-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/BoogieParty.ogg
 
 - type: entity
   name: glossy vinyl disk
@@ -264,14 +270,6 @@
   components:
   - type: Sprite
     state: ai-vinyl-sleeve
-
-- type: entity
-  name: devil vinyl sleeve
-  id: VinylSleeveDevil
-  parent: BaseVinylSleeve
-  components:
-  - type: Sprite
-    state: devil-vinyl-sleeve
 
 - type: entity
   name: devil vinyl sleeve
