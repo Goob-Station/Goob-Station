@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
   time: 12/01/2025 10:57:55
-  entityCount: 6796
-maps:
-- 6530
+  entityCount: 6795
+maps: []
 grids:
 - 1668
-orphans: []
+orphans: 
+- 1668
 nullspace: []
 tilemap:
   0: Space
@@ -51,8 +51,6 @@ entities:
     components:
     - type: MetaData
       name: Central Command
-    - type: Transform
-      parent: 6530
     - type: MapGrid
       chunks:
         -1,-1:
@@ -3056,16 +3054,6 @@ entities:
     - type: GridPathfinding
     - type: ImplicitRoof
     - type: FTLDrive
-  - uid: 6530
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 2742
