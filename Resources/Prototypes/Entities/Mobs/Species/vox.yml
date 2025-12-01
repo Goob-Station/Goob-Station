@@ -232,7 +232,10 @@
   #    Burn:
   #      sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: Bloodstream
-    bloodReagent: AmmoniaBlood
+    bloodReagents:
+      reagents:
+      - ReagentId: AmmoniaBlood
+        Quantity: 1
   - type: MeleeWeapon
     soundHit:
       collection: AlienClaw

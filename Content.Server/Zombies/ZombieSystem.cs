@@ -469,8 +469,8 @@ namespace Content.Server.Zombies
             if (TryComp(reference, out BloodstreamComponent? referenceBloodstream))
             {
                 EnsureComp<BloodstreamComponent>(target);
-                _bloodstream.ChangeBloodReagent(target, referenceBloodstream.BloodReagent);
-                _bloodstream.SetBloodLossThreshold(target, referenceBloodstream.BloodlossThreshold);
+                _humanoidAppearance.SetSkinColor(target, zombieComp.BeforeZombifiedSkinColor, false);
+                _bloodstream.ChangeBloodReagents(target, zombieComp.BeforeZombifiedBloodReagents);
             }
 
             // seems to fix no hand being selected
