@@ -1,0 +1,46 @@
+# requires that the player kill someone only once
+# disables social objectives and is disabled by social objectives
+
+- type: entity
+  abstract: true
+  parent: BaseTargetObjective
+  id: BaseTeachALessonObjective
+  components:
+  - type: Objective
+    unique: false
+    icon:
+      sprite: Objects/Weapons/Melee/baseball_bat.rsi
+      state: icon
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - SocialObjective
+  - type: TeachALessonCondition
+
+#Teach a Lesson
+- type: entity
+  parent: [BaseTraitorObjective, BaseTeachALessonObjective]
+  id: TeachRandomPersonObjective
+  description: Ensure they die at least once this shift. They know what they did.
+  components:
+  - type: Objective
+    difficulty: 0.5 #slightly under 1/3rd the diffculty of RR
+    unique: false
+  - type: TargetObjective
+    title: objective-condition-teach-lesson-title
+  - type: PickRandomPerson
+
+
+- type: entity
+  parent: [BaseTraitorObjective, BaseTeachALessonObjective]
+  id: TeachRandomHeadObjective
+  description: Ensure this head dies at least once this shift. They know what they did.
+  components:
+  - type: Objective
+    # technically it's still possible for TeachRandomPersonObjective to roll a head but this is guaranteed, so higher difficulty
+    difficulty: 1
+    # killing 1 head is enough
+    unique: true
+  - type: TargetObjective
+    title: objective-condition-teach-lesson-title
+  - type: PickRandomHead

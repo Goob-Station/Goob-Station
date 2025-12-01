@@ -32,19 +32,18 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
-using System.Numerics;
 using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
-using Content.Goobstation.Shared.Flashbang;
+using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
+using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Goobstation.Shared.Traits.Components;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
@@ -61,6 +60,7 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
+using Content.Server.Traits.Assorted;
 using Content.Server.Zombies;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared.Actions;
@@ -91,13 +91,16 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Overlays;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Revolutionary.Components;
+using Content.Shared.Speech.Muting;
 using Content.Shared.Store.Components;
 using Content.Shared.Tag;
+using Content.Shared.Traits.Assorted;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -106,6 +109,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
+using System.Linq;
+using System.Numerics;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -181,7 +186,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         SubscribeLocalEvent<ChangelingDartComponent, ProjectileHitEvent>(OnDartHit);
 
+        SubscribeLocalEvent<ChangelingIdentityComponent, AwakenedInstinctPurchasedEvent>(OnAwakenedInstinctPurchased);
         SubscribeLocalEvent<ChangelingIdentityComponent, AugmentedEyesightPurchasedEvent>(OnAugmentedEyesightPurchased);
+        SubscribeLocalEvent<ChangelingIdentityComponent, VoidAdaptionPurchasedEvent>(OnVoidAdaptionPurchased);
 
         SubscribeAbilities();
     }
@@ -207,9 +214,19 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             flashImmunity.Enabled = active;
     }
 
+    private void OnAwakenedInstinctPurchased(Entity<ChangelingIdentityComponent> ent, ref AwakenedInstinctPurchasedEvent args)
+    {
+        EnsureComp<ChangelingBiomassComponent>(ent);
+    }
+
     private void OnAugmentedEyesightPurchased(Entity<ChangelingIdentityComponent> ent, ref AugmentedEyesightPurchasedEvent args)
     {
         InitializeAugmentedEyesight(ent);
+    }
+
+    private void OnVoidAdaptionPurchased(Entity<ChangelingIdentityComponent> ent, ref VoidAdaptionPurchasedEvent args)
+    {
+        EnsureComp<VoidAdaptionComponent>(ent);
     }
 
     public void InitializeAugmentedEyesight(EntityUid uid)
@@ -644,6 +661,17 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         return comp;
     }
+    private void CopyBiomassComponent(EntityUid target, ChangelingBiomassComponent comp)
+    {
+        var newComp = EnsureComp<ChangelingBiomassComponent>(target);
+
+        newComp.MaxBiomass = comp.MaxBiomass;
+        newComp.Biomass = comp.Biomass;
+
+        newComp.FirstWarnReached = comp.FirstWarnReached;
+        newComp.SecondWarnReached = comp.SecondWarnReached;
+        newComp.ThirdWarnReached = comp.ThirdWarnReached;
+    }
     private EntityUid? TransformEntity(
         EntityUid uid,
         TransformData? data = null,
@@ -702,6 +730,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             if (!persistentDna && data != null)
                 newLingComp?.AbsorbedDNA.Remove(data);
             RemCompDeferred<ChangelingIdentityComponent>(uid);
+
+            if (TryComp<ChangelingBiomassComponent>(uid, out var bioComp))
+            {
+                CopyBiomassComponent(newEnt, bioComp);
+                RemCompDeferred<ChangelingBiomassComponent>(uid);
+            }
         }
 
         //    if (TryComp<StoreComponent>(uid, out var storeComp))
@@ -725,6 +759,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             typeof(EyeProtectionComponent),
             typeof(Shared.Overlays.NightVisionComponent),
             typeof(Shared.Overlays.ThermalVisionComponent),
+
+            // changeling related
+            typeof(VoidAdaptionComponent),
             // ADD MORE TYPES HERE
         };
         foreach (var type in types)

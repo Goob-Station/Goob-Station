@@ -127,8 +127,7 @@ public sealed partial class WoundSystem : EntitySystem
                 || _timing.CurTime - damageable.LastModifiedTime < _minimumTimeBeforeHeal
                 || _timing.CurTime < body.HealAt
                 || _mobState.IsIncapacitated(ent)
-                || !_body.TryGetRootPart(ent, out var rootPart, body: body)
-                || damageable.Damage.GetTotal() <= 0)
+                || !_body.TryGetRootPart(ent, out var rootPart, body: body))
                 continue;
 
             body.HealAt += TimeSpan.FromSeconds(1f / _medicalHealingTickrate);
