@@ -10,12 +10,12 @@
   parent: ContrabandIcon
   id: ContrabandIconContraband
   icon:
-    sprite: /Textures/_Goobstation/Interface/Misc/contraband_icons.rsi
+    sprite: /Textures/_Goobstation/Interface/Misc/contraband_icons
     state: hud_contraband
-    
+
 - type: contrabandIcon
   parent: ContrabandIcon
   id: ContrabandIconNone
   icon:
-    sprite: /Textures/_Goobstation/Interface/Misc/contraband_icons.rsi
+    sprite: /Textures/_Goobstation/Interface/Misc/contraband_icons
     state: hud_none

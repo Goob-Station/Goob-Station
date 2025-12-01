@@ -2,7 +2,9 @@ using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.Contraband;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Prototypes;
+using Content.Shared.Hands;
 using Content.Shared.Inventory;
+using Content.Shared.Inventory.Events;
 using Content.Shared.Strip.Components;
 using Robust.Shared.Configuration;
 
@@ -20,6 +22,11 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<VisibleContrabandComponent, DidEquipEvent>(OnEquip);
+        SubscribeLocalEvent<VisibleContrabandComponent, DidUnequipEvent>(OnUnequip);
+
+        SubscribeLocalEvent<VisibleContrabandComponent, DidEquipHandEvent>(OnEquipHands);
+        SubscribeLocalEvent<VisibleContrabandComponent, DidUnequipHandEvent>(OnUnequipHands);
         
         Subs.CVar(_configuration, GoobCVars.ContrabandIconsEnabled, value => _isEnabled = value);
     }
@@ -44,5 +51,24 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
             ContrabandStatus.Contraband => "ContrabandIconContraband",
             _ => "ContrabandIconNone"
         };
+    }
+
+    private void OnEquip(EntityUid uid, VisibleContrabandComponent component, DidEquipEvent args)
+    {
+        ContrabandDetect(uid, component, args.SlotFlags);
+    }
+
+    private void OnUnequip(EntityUid uid, VisibleContrabandComponent component, DidUnequipEvent args)
+    {
+        ContrabandDetect(uid, component, args.SlotFlags);
+    }
+
+    private void OnUnequipHands(EntityUid uid, VisibleContrabandComponent component, DidUnequipHandEvent args)
+    {
+        ContrabandDetect(uid, component, SlotFlags.NONE);
+    }
+    private void OnEquipHands(EntityUid uid, VisibleContrabandComponent component, DidEquipHandEvent args)
+    {
+        ContrabandDetect(uid, component, SlotFlags.NONE);
     }
 }

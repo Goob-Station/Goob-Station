@@ -1,8 +1,6 @@
 using Content.Goobstation.Shared.Security.ContrabandIcons;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
-using Content.Shared.Hands;
 using Content.Shared.Inventory;
-using Content.Shared.Inventory.Events;
 
 namespace Content.Goobstation.Server.Security.ContrabandIcons;
 
@@ -13,36 +11,10 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
         base.Initialize();
 
         SubscribeLocalEvent<VisibleContrabandComponent, MapInitEvent>(OnMapInit);
-
-        SubscribeLocalEvent<VisibleContrabandComponent, DidEquipEvent>(OnEquip);
-        SubscribeLocalEvent<VisibleContrabandComponent, DidUnequipEvent>(OnUnequip);
-
-        SubscribeLocalEvent<VisibleContrabandComponent, DidEquipHandEvent>(OnEquipHands);
-        SubscribeLocalEvent<VisibleContrabandComponent, DidUnequipHandEvent>(OnUnequipHands);
     }
     
     private void OnMapInit(EntityUid uid, VisibleContrabandComponent component, MapInitEvent args)
     {
         ContrabandDetect(uid, component, SlotFlags.WITHOUT_POCKET);
-    }
-
-    private void OnEquip(EntityUid uid, VisibleContrabandComponent component, DidEquipEvent args)
-    {
-        ContrabandDetect(uid, component, args.SlotFlags);
-    }
-
-    private void OnUnequip(EntityUid uid, VisibleContrabandComponent component, DidUnequipEvent args)
-    {
-        ContrabandDetect(uid, component, args.SlotFlags);
-    }
-
-    private void OnUnequipHands(EntityUid uid, VisibleContrabandComponent component, DidUnequipHandEvent args)
-    {
-        ContrabandDetect(uid, component, SlotFlags.NONE);
-    }
-
-    private void OnEquipHands(EntityUid uid, VisibleContrabandComponent component, DidEquipHandEvent args)
-    {
-        ContrabandDetect(uid, component, SlotFlags.NONE);
     }
 }
