@@ -35,16 +35,33 @@
   - type: VirologyMachine
     idleState: icon
     runningState: running
-  - type: ItemSlots
-    slots:
-      disease_swab_slot:
-        name: Swab
-        whitelist:
-          components:
-          - DiseaseSwab
+    swabSlot:
+      occludesLight: True
+      insertSound: !type:SoundPathSpecifier
+        path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+      ejectSound: !type:SoundPathSpecifier
+        path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+      insertOnInteract: True
+      swap: True
+      whitelist:
+        requireAll: False
+        components:
+        - DiseaseSwab
   - type: ContainerContainer
     containers:
-      disease_swab_slot: !type:ContainerSlot {}
+      disease_swab_slot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      machine_board: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      machine_parts: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+  - type: ItemSlots
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:
