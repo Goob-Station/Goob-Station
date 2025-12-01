@@ -25,7 +25,7 @@
     - suitStorage
   - type: GunRequiresWield
   - type: Gun
-    fireRate: 0.75
+    fireRate: 0.5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
