@@ -90,18 +90,27 @@
     drawOverlay: false
     lightRadius: 0
     toggleAction: null
+  - type: PassiveDamage # Mild passive regenation, with the exception of poison and genetic, which cannot be used effectively against them.
+    allowedStates:
+      - Alive
+    damage:
+      groups:
+        Brute: -1
+        Burn: -1
+        Toxin: -15
+        Genetic: -15
   - type: TerrorSpider
     TerrorRegen:
-        types:
-          Blunt: -1
-          Slash: -1
-          Piercing: -1
-          Heat: -1
-          Shock: -1
-          Cold: -1
-          Poison: -1
-          Radiation: -1
-          Asphyxiation: -1
+      types:
+         Blunt: -1
+         Slash: -1
+         Piercing: -1
+         Heat: -0.5
+         Shock: -0.5
+         Cold: -0.5
+         Poison: -5
+         Radiation: -0.25
+         Asphyxiation: -0.25
   - type: CollectiveMind
     defaultChannel: TerrorSpiderHivemind
     respectAccents: true
@@ -254,4 +263,3 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
-

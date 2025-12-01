@@ -27,7 +27,7 @@
     useDelay: 15
     icon:
       sprite: _Goobstation/Terror/actions.rsi
-      state: thickWeb
+      state: thickweb
   - type: TargetAction
     range: 1
   - type: WorldTargetAction
@@ -130,10 +130,6 @@
     blacklist:
       tags:
         - Wall
-        - GravityGenerator
-        - AnomalyGenerator
-        - TegGenerator
-        - TegCirculator
     event: !type:TerrorLayEvent
 
 - type: entity

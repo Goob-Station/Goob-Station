@@ -1,0 +1,155 @@
+<Document>
+  # Terror Spiders
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderQueen" Caption=""/>
+  </Box>
+  Terror Spiders are a genetically engineered bioweapon created from giant space spiders spliced with Xenomorph DNA. They rely on venom, ambushes, webs, and vents to overwhelm the station. Their strength varies wildly depending on their caste, and a coordinated hive can quickly overrun whole departments.
+
+  They are weak to ranged weapons and fire, but extremely dangerous in melee and in the dark. Every spider benefits from the hive mind, letting them sense death, communicate, and coordinate instantly.
+
+  ## So I'm a spider, so what?
+
+  Terror Spiders are fast melee creatures that excel at ambushing isolated crew members. Your biggest strength revolves around your webs, which paralyze anyone who steps on them.
+
+  All spiders can ventcrawl unless otherwise stated, allowing rapid traversal of the station. They also gain regeneration by wrapping living creatures in webs.
+
+  You also have a caste. Different castes play extremely differently, so your first priority is to understand which spider you are.
+
+  # Terror Spider Castes
+
+
+  Below are all castes, in progression from basic to elite to royal.
+
+  ## Red Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderRed" Caption=""/>
+  </Box>
+  Red Terrors are slow but extremely durable frontline spiders. Their melee damage increases as their own health decreases, making them extremely dangerous when wounded.
+  - Slowest spider.
+  - Highest base HP of T1.
+  - Deals more damage the lower its health is.
+
+  ## Gray Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderGray" Caption=""/>
+  </Box>
+  Gray Terrors are ambushers that become nearly invisible while on webs.
+  - Semi-invisible while on webs.
+  - Deals double damage to webbed or snared targets.
+  - Low durability.
+  - Loves darkness.
+
+  ## Green Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderGreen" Caption=""/>
+  </Box>
+  Green Terrors are breeders that create egg clutches.
+  - Lays egg clusters onto cocoons that hatch into spiderlings.
+  - Weak in direct combat.
+  - Supports the hive’s growth.
+
+  ## Black Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderBlack" Caption=""/>
+  </Box>
+  Black Terrors are poison specialists.
+  - Extremely lethal venom.
+  - Victims must immediately receive toxin treatment or die.
+  - Fragile and vulnerable when focused.
+  - Rare but devastating.
+
+  ## White Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderWhite" Caption=""/>
+  </Box>
+  White Terrors are infectors that implant eggs directly into victims.
+  - Bites implant eggs that hatch after a delay.
+  - Up to five spiderlings can burst from the body.
+  - Excellent for spreading chaos.
+  - Weak alone.
+
+  ## Purple Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderPurple" Caption=""/>
+  </Box>
+  Purple Terrors are heavy defenders.
+  - Must stay close to the Queen, if they stray too far for too long, their psychic link will break and they will explode into gibs.
+  - Very tanky and strong.
+  - Breaks walls and doors.
+  - Best used as a linebreaker or nest guard.
+
+  ## Brown Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderBrown" Caption=""/>
+  </Box>
+  Brown Terrors specialize in vent and obstruction clearing.
+  - Can force open welded vents.
+  - Weakest combat spider.
+  - Pure utility.
+  - Builds new infiltration paths for the hive.
+
+  ## Prince of Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderPrince" Caption=""/>
+  </Box>
+  A Tier 3 miniboss spider, designed for slaughter.
+  - Fast, high damage, high health.
+  - Can break most barriers.
+  - Uses thick webs to pin victims.
+  - Extremely dangerous without support.
+
+  ## Princess of Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderPrincess" Caption=""/>
+  </Box>
+  A royal-layering spider that accelerates hive growth.
+  - Can lay eggs anywhere just like the Queen.
+  - Always able to ventcrawl.
+  - Very fragile without protection.
+  - High priority target for the crew.
+
+  ## Mother of Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderMother" Caption=""/>
+  </Box>
+  A nurturing brood spider.
+  - Generates royal jelly that can be eaten to heal.
+  - Boosts hive sustainability.
+  - Weak in direct fights.
+
+  ## Queen of Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderQueen" Caption=""/>
+  </Box>
+  The apex of the hive.
+  - Produces eggs that have higher chances of spawning high tier spiders the more creatures the hive has wrapped.
+  - Extremely strong but slow.
+  - Killing the Queen disrupts the hive’s coordination and growth.
+
+  # Fighting Terror Spiders
+
+  The spiders may seem overwhelming, but they have exploitable weaknesses.
+
+  - Use ranged weapons. Spiders struggle to counter guns.
+  - Weld vents and scrubbers.
+  - Avoid fighting in the dark or in webs.
+  - Kill breeding spiders (Green, White, Princess, Queen) first.
+  - Use fire liberally.
+  - Bring backup—spiders punish solo fights.
+  - Call an ERT if the infestation is out of control.
+
+  # Playing Terror Spiders Well
+
+  - Stick with the hive. Lone spiders die fast.
+  - Break lights—darkness is your ally.
+  - Wrap downed crew for regeneration.
+  - Ambush from vents.
+  - Protect egg-layers at all costs.
+  - Use webs to divide and trap groups of crew.
+  - Coordinate kills; swarm isolated targets.
+
+  ## Final Notes
+
+  Terror Spiders can be overwhelming when organized, but collapse easily when separated. Work with your hive, understand your caste, and use vents and darkness to your advantage.
+
+</Document>
