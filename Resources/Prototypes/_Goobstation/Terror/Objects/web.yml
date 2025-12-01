@@ -41,8 +41,14 @@
   description: This web is covered in hundreds of tiny, biting spiders - and their eggs.
   components:
   - type: Sprite
-    sprite: _Goobstation/Terror/Structures/web.rsi
-    state: eggWeb
+    sprite: _Goobstation/Terror/Structures/eggweb.rsi
+    state: full
+  - type: IconSmooth
+    key: infestedweb
+    base: web_
+    additionalKeys:
+    - walls
+
   - type: TerrorWeb
   - type: InfestedWeb
 
