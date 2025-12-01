@@ -1,14 +1,10 @@
-using Content.Goobstation.Shared.Disease;
+using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.Inventory;
-using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.GameObjects;
 
-namespace Content.Goobstation.Shared.Disease;
+namespace Content.Goobstation.Shared.Disease.Systems;
 
 public sealed partial class DiseaseProtectionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDiseaseSystem _disease = default!;
-
     public override void Initialize()
     {
         base.Initialize();

@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.Disease;
+using Content.Goobstation.Shared.Disease.Systems;
 using Content.Goobstation.Shared.Virology;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
@@ -12,7 +13,6 @@ public sealed class DiseaseSwabSystem : EntitySystem
     [Dependency] private readonly SharedDiseaseSystem _disease = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -28,7 +28,7 @@ public sealed class DiseaseSwabSystem : EntitySystem
             return;
 
         // Target must have diseases
-        if (!TryComp<DiseaseCarrierComponent>(args.Target, out var carrier))
+        if (!TryComp<Shared.Disease.Components.DiseaseCarrierComponent>(args.Target, out var carrier))
         {
             _popup.PopupEntity(Loc.GetString("disease-swab-cant-swab", ("target", args.Target)), args.User, args.User);
             return;
@@ -58,7 +58,7 @@ public sealed class DiseaseSwabSystem : EntitySystem
             QueueDel(ent.Comp.DiseaseUid);
     }
 
-    public void SetDisease(Entity<DiseaseSwabComponent?> ent, EntityUid? diseaseUid)
+    private void SetDisease(Entity<DiseaseSwabComponent?> ent, EntityUid? diseaseUid)
     {
         if (!Resolve(ent, ref ent.Comp))
             return;

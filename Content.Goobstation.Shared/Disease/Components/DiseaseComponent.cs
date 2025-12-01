@@ -1,9 +1,9 @@
+using Content.Goobstation.Shared.Disease.Systems;
 using Content.Shared.Random;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using System;
 
-namespace Content.Goobstation.Shared.Disease;
+namespace Content.Goobstation.Shared.Disease.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedDiseaseSystem), Other = AccessPermissions.ReadExecute)] // if the system's methods don't let you do something you want, add a method for it
@@ -16,7 +16,7 @@ public sealed partial class DiseaseComponent : Component
     /// The effects this disease has
     /// </summary>
     [ViewVariables, AutoNetworkedField]
-    public List<EntityUid> Effects = new();
+    public readonly List<EntityUid> Effects = [];
 
     /// <summary>
     /// Current strength of the organism's immunity against this disease
@@ -24,14 +24,14 @@ public sealed partial class DiseaseComponent : Component
     /// Can at most reach 1
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float ImmunityProgress = 0f;
+    public float ImmunityProgress;
 
     /// <summary>
     /// Determines current strength of disease
     /// Lowered by <see cref="ImmunityProgress"/> multiplied by the organism's immune power, per second
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float InfectionProgress = 0f;
+    public float InfectionProgress;
 
     // </state>
 
@@ -117,7 +117,7 @@ public sealed partial class DiseaseComponent : Component
     /// May mutate and then nobody will be immune to the new virus
     /// </summary>
     [DataField, AutoNetworkedField]
-    public int Genotype = 0;
+    public int Genotype;
 
     /// <summary>
     /// Whether you can gain immunity to this genotype, set to false for cancer and similar
@@ -130,7 +130,7 @@ public sealed partial class DiseaseComponent : Component
     /// Whether to, instead of normal growth, use <see cref="DeadInfectionRate"/> in dead entities
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool AffectsDead = false;
+    public bool AffectsDead;
 
     /// <summary>
     /// If <see cref="AffectsDead"/> is true, how to change infection progress per second in dead entities

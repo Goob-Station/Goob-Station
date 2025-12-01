@@ -116,7 +116,7 @@ public sealed partial class VirologyMachinesSystem : EntitySystem
         if (!Resolve(swab, ref swab.Comp))
             return;
 
-        if (!TryComp<DiseaseComponent>(swab.Comp.DiseaseUid, out var disease))
+        if (!TryComp<Shared.Disease.Components.DiseaseComponent>(swab.Comp.DiseaseUid, out var disease))
             return;
 
         var vaccine = Spawn(ent.Comp.VaccinePrototype, Transform(ent).Coordinates);
@@ -137,7 +137,7 @@ public sealed partial class VirologyMachinesSystem : EntitySystem
         if (!Resolve(swab, ref swab.Comp))
             return;
 
-        if (!TryComp<DiseaseComponent>(swab.Comp.DiseaseUid, out var disease))
+        if (!TryComp<Shared.Disease.Components.DiseaseComponent>(swab.Comp.DiseaseUid, out var disease))
             return;
 
         // build the report
@@ -154,7 +154,7 @@ public sealed partial class VirologyMachinesSystem : EntitySystem
         foreach (var effectUid in disease.Effects)
         {
             var meta = MetaData(effectUid);
-            if (TryComp<DiseaseEffectComponent>(effectUid, out var effectComp) && meta.EntityPrototype != null)
+            if (TryComp<Shared.Disease.Components.DiseaseEffectComponent>(effectUid, out var effectComp) && meta.EntityPrototype != null)
             {
                 report.AppendLine(Loc.GetString("disease-analyzer-report-effect-line",
                     ("effect", Loc.GetString(meta.EntityPrototype.Name)),

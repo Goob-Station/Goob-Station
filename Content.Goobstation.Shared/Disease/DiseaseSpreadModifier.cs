@@ -20,11 +20,11 @@ public partial class DiseaseSpreadModifier
 
     public float PowerMod(ProtoId<DiseaseSpreadPrototype> proto)
     {
-        return PowerModifiers.ContainsKey(proto) ? PowerModifiers[proto] : 0f;
+        return PowerModifiers.GetValueOrDefault(proto, 0f);
     }
 
     public float ChanceMult(ProtoId<DiseaseSpreadPrototype> proto)
     {
-        return ChanceMultipliers.ContainsKey(proto) ? ChanceMultipliers[proto] : 1f;
+        return ChanceMultipliers.GetValueOrDefault(proto, 1f);
     }
 }

@@ -1,16 +1,14 @@
-using Content.Goobstation.Shared.Disease;
+using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
+using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.Mobs.Systems;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using System;
-using System.Numerics;
-using System.Diagnostics.CodeAnalysis;
 
-namespace Content.Goobstation.Shared.Disease;
+namespace Content.Goobstation.Shared.Disease.Systems;
 
 public abstract partial class SharedDiseaseSystem : EntitySystem
 {
@@ -29,7 +27,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
     /// <summary>
     /// The interval between updates of disease and disease effect entities
     /// </summary>
-    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(0.5f); // update every half-second to not lag the game
+    private readonly TimeSpan _updateInterval = TimeSpan.FromSeconds(0.5f); // update every half-second to not lag the game
 
     public override void Initialize()
     {
@@ -51,10 +49,10 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         base.Update(frameTime);
 
 
-        if (_timing.CurTime < _lastUpdated + UpdateInterval)
+        if (_timing.CurTime < _lastUpdated + _updateInterval)
             return;
 
-        _lastUpdated += UpdateInterval;
+        _lastUpdated += _updateInterval;
 
         if (!_timing.IsFirstTimePredicted)
             return;
@@ -66,7 +64,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         {
             carriers.Add((uid, diseaseCarrier));
         }
-        for (int i = 0; i < carriers.Count; i++)
+        for (var i = 0; i < carriers.Count; i++)
         {
             UpdateDiseases(carriers[i].Owner, carriers[i].Comp);
         }
@@ -75,9 +73,8 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
     private void UpdateDiseases(EntityUid uid, DiseaseCarrierComponent diseaseCarrier)
     {
         // not foreach since it can be cured and deleted from the list while inside the loop
-        for (int i = 0; i < diseaseCarrier.Diseases.Count; i++)
+        foreach (var diseaseUid in diseaseCarrier.Diseases)
         {
-            var diseaseUid = diseaseCarrier.Diseases[i];
             var ev = new DiseaseUpdateEvent((uid, diseaseCarrier));
             RaiseLocalEvent(diseaseUid, ev);
         }
@@ -97,7 +94,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         if (disease.StartingEffects.Count == 0)
             return;
 
-        float complexity = 0f;
+        var complexity = 0f;
         foreach (var effectSpecifier in disease.StartingEffects)
         {
             if (TryAdjustEffect(uid, effectSpecifier.Key, out var effect, effectSpecifier.Value, disease))
@@ -116,7 +113,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
 
     private void OnUpdateDisease(EntityUid uid, DiseaseComponent disease, DiseaseUpdateEvent args)
     {
-        var timeDelta = (float)UpdateInterval.TotalSeconds;
+        var timeDelta = (float)_updateInterval.TotalSeconds;
         var alive = !_mobState.IsDead(args.Ent.Owner) || disease.AffectsDead;
 
         if (alive && !args.Ent.Comp.EffectImmune)
@@ -128,11 +125,10 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
 
                 var conditionsEv = new DiseaseCheckConditionsEvent(args.Ent.Owner, (uid, disease), effect);
                 RaiseLocalEvent(effectUid, ref conditionsEv);
-                if (conditionsEv.DoEffect)
-                {
-                    var effectEv = new DiseaseEffectEvent(args.Ent.Owner, (uid, disease), effect);
-                    RaiseLocalEvent(effectUid, effectEv);
-                }
+                if (!conditionsEv.DoEffect)
+                    continue;
+                var effectEv = new DiseaseEffectEvent(args.Ent.Owner, (uid, disease), effect);
+                RaiseLocalEvent(effectUid, effectEv);
             }
         }
 
@@ -151,11 +147,10 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         ChangeInfectionProgress(uid, -timeDelta * ev.ImmunityStrength * disease.ImmunityProgress, disease);
         ChangeImmunityProgress(uid, timeDelta * (ev.ImmunityGainRate * disease.ImmunityGainRate), disease);
 
-        if (disease.InfectionProgress <= 0f)
-        {
-            var curedEv = new DiseaseCuredEvent((uid, disease));
-            RaiseLocalEvent(args.Ent.Owner, curedEv);
-        }
+        if (!(disease.InfectionProgress <= 0f))
+            return;
+        var curedEv = new DiseaseCuredEvent((uid, disease));
+        RaiseLocalEvent(args.Ent.Owner, curedEv);
     }
 
     #region public API
@@ -201,7 +196,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
     /// <summary>
     /// Finds a disease of specified genotype, if any
     /// </summary>
-    public bool FindDisease(EntityUid uid, int genotype, [NotNullWhen(true)] out EntityUid? disease, DiseaseCarrierComponent? comp = null)
+    private bool FindDisease(EntityUid uid, int genotype, [NotNullWhen(true)] out EntityUid? disease, DiseaseCarrierComponent? comp = null)
     {
         disease = null;
         if (!Resolve(uid, ref comp, false))
@@ -212,11 +207,10 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
             if (!TryComp<DiseaseComponent>(diseaseUid, out var diseaseComp))
                 continue;
 
-            if (genotype == diseaseComp.Genotype)
-            {
-                disease = diseaseUid;
-                return true;
-            }
+            if (genotype != diseaseComp.Genotype)
+                continue;
+            disease = diseaseUid;
+            return true;
         }
         return false;
     }
@@ -224,7 +218,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
     /// <summary>
     /// Checks if the entity has a disease of specified genotype
     /// </summary>
-    public bool HasDisease(EntityUid uid, int genotype, DiseaseCarrierComponent? comp = null)
+    private bool HasDisease(EntityUid uid, int genotype, DiseaseCarrierComponent? comp = null)
     {
         return FindDisease(uid, genotype, out _, comp);
     }
@@ -232,7 +226,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
     /// <summary>
     /// Tries to cure the entity of the given disease entity
     /// </summary>
-    public virtual bool TryCure(EntityUid uid, EntityUid disease, DiseaseCarrierComponent? comp = null)
+    protected virtual bool TryCure(EntityUid uid, EntityUid disease, DiseaseCarrierComponent? comp = null)
     {
         // does nothing on client
         return false;

@@ -1,7 +1,8 @@
+using Content.Goobstation.Shared.Disease.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Disease;
+namespace Content.Goobstation.Shared.Disease.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedDiseaseSystem))] // add/remove diseases using the system's methods

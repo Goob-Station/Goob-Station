@@ -1,8 +1,6 @@
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using System;
 
-namespace Content.Goobstation.Shared.Disease;
+namespace Content.Goobstation.Shared.Disease.Components;
 
 /// <summary>
 /// Generates a random disease and grants it to the entity

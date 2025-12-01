@@ -1,4 +1,6 @@
-namespace Content.Goobstation.Shared.Disease;
+using Content.Goobstation.Shared.Disease.Components;
+
+namespace Content.Goobstation.Shared.Disease.Systems;
 
 public partial class SharedDiseaseSystem
 {

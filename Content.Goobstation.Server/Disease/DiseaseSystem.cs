@@ -6,12 +6,13 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Goobstation.Shared.Disease.Components;
+using Content.Goobstation.Shared.Disease.Systems;
 
 namespace Content.Goobstation.Server.Disease;
 
 public sealed partial class DiseaseSystem : SharedDiseaseSystem
 {
-    [Dependency] private readonly InternalsSystem _internals = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
@@ -28,10 +29,12 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     {
         foreach (var effectUid in args.Source.Comp.Effects)
         {
-            if (!TryComp<DiseaseEffectComponent>(effectUid, out var effectComp) || !TryComp<MetaDataComponent>(effectUid, out var metadata) || metadata.EntityPrototype == null)
+            if (!TryComp<DiseaseEffectComponent>(effectUid, out var effectComp) || MetaData(effectUid).EntityPrototype == null)
                 continue;
 
-            TryAdjustEffect(uid, metadata.EntityPrototype, out _, effectComp.Severity, disease);
+            var entProtoId = MetaData(effectUid).EntityPrototype;
+            if (entProtoId != null)
+                TryAdjustEffect(uid, entProtoId, out _, effectComp.Severity, disease);
         }
         // no idea how to do this better
         disease.InfectionRate = args.Source.Comp.InfectionRate;
@@ -58,11 +61,10 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
         var disease = MakeRandomDisease(grant.BaseDisease, grant.Complexity);
         if (TryComp<DiseaseComponent>(disease, out var diseaseComp))
             diseaseComp.InfectionProgress = grant.Severity;
-        if (disease != null)
-        {
-            if (!TryInfect(uid, disease.Value))
-                QueueDel(disease);
-        }
+        if (disease == null)
+            return;
+        if (!TryInfect(uid, disease.Value))
+            QueueDel(disease);
     }
 
     /* TODO: fix
@@ -131,7 +133,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     /// <summary>
     /// Tries to cure the entity of the given disease entity
     /// </summary>
-    public override bool TryCure(EntityUid uid, EntityUid disease, DiseaseCarrierComponent? comp = null)
+    protected override bool TryCure(EntityUid uid, EntityUid disease, DiseaseCarrierComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
             return false;

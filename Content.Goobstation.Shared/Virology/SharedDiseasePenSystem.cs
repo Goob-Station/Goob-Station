@@ -1,4 +1,5 @@
 ﻿using Content.Goobstation.Shared.Disease;
+using Content.Goobstation.Shared.Disease.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Robust.Shared.Audio.Systems;
@@ -57,7 +58,7 @@ public sealed class SharedDiseasePenSystem : EntitySystem
 
     private void TryVaccinate(Entity<DiseasePenComponent> ent, AfterInteractEvent args)
     {
-        if (!TryComp<ImmunityComponent>(args.Target, out var immunity)
+        if (!TryComp<Disease.Components.ImmunityComponent>(args.Target, out var immunity)
             || ent.Comp.Genotype == null
             || ent.Comp.Used
             || args.Target == null)

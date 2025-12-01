@@ -1,23 +1,22 @@
+using System.Diagnostics.CodeAnalysis;
+using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.Damage;
 using Content.Shared.Flash;
 using Content.Shared.Flash.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Shared.Popups;
-using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.StatusEffect;
 using Content.Shared.StatusIcon.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using System.Diagnostics.CodeAnalysis;
 
-namespace Content.Goobstation.Shared.Disease;
+namespace Content.Goobstation.Shared.Disease.Systems;
 
 public partial class SharedDiseaseSystem
 {
@@ -155,7 +154,7 @@ public partial class SharedDiseaseSystem
     protected float GetScale(DiseaseEffectEvent args, ScalingDiseaseEffect effect)
     {
         return (effect.SeverityScale ? args.Comp.Severity : 1f)
-            * (effect.TimeScale ? (float)UpdateInterval.TotalSeconds : 1f)
+            * (effect.TimeScale ? (float)_updateInterval.TotalSeconds : 1f)
             * (effect.ProgressScale ? args.Disease.Comp.InfectionProgress : 1f);
     }
 
