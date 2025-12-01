@@ -28,7 +28,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Collections;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
+using Robust.Shared.Timing; // Goob
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -59,8 +59,9 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
 
         SubscribeLocalEvent<SolutionInjectOnEmbedComponent, LandEvent>(OnEmbedLand);
         SubscribeLocalEvent<SolutionInjectWhileEmbeddedComponent, LandEvent>(OnWhileEmbeddedLand);
+        // Goobstation
         SubscribeLocalEvent<SolutionInjectWhileEmbeddedComponent, InjectOverTimeAttemptEvent>(OnOverTimeAttempt);
-        SubscribeLocalEvent<SolutionInjectWhileEmbeddedComponent, ProjectileEmbedEvent>(OnOverTimeEmbed);
+        SubscribeLocalEvent<SolutionIn
     }
 
     private void HandleProjectileHit(Entity<SolutionInjectOnProjectileHitComponent> entity, ref ProjectileHitEvent args)
