@@ -639,4 +639,9 @@ public sealed partial class GoobCVars
         CVarDef.Create("heretic.ascension_requires_objectives", true, CVar.SERVERONLY);
 
     #endregion
+    /// <summary>
+    /// Enables or disables contraband icons.
+    /// </summary>
+    public static readonly CVarDef<bool> ContrabandIconsEnabled =
+        CVarDef.Create("contraband.icons_enabled", true, CVar.SERVER | CVar.REPLICATED);
 }
