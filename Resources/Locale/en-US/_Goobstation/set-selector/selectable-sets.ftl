@@ -75,7 +75,7 @@ selectable-set-syndicate-hacker-name = Hacker Bundle
 selectable-set-syndicate-hacker-description =
     A bundle with everything you need to hack into and disrupt the Station itself,
     the station AI, its cyborgs and the Security team. HACK THE PLANET!
-    Contains: Antimov law board, authentication disruptor, EMAG,
+    Contains: A custom law board, authentication disruptor, EMAG,
     radio jammer, filled toolbox, experimental syndicate teleporter,
     cool glasses, binary decoder implanter and a syndicate encryption key.
 
