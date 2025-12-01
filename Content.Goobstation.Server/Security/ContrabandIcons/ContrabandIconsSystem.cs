@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.Security.ContrabandIcons;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
 using Content.Shared.Access.Components;
@@ -5,15 +6,20 @@ using Content.Shared.Hands;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Strip.Components;
+using Robust.Shared.Configuration;
 
 namespace Content.Goobstation.Server.Security.ContrabandIcons;
 
 public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 {
+    [Dependency] private readonly IConfigurationManager _configuration = default!;
+    private bool _isEnabled = true;
     public override void Initialize()
     {
         base.Initialize();
-
+        Subs.CVar(_configuration, GoobCVars.ContrabandIconsEnabled, value => _isEnabled = value);
+        if(!_isEnabled)
+            return;
         SubscribeLocalEvent<VisibleContrabandComponent, MapInitEvent>(OnMapInit);
 
         SubscribeLocalEvent<VisibleContrabandComponent, DidEquipEvent>(OnEquip);
