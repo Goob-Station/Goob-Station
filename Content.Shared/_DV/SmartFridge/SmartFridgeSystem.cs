@@ -14,6 +14,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Timing;
+using Content.Shared.DragDrop;
 
 namespace Content.Shared._DV.SmartFridge;
 
@@ -33,6 +34,8 @@ public sealed class SmartFridgeSystem : EntitySystem
 
         SubscribeLocalEvent<SmartFridgeComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<SmartFridgeComponent, EntRemovedFromContainerMessage>(OnItemRemoved);
+        SubscribeLocalEvent<SmartFridgeComponent, CanDropTargetEvent>(OnCanDropTarget);
+        SubscribeLocalEvent<SmartFridgeComponent, DragDropTargetEvent>(OnDragDropTarget);
 
         Subs.BuiEvents<SmartFridgeComponent>(SmartFridgeUiKey.Key,
             sub =>
@@ -134,6 +137,25 @@ public sealed class SmartFridgeSystem : EntitySystem
 
         _audio.PlayPredicted(ent.Comp.SoundDeny, ent, args.Actor);
         _popup.PopupPredicted(Loc.GetString("smart-fridge-component-try-eject-out-of-stock"), ent, args.Actor);
+    }
+
+    private void OnCanDropTarget(Entity<SmartFridgeComponent> ent, ref CanDropTargetEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        // Probably add more checks to this?
+        args.Handled = true;
+        args.CanDrop = true;
+    }
+
+    private void OnDragDropTarget(Entity<SmartFridgeComponent> ent, ref DragDropTargetEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        // Checks are all done in `TryInsertObject()`.
+        args.Handled = TryInsertObject(ent, args.Dragged, args.User);
     }
 
     // Frontier: hacky function to insert an object
