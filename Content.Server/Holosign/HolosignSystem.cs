@@ -22,6 +22,8 @@ using Content.Server.PowerCell;
 using Content.Shared.Interaction;
 using Content.Shared.Physics; // Goobstation
 using Content.Shared.Storage;
+using Content.Shared.Tag; // Goobstation
+using Robust.Shared.Map; // Goobstation
 using Robust.Shared.Physics.Components; // Goobstation
 
 namespace Content.Server.Holosign;
@@ -30,14 +32,23 @@ public sealed class HolosignSystem : EntitySystem
 {
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!; // Goobstation
 
+    // Goobstation start
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
+
+    private EntityQuery<PhysicsComponent> _physicsQuery;
+    // Goobstation end
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<HolosignProjectorComponent, BeforeRangedInteractEvent>(OnBeforeInteract);
         SubscribeLocalEvent<HolosignProjectorComponent, ExaminedEvent>(OnExamine);
+
+        _physicsQuery = GetEntityQuery<PhysicsComponent>(); // Goobstation
     }
 
     private void OnExamine(EntityUid uid, HolosignProjectorComponent component, ExaminedEvent args)
@@ -69,14 +80,16 @@ public sealed class HolosignSystem : EntitySystem
 
         // places the holographic sign at the click location, snapped to grid.
         var coords = args.ClickLocation.SnapToGrid(EntityManager);
-        var physicsQuery = GetEntityQuery<PhysicsComponent>();
-        var look = _lookup.GetEntitiesInRange(coords, 0.1f);
+        var mapCoords = _transform.ToMapCoordinates(coords);
+        var look = _mapManager.TryFindGridAt(mapCoords, out var grid, out var gridComp)
+            ? _map.GetAnchoredEntities((grid, gridComp), mapCoords)
+            : _lookup.GetEntitiesInRange(mapCoords, 0.1f);
         foreach (var entity in look)
         {
-            if (Prototype(entity) is {} proto && proto.ID == component.SignProto)
+            if (_tag.HasTag(entity, component.HolosignTag))
                 return;
 
-            if (!physicsQuery.TryComp(entity, out var physics))
+            if (!_physicsQuery.TryComp(entity, out var physics))
                 continue;
 
             if ((physics.CollisionLayer |
