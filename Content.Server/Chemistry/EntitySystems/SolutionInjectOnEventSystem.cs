@@ -147,6 +147,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
                 return;
         }
 
+        // 30% armor equals to 0.3 mult which results in ~2 second injection delay
         var time = TimeSpan.FromSeconds((1f - mult) * 7f);
         if (ent.Comp.EmbedTime + time > _timing.CurTime)
             args.Cancelled = true;
