@@ -34,15 +34,17 @@
 
 using Content.Server.Fluids.EntitySystems;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
+using Content.Shared.Fluids.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Content.Shared.Inventory; // Assmos - Extinguisher Nozzle
 using Content.Shared.Whitelist; // Assmos - Extinguisher Nozzle
 
-namespace Content.Server.Fluids.Components;
+namespace Content.Shared.Fluids.Components;
 
 [RegisterComponent]
-[Access(typeof(SpraySystem))]
+[Access(typeof(SharedSpraySystem))]
 public sealed partial class SprayComponent : Component
 {
     public const string SolutionName = "spray";
@@ -73,8 +75,11 @@ public sealed partial class SprayComponent : Component
     public float PushbackAmount = 5f;
 
     [DataField(required: true)]
-    [Access(typeof(SpraySystem), Other = AccessPermissions.ReadExecute)] // FIXME Friends
+    [Access(typeof(SharedSpraySystem), Other = AccessPermissions.ReadExecute)] // FIXME Friends
     public SoundSpecifier SpraySound { get; private set; } = default!;
+
+    [DataField]
+    public LocId SprayEmptyPopupMessage = "spray-component-is-empty-message";
 
     /// <remarks>
     /// Assmos - Extinguisher Nozzle
