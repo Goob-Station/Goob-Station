@@ -41,7 +41,7 @@ public sealed partial class VehicleComponent : Component
     /// Will the vehicle move when a driver buckles
     /// </summary>
     [DataField]
-    public bool EngineRunning = false;
+    public bool EngineRunning;
 
     /// <summary>
     /// What sound to play when the driver presses the horn action (plays once)
@@ -76,13 +76,14 @@ public sealed partial class VehicleComponent : Component
     /// if the Vehicle is broken
     /// </summary>
     [DataField]
-    public bool IsBroken  = false;
+    public bool IsBroken;
 }
+
 [Serializable, NetSerializable]
 public enum VehicleState : byte
 {
     Animated,
-    DrawOver
+    DrawOver,
 }
 
 [Serializable, NetSerializable, Flags]
@@ -97,4 +98,10 @@ public enum VehicleRenderOver
     SouthWest = 32,
     West = 64,
     NorthWest = 128,
+}
+
+[Serializable, NetSerializable]
+public enum VehicleOverMob : byte
+{
+    Enabled,
 }

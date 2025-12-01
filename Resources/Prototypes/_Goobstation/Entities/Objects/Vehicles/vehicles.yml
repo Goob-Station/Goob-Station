@@ -81,7 +81,7 @@
     baseAcceleration: 8
     baseFriction: 0.2 # wheels dont stop instantly
     baseSprintSpeed: 8.5
-    baseWalkSpeed: 4.5 # default walking speed 
+    baseWalkSpeed: 4.5 # default walking speed
   - type: ItemSlots
     slots:
       key_slot:
@@ -292,3 +292,44 @@
     materialComposition:
       Steel: 125
       Plastic: 125
+
+- type: entity
+  id: VehicleForklift
+  parent: BaseVehicle
+  name: Forklift
+  description: NanoTrasen approved Forklift Certification required.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Vehicles/forklift.rsi
+    layers:
+      - state: forklift
+      - state: forklift1
+        drawdepth: OverMobs
+        visible: false
+        map: [ "overmob" ]
+    noRot: true
+  - type: Vehicle
+    hornSound:
+      collection: BikeHorn
+      params:
+        variation: 0.125
+    overmobState: forklift1
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: vehicle-slot-component-slot-name-keys
+        whitelist:
+          requireAll: true
+          tags:
+          - VehicleKey
+          - ForkliftKeys
+        insertSound:
+          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+          params:
+            volume: -3
+  - type: GenericVisualizer
+    visuals:
+      enum.VehicleOverMob.Enabled:
+        overmob:
+          True: { visible: true }
+          False: { visible: false }
