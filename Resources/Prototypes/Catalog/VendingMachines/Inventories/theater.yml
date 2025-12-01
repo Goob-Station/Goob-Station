@@ -117,6 +117,8 @@
     ClothingHeadSanabi: 1 # Goobstation
     ClothingNeckCloakSanabi: 1 # Goobstation
     ClothingCostumeGingerbreadHead: 1 #goob
+    ClothingOuterSuitHotDog: 1 # Goob
+    ClothingOuterSuitPickle: 1
   contrabandInventory:
     ClothingHeadHatRichard: 1
     ClothingShoesBling: 1

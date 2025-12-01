@@ -37,14 +37,15 @@
     - Abductors
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    attackRate: 0.5
+    attackRate: 0.75
     damage:
       types:
         Shock: 0
     angle: 60
     animation: WeaponArcThrust
   - type: StaminaDamageOnHit
-    damage: 50
+    damage: 60
+    lightAttackDamageMultiplier: 2
     sound: /Audio/Weapons/Guns/Hits/taser_hit.ogg
 #  - type: RestrictMeleeByUserTag
 #    contains:
@@ -54,6 +55,18 @@
 #    - abductors-weapon-restricted-2
 #    - abductors-weapon-restricted-3
 #    - abductors-weapon-restricted-4
+  - type: Tag
+    tags:
+    - Wonderprod
+  - type: Multihit
+    multihitWhitelist:
+      tags:
+      - Wonderprod
+    conditions:
+    - !type:MultihitUserWhitelistEvent
+      whitelist:
+        tags:
+        - Abductor
   - type: DisarmMalus
   - type: ItemSwitch
     state: stun
@@ -67,14 +80,15 @@
         components:
         - type: MeleeWeapon
           wideAnimationRotation: -135
-          attackRate: 0.5
+          attackRate: 0.75
           damage:
             types:
               Shock: 0
           angle: 60
           animation: WeaponArcThrust
         - type: StaminaDamageOnHit
-          damage: 50
+          damage: 60
+          lightAttackDamageMultiplier: 2
           sound: /Audio/Weapons/Guns/Hits/taser_hit.ogg
         soundStateActivate:
           collection: sparks
@@ -89,7 +103,7 @@
         components:
         - type: MeleeWeapon
           wideAnimationRotation: -135
-          attackRate: 0.5
+          attackRate: 0.75
           damage:
             types:
               Shock: 0

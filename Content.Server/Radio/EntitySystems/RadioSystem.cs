@@ -33,6 +33,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;  // goob - intermap transmitters
+using Content.Goobstation.Shared.Communications; // goob - intermap transmitters
 using Content.Goobstation.Shared.Loudspeaker.Events; // goob - loudspeakers
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
@@ -225,7 +227,8 @@ public sealed class RadioSystem : EntitySystem
                     continue;
             }
 
-            if (!channel.LongRange && transform.MapID != sourceMapId && !radio.GlobalReceive)
+            if (!channel.LongRange && transform.MapID != sourceMapId && !radio.GlobalReceive
+                && !(HasActiveTransmitter(transform.MapID) && HasActiveTransmitter(sourceMapId))) // goob - intermap transmitters
                 continue;
 
             // don't need telecom server for long range channels or handheld radios and intercoms
@@ -329,4 +332,12 @@ public sealed class RadioSystem : EntitySystem
         }
         return false;
     }
+    // goob start - intermap transmitters
+    /// <inheritdoc cref="TelecomServerComponent"/>
+    private bool HasActiveTransmitter(MapId mapId)
+    {
+        return EntityQuery<TelecomTransmitterComponent, ApcPowerReceiverComponent, TransformComponent>()
+            .Any(server => server.Item3.MapID == mapId && server.Item2.Powered);
+    }
+    // goob end
 }

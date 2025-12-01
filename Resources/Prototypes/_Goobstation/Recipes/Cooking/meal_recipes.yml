@@ -40,3 +40,15 @@
   time: 10
   solids:
     RightLegVox: 1
+    
+- type: microwaveMealRecipe
+  id: RecipeChudBurger
+  name: nothing burger recipe
+  result: FoodBurgerChud
+  time: 10
+  group: Savory
+  solids:
+    FoodBreadBun: 1
+    FoodMeat: 1
+  reagents:
+    Nothing: 5
