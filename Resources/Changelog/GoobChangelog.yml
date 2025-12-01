@@ -18657,3 +18657,11 @@ Entries:
       message: 'Removed: The Hermit GameType.'
   id: 2102
   time: '2025-12-01T19:05:11.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Tweak
+      message: >-
+        Tis but a flesh wound! Limb damage no longer directly contributes to the
+        crit/dead state. Beware of the blood loss!
+  id: 2103
+  time: '2025-12-01T20:47:54.0000000+00:00'
