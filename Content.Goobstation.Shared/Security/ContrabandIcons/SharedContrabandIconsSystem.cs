@@ -33,9 +33,7 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
 
     protected void ContrabandDetect(EntityUid inventory, VisibleContrabandComponent component, SlotFlags slotFlags = SlotFlags.WITHOUT_POCKET)
     {
-        if (!_isEnabled)
-            return;
-        if (HasComp<ThievingComponent>(inventory))
+        if (!_isEnabled || HasComp<ThievingComponent>(inventory))
             return;
         var list = _detectorSystem.FindContraband(inventory, false, slotFlags);
         var isDetected = list.Count > 0;
