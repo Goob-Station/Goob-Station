@@ -7,7 +7,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Tag;
+using Content.Shared.Tag; // Goobstation
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
@@ -26,6 +26,7 @@ namespace Content.Server.Holosign
         [ViewVariables(VVAccess.ReadWrite), DataField("chargeUse")]
         public float ChargeUse = 50f;
 
+        // Goobstation
         [DataField]
         public ProtoId<TagPrototype> HolosignTag = "Holosign";
     }
