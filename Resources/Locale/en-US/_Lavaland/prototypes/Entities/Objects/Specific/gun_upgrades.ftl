@@ -27,4 +27,7 @@ gun-upgrade-pressure-name = [color=orangered][bold]pressure[/bold][/color]
 gun-upgrade-bayonet-name = [bold]bayonet[/bold]
 gun-upgrade-flashlight-name = [bold]flashlight[/bold]
 
-gun-upgrade-crusher-marker-name = [color=#4269eb][bold]crusher marker[/bold][/color]
+gun-upgrade-crusher-kinetic-marker-name = [color=#4269eb][bold]kinetic marker[/bold][/color]
+gun-upgrade-crusher-rude-buster-name = [color=#ae00ff][bold]rude buster[/bold][/color]
+gun-upgrade-crusher-dual-buster-name = [color=#4269eb][bold]dual buster[/bold][/color]
+gun-upgrade-crusher-god-buster-name = [color=#4269eb][bold]God buster[/bold][/color]

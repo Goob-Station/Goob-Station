@@ -126,19 +126,7 @@ public abstract class SharedWieldableSystem : EntitySystem
         if (TryComp<WieldableComponent>(uid, out var wieldable) &&
             !wieldable.Wielded)
         {
-            // Lavaland Change: If the weapon can fumble, the player will get knocked down if they try to use the weapon without wielding it.
-            if (component.FumbleOnAttempt)
-            {
-                args.Message = Loc.GetString("wieldable-component-requires-fumble", ("item", uid));
-                var playSound = !_statusEffects.HasStatusEffect(args.User, "KnockedDown");
-                _stun.TryKnockdown(args.User, TimeSpan.FromSeconds(1.5f), true);
-                if (playSound)
-                    _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Effects/slip.ogg"), args.User, args.User);
-            }
-            else
-            {
-                args.Message = Loc.GetString("wieldable-component-requires", ("item", uid));
-            }
+            args.Message = Loc.GetString("wieldable-component-requires", ("item", uid));
             args.Cancelled = true;
         }
     }

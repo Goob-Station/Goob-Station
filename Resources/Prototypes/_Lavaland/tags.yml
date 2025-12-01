@@ -60,10 +60,10 @@
   id: MarkerBeacon
 
 - type: Tag
-  id: CrusherUpgrade
+  id: CrusherUpgradeMain
 
 - type: Tag
   id: CrusherUpgradeMarker
 
 - type: Tag
-  id: CrusherUpgradeBuster
+  id: CrusherUpgradeRudeBuster

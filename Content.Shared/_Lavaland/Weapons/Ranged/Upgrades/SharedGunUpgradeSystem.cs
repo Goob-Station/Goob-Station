@@ -35,6 +35,7 @@ using Content.Shared.Weapons.Ranged.Systems;
 using System.Linq;
 using Content.Shared._Goobstation.Weapons.Ranged;
 using Content.Shared.Actions;
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Containers;
 
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades;
@@ -127,7 +128,8 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
     private void OnUpgradeInserted(Entity<UpgradeableGunComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
         // Update some characteristics here.
-        _gun.RefreshModifiers(ent.Owner);
+        if (TryComp(ent.Owner, out GunComponent? gun))
+            _gun.RefreshModifiers((ent.Owner, gun));
     }
 
     private void OnItemSlotInsertAttemptEvent(Entity<UpgradeableGunComponent> ent, ref ItemSlotInsertAttemptEvent args)

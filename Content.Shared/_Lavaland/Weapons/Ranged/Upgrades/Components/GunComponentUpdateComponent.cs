@@ -29,11 +29,8 @@ namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 /// Adds components when inserted and removes them when ejected from a weapon.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedGunUpgradeSystem))]
-public sealed partial class GunComponentUpgradeComponent : Component
+public sealed partial class GunUpgradeComponentsComponent : Component
 {
     [DataField]
-    public ComponentRegistry ToAdd = new();
-
-    [DataField]
-    public ComponentRegistry ToRemove = new();
+    public ComponentRegistry Components = new();
 }

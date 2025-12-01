@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+﻿// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
@@ -25,10 +25,10 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 
 /// <summary>
-/// A <see cref="GunUpgradeComponent"/> for increasing the damage of a gun's projectile.
+/// A <see cref="GunUpgradeComponent"/> for adding new components to projectiles shot by this weapon.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedGunUpgradeSystem))]
-public sealed partial class GunUpgradeComponentsComponent : Component
+public sealed partial class GunUpgradeProjectileComponentsComponent : Component
 {
     [DataField]
     public ComponentRegistry Components = new();

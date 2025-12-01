@@ -1,0 +1,112 @@
+- type: entity
+  parent: [ BaseKnife, BaseSalvageContraband ]
+  id: WeaponCrusherDagger
+  name: crusher dagger
+  description: A scaled down version of a proto-kinetic crusher. Uses kinetic energy to vibrate the blade at high speeds.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/crusher_dagger.rsi
+    state: icon
+  - type: MeleeWeapon
+    autoAttack: true
+    animationRotation: -45 # WWDP
+    wideAnimationRotation: -135
+    attackRate: 2
+    damage:
+      types:
+        Slash: 15
+  - type: Tag
+    tags:
+    - Knife
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 10
+  - type: DisarmMalus
+    malus: 0.225
+  - type: ThrowingAngle
+    angle: 225
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          radius: 0.01
+          vertices:
+          - -0.4,-0.2
+          - -0.2,-0.4
+          - 0.4,0.2
+          - 0.2,0.4
+        density: 20 # derived from base_item
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+
+- type: entity
+  parent: [ BaseWeaponCrusher, ClothingHandsBase ]
+  id: LavalandWeaponKineticClaws
+  name: kinetic claws
+  description: Unleash your inner edgelord with this one-handed claw small enough to fit in your backpack. Deals a lot more damage when backstabbing marked targets.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws.rsi
+    state: icon
+  - type: UseDelay
+    delay: 1
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws-inhands.rsi
+  - type: Fiber
+    fiberMaterial: fibers-kinetic
+    fiberColor: fibers-purple
+  - type: MeleeWeapon
+    attackRate: 1.5
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 5
+    soundHit:
+      collection: MetalThud
+    angle: 0
+    animation: WeaponArcThrust
+    range: 1.6
+    mustBeEquippedToUse: true
+  - type: Item
+    size: Normal
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws-inhands.rsi
+  - type: Sharp
+
+- type: entity
+  parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
+  id: LavalandWeaponKineticMachete
+  name: kinetic machete
+  description: A smaller, one-handed variant of the crusher which allows you to block attacks.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_machete.rsi
+    state: icon
+  - type: UseDelay
+    delay: 1
+  - type: MeleeWeapon
+    attackRate: 1.0 # slightly slower than a combat/utility knife, but in return is slightly stronger than one
+    damage:
+      types:
+        Slash: 12.5
+    soundHit:
+      collection: MetalThud
+    angle: 0
+    animation: WeaponArcThrust
+    range: 1.6
+  - type: Item
+    size: Ginormous
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_machete-inhands.rsi
+  - type: Sharp
+  - type: BlockCharge # TODO fix this component and turn it into a complete parrying mechanic
+    rechargeTime: 120
+    markerReductionTime: 20

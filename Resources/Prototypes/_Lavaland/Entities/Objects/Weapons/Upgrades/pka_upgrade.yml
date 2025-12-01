@@ -55,7 +55,6 @@
       color: "#eb4c13"
   - type: GunUpgrade
     name: gun-upgrade-damage-name
-    capacityCost: 40
   - type: GunUpgradeDamage
     #modifier: 1.25
     damage:
@@ -78,7 +77,6 @@
       color: "#1373eb"
   - type: GunUpgrade
     name: gun-upgrade-range-name
-    capacityCost: 20
   - type: GunUpgradeSpeed
     coefficient: 1.5
 
@@ -98,7 +96,6 @@
       color: "#9bf134"
   - type: GunUpgrade
     name: gun-upgrade-reload-name
-    capacityCost: 40
   - type: GunUpgradeFireRate
     coefficient: 1.5
 

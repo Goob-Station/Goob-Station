@@ -27,41 +27,153 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [BaseItem, BaseSecurityCargoContraband]
-  id: LavalandWeaponKineticBase
   abstract: true
+  parent: BaseItem
+  id: BaseWeaponCrusher
+  name: crusher
+  description: An early design of the proto-kinetic accelerator.
   components:
+  - type: Appearance
+  - type: MegafaunaWeaponLooter # TODO reconsider this component entirely
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: DisarmMalus
+  - type: Prying
+  - type: MeleeWeapon
+    attackRate: 0.8
+    animationRotation: -45
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 10
+        Slash: 5
+    soundHit:
+      collection: MetalThud
+  - type: UpgradeableGun
+  - type: ContainerContainer
+    containers:
+      bayonet: !type:ContainerSlot
+      flashlight: !type:ContainerSlot
+      upgrade_slot_main: !type:ContainerSlot
+      # TODO: Secondary upgrades
+  - type: ItemSlots
+    slots:
+      flashlight:
+        name: weapon-upgrade-slot-name-flashlight
+        priority: 3
+        insertDelay: 0.8
+        ejectDelay: 0.4
+        ejectOnBreak: true
+        occludesLight: false
+        whitelist:
+          components:
+          - GunUpgradeFlashlight
+      upgrade_slot_main:
+        name: weapon-upgrade-slot-name-main
+        swap: false # can't use the swap...
+        priority: 2
+        insertDelay: 3.0 # This is something major
+        ejectDelay: 1.8
+        whitelist:
+          tags:
+          - CrusherUpgradeMain
+  - type: ItemMapper
+    mapLayers:
+      #flight:
+      #  whitelist:
+      #    components:
+      #    - GunUpgradeFlashlight
+      upgrade-marker:
+        whitelist:
+          tags:
+          - CrusherUpgradeMarker
+      upgrade-rude-buster:
+        whitelist:
+          tags:
+          - CrusherUpgradeRudeBuster
+
+# Very high burst damage if you land a mark, while also providing a small amount of healing.
+- type: entity
+  parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
+  id: WeaponCrusher
+  name: crusher
+  description: An early design of the proto-kinetic accelerator.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Ginormous
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher-inhands.rsi
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MeleeWeapon
+    attackRate: 0.8 # Lavaland Change (slightly faster than fireaxe, still weaker damage wise)
+    animationRotation: -45 # WWDP
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 10 # Lavaland Change: no damage when unwielded
+        Slash: 5
+    soundHit:
+      collection: MetalThud
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: MeleeRequiresWield
   - type: Tag
     tags:
-      - Pickaxe
-  - type: AmmoCounter
-  - type: UseDelayOnShoot
-  - type: UseDelay
-    delay: 0.9
-  - type: Gun
-    soundGunshot: /Audio/Weapons/plasma_cutter.ogg
-    fireRate: 1
-    useKey: false
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.5
-    rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
-  - type: BasicEntityAmmoProvider
-    proto: BulletCharge
-    capacity: 1
-    count: 1
-  - type: DisarmMalus
-  - type: MegafaunaWeaponLooter
+    - Pickaxe
 
 - type: entity
-  parent: [LavalandWeaponKineticBase, BaseSecurityCargoContraband]
+  parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
+  id: WeaponCrusherGlaive
+  name: crusher glaive
+  description: An early design of the proto-kinetic accelerator, in glaive form. Provides better healing in exchange for less charged damage.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_glaive.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher-inhands.rsi
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_glaive.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: UseDelay
+    delay: 1.9
+  - type: BasicEntityAmmoProvider
+    proto: BulletChargeGlaive
+    capacity: 1
+    count: 1
+  - type: LeechOnMarker
+    leech:
+      groups:
+        Brute: -10 # Lavaland Change: lower crusher healing
+  - type: Tag
+    tags:
+    - Pickaxe
+  - type: MeleeWeapon
+    attackRate: 1
+    wideAnimationRotation: -135
+
+- type: entity
+  parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
   id: LavalandWeaponKineticSpear
   name: kinetic spear
   description: A long-ranged melee weapon. Deals less damage than a normal crusher, but has longer attack range.
   components:
   - type: Tag
     tags:
-      - Pickaxe
+    - Pickaxe
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_glaive.rsi
     state: icon
@@ -101,19 +213,9 @@
   - type: Wieldable
   - type: Sharp
   - type: MeleeRequiresWield
-    fumbleOnAttempt: true
-  - type: DamageBoostOnMarker
-    boost:
-      types: # Totals to 60 damage when hitting marked targets
-        Blunt: 30
-        Slash: 15
-    backstabBoost: # And 20 extra for a backstab. Adding up to 80
-      types:
-        Blunt: 11
-        Slash: 9
 
 - type: entity
-  parent: LavalandWeaponKineticBase
+  parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
   id: LavalandWeaponKineticHammer
   name: kinetic hammer
   description: A beefy, two-handed weapon that inflicts knockback and heavier damage than a crusher.
@@ -144,95 +246,9 @@
   - type: GunRequiresWield
   - type: Wieldable
   - type: MeleeRequiresWield
-    fumbleOnAttempt: true
-  - type: DamageBoostOnMarker
-    boost:
-      types: # BLOOD FOR THE BLOOD GOD ITS A FUCKING HAMMER
-        Blunt: 75
   - type: Tool
     speedModifier: 1.5 # peak hammer technology
     useSound:
       path: /Audio/Items/trayhit2.ogg
     qualities:
     - Hammering
-
-- type: entity
-  parent: [LavalandWeaponKineticBase, ClothingHandsBase]
-  id: LavalandWeaponKineticClaws
-  name: kinetic claws
-  description: Unleash your inner edgelord with this one-handed claw small enough to fit in your backpack. Deals a lot more damage when backstabbing marked targets.
-  components:
-  - type: Sprite
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws.rsi
-    state: icon
-  - type: UseDelay
-    delay: 1
-  - type: Clothing
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws-inhands.rsi
-  - type: Fiber
-    fiberMaterial: fibers-kinetic
-    fiberColor: fibers-purple
-  - type: MeleeWeapon
-    attackRate: 1.5
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Slash: 5
-    soundHit:
-      collection: MetalThud
-    angle: 0
-    animation: WeaponArcThrust
-    range: 1.6
-    mustBeEquippedToUse: true
-  - type: Item
-    size: Normal
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws-inhands.rsi
-  - type: Sharp
-  - type: DamageBoostOnMarker
-    boost:
-      types: # Totals to 45 damage when hitting marked targets
-        Slash: 25
-        Blunt: 15
-    backstabBoost: # And 120 extra for a backstab. Adding up to 165!!!
-      types:
-        Slash: 75
-        Blunt: 45
-
-- type: entity
-  parent: LavalandWeaponKineticBase
-  id: LavalandWeaponKineticMachete
-  name: kinetic machete
-  description: A smaller, one-handed variant of the crusher which allows you to block attacks.
-  components:
-  - type: Sprite
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_machete.rsi
-    state: icon
-  - type: UseDelay
-    delay: 1
-  - type: MeleeWeapon
-    attackRate: 1.0 # slightly slower than a combat/utility knife, but in return is slightly stronger than one
-    damage:
-      types:
-        Slash: 12.5
-    soundHit:
-      collection: MetalThud
-    angle: 0
-    animation: WeaponArcThrust
-    range: 1.6
-  - type: Item
-    size: Ginormous
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_machete-inhands.rsi
-  # too lazy to port parrying and risk a [redacted] lmao
-  - type: Sharp
-  - type: DamageBoostOnMarker
-    boost:
-      types: # Totals to 50 damage when hitting marked targets
-        Slash: 27.5
-        Blunt: 10
-    backstabBoost: # And 20 extra for a backstab
-      types:
-        Slash: 15
-        Blunt: 5
-  - type: BlockCharge
-    rechargeTime: 120
-    markerReductionTime: 20

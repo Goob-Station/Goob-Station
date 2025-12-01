@@ -39,25 +39,46 @@
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_shotgun.rsi
   - type: BasicEntityAmmoProvider
     proto: PelletKineticSpread
-    capacity: 1
-    count: 1
-  - type: UpgradeableGun
-    maxUpgradeCapacity: 70
   - type: GunRequiresWield
   - type: Item
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_shotgun.rsi
     shape:
     - 0,0,4,0
-  - type: ItemMapper
-    mapLayers:
+  - type: ContainerContainer
+    containers:
+      bayonet: !type:ContainerSlot
+      flashlight: !type:ContainerSlot
+      upgrade_slot_1: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
       bayonet:
+        name: weapon-upgrade-slot-name-bayonet
+        priority: 4
+        insertDelay: 2.0
+        ejectDelay: 1.2
+        ejectOnBreak: true
         whitelist:
           components:
           - GunUpgradeBayonet
-      flight:
+      flashlight:
+        name: weapon-upgrade-slot-name-flashlight
+        priority: 3
+        insertDelay: 0.8
+        ejectDelay: 0.4
+        ejectOnBreak: true
+        occludesLight: false
         whitelist:
           components:
           - GunUpgradeFlashlight
+      upgrade_slot_1:
+        name: weapon-upgrade-slot-name-first
+        swap: false # can't use the swap...
+        priority: 2
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PKAUpgrade
 
 - type: entity
   name: proto-kinetic repeater
@@ -86,21 +107,55 @@
     capacity: 3
     count: 3
   - type: UpgradeableGun
-    maxUpgradeCapacity: 70
   - type: Item
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
     shape:
     - 0,0,2,1
-  - type: ItemMapper
-    mapLayers:
+  - type: ContainerContainer
+    containers:
+      bayonet: !type:ContainerSlot
+      flashlight: !type:ContainerSlot
+      upgrade_slot_1: !type:ContainerSlot
+      upgrade_slot_2: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
       bayonet:
+        name: weapon-upgrade-slot-name-bayonet
+        priority: 5
+        insertDelay: 2.0
+        ejectDelay: 1.2
+        ejectOnBreak: true
         whitelist:
           components:
           - GunUpgradeBayonet
-      flight:
+      flashlight:
+        name: weapon-upgrade-slot-name-flashlight
+        priority: 4
+        insertDelay: 0.8
+        ejectDelay: 0.4
+        ejectOnBreak: true
+        occludesLight: false
         whitelist:
           components:
           - GunUpgradeFlashlight
+      upgrade_slot_1:
+        name: weapon-upgrade-slot-name-first
+        swap: false # can't use the swap...
+        priority: 3
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PKAUpgrade
+      upgrade_slot_2:
+        name: weapon-upgrade-slot-name-second
+        swap: false
+        priority: 2
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PKAUpgrade
 
 - type: entity
   name: proto-kinetic pistol
@@ -116,10 +171,6 @@
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_pistol.rsi
   - type: BasicEntityAmmoProvider
     proto: WeakBulletKinetic
-    capacity: 1
-    count: 1
-  - type: UpgradeableGun
-    maxUpgradeCapacity: 200
   - type: Gun
     availableModes:
     - FullAuto
@@ -130,13 +181,68 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
-  - type: ItemMapper
-    mapLayers:
+  - type: ContainerContainer
+    containers:
+      bayonet: !type:ContainerSlot
+      flashlight: !type:ContainerSlot
+      upgrade_slot_1: !type:ContainerSlot
+      upgrade_slot_2: !type:ContainerSlot
+      upgrade_slot_3: !type:ContainerSlot
+      upgrade_slot_4: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
       bayonet:
+        name: weapon-upgrade-slot-name-bayonet
+        priority: 7
+        insertDelay: 2.0
+        ejectDelay: 1.2
+        ejectOnBreak: true
         whitelist:
           components:
           - GunUpgradeBayonet
-      flight:
+      flashlight:
+        name: weapon-upgrade-slot-name-flashlight
+        priority: 6
+        insertDelay: 0.8
+        ejectDelay: 0.4
+        ejectOnBreak: true
+        occludesLight: false
         whitelist:
           components:
           - GunUpgradeFlashlight
+      upgrade_slot_1:
+        name: weapon-upgrade-slot-name-first
+        swap: false # can't use the swap...
+        priority: 5
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PKAUpgrade
+      upgrade_slot_2:
+        name: weapon-upgrade-slot-name-second
+        swap: false
+        priority: 4
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PKAUpgrade
+      upgrade_slot_3:
+        name: weapon-upgrade-slot-name-third
+        swap: false
+        priority: 3
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PKAUpgrade
+      upgrade_slot_4:
+        name: weapon-upgrade-slot-name-fourth
+        swap: false
+        priority: 2
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PKAUpgrade

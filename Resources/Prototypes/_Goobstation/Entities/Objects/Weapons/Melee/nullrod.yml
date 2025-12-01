@@ -554,7 +554,6 @@
       params:
         volume: 1
   - type: MeleeRequiresWield
-    fumbleOnAttempt: true
   - type: Nullrod
     DamageOnUntrainedUse:
       types:

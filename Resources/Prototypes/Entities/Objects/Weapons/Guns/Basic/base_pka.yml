@@ -113,6 +113,16 @@
         whitelist:
           tags:
           - PKAUpgrade
+  - type: ItemMapper
+    mapLayers:
+      bayonet:
+        whitelist:
+          components:
+          - GunUpgradeBayonet
+      flight:
+        whitelist:
+          components:
+          - GunUpgradeFlashlight
   #- type: GunWieldBonus
   #  minAngle: -43
   #  maxAngle: -43

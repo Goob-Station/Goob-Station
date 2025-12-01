@@ -17,7 +17,9 @@
   - type: Projectile
     damage:
       types:
-        Heat: 25
+        Heat: 15
+        Holy: 30
+        Structural: 60
   - type: Trail
     color: "#ae00ffdd"
     scale: 1.1
