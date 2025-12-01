@@ -403,6 +403,7 @@
       5: Dead # Goob edit
   - type: Stamina
     critThreshold: 10
+    animationThreshold: 5 # Goob edit
   - type: DamageStateVisuals
     states:
       Alive:
@@ -939,7 +940,10 @@
           32:
             sprite: Mobs/Animals/mothroach/displacement.rsi
             state: neck
-
+  - type: EatToGrow # Goobstation Eat To Grow System
+    growth: 0.05
+    maxGrowth: 2
+    
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
 # The white duck is more akin to a pekin or call duck.
 
@@ -2252,6 +2256,7 @@
     staminaRatio: 1 # mice are small so can probably evade without much stamina drain
   - type: Stamina
     critThreshold: 20
+    animationThreshold: 10 # Goob edit
   - type: LayingDown
   - type: NPCRetaliation
     attackMemoryLength: 5 # stop caring fast if you don't keep hitting
@@ -3608,7 +3613,7 @@
     factions:
     - Syndicate
   - type: Access
-    tags: 
+    tags:
     - NuclearOperative
     - SyndicateAgent
   - type: MeleeWeapon

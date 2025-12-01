@@ -28,7 +28,7 @@
     <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
   </Box>
 
-  Slows the opponent down and deals some Stamina damage.
+  Slows the opponent down and reduces their stamina resistance temporarily.
 
   ### Eye Poke
 
