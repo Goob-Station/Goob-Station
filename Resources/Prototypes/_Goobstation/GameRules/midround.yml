@@ -80,8 +80,7 @@
     selectionTime: PostPlayerSpawn
     agentName: changeling-roundend-name
     definitions:
-    - prefRoles: [ SleeperChangeling ]
-    - fallbackRoles: [ Changeling ]
+    - prefRoles: [ Changeling ]
       min: 1
       max: 2
       playerRatio: 10
@@ -92,7 +91,7 @@
         - BibleUser
       lateJoinAdditional: true
       mindRoles:
-      - MindRoleChangelingmidround
+      - MindRoleChangeling
   - type: Tag
     tags:
       - MidroundAntag
@@ -124,10 +123,8 @@
     selectionTime: PostPlayerSpawn
     agentName: heretic-roundend-name
     definitions:
-    - prefRoles: [ SleeperHeretic ]
-    - fallbackRoles: [ Heretic ]
-      min: 1
-      max: 2
+    - prefRoles: [ Heretic ]
+      max: 1
       playerRatio: 15
       blacklist:
         components:
@@ -251,47 +248,80 @@
     table:
       id: MobFloorGoblin
   - type: Tag
+    tags:
+    - MidroundAntag
 
-# Midround Devil
+# Slasher
 - type: entity
-  parent: Devil
-  id: Devilmidround
+  parent: BaseGameRule
+  id: SlasherSpawn
   components:
   - type: StationEvent
-    earliestStart: 20
-    weight: 1
-    minimumPlayers: 30
-    maxOccurrences: 1
-    startAnnouncement: station-event-communication-interception
-    startAudio:
-      path: /Audio/Announcements/intercept.ogg
+    weight: 3
     duration: null
-    occursDuringRoundEnd: false
+    earliestStart: 30
+    minimumPlayers: 30
     chaos:
-      Hostile: 200
-      Medical: 150
-      Death: 200
+      Hostile: 40
+      Combat: 40
+      Death: 40
     eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 400
-  - type: AlertLevelInterceptionRule
+  - type: AntagRandomSpawn
+  - type: AntagLoadProfileRule
+    speciesOverride: Human
+    speciesOverrideBlacklist:
+    - Yowie
+    - IPC
+    - Diona
+    - Harpy
+    - Plasmaman
+  - type: AntagObjectives
+    objectives:
+    - SlasherSurviveObjective
+    - SlasherAbsorbSoulsObjective
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
-    agentName: devil-roundend-name
+    agentName: slasher-round-end-agent-name
     definitions:
-    - prefRoles: [ SleeperDevil ]
-    - fallbackRoles: [ Devil ]
+    - spawnerPrototype: SpawnPointGhostSlasher
+      min: 1
       max: 1
-      playerRatio: 15
-      blacklist:
-        components:
-        - CommandStaff
-        - AntagImmune
-        - BibleUser
-      lateJoinAdditional: true
-      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      pickPlayer: false
+      startingGear: SlasherGear
+      briefing:
+        text: slasher-role-greeting
+        color: Red
+        sound: /Audio/_Goobstation/Effects/Slasher/SlasherIntro.ogg
       mindRoles:
-      - DevilMindRole
+      - MindRoleSlasher
+      components:
+      - type: Slasher
+      - type: SlasherSummonMachete
+      - type: SlasherStaggerArea
+      - type: SlasherRegenerate
+      - type: SlasherPossession
+      - type: SlasherBloodTrail
+      - type: SlasherIncorporeal
+      - type: SlasherSoulSteal
+      - type: SlasherSummonMeatSpike
+      - type: BreathingImmunity
+      - type: GunBlocked
+        PopupText: slasher-cannot-use-guns # Seems to be broken inside AntagSelection
+      - type: WeakToHoly
+      - type: NightVision
+        activateSound: null
+        deactivateSound: null
+      - type: Hunger
+        baseDecayRate: 0
+      - type: Thirst
+        baseDecayRate: 0
+      - type: RandomMetadata
+        nameSegments:
+        - NamesSlasherTitle
+        - NamesSlasher
+        nameFormat: name-format-slasher
   - type: Tag
     tags:
-      - MidroundAntag
+    - MidroundAntag
