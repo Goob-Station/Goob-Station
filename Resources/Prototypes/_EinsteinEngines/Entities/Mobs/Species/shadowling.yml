@@ -63,6 +63,10 @@
   - type: LightDetection
     onLightLevel: 0.25
   - type: LightDetectionDamage
+  - type: CollectiveMind # goob edit
+    defaultChannel: Shadowmind
+    channels:
+    - Shadowmind
   - type: ZombieImmune  # Goobstation
 
 - type: entity

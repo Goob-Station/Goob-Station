@@ -42,6 +42,8 @@
     tags:
     - Trash
     - BodyPartInorganic
+  - type: Boneless # Goob Edit
+    bonePenalty: 1
 
 - type: entity
   parent: [ PartIPCBase, BaseChestInorganic ]

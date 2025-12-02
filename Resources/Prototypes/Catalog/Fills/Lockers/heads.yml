@@ -173,6 +173,7 @@
     - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
     - id: SalvageJobBoardComputerCircuitboard # Goobstation - This doesn't really have a use right now but it's there incase it ever gets use again
     - id: CargoMegaphone # goob - loudspeaker
+    - id: SlotMachineHighRollerFlatPack # Goob - gambling
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -398,6 +399,7 @@
     - id: MedkitFilled
     - id: RubberStampCMO
     # Goobstation Start
+    - id: ChemistryHotplateFlatPack
     - id: CloningpodFlatpack
     - id: MedicalScannerFlatpack
     - id: ComputerCloningConsoleFlatpack

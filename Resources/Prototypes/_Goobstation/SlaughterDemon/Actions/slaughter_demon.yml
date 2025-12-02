@@ -24,6 +24,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    raiseOnUser: true
     icon:
       sprite: _Goobstation/SlaughterDemon/abilities.rsi
       state: whisper
