@@ -659,7 +659,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 100
+        density: 2 # Goob edit
         mask:
         - SmallMobMask
         layer:
@@ -788,7 +788,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 120
+        density: 12 # Goob edit
         mask:
         - SmallMobMask
         layer:
@@ -1626,7 +1626,7 @@
 - type: entity
   name: genetic ancestor
   id: MobBaseAncestor
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase, BaseMobDisgust] # Goob edit
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
@@ -2097,7 +2097,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 100
+        density: 10 # Goob eedit
         mask:
         - SmallMobMask
         layer:
@@ -3892,7 +3892,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 120
+        density: 12 # Goob edit
         mask:
         - SmallMobMask
         layer:

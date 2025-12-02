@@ -86,6 +86,9 @@ uplink-magazine-nailgun-desc = Almost like a normal magazine for your nail gun. 
 uplink-pressure-modkit-name = Pressure Modkit
 uplink-pressure-modkit-desc = This illegal modkit takes 30 capacity of your proto-kinetic accelerator and overclocks it to deal full damage even in unsuitable pressure.
 
+uplink-grey-tide-name = Grey Tide
+uplink-grey-tide-desc = An antient artifact with magical properties. Identical to plasma spear but capable of summoning illusions upon hitting living mob if wielder is an Assistant.
+
 # Weapons
 
 uplink-contractor-baton-name = Contractor Baton
@@ -307,6 +310,15 @@ uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your
 
 uplink-clothing-capo-outfit-name = The Capos Attire
 uplink-clothing-capo-outfit-desc = A collection of clothes tailoried out of the highest quality fibres, wearing the entire outfit gives special abilities.
+
+uplink-second-skin-name = Second Skin
+uplink-second-skin-desc =
+    An improved version of Nanotrasen security second skin device that doesn't cause disgust and doesn't corrode silicon matter.
+    Attached directly to your armor vest, this device can encover your body with protective liquid-like substance that reduces incoming damage and traumas.
+    Doesn't cover your head.
+
+uplink-guerrilla-gloves-name = Guerrilla Gloves
+uplink-guerrilla-gloves-desc = A special shock resistant pair of gloves that make you hard grab by default, reduce your slowdown when actively grabbing and make it harder for victims to escape your grabs.
 
 # Deception
 
