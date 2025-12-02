@@ -52,7 +52,7 @@
   chemicals:
     Nutriment:
       Min: 1
-      Max: 5
+      Max: 3
       PotencyDivisor: 20
     Singulo:
       Min: 1
