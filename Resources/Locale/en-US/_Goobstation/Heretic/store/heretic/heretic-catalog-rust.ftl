@@ -38,6 +38,7 @@ knowledge-path-rust-s2-desc =
     Already rusted surfaces are destroyed.
     Standing on Rusted tiles heals, purges chems off your body and grants you resistance to batons.
     Allows you to rust basic iron walls and floors.
+    Gives you immunity to disgust.
 
 knowledge-path-rust-s3-name = Aggressive Spread
 knowledge-path-rust-s3-desc =
@@ -76,7 +77,7 @@ knowledge-path-rust-s7-name = Toxic Blade
 knowledge-path-rust-s7-desc =
     The Blacksmith hands you their blade. "The Blade will guide you through the flesh, should you let it." The heavy rust weights it down. You stare deeply into it. The Rusted Hills call for you, now.
 
-    Your Rusty Blade now causes toxic damage to those you attack and also increases rot level of corpses.
+    Your Rusty Blade now causes toxic damage and disgust to those you attack and also increases rot level of corpses.
     Standing on Rusted tiles closes up your wounds and heals your pain, healing effect increased.
     Allows you to rust reinforced and mining walls.
 

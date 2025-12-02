@@ -151,6 +151,9 @@
     containers:
       - entity_storage
   - type: RequireProjectileTarget
+  - type: Tag
+    tags:
+      - Crate
 
 - type: entity
   parent: CrateGeneric

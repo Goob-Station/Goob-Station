@@ -16,3 +16,28 @@
     - id: BoxGrenadesBaton
     - id: BoxGrenadesFlash
     - id: BoxGrenadesTeargas
+
+# Detective Locker with Hardsuit
+- type: entityTable
+  id: FillLockerDetectiveHardsuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterHardsuitDetective
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingMaskBreath
+
+# Goobstation
+- type: entity
+  id: LockerDetectiveFilledHardsuit
+  suffix: Filled, Hardsuit
+  parent: LockerDetective
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillLockerDetective
+        - !type:NestedSelector
+          tableId: FillLockerDetectiveHardsuit
