@@ -40,6 +40,8 @@ public sealed class GetFireProtectionEvent : EntityEventArgs, IInventoryRelayEve
     /// </summary>
     public void Reduce(float by)
     {
+        if (Multiplier < 0f) // Goobstation, negative multiplier ignores fire AP
+            return;
         Multiplier -= by;
         Multiplier = MathF.Max(Multiplier, 0f);
     }
