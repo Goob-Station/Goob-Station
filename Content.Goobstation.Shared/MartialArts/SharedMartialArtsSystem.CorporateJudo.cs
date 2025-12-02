@@ -205,7 +205,11 @@ public partial class SharedMartialArtsSystem
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
         _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrowing.Throw(target, ent, _transform.GetMapCoordinates(ent).Position - _transform.GetMapCoordinates(target).Position, 5);
+        _grabThrowing.Throw(target,
+            ent,
+            _transform.GetMapCoordinates(ent).Position - _transform.GetMapCoordinates(target).Position,
+            5,
+            behavior: proto.DropHeldItemsBehavior);
 
         _status.TryRemoveStatusEffect(ent, "KnockedDown");
         _standingState.Stand(ent);

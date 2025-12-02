@@ -28,6 +28,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Collections;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing; // Goob
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -43,6 +44,9 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
+    [Dependency] private readonly IGameTiming _timing = default!; // Goobstation
+
+    private static readonly ProtoId<TagPrototype> SyringeArmorTag = "SyringeArmor"; // Goobstation
     private static readonly ProtoId<TagPrototype> HardsuitTag = "Hardsuit";
 
     public override void Initialize()
@@ -55,8 +59,10 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
 
         SubscribeLocalEvent<SolutionInjectOnEmbedComponent, LandEvent>(OnEmbedLand);
         SubscribeLocalEvent<SolutionInjectWhileEmbeddedComponent, LandEvent>(OnWhileEmbeddedLand);
+        // Goobstation
+        SubscribeLocalEvent<SolutionInjectWhileEmbeddedComponent, InjectOverTimeAttemptEvent>(OnOverTimeAttempt);
+        SubscribeLocalEvent<SolutionInjectWhileEmbeddedComponent, ProjectileEmbedEvent>(OnOverTimeEmbed);
     }
-
 
     private void HandleProjectileHit(Entity<SolutionInjectOnProjectileHitComponent> entity, ref ProjectileHitEvent args)
     {
@@ -100,7 +106,56 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
     private void OnWhileEmbeddedLand(Entity<SolutionInjectWhileEmbeddedComponent> entity, ref LandEvent args) // Goobstation
     {
         entity.Comp.UpdateInterval *= entity.Comp.SpeedMultiplier;
+        entity.Comp.EmbedTime = TimeSpan.Zero;
         ResetState(entity.Comp);
+    }
+
+    private void OnOverTimeAttempt(Entity<SolutionInjectWhileEmbeddedComponent> ent, ref InjectOverTimeAttemptEvent args) // Goobstation
+    {
+        if (ent.Comp.PierceArmor)
+            return;
+
+        if (!_inventory.TryGetSlotEntity(args.EmbeddedIntoUid, "outerClothing", out var suit))
+            return;
+
+        if (_tag.HasTag(suit.Value, SyringeArmorTag))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        if (!TryComp<ArmorComponent>(suit, out var armor))
+            return;
+
+        var mult = 1f;
+        var modifierDict = ent.Comp.DamageModifierResistances;
+        var armorCoefficients = armor.Modifiers.Coefficients;
+        foreach (var coefficient in modifierDict)
+        {
+            if (armorCoefficients.TryGetValue(coefficient.Key, out var armorCoefficient))
+            {
+                mult *= 1f - (1f - armorCoefficient) * coefficient.Value;
+            }
+        }
+
+        switch (mult)
+        {
+            case >= 1f:
+                return;
+            case <= 0f:
+                args.Cancelled = true;
+                return;
+        }
+
+        // 30% armor equals to 0.3 mult which results in ~2 second injection delay
+        var time = TimeSpan.FromSeconds((1f - mult) * 7f);
+        if (ent.Comp.EmbedTime + time > _timing.CurTime)
+            args.Cancelled = true;
+    }
+
+    private void OnOverTimeEmbed(Entity<SolutionInjectWhileEmbeddedComponent> ent, ref ProjectileEmbedEvent args) // Goobstation
+    {
+        ent.Comp.EmbedTime = _timing.CurTime;
     }
 
     /// <summary>
@@ -138,7 +193,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             var pierce = injector.Comp.PierceArmorOverride ?? injector.Comp.PierceArmor;
             if (_inventory.TryGetSlotEntity(target, "outerClothing", out var suit)) // attempt to apply armor injection speed multiplier or block the syringe
             {
-                var blocked = _tag.HasTag(suit.Value, "SyringeArmor");
+                var blocked = _tag.HasTag(suit.Value, SyringeArmorTag);
                 // bool syringeArmor = _tag.HasTag(suit.Value, "SyringeArmor");
                 // bool blocked = syringeArmor && !pierce; // if we have syringe armor and it's not piercing just block it outright
                 // pierce = pierce && !syringeArmor; // if we have syringe armor and it IS piercing, downgrade it

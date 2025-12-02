@@ -272,6 +272,11 @@ namespace Content.Client.HealthAnalyzer.UI
             DamageLabelHeading.Visible = true;
             DamageLabel.Visible = true;
             DamageLabel.Text = damageable.TotalDamage.ToString();
+            // Goobstation start
+            DamageLabelHeadingVital.Visible = true;
+            DamageLabelVital.Visible = true;
+            DamageLabelVital.Text = msg.VitalDamage.ToString();
+            // Goobstation end
 
             if (part != null)
                 PartNameLabel.Text = _entityManager.HasComponent<MetaDataComponent>(part)

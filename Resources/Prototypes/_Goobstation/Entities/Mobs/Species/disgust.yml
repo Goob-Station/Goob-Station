@@ -1,0 +1,50 @@
+- type: entity
+  abstract: true
+  id: BaseMobDisgust
+  components:
+  - type: Disgust
+    effectsThresholds:
+      5:
+      - !type:GenericStatusEffect
+        probability: 0.06
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
+      - !type:PopupMessage
+        visualType: SmallCaution
+        messages:
+        - disgust-effect-message
+      30:
+      - !type:GenericStatusEffect
+        probability: 0.03
+        key: BlurryVision
+        component: BlurryVision
+        time: 6.0
+      31:
+      - !type:MovespeedModifier
+        probability: 0.03
+        walkSpeedModifier: 0.7
+        sprintSpeedModifier: 0.7
+        statusLifetime: 6.0
+      32:
+      - !type:TakeStaminaDamage
+        probability: 0.06
+        amount: 10
+        immediate: false
+      33:
+      - !type:HealthChange
+        probability: 0.12
+        damage:
+          types:
+            Poison: 1
+      60:
+      - !type:ChemVomit
+        probability: 0.06
+        thirstAmount: -50
+        hungerAmount: -50
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        component: KnockedDown
+        time: 20
+      - !type:ModifyDisgustLevel
+        delta: -50

@@ -850,6 +850,7 @@ public abstract class SharedMagicSystem : EntitySystem
             List<ProtoId<NpcFactionPrototype>> factionsToTransfer = new()
             {
                 "Wizard",
+                "Assistant",
             };
 
             ProtoId<NpcFactionPrototype> fallbackFaction = "NanoTrasen";

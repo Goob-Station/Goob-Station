@@ -129,10 +129,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ MobBloodstream, MobRespirator, MobAtmosStandard, MobFlammable, BaseMobSpecies ] # Goobstation - unperishable voxes
+  parent: [ MobBloodstream, MobRespirator, MobAtmosStandard, MobFlammable, BaseMobSpecies, BaseMobDisgust ] # Goobstation - unperishable voxes
   id: BaseMobVox
   abstract: true
   components:
+  - type: Disgust # Vox are better at handling disgust
+    accumulationMultiplier: 0.75
+    reductionRate: 3
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -312,7 +315,7 @@
         Cold: 0.1 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat: 1.5 #per second, scales with temperature & other constants
+        Heat: 1.0 # Goob edit #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
       293: 0.8

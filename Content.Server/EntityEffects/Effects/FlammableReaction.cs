@@ -18,6 +18,9 @@ namespace Content.Server.EntityEffects.Effects
     public sealed partial class FlammableReaction : EntityEffect
     {
         [DataField]
+        public float FireProtectionPenetration; // Goobstation
+
+        [DataField]
         public float Multiplier = 0.05f;
 
         // The fire stack multiplier if fire stacks already exist on target, only works if 0 or greater
@@ -42,13 +45,13 @@ namespace Content.Server.EntityEffects.Effects
             if (args is EntityEffectReagentArgs reagentArgs)
             {
                 quantity = reagentArgs.Quantity.Float();
-                reagentArgs.EntityManager.System<FlammableSystem>().AdjustFireStacks(args.TargetEntity, quantity * multiplier, flammable);
+                reagentArgs.EntityManager.System<FlammableSystem>().AdjustFireStacks(args.TargetEntity, quantity * multiplier, flammable, false, FireProtectionPenetration); // Gooo edit
                 if (reagentArgs.Reagent != null)
                     reagentArgs.Source?.RemoveReagent(reagentArgs.Reagent.ID, reagentArgs.Quantity);
             }
             else
             {
-                args.EntityManager.System<FlammableSystem>().AdjustFireStacks(args.TargetEntity, multiplier, flammable);
+                args.EntityManager.System<FlammableSystem>().AdjustFireStacks(args.TargetEntity, multiplier, flammable, false, FireProtectionPenetration); // Goob edit
             }
         }
     }

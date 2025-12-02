@@ -57,6 +57,7 @@
     activateSound: null
     deactivateSound: null
   - type: ThermalVision
+    thermalShader: null
     color: "#BF40BF"
     activateSound: null
     deactivateSound: null
