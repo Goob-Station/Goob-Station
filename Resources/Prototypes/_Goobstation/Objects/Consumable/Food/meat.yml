@@ -1,0 +1,34 @@
+- type: entity
+  name: unlimited bacon
+  # bacon is cured so not raw = cant rot
+  parent: FoodMeatBase
+  id: FoodMeatBaconAdmeme
+  description: A heavy choice was made for this bacon to be here.
+  components:
+  - type: Tag
+    tags:
+    - Raw
+    - Meat
+  - type: Sprite
+    state: bacon
+  - type: FlavorProfile
+    flavors:
+    - gameless
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Protein
+          Quantity: 50
+  - type: SolutionRegeneration
+    solution: food
+    generated:
+      reagents:
+      - ReagentId: Protein
+        Quantity: 25
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+      right:
+      - state: generic-pink-inhand-right

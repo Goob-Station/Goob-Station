@@ -115,3 +115,8 @@
   id: chuddy
   flavorType: Base
   description: flavor-base-chuddy
+
+- type: flavor
+  id: gameless
+  flavorType: Base
+  description: flavor-base-gameless
