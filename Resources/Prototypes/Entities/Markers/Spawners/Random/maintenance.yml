@@ -311,6 +311,7 @@
       children:
       - id: Skub
       - id: PonderingOrb
+      - id: PhotoCameraFilled # CorvaxGoob-PhotoCamera
       - id: CluwneHorn
       - id: DrinkMugDog
       - id: CigarGold

@@ -1,0 +1,3 @@
+<photo:TextureButton xmlns="https://spacestation14.io" xmlns:photo="clr-namespace:Content.Client._CorvaxGoob.Photo.UI">
+    <AnimatedTextureRect Margin="0 0 0 0" Name="Icon"/>
+</photo:TextureButton>

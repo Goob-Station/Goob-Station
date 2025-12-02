@@ -1,0 +1,7 @@
+- type: alert
+  id: PhotoCameraUsed
+  icons:
+  - sprite: /Textures/_CorvaxGoob/Objects/Misc/camera.rsi
+    state: camera
+  name: alerts-photo-camera-name
+  description: alerts-photo-camera-desc

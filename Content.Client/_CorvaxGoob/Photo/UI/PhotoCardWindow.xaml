@@ -1,0 +1,19 @@
+<photo:PhotoCardWindow xmlns="https://spacestation14.io"
+    xmlns:photo="clr-namespace:Content.Client._CorvaxGoob.Photo.UI"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    MouseFilter="Stop" Resizable="False">
+
+    <BoxContainer Name="ContentsRoot" Orientation="Vertical">
+        <PanelContainer StyleClasses="AngleRect" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="6">
+            <TextureButton Name="CloseButton" StyleClasses="windowCloseButton"/>
+        </PanelContainer>
+        <PanelContainer Name="PaperBackground" StyleClasses="PaperDefaultBorder" VerticalExpand="True" HorizontalExpand="True">
+            <PanelContainer Name="ImagePlaceholder" Margin="5 5">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#090E25"/>
+                </PanelContainer.PanelOverride>
+            </PanelContainer>
+            <TextureRect Name="ImageDislay" VerticalExpand="True" HorizontalExpand="True" SetSize="400 400" Margin="5 5" Stretch="Scale"/>
+        </PanelContainer>
+    </BoxContainer>
+</photo:PhotoCardWindow>

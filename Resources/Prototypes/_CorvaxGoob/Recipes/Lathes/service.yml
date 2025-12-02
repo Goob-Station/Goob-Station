@@ -1,0 +1,7 @@
+- type: latheRecipe
+  id: PhotoCamera
+  result: PhotoCamera
+  materials:
+    Plastic: 500
+    Steel: 500
+    Glass: 1000

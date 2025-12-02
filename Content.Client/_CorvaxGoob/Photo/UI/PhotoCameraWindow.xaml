@@ -1,0 +1,44 @@
+<photo:PhotoCameraWindow
+    xmlns="https://spacestation14.io"
+    xmlns:photo="clr-namespace:Content.Client._CorvaxGoob.Photo.UI"
+    xmlns:viewport="clr-namespace:Content.Client.Viewport"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    MinSize="458 352"
+    Margin="0 0"
+    Resizable="False">
+
+    <!--Background-->
+    <PanelContainer Margin="-1 0 0 0">
+        <TextureRect Stretch="Scale"
+                 TexturePath="/Textures/_CorvaxGoob/Interface/Misc/Photo/window_background.png"
+                 SetSize="460 320"/>
+        <TextureRect Name="PaperIndicator" Stretch="Scale"
+                 TexturePath="/Textures/_CorvaxGoob/Interface/Misc/Photo/paper_on.png"
+                 SetSize="460 320" />
+    </PanelContainer>
+
+    <BoxContainer
+        Margin="0 0"
+        Orientation="Horizontal"
+        HorizontalExpand="True"
+        VerticalExpand="True">
+
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+
+            <!--Viewport Window-->
+            <Control MinWidth="236" MinHeight="236" Margin="22 44 0 0" Name="CameraViewBox">
+                <viewport:ScalingViewport Name="CameraView"
+                                          VerticalExpand="True"
+                                          HorizontalExpand="True"
+                                          MouseFilter="Ignore" />
+            </Control>
+
+            <BoxContainer Orientation="Vertical" VerticalExpand="True">
+                <photo:TextureButton Margin="78 0 0 0" Name="PhotoButton" TextureScale="116 56"/>
+            </BoxContainer>
+
+        </BoxContainer>
+
+    </BoxContainer>
+</photo:PhotoCameraWindow>

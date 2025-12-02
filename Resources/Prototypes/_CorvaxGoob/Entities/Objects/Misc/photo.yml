@@ -1,0 +1,128 @@
+- type: entity
+  parent: BaseItem
+  id: PhotoCamera
+  name: "camera"
+  description: 'Say "Cheeese!", uses paper for printing.'
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Misc/camera.rsi
+    layers:
+    - state: camera
+  - type: Eye
+  - type: PhotoCamera
+  - type: UseDelay
+  - type: ActivatableUI
+    key: enum.PhotoCameraUiKey.Key
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.PhotoCameraUiKey.Key:
+        type: PhotoCameraBoundUserInterface
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Paper
+
+- type: entity
+  parent: PhotoCamera
+  id: PhotoCameraFilled
+  name: "camera"
+  description: 'Say "Cheeese!", uses paper for printing.'
+  suffix: Filled
+  components:
+  - type: MaterialStorage
+    storage:
+      Paper: 1000
+
+- type: entity
+  name: "photo"
+  parent: BaseItem
+  id: PhotoCard
+  description: "Paper with printed image on it."
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Misc/camera.rsi
+    layers:
+    - state: card
+  - type: ActivatableUI
+    key: enum.PhotoCardUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PhotoCardUiKey.Key:
+        type: PhotoCardBoundUserInterface
+  - type: PhotoCard
+  - type: FaxableObject
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/paper_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/paper_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Goobstation/Items/handling/paper_use.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Goobstation/Items/handling/paper_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnThrow
+    sound:
+      path: /Audio/_Goobstation/Items/handling/paper_throw.ogg
+      params:
+        volume: -6
+  - type: Tag
+    tags:
+    - Document
+    - Paper
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Food
+    solution: food
+    delay: 7
+    forceFeedDelay: 7
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 1
+  - type: Item
+    size: Tiny
