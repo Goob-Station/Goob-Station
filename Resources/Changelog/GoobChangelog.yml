@@ -18873,3 +18873,15 @@ Entries:
         resistance.
   id: 2129
   time: '2025-12-02T07:35:59.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: >-
+        Syringe guns have a delay before they start injecting if target is
+        wearing armor.
+    - type: Remove
+      message: Borg hypo "validhunting" module.
+    - type: Tweak
+      message: Lawbringer sleep shot requires at least 5 hits to sleep target.
+  id: 2130
+  time: '2025-12-02T07:48:20.0000000+00:00'
