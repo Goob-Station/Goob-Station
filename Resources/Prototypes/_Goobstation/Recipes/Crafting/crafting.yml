@@ -1,0 +1,15 @@
+# random bits and bobs used to craft other items
+
+- type: construction
+  id: HexNutDouble
+  graph: HexNutDouble
+  category: construction-category-misc
+  targetNode: stack
+  objectType: Item
+
+- type: construction
+  id: ScrewDouble
+  graph: ScrewDouble
+  category: construction-category-misc
+  targetNode: stack
+  objectType: Item
