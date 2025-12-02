@@ -121,7 +121,7 @@
     tool:
     - type: BoneSaw
     add:
-    - type: RibcageSawed
+    - type: BonesSawed
     duration: 4
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
@@ -141,7 +141,7 @@
     tool:
     - type: BoneSaw
     add:
-    - type: RibcageOpen
+    - type: BonesOpen
     duration: 5
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
@@ -200,7 +200,7 @@
     tool:
     - type: Retractor
     add:
-    - type: RibcageOpen
+    - type: BonesOpen
     duration: 2
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
@@ -248,7 +248,7 @@
     tool:
     - type: Retractor
     remove:
-    - type: RibcageOpen
+    - type: BonesOpen
     duration: 2
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
@@ -263,7 +263,7 @@
     tool:
     - type: BoneGel
     remove:
-    - type: RibcageSawed
+    - type: BonesSawed
     duration: 2
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
