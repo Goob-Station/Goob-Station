@@ -7,9 +7,9 @@
 using Content.Goobstation.Common.MartialArts;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Server.Grab;
+namespace Content.Goobstation.Shared.Grab;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class GrabbingItemComponent : Component
 {
     [DataField]
@@ -17,4 +17,7 @@ public sealed partial class GrabbingItemComponent : Component
 
     [DataField]
     public float EscapeAttemptModifier = 2f;
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? ActivelyGrabbingEntity;
 }

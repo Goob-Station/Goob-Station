@@ -308,6 +308,9 @@ uplink-second-skin-desc =
     Attached directly to your armor vest, this device can encover your body with protective liquid-like substance that reduces incoming damage and traumas.
     Doesn't cover your head.
 
+uplink-guerrilla-gloves-name = Guerrilla Gloves
+uplink-guerrilla-gloves-desc = A special shock resistant pair of gloves that make you hard grab by default, reduce your slowdown when actively grabbing and make it harder for victims to escape your grabs.
+
 # Deception
 
 uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves
