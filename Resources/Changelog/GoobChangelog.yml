@@ -18745,3 +18745,9 @@ Entries:
       message: Ninja now needs computers to be powerered to hack them
   id: 2115
   time: '2025-12-02T06:21:20.0000000+00:00'
+- author: Naxel11
+  changes:
+    - type: Fix
+      message: Xenomorphs are now vulnerable to high atmospheric temperatures.
+  id: 2116
+  time: '2025-12-02T06:34:30.0000000+00:00'
