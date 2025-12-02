@@ -511,6 +511,7 @@
   - MobAtmosStandard
   - MobFlammable
   - BaseMobSpecies
+  - BaseMobDisgust
   id: BaseMobSpeciesOrganic
   abstract: true
   components:
