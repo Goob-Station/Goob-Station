@@ -44,8 +44,8 @@
   production: 6
   yield: 2
   potency: 10
-  waterConsumption: 0.60
-  nutrientConsumption: 0.70
+  waterConsumption: 0.5
+  nutrientConsumption: 0.6
   idealLight: 8
   idealHeat: 298
   splatPrototype: PuddleSplatter
@@ -54,11 +54,7 @@
       Min: 1
       Max: 5
       PotencyDivisor: 20
-    UnstableBluespaceLiquid:
+    Singulo:
       Min: 1
-      Max: 1
-      PotencyDivisor: 30
-    Vitamin:
-      Min: 1
-      Max: 4
-      PotencyDivisor: 25
+      Max: 10
+      PotencyDivisor: 10

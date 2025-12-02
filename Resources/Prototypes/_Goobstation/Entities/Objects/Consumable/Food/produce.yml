@@ -71,7 +71,7 @@
 
 
 - type: entity
-  name: blueSpace tomato
+  name: bluespace tomato
   parent: FoodBlueTomato
   id: FoodBlueSpaceTomato
   description: This one is blue.
@@ -84,10 +84,8 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
-        - ReagentId: ParadoxalJuice
-          Quantity: 1
-        - ReagentId: Vitamin
-          Quantity: 4
+        - ReagentId: Singulo
+          Quantity: 5
         canReact: false
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Hydroponics/bluespace_tomato.rsi
@@ -99,8 +97,8 @@
     grindableSolutionName: food
     juiceSolution:
       reagents:
-      - ReagentId: ParadoxalJuice
-        Quantity: 1
+      - ReagentId: Singulo
+        Quantity: 5
   - type: Destructible
     thresholds:
     - trigger:

@@ -217,13 +217,3 @@
         showInGuidebook: true
         force: true
         probability: 1
-
-- type: reagent
-  id: ParadoxalJuice
-  name: reagent-name-paradoxal-juice
-  group: Unknown
-  desc: reagent-desc-paradoxal-juice
-  physicalDesc: reagent-physical-desc-chaotic
-  flavor: strange
-  pricePerUnit: 100
-  color: "#b75ef3"
