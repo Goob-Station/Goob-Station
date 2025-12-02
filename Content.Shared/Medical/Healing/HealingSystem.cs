@@ -392,14 +392,16 @@ public sealed class HealingSystem : EntitySystem
             var bleedBefore = 0.0;
             if (TryComp<BloodstreamComponent>(ent, out var bloodstream))
                 bleedBefore = bloodstream.BleedAmountFromWounds + bloodstream.BleedAmountNotFromWounds;
+            healedBleed = bleedBefore > 0.0;
             _wounds.TryHealBleedingWounds(targetedWoundable, healing.BloodlossModifier, out modifiedBleedStopAbility, woundableComp);
             if (healing.BloodlossModifier + modifiedBleedStopAbility < 0.0)
                 _bloodstreamSystem.TryModifyBleedAmount(ent, (healing.BloodlossModifier + modifiedBleedStopAbility).Float()); // Use the leftover bleed heal
-            _popupSystem.PopupClient(bleedBefore + healing.BloodlossModifier <= 0.0
-                    ? Loc.GetString("rebell-medical-item-stop-bleeding-fully")
-                    : Loc.GetString("rebell-medical-item-stop-bleeding-partially"),
-                ent,
-                args.User);
+            if (healedBleed)
+                _popupSystem.PopupClient(bleedBefore + healing.BloodlossModifier <= 0.0
+                        ? Loc.GetString("rebell-medical-item-stop-bleeding-fully")
+                        : Loc.GetString("rebell-medical-item-stop-bleeding-partially"),
+                    ent,
+                    args.User);
             // Goobstation end
         }
 
@@ -460,7 +462,9 @@ public sealed class HealingSystem : EntitySystem
             }
         }
 
-        if (healingLeft.GetTotal() < 0.0 && (leftoverHealAndTrauma || leftoverHealAndBleed))
+        var isAnyTypeFullyConsumed = healingLeft.DamageDict.Any(d => d.Value == 0);
+
+        if (!healedBleed && !isAnyTypeFullyConsumed && (leftoverHealAndTrauma || leftoverHealAndBleed))
         {
             if (leftoverHealAndTrauma)
                 _popupSystem.PopupClient(Loc.GetString("medical-item-requires-surgery-rebell", ("target", ent)), ent, args.User, PopupType.MediumCaution);
