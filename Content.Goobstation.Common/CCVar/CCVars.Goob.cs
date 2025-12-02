@@ -557,15 +557,6 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> MaxSpeed =
         CVarDef.Create("movement.max_speed", 2.7f, CVar.SERVER | CVar.REPLICATED);
 
-    #endregion
-
-    #region forensics
-
-    public static readonly CVarDef<float> RevealChance =
-        CVarDef.Create("forensics.reveal_chance", 0.005f, CVar.SERVERONLY);
-
-    #endregion
-
     #region LightDetection
 
     /// <summary>
@@ -644,6 +635,9 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> AscensionRequiresObjectives =
         CVarDef.Create("heretic.ascension_requires_objectives", true, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> RevealChance =
+        CVarDef.Create("forensics.reveal_chance", 0.005f, CVar.SERVERONLY);
 
     #endregion
 }
