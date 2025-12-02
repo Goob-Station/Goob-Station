@@ -118,7 +118,9 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
     private void OnHorn(EntityUid uid, VehicleComponent component, InstantActionEvent args)
     {
-        if (args.Handled || component.Driver != args.Performer || component.HornSound == null)
+        if (args.Handled
+        || component.Driver != args.Performer
+        || component.HornSound == null)
             return;
 
         _audio.PlayPvs(component.HornSound, uid);
@@ -127,7 +129,9 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
     private void OnSiren(EntityUid uid, VehicleComponent component, InstantActionEvent args)
     {
-        if (args.Handled || component.Driver != args.Performer || component.SirenSound == null)
+        if (args.Handled
+        || component.Driver != args.Performer
+        || component.SirenSound == null)
             return;
 
         component.SirenStream = component.SirenEnabled ? _audio.Stop(component.SirenStream) : _audio.PlayPvs(component.SirenSound, uid)?.Entity;
