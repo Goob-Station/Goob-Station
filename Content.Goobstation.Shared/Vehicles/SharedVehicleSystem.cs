@@ -10,6 +10,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Numerics;
 using Content.Shared._vg.TileMovement;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -95,7 +96,6 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         _ambientSound.SetAmbience(uid, true);
 
-
         if (component.Driver == null)
             return;
 
@@ -178,7 +178,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         ent.Comp.Driver = driver;
         _appearance.SetData(ent, VehicleState.DrawOver, true);
 
-        SetupOverlay(ent, driver);
+        SetupOverlay(ent);
 
         if (!ent.Comp.EngineRunning)
             return;
@@ -186,12 +186,14 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         Mount(driver, ent);
     }
 
-    private void SetupOverlay(Entity<VehicleComponent> ent, EntityUid driver)
+    private void SetupOverlay(Entity<VehicleComponent> ent)
     {
         if (ent.Comp.OverlayPrototype == null)
             return;
         var overlay = EntityManager.SpawnEntity(ent.Comp.OverlayPrototype, Transform(ent).Coordinates);
         _transform.SetParent(overlay, ent);
+        _transform.SetLocalPosition(overlay, Vector2.Zero);
+        _transform.SetLocalRotation(overlay, Angle.Zero);
         ent.Comp.ActiveOverlay = overlay;
     }
 
@@ -221,7 +223,6 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         if (vehicleComp.HornSound != null)
             _actions.AddAction(driver, ref vehicleComp.HornAction, HornActionId, vehicle);
-
         if (vehicleComp.SirenSound != null)
             _actions.AddAction(driver, ref vehicleComp.SirenAction, SirenActionId, vehicle);
     }
@@ -250,7 +251,6 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         if (vehicleComp.HornAction != null)
             _actions.RemoveAction(driver, vehicleComp.HornAction);
-
         if (vehicleComp.SirenAction != null)
             _actions.RemoveAction(driver, vehicleComp.SirenAction);
 
@@ -296,5 +296,4 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         args.Entities.Add(driver.Value);
     }
-
 }

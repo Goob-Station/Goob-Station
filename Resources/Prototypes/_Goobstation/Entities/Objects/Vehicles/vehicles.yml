@@ -300,57 +300,25 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Vehicles/forklift.rsi
-    state: forklift1
+    layers:
+      - state: forklift1
+      - state: forklift_crate
+        map: [ "crateLayer0" ]
+        visible: false
+      - state: forklift_crate2
+        map: [ "crateLayer1" ]
+        visible: false
+      - state: forklift_crate3
+        map: [ "crateLayer2" ]
+        visible: false
+      - state: forklift_crate4
+        map: [ "crateLayer3" ]
+        visible: false
     noRot: true
     drawdepth: OverMobs # Set the drawdepth here to be above players non-clickable
   - type: Tag
     tags:
       - HideContextMenu
-- type: entity
-  id: VehicleForklift
-  parent: BaseVehicle
-  name: forklift
-  description: NanoTrasen approved Forklift Certification required.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Vehicles/forklift.rsi
-    layers:
-    - state: forklift
-    - state: forklift_crate
-      map: [ "crateLayer0" ]
-      visible: false
-    - state: forklift_crate2
-      map: [ "crateLayer1" ]
-      visible: false
-    - state: forklift_crate3
-      map: [ "crateLayer2" ]
-      visible: false
-    - state: forklift_crate4
-      map: [ "crateLayer3" ]
-      visible: false
-    noRot: true
-  - type: Vehicle
-    overlayPrototype: VehicleForkliftOverlay
-    hornSound:
-      collection: BikeHorn
-      params:
-        variation: 0.125
-  - type: ItemSlots
-    slots:
-      key_slot:
-        name: vehicle-slot-component-slot-name-keys
-        whitelist:
-          requireAll: true
-          tags:
-          - VehicleKey
-          - ForkliftKeys
-        insertSound:
-          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
-          params:
-            volume: -3
-  - type: ContainerContainer
-    containers:
-      crate_storage: !type:Container
   - type: GenericVisualizer
     visuals:
       enum.ForkliftVisuals.CrateState:
@@ -378,4 +346,43 @@
           TwoCrates: { visible: false }
           ThreeCrates: { visible: false }
           FourCrates: { visible: true }
-  - type: DragDropTargetable
+
+- type: entity
+  id: VehicleForklift
+  parent: BaseVehicle
+  name: forklift
+  description: NanoTrasen approved Forklift Certification required.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Vehicles/forklift.rsi
+    layers:
+    - state: forklift
+    noRot: true
+  - type: Vehicle
+    overlayPrototype: VehicleForkliftOverlay
+    hornSound:
+      collection: BikeHorn
+      params:
+        variation: 0.125
+  - type: Forklift
+    liftSound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Vehicle/Forklift/forklift.ogg
+      params:
+        playOffsetSeconds: 6
+        variation: 0.5
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: vehicle-slot-component-slot-name-keys
+        whitelist:
+          requireAll: true
+          tags:
+          - VehicleKey
+          - ForkliftKeys
+        insertSound:
+          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+          params:
+            volume: -3
+  - type: ContainerContainer
+    containers:
+      crate_storage: !type:Container
