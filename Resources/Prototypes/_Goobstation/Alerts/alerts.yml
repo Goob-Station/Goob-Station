@@ -142,3 +142,17 @@
   description: alerts-martial-arts-toggle-desc
   minSeverity: 0
   maxSeverity: 1
+
+- type: alert
+  id: Disgust
+  icons:
+  - sprite: /Textures/_Goobstation/Interface/Alerts/gross.rsi
+    state: gross1
+  - sprite: /Textures/_Goobstation/Interface/Alerts/gross.rsi
+    state: gross2
+  - sprite: /Textures/_Goobstation/Interface/Alerts/gross.rsi
+    state: gross3
+  name: alerts-disgust-name
+  description: alerts-disgust-desc
+  minSeverity: 1
+  maxSeverity: 3

@@ -1,0 +1,5 @@
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  icon: { sprite: _CorvaxGoob/Structures/Machines/stasis_operation_table.rsi, state: icon_lathe }
+  id: StasisOperatingTableCircuitboard
+  result: StasisOperatingTableCircuitboard
