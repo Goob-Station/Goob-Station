@@ -18896,3 +18896,13 @@ Entries:
       message: Syndicate vests and helmet are now cheaper at cost of lower resist.
   id: 2131
   time: '2025-12-02T07:51:52.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Rust ascension spreading is now faster and more optimized.
+    - type: Tweak
+      message: Post ascension rust healing buffed by 1/s.
+    - type: Add
+      message: Rust spreading stops when ascended heretic dies.
+  id: 2132
+  time: '2025-12-02T07:52:29.0000000+00:00'
