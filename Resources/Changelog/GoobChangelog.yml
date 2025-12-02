@@ -18683,3 +18683,11 @@ Entries:
       message: Demon heart bumped to 6 coins in wizard grimoire.
   id: 2106
   time: '2025-12-02T06:14:11.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Tweak
+      message: >-
+        Antag pity now has clamped odds, being a base at 5 or less hours, and a
+        maximum at 20 or more hours.
+  id: 2107
+  time: '2025-12-02T06:14:41.0000000+00:00'
