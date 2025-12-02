@@ -24,7 +24,10 @@ namespace Content.Goobstation.Shared.Raptors.Components
         /// Base movement speed of the raptor.
         /// </summary>
         [DataField, AutoNetworkedField]
-        public float Speed;
+        public float WalkSpeed;
+
+        [DataField, AutoNetworkedField]
+        public float SprintSpeed;
 
         /// <summary>
         /// Minimum melee damage this raptor deals.
@@ -93,6 +96,12 @@ namespace Content.Goobstation.Shared.Raptors.Components
         /// </summary>
         [DataField, AutoNetworkedField]
         public bool IsHealer;
+
+        /// <summary>
+        /// This raptor will attempt to bully other raptors or even its owner if true.
+        /// </summary>
+        [DataField, AutoNetworkedField]
+        public bool IsTroubleMaker;
 
         #endregion
 
