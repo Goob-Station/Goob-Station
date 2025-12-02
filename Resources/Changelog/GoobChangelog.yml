@@ -18671,3 +18671,9 @@ Entries:
       message: thief rule in section 6 of roleplay rules and fixed an upper case
   id: 2104
   time: '2025-12-02T06:11:42.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Ipc's are now slower while in energy crit.
+  id: 2105
+  time: '2025-12-02T06:13:42.0000000+00:00'
