@@ -114,8 +114,8 @@
     - SurgeryStepCloseIncision
   - type: SurgeryPartCondition
     parts:  # Everything but the head and chest
-      - Head
-      - Chest
+    - Head
+    - Chest
     inverse: true
 
 - type: entity
