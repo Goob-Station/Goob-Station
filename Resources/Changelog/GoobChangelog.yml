@@ -18759,3 +18759,11 @@ Entries:
         silicon.
   id: 2117
   time: '2025-12-02T06:37:07.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix being able to stack forcefields.
+    - type: Tweak
+      message: Forcefields are more fragile and are penetrated by bullets like grilles.
+  id: 2118
+  time: '2025-12-02T06:40:29.0000000+00:00'
