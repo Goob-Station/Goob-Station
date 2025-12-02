@@ -83,7 +83,7 @@
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 3
         - ReagentId: Singulo
           Quantity: 5
         canReact: false
