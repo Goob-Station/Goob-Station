@@ -7,7 +7,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Wraith.Minions.Plaguebinger;
+namespace Content.Goobstation.Shared.Wraith.Minions.Plaguebringer;
 
 public sealed partial class RatBiteSystem : EntitySystem
 {

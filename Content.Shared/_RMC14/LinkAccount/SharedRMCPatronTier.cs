@@ -36,5 +36,6 @@ public sealed record SharedRMCPatronTier(
     bool GhostColor,
     bool LobbyMessage,
     bool RoundEndShoutout,
-    string Tier
+    string Tier,
+    string? Icon
 );

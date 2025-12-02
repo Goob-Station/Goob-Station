@@ -40,18 +40,20 @@ public sealed class OrganActionsSystem : EntitySystem
     private void OnAdded(Entity<OrganActionsComponent> ent, ref OrganAddedEvent args)
     {
         // container shit chuds out
-        if (_net.IsClient) return;
-
-        if (_organQuery.CompOrNull(ent)?.Enabled != true)
+        if (_net.IsClient)
             return;
 
-        _actions.GrantContainedActions(args.Body, ent.Owner);
+        if (TryComp<ActionsContainerComponent>(ent, out var container))
+            _actions.GrantContainedActions(args.Body, (ent, container));
     }
 
     private void OnEnabled(Entity<OrganActionsComponent> ent, ref OrganEnabledEvent args)
     {
-        if (args.Organ.Comp.Body is {} body)
-            _actions.GrantContainedActions(body, ent.Owner);
+        if (!_organQuery.TryComp(ent, out var organ) || organ.Body is not { } body)
+            return;
+
+        if (TryComp<ActionsContainerComponent>(ent, out var container))
+            _actions.GrantContainedActions(body, (ent, container));
     }
 
     private void OnDisabled(Entity<OrganActionsComponent> ent, ref OrganDisabledEvent args)

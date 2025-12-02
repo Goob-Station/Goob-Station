@@ -1,0 +1,30 @@
+- type: entity
+  parent: [ IDCardStandard, BaseMinorContraband ]
+  id: IDCardTide
+  name: tide ID card
+  description: Makeshift ID card, made from god knows what.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/makeshift_id.rsi
+    state: icon
+  - type: IdCard
+    jobTitle: job-name-tider
+    # no job icon so you are valid to AI...
+  - type: Access
+    tags: [ Maintenance ] # same as regular assistant id
+  - type: Construction
+    graph: MakeshiftIDCard
+    node: final
+
+- type: entity
+  parent: BaseItem
+  id: IDCardTideUnfinished
+  name: unfinished makeshift ID card
+  description: God have mercy.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/makeshift_id.rsi
+    state: unfinished
+  - type: Construction
+    graph: MakeshiftIDCard
+    node: unfinished

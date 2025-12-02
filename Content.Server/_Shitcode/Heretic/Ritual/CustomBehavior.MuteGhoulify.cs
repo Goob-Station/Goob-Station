@@ -18,9 +18,6 @@ public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
 {
     public override void Finalize(RitualData args)
     {
-        if (!args.EntityManager.TryGetComponent(args.Performer, out HereticComponent? heretic))
-            return;
-
         if (args is { Limit: > 0, Limited: not null } && args.Limited.Count >= args.Limit)
             return;
 

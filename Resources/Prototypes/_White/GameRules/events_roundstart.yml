@@ -3,11 +3,12 @@
   id: XenomorphsInfestationRoundstart
   components:
   - type: GameRule
-    chaosScore: 400
+    chaosScore: 1000 # Goobstation - Same Score as Blob
     minPlayers: 30
   - type: AntagObjectives
     objectives:
     - XenomorphSurviveObjective
+  - type: XenomorphsRule # Goobstation - Required for Evolution Logic
   - type: VentSpawnRule
   - type: AntagSpawner
     prototype: MobXenomorphLarva
@@ -17,7 +18,7 @@
     definitions:
     - prefRoles: [ XenomorphsInfestationRoundstart ]
       spawnerPrototype: SpawnPointGhostXenomorph
-      min: 2
+      min: 4
       max: 4
       pickPlayer: true
       mindRoles:

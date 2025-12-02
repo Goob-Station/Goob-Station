@@ -141,6 +141,9 @@ public sealed partial class PullableComponent : Component
     public GrabStage GrabStage = GrabStage.No;
 
     [AutoNetworkedField, DataField]
+    public float EscapeAttemptModifier = 1f;
+
+    [AutoNetworkedField, DataField]
     public float GrabEscapeChance = 1f;
 
     [DataField]

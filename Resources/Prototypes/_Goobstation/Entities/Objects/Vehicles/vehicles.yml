@@ -24,7 +24,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Vehicle
-    renderOver: East, SouthEast, South, SouthWest, West
+    renderOver: None
   - type: Strap
     position: Stand
     blockMovement: false
@@ -81,7 +81,7 @@
     baseAcceleration: 8
     baseFriction: 0.2 # wheels dont stop instantly
     baseSprintSpeed: 8.5
-    baseWalkSpeed: 4.5 # default walking speed 
+    baseWalkSpeed: 4.5 # default walking speed
   - type: ItemSlots
     slots:
       key_slot:
@@ -265,7 +265,6 @@
     - type: Foldable
       folded: true
 
-
 - type: entity
   id: VehicleHoverchair
   parent: BaseVehicle
@@ -292,3 +291,103 @@
     materialComposition:
       Steel: 125
       Plastic: 125
+
+- type: entity
+  id: VehicleForkliftOverlay
+  name: forklift overlay
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Vehicles/forklift.rsi
+    layers:
+      - state: forklift1
+      - state: forklift_crate
+        map: [ "crateLayer0" ]
+        visible: false
+      - state: forklift_crate2
+        map: [ "crateLayer1" ]
+        visible: false
+      - state: forklift_crate3
+        map: [ "crateLayer2" ]
+        visible: false
+      - state: forklift_crate4
+        map: [ "crateLayer3" ]
+        visible: false
+    noRot: true
+    drawdepth: OverMobs # Set the drawdepth here to be above players non-clickable
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ForkliftVisuals.CrateState:
+        crateLayer0:
+          Empty: { visible: false }
+          OneCrate: { visible: true }
+          TwoCrates: { visible: true }
+          ThreeCrates: { visible: true }
+          FourCrates: { visible: true }
+        crateLayer1:
+          Empty: { visible: false }
+          OneCrate: { visible: false }
+          TwoCrates: { visible: true }
+          ThreeCrates: { visible: true }
+          FourCrates: { visible: true }
+        crateLayer2:
+          Empty: { visible: false }
+          OneCrate: { visible: false }
+          TwoCrates: { visible: false }
+          ThreeCrates: { visible: true }
+          FourCrates: { visible: true }
+        crateLayer3:
+          Empty: { visible: false }
+          OneCrate: { visible: false }
+          TwoCrates: { visible: false }
+          ThreeCrates: { visible: false }
+          FourCrates: { visible: true }
+
+- type: entity
+  id: VehicleForklift
+  parent: BaseVehicle
+  name: forklift
+  description: NanoTrasen approved Forklift Certification required.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Vehicles/forklift.rsi
+    layers:
+    - state: forklift
+    noRot: true
+  - type: Vehicle
+    overlayPrototype: VehicleForkliftOverlay
+    hornSound:
+      collection: BikeHorn
+      params:
+        variation: 0.125
+  - type: MovementSpeedModifier
+    baseAcceleration: 8
+    baseFriction: 0.2 # wheels dont stop instantly
+    baseSprintSpeed: 6.5
+    baseWalkSpeed: 4.5 # default walking speed
+  - type: Forklift
+    liftSound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Vehicle/Forklift/forklift.ogg
+      params:
+        playOffsetSeconds: 6
+        variation: 0.5
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: vehicle-slot-component-slot-name-keys
+        whitelist:
+          requireAll: true
+          tags:
+          - VehicleKey
+          - ForkliftKeys
+        insertSound:
+          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+          params:
+            volume: -3
+  - type: ContainerContainer
+    containers:
+      crate_storage: !type:Container

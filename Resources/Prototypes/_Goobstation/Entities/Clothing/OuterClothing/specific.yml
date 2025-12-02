@@ -90,3 +90,37 @@
     - type: Clothing
       sprite: _Goobstation/Clothing/OuterClothing/Misc/nopro.rsi
       quickEquip: true
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterSuitHotDog
+  name: hotdog costume
+  description: Hot-diggity-dog!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/hotdog.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/hotdog.rsi
+    quickEquip: true
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterSuitPickle
+  name: pickle suit
+  description: Smells horribly of vinegar.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/pickle.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/pickle.rsi
+    quickEquip: true
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide

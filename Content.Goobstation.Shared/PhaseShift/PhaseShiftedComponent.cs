@@ -1,4 +1,4 @@
-﻿using Content.Shared.Physics;
+using Content.Shared.Physics;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -16,10 +16,10 @@ public sealed partial class PhaseShiftedComponent : Component
     public float MovementSpeedBuff = 1.5f;
 
     [DataField]
-    public int CollisionMask = (int) CollisionGroup.GhostImpassable;
+    public int CollisionMask = (int) CollisionGroup.None;
 
     [DataField]
-    public int CollisionLayer;
+    public int CollisionLayer = (int) CollisionGroup.None;
 
     [DataField]
     public EntProtoId PhaseInEffect = "EffectEmpPulseNoSound";

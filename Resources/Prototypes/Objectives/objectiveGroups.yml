@@ -138,6 +138,8 @@
     PermaKillRandomPersonObjective: 0.5 # Goobstation - straight up kill someone with no maroons
     PermaKillRandomTraitorObjective: 0.3 # Goobstation - target traitor
     KillRandomHeadObjective: 0.2
+    TeachRandomPersonObjective: 1 #Goobstation  Teach them a lesson
+    TeachRandomHeadObjective: 0.25 #Goobstation  Teach them a lesson
 
 - type: weightedRandom
   id: TraitorObjectiveGroupState

@@ -13,7 +13,7 @@
   - NTRstation
   restockTime: 600
   resetRestockOnPurchase: true
-  restockAfterPurchase: 600 # 10 min, cadet who doesnt know about friendly bingles vs cargo bingle:
+  restockAfterPurchase: 600 # 10 min, cadet who doesn't know about friendly bingles vs cargo bingle:
 
 - type: listing
   id: NTRExecutiveCrateEVA
@@ -27,7 +27,7 @@
     NTLoyaltyPoint: 5
   categories:
   - NTRstation
-  restockTime: 300 # if the station is fucked up in 5 minutes, thats unfortunate lol, 5min tho
+  restockTime: 300 # if the station is fucked up in 5 minutes, that's unfortunate lol, 5min tho
   resetRestockOnPurchase: true
   restockAfterPurchase: 900 # 15min
 
@@ -47,7 +47,7 @@
   resetRestockOnPurchase: true
   restockAfterPurchase: 900 # 15min
 
-# Some things that are limited are limited for a good reason, keeping it for the yamlwarriors
+# Some things that are limited, are limited for a good reason, keeping it for the yamlwarriors
 
 #- type: listing
 #  id: NTRExecutiveSecHardsuit
@@ -190,7 +190,7 @@
 #    sprite: _Goobstation/Objects/Weapons/Melee/e_daggerntr.rsi
 #    state: icon
 #  cost:
-#    NTLoyaltyPoint: 20 # its a bit better than a cc pen, but still.
+#    NTLoyaltyPoint: 20 # It's a bit better than a cc pen, but still.
 #  categories:
 #  - NTRpersonal
 #  restockTime: 900 # 15 min
@@ -260,7 +260,7 @@
   - NTRpersonal
   restockTime: 240 # 4 mins
   resetRestockOnPurchase: true
-  restockAfterPurchase: 600 # 10 mins so that NTR couldnt die from alcohol poisoning cuz im sure they will
+  restockAfterPurchase: 600 # 10 mins so that NTR couldn't die from alcohol poisoning cuz im sure they will
 
 - type: listing
   id: NTRExecutiveGlasses
@@ -296,7 +296,7 @@
 
 # - type: listing
 #  id: NTRExecutiveDeckard
-#  name: ntr-executive-1984-name # we dont talk about this locale string name anymore
+#  name: ntr-executive-1984-name # We don't talk about this locale string name anymore.
 #  description: ntr-executive-1984-desc
 #  productEntity: SpawnPodDeckard
 #  icon:
@@ -374,7 +374,7 @@
   - NTRpersonal
   restockTime: 1200 # 20 mins
   resetRestockOnPurchase: false
-  restockAfterPurchase: 2400 # 40 mins, you dont want to buy 2 suits in one shift, but if you do, then wait lol
+  restockAfterPurchase: 2400 # 40 mins, you don't want to buy 2 suits in one shift, but if you do, then wait lol
 
 - type: listing
   id: NTRExecutiveMarlen
@@ -532,7 +532,7 @@
   resetRestockOnPurchase: false
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 1 # yeh more than 1 server is too much already, we dont want ntr to buy this one if the old one wasnt stolen or smth
+    stock: 1 # yeh more than 1 server is too much already, we don't want ntr to buy this one if the old one wasn't stolen or smth
 
 - type: listing
   id: NTRExecutiveComms
@@ -624,3 +624,19 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: NTRExecutiveCasettePlayer
+  name: ntr-executive-cassette-name
+  description: ntr-executive-cassette-desc
+  productEntity: SpawnPodNTRCassettePlayer
+  icon:
+    sprite: _Goobstation/Objects/Fun/executive_cassette_player.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 3
+  categories:
+    - NTRpersonal
+  restockTime: 0
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 300

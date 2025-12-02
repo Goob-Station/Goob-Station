@@ -40,4 +40,10 @@ public sealed partial class SlasherIncorporealComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan IncorporealizeDelay = TimeSpan.FromSeconds(2);
+
+    /// <summary>
+    /// Range to disable lights around the slasher when entering incorporeal.
+    /// </summary>
+    [DataField]
+    public float LightDisableRange = 5f;
 }

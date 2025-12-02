@@ -6,7 +6,6 @@
 - type: construction
   id: FishingRodMakeshift
   graph: FishingRodMakeshift
-  startNode: start
   targetNode: makeshiftRod
   category: construction-category-misc
   objectType: Item

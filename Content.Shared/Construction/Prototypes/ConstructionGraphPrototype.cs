@@ -1,3 +1,4 @@
+
 // SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
 // SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
 // SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
@@ -32,7 +33,7 @@ namespace Content.Shared.Construction.Prototypes
         public string ID { get; private set; } = default!;
 
         [DataField("start")]
-        public string? Start { get; private set; }
+        public string? Start { get; private set; } = "start"; // Goobstation - fuck you chuds
 
         [DataField("graph", priority: 0)]
         private List<ConstructionGraphNode> _graph = new();

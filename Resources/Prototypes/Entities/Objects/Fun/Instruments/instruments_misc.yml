@@ -208,31 +208,3 @@
     notificationPrefix: prayer-chat-notify-honkmother
     verb: prayer-verbs-call
     verbImage: null
-
-   #Goobstation
-- type: entity
-  parent: [BaseHandheldInstrument, Clothing, BaseSyndicateContraband]
-  id: BloodredCasette
-  name: bloodred casette player
-  description: The least subtle way to enjoy your favorite tunes.
-  components:
-  - type: Instrument
-    program: 62
-  - type: SwappableInstrument
-    instrumentList:
-      "Synth": {62: 0}
-      "Friend": {2: 0}
-      "Overdriven": {29: 0}
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/bloodmonica.rsi
-    state: icon
-  - type: Item
-    size: Small
-    sprite: _Goobstation/Objects/Fun/bloodmonica.rsi
-  - type: Clothing
-    quickEquip: false
-    sprite: _Goobstation/Objects/Fun/bloodmonica.rsi
-    slots:
-    - neck
-  - type: ActivatableUI
-    inHandsOnly: false

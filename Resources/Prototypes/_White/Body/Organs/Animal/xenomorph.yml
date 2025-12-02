@@ -57,7 +57,8 @@
     onAdd:
     - type: ThermalVision
       toggleAction: ToggleThermalVisionXenomorph
-      color: "#7d0cc9"
+      color: white
+      drawOverlay: false
       lightRadius: 10
       strength: 0
       noise: 0

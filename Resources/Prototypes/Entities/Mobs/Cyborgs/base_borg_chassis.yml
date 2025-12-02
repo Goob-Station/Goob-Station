@@ -253,6 +253,7 @@
     uis:
       enum.StationMapUiKey.Key:
         toggleAction: ActionShowStationMap
+  - type: StationMap # Also Goobstation - Show location on the map
   - type: Targeting # Shitmed Change
   - type: ActivatableUI
     key: enum.BorgUiKey.Key

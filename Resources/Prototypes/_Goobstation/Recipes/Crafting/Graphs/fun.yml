@@ -5,7 +5,6 @@
 
 - type: constructionGraph
   id: ToyGrenade
-  start: start
   graph:
     - node: start
       edges:

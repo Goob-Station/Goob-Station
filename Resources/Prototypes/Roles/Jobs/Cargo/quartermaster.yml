@@ -166,6 +166,7 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+      - type: QuartermasterTraining
 
 - type: startingGear
   id: QuartermasterGear

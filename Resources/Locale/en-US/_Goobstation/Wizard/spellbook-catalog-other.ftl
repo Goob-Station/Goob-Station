@@ -29,6 +29,7 @@ spellbook-tider-bundle-name = Tider Wizard Bundle
 spellbook-tider-bundle-desc =
     Contains an ancient jumpsuit, a pair of insulated gloves, a gas mask, gray winter coat and mantle as well as assistant PDA.
     Cannot be refunded.
+    Buying this gives you Assistant faction and unlocks purchasing a special Grey Tide spear.
     Warning: Purchasing this blocks the refund of Homing Toolbox spell!
 
 spellbook-full-random-name = Full Random
