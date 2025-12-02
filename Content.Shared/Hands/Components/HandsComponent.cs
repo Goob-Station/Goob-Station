@@ -110,6 +110,7 @@ public sealed partial class HandsComponent : Component
     ///     The time at which throws will be allowed again.
     /// </summary>
     [DataField, AutoPausedField]
+    [Access(Other = AccessPermissions.ReadWriteExecute)] // Goobstation
     public TimeSpan NextThrowTime;
 
     /// <summary>

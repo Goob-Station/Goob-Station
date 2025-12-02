@@ -461,8 +461,7 @@ public sealed class PullingSystem : EntitySystem
 
         if (!_combatMode.IsInCombatMode(uid)
             || HasComp<GrabThrownComponent>(pulling)
-            || component.GrabStage <= GrabStage.Soft
-            || component.NextStageChange > _timing.CurTime)
+            || component.GrabStage <= GrabStage.Soft)
             return;
 
         var distanceToCursor = dir.Length();
@@ -1042,6 +1041,11 @@ public sealed class PullingSystem : EntitySystem
         RaiseLocalEvent(puller, ref attackRateEv);
         meleeWeaponComponent.NextAttack = puller.Comp.StageChangeCooldown * attackRateEv.Multipliers + max;
         Dirty(puller, meleeWeaponComponent);
+        if (TryComp(puller, out HandsComponent? hands))
+        {
+            hands.NextThrowTime = meleeWeaponComponent.NextAttack;
+            Dirty(puller, hands);
+        }
 
         var beforeEvent = new BeforeHarmfulActionEvent(puller, HarmfulActionType.Grab);
         RaiseLocalEvent(pullable, beforeEvent);
