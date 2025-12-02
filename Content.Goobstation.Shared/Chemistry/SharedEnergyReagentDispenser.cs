@@ -27,7 +27,7 @@ namespace Content.Goobstation.Shared.Chemistry
     /// <summary>
     /// This class holds constants that are shared between client and server.
     /// </summary>
-    public sealed class SharedEnergyReagentDispenser
+    public static class SharedEnergyReagentDispenser
     {
         public const string OutputSlotName = "energyBeakerSlot";
     }
@@ -46,40 +46,22 @@ namespace Content.Goobstation.Shared.Chemistry
         ///     Create a new instance from interpreting a String as an integer,
         ///     throwing an exception if it is unable to parse.
         /// </summary>
-        public EnergyReagentDispenserSetDispenseAmountMessage(String s)
+        public EnergyReagentDispenserSetDispenseAmountMessage(string s)
         {
-            switch (s)
+            EnergyReagentDispenserDispenseAmount = s switch
             {
-                case "1":
-                    EnergyReagentDispenserDispenseAmount = EnergyReagentDispenserDispenseAmount.U1;
-                    break;
-                case "5":
-                    EnergyReagentDispenserDispenseAmount = EnergyReagentDispenserDispenseAmount.U5;
-                    break;
-                case "10":
-                    EnergyReagentDispenserDispenseAmount = EnergyReagentDispenserDispenseAmount.U10;
-                    break;
-                case "15":
-                    EnergyReagentDispenserDispenseAmount = EnergyReagentDispenserDispenseAmount.U15;
-                    break;
-                case "20":
-                    EnergyReagentDispenserDispenseAmount = EnergyReagentDispenserDispenseAmount.U20;
-                    break;
-                case "25":
-                    EnergyReagentDispenserDispenseAmount = EnergyReagentDispenserDispenseAmount.U25;
-                    break;
-                case "30":
-                    EnergyReagentDispenserDispenseAmount = EnergyReagentDispenserDispenseAmount.U30;
-                    break;
-                case "50":
-                    EnergyReagentDispenserDispenseAmount = EnergyReagentDispenserDispenseAmount.U50;
-                    break;
-                case "100":
-                    EnergyReagentDispenserDispenseAmount = EnergyReagentDispenserDispenseAmount.U100;
-                    break;
-                default:
-                    throw new Exception($"Cannot convert the string `{s}` into a valid ReagentDispenser DispenseAmount");
-            }
+                "1" => EnergyReagentDispenserDispenseAmount.U1,
+                "5" => EnergyReagentDispenserDispenseAmount.U5,
+                "10" => EnergyReagentDispenserDispenseAmount.U10,
+                "15" => EnergyReagentDispenserDispenseAmount.U15,
+                "20" => EnergyReagentDispenserDispenseAmount.U20,
+                "25" => EnergyReagentDispenserDispenseAmount.U25,
+                "30" => EnergyReagentDispenserDispenseAmount.U30,
+                "50" => EnergyReagentDispenserDispenseAmount.U50,
+                "100" => EnergyReagentDispenserDispenseAmount.U100,
+                _ => throw new Exception(
+                    $"Cannot convert the string `{s}` into a valid ReagentDispenser DispenseAmount")
+            };
         }
     }
 
