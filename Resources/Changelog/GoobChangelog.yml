@@ -18703,3 +18703,13 @@ Entries:
       message: Flashlights now follow your cursor when you have combat mode enabled.
   id: 2109
   time: '2025-12-02T06:16:07.0000000+00:00'
+- author: Bynnel
+  changes:
+    - type: Tweak
+      message: >-
+        The Cobra Gland is now classified as Major Contraband. Don't get your
+        heart ripped out!
+    - type: Remove
+      message: Redundant Space Law entry (Expectations of security)
+  id: 2110
+  time: '2025-12-02T06:17:41.0000000+00:00'
