@@ -16,7 +16,7 @@ public sealed partial class VisibleContrabandComponent : Component
     [DataField, AutoNetworkedField] 
     public Dictionary<EntityUid, TimeSpan> VisibleItems = new();
 
-    public readonly TimeSpan VisibleTimeout = TimeSpan.FromSeconds(2f);
+    public readonly TimeSpan VisibleTimeout = TimeSpan.FromSeconds(5f);
 }
 
 public enum ContrabandStatus : byte

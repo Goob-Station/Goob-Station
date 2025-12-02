@@ -30,7 +30,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
         if (_timing.CurTime < _nextUpdate)
             return;
         CheckVisibleContra();
-        _nextUpdate = _timing.CurTime + TimeSpan.FromMilliseconds(500 + (_rng.NextFloat() - 0.5) * 500);
+        _nextUpdate = _timing.CurTime + TimeSpan.FromMilliseconds(1000 + (_rng.NextFloat() - 0.5) * 500);
     }
 
     public override void Initialize()
