@@ -18885,3 +18885,14 @@ Entries:
       message: Lawbringer sleep shot requires at least 5 hits to sleep target.
   id: 2130
   time: '2025-12-02T07:48:20.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        New item for sec and syndies: second skin. Protects from wounds and
+        damage while active. Sec version causes disgust overtime and corrodes
+        IPCs when active.
+    - type: Tweak
+      message: Syndicate vests and helmet are now cheaper at cost of lower resist.
+  id: 2131
+  time: '2025-12-02T07:51:52.0000000+00:00'
