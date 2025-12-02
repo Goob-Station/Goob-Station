@@ -2,6 +2,7 @@ using Content.Goobstation.Shared.Terror.Components;
 using Content.Goobstation.Shared.Terror.Events;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
@@ -54,31 +55,8 @@ public sealed class TerrorSpiderSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<TerrorSpiderComponent, MobStateChangedEvent>(OnSpiderStateChanged);
+        SubscribeLocalEvent<TerrorSpiderComponent, TerrorWrappedCorpseEvent>(OnWrappedCorpse);
     }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var query = EntityQueryEnumerator<TerrorSpiderComponent>();
-
-        while (query.MoveNext(out var uid, out var comp))
-        {
-            comp.RegenAccumulator += frameTime;
-
-            if (comp.RegenAccumulator < comp.RegenCooldown.TotalSeconds)
-                continue;
-
-            comp.RegenAccumulator = 0f;
-
-            if (!TryComp(uid, out DamageableComponent? damageable))
-                continue;
-
-            var amount = comp.TerrorRegen * (1 + comp.WrappedAmount);
-            _damage.TryChangeDamage(uid, amount, damageable: damageable, targetPart: TargetBodyPart.All);
-        }
-    }
-
     private void OnSpiderStateChanged(EntityUid uid, TerrorSpiderComponent component, MobStateChangedEvent args)
     {
         if (args.NewMobState != MobState.Dead)
@@ -108,4 +86,44 @@ public sealed class TerrorSpiderSystem : EntitySystem
             }
         }
     }
+    private void OnWrappedCorpse(EntityUid uid, TerrorSpiderComponent comp, TerrorWrappedCorpseEvent args)
+    {
+        comp.WrappedAmount++;
+        Dirty(uid, comp);
+
+        if (!TryComp(uid, out PassiveDamageComponent? passive))
+            return;
+
+        // Initialize baseline once
+        if (comp.BaselineRegen == null)
+        {
+            comp.BaselineRegen = new DamageSpecifier();
+            foreach (var (type, value) in passive.Damage.DamageDict)
+                comp.BaselineRegen.DamageDict[type] = value;
+        }
+
+        var baseline = comp.BaselineRegen;
+        var newDamage = new DamageSpecifier();
+
+        // diminishing returns curve
+        // k controls curve steepness (3 is good)
+        const float k = 3f;
+        float capped = comp.MaxRegenCorpses;
+
+        // smooth diminishing returns:
+        // approaches capped but never exceeds it
+        float effectiveCorpses = capped * (1f - MathF.Exp(-comp.WrappedAmount / k));
+
+        foreach (var (type, value) in baseline.DamageDict)
+        {
+            // scale based on diminishing-returns result
+            var scaled = value * (1 + effectiveCorpses);
+            newDamage.DamageDict[type] = scaled;
+        }
+
+        passive.Damage = newDamage;
+        Dirty(uid, passive);
+    }
+
+
 }

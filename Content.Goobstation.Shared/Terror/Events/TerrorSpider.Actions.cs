@@ -20,6 +20,8 @@ public sealed partial class TerrorQueenSenseEvent : InstantActionEvent;
 
 public sealed partial class TerrorVentSmashEvent : EntityTargetActionEvent;
 
+public readonly record struct TerrorWrappedCorpseEvent(EntityUid Spider);
+
 public sealed class TerrorSpiderDiedEvent : EntityEventArgs
 {
     public readonly EntityUid Spider;

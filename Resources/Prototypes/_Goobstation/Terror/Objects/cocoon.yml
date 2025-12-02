@@ -31,6 +31,7 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Diona
+  - type: ContainerContainer
   - type: Cocoon
   - type: Destructible
     thresholds:

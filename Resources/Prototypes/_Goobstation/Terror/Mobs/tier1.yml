@@ -97,20 +97,9 @@
       groups:
         Brute: -1
         Burn: -1
-        Toxin: -15
-        Genetic: -15
+        Toxin: -3
+        Genetic: -3
   - type: TerrorSpider
-    TerrorRegen:
-      types:
-         Blunt: -1
-         Slash: -1
-         Piercing: -1
-         Heat: -0.5
-         Shock: -0.5
-         Cold: -0.5
-         Poison: -5
-         Radiation: -0.25
-         Asphyxiation: -0.25
   - type: CollectiveMind
     defaultChannel: TerrorSpiderHivemind
     respectAccents: true

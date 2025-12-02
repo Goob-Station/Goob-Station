@@ -13,19 +13,18 @@ public sealed partial class TerrorSpiderComponent : Component
     [DataField]
     public int WrappedAmount;
 
-    /// <summary>
-    /// Regenerates the terror spider by this amount, multiplied by RegenMultiplier.
-    /// </summary>
-    [DataField]
-    public DamageSpecifier TerrorRegen = new();
 
     /// <summary>
-    /// How often the terror spider regenerates.
+    /// Max amount of corpses to count before you stop multiplying the regen. 12 healing per second is pretty busted.
     /// </summary>
     [DataField]
-    public TimeSpan RegenCooldown = TimeSpan.FromSeconds(3);
+    public int MaxRegenCorpses = 12;
 
-    public TimeSpan NextRegenTime;
+    /// <summary>
+    /// Stores the original passive regen so scaling isn't exponential.
+    /// </summary>
+    [DataField]
+    public DamageSpecifier? BaselineRegen;
 
     [DataField, AutoNetworkedField]
     public float RegenAccumulator = 0f;
