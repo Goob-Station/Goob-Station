@@ -18767,3 +18767,9 @@ Entries:
       message: Forcefields are more fragile and are penetrated by bullets like grilles.
   id: 2118
   time: '2025-12-02T06:40:29.0000000+00:00'
+- author: oldschool_otaku
+  changes:
+    - type: Fix
+      message: Hair clipping for apocryphal, corporate and praetorian modsuit helmets.
+  id: 2119
+  time: '2025-12-02T06:58:42.0000000+00:00'
