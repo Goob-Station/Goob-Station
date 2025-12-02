@@ -88,6 +88,8 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
 
         InitializeCVars();
 
+        SubscribeLocalEvent<InstrumentComponent, ComponentStartup>(OnStartup); // Shitcode speedfix remove when engine is fixed
+
         SubscribeNetworkEvent<InstrumentMidiEventEvent>(OnMidiEventRx);
         SubscribeNetworkEvent<InstrumentStartMidiEvent>(OnMidiStart);
         SubscribeNetworkEvent<InstrumentStopMidiEvent>(OnMidiStop);
@@ -106,6 +108,16 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
 
         _conHost.RegisterCommand("addtoband", AddToBandCommand);
     }
+
+    // Shitcode speedfix remove when engine is fixed
+    private void OnStartup(EntityUid uid, InstrumentComponent component, ComponentStartup args)
+    {
+        if (!TryComp(uid, out InstrumentComponent? rem))
+            return;
+        EntityManager.RemoveComponent(uid, component);
+    }
+    // Shitcode speedfix remove when engine is fixed - END
+
 
     private void OnStrumentGetState(EntityUid uid, InstrumentComponent component, ref ComponentGetState args)
     {
@@ -290,6 +302,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
 
     private void OnBoundUIOpened(EntityUid uid, InstrumentComponent component, BoundUIOpenedEvent args)
     {
+        return; // Shitcode speedfix remove when engine is fixed
         EnsureComp<ActiveInstrumentComponent>(uid);
         Clean(uid, component);
     }

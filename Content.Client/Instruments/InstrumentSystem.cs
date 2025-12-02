@@ -62,12 +62,30 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         SubscribeNetworkEvent<InstrumentStartMidiEvent>(OnMidiStart);
         SubscribeNetworkEvent<InstrumentStopMidiEvent>(OnMidiStop);
 
+        SubscribeLocalEvent<SharedInstrumentComponent, ComponentStartup>(OnSharedStartup);// Shitcode speedfix remove when engine is fixed
+        SubscribeLocalEvent<InstrumentComponent, ComponentStartup>(OnStartup);          // Shitcode speedfix remove when engine is fixed
+
         SubscribeLocalEvent<InstrumentComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<InstrumentComponent, ComponentHandleState>(OnHandleState);
         SubscribeLocalEvent<ActiveInstrumentComponent, AfterAutoHandleStateEvent>(OnActiveInstrumentAfterHandleState);
     }
 
     private bool _isUpdateQueued = false;
+// Shitcode speedfix remove when engine is fixed
+    private void OnSharedStartup(EntityUid uid, SharedInstrumentComponent sharedcomp, ComponentStartup args)
+    {
+        if (!TryComp(uid, out SharedInstrumentComponent? rem))
+            return;
+        EntityManager.RemoveComponent<SharedInstrumentComponent>(uid);
+    }
+
+    private void OnStartup(EntityUid uid, InstrumentComponent component, ComponentStartup args)
+    {
+        if (!TryComp(uid, out InstrumentComponent? rem))
+            return;
+        EntityManager.RemoveComponent(uid, component);
+    }
+// Shitcode speedfix remove when engine is fixed - END
 
     private void OnActiveInstrumentAfterHandleState(Entity<ActiveInstrumentComponent> ent, ref AfterAutoHandleStateEvent args)
     {
@@ -433,6 +451,12 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
 
     private void OnMidiStart(InstrumentStartMidiEvent ev)
     {
+        if (TryComp<InstrumentComponent>(GetEntity(ev.Uid), out var instrument))
+        {
+            EntityManager.RemoveComponent<InstrumentComponent>(GetEntity(ev.Uid));
+        return;
+        }
+
         SetupRenderer(GetEntity(ev.Uid), true);
     }
 
