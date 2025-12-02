@@ -279,7 +279,6 @@
   - type: TargetAction
     interactOnMiss: false
   - type: EntityTargetAction
-    range: 0.25
     event: !type:ForkliftActionEvent
     canTargetSelf: false
     whitelist:
