@@ -18815,3 +18815,9 @@ Entries:
       message: Goldfish can now be worn in the neck slot
   id: 2124
   time: '2025-12-02T07:06:36.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: 'Fixed: Organs not adding the appropriate actions when installed.'
+  id: 2125
+  time: '2025-12-02T07:07:16.0000000+00:00'
