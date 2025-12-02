@@ -225,7 +225,7 @@
     maxCharge: 720
     startingCharge: 720
   - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
-    proto: RedLaser
+    proto: MediumRedLaser
     fireCost: 90 # 8 shots
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
@@ -272,7 +272,7 @@
     startingCharge: 1080
   - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
     proto: RedLaser
-    fireCost: 90 # 12 shots
+    fireCost: 135 # 8 shots
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Plastic: 37
@@ -318,7 +318,7 @@
     startingCharge: 1800
   - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
     proto: HeavyRedLaser
-    fireCost: 150 # 12 shots
+    fireCost: 225 # 8 shots
 
 - type: entity
   id: PowerCellHyperPrinted
@@ -360,7 +360,7 @@
     # Goobstation
     canEmp: true
   - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
-    proto: RedLaser
+    proto: MediumRedLaser
     fireCost: 90 # 8 shots
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
