@@ -461,7 +461,8 @@ public sealed class PullingSystem : EntitySystem
 
         if (!_combatMode.IsInCombatMode(uid)
             || HasComp<GrabThrownComponent>(pulling)
-            || component.GrabStage <= GrabStage.Soft)
+            || component.GrabStage <= GrabStage.Soft
+            || component.NextStageChange > _timing.CurTime)
             return;
 
         var distanceToCursor = dir.Length();
