@@ -59,7 +59,7 @@ public sealed partial class ObjectiveComponent : Component
     public int ServerCurrency = 5;
 
     /// <summary>
-    /// shud % of the currency be rewarded if % of the objective is completed
+    /// Should the percentage of currency rewarded correspond to the percentage of the objective completed
     /// </summary>
     [DataField]
     public bool ServerCurrencyRewardPartial;
