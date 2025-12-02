@@ -33,7 +33,7 @@ public partial class RandomTeleportComponent : Component
     /// </summary>
     [DataField] public bool ForceSafeTeleport = true;
 
-    [DataField] public bool Kidnap;
+    [DataField] public bool TelleportPulledEntities = false;
 
     [DataField] public SoundSpecifier ArrivalSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
     [DataField] public SoundSpecifier DepartureSound = new SoundPathSpecifier("/Audio/Effects/teleport_departure.ogg");

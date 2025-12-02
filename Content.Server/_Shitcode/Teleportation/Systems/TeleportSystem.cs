@@ -85,7 +85,7 @@ public sealed class TeleportSystem : EntitySystem
         if (playSound)
             _audio.PlayPvs(component.DepartureSound, Transform(uid).Coordinates, AudioParams.Default);
 
-        RandomTeleport(uid, component.Radius, component.TeleportAttempts, component.ForceSafeTeleport, false, component.Kidnap);
+        RandomTeleport(uid, component.Radius, component.TeleportAttempts, component.ForceSafeTeleport, false, component.TelleportPulledEntities);
 
         if (playSound)
             _audio.PlayPvs(component.ArrivalSound, Transform(uid).Coordinates, AudioParams.Default);
@@ -107,7 +107,7 @@ public sealed class TeleportSystem : EntitySystem
         int triesBase = 10,
         bool forceSafe = true,
         bool checkEv = true,
-        bool kidnap = false)
+        bool TelleportPulledEntities = false)
     {
         if (checkEv && !CanTeleport(uid))
             return;
@@ -118,7 +118,7 @@ public sealed class TeleportSystem : EntitySystem
             _pullingSystem.TryStopPull(uid, pullable, ignoreGrab: true);
         // if we teleport check if we're pulling someone and teleport them too if kidnap is true
         EntityUid? pullableEntity;
-        if (!(HasComp<PullerComponent>(uid) && kidnap))
+        if (!(HasComp<PullerComponent>(uid) && TelleportPulledEntities))
             _pullingSystem.StopAllPulls(uid);
         var entityCoords = xform.Coordinates.ToMap(EntityManager, _xform);
 
