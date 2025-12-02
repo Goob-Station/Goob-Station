@@ -245,7 +245,7 @@ namespace Content.IntegrationTests.Tests
             "Dev",            // Dev map
             "dm01-entryway",  // Deathmatch
             "Europa",         // Not in pool.
-            //"Exo",          // Fuck off. I'm not even risking this list doing anything with it present.
+            "Exo",          // okay fine fuck it.
             "Fland",
             "FlandHighPop",
             "Kettle",
@@ -265,6 +265,7 @@ namespace Content.IntegrationTests.Tests
             "Reach",
             "Saltern",
             "Serpentcrest",
+            "Snowball",
             "TestTeg",        // Dev map
             "Train"           // Not in pool
             // Goob end
@@ -287,7 +288,7 @@ namespace Content.IntegrationTests.Tests
               "Dev",            // Dev map
             //"dm01-entryway",  // Deathmatch
             //"Europa",         // Not in pool.
-            //"Exo",            // Not in pool.
+              "Exo",
               "Fland",
               "FlandHighPop",
               "Kettle",
@@ -309,6 +310,7 @@ namespace Content.IntegrationTests.Tests
               "Reach",
               "Saltern",
               "Serpentcrest",
+              "Snowball",
         };
         // Goobstation edit end
 
