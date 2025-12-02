@@ -18966,3 +18966,15 @@ Entries:
       message: Fixed CQC guidebook being wrong about necksnap
   id: 2139
   time: '2025-12-02T18:38:14.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Ghouls no longer die to bloodloss rapidly upon being ghoulified.
+    - type: Fix
+      message: Fix flesh mimic npcs attacking ghouls sometimes.
+    - type: Tweak
+      message: Nerfed bleeding steel effect.
+    - type: Tweak
+      message: Nerfed flesh eating buffs for flesh heretic.
+  id: 2140
+  time: '2025-12-02T18:40:55.0000000+00:00'
