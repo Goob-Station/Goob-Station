@@ -18960,3 +18960,9 @@ Entries:
       message: Changed greentext goobcoin to now be able for partial reward
   id: 2138
   time: '2025-12-02T08:40:02.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: Fixed CQC guidebook being wrong about necksnap
+  id: 2139
+  time: '2025-12-02T18:38:14.0000000+00:00'
