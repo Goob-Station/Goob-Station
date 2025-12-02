@@ -18803,3 +18803,15 @@ Entries:
       message: Hotplate flatpack added to CMO's locker.
   id: 2123
   time: '2025-12-02T07:04:49.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Tweak
+      message: Goldfish now need to eat and drink
+    - type: Tweak
+      message: Goldfish can now move faster and go under doors
+    - type: Tweak
+      message: Goldfish are now technically edible
+    - type: Tweak
+      message: Goldfish can now be worn in the neck slot
+  id: 2124
+  time: '2025-12-02T07:06:36.0000000+00:00'
