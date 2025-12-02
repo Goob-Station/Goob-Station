@@ -149,7 +149,7 @@
   supervisors: job-supervisors-captain
   #canBeAntag: false
   antagAdvantage: 75 # Goobstation
-  guides:
+  guides: # goobstation
   - Cargo
   - Quartermaster SOP
   - Cargo SOP

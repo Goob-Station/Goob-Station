@@ -84,7 +84,7 @@
   startingGear: DoctorGear
   icon: "JobIconMedicalDoctor"
   supervisors: job-supervisors-cmo
-  guides:
+  guides: # goobstation
   - MedicalDoctor
   - Medical
   - Medicine

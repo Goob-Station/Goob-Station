@@ -71,7 +71,7 @@
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine
-  guides:
+  guides: # goobstation
   - MedicalDoctor
   - Cloning
   - Medicine

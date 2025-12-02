@@ -87,7 +87,7 @@
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
   supervisors: job-supervisors-cmo
-  guides:
+  guides: # goobstation
   - MedicalDoctor
   - Medical
   - Medicine

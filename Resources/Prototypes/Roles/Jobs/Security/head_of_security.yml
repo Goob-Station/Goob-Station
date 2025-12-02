@@ -165,7 +165,7 @@
   icon: "JobIconHeadOfSecurity"
   supervisors: job-supervisors-captain
   canBeAntag: false
-  guides:
+  guides: # goobstation
   - Security
   - SpaceLaw
   - Legal SOP

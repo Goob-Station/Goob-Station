@@ -110,7 +110,7 @@
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security
   canBeAntag: false
-  guides:
+  guides: # goobstation
   - Security
   - OfficerCadet SOP
   - Searches SOP

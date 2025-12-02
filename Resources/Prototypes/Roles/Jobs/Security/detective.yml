@@ -76,7 +76,7 @@
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
   canBeAntag: false
-  guides:
+  guides: # goobstation
   - Forensics
   - Security
   - Detective SOP

@@ -156,7 +156,7 @@
       inverted: true
       species:
       - Felinid
-  guides:
+  guides: # goobstation
   - Command
   - Succession
   - StandardProcedures SOP

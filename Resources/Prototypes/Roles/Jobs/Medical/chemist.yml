@@ -72,7 +72,7 @@
   startingGear: ChemistGear
   icon: "JobIconChemist"
   supervisors: job-supervisors-cmo
-  guides:
+  guides: # goobstation
   - Chemist
   - Chemicals
   goobcoins: 20 #Goob content

@@ -85,7 +85,7 @@
   startingGear: ServiceWorkerGear
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service
-  guides: [ Service ]
+  guides: [ Service ] # goobstation
   goobcoins: 10 #Goob content
   access:
   - Service

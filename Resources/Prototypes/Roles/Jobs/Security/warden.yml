@@ -150,7 +150,7 @@
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
   canBeAntag: false
-  guides:
+  guides: # goobstation
   - SpaceLaw
   - Legal SOP
   - Security

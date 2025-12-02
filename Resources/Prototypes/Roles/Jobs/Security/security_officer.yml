@@ -96,7 +96,7 @@
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
   canBeAntag: false
-  guides:
+  guides: # goobstation
   - Security
   - Legal SOP
   - OfficerCadet SOP
