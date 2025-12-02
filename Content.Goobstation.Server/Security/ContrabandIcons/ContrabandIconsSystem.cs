@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.Contraband;
@@ -22,6 +21,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
     [Dependency] private readonly IRobustRandom _rng = default!;
     private bool _isEnabled = true;
     private TimeSpan _nextUpdate;
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -30,6 +30,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
         if (_timing.CurTime < _nextUpdate)
             return;
         CheckVisibleContra();
+        _nextUpdate = _timing.CurTime + TimeSpan.FromMilliseconds(500 + (_rng.NextFloat() - 0.5) * 500);
     }
 
     public override void Initialize()
@@ -51,10 +52,10 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnEquip(EntityUid uid, VisibleContrabandComponent comp, DidEquipEvent args)
     {
-        if(HasComp<ContrabandComponent>(args.Equipment))
+        if (HasComp<ContrabandComponent>(args.Equipment))
             comp.VisibleItems.TryAdd(args.Equipment, _timing.CurTime + comp.VisibleTimeout);
     }
-    
+
     private void OnEquipHands(EntityUid uid, VisibleContrabandComponent comp, DidEquipHandEvent args)
     {
         if (HasComp<ContrabandComponent>(args.Equipped))
@@ -94,8 +95,8 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
                 continue;
             contraCheck = CheckItemsInComponent(comp, uid);
             var newStatus = StatusToIcon(timeSpanDone && contraCheck
-                    ? ContrabandStatus.Contraband
-                    : ContrabandStatus.None);
+                ? ContrabandStatus.Contraband
+                : ContrabandStatus.None);
             if (comp.StatusIcon != newStatus)
             {
                 comp.StatusIcon = newStatus;
@@ -103,7 +104,6 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
             }
         }
 
-        _nextUpdate = _timing.CurTime + TimeSpan.FromMilliseconds(500 + (_rng.NextFloat() - 0.5) * 500);
         query.Dispose();
     }
 
@@ -116,6 +116,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
             if (!_detectorSystem.CheckContrabandPermission(item, owner, contra))
                 returnValue = true;
         }
+
         return returnValue;
     }
 }
