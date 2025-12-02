@@ -26,16 +26,14 @@ public sealed class ShuttleDroneLinkSystem : EntitySystem
 
     private void OnLinkAttempt(Entity<DroneConsoleComponent> ent, ref LinkAttemptEvent ev)
     {
-        if (ev.SourcePort != RemoteDroneSourcePort || ev.SinkPort != RemoteDroneSinkPort || HasComp<DroneConsoleComponent>(ev.Sink))
-        {
+        if (ev.SourcePort != RemoteDroneSourcePort
+            || ev.SinkPort != RemoteDroneSinkPort
+            || HasComp<DroneConsoleComponent>(ev.Sink))
             ev.Cancel();
-        }
     }
 
     private void OnNewLink(Entity<DroneConsoleComponent> ent, ref NewLinkEvent ev)
-    {
-        _shuttleConsole.RefreshShuttleConsoles();
-    }
+        => _shuttleConsole.RefreshShuttleConsoles();
 
     private void OnGetLinkedShuttle(Entity<DroneConsoleComponent> ent, ref DroneGetLinkedShuttleEvent ev)
     {
