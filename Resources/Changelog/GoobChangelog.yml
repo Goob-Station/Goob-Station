@@ -18853,3 +18853,23 @@ Entries:
       message: Fixed mass contests (and any other contests) not working.
   id: 2128
   time: '2025-12-02T07:33:06.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Fire stacks are slightly more dangerous, but heat caused by them is less
+        dangerous.
+    - type: Fix
+      message: >-
+        Fire stack spread on collision is much more consistent. No more 10 fire
+        stacks from walking over burning mice.
+    - type: Tweak
+      message: Ominous armor gives 50% fire and temperature resists.
+    - type: Tweak
+      message: 'Lawbringer hotshot: 3 -> 2 firestacks.'
+    - type: Add
+      message: >-
+        All fire stacks caused by ashen heretic bypass 50% of target fire
+        resistance.
+  id: 2129
+  time: '2025-12-02T07:35:59.0000000+00:00'
