@@ -27,7 +27,7 @@
     woundVisibility: Always
     scarWound: BluntScar
     mangleSeverity: Severe
-    integrityMultiplier: 0.5 #heheheha
+    integrityMultiplier: 0.6 #heheheha
   - type: TraumaInflicter
     severityThreshold: 12
     allowedTraumas:
@@ -43,9 +43,9 @@
     - VeinsDamage
     - NerveDamage
     traumasChances:
-      Dismemberment: -2
+      Dismemberment: -1.9
       OrganDamage: 0.17
-      BoneDamage: 0.8
+      BoneDamage: 1
       VeinsDamage: 0
       NerveDamage: 0
     mangledMultipliers:
@@ -65,7 +65,7 @@
     woundType: External
     woundVisibility: Always
     scarWound: PiercingScar
-    integrityMultiplier: 0.1
+    integrityMultiplier: 0.15
     mangleSeverity: Severe
   - type: TraumaInflicter
     severityThreshold: 12
@@ -82,7 +82,7 @@
     - VeinsDamage
     - NerveDamage
     traumasChances:
-      Dismemberment: -2
+      Dismemberment: -1.9
       OrganDamage: 0.08
       BoneDamage: 0.14
       VeinsDamage: -0.4 # goes through rather easy.
@@ -103,7 +103,7 @@
     woundType: External
     woundVisibility: Always
     scarWound: PiercingScar
-    integrityMultiplier: 0.15
+    integrityMultiplier: 0.2
     selfHealMultiplier: 0
   - type: TraumaInflicter
     severityThreshold: 6

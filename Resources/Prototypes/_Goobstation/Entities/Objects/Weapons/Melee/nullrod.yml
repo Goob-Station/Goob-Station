@@ -581,7 +581,6 @@
         Holy: 6
       woundSeverityMultipliers:
         Slash: 2
-        Blunt: 2
     soundHit:
       path: /Audio/Weapons/chainsaw.ogg
       params:

@@ -502,9 +502,9 @@ public partial class TraumaSystem
         if (!parentWoundable.HasValue)
             return false;
 
-        if (bodyPart.PartType == BodyPartType.Chest
-            || bodyPart.PartType == BodyPartType.Groin
-            && Comp<WoundableComponent>(parentWoundable.Value).WoundableSeverity != WoundableSeverity.Mangled)
+        var isMangled = Comp<WoundableComponent>(parentWoundable.Value).WoundableSeverity == WoundableSeverity.Mangled;
+
+        if (bodyPart.PartType == BodyPartType.Chest || bodyPart.PartType == BodyPartType.Groin && !isMangled)
             return false;
 
         var deduction = GetTraumaChanceDeduction(
@@ -545,6 +545,9 @@ public partial class TraumaSystem
                     break;
             }
         }
+
+        if (isMangled)
+            multiplier *= 1.3f;
 
         var chance =
             FixedPoint2.Clamp(
