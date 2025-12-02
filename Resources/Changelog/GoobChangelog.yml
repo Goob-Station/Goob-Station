@@ -18773,3 +18773,13 @@ Entries:
       message: Hair clipping for apocryphal, corporate and praetorian modsuit helmets.
   id: 2119
   time: '2025-12-02T06:58:42.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Tweak
+      message: >-
+        Blob spores no longer have 50% damage resistance to slash , pierce and
+        blunt!
+    - type: Tweak
+      message: Blob spores now deal 8 blunt damage instead of 5 piercing
+  id: 2120
+  time: '2025-12-02T06:59:12.0000000+00:00'
