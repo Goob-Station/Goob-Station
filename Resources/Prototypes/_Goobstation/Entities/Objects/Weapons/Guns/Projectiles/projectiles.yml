@@ -511,3 +511,35 @@
     - state: icon
   - type: Ammo
     muzzleFlash: null
+
+- type: entity
+  id: BulletToxicTerror
+  name: toxic spit
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Caustic: 1
+  - type: ChemicalAmmo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Toxin
+          Quantity: 2
+  - type: SolutionTransfer
+    maxTransferAmount: 2
+  - type: SolutionInjectOnProjectileHit
+    solution: ammo
+    transferAmount: 2
+    transferEfficiency: 1.0
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
+    layers:
+    - state: xeno_toxic
+  - type: Ammo
+    muzzleFlash: null
+  - type: SmartLinkBlacklist
+
