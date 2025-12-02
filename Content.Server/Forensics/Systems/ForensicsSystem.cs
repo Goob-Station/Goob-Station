@@ -458,27 +458,30 @@ namespace Content.Server.Forensics
                     && !string.IsNullOrEmpty(fiber.FiberMaterial))
                     component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial))
                         : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
-                //Goobstation start
-                //Check user for gloves component and fingerprint component and retrieve fingerprints and fibers (check those if they are empty or not eg. forensic gloves or error)
-                if (TryComp<FingerprintComponent>(user, out var fingerprintG) &&
-                    !string.IsNullOrEmpty(fingerprintG.Fingerprint) &&
-                    TryComp<FiberComponent>(gloves, out var fiberEmpty) &&
-                    !string.IsNullOrEmpty(fiberEmpty.FiberMaterial)
-                    && _revealChance is <= 1f and > 0f) // only do partial fingerprints if reveal chance is between 0 and 1
+                // Goob Station - Start
+                if (_revealChance > 0f && _revealChance <= 1f)
                 {
-                    var result = CreateOrMergePartialFingerprintRandomly(
-                        fingerprintG.Fingerprint,
-                        component.Fingerprints.TryGetValue(fingerprintG.Fingerprint, out var partial)
-                            ? partial
-                            : null);
+                    if (TryComp<FingerprintComponent>(user, out var userFingerprintComp) &&
+                        !string.IsNullOrEmpty(userFingerprintComp.Fingerprint))
+                    {
+                        var existingPartial =
+                            component.Fingerprints.TryGetValue(userFingerprintComp.Fingerprint, out var partial)
+                                ? partial
+                                : null;
 
-                    if (!string.IsNullOrEmpty(result))
-                        component.Fingerprints[fingerprintG.Fingerprint] = result;
+                        var result = CreateOrMergePartialFingerprintRandomly(
+                            userFingerprintComp.Fingerprint,
+                            existingPartial);
 
-                    Dirty(target, component);
-                    return;
+                        if (string.IsNullOrEmpty(result))
+                            return;
+
+                        component.Fingerprints[userFingerprintComp.Fingerprint] = result;
+                        Dirty(target, component);
+                        return;
+                    }
                 }
-                //Goobstation end
+                // Goob Station - End
             }
 
             if (TryComp<FingerprintComponent>(user, out var fingerprint) 
