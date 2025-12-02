@@ -50,15 +50,6 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
         // so this doesnt mess over any other abilities or systems
         ent.Comp.HadLightDetection = HasComp<LightDetectionComponent>(ent);
 
-        var nightVision = _compFactory.GetComponent<NightVisionComponent>();
-        nightVision.IsActive = false;
-        nightVision.Color = Color.FromHex("#565b7a");
-        nightVision.ActivateSound = null;
-        nightVision.DeactivateSound = null;
-        nightVision.ToggleAction = null;
-
-        AddComp(ent, nightVision, true);
-
         ent.Comp.ActionEnt = _actions.AddAction(ent, ent.Comp.ActionId);
     }
 
@@ -67,8 +58,6 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
         HandleSpecialComponents(ent);
         HandleAlerts(ent, false);
         SetChemicalModifier(ent, false);
-
-        RemComp<NightVisionComponent>(ent);
 
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
     }
@@ -110,17 +99,17 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
     private void AdjustAdaption(Entity<DarknessAdaptionComponent> ent, bool adapting)
     {
         if (adapting)
+        {
             EnsureAndSetStealth(ent);
+            EnsureNightVision(ent);
+        }
         else
+        {
             RemComp<StealthComponent>(ent);
+            RemComp<NightVisionComponent>(ent);
+        }
 
         SetChemicalModifier(ent, adapting);
-
-        if (!_nvgQuery.TryComp(ent, out var nvg))
-            return;
-
-        nvg.IsActive = adapting;
-        Dirty(ent, nvg);
     }
 
     private void HandleAlerts(Entity<DarknessAdaptionComponent> ent, bool show)
@@ -206,13 +195,21 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
             RemCompDeferred<StealthOnMoveComponent>(ent);
     }
 
+    private void EnsureNightVision(Entity<DarknessAdaptionComponent> ent)
+    {
+        var nightVision = _compFactory.GetComponent<NightVisionComponent>();
+        nightVision.IsActive = true;
+        nightVision.Color = Color.FromHex("#606cb3");
+        nightVision.ActivateSound = null;
+        nightVision.DeactivateSound = null;
+        nightVision.ToggleAction = null;
+
+        AddComp(ent, nightVision, true);
+    }
+
     private void HandleSpecialComponents(Entity<DarknessAdaptionComponent> ent)
     {
-        if (_nvgQuery.TryComp(ent, out var nvg))
-        {
-            nvg.IsActive = false;
-            Dirty(ent, nvg);
-        }
+        RemComp<NightVisionComponent>(ent);
 
         if (!ent.Comp.HadLightDetection)
             RemComp<LightDetectionComponent>(ent); // saves on performance if the ability isn't active

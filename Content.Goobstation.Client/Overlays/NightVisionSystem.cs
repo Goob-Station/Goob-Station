@@ -17,8 +17,8 @@ namespace Content.Goobstation.Client.Overlays;
 public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
 {
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly ILightManager _lightManager = default!;
 
+    private NightVisionOverlay _nvgOverlay = default!;
     private BaseSwitchableOverlay<NightVisionComponent> _overlay = default!;
 
     public override void Initialize()
@@ -27,6 +27,7 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
 
         SubscribeLocalEvent<NightVisionComponent, SwitchableOverlayToggledEvent>(OnToggle);
 
+        _nvgOverlay = new NightVisionOverlay();
         _overlay = new BaseSwitchableOverlay<NightVisionComponent>();
     }
 
@@ -52,29 +53,24 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
     protected override void UpdateInternal(RefreshEquipmentHudEvent<NightVisionComponent> args)
     {
         base.UpdateInternal(args);
-
-        var active = false;
         NightVisionComponent? nvComp = null;
+        var lightRadius = 0f;
         foreach (var comp in args.Components)
         {
-            if (comp.IsActive || comp.PulseTime > 0f && comp.PulseAccumulator < comp.PulseTime)
-                active = true;
-            else
+            if (!comp.IsActive && (comp.PulseTime <= 0f || comp.PulseAccumulator >= comp.PulseTime))
                 continue;
 
-            if (comp.DrawOverlay)
-            {
-                if (nvComp == null)
-                    nvComp = comp;
-                else if (nvComp.PulseTime > 0f && comp.PulseTime <= 0f)
-                    nvComp = comp;
-            }
+            if (nvComp == null)
+                nvComp = comp;
+            else if (!nvComp.DrawOverlay && comp.DrawOverlay)
+                nvComp = comp;
+            else if (nvComp.DrawOverlay == comp.DrawOverlay && nvComp.PulseTime > 0f && comp.PulseTime <= 0f)
+                nvComp = comp;
 
-            if (active && nvComp is { PulseTime: <= 0 })
-                break;
+            lightRadius = MathF.Max(lightRadius, comp.LightRadius);
         }
 
-        UpdateNightVision(active);
+        UpdateNightVision(nvComp, lightRadius);
         UpdateOverlay(nvComp);
     }
 
@@ -82,13 +78,26 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
     {
         base.DeactivateInternal();
 
-        UpdateNightVision(false);
+        _nvgOverlay.ResetLight(false);
         UpdateOverlay(null);
+        UpdateNightVision(null, 0f);
     }
 
-    private void UpdateNightVision(bool active)
+    private void UpdateNightVision(NightVisionComponent? comp, float lightRadius)
     {
-        _lightManager.DrawLighting = !active;
+        _nvgOverlay.LightRadius = lightRadius;
+        _nvgOverlay.Comp = comp;
+
+        switch (comp)
+        {
+            case not null when !_overlayMan.HasOverlay<NightVisionOverlay>():
+                _overlayMan.AddOverlay(_nvgOverlay);
+                break;
+            case null:
+                _overlayMan.RemoveOverlay(_nvgOverlay);
+                _nvgOverlay.ResetLight();
+                break;
+        }
     }
 
     private void UpdateOverlay(NightVisionComponent? nvComp)
@@ -97,10 +106,10 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
 
         switch (nvComp)
         {
-            case not null when !_overlayMan.HasOverlay<BaseSwitchableOverlay<NightVisionComponent>>():
+            case { DrawOverlay: true } when !_overlayMan.HasOverlay<BaseSwitchableOverlay<NightVisionComponent>>():
                 _overlayMan.AddOverlay(_overlay);
                 break;
-            case null:
+            case null or { DrawOverlay: false }:
                 _overlayMan.RemoveOverlay(_overlay);
                 break;
         }
