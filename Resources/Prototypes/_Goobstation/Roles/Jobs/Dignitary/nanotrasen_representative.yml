@@ -115,6 +115,12 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  guides:
+  - RuleR13
+  - NanotrasenRep SOP
+  - SOP
+  - SpaceLaw
+  - Writing
   goobcoins: 40
   access:
   - Security
