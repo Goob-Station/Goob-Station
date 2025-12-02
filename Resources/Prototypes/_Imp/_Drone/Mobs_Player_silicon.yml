@@ -222,7 +222,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.3
-        density: 50
+        density: 30
         mask:
         - SmallMobMask
         layer:

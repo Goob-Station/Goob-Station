@@ -191,7 +191,7 @@
         Cold : 0.05 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat : 3 #per second, scales with temperature & other constants
+        Heat : 2 # Goob edit #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
       289: 0.8
