@@ -18751,3 +18751,11 @@ Entries:
       message: Xenomorphs are now vulnerable to high atmospheric temperatures.
   id: 2116
   time: '2025-12-02T06:34:30.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Tweak
+      message: >-
+        Wonderprod no longer has harm mode, but sleep now deals ion damage to
+        silicon.
+  id: 2117
+  time: '2025-12-02T06:37:07.0000000+00:00'
