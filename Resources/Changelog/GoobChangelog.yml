@@ -18912,3 +18912,9 @@ Entries:
       message: Added the detective's hardsuit.
   id: 2133
   time: '2025-12-02T07:52:58.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 'New wizard and assistant job exclusive traitor item: the Grey Tide.'
+  id: 2134
+  time: '2025-12-02T07:54:34.0000000+00:00'
