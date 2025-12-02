@@ -153,6 +153,11 @@
   supervisors: job-supervisors-captain
   #canBeAntag: false
   antagAdvantage: 75 # Goobstation
+  guides:
+  - Science
+  - Command
+  - ResearchDirector SOP
+  - Science SOP
   goobcoins: 40 #Goob content
   access:
   - Research
