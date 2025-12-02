@@ -272,8 +272,12 @@
   components:
   - type: Action
     useDelay: 3
-    icon: Interface/NavMap/beveled_arrow_north.png
+    icon:
+      sprite: _Goobstation/Objects/Vehicles/forklift.rsi
+      state: forklift
+    itemIconStyle: BigAction
   - type: TargetAction
+    interactOnMiss: false
   - type: EntityTargetAction
     range: 0.25
     event: !type:ForkliftActionEvent
@@ -289,7 +293,7 @@
   description: Put down crates in front of you.
   components:
   - type: Action
-    useDelay: 3
+    useDelay: 1.5
     icon: Interface/NavMap/beveled_arrow_south.png
   - type: InstantAction
     event: !type:UnforkliftActionEvent
