@@ -18665,3 +18665,9 @@ Entries:
         crit/dead state. Beware of the blood loss!
   id: 2103
   time: '2025-12-01T20:47:54.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: thief rule in section 6 of roleplay rules and fixed an upper case
+  id: 2104
+  time: '2025-12-02T06:11:42.0000000+00:00'
