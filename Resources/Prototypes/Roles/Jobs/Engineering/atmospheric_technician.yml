@@ -71,6 +71,9 @@
   startingGear: AtmosphericTechnicianGear
   icon: "JobIconAtmosphericTechnician"
   supervisors: job-supervisors-ce
+  guides:
+  - Atmospherics
+  - RuleR16
   goobcoins: 20 #Goob content
   access:
   - Maintenance
