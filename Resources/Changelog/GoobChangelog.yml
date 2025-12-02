@@ -18739,3 +18739,9 @@ Entries:
       message: Ninjas are slightly visible while moving again.
   id: 2114
   time: '2025-12-02T06:20:25.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: Ninja now needs computers to be powerered to hack them
+  id: 2115
+  time: '2025-12-02T06:21:20.0000000+00:00'
