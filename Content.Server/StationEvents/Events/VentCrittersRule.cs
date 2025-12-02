@@ -61,7 +61,9 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
             return;
 
         var nearest = beacon?.Comp?.Text!;
-        Comp<StationEventComponent>(uid).StartAnnouncement = Loc.GetString("station-event-vent-creatures-start-announcement-deltav", ("location", nearest));
+
+        if (!comp.Silent) // Goobstation edit
+            Comp<StationEventComponent>(uid).StartAnnouncement = Loc.GetString("station-event-vent-creatures-start-announcement-deltav", ("location", nearest));
 
         base.Added(uid, comp, gameRule, args);
     }
