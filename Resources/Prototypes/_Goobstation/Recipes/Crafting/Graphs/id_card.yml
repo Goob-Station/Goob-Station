@@ -1,0 +1,59 @@
+# Total mats: 4 plastic, 8 cable, 4 steel
+- type: constructionGraph
+  id: MakeshiftIDCard
+  graph:
+  - node: start
+    edges:
+    - to: unfinished
+      steps:
+      - material: Plastic
+        amount: 4
+        doAfter: 5
+  - node: unfinished
+    entity: IDCardTideUnfinished
+    edges:
+    - to: final
+      steps:
+      - tool: Hammering
+        doAfter: 1
+      - material: Cable
+        amount: 4
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - material: Cable
+        amount: 4
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+  - node: final
+    entity: IDCardTide

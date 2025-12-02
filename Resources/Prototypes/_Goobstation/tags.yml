@@ -599,6 +599,9 @@
   id: Undead
 
 - type: Tag
+  id: Unedible
+
+- type: Tag
   id: UristHand
 
 - type: Tag
@@ -652,6 +655,9 @@
 - type: Tag
   id: WizardHat
 
+- type: Tag
+  id: Wonderprod
+
 - type: Tag # These tags are NOT alphabetical!!
   id: Xenomorph
 
@@ -693,3 +699,9 @@
 
 - type: Tag
   id: DisposableBattery
+
+- type: Tag
+  id: HolyChainsaw
+  
+- type: Tag
+  id: ChaplainsHolster
