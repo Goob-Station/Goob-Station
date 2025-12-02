@@ -265,7 +265,6 @@
     - type: Foldable
       folded: true
 
-
 - type: entity
   id: VehicleHoverchair
   parent: BaseVehicle
@@ -319,6 +318,7 @@
   - type: Tag
     tags:
       - HideContextMenu
+  - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.ForkliftVisuals.CrateState:

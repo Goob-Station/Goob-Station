@@ -43,6 +43,24 @@ public sealed class ForkliftSystem : EntitySystem
 
     }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<ForkliftComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.LiftSoundEndTime == null || _timing.CurTime < comp.LiftSoundEndTime.Value)
+                continue;
+            if (comp.LiftSoundUid != null)
+            {
+                _audio.Stop(comp.LiftSoundUid.Value);
+                comp.LiftSoundUid = null;
+            }
+            comp.LiftSoundEndTime = null;
+        }
+    }
+
     private void OnUnliftForks(Entity<ForkliftComponent> ent, ref UnforkliftActionEvent args)
     {
         if (args.Handled || !_container.TryGetContainer(ent.Owner, CrateContainerId, out var container) || container.ContainedEntities.Count == 0)
@@ -106,26 +124,12 @@ public sealed class ForkliftSystem : EntitySystem
     private void OnUpdate<T>(Entity<ForkliftComponent> ent, ref T args)
     {
         UpdateAppearance(ent);
-
-        var query = EntityQueryEnumerator<ForkliftComponent>();
-        while (query.MoveNext(out var uid, out var comp))
-        {
-            if (_timing.CurTime < comp.LiftSoundEndTime || comp.LiftSoundEndTime == null)
-                continue;
-
-            if (comp.LiftSoundUid != null)
-            {
-                _audio.Stop(comp.LiftSoundUid);
-                comp.LiftSoundUid = null;
-            }
-            comp.LiftSoundEndTime = null;
-        }
     }
 
-    private void UpdateAppearance(EntityUid uid)
+    private void UpdateAppearance(Entity<ForkliftComponent> ent)
     {
 
-        if(!_container.TryGetContainer(uid, CrateContainerId, out var container))
+        if(!_container.TryGetContainer(ent, CrateContainerId, out var container) || !TryComp<VehicleComponent>(ent, out var vehicle) || vehicle.ActiveOverlay == null)
             return;
 
         var state = container.ContainedEntities.Count switch
@@ -137,6 +141,6 @@ public sealed class ForkliftSystem : EntitySystem
             _ => ForkliftCrateState.FourCrates,
         };
 
-        _appearance.SetData(uid, ForkliftVisuals.CrateState, state);
+        _appearance.SetData(vehicle.ActiveOverlay.Value, ForkliftVisuals.CrateState, state);
     }
 }
