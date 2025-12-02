@@ -18906,3 +18906,9 @@ Entries:
       message: Rust spreading stops when ascended heretic dies.
   id: 2132
   time: '2025-12-02T07:52:29.0000000+00:00'
+- author: Crenissis
+  changes:
+    - type: Add
+      message: Added the detective's hardsuit.
+  id: 2133
+  time: '2025-12-02T07:52:58.0000000+00:00'
