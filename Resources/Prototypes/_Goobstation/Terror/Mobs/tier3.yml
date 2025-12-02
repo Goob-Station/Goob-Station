@@ -13,7 +13,6 @@
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: allblack
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: allblack
@@ -68,7 +67,6 @@
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: princess
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: princess
@@ -125,7 +123,6 @@
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: mother
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: mother

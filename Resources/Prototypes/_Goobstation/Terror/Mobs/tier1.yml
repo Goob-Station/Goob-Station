@@ -9,7 +9,6 @@
   abstract: true
   components:
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: red
@@ -129,7 +128,6 @@
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: red
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: red
@@ -181,7 +179,6 @@
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: grey
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: grey
@@ -224,7 +221,6 @@
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: green
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: green

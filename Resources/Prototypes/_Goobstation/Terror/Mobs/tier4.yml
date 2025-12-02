@@ -13,7 +13,6 @@
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: queen
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: queen
@@ -29,7 +28,7 @@
         reagents:
         - ReagentId: Toxin
           Quantity: 1000
-  - type: HitscanBatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletAcid
     fireCost: 50
   - type: Battery
