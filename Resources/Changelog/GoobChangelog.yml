@@ -18934,3 +18934,13 @@ Entries:
       message: Thermals/nv goggles no longer allow flashes to bypass flash protection.
   id: 2135
   time: '2025-12-02T07:56:21.0000000+00:00'
+- author: Ko4ergaPunk, KillianGenifer
+  changes:
+    - type: Add
+      message: >-
+        Added stasis operating tables, they combine both stasis bed and
+        operating table functionality.
+    - type: Tweak
+      message: Signal switches now change their look depending if they're on/off.
+  id: 2136
+  time: '2025-12-02T08:20:41.0000000+00:00'
