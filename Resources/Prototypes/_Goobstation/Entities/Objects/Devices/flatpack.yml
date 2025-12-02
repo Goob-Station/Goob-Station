@@ -220,7 +220,7 @@
   parent: BaseFlatpack
   id: ChemistryHotplateFlatPack
   name: hotplate flat pack
-  description: A flatpack used to goida construct the hotplate machine.
+  description: A flatpack used for constructing a hotplate.
   components:
   - type: Flatpack
     entity: ChemistryHotplate
