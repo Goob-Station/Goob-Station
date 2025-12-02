@@ -2203,7 +2203,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Slash: 1 # Goobstation - LET THE HORDES ROAM!!
+        Slash: 3 # Goobstation - THE MICE shall inherit THE EARTH
   - type: Bloodstream
     bloodMaxVolume: 50
     smokeImmune: true # Goobstation - prevent server lagging mouse farms
