@@ -18719,3 +18719,11 @@ Entries:
       message: Fixed maintenance dones burning their hands on lightbulbs.
   id: 2111
   time: '2025-12-02T06:18:33.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: >-
+        Added a 'current location' tracker to the inbuilt station map of
+        cyborgs.
+  id: 2112
+  time: '2025-12-02T06:19:39.0000000+00:00'
