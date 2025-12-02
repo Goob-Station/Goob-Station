@@ -18,6 +18,10 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 54000 # 15h
+  - !type:SpeciesRequirement # CorvaxGoob-Species
+    inverted: true
+    species:
+    - Abductor
   guides: [ Heretics ]
 
 - type: antag

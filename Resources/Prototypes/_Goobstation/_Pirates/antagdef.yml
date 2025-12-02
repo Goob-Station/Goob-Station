@@ -18,6 +18,7 @@
     inverted: true
     species:
     - Plasmaman
+    - Abductor # CorvaxGoob-Species
 
 - type: entity
   parent: BaseMindRoleAntag

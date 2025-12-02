@@ -24,6 +24,7 @@
     inverted: true
     species:
     - Plasmaman
+    - Abductor # CorvaxGoob-Species
 
 - type: startingGear
   id: DevilStartingGear

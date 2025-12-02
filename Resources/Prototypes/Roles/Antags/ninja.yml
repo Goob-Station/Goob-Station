@@ -88,6 +88,7 @@
     inverted: true
     species:
     - Plasmaman
+    - Abductor # CorvaxGoob-Species
 
 #Ninja Gear
 - type: startingGear

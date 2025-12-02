@@ -11,3 +11,8 @@
   setPreference: true
   objective: roles-antag-corporate-agent-description
   guides: [ CorporateAgents ]
+  requirements:
+  - !type:SpeciesRequirement # CorvaxGoob-Species
+    inverted: true
+    species:
+    - Abductor
