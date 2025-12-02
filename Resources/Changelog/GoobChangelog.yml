@@ -18677,3 +18677,9 @@ Entries:
       message: Ipc's are now slower while in energy crit.
   id: 2105
   time: '2025-12-02T06:13:42.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Demon heart bumped to 6 coins in wizard grimoire.
+  id: 2106
+  time: '2025-12-02T06:14:11.0000000+00:00'
