@@ -1,0 +1,10 @@
+- type: entity
+  id: EmptyCigarette
+  suffix: empty
+  parent: Cigarette
+  name: cigarette
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
