@@ -19,6 +19,7 @@ using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._White.Standing;
 using Content.Shared.Flash;
 using Content.Goobstation.Shared.Disease;
+using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;

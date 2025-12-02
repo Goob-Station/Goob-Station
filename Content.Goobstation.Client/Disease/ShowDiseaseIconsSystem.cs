@@ -1,5 +1,6 @@
 using Content.Client.Overlays;
 using Content.Goobstation.Shared.Disease;
+using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Overlays;
@@ -12,7 +13,7 @@ namespace Content.Goobstation.Client.Disease;
 /// <summary>
 /// Shows icons on infected mobs.
 /// </summary>
-public sealed class ShowDiseaseIconsSystem : EquipmentHudSystem<Shared.Disease.Components.ShowDiseaseIconsComponent>
+public sealed class ShowDiseaseIconsSystem : EquipmentHudSystem<ShowDiseaseIconsComponent>
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
@@ -22,11 +23,11 @@ public sealed class ShowDiseaseIconsSystem : EquipmentHudSystem<Shared.Disease.C
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Shared.Disease.Components.DiseaseCarrierComponent, GetStatusIconsEvent>(OnGetStatusIconsEvent);
-        SubscribeLocalEvent<Shared.Disease.Components.ShowDiseaseIconsComponent, AfterAutoHandleStateEvent>(OnHandleState);
+        SubscribeLocalEvent<DiseaseCarrierComponent, GetStatusIconsEvent>(OnGetStatusIconsEvent);
+        SubscribeLocalEvent<ShowDiseaseIconsComponent, AfterAutoHandleStateEvent>(OnHandleState);
     }
 
-    protected override void UpdateInternal(RefreshEquipmentHudEvent<Shared.Disease.Components.ShowDiseaseIconsComponent> component)
+    protected override void UpdateInternal(RefreshEquipmentHudEvent<ShowDiseaseIconsComponent> component)
     {
         base.UpdateInternal(component);
 
@@ -50,12 +51,12 @@ public sealed class ShowDiseaseIconsSystem : EquipmentHudSystem<Shared.Disease.C
         HighThreshold = null;
     }
 
-    private void OnHandleState(Entity<Shared.Disease.Components.ShowDiseaseIconsComponent> ent, ref AfterAutoHandleStateEvent args)
+    private void OnHandleState(Entity<ShowDiseaseIconsComponent> ent, ref AfterAutoHandleStateEvent args)
     {
         RefreshOverlay();
     }
 
-    private void OnGetStatusIconsEvent(Entity<Shared.Disease.Components.DiseaseCarrierComponent> entity, ref GetStatusIconsEvent args)
+    private void OnGetStatusIconsEvent(Entity<DiseaseCarrierComponent> entity, ref GetStatusIconsEvent args)
     {
         if (!IsActive)
             return;
@@ -66,13 +67,13 @@ public sealed class ShowDiseaseIconsSystem : EquipmentHudSystem<Shared.Disease.C
             args.StatusIcons.Add(diseaseIcon);
     }
 
-    private DiseaseIconPrototype? DecideDiseaseIcon(Entity<Shared.Disease.Components.DiseaseCarrierComponent> entity)
+    private DiseaseIconPrototype? DecideDiseaseIcon(Entity<DiseaseCarrierComponent> entity)
     {
         var carrier = entity.Comp;
         var total = 0f;
         foreach (var disease in carrier.Diseases)
         {
-            if (!TryComp<Shared.Disease.Components.DiseaseComponent>(disease, out var comp))
+            if (!TryComp<DiseaseComponent>(disease, out var comp))
                 continue;
 
             total += comp.InfectionProgress * comp.Complexity;
