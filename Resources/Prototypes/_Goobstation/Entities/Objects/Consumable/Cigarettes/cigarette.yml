@@ -8,9 +8,6 @@
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 21
-        reagents:
-          - ReagentId: Fiber # This is here just to stop accidental frame 1 burnt cigs
-            Quantity: 1
+        maxVol: 10
   - type: RefillableSolution # it would make more sense for all cigerattes to work like this.
     solution: smokable

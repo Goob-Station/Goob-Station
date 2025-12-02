@@ -101,7 +101,7 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 30
+        maxVol: 20
   - type: ExaminableSolution
     solution: drink
   - type: Sticky
@@ -146,7 +146,7 @@
   - type: SolutionContainerManager
     solutions:
       drink:  #drink is the same as Bottle solution, this is to prevent recoding chem master. TODO: recode chem master
-        maxVol: 40
+        maxVol: 20
   - type: Tag
     tags:
     - MedicalPatch
@@ -236,9 +236,12 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 60 # +50% from basic
+        maxVol: 40 # +50% from basic
   - type: MedicalPatch
-    injectPercentageOnAttatch: 15 # 10u when full
+    injectPercentageOnAttatch: 10 # 4u when full
+  - type: Item
+    shape:
+    - 0,0,0,1
 
 - type: entity
   parent: BaseMedicalPatch
