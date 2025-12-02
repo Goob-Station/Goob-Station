@@ -47,7 +47,7 @@ public sealed class HereticBladeSystem : SharedHereticBladeSystem
                 out var bloodSolution))
             return;
 
-        _puddle.TrySpillAt(target, bloodSolution.SplitSolution(20), out _);
+        _puddle.TrySpillAt(target, bloodSolution.SplitSolution(10), out _);
     }
 
     protected override void ApplyVoidBladeEffect(EntityUid target)
