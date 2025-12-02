@@ -110,8 +110,41 @@
     priority: 1
     steps:
     - SurgeryStepCloseBones
-    - SurgeryStepMendRibcage
+    - SurgeryStepSealBones
     - SurgeryStepCloseIncision
+  - type: SurgeryPartCondition
+    parts:  # Everything but the head and chest
+      - Head
+      - Chest
+    inverse: true
+
+- type: entity
+  parent: SurgeryCloseIncision
+  id: SurgeryCloseIncisionHead
+  components:
+  - type: Surgery
+    priority: 1
+    steps:
+    - SurgeryStepCloseBones
+    - SurgeryStepSealSkull
+    - SurgeryStepCloseIncision
+  - type: SurgeryPartCondition
+    parts: [ Head ]
+    inverse: false
+
+- type: entity
+  parent: SurgeryCloseIncision
+  id: SurgeryCloseIncisionChest
+  components:
+  - type: Surgery
+    priority: 1
+    steps:
+    - SurgeryStepCloseBones
+    - SurgeryStepSealRibcage
+    - SurgeryStepCloseIncision
+  - type: SurgeryPartCondition
+    parts: [ Chest ]
+    inverse: false
 
 - type: entity
   parent: SurgeryBase

@@ -256,8 +256,8 @@
 
 - type: entity
   parent: SurgeryStepBase
-  id: SurgeryStepMendRibcage
-  name: Mend ribcage
+  id: SurgeryStepSealBones
+  name: Seal bones
   components:
   - type: SurgeryStep
     tool:
@@ -268,6 +268,16 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
     state: bone-gel
+
+- type: entity
+  parent: SurgeryStepSealBones
+  id: SurgeryStepSealSkull
+  name: Seal skull
+
+- type: entity
+  parent: SurgeryStepSealBones
+  id: SurgeryStepSealRibcage
+  name: Seal ribcage
 
 - type: entity
   parent: SurgeryStepBase
