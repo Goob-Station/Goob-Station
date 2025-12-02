@@ -226,6 +226,7 @@
   - type: UseDelay
     delay: 1
   - type: Prying
+  - type: GrabbingItem
 
 - type: entity
   parent: BaseNullrod
@@ -595,6 +596,9 @@
       path: /Audio/Weapons/chainsawwield.ogg
     endSound:
       path: /Audio/Weapons/chainsaw.ogg
+  - type: Tag
+    tags:
+      - HolyChainsaw
 
 # Casul & Jackal
 - type: entity
