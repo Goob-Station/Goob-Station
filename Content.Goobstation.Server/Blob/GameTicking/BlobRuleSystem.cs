@@ -45,7 +45,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly EmergencyShuttleSystem _emergency = default!; // Goobstation edit
+    [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
 
     public override void Initialize()
     {
@@ -136,7 +136,6 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 null,
                 Color.Red);
         }
-        // goobstation edit start
         else if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
                  && _roundEndSystem.ExpectedCountdownEnd != null && _emergency.EmergencyShuttleArrived) 
         {
@@ -147,7 +146,6 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 null,
                 Color.OrangeRed);
         }
-        // goobstation edit end
         
         switch (blobRuleComp.Stage)
         {
