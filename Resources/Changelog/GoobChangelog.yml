@@ -18691,3 +18691,9 @@ Entries:
         maximum at 20 or more hours.
   id: 2107
   time: '2025-12-02T06:14:41.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Fix
+      message: Feroxi snouts don't clip through hardsuit helmets/masks anymore.
+  id: 2108
+  time: '2025-12-02T06:15:29.0000000+00:00'
