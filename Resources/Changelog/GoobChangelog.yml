@@ -18944,3 +18944,11 @@ Entries:
       message: Signal switches now change their look depending if they're on/off.
   id: 2136
   time: '2025-12-02T08:20:41.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: >-
+        Cargo can now order forklifts for themselves, allowing them to move up
+        to four crates at once.
+  id: 2137
+  time: '2025-12-02T08:37:35.0000000+00:00'
