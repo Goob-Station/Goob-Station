@@ -71,6 +71,10 @@
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine
+  guides:
+  - MedicalDoctor
+  - Cloning
+  - Medicine
   goobcoins: 20 #Goob content
   access:
   - Medical
