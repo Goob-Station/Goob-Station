@@ -35,7 +35,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
         if (!_isEnabled)
             return;
 
-        ContrabandDetect(uid, component, SlotFlags.WITHOUT_POCKET);
+        ContrabandDetect(uid, component);
     }
 
     private void OnEquip(EntityUid uid, VisibleContrabandComponent component, DidEquipEvent args)
