@@ -18833,3 +18833,23 @@ Entries:
       message: Adds 3 more admin plushies.
   id: 2127
   time: '2025-12-02T07:29:23.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Downed people have lower chance to escape from grabs.
+    - type: Add
+      message: >-
+        Arm claw and godhand now grab on melee hit again, though their behavior
+        has changed.
+    - type: Tweak
+      message: Throwing grabbed people no longer forces them to drop held items.
+    - type: Add
+      message: Throwing carried people now acts as grab throw.
+    - type: Add
+      message: >-
+        Added new syndicate item - guerrilla gloves. They allow you to aggro
+        grab instantly.
+    - type: Fix
+      message: Fixed mass contests (and any other contests) not working.
+  id: 2128
+  time: '2025-12-02T07:33:06.0000000+00:00'
