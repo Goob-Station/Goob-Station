@@ -388,6 +388,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         thermalVision.ActivateSound = null;
         thermalVision.DeactivateSound = null;
         thermalVision.ToggleAction = null;
+        thermalVision.ThermalShader = null;
 
         AddComp(ent, thermalVision);
 
