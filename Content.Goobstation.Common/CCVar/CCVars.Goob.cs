@@ -302,9 +302,6 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<int> GoobcoinsPerPlayer =
         CVarDef.Create("servercurrency.per_player", 10, CVar.SERVERONLY);
 
-    public static readonly CVarDef<int> GoobcoinsPerGreentext =
-        CVarDef.Create("servercurrency.per_greentext", 5, CVar.SERVERONLY);
-
     public static readonly CVarDef<int> GoobcoinNonAntagMultiplier =
         CVarDef.Create("servercurrency.non_antag_multiplier", 1, CVar.SERVERONLY);
 
@@ -638,6 +635,17 @@ public sealed partial class GoobCVars
 
     public static readonly CVarDef<float> RevealChance =
         CVarDef.Create("forensics.reveal_chance", 0.005f, CVar.SERVERONLY);
+  
+    /// <summary>
+    /// A multiplier for bloodloss damage and heal.
+    /// </summary>
+    public static readonly CVarDef<float> BleedMultiplier =
+        CVarDef.Create("medical.bloodloss_multiplier", 4.0f, CVar.SERVER);
 
     #endregion
+    /// <summary>
+    /// Enables or disables contraband icons.
+    /// </summary>
+    public static readonly CVarDef<bool> ContrabandIconsEnabled =
+        CVarDef.Create("contraband.icons_enabled", true, CVar.SERVER | CVar.REPLICATED);
 }
