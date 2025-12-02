@@ -18952,3 +18952,11 @@ Entries:
         to four crates at once.
   id: 2137
   time: '2025-12-02T08:37:35.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: Changed greentext goobcoin reward from cvar to component.
+    - type: Tweak
+      message: Changed greentext goobcoin to now be able for partial reward
+  id: 2138
+  time: '2025-12-02T08:40:02.0000000+00:00'
