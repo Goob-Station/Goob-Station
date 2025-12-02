@@ -99,3 +99,8 @@
   recipes:
   - ClothingMaskMuzzleSecure
   - ClothingMaskMuzzleShock
+
+- type: latheRecipePack
+  id: ContraGlasses
+  recipes:
+  - ClothingEyesGlassesSecurityContraDetect
