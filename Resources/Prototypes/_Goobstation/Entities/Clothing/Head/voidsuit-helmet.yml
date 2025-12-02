@@ -292,3 +292,21 @@
         Caustic: 0.7
   - type: FireProtection
     reduction: 0.4
+
+# Detective's Hardsuit
+
+- type: entity
+  parent: ClothingHeadHelmetVoidsuitSecurity
+  id: ClothingHeadHelmetHardsuitDetective
+  name: detective hardsuit helmet
+  description: A helmet with a built-in fedora for the detective's hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hardsuits/detective.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hardsuits/detective.rsi
+  - type: PointLight
+    color: "#00FFFF"
+    rotation: 30
+    energy: 6
+    radius: 4

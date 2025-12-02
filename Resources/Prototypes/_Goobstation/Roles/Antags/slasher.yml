@@ -38,6 +38,7 @@
     gloves: ClothingHandsSlasherGloves
     outerClothing: ClothingOuterSlasherApron
     shoes: ClothingShoesSlasher
+    id: AgentIDCard
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]

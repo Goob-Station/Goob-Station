@@ -22,7 +22,7 @@ public sealed partial class MouseRotatorComponent : Component
     ///     How much the desired angle needs to change before a predictive event is sent
     /// </summary>
     [DataField, AutoNetworkedField]
-    public Angle AngleTolerance = Angle.FromDegrees(20.0);
+    public Angle AngleTolerance = Angle.FromDegrees(5.0); // Goobstation edit - 20 => 5
 
     /// <summary>
     ///     The angle that will be lerped to
@@ -44,7 +44,7 @@ public sealed partial class MouseRotatorComponent : Component
     ///     like turrets or ship guns, which have finer range of movement.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool Simple4DirMode = true;
+    public bool Simple4DirMode = false; // Goobstation edit - false by default
 }
 
 /// <summary>

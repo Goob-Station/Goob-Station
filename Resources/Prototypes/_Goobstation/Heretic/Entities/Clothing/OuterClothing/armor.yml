@@ -66,6 +66,11 @@
   - type: HideClothingLayerClothing
     hiddenSlots:
     - jumpsuit
+  - type: FireProtection
+    reduction: 0.4
+  - type: TemperatureProtection
+    heatingCoefficient: 0.5
+    coolingCoefficient: 0.5
 
 - type: entity
   parent: ClothingOuterArmorHeretic

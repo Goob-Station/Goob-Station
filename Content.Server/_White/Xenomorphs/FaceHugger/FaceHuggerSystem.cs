@@ -28,7 +28,9 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._White.Xenomorphs.FaceHugger;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Throwing;
-using Content.Shared.Atmos.Components; // Goobstation end
+using Content.Shared.Atmos.Components;
+using Content.Server.Nutrition.EntitySystems;
+using Content.Shared.Nutrition.Components; // Goobstation end
 
 namespace Content.Server._White.Xenomorphs.FaceHugger;
 
@@ -360,7 +362,7 @@ public sealed class FaceHuggerSystem : EntitySystem
         if (_inventory.TryGetSlotEntity(target, "mask", out var maskUid))
         {
             // If the mask is a breath tool (gas mask) and is functional, block the facehugger
-            if (TryComp<BreathToolComponent>(maskUid, out var breathTool) && breathTool.IsFunctional)
+            if (TryComp<IngestionBlockerComponent>(maskUid, out var ingestionBlocker) && ingestionBlocker.BlockSmokeIngestion)
             {
                 blocker = maskUid;
                 return true;

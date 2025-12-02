@@ -35,6 +35,8 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using static Robust.Client.UserInterface.Controls.BaseButton;
+using Robust.Client.Graphics; // Goobstation
+
 
 namespace Content.Client.Cargo.UI
 {
@@ -91,6 +93,12 @@ namespace Content.Client.Cargo.UI
                     ("color", accountProto.Color),
                     ("name", Loc.GetString(accountProto.Name)),
                     ("code", Loc.GetString(accountProto.Code)));
+                // Goobstation start - Cargo UI
+                AccountNameLabelFundsTransfer.Text = Loc.GetString("cargo-console-menu-account-name-format",
+                    ("color", accountProto.Color),
+                    ("name", Loc.GetString(accountProto.Name)),
+                    ("code", Loc.GetString(accountProto.Code)));
+                // END
             }
 
             TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-orders"));
@@ -237,30 +245,68 @@ namespace Content.Client.Cargo.UI
                 if (order.Approved)
                     continue;
 
-                var product = _protoManager.Index<EntityPrototype>(order.ProductId);
-                var productName = product.Name;
+                var product = _protoManager.Index<EntityPrototype>(order.ProductId); // Goobstation
+                var productName = product.Name; // Goobstation
+                var requester = !string.IsNullOrEmpty(order.Requester) ? // Goobstation
+                    order.Requester : Loc.GetString("cargo-console-menu-order-row-alerts-requester-unknown"); // Goobstation
                 var account = _protoManager.Index(order.Account);
 
                 var row = new CargoOrderRow
                 {
                     Order = order,
+
+                    // Goobstation start - Cargo UI
+
+                    Title =
+                    {
+                        Text = Loc.GetString(
+                            "cargo-console-menu-order-row-title",
+                            ("productName", productName),
+                            ("orderAmount", order.OrderQuantity),
+                            ("orderPrice", order.Price)),
+                    },
+
+                    Stride =
+                    {
+                        PanelOverride = new StyleBoxFlat
+                        {
+                            BackgroundColor = account.Color,
+                            ContentMarginBottomOverride = 2,
+                        },
+                    },
+
+                    // END
+
                     Icon = { Texture = _spriteSystem.Frame0(product) },
+
                     ProductName =
                     {
                         Text = Loc.GetString(
                             "cargo-console-menu-populate-orders-cargo-order-row-product-name-text",
-                            ("productName", productName),
-                            ("orderAmount", order.OrderQuantity),
-                            ("orderRequester", order.Requester),
+                            ("orderRequester", requester), // Goobstation
                             ("accountColor", account.Color),
                             ("account", Loc.GetString(account.Code)))
                     },
+
                     Description =
                     {
-                        Text = Loc.GetString("cargo-console-menu-order-reason-description",
-                                                        ("reason", order.Reason))
+
+                        // Goobstation start - Cargo UI
+
+                        Text = !string.IsNullOrEmpty(order.Reason) ?
+                            Loc.GetString(
+                                "cargo-console-menu-order-row-product-description",
+                                ("orderReason", order.Reason))
+                        :
+                            Loc.GetString(
+                                "cargo-console-menu-order-row-product-description",
+                                ("orderReason", Loc.GetString("cargo-console-menu-order-row-alerts-reason-absent")))
+
+                        // END
+
                     }
                 };
+
                 row.Cancel.OnPressed += (args) => { OnOrderCanceled?.Invoke(args); };
 
                 // TODO: Disable based on access.
@@ -310,16 +356,15 @@ namespace Content.Client.Cargo.UI
 
             var balance = _cargoSystem.GetBalanceFromAccount((_station.Value, bankAccount), orderConsole.Account);
             PointsLabel.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balance));
-            TransferLimitLabel.Text = Loc.GetString("cargo-console-menu-account-action-transfer-limit",
-                ("limit", (int) (balance * orderConsole.TransferLimit)));
+            PointsLabelFundsTransfer.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", balance)); // Goobstation
+            TransferLimitLabel.Text = Loc.GetString("cargo-console-menu-account-action-transfer-limit-amount", ("amount", balance * orderConsole.TransferLimit)); // Goobstation
 
             UnlimitedNotifier.Visible = orderConsole.TransferUnbounded;
             AccountActionButton.Disabled = TransferSpinBox.Value <= 0 ||
                                            TransferSpinBox.Value > bankAccount.Accounts[orderConsole.Account] * orderConsole.TransferLimit ||
                                            _timing.CurTime < orderConsole.NextAccountActionTime;
 
-            OrdersSpacer.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip;
-            Orders.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip;
+            RightPart.Visible = orderConsole.Mode != CargoOrderConsoleMode.PrintSlip; // Goobstation
         }
     }
 }

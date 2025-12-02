@@ -8,6 +8,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Cuffs.Components;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 
@@ -17,6 +18,7 @@ public sealed class SlasherRegenerateSystem : EntitySystem
     [Dependency] private readonly CuffableSystem _cuffs = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {

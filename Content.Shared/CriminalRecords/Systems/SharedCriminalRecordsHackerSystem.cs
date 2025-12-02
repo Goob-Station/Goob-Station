@@ -10,6 +10,7 @@ using Content.Shared.CriminalRecords.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Ninja.Systems;
+using Content.Shared.Power.EntitySystems; // goobstation - check power
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.CriminalRecords.Systems;
@@ -18,7 +19,7 @@ public abstract class SharedCriminalRecordsHackerSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedNinjaGlovesSystem _gloves = default!;
-
+    [Dependency] private readonly SharedPowerReceiverSystem _powerReceiverSystem = default!; // Goobstation check power
     public override void Initialize()
     {
         base.Initialize();
@@ -30,6 +31,9 @@ public abstract class SharedCriminalRecordsHackerSystem : EntitySystem
     {
         // TODO: generic event
         if (args.Handled || !_gloves.AbilityCheck(ent, args, out var target))
+            return;
+
+        if (!_powerReceiverSystem.IsPowered(target)) //Goobstation - check power
             return;
 
         if (!HasComp<CriminalRecordsConsoleComponent>(target))

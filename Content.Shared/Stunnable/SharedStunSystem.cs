@@ -418,6 +418,8 @@ public abstract partial class SharedStunSystem : EntitySystem
 
         if (ignoreEv.Cancelled)
             return false;
+
+        var hadComp = HasComp<SlowedDownComponent>(uid);
         // goob end
 
         if (_statusEffect.TryAddStatusEffect<SlowedDownComponent>(uid, "SlowedDown", time, refresh, status))
@@ -427,8 +429,18 @@ public abstract partial class SharedStunSystem : EntitySystem
             walkSpeedMultiplier = Math.Clamp(walkSpeedMultiplier, 0f, 1f);
             runSpeedMultiplier = Math.Clamp(runSpeedMultiplier, 0f, 1f);
 
-            slowed.WalkSpeedModifier *= walkSpeedMultiplier;
-            slowed.SprintSpeedModifier *= runSpeedMultiplier;
+            // Goob edit start
+            if (hadComp)
+            {
+                slowed.WalkSpeedModifier *= walkSpeedMultiplier;
+                slowed.SprintSpeedModifier *= runSpeedMultiplier;
+            }
+            else
+            {
+                slowed.WalkSpeedModifier = walkSpeedMultiplier;
+                slowed.SprintSpeedModifier = runSpeedMultiplier;
+            }
+            // Goob edit end
 
             _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
             return true;

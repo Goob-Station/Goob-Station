@@ -41,6 +41,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Rotation;
+using Content.Goobstation.Shared.Vehicles;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Movement.Systems;
@@ -109,6 +110,8 @@ internal sealed class BuckleSystem : SharedBuckleSystem
                 continue;
 
             // Goobstation start
+            if (HasComp<VehicleComponent>(uid)) // let vehicle handle drawdepth
+                return;
             buckle.OriginalDrawDepth ??= buckledSprite.DrawDepth;
             if (isNorth)
             {

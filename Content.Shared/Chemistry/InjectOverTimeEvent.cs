@@ -16,3 +16,7 @@ public readonly record struct InjectOverTimeEvent(EntityUid embeddedIntoUid)
     /// </summary>
     public readonly EntityUid EmbeddedIntoUid = embeddedIntoUid;
 }
+
+// Goobstation
+[ByRefEvent]
+public record struct InjectOverTimeAttemptEvent(EntityUid EmbeddedIntoUid, bool Cancelled = false);

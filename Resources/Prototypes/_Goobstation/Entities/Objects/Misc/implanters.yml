@@ -300,3 +300,11 @@
   components:
   - type: Implanter
     implant: XenoCompatibilityImplant
+
+- type: entity
+  id: RedspaceLifelineImplanter
+  suffix: Redspace Lifeline
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: RedspaceLifelineImplant

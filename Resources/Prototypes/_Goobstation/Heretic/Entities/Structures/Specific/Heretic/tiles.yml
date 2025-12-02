@@ -28,13 +28,14 @@
         - Lava
   - type: Sprite
     sprite: Effects/fire.rsi
-    drawdepth: BelowMobs
+    drawdepth: FloorEffects
     layers:
       - state: 1
         shader: unshaded
   - type: TileEntityEffect
     effects:
     - !type:FlammableReaction
+      fireProtectionPenetration: 0.5
       multiplier: 3.75
       multiplierOnExisting: 0.75
     - !type:Ignite
@@ -153,12 +154,7 @@
   components:
   - type: Transform
     anchored: true
-  - type: ActiveEdgeSpreader
-  - type: EdgeSpreader
-    id: Rust
   - type: RustSpreader
-  - type: Visibility
-    layer: 0
   - type: Tag
     tags:
       - HideContextMenu
@@ -175,12 +171,6 @@
     collection: FootstepPlating
   friction: 1.5
   heatCapacity: 10000
-
-- type: edgeSpreader
-  id: Rust
-  updatesPerSecond: 8
-  preventSpreadOnSpaced: false
-  ignoreBlockedTiles: true
 
 - type: entity
   id: WallFieldCosmic

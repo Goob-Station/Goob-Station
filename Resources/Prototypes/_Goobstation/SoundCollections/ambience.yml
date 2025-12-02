@@ -2,8 +2,3 @@
   id: RandomLatheSounds
   files:
     - /Audio/_Goobstation/Ambience/ambilathe1.ogg
-
-- type: soundCollection
-  id: RandomComputerSounds
-  files:
-    - /Audio/_Goobstation/Ambience/keyboardtypingfast.ogg

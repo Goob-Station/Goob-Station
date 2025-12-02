@@ -21,7 +21,7 @@ evolutionmenu-combat-armhammer-desc =
 
 evolutionmenu-combat-armclaw-name = Arm Claw
 evolutionmenu-combat-armclaw-desc =
-    Reform one of your arms into a grotesque claw, composed of bone and flesh, able to inject long lasting poison on hit, muting and damaging them.
+    Reform one of your arms into a grotesque claw, composed of bone and flesh, able to grab your opponents on hit, immobilizing them. Hitting anything with it again relases the target.
     Costs 15 chemicals.
 
 evolutionmenu-combat-dartgun-name = Dart Gun

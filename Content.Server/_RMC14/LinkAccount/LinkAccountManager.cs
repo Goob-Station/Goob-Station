@@ -50,6 +50,8 @@ public sealed class LinkAccountManager : IPostInjectInit
     private readonly Dictionary<NetUserId, TimeSpan> _lastRequest = new();
     private readonly TimeSpan _minimumWait = TimeSpan.FromSeconds(0.5);
     private readonly Dictionary<NetUserId, SharedRMCPatronFull> _connected = new();
+    private readonly Dictionary<string, SharedRMCPatronTier> _fauxTiers = new();
+    private readonly Dictionary<NetUserId, string> _fauxPatronAssignments = new();
     private readonly List<SharedRMCPatron> _allPatrons = [];
     private readonly List<(string Message, string User)> _lobbyMessages = [];
     private readonly List<string> _shoutouts = [];
@@ -71,7 +73,8 @@ public sealed class LinkAccountManager : IPostInjectInit
                 tier.GhostColor,
                 tier.LobbyMessage,
                 tier.RoundEndShoutout,
-                tier.Name
+                tier.Name,
+                tier.Icon
             );
 
         SharedRMCLobbyMessage? lobbyMessage = null;
@@ -245,7 +248,47 @@ public sealed class LinkAccountManager : IPostInjectInit
 
     public SharedRMCPatronFull? GetPatron(NetUserId userId)
     {
+        if (_fauxPatronAssignments.TryGetValue(userId, out var tierId) &&
+            _fauxTiers.TryGetValue(tierId, out var tier))
+        {
+            return new SharedRMCPatronFull(
+                Tier: tier,
+                Linked: true,
+                GhostColor: null,
+                LobbyMessage: null,
+                RoundEndShoutout: null
+            );
+        }
+
         return _connected.GetValueOrDefault(userId);
+    }
+
+    public void AddFauxTier(string tierId, SharedRMCPatronTier tier)
+    {
+        _fauxTiers[tierId] = tier;
+    }
+
+    public bool RemoveFauxTier(string tierId)
+    {
+        return _fauxTiers.Remove(tierId);
+    }
+
+    public void AssignFauxPatron(NetUserId userId, string? tierId)
+    {
+        if (tierId == null)
+            _fauxPatronAssignments.Remove(userId);
+        else if (_fauxTiers.ContainsKey(tierId))
+            _fauxPatronAssignments[userId] = tierId;
+    }
+
+    public Dictionary<string, SharedRMCPatronTier> GetAllFauxTiers()
+    {
+        return _fauxTiers;
+    }
+
+    public Dictionary<NetUserId, string> GetAllFauxPatronAssignments()
+    {
+        return _fauxPatronAssignments;
     }
 
     void IPostInjectInit.PostInject()
