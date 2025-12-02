@@ -18918,3 +18918,19 @@ Entries:
       message: 'New wizard and assistant job exclusive traitor item: the Grey Tide.'
   id: 2134
   time: '2025-12-02T07:54:34.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Remove
+      message: No thermals for dragon.
+    - type: Remove
+      message: No roundstart nv goggles for nukies.
+    - type: Tweak
+      message: Thermals/night vision overlay is easier to look at.
+    - type: Add
+      message: Added shader for thermal images for thermal goggles.
+    - type: Tweak
+      message: Syndie thermals and nukie thermals/nv cost more.
+    - type: Remove
+      message: Thermals/nv goggles no longer allow flashes to bypass flash protection.
+  id: 2135
+  time: '2025-12-02T07:56:21.0000000+00:00'
