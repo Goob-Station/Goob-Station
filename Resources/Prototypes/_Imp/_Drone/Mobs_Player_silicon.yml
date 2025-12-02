@@ -222,7 +222,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.3
-        density: 50
+        density: 30
         mask:
         - SmallMobMask
         layer:
@@ -261,6 +261,10 @@
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
   - type: ProtectedFromStepTriggers
+  - type: DamageOnInteractProtection # Goobstation - Copied from borgs
+    damageProtection:
+      flatReductions:
+        Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
   - type: InputMover
   - type: MobMover
   - type: ContentEye
