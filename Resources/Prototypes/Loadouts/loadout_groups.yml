@@ -177,6 +177,7 @@
   - PlushieSpaceLizard
   - PersonalAI # Goobstation
   - GoldenPersonalAI # Goobstation
+  - CrewCassette # Goobstation
   - ThreeCandles
   - Lighter
   - CigPackGreen
@@ -330,6 +331,7 @@
   - CaptainCloak
   - CaptainCloakFormal
   - CaptainMantle
+  - VeteranCaptainCloak # goob
 
 - type: loadoutGroup
   id: CaptainBackpack
@@ -1151,8 +1153,8 @@
   name: loadout-group-scientist-head
   minLimit: 0
   loadouts:
-  - RoboticistCap
-  - SkullBandana
+  #- RoboticistCap
+  #- SkullBandana
   - ScientificBeret
 
 - type: loadoutGroup
@@ -1168,8 +1170,8 @@
   loadouts:
   - ScientistJumpsuit
   - ScientistJumpskirt
-  - RoboticistJumpsuit
-  - RoboticistJumpskirt
+  #- RoboticistJumpsuit
+  #- RoboticistJumpskirt
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
   - ResearchMJ # goob
@@ -1328,6 +1330,7 @@
   loadouts:
   - SecurityBelt
   - SecurityWebbing
+  - SecurityJudoBelt # Goobstation - Martial Arts
 
 - type: loadoutGroup
   id: SecurityOuterClothing

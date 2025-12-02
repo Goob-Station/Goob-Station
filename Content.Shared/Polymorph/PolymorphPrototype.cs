@@ -22,6 +22,7 @@
 using Content.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization; // Goobstation
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 
 namespace Content.Shared.Polymorph;
@@ -31,6 +32,7 @@ namespace Content.Shared.Polymorph;
 /// </summary>
 [Prototype]
 [DataDefinition]
+[Serializable, NetSerializable]
 public sealed partial class PolymorphPrototype : IPrototype, IInheritingPrototype
 {
     [ViewVariables]
@@ -44,7 +46,7 @@ public sealed partial class PolymorphPrototype : IPrototype, IInheritingPrototyp
     [AbstractDataField]
     public bool Abstract { get; private set; }
 
-    [DataField(required: true, serverOnly: true)]
+    [DataField(required: true)]
     public PolymorphConfiguration Configuration = new();
 
 }
@@ -53,13 +55,14 @@ public sealed partial class PolymorphPrototype : IPrototype, IInheritingPrototyp
 /// Defines information about the polymorph
 /// </summary>
 [DataDefinition]
+[Serializable, NetSerializable]
 public sealed partial record PolymorphConfiguration
 {
     /// <summary>
     /// What entity the polymorph will turn the target into
     /// must be in here because it makes no sense if it isn't
     /// </summary>
-    [DataField(serverOnly: true)] // Goob edit
+    [DataField]
     public EntProtoId? Entity;
 
     /// <summary>
@@ -246,6 +249,7 @@ public enum PolymorphInventoryChange : byte
 }
 
 [DataDefinition]
+[Serializable, NetSerializable]
 public sealed partial class ComponentTransferData(string component, bool @override = true, bool mirror = false)
 {
     [DataField(required: true)]

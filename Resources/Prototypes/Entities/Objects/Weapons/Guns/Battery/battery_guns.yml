@@ -479,15 +479,38 @@
 
 - type: entity
   name: laser rifle
-  parent: [WeaponLaserCarbinePractice, BaseGunWieldable, BaseSecurityContraband]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
   components:
   - type: StaticPrice
     price: 420
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
+  # Goobstation
+  - type: Item
+    size: Large
+
 
 - type: entity
   name: pulse pistol
@@ -795,6 +818,7 @@
     - Taser
     - Sidearm
   - type: PacifismAllowedGun
+  - type: GunExecutionBlacklist # Goobstation
 
 
 - type: entity
@@ -871,6 +895,7 @@
   - type: StaticPrice
     price: 260
   - type: PacifismAllowedGun
+  - type: GunExecutionBlacklist # Goobstation
 
 
 - type: entity
@@ -909,6 +934,7 @@
     zeroVisible: true
   - type: Appearance
   - type: PacifismAllowedGun
+  - type: GunExecutionBlacklist # Goobstation
 
 
 - type: entity
