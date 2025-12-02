@@ -110,6 +110,10 @@
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security
   canBeAntag: false
+  guides:
+  - Security
+  - OfficerCadet SOP
+  - Searches SOP
   goobcoins: 30 #Goob content
   access:
   - Security
