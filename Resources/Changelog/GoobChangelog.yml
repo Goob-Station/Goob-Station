@@ -18827,3 +18827,9 @@ Entries:
       message: Added a new 'Scurret form' for the AI to use as a hologram sprite.
   id: 2126
   time: '2025-12-02T07:09:40.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Add
+      message: Adds 3 more admin plushies.
+  id: 2127
+  time: '2025-12-02T07:29:23.0000000+00:00'
