@@ -225,3 +225,18 @@
   technologyPrerequisites:
   - UraniumMunitions
   position: 4,2
+
+- type: technology
+  id: ContraGlassesTech
+  name: research-technology-contra-glasses
+  icon:
+    sprite: Clothing/Eyes/Glasses/secglasses.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 20000
+  position: -7,-1
+  recipeUnlocks:
+  - ClothingEyesGlassesSecurityContraDetect
+  technologyPrerequisites:
+  - ThermalVisionTech
