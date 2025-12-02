@@ -75,10 +75,10 @@ public sealed partial class VoidPortalComponent : Component
     public EntProtoId EmptyPortal = "VoidPortalEmpty";
 
     /// <summary>
-    /// How many entities summoned by the portal can exist ay any given time.
+    /// How many entities summoned by the portal can exist at any given time.
     /// </summary>
     [DataField]
-    public int MaxEntitiesAlive = 10;
+    public int MaxEntitiesAlive = 5;
 
     /// <summary>
     /// The range of the WP regeneration boost for the wraith, so long as it stays near the portal.
