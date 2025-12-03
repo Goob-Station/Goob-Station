@@ -87,6 +87,13 @@
   goobcoins: 20 #Goob content
   access:
   - Maintenance
+  special: # Goobstation
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - NanoTrasen
+      - Assistant
 
 - type: startingGear
   id: PassengerGear

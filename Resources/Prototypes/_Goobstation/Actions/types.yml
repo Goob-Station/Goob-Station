@@ -263,3 +263,36 @@
         state: redspace_lifeline
     - type: InstantAction
       event: !type:ActivateImplantEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionForklift
+  name: Activate Lift
+  description: Lift up crates in front of you.
+  components:
+  - type: Action
+    useDelay: 3
+    icon:
+      sprite: _Goobstation/Objects/Vehicles/forklift.rsi
+      state: forklift
+    itemIconStyle: BigAction
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    event: !type:ForkliftActionEvent
+    canTargetSelf: false
+    whitelist:
+      tags:
+      - Crate
+
+- type: entity
+  parent: BaseAction
+  id: ActionUnforklift
+  name: Drop Lift
+  description: Put down crates in front of you.
+  components:
+  - type: Action
+    useDelay: 1.5
+    icon: Interface/NavMap/beveled_arrow_south.png
+  - type: InstantAction
+    event: !type:UnforkliftActionEvent
