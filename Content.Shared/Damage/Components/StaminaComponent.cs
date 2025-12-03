@@ -125,7 +125,7 @@ public sealed partial class StaminaComponent : Component
     public SoundSpecifier ForceStandSuccessSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg");
 
     /// <summary>
-    /// Thresholds that determine an entity's slowdown as a function of stamina damage.
+    /// Thresholds that determine an entity's slowdown as a function of stamina damage, in percentages.
     /// </summary>
     [DataField] // Goob edit. No slowdown. todo goobstation refactor sprint shit so it isnt as dependent on stamina its kinda annoying to wrangle both at the same time.
     public Dictionary<FixedPoint2, float> StunModifierThresholds = new() { {0, 1f } }; // Goob edit, 0.7 -> 1, 0.5 -> 1
