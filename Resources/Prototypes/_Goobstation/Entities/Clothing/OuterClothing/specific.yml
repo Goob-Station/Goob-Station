@@ -124,3 +124,89 @@
     - Hair
     - HeadTop
     - HeadSide
+
+- type: entity
+  parent: [ ClothingOuterStorageToggleableBase, AllowSuitStorageClothing ]
+  id: ClothingOuterArmorHereticCostume
+  name: occult robes
+  description: A ragged, dusty set of robes. Strange smudgy eyes line the inside.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticCostume
+  - type: Tag
+    tags:
+      - HereticCostume
+
+- type: entity
+  parent: ClothingOuterArmorHereticCostume
+  id: ClothingOuterArmorHereticVoidCostume
+  suffix: Void
+  components:
+  - type: Construction
+    graph: ClothingOuterArmorHereticVoidCostume
+    node: clothingouterarmorhereticvoidcostume
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticVoidCostume
+
+- type: entity
+  parent: ClothingOuterArmorHereticCostume
+  id: ClothingOuterArmorHereticAshCostume
+  suffix: Ash
+  components:
+  - type: Construction
+    graph: ClothingOuterArmorHereticAshCostume
+    node: clothingouterarmorhereticashcostume
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/ashen_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/ashen_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticAshCostume
+
+- type: entity
+  parent: ClothingOuterArmorHereticCostume
+  id: ClothingOuterArmorHereticFleshCostume
+  suffix: Flesh
+  components:
+  - type: Construction
+    graph: ClothingOuterArmorHereticFleshCostume
+    node: clothingouterarmorhereticfleshcostume
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/flesh_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/flesh_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticFleshCostume
+
+- type: entity
+  parent: ClothingOuterArmorHereticCostume
+  id: ClothingOuterArmorHereticBladeCostume
+  suffix: Blade
+  components:
+  - type: Construction
+    graph: ClothingOuterArmorHereticBladeCostume
+    node: clothingouterarmorhereticbladecostume
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/blade_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/blade_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticBladeCostume
