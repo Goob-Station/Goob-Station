@@ -6,8 +6,8 @@ using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
 using Content.Shared.Contraband;
 using Content.Shared.Hands;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Strip.Components;
 using Robust.Shared.Configuration;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -18,7 +18,6 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedContrabandDetectorSystem _detectorSystem = default!;
-    [Dependency] private readonly IRobustRandom _rng = default!;
     private bool _isEnabled = true;
     private TimeSpan _nextUpdate;
 
@@ -30,7 +29,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
         if (_timing.CurTime < _nextUpdate)
             return;
         CheckVisibleContra();
-        _nextUpdate = _timing.CurTime + TimeSpan.FromMilliseconds(1000 + (_rng.NextFloat() - 0.5) * 500);
+        _nextUpdate = _timing.CurTime + TimeSpan.FromMilliseconds(1000);
     }
 
     public override void Initialize()
@@ -52,14 +51,20 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnEquip(EntityUid uid, VisibleContrabandComponent comp, DidEquipEvent args)
     {
+        var thiefbuff = 1;
+        if (HasComp<ThievingComponent>(args.Equipee))
+            thiefbuff = 2;
         if (HasComp<ContrabandComponent>(args.Equipment))
-            comp.VisibleItems.TryAdd(args.Equipment, _timing.CurTime + comp.VisibleTimeout);
+            comp.VisibleItems.TryAdd(args.Equipment, _timing.CurTime + (comp.VisibleTimeout * thiefbuff));
     }
 
     private void OnEquipHands(EntityUid uid, VisibleContrabandComponent comp, DidEquipHandEvent args)
     {
+        var thiefbuff = 1;
+        if (HasComp<ThievingComponent>(args.User))
+            thiefbuff = 2;
         if (HasComp<ContrabandComponent>(args.Equipped))
-            comp.VisibleItems.TryAdd(args.Equipped, _timing.CurTime + comp.VisibleTimeout);
+            comp.VisibleItems.TryAdd(args.Equipped, _timing.CurTime + (comp.VisibleTimeout * thiefbuff));
     }
 
     private void OnUnequipHands(EntityUid uid, VisibleContrabandComponent comp, DidUnequipHandEvent args)
