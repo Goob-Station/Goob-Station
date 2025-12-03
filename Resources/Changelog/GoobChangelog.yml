@@ -18984,3 +18984,9 @@ Entries:
       message: Fixed crewmembers having eleven ribcages. (Fixed surgery popups)
   id: 2141
   time: '2025-12-02T18:46:34.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Add
+      message: Adds 3 more slop plushies to the claw machine.
+  id: 2142
+  time: '2025-12-03T06:34:42.0000000+00:00'
