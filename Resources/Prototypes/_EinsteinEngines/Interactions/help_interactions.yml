@@ -21,6 +21,7 @@
   cooldown: 0.5
   hideByRequirement: true
   requirement:
+    # Goob edit - No sleeping borgs and stuff
     !type:ComplexRequirement
     requirements:
     - !type:StandingStateRequirement
@@ -31,6 +32,7 @@
       whitelist:
         components:
         - LayingDown
+    # Goob end
   action:
     !type:ComplexAction
     requireAll: false
@@ -50,6 +52,7 @@
   delay: 4.5
   hideByRequirement: true
   requirement:
+    # Goob edit - No sleeping borgs and stuff
     !type:ComplexRequirement
     requirements:
     - !type:StandingStateRequirement
@@ -58,6 +61,7 @@
       whitelist:
         components:
         - LayingDown
+    # Goob end
   action:
     !type:ChangeStandingStateAction
     makeLaying: true
