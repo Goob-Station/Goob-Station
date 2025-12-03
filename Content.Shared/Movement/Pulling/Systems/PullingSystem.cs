@@ -99,6 +99,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Numerics;
+using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared._White.Grab; // Goobstation
@@ -181,6 +183,7 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly ContestsSystem _contests = default!; // Goobstation - Grab Intent
+    [Dependency] private readonly StandingStateSystem _standing = default!; // Goobstation - Grab Intent
 
     public override void Initialize()
     {
@@ -198,6 +201,8 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullableComponent, StopBeingPulledAlertEvent>(OnStopBeingPulledAlert);
         SubscribeLocalEvent<PullableComponent, UpdateCanMoveEvent>(OnGrabbedMoveAttempt); // Goobstation
         SubscribeLocalEvent<PullableComponent, SpeakAttemptEvent>(OnGrabbedSpeakAttempt); // Goobstation
+        SubscribeLocalEvent<PullableComponent, DownedEvent>(OnDowned); // Goobstation
+        SubscribeLocalEvent<PullableComponent, StoodEvent>(OnStood); // Goobstation
 
         SubscribeLocalEvent<PullerComponent, UpdateMobStateEvent>(OnStateChanged, after: [typeof(MobThresholdSystem)]);
         SubscribeLocalEvent<PullerComponent, AfterAutoHandleStateEvent>(OnAfterState);
@@ -223,6 +228,22 @@ public sealed class PullingSystem : EntitySystem
     }
 
     // Goobstation - Grab Intent
+    private void OnDowned(Entity<PullableComponent> ent, ref DownedEvent args)
+    {
+        if (!TryComp(ent.Comp.Puller, out PullerComponent? puller))
+            return;
+
+        ResetGrabEscapeChance(ent, (ent.Comp.Puller.Value, puller));
+    }
+
+    private void OnStood(Entity<PullableComponent> ent, ref StoodEvent args)
+    {
+        if (!TryComp(ent.Comp.Puller, out PullerComponent? puller))
+            return;
+
+        ResetGrabEscapeChance(ent, (ent.Comp.Puller.Value, puller));
+    }
+
     private void OnAttacked(Entity<PullerComponent> ent, ref AttackedEvent args)
     {
         if (ent.Comp.Pulling != args.User
@@ -254,6 +275,13 @@ public sealed class PullingSystem : EntitySystem
         if (args.PullerUid != uid)
             return;
 
+        // Goob edit start
+        var grabItemEv = new FindGrabbingItemEvent(args.PulledUid);
+        RaiseLocalEvent(uid, ref grabItemEv);
+        if (grabItemEv.GrabbingItem != null)
+            return;
+        // Goob edit end
+
         if (TryComp(args.PullerUid, out PullerComponent? pullerComp) && !pullerComp.NeedsHands)
             return;
 
@@ -278,6 +306,11 @@ public sealed class PullingSystem : EntitySystem
             _handsSystem.TryDrop((args.PullerUid, component), held);
             break;
         }
+
+        // Goobstation start
+        var ev = new StopGrabbingItemPullEvent(args.PulledUid);
+        RaiseLocalEvent(uid, ref ev);
+        // Goobstation end
     }
 
     private void OnStateChanged(EntityUid uid, PullerComponent component, ref UpdateMobStateEvent args)
@@ -410,34 +443,44 @@ public sealed class PullingSystem : EntitySystem
     // Goobstation - Grab Intent
     private void OnVirtualItemThrown(EntityUid uid, PullerComponent component, VirtualItemThrownEvent args)
     {
-        if (!TryComp<PhysicsComponent>(uid, out var throwerPhysics)
-            || component.Pulling == null
-            || component.Pulling != args.BlockingEntity)
+        if (component.Pulling == null || component.Pulling != args.BlockingEntity)
             return;
 
-        if (!TryComp(args.BlockingEntity, out PullableComponent? comp))
+        ThrowGrabbedEntity(uid, args.Direction, component);
+    }
+
+    public void ThrowGrabbedEntity(EntityUid uid, Vector2 dir, PullerComponent? component = null, PhysicsComponent? physics = null)
+    {
+        if (!Resolve(uid, ref component, ref physics, false))
             return;
+
+        if (!TryComp(component.Pulling, out PullableComponent? comp))
+            return;
+
+        var pulling = component.Pulling.Value;
 
         if (!_combatMode.IsInCombatMode(uid)
-            || HasComp<GrabThrownComponent>(args.BlockingEntity)
+            || HasComp<GrabThrownComponent>(pulling)
             || component.GrabStage <= GrabStage.Soft)
             return;
 
-        var distanceToCursor = args.Direction.Length();
-        var direction = args.Direction.Normalized() * MathF.Min(distanceToCursor, component.ThrowingDistance);
+        var distanceToCursor = dir.Length();
+        var direction = dir.Normalized() * MathF.Min(distanceToCursor, component.ThrowingDistance);
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", 5);
 
-        TryStopPull(args.BlockingEntity, comp, uid, true);
-        _grabThrown.Throw(args.BlockingEntity,
+        TryStopPull(pulling, comp, uid, true);
+        _grabThrown.Throw(pulling,
             uid,
             direction,
             component.GrabThrownSpeed,
             damage * component.GrabThrowDamageModifier); // Throwing the grabbed person
-        _throwing.TryThrow(uid, -direction * throwerPhysics.InvMass); // Throws back the grabber
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), uid);
+        _throwing.TryThrow(uid, -direction * physics.InvMass); // Throws back the grabber
+        if (_netManager.IsServer)
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), uid);
         component.NextStageChange = _timing.CurTime.Add(TimeSpan.FromSeconds(3f)); // To avoid grab and throw spamming
+        Dirty(uid, component);
     }
     // Goobstation
 
@@ -476,62 +519,36 @@ public sealed class PullingSystem : EntitySystem
 
     private void OnRefreshMovespeed(EntityUid uid, PullerComponent component, RefreshMovementSpeedModifiersEvent args)
     {
-        if (TryComp<HeldSpeedModifierComponent>(component.Pulling, out var itemHeldSpeed) && component.Pulling.HasValue)
+        if (TryComp<HeldSpeedModifierComponent>(component.Pulling, out var itemHeldSpeed))
         {
             var (walkMod, sprintMod) =
                 _clothingMoveSpeed.GetHeldMovementSpeedModifiers(component.Pulling.Value, itemHeldSpeed);
             args.ModifySpeed(walkMod, sprintMod);
         }
 
-        if (TryComp<HeldSpeedModifierComponent>(component.Pulling, out var heldMoveSpeed) && component.Pulling.HasValue)
-        {
-            var (walkMod, sprintMod) = (args.WalkSpeedModifier, args.SprintSpeedModifier);
-
-            switch (component.GrabStage)
-            {
-                case GrabStage.No:
-                    args.ModifySpeed(walkMod, sprintMod);
-                    break;
-                case GrabStage.Soft:
-                    var softGrabSpeedMod = component.SoftGrabSpeedModifier;
-                    args.ModifySpeed(walkMod * softGrabSpeedMod, sprintMod * softGrabSpeedMod);
-                    break;
-                case GrabStage.Hard:
-                    var hardGrabSpeedModifier = component.HardGrabSpeedModifier;
-                    args.ModifySpeed(walkMod * hardGrabSpeedModifier, sprintMod * hardGrabSpeedModifier);
-                    break;
-                case GrabStage.Suffocate:
-                    var chokeSpeedMod = component.ChokeGrabSpeedModifier;
-                    args.ModifySpeed(walkMod * chokeSpeedMod, sprintMod * chokeSpeedMod);
-                    break;
-                default:
-                    args.ModifySpeed(walkMod, sprintMod);
-                    break;
-            }
-            return;
-        }
+        var raiseEv = new RaiseGrabModifierEventEvent(uid, 0);
+        RaiseLocalEvent(ref raiseEv);
+        var multiplier = raiseEv.SpeedMultiplier;
+        var max = 1f;
 
         switch (component.GrabStage)
         {
-            case GrabStage.No:
-                args.ModifySpeed(component.WalkSpeedModifier, component.SprintSpeedModifier);
-                break;
             case GrabStage.Soft:
-                var softGrabSpeedMod = component.SoftGrabSpeedModifier;
-                args.ModifySpeed(component.WalkSpeedModifier * softGrabSpeedMod, component.SprintSpeedModifier * softGrabSpeedMod);
+                max = MathF.Max(max, component.SoftGrabSpeedModifier);
+                multiplier *= component.SoftGrabSpeedModifier;
                 break;
             case GrabStage.Hard:
-                var hardGrabSpeedModifier = component.HardGrabSpeedModifier;
-                args.ModifySpeed(component.WalkSpeedModifier * hardGrabSpeedModifier, component.SprintSpeedModifier * hardGrabSpeedModifier);
+                max = MathF.Max(max, component.HardGrabSpeedModifier);
+                multiplier *= component.HardGrabSpeedModifier;
                 break;
             case GrabStage.Suffocate:
-                var chokeSpeedMod = component.ChokeGrabSpeedModifier;
-                args.ModifySpeed(component.WalkSpeedModifier * chokeSpeedMod, component.SprintSpeedModifier * chokeSpeedMod);
-                break;
-            default:
-                args.ModifySpeed(component.WalkSpeedModifier, component.SprintSpeedModifier);
+                max = MathF.Max(max, component.ChokeGrabSpeedModifier);
+                multiplier *= component.ChokeGrabSpeedModifier;
                 break;
         }
+
+        multiplier = Math.Clamp(multiplier, 0f, max);
+        args.ModifySpeed(multiplier, multiplier);
     }
 
     // Goobstation - Grab Intent
@@ -609,6 +626,7 @@ public sealed class PullingSystem : EntitySystem
         // Goobstation - Grab Intent
         pullableComp.GrabStage = GrabStage.No;
         pullableComp.GrabEscapeChance = 1f;
+        pullableComp.EscapeAttemptModifier = 1f;
         _blocker.UpdateCanMove(pullableUid);
         // Goobstation
 
@@ -691,7 +709,12 @@ public sealed class PullingSystem : EntitySystem
             && !_handsSystem.TryGetEmptyHand(puller, out _)
             && pullerComp.Pulling == null)
         {
-            return false;
+            // Goob edit start
+            var grabItemEv = new FindGrabbingItemEvent(pullableUid);
+            RaiseLocalEvent(puller, ref grabItemEv);
+            if (grabItemEv.GrabbingItem == null)
+                return false;
+            // Goob edit end
         }
 
         if (!_blocker.CanInteract(puller, pullableUid))
@@ -759,7 +782,8 @@ public sealed class PullingSystem : EntitySystem
         PullerComponent? pullerComp = null,
         PullableComponent? pullableComp = null,
         GrabStage? grabStageOverride = null,
-        float escapeAttemptModifier = 1.0f)
+        float escapeAttemptModifier = 1.0f,
+        bool force = false) // Goob edit
     {
         if (!Resolve(pullerUid, ref pullerComp, false) ||
             !Resolve(pullableUid, ref pullableComp, false))
@@ -776,7 +800,7 @@ public sealed class PullingSystem : EntitySystem
         if (!TryComp(pullerUid, out PhysicsComponent? pullerPhysics) || !TryComp(pullableUid, out PhysicsComponent? pullablePhysics))
             return false;
 
-        if(TryComp<MeleeWeaponComponent>(pullerUid, out var meleeWeaponComponent)
+        if(!force && TryComp<MeleeWeaponComponent>(pullerUid, out var meleeWeaponComponent) // Goob edit
            && _timing.CurTime < meleeWeaponComponent.NextAttack)
             return false;
 
@@ -990,12 +1014,11 @@ public sealed class PullingSystem : EntitySystem
     /// <param name="escapeAttemptModifier">if anything what to modify the escape chance by</param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     /// <returns></returns>
-    private bool TryGrab(Entity<PullableComponent?> pullable, Entity<PullerComponent?> puller, bool ignoreCombatMode = false, GrabStage? grabStageOverride = null, float escapeAttemptModifier = 1f)
+    public bool TryGrab(Entity<PullableComponent?> pullable, Entity<PullerComponent?> puller, bool ignoreCombatMode = false, GrabStage? grabStageOverride = null, float escapeAttemptModifier = 1f)
     {
         if (!Resolve(pullable.Owner, ref pullable.Comp)
             || !Resolve(puller.Owner, ref puller.Comp)
-            || HasComp<PacifiedComponent>(puller)
-            || !HasComp<MobStateComponent>(pullable)
+            || !CanGrab(puller, pullable)
             || pullable.Comp.Puller != puller
             || puller.Comp.Pulling != pullable
             || !TryComp<MeleeWeaponComponent>(puller, out var meleeWeaponComponent))
@@ -1064,6 +1087,11 @@ public sealed class PullingSystem : EntitySystem
             newStage = grabStageOverride.Value;
         }
 
+        var raiseEv = new RaiseGrabModifierEventEvent(puller.Owner, (int) newStage);
+        RaiseLocalEvent(ref raiseEv);
+        if (raiseEv.NewStage != null)
+            newStage = (GrabStage) raiseEv.NewStage;
+
         if (!TrySetGrabStages((puller, puller.Comp), (pullable, pullable.Comp), newStage, escapeAttemptModifier))
             return false;
 
@@ -1071,10 +1099,17 @@ public sealed class PullingSystem : EntitySystem
         return true;
     }
 
+    // Goobstation
+    public bool CanGrab(EntityUid puller, EntityUid pullable)
+    {
+        return !HasComp<PacifiedComponent>(puller) && HasComp<MobStateComponent>(pullable);
+    }
+
     public bool TrySetGrabStages(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, GrabStage stage, float escapeAttemptModifier = 1f)
     {
         puller.Comp.GrabStage = stage;
         pullable.Comp.GrabStage = stage;
+        pullable.Comp.EscapeAttemptModifier *= escapeAttemptModifier;
 
         if (!TryUpdateGrabVirtualItems(puller, pullable))
             return false;
@@ -1093,8 +1128,7 @@ public sealed class PullingSystem : EntitySystem
             _ => throw new ArgumentOutOfRangeException()
         };
 
-        var massModifier = _contests.MassContest(puller, pullable);
-        pullable.Comp.GrabEscapeChance = Math.Clamp(puller.Comp.EscapeChances[stage] / massModifier * escapeAttemptModifier, 0f, 1f);
+        ResetGrabEscapeChance(pullable, puller, false);
 
         _alertsSystem.ShowAlert(puller, puller.Comp.PullingAlert, puller.Comp.PullingAlertSeverity[stage]);
         _alertsSystem.ShowAlert(pullable, pullable.Comp.PulledAlert, pullable.Comp.PulledAlertAlertSeverity[stage]);
@@ -1134,8 +1168,41 @@ public sealed class PullingSystem : EntitySystem
         return true;
     }
 
+    private void ResetGrabEscapeChance(Entity<PullableComponent> pullable,
+        Entity<PullerComponent> puller,
+        bool dirty = true)
+    {
+        if (puller.Comp.GrabStage == GrabStage.No)
+        {
+            pullable.Comp.GrabEscapeChance = 1f;
+            if (dirty)
+                Dirty(pullable);
+            return;
+        }
+
+        var massMultiplier = Math.Clamp(_contests.MassContest(pullable, puller, true) * 2f, 0.5f, 2f);
+        var extraMultiplier = 1f;
+        if (_standing.IsDown(pullable))
+            extraMultiplier *= puller.Comp.DownedEscapeChanceMultiplier;
+        var raiseEv = new RaiseGrabModifierEventEvent(puller.Owner, 0);
+        RaiseLocalEvent(ref raiseEv);
+        extraMultiplier *= raiseEv.Multiplier;
+
+        var chance = puller.Comp.EscapeChances[puller.Comp.GrabStage] * massMultiplier *
+            pullable.Comp.EscapeAttemptModifier * extraMultiplier + raiseEv.Modifier;
+        pullable.Comp.GrabEscapeChance = Math.Clamp(chance, 0f, 1f);
+
+        if (dirty)
+            Dirty(pullable);
+    }
+
     private bool TryUpdateGrabVirtualItems(Entity<PullerComponent> puller, Entity<PullableComponent> pullable)
     {
+        var grabItemEv = new FindGrabbingItemEvent(pullable);
+        RaiseLocalEvent(puller, ref grabItemEv);
+        if (grabItemEv.GrabbingItem != null)
+            return true;
+
         // Updating virtual items
         var virtualItemsCount = puller.Comp.GrabVirtualItems.Count;
 

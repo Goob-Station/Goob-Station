@@ -83,7 +83,7 @@
     startingCharge: 1080
   # Goobstation End - Energycrit
   - type: EncryptionHolderRequiresLock
-  # Goobstation - Energycrit
+  #- Goobstation - Energycrit
   #- type: SiliconEmitSoundOnDrained
   #  sound: "/Audio/_Goobstation/Voice/IPC/energy_low.ogg" # Goobstation - ipc audio
   #  minInterval: 8
@@ -150,7 +150,7 @@
       3: 1
       2: 0.80
       1: 0.45
-      0: 0.40 # Goobstation - Energycrit
+      0: 0.10 # Goobstation - Energycrit
   - type: BatteryDrinker
     blacklist: # Goobstation - Energycrit
       tags:

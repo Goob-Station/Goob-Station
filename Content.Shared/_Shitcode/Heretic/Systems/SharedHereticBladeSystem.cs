@@ -18,6 +18,7 @@ using System.Numerics;
 using System.Text;
 using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Common.Physics;
+using Content.Goobstation.Common.SecondSkin;
 using Content.Goobstation.Common.Weapons;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Wizard.SanguineStrike;
@@ -40,6 +41,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
+using Content.Shared.Popups;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -59,6 +61,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -158,10 +161,14 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
     public void ApplySpecialEffect(EntityUid performer, EntityUid target, MeleeHitEvent args)
     {
-        if (!TryComp<HereticComponent>(performer, out var hereticComp))
+        var path = HasComp<HereticBladeUserBonusDamageComponent>(performer) ? "Flesh" : null;
+        if (TryComp<HereticComponent>(performer, out var hereticComp))
+            path = hereticComp.CurrentPath;
+
+        if (path == null)
             return;
 
-        switch (hereticComp.CurrentPath)
+        switch (path)
         {
             case "Ash":
                 ApplyAshBladeEffect(target);
@@ -186,6 +193,11 @@ public abstract class SharedHereticBladeSystem : EntitySystem
             case "Rust":
                 if (_mobState.IsDead(target))
                     _rotting.ReduceAccumulator(target, -TimeSpan.FromMinutes(1f));
+                else
+                {
+                    var ev = new ModifyDisgustEvent(20f);
+                    RaiseLocalEvent(target, ref ev);
+                }
                 break;
 
             default:
@@ -195,8 +207,14 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
     private void OnInteract(Entity<HereticBladeComponent> ent, ref UseInHandEvent args)
     {
-        if (!HasComp<HereticComponent>(args.User))
+        if (!TryComp<HereticComponent>(args.User, out var heretic))
             return;
+
+        if (heretic.Ascended)
+        {
+            _popup.PopupClient(Loc.GetString("heretic-blade-break-fail-acended-message"), args.User, args.User);
+            return;
+        }
 
         if (!TryComp<RandomTeleportComponent>(ent, out var rtp))
             return;
@@ -208,25 +226,19 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
         RandomTeleport(args.User, ent, rtp);
         _audio.PlayPredicted(ent.Comp.ShatterSound, args.User, args.User);
+        _popup.PopupClient(Loc.GetString("heretic-blade-use"), args.User, args.User);
         args.Handled = true;
     }
 
     private void OnExamine(Entity<HereticBladeComponent> ent, ref ExaminedEvent args)
     {
-        if (!HasComp<HereticComponent>(args.Examiner))
+        if (!TryComp<HereticComponent>(args.Examiner, out var heretic) || heretic.Ascended)
             return;
 
-        var canBreak = HasComp<RandomTeleportComponent>(ent);
-
-        if (!canBreak)
+        if (!HasComp<RandomTeleportComponent>(ent))
             return;
 
-        var sb = new StringBuilder();
-
-        if (canBreak)
-            sb.AppendLine(Loc.GetString("heretic-blade-examine"));
-
-        args.PushMarkup(sb.ToString());
+        args.PushMarkup(Loc.GetString("heretic-blade-examine"));
     }
 
     private void OnMeleeHit(Entity<HereticBladeComponent> ent, ref MeleeHitEvent args)
@@ -234,10 +246,22 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         if (!args.IsHit || string.IsNullOrWhiteSpace(ent.Comp.Path))
             return;
 
-        if (ent.Comp.Path == "Flesh" && HasComp<GhoulComponent>(args.User))
-            args.BonusDamage += args.BaseDamage * 0.5f; // "ghouls can use bloody blades effectively... so real..."
+        TryComp<HereticComponent>(args.User, out var hereticComp);
 
-        if (!TryComp<HereticComponent>(args.User, out var hereticComp))
+        if (TryComp(args.User, out HereticBladeUserBonusDamageComponent? bonus) &&
+            (bonus.Path == null || bonus.Path == ent.Comp.Path))
+        {
+            args.BonusDamage += args.BaseDamage * bonus.BonusMultiplier; // "ghouls can use bloody blades effectively... so real..."
+            if (hereticComp == null)
+            {
+                foreach (var hit in args.HitEntities)
+                {
+                    ApplySpecialEffect(args.User, hit, args);
+                }
+            }
+        }
+
+        if (hereticComp == null)
             return;
 
         if (ent.Comp.Path != hereticComp.CurrentPath)
@@ -252,7 +276,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                     {
                         DamageDict =
                         {
-                            { "Poison", 8f },
+                            { "Poison", 5f },
                         },
                     };
                     break;
@@ -283,7 +307,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
                     foreach (var uid in hitEnts)
                     {
-                        _starMark.TryApplyStarMark(uid, args.User);
+                        _starMark.TryApplyStarMark(uid);
                     }
                     break;
             }

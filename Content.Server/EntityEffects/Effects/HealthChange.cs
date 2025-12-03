@@ -60,7 +60,6 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Localizations;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
-using System.Linq;
 using System.Text.Json.Serialization;
 
 // Shitmed Changes
@@ -74,8 +73,6 @@ namespace Content.Server.EntityEffects.Effects
     /// <summary>
     /// Default metabolism used for medicine reagents.
     /// </summary>
-
-
     [UsedImplicitly]
     public sealed partial class HealthChange : EntityEffect
     {
@@ -214,16 +211,8 @@ namespace Content.Server.EntityEffects.Effects
                 }
             }
 
-            args.EntityManager.System<DamageableSystem>()
-                .TryChangeDamage(
-                    args.TargetEntity,
-                    damageSpec * scale,
-                    IgnoreResistances,
-                    interruptsDoAfters: false,
-                    targetPart: UseTargeting ? TargetPart : null,
-                    ignoreBlockers: IgnoreBlockers,
-                    splitDamage: SplitDamage); // Shitmed Change
-
+            // Goobstation - Applies (airloss/poison) damage to vital parts of the entity.
+            ApplyEtcDamageToVitals(damageSpec, scale, args);
         }
     }
 }
