@@ -38,7 +38,7 @@
     autoRecharge: true
     autoRechargeRate: 25
   - type: Gun
-    fireRate: 1.5
+    fireRate: 1
     useKey: false
     selectedMode: SemiAuto
     availableModes:

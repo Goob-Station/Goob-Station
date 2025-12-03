@@ -1,0 +1,57 @@
+- type: entity
+  parent: BaseGameRule
+  id: TerrorQueenMidround
+  components:
+  - type: AntagSelection
+    agentName: terror-spider-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostTerrorQueen
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+      briefing:
+        text: terror-queen-briefing
+        color: "#8b0000"
+        sound: /Audio/_Goobstation/Terror/terrorspider.ogg
+  - type: AntagRandomSpawn
+  - type: AntagSpawner
+    prototype: TerrorSpiderQueen
+  - type: StationEvent
+    weight: 1.5 # Fairly rare
+    earliestStart: 25
+    minimumPlayers: 40
+    duration: null
+    maxOccurrences: 1
+    chaos:
+      Hostile: 200
+      Friend: 40
+      Medical: 200
+      Death: 200
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 400
+  - type: Tag
+    tags:
+    - MidroundAntag
+
+- type: entity
+  parent: TerrorQueenMidround
+  id: TokenTerrorQueen
+  components:
+  - type: AntagSpawner
+    prototype: TerrorSpiderQueen
+  - type: AntagSelection
+    agentName: hastur-round-end-agent-name
+    definitions:
+    - spawnerPrototype: HasturToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+      briefing:
+        text: terror-queen-briefing
+        color: "#8b0000"
+        sound: /Audio/_Goobstation/Terror/terrorspider.ogg
