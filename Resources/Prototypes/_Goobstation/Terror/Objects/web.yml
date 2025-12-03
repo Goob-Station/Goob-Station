@@ -27,8 +27,13 @@
   description: This web has beads of a dark fluid on its strands.
   components:
   - type: Sprite
-    sprite: _Goobstation/Terror/Structures/web.rsi
-    state: darkWeb
+    sprite: _Goobstation/Terror/Structures/sinisterweb.rsi
+    state: full
+  - type: IconSmooth
+    key: infestedweb
+    base: web_
+    additionalKeys:
+    - walls
   - type: TerrorWeb
   - type: PoisonWeb
     reagentId: Toxin
@@ -48,7 +53,6 @@
     base: web_
     additionalKeys:
     - walls
-
   - type: TerrorWeb
   - type: InfestedWeb
 
