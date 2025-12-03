@@ -328,9 +328,14 @@
     parent: true
     components:
     - type: Stealth
-      maxVisibility: -1.5 # Goob edit
+      maxVisibility: 0.1
       hadOutline: true
       thermalsImmune: true # Goobstation
+    - type: StealthOnMove
+      invisibilityPenalty: 3
+      maxInvisibilityPenalty: 1.6
+      passiveVisibilityRate: -1 # cloak very fast
+      movementVisibilityRate: 0.15 # only some cloak if moving
   - type: PowerCellDraw
     drawRate: 3.6 # 100 seconds on the default cell # Goob edit
   - type: ToggleCellDraw

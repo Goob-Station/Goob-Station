@@ -38,8 +38,7 @@
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
     definitions:
-    - prefRoles: [ TraitorSleeper ]
-      fallbackRoles: [ Traitor ]
+    - prefRoles: [ Traitor ]
       min: 1
       max: 2
       playerRatio: 10
@@ -92,7 +91,7 @@
         - BibleUser
       lateJoinAdditional: true
       mindRoles:
-      - MindRoleChangelingmidround
+      - MindRoleChangeling
   - type: Tag
     tags:
       - MidroundAntag
@@ -125,8 +124,7 @@
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      min: 1
-      max: 2
+      max: 1
       playerRatio: 15
       blacklist:
         components:
@@ -250,49 +248,8 @@
     table:
       id: MobFloorGoblin
   - type: Tag
-
-# Midround Devil
-- type: entity
-  parent: Devil
-  id: Devilmidround
-  components:
-  - type: StationEvent
-    earliestStart: 20
-    weight: 1
-    minimumPlayers: 30
-    maxOccurrences: 1
-    startAnnouncement: station-event-communication-interception
-    startAudio:
-      path: /Audio/Announcements/intercept.ogg
-    duration: null
-    occursDuringRoundEnd: false
-    chaos:
-      Hostile: 200
-      Medical: 150
-      Death: 200
-    eventType: HostilesSpawn
-  - type: GameRule
-    chaosScore: 400
-  - type: AlertLevelInterceptionRule
-  - type: AntagSelection
-    selectionTime: PostPlayerSpawn
-    agentName: devil-roundend-name
-    definitions:
-    - prefRoles: [ Devil ]
-      max: 1
-      playerRatio: 15
-      blacklist:
-        components:
-        - CommandStaff
-        - AntagImmune
-        - BibleUser
-      lateJoinAdditional: true
-      jobBlacklist: [ Chaplain ] # GOOBSTATION
-      mindRoles:
-      - DevilMindRole
-  - type: Tag
     tags:
-      - MidroundAntag
+    - MidroundAntag
 
 # Slasher
 - type: entity
