@@ -9,9 +9,6 @@ namespace Content.Goobstation.Shared.Security.ContrabandIcons;
 /// </summary>
 public abstract class SharedContrabandIconsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContrabandDetectorSystem _detectorSystem = default!;
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
-    
     private string StatusToIcon(ContrabandStatus status)
     {
         return status switch
