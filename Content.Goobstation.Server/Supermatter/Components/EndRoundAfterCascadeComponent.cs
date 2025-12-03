@@ -1,4 +1,4 @@
-namespace Content.Goobstation.Shared.Supermatter.Components;
+namespace Content.Goobstation.Server.Supermatter.Components;
 
 /// <summary>
 /// Ends the round after a defined amount of time

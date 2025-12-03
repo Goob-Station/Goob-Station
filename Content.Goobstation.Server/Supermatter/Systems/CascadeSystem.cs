@@ -1,5 +1,4 @@
-using Content.Goobstation.Shared.Supermatter.Components;
-using Content.Server.Spreader;
+using Content.Goobstation.Server.Supermatter.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Robust.Shared.Physics.Events;

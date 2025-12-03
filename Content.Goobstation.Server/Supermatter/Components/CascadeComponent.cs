@@ -1,6 +1,6 @@
 using Content.Shared.Damage;
 
-namespace Content.Goobstation.Shared.Supermatter.Components;
+namespace Content.Goobstation.Server.Supermatter.Components;
 
 /// <summary>
 /// Works only if the entity has the KudzuComponent

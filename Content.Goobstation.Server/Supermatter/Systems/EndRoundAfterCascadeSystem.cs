@@ -1,4 +1,4 @@
-using Content.Goobstation.Shared.Supermatter.Components;
+using Content.Goobstation.Server.Supermatter.Components;
 using Content.Server.GameTicking;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -26,22 +26,18 @@ public sealed class EndRoundAfterCascadeSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
+        base.Update(frameTime);
+
         EndRoundAfterCascadeComponent? cascadeComp = null;
 
         var query = EntityQueryEnumerator<EndRoundAfterCascadeComponent>();
         while (query.MoveNext(out var uid, out var comp))
-        {
             if (comp.Delay != TimeSpan.Zero)
-            {
                 cascadeComp = comp;
-                break;
-            }
-        }
 
         if (cascadeComp == null)
             return;
 
-        base.Update(frameTime);
         if ( cascadeComp.Delay < _gameTiming.CurTime && cascadeComp.Delay != TimeSpan.Zero)
         {
             cascadeComp.Delay = TimeSpan.Zero;
