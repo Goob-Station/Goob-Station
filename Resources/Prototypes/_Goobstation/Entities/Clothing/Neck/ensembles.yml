@@ -193,7 +193,7 @@
     sprite: _Goobstation/Clothing/Neck/Ensembles/rd.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Ensembles/rd.rsi
-    equippedPrefix: both
+    equippedPrefix: all
     slots:
     - Neck
   - type: StealTarget
@@ -335,7 +335,7 @@
   components:
   - type: Item
     size: Small
-    heldPrefix: cloakblack&mantle
+    heldPrefix: cloakblackmantle
     inhandVisuals:
       left:
       - state: inhand-left
@@ -438,6 +438,7 @@
     sprite: _Goobstation/Clothing/Neck/Ensembles/trans.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Ensembles/trans.rsi
+    equippedPrefix: all
     slots:
     - Neck
   - type: ItemSwitch
