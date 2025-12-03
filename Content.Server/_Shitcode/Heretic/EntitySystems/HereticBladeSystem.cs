@@ -29,7 +29,7 @@ public sealed class HereticBladeSystem : SharedHereticBladeSystem
     {
         base.ApplyAshBladeEffect(target);
 
-        _flammable.AdjustFireStacks(target, 2.5f, ignite: true);
+        _flammable.AdjustFireStacks(target, 2.5f, null, true, 0.5f);
     }
 
     protected override void ApplyFleshBladeEffect(EntityUid target)
@@ -47,7 +47,7 @@ public sealed class HereticBladeSystem : SharedHereticBladeSystem
                 out var bloodSolution))
             return;
 
-        _puddle.TrySpillAt(target, bloodSolution.SplitSolution(20), out _);
+        _puddle.TrySpillAt(target, bloodSolution.SplitSolution(10), out _);
     }
 
     protected override void ApplyVoidBladeEffect(EntityUid target)
