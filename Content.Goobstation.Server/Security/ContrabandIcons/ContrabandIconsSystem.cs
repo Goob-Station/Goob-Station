@@ -92,14 +92,12 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
         var query = EntityQueryEnumerator<VisibleContrabandComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            var timeSpanDone = false;
-            var contraCheck = false;
+            bool timeSpanDone;
             if (comp.VisibleItems.Count != 0 && comp.VisibleItems.Values.Any(value => value < _timing.CurTime))
                 timeSpanDone = true;
             else
                 continue;
-            contraCheck = CheckItemsInComponent(comp, uid);
-            var newStatus = StatusToIcon(timeSpanDone && contraCheck
+            var newStatus = StatusToIcon(timeSpanDone && CheckItemsInComponent(comp, uid)
                 ? ContrabandStatus.Contraband
                 : ContrabandStatus.None);
             if (comp.StatusIcon != newStatus)
