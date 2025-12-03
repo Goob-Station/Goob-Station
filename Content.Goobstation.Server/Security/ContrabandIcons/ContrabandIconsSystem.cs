@@ -18,6 +18,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedContrabandDetectorSystem _detectorSystem = default!;
     private bool _isEnabled = true;
+    private EntityQuery<ContrabandComponent> _contrabandQuery;
     private Dictionary<EntityUid, TimeSpan> _pendingUpdate = new();
 
     public override void Update(float frameTime)
@@ -25,7 +26,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
         base.Update(frameTime);
         if (!_isEnabled)
             return;
-        if (!(_pendingUpdate.Count > 0))
+        if(!(_pendingUpdate.Count > 0))
             return;
         var removeUpdated = new List<EntityUid>();
         foreach (var (uid, time) in _pendingUpdate)
@@ -51,6 +52,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
     public override void Initialize()
     {
         base.Initialize();
+        _contrabandQuery = GetEntityQuery<ContrabandComponent>();
         Subs.CVar(_configuration, GoobCVars.ContrabandIconsEnabled, value => _isEnabled = value);
         if (_isEnabled)
         {
@@ -66,7 +68,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
     {
         if(args.SlotFlags == SlotFlags.POCKET)
             return;
-        if (HasComp<ContrabandComponent>(args.Equipment))
+        if (_contrabandQuery.HasComp(args.Equipment))
         {
             comp.VisibleItems.Add(args.Equipment);
             _pendingUpdate[uid] = _timing.CurTime + TimeSpan.FromMilliseconds(200);
@@ -75,7 +77,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnEquipHands(EntityUid uid, VisibleContrabandComponent comp, DidEquipHandEvent args)
     {
-        if (HasComp<ContrabandComponent>(args.Equipped))
+        if (_contrabandQuery.HasComp(args.Equipped))
         {
             comp.VisibleItems.Add(args.Equipped);
             _pendingUpdate[uid] = _timing.CurTime + TimeSpan.FromMilliseconds(200);
@@ -99,7 +101,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
         bool hasContraband = false;
         foreach (var item in comp.VisibleItems)
         {
-            var contra = Comp<ContrabandComponent>(item);
+            var contra = _contrabandQuery.Comp(item);
             if (!_detectorSystem.CheckContrabandPermission(item, uid, contra))
             {
                 hasContraband = true;
