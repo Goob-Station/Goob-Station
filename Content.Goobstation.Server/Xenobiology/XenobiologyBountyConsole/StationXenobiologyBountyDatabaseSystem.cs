@@ -90,8 +90,8 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
 
         if (component.Bounties.Any(bountyData => bountyData.Id == newBounty.Id))
         {
-            Log.Error("Failed to add bounty {ID} because another one with the same ID already existed!", newBounty.Id);
-            return false;
+            Log.Warning($"Failed to add bounty {newBounty.Id} because another one with the same ID already existed! Retrying.");
+            return TryAddBounty(uid, bounty, component);
         }
 
         component.Bounties.Add(newBounty);
