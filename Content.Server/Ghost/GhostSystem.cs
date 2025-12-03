@@ -699,7 +699,7 @@ namespace Content.Server.Ghost
                             _damageable.TryChangeDamage(playerEntity,
                                 damage,
                                 true,
-                                targetPart: _bodySystem.GetTargetBodyPart(root));
+                                targetPart: TargetBodyPart.All);
                         else
                             _damageable.TryChangeDamage(playerEntity, damage, true);
                         // Shitmed Change End
