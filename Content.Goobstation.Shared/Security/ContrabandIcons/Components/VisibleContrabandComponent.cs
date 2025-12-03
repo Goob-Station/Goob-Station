@@ -12,6 +12,9 @@ public sealed partial class VisibleContrabandComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField] 
     public ProtoId<ContrabandIconPrototype> StatusIcon = "ContrabandIconNone";
+
+    [DataField] 
+    public List<EntityUid> VisibleItems = new();
 }
 
 public enum ContrabandStatus : byte
