@@ -29,10 +29,7 @@ public partial class XenobiologySystem
 
         // it sucks but it works and now y*ml warriors can add more slimes 500% faster
         SpawnSlime(ent, ent.Comp.BasePrototype, ent.Comp.Breed);
-
-        // there's like a million entities in a single round. nothing can go wrong this way.
-        // surely. :)
-        // QueueDel(ent);
+        QueueDel(ent);
     }
 
     private void OnSlimeMapInit(Entity<SlimeComponent> ent, ref MapInitEvent args)
@@ -117,7 +114,8 @@ public partial class XenobiologySystem
     /// <param name="selectedBreed">The selected breed of the entity.</param>
     private Entity<SlimeComponent>? SpawnSlime(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
     {
-        if (!_prototypeManager.TryIndex(selectedBreed, out var newBreed) || _net.IsClient)
+        if (Deleted(parent)
+        || !_prototypeManager.TryIndex(selectedBreed, out var newBreed) || _net.IsClient)
             return null;
 
         var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent, null, newBreed.Components);
