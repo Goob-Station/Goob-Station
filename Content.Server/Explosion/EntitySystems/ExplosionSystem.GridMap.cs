@@ -123,7 +123,7 @@ public sealed partial class ExplosionSystem
 
     private void OnGridRemoved(GridRemovalEvent ev)
     {
-        _airtightMap.Remove(ev.EntityUid);
+        OnAirtightGridRemoved(ev.EntityUid);
         _gridEdges.Remove(ev.EntityUid);
 
         // this should be a small enough set that iterating all of them is fine
