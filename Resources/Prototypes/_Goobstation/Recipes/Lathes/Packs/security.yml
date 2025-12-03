@@ -57,6 +57,7 @@
   - WeaponLaserCellSMG
   - WeaponLaserCellSniper
   - ClothingBackpackLMGBattery
+  - ClothingEyesGlassesSecurityContraDetect
 
 - type: latheRecipePack
   id: SecurityAmmoGoob
@@ -99,8 +100,3 @@
   recipes:
   - ClothingMaskMuzzleSecure
   - ClothingMaskMuzzleShock
-
-- type: latheRecipePack
-  id: ContraGlasses
-  recipes:
-  - ClothingEyesGlassesSecurityContraDetect
