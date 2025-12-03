@@ -789,6 +789,14 @@ public sealed partial class WoundSystem
                     TraumaType.Dismemberment,
                     15f,
                     (bodyPart.PartType, bodyPart.Symmetry));
+
+                // Goobstation start
+                var bleedInflicter = EnsureComp<BleedInflicterComponent>(woundInduced.Value.Owner);
+                bleedInflicter.BleedingAmountRaw += 20f;
+                bleedInflicter.Scaling = 1f;
+                bleedInflicter.ScalingLimit = 1f;
+                bleedInflicter.IsBleeding = true;
+                // Goobstation end
             }
 
             Dirty(woundableEntity, woundableComp);
@@ -838,9 +846,17 @@ public sealed partial class WoundSystem
                         (woundEnt.Value.Owner, EnsureComp<TraumaInflicterComponent>(woundEnt.Value.Owner)),
                         TraumaType.Dismemberment,
                         15f);
-                }
 
-                foreach (var wound in GetWoundableWounds(parentWoundableEntity))
+                    // Goobstation start
+                    var bleedInflicter = EnsureComp<BleedInflicterComponent>(parentWoundableEntity);
+                    bleedInflicter.BleedingAmountRaw += 20f;
+                    bleedInflicter.Scaling = 1f;
+                    bleedInflicter.ScalingLimit = 1f;
+                    bleedInflicter.IsBleeding = true;
+                    // Goobstation end
+                }
+                // Goobstation start - commented out
+                /*foreach (var wound in GetWoundableWounds(parentWoundableEntity))
                 {
                     if (!TryComp<BleedInflicterComponent>(wound, out var bleeds)
                         || !TryComp<WoundableComponent>(parentWoundableEntity, out var parentWoundable)
@@ -848,8 +864,9 @@ public sealed partial class WoundSystem
                         continue;
 
                     // Bleeding :3
-                    bleeds.ScalingLimit += 6;
-                }
+                    //bleeds.ScalingLimit += 6;
+                }*/
+                // Goobstation end
 
                 _body.DetachPart(parentWoundableEntity, bodyPartId.Remove(0, 15), woundableEntity);
                 DestroyWoundableChildren(woundableEntity, woundableComp);
@@ -903,7 +920,13 @@ public sealed partial class WoundSystem
                 || !parentWoundable.CanBleed)
                 continue;
 
-            bleeds.ScalingLimit += 6;
+            // Goobstation start
+            bleeds.BleedingAmountRaw += 20f;
+            bleeds.Scaling = 1f;
+            bleeds.ScalingLimit = 1f;
+            bleeds.IsBleeding = true;
+            //bleeds.ScalingLimit += 6;
+            // Goobstation end
         }
 
 
@@ -1027,7 +1050,8 @@ public sealed partial class WoundSystem
         WoundComponent? woundComp = null,
         BodyComponent? bodyComp = null)
     {
-        if (!Resolve(parent, ref woundableComp, false)
+        // Goobstation start - commented out
+        /*if (!Resolve(parent, ref woundableComp, false)
             || !Resolve(wound, ref woundComp, false)
             || !Resolve(body, ref bodyComp, false)
             || !_prototype.TryIndex(woundComp.DamageType, out DamageTypePrototype? damageType))
@@ -1053,7 +1077,8 @@ public sealed partial class WoundSystem
             var tourniquetable = EnsureComp<TourniquetableComponent>(woundEnt);
             tourniquetable.SeveredSymmetry = bodyPart.Symmetry;
             tourniquetable.SeveredPartType = bodyPart.PartType;
-        }
+        }*/
+        // Goobstation end
     }
 
     /// <summary>
