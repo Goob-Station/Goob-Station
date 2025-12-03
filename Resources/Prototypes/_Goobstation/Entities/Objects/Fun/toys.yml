@@ -1075,8 +1075,8 @@
 - type: entity
   parent: BaseItem
   id: ToyMansusGrasp
-  name: mansus grab
-  description: The power of the Prank Gods, channeled through your grip.
+  name: green grasp
+  description: The power of the Prank Gods, channeled through your grip. Security won't appreciate the prank.
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/mansus_grasp.rsi
@@ -1106,7 +1106,7 @@
 - type: entity
   parent: BaseItem
   id: ToyBladeAsh
-  name: ashy blade
+  name: replica ashen blade
   description: Molten and unwrought, a hunk of plastic warped to cinders and slag. Unmade, it aspires to be more than it is.
   components:
   - type: Sprite
@@ -1130,7 +1130,7 @@
 - type: entity
   parent: BaseItem
   id: ToyBladeBlade
-  name: severed blade
+  name: replica sundered blade
   description: A gallant blade, severed and torn. Furiously, the blade cuts. Plastic scars bind it forever to its dark purpose.
   components:
   - type: Sprite
@@ -1154,7 +1154,7 @@
 - type: entity
   parent: BaseItem
   id: ToyBladeFlesh
-  name: bloodied blade
+  name: replica bloody blade
   description: A crescent blade born from fleshwarped plastic. Keenly aware, it seeks to spread to others the excruciating comedy it has endured from its dreadful origins.
   components:
   - type: Sprite
@@ -1178,7 +1178,7 @@
 - type: entity
   parent: BaseItem
   id: ToyBladeRust
-  name: rusty blade
+  name: replica rusted blade
   description: This crescent blade is decrepit, wasting to rust. Yet still it bites, ripping flesh and bone with jagged, rotten plastic.
   components:
   - type: Sprite
@@ -1202,7 +1202,7 @@
 - type: entity
   parent: BaseItem
   id: ToyBladeVoid
-  name: shadow blade
+  name: replica void blade
   description: Devoid of any substance, this blade reflects comedy. It is a real depiction of hilarity, and chaos that ensues after its implementation.
   components:
   - type: Sprite
