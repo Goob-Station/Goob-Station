@@ -53,6 +53,7 @@
   - type: BreathingImmunity
   - type: SpecialLowTempImmunity
   - type: ThermalVision
+    thermalShader: null
     color: "#BF40BF"
     activateSound: null
     deactivateSound: null

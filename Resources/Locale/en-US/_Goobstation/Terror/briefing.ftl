@@ -52,6 +52,7 @@ ghost-role-information-terror-description = You are a terror spider, you live fo
 ghost-role-information-terror-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with any terror spiders that may be present.
 
 roles-antag-terror-name = Terror Spider
+ghost-role-information-terror-queen-name-token = Queen of Terror (Token)
 
 roles-antag-terror-objective = The brood must thrive. Nothing else matters. Ensure that no harm can come upon the brood by eliminating any threats.
 
