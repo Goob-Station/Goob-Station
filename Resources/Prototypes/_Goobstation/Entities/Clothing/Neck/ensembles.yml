@@ -5,6 +5,14 @@
   description: You're a hardened veteran, and you rule this station with an iron fist. That chess match? Never happened.
   suffix: DO NOT MAP
   components:
+  - type: Item
+    size: Small
+    heldPrefix: both
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/cap.rsi
   - type: Clothing
@@ -41,6 +49,14 @@
   description: In the event of a delamination, this won't protect you from the radiation. With how long you've been doing this, that wouldn't happen. Right?
   suffix: DO NOT MAP
   components:
+  - type: Item
+    size: Small
+    heldPrefix: both
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
   - type: Clothing
@@ -77,6 +93,14 @@
   description: With how many medbays you've seen, you're a real poly math-- unpacking people like packages, and mulching bodies like it's nothing. You WILL set up cloning, right?
   suffix: DO NOT MAP
   components:
+  - type: Item
+    size: Small
+    heldPrefix: both
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
   - type: Clothing
@@ -113,6 +137,14 @@
   description: Stained with the blood of tiders, and the tears of cadets. The word "shitsec" brings you joy, a tear to your eye.
   suffix: DO NOT MAP
   components:
+  - type: Item
+    size: Small
+    heldPrefix: both
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/hos.rsi
   - type: Clothing
@@ -149,6 +181,14 @@
   description: The endpoint of all research leads here. You truly are the pinnacle of science, a monument to Nanotrasens accomplishments and ability to glue you back together, must you explode so often?
   suffix: DO NOT MAP
   components:
+  - type: Item
+    size: Small
+    heldPrefix: all
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/rd.rsi
   - type: Clothing
@@ -205,6 +245,14 @@
   description: Delicately crafted with the most premium materials purchaseable with spesos; a cloak that truly represents the Spirit of Cargonia... and your bank account.
   suffix: DO NOT MAP
   components:
+  - type: Item
+    size: Small
+    heldPrefix: both
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/qm.rsi
   - type: Clothing
@@ -241,6 +289,14 @@
   description: There's nothing sweeter in this world than the tears of someone who was made to fill out five paragraphs of paperwork. You denied them after, of course.
   suffix: DO NOT MAP
   components:
+  - type: Item
+    size: Small
+    heldPrefix: both
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/hop.rsi
   - type: Clothing
@@ -277,6 +333,14 @@
   description: After fending off countless tiders in defense of command, Nanotrasen has finally granted you the ability to die in style. Now get out there and protect the NTR soldier!
   suffix: DO NOT MAP
   components:
+  - type: Item
+    size: Small
+    heldPrefix: cloakblack&mantle
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
   - type: Clothing
@@ -321,6 +385,14 @@
   description: After years of doing practically nothing, Central Command has gifted you this cloak. Now you can do nothing, while looking pretty!
   suffix: DO NOT MAP
   components:
+  - type: Item
+    size: Small
+    heldPrefix: both
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/ntr.rsi
   - type: Clothing
@@ -354,6 +426,14 @@
   name: trans ensemble
   description: Worn by high ranking vampires of the transylvanian society of vampires.
   components:
+  - type: Item
+    size: Small
+    heldPrefix: all
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/trans.rsi
   - type: Clothing
@@ -397,6 +477,14 @@
   description: Who says you can't have style while slaying creatures beyond human comprehension?
   suffix: DO NOT MAP
   components:
+  - type: Item
+    size: Small
+    heldPrefix: both
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Ensembles/salvager.rsi
   - type: Clothing
