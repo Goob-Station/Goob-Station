@@ -21,10 +21,16 @@
   cooldown: 0.5
   hideByRequirement: true
   requirement:
-    !type:StandingStateRequirement
-    allowLaying: true
-    allowKnockedDown: true
-    allowSleep: false
+    !type:ComplexRequirement
+    requirements:
+    - !type:StandingStateRequirement
+      allowLaying: true
+      allowKnockedDown: true
+      allowSleep: false
+    - !type:EntityWhitelistRequirement
+      whitelist:
+        components:
+        - LayingDown
   action:
     !type:ComplexAction
     requireAll: false
@@ -44,8 +50,14 @@
   delay: 4.5
   hideByRequirement: true
   requirement:
-    !type:StandingStateRequirement
-    allowStanding: true
+    !type:ComplexRequirement
+    requirements:
+    - !type:StandingStateRequirement
+      allowStanding: true
+    - !type:EntityWhitelistRequirement
+      whitelist:
+        components:
+        - LayingDown
   action:
     !type:ChangeStandingStateAction
     makeLaying: true
