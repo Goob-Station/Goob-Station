@@ -18990,3 +18990,23 @@ Entries:
       message: Adds 3 more slop plushies to the claw machine.
   id: 2142
   time: '2025-12-03T06:34:42.0000000+00:00'
+- author: Lexidoll
+  changes:
+    - type: Add
+      message: Added Chemlab cigarettes, that can be refilled with jugs.
+    - type: Tweak
+      message: Chemlab cigarette packs and empty patches added to the medvend.
+    - type: Tweak
+      message: Medical patches can now be refilled with jugs.
+    - type: Tweak
+      message: Added a portable chemical mixer to the chemists locker.
+    - type: Tweak
+      message: Cautery tools can now light cigarettes.
+    - type: Tweak
+      message: Medical patches lathe cost reduced by 50%
+    - type: Tweak
+      message: Patches can now be inserted into cig packs.
+    - type: Tweak
+      message: Chembags now accept cig packs and cigarettes
+  id: 2143
+  time: '2025-12-03T06:59:03.0000000+00:00'
