@@ -335,7 +335,7 @@ public sealed class CarryingSystem : EntitySystem
 
     private void ApplyCarrySlowdown(EntityUid carrier, EntityUid carried)
     {
-        var massRatio = _contests.MassContest(carried, carried);
+        var massRatio = _contests.MassContest(carrier, carried);
 
         if (massRatio == 0)
             massRatio = 1;
