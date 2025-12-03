@@ -5,7 +5,6 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Interaction.Events;
-using Content.Shared.InteractionVerbs.Events;
 using Content.Shared.Popups;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
@@ -65,7 +64,6 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         SubscribeLocalEvent<SlasherIncorporealComponent, SlasherIncorporealObserverCheckEvent>(OnObserverCheck);
 
         SubscribeLocalEvent<SlasherIncorporealComponent, InteractionAttemptEvent>(OnAttemptInteract);
-        SubscribeLocalEvent<SlasherIncorporealComponent, InteractionVerbAttemptEvent>(OnAttempt);
         SubscribeLocalEvent<SlasherIncorporealComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<SlasherIncorporealComponent, UseAttemptEvent>(OnUseAttempt);
         SubscribeLocalEvent<SlasherIncorporealComponent, PullAttemptEvent>(OnPullAttempt);
@@ -305,12 +303,6 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     }
 
     private void OnEmoteAttempt(EntityUid uid, SlasherIncorporealComponent comp, ref EmoteAttemptEvent args)
-    {
-        if (comp.IsIncorporeal)
-            args.Cancel();
-    }
-
-    private void OnAttempt(EntityUid uid, SlasherIncorporealComponent comp, CancellableEntityEventArgs args)
     {
         if (comp.IsIncorporeal)
             args.Cancel();
