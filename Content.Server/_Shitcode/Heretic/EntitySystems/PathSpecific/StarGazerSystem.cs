@@ -390,7 +390,7 @@ public sealed class StarGazerSystem : SharedStarGazerSystem
                 _dmg.TryChangeDamage(noob,
                     starGaze.Damage,
                     origin: uid,
-                    targetPart: TargetBodyPart.All,
+                    targetPart: TargetBodyPart.Vital,
                     splitDamage: SplitDamageBehavior.SplitEnsureAll);
 
                 if (_random.Prob(starGaze.ScreamProb))
