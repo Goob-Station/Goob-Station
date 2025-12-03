@@ -7,11 +7,9 @@ namespace Content.Goobstation.Shared.Security.ContrabandIcons.Prototypes;
 [Prototype("contrabandIcon")]
 public sealed partial class ContrabandIconPrototype : StatusIconPrototype, IInheritingPrototype
 {
-        /// <inheritdoc />
         [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<ContrabandIconPrototype>))]
         public string[]? Parents { get; private set; }
 
-        /// <inheritdoc />
         [NeverPushInheritance]
         [AbstractDataField]
         public bool Abstract { get; private set; }
