@@ -39,8 +39,6 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
         Subs.CVar(_configuration, GoobCVars.ContrabandIconsEnabled, value => _isEnabled = value);
         if (_isEnabled)
         {
-            //SubscribeLocalEvent<VisibleContrabandComponent, MapInitEvent>(OnMapInit);
-            
             SubscribeLocalEvent<VisibleContrabandComponent, DidEquipEvent>(OnEquip);
             SubscribeLocalEvent<VisibleContrabandComponent, DidUnequipEvent>(OnUnequip);
 
