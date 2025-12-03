@@ -32,7 +32,11 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
         {
             if (time <= _timing.CurTime)
             {
-                var comp = Comp<VisibleContrabandComponent>(uid);
+                if (!TryComp<VisibleContrabandComponent>(uid, out var comp))
+                {
+                    removeUpdated.Add(uid);
+                    continue;
+                }
                 DetectContraUpdateStatus(uid, comp);
                 removeUpdated.Add(uid);
             }
