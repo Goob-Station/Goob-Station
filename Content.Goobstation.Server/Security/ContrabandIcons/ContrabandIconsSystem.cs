@@ -26,7 +26,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
         base.Update(frameTime);
         if (!_isEnabled)
             return;
-        if (_timing.CurTime < _nextUpdate)
+        if (_nextUpdate < _timing.CurTime)
             return;
         CheckVisibleContra();
         _nextUpdate = _timing.CurTime + TimeSpan.FromMilliseconds(1000);
