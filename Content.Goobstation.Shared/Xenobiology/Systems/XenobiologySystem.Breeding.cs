@@ -29,7 +29,7 @@ public partial class XenobiologySystem
 
         // it sucks but it works and now y*ml warriors can add more slimes 500% faster
         SpawnSlime(ent, ent.Comp.BasePrototype, ent.Comp.Breed);
-        QueueDel(ent);
+        //QueueDel(ent);
     }
 
     private void OnSlimeMapInit(Entity<SlimeComponent> ent, ref MapInitEvent args)
