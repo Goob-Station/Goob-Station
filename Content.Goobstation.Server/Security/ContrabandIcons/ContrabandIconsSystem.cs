@@ -4,6 +4,7 @@ using Content.Goobstation.Shared.Security.ContrabandIcons;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
 using Content.Shared.Contraband;
 using Content.Shared.Hands;
+using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Strip.Components;
 using Robust.Shared.Configuration;
@@ -49,6 +50,8 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnEquip(EntityUid uid, VisibleContrabandComponent comp, DidEquipEvent args)
     {
+        if(args.SlotFlags == SlotFlags.POCKET)
+            return;
         var thiefbuff = 1;
         if (HasComp<ThievingComponent>(args.Equipee))
             thiefbuff = 2;

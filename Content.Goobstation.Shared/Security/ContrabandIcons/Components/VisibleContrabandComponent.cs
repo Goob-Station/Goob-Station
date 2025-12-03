@@ -13,9 +13,10 @@ public sealed partial class VisibleContrabandComponent : Component
     [DataField, AutoNetworkedField] 
     public ProtoId<ContrabandIconPrototype> StatusIcon = "ContrabandIconNone";
 
-    [DataField, AutoNetworkedField] 
+    [DataField] 
     public List<(EntityUid uid, TimeSpan time)> VisibleItems = new();
 
+    [DataField]
     public TimeSpan VisibleTimeout = TimeSpan.FromSeconds(5f);
 }
 
