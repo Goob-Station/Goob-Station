@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.StationRadio.Components;
+using Content.Goobstation.Shared.StationRadio.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
@@ -20,6 +21,8 @@ public sealed class VinylPlayerSystem : EntitySystem
     {
         if(comp.SoundEntity != null)
             _audio.Stop(comp.SoundEntity);
+
+        RaiseLocalEvent(new StationRadioMediaStoppedEvent());
     }
 
     private void OnVinylInserted(EntityUid uid, VinylPlayerComponent comp, EntInsertedIntoContainerMessage args)
@@ -30,5 +33,7 @@ public sealed class VinylPlayerSystem : EntitySystem
         var audio = _audio.PlayPredicted(vinylcomp.Song, uid, args.Entity);
         if (audio != null)
             comp.SoundEntity = audio.Value.Entity;
+
+        RaiseLocalEvent(new StationRadioMediaPlayedEvent(vinylcomp.Song));
     }
 }

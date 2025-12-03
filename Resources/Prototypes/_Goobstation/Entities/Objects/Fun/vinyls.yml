@@ -591,3 +591,13 @@
   components:
   - type: Sprite
     state: plainwhite-vinyl-sleeve
+
+- type: entity
+  name: skbidi
+  id: VinylSleeveWhiteSkibidi
+  parent: BaseItem
+  components:
+  - type: StationRadioReceiver
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/RadioStation/vinylsleeves.rsi
+    state: plainblack-vinyl-sleeve
