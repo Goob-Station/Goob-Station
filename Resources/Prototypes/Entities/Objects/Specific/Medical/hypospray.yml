@@ -122,10 +122,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: hypospray
   parent: [BaseItem, BaseGrandTheftContraband]
-  description: A sterile injector for rapid administration of drugs to patients.
   id: Hypospray
+  name: hypospray
+  description: A sterile injector for rapid administration of drugs to patients.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/hypospray.rsi
@@ -164,10 +164,10 @@
     solutionName: hypospray
 
 - type: entity
-  name: gorlex hypospray
   parent: BaseItem
-  description: Using reverse engineered designs from NT, Cybersun produced these in limited quantities for Gorlex Marauder operatives.
   id: SyndiHypo
+  name: gorlex hypospray
+  description: A sterile injector for rapid administration of drugs. Reverse-engineered from Nanotrasen designs, Cybersun produces these in limited quantities for Gorlex Marauders' corpsmen.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/syndihypo.rsi
@@ -199,10 +199,10 @@
     solutionName: hypospray
 
 - type: entity
-  name: borghypo
   parent: BaseItem
-  description: A sterile injector for rapid administration of drugs to patients. A cheaper and more specialised version for medical borgs.
   id: BorgHypo
+  name: borghypo
+  description: A sterile injector for rapid administration of drugs to patients. This integrated model is specialized for use by medical borgs.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/hypospray.rsi
@@ -223,11 +223,11 @@
     delay: 0.5
 
 - type: entity
+  parent: SyndiHypo
+  id: AdminHypo
   name: experimental hypospray
   suffix: Admeme
-  parent: SyndiHypo
   description: The ultimate application of bluespace technology and rapid chemical administration.
-  id: AdminHypo
   components:
     - type: SolutionContainerManager
       solutions:
@@ -237,10 +237,10 @@
       delay: 0.0
 
 - type: entity
-  name: chemical medipen
   parent: BaseItem
-  description: A sterile injector for rapid administration of drugs to patients. This one can't be refilled.
   id: ChemicalMedipen
+  name: chemical medipen
+  description: A single-dose, non-refillable medipen.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -291,9 +291,9 @@
     solution: pen
 
 - type: entity
-  name: emergency medipen
   parent: ChemicalMedipen
   id: EmergencyMedipen
+  name: emergency medipen
   description: A rapid and safe way to heal minor damage, stop bleeding, and stabilize patients for personnel without advanced medical knowledge. # goobstation
   components:
   - type: Sprite
@@ -323,9 +323,9 @@
     - Trash
 
 - type: entity
-  name: poison auto-injector
   parent: ChemicalMedipen
   id: AntiPoisonMedipen
+  name: poison auto-injector
   description: A rapid dose of anti-poison. Causes extreme stress when mixed with other medications.
   components:
   - type: Item
@@ -360,9 +360,9 @@
        #   Quantity: 5
 
 - type: entity
-  name: brute auto-injector
   parent: ChemicalMedipen
   id: BruteAutoInjector
+  name: brute auto-injector
   description: A rapid dose of bicaridine, salicylic acid, tranexamic acid, and tramadol, intended for combat applications. Usage of multiple highly recommended against. # goobstation
   components:
   - type: Item
@@ -406,9 +406,9 @@
           Quantity: 5
 
 - type: entity
-  name: burn auto-injector
   parent: ChemicalMedipen
   id: BurnAutoInjector
+  name: burn auto-injector
   description: A rapid dose of oxandrolone, leporazine, and tramadol, intended for combat applications. # goobstation
   components:
   - type: Item
@@ -450,10 +450,10 @@
           Quantity: 5
 
 - type: entity
-  name: rad auto-injector
   parent: ChemicalMedipen
   id: RadAutoInjector
-  description: A rapid dose of anti-radiation. Contains arithrazine and bicaridine.
+  name: rad auto-injector
+  description: A single-dose, non-refillable medipen containing arithrazine and bicaridine, used to quickly and easily treat radiation poisoning.
   components:
   - type: Item
     inhandVisuals:
@@ -492,10 +492,10 @@
           Quantity: 5
 
 - type: entity
-  name: puncturase auto-injector
   parent: ChemicalMedipen
   id: PunctAutoInjector
-  description: A rapid dose of puncturase and tranexamic acid, intended for combat applications.
+  name: puncturase auto-injector
+  description: A single-dose, non-refillable medipen containing puncturase and tranexamic acid, used to quickly and easily treat puncture wounds. Commonly used as a combat medicine.
   components:
   - type: Item
     inhandVisuals:
@@ -534,9 +534,9 @@
           Quantity: 5
 
 - type: entity
-  name: pyrazine auto-injector
   parent: ChemicalMedipen
   id: PyraAutoInjector
+  name: pyrazine auto-injector
   description: A rapid dose of pyrazine and oxandrolone, intended for combat applications. # goobstation
   components:
   - type: Item
@@ -576,10 +576,10 @@
           Quantity: 10
 
 - type: entity
-  name: airloss auto-injector
   parent: ChemicalMedipen
   id: AirlossAutoInjector
-  description: A rapid dose of saline and dexalin plus, intended to get someone up quickly.
+  name: airloss auto-injector
+  description: A single-dose, non-refillable medipen containing saline and dexalin plus, used to quickly and easily treat blood loss and asphyxiation.
   components:
   - type: Item
     inhandVisuals:
@@ -618,9 +618,9 @@
           Quantity: 20
 
 - type: entity
-  name: environmental stabilization medipen # goobstation
   parent: ChemicalMedipen
   id: SpaceMedipen
+  name: environmental stabilization medipen # goobstation
   description: Contains a mix of chemicals that will temporarily protect you from low pressure environments, and stabilizes your body temperature. # goobstation
   components:
   - type: Item
@@ -666,10 +666,10 @@
     - Trash
 
 - type: entity
-  name: hyperzine injector
   parent: [ChemicalMedipen, BaseSyndicateContraband]
   id: Stimpack
-  description: Contains enough hyperzine for you to have the chemical's effect for 30 seconds. Use it when you're sure you're ready to throw down.
+  name: hyperzine injector
+  description: A chemical injector containing a large shot of pure hyperzine. For when it's time to throw down. Effects last for about 30 seconds.
   components:
   - type: Item
     inhandVisuals:
@@ -710,10 +710,10 @@
     price: 1500
 
 - type: entity
-  name: hyperzine microinjector
   parent: [ChemicalMedipen, BaseSyndicateContraband]
   id: StimpackMini
-  description: A microinjector of hyperzine that give you about 15 seconds of the chemical's effects.
+  name: hyperzine microinjector
+  description: A chemical microinjector containing a small shot of pure hyperzine. Effects last for about 15 seconds.
   components:
   - type: Item
     inhandVisuals:
@@ -749,10 +749,10 @@
     price: 583 # 3500 for 6 as a freaky fraction
 
 - type: entity
-  name: combat medipen
   parent: [ChemicalMedipen, BaseSyndicateContraband]
   id: CombatMedipen
-  description: A single-use medipen containing chemicals that regenerate most types of damage.
+  name: combat medipen
+  description: A single-dose, non-refillable medipen containing a chemical cocktail that treats most forms of damage.
   components:
   - type: Item
     inhandVisuals:
@@ -793,9 +793,9 @@
     price: 1500
 
 - type: entity
-  suffix: Hypopen
   parent: Pen # It is just like normal pen, isn't it?
   id: Hypopen
+  suffix: Hypopen
   components:
   - type: SolutionContainerManager
     solutions:
@@ -837,10 +837,10 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: weh auto-injector
   parent: ChemicalMedipen
   id: WehMedipen
-  description: A rapid dose of Weh. Contains juice that makes you Weh.
+  name: weh auto-injector
+  description: A non-refillable medipen containing multiple doses of weh.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
