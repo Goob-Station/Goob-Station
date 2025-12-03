@@ -1,0 +1,54 @@
+- type: bookBinding
+  id: Covers
+  rsiPath: /Textures/Objects/Misc/books.rsi
+  layer: cover
+  priority: 0
+  allowedStates:
+  - cover_base
+  - cover_old
+  - cover_strong
+
+- type: bookBinding
+  id: Decor
+  rsiPath: /Textures/Objects/Misc/books.rsi
+  layer: decor
+  priority: 1
+  allowedStates:
+  - decor_bottom
+  - decor_diagonal
+  - decor_middle
+  - decor_spine
+  - decor_vertical_middle
+  - decor_wingette_circle
+  - decor_wingette
+
+- type: bookBinding
+  id: Icons
+  rsiPath: /Textures/Objects/Misc/books.rsi
+  layer: icon
+  priority: 2
+  allowedStates:
+  - icon_apple
+  - icon_atmos
+  - icon_aurora
+  - icon_banana
+  - icon_bar
+  - icon_biohazard
+  - icon_borg
+  - icon_briefcase
+  - icon_bucket
+  - icon_cabbage
+  - icon_chemical
+  - icon_corner
+  - icon_diamond
+  - icon_dna
+  - icon_eye
+  - icon_fish
+  - icon_glow
+  - icon_hacking
+  - icon_ian
+  - icon_law
+  - icon_lightning
+  - icon_magic_fireball
+  - icon_magic_forcewall
+  - icon_magic

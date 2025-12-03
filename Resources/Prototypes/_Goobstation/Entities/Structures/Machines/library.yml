@@ -1,0 +1,153 @@
+- type: entity
+  id: BookBinder
+  parent: [ BaseMachinePowered ]
+  name: book binder
+  description: Used for binding paper into books.
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: WiresPanel
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/book_binder.rsi
+    layers:
+    - state: binder
+      map: ["main"]
+  - type: Appearance
+  - type: BookBinder
+    bookCreatedSound:
+      path: /Audio/Machines/high_tech_confirm.ogg
+  - type: ContainerContainer
+    containers:
+      binder_paper: !type:Container
+        showEnts: false
+  - type: ActivatableUI
+    key: enum.BookBinderUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.BookBinderUiKey.Key:
+        type: BookBinderBoundUserInterface
+  - type: GenericVisualizer
+    visuals:
+      enum.BookBinderVisuals.Inserting:
+        main:
+          True: { state: binder1 }
+          False: { state: binder }
+
+- type: entity
+  id: BookScanner
+  parent: [ BaseMachinePowered ]
+  name: book scanner
+  description: Big scanner for books. This one is sending them right to the centcom servers!
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/book_scanner.rsi
+    layers:
+    - state: bigscanner
+      map: ["main"]
+  - type: Appearance
+  - type: BookScanner
+  - type: ItemPlacer
+    whitelist:
+      components:
+      - CustomBook
+  - type: PlaceableSurface
+    placeCentered: true
+  - type: ActivatableUI
+    key: enum.BookScannerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.BookScannerUiKey.Key:
+        type: BookScannerBoundUserInterface
+  - type: AmbientSound
+    volume: -9
+    range: 5
+    enabled: false
+    sound:
+      path: /Audio/Ambience/Objects/server_fans.ogg
+  - type: Fixtures
+    fixtures:
+      itemcollide:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.14,-0.05,0.15,0.25"
+        layer:
+        - HighImpassable
+        hard: false
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: GenericVisualizer
+    visuals:
+      enum.BookScannerVisuals.Scanning:
+        main:
+          True: { state: bigscanner1 }
+          False: { state: bigscanner }
+
+- type: entity
+  id: BookPrinter
+  parent: [ BaseMachinePowered ]
+  name: book printer
+  description: Just a printer.
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/book_printer.rsi
+    layers:
+    - state: printer-p
+    - state: printer-printing
+      map: ["printing"]
+  - type: Appearance
+  - type: BookPrinter
+  - type: AmbientSound
+    enabled: false
+    sound:
+      path: /Audio/Machines/uniformprinter.ogg
+  - type: ActivatableUI
+    key: enum.BookPrinterUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.BookPrinterUiKey.Key:
+        type: BookPrinterBoundUserInterface
+  - type: GenericVisualizer
+    visuals:
+      enum.BookPrinterVisuals.Printing:
+        printing:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.14,-0.05,0.15,0.25"
+        mask:
+        - TabletopMachineMask
+        layer:
+        - TabletopMachineLayer
+
+- type: entity
+  id: AdminBookPrinter
+  parent: [ BaseMachinePowered ]
+  name: admin book printer
+  description: Just a printer. This one allows you to delete books from server.
+  components:
+  - type: BookPrinter
+    allowDeleting: true
