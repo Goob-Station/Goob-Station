@@ -33,7 +33,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
             if (time <= _timing.CurTime)
             {
                 var comp = Comp<VisibleContrabandComponent>(uid);
-                UpdateStatus(uid, comp);
+                DetectContraUpdateStatus(uid, comp);
                 removeUpdated.Add(uid);
             }
         }
@@ -91,7 +91,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
         _pendingUpdate[uid] = _timing.CurTime + TimeSpan.FromMilliseconds(200);
     }
 
-    private void UpdateStatus(EntityUid uid, VisibleContrabandComponent comp)
+    private void DetectContraUpdateStatus(EntityUid uid, VisibleContrabandComponent comp)
     {
         bool hasContraband = false;
         foreach (var item in comp.VisibleItems)

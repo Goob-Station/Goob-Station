@@ -1,9 +1,9 @@
 using Content.Client.Overlays;
+using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
-using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
 
-namespace Content.Goobstation.Client.Security.Systems;
+namespace Content.Goobstation.Client.Security.ContrabandIcons;
 
 public sealed class ShowContrabandIconsSystem : EquipmentHudSystem<ShowContrabandIconsComponent>
 {
