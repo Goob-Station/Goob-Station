@@ -32,7 +32,7 @@ public sealed partial class RandomGateComponent : Component
     /// <summary>
     /// The probability (0.0 to 1.0) that the gate will output a signal.
     /// </summary>
-    [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     [Range(0f, 1f)]
     public float SuccessProbability = 0.5f;
 }
