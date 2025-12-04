@@ -96,6 +96,7 @@ public sealed class SmartFridgeSystem : EntitySystem
     /// <param name="user">The user trying to insert something.</param>
     /// <param name="thingToInsert">The thing to be inserted into the smartfridge.</param>
     /// <exception cref="Exception">Thrown if <paramref name="ent"/> doesn't have a valid <see cref="BaseContainer"/> container.</exception>
+    /// <seealso cref="TryInsertEntity(Entity{SmartFridgeComponent}, EntityUid, EntityUid)"/>
     private void InsertEntity(Entity<SmartFridgeComponent> ent, EntityUid user, EntityUid thingToInsert)
     {
         if (!_container.TryGetContainer(ent, ent.Comp.Container, out var container))
