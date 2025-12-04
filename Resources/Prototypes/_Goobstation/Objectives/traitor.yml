@@ -149,6 +149,6 @@
     difficulty: 3 # funny big black box that insta outs you on evac
   - type: StealCondition
     stealGroup: Blackbox
-#    verifyMapExistence: true
+    verifyMapExistence: true
     descriptionText: objective-condition-steal-blackbox-description
 

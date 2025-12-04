@@ -33,6 +33,7 @@
     CorporateStealSupermatterSliverObjective: 0.5 # Goobstation - supermatter
     CorporateLawbringerStealObjective: 0.5 # Goobstation specific
     CorporateGeminiProjectorStealObjective: 0.5 # Goobstation specific
+    BlackboxStealObjective: 0.5 # Goobstation specific
 
 - type: weightedRandom
   id: CorporateObjectiveGroupKill

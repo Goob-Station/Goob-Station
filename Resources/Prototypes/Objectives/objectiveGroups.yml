@@ -130,6 +130,7 @@
     StealSupermatterSliverObjective: 0.5 # Goobstation - supermatter
     LawbringerStealObjective: 0.5 # Goobstation
     GeminiProjectorStealObjective: 0.5 # Goobstation
+    BlackboxStealObjective: 0.5 # Goobstation
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
