@@ -140,3 +140,15 @@
   - type: Objective
     # This bad boy is LITERALLY directly screwed into the RDs spinal cord. Good luck!
     difficulty: 3.5
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: BlackboxStealObjective
+  components:
+  - type: Objective
+    difficulty: 3 # funny big black box that insta outs you on evac
+  - type: StealCondition
+    stealGroup: Blackbox
+#    verifyMapExistence: true
+    descriptionText: objective-condition-steal-blackbox-description
+

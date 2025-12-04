@@ -58,3 +58,10 @@
   sprite:
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
     state: icon
+
+- type: stealTargetGroup
+  id: Blackbox
+  name: objective-condition-steal-blackbox-name
+  sprite:
+    sprite: _Goobstation/Structures/Specific/blackbox.rsi
+    state: icon

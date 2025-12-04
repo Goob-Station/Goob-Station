@@ -1,0 +1,35 @@
+- type: entity
+  parent: [BaseStructure, BaseGrandTheftContraband]
+  id: Blackbox
+  name: blackbox recorder
+  description: A black box, used to record the station communication messages in itself, that only Central Command can access. Looks very heavy.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Specific/blackbox.rsi
+    state: blackbox
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 656 # supposed to be heavier than ur mom
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: InteractionOutline
+  - type: Anchorable
+    delay: 5
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: Blackbox
+  - type: AmbientSound
+    volume: -9
+    range: 5
+    enabled: false
+    sound:
+      path: /Audio/Ambience/Objects/server_fans.ogg
