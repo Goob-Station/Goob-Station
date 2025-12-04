@@ -4403,3 +4403,12 @@ Entries:
   id: 9248
   time: '2025-12-04T17:07:51.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41700
+- author: SlamBamActionman
+  changes:
+  - message: Ephedrine, Desoxyephedrine and Hyperzine have had their stats reworked,
+      with Desoxyephedrine now giving a higher max stamina and Hyperzine lasting much
+      longer, among other changes.
+    type: Tweak
+  id: 9249
+  time: '2025-12-04T18:05:29.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41693
