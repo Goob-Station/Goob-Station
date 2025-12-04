@@ -1,0 +1,43 @@
+- type: entity
+  id: CrateCerenkiteFuelRod
+  parent: CrateEngineeringSecure
+  name: fuel rod crate
+  description: 3 cerenkite fuel rods, for fuelling a nuclear reactor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: CerenkiteReactorFuelRod
+        amount: 3
+
+- type: entity
+  id: CrateBohrumControlRod
+  parent: CrateEngineeringSecure
+  name: control rod crate
+  description: 2 bohrum control rods for a nuclear reactor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BohrumReactorControlRod
+        amount: 2
+
+- type: entity
+  id: CrateSteelGasChannel
+  parent: CrateEngineeringSecure
+  name: gas channel rod crate
+  description: 4 steel gas channel rods for a nuclear reactor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SteelReactorGasChannel
+        amount: 4
+
+- type: entity
+  id: CrateSteelHeatExhanger
+  parent: CrateEngineeringSecure
+  name: heat exchanger rod crate
+  description: 4 steel heat exchanger rods for a nuclear reactor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SteelReactorHeatExchanger
+        amount: 4

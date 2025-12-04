@@ -1,0 +1,52 @@
+- type: entity
+  parent: IngotBase
+  id: IngotPlutonium
+  name: plutonium bar
+  suffix: Full
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Plutonium: 100
+  - type: Stack
+    stackType: Plutonium
+    baseLayer: base
+    layerStates:
+    - iron # Why iron? Because I haven't gotten a spriter to make better
+    - iron_2
+    - iron_3
+  - type: Sprite
+    state: iron_3
+    layers:
+    - state: iron_3
+      map: ["base"]
+  - type: Item
+    heldPrefix: plutonium
+  - type: Appearance
+  # - type: Extractable
+  #   grindableSolutionName: gold
+  # - type: SolutionContainerManager
+  #   solutions:
+  #     gold:
+  #       reagents:
+  #       - ReagentId: Silver
+  #         Quantity: 10
+  - type: RadiationSource
+    intensity: 0.08
+    slope: 3
+  - type: PointLight
+    radius: 1.2
+    energy: 0.8
+    castShadows: false
+    color: "#22bbff"
+
+- type: entity
+  parent: IngotPlutonium
+  id: IngotPlutonium1
+  name: plutonium bar
+  suffix: Single
+  components:
+  - type: Sprite
+    state: iron
+  - type: Stack
+    count: 1

@@ -1,0 +1,33 @@
+- type: entity
+  id: NuclearCentrifuge
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: nuclear centrifuge
+  description: A large machine that can be used to separate radioactive isotopes from spent fuel.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Machines/nuclear_centrifuge.rsi
+    snapCardinals: true
+    layers:
+    - state: centrifuge
+      map: ["enum.NuclearCentrifugeVisualLayers.Processing"]
+    # - state: panel
+    #   map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    #   visible: false
+    - state: centrifuge_onlight
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: GenericVisualizer
+    visuals:
+      enum.NuclearCentrifugeVisuals.Processing:
+        enum.NuclearCentrifugeVisualLayers.Processing:
+          True: { state: centrifuge_process }
+          False: { state: centrifuge }
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: True }
+          False: { visible: False }
+  - type: Appearance
+  - type: Machine
+    board: NuclearCentrifugeMachineCircuitboard
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: NuclearCentrifuge

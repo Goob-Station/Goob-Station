@@ -1,0 +1,48 @@
+- type: entity
+  id: TurbineBladeShrapnel
+  name: turbine blade
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: FlyBySound
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Materials/Scrap/generic.rsi
+    state: metal-1
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+      fly-by: &flybyfixture
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
+  - type: Projectile
+    impactEffect: BulletImpactEffect
+    deleteOnCollide: false
+    damage:
+      types: # hit hard ye
+        Piercing: 25
+        Slash: 75
+        Structural: 400
+    soundHit:
+      path: /Audio/Effects/metal_crunch.ogg
+    penetrationThreshold: 400
+    penetrationDamageTypeRequirement:
+    - Structural
+  - type: TimedDespawn
+    lifetime: 0.3
