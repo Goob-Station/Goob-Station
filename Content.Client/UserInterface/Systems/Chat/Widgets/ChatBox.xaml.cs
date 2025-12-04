@@ -92,21 +92,6 @@ public partial class ChatBox : UIWidget
         // WD EDIT END
     }
 
-    // Goobstation start
-    private void UpdateCoalescence(bool value)
-    {
-        _coalescence = value; Repopulate();
-
-        foreach (var child in Contents.Children.ToArray())
-        {
-            if (child.Name != "_v_scroll")
-            {
-                Contents.RemoveChild(child);
-            }
-        }
-    }
-    // Goobstation end
-
     private void OnTextEntered(LineEditEventArgs args)
     {
         _controller.SendMessage(this, SelectedChannel);
@@ -159,50 +144,33 @@ public partial class ChatBox : UIWidget
         _controller.UpdateSelectedChannel(this);
     }
 
+    // Goobstation moved to .Goob.cs
+    #region Moved to .Goob.cs
+    /*
     public void Repopulate()
     {
         Contents.Clear();
-
-        // Goobstation start
-        foreach (var child in Contents.Children.ToArray())
-        {
-            if (child.Name != "_v_scroll")
-            {
-                Contents.RemoveChild(child);
-            }
-        }
-        // Goobstation end
 
         foreach (var message in _controller.History)
         {
             OnMessageAdded(message.Item2);
         }
     }
+    */
 
+    /*
     private void OnChannelFilter(ChatChannel channel, bool active)
     {
         Contents.Clear();
-
-        // Goobstation start
-        foreach (var child in Contents.Children.ToArray())
-        {
-            if (child.Name != "_v_scroll")
-            {
-                Contents.RemoveChild(child);
-            }
-        }
-        // Goobstation end
-
-        foreach (var message in _controller.History)
-        {
-            OnMessageAdded(message.Item2);
-        }
 
         if (active)
         {
             _controller.ClearUnfilteredUnreads(channel);
         }
     }
+    */
+    #endregion
+
 
     private void OnNewHighlights(string highlighs)
     {

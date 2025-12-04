@@ -6,9 +6,7 @@
 using Content.Goobstation.Shared.IntrinsicVoiceModulator; // Goobstation
 using Content.Goobstation.Shared.IntrinsicVoiceModulator.Components; // Goobstation
 using Content.Goobstation.Shared.IntrinsicVoiceModulator.Events; // Goobstation
-using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Alert;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Chat.RadioIconsEvents; // Goobstation
@@ -26,8 +24,6 @@ public sealed partial class IntrinsicVoiceModulatorSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedJobSystem _job = default!;
 
@@ -43,7 +39,8 @@ public sealed partial class IntrinsicVoiceModulatorSystem : EntitySystem
         SubscribeLocalEvent<IntrinsicVoiceModulatorComponent, TransformSpeakerJobIconEvent>(OnTransformJobIcon);
         SubscribeLocalEvent<IntrinsicVoiceModulatorComponent, OpenIntrinsicVoiceModulatorMenuEvent>(OnOpenVoiceModulatorMenu);
 
-        Subs.BuiEvents<IntrinsicVoiceModulatorComponent>(IntrinsicVoiceModulatorUiKey.Key, subs =>
+        Subs.BuiEvents<IntrinsicVoiceModulatorComponent>(IntrinsicVoiceModulatorUiKey.Key,
+            subs =>
         {
             subs.Event<IntrinsicVoiceModulatorNameChangedMessage>(OnNameChangedMessage);
             subs.Event<IntrinsicVoiceModulatorJobIconChangedMessage>(OnJobIconChanged);

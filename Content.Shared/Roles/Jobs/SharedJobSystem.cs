@@ -22,7 +22,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Players;
 using Content.Shared.Players.PlayTimeTracking;
-using Content.Shared.StatusIcon; // GabyStation radio icons
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -32,7 +31,7 @@ namespace Content.Shared.Roles.Jobs;
 /// <summary>
 ///     Handles the job data on mind entities.
 /// </summary>
-public abstract class SharedJobSystem : EntitySystem
+public abstract partial class SharedJobSystem : EntitySystem
 {
     [Dependency] private readonly SharedPlayerSystem _playerSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
@@ -102,7 +101,8 @@ public abstract class SharedJobSystem : EntitySystem
     /// For example, with CE it will return Engineering but with captain it will
     /// not return anything, since Command is not a primary department.
     /// </summary>
-    public bool TryGetPrimaryDepartment(string jobProto, [NotNullWhen(true)] out DepartmentPrototype? departmentPrototype)
+    public bool TryGetPrimaryDepartment(string jobProto,
+        [NotNullWhen(true)] out DepartmentPrototype? departmentPrototype)
     {
         // not sorting it since there should only be 1 primary department for a job.
         // this is enforced by the job tests.
@@ -147,7 +147,8 @@ public abstract class SharedJobSystem : EntitySystem
     /// <summary>
     /// Try to get the lowest weighted department for the given job. If the job has no departments will return null.
     /// </summary>
-    public bool TryGetLowestWeightDepartment(string jobProto, [NotNullWhen(true)] out DepartmentPrototype? departmentPrototype)
+    public bool TryGetLowestWeightDepartment(string jobProto,
+        [NotNullWhen(true)] out DepartmentPrototype? departmentPrototype)
     {
         departmentPrototype = null;
 
@@ -240,32 +241,4 @@ public abstract class SharedJobSystem : EntitySystem
 
         return prototype.CanBeAntag;
     }
-
-    // Goobstation Change: Returns the amount of Goobcoins a player will receive when they finish a round as this job.
-    public int GetJobGoobcoins(ICommonSession player)
-    {
-        if (_playerSystem.ContentData(player) is not { Mind: { } mindId }
-            || !MindTryGetJob(mindId, out var prototype))
-            return 1;
-
-        return prototype.Goobcoins;
-    }
-
-    // GabyStation
-    public bool TryFindJobFromIcon(JobIconPrototype jobIcon, [NotNullWhen(true)] out JobPrototype? job)
-    {
-        foreach (var jobPrototype in _prototypes.EnumeratePrototypes<JobPrototype>())
-        {
-            if (jobPrototype.Icon == jobIcon.ID)
-            {
-                job = jobPrototype;
-                return true;
-            }
-        }
-
-        job = null;
-        return false;
-    }
-
-    // GabyStation end
 }

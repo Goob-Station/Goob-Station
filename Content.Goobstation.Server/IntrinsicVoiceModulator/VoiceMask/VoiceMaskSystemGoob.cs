@@ -4,7 +4,6 @@ using Content.Shared.Chat.RadioIconsEvents;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Roles.Jobs;
-using Content.Shared.VoiceMask;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.IntrinsicVoiceModulator.VoiceMask;
@@ -15,7 +14,6 @@ namespace Content.Goobstation.Server.IntrinsicVoiceModulator.VoiceMask;
 public sealed partial class VoiceMaskSystemGoob : EntitySystem
 {
     [Dependency] private readonly SharedJobSystem _job = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly VoiceMaskSystem _voicemask = default!;
@@ -43,10 +41,7 @@ public sealed partial class VoiceMaskSystemGoob : EntitySystem
 
         entity.Comp.JobIconProtoId = proto.ID;
 
-        if (_job.TryFindJobFromIcon(proto, out var job))
-            entity.Comp.JobName = job.LocalizedName;
-        else
-            entity.Comp.JobName = null;
+        entity.Comp.JobName = _job.TryFindJobFromIcon(proto, out var job) ? job.LocalizedName : null;
 
         _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-success"), entity, ev.Actor);
         _voicemask.UpdateUI(entity);

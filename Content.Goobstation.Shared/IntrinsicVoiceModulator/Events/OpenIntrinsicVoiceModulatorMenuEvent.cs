@@ -7,4 +7,4 @@ using Content.Shared.Actions;
 
 namespace Content.Goobstation.Shared.IntrinsicVoiceModulator.Events;
 
-public sealed partial class OpenIntrinsicVoiceModulatorMenuEvent : InstantActionEvent { }
+public sealed partial class OpenIntrinsicVoiceModulatorMenuEvent : InstantActionEvent;

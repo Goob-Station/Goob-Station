@@ -9,7 +9,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.UIKit.UserInterface.RichText;
 
-public sealed class IconTag : IMarkupTag
+public sealed class IconTag : IMarkupTagHandler
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
@@ -26,7 +26,7 @@ public sealed class IconTag : IMarkupTag
         }
         _spriteSystem ??= _entitySystem.GetEntitySystem<SpriteSystem>();
         var texture = _prototype.TryIndex<JobIconPrototype>(id.StringValue, out var iconPrototype)
-                ? _spriteSystem.Frame0((SpriteSpecifier)iconPrototype.Icon)
+                ? _spriteSystem.Frame0(iconPrototype.Icon)
                 : null;
         var icon = new TextureRect
         {

@@ -7,17 +7,11 @@ namespace Content.Shared.Chat.RadioIconsEvents;
 /// <summary>
 ///     Raised whenever a radio message is sent, contains the job icon and name of the sender, Added by goobstation
 /// </summary>
-public sealed class TransformSpeakerJobIconEvent : EntityEventArgs, IInventoryRelayEvent
+public sealed class TransformSpeakerJobIconEvent(EntityUid sender, ProtoId<JobIconPrototype> jobIcon, string? jobName)
+    : EntityEventArgs, IInventoryRelayEvent
 {
     public SlotFlags TargetSlots { get; } = SlotFlags.WITHOUT_POCKET;
-    public EntityUid Sender;
-    public ProtoId<JobIconPrototype> JobIcon;
-    public string? JobName;
-
-    public TransformSpeakerJobIconEvent(EntityUid sender, ProtoId<JobIconPrototype> jobIcon, string? jobName)
-    {
-        Sender = sender;
-        JobIcon = jobIcon;
-        JobName = jobName;
-    }
+    public EntityUid Sender = sender;
+    public ProtoId<JobIconPrototype> JobIcon = jobIcon;
+    public string? JobName = jobName;
 }

@@ -50,12 +50,9 @@ using Content.Server.Radio.Components;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared._EinsteinEngines.Language;
-using Content.Shared._EinsteinEngines.Language.Systems;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Speech;
-using Content.Shared.Silicons.Borgs.Components; // Goobstation
-using Content.Shared.Silicons.StationAi; // Goobstation
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -64,18 +61,19 @@ using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Shared.Access.Systems; // Goobstation
-using Content.Shared.Access.Components; // Goobstation
+// Goobstation
 using Content.Shared.Chat.RadioIconsEvents; // Goobstation
-using Content.Shared.PDA; // Goobstation
+// Goobstation
 using Content.Shared.Whitelist;
-using Content.Shared.StatusIcon; // Goobstation
+
+// Goobstation
 
 namespace Content.Server.Radio.EntitySystems;
 
 /// <summary>
 ///     This system handles intrinsic radios and the general process of converting radio messages into chat messages.
 /// </summary>
-public sealed class RadioSystem : EntitySystem
+public sealed partial class RadioSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly IReplayRecordingManager _replay = default!;
@@ -357,38 +355,6 @@ public sealed class RadioSystem : EntitySystem
             }
         }
         return false;
-    }
-
-    // Goob start
-    /// <summary>
-    /// This handles the radio job icons that are displayed next to a players name when sending a message over radio
-    /// </summary>
-    /// <param name="EntityUID"></param>
-    /// <returns></returns>
-    private (ProtoId<JobIconPrototype>, string?) GetJobIcon(EntityUid ent)
-    {
-        if (_accessReader.FindAccessItemsInventory(ent, out var items))
-        {
-            foreach (var item in items)
-            {
-                // ID Card
-                if (TryComp<IdCardComponent>(item, out var id))
-                    return (id.JobIcon, id.LocalizedJobTitle);
-
-                // PDA
-                if (TryComp<PdaComponent>(item, out var pda)
-                    && pda.ContainedId != null
-                    && TryComp(pda.ContainedId, out id))
-                    return (id.JobIcon, id.LocalizedJobTitle);
-            }
-        }
-        if (HasComp<StationAiHeldComponent>(ent))
-            return ("JobIconStationAi", Loc.GetString("job-name-station-ai"));
-
-        if (HasComp<BorgChassisComponent>(ent) || HasComp<BorgBrainComponent>(ent))
-            return ("JobIconBorg", Loc.GetString("job-name-borg"));
-
-        return ("JobIconNoId", null);
     }
 
     /// <inheritdoc cref="TelecomServerComponent"/>

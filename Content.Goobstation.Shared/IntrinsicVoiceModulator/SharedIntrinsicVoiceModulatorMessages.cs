@@ -17,49 +17,33 @@ public enum IntrinsicVoiceModulatorUiKey : byte
 }
 
 [Serializable, NetSerializable]
-public sealed class IntrinsicVoiceModulatorBoundUserInterfaceState : BoundUserInterfaceState
+public sealed class IntrinsicVoiceModulatorBoundUserInterfaceState(
+    string currentName,
+    ProtoId<SpeechVerbPrototype>? currentVerb,
+    ProtoId<JobIconPrototype>? jobIcon)
+    : BoundUserInterfaceState
 {
-    public string CurrentName { get; }
-    public ProtoId<SpeechVerbPrototype>? CurrentVerb { get; }
-    public ProtoId<JobIconPrototype>? JobIcon { get; }
-
-    public IntrinsicVoiceModulatorBoundUserInterfaceState(string currentName, ProtoId<SpeechVerbPrototype>? currentVerb, ProtoId<JobIconPrototype>? jobIcon)
-    {
-        CurrentName = currentName;
-        CurrentVerb = currentVerb;
-        JobIcon = jobIcon;
-    }
+    public string CurrentName { get; } = currentName;
+    public ProtoId<SpeechVerbPrototype>? CurrentVerb { get; } = currentVerb;
+    public ProtoId<JobIconPrototype>? JobIcon { get; } = jobIcon;
 }
 
 [NetSerializable, Serializable]
-public sealed class IntrinsicVoiceModulatorNameChangedMessage : BoundUserInterfaceMessage
+public sealed class IntrinsicVoiceModulatorNameChangedMessage(string name) : BoundUserInterfaceMessage
 {
-    public string Name { get; }
-
-    public IntrinsicVoiceModulatorNameChangedMessage(string name)
-    {
-        Name = name;
-    }
+    public string Name { get; } = name;
 }
 
 [NetSerializable, Serializable]
-public sealed class IntrinsicVoiceModulatorJobIconChangedMessage : BoundUserInterfaceMessage
+public sealed class IntrinsicVoiceModulatorJobIconChangedMessage(ProtoId<JobIconPrototype> jobIconProtoId)
+    : BoundUserInterfaceMessage
 {
-    public ProtoId<JobIconPrototype> JobIconProtoId { get; }
-
-    public IntrinsicVoiceModulatorJobIconChangedMessage(ProtoId<JobIconPrototype> jobIconProtoId)
-    {
-        JobIconProtoId = jobIconProtoId;
-    }
+    public ProtoId<JobIconPrototype> JobIconProtoId { get; } = jobIconProtoId;
 }
 
 [NetSerializable, Serializable]
-public sealed class IntrinsicVoicemodulatorVerbChangedMessage : BoundUserInterfaceMessage
+public sealed class IntrinsicVoicemodulatorVerbChangedMessage(ProtoId<SpeechVerbPrototype>? speechProtoId)
+    : BoundUserInterfaceMessage
 {
-    public ProtoId<SpeechVerbPrototype>? SpeechProtoId { get; }
-
-    public IntrinsicVoicemodulatorVerbChangedMessage(ProtoId<SpeechVerbPrototype>? speechProtoId)
-    {
-        SpeechProtoId = speechProtoId;
-    }
+    public ProtoId<SpeechVerbPrototype>? SpeechProtoId { get; } = speechProtoId;
 }

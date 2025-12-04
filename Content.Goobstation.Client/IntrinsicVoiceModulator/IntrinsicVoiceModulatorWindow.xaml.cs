@@ -63,7 +63,8 @@ public sealed partial class IntrinsicVoiceModulatorWindow : DefaultWindow
     public void ReloadJobIcons()
     {
         var icons = _protoManager.EnumeratePrototypes<JobIconPrototype>()
-            .Where(icon => icon.AllowSelection).ToList();
+            .Where(icon => icon.AllowSelection)
+            .ToList();
 
         icons.Sort((x, y) => string.Compare(x.LocalizedJobName, y.LocalizedJobName, StringComparison.CurrentCulture));
 
@@ -106,7 +107,7 @@ public sealed partial class IntrinsicVoiceModulatorWindow : DefaultWindow
             _jobIconButtons.Add(jobIcon.ID, jobIconButton);
 
             jobIconButton.AddChild(jobIconTexture);
-            jobIconButton.OnPressed += args =>
+            jobIconButton.OnPressed += _ =>
             {
                 _currentJobIconId = jobIcon.ID;
                 OnJobIconChanged?.Invoke(jobIcon.ID);
@@ -122,7 +123,7 @@ public sealed partial class IntrinsicVoiceModulatorWindow : DefaultWindow
         {
             _verbs.Add((Loc.GetString(verb.Name), verb.ID));
         }
-        _verbs.Sort((a, b) => a.Item1.CompareTo(b.Item1));
+        _verbs.Sort((a, b) => string.Compare(a.Item1, b.Item1, StringComparison.Ordinal));
     }
 
     public void AddVerbs()

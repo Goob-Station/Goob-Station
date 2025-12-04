@@ -58,6 +58,7 @@ public sealed partial class VoiceMaskComponent : Component
     [DataField]
     public bool EnableAction = true; //Goobstation
 
+    #region GabyStation
     /// <summary>
     ///     The job icon to be displayed next to their name when speaking on radio
     /// </summary>
@@ -69,4 +70,5 @@ public sealed partial class VoiceMaskComponent : Component
     /// </summary>
     [DataField]
     public string? JobName; // GabyStation -> Radio icons
+    #endregion
 }

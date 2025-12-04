@@ -8,7 +8,6 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.Stylesheets;
 using Content.Shared.StatusIcon;
-using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Prototypes;
@@ -33,7 +32,8 @@ public sealed partial class VoiceMaskNameChangeWindow
     public void ReloadJobIcons()
     {
         var icons = _protoManager.EnumeratePrototypes<JobIconPrototype>()
-            .Where(icon => icon.AllowSelection).ToList();
+            .Where(icon => icon.AllowSelection)
+            .ToList();
 
         icons.Sort((x, y) => string.Compare(x.LocalizedJobName, y.LocalizedJobName, StringComparison.CurrentCulture));
 
@@ -76,7 +76,7 @@ public sealed partial class VoiceMaskNameChangeWindow
             _jobIconButtons.Add(jobIcon.ID, jobIconButton);
 
             jobIconButton.AddChild(jobIconTexture);
-            jobIconButton.OnPressed += args =>
+            jobIconButton.OnPressed += _ =>
             {
                 _currentJobIconId = jobIcon.ID;
                 OnJobIconChanged?.Invoke(jobIcon.ID);
