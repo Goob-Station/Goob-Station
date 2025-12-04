@@ -187,12 +187,14 @@
       prob: 0.3
     - id: ClothingBeltPlant
     - id: PlantBag ##Some maps don't have nutrivend
+    - id: PlantAnalyzer
     - id: BoxMouthSwab
     - id: Dropper
     - id: HandLabeler
     - id: ClothingUniformOveralls
     - id: ClothingHeadHatTrucker
       prob: 0.1
+
 
 - type: entity
   id: LockerBotanistLoot
