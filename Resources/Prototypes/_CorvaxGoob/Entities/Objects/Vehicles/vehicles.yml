@@ -1,0 +1,37 @@
+- type: entity
+  parent: BaseVehicle
+  id: VehicleSkeletonMotorcycle
+  name: skeleton motorcycle
+  description: Bad to the Bone.
+  components:
+    - type: Vehicle
+      renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
+    - type: Sprite
+      sprite: Objects/Vehicles/motorbike.rsi
+      state: vehicle
+      noRot: true
+    - type: MovementSpeedModifier
+      acceleration: 2
+      friction: 1.5
+      baseWalkSpeed: 4.5
+      baseSprintSpeed: 7
+    - type: UnpoweredFlashlight
+    - type: PointLight
+      enabled: false
+      radius: 3.5
+      softness: 2
+      mask: /Textures/Effects/LightMasks/cone.png
+      autoRot: true
+    - type: ItemSlots
+      slots:
+        key_slot:
+          name: vehicle-slot-component-slot-name-keys
+          whitelist:
+            requireAll: true
+            tags:
+              - VehicleKey
+              - SkeletonMotorcycleKeys
+          insertSound:
+            path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+            params:
+              volume: -3

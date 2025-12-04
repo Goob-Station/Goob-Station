@@ -7,6 +7,8 @@
   components:
   - type: HumanoidAppearance
     species: Feroxi
+    hideLayersOnEquip:
+    - Snout
   - type: Hunger
   # - type: Carriable # ShibaStation - disabled because broken, for now.
   - type: Inventory
@@ -118,6 +120,8 @@
   components:
   - type: HumanoidAppearance
     species: Feroxi
+    hideLayersOnEquip:
+    - Snout
   - type: Sprite # Why does feroxi redefine sprites in basemob but NOT in dummy (lobby) ???, fixing that - Goob 120
     netsync: false
     noRot: true

@@ -1,8 +1,8 @@
-using Content.Server.StationEvents.Events;
+using Content.Goobstation.Server.StationEvents.Events;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.StationEvents.Components;
+namespace Content.Goobstation.Server.StationEvents.Components;
 
 /// <summary>
 /// This is a station event that randomly adds specific jobs for latejoin. Early merged from wizden in pr #4677.

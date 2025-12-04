@@ -184,6 +184,7 @@
   cost: 7500
   recipeUnlocks:
   - StasisBedMachineCircuitboard
+  - StasisOperatingTableCircuitboard # Corvax-Goob-StasisOperatingTable
   - CryoPodMachineCircuitboard
   - CryostasisBeaker
   - SyringeCryostasis
@@ -193,23 +194,24 @@
   - AccessibilityTech
   # Goobstation R&D Console rework end
 
-- type: technology # Merge with other T2 medical research if possible!
-  id: MechanizedTreatment
-  name: research-technology-mechanized-treatment
-  icon:
-    sprite: Mobs/Silicon/chassis.rsi
-    state: medical
-  discipline: CivilianServices
-  tier: 2
-  cost: 5000
-  recipeUnlocks:
-  - BorgModuleAdvancedChemical
-  # Goobstation R&D Console rework start
-  position: -1, 4
-  technologyPrerequisites:
-  - AdvancedEntertainment
-  - BasicRobotics
-  # Goobstation R&D Console rework end
+# Goob edit
+#- type: technology # Merge with other T2 medical research if possible!
+#  id: MechanizedTreatment
+#  name: research-technology-mechanized-treatment
+#  icon:
+#    sprite: Mobs/Silicon/chassis.rsi
+#    state: medical
+#  discipline: CivilianServices
+#  tier: 2
+#  cost: 5000
+#  recipeUnlocks:
+#  - BorgModuleAdvancedChemical
+#  # Goobstation R&D Console rework start
+#  position: -1, 4
+#  technologyPrerequisites:
+#  - AdvancedEntertainment
+#  - BasicRobotics
+#  # Goobstation R&D Console rework end
 
 
 - type: technology
@@ -226,9 +228,10 @@
   - MegaSprayBottle
   - BorgModuleAdvancedCleaning
   # Goobstation R&D Console rework start
-  position: -1,6
+  position: -1,4
   technologyPrerequisites:
-  - MechanizedTreatment
+  - AdvancedEntertainment
+  - BasicRobotics
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -270,7 +273,7 @@
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
   # Goobstation R&D Console rework start
-  position: -1,7
+  position: -1,6
   technologyPrerequisites:
   - AdvancedCleaning
   # Goobstation R&D Console rework end
