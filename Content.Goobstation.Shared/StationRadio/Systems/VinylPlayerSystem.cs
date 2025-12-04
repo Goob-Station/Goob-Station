@@ -23,6 +23,9 @@ public sealed class VinylPlayerSystem : EntitySystem
 
     private void OnDestruction(EntityUid uid, VinylPlayerComponent comp, DestructionEventArgs args)
     {
+        if(!comp.RelayToRadios)
+            return;
+
         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
         while (query.MoveNext(out var receiver, out var _))
         {
@@ -39,6 +42,9 @@ public sealed class VinylPlayerSystem : EntitySystem
         if (audio != null)
             comp.SoundEntity = audio.Value.Entity;
 
+        if(!comp.RelayToRadios)
+            return;
+
         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
         while (query.MoveNext(out var receiver, out var _))
         {
@@ -50,6 +56,9 @@ public sealed class VinylPlayerSystem : EntitySystem
     {
         if(comp.SoundEntity != null)
             _audio.Stop(comp.SoundEntity);
+
+        if(!comp.RelayToRadios)
+            return;
 
         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
         while (query.MoveNext(out var receiver, out var _))

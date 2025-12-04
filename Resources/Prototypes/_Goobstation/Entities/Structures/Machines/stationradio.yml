@@ -1,18 +1,66 @@
 - type: entity
   id: VinylPlayer
+  name: Vinyl Player
   parent: BaseMachinePowered
-  name: vinyl player
   description: An old school vinyl record player sat on a set of drawers.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/vinylplayer.rsi
     state: vinylplayer
   - type: VinylPlayer
-  - type: Transform
-    noRot: true
+  - type: ItemSlots
+    slots:
+      vinyl:
+        name: vinyl
+        whitelist:
+          components:
+          - Vinyl
+
+- type: entity
+  id: StationRadioServer
+  name: station radio server
+  parent: BaseMachinePowered
+  description: A rack of servers, controls whether your voice is being broadcasted or not
+  components:
+  - type: Sprite
+    offset: 0.565, 0
+    sprite: _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
+    state: broadcastradio
   - type: TelecomExempt
   - type: RadioMicrophone
     broadcastChannel: RadioShow
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0,-0.5,1,0.5"
+        density: 20
+        mask:
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        layer:
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: true
+
+- type: entity
+  id: StationRadioRig
+  parent: BaseMachinePowered
+  name: station radio rig
+  description: A collection of everything you need to play music over the station.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/StationRadio/radiostationvinyl.rsi
+    state: stationradiosetup
+  - type: VinylPlayer
+    relayToRadios: true
+  - type: Transform
+    noRot: true
   - type: Destructible
     thresholds:
     - trigger:
@@ -24,6 +72,24 @@
           collection: MetalGlassBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1,-0.5,1,0.5"
+        density: 20
+        mask:
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        layer:
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: true
   - type: ItemSlots
     slots:
       vinyl:
@@ -36,13 +102,12 @@
   id: StationRadioReceiver
   name: Station Radio
   parent: BaseMachinePowered
-  description: Listen to the smooth hits of your stations local radio.
+  description: Listen to the top hits of your stations local radio.
   components:
   - type: StationRadioReceiver
   - type: Sprite
-    sprite: Objects/Devices/communication.rsi
-    layers:
-    - state: radio
+    sprite: _Goobstation/Structures/Machines/StationRadio/stationradio.rsi
+    state: radio
   - type: Destructible
     thresholds:
     - trigger:

@@ -3,12 +3,12 @@
   "license": "CC-BY-SA-3.0",
   "copyright": "taken from goonstation at commit: https://github.com/goonstation/goonstation/blob/master/icons/obj/radiostation.dmi",
     "size": {
-        "x": 32,
+        "x": 70,
         "y": 32
     },
   "states": [
     {
-        "name": "mixdesk"
+        "name": "stationradiosetup"
     }
   ]
 }
