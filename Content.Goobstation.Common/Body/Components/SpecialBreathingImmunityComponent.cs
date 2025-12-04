@@ -4,7 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Shared.Body.Components;
+namespace Content.Goobstation.Common.Body.Components;
 
 /// <summary>
 ///     Used to ensure that BreathingImmunityComponent is not overriden.

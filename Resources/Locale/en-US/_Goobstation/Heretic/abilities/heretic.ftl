@@ -82,6 +82,8 @@ heretic-speech-rust-plume = 'NTR'P'C PL'M'!
 heretic-speech-void-blast = F'RZ'E!
 heretic-speech-void-phase = RE'L'T' PH'S'E!
 heretic-speech-void-pull = BR'NG F'RTH TH'M T' M'!!
+heretic-speech-void-prison = V'D PR'S'N!
+heretic-speech-void-conduit = MBR'C' TH' V''D!
 
 heretic-speech-cosmic-rune = ST'R R'N'!
 heretic-speech-star-touch = ST'R 'N'RG'!!
