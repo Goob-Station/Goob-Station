@@ -138,6 +138,11 @@
     understands:
     - TauCetiBasic
     - SolCommon
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      120: Critical
+      200: Dead
   - type: HumanoidAppearance
     species: Human
     hideLayersOnEquip:
