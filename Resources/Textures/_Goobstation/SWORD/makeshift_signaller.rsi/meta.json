@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "frame"
+    },
+    {
+      "name": "metadata_0"
+    },
+    {
+      "name": "metadata_1",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "metadata_2"
+    },
+    {
+      "name": "metadata_3",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "metadata_4"
+    },
+    {
+      "name": "metadata_5",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "metadata_6"
+    },
+    {
+      "name": "metadata_7",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "metadata_8",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "explosion",
+      "delays": [
+        [
+          0.1,
+          0.089999996,
+          0.089999996,
+          0.08,
+          0.08,
+          0.08,
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.05,
+          0.05,
+          0.05
+        ]
+      ]
+    }
+  ]
+}

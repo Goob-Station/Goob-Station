@@ -1,0 +1,37 @@
+- type: entity
+  id: SWORDBoss
+  parent: BaseSimpleMob
+  name: Deep Space Beacon
+  description: A huge beacon, seemingly constructed for broadcasting long-range signals.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    snapCardinals: true
+    layers:
+      - sprite: _Goobstation/SWORD/SWORD/base.rsi
+        state: beacon
+      - sprite: _Goobstation/SWORD/SWORD/base_o.rsi
+        state: beacon
+        shader: unshaded
+        map: ["light"]
+        visible: true
+  - type: AnimationPlayer
+  - type: Appearance
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      main:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.7,-0.7,0.7,0.7"
+        density: 200
+        mask: [MobMask]
+        layer: [MobLayer]
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Strong
+  - type: MobMover
+  - type: InputMover
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.5
+    baseSprintSpeed: 3.0

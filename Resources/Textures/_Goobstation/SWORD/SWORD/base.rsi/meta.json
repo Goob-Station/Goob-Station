@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 96,
+    "y": 96
+  },
+  "states": [
+    {
+      "name": "beacon",
+      "directions": 4
+    },
+    {
+      "name": "anchored",
+      "directions": 4
+    },
+    {
+      "name": "unanchored",
+      "directions": 4
+    }
+  ]
+}
