@@ -1,8 +1,8 @@
 using Content.Shared.DeviceLinking;
-using Content.Server.DeviceLinking.Systems;
+using Content.Goobstation.Server.DeviceLinking.Systems;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.DeviceLinking.Components;
+namespace Content.Goobstation.Server.DeviceLinking.Components;
 
 /// <summary>
 /// A component for a random gate, which outputs a signal with a 50% probability.

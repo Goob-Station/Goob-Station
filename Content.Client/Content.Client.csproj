@@ -60,4 +60,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
+  <ItemGroup>
+    <EmbeddedResource Remove="devicelinking\ui\RandomGateWindow.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Update="DeviceLinking\UI\RandomGateWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AdditionalFiles>
+  </ItemGroup>
 </Project>

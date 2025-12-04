@@ -1,8 +1,9 @@
 using Robust.Shared.Random;
-using Content.Server.DeviceLinking.Components;
+using Content.Goobstation.Server.DeviceLinking.Components;
 using Content.Shared.DeviceLinking.Events;
+using Content.Server.DeviceLinking.Systems;
 
-namespace Content.Server.DeviceLinking.Systems;
+namespace Content.Goobstation.Server.DeviceLinking.Systems;
 
 public sealed class RandomGateSystem : EntitySystem
 {
