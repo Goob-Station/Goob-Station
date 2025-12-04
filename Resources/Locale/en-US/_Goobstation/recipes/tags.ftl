@@ -49,6 +49,4 @@ construction-graph-tag-ash = ash
 construction-graph-tag-shiv = shiv
 construction-graph-tag-water-bottle = water bottle
 construction-graph-tag-ice-bucket = ice bucket
-construction-graph-tag-purple-crayon = purple crayon
-construction-graph-tag-book = book
 construction-graph-tag-heretic-costume = occult robes
