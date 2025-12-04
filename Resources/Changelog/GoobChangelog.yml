@@ -19030,3 +19030,13 @@ Entries:
       message: Added polling!
   id: 2146
   time: '2025-12-04T08:10:08.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Heretic void path reworked.
+    - type: Add
+      message: Seeking blade teleport now works in combat mode.
+    - type: Tweak
+      message: Ice spear is t2 side knowledge now.
+  id: 2147
+  time: '2025-12-04T13:15:49.0000000+00:00'
