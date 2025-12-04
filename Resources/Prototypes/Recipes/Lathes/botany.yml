@@ -54,13 +54,8 @@
 - type: latheRecipe
   parent: BaseHydroToolRecipe
   id: HydroponicsToolClippers
-<<<<<<< HEAD
-  result: HydroponicsToolClippers
-=======
-  result: HydroponicsToolClippers
 
 - type: latheRecipe
   parent: HandheldHealthAnalyzer
   id: PlantAnalyzer
   result: PlantAnalyzer
->>>>>>> feff40457645eb3e7921b6eaa1cd46a3ce5a2a63
