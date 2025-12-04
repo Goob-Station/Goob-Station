@@ -1,6 +1,7 @@
 using Content.Shared.DeviceLinking;
 using Content.Goobstation.Server.DeviceLinking.Systems;
 using Robust.Shared.Prototypes;
+using System.ComponentModel.DataAnnotations;
 
 namespace Content.Goobstation.Server.DeviceLinking.Components;
 
@@ -27,4 +28,11 @@ public sealed partial class RandomGateComponent : Component
     /// </summary>
     [DataField]
     public bool LastOutput;
+
+    /// <summary>
+    /// The probability (0.0 to 1.0) that the gate will output a signal.
+    /// </summary>
+    [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
+    [Range(0f, 1f)]
+    public float SuccessProbability = 0.5f;
 }
