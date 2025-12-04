@@ -21,7 +21,7 @@ public sealed class VinylPlayerSystem : EntitySystem
         SubscribeLocalEvent<VinylPlayerComponent, DestructionEventArgs>(OnDestruction);
     }
 
-    private void OnDestruction(EntityUid uid, VinylPlayerComponent component, DestructionEventArgs args)
+    private void OnDestruction(EntityUid uid, VinylPlayerComponent comp, DestructionEventArgs args)
     {
         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
         while (query.MoveNext(out var receiver, out var _))
