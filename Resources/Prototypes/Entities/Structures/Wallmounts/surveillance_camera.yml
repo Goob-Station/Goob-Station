@@ -77,6 +77,7 @@
     anchored: true
   - type: WiresPanel
   - type: Wires
+    boardName: wires-board-name-camera # Goob
     alwaysRandomize: true
     layoutId: SurveillanceCamera
   - type: Damageable
@@ -122,6 +123,14 @@
               collection: MetalBreak
               params:
                 volume: -8
+  # <Goob>
+  - type: ContainerFill
+    containers:
+      board: [ CameraElectronics ]
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+  # </Goob>
   placement:
     mode: SnapgridCenter
     snap:
