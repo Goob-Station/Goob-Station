@@ -155,7 +155,7 @@ public partial class SeedData
     ///     The entity prototype this seed spawns when it gets harvested.
     /// </summary>
     [DataField]
-    public List<EntProtoId> ProductPrototypes = new();
+    public List<string> ProductPrototypes = new();
 
     [DataField] public Dictionary<string, SeedChemQuantity> Chemicals = new();
 
@@ -291,7 +291,7 @@ public partial class SeedData
             Mysterious = Mysterious,
 
             PacketPrototype = PacketPrototype,
-            ProductPrototypes = new List<EntProtoId>(ProductPrototypes),
+            ProductPrototypes = new List<string>(ProductPrototypes),
             MutationPrototypes = new List<ProtoId<SeedPrototype>>(MutationPrototypes),
             Chemicals = new Dictionary<string, SeedChemQuantity>(Chemicals),
             ConsumeGasses = new Dictionary<Gas, float>(ConsumeGasses),
@@ -351,7 +351,7 @@ public partial class SeedData
             Mysterious = other.Mysterious,
 
             PacketPrototype = other.PacketPrototype,
-            ProductPrototypes = new List<EntProtoId>(other.ProductPrototypes),
+            ProductPrototypes = new List<string>(other.ProductPrototypes),
             MutationPrototypes = new List<ProtoId<SeedPrototype>>(other.MutationPrototypes),
 
             Chemicals = new Dictionary<string, SeedChemQuantity>(Chemicals),

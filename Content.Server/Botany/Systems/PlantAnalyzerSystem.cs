@@ -15,6 +15,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.Labels.Components;
 
 namespace Content.Server.Botany.Systems;
 
@@ -28,7 +29,7 @@ public sealed class PlantAnalyzerSystem : AbstractAnalyzerSystem<PlantAnalyzerCo
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly PaperSystem _paperSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedLabelSystem _labelSystem = default!;
+    //[Dependency] private readonly SharedLabelSystem _labelSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
 
     public override void Initialize()
@@ -174,7 +175,7 @@ public sealed class PlantAnalyzerSystem : AbstractAnalyzerSystem<PlantAnalyzerCo
         ];
 
         _paperSystem.SetContent((printed, paperComp), Loc.GetString($"plant-analyzer-printout", [.. parameters]));
-        _labelSystem.Label(printed, seedName);
+        // _labelSystem.Label(printed, seedName);
         _audioSystem.PlayPvs(component.SoundPrint, uid,
             AudioParams.Default
             .WithVariation(0.25f)
