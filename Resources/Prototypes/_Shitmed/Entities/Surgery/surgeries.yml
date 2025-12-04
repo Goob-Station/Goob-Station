@@ -1028,9 +1028,6 @@
       - type: OhioAccent
       - type: RatvarianLanguage
       - type: Clumsy
-        clumsyDamage:
-          types:
-            Blunt: 0
     inverse: true
   - type: SurgeryPartCondition
     parts: [ Head ]
@@ -1055,8 +1052,5 @@
       - type: OhioAccent
       - type: RatvarianLanguage
       - type: Clumsy
-        clumsyDamage:
-          types:
-            Blunt: 0
   - type: SurgeryPartCondition
     parts: [ Head ]
