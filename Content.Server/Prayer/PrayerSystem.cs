@@ -33,6 +33,9 @@ using Content.Shared.Chat;
 using Content.Shared.Prayer;
 using Content.Shared.Verbs;
 using Robust.Shared.Player;
+using Content.Server.Administration.Managers; // Goobstation - Prayer sounds
+using Robust.Server.Audio; // Goobstation - Prayer sounds
+using Robust.Shared.Audio; // Goobstation - Prayer sounds
 
 namespace Content.Server.Prayer;
 /// <summary>
@@ -47,6 +50,8 @@ public sealed class PrayerSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
+    [Dependency] private readonly AudioSystem _audio = default!; // Goobstation - Prayer sounds
+    [Dependency] private readonly IAdminManager _admin = default!; // Goobstation - Prayer sounds
 
     public override void Initialize()
     {
@@ -129,5 +134,9 @@ public sealed class PrayerSystem : EntitySystem
 
         _chatManager.SendAdminAnnouncement($"{Loc.GetString(comp.NotificationPrefix)} <{sender.Name}>: {message}");
         _adminLogger.Add(LogType.AdminMessage, LogImpact.Low, $"{ToPrettyString(sender.AttachedEntity.Value):player} sent prayer ({Loc.GetString(comp.NotificationPrefix)}): {message}");
+
+        // Goobstation - Prayer sounds
+        if (comp.NotificationSound != null)
+            _audio.PlayGlobal(comp.NotificationSound, Filter.Empty().AddPlayers(_admin.ActiveAdmins), false, AudioParams.Default.WithVolume(-8f));
     }
 }
