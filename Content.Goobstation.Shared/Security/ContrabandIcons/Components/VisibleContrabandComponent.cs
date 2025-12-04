@@ -14,10 +14,13 @@ public sealed partial class VisibleContrabandComponent : Component
     public ProtoId<ContrabandIconPrototype> StatusIcon = "ContrabandIconNone";
 
     [DataField] 
-    public List<(EntityUid uid, TimeSpan time)> VisibleItems = new();
-
+    public HashSet<EntityUid> VisibleItems = new();
+    
     [DataField]
     public TimeSpan VisibleTimeout = TimeSpan.FromSeconds(5f);
+
+    [DataField] 
+    public TimeSpan? FirstItemTime;
 }
 
 public enum ContrabandStatus : byte
