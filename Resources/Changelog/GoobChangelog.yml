@@ -19010,3 +19010,23 @@ Entries:
       message: Chembags now accept cig packs and cigarettes
   id: 2143
   time: '2025-12-03T06:59:03.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: Ai hologram names are now consistent
+  id: 2144
+  time: '2025-12-03T16:43:09.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: The contraband detector is now locked behind research
+    - type: Tweak
+      message: the contraband detector is turned off as it doesn't work
+  id: 2145
+  time: '2025-12-03T16:50:36.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added polling!
+  id: 2146
+  time: '2025-12-04T08:10:08.0000000+00:00'
