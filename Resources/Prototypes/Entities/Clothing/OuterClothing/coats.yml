@@ -144,7 +144,7 @@
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, ClothingOuterArmorBase, BaseSecondSkinHolder] # Goob edit
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, ClothingOuterArmorBase]
   id: ClothingOuterCoatDetective
   name: detective trenchcoat
   description: An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business.
@@ -206,7 +206,7 @@
 
 - type: entity
   abstract: true
-  parent: [AllowSuitStorageClothing, BaseSecondSkinHolder] # Goob edit
+  parent: AllowSuitStorageClothing
   id: ClothingOuterArmorHoS
   components:
   - type: Armor
@@ -233,7 +233,7 @@
 
 - type: entity
   abstract: true
-  parent: [AllowSuitStorageClothing, BaseSecondSkinHolder] # Goob edit
+  parent: AllowSuitStorageClothing
   id: ClothingOuterArmorWarden
   components:
   - type: Armor
@@ -649,7 +649,7 @@
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageBase, BaseSecurityContraband, BaseSecondSkinHolder] # Goobstation
+  parent: [ClothingOuterStorageBase, BaseSecurityContraband] # Goobstation
   id: ClothingOuterCoatAMG
   name: armored medical gown
   description: The version of the medical gown, with elements of an armor vest, looks strange, but your heart is protected.
@@ -661,6 +661,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     modifiers:
       coefficients:
         Blunt: 0.7
