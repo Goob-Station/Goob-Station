@@ -19046,3 +19046,17 @@ Entries:
       message: Serpentcrest has a harder to sabotage power network.
   id: 2148
   time: '2025-12-04T13:52:36.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Species mass have less of a gap now.
+    - type: Tweak
+      message: Chititnid and IPC have default mass.
+    - type: Tweak
+      message: >-
+        Oni has higher mass compared to other species but most of their other
+        benefits were removed.
+    - type: Tweak
+      message: Mass no longer affects sprinting.
+  id: 2149
+  time: '2025-12-04T14:03:46.0000000+00:00'
