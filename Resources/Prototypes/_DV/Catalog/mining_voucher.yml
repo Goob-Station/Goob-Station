@@ -41,7 +41,7 @@
   - Fulton
   - Fulton
   - FultonBeacon
-  # TODO: 30 marker beacons
+  - BoxMarkerBeacons
 
 # TODO: resonator
 #- type: thiefBackpackSet
