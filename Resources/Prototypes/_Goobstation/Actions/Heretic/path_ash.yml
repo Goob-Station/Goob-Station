@@ -30,6 +30,17 @@
     messageLoc: heretic-speech-ash-jaunt
 
 - type: entity
+  parent: ActionHereticJaunt
+  id: ActionHereticJauntLong
+  name: Ashen Passage
+  description: A long range spell that allows you to pass unimpeded through walls.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    event: !type:EventHereticAshenShift
+      jaunt: AshJauntLong
+
+- type: entity
   parent: BaseAction
   id: ActionHereticVolcanoBlast
   name: Volcano Blast

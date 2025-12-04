@@ -291,13 +291,16 @@ public sealed partial class GoobCVars
 
     #endregion
 
+    public static readonly CVarDef<string> PatronSupportLastShown =
+        CVarDef.Create("patron.support_last_shown", "", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<int> PatronAskSupport =
+        CVarDef.Create("patron.ask_support", 7, CVar.REPLICATED | CVar.SERVER);
+
     #region Goobcoins
 
     public static readonly CVarDef<int> GoobcoinsPerPlayer =
         CVarDef.Create("servercurrency.per_player", 10, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> GoobcoinsPerGreentext =
-        CVarDef.Create("servercurrency.per_greentext", 5, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinNonAntagMultiplier =
         CVarDef.Create("servercurrency.non_antag_multiplier", 1, CVar.SERVERONLY);
@@ -438,6 +441,18 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> CoalesceIdenticalMessages =
          CVarDef.Create("chat.coalesce_identical_messages", true, CVar.CLIENT | CVar.ARCHIVE | CVar.CLIENTONLY);
 
+    /// <summary>
+    /// Set to true to enable voice barks and disable default speech sounds.
+    /// </summary>
+    public static readonly CVarDef<bool> BarksEnabled =
+        CVarDef.Create("voice.barks_enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Client volume setting for barks.
+    /// </summary>
+    public static readonly CVarDef<float> BarksVolume =
+        CVarDef.Create("voice.barks_volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     #endregion
 
     #region Voicechat
@@ -564,6 +579,24 @@ public sealed partial class GoobCVars
 
     #endregion
 
+    # region Explosions
+
+    /// <summary>
+    /// Random variation to limb damage on explosion
+    /// 0 means no variation - all limbs are damaged the same
+    /// </summary>
+    public static readonly CVarDef<float> ExplosionLimbDamageVariation =
+        CVarDef.Create("explosion.damage_variation", 2f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Multiplier to wounds caused by explosion damage
+    /// Applies to Brute and Burn damage
+    /// </summary>
+    public static readonly CVarDef<float> ExplosionWoundMultiplier =
+        CVarDef.Create("explosion.wounding_multiplier", 8f, CVar.SERVERONLY);
+
+    #endregion
+
     #region Misc
 
     /// <summary>
@@ -596,5 +629,22 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> MinimumPuddleSizeForFootprints =
         CVarDef.Create("footprints.minimum_puddle_size", 6f, CVar.SERVERONLY);
 
+    /// <summary>
+    /// Should heretic ascension ritual be cancelled if heretic hasn't completed their objectives.
+    /// </summary>
+    public static readonly CVarDef<bool> AscensionRequiresObjectives =
+        CVarDef.Create("heretic.ascension_requires_objectives", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// A multiplier for bloodloss damage and heal.
+    /// </summary>
+    public static readonly CVarDef<float> BleedMultiplier =
+        CVarDef.Create("medical.bloodloss_multiplier", 4.0f, CVar.SERVER);
+
     #endregion
+    /// <summary>
+    /// Enables or disables contraband icons.
+    /// </summary>
+    public static readonly CVarDef<bool> ContrabandIconsEnabled =
+        CVarDef.Create("contraband.icons_enabled", false, CVar.SERVER | CVar.REPLICATED);
 }
