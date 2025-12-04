@@ -24,6 +24,10 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
     private readonly HashSet<EntityUid> _queue = new();
     private EntityQuery<VisibleContrabandComponent> _visibleContrabandQuery;
 
+    /// <summary>
+    ///     Updates the contraband status icons for entities in the queue based on the timing of their first visible contraband
+    ///     item.
+    /// </summary>
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -72,6 +76,12 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
         }
     }
 
+    #region EventHandlers
+
+    // <summary>
+    // on item equip check for contraband and permissions for that contraband
+    // if contraband and no permission add to visible list and update icon
+    // </summary>
     private void OnEquip(EntityUid uid, VisibleContrabandComponent comp, DidEquipEvent args)
     {
         var createdTime = _timing.TickPeriod.Mul(MetaData(args.Equipee).CreationTick.Value); // time entity was created
@@ -90,6 +100,9 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
         }
     }
 
+    // <summary>
+    // same as above with exception that if you take someone it takes time to actually show up
+    // </summary>
     private void OnEquipHands(EntityUid uid, VisibleContrabandComponent comp, DidEquipHandEvent args)
     {
         var createdTime = _timing.TickPeriod.Mul(MetaData(args.User).CreationTick.Value);
@@ -115,48 +128,24 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
         }
     }
 
+    // <summary>
+    // triggered on unequip from hands
+    // </summary>
     private void OnUnequipHands(EntityUid uid, VisibleContrabandComponent comp, DidUnequipHandEvent args)
     {
-        comp.VisibleItems.Remove(args.Unequipped);
-        if (comp.VisibleItems.Count == 0)
-        {
-            var newStatus = StatusToIcon(ContrabandStatus.None);
-            if (comp.StatusIcon != newStatus)
-            {
-                comp.StatusIcon = newStatus;
-                Dirty(args.User, comp);
-            }
-        }
+        UnequipContra(comp, args.User, args.Unequipped);
     }
 
+    // <summary>
+    // triggered on unequip from inventory
+    // </summary>
     private void OnUnequip(EntityUid uid, VisibleContrabandComponent comp, DidUnequipEvent args)
     {
-        comp.VisibleItems.Remove(args.Equipment);
-        if (comp.VisibleItems.Count == 0)
-        {
-            var newStatus = StatusToIcon(ContrabandStatus.None);
-            if (comp.StatusIcon != newStatus)
-            {
-                comp.StatusIcon = newStatus;
-                Dirty(args.Equipee, comp);
-            }
-        }
-    }
-
-
-    private string StatusToIcon(ContrabandStatus status)
-    {
-        return status switch
-        {
-            ContrabandStatus.None => "ContrabandIconNone",
-            ContrabandStatus.Contraband => "ContrabandIconContraband",
-            _ => "ContrabandIconNone"
-        };
+        UnequipContra(comp, args.Equipee, args.Equipment);
     }
 
     /// <summary>
-    ///     Handler for identity changes. When an entity's identity changes, re-evaluate their visible items
-    ///     and update the contraband status icon if necessary.
+    ///     Handles ID card insertions and removals.
     /// </summary>
     private void OnIdCardInserted(IdCardInsertedEvent args)
     {
@@ -170,6 +159,27 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
         CheckAllContraOfContainerOwner(uid);
     }
 
+    #endregion
+
+    #region Helpers
+
+    /// <summary>
+    ///     returns the icon string based on status enum
+    /// </summary>
+    private string StatusToIcon(ContrabandStatus status)
+    {
+        return status switch
+        {
+            ContrabandStatus.None => "ContrabandIconNone",
+            ContrabandStatus.Contraband => "ContrabandIconContraband",
+            _ => "ContrabandIconNone"
+        };
+    }
+
+    /// <summary>
+    ///     Checks all contraband items for the highest-level container owner of the given entity and updates their visible
+    ///     contraband status icon accordingly.
+    /// </summary>
     private void CheckAllContraOfContainerOwner(EntityUid uid)
     {
         uid = GetHighestContainerOwner(uid);
@@ -185,6 +195,11 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
         }
     }
 
+    /// <summary>
+    ///     Recursively gets the highest-level container owner of the given entity.
+    /// </summary>
+    /// <param name="uid">uid of the container</param>
+    /// <returns>EntityUid of the highest level entity</returns>
     public EntityUid GetHighestContainerOwner(EntityUid uid)
     {
         while (_inventory.TryGetContainingEntity(uid, out var containerEntity))
@@ -197,4 +212,21 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
         return uid;
     }
+
+    // <summary>
+    // Remove item from visible list and if list is empty update icon to none
+    // </summary>
+    private void UnequipContra(VisibleContrabandComponent comp, EntityUid unequipper, EntityUid unequipped)
+    {
+        comp.VisibleItems.Remove(unequipped);
+        if (comp.VisibleItems.Count != 0)
+            return;
+        var newStatus = StatusToIcon(ContrabandStatus.None);
+        if (comp.StatusIcon == newStatus)
+            return;
+        comp.StatusIcon = newStatus;
+        Dirty(unequipper, comp);
+    }
+
+    #endregion
 }
