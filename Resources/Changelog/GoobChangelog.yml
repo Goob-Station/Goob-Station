@@ -19040,3 +19040,9 @@ Entries:
       message: Ice spear is t2 side knowledge now.
   id: 2147
   time: '2025-12-04T13:15:49.0000000+00:00'
+- author: TytosB
+  changes:
+    - type: Tweak
+      message: Serpentcrest has a harder to sabotage power network.
+  id: 2148
+  time: '2025-12-04T13:52:36.0000000+00:00'
