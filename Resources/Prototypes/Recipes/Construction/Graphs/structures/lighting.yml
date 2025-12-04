@@ -39,6 +39,34 @@
             - material: Steel
               amount: 1
               doAfter: 2.0
+        - to: floorLight # CorvaxGoob-Start
+          steps:
+            - material: Steel
+              amount: 3
+              doAfter: 2.0
+        - to: floorLightRGB
+          steps:
+            - tag: LightTubeCrystalRed
+              name: construction-graph-tag-light-tube-crystal-red
+              icon:
+                sprite: Objects/Power/light_tube.rsi
+                state: normal
+              doAfter: 1
+            - tag: LightTubeCrystalGreen
+              name: construction-graph-tag-light-tube-crystal-green
+              icon:
+                sprite: Objects/Power/light_tube.rsi
+                state: normal
+              doAfter: 1
+            - tag: LightTubeCrystalBlue
+              name: construction-graph-tag-light-tube-crystal-blue
+              icon:
+                sprite: Objects/Power/light_tube.rsi
+                state: normal
+              doAfter: 1
+            - material: Steel
+              amount: 3
+              doAfter: 1.0 # CorvaxGoob-End
         - to: emergencyLight
           steps:
             - material: Steel
@@ -77,6 +105,36 @@
               prototype: SheetSteel1
               amount: 1
             - !type:DeleteEntity {}
+    - node: floorLight # CorvaxGoob-Start
+      entity: EmptyPoweredFloorTileLight
+      edges:
+        - to: start
+          conditions:
+            - !type:ContainerEmpty
+              container: "light_bulb"
+          steps:
+            - tool: Screwing
+              doAfter: 2.0
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 3
+            - !type:DeleteEntity {}
+    - node: floorLightRGB
+      entity: EmptyPoweredFloorTileLightRGB
+      edges:
+        - to: start
+          conditions:
+            - !type:ContainerEmpty
+              container: "light_bulb"
+          steps:
+            - tool: Screwing
+              doAfter: 2.0
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 3
+            - !type:DeleteEntity {} # CorvaxGoob-End
     - node: groundLight
       entity: PoweredLightPostSmallEmpty
       edges:
