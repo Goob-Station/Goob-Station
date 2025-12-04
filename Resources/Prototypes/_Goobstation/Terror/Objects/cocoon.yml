@@ -32,6 +32,8 @@
     damageContainer: Biological
     damageModifierSet: Diona
   - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
   - type: Cocoon
   - type: Destructible
     thresholds:
