@@ -15,6 +15,7 @@ namespace Content.Goobstation.Server.Security.ContrabandIcons;
 
 public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 {
+    #region Dependencies
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedContrabandDetectorSystem _detectorSystem = default!;
@@ -23,10 +24,10 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
     private EntityQuery<ContrabandComponent> _contrabandQuery;
     private readonly HashSet<EntityUid> _queue = new();
     private EntityQuery<VisibleContrabandComponent> _visibleContrabandQuery;
-
+    #endregion Dependencies
     /// <summary>
-    ///     Updates the contraband status icons for entities in the queue based on the timing of their first visible contraband
-    ///     item.
+    /// Updates the contraband status icons for entities in the queue based on the timing of their first visible contraband
+    /// item.
     /// </summary>
     public override void Update(float frameTime)
     {
