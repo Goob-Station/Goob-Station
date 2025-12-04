@@ -1053,3 +1053,21 @@
   parent: PlushieLouie
   id: EvilPlushieLouie
   suffix: Evil
+
+- type: entity
+  name: evil Grug plush
+  parent: PlushieWachtel
+  id: EvilPlushieWachtel
+  suffix: Evil
+
+- type: entity
+  name: evil Leguia plush
+  parent: PlushieLeguia
+  id: EvilPlushieLeguia
+  suffix: Evil
+
+- type: entity
+  name: evil Pasha plush
+  parent: PlushiePasha
+  id: EvilPlushiePasha
+  suffix: Evil
