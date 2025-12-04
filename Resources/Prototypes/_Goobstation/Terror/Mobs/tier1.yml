@@ -89,6 +89,7 @@
     drawOverlay: false
     lightRadius: 0
     toggleAction: null
+    thermalShader: null
   - type: PassiveDamage # Mild passive regenation, with the exception of poison and genetic, which cannot be used effectively against them.
     allowedStates:
       - Alive

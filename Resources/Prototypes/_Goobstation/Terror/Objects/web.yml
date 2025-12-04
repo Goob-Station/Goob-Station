@@ -13,8 +13,13 @@
   description: This web is partly composed of strands of green slime.
   components:
   - type: Sprite
-    sprite: _Goobstation/Terror/Structures/web.rsi
-    state: slimyWeb
+    sprite: _Goobstation/Terror/Structures/slimyweb.rsi
+    state: full
+  - type: IconSmooth
+    key: slimyweb
+    base: web_
+    additionalKeys:
+    - walls
   - type: TerrorWeb
   - type: SlimyWeb
     reagentId: Vodka
@@ -30,7 +35,7 @@
     sprite: _Goobstation/Terror/Structures/sinisterweb.rsi
     state: full
   - type: IconSmooth
-    key: infestedweb
+    key: sinisterweb
     base: web_
     additionalKeys:
     - walls
