@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.StationRadio.Components;
 using Content.Goobstation.Shared.StationRadio.Events;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Shared.StationRadio.Systems;
@@ -16,7 +17,7 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 
     private void OnMediaPlayed(EntityUid uid, StationRadioReceiverComponent comp, StationRadioMediaPlayedEvent args)
     {
-        var audio = _audio.PlayPredicted(args.MediaPlayed, uid, uid);
+        var audio = _audio.PlayPredicted(args.MediaPlayed, uid, uid, AudioParams.Default.WithVolume(3f).WithMaxDistance(4.5f));
         if (audio != null)
             comp.SoundEntity = audio.Value.Entity;
     }

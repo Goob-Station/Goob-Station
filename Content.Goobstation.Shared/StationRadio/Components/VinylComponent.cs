@@ -9,5 +9,5 @@ public sealed partial class VinylComponent : Component
     /// <summary>
     /// What song should be played when the vinyl is played
     /// </summary>
-    [DataField] public SoundPathSpecifier? Song = new SoundPathSpecifier("/Audio/_Goobstation/RadioStation/music/peakasshole.ogg");
+    [DataField] public SoundPathSpecifier? Song;
 }

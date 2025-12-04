@@ -274,8 +274,28 @@ public sealed class RadioDeviceSystem : EntitySystem
 
         // log to chat so people can identity the speaker/source, but avoid clogging ghost chat if there are many radios
         var message = args.OriginalChatMsg.Message; // The chat system will handle the rest and re-obfuscate if needed.
-        _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Whisper, ChatTransmitRange.GhostRangeLimit,
-            nameOverride: name, checkRadioPrefix: false, languageOverride: args.Language); // Einstein Engines - Languages
+        // Goob start
+        if (!component.SpeakNormally)
+        {
+            _chat.TrySendInGameICMessage(uid,
+                message,
+                InGameICChatType.Whisper,
+                ChatTransmitRange.GhostRangeLimit,
+                nameOverride: name,
+                checkRadioPrefix: false,
+                languageOverride: args.Language); // Einstein Engines - Languages
+        }
+        else
+        {
+            _chat.TrySendInGameICMessage(uid,
+                message,
+                InGameICChatType.Speak,
+                ChatTransmitRange.GhostRangeLimit,
+                nameOverride: name,
+                checkRadioPrefix: true,
+                languageOverride: args.Language);
+        }
+        // Goob end
     }
 
     private void OnIntercomEncryptionChannelsChanged(Entity<IntercomComponent> ent, ref EncryptionChannelsChangedEvent args)

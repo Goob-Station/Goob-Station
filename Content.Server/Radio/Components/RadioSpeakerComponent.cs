@@ -31,4 +31,7 @@ public sealed partial class RadioSpeakerComponent : Component
 
     [DataField("enabled")]
     public bool Enabled;
+
+    [DataField] // Goobstation, should the radio speak normally
+    public bool SpeakNormally;
 }

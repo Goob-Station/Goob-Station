@@ -10,6 +10,9 @@
   - type: VinylPlayer
   - type: Transform
     noRot: true
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    broadcastChannel: RadioShow
   - type: Destructible
     thresholds:
     - trigger:
@@ -28,3 +31,33 @@
         whitelist:
           components:
           - Vinyl
+
+- type: entity
+  id: StationRadioReceiver
+  name: Station Radio
+  parent: BaseMachinePowered
+  description: Listen to the smooth hits of your stations local radio.
+  components:
+  - type: StationRadioReceiver
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: radio
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: RadioSpeaker
+    speakNormally: true
+    enabled: true
+    channels:
+    - RadioShow
+  - type: Speech
+    speechVerb: Robotic
