@@ -1,4 +1,4 @@
-using System.Linq;
+/*using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.Administration;
 using Content.Shared.Administration;
@@ -214,3 +214,4 @@ public sealed class PollInfoCommand : LocalizedEntityCommands
         return CompletionResult.Empty;
     }
 }
+*/

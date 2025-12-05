@@ -312,8 +312,8 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             result.AppendLine(summary);
         }
 
-        foreach (var (key, currency) in currencyStorage)
-            _currencyMan.AddCurrency(key, (int)Math.Round( currency * _goobcoinsServerMultiplier));
+/*        foreach (var (key, currency) in currencyStorage)
+            _currencyMan.AddCurrency(key, (int)Math.Round( currency * _goobcoinsServerMultiplier));*/
     }
 
     public EntityUid? GetRandomObjective(EntityUid mindId, MindComponent mind, ProtoId<WeightedRandomPrototype> objectiveGroupProto, float maxDifficulty)

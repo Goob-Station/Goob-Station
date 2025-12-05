@@ -21,7 +21,6 @@
 
 using Content.Goobstation.Common.DeviceLinking;
 using Content.Server.DeviceLinking.Components;
-using Content.Shared._CorvaxGoob.DeviceLinking.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Lock;
 using Robust.Server.GameObjects;

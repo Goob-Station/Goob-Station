@@ -349,7 +349,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     }
 
     // Goobstation
-    public Dictionary<ICommonSession, float> ToWeightsDict(IList<ICommonSession> pool)
+/*    public Dictionary<ICommonSession, float> ToWeightsDict(IList<ICommonSession> pool)
     {
         Dictionary<ICommonSession, float> weights = new();
 
@@ -362,7 +362,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         }
 
         return weights;
-    }
+    }*/
 
     /// <summary>
     /// Chooses antagonists from the given selection of players

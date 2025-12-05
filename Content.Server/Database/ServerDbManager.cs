@@ -424,7 +424,7 @@ namespace Content.Server.Database
 
         #endregion
 
-        #region Goob Polls
+        /*#region Goob Polls
 
         Task<int> CreatePollAsync(Poll poll);
         Task<Poll?> GetPollAsync(int pollId, CancellationToken cancel = default);
@@ -438,7 +438,7 @@ namespace Content.Server.Database
         Task<bool> HasPlayerVotedAsync(int pollId, NetUserId userId, CancellationToken cancel = default);
         Task<Dictionary<int, int>> GetPollResultsAsync(int pollId, CancellationToken cancel = default);
 
-        #endregion
+        #endregion*/
 
         #region DB Notifications
 
@@ -1149,7 +1149,7 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.CleanIPIntelCache(range));
         }
 
-        #region Goob Polls
+        /*#region Goob Polls
 
         public Task<int> CreatePollAsync(Poll poll)
         {
@@ -1217,7 +1217,7 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetPollResultsAsync(pollId, cancel));
         }
 
-        #endregion
+        #endregion*/
 
         public void SubscribeToNotifications(Action<DatabaseNotification> handler)
         {

@@ -1,4 +1,4 @@
-using System.Linq;
+/*using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Goobstation.Shared.Polls;
@@ -255,3 +255,4 @@ public sealed class PollManager : IPostInjectInit
         _net.RegisterNetMessage<MsgPollClosed>();
     }
 }
+*/

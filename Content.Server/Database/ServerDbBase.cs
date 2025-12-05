@@ -1967,7 +1967,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
         #endregion
 
-        #region Goob Polls
+        /*#region Goob Polls
 
         public async Task<int> CreatePollAsync(Poll poll)
         {
@@ -2129,7 +2129,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 .ToDictionaryAsync(x => x.OptionId, x => x.Count, cancel);
         }
 
-        #endregion
+        #endregion*/
 
         public abstract Task SendNotification(DatabaseNotification notification);
 
