@@ -76,18 +76,6 @@
     spawned:
     - id: FoodMeatHuman
       amount: 5
-  - type: Fixtures
-    fixtures: # TODO: This needs a second fixture just for mob collisions.
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.35 # Goobstation: port EE height/width sliders (previous value was lower (also a goobstation change), but the height/width sliders will lower this size automatically)
-        density: 240 # goob edit - but they r buff
-        restitution: 0.0
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
   - type: Vocal
     sounds:
       Male: UnisexDwarf
