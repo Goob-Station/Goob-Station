@@ -3,10 +3,12 @@ using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.Security.ContrabandIcons.Events;
 using Content.Goobstation.Shared.Contraband;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
+using Content.Shared._Shitmed.Antags.Abductor;
 using Content.Shared.Contraband;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Configuration;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Security.ContrabandIcons;
@@ -17,6 +19,7 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
     [Dependency] private readonly SharedContrabandDetectorSystem _detectorSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     private bool _isEnabled = true;
     private EntityQuery<ContrabandComponent> _contrabandQuery;
@@ -92,7 +95,8 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
             return;
 
         comp.StatusIcon = newStatus;
-        Dirty(uid, comp);
+        if(_net.IsServer)
+            Dirty(uid, comp);
     }
 
     public EntityUid GetHighestContainerOwner(EntityUid uid)
