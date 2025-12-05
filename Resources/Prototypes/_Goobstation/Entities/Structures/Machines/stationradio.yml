@@ -45,6 +45,8 @@
     sprite: _Goobstation/Structures/Machines/StationRadio/tapedeck.rsi
     state: tapedeck
     drawdepth: Walls
+  - type: Anchorable
+    delay: 10
   - type: TapeRecorder
   - type: ActiveListener
     range: 4
@@ -97,6 +99,8 @@
     sprite: _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
     state: broadcastradio
     drawdepth: Walls
+  - type: Anchorable
+    delay: 10
   - type: TelecomExempt
   - type: RadioMicrophone
     powerRequired: true
@@ -133,6 +137,8 @@
     drawdepth: Walls
   - type: VinylPlayer
     relayToRadios: true
+  - type: Anchorable
+    delay: 10
   - type: Physics
     bodyType: Static
   - type: Fixtures

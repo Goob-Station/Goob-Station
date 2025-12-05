@@ -23,14 +23,16 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 
     private void OnPowerChanged(EntityUid uid, StationRadioReceiverComponent comp, PowerChangedEvent args)
     {
-        if(comp.SoundEntity != null)
-            _audio.SetGain(comp.SoundEntity, args.Powered ? 1f : 0f);
+        if(comp.SoundEntity != null && args.Powered)
+            _audio.SetGain(comp.SoundEntity, comp.Active ? 1f : 0f);
+        else if(comp.SoundEntity != null)
+            _audio.SetGain(comp.SoundEntity, 0);
     }
 
     private void OnRadioToggle(EntityUid uid, StationRadioReceiverComponent comp, ActivateInWorldEvent args)
     {
         comp.Active = !comp.Active;
-        if (comp.SoundEntity != null)
+        if (comp.SoundEntity != null && _power.IsPowered(uid))
             _audio.SetGain(comp.SoundEntity, comp.Active ? 1f : 0f);
     }
 
