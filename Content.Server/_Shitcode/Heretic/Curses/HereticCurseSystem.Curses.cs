@@ -29,6 +29,9 @@ public sealed partial class HereticCurseSystem
 
     private void OnModify(Entity<FragileComponent> ent, ref DamageModifyEvent args)
     {
+        if (!args.Damage.AnyPositive())
+            return;
+
         args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, ent.Comp.ModifierSet);
     }
 
@@ -140,9 +143,11 @@ public sealed partial class HereticCurseSystem
             if (flam.FireStacks > flames.MinFireStacks && flam is { OnFire: true, IgnoreFireProtection: true })
                 continue;
 
-            _flammable.SetFireStacks(status.AppliedTo.Value, MathF.Max(flames.MinFireStacks, flam.FireStacks), flam);
-            // TODO: flammable fire penetration instead of ignoring fire prot
-            _flammable.Ignite(status.AppliedTo.Value, null, flam, ignoreFireProtection: true);
+            _flammable.SetFireStacks(status.AppliedTo.Value,
+                MathF.Max(flames.MinFireStacks, flam.FireStacks),\
+                flam,
+                true,
+                flames.Penetration);
         }
     }
 }

@@ -6,11 +6,14 @@ namespace Content.Shared._Shitcode.Heretic.Curses;
 public sealed partial class CurseOfFlamesStatusEffectComponent : Component
 {
     [DataField]
-    public float MinFireStacks = 0.5f;
+    public float MinFireStacks = 4f;
+
+    [DataField]
+    public float Penetration = 0.5f;
 
     [DataField, AutoPausedField]
     public TimeSpan NextIgnition = TimeSpan.Zero;
 
     [DataField]
-    public TimeSpan Delay = TimeSpan.FromMilliseconds(1010);
+    public TimeSpan Delay = TimeSpan.FromSeconds(10);
 }
