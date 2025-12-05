@@ -11,7 +11,7 @@
     state: icon
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: wood
+    damageModifierSet: Wood
   - type: Destructible
     thresholds:
     - trigger:
