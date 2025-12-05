@@ -132,7 +132,7 @@
         - CommandStaff
         - AntagImmune
         - BibleUser
-      startingGear: Inkofimaginination
+      startingGear: Heretictmidround
       lateJoinAdditional: true
       jobBlacklist: [ Chaplain ] # GOOBSTATION
       mindRoles:
