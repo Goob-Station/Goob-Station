@@ -72,6 +72,7 @@
   recipes:
   - PrescriptionGlasses
   - VehicleHoverchairSci
+  - TinfoilHats
 
 - type: latheRecipePack
   id: MedicalMiscRestricted
