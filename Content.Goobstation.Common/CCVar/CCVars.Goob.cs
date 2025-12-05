@@ -644,8 +644,8 @@ public sealed partial class GoobCVars
     /// <summary>
     /// Enable admin notification sounds
     /// </summary>
-    public static readonly CVarDef<bool> AdminNotificationSoundsEnabled =
-        CVarDef.Create("admin.notification_sounds", true, CVar.CLIENT | CVar.CLIENTONLY | CVar.ARCHIVE);
+    public static readonly CVarDef<float> AdminNotificationVolume =
+        CVarDef.Create("admin.notification_volume", 1f, CVar.CLIENT | CVar.CLIENTONLY | CVar.ARCHIVE);
 
     #endregion
     /// <summary>
