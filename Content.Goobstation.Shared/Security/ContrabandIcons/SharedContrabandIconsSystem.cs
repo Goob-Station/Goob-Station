@@ -3,7 +3,6 @@ using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.Security.ContrabandIcons.Events;
 using Content.Goobstation.Shared.Contraband;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
-using Content.Shared._Shitmed.Antags.Abductor;
 using Content.Shared.Contraband;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
@@ -43,13 +42,13 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
     private void OnEquip(EntityUid uid, VisibleContrabandComponent comp, DidEquipEvent args)
     {
         if (!_isEnabled ||
-            !_contrabandQuery.TryComp(args.Equipment, out var contra) 
-            || (contra.Severity == "Restricted" && _detectorSystem.CheckContrabandPermission(args.Equipment, args.Equipee, contra) && (MetaData(args.Equipee).CreationTick < _timing.CurTick + 200)) 
-            || contra.Severity == "Minor" 
-            || contra.Severity == "GrandTheft" 
-            || args.SlotFlags == SlotFlags.POCKET)
+            !_contrabandQuery.TryComp(args.Equipment, out var contra)
+            || (contra.Severity == "Restricted" 
+                && _detectorSystem.CheckContrabandPermission(args.Equipment, args.Equipee, contra)
+            || contra.Severity == "Minor"
+            || contra.Severity == "GrandTheft"
+            || args.SlotFlags == SlotFlags.POCKET))
             return;
-
         comp.VisibleItems.Add(args.Equipment);
         UpdateStatusIcon(comp, args.Equipee, ContrabandStatus.Contraband);
     }
@@ -95,7 +94,7 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
             return;
 
         comp.StatusIcon = newStatus;
-        if(_net.IsServer)
+        if (_net.IsServer)
             Dirty(uid, comp);
     }
 
