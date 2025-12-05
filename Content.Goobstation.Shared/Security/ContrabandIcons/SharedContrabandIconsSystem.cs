@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.Security.ContrabandIcons.Events;
 using Content.Goobstation.Shared.Contraband;
@@ -72,23 +73,19 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
         return status == ContrabandStatus.Contraband ? "ContrabandIconContraband" : "ContrabandIconNone";
     }
 
-    private void CheckAllContra(EntityUid uid)
+    protected void CheckAllContra(EntityUid uid, VisibleContrabandComponent? visible = null)
     {
         uid = GetHighestContainerOwner(uid);
 
-        if (!_visibleContrabandQuery.TryComp(uid, out var visible))
+        if (!_visibleContrabandQuery.TryComp(uid, out var comp))
             return;
-        if(visible.VisibleItems.Count > 0)
-        {
-            UpdateStatusIcon(visible, uid, ContrabandStatus.Contraband);
-            return;
-        }
-        var contralist = _detectorSystem.FindContraband(uid, false, SlotFlags.WITHOUT_POCKET);
-        var status = contralist.Count > 0 ? ContrabandStatus.Contraband : ContrabandStatus.None;
+        visible ??= comp;
+        visible.VisibleItems = _detectorSystem.FindContraband(uid, false, SlotFlags.WITHOUT_POCKET).ToHashSet();
+        var status = visible.VisibleItems.Count > 0 ? ContrabandStatus.Contraband : ContrabandStatus.None;
         UpdateStatusIcon(visible, uid, status);
     }
 
-    private void UpdateStatusIcon(VisibleContrabandComponent comp, EntityUid uid, ContrabandStatus status)
+    protected void UpdateStatusIcon(VisibleContrabandComponent comp, EntityUid uid, ContrabandStatus status)
     {
         var newStatus = StatusToIcon(status);
         if (comp.StatusIcon == newStatus)
