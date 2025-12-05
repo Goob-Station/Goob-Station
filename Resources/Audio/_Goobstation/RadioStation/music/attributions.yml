@@ -1,4 +1,4 @@
-- files: ["AirportLounge.ogg", "BoogieParty.ogg", "Corncob.ogg", "DeadlyRoulette.ogg", "JingleBells.ogg", "LateNightRadio.ogg", "MesmerizingGalaxyLoop.ogg", "SpaceJazz.ogg", "VibingOverVenus.ogg"]
+- files: ["AirportLounge.ogg", "BoogieParty.ogg", "Corncob.ogg", "DeadlyRoulette.ogg", "JingleBells.ogg", "LateNightRadio.ogg", "MesmerizingGalaxyLoop.ogg", "SpaceJazz.ogg", "VibingOverVenus.ogg, NightInVenice.ogg"]
   license: "CC-BY-SA-4.0"
   copyright: "music by kevin macleod"
   source: "https://incompetech.com/music/royalty-free/music.html"
@@ -6,4 +6,4 @@
 - files: ["peakasshole.ogg"]
   license: "CC-BY-SA-4.0"
   copyright: "made by lucifermkshelter (discord)"
-  source: "https://incompetech.com/music/royalty-free/music.html"
+  source: "https://github.com/LuciferEOS"

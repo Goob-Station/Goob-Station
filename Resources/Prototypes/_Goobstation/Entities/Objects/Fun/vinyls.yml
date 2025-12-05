@@ -10,7 +10,6 @@
     sprite: _Goobstation/Objects/Misc/RadioStation/vinyls.rsi
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/star_hit.ogg
-  - type: LandAtCursor
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: wood
@@ -39,6 +38,9 @@
     damage:
       types:
         Slash: 5
+  - type: Tag
+    tags:
+    - VinylSleeveFit
 
 - type: entity
   abstract: true
@@ -62,13 +64,13 @@
         insertSound: /Audio/_Goobstation/RadioStation/Vinyl/vinylEject.ogg
         ejectSound: /Audio/_Goobstation/RadioStation/Vinyl/vinylInsert.ogg
         whitelist:
-          components:
-          - Vinyl
+          tags:
+          - VinylSleeveFit
 
 # Vinyls
 
 - type: entity
-  name: AI vinyl disk
+  name: space jazz vinyl disk
   id: VinylDiskAI
   parent: BaseVinylDisk
   components:
@@ -79,16 +81,19 @@
       path: /Audio/_Goobstation/RadioStation/music/SpaceJazz.ogg
 
 - type: entity
-  name: devil vinyl disk
+  name: "vinyl disk: airport lounge"
   description: A vinyl disk containing HELLISH music.
   id: VinylDiskDevil
   parent: BaseVinylDisk
   components:
   - type: Sprite
     state: devil-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/AirportLounge.ogg
 
 - type: entity
-  name: pizza vinyl disk
+  name: "vinyl disk: boogie party"
   description: A vinyl disk containing music, smells like tomatoes.
   id: VinylDiskPizza
   parent: BaseVinylDisk
@@ -100,32 +105,41 @@
       path: /Audio/_Goobstation/RadioStation/music/BoogieParty.ogg
 
 - type: entity
-  name: glossy vinyl disk
+  name: "vinyl disk: corncob"
   description: A vinyl disk containing music, has a matt gloss finish.
   id: VinylDiskGlossy
   parent: BaseVinylDisk
   components:
   - type: Sprite
     state: glossy-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/Corncob.ogg
 
 - type: entity
-  name: red vinyl disk
+  name: "vinyl disk: night in Venice"
   id: VinylDiskRed
   parent: BaseVinylDisk
   components:
   - type: Sprite
     state: red-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/NightInVenice.ogg
 
 - type: entity
-  name: light-blue vinyl disk
+  name: "vinyl disk: distant star"
   id: VinylDiskLightBlue
   parent: BaseVinylDisk
   components:
   - type: Sprite
     state: lightblue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/distant_star.ogg
 
 - type: entity
-  name: banana vinyl disk
+  name: "vinyl disk: banana"
   description: A vinyl disk contains the clowns favorite music!
   id: VinylDiskBanana
   parent: BaseVinylDisk
@@ -150,106 +164,145 @@
         hard: false
         layer:
         - SlipLayer
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/honkmas.ogg
 
 - type: entity
-  name: carrot vinyl disk
+  name: "vinyl disk: atlas"
   description: A vinyl disk containing music, has a disclaimer on the side warning that the disk is not edible.
   id: VinylDiskCarrot
   parent: BaseVinylDisk
   components:
   - type: Sprite
     state: carrot-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/atlas.ogg
 
 - type: entity
-  name: cyan vinyl disk
+  name: "vinyl disk: beaches"
   id: VinylDiskCyan
   parent: BaseVinylDisk
   components:
   - type: Sprite
     state: cyan-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/beaches.ogg
 
 - type: entity
-  name: blue vinyl disk
+  name: "vinyl disk: vibing over venus"
   id: VinylDiskBlue
   parent: BaseVinylDisk
   components:
   - type: Sprite
     state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/VibingOverVenus.ogg
 
 - type: entity
-  name: yellow vinyl disk
+  name: "vinyl disk: deadly roulette"
   id: VinylDiskYellow
   parent: BaseVinylDisk
   components:
   - type: Sprite
     state: yellow-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/DeadlyRoulette.ogg
 
 - type: entity
-  name: green vinyl disk
+  name: "vinyl disk: late night radio"
   id: VinylDiskGreen
   parent: BaseVinylDisk
   components:
   - type: Sprite
     state: green-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/LateNightRadio.ogg
 
 - type: entity
-  name: purple vinyl disk
+  name: "vinyl disk: adventure 3"
   id: VinylDiskPurple
   description: lets see it purple!
   parent: BaseVinylDisk
   components:
   - type: Sprite
     state: purple-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/adventure_3.ogg
 
 - type: entity
-  name: orange vinyl disk
+  name: "vinyl disk: everyone is so alive"
   id: VinylDiskOrange
   parent: BaseVinylDisk
   components:
   - type: Sprite
     state: orange-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/everyone_is_so_alive.ogg
 
 - type: entity
-  name: white vinyl disk
+  name: "vinyl disk: groovy"
   id: VinylDiskWhite
   parent: BaseVinylDisk
   components:
   - type: Sprite
     state: white-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/groovy.ogg
 
 - type: entity
-  name: lightish red vinyl disk
+  name: "vinyl disk: fart elise"
   id: VinylDiskLightRed
   description: it's not pink, it's a lightish red.
   parent: BaseVinylDisk
   components:
   - type: Sprite
     state: lightishred-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/fart_elise.ogg
 
 - type: entity
-  name: dark blue vinyl disk
+  name: "vinyl disk: dance on a space volcano"
   id: VinylDiskDarkBlue
   parent: BaseVinylDisk
   components:
   - type: Sprite
     state: darkblue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/dance_on_a_space_volcano.ogg
 
 - type: entity
-  name: pink vinyl disk
+  name: "vinyl disk: christmassong"
   id: VinylDiskPink
   parent: BaseVinylDisk
   components:
   - type: Sprite
     state: pink-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/christmassong.ogg
 
 - type: entity
   name: forgotten vinyl disk
   id: VinylDiskForgotten
   parent: BaseVinylDisk
-  description: some pieces are missing but something tell you that this is still playable.
+  description: some pieces are missing but something tell you that this is still playable, but should you?
   components:
   - type: Sprite
     state: forgotten-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/peakasshole.ogg
 
 - type: entity
   name: broken vinyl disk

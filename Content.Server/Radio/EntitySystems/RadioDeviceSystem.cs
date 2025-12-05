@@ -66,6 +66,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Power;
 using Content.Shared.Radio;
 using Content.Shared.Chat;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.Radio.Components;
 using Robust.Shared.Prototypes;
 
@@ -83,6 +84,7 @@ public sealed class RadioDeviceSystem : EntitySystem
     [Dependency] private readonly InteractionSystem _interaction = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _power = default!; // Goob
 
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = new();
@@ -249,6 +251,16 @@ public sealed class RadioDeviceSystem : EntitySystem
         var channel = _protoMan.Index<RadioChannelPrototype>(component.BroadcastChannel)!;
         if (_recentlySent.Add((args.Message, args.Source, channel)))
             _radio.SendRadioMessage(args.Source, args.Message, channel, uid);
+
+        // Goob start
+        if(component.SecondaryBroadcastChannel == null)
+            return;
+
+        var secondaryChannel = _protoMan.Index<RadioChannelPrototype>(component.SecondaryBroadcastChannel)!;
+
+        if (_recentlySent.Add((args.Message, args.Source, secondaryChannel)))
+            _radio.SendRadioMessage(args.Source, args.Message, secondaryChannel, uid);
+        // Goob end
     }
 
     private void OnAttemptListen(EntityUid uid, RadioMicrophoneComponent component, ListenAttemptEvent args)
@@ -262,7 +274,7 @@ public sealed class RadioDeviceSystem : EntitySystem
 
     private void OnReceiveRadio(EntityUid uid, RadioSpeakerComponent component, ref RadioReceiveEvent args)
     {
-        if (uid == args.RadioSource)
+        if (uid == args.RadioSource || component.PowerRequired && !_power.IsPowered(uid)) // Goobstation, powered required
             return;
 
         var nameEv = new TransformSpeakerNameEvent(args.MessageSource, Name(args.MessageSource));
