@@ -92,11 +92,11 @@
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/cautery2.ogg
   - type: Cautery
+  - type: AlwaysHot # Goob
   - type: Tag # CorvaxGoob-SurgicalMagneticBoard
     tags:
     - SurgeryTool
     - Cautery
-
 # Drill
 
 - type: entity

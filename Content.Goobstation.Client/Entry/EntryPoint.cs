@@ -20,6 +20,7 @@ public sealed class EntryPoint : GameClient
     /* CorvaxGoob
     [Dependency] private readonly IVoiceChatManager _voiceManager = default!;
     [Dependency] private readonly JoinQueueManager _joinQueue = default!;
+    [Dependency] private readonly PollManager _pollManager = default!;
     [Dependency] private readonly ICommonCurrencyManager _currMan = default!;
     */
 
@@ -38,6 +39,7 @@ public sealed class EntryPoint : GameClient
         /* CorvaxGoob
         _voiceManager.Initalize();
         _joinQueue.Initialize();
+        _pollManager.Initialize();
         _currMan.Initialize();
         */
     }

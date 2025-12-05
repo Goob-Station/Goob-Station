@@ -72,7 +72,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.28
+          radius: 0.35
         density: 140
         restitution: 0.0
         mask:

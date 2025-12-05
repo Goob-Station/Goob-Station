@@ -28,6 +28,6 @@
 
 - type: latheRecipe
   parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
-  id: MedicalScannerMachineCircuitboard
-  icon: { sprite: Structures/Machines/scanner.rsi, state: open }
-  result: MedicalScannerMachineCircuitboard
+  icon: { sprite: _CorvaxGoob/Structures/Machines/stasis_operation_table.rsi, state: icon_lathe }
+  id: StasisOperatingTableCircuitboard
+  result: StasisOperatingTableCircuitboard

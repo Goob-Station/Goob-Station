@@ -11,6 +11,7 @@
 /*
 using Content.Goobstation.Client.JoinQueue;
 using Content.Goobstation.Client.MisandryBox;
+using Content.Goobstation.Client.Polls;
 using Content.Goobstation.Client.Redial;
 using Content.Goobstation.Client.ServerCurrency;
 using Content.Goobstation.Client.Voice;
@@ -27,6 +28,7 @@ internal static class ContentGoobClientIoC
         //var collection = IoCManager.Instance!;
 
         collection.Register<RedialManager>();
+        collection.Register<PollManager>();
         collection.Register<IVoiceChatManager, VoiceChatClientManager>();
         collection.Register<JoinQueueManager>();
         collection.Register<IFullScreenImageJumpscare, ClientFullScreenImageJumpscare>();
