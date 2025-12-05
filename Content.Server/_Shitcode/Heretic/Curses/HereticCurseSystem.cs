@@ -24,16 +24,17 @@ using Content.Shared.StatusEffectNew;
 using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Verbs;
 using Content.Goobstation.Maths.FixedPoint;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Server._Shitcode.Heretic.Curses;
 
+using DnaDict = Dictionary<string, (float, HashSet<EntityUid>)>;
+
 public sealed partial class HereticCurseSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IAdminLogManager _log = default!;
@@ -49,6 +50,7 @@ public sealed partial class HereticCurseSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly HereticRitualSystem _ritual = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -135,12 +137,12 @@ public sealed partial class HereticCurseSystem : EntitySystem
             return;
         }
 
-        var dnaDict = GetDnaDict(rune, dna.DNA);
+        var dnaDict = GetDnaDict(rune);
 
-        if (!dnaDict.TryGetValue(dna.DNA, out var tuple))
+        if (!dnaDict.Remove(dna.DNA, out var tuple))
         {
             _popup.PopupEntity(Loc.GetString("heretic-curse-provider-no-dna"), args.Actor, args.Actor);
-            CurseCrewmember(ent, rune, args.Actor, false);
+            CurseCrewmember(ent, rune, args.Actor, false, dnaDict);
             return;
         }
 
@@ -154,6 +156,7 @@ public sealed partial class HereticCurseSystem : EntitySystem
                 victim.Value,
                 victim.Value,
                 PopupType.LargeCaution);
+            _audio.PlayGlobal(ent.Comp.CurseSound, victim.Value);
         }
 
         _log.Add(LogType.Action,
@@ -193,7 +196,7 @@ public sealed partial class HereticCurseSystem : EntitySystem
             }
         }
 
-        CurseCrewmember(ent, rune, args.Actor, false);
+        CurseCrewmember(ent, rune, args.Actor, false, dnaDict);
     }
 
     private void OnGetVerbs(Entity<HereticRitualRuneComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
@@ -227,9 +230,10 @@ public sealed partial class HereticCurseSystem : EntitySystem
     private void CurseCrewmember(Entity<HereticCurseProviderComponent> provider,
         EntityUid rune,
         EntityUid user,
-        bool popup)
+        bool popup,
+        DnaDict? dnaDict = null)
     {
-        var targets = GetTargets(provider, rune, user);
+        var targets = GetTargets(provider, rune, user, dnaDict);
         if (targets.Count == 0)
         {
             CloseUi(provider);
@@ -244,10 +248,11 @@ public sealed partial class HereticCurseSystem : EntitySystem
 
     private HashSet<CurseData> GetTargets(Entity<HereticCurseProviderComponent> provider,
         EntityUid rune,
-        EntityUid user)
+        EntityUid user,
+        DnaDict? dnaDict = null)
     {
         var set = new HashSet<CurseData>();
-        var dnaDict = GetDnaDict(rune);
+        dnaDict ??= GetDnaDict(rune);
 
         if (dnaDict.Count == 0)
             return set;
@@ -278,18 +283,18 @@ public sealed partial class HereticCurseSystem : EntitySystem
         return set;
     }
 
-    private Dictionary<string, (float, HashSet<EntityUid>)> GetDnaDict(EntityUid rune, string? lookDna = null)
+    private DnaDict GetDnaDict(EntityUid rune)
     {
         var forensicsQuery = GetEntityQuery<ForensicsComponent>();
         var puddleQuery = GetEntityQuery<PuddleComponent>();
 
-        Dictionary<string, (float, HashSet<EntityUid>)> dnaDict = new();
+        DnaDict dnaDict = new();
         var look = _lookup.GetEntitiesInRange(rune, 1.5f, LookupFlags.Uncontained);
         foreach (var ent in look)
         {
             if (puddleQuery.TryComp(ent, out var puddle))
             {
-                foreach (var (dna, amount) in GetPuddleData(ent, puddle, lookDna))
+                foreach (var (dna, amount) in GetPuddleData(ent, puddle))
                 {
                     if (!dnaDict.TryGetValue(dna, out var tuple))
                         dnaDict[dna] = (amount, [ent]);
@@ -299,6 +304,7 @@ public sealed partial class HereticCurseSystem : EntitySystem
                         dnaDict[dna] = (tuple.Item1 + amount, tuple.Item2);
                     }
                 }
+
                 continue;
             }
 
@@ -307,9 +313,6 @@ public sealed partial class HereticCurseSystem : EntitySystem
 
             foreach (var dna in forensics.DNAs)
             {
-                if (lookDna != null && dna.Item1 != lookDna)
-                    continue;
-
                 if (!dnaDict.TryGetValue(dna.Item1, out var tuple))
                     dnaDict[dna.Item1] = (0f, [ent]);
                 else
@@ -320,7 +323,7 @@ public sealed partial class HereticCurseSystem : EntitySystem
         return dnaDict;
     }
 
-    private IEnumerable<(string, float)> GetPuddleData(EntityUid uid, PuddleComponent puddle, string? lookDna)
+    private IEnumerable<(string, float)> GetPuddleData(EntityUid uid, PuddleComponent puddle)
     {
         if (!_soln.ResolveSolution(uid, puddle.SolutionName, ref puddle.Solution))
             yield break;
@@ -330,9 +333,6 @@ public sealed partial class HereticCurseSystem : EntitySystem
             foreach (var data in reagent.Reagent.EnsureReagentData())
             {
                 if (data is not DnaData dna)
-                    continue;
-
-                if (lookDna != null && dna.DNA != lookDna)
                     continue;
 
                 yield return (dna.DNA, reagent.Quantity.Float());
@@ -348,8 +348,12 @@ public sealed partial class HereticCurseSystem : EntitySystem
 
     private static float GetBloodCurseMultiplier(float amount, float maxAmount, float maxMultiplier)
     {
+        if (amount == 0f)
+            return 1f;
+
         DebugTools.Assert(maxMultiplier >= 1f);
         DebugTools.Assert(maxAmount >= 0f);
+
         var multiplier = 1f + (maxMultiplier - 1f) / (1f + MathF.Exp(maxAmount / 2f - amount));
         multiplier = Math.Clamp(multiplier, 1f, maxMultiplier);
         return MathF.Round(multiplier, 1, MidpointRounding.ToPositiveInfinity);

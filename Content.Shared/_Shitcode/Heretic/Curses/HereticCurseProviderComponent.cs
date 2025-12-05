@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -21,6 +22,9 @@ public sealed partial class HereticCurseProviderComponent : Component
 
     [DataField]
     public TimeSpan CurseDelay = TimeSpan.FromMinutes(5);
+
+    [DataField]
+    public SoundSpecifier? CurseSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/curse.ogg");
 }
 
 [Serializable, NetSerializable, DataDefinition]

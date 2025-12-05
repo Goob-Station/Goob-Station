@@ -1,0 +1,35 @@
+<Document>
+  # Heretic Curses
+
+  <Box>
+    <GuideEntityEmbed Entity="CodexMorbus"/>
+    <GuideEntityEmbed Entity="HereticPhylactery"/>
+  </Box>
+
+  Curses can be applied to any living person except for heretics, ghouls or wizards.
+  The main source of the curses is [color=yellow]Codex Morbus[/color] - tier 2 heretic side knowledge.
+
+  ## Codex Morbus
+
+  Can be transmuted from a corpse and [color=yellow]Codex Cicatrix[/color] on a rune after researching respective knowledge.
+  Allows heretics to draw runes and drain influences faster, but more importantly, it provides the ability to apply curses on other people.
+
+  Alt-click transmutation rune with your codex or using context menu to open curse window.
+  Either a puddle of victim's blood or an item with DNA should be present on the rune. Curses applied from blood have longer effect, scaling with amount of blood on the rune.
+  You can select one victim from the list to curse them temporarily. Remember to select the curse first.
+
+  ## List of curses
+
+  - \[ [color=red]Curse of Corrosion[/color] \] - Causes victim to vomit constantly and take some poison damage.
+  - \[ [color=red]Curse of Paralysis[/color] \] - Paralyses victim's legs, forcing them prone and slowing them down.
+  - \[ [color=red]Curse of Flames[/color] \] - Burns victim occasionally.
+  - \[ [color=red]Curse of Amok[/color] \] - Forces victim to attack other people unintentionally.
+  - \[ [color=red]Curse of Blindness[/color] \] - Blinds the victim.
+  - \[ [color=red]Curse of Fragility[/color] \] - Doubles all damage dealt to the victim, from any source. This curse is silent and your victim won't be alerted.
+
+  ## Phylactery of Damnation
+
+  A handy tool, made from a pool of blood and a beaker on the rune. Available for free for all heretics.
+  Can be used to extract up to 10u of blood from victims, even at range. Be aware that your victim would still feel a tiny prick.
+  Blood can either be transferred into other container, or spilled on the ground and used in rituals or curses.
+</Document>
