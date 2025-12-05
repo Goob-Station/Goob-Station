@@ -1,11 +1,9 @@
-File: Resources\Locale\en-US\_Goobstation\slasher\slasher.ftl
-````````
 slasher-role-greeting = You feel an unstoppable urge for vengeance... and synth music. The night is young, the fog is thick, and your machete gleams in the neon starlight. Time to show these spacemen why you’re the legend of the midnight massacre!
 
-ghost-role-information-slasher-name = The Slasher
-ghost-role-information-slasher-description = Slaughter and terrorize the living as The Slasher!
+ghost-role-information-slasher-name = Slasher
+ghost-role-information-slasher-description = Slaughter and terrorize the living as the Slasher!
 
-slasher-round-end-agent-name = The Slasher
+slasher-round-end-agent-name = Slasher
 
 
 slasher-summon-meatspike-popup = A gruesome meat spike erupts from the ground!
@@ -36,12 +34,12 @@ slasher-corporealize-fail-inside-wall = You cannot corporealize while inside a s
 reagent-name-slasherium = Slasherium
 reagent-desc-slasherium = Used by the Slasher to heal themselves.
 
-objective-issuer-slasher = The Slasher
+objective-issuer-slasher = Slasher
 slasher-objective-absorb-souls-title = Absorb { $count } souls
 slasher-objective-absorb-souls-desc = The Crew has no need for such things.
                                       You do.
 
-roles-antag-slasher-name = The Slasher
-roles-antag-slasher-objectives = Slaughter and terrorize the living as The Slasher!
+roles-antag-slasher-name = Slasher
+roles-antag-slasher-objectives = Slaughter and terrorize the living as the Slasher!
 
 slasher-cannot-use-guns = Your otherworldly form rejects firearms.
