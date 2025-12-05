@@ -16,10 +16,9 @@
   - NpcFactionMember
   - EncryptionKeyHolder # Goobstation
   # traits
-  - BlackAndWhiteOverlay # Goobstation?
-  - Clumsy # Goobstation?
-  - Hemophilia # Goobstation?
-  - ImpairedMobility # Goobstation?
+  - BlackAndWhiteOverlay
+  - Clumsy
+  - ImpairedMobility
   # - LegsParalyzed (you get healed)
   - BlackAndWhiteOverlay # Goobstation?
   - LightweightDrunk
