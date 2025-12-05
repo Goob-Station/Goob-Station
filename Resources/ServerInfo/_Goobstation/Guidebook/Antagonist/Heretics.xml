@@ -37,7 +37,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </Box>
   Influences are the easy way to gain power points. Whenever there are Heretics aboard Space Station 14, influences will randomly spawn across the station.
   They are not visible to the naked eye of a crew member, however they [bold]will[/bold] become visible after harvesting, aside from suddenly changing colors.
-  Tip: When using [color=green]Codex Cicatrix[/color] on an influence you will harvest it faster and get twice as much knowledge points from it, but it will be a dead giveaway to anyone nearby that you're a heretic.
+  Influences give 1 knowledge point and can be harvested with either [color=green]Codex Cicatrix[/color] or [color=green]Codex Morbus[/color].
   <Box>
     <GuideEntityEmbed Entity="EldritchInfluenceSpent" Caption="Harvested influence. Notice the glow."/>
   </Box>
@@ -99,7 +99,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   ## Tips
   - Be wary of other heretics. They worship false gods, and will sacrifice you for knowledge just as easily as they would any other heathen. However, you can sacrifice them to the Mansus as well. Let the strongest god win.
-  - On Ashen Path, always carry a fire extinguisher or a bottle of water with you! While you can spew out fireballs, you are not immune to them until you ascend or wear a Mask of Madness!
+  - On Ashen Path, always carry a fire extinguisher or a bottle of water with you! While you can burn people, you are not immune to it until you ascend or wear a Mask of Madness!
   - As a [color=purple]Raw Prophet[/color], your [color=green]Mansus Link[/color] ability is extremely useful for communication. When you use it on someone, they gain a hivemind similar to changelings with +m key to talk privately.
   - Your Mansus Grasp will temporarily garble the speech of people who you use it on. This can let you get away with murder while comms are online, but be careful - it's not foolproof.
   - [color=purple]Influences[/color] can spawn in almost any location on the station, ranging from the main hallways and public restrooms to [color=cyan]Command staff offices[/color] and [color=red]restricted security areas[/color] in the Brig. It's best to check every area you can access, public and department.
