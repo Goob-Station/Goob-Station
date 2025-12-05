@@ -70,7 +70,7 @@
 # Vinyls
 
 - type: entity
-  name: space jazz vinyl disk
+  name: "vinyl disk: space jazz"
   id: VinylDiskAI
   parent: BaseVinylDisk
   components:

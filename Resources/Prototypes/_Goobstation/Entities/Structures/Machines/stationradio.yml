@@ -7,6 +7,7 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/vinylplayer.rsi
     state: vinylplayer
+    drawdepth: Walls
   - type: VinylPlayer
   - type: Destructible
     thresholds:
@@ -34,8 +35,10 @@
   description: An old school tape deck, ready to play the newest podcast made by the crew.
   components:
   - type: Sprite
+    offset: 0.83, 0.5
     sprite: _Goobstation/Structures/Machines/StationRadio/tapedeck.rsi
     state: tapedeck
+    drawdepth: Walls
   - type: TapeRecorder
   - type: ActiveListener
     range: 4
@@ -58,6 +61,24 @@
     interfaces:
       enum.TapeRecorderUIKey.Key:
         type: TapeRecorderBoundUserInterface
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.5,-0.5,1.2,1.3"
+        density: 20
+        mask:
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        layer:
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: true
 
 - type: entity
   id: StationRadioServer
@@ -69,6 +90,7 @@
     offset: 0.565, 0
     sprite: _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
     state: broadcastradio
+    drawdepth: Walls
   - type: TelecomExempt
   - type: RadioMicrophone
     broadcastChannel: RadioShow
@@ -101,6 +123,7 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/radiostationvinyl.rsi
     state: stationradiosetup
+    drawdepth: Walls
   - type: VinylPlayer
     relayToRadios: true
   - type: Physics
@@ -144,9 +167,67 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: RadioSpeaker
+    powerRequired: true
     speakNormally: true
     enabled: true
     channels:
     - RadioShow
   - type: Speech
     speechVerb: Robotic
+
+# Container
+
+- type: entity
+  id: CrateRadioStationAds
+  parent: CrateGenericSteel
+  name: ads crate
+  description: A whole crate which sole purpose is to store ads, aint capitalism great?
+  components:
+  - type: StorageFill
+    contents:
+    - id: CdDiskDanitosBurritos
+      prob: 0.6
+    - id: CdDiskBillMovie
+      prob: 0.6
+    - id: CdDiskCapTraining
+      prob: 0.6
+    - id: CdDiskCargonia
+      prob: 0.6
+    - id: CdDiskChemistry
+      prob: 0.6
+    - id: CdDiskCloningPsa
+      prob: 0.6
+    - id: CdDiskDansTickets
+      prob: 0.6
+    - id: CdDiskGrones
+      prob: 0.6
+    - id: CdDiskPopeCrunchCereal
+      prob: 0.6
+    - id: CdDiskQuikNoodles
+      prob: 0.6
+    - id: CdDiskRobotics
+      prob: 0.6
+    - id: CdDiskSecurityPsa
+      prob: 0.6
+    - id: CdDiskOwl
+      prob: 0.2
+    - id: CdDiskCommanderAnnouncement
+      prob: 0.2
+    - id: CdDiskCommanderFigurines
+      prob: 0.2
+    - id: CdDiskCommanderResignation
+      prob: 0.2
+    - id: CdDiskCommanderSupport
+      prob: 0.2
+    - id: CdDiskHeisenbeeTrial
+      prob: 0.2
+    - id: CdDiskXgOnboarding1
+      prob: 0.1
+    - id: CdDiskXgOnboarding2
+      prob: 0.1
+    - id: CdDiskXgOnboarding3
+      prob: 0.1
+    - id: CdDiskXgOnboarding4
+      prob: 0.1
+    - id: VinylDiskForgotten
+      prob: 0.05

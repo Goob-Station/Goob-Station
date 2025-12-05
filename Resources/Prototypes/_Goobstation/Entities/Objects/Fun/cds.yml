@@ -89,8 +89,8 @@
 
 - type: entity
   parent: BaseCdDisk
-  name: "cd disk: Dans Tickets"
-  id: CdDiskDansTickets
+  name: "cd disk: grones"
+  id: CdDiskGrones
   components:
   - type: Vinyl
     song:
