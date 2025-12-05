@@ -4436,3 +4436,11 @@ Entries:
   id: 9252
   time: '2025-12-05T10:46:28.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41405
+- author: alexalexmax
+  changes:
+  - message: Recharging spray painters no longer lose the ability to paint airlocks
+      after running out of charges once
+    type: Fix
+  id: 9253
+  time: '2025-12-05T11:00:10.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41725
