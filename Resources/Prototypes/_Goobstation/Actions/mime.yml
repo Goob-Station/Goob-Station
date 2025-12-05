@@ -1,0 +1,38 @@
+- type: entity
+  parent: BaseAction
+  id: ActionInvisibleBlockade
+  name: Invisible Blockade
+  description: Form an invisible three tile wide blockade.
+  components:
+  - type: Action
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Actions/mime.rsi
+      state: invisible_blockade
+  - type: InstantAction
+    event: !type:InvisibleWallActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionFingerGuns
+  name: Finger Guns
+  description: Shoot up to three mimed bullets from your fingers that damage and mute their targets. Can't be used if you have something in your hands.
+  components:
+  - type: Action
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 0.25
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Actions/mime.rsi
+      state: finger_guns
+  - type: TargetAction
+    checkCanAccess: false
+    repeat: true
+    interactOnMiss: false
+    range: 20
+  - type: WorldTargetAction
+    event: !type:FingerGunsActionEvent
