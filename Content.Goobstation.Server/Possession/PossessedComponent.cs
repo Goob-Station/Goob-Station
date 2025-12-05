@@ -10,6 +10,7 @@ using Content.Shared.Mind;
 using Content.Shared.Polymorph;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Possession;
