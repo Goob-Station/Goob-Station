@@ -12,7 +12,7 @@
     sound: /Audio/Weapons/star_hit.ogg
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: wood
+    damageModifierSet: Wood
   - type: Destructible
     thresholds:
     - trigger:
@@ -61,8 +61,8 @@
     slots:
       vinyl:
         name: vinyl
-        insertSound: /Audio/_Goobstation/RadioStation/Vinyl/vinylEject.ogg
-        ejectSound: /Audio/_Goobstation/RadioStation/Vinyl/vinylInsert.ogg
+        insertSound: /Audio/_Goobstation/RadioStation/vinyl/vinylEject.ogg
+        ejectSound: /Audio/_Goobstation/RadioStation/vinyl/vinylInsert.ogg
         whitelist:
           tags:
           - VinylSleeveFit

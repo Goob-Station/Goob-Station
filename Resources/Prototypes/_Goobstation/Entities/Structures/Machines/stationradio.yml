@@ -210,8 +210,6 @@
       prob: 0.6
     - id: CdDiskSecurityPsa
       prob: 0.6
-    - id: CdDiskOwl
-      prob: 0.2
     - id: CdDiskCommanderAnnouncement
       prob: 0.2
     - id: CdDiskCommanderFigurines
