@@ -186,7 +186,7 @@
   abstract: true
   components:
   - type: Contraband
-    allowedDepartments: [ Security, Cargo ]
+    allowedDepartments: [ Security, Cargo, CentralCommand ] # Goob - blueshield gear
 
 - type: entity
   id: BaseMedicalScienceContraband

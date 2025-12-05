@@ -15,12 +15,6 @@ public sealed partial class VisibleContrabandComponent : Component
 
     [DataField] 
     public HashSet<EntityUid> VisibleItems = new();
-    
-    [DataField]
-    public TimeSpan VisibleTimeout = TimeSpan.FromSeconds(5f);
-
-    [DataField] 
-    public TimeSpan? FirstItemTime;
 }
 
 public enum ContrabandStatus : byte
