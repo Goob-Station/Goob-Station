@@ -33,12 +33,12 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -3
-            Toxin: -3
-            Airloss: -3
-            Brute: -3
-            Genetic: -3
-            Metaphysical: -5
+            Burn: -2
+            Toxin: -2
+            Airloss: -2
+            Brute: -2
+            Genetic: -2
+            Metaphysical: -3
         conditions:
         - !type:HasComponentCondition
           components:
@@ -74,6 +74,16 @@
       - !type:TakeStaminaDamage
         amount: -10
         immediate: true
+        conditions:
+        - !type:HasComponentCondition
+          components:
+            - Heretic
+            - Ghoul
+          guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 50.0
+        type: Remove
         conditions:
         - !type:HasComponentCondition
           components:
