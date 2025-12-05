@@ -166,7 +166,7 @@
         - SlipLayer
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/music/honkmas.ogg
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/honkmas.ogg
 
 - type: entity
   name: "vinyl disk: atlas"

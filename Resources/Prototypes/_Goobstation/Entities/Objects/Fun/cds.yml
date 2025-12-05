@@ -98,15 +98,6 @@
 
 - type: entity
   parent: BaseCdDisk
-  name: "cd disk: owl"
-  id: CdDiskOwl
-  components:
-  - type: Vinyl
-    song:
-      path: /Audio/_Goobstation/RadioStation/ads/owl.ogg
-
-- type: entity
-  parent: BaseCdDisk
   name: "cd disk: Pope Crunch Cereal"
   id: CdDiskPopeCrunchCereal
   components:
