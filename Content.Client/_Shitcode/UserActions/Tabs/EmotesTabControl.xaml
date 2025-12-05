@@ -11,7 +11,7 @@
             <BoxContainer Orientation="Vertical"
                           HorizontalExpand="True"
                           Margin="2">
-                <GridContainer Name="EmotesList" Columns="3" HorizontalExpand="True">
+                <GridContainer Name="EmotesList" Columns="2" HorizontalExpand="True"> <!--CorvaxGoob-Edits : Columns from 3 to 2-->
                 </GridContainer>
             </BoxContainer>
         </ScrollContainer>

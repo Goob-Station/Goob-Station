@@ -31,3 +31,4 @@ rich_main_icon_id = "corvax"
 
 [admin]
 see_own_notes = true
+admins_count_in_playercount = true

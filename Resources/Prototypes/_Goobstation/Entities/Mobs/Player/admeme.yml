@@ -84,6 +84,8 @@
     name: ghost-role-information-navy-officer-name
     description: ghost-role-information-navy-officer-description
     rules: ghost-role-information-navy-officer-rules
+    skills: # CorvaxGoob-Skills
+    - All
     raffle:
       settings: short
   - type: Loadout
@@ -124,6 +126,8 @@
     name: ghost-role-information-navy-captain-name
     description: ghost-role-information-navy-captain-description
     rules: ghost-role-information-navy-captain-rules
+    skills: # CorvaxGoob-Skills
+    - All
     raffle:
       settings: short
   - type: Loadout
@@ -164,6 +168,8 @@
     name: ghost-role-information-navy-officer-undercover-name
     description: ghost-role-information-navy-officer-undercover-description
     rules: ghost-role-information-navy-officer-rules
+    skills: # CorvaxGoob-Skills
+    - All
     raffle:
       settings: short
   - type: Loadout
@@ -204,6 +210,8 @@
     name: ghost-role-information-special-operations-officer-name
     description: ghost-role-information-special-operations-officer-description
     rules: ghost-role-information-special-operations-officer-rules
+    skills: # CorvaxGoob-Skills
+    - All
     raffle:
       settings: short
   - type: Loadout
@@ -244,6 +252,8 @@
     name: ghost-role-information-diplomat-name
     description: ghost-role-information-diplomat-description
     rules: ghost-role-information-navy-officer-rules
+    skills: # CorvaxGoob-Skills
+    - All
     raffle:
       settings: short
   - type: Loadout
@@ -284,6 +294,8 @@
     name: ghost-role-information-inspector-name
     description: ghost-role-information-inspector-description
     rules: ghost-role-information-navy-officer-rules
+    skills: # CorvaxGoob-Skills
+    - All
     raffle:
       settings: short
   - type: Loadout
@@ -351,6 +363,8 @@
     name: ghost-role-information-Hecu-name
     description: ghost-role-information-Hecu-description
     rules: ghost-role-information-Hecu-rules
+    skills: # CorvaxGoob-Skills
+    - All
     raffle:
       settings: short
   - type: Loadout
@@ -386,6 +400,8 @@
     name: ghost-role-information-Gman-name
     description: ghost-role-information-Gman-description
     rules: ghost-role-information-Gman-rules
+    skills: # CorvaxGoob-Skills
+    - All
     raffle:
       settings: short
   - type: Loadout
@@ -439,6 +455,8 @@
     name: ghost-role-information-conquest-name
     description: ghost-role-information-conquest-description
     rules: ghost-role-information-conquest-rules
+    skills: # CorvaxGoob-Skills
+    - All
     raffle:
       settings: short
   - type: Loadout

@@ -30,6 +30,7 @@ using Content.Server.Access.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Forensics.Components;
 using Content.Shared.GameTicking;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
@@ -184,7 +185,7 @@ public sealed partial class StationRecordsSystem : SharedStationRecordsSystem
             JobTitle = jobPrototype.LocalizedName,
             JobIcon = jobPrototype.Icon,
             JobPrototype = jobId,
-            Species = species,
+            Species = _prototypeManager.Index<SpeciesPrototype>(species).Name, // CorvaxGoob-Locale
             Gender = gender,
             DisplayPriority = jobPrototype.RealDisplayWeight,
             Fingerprint = mobFingerprint,

@@ -8,6 +8,8 @@
       department: Science
       time: 14400 #4 hrs
   startingGear: RoboticistGear
+  skills: # CorvaxGoob-Skills
+  - AdvancedBuilding
   icon: "JobIconRoboticist"
   supervisors: job-supervisors-rd
   access:
