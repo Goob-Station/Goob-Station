@@ -412,6 +412,7 @@
   - type: Caposoutfit
 
 - type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadHatTinfoilHat
   name: tinfoil hat
   description: A high tech helmet crafted from aluminum foil.
