@@ -945,8 +945,11 @@
   description: uplink-chemistry-kit-desc
   icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: vials }
   productEntity: ChemicalSynthesisKit
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 10 # Goob
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 20 # Goob
   categories:
   - UplinkChemicals
   #Goobstation
@@ -968,21 +971,22 @@
 #    Telecrystal: 200 # goob
 #  categories:
 #  - UplinkChemicals
+#  #Goobstation
 #  conditions:
 #  - !type:StoreWhitelistCondition
-#    whitelist:
-#      tags:
-#      - NukeOpsUplink
-#  - !type:BuyerWhitelistCondition
 #    blacklist:
-#      components:
-#      - SurplusBundle
+#      tags:
+#      - ContractorUplink
+
 
 - type: listing
   id: UplinkNocturineChemistryBottle
   name: uplink-nocturine-chemistry-bottle-name
   description: uplink-nocturine-chemistry-bottle-desc
   productEntity: ChemistryBottleNocturine
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 15 # Goob
   cost:
     Telecrystal: 30 # goob
   categories:
