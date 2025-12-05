@@ -182,6 +182,8 @@
   - type: Speech
     speechVerb: Robotic
   - type: ActiveRadio
+    channels:
+    - RadioShow
 
 # Container
 
