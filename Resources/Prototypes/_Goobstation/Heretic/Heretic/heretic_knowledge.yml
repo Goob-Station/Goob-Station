@@ -281,18 +281,29 @@
   id: GraspOfVoid
   path: Void
   stage: 2
+  event: !type:HereticAristocratWayEvent
+
+#- type: hereticKnowledge
+#  id: AristocratWay
+#  path: Void
+#  sideKnowledge: true
+#  stage: 3
+#  event: !type:HereticAristocratWayEvent
 
 - type: hereticKnowledge
-  id: AristocratWay
+  id: VoidPhase
   path: Void
   sideKnowledge: true
   stage: 3
-  event: !type:HereticAristocratWayEvent
+  actionPrototypes:
+  - ActionHereticVoidPhase
 
 - type: hereticKnowledge
   id: MarkOfVoid
   path: Void
   stage: 4
+  event: !type:HereticAristocratWayEvent
+    grantBreathingImmunity: true
 
 #- type: hereticKnowledge
 #  id: VoidBlast
@@ -302,19 +313,19 @@
 #  - ActionHereticVoidBlast
 
 - type: hereticKnowledge
-  id: MysteriesOfCreation
+  id: VoidPrison
   path: Void
   stage: 5
   actionPrototypes:
-  - ActionHereticIceSpear
+  - ActionHereticVoidPrison
 
 - type: hereticKnowledge
-  id: VoidPhase
+  id: VoidPull
   path: Void
   sideKnowledge: true
   stage: 6
   actionPrototypes:
-  - ActionHereticVoidPhase
+  - ActionHereticVoidPull
 
 - type: hereticKnowledge
   id: SeekingBlade
@@ -322,12 +333,12 @@
   stage: 7
 
 - type: hereticKnowledge
-  id: VoidPull
+  id: VoidConduit
   path: Void
   sideKnowledge: true
   stage: 8
   actionPrototypes:
-  - ActionHereticVoidPull
+  - ActionHereticVoidConduit
 
 - type: hereticKnowledge
   id: AscensionVoid
@@ -537,6 +548,13 @@
   stage: 6
   ritualPrototypes:
   - CarvingKnife
+
+- type: hereticKnowledge
+  id: MysteriesOfCreation
+  sideKnowledge: true
+  stage: 6
+  actionPrototypes:
+  - ActionHereticIceSpear
 
 ## stage 8
 - type: hereticKnowledge

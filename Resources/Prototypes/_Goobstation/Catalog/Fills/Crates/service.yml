@@ -45,3 +45,14 @@
   - type: StorageFill
     contents:
     - id: ClawMachineFlatPack
+      
+- type: entity
+  id: CrateCargoForklift
+  parent: CrateLivestock
+  name: Forklift crate
+  description: A perfect utility vehicle for cargo.
+  components:
+    - type: StorageFill
+      contents:
+        - id: VehicleForklift
+        - id: VehicleKeyForklift

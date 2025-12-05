@@ -257,6 +257,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                             <Label Name="BloodLabel"/>
                             <Label Name="DamageLabelHeading" Text="{Loc 'health-analyzer-window-entity-damage-total-text'}"/>
                             <Label Name="DamageLabel"/>
+                            <!-- Goobstation start -->
+                            <Label Name="DamageLabelHeadingVital" Text="{Loc 'health-analyzer-window-entity-damage-vital-text'}"/>
+                            <Label Name="DamageLabelVital"/>
+                            <!-- Goobstation end -->
                         </GridContainer>
                     </BoxContainer>
 

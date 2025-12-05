@@ -25,18 +25,20 @@
       tags:
       - VimPilot
       - Carp
-      - DoorBumpOpener
       - CannotSuicide #Goob edit end
     - type: GhostTakeoverAvailable
     - type: Sprite
       drawdepth: Mobs
-      sprite: Mobs/Aliens/Carps/goldfish.rsi
+      sprite: _EinsteinEngines/Mobs/Aliens/Carps/goldfish.rsi # goob edit - move sprites to EE
       layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: alive
       - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
         state: mouth
         shader: unshaded
+      - map: [ "neck" ]
+        state: equipped-NECK
+        visible: false
     - type: DamageStateVisuals
       states:
         Alive:
@@ -51,9 +53,11 @@
     - type: RandomSprite
       available:
       - enum.DamageStateVisualLayers.Base:
-          alive: Rainbow
+          alive: "Rainbow"
         enum.DamageStateVisualLayers.BaseUnshaded:
           mouth: ""
+        neck:
+          equipped-NECK: Rainbow
     - type: FireVisuals
       sprite: Mobs/Effects/onfire.rsi
       normalState: Mouse_burning
@@ -65,9 +69,9 @@
             radius: 0.2
           density: 1
           mask:
-            - FlyingMobMask
+          - SmallMobMask # goob edit - flying > small mob layer
           layer:
-            - FlyingMobLayer
+          - SmallMobLayer # goob edit - flying > small mob layer
     - type: Item
       size: Tiny
     - type: CanEscapeInventory
@@ -97,4 +101,57 @@
           gibContents: Skip
           recursive: false
     - type: Body #shitmed
-      prototype: Mouse
+      prototype: Animal # goob edits start
+    - type: MovementSpeedModifier
+      baseSprintSpeed : 5
+    - type: NpcFactionMember
+      factions:
+        - Mouse
+    - type: Food
+    - type: BadFood
+    - type: FlavorProfile
+      flavors:
+      - fishy
+    - type: Thirst
+      startingThirst: 25
+      thresholds:
+        OverHydrated: 35
+        Okay: 25
+        Thirsty: 15
+        Parched: 10
+        Dead: 0
+      baseDecayRate: 0.04
+    - type: Hunger
+      startingHunger: 25
+      thresholds:
+        Overfed: 35
+        Okay: 25
+        Peckish: 15
+        Starving: 10
+        Dead: 0
+      baseDecayRate: 0.04
+    - type: Extractable
+      grindableSolutionName: food
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          reagents:
+          - ReagentId: UncookedAnimalProteins
+            Quantity: 3
+          - ReagentId: CarpoToxin
+            Quantity: 3
+    - type: Clothing
+      quickEquip: false
+      clothingVisuals:
+        neck:
+        - map: [ "neck" ]
+          state: equipped-NECK
+        - state: mouth-equipped-NECK
+          shader: unshaded
+      slots:
+      - NECK
+    - type: AltClothingLayer
+      defaultLayer: neck
+      altLayer: pocket1 # makes it render over helmets
+      changeToAltMessage: alt-clothing-component-mask-default
+      changeToDefaultMessage: alt-clothing-component-mask-alt # goob edits end
