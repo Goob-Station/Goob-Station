@@ -91,7 +91,15 @@
     damage:
       types:
         Blunt: 0.07
-  # Corvax-Goob-GreySpecies-end
+  - type: Inventory
+    speciesId: abductor
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Shitmed/Mobs/Species/Abductor/displacement.rsi
+            state: jumpsuit
+  # Corvax-Goob-GraysResprite-end
 
 - type: entity
   parent: BaseSpeciesDummy
