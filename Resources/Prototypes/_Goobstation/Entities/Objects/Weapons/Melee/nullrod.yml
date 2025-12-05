@@ -570,7 +570,7 @@
     heavyStaminaCost: 15
     autoAttack: true
     angle: 0
-    animationRotation: 270
+    animationRotation: 90
     wideAnimationRotation: 90
     attackRate: 4
     damage:
