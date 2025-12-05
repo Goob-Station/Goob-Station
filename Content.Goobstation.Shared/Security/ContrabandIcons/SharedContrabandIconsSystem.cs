@@ -13,9 +13,9 @@ namespace Content.Goobstation.Shared.Security.ContrabandIcons;
 public abstract class SharedContrabandIconsSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _configuration = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedContrabandDetectorSystem _detectorSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private bool _isEnabled = true;
     private EntityQuery<ContrabandComponent> _contrabandQuery;
@@ -40,7 +40,7 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
     {
         if (!_isEnabled ||
             !_contrabandQuery.TryComp(args.Equipment, out var contra) 
-            || (contra.Severity == "Restricted" && _detectorSystem.CheckContrabandPermission(args.Equipment, args.Equipee, contra)) 
+            || (contra.Severity == "Restricted" && _detectorSystem.CheckContrabandPermission(args.Equipment, args.Equipee, contra) && (MetaData(args.Equipee).CreationTick < _timing.CurTick + 200)) 
             || contra.Severity == "Minor" 
             || contra.Severity == "GrandTheft" 
             || args.SlotFlags == SlotFlags.POCKET)
@@ -78,7 +78,11 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
 
         if (!_visibleContrabandQuery.TryComp(uid, out var visible))
             return;
-
+        if(visible.VisibleItems.Count > 0)
+        {
+            UpdateStatusIcon(visible, uid, ContrabandStatus.Contraband);
+            return;
+        }
         var contralist = _detectorSystem.FindContraband(uid, false, SlotFlags.WITHOUT_POCKET);
         var status = contralist.Count > 0 ? ContrabandStatus.Contraband : ContrabandStatus.None;
         UpdateStatusIcon(visible, uid, status);
