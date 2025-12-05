@@ -21,7 +21,7 @@
       - NovuNederic
       - Tradeband
       - Sign
-      - SpaceItalian
+      - SpaceItalian # Job Specific -
       - Bubblish # Species Languages -
       - Calcic
       - Canilunzt
@@ -35,7 +35,7 @@
       - RobotTalk
       - RootSpeak
       - SiikMaas
-      - Draconic     # = Sinta'Unathi
+      - Draconic # = Sinta'Unathi
       - Schechi
       - ValyrianStandard
       - YowKriol
@@ -58,7 +58,7 @@
       - NovuNederic
       - Tradeband
       - Sign
-      - SpaceItalian
+      - SpaceItalian # Job Specific -
       - Bubblish # Species Languages -
       - Calcic
       - Canilunzt
@@ -72,7 +72,7 @@
       - RobotTalk
       - RootSpeak
       - SiikMaas
-      - Draconic     # = Sinta'Unathi
+      - Draconic # = Sinta'Unathi
       - Schechi
       - ValyrianStandard
       - YowKriol
@@ -82,10 +82,11 @@
       - NalRasan
       - SiikTajr
       - YaSsa
-      - Cheval # Animal -
+      - Cheval # Animal Languages -
       - Mouse
       - Monkey
       - Kobold
+
 
 
 
