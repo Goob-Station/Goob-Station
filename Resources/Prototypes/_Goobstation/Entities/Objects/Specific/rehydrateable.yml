@@ -170,3 +170,12 @@
   - type: Rehydratable
     possibleSpawns:
     - MobOniRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: Gingerbreadcube
+  name: gingerbread cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobGingerbreadRandom
