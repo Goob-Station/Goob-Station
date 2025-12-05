@@ -37,10 +37,11 @@
 #  announcement: terror-wraith
 #  rule: WraithMidround
 
-- type: ninjaHackingThreat
-  id: Slasher
-  announcement: terror-slasher
-  rule: SlasherSpawn
+# TODO When Slasher is Ready
+#- type: ninjaHackingThreat
+#  id: Slasher
+#  announcement: terror-slasher
+#  rule: SlasherSpawn
 
 #- type: ninjaHackingThreat
 #  id: Revenant
