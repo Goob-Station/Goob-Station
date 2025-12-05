@@ -93,6 +93,7 @@
     drawdepth: Walls
   - type: TelecomExempt
   - type: RadioMicrophone
+    powerRequired: true
     broadcastChannel: RadioShow
     secondaryBroadcastChannel: Common
   - type: Physics
