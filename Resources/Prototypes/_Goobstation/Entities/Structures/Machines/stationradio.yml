@@ -27,6 +27,12 @@
         whitelist:
           components:
           - Vinyl
+  - type: ContainerContainer
+    containers:
+      vinyl: !type:ContainerSlot
+        showEnts: false
+        occludes: true
+        ent: null
 
 - type: entity
   id: TapeDeck
@@ -175,6 +181,7 @@
     - RadioShow
   - type: Speech
     speechVerb: Robotic
+  - type: ActiveRadio
 
 # Container
 
