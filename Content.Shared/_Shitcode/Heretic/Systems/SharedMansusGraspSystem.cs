@@ -77,7 +77,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                 return true;
         }
 
-        if (hereticComp.PathStage >= 4 && HasComp<StatusEffectsComponent>(target))
+        if (hereticComp.PathStage >= 3 && HasComp<StatusEffectsComponent>(target))
         {
             var markComp = EnsureComp<HereticCombatMarkComponent>(target);
             markComp.DisappearTime = markComp.MaxDisappearTime;

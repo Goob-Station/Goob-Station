@@ -17,7 +17,7 @@
   icon: { sprite: _Goobstation/Heretic/Blades/blade_rust.rsi, state: icon }
   productHereticKnowledge: BlacksmithTale
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 0
   categories:
   - HereticPathRust
   conditions:
@@ -42,7 +42,7 @@
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: GraspOfRust
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 0
   categories:
   - HereticPathRust
   conditions:
@@ -50,6 +50,24 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 1
+    whitelist:
+    - Rust
+
+- type: listing
+  id: HereticRustPath3
+  name: knowledge-path-rust-s3-name
+  description: knowledge-path-rust-s3-desc
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: MarkOfRust
+  cost:
+    KnowledgePoint: 0
+  categories:
+  - HereticPathRust
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
     whitelist:
     - Rust
 
@@ -72,29 +90,11 @@
 #    - Rust
 
 - type: listing
-  id: HereticRustPath3
-  name: knowledge-path-rust-s3-name
-  description: knowledge-path-rust-s3-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: aggressive_spread }
-  productHereticKnowledge: AggressiveSpread
-  cost:
-    KnowledgePoint: 1
-  categories:
-  - HereticPathRust
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:HereticPathCondition
-    stage: 2
-    whitelist:
-    - Rust
-
-- type: listing
   id: HereticRustPath4
   name: knowledge-path-rust-s4-name
   description: knowledge-path-rust-s4-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
-  productHereticKnowledge: MarkOfRust
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: aggressive_spread }
+  productHereticKnowledge: AggressiveSpread
   cost:
     KnowledgePoint: 2
   categories:
@@ -132,7 +132,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: entropic_plume }
   productHereticKnowledge: EntropicPlume
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathRust
   conditions:
@@ -168,7 +168,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: rust_charge }
   productHereticKnowledge: RustCharge
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathRust
   conditions:
@@ -186,7 +186,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: ascension_rust }
   productHereticKnowledge: AscensionRust
   cost:
-    KnowledgePoint: 3
+    KnowledgePoint: 2
   categories:
   - HereticPathRust
   conditions:

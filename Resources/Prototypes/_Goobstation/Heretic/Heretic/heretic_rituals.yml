@@ -200,8 +200,8 @@
 
 - type: hereticRitual
   id: ImperfectRitual
-  locName: knowledge-path-flesh-s3-name
-  locDesc: knowledge-path-flesh-s3-desc
+  locName: knowledge-path-flesh-s4-name
+  locDesc: knowledge-path-flesh-s4-desc
   icon:
     sprite: Mobs/Species/Skeleton/parts.rsi
     state: full
@@ -357,6 +357,7 @@
   outputEvent: !type:EventHereticAscension
 
 ### side knowledge
+## stage 5
 - type: hereticRitual
   id: RitualOfKnowledge
   locName: knowledge-path-side-knowledge-name
@@ -367,11 +368,10 @@
   customBehaviors:
   - !type:RitualKnowledgeBehavior
 
-## stage 3
 - type: hereticRitual
   id: ArmorerRitual
-  locName: knowledge-path-side-s3-armor-name
-  locDesc: knowledge-path-side-s3-armor-desc
+  locName: knowledge-path-side-s5-armor-name
+  locDesc: knowledge-path-side-s5-armor-desc
   icon:
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
     state: icon
@@ -391,8 +391,8 @@
 
 - type: hereticRitual
   id: PriestRitual
-  locName: knowledge-path-side-s3-flask-name
-  locDesc: knowledge-path-side-s3-flask-desc
+  locName: knowledge-path-side-s5-flask-name
+  locDesc: knowledge-path-side-s5-flask-desc
   icon:
     sprite: _Goobstation/Heretic/items.rsi
     state: eldritch_flask
@@ -404,8 +404,8 @@
 
 - type: hereticRitual
   id: AshenEyesRitual
-  locName: knowledge-path-side-s3-ashen-eyes-name
-  locDesc: knowledge-path-side-s3-ashen-eyes-desc
+  locName: knowledge-path-side-s5-ashen-eyes-name
+  locDesc: knowledge-path-side-s5-ashen-eyes-desc
   icon:
     sprite: _Goobstation/Heretic/eldritch_medalion.rsi
     state: icon
@@ -418,8 +418,8 @@
 
 - type: hereticRitual
   id: VoidCloak
-  locName: knowledge-path-side-s3-void-cloak-name
-  locDesc: knowledge-path-side-s3-void-cloak-desc
+  locName: knowledge-path-side-s5-void-cloak-name
+  locDesc: knowledge-path-side-s5-void-cloak-desc
   icon:
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi
     state: icon
@@ -432,8 +432,8 @@
 
 - type: hereticRitual
   id: ScorchingShark
-  locName: knowledge-path-side-s3-shark-name
-  locDesc: knowledge-path-side-s3-shark-desc
+  locName: knowledge-path-side-s5-shark-name
+  locDesc: knowledge-path-side-s5-shark-desc
   icon:
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     state: fire_shark_icon
@@ -445,12 +445,12 @@
     MobGhoulFireShark: 3
   limit: 15
 
-## stage 6
+## stage 7
 
 - type: hereticRitual
   id: RustedRitual
-  locName: knowledge-path-side-s6-rustwalker-name
-  locDesc: knowledge-path-side-s6-rustwalker-desc
+  locName: knowledge-path-side-s7-rustwalker-name
+  locDesc: knowledge-path-side-s7-rustwalker-desc
   icon:
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     state: rust_walker
@@ -467,8 +467,8 @@
 
 - type: hereticRitual
   id: CarvingKnife
-  locName: knowledge-path-side-s6-knife-name
-  locDesc: knowledge-path-side-s6-knife-desc
+  locName: knowledge-path-side-s7-knife-name
+  locDesc: knowledge-path-side-s7-knife-desc
   icon:
     sprite: _Goobstation/Heretic/items.rsi
     state: rune_carver
@@ -481,8 +481,8 @@
 
 - type: hereticRitual
   id: CodexMorbus
-  locName: knowledge-path-side-s6-morbus-name
-  locDesc: knowledge-path-side-s6-morbus-desc
+  locName: knowledge-path-side-s7-morbus-name
+  locDesc: knowledge-path-side-s7-morbus-desc
   icon:
     sprite: _Goobstation/Heretic/book_morbus.rsi
     state: icon-on

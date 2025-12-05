@@ -87,17 +87,17 @@
   stage: 2
 
 - type: hereticKnowledge
+  id: MarkOfAsh
+  path: Ash
+  stage: 3
+
+- type: hereticKnowledge
   id: AshenShift
   path: Ash
   sideKnowledge: true
-  stage: 3
+  stage: 4
   actionPrototypes:
   - ActionHereticJaunt
-
-- type: hereticKnowledge
-  id: MarkOfAsh
-  path: Ash
-  stage: 4
 
 - type: hereticKnowledge
   id: VolcanicBlast
@@ -158,15 +158,15 @@
   stage: 2
 
 - type: hereticKnowledge
-  id: DanceOfTheBrand
-  path: Blade
-  stage: 3
-  event: !type:HereticDanceOfTheBrandEvent
-
-- type: hereticKnowledge
   id: MarkOfBlade
   path: Blade
+  stage: 3
+
+- type: hereticKnowledge
+  id: DanceOfTheBrand
+  path: Blade
   stage: 4
+  event: !type:HereticDanceOfTheBrandEvent
 
 - type: hereticKnowledge
   id: Realignment
@@ -221,17 +221,17 @@
   event: !type:EventHereticFleshPassive
 
 - type: hereticKnowledge
+  id: MarkOfFlesh
+  path: Flesh
+  stage: 3
+
+- type: hereticKnowledge
   id: ImperfectRitual
   path: Flesh
   sideKnowledge: true
-  stage: 3
+  stage: 4
   ritualPrototypes:
   - ImperfectRitual
-
-- type: hereticKnowledge
-  id: MarkOfFlesh
-  path: Flesh
-  stage: 4
 
 - type: hereticKnowledge
   id: KnittingOfFlesh
@@ -288,6 +288,11 @@
   stage: 2
   event: !type:HereticAristocratWayEvent
 
+- type: hereticKnowledge
+  id: MarkOfVoid
+  path: Void
+  stage: 3
+
 #- type: hereticKnowledge
 #  id: AristocratWay
 #  path: Void
@@ -299,16 +304,9 @@
   id: VoidPhase
   path: Void
   sideKnowledge: true
-  stage: 3
+  stage: 4
   actionPrototypes:
   - ActionHereticVoidPhase
-
-- type: hereticKnowledge
-  id: MarkOfVoid
-  path: Void
-  stage: 4
-  event: !type:HereticAristocratWayEvent
-    grantBreathingImmunity: true
 
 #- type: hereticKnowledge
 #  id: VoidBlast
@@ -336,6 +334,8 @@
   id: SeekingBlade
   path: Void
   stage: 7
+  event: !type:HereticAristocratWayEvent
+    grantBreathingImmunity: true
 
 - type: hereticKnowledge
   id: VoidConduit
@@ -373,17 +373,17 @@
   event: !type:HereticLeechingWalkEvent
 
 - type: hereticKnowledge
+  id: MarkOfRust
+  path: Rust
+  stage: 3
+
+- type: hereticKnowledge
   id: AggressiveSpread
   path: Rust
   sideKnowledge: true
-  stage: 3
+  stage: 4
   actionPrototypes:
   - ActionHereticAggressiveSpread
-
-- type: hereticKnowledge
-  id: MarkOfRust
-  path: Rust
-  stage: 4
 
 - type: hereticKnowledge
   id: RustConstruction
@@ -438,20 +438,20 @@
   id: GraspOfCosmos
   path: Cosmos
   stage: 2
+  event: !type:EventHereticCosmosPassive
+
+- type: hereticKnowledge
+  id: MarkOfCosmos
+  path: Cosmos
+  stage: 3
 
 - type: hereticKnowledge
   id: CosmicRunes
   path: Cosmos
   sideKnowledge: true
-  stage: 3
+  stage: 4
   actionPrototypes:
   - ActionHereticCosmicRune
-
-- type: hereticKnowledge
-  id: MarkOfCosmos
-  path: Cosmos
-  stage: 4
-  event: !type:EventHereticCosmosPassive
 
 - type: hereticKnowledge
   id: StarTouch
@@ -507,35 +507,35 @@
 - type: hereticKnowledge
   id: ArmorerRitual
   sideKnowledge: true
-  stage: 3
+  stage: 5
   ritualPrototypes:
   - ArmorerRitual
 
 - type: hereticKnowledge
   id: AshenEyesRitual
   sideKnowledge: true
-  stage: 3
+  stage: 5
   ritualPrototypes:
   - AshenEyesRitual
 
 - type: hereticKnowledge
   id: PriestRitual
   sideKnowledge: true
-  stage: 3
+  stage: 5
   ritualPrototypes:
   - PriestRitual
 
 - type: hereticKnowledge
   id: VoidCloak
   sideKnowledge: true
-  stage: 3
+  stage: 5
   ritualPrototypes:
   - VoidCloak
 
 - type: hereticKnowledge
   id: ScorchingShark
   sideKnowledge: true
-  stage: 3
+  stage: 5
   ritualPrototypes:
   - ScorchingShark
 
@@ -543,28 +543,28 @@
 - type: hereticKnowledge
   id: RustedRitual
   sideKnowledge: true
-  stage: 6
+  stage: 7
   ritualPrototypes:
   - RustedRitual
 
 - type: hereticKnowledge
   id: CarvingKnife
   sideKnowledge: true
-  stage: 6
+  stage: 7
   ritualPrototypes:
   - CarvingKnife
 
 - type: hereticKnowledge
   id: MysteriesOfCreation
   sideKnowledge: true
-  stage: 6
+  stage: 7
   actionPrototypes:
   - ActionHereticIceSpear
 
 - type: hereticKnowledge
   id: CodexMorbus
   sideKnowledge: true
-  stage: 6
+  stage: 7
   ritualPrototypes:
   - CodexMorbus
 
@@ -572,6 +572,6 @@
 - type: hereticKnowledge
   id: Cleave
   sideKnowledge: true
-  stage: 8
+  stage: 9
   actionPrototypes:
   - ActionHereticCleave

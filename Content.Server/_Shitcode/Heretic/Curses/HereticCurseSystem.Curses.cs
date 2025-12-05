@@ -140,11 +140,13 @@ public sealed partial class HereticCurseSystem
             if (!flammableQuery.TryComp(status.AppliedTo.Value, out var flam))
                 continue;
 
-            if (flam.FireStacks > flames.MinFireStacks && flam is { OnFire: true, IgnoreFireProtection: true })
+            if (flam.FireStacks > flames.MinFireStacks &&
+                flam.OnFire &&
+                flam.FireProtectionPenetration >= flames.Penetration)
                 continue;
 
             _flammable.SetFireStacks(status.AppliedTo.Value,
-                MathF.Max(flames.MinFireStacks, flam.FireStacks),\
+                MathF.Max(flames.MinFireStacks, flam.FireStacks),
                 flam,
                 true,
                 flames.Penetration);

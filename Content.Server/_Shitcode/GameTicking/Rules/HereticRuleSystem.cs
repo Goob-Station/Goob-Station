@@ -110,7 +110,7 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
         foreach (var category in rule.StoreCategories)
             store.Categories.Add(category);
         store.CurrencyWhitelist.Add(Currency);
-        store.Balance.Add(Currency, 2);
+        store.Balance.Add(Currency, 1);
 
         rule.Minds.Add(mindId);
 
