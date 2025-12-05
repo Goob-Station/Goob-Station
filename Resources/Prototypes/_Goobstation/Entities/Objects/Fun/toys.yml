@@ -743,6 +743,64 @@
         acts: [ "Destruction" ]
 
 - type: entity
+  parent: BasePlushie
+  id: PlushieTheHolyCrusader
+  name: Holy Crusader plush
+  description: "The Holiest guy you will Ever meet"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_holy
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/Effects/holy.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/holy.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/holy.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/holy.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/holy.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Effects/holy.ogg
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: Appearance
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Voodoo
+    targetName: John Tydes
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 90
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
   parent: BaseItem
   id: DiscoBeachBall
   name: disco beach ball
@@ -825,7 +883,123 @@
     - type: DisarmMalus
       malus: 0
 
+- type: entity
+  parent: BasePlushie
+  id: PlushiePasha
+  name: tired vox plushie
+  description: A not so cute stuffed toy that resembles an overworked Vox. Smells strongly of nicotine.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_pasha
+  - type: Item
+    heldPrefix: plushiepasha
+  - type: Clothing
+    quickEquip: true
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    equippedPrefix: plushiepasha
+    slots:
+    - HEAD
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Mono/Voice/bagawk.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Mono/Voice/bagawk.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Mono/Voice/bagawk.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Mono/Voice/bagawk.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Mono/Voice/bagawk.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 0
+    soundHit:
+      path: /Audio/_Mono/Voice/bagawk.ogg
 
+- type: entity
+  parent: PlushieMoth
+  id: PlushieLeguia
+  name: one singular eel
+  description: Dubious creature.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_leguia
+  - type: Item
+    heldPrefix: plushieleguia
+  - type: Clothing
+    quickEquip: true
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    equippedPrefix: plushieleguia
+    slots:
+    - HEAD
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieWachtel
+  name: grug plushie
+  description: God's Drunkest Driver
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_grug
+  - type: Item
+    heldPrefix: plushiegrug
+  - type: Clothing
+    quickEquip: true
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    equippedPrefix: plushiegrug
+    slots:
+    - HEAD
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/adminhelp.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/adminhelp.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/adminhelp.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/adminhelp.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/adminhelp.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Effects/adminhelp.ogg
+      
 - type: entity
   name: evil Xeve plush
   parent: PlushieXeve
@@ -878,4 +1052,22 @@
   name: evil Louie plush
   parent: PlushieLouie
   id: EvilPlushieLouie
+  suffix: Evil
+
+- type: entity
+  name: evil Grug plush
+  parent: PlushieWachtel
+  id: EvilPlushieWachtel
+  suffix: Evil
+
+- type: entity
+  name: evil Leguia plush
+  parent: PlushieLeguia
+  id: EvilPlushieLeguia
+  suffix: Evil
+
+- type: entity
+  name: evil Pasha plush
+  parent: PlushiePasha
+  id: EvilPlushiePasha
   suffix: Evil
