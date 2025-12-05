@@ -136,7 +136,6 @@ public sealed class PrayerSystem : EntitySystem
         _adminLogger.Add(LogType.AdminMessage, LogImpact.Low, $"{ToPrettyString(sender.AttachedEntity.Value):player} sent prayer ({Loc.GetString(comp.NotificationPrefix)}): {message}");
 
         // Goobstation - Prayer sounds
-        if (comp.NotificationSound != null)
-            _audio.PlayGlobal(comp.NotificationSound, Filter.Empty().AddPlayers(_admin.ActiveAdmins), false, AudioParams.Default.WithVolume(-8f));
+        _audio.PlayGlobal(comp.NotificationSound, Filter.Empty().AddPlayers(_admin.ActiveAdmins), false, AudioParams.Default.WithVolume(-8f));
     }
 }
