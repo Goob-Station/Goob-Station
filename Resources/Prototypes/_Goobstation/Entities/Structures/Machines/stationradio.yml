@@ -95,7 +95,6 @@
   description: A rack of servers, controls whether your voice is being broadcasted or not
   components:
   - type: Sprite
-    offset: 0.565, 0
     sprite: _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
     state: broadcastradio
     drawdepth: Walls
@@ -106,57 +105,29 @@
     powerRequired: true
     broadcastChannel: RadioShow
     secondaryBroadcastChannel: Common
-  - type: Physics
-    bodyType: Static
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "0,-0.5,1,0.5"
-        density: 20
-        mask:
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        hard: true
 
 - type: entity
   id: StationRadioRig
-  parent: VinylPlayer
+  parent: BaseMachinePowered
   name: station radio rig
   description: A collection of everything you need to play music over the station, has a slot for Cds and vinyls.
   components:
   - type: Sprite
-    sprite: _Goobstation/Structures/Machines/StationRadio/radiostationvinyl.rsi
+    sprite: _Goobstation/Structures/Machines/StationRadio/radiostationrig.rsi
     state: stationradiosetup
     drawdepth: Walls
-  - type: VinylPlayer
-    relayToRadios: true
   - type: Anchorable
     delay: 10
-  - type: Physics
-    bodyType: Static
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-1,-0.5,1,0.5"
-        density: 20
-        mask:
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        hard: true
+
+- type: entity
+  id: RadioVinylPlayer
+  name: Vinyl Player
+  suffix: Radio
+  parent: VinylPlayer
+  description: An old school vinyl record player sat on a set of drawers, this one broadcasts whatever you're playing around the station.
+  components:
+  - type: VinylPlayer
+    relayToRadios: true
 
 - type: entity
   id: StationRadioReceiver
