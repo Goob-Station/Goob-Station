@@ -25,6 +25,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Content.Shared.Chemistry.Reaction;
 
 namespace Content.Server.EntityEffects.Effects
 {
@@ -80,6 +81,12 @@ namespace Content.Server.EntityEffects.Effects
                         }
                     }
                 }
+
+                // goob edit - GOIDA!
+                if (args.EntityManager.TryGetComponent<ReactiveComponent>(args.TargetEntity, out var reactive))
+                    reactive.DeleteOnReactionDepletion = false;
+                // goob edit end
+
                 return;
             }
 

@@ -95,7 +95,6 @@ using Content.Server.Forensics;
 using Content.Server.Humanoid;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
-using Content.Server.Teleportation;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Forensics;
 using Content.Shared.Forensics.Components;
@@ -121,6 +120,8 @@ using Content.Shared.Ensnaring.Components;
 using Content.Shared.Store.Components;
 using Content.Shared.Teleportation;
 using Content.Shared.Stunnable;
+using Content.Goobstation.Shared.Teleportation.Systems;
+using Content.Goobstation.Shared.Teleportation.Components;
 
 namespace Content.Server.Implants;
 
@@ -136,7 +137,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
-    [Dependency] private readonly TeleportSystem _teleportSys = default!;
+    [Dependency] private readonly SharedRandomTeleportSystem _teleportSys = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
