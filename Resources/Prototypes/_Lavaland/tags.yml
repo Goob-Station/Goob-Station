@@ -24,6 +24,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: Tag
+  id: CubeTeleporter
+
+- type: Tag
   id: DockMining
 
 - type: Tag
