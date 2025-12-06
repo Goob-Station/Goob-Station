@@ -341,6 +341,30 @@ public partial class SharedBodySystem
         }
     }
 
+    // Goobstation start
+    public IEnumerable<(EntityUid Id, BodyPartComponent Component)> GetVitalBodyChildren(
+        EntityUid? id,
+        BodyComponent? body = null,
+        BodyPartComponent? rootPart = null)
+    {
+        if (id is null
+            || !Resolve(id.Value, ref body, logMissing: false)
+            || body is null // Shitmed Change
+            || body.RootContainer == null // Shitmed Change
+            || body.RootContainer.ContainedEntity is null
+            || !Resolve(body.RootContainer.ContainedEntity.Value, ref rootPart))
+        {
+            yield break;
+        }
+
+        foreach (var child in GetBodyPartChildren(body.RootContainer.ContainedEntity.Value, rootPart))
+        {
+            if ((int) (child.Component.PartType & BodyPartType.Vital) != 0)
+                yield return child;
+        }
+    }
+    // Goobstation end
+
     public IEnumerable<(EntityUid Id, OrganComponent Component)> GetBodyOrgans(
         EntityUid? bodyId,
         BodyComponent? body = null)
