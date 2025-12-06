@@ -19092,3 +19092,11 @@ Entries:
       message: Fix holoprojectors not working.
   id: 2154
   time: '2025-12-06T01:58:12.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: Made the popup text from the 'Interact' actions italicised.
+    - type: Fix
+      message: Fixed borgs potentially getting softlocked by invalid interaction verbs.
+  id: 2155
+  time: '2025-12-06T02:06:11.0000000+00:00'
