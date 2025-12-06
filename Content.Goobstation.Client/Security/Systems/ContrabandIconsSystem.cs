@@ -4,6 +4,7 @@ using Content.Goobstation.Shared.Contraband;
 using Content.Goobstation.Shared.Security.ContrabandIcons;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
 using Content.Shared.Contraband;
+using Content.Shared.Hands;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Configuration;
@@ -30,6 +31,9 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
         SubscribeLocalEvent<VisibleContrabandComponent, DidEquipEvent>(OnEquip);
         SubscribeLocalEvent<VisibleContrabandComponent, DidUnequipEvent>(OnUnequip);
+        
+        SubscribeLocalEvent<VisibleContrabandComponent, DidEquipHandEvent>(OnEquipHands);
+        SubscribeLocalEvent<VisibleContrabandComponent, DidUnequipHandEvent>(OnUnequipHands);
 
         SubscribeLocalEvent<IdCardInsertedEvent>(OnIdCardInserted);
         SubscribeLocalEvent<IdCardRemovedEvent>(OnIdCardRemoved);
@@ -38,7 +42,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnEquip(EntityUid uid, VisibleContrabandComponent comp, DidEquipEvent args)
     {
-        if (!_isEnabled || !_timing.IsFirstTimePredicted)
+        if (!_isEnabled)
             return;
         if (args.SlotFlags == SlotFlags.IDCARD)
         {
@@ -60,8 +64,6 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnUnequip(EntityUid uid, VisibleContrabandComponent comp, DidUnequipEvent args)
     {
-        if(!_timing.IsFirstTimePredicted)
-            return;
         if (args.SlotFlags == SlotFlags.IDCARD)
         {
             CheckAllContra(args.Equipee);
@@ -72,17 +74,32 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
             UpdateStatusIcon(comp, args.Equipee, ContrabandStatus.None);
     }
 
+    private void OnEquipHands(EntityUid uid, VisibleContrabandComponent comp, DidEquipHandEvent args)
+    {
+        if (!_isEnabled)
+            return;
+        if (!_contrabandQuery.TryComp(args.Equipped, out var contra))
+            return;
+        if (contra.Severity == "Minor")
+            return;
+        var hasPermission = _detectorSystem.CheckContrabandPermission(args.Equipped, args.User, contra);
+        if ((contra.Severity == "Restricted" || contra.Severity == "GrandTheft") && hasPermission)
+            return;
+        UpdateStatusIcon(comp, args.User, ContrabandStatus.Contraband);
+    }
+    
+    private void OnUnequipHands(EntityUid uid, VisibleContrabandComponent comp, DidUnequipHandEvent args)
+    {
+        if (comp.VisibleItems.Count == 0)
+            UpdateStatusIcon(comp, args.User, ContrabandStatus.None);
+    }
     private void OnIdCardInserted(IdCardInsertedEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
         CheckAllContra(args.TargetUid);
     }
 
     private void OnIdCardRemoved(IdCardRemovedEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
         CheckAllContra(args.TargetUid);
     }
     private void OnComponentStartup(EntityUid uid, VisibleContrabandComponent component, ComponentStartup args)
