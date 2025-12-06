@@ -66,7 +66,7 @@ public sealed class TeleportSystem : EntitySystem
                 return;
             }
 
-            // It's consumed on use and it's not a stack so delete it
+            // It's consumed on use, and it's not a stack so delete it
             QueueDel(uid);
         }
 
@@ -85,7 +85,7 @@ public sealed class TeleportSystem : EntitySystem
         if (playSound)
             _audio.PlayPvs(component.DepartureSound, Transform(uid).Coordinates, AudioParams.Default);
 
-        RandomTeleport(uid, component.Radius, component.TeleportAttempts, component.ForceSafeTeleport, false);
+        RandomTeleport(uid, component.Radius, component.TeleportAttempts, component.ForceSafeTeleport, false, component.TelleportPulledEntities);
 
         if (playSound)
             _audio.PlayPvs(component.ArrivalSound, Transform(uid).Coordinates, AudioParams.Default);
@@ -96,7 +96,7 @@ public sealed class TeleportSystem : EntitySystem
     public Vector2 GetTeleportVector(float minRadius, float extraRadius)
     {
         // Generate a random number from 0 to 1 and multiply by radius to get distance we should teleport to
-        // A square root is taken from the random number so we get an uniform distribution of teleports, else you would get more teleports close to you
+        // A square root is taken from the random number so we get a uniform distribution of teleports, else you would get more teleports close to you
         var distance = minRadius + extraRadius * MathF.Sqrt(_random.NextFloat());
         // Generate a random vector with the length we've chosen
         return _random.NextAngle().ToVec() * distance;
@@ -106,12 +106,20 @@ public sealed class TeleportSystem : EntitySystem
         MinMax radius,
         int triesBase = 10,
         bool forceSafe = true,
-        bool checkEv = true)
+        bool checkEv = true,
+        bool TelleportPulledEntities = false)
     {
         if (checkEv && !CanTeleport(uid))
             return;
 
         var xform = Transform(uid);
+        // break any active pulls e.g. secoff pulling you with cuffs
+        if (TryComp<PullableComponent>(uid, out var pullable) && _pullingSystem.IsPulled(uid, pullable))
+            _pullingSystem.TryStopPull(uid, pullable, ignoreGrab: true);
+        // if we teleport check if we're pulling someone and teleport them too if kidnap is true
+        EntityUid? pullableEntity;
+        if (!(HasComp<PullerComponent>(uid) && TelleportPulledEntities))
+            _pullingSystem.StopAllPulls(uid);
         var entityCoords = xform.Coordinates.ToMap(EntityManager, _xform);
 
         var targetCoords = new MapCoordinates();
@@ -134,7 +142,7 @@ public sealed class TeleportSystem : EntitySystem
             targetCoords = entityCoords.Offset(GetTeleportVector(radius.Min, extraRadius));
 
             // Try to not teleport into open space
-            if (!_mapManager.TryFindGridAt(targetCoords, out var gridUid, out var grid))
+            if (!_mapManager.TryFindGridAt(targetCoords, out _, out var grid))
                 continue;
             // Check if we picked a position inside a solid object
             var valid = true;
@@ -163,12 +171,12 @@ public sealed class TeleportSystem : EntitySystem
             targetCoords = entityCoords.Offset(GetTeleportVector(radius.Min, extraRadiusBase));
 
         // if we teleport the pulled entity goes with us
-        EntityUid? pullableEntity = null;
+        pullableEntity = null;
         var stage = GrabStage.No;
-        if (TryComp<PullerComponent>(uid, out var puller))
+        if (TryComp<PullerComponent>(uid, out var comp))
         {
-            stage = puller.GrabStage;
-            pullableEntity = puller.Pulling;
+            stage = comp.GrabStage;
+            pullableEntity = comp.Pulling;
         }
 
         _pullingSystem.StopAllPulls(uid);
