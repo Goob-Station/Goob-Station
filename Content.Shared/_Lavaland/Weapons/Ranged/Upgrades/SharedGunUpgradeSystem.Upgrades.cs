@@ -42,13 +42,13 @@ public abstract partial class SharedGunUpgradeSystem
 
     private void OnCompsUpgradeInsert(Entity<GunUpgradeComponentsComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
-        if (HasComp<UpgradeableGunComponent>(args.Container.Owner))
+        if (!_timing.ApplyingState && HasComp<UpgradeableGunComponent>(args.Container.Owner))
             EntityManager.AddComponents(args.Container.Owner, ent.Comp.Components);
     }
 
     private void OnCompsUpgradeEject(Entity<GunUpgradeComponentsComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        if (HasComp<UpgradeableGunComponent>(args.Container.Owner))
+        if (!_timing.ApplyingState && HasComp<UpgradeableGunComponent>(args.Container.Owner))
             EntityManager.RemoveComponents(args.Container.Owner, ent.Comp.Components);
     }
 

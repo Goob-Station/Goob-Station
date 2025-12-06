@@ -62,9 +62,9 @@
     slots:
       flashlight:
         name: weapon-upgrade-slot-name-flashlight
-        priority: 3
-        insertDelay: 0.8
-        ejectDelay: 0.4
+        priority: 6
+        insertDelay: 0.4
+        ejectDelay: 0.2
         ejectOnBreak: true
         occludesLight: false
         whitelist:
@@ -74,7 +74,7 @@
       upgrade_slot_main:
         name: weapon-upgrade-slot-name-main
         swap: false # can't use the swap...
-        priority: 2
+        priority: 5
         insertDelay: 3.0 # This is something major
         ejectDelay: 1.8
         whitelist:
@@ -84,13 +84,31 @@
       upgrade_slot_blade:
         name: weapon-upgrade-slot-name-blade
         swap: false # can't use the swap...
-        priority: 2
-        insertDelay: 3.0 # This is something major
-        ejectDelay: 1.8
+        priority: 4
+        insertDelay: 2.4
+        ejectDelay: 1.2
         whitelist:
           tags:
-          - CrusherUpgradeMain
-      # Special upgrades apply some effects to the user or attacked enemies (TODO)
+          - CrusherUpgradeBlade
+      upgrade_slot_handle:
+        name: weapon-upgrade-slot-name-handle
+        swap: false # can't use the swap...
+        priority: 3
+        insertDelay: 2.4
+        ejectDelay: 1.2
+        whitelist:
+          tags:
+          - CrusherUpgradeHandle
+      upgrade_slot_special:
+        name: weapon-upgrade-slot-name-special
+        swap: false # can't use the swap...
+        priority: 2
+        insertDelay: 2
+        ejectDelay: 1
+        whitelist:
+          tags:
+          - CrusherUpgradeSpecial
+      # Special upgrades apply some effects to the user or attacked enemies
   - type: ItemMapper
     # Imagine if this would support displacement maps.
     # Not that important, but probably required if gun upgrades will become a major mechanic

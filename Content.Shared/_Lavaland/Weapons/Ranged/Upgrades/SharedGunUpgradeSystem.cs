@@ -37,11 +37,13 @@ using Content.Shared._Goobstation.Weapons.Ranged;
 using Content.Shared.Actions;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Containers;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades;
 
 public abstract partial class SharedGunUpgradeSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
