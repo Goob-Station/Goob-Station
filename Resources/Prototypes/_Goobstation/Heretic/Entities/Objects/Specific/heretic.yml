@@ -131,3 +131,25 @@
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
   - type: Reflective
     reflective: None
+
+- type: entity
+  id: Inkofimaginination
+  name: Ink of imaginination
+  description: Call to the great minimal to bring forth true existence... A closing truth
+  parent: BaseItem
+  components:
+  - type: UnholyItem
+  - type: Sprite
+    sprite: _Goobstation/Heretic/book.rsi
+    state: icon
+  - type: Icon
+    sprite: _Goobstation/Heretic/book.rsi
+    state: icon
+  - type: SpawnItemsOnUse
+    items:
+      - id: EldritchInfluence
+      - id: EldritchInfluence
+  - type: Tag
+    tags:
+    - HereticItem
+
