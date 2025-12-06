@@ -331,6 +331,7 @@ public sealed class HisGraceSystem : SharedHisGraceSystem
             && hisGrace.Comp.IsHeld)
         {
             _state.ChangeMobState(user, MobState.Critical);
+            hisGrace.Comp.Hunger += hisGrace.Comp.HungerIncrement * 10; // reviving makes His grace hungry
         }
 
         hisGrace.Comp.NextTick = _timing.CurTime + hisGrace.Comp.TickDelay;
