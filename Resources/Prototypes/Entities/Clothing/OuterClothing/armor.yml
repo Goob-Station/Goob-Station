@@ -250,6 +250,9 @@
     knockdownTimeDelta: -2.5
   - type: StaminaResistance # Goobstation
     damageCoefficient: 0.6
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.95
+
 
 - type: entity
   parent: ClothingOuterArmorBase
