@@ -14,12 +14,6 @@
             [
                 [1.0,1.0]
             ]
-        },
-        {
-            "name": "hud_contraband"
-        },
-        {   
-            "name": "hud_none"
         }
     ]
 }
