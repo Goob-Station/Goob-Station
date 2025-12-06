@@ -31,6 +31,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Atmos.Components;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Shared.Nutrition.Components; // Goobstation end
+using Content.Goobstation.Shared.Xenomorph; // Omu
 
 namespace Content.Server._White.Xenomorphs.FaceHugger;
 
@@ -120,7 +121,7 @@ public sealed class FaceHuggerSystem : EntitySystem
         BeingUnequippedAttemptEvent args)
     {
         if (component.Slot != args.Slot || args.Unequipee != args.UnEquipTarget ||
-            !component.InfectionPrototype.HasValue || _mobState.IsDead(uid))
+            !component.InfectionPrototype.HasValue || _mobState.IsDead(uid) || HasComp<FacehuggerImmuneComponent>(args.Unequipee)) // Omu, add check for FacehuggerImmune
             return;
 
         _popup.PopupEntity(
@@ -164,7 +165,10 @@ public sealed class FaceHuggerSystem : EntitySystem
                     // Get the entity that has this item equipped
                     if (_container.TryGetContainingContainer(uid, out var container) && container.Owner != uid)
                     {
-                        InjectChemicals(uid, faceHugger, container.Owner);
+                        if (!HasComp<FacehuggerImmuneComponent>(container.Owner)) // Omu, don't inject into people who the facehugger wont infect
+                        {
+                            InjectChemicals(uid, faceHugger, container.Owner);
+                        }
                         // Set the next injection time based on the current time plus interval
                         faceHugger.NextInjectionTime = time + faceHugger.InjectionInterval;
                     }
