@@ -199,6 +199,12 @@
   components:
     - type: StaticPrice
       price: 90
+    - type: Clothing
+      sprite: _Goobstation\Objects\Shields\riotshieldback.rsi
+      quickEquip: false
+      slots:
+      - Back
+      - SuitStorage
     - type: Blocking
       passiveBlockModifier:
         coefficients:
