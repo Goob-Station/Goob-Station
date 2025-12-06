@@ -153,6 +153,12 @@
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain
   canBeAntag: false
+  guides: # goobstation
+  - Medical
+  - ChiefMedicalOfficer SOP
+  - Medical SOP
+  - Command
+  - Chemicals
   goobcoins: 40 #Goob content
   weight: 10 #Goob Edit
   access:

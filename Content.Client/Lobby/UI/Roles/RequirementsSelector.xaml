@@ -9,14 +9,17 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <BoxContainer xmlns="https://spacestation14.io"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          Orientation="Horizontal">
+    <!--Width set to slightly wider than the longest job name (NTR) to place the option buttons consistently.-->
     <Label Name="TitleLabel"
            Margin="5 0"
+           SetWidth="220"
            MouseFilter="Stop"/>
 
+    <BoxContainer Name="OptionsContainer"
+                  SetWidth="400"
+                  Margin="0 0 6 0"/>
     <!--21 was the height of OptionsContainer at the time that this button was added. So I am limiting the texture to 21x21-->
     <Control SetSize="21 21">
         <TextureButton Name="Help" StyleClasses="HelpButton"/>
     </Control>
-    <BoxContainer Name="OptionsContainer"
-                  SetWidth="400"/>
 </BoxContainer>

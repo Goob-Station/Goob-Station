@@ -165,6 +165,14 @@
   icon: "JobIconHeadOfSecurity"
   supervisors: job-supervisors-captain
   canBeAntag: false
+  guides: # goobstation
+  - Security
+  - SpaceLaw
+  - Legal SOP
+  - Command
+  - HeadOfSecurity SOP
+  - Security SOP
+  - Alert Levels
   goobcoins: 45 #Goob content
   access:
   - HeadOfSecurity
