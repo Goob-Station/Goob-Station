@@ -187,7 +187,6 @@
     - id: ClownRecorder
     - id: ClothingBeltSuspendersRed
     - id: ClothingBeltSuspendersBlack
-    - id: ClothingOuterArmorHereticCostume # Goobstation
 
 - type: entity
   id: CrateServiceCustomSmokable

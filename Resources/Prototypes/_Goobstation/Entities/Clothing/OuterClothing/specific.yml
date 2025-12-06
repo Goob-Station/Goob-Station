@@ -126,11 +126,14 @@
     - HeadSide
 
 - type: entity
-  parent: [ ClothingOuterStorageToggleableBase, AllowSuitStorageClothing ]
+  parent: ClothingOuterBaseToggleable
   id: ClothingOuterArmorHereticCostume
   name: occult robes
   description: A ragged, dusty set of robes. Strange smudgy eyes line the inside.
   components:
+  - type: Construction
+    graph: HereticCostume
+    node: start
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
     state: icon
@@ -148,9 +151,6 @@
   id: ClothingOuterArmorHereticVoidCostume
   suffix: Void
   components:
-  - type: Construction
-    graph: ClothingOuterArmorHereticVoidCostume
-    node: clothingouterarmorhereticvoidcostume
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_armor.rsi
     state: icon
@@ -165,9 +165,6 @@
   id: ClothingOuterArmorHereticAshCostume
   suffix: Ash
   components:
-  - type: Construction
-    graph: ClothingOuterArmorHereticAshCostume
-    node: clothingouterarmorhereticashcostume
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/ashen_armor.rsi
     state: icon
@@ -182,9 +179,6 @@
   id: ClothingOuterArmorHereticFleshCostume
   suffix: Flesh
   components:
-  - type: Construction
-    graph: ClothingOuterArmorHereticFleshCostume
-    node: clothingouterarmorhereticfleshcostume
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/flesh_armor.rsi
     state: icon
@@ -199,9 +193,6 @@
   id: ClothingOuterArmorHereticBladeCostume
   suffix: Blade
   components:
-  - type: Construction
-    graph: ClothingOuterArmorHereticBladeCostume
-    node: clothingouterarmorhereticbladecostume
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/blade_armor.rsi
     state: icon

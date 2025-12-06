@@ -1105,6 +1105,30 @@
 
 - type: entity
   parent: BaseItem
+  id: ToyBladeEldritch
+  name: replica eldritch blade
+  description: A plastic green crescent blade, decorated with an ornamental eye. You feel like you're being watched...
+  components:
+  - type: Construction
+    graph: ToyBlades
+    node: start
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Blades/eldritch_blade.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.5
+    wideAnimationRotation: -125
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Heretic/Blades/eldritch_blade-inhands.rsi
+
+- type: entity
+  parent: ToyBladeEldritch
   id: ToyBladeAsh
   name: replica ashen blade
   description: Molten and unwrought, a hunk of plastic warped to cinders and slag. Unmade, it aspires to be more than it is.
@@ -1123,12 +1147,9 @@
   - type: Item
     size: Small
     sprite: _Goobstation/Heretic/Blades/blade_ash-inhand.rsi
-  - type: Construction
-    graph: ToyBladeAsh
-    node: toybladeash
 
 - type: entity
-  parent: BaseItem
+  parent: ToyBladeEldritch
   id: ToyBladeBlade
   name: replica sundered blade
   description: A gallant blade, severed and torn. Furiously, the blade cuts. Plastic scars bind it forever to its dark purpose.
@@ -1147,12 +1168,9 @@
   - type: Item
     size: Small
     sprite: _Goobstation/Heretic/Blades/blade_blade-inhand.rsi
-  - type: Construction
-    graph: ToyBladeBlade
-    node: toybladeblade
 
 - type: entity
-  parent: BaseItem
+  parent: ToyBladeEldritch
   id: ToyBladeFlesh
   name: replica bloody blade
   description: A crescent blade born from fleshwarped plastic. Keenly aware, it seeks to spread to others the excruciating comedy it has endured from its dreadful origins.
@@ -1171,12 +1189,9 @@
   - type: Item
     size: Small
     sprite: _Goobstation/Heretic/Blades/blade_flesh-inhand.rsi
-  - type: Construction
-    graph: ToyBladeFlesh
-    node: toybladeflesh
 
 - type: entity
-  parent: BaseItem
+  parent: ToyBladeEldritch
   id: ToyBladeRust
   name: replica rusted blade
   description: This crescent blade is decrepit, wasting to rust. Yet still it bites, ripping flesh and bone with jagged, rotten plastic.
@@ -1195,12 +1210,9 @@
   - type: Item
     size: Small
     sprite: _Goobstation/Heretic/Blades/blade_rust-inhand.rsi
-  - type: Construction
-    graph: ToyBladeRust
-    node: toybladerust
 
 - type: entity
-  parent: BaseItem
+  parent: ToyBladeEldritch
   id: ToyBladeVoid
   name: replica void blade
   description: Devoid of any substance, this blade reflects comedy. It is a real depiction of hilarity, and chaos that ensues after its implementation.
@@ -1219,9 +1231,6 @@
   - type: Item
     size: Small
     sprite: _Goobstation/Heretic/Blades/blade_void-inhand.rsi
-  - type: Construction
-    graph: ToyBladeVoid
-    node: toybladevoid
 
 - type: entity
   parent: BaseItem

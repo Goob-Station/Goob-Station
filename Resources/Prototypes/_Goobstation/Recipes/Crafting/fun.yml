@@ -18,71 +18,9 @@
   objectType: Item
 
 - type: construction
-  id: ToyBladeAsh
-  graph: ToyBladeAsh
-  targetNode: toybladeash
-  category: construction-category-misc
-  objectType: Item
-
-- type: construction
-  id: ToyBladeBlade
-  graph: ToyBladeBlade
-  targetNode: toybladeblade
-  category: construction-category-misc
-  objectType: Item
-
-- type: construction
-  id: ToyBladeFlesh
-  graph: ToyBladeFlesh
-  targetNode: toybladeflesh
-  category: construction-category-misc
-  objectType: Item
-
-- type: construction
-  id: ToyBladeRust
-  graph: ToyBladeRust
-  targetNode: toybladerust
-  category: construction-category-misc
-  objectType: Item
-
-- type: construction
-  id: ToyBladeVoid
-  graph: ToyBladeVoid
-  targetNode: toybladevoid
-  category: construction-category-misc
-  objectType: Item
-
-- type: construction
   id: ToyCodexCicatrix
   graph: ToyCodexCicatrix
   targetNode: toycodexcicatrix
   category: construction-category-misc
   objectType: Item
 
-- type: construction
-  id: ClothingOuterArmorHereticVoidCostume
-  graph: ClothingOuterArmorHereticVoidCostume
-  targetNode: clothingouterarmorhereticvoidcostume
-  category: construction-category-misc
-  objectType: Item
-
-- type: construction
-  id: ClothingOuterArmorHereticAshCostume
-  graph: ClothingOuterArmorHereticAshCostume
-  targetNode: clothingouterarmorhereticashcostume
-  category: construction-category-misc
-  objectType: Item
-
-- type: construction
-  id: ClothingOuterArmorHereticFleshCostume
-  graph: ClothingOuterArmorHereticFleshCostume
-  targetNode: clothingouterarmorhereticfleshcostume
-  category: construction-category-misc
-  objectType: Item
-
-- type: construction
-  id: ClothingOuterArmorHereticBladeCostume
-  graph: ClothingOuterArmorHereticBladeCostume
-  targetNode: clothingouterarmorhereticbladecostume
-  category: construction-category-misc
-  objectType: Item

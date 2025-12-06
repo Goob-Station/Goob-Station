@@ -54,116 +54,6 @@
     entity: ToyMansusGrasp
 
 - type: constructionGraph
-  id: ToyBladeAsh
-  graph:
-  - node: start
-    edges:
-    - to: toybladeash
-      steps:
-      - material: MetalRod
-        amount: 2
-        doAfter: 1
-      - tag: Ash
-        icon:
-          sprite: Objects/Materials/materials.rsi
-          state: ash
-        name: construction-graph-tag-ash
-        doAfter: 1
-      - material: Plastic
-        amount: 5
-        doAfter: 1
-  - node: toybladeash
-    entity: ToyBladeAsh
-
-- type: constructionGraph
-  id: ToyBladeBlade
-  graph:
-  - node: start
-    edges:
-    - to: toybladeblade
-      steps:
-      - material: MetalRod
-        amount: 2
-        doAfter: 1
-      - tag: Shiv
-        icon:
-          sprite: Objects/Weapons/Melee/shiv.rsi
-          state: icon
-        name: construction-graph-tag-shiv
-        doAfter: 1
-      - material: Plastic
-        amount: 5
-        doAfter: 1
-  - node: toybladeblade
-    entity: ToyBladeBlade
-
-- type: constructionGraph
-  id: ToyBladeFlesh
-  graph:
-  - node: start
-    edges:
-    - to: toybladeflesh
-      steps:
-      - material: MetalRod
-        amount: 2
-        doAfter: 1
-      - tag: Meat
-        icon:
-          sprite: Objects/Consumable/Food/meat.rsi
-          state: plain
-        name: construction-graph-tag-meat
-        doAfter: 1
-      - material: Plastic
-        amount: 5
-        doAfter: 1
-  - node: toybladeflesh
-    entity: ToyBladeFlesh
-
-- type: constructionGraph
-  id: ToyBladeRust
-  graph:
-  - node: start
-    edges:
-    - to: toybladerust
-      steps:
-      - material: MetalRod
-        amount: 2
-        doAfter: 1
-      - tag: WaterBottle
-        icon:
-          sprite: Objects/Consumable/Drinks/waterbottle.rsi
-          state: icon
-        name: construction-graph-tag-water-bottle
-        doAfter: 1
-      - material: Plastic
-        amount: 5
-        doAfter: 1
-  - node: toybladerust
-    entity: ToyBladeRust
-
-- type: constructionGraph
-  id: ToyBladeVoid
-  graph:
-  - node: start
-    edges:
-    - to: toybladevoid
-      steps:
-      - material: MetalRod
-        amount: 2
-        doAfter: 1
-      - tag: IceBucket
-        icon:
-          sprite: Objects/Consumable/Drinks/icebucket.rsi
-          state: icon
-        name: construction-graph-tag-ice-bucket
-        doAfter: 1
-      - material: Plastic
-        amount: 5
-        doAfter: 1
-  - node: toybladevoid
-    entity: ToyBladeVoid
-
-- type: constructionGraph
   id: ToyCodexCicatrix
   graph:
   - node: start
@@ -182,94 +72,80 @@
           state: book_icon
         name: construction-graph-tag-book
         doAfter: 1
-  - node: toycodexcicatrix
-    entity: ToyCodexCicatrix
-
-- type: constructionGraph
-  id: ClothingOuterArmorHereticVoidCostume
-  graph:
-  - node: start
-    edges:
-    - to: clothingouterarmorhereticvoidcostume
-      steps:
-      - tag: HereticCostume
-        icon:
-          sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
-          state: icon
-        name: construction-graph-tag-heretic-costume
-        doAfter: 1
-      - tag: IceBucket
-        icon:
-          sprite: Objects/Consumable/Drinks/icebucket.rsi
-          state: icon
-        name: construction-graph-tag-ice-bucket
-        doAfter: 1
-  - node: clothingouterarmorhereticvoidcostume
-    entity: ClothingOuterArmorHereticVoidCostume
-
-- type: constructionGraph
-  id: ClothingOuterArmorHereticAshCostume
-  graph:
-  - node: start
-    edges:
-    - to: clothingouterarmorhereticashcostume
-      steps:
-      - tag: HereticCostume
-        icon:
-          sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
-          state: icon
-        name: construction-graph-tag-heretic-costume
-        doAfter: 1
-      - tag: Ash
-        icon:
-          sprite: Objects/Materials/materials.rsi
-          state: ash
-        name: construction-graph-tag-ash
-        doAfter: 1
-  - node: clothingouterarmorhereticashcostume
-    entity: ClothingOuterArmorHereticAshCostume
-
-- type: constructionGraph
-  id: ClothingOuterArmorHereticFleshCostume
-  graph:
-  - node: start
-    edges:
-    - to: clothingouterarmorhereticfleshcostume
-      steps:
-      - tag: HereticCostume
-        icon:
-          sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
-          state: icon
-        name: construction-graph-tag-heretic-costume
-        doAfter: 1
       - tag: Meat
         icon:
           sprite: Objects/Consumable/Food/meat.rsi
           state: plain
-        name: construction-graph-tag-meat
-        doAfter: 1
-  - node: clothingouterarmorhereticfleshcostume
-    entity: ClothingOuterArmorHereticFleshCostume
+  - node: toycodexcicatrix
+    entity: ToyCodexCicatrix
 
 - type: constructionGraph
-  id: ClothingOuterArmorHereticBladeCostume
+  id: ToyBlades
+  start: start
   graph:
   - node: start
+    entity: ToyBladeEldritch
     edges:
-    - to: clothingouterarmorhereticbladecostume
+    - to: ashbladetoy
       steps:
-      - tag: HereticCostume
-        icon:
-          sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
-          state: icon
-        name: construction-graph-tag-heretic-costume
+      - tag: Ash
         doAfter: 1
+    - to: bladebladetoy
+      steps:
       - tag: Shiv
-        icon:
-          sprite: Objects/Weapons/Melee/shiv.rsi
-          state: icon
-        name: construction-graph-tag-shiv
         doAfter: 1
-  - node: clothingouterarmorhereticbladecostume
-    entity: ClothingOuterArmorHereticBladeCostume
+    - to: fleshbladetoy
+      steps:
+      - tag: Meat
+        doAfter: 1
+    - to: voidbladetoy
+      steps:
+      - tag: IceBucket
+        doAfter: 1
+    - to: rustbladetoy
+      steps:
+      - tag: WaterBottle
+        doAfter: 1
 
+  - node: ashbladetoy
+    entity: ToyBladeAsh
+  - node: bladebladetoy
+    entity: ClothingOuterArmorHereticBladeCostume
+  - node: fleshbladetoy
+    entity: ClothingOuterArmorHereticFleshCostume
+  - node: voidbladetoy
+    entity: ClothingOuterArmorHereticVoidCostume
+
+
+- type: constructionGraph
+  id: HereticCostume
+  start: start
+  graph:
+  - node: start
+    entity: ClothingOuterArmorHereticCostume
+    edges:
+    - to: ashcostume
+      steps:
+      - tag: Ash
+        doAfter: 1
+    - to: bladecostume
+      steps:
+      - tag: Shiv
+        doAfter: 1
+    - to: fleshcostume
+      steps:
+      - tag: Meat
+        doAfter: 1
+    - to: voidcostume
+      steps:
+      - tag: IceBucket
+        doAfter: 1
+
+  - node: ashcostume
+    entity: ClothingOuterArmorHereticAshCostume
+  - node: bladecostume
+    entity: ClothingOuterArmorHereticBladeCostume
+  - node: fleshcostume
+    entity: ClothingOuterArmorHereticFleshCostume
+  - node: voidcostume
+    entity: ClothingOuterArmorHereticVoidCostume
