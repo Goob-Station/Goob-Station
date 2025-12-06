@@ -265,6 +265,8 @@
     - id: ClothingUniformJumpskirtMedicalDoctor
     - id: ClothingHandsGlovesLatex
       prob: 0.4
+    - id: ClothingOuterJacketSurgical # Omu - Port Xelthia
+      prob: 0.2
     - id: ClothingEyesGlasses
       prob: 0.3
 

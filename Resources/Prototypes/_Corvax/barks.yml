@@ -353,3 +353,21 @@
   frequency: 0.7
   soundCollection:
     collection: Aviu4Bark
+
+# Xelthia
+- type: soundCollection
+  id: XelthiaBark
+  files:
+  - /Audio/_EinsteinEngines/Voice/Xelthia/say.ogg
+  - /Audio/_EinsteinEngines/Voice/Xelthia/ask.ogg
+  - /Audio/_EinsteinEngines/Voice/Xelthia/exclaim.ogg
+
+- type: bark
+  id: UnisexXelthiaBark
+  name: Squid
+  volume: 1
+  frequency: 0.5
+  soundCollection:
+    collection: XelthiaBark
+  speciesWhitelist:
+  - Xelthia

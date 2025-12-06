@@ -1,0 +1,127 @@
+- type: entity
+  id: PartXelthia
+  parent: [BaseItem, BasePart]
+  name: "xelthia body part"
+  abstract: true
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  id: ChestXelthia
+  name: "xelthia chest"
+  parent: [PartXelthia, BaseChest]
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Xelthia/parts.rsi
+    state: "chest_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  id: HeadXelthia
+  name: "xelthia head"
+  parent: [PartXelthia, BaseHead]
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Xelthia/parts.rsi
+    state: "head_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  id: LeftArmXelthia
+  name: "left xelthia arm"
+  parent: [PartXelthia, BaseLeftArm]
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Xelthia/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmXelthia
+  name: "right xelthia arm"
+  parent: [PartXelthia, BaseRightArm]
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Xelthia/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandXelthia
+  name: "left xelthia hand"
+  parent: [PartXelthia, BaseLeftHand]
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Xelthia/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandXelthia
+  name: "right xelthia hand"
+  parent: [PartXelthia, BaseRightHand]
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Xelthia/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegXelthia
+  name: "left xelthia leg"
+  parent: [PartXelthia, BaseLeftLeg]
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Xelthia/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  id: RightLegXelthia
+  name: "right xelthia leg"
+  parent: [PartXelthia, BaseRightLeg]
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Xelthia/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootXelthia
+  name: "left xelthia foot"
+  parent: [PartXelthia, BaseLeftFoot]
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Xelthia/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootXelthia
+  name: "right xelthia foot"
+  parent: [PartXelthia, BaseRightFoot]
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Xelthia/parts.rsi
+    state: "r_foot"
+
+- type: entity
+  parent: [ PartXelthia, BaseGroin ]
+  id: GroinXelthia
+  name: "xelthia groin"
+  components:
+  - type: Sprite
+    state: "groin_m"
+  - type: Icon
+    state: "groin_m"

@@ -1,59 +1,76 @@
 {
-  "version": 1,
-  "size": {
-      "x": 32,
-      "y": 32
-  },
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Skeleton/Plasmaman sprites made by Skubman (github: angelofallars)",
-  "states": [
-      {
-          "name": "plasmaman0",
-          "delays": [
-              [
-                  0.15,
-                  0.25,
-                  0.25,
-                  0.5,
-                  0.1,
-                  0.15,
-                  0.1,
-                  0.7,
-                  0.25,
-                  0.25,
-                  0.1
-              ]
-          ]
-      },
-      {
-          "name": "plasmaman1"
-      },
-      {
-          "name": "plasmaman2"
-      },
-      {
-          "name": "skeleton0",
-          "delays": [
-              [
-                  0.15,
-                  0.25,
-                  0.25,
-                  0.5,
-                  0.1,
-                  0.15,
-                  0.1,
-                  0.7,
-                  0.25,
-                  0.25,
-                  0.1
-              ]
-          ]
-      },
-      {
-          "name": "skeleton1"
-      },
-      {
-          "name": "skeleton2"
-      }
-  ]
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Skeleton/Plasmaman sprites made by Skubman (github: angelofallars) - Xelthia by Timfa",
+    "states": [
+        {
+            "name": "plasmaman0",
+            "delays": [
+                [
+                    0.15,
+                    0.25,
+                    0.25,
+                    0.5,
+                    0.1,
+                    0.15,
+                    0.1,
+                    0.7,
+                    0.25,
+                    0.25,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "plasmaman1"
+        },
+        {
+            "name": "plasmaman2"
+        },
+        {
+            "name": "skeleton0",
+            "delays": [
+                [
+                    0.15,
+                    0.25,
+                    0.25,
+                    0.5,
+                    0.1,
+                    0.15,
+                    0.1,
+                    0.7,
+                    0.25,
+                    0.25,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "skeleton1"
+        },
+        {
+            "name": "skeleton2"
+        },
+        {
+            "name": "xelthia0",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "xelthia1"
+        },
+        {
+            "name": "xelthia2"
+        }
+    ]
 }

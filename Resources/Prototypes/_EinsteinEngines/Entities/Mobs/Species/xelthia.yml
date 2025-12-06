@@ -1,0 +1,236 @@
+# Anything human specific (e.g. UI, input) goes under MobHuman
+- type: entity
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobXelthia
+  name: Urist McTentacles
+  abstract: true
+  components:
+  - type: Hunger
+  - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
+    sprite: _EinsteinEngines/Mobs/Species/Xelthia/parts.rsi
+    state: full
+  - type: Body
+    prototype: Xelthia
+  - type: Thirst
+  - type: Carriable # Carrying system from nyanotrasen.
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  - type: HumanoidAppearance
+    species: Xelthia
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Qiilour
+    understands:
+    - TauCetiBasic
+    - Qiilour
+  - type: Speech
+    speechSounds: XelthiaSpeech
+    speechVerb: XelthiaSpeechVerb
+  - type: TypingIndicator
+    proto: xelthia
+  - type: Vocal
+    sounds:
+      Male: MaleXelthia # Omu edit - These are all identical minus Male / Female gasp & deathgasp diff
+      Female: FemaleXelthia
+      Unsexed: UnisexXelthia
+  #- type: FootPrints #Omu EE slop todo
+  - type: Xelthia
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Xelthia
+  - type: Temperature
+    heatDamageThreshold: 360
+    coldDamageThreshold: 280
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold: 1.2 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 1.2 #per second, scales with temperature & other constants
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.14 #per second, scales with pressure and other constants.
+  - type: Bloodstream
+    bloodReagent: AcidBlood
+#  - type: DamageVisuals # MAN how have we not fixed this goobside. Todo goobstation all the chud damage visuals.
+#    damageOverlayGroups:
+#      Brute:
+#        sprite: Mobs/Effects/brute_damage.rsi
+#        color: "#00FF69"
+  - type: Hands
+    handDisplacement:
+      sizeMaps:
+        32:
+          sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+          state: held
+  - type: Inventory
+    templateId: xelthia
+    speciesId: Xelthia
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit # name is somewhat misleading, the jumpsuit state ended up being fairly versitile so I reused it
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      mask:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      belt:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      back:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: backpack
+
+- type: entity
+  save: false
+  name: Urist McHands
+  parent: MobHumanDummy
+  id: MobXelthiaDummy
+  categories: [ HideSpawnMenu ]
+  description: A dummy xelthia meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: Xelthia
+  - type: Hands
+    handDisplacement:
+      sizeMaps:
+        32:
+          sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+          state: held
+  - type: Inventory
+    templateId: xelthia
+    speciesId: Xelthia
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit # name is somewhat misleading, the jumpsuit state ended up being fairly versitile so I reused it # EE WHY
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      mask:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      belt:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      back:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: backpack
+    femaleDisplacements: # Do you need all these? NO. but im not findng out which you do need, nor as to why i need to map female displacements on the lobby dummy only.
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit # name is somewhat misleading, the jumpsuit state ended up being fairly versitile so I reused it
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      mask:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      belt:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: jumpsuit
+      back:
+        sizeMaps:
+          32:
+            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+            state: backpack

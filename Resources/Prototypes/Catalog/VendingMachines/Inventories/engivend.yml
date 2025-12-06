@@ -112,6 +112,7 @@
     ClothingHandsGlovesColorYellow: 12 # GoobStation: was 6, IPCs need insuls more than usual
     BoxInflatable: 2
     ClothingHeadHatCone: 4
+    ClothingOuterJacketInsulated: 3 #Omu Edit - Add Xelthia from EE
   contrabandInventory:
     CowToolboxFilled: 1
     DrinkBeerCan: 3

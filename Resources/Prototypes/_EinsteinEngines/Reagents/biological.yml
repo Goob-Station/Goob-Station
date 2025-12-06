@@ -8,3 +8,81 @@
   color: "#1c1624"
   recognizable: true
   physicalDesc: reagent-physical-desc-inky
+
+- type: reagent
+  parent: Blood
+  id: AcidBlood
+  name: reagent-name-acid-blood
+  group: Biological
+  desc: reagent-desc-acid-blood
+  flavor: acid
+  color: "#00FF69"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-strong-smelling
+  slipData:
+    requiredSlipSpeed: 3.5
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 20
+  - !type:PlantAdjustWeeds
+    amount: -4
+  - !type:PlantAdjustHealth
+    amount: -8
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Caustic: 0.5
+      - !type:Emote
+        emote: Scream
+        probability: 0.3
+  metabolisms:
+    Poison:
+      metabolismRate : 3.00 # High damage, high metabolism rate. You need a lot of units to crit. Simulates acid burning through you fast.
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 11.0
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "generic-reagent-effect-burning-insides" ]
+        probability: 0.33
+      - !type:Emote
+        emote: Scream
+        probability: 0.3
+#      conditions: # TODO: Figure out how to make this work properly, it doesnt seem like it wants to do anything when uncommented lol
+#      - !type:OrganType
+#        type: Xelthia
+#        shouldHave: false
+
+- type: reagent
+  id: XelthiaArmJuice
+  name: reagent-name-armjuice
+  group: Biological
+  desc: reagent-desc-armjuice
+  flavor: acid
+  color: "#00FF69"
+  physicalDesc: reagent-physical-desc-viscous
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:SatiateThirst
+        factor: -4
+      - !type:SatiateHunger
+        factor: -4
+      - !type:HealthChange
+        conditions:
+        - !type:TotalDamage
+          max: 50
+        damage:
+          groups:
+            Brute: -1.5
+          types:
+            Heat: -0.4

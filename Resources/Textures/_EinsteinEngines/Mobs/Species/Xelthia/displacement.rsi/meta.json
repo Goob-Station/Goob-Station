@@ -1,0 +1,30 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Zeta_Null, edited from displacements by AstroDoge (Discord)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "load": {
+        "srgb": false
+    },
+    "states": [
+        {
+            "name": "jumpsuit",
+            "directions": 4
+        },
+		{
+            "name": "jumpsuit_noholes",
+            "directions": 4
+        },
+		{
+            "name": "backpack",
+            "directions": 4
+        },
+		{
+            "name": "held",
+            "directions": 4
+        }
+    ]
+}

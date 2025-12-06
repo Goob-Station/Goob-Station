@@ -40,6 +40,8 @@
     ClothingShoesColorWhite: 4
     ClothingHandsGlovesLatex: 4
     ClothingHandsGlovesNitrile: 2
+    ClothingHandsGlovesCybersunNitrile: 2 # Omu
+    ClothingOuterJacketSurgical: 2 # Omu - Port Xelthia
     ClothingHeadsetMedical: 4
     ClothingOuterWinterMed: 2
     ClothingOuterHospitalGown: 5
