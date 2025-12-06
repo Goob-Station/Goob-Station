@@ -12,6 +12,10 @@ using Robust.Shared.Audio;
 
 namespace Content.Shared.Teleportation;
 
+// can't move it to Goobstation.Shared because of dependencies
+// can't move it to Goobstation.Common because of stupid fucking MinMax existing in Content.Shared instead of Robust.Shared
+// GG!
+
 /// <summary>
 ///     Component to store parameters for entities that teleport randomly.
 /// </summary>

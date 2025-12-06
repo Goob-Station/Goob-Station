@@ -6,6 +6,7 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Goobstation.Shared.Teleportation.Systems;
+using Content.Goobstation.Shared.Teleportation.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 

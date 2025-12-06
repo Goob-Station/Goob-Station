@@ -13,7 +13,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Shared._Goobstation.Wizard.Traps;
+namespace Content.Goobstation.Common.Effects;
 
 public sealed class SparksSystem : EntitySystem
 {

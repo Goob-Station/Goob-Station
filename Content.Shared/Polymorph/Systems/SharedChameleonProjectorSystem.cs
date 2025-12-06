@@ -9,7 +9,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Goobstation.Common.Effects;
 using Content.Shared.Actions;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;

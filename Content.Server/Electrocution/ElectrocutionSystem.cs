@@ -49,6 +49,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Effects;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Beam.Components;
@@ -58,7 +59,6 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Power.NodeGroups;
 using Content.Server.Weapons.Melee;
-using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Database;

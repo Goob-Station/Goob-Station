@@ -121,6 +121,7 @@ using Content.Shared.Store.Components;
 using Content.Shared.Teleportation;
 using Content.Shared.Stunnable;
 using Content.Goobstation.Shared.Teleportation.Systems;
+using Content.Goobstation.Shared.Teleportation.Components;
 
 namespace Content.Server.Implants;
 
