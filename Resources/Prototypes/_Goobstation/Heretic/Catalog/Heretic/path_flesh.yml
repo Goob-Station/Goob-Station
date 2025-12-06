@@ -33,7 +33,7 @@
   icon: { sprite: _Goobstation/Heretic/Blades/blade_flesh.rsi, state: icon }
   productHereticKnowledge: PrincipleOfHunger
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 0
   categories:
   - HereticPathFlesh
   conditions:
@@ -58,7 +58,7 @@
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: GraspOfFlesh
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 0
   categories:
   - HereticPathFlesh
   conditions:
@@ -69,15 +69,14 @@
     whitelist:
     - Flesh
 
-# side
 - type: listing
   id: HereticFleshPath3
   name: knowledge-path-flesh-s3-name
   description: knowledge-path-flesh-s3-desc
-  icon: { sprite: Objects/Specific/Hydroponics/poppy.rsi, state: dead }
-  productHereticKnowledge: ImperfectRitual
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: MarkOfFlesh
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 0
   categories:
   - HereticPathFlesh
   conditions:
@@ -88,12 +87,13 @@
     whitelist:
     - Flesh
 
+# side
 - type: listing
   id: HereticFleshPath4
   name: knowledge-path-flesh-s4-name
   description: knowledge-path-flesh-s4-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
-  productHereticKnowledge: MarkOfFlesh
+  icon: { sprite: Objects/Specific/Hydroponics/poppy.rsi, state: dead }
+  productHereticKnowledge: ImperfectRitual
   cost:
     KnowledgePoint: 2
   categories:
@@ -132,7 +132,7 @@
   icon: { sprite: _Goobstation/Heretic/eldritch_mobs.rsi, state: raw_prophet }
   productHereticKnowledge: RawRitual
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathFlesh
   conditions:
@@ -169,7 +169,7 @@
   icon: { sprite: _Goobstation/Heretic/eldritch_mobs.rsi, state: stalker }
   productHereticKnowledge: LonelyRitual
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathFlesh
   conditions:
@@ -187,7 +187,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: final_hymn }
   productHereticKnowledge: AscensionFlesh
   cost:
-    KnowledgePoint: 3
+    KnowledgePoint: 2
   categories:
   - HereticPathFlesh
   conditions:

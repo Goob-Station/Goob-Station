@@ -95,7 +95,7 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
         if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
             return;
 
-        _heretic.UpdateKnowledge(args.Performer, hereticComp, 5);
+        _heretic.UpdateKnowledge(args.Performer, hereticComp, 4);
         hereticComp.ChosenRitual = null;
         hereticComp.KnowledgeRequiredTags.Clear();
         hereticComp.KnownRituals.Remove(args.RitualId);
