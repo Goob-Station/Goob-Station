@@ -35,7 +35,6 @@ public abstract class SharedNinjaSuitSystem : EntitySystem
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] private readonly SharedSpaceNinjaSystem _ninja = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly SparksSystem _sparks = default!; // goob edit - sparks everywhere
 
     public override void Initialize()
     {
@@ -134,7 +133,6 @@ public abstract class SharedNinjaSuitSystem : EntitySystem
         // _audio.PlayPredicted(comp.RevealSound, uid, user); // Goob edit
         // Popup.PopupClient(Loc.GetString("ninja-revealed"), user, user, PopupType.MediumCaution); // Goob edit
         _useDelay.TryResetDelay(uid, id: comp.DisableDelayId);
-        _sparks.DoSparks(Transform(user).Coordinates); // goob edit - sparks everywhere
     }
 
     private void OnActivateAttempt(Entity<NinjaSuitComponent> ent, ref ItemToggleActivateAttemptEvent args)

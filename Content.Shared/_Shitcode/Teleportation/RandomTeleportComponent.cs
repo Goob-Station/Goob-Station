@@ -9,17 +9,14 @@
 
 using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.Teleportation;
-
-// can't move it to Goobstation.Shared because of dependencies
-// can't move it to Goobstation.Common because of stupid fucking MinMax existing in Content.Shared instead of Robust.Shared
-// GG!
 
 /// <summary>
 ///     Component to store parameters for entities that teleport randomly.
 /// </summary>
-[RegisterComponent, Virtual]
+[RegisterComponent, Virtual, NetworkedComponent]
 public partial class RandomTeleportComponent : Component
 {
     /// <summary>
