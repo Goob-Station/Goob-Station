@@ -22,6 +22,8 @@
     reflectProb: 1
     reflects:
     - Magic
+    slotFlags:
+    - NONE
   - type: DisarmMalus
     malus: 0
   - type: Tag
@@ -342,6 +344,12 @@
   - type: Sharp
   - type: Scalpel
     speed: 0.5
+  - type: DivineIntervention
+    validSpellDenialSlots:
+    - HEAD
+  - type: Reflect
+    slotFlags:
+    - HEAD
   - type: Tag
     tags:
     - AthiestsFedora
@@ -678,3 +686,89 @@
     whitelist:
       tags:
       - WeaponPistolCasul
+
+- type: entity
+  parent: BaseNullrod
+  id: RatvarianSpear
+  name: ancient spear
+  description: An ancient spear made of brass, I mean gold, I mean bronze. It looks highly mechanical.
+  components:
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Piercing: 20
+    UntrainedUseString: nullrod-spear-untrained-usage-popup
+  - type: Item
+    size: Large # Goob edit
+    shape: # Goob
+    - 0,0,8,0
+    storedRotation: 45 # Goob
+    sprite: _ShitChap/Objects/Weapons/Nullrod/ratvarian_spear.rsi
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/ratvarian_spear.rsi
+    state: icon
+  - type: Clothing
+    sprite: _ShitChap/Objects/Weapons/Nullrod/ratvarian_spear.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - back
+    - belt
+  - type: MeleeWeapon
+    range: 2.2 # Goob
+    attackRate: 0.8 # Goob
+    animationRotation: -135 # WWDP
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Piercing: 18
+        Holy: 10
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Tag
+    tags:
+    - RatvarianSpear
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 25
+        Holy: 15
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          vertices:
+            - -0.08,-0.06 # Goob edit
+            - -0.06,-0.08 # Goob edit
+            - 0.40,0.30
+            - 0.30,0.40
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: Sharp
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 5 # Goobstation
+  - type: MeleeChemicalInjector
+    transferAmount: 1 # Goobstation
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionInjectOnEmbed
+    transferAmount: 2
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 2
+  - type: ThrowableBlocked # Goobstation
