@@ -7,6 +7,7 @@ using Content.Shared.Contraband;
 using Content.Shared.Hands;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Strip.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 
@@ -71,7 +72,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnEquipHands(EntityUid uid, VisibleContrabandComponent comp, DidEquipHandEvent args)
     {
-        if (!_isEnabled || !MetaData(args.User).EntityInitialized) // stupid fucking hands event during intialization breaks ID acquisition
+        if (!_isEnabled || !MetaData(args.User).EntityInitialized || (TryComp<ThievingComponent>(args.User, out var thieving) && thieving.Stealthy)) // stupid fucking hands event during intialization breaks ID acquisition
             return;
         if(IsNotContra(args.Equipped, args.User))
             return;
