@@ -13,7 +13,7 @@
         - to: assembly
           steps:
             - material: Steel
-              amount: 1
+              amount: 1 # Goob
               doAfter: 2.0
 
     - node: assembly
