@@ -24,8 +24,10 @@
   - ShadowkinCube
   - ChitinidCube
   - FeroxiCube
+  - Onicube
 
 - type: latheRecipePack
   id: EmagCubesStatic
   recipes:
   - FelinidCube
+  - GingerbreadCube
