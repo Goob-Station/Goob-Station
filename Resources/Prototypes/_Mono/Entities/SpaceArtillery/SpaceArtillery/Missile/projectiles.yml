@@ -9,9 +9,9 @@
   - type: Projectile
     damage:
       types:
-        Structural: 550 #450
-        Blunt: 65
-        Heat: 10
+        Structural: 25 #CorvaxGoob-ShuttleGuns-Rebalance
+        Blunt: 25 #CorvaxGoob-ShuttleGuns-Rebalance
+        Heat: 25 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
     layers:
@@ -33,9 +33,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 125 #75
-    intensitySlope: 8
-    maxIntensity: 25
+    totalIntensity: 15 #CorvaxGoob-ShuttleGuns-Rebalance
+    intensitySlope: 7 #CorvaxGoob-ShuttleGuns-Rebalance
+    maxIntensity: 20 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: GatheringProjectile
   - type: TargetSeeking
     acceleration: 150
@@ -65,9 +65,9 @@
   - type: Projectile
     damage:
       types:
-        Structural: 1000
-        Blunt: 450
-        Heat: 50
+        Structural: 300 #CorvaxGoob-ShuttleGuns-Rebalance
+        Blunt: 100 #CorvaxGoob-ShuttleGuns-Rebalance
+        Heat: 100 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
@@ -89,9 +89,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 150
+    totalIntensity: 60 #CorvaxGoob-ShuttleGuns-Rebalance
     intensitySlope: 10
-    maxIntensity: 55
+    maxIntensity: 20 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: GatheringProjectile
   - type: TargetSeeking
     acceleration: 200
@@ -121,9 +121,9 @@
   - type: Projectile
     damage:
       types:
-        Structural: 15000
-        Blunt: 2000
-        Heat: 500
+        Structural: 1500 #CorvaxGoob-ShuttleGuns-Rebalance
+        Blunt: 250 #CorvaxGoob-ShuttleGuns-Rebalance
+        Heat: 300 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
@@ -145,9 +145,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: DemolitionCharge
-    maxIntensity: 6000
+    maxIntensity: 600 #CorvaxGoob-ShuttleGuns-Rebalance
     intensitySlope: 15
-    totalIntensity: 1500
+    totalIntensity: 150 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: GatheringProjectile
   - type: TargetSeeking
     acceleration: 50

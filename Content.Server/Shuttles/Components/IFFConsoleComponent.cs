@@ -9,7 +9,7 @@ using Content.Shared.Shuttles.Components;
 
 namespace Content.Server.Shuttles.Components;
 
-[RegisterComponent, Access(typeof(ShuttleSystem))]
+[RegisterComponent] // Goobstation edit - removed access
 public sealed partial class IFFConsoleComponent : Component
 {
     /// <summary>
