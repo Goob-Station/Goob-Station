@@ -43,3 +43,5 @@ construction-graph-tag-hardhat = hardhat
 construction-graph-tag-ushanka = ushanka
 construction-graph-tag-baseball-bat = baseball bat
 construction-graph-tag-heart = heart
+construction-graph-tag-green-crayon = green crayon
+construction-graph-tag-green-gloves = green gloves
