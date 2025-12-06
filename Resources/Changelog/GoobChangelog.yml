@@ -19080,3 +19080,9 @@ Entries:
       message: Fixed dwarves unintentionally being lighter than they should be.
   id: 2152
   time: '2025-12-06T01:19:22.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: harpies are big now
+  id: 2153
+  time: '2025-12-06T01:32:00.0000000+00:00'
