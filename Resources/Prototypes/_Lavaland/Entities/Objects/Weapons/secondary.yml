@@ -1,7 +1,7 @@
 - type: entity
   parent: [ BaseKnife, BaseSalvageContraband ]
   id: WeaponCrusherDagger
-  name: crusher dagger
+  name: kinetic dagger
   description: A scaled down version of a proto-kinetic crusher. Uses kinetic energy to vibrate the blade at high speeds.
   components:
   - type: Sprite
@@ -56,12 +56,12 @@
   description: Unleash your inner edgelord with this one-handed claw small enough to fit in your backpack. Deals a lot more damage when backstabbing marked targets.
   components:
   - type: Sprite
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws.rsi
+    sprite: _Lavaland/Objects/Weapons/Secondary/kinetic_claws.rsi
     state: icon
   - type: UseDelay
     delay: 1
   - type: Clothing
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws-inhands.rsi
+    sprite: _Lavaland/Objects/Weapons/Secondary/kinetic_claws-inhands.rsi
   - type: Fiber
     fiberMaterial: fibers-kinetic
     fiberColor: fibers-purple
@@ -79,20 +79,26 @@
     mustBeEquippedToUse: true
   - type: Item
     size: Normal
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws-inhands.rsi
+    sprite: _Lavaland/Objects/Weapons/Secondary/kinetic_claws-inhands.rsi
   - type: Sharp
 
 - type: entity
-  parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
+  parent: [ BaseItem, BaseSalvageContraband ]
   id: LavalandWeaponKineticMachete
   name: kinetic machete
   description: A smaller, one-handed variant of the crusher which allows you to block attacks.
   components:
   - type: Sprite
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_machete.rsi
+    sprite: _Lavaland/Objects/Weapons/Secondary/kinetic_machete.rsi
     state: icon
   - type: UseDelay
     delay: 1
+  - type: Appearance
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: DisarmMalus
+  - type: Prying
   - type: MeleeWeapon
     attackRate: 1.0 # slightly slower than a combat/utility knife, but in return is slightly stronger than one
     damage:
@@ -103,10 +109,10 @@
     angle: 0
     animation: WeaponArcThrust
     range: 1.6
+  # TODO make it wearable on a belt/back slot
   - type: Item
     size: Ginormous
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_machete-inhands.rsi
-  - type: Sharp
+    sprite: _Lavaland/Objects/Weapons/Secondary/kinetic_machete-inhands.rsi
   - type: BlockCharge # TODO fix this component and turn it into a complete parrying mechanic
     rechargeTime: 120
     markerReductionTime: 20

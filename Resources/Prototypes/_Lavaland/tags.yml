@@ -63,7 +63,16 @@
   id: CrusherUpgradeMain
 
 - type: Tag
-  id: CrusherUpgradeMarker
+  id: CrusherUpgradeBlade
 
 - type: Tag
-  id: CrusherUpgradeRudeBuster
+  id: CrusherUpgradeHandle
+
+- type: Tag
+  id: CrusherUpgradeSpecial
+
+- type: Tag
+  id: CrusherUpgradeMainMarker
+
+- type: Tag
+  id: CrusherUpgradeMainRudeBuster

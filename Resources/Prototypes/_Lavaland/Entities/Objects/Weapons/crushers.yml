@@ -53,10 +53,11 @@
   - type: UpgradeableGun
   - type: ContainerContainer
     containers:
-      bayonet: !type:ContainerSlot
       flashlight: !type:ContainerSlot
       upgrade_slot_main: !type:ContainerSlot
-      # TODO: Secondary upgrades
+      upgrade_slot_blade: !type:ContainerSlot
+      upgrade_slot_handle: !type:ContainerSlot
+      upgrade_slot_special: !type:ContainerSlot
   - type: ItemSlots
     slots:
       flashlight:
@@ -69,6 +70,7 @@
         whitelist:
           components:
           - GunUpgradeFlashlight
+      # Main upgrade is attached to the central part and adds a new attack or defensive ability.
       upgrade_slot_main:
         name: weapon-upgrade-slot-name-main
         swap: false # can't use the swap...
@@ -78,20 +80,33 @@
         whitelist:
           tags:
           - CrusherUpgradeMain
+      # Blade and Handle Secondary upgrade is attached to the respective 2 places and only improve stats
+      upgrade_slot_blade:
+        name: weapon-upgrade-slot-name-blade
+        swap: false # can't use the swap...
+        priority: 2
+        insertDelay: 3.0 # This is something major
+        ejectDelay: 1.8
+        whitelist:
+          tags:
+          - CrusherUpgradeMain
+      # Special upgrades apply some effects to the user or attacked enemies (TODO)
   - type: ItemMapper
+    # Imagine if this would support displacement maps.
+    # Not that important, but probably required if gun upgrades will become a major mechanic
     mapLayers:
-      #flight:
-      #  whitelist:
-      #    components:
-      #    - GunUpgradeFlashlight
+      flashlight:
+        whitelist:
+          components:
+          - GunUpgradeFlashlight
       upgrade-marker:
         whitelist:
           tags:
-          - CrusherUpgradeMarker
+          - CrusherUpgradeMainMarker
       upgrade-rude-buster:
         whitelist:
           tags:
-          - CrusherUpgradeRudeBuster
+          - CrusherUpgradeMainRudeBuster
 
 # Very high burst damage if you land a mark, while also providing a small amount of healing.
 - type: entity
@@ -217,7 +232,7 @@
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
   id: LavalandWeaponKineticHammer
-  name: kinetic hammer
+  name: crusher hammer
   description: A beefy, two-handed weapon that inflicts knockback and heavier damage than a crusher.
   components:
   - type: Sprite
@@ -252,3 +267,40 @@
       path: /Audio/Items/trayhit2.ogg
     qualities:
     - Hammering
+
+# Very high burst damage if you land a mark, while also providing a small amount of healing.
+- type: entity
+  parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
+  id: WeaponCrusherHalberd
+  name: crusher halberd
+  description: An early design of the proto-kinetic accelerator.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_halberd.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Ginormous
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher-inhands.rsi # TODO
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_halberd.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MeleeWeapon
+    attackRate: 0.8 # Lavaland Change (slightly faster than fireaxe, still weaker damage wise)
+    animationRotation: -45 # WWDP
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 10 # Lavaland Change: no damage when unwielded
+        Slash: 5
+    soundHit:
+      collection: MetalThud
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: MeleeRequiresWield
+  - type: Tag
+    tags:
+    - Pickaxe

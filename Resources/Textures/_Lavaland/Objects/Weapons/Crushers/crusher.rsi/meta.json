@@ -23,6 +23,9 @@
       ]
     },
     {
+      "name": "flashlight"
+    },
+    {
       "name": "equipped-BACKPACK",
       "directions": 4
     },

@@ -1,8 +1,12 @@
+# Important Note!
+# Crusher upgrade entities have the exact same ID as their respective TagPrototype.
+# Remember to take this into account when adding new upgrades!
+
 - type: entity
   id: BaseCrusherUpgrade
   parent: [BaseItem, BaseSecurityCargoContraband]
-  name: crusher upgrade chip
-  description: A modkit for a proto-kinetic accelerator.
+  name: crusher modkit
+  description: A modkit for crusher weapons.
   abstract: true
   components:
   - type: Sprite
@@ -17,9 +21,10 @@
     - CrusherUpgradeMain
 
 - type: entity
-  id: CrusherUpgradeKineticMarker
+  id: CrusherUpgradeMainMarker
   parent: BaseCrusherUpgrade
-  name: crusher upgrade chip (kinetic marker)
+  name: crusher modkit (kinetic marker)
+  description: Compact generator of a bluespace field that can be shot on a living target to make it more vulnerable to crusher attacks. It's projectile also can destroy some types of rocks.
   components:
   - type: Sprite
     layers:
@@ -39,11 +44,6 @@
     - type: UseDelayOnShoot
     - type: UseDelay
       delay: 0.8
-    - type: DamageBoostOnMarker
-      boost:
-        types: # Totals to 70 damage when hitting marked targets
-          Blunt: 32
-          Slash: 18
     - type: Gun
       soundGunshot: /Audio/Weapons/plasma_cutter.ogg
       fireRate: 2
@@ -59,10 +59,10 @@
   - type: Tag
     tags:
     - CrusherUpgradeMain
-    - CrusherUpgradeMarker
+    - CrusherUpgradeMainMarker
 
 - type: entity
-  id: CrusherUpgradeRudeBuster
+  id: CrusherUpgradeMainRudeBuster
   parent: BaseCrusherUpgrade
   name: crusher upgrade chip (rude buster)
   components:
@@ -100,4 +100,4 @@
   - type: Tag
     tags:
     - CrusherUpgradeMain
-    - CrusherUpgradeRudeBuster
+    - CrusherUpgradeMainRudeBuster

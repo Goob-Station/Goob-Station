@@ -31,3 +31,8 @@ gun-upgrade-crusher-kinetic-marker-name = [color=#4269eb][bold]kinetic marker[/b
 gun-upgrade-crusher-rude-buster-name = [color=#ae00ff][bold]rude buster[/bold][/color]
 gun-upgrade-crusher-dual-buster-name = [color=#4269eb][bold]dual buster[/bold][/color]
 gun-upgrade-crusher-god-buster-name = [color=#4269eb][bold]God buster[/bold][/color]
+
+weapon-upgrade-slot-name-main = Main upgrade
+weapon-upgrade-slot-name-blade = Blade upgrade
+weapon-upgrade-slot-name-handle = Handle upgrade
+weapon-upgrade-slot-name-special = Special upgrade

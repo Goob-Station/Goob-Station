@@ -23,10 +23,13 @@
       ]
     },
     {
+      "name": "flashlight"
+    },
+    {
       "name": "equipped-BACKPACK",
       "directions": 4
     },
-	{
+	  {
       "name": "equipped-SUITSTORAGE",
       "directions": 4
     },
