@@ -11,10 +11,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
+
 namespace Content.Shared.Damage;
 
 public sealed class PassiveDamageSystem : EntitySystem
@@ -57,8 +59,15 @@ public sealed class PassiveDamageSystem : EntitySystem
             // Goobstation
             if (comp.AllowedStates == null || !TryComp<MobStateComponent>(uid, out var mobState))
             {
-                _damageable.TryChangeDamage(uid, comp.Damage, true, false, damage);
-                return;
+                // Goobstation start
+                var ev = new BeforePassiveDamageEvent();
+                RaiseLocalEvent(uid, ref ev);
+                if (ev.Cancelled)
+                    continue;
+                // Goobstation end
+
+                _damageable.TryChangeDamage(uid, comp.Damage * ev.Multiplier, true, false, damage); // Goobstation - added multiplier
+                continue;
             }
 
             // Damage them
