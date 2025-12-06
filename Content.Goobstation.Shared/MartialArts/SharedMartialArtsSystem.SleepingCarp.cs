@@ -87,10 +87,13 @@ public partial class SharedMartialArtsSystem
                 if (!TryGrantMartialArt(args.User, ent.Comp))
                     return;
                 _faction.AddFaction(args.User, "Dragon");
-                var userReflect = EnsureComp<ReflectComponent>(args.User);
+                var userReflect = EnsureComp<ReflectComponent>(args.User); // holy fucking shitcode bro what was I doing
+                // WHAT IS YML
                 userReflect.Examinable = false; // no doxxing scarp users by examining lmao
                 userReflect.ReflectProb = 1;
                 userReflect.Spread = 60;
+                userReflect.CombatModeRequired = true;
+
                 Dirty(args.User, userReflect);
                 _popupSystem.PopupEntity(
                     Loc.GetString("carp-scroll-complete"),
@@ -186,7 +189,7 @@ public partial class SharedMartialArtsSystem
         var dir = hitPos - mapPos;
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, damage);
+        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, damage, proto.DropHeldItemsBehavior);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();

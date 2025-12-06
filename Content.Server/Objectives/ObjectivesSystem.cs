@@ -53,6 +53,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 using Content.Shared.Administration.Logs;
 using Content.Goobstation.Shared.ManifestListings;
+using Robust.Shared.Network; //Goobstation
 
 namespace Content.Server.Objectives;
 
@@ -74,7 +75,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
     private bool _showGreentext;
 
-    private int _goobcoinsPerGreentext = 5;
     private int _goobcoinsServerMultiplier = 1;
     public override void Initialize()
     {
@@ -85,7 +85,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
         Subs.CVar(_cfg, CCVars.GameShowGreentext, value => _showGreentext = value, true);
 
         _prototypeManager.PrototypesReloaded += CreateCompletions;
-        Subs.CVar(_cfg, GoobCVars.GoobcoinsPerGreentext, value => _goobcoinsPerGreentext = value, true);
         Subs.CVar(_cfg, GoobCVars.GoobcoinServerMultiplier, value => _goobcoinsServerMultiplier = value, true);
     }
 
@@ -180,6 +179,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     private void AddSummary(StringBuilder result, string agent, List<(EntityUid, string)> minds)
     {
         var agentSummaries = new List<(string summary, float successRate, int completedObjectives)>();
+        var currencyStorage = new Dictionary<NetUserId, float>(); //goobstation- store all currency and add at end off round
 
         foreach (var (mindId, name) in minds)
         {
@@ -224,6 +224,8 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
                     var objectiveTitle = info.Value.Title;
                     var progress = info.Value.Progress;
+                    var reward = info.Value.ServerCurrency;
+                    var rewardPartial = info.Value.PartialCurrency;
                     totalObjectives++;
 
                     // Goob (even tho the entire file got massacred by John already)
@@ -256,6 +258,13 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                         Easiest place to give people points for completing objectives lol
                         // if(userid.HasValue)
                             //_currencyMan.AddCurrency(userid.Value, _goobcoinsPerGreentext * _goobcoinsServerMultiplier);
+
+                        // Easiest place to give people points for completing objectives lol
+                        if (userid.HasValue)
+                            if (currencyStorage.ContainsKey(userid.Value))
+                                currencyStorage[userid.Value] += reward;
+                            else
+                                currencyStorage.Add(userid.Value, reward);
                         */
                     }
                     else if (progress <= 0.99f && progress >= 0.5f)
@@ -265,6 +274,12 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                             ("objective", objectiveTitle),
                             ("progress", progress)
                         ));
+                        //Goobstation
+                        if (userid.HasValue && rewardPartial)
+                            if (currencyStorage.ContainsKey(userid.Value))
+                                currencyStorage[userid.Value] += reward * progress;
+                            else
+                                currencyStorage.Add(userid.Value, reward * progress);
                     }
                     else if (progress < 0.5f && progress > 0f)
                     {
@@ -296,6 +311,9 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
         {
             result.AppendLine(summary);
         }
+
+/*        foreach (var (key, currency) in currencyStorage)
+            _currencyMan.AddCurrency(key, (int)Math.Round( currency * _goobcoinsServerMultiplier));*/
     }
 
     public EntityUid? GetRandomObjective(EntityUid mindId, MindComponent mind, ProtoId<WeightedRandomPrototype> objectiveGroupProto, float maxDifficulty)

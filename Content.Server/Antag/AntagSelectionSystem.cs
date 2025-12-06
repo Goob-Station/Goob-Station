@@ -348,6 +348,22 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         AssignPreSelectedSessions((uid, component));
     }
 
+    // Goobstation
+/*    public Dictionary<ICommonSession, float> ToWeightsDict(IList<ICommonSession> pool)
+    {
+        Dictionary<ICommonSession, float> weights = new();
+
+        // weight by playtime since last rolled
+        foreach (var se in pool)
+        {
+            var lastRoll = (float)(_playTime.GetOverallPlaytime(se) - _lastRolled.GetLastRolled(se.UserId)).TotalSeconds;
+            //weight clamped between 5 hours and 20 hours
+            weights[se] = float.Clamp(lastRoll, 18000.0f, 72000.0f);
+        }
+
+        return weights;
+    }*/
+
     /// <summary>
     /// Chooses antagonists from the given selection of players
     /// </summary>

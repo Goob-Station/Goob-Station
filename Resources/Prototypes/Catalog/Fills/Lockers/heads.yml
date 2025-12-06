@@ -208,6 +208,7 @@
     - id: WeaponDisabler
     #- id: ClothingEyesGlassesCommand Corvax-Goob-CaptainDrobe
     - id: HeadSkeleton # A skull to accompany your skeleton crew
+    - id: SecondSkinSecurity # Goobstation
       conditions:
       - !type:PlayerCountCondition
         max: 15
@@ -404,6 +405,7 @@
     # - id: MedicalScannerFlatpack
     # - id: ComputerCloningConsoleFlatpack
     # CorvaxGoob-Cloning-end
+    - id: ChemistryHotplateFlatPack
     - id: BiomassReclaimerFlatpack
     - id: Multitool
     - id: MedTekCartridge
@@ -536,6 +538,7 @@
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp
+    - id: SecondSkinSecurity # Goobstation
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

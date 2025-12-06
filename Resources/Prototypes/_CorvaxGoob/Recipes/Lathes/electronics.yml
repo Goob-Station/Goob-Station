@@ -22,12 +22,12 @@
 
 - type: latheRecipe
   parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
-  id: CloningPodMachineCircuitboard
-  icon: { sprite: Structures/Machines/cloning.rsi, state: pod_0 }
-  result: CloningPodMachineCircuitboard
-
-- type: latheRecipe
-  parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
   id: MedicalScannerMachineCircuitboard
   icon: { sprite: Structures/Machines/scanner.rsi, state: open }
   result: MedicalScannerMachineCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
+  id: CloningPodMachineCircuitboard
+  icon: { sprite: Structures/Machines/cloning.rsi, state: pod_0 }
+  result: CloningPodMachineCircuitboard
