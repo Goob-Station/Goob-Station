@@ -164,7 +164,7 @@
 
 # Quarterzip
 - type: loadout
-  id: AncientJumpsuit
+  id: QuarterzipJumpsuit
   effects:
   - !type:GroupLoadoutEffect
     proto: GreyTider
