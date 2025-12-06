@@ -117,8 +117,13 @@
     ClothingHeadSanabi: 1 # Goobstation
     ClothingNeckCloakSanabi: 1 # Goobstation
     ClothingCostumeGingerbreadHead: 1 #goob
+    ClothingHeadHatCapo: 2 # Goobstation
+    ClothingNeckCloakCapo: 3 # Goobstation
+    ClothingSuitCapo: 3 # Goobstation
+    ClothingHandsGlovesCapo: 3 # Goobstation
+    ClothingShoesCapo: 3 # Goobstation
     ClothingOuterSuitHotDog: 1 # Goob
-    ClothingOuterSuitPickle: 1
+    ClothingOuterSuitPickle: 1 # Goob
     ClothingHeadHatTinfoilHat: 2 # Goobstation
   contrabandInventory:
     ClothingHeadHatRichard: 1
