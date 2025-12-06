@@ -34,7 +34,7 @@ public partial class SharedRandomTeleportSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly SparksSystem _sparks = default!;
-    [Dependency] private readonly ISawmill _sawmill = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -59,7 +59,7 @@ public partial class SharedRandomTeleportSystem : EntitySystem
         if (sound) _audio.PlayPvs(rtp.DepartureSound, Transform(target).Coordinates, AudioParams.Default);
         _sparks.DoSparks(Transform(target).Coordinates); // also sparks!!
 
-        finalWorldPos = RandomTeleport(target, rtp.Radius, rtp.TeleportAttempts, rtp.ForceSafeTeleport, false);
+        finalWorldPos = RandomTeleport(target, rtp.Radius, rtp.TeleportAttempts, rtp.ForceSafeTeleport);
 
         if (sound) _audio.PlayPvs(rtp.ArrivalSound, Transform(target).Coordinates, AudioParams.Default);
         _sparks.DoSparks(Transform(target).Coordinates);
@@ -76,21 +76,20 @@ public partial class SharedRandomTeleportSystem : EntitySystem
         return _random.NextAngle().ToVec() * distance;
     }
 
-    public Vector2? RandomTeleport(EntityUid uid, MinMax radius, int triesBase = 10, bool forceSafe = true, bool checkEv = true)
+    public Vector2? RandomTeleport(EntityUid uid, MinMax radius, int triesBase = 10, bool forceSafe = true)
     {
-        if (checkEv && !CanTeleport(uid))
-            return null;
-
         var xform = Transform(uid);
-        var entityCoords = xform.Coordinates.ToMap(EntityManager, _xform);
+        var entityCoords = _xform.ToMapCoordinates(xform.Coordinates);
 
         var targetCoords = new MapCoordinates();
+
         // Randomly picks tiles in range until it finds a valid tile
         // If attempts is 1 or less, degenerates to a completely random teleport
         var tries = triesBase;
+
         // If forcing a safe teleport, try double the attempts but gradually lower radius in the second half of them
-        if (forceSafe)
-            tries *= 2;
+        if (forceSafe) tries *= 2;
+
         // How far outwards from the minimum radius we can teleport
         var extraRadiusBase = radius.Max - radius.Min;
         var foundValid = false;
@@ -109,13 +108,12 @@ public partial class SharedRandomTeleportSystem : EntitySystem
 
             // Check if we picked a position inside a solid object
             var valid = true;
-            foreach (var entity in grid.GetAnchoredEntities(targetCoords))
+            foreach (var entity in _map.GetAnchoredEntities((gridUid, grid), targetCoords))
             {
                 if (!_physicsQuery.TryGetComponent(entity, out var body))
                     continue;
 
-                if (body.BodyType != BodyType.Static ||
-                    !body.Hard ||
+                if (body.BodyType != BodyType.Static || !body.Hard ||
                     (body.CollisionLayer & (int) CollisionGroup.Impassable) == 0)
                     continue;
 
@@ -130,9 +128,9 @@ public partial class SharedRandomTeleportSystem : EntitySystem
                 break;
             }
         }
+
         // We haven't found a valid teleport, so just teleport to any spot in range
-        if (!foundValid)
-            targetCoords = entityCoords.Offset(GetTeleportVector(radius.Min, extraRadiusBase));
+        if (!foundValid) targetCoords = entityCoords.Offset(GetTeleportVector(radius.Min, extraRadiusBase));
 
         // if we teleport the pulled entity goes with us
         EntityUid? pullableEntity = null;
@@ -145,17 +143,18 @@ public partial class SharedRandomTeleportSystem : EntitySystem
 
         _pullingSystem.StopAllPulls(uid);
 
-        _xform.SetWorldPosition(uid, targetCoords.Position);
+        var newPos = targetCoords.Position;
+        _xform.SetWorldPosition(uid, newPos);
 
         // pulled entity goes with us
         // btw STOP REVERSING CHECKS
         if (pullableEntity != null)
         {
-            _xform.SetWorldPosition(pullableEntity.Value, _xform.GetWorldPosition(uid));
+            _xform.SetWorldPosition(pullableEntity.Value, newPos);
             _pullingSystem.TryStartPull(uid, pullableEntity.Value, grabStageOverride: stage, force: true);
         }
 
-        return targetCoords.Position;
+        return newPos;
     }
 
     private bool CanTeleport(EntityUid uid)
