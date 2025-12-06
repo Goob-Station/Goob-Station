@@ -57,7 +57,7 @@ knowledge-path-side-s4-void-cloak-desc =
 
     Allows you to transmute a glass shard, a bedsheet, and any winter coat to create a Void Cloak.
     While the hood is down, the cloak functions as a focus and provides low pressure and low temperature protection, and while the hood is up, the cloak is completely invisible.
-    It also provide decent armor and has pockets which can hold one of your blades, various ritual components (such as organs), and small heretical trinkets.
+    It also provides decent armor and has pockets which can hold one of your blades, various ritual components (such as organs), and small heretical trinkets.
 
 knowledge-path-side-s4-shark-name = Scorching Shark
 knowledge-path-side-s4-shark-desc =

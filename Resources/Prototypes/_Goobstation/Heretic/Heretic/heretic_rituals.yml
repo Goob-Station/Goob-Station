@@ -370,8 +370,8 @@
 
 - type: hereticRitual
   id: ArmorerRitual
-  locName: knowledge-path-side-s5-armor-name
-  locDesc: knowledge-path-side-s5-armor-desc
+  locName: knowledge-path-side-s4-armor-name
+  locDesc: knowledge-path-side-s4-armor-desc
   icon:
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
     state: icon
@@ -391,8 +391,8 @@
 
 - type: hereticRitual
   id: PriestRitual
-  locName: knowledge-path-side-s5-flask-name
-  locDesc: knowledge-path-side-s5-flask-desc
+  locName: knowledge-path-side-s4-flask-name
+  locDesc: knowledge-path-side-s4-flask-desc
   icon:
     sprite: _Goobstation/Heretic/items.rsi
     state: eldritch_flask
@@ -404,8 +404,8 @@
 
 - type: hereticRitual
   id: AshenEyesRitual
-  locName: knowledge-path-side-s5-ashen-eyes-name
-  locDesc: knowledge-path-side-s5-ashen-eyes-desc
+  locName: knowledge-path-side-s4-ashen-eyes-name
+  locDesc: knowledge-path-side-s4-ashen-eyes-desc
   icon:
     sprite: _Goobstation/Heretic/eldritch_medalion.rsi
     state: icon
@@ -418,8 +418,8 @@
 
 - type: hereticRitual
   id: VoidCloak
-  locName: knowledge-path-side-s5-void-cloak-name
-  locDesc: knowledge-path-side-s5-void-cloak-desc
+  locName: knowledge-path-side-s4-void-cloak-name
+  locDesc: knowledge-path-side-s4-void-cloak-desc
   icon:
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi
     state: icon
@@ -432,8 +432,8 @@
 
 - type: hereticRitual
   id: ScorchingShark
-  locName: knowledge-path-side-s5-shark-name
-  locDesc: knowledge-path-side-s5-shark-desc
+  locName: knowledge-path-side-s4-shark-name
+  locDesc: knowledge-path-side-s4-shark-desc
   icon:
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     state: fire_shark_icon
@@ -449,8 +449,8 @@
 
 - type: hereticRitual
   id: RustedRitual
-  locName: knowledge-path-side-s7-rustwalker-name
-  locDesc: knowledge-path-side-s7-rustwalker-desc
+  locName: knowledge-path-side-s6-rustwalker-name
+  locDesc: knowledge-path-side-s6-rustwalker-desc
   icon:
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     state: rust_walker
@@ -467,8 +467,8 @@
 
 - type: hereticRitual
   id: CarvingKnife
-  locName: knowledge-path-side-s7-knife-name
-  locDesc: knowledge-path-side-s7-knife-desc
+  locName: knowledge-path-side-s6-knife-name
+  locDesc: knowledge-path-side-s6-knife-desc
   icon:
     sprite: _Goobstation/Heretic/items.rsi
     state: rune_carver
@@ -481,8 +481,8 @@
 
 - type: hereticRitual
   id: CodexMorbus
-  locName: knowledge-path-side-s7-morbus-name
-  locDesc: knowledge-path-side-s7-morbus-desc
+  locName: knowledge-path-side-s6-morbus-name
+  locDesc: knowledge-path-side-s6-morbus-desc
   icon:
     sprite: _Goobstation/Heretic/book_morbus.rsi
     state: icon-on
