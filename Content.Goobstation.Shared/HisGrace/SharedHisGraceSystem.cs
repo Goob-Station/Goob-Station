@@ -30,20 +30,22 @@ public abstract partial class SharedHisGraceSystem : EntitySystem
     {
         var user = args.Container.Owner;
 
-        if (hisGrace.Comp.User != null && hisGrace.Comp.User != user)
-        {
-            args.Cancel();
-            Popup.PopupEntity(Loc.GetString("hisgrace-pickup-denied"), user ,user);
-        }
+        if (hisGrace.Comp.User == null || hisGrace.Comp.User == user)
+            return;
+
+        args.Cancel();
+        Popup.PopupEntity(Loc.GetString("hisgrace-pickup-denied"), user ,user);
+
     }
 
     private void OnPullAttempt(Entity<HisGraceComponent> hisGrace, ref PullAttemptEvent args)
     {
-        if (hisGrace.Comp.User != null && hisGrace.Comp.User != args.PullerUid)
-        {
-            args.Cancelled = true;
-            Popup.PopupEntity(  Loc.GetString("hisgrace-pickup-denied"), args.PullerUid ,args.PullerUid);
-        }
+        if (hisGrace.Comp.User == null || hisGrace.Comp.User == args.PullerUid)
+            return;
+
+        args.Cancelled = true;
+        Popup.PopupEntity(  Loc.GetString("hisgrace-pickup-denied"), args.PullerUid ,args.PullerUid);
+
     }
 
     protected virtual void VisualsChanged(Entity<HisGraceComponent> ent, string key)
