@@ -76,6 +76,7 @@
         icon:
           sprite: Objects/Consumable/Food/meat.rsi
           state: plain
+        name: construction-graph-tag-book
   - node: toycodexcicatrix
     entity: ToyCodexCicatrix
 
@@ -110,11 +111,13 @@
   - node: ashbladetoy
     entity: ToyBladeAsh
   - node: bladebladetoy
-    entity: ClothingOuterArmorHereticBladeCostume
+    entity: ToyBladeBlade
   - node: fleshbladetoy
-    entity: ClothingOuterArmorHereticFleshCostume
+    entity: ToyBladeFlesh
   - node: voidbladetoy
-    entity: ClothingOuterArmorHereticVoidCostume
+    entity: ToyBladeVoid
+  - node: rustbladetoy
+    entity: ToyBladeRust
 
 
 - type: constructionGraph
