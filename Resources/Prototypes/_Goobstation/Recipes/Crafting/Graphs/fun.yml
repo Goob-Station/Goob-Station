@@ -76,7 +76,7 @@
         icon:
           sprite: Objects/Consumable/Food/meat.rsi
           state: plain
-        name: construction-graph-tag-book
+        name: construction-graph-tag-meat
   - node: toycodexcicatrix
     entity: ToyCodexCicatrix
 
