@@ -10,7 +10,6 @@ using Content.Shared.Inventory.Events;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 
-
 namespace Content.Goobstation.Client.Security.Systems;
 
 public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
@@ -72,7 +71,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnEquipHands(EntityUid uid, VisibleContrabandComponent comp, DidEquipHandEvent args)
     {
-        if (!_isEnabled || !MetaData(args.User).EntityInitialized ) // stupid fucking hands event during intialization breaks ID acquisition
+        if (!_isEnabled || !MetaData(args.User).EntityInitialized) // stupid fucking hands event during intialization breaks ID acquisition
             return;
         if(IsNotContra(args.Equipped, args.User))
             return;
