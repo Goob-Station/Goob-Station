@@ -95,7 +95,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly TeleportSystem _teleport = default!;
+    [Dependency] private readonly SharedRandomTeleportSystem _teleport = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly TurfSystem _turf = default!;

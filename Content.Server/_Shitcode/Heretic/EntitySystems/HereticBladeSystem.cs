@@ -13,7 +13,7 @@ public sealed class HereticBladeSystem : SharedHereticBladeSystem
 {
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
-    [Dependency] private readonly TeleportSystem _teleport = default!;
+    [Dependency] private readonly SharedRandomTeleportSystem _teleport = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _sol = default!;
     [Dependency] private readonly PuddleSystem _puddle = default!;
 

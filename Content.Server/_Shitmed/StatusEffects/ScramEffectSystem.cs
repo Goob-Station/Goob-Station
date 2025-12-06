@@ -12,7 +12,7 @@ namespace Content.Server._Shitmed.StatusEffects;
 
 public sealed class ScrambleLocationEffectSystem : EntitySystem
 {
-    [Dependency] private readonly TeleportSystem _teleportSys = default!;
+    [Dependency] private readonly SharedRandomTeleportSystem _teleportSys = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<ScrambleLocationEffectComponent, ComponentInit>(OnInit);

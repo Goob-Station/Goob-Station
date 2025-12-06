@@ -10,16 +10,11 @@
 using System.Numerics;
 using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Common.MartialArts;
-using Content.Server.Administration.Logs;
-using Content.Server.Stack;
 using Content.Shared._Goobstation.Wizard.Traps;
-using Content.Shared.Database;
 using Content.Shared.Destructible.Thresholds;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Physics;
-using Content.Shared.Stacks;
 using Content.Shared.Teleportation;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -28,18 +23,18 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.Teleportation.Systems;
+namespace Content.Server.Teleportation;
 
-public sealed class TeleportSystem : EntitySystem
+[Virtual]
+public partial class SharedRandomTeleportSystem : EntitySystem
 {
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
-    [Dependency] private readonly IAdminLogManager _alog = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly SparksSystem _sparks = default!;
+    [Dependency] private readonly ISawmill _sawmill = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -47,50 +42,27 @@ public sealed class TeleportSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RandomTeleportOnUseComponent, UseInHandEvent>(OnUseInHand);
-
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
     }
 
-    private void OnUseInHand(EntityUid uid, RandomTeleportOnUseComponent component, UseInHandEvent args)
+    public bool RandomTeleport(EntityUid target, RandomTeleportComponent rtp, bool sound = true, bool @event = true)
+        => RandomTeleport(target, rtp, out _, sound, @event);
+
+    public bool RandomTeleport(EntityUid target, RandomTeleportComponent rtp, out Vector2? finalWorldPos, bool sound = true, bool @event = true)
     {
-        if (args.Handled)
-            return;
+        finalWorldPos = null;
 
-        if (!RandomTeleport(args.User, component))
-            return;
-
-        if (component.ConsumeOnUse)
-        {
-            if (TryComp<StackComponent>(uid, out var stack))
-            {
-                _stack.SetCount(uid, stack.Count - 1, stack);
-                return;
-            }
-
-            // It's consumed on use and it's not a stack so delete it
-            QueueDel(uid);
-        }
-
-        _alog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):actor} randomly teleported with {ToPrettyString(uid)}");
-    }
-
-    public bool RandomTeleport(EntityUid uid,
-        RandomTeleportComponent component,
-        bool playSound = true,
-        bool checkEv = true)
-    {
-        if (checkEv && !CanTeleport(uid))
+        if (@event && !CanTeleport(target))
             return false;
 
         // play sound before and after teleport if playSound is true
-        if (playSound) _audio.PlayPvs(component.DepartureSound, Transform(uid).Coordinates, AudioParams.Default);
-        _sparks.DoSparks(Transform(uid).Coordinates); // also sparks!!
+        if (sound) _audio.PlayPvs(rtp.DepartureSound, Transform(target).Coordinates, AudioParams.Default);
+        _sparks.DoSparks(Transform(target).Coordinates); // also sparks!!
 
-        RandomTeleport(uid, component.Radius, component.TeleportAttempts, component.ForceSafeTeleport, false);
+        finalWorldPos = RandomTeleport(target, rtp.Radius, rtp.TeleportAttempts, rtp.ForceSafeTeleport, false);
 
-        if (playSound) _audio.PlayPvs(component.ArrivalSound, Transform(uid).Coordinates, AudioParams.Default);
-        _sparks.DoSparks(Transform(uid).Coordinates);
+        if (sound) _audio.PlayPvs(rtp.ArrivalSound, Transform(target).Coordinates, AudioParams.Default);
+        _sparks.DoSparks(Transform(target).Coordinates);
 
         return true;
     }
@@ -104,14 +76,10 @@ public sealed class TeleportSystem : EntitySystem
         return _random.NextAngle().ToVec() * distance;
     }
 
-    public void RandomTeleport(EntityUid uid,
-        MinMax radius,
-        int triesBase = 10,
-        bool forceSafe = true,
-        bool checkEv = true)
+    public Vector2? RandomTeleport(EntityUid uid, MinMax radius, int triesBase = 10, bool forceSafe = true, bool checkEv = true)
     {
         if (checkEv && !CanTeleport(uid))
-            return;
+            return null;
 
         var xform = Transform(uid);
         var entityCoords = xform.Coordinates.ToMap(EntityManager, _xform);
@@ -138,6 +106,7 @@ public sealed class TeleportSystem : EntitySystem
             // Try to not teleport into open space
             if (!_mapManager.TryFindGridAt(targetCoords, out var gridUid, out var grid))
                 continue;
+
             // Check if we picked a position inside a solid object
             var valid = true;
             foreach (var entity in grid.GetAnchoredEntities(targetCoords))
@@ -153,6 +122,7 @@ public sealed class TeleportSystem : EntitySystem
                 valid = false;
                 break;
             }
+
             // Current target coordinates are not inside a solid body, can go ahead and teleport
             if (valid)
             {
@@ -176,12 +146,16 @@ public sealed class TeleportSystem : EntitySystem
         _pullingSystem.StopAllPulls(uid);
 
         _xform.SetWorldPosition(uid, targetCoords.Position);
-        // pulled entity goes with us
-        if (pullableEntity == null)
-            return;
 
-        _xform.SetWorldPosition(pullableEntity.Value, _xform.GetWorldPosition(uid));
-        _pullingSystem.TryStartPull(uid, pullableEntity.Value, grabStageOverride: stage, force: true);
+        // pulled entity goes with us
+        // btw STOP REVERSING CHECKS
+        if (pullableEntity != null)
+        {
+            _xform.SetWorldPosition(pullableEntity.Value, _xform.GetWorldPosition(uid));
+            _pullingSystem.TryStartPull(uid, pullableEntity.Value, grabStageOverride: stage, force: true);
+        }
+
+        return targetCoords.Position;
     }
 
     private bool CanTeleport(EntityUid uid)

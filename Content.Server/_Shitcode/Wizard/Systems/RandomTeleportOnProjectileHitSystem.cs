@@ -15,7 +15,7 @@ namespace Content.Server._Goobstation.Wizard.Systems;
 
 public sealed class RandomTeleportOnProjectileHitSystem : EntitySystem
 {
-    [Dependency] private readonly TeleportSystem _teleport = default!;
+    [Dependency] private readonly SharedRandomTeleportSystem _teleport = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()

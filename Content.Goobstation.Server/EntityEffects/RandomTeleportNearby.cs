@@ -56,7 +56,7 @@ public sealed partial class RandomTeleportNearby : EntityEffect
         var transformSystem = entityManager.System<SharedTransformSystem>();
         var lookupSys = entityManager.System<EntityLookupSystem>();
         var occlusionSys = entityManager.System<ExamineSystemShared>();
-        var teleportSystem = entityManager.System<TeleportSystem>();
+        var teleportSystem = entityManager.System<SharedRandomTeleportSystem>();
 
         var xform = transformSystem.GetMapCoordinates(uid);
 
