@@ -292,7 +292,6 @@ public sealed class RadioDeviceSystem : EntitySystem
             nameOverride: name,
             checkRadioPrefix: component.SpeakNormally, // Goobstation, radio host
             languageOverride: args.Language); // Einstein Engines - Languages
-        }
     }
 
     private void OnIntercomEncryptionChannelsChanged(Entity<IntercomComponent> ent, ref EncryptionChannelsChangedEvent args)
