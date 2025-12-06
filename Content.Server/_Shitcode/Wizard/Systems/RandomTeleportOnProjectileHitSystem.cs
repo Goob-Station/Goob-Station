@@ -5,8 +5,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Teleportation.Systems;
 using Content.Server._Goobstation.Wizard.Components;
-using Content.Server.Teleportation;
 using Content.Shared.Projectiles;
 using Content.Shared.Teleportation;
 using Content.Shared.Whitelist;

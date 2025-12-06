@@ -95,7 +95,6 @@ using Content.Server.Forensics;
 using Content.Server.Humanoid;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
-using Content.Server.Teleportation;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Forensics;
 using Content.Shared.Forensics.Components;
@@ -121,6 +120,7 @@ using Content.Shared.Ensnaring.Components;
 using Content.Shared.Store.Components;
 using Content.Shared.Teleportation;
 using Content.Shared.Stunnable;
+using Content.Goobstation.Shared.Teleportation.Systems;
 
 namespace Content.Server.Implants;
 

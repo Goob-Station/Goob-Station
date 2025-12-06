@@ -7,9 +7,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Teleportation.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Stack;
-using Content.Server.Teleportation;
 using Content.Shared.Database;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Stacks;

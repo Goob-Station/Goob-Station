@@ -23,7 +23,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 
-namespace Content.Server.Teleportation;
+namespace Content.Goobstation.Shared.Teleportation.Systems;
 
 [Virtual]
 public partial class SharedRandomTeleportSystem : EntitySystem

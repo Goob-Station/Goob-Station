@@ -1,11 +1,11 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
-using Content.Server.Teleportation;
 using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared.Teleportation;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Goobstation.Shared.Teleportation.Systems;
 
 namespace Content.Server.Heretic.EntitySystems;
 
