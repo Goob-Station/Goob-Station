@@ -293,6 +293,28 @@
       path: /Audio/_Goobstation/RadioStation/music/goonstation/christmassong.ogg
 
 - type: entity
+  name: "vinyl disk: burn the world waltz"
+  id: VinylDiskBurnTheWorld
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: red-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/BurnTheWorldWaltz.ogg
+
+- type: entity
+  name: "vinyl disk: feral angel waltz"
+  id: VinylDiskFeralAngel
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: darkblue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/FeralAngelWaltz.ogg
+
+- type: entity
   name: forgotten vinyl disk
   id: VinylDiskForgotten
   parent: BaseVinylDisk
