@@ -34,7 +34,7 @@
   id: HoPSummerShirt
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoPSummer
-    
+
 - type: loadout
   id: HoPLongcoat
   equipment:
