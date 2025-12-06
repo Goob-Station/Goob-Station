@@ -19068,3 +19068,41 @@ Entries:
         originally intended.
   id: 2150
   time: '2025-12-04T22:54:48.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Added tinfoil hats
+  id: 2151
+  time: '2025-12-05T22:07:41.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Fixed dwarves unintentionally being lighter than they should be.
+  id: 2152
+  time: '2025-12-06T01:19:22.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: harpies are big now
+  id: 2153
+  time: '2025-12-06T01:32:00.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix holoprojectors not working.
+  id: 2154
+  time: '2025-12-06T01:58:12.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: Made the popup text from the 'Interact' actions italicised.
+    - type: Fix
+      message: Fixed borgs potentially getting softlocked by invalid interaction verbs.
+  id: 2155
+  time: '2025-12-06T02:06:11.0000000+00:00'
+- author: XWASHERE
+  changes:
+    - type: Add
+      message: added a notification sound for prayers
+  id: 2156
+  time: '2025-12-06T18:51:32.0000000+00:00'
