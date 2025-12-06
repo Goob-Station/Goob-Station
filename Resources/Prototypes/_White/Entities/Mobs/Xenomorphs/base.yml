@@ -151,10 +151,10 @@
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
-  - type: Access # Goobstation - xeno doors
-    enabled: true
-    groups:
-    - XenomorphAccess
+#  - type: Access # Goobstation - xeno doors # Omu, this comes from the hive node organ now
+#    enabled: true
+#    groups:
+#    - XenomorphAccess
 
 
 - type: entity
