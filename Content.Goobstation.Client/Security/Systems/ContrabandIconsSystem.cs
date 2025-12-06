@@ -45,7 +45,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnEquip(EntityUid uid, VisibleContrabandComponent comp, DidEquipEvent args)
     {
-        if (!_isEnabled || !MetaData(args.Equipee).EntityInitialized) // stupid fucking equip event during intialization
+        if (!_isEnabled || !MetaData(args.Equipee).EntityInitialized) // stupid fucking equip event during intialization breaks ID acquisition
             return;
         if (args.SlotFlags == SlotFlags.IDCARD)
         {
@@ -72,7 +72,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnEquipHands(EntityUid uid, VisibleContrabandComponent comp, DidEquipHandEvent args)
     {
-        if (!_isEnabled || !MetaData(args.User).EntityInitialized) // stupid fucking hands event during intialization
+        if (!_isEnabled || !MetaData(args.User).EntityInitialized) // stupid fucking hands event during intialization breaks ID acquisition
             return;
         if(IsNotContra(args.Equipped, args.User))
             return;
