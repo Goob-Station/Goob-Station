@@ -3,6 +3,7 @@ using Content.Goobstation.Common.Security.ContrabandIcons.Events;
 using Content.Goobstation.Shared.Contraband;
 using Content.Goobstation.Shared.Security.ContrabandIcons;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
+using Content.Goobstation.Shared.Security.ContrabandIcons.Prototypes;
 using Content.Shared.Contraband;
 using Content.Shared.Hands;
 using Content.Shared.Inventory;
@@ -17,18 +18,17 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 {
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly SharedContrabandDetectorSystem _detectorSystem = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     
     private bool _isEnabled = true;
     private EntityQuery<ContrabandComponent> _contrabandQuery;
-    
-    private static readonly ProtoId<ContrabandSeverityPrototype> MinorSeverity = "Minor";
-    private static readonly ProtoId<ContrabandSeverityPrototype> RestrictedSeverity = "Restricted";
-    private static readonly ProtoId<ContrabandSeverityPrototype> GrandTheftSeverity = "GrandTheft";
-    private static readonly ProtoId<ContrabandSeverityPrototype> Honkraband = "Honkraband";
+    private ContrabandFilterPrototype _filter = default!;
+
     public override void Initialize()
     {
         base.Initialize();
         _contrabandQuery = GetEntityQuery<ContrabandComponent>();
+        _filter = _prototypeManager.Index<ContrabandFilterPrototype>("ContrabandFilter");
 
         Subs.CVar(_configuration, GoobCVars.ContrabandIconsEnabled, value => _isEnabled = value);
 
@@ -103,7 +103,14 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private bool IsNotContra(EntityUid item, EntityUid user)
     {
-        return !_contrabandQuery.TryComp(item, out var contra) || (contra.Severity == MinorSeverity || contra.Severity == Honkraband || (contra.Severity == RestrictedSeverity || contra.Severity == GrandTheftSeverity)
-            && _detectorSystem.CheckContrabandPermission(item, user, contra));
+        if (!_contrabandQuery.TryComp(item, out var contra))
+            return true;
+        
+        return contra.Severity switch
+        {
+            var severity when _filter.WhitelistedSeverity.Contains(severity) => true,
+            var severity when _filter.RequiresPermitSeverity.Contains(severity) => _detectorSystem.CheckContrabandPermission(item, user, contra),
+            _ => false
+        };
     }
 }
