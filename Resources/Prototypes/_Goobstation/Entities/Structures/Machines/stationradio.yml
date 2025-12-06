@@ -168,6 +168,7 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/stationradio.rsi
     state: radio
+    drawdepth: SmallObjects
   - type: Destructible
     thresholds:
     - trigger:
