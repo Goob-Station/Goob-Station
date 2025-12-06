@@ -16,13 +16,18 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.DoAfter;
+using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
+using Content.Shared.CombatMode;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
+using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Audio;
 
@@ -35,8 +40,16 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpGnashingTeethPerformedEvent>(OnSleepingCarpGnashing);
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpKneeHaulPerformedEvent>(OnSleepingCarpKneeHaul);
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpCrashingWavesPerformedEvent>(OnSleepingCarpCrashingWaves);
+        SubscribeLocalEvent<MartialArtsKnowledgeComponent, CombatModeToggledEvent>(OnCombatModeToggled);
 
         SubscribeLocalEvent<GrantSleepingCarpComponent, UseInHandEvent>(OnGrantSleepingCarp);
+    }
+
+    private void OnCombatModeToggled(Entity<MartialArtsKnowledgeComponent> ent, ref CombatModeToggledEvent args)
+    {
+        if (ent.Comp.MartialArtsForm != MartialArtsForms.SleepingCarp)
+            return;
+        _itemToggle.TrySetActive(ent.Owner, args.Activated);
     }
 
     #region Generic Methods
@@ -84,15 +97,22 @@ public partial class SharedMartialArtsSystem
                 CarpScrollDelay((args.User, studentComp));
                 break;
             case >= 3:
-                if (!TryGrantMartialArt(args.User, ent.Comp))
+                if (!TryGrantMartialArt(args.User, ent.Comp) || !TryComp<CombatModeComponent>(args.User, out var combatMode))
                     return;
                 _faction.AddFaction(args.User, "Dragon");
                 var userReflect = EnsureComp<ReflectComponent>(args.User);
                 userReflect.Examinable = false; // no doxxing scarp users by examining lmao
                 userReflect.ReflectProb = 1;
                 userReflect.Spread = 60;
+                userReflect.InRightPlace = combatMode.IsInCombatMode;
+
+                var userToggle = EnsureComp<ItemToggleComponent>(args.User); // even mopre goida
+                _itemToggle.SetOnActivate(args.User, false);
+                userToggle.OnUse = false;
+                _itemToggle.TrySetActive(args.User, combatMode.IsInCombatMode);
 
                 Dirty(args.User, userReflect);
+                Dirty(args.User, userToggle);
                 _popupSystem.PopupEntity(
                     Loc.GetString("carp-scroll-complete"),
                     ent,
