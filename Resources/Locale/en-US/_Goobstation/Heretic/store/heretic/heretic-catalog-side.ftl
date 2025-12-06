@@ -63,10 +63,10 @@ knowledge-path-side-s4-shark-name = Scorching Shark
 knowledge-path-side-s4-shark-desc =
     The cradle of the nebula was cold, but not dead. Light and heat flits even through the deepest darkness, and is hunted by its own predators.
 
-    Allows you to transmute 5 pools of ash, a liver, and 3 sheets of plasma into 3 Fire Sharks.
+    Allows you to transmute 3 pools of ash, a liver, and 3 sheets of plasma into 3 Fire Sharks.
     Fire Sharks are fast and strong in groups, but die quickly. They are also highly resistant against fire attacks.
     Fire Sharks ignite their victims and drop plasma sheet once they die.
-    You can only create 17 at a time.
+    You can only create 15 at a time.
 
 ## stage 6
 knowledge-path-side-s6-ice-spear-name = Mysteries of Creation
@@ -79,7 +79,7 @@ knowledge-path-side-s6-rustwalker-name = Rusted Ritual
 knowledge-path-side-s6-rustwalker-desc =
     I combined my knowledge of creation with my desire for corruption. The Marshal knew my name, and the Rusted Hills echoed out.
 
-    Allows you to transmute a pool of vomit, 17 cable coil, and 10 sheets of iron into a Rust Walker.
+    Allows you to transmute a pool of vomit, 15 cable coil, and 10 sheets of iron into a Rust Walker.
     Rust Walkers excel at spreading rust and are moderately strong in combat.
 
 knowledge-path-side-s6-knife-name = Carving Knife
