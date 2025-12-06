@@ -19074,3 +19074,9 @@ Entries:
       message: Added tinfoil hats
   id: 2151
   time: '2025-12-05T22:07:41.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Fixed dwarves unintentionally being lighter than they should be.
+  id: 2152
+  time: '2025-12-06T01:19:22.0000000+00:00'
