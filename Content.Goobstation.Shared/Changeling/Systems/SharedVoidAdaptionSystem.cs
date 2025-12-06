@@ -27,6 +27,7 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
 
         _lingQuery = GetEntityQuery<ChangelingIdentityComponent>();
 
+        SubscribeLocalEvent<VoidAdaptionComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<VoidAdaptionComponent, ComponentRemove>(OnRemoved);
 
         SubscribeLocalEvent<VoidAdaptionComponent, ResistPressureEvent>(OnGetDangerousPressure);
@@ -34,6 +35,13 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         SubscribeLocalEvent<VoidAdaptionComponent, BeforeTemperatureChange>(BeforeTemperatureChangeAttempt);
         SubscribeLocalEvent<VoidAdaptionComponent, TemperatureImmunityEvent>(OnTemperatureImmunityCheck);
         SubscribeLocalEvent<VoidAdaptionComponent, CheckNeedsAirEvent>(OnCheckNeedsAir);
+    }
+
+    private void OnMapInit(Entity<VoidAdaptionComponent> ent, ref MapInitEvent args)
+    {
+        // reset environment adaptions so changeling transform doesnt mess up stuff like the alerts and modifiers
+        ent.Comp.AdaptingLowPressure = false;
+        ent.Comp.AdaptingLowTemp = false;
     }
 
     private void OnRemoved(Entity<VoidAdaptionComponent> ent, ref ComponentRemove args)
@@ -165,7 +173,7 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
             || ent.Comp.AdaptingLowTemp
             && !ent.Comp.FirePopupSent)
         {
-            DoSituationPopup(ent, ent.Comp.FirePopup);
+            DoSituationPopup(ent, ent.Comp.FirePopup, PopupType.LargeCaution);
             ent.Comp.FirePopupSent = true;
         }
 
@@ -230,12 +238,12 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
             ent.Comp.Alert);
     }
 
-    private void DoSituationPopup(Entity<VoidAdaptionComponent> ent, LocId id)
+    private void DoSituationPopup(Entity<VoidAdaptionComponent> ent, LocId id, PopupType popupType = PopupType.Small)
     {
         if (_netManager.IsClient)
             return;
 
-        _popup.PopupEntity(Loc.GetString(id), ent, ent);
+        _popup.PopupEntity(Loc.GetString(id), ent, ent, popupType);
     }
     #endregion
 }

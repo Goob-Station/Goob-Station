@@ -132,7 +132,7 @@ evolutionmenu-utility-panacea-desc =
 
 evolutionmenu-utility-eyesight-name = Augmented Eyesight
 evolutionmenu-utility-eyesight-desc =
-    Evolve additional features in your eyes, such toggleable thermal vision and flash protection. You become more vulnerable to flash-based devices while in thermal vision mode.
+    Evolve additional features in your eyes, such as toggleable a polarized flash-immune vision and x-ray vision. Being flashed cannot be protected against while using x-ray vision.
     Cost-free.
 
 evolutionmenu-utility-biodegrade-name = Biodegrade
@@ -143,9 +143,17 @@ evolutionmenu-utility-biodegrade-desc =
 
 evolutionmenu-utility-chameleon-name = Chameleon Skin
 evolutionmenu-utility-chameleon-desc =
-    Alter the pigment in your skin to match your surroundings, rendering you invisible.
-    Maintaining this chameleon state slows chemical generation.
+    Alter the pigment in your skin to match your surroundings, rendering you invisible when standing still.
+    This state cannot be used nor maintained while Darkness Adaption is active.
     Costs 20 chemicals.
+
+evolutionmenu-utility-darkadapt-name = Darkness Adaption
+evolutionmenu-utility-darkadapt-desc = 
+    Allows you to adapt and adjust your body to the shroud of darkness.
+    While shrouded in the dark, become translucent and gain night vision.
+    Passive adaption can be toggled.
+    Effects will cease while on fire.
+    Costs 10 chemicals.
 
 evolutionmenu-utility-voidadapt-name = Void Adaption
 evolutionmenu-utility-voidadapt-desc =

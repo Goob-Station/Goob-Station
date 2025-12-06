@@ -133,6 +133,10 @@ public abstract class SharedStealthSystem : EntitySystem
 
         var delta = component.MovementVisibilityRate * (args.NewPosition.Position - args.OldPosition.Position).Length();
 
+        // goobstation - stealth breaking on move
+        if (component.BreakOnMove)
+            delta = stealthComp.MaxVisibility;
+
         ModifyVisibility(uid, delta, stealthComp); // Goobstation - Fixing stealth suit resolve error
     }
 
