@@ -1,0 +1,5 @@
+- type: speechVerb
+  id: XelthiaSpeechVerb
+  name: chat-speech-verb-name-xelthia
+  speechVerbStrings:
+  - chat-speech-verb-default

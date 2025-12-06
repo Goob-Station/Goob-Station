@@ -1,0 +1,15 @@
+# Xelthia Arm "steak"
+- type: constructionGraph
+  id: Xelthiarm
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: xelthiarm
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 345
+  - node: xelthiarm
+    entity: FoodMeatXelthiaTentacleCooked
