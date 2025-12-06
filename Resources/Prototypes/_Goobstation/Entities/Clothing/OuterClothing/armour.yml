@@ -37,6 +37,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     modifiers:
       coefficients:
         Blunt: 0.6
@@ -65,6 +66,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     modifiers:
       coefficients:
         Blunt: 0.6
@@ -230,6 +232,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -382,6 +385,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     traumaDeductions:
       Dismemberment: 0.2
       OrganDamage: 0.4

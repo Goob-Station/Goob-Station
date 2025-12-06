@@ -169,6 +169,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     traumaDeductions:
       Dismemberment: 0.2
       OrganDamage: 0.2
@@ -294,6 +295,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     # Does not give dismemberment deduction because of reflection. yeah do with it somehow
     modifiers:
       coefficients:
@@ -557,6 +559,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     traumaDeductions:
       Dismemberment: 0.2
       OrganDamage: 0.2
