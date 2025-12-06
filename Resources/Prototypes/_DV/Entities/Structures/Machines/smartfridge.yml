@@ -53,6 +53,9 @@
       - Bottle
       - Syringe
       - ChemDispensable
+      - CigPack # Goob start
+      - Cigarette
+      - MedicalPatch # Goob end so  you can put your fancy alt meds in the fridge, also patches weren't in this list?
   - type: ActivatableUI
     key: enum.SmartFridgeUiKey.Key
   - type: ActivatableUIRequiresPower

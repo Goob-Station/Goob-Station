@@ -708,3 +708,9 @@
 
 - type: Tag
   id: ChaplainsHolster
+
+- type: Tag
+  id: ForkliftKeys
+
+- type: Tag
+  id: Crate

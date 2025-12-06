@@ -52,3 +52,8 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "taken from FILMSTRO on youtube"
   source: "https://www.youtube.com/watch?v=pU_8B6yrZrQ"
+
+- files: ["phone_ring.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Recorded by nightcustard, trimmed and converted to mono by XWASHERE (github)"
+  source: "https://freesound.org/people/nightcustard/sounds/655404/"

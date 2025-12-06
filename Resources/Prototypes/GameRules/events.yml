@@ -209,7 +209,7 @@
     - id: VoxRaidersMidround # Goobstation - New Midrounds
     - id: TunnelClownMidround # Goobstation
     #- id: WraithMidround # Goobstation - Wraith
-    #TODO When Slasher is Ready - id: SlasherSpawn # Goobstation - The Slasher
+    #TODO When Slasher is ready- id: SlasherSpawn # Goobstation - The Slasher
 
 - type: entity
   id: BaseStationEvent
