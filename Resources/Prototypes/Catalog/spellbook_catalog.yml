@@ -322,3 +322,41 @@
     - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 2
+
+- type: listing
+  id: SpellbookEventMobCollitions
+  name: enable mob colition
+  description: Pysics is my domain, I reject your reality for my own
+  productEvent: !type:MobColissionSpellEvent # Goobstation
+  icon: # Goobstation
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    state: icon
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:CcvarListingCondition # dont show this if mob collision is active via cvar
+    name: movement.mob_pushing
+  disableRefund: true # Goobstation
+
+- type: listing
+  id: SpellbookEventSpaceWind
+  name: enable space wind
+  description: because fuck them. that's why
+  productEvent: !type:SpaceWindSpellEvent # Goobstation
+  icon: # Goobstation
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    state: icon
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:CcvarListingCondition # dont show this if space wind  is active via cvar
+    name: atmos.space_wind
+  disableRefund: true # Goobstation
