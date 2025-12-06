@@ -19,7 +19,6 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly SharedContrabandDetectorSystem _detectorSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    
     private bool _isEnabled = true;
     private EntityQuery<ContrabandComponent> _contrabandQuery;
     private ContrabandFilterPrototype _filter = default!;
@@ -45,7 +44,8 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnEquip(EntityUid uid, VisibleContrabandComponent comp, DidEquipEvent args)
     {
-        if (!_isEnabled || !MetaData(args.Equipee).EntityInitialized) // stupid fucking equip event during intialization breaks ID acquisition
+        if (!_isEnabled 
+            || !MetaData(args.Equipee).EntityInitialized) // stupid fucking equip event during intialization breaks ID acquisition
             return;
         if (args.SlotFlags == SlotFlags.IDCARD) // when something happens with the pda slot we need to recheck everything
         {
@@ -72,7 +72,9 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnEquipHands(EntityUid uid, VisibleContrabandComponent comp, DidEquipHandEvent args)
     {
-        if (!_isEnabled || !MetaData(args.User).EntityInitialized || (TryComp<ThievingComponent>(args.User, out var thieving) && thieving.Stealthy)) // stupid fucking hands event during intialization breaks ID acquisition
+        if (!_isEnabled 
+            || !MetaData(args.User).EntityInitialized // stupid fucking hands event during intialization breaks ID acquisition
+            || (TryComp<ThievingComponent>(args.User, out var thieving) && thieving.Stealthy)) 
             return;
         if(IsNotContra(args.Equipped, args.User))
             return;
