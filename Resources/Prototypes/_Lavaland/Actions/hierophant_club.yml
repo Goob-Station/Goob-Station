@@ -18,79 +18,40 @@
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# Place teleport marker
+
+# Hierophant club
 - type: entity
-  parent: BaseAction
-  id: ActionHierophantPlaceMarker
-  name: Place teleportation marker
-  description: Let's you place a point where you can always teleport to.
+  id: ActionHierophantClubTileMovement
+  name: Curse of Tile Movement
+  description: Makes the target move only by tiles.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
-      sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
-      state: icon
-    itemIconStyle: BigAction
+    priority: -23
     useDelay: 30
-  - type: InstantAction
-    event: !type:HierophantClubPlaceMarkerEvent
-
-# Teleportation
-- type: entity
-  parent: BaseAction
-  id: ActionHierophantTeleport
-  name: Hierophant blink
-  description: Teleports you to already placed marker.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Action
-    icon:
-      sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
-      state: icon
-    itemIconStyle: NoItem
-    useDelay: 60
-  - type: InstantAction
-    event: !type:HierophantClubTeleportToMarkerEvent
-
-# Spawn cross
-- type: entity
-  parent: BaseAction
-  id: ActionHierophantSpawnCross
-  name: Cross
-  description: Spawns a cross that deals minor damage to the target.
-  components:
-  - type: Action
-    icon:
-      sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
-      state: icon
-    itemIconStyle: NoItem
-    priority: -21
-    useDelay: 1
-  - type: TargetAction
-    checkCanAccess: true
-    range: 8
-  - type: WorldTargetAction
-    event: !type:HierophantClubActivateCrossEvent    
-
-# Tile Movement
-- type: entity
-  parent: BaseAction
-  id: ActionHierophantTileMovement
-  name: Grant tile movement
-  description: Grants a given target tile movement and a speed buff.
-  components:
-  - type: Action
     icon:
       sprite: /Textures/_Lavaland/Interface/Alerts/hierophantbeat.rsi
       state: hierophant
     itemIconStyle: NoItem
-    useDelay: 60
   - type: TargetAction
+    range: 5
   - type: EntityTargetAction
-    event: !type:HierophantClubToggleTileMovementEvent
-    whitelist:
-      requireAll: true
-      components:
-      - MobState
-      - Body
-      - MindContainer
+    event: !type:ToggleTileMovementActionEvent
+
+- type: entity
+  id: ActionHierophantClubBlink
+  parent: ActionBaseHierophant
+  name: Blink
+  description: Teleports you to any position you can physically reach.
+  components:
+  - type: Action
+    raiseOnUser: true
+    priority: -24
+    useDelay: 10
+    icon:
+      sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
+      state: icon
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:MegafaunaBlinkActionEvent

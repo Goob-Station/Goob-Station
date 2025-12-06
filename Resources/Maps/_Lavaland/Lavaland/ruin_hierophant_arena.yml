@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 262.0.0
+  engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/14/2025 10:58:17
-  entityCount: 90
+  time: 10/19/2025 12:38:01
+  entityCount: 91
 maps: []
 grids:
 - 1
@@ -55,6 +55,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -71,7 +76,15 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ImplicitRoof
-- proto: LavalandHierophantTelepad
+    - type: FTLDrive
+- proto: LavalandHierophantMarker
+  entities:
+  - uid: 91
+    components:
+    - type: Transform
+      pos: 0.5,2.5
+      parent: 1
+- proto: SpawnMobHierophant
   entities:
   - uid: 2
     components:
