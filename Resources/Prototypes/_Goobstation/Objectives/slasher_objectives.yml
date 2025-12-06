@@ -8,8 +8,8 @@
       sprite: _Goobstation/Actions/slashericons.rsi
       state: SoulSteal
   - type: NumberObjective
-    min: 10
-    max: 10
+    min: 15
+    max: 15
     title: slasher-objective-absorb-souls-title
     description: slasher-objective-absorb-souls-desc
   - type: SlasherAbsorbSoulsCondition
@@ -17,7 +17,7 @@
 - type: entity
   id: SlasherSurviveObjective
   name: Survive until the end
-  description: You wouldn't be The Slasher if you died.
+  description: You wouldn't be the Slasher if you died.
   components:
   - type: Objective
     difficulty: 1
