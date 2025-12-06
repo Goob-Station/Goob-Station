@@ -69,6 +69,10 @@
           shouldHave: false
         emote: Scream
         probability: 0.15
+      # Goobstation
+      - !type:DiseaseProgressChange
+        affectedType: Viral
+        progressModifier: -0.15 # extremely strong antiviral
 
 - type: reagent
   id: SpaceCleaner

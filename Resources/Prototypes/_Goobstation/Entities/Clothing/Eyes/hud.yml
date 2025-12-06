@@ -20,6 +20,7 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+  - type: ShowDiseaseIcons
 
 - type: entity
   parent: ClothingEyesHudOmni
@@ -55,3 +56,18 @@
   - type: Tag
     tags:
     - HudMedicalDiagnostic
+
+- type: entity
+  parent: ClothingEyesHudMedical
+  id: ClothingEyesHudViro
+  name: viro hud
+  description: A medical HUD upgraded with advanced disease scanning.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Hud/viro.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Hud/viro.rsi
+  - type: ShowDiseaseIcons
+    lowThreshold: 1 # very sensitive
+    mediumThreshold: 20
+    highThreshold: 40

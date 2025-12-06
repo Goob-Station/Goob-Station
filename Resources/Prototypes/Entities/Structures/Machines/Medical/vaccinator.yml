@@ -21,18 +21,63 @@
     sprite: Structures/Machines/vaccinator.rsi
     layers:
     - state: icon
-      map: ["enum.DiseaseMachineVisualLayers.IsRunning"]
     - state: unlit
       shader: unshaded
-      map: ["enum.DiseaseMachineVisualLayers.IsOn"]
+  # <Goobstation>
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: running
+      visible: false
+      map: ["running"]
   - type: Appearance
-  - type: DiseaseMachineVisuals
-    idleState: icon
-    runningState: running
   - type: Machine
     board: VaccinatorMachineCircuitboard
+  - type: RequireProjectileTarget
+  - type: ItemSlots
+    slots:
+      disease_swab_slot:
+        name: Swab
+        whitelist:
+          components:
+          - DiseaseSwab
+  - type: VirologyMachine
+    idleState: icon
+    runningState: running
+    analysisDuration: 20
+    vaccinator: true
+    swabSlot:
+      occludesLight: True
+      insertSound: !type:SoundPathSpecifier
+        path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+      ejectSound: !type:SoundPathSpecifier
+        path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+      insertOnInteract: True
+      swap: True
+      whitelist:
+        requireAll: False
+        components:
+        - DiseaseSwab
   - type: ContainerContainer
     containers:
+      disease_swab_slot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
       machine_board: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
       machine_parts: !type:Container
-  - type: RequireProjectileTarget
+        showEnts: False
+        occludes: True
+        ents: []
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      enum.DiseaseMachineVisuals.IsRunning:
+        running:
+          True: { visible: true }
+          False: { visible: false }
+  # </Goobstation>
