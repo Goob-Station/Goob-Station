@@ -72,7 +72,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnEquipHands(EntityUid uid, VisibleContrabandComponent comp, DidEquipHandEvent args)
     {
-        if (!_isEnabled || !MetaData(args.User).EntityInitialized) // stupid fucking hands event during intialization breaks ID acquisition
+        if (!_isEnabled || !MetaData(args.User).EntityInitialized ) // stupid fucking hands event during intialization breaks ID acquisition
             return;
         if(IsNotContra(args.Equipped, args.User))
             return;
@@ -86,16 +86,19 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
     }
     private void OnIdCardInserted(IdCardInsertedEvent args)
     {
-        CheckAllContra(args.TargetUid);
+        if(!_isEnabled)
+            CheckAllContra(args.TargetUid);
     }
 
     private void OnIdCardRemoved(IdCardRemovedEvent args)
     {
-        CheckAllContra(args.TargetUid);
+        if (!_isEnabled)
+            CheckAllContra(args.TargetUid);
     }
     private void OnComponentStartup(EntityUid uid, VisibleContrabandComponent component, ComponentStartup args)
     {
-        CheckAllContra(uid);
+        if (!_isEnabled)
+            CheckAllContra(uid);
     }
 
     private bool IsNotContra(EntityUid item, EntityUid user)
