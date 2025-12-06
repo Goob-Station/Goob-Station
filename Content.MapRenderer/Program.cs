@@ -24,7 +24,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Content.IntegrationTests;
 using Content.MapRenderer.Painters;
-using Content.Server.Maps;
+using Content.Shared.Maps;
 using Robust.Shared.Prototypes;
 using Robust.UnitTesting.Pool;
 using SixLabors.ImageSharp;

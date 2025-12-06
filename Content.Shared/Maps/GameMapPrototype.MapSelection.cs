@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-namespace Content.Server.Maps;
+namespace Content.Shared.Maps;
 
 public sealed partial class GameMapPrototype
 {
