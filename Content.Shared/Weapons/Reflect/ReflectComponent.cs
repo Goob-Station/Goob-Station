@@ -137,6 +137,12 @@ public sealed partial class ReflectComponent : Component
     [DataField, AutoNetworkedField]
     public bool Examinable = true;
 
+    /// <summary>
+    /// Goobstation - Lets you prevent reflect from happening outside of combat mode .
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool CombatModeRequired;
+
     // WD START
     [DataField, AutoNetworkedField]
     public float DamageOnReflectModifier;
