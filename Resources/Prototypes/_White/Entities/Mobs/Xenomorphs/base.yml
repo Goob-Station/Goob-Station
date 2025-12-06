@@ -65,7 +65,7 @@
       Dead: XenomorphDead
   - type: SlowOnDamage
     speedModifierThresholds:
-      105: 0.9
+      100: 0.8 #goob, was 105 and 0.9
       125: 0.7
       150: 0.6
   - type: Damageable
@@ -163,7 +163,7 @@
   abstract: true
   components:
   - type: Prying #Switched from Tools component to this
-    speedModifier: 1.5
+    speedModifier: 2.5 #goob
     pryPowered: true
   - type: ComplexInteraction
   - type: Hands

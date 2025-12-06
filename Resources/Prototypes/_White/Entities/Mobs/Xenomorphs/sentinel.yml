@@ -23,7 +23,7 @@
   #  actions:
   #  - ActionTransferPlasma
   #  - ActionSpawnResinWeedNode
-  - type: VentCrawler
+  # - type: VentCrawler, goob, larva only ventcrawl
   - type: Cuffable
   - type: Body
     prototype: XenomorphSentinel

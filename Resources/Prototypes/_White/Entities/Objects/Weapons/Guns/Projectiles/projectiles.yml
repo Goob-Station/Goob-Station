@@ -5,8 +5,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StaminaDamageOnCollide
-    damage: 65
+    damage: 45 #goob, reliable 3 hit stun, im sorry for removing a 65
   - type: Projectile
     damage:
       types:
-        Caustic: 1
+        Caustic: 15

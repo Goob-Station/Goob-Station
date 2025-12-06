@@ -12,7 +12,7 @@
         eyes: OrganXenomorphEyes
         hive_node: OrganXenomorphHiveNode
         resin_spinner: OrganXenomorphResinSpinner
-        neurotoxin_gland: OrganXenomorphNeurotoxinGland
+#        neurotoxin_gland: OrganXenomorphNeurotoxinGland, sentinel only spit
         acid_gland: OrganXenomorphAcidGland
     chest:
       part: ChestXenomorph

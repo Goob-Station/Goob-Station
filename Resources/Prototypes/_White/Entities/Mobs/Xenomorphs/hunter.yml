@@ -35,7 +35,7 @@
   - type: StealthOnWalk
     plasmaCost: 2.5
   - type: Stealth
-    revealOnAttack: false
+    revealOnAttack: true #goob, was false, why is it unique
     revealOnDamage: false
     enabled: false
     lastVisibility: 0.2
@@ -45,7 +45,7 @@
   #  actions:
   #  - ActionTransferPlasma
   #  - ActionSpawnResinWeedNode
-  - type: VentCrawler
+  # - type: VentCrawler #goob, larva ventcrawl only
   - type: Cuffable
   - type: Body
     prototype: XenomorphHunter

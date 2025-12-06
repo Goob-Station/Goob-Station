@@ -126,7 +126,7 @@
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 0.75
     - type: PlasmaAmmoProvider
-      fireCost: 55
+      fireCost: 25 #goob, was 55
       proto: BulletNeurotoxin
     - type: Gun
       fireRate: 0.75

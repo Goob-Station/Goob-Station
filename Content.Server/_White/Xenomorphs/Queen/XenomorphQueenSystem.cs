@@ -7,8 +7,12 @@ using Content.Shared._White.Actions;
 using Content.Shared._White.Xenomorphs;
 using Content.Shared._White.Xenomorphs.Queen;
 using Content.Shared._White.Xenomorphs.Xenomorph;
+using Content.Server.Stunnable; //goob
 using Content.Shared.Mind.Components;
+using Content.Shared.NPC.Components; //Goob
+using Content.Shared.NPC.Systems; //Goob
 using Content.Shared.Popups;
+using Robust.Shared.Audio.Systems; //Goob
 
 namespace Content.Server._White.Xenomorphs.Queen;
 
@@ -20,6 +24,10 @@ public sealed class XenomorphQueenSystem : EntitySystem
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly XenomorphEvolutionSystem _xenomorphEvolution = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly StunSystem _stun = default!; // Goobstation
+    [Dependency] private readonly EntityLookupSystem _lookup = default!; // Goobstation
+    [Dependency] private readonly NpcFactionSystem _faction = default!; //Goob
+    [Dependency] private readonly SharedAudioSystem _audio = default!; //goob
 
     public override void Initialize()
     {
@@ -28,10 +36,14 @@ public sealed class XenomorphQueenSystem : EntitySystem
         SubscribeLocalEvent<XenomorphQueenComponent, PromotionActionEvent>(OnPromotionAction);
         SubscribeLocalEvent<XenomorphQueenComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<XenomorphQueenComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<XenomorphQueenComponent, QueenRoarActionEvent>(OnQueenRoar); // Goobstation, copied from dragon roar
     }
 
-    private void OnMapInit(EntityUid uid, XenomorphQueenComponent component, MapInitEvent args) =>
+    private void OnMapInit(EntityUid uid, XenomorphQueenComponent component, MapInitEvent args)
+    {
         _actions.AddAction(uid, ref component.PromotionAction, component.PromotionActionId);
+        _actions.AddAction(uid, ref component.RoarActionEntity, component.RoarAction); // Goobstation, copied from dragon code
+    }
 
     private void OnShutdown(EntityUid uid, XenomorphQueenComponent component, ComponentShutdown args) =>
         _actions.RemoveAction(uid, component.PromotionAction);
@@ -95,6 +107,31 @@ public sealed class XenomorphQueenSystem : EntitySystem
         _plasma.ChangePlasmaAmount(uid, -500f); // Deduct 500 plasma for the promotion
         _popup.PopupEntity(Loc.GetString("xenomorphs-queen-promotion-success", ("target", targetName)), uid, uid);
         args.Handled = true;
-        // Goobstation end
     }
+//I stole this from dragon
+    private void OnQueenRoar(EntityUid uid, XenomorphQueenComponent component, QueenRoarActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        Roar(uid, component);
+
+        var xform = Transform(uid);
+        var nearMobs = _lookup.GetEntitiesInRange<NpcFactionMemberComponent>(xform.Coordinates, component.RoarRange, LookupFlags.Uncontained);
+        foreach (var mob in nearMobs)
+        {
+            if (_faction.IsEntityFriendly(uid, (mob.Owner, mob.Comp)))
+                continue;
+
+            _stun.TryStun(mob, TimeSpan.FromSeconds(component.RoarStunTime), false);
+        }
+
+        args.Handled = true;
+    }
+
+    private void Roar(EntityUid uid, XenomorphQueenComponent comp)
+    {
+        if (comp.SoundRoar != null)
+            _audio.PlayPvs(comp.SoundRoar, uid);
+    }// Goobstation end
 }

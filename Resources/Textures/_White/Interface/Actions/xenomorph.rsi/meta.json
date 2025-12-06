@@ -1,6 +1,6 @@
 {
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from https://github.com/tgstation/tgstation/blob/master/icons/mob/actions/actions_xeno.dmi",
+    "copyright": "Taken from https://github.com/tgstation/tgstation/blob/master/icons/mob/actions/actions_xeno.dmi, screech made by DeusMaldPr for Goobstation",
     "version": 1,
     "size": { "y": 32, "x": 32 },
     "states": [
@@ -51,6 +51,9 @@
         },
         {
             "name": "evolve_queen"
+        },
+        {
+            "name": "screech"
         }
     ]
 }

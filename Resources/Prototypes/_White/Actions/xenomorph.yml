@@ -285,3 +285,20 @@
     event: !type:PromotionActionEvent
   - type: PlasmaCostAction
     plasmaCost: 500
+
+# Queen roar, goob
+- type: entity
+  parent: BaseAction
+  id: ActionQueenRoar
+  name: Roar
+  description: Roar loudly to stun all enemies around you!
+  components:
+  - type: Action
+    icon:
+      sprite: _White/Interface/Actions/xenomorph.rsi
+      state: screech
+    useDelay: 60 #it would be lower if it was the only antag ever like in rmc
+    priority: 5 #Roar range and stun time in xenomorph queen component
+    XenoEchoRoar
+  - type: InstantAction
+    event: !type:QueenRoarActionEvent

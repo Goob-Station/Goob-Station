@@ -1,5 +1,5 @@
 - type: entity
-  parent: CMBaseXenoStructure
+  parent: BaseStructure
   id: ResinDoor
   name: resin Door
   description: Thick resin solidified into a door.
