@@ -12,3 +12,5 @@ hisgrace-ascension = You have served His Grace well. Now, go and take what is yo
 hisgrace-too-far = His Grace gnaws on your very soul. Return to him at once!
 
 hisgrace-ascension-announcement = His Grace is my shepherd, I shall not want. He maketh me lie down in green pastures, he leads me besides the still waters, he restores my soul. Though I walk through the valley of the shadow of death I will fear no evil, for you are with me.
+
+hisgrace-pickup-denied = His Grace bits after your hand

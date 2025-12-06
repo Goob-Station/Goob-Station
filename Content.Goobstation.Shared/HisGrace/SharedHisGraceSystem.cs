@@ -33,7 +33,7 @@ public abstract partial class SharedHisGraceSystem : EntitySystem
         if (hisGrace.Comp.User != null && hisGrace.Comp.User != user)
         {
             args.Cancel();
-            Popup.PopupEntity("His Grace bits after your hand", user ,user);
+            Popup.PopupEntity(Loc.GetString("hisgrace-pickup-denied"), user ,user);
         }
     }
 
@@ -42,7 +42,7 @@ public abstract partial class SharedHisGraceSystem : EntitySystem
         if (hisGrace.Comp.User != null && hisGrace.Comp.User != args.PullerUid)
         {
             args.Cancelled = true;
-            Popup.PopupEntity("His Grace bits after your hand", args.PullerUid ,args.PullerUid);
+            Popup.PopupEntity(  Loc.GetString("hisgrace-pickup-denied"), args.PullerUid ,args.PullerUid);
         }
     }
 
