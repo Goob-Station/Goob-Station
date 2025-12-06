@@ -80,7 +80,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
     
     private void OnUnequipHands(EntityUid uid, VisibleContrabandComponent comp, DidUnequipHandEvent args)
     {
-        if (comp.VisibleItems.Count == 0 || _isEnabled)
+        if (comp.VisibleItems.Count == 0 && _isEnabled) 
             UpdateStatusIcon(comp, args.User, ContrabandStatus.None);
     }
     private void OnIdCardInserted(IdCardInsertedEvent args)
@@ -96,7 +96,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
     }
     private void OnComponentStartup(EntityUid uid, VisibleContrabandComponent component, ComponentStartup args)
     {
-        if (!_isEnabled)
+        if (_isEnabled)
             CheckAllContra(uid);
     }
 
