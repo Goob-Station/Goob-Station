@@ -39,3 +39,185 @@
     - state: green
     - sprite: Mobs/Silicon/chassis.rsi
       state: synd_sec
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  name: grey tide antag spawn
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostGreyTide
+  components:
+  - type: GhostRole
+    name: ghost-role-information-grey-tide-name
+    description: ghost-role-information-grey-tide-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+      state: icon
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  name: tunnel clown antag spawn
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostTunnelClown
+  components:
+  - type: GhostRole
+    name: ghost-role-information-tunnel-clown-name
+    description: ghost-role-information-tunnel-clown-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Clothing/Mask/clown.rsi
+      state: icon
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  name: Singuloth Knights antag spawn
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostSingulothKnight
+  components:
+  - type: GhostRole
+    name: ghost-role-information-Singuloth-Knight-name
+    description: ghost-role-information-Singuloth-Knight-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: _Goobstation/Clothing/Head/Hardsuits/singulothhelm.rsi
+      state: icon
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  name: Dark Lord antag spawn
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostDarkLord
+  components:
+  - type: GhostRole
+    name: ghost-role-information-dark-lord-name
+    description: ghost-role-information-dark-lord-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Objects/Weapons/Melee/e_sword.rsi
+      state: icon
+  - type: DarkLord
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  name: mime assassin antag spawn
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostMimeAssassin
+  components:
+  - type: GhostRole
+    name: ghost-role-information-mime-Assassin-name
+    description: ghost-role-information-mime-Assassin-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Clothing/Head/Hats/beret_french.rsi
+      state: icon
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  name: Chosen One spawn
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostChosenOne
+  components:
+  - type: GhostRole
+    name: ghost-role-information-chosen-one-name
+    description: ghost-role-information-chosen-one-description
+    rules: ghost-role-information-nonantagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleNeutral
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Objects/Weapons/Melee/e_sword.rsi
+      state: icon
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  name: Dark Priest Spawner
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostDarkPriest
+  components:
+  - type: GhostRole
+    name: ghost-role-information-dark-priest-name
+    description: ghost-role-information-dark-priest-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: _ShitChap/Objects/Weapons/Nullrod/nullrod.rsi
+      state: icon
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  name: Vox Raider Spawner
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostVoxRaider
+  components:
+  - type: GhostRole
+    name: ghost-role-information-vox-raider-name
+    description: ghost-role-information-vox-raider-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/vox-raiders-stealth.rsi
+      state: icon
+
+- type: entity
+  name: Maints Spawn Marker
+  parent: MarkerBase
+  id: MaintsSpawnMarker
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+      state: icon
+  - type: MaintsSpawnLocation

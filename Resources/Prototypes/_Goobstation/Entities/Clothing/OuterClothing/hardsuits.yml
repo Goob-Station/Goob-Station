@@ -350,6 +350,39 @@
   - type: FireProtection
     reduction: 0.4
 
+# Singuloth hardsuit
+
+- type: entity
+  parent: [BaseMagicalContraband, ClothingOuterHardsuitEngineeringWhite]
+  id: ClothingSingulothArmor
+  name: singuloth knight's armor
+  description: A ceremonial armor from the chapter of the Singuloth Knights, It's made of pure forged adamantium.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/singuloth_knight_armor.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/singuloth_knight_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadSinguloth
+
+# Vox raider hardsuit
+
+- type: entity
+  parent: ClothingOuterHardsuitCybersunStealth
+  id: ClothingOuterHardsuitVoxRaiderStealth
+  name: vox raider stealth suit
+  description: A sleek black suit. It seems to have a tail, and is very heavy.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/vox-raiders-stealth.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/vox-raiders-stealth.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitVoxRaiderStealth
+  - type: VoxRestricted
+
 # Detective's Hardsuit
 
 - type: entity

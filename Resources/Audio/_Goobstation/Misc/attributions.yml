@@ -38,6 +38,21 @@
   copyright: "No copyright - ai generated sound"
   source: "https://goida.zip/unknown" # keeping up this tradition
 
+- files: ["clownalwayswinsshort.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Clown Always Wins by NИTRODE"
+  source: "https://www.youtube.com/watch?v=UkN2DQYRooA"
+
+- files: ["singulothknight_greeting.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Media Vita"
+  source: "https://www.youtube.com/watch?v=BytxBjXRfS8"
+
+- files: ["darklord_greeting.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "taken from FILMSTRO on youtube"
+  source: "https://www.youtube.com/watch?v=pU_8B6yrZrQ"
+
 - files: ["phone_ring.ogg"]
   license: "CC-BY-4.0"
   copyright: "Recorded by nightcustard, trimmed and converted to mono by XWASHERE (github)"
