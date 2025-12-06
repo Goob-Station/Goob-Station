@@ -24,10 +24,3 @@
   category: construction-category-misc
   objectType: Item
 
-- type: construction
-  id: ToyBlades
-  graph: ToyBlades
-
-- type: construction
-  id: HereticCostume
-  graph: HereticCostume
