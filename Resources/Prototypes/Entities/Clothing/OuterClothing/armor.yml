@@ -169,6 +169,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     traumaDeductions:
       Dismemberment: 0.2
       OrganDamage: 0.2
@@ -177,10 +178,10 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.70
-        Heat: 0.80
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.90
   - type: ModifyDelayedKnockdown # Goobstation
@@ -191,7 +192,7 @@
 
 #Standard armor vest, allowed for security and bartenders
 - type: entity
-  parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase, BaseSecondSkinHolder ] # Goob edit
+  parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase]
   id: ClothingOuterArmorBasic
   components:
   - type: Tag
@@ -239,7 +240,7 @@
       coefficients:
         Blunt: 0.35
         Slash: 0.35
-        Piercing: 0.8
+        Piercing: 0.6
         Heat: 0.6
         Caustic: 0.75
   - type: ExplosionResistance
@@ -282,7 +283,7 @@
     damageCoefficient: 0.8
 
 - type: entity
-  parent: [ClothingOuterArmorBase, BaseSecondSkinHolder] # Goob edit
+  parent: ClothingOuterArmorBase
   id: ClothingOuterArmorReflective
   name: reflective vest
   description: An armored vest with advanced shielding to protect against energy weapons.
@@ -545,7 +546,7 @@
     sprite: Clothing/OuterClothing/Armor/magusred.rsi
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseCommandContraband, BaseSecondSkinHolder] # Goob edit
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseCommandContraband]
   id: ClothingOuterArmorCaptainCarapace
   name: "captain's carapace"
   description: "An armored chestpiece that provides protection whilst still offering maximum mobility and flexibility. Issued only to the station's finest."
@@ -557,6 +558,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     traumaDeductions:
       Dismemberment: 0.2
       OrganDamage: 0.2
@@ -565,11 +567,11 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.6
-        Heat: 0.5
-        Caustic: 0.9
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.4
+        Heat: 0.3
+        Caustic: 0.75
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
