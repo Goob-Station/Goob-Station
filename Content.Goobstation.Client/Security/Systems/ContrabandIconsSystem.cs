@@ -52,14 +52,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
             CheckAllContra(args.Equipee);
             return;
         }
-        if (args.SlotFlags == SlotFlags.POCKET)
-            return;
-        if (!_contrabandQuery.TryComp(args.Equipment, out var contra))
-            return;
-        if (contra.Severity == MinorSeverity || contra.Severity == Honkraband)
-            return;
-        var hasPermission = _detectorSystem.CheckContrabandPermission(args.Equipment, args.Equipee, contra);
-        if ((contra.Severity == RestrictedSeverity || contra.Severity == GrandTheftSeverity) && hasPermission)
+        if (IsNotContra(args.Equipment, args.Equipee) || args.SlotFlags == SlotFlags.POCKET)
             return;
         comp.VisibleItems.Add(args.Equipment);
         UpdateStatusIcon(comp, args.Equipee, ContrabandStatus.Contraband);
@@ -81,12 +74,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
     {
         if (!_isEnabled)
             return;
-        if (!_contrabandQuery.TryComp(args.Equipped, out var contra))
-            return;
-        if (contra.Severity == MinorSeverity)
-            return;
-        var hasPermission = _detectorSystem.CheckContrabandPermission(args.Equipped, args.User, contra);
-        if ((contra.Severity == RestrictedSeverity || contra.Severity == GrandTheftSeverity) && hasPermission)
+        if(IsNotContra(args.Equipped, args.User))
             return;
         UpdateStatusIcon(comp, args.User, ContrabandStatus.Contraband);
     }
@@ -108,5 +96,17 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
     private void OnComponentStartup(EntityUid uid, VisibleContrabandComponent component, ComponentStartup args)
     {
         CheckAllContra(uid);
+    }
+
+    private bool IsNotContra(EntityUid item, EntityUid user)
+    {
+        if (!_contrabandQuery.TryComp(item, out var contra))
+            return true;
+        if (contra.Severity == MinorSeverity || contra.Severity == Honkraband)
+            return true;
+        var hasPermission = _detectorSystem.CheckContrabandPermission(item, user, contra);
+        if ((contra.Severity == RestrictedSeverity || contra.Severity == GrandTheftSeverity) && hasPermission)
+            return true;
+        return false;
     }
 }
