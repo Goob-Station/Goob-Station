@@ -109,6 +109,9 @@
   id: CartridgeG8
 
 - type: Tag
+  id: CameraElectronics
+
+- type: Tag
   id: CannotSuicideAny
 
 - type: Tag
