@@ -13,8 +13,8 @@
 # store catalog
 - type: listing
   id: HereticSidePath5Armor
-  name: knowledge-path-side-s5-armor-name
-  description: knowledge-path-side-s5-armor-desc
+  name: knowledge-path-side-s4-armor-name
+  description: knowledge-path-side-s4-armor-desc
   icon: { sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi, state: icon }
   productHereticKnowledge: ArmorerRitual
   cost:
@@ -25,12 +25,12 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 4
+    stage: 3
 
 - type: listing
   id: HereticSidePath5Flask
-  name: knowledge-path-side-s5-flask-name
-  description: knowledge-path-side-s5-flask-desc
+  name: knowledge-path-side-s4-flask-name
+  description: knowledge-path-side-s4-flask-desc
   icon: { sprite: _Goobstation/Heretic/items.rsi, state: eldritch_flask }
   productHereticKnowledge: PriestRitual
   cost:
@@ -41,12 +41,12 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 4
+    stage: 3
 
 - type: listing
   id: HereticSidePath5AshenEyes
-  name: knowledge-path-side-s5-ashen-eyes-name
-  description: knowledge-path-side-s5-ashen-eyes-desc
+  name: knowledge-path-side-s4-ashen-eyes-name
+  description: knowledge-path-side-s4-ashen-eyes-desc
   icon: { sprite: _Goobstation/Heretic/eldritch_medalion.rsi, state: icon }
   productHereticKnowledge: AshenEyesRitual
   cost:
@@ -57,12 +57,12 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 4
+    stage: 3
 
 - type: listing
   id: HereticSidePath5VoidCloak
-  name: knowledge-path-side-s5-void-cloak-name
-  description: knowledge-path-side-s5-void-cloak-desc
+  name: knowledge-path-side-s4-void-cloak-name
+  description: knowledge-path-side-s4-void-cloak-desc
   icon: { sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi, state: icon }
   productHereticKnowledge: VoidCloak
   cost:
@@ -73,12 +73,12 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 4
+    stage: 3
 
 - type: listing
   id: HereticSidePath5Shark
-  name: knowledge-path-side-s5-shark-name
-  description: knowledge-path-side-s5-shark-desc
+  name: knowledge-path-side-s4-shark-name
+  description: knowledge-path-side-s4-shark-desc
   icon: { sprite: _Goobstation/Heretic/eldritch_mobs.rsi, state: fire_shark_icon }
   productHereticKnowledge: ScorchingShark
   cost:
@@ -89,7 +89,7 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 4
+    stage: 3
 
 - type: listing
   id: HereticSidePathKnowledge
@@ -105,12 +105,12 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 4
+    stage: 3
 
 - type: listing
   id: HereticSidePath7RustWalker
-  name: knowledge-path-side-s7-rustwalker-name
-  description: knowledge-path-side-s7-rustwalker-desc
+  name: knowledge-path-side-s6-rustwalker-name
+  description: knowledge-path-side-s6-rustwalker-desc
   icon: { sprite: _Goobstation/Heretic/eldritch_mobs.rsi, state: rust_walker }
   productHereticKnowledge: RustedRitual
   cost:
@@ -121,12 +121,12 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 6
+    stage: 5
 
 - type: listing
   id: HereticSidePath7CarvingKnife
-  name: knowledge-path-side-s7-knife-name
-  description: knowledge-path-side-s7-knife-desc
+  name: knowledge-path-side-s6-knife-name
+  description: knowledge-path-side-s6-knife-desc
   icon: { sprite: _Goobstation/Heretic/items.rsi, state: rune_carver }
   productHereticKnowledge: CarvingKnife
   cost:
@@ -137,12 +137,12 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 6
+    stage: 5
 
 - type: listing
   id: HereticSidePath7IceSpear
-  name: knowledge-path-side-s7-ice-spear-name
-  description: knowledge-path-side-s7-ice-spear-desc
+  name: knowledge-path-side-s6-ice-spear-name
+  description: knowledge-path-side-s6-ice-spear-desc
   icon: { sprite: _Goobstation/Heretic/Entities/ice_spear.rsi, state: spear }
   productHereticKnowledge: MysteriesOfCreation
   cost:
@@ -153,12 +153,12 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 6
+    stage: 5
 
 - type: listing
   id: HereticSidePath7CMorbus
-  name: knowledge-path-side-s7-morbus-name
-  description: knowledge-path-side-s7-morbus-desc
+  name: knowledge-path-side-s6-morbus-name
+  description: knowledge-path-side-s6-morbus-desc
   icon: { sprite: _Goobstation/Heretic/book_morbus.rsi, state: icon-on }
   productHereticKnowledge: CodexMorbus
   cost:
@@ -169,12 +169,12 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 6
+    stage: 5
 
 - type: listing
   id: HereticSidePath8Cleave
-  name: knowledge-path-side-s9-cleave-name
-  description: knowledge-path-side-s9-cleave-desc
+  name: knowledge-path-side-s8-cleave-name
+  description: knowledge-path-side-s8-cleave-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: cleave }
   productHereticKnowledge: Cleave
   cost:
@@ -185,4 +185,4 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 8
+    stage: 7

@@ -496,46 +496,46 @@
   actionPrototypes:
   - ActionResetStarGazerConsciousness
 
-### side paths
+## stage 4
 - type: hereticKnowledge
   id: RitualOfKnowledge
   sideKnowledge: true
+  stage: 4
   ritualPrototypes:
   - RitualOfKnowledge
 
-## stage 3
 - type: hereticKnowledge
   id: ArmorerRitual
   sideKnowledge: true
-  stage: 5
+  stage: 4
   ritualPrototypes:
   - ArmorerRitual
 
 - type: hereticKnowledge
   id: AshenEyesRitual
   sideKnowledge: true
-  stage: 5
+  stage: 4
   ritualPrototypes:
   - AshenEyesRitual
 
 - type: hereticKnowledge
   id: PriestRitual
   sideKnowledge: true
-  stage: 5
+  stage: 4
   ritualPrototypes:
   - PriestRitual
 
 - type: hereticKnowledge
   id: VoidCloak
   sideKnowledge: true
-  stage: 5
+  stage: 4
   ritualPrototypes:
   - VoidCloak
 
 - type: hereticKnowledge
   id: ScorchingShark
   sideKnowledge: true
-  stage: 5
+  stage: 4
   ritualPrototypes:
   - ScorchingShark
 
@@ -543,28 +543,28 @@
 - type: hereticKnowledge
   id: RustedRitual
   sideKnowledge: true
-  stage: 7
+  stage: 6
   ritualPrototypes:
   - RustedRitual
 
 - type: hereticKnowledge
   id: CarvingKnife
   sideKnowledge: true
-  stage: 7
+  stage: 6
   ritualPrototypes:
   - CarvingKnife
 
 - type: hereticKnowledge
   id: MysteriesOfCreation
   sideKnowledge: true
-  stage: 7
+  stage: 6
   actionPrototypes:
   - ActionHereticIceSpear
 
 - type: hereticKnowledge
   id: CodexMorbus
   sideKnowledge: true
-  stage: 7
+  stage: 6
   ritualPrototypes:
   - CodexMorbus
 
@@ -572,6 +572,6 @@
 - type: hereticKnowledge
   id: Cleave
   sideKnowledge: true
-  stage: 9
+  stage: 8
   actionPrototypes:
   - ActionHereticCleave
