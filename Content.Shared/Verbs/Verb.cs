@@ -314,7 +314,7 @@ namespace Content.Shared.Verbs
     [Serializable, NetSerializable]
     public sealed class InnateVerb : Verb
     {
-        public override int TypePriority => 3;
+        public override int TypePriority => -1; // Goobstation - EE Verb on the Bottom
         public InnateVerb() : base()
         {
             TextStyleClass = InteractionVerb.DefaultTextStyleClass;
