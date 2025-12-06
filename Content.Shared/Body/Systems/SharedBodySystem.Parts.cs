@@ -1176,7 +1176,20 @@ public partial class SharedBodySystem
         if (children.Count == 0)
             return TargetBodyPart.Chest;
 
-        return GetTargetBodyPart(_random.PickAndTake(children));
+
+        var allowedParts = children.Where(part =>
+        {
+            var partType = part.Component.PartType;
+            return partType == BodyPartType.Groin
+                || partType == BodyPartType.Chest
+                || partType == BodyPartType.Head;
+        }).ToList();
+
+        // If no allowed parts found (entity has no torso/head.. somehow), fall back to any part
+        if (allowedParts.Count == 0)
+            return GetTargetBodyPart(_random.PickAndTake(children));
+
+        return GetTargetBodyPart(_random.PickAndTake(allowedParts));
     }
 
     public TargetBodyPart GetRandomBodyPart(EntityUid target,
