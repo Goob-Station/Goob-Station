@@ -1,0 +1,673 @@
+<Document>
+    # Material Effects
+    This table lists the effects of each material within the reactor.
+
+    Values for Neutron Stimulated Emmission Chance, Stimulated Emmission Chance, Neutron Decay Chance, and Decay Chance assume the material is fresh and has not undergone any interactions. These values will change as the material is used.
+
+    Neutron Stimulated Emmission Chance, Stimulated Emmission Chance, and Reflection Chance require that it passes the Neutron Interact Chance first.
+
+    (*) means the statistic is multiplied by Neutron Cross Section, which changes based on rod type. Those statistics are written assuming Neutron Cross Section = 1.
+    <Table Columns="8">
+        <ColorBox>
+            <Box>
+                Material
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Thermal Transfer Value
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Neutron Interact Chance*
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Neutron Stimulated Emmission Chance 
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Stimulated Emmission Chance
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Neutron Decay Chance*
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Decay Chance*
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Reflection Chance
+            </Box>
+        </ColorBox>
+        
+        <ColorBox Color="#bfc031">
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                Bananium
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                4
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                37.5%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                11.25% 
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                52.5%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                7.5%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                35%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                20%
+            </Box>
+        </ColorBox>
+        
+        <ColorBox Color="#566558">
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                Bohrum
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                5.5
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                45%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+ 
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                25%
+            </Box>
+        </ColorBox>
+        
+        <ColorBox Color="#b18b25">
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                Brass
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                6.5
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                37.5%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                10%
+            </Box>
+        </ColorBox>
+        
+        <ColorBox Color="#828aa4">
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                Cerenkite
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                6
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                30%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+ 
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                37.5
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                25%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                10%
+            </Box>
+        </ColorBox>
+        
+        <ColorBox Color="#80ffff">
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                Diamond
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                3
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                45%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                35%
+            </Box>
+        </ColorBox>
+        
+        <ColorBox Color="#a8ccd7">
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                Glass
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                3
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                15%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                15%
+            </Box>
+        </ColorBox>
+        
+        <ColorBox Color="#ffd700">
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                Gold
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                7
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                45%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                10%
+            </Box>
+        </ColorBox>
+        
+        <ColorBox Color="#7e009e">
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                Plasma
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                4
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                7.5%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                15%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                10%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                10%
+            </Box>
+        </ColorBox>
+        
+        <ColorBox Color="#b35989">
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                Plasma Glass
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                3
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                22.5%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                35%
+            </Box>
+        </ColorBox>
+        
+        <ColorBox Color="#696969">
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                Plasteel
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                5.5
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                52.5%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                15%
+            </Box>
+        </ColorBox>
+        
+        <ColorBox Color="#404888">
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                Plutonium
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                6.5
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                60%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                37.5% 
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                22.5%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                25%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                15%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                35%
+            </Box>
+        </ColorBox>
+        
+        <ColorBox Color="#c0c0c0">
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                Silver
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                6
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                30%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                10%
+            </Box>
+        </ColorBox>
+        
+        <ColorBox Color="#808080">
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                Steel
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                5.5
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                30%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                15%
+            </Box>
+        </ColorBox>
+        
+        <ColorBox Color="#32a852">
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                Uranium
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                3.5
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                52.5%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                22.5%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                30%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                15%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                20%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                25%
+            </Box>
+        </ColorBox>
+        
+        <ColorBox Color="#3cab38">
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                Uranium Glass
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                3.25
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                33.75%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                11.25% 
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                15%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                7.5%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                10%
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+                20%
+            </Box>
+        </ColorBox>
+    </Table>
+
+    ## Neutron Cross Sections
+    - Fuel Rod: 1
+    - Control Rod: 0-2 (depending on insertion level)
+    - Gas Channel: 0.5
+    - Heat Exhanger: 0.1
+</Document>

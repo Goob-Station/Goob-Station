@@ -1,0 +1,8 @@
+# Thief Collection
+
+- type: stealTargetGroup
+  id: ReactorFuelRodSteal
+  name: steal-target-groups-reactorfuelrod
+  sprite:
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_parts.rsi
+    state: default_rod

@@ -1,0 +1,242 @@
+<Document>
+	# Nuclear Generator
+
+	The Nuclear Generator generates power by heating a gas through fission reactions in a Nuclear Reactor, which then spins a Gas Turbine.
+
+	## The Nuclear Reactor
+	<Box>
+		<GuideEntityEmbed Entity="BaseNuclearReactor"/>
+	</Box>
+
+	The Nuclear Reactor is the primary source of heat the generator uses to make power.
+
+	It is represented as a 7x7 grid of Reactor Rod ports, which engineers can insert different fabricated rods into.
+
+	Heat is generated through fission reactions inside fuel rods and transferred into the coolant gas by gas channels.
+
+	## Reactor Rods
+	<Box>
+		<GuideEntityEmbed Entity="NuclearFabricator"/>
+	</Box>
+	<Box>
+		<GuideEntityEmbed Entity="CerenkiteReactorFuelRod" Caption="fuel rod"/>
+		<GuideEntityEmbed Entity="BohrumReactorControlRod" Caption="control rod"/>
+		<GuideEntityEmbed Entity="SteelReactorGasChannel" Caption="gas channel"/>
+		<GuideEntityEmbed Entity="SteelReactorHeatExchanger" Caption="heat exchanger"/>
+	</Box>
+
+	Reactor Rods are the parts that go into the Reactor grid and cause it to function.
+
+	They transfer heat and interact with neutrons within the Reactor.
+
+	If a Reactor Rod's [bold]Temperature[/bold] reaches 1700 kelvin, it will begin to melt.
+
+	Once melted it will become much more active and able to transfer heat into the Reactor, which may cause a total meltdown.
+
+	Handling hot Reactor Rods can cause serious burns.
+
+	If it is hotter than 80C you'll need gloves to be able to handle them. At 500C, not even gloves will protect you.
+
+	There are four different types of Reactor Rods that can be manufactured from a variety of materials and placed into the Reactor grid: Fuel Rods, Control Rods, Gas Channels, and Heat Exchangers.
+
+	### Fuel Rods
+	Fuel Rods are the source of neutrons and heat within the Reactor.
+
+	They can emit neutrons through spontaneous decay and from interacting with existing neutrons, which also creates heat.
+
+	They have two statistics that determine their effectiveness and volatility:
+	- [bold]Neutron Radioactivity[/bold]: Creates high-energy neutrons and large amounts of heat. Decays into Radioactivity.
+	- [bold]Radioactivity[/bold]: Creates neutrons and heat. Decays into Spent Fuel.
+
+	They also keep track of how much [bold]Spent Fuel[/bold] they contain, which does not affect the Fuel Rod's performance, but can indicate when it is time to replace it.
+	
+	<Box>
+		<GuideEntityEmbed Entity="NuclearCentrifuge"/>
+		<GuideEntityEmbed Entity="IngotPlutonium"/>
+	</Box>
+
+	Once a Fuel Rod contains enough [bold]Spent Fuel[/bold], it can be reprocessed by a nuclear centrifuge to create plutonium, which can be used to make plutonium fuel rods.
+
+	### Control Rods
+	Control rods control the flow of neutrons within the Reactor.
+
+	They have the unique property of being able to be adjusted, which changes how effective they are.
+
+	They control the reaction by limiting the number of neutrons that go through them and into a Fuel Rod.
+
+	### Gas Channels
+	Gas Channels transfer heat from themselves into the coolant gas that flows through them.
+
+	Each Gas Channel will increase the flow rate by [bold]100 L/s[/bold], allowing the Reactor to process more gas at once.
+
+	### Heat Exchangers
+	Heat Exchangers guide the spread of heat within the Reactor.
+
+	They are exceptionally good at transferring heat and don't interact with neutrons, making them ideal for getting heat from a Fuel Rod into a Gas Channel without interfering with the fission process.
+
+	## Controlling the Reactor
+	The Reactor is controlled and modified through its UI, which also provides information on the Reactor's status.
+
+	The Reactor UI has three major panels: Targeting, Grid View, Status Panel
+
+	### Targeting
+	The targeting panel has controls for inserting and removing rods into and out of the Reactor grid.
+
+	The X and Y position of the target are adjusted through the +X, -X and +Y, -Y buttons.
+
+	Reactor Rods can be inserted or removed through the Insert/Remove button below the position buttons.
+
+	If there is a Reactor Rod at the target position, it will show information on that Reactor Rod, including its:
+	- Name
+	- Temperature (T)
+	- Neutron Radioactivity (N)
+	- Radioactivity (R)
+	- Spent Fuel (S)
+
+	The bottom of the panel displays the name of the part that has been removed from the Reactor or is ready to be inserted.
+
+	### Grid View
+	The grid view gives a graphic visualization of the status of the Reactor grid.
+
+	The Change View button can be used to alternate between the different views:
+	- Temperature View: shows the temperature of the components
+	- Neutron View: shows the number of neutrons at any given position
+	- Target View: shows the current target location
+
+	### Status Panel
+	The status panel gives information on the Reactor as a whole and provides control of the control rods.
+
+	The [bold]Temperature Gauge[/bold] shows the current temperature of the Reactor, in a range between 0 and 2000 kelvin.
+
+	If the Reactor ever reaches 2000 kelvin, it will [color=red]meltdown[/color].
+
+	The [bold]Radiation Gauge[/bold] shows the current radiation being emitted by the Reactor, in a range between 0 and 50 rads.
+
+	The [bold]Thermal Power Gauge[/bold] shows an estimation of the amount of thermal power being made by the Reactor, in a range between 0 and 10 000 000 thermal watts (Wt).
+
+	Thermal Power is a decent estimation of how much power can be extracted from the gas by the [bold]Turbine[/bold].
+
+	Thermal Power has a tendency to increase and decrease as the Reactor runs, rarely remaining stable.
+
+	The [bold]Control Rod Gauges[/bold] show the actual and set insertion levels of the control rods within the Reactor, and provide buttons to change the insertion level.
+
+	## Cooling the Reactor
+	The Reactor is cooled through the use of gasses, but some gasses have effects on the Reactor when in sufficient quantities:
+
+	<Box>
+		<GuideEntityEmbed Entity="PlasmaCanister" Caption=""/>
+	</Box>
+	[color=#ff3300][bold]Plasma[/bold][/color] has a reactive effect, creating more neutrons and decaying into [color=#13ff4b][bold]Tritium[/bold][/color].
+
+	If there is enough plasma within the Reactor, it may end up going into a runaway reaction and [color=red]melting down[/color].
+
+	<Box>
+		<GuideEntityEmbed Entity="CarbonDioxideCanister" Caption=""/>
+	</Box>
+	[color=#4e4e4e][bold]Carbon Dioxide[/bold][/color] has a moderative effect, removing neutrons that come into contact with it.
+
+	This can be used to regulate a plasma reaction or slow down the Reactor.
+
+	<Box>
+		<GuideEntityEmbed Entity="TritiumCanister" Caption=""/>
+	</Box>
+	[color=#13ff4b][bold]Tritium[/bold][/color] transmutes within a Reactor, randomly decaying into a wide variety of gasses:
+	- [color=#2887e8][bold]Oxygen[/bold][/color]
+	- [color=#FF0000][bold]Nitrogen[/bold][/color]
+	- [color=#56941e][bold]Ammonia[/bold][/color]
+	- [color=#8f00ff][bold]Nitrous Oxide[/bold][/color]
+	- [color=#3a758c][bold]Frezon[/bold][/color]
+
+	In the presence of [color=#2887e8][bold]Oxygen[/bold][/color] and at the temperatures of the Reactor, [color=#13ff4b][bold]Tritium[/bold][/color] will begin to burn, [color=red]creating large amounts of heat[/color].
+
+	## Reactor Radiation
+	<Box>
+		<GuideEntityEmbed Entity="SignRadiation" Caption=""/>
+	</Box>
+	The Reactor sometimes allows some radiation to leak out, which can pose a danger to unprotected crew.
+
+	The radiation level of the Reactor is determined by how many neutrons are escaping the Reactor grid.
+
+	<Box>
+		<GuideEntityEmbed Entity="ClosetRadiationSuit"/>
+		<GuideEntityEmbed Entity="ClothingOuterSuitRad"/>
+		<GuideEntityEmbed Entity="GeigerCounter"/>
+	</Box>
+
+	Proper protection and shielding are highly recommended when working near the Reactor.
+
+
+	## The Gas Turbine
+	<Box>
+		<GuideEntityEmbed Entity="Turbine"/>
+	</Box>
+
+	The Gas Turbine is where the power actually gets made.
+
+	It takes in hot gas from the Reactor and outputs electricity and sends colder gas back to the Reactor.
+
+	The amount of energy made by the Turbine is affected by its set Flow Rate and Stator Load, and by its RPM.
+
+	### Flow Rate
+	The Flow Rate determines how much gas goes through the Turbine every second.
+
+	The higher the Flow Rate, the higher the RPM of the Turbine.
+
+	Flow Rate is usually set to allow maximum flow through the Reactor core, which can be found by the following equation: 100 * number of gas channels + 200.
+
+	### Stator Load
+	The Stator Load determines how much power is made by each revolution of the Turbine.
+
+	The higher the Stator Load, the lower the RPM of the Turbine.
+
+	Stator Load is usually adjusted to ensure the Turbine stays at optimal RPM.
+
+	### RPM
+	The RPM (Rotations Per Minute) represents how fast the Turbine is spinning.
+
+	The Turbine has an optimal RPM, where it will produce the most power.
+
+	Going faster or slower than optimal will result in poor performance.
+
+	## Turbine Status Indicators
+	The Turbine has a set of status indicators to warn operators of dangerous conditions or faults.
+
+	### Overspeed
+	The Turbine RPM is too high.
+
+	If the Turbine RPM gets too high, it will start to take damage.
+
+	Prolonged time spent at overspeed or excessive overspeed will cause the Turbine to [color=red]tear itself apart[/color].
+
+	Damage to the Turbine can be repaired with a [color=yellow]welder[/color], though it will likely take multiple attempts to fully repair it.
+
+	### Overtemp
+	The gas going into the Turbine is too hot.
+
+	If the gas coming into the Turbine is hotter than 3000 kelvin, it will trigger an emergency purge valve and dump the gas into the room.
+
+	This hot gas can cause serious burns to personnel or even a fire, if the gas is flammable.
+
+	### Stalling
+	The stator load is too high or the gas is not hot enough.
+
+	Stalling is where the gas going into the Turbine isn't "pushing" hard enough to overcome the stator load's resistance.
+
+	### Undertemp
+	The gas going into the Turbine is too cold.
+
+	If the gas is at or below room temperature (20C), there is no energy for the Turbine to take out of it.
+
+
+	# Starting the Nuclear Generator
+	To start the Nuclear Generator, engineers must follow these steps:
+	- Fill the coolant loop with a gas.
+	- Set the Turbine's Flow Rate according to the Reactor setup.
+	- Insert the Fuel Rods into the empty spots in the Reactor grid, typically by a control rod(s) and surrounded by heat exchangers and gas channels.
+	- Retract the Control Rods to start warming up the Reactor.
+	- As the Reactor warms up, engineers will want to keep adjusting the Turbine's Stator Load to maintain optimal RPM.
+	- Once the Turbine is making enough power for the station, the Control Rods should be inserted to the point of maintaining Reactor temperature.
+
+	Over time, the Fuel Rods will lose radioactivity, meaning the Control Rods should be retracted further or the fuel rods replaced.
+
+</Document>
