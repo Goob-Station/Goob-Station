@@ -7,6 +7,7 @@ using Content.Shared.Contraband;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Configuration;
+using Robust.Shared.Timing;
 
 
 namespace Content.Goobstation.Client.Security.Systems;
@@ -15,7 +16,8 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 {
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly SharedContrabandDetectorSystem _detectorSystem = default!;
-
+    [Dependency] private readonly IGameTiming _timing = default!;
+    
     private bool _isEnabled = true;
     private EntityQuery<ContrabandComponent> _contrabandQuery;
 
@@ -36,7 +38,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnEquip(EntityUid uid, VisibleContrabandComponent comp, DidEquipEvent args)
     {
-        if (!_isEnabled)
+        if (!_isEnabled || !_timing.IsFirstTimePredicted)
             return;
         if (args.SlotFlags == SlotFlags.IDCARD)
         {
@@ -58,6 +60,8 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnUnequip(EntityUid uid, VisibleContrabandComponent comp, DidUnequipEvent args)
     {
+        if(!_timing.IsFirstTimePredicted)
+            return;
         if (args.SlotFlags == SlotFlags.IDCARD)
         {
             CheckAllContra(args.Equipee);
@@ -70,11 +74,15 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnIdCardInserted(IdCardInsertedEvent args)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
         CheckAllContra(args.TargetUid);
     }
 
     private void OnIdCardRemoved(IdCardRemovedEvent args)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
         CheckAllContra(args.TargetUid);
     }
     private void OnComponentStartup(EntityUid uid, VisibleContrabandComponent component, ComponentStartup args)
