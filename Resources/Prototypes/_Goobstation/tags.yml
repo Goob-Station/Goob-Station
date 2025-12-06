@@ -714,3 +714,6 @@
 
 - type: Tag
   id: Crate
+
+- type: Tag
+  id: VinylSleeveFit
