@@ -47,7 +47,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
     {
         if (!_isEnabled || !MetaData(args.Equipee).EntityInitialized) // stupid fucking equip event during intialization breaks ID acquisition
             return;
-        if (args.SlotFlags == SlotFlags.IDCARD)
+        if (args.SlotFlags == SlotFlags.IDCARD) // when something happens with the pda slot we need to recheck everything
         {
             CheckAllContra(args.Equipee);
             return;
@@ -60,7 +60,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private void OnUnequip(EntityUid uid, VisibleContrabandComponent comp, DidUnequipEvent args)
     {
-        if (args.SlotFlags == SlotFlags.IDCARD)
+        if (args.SlotFlags == SlotFlags.IDCARD) // when something happens with the pda slot we need to recheck everything
         {
             CheckAllContra(args.Equipee);
             return;
