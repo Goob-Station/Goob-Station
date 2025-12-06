@@ -12,7 +12,6 @@ using Content.Goobstation.Shared.Overlays;
 using Content.Server.Atmos.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Mind;
-using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._Shitmed.Damage;
@@ -42,7 +41,6 @@ namespace Content.Goobstation.Server.HisGrace;
 public sealed class HisGraceSystem : SharedHisGraceSystem
 {
     [Dependency] private readonly DamageableSystem _damageable = null!;
-    [Dependency] private readonly PopupSystem _popup = null!;
     [Dependency] private readonly IGameTiming _timing = null!;
     [Dependency] private readonly MobStateSystem _state = null!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = null!;
@@ -113,12 +111,14 @@ public sealed class HisGraceSystem : SharedHisGraceSystem
     {
         hisGrace.Comp.IsHeld = true;
         hisGrace.Comp.Holder = args.User;
+        Dirty(hisGrace);
     }
 
     private void OnUnequipped(Entity<HisGraceComponent> hisGrace, ref GotUnequippedHandEvent args)
     {
         hisGrace.Comp.IsHeld = false;
         hisGrace.Comp.Holder = null;
+        Dirty(hisGrace);
     }
 
     private void OnMeleeHit(Entity<HisGraceComponent> hisGrace, ref MeleeHitEvent args)
@@ -149,7 +149,7 @@ public sealed class HisGraceSystem : SharedHisGraceSystem
         EnsureComp<HisGraceUserComponent>(args.User).HisGrace = hisGrace;
 
         var popUp = Loc.GetString("hisgrace-use-start");
-        _popup.PopupEntity(popUp, args.User, args.User, PopupType.MediumCaution);
+        Popup.PopupEntity(popUp, args.User, args.User, PopupType.MediumCaution);
 
         // Log activation with actor and tool format
         _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
@@ -157,6 +157,7 @@ public sealed class HisGraceSystem : SharedHisGraceSystem
 
         ChangeState(hisGrace, HisGraceState.Peckish);
         SetUnremovable(hisGrace, true);
+        Dirty(hisGrace);
     }
 
     private void OnEntityConsumed(Entity<HisGraceComponent> hisGrace, ref HisGraceEntityConsumedEvent args)
@@ -224,7 +225,7 @@ public sealed class HisGraceSystem : SharedHisGraceSystem
             ? ("hisgrace-hunger-increased", PopupType.MediumCaution)
             : ("hisgrace-hunger-decreased", PopupType.Medium);
 
-        _popup.PopupEntity(Loc.GetString(messageKey), uid, popupType);
+        Popup.PopupEntity(Loc.GetString(messageKey), uid, popupType);
     }
 
     private void HandleHungerState(Entity<HisGraceComponent> hisGrace, EntityUid user, HisGraceState newState)
@@ -249,9 +250,10 @@ public sealed class HisGraceSystem : SharedHisGraceSystem
     private void HandleDormantState(Entity<HisGraceComponent> hisGrace)
     {
         SetUnremovable(hisGrace, false);
-        _popup.PopupEntity(Loc.GetString("hisgrace-hunger-sated"), hisGrace, PopupType.MediumCaution);
+        Popup.PopupEntity(Loc.GetString("hisgrace-hunger-sated"), hisGrace, PopupType.MediumCaution);
         hisGrace.Comp.User = null;
         ReleaseContainedEntities(hisGrace);
+        Dirty(hisGrace);
     }
 
     private void HandlePeckishState(Entity<HisGraceComponent> hisGrace) =>
@@ -273,7 +275,7 @@ public sealed class HisGraceSystem : SharedHisGraceSystem
             $"HIS GRACE DEATH: {ToPrettyString(user):actor} was killed by {ToPrettyString(hisGrace):tool} due to hunger");
 
         var popup = Loc.GetString("hisgrace-death", ("target", Name(user)));
-        _popup.PopupEntity(popup, user, user, PopupType.LargeCaution);
+        Popup.PopupEntity(popup, user, user, PopupType.LargeCaution);
 
         ChangeState(hisGrace, HisGraceState.Dormant);
         RemComp<HisGraceUserComponent>(user);
@@ -340,7 +342,7 @@ public sealed class HisGraceSystem : SharedHisGraceSystem
             return;
 
         var popUp = Loc.GetString("hisgrace-too-far");
-        _popup.PopupEntity(popUp, user, user, PopupType.LargeCaution);
+        Popup.PopupEntity(popUp, user, user, PopupType.LargeCaution);
 
         _damageable.TryChangeDamage(user, hisGrace.Comp.BaseDamage, targetPart: TargetBodyPart.Chest, ignoreResistances: true);
     }
@@ -371,7 +373,7 @@ public sealed class HisGraceSystem : SharedHisGraceSystem
             _melee.DoLunge(hisGrace, hisGrace, angle, coordinates.Position, null, angle, false, false);
 
             _audio.PlayPvs(melee.HitSound, hisGrace);
-            _popup.PopupEntity(Loc.GetString("hisgrace-attack-popup", ("target", Name(entity))), hisGrace, PopupType.LargeCaution);
+            Popup.PopupEntity(Loc.GetString("hisgrace-attack-popup", ("target", Name(entity))), hisGrace, PopupType.LargeCaution);
 
             TryDevour(hisGrace, entity);
 
@@ -416,7 +418,7 @@ public sealed class HisGraceSystem : SharedHisGraceSystem
             return;
 
         var ascensionPopup = Loc.GetString("hisgrace-ascension");
-        _popup.PopupEntity(ascensionPopup, user, user, PopupType.Large);
+        Popup.PopupEntity(ascensionPopup, user, user, PopupType.Large);
 
         // Log ascension with all relevant details
         _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
@@ -468,7 +470,7 @@ public sealed class HisGraceSystem : SharedHisGraceSystem
 
         var devourPopup = Loc.GetString("hisgrace-devour", ("target", Name(target)));
         _audio.PlayPvs(hisGrace.Comp.SoundDevour, target);
-        _popup.PopupEntity(devourPopup, target, PopupType.LargeCaution);
+        Popup.PopupEntity(devourPopup, target, PopupType.LargeCaution);
 
         // don't apply bonuses for entities consumed that don't have minds or aren't human (no farming sentient mice)
         if (_mind.TryGetMind(target, out _, out _)
