@@ -1,0 +1,179 @@
+- type: entity
+  name: ????
+  parent: [ SimpleSpaceMobBase, MobCombat ]
+  id: MobHastur
+  description: He who must not be named...
+  components:
+    - type: Omnipresence
+      cloneDistance: 3.5
+      stunRange: 2.5
+      stunDuration: 4.0
+      cloneLifetime: 5.0
+    - type: InsanityAura
+      reagents:
+        SpaceDrugs: 50
+      range: 12
+    - type: HasturDevour
+      healing:
+        types:
+          Blunt: -100
+          Slash: -100
+          Piercing: -100
+          Heat: -100
+          Shock: -100
+          Cold: -100
+          Poison: -100
+          Radiation: -100
+          Asphyxiation: -100
+    - type: HasturLash
+    - type: HasturVeil
+    - type: ActionGrant
+      actions:
+      - ActionHasturDevour
+      - ActionInsanityAura
+      - ActionVeilOfTheVoid
+      - ActionOmnipresence
+      - ActionHasturLash
+      - ActionHasturClone
+    - type: HTN
+      rootTask:
+        task: SimpleHostileCompound
+    - type: NpcFactionMember
+      factions:
+        - SimpleHostile
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 4
+      baseSprintSpeed: 4
+    - type: Sprite
+      sprite: _Goobstation/Hastur/hastur.rsi
+      layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: hastur
+    - type: SpriteMovement
+      movementLayers:
+        movement:
+          state: hasturM
+      noMovementLayers:
+        movement:
+          state: hastur
+    - type: Physics
+      bodyType: KinematicController
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.3
+          density: 50
+          mask:
+            - MobMask
+          layer:
+            - MobLayer
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        650: Dead
+    - type: Damageable
+      damageContainer: BiologicalMetaphysical
+      damageModifierSet: DevilDealPositive # Lots of damage to Holy.
+    - type: StaticPrice
+      price: 30000
+    - type: MeleeWeapon
+      soundHit:
+        path: /Audio/_Goobstation/Misc/Hastur/tentacle_hit.ogg
+      damage:
+        types:
+          Piercing: 15
+          Slash: 15
+          Structural: 50
+    - type: Insulated
+    - type: Temperature
+      heatDamageThreshold: 10000
+      coldDamageThreshold: -300
+    - type: Flammable
+      damage:
+        types: {}
+    - type: SlowOnDamage # When slowed down too much his sprite looks weird. I think it might just be movement sprite system being bad though;
+      speedModifierThresholds:
+        250: 0.95
+        100: 0.7
+    - type: StatusEffects
+      allowed:
+        - Electrocution
+        - TemporaryBlindness
+        - RadiationProtection
+        - Adrenaline
+    - type: PassiveDamage # Mild passive regenation, with the exception of poison and genetic, which cannot be used effectively against it.
+      allowedStates:
+        - Alive
+        - Critical
+      damageCap: 0
+      damage:
+        groups:
+          Brute: -2
+          Burn: -2
+          Toxin: -15
+          Genetic: -15
+    - type: WeakToHoly
+      alwaysTakeHoly: true
+    - type: NoSlip
+    - type: Bloodstream
+      bloodMaxVolume: 300
+      bloodReagent: Haloperidol
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: TentacleWalk
+    - type: Puller
+      needsHands: false
+    - type: Prying
+      pryPowered: true
+      force: true
+      speedModifier: 2.5
+      useSound:
+        path: /Audio/Items/crowbar.ogg
+    - type: NightVision # Goobstation - Nigthvision
+      color: "#808080"
+      activateSound: null
+      deactivateSound: null
+    - type: Speech
+      speechVerb: HolierThanThou
+      speechSounds: Hastur
+    - type: Tag
+      tags:
+      - DoorBumpOpener
+      - FootstepSound
+    - type: Megafauna
+      loot: ClothingOuterHasturRobes
+    - type: Sprinter
+    - type: CombatPower
+      factor: 10 # times more dangerous than a crew-member
+
+- type: entity
+  name: ????
+  parent: SimpleSpaceMobBase 
+  id: MobHasturClone
+  suffix: DO NOT MAP
+  description: He who must not be named...
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Hastur/hastur.rsi
+      layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: hastur
+    - type: SpriteMovement
+      movementLayers:
+        movement:
+          state: hasturM
+      noMovementLayers:
+        movement:
+          state: hastur
+    - type: FadingTimedDespawn
+      lifetime: 8
+      fadeOutTime: 4
+    - type: EmitSoundOnSpawn
+      sound:
+        path: /Audio/_Goobstation/Misc/Hastur/growl.ogg
+        params:
+          volume: 1
+          maxDistance: 10
+          variation: 0.3

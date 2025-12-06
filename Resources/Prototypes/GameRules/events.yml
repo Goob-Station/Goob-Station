@@ -200,7 +200,8 @@
     - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
     #- id: WraithMidround # Goobstation - Wraith
-    #TODO When Slasher is ready- id: SlasherSpawn # Goobstation - The Slasher
+    #TODO When Slasher is Ready - id: SlasherSpawn # Goobstation - The Slasher
+    #TODO When Hastur / King in Yellow is ready - id: HasturMidround # Goobstation - The King in Yellow, SURELY
 
 - type: entity
   id: BaseStationEvent
