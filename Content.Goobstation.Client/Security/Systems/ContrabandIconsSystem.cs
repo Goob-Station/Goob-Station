@@ -8,7 +8,7 @@ using Content.Shared.Hands;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Configuration;
-using Robust.Shared.Timing;
+using Robust.Shared.Prototypes;
 
 
 namespace Content.Goobstation.Client.Security.Systems;
@@ -17,11 +17,14 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 {
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly SharedContrabandDetectorSystem _detectorSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     
     private bool _isEnabled = true;
     private EntityQuery<ContrabandComponent> _contrabandQuery;
-
+    
+    private static readonly ProtoId<ContrabandSeverityPrototype> MinorSeverity = "Minor";
+    private static readonly ProtoId<ContrabandSeverityPrototype> RestrictedSeverity = "Restricted";
+    private static readonly ProtoId<ContrabandSeverityPrototype> GrandTheftSeverity = "GrandTheft";
+    private static readonly ProtoId<ContrabandSeverityPrototype> Honkraband = "Honkraband";
     public override void Initialize()
     {
         base.Initialize();
@@ -53,10 +56,10 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
             return;
         if (!_contrabandQuery.TryComp(args.Equipment, out var contra))
             return;
-        if (contra.Severity == "Minor")
+        if (contra.Severity == MinorSeverity || contra.Severity == Honkraband)
             return;
         var hasPermission = _detectorSystem.CheckContrabandPermission(args.Equipment, args.Equipee, contra);
-        if ((contra.Severity == "Restricted" || contra.Severity == "GrandTheft") && hasPermission)
+        if ((contra.Severity == RestrictedSeverity || contra.Severity == GrandTheftSeverity) && hasPermission)
             return;
         comp.VisibleItems.Add(args.Equipment);
         UpdateStatusIcon(comp, args.Equipee, ContrabandStatus.Contraband);
@@ -80,10 +83,10 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
             return;
         if (!_contrabandQuery.TryComp(args.Equipped, out var contra))
             return;
-        if (contra.Severity == "Minor")
+        if (contra.Severity == MinorSeverity)
             return;
         var hasPermission = _detectorSystem.CheckContrabandPermission(args.Equipped, args.User, contra);
-        if ((contra.Severity == "Restricted" || contra.Severity == "GrandTheft") && hasPermission)
+        if ((contra.Severity == RestrictedSeverity || contra.Severity == GrandTheftSeverity) && hasPermission)
             return;
         UpdateStatusIcon(comp, args.User, ContrabandStatus.Contraband);
     }
