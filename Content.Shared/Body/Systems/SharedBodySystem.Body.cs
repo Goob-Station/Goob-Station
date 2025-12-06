@@ -359,7 +359,7 @@ public partial class SharedBodySystem
 
         foreach (var child in GetBodyPartChildren(body.RootContainer.ContainedEntity.Value, rootPart))
         {
-            if ((int) (child.Component.PartType & (BodyPartType.Head | BodyPartType.Chest | BodyPartType.Groin)) != 0)
+            if ((int) (child.Component.PartType & BodyPartType.Vital) != 0)
                 yield return child;
         }
     }

@@ -36,7 +36,8 @@ namespace Content.Shared.Body.Part
         Hand = 1 << 4,
         Leg = 1 << 5,
         Foot = 1 << 6,
-        Tail = 1 << 7
+        Tail = 1 << 7,
+        Vital = Chest | Groin | Head
         // Goobstation end
     }
 }
