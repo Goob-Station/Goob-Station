@@ -23,7 +23,7 @@
 
 - type: entity
   id: AdvMimeryVol1
-  parent: BaseSpellbook
+  parent: [BaseSyndicateContraband, BaseSpellbook]
   name: Guide to Advanced Mimery Vol 1
   description: The pages don't make any sound when turned.
   components:
@@ -38,7 +38,7 @@
 
 - type: entity
   id: AdvMimeryVol2
-  parent: BaseSpellbook
+  parent: [BaseSyndicateContraband, BaseSpellbook]
   name: Guide to Advanced Mimery Vol 2
   description: There aren't any words written...
   components:
@@ -50,3 +50,14 @@
     spellActions:
       ActionFingerGuns: null
     learnPermanently: true
+
+- type: entity
+  id: BoxAdvMimery
+  parent: [BaseSyndicateContraband, BoxCardboard]
+  name: Guide to Advanced Mimery series box
+  components:
+  - type: StorageFill
+    contents:
+    - id: AdvMimeryVol1
+    - id: AdvMimeryVol2
+    - id: ClothingMaskMime

@@ -6,14 +6,14 @@
   components:
   - type: Action
     raiseOnUser: true
-    checkCanInteract: false
     useDelay: 60
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Actions/mime.rsi
       state: invisible_blockade
   - type: InstantAction
-    event: !type:InvisibleWallActionEvent
+    event: !type:InvisibleBlockadeActionEvent
+  - type: AdvancedMimeryAction
 
 - type: entity
   parent: BaseAction
@@ -23,8 +23,7 @@
   components:
   - type: Action
     raiseOnUser: true
-    checkCanInteract: false
-    useDelay: 0.25
+    useDelay: 0.25 # use delay is controlled by FingerGunsActionComponent
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Actions/mime.rsi
@@ -34,5 +33,10 @@
     repeat: true
     interactOnMiss: false
     range: 20
+  - type: EntityTargetAction
+    canTargetSelf: false
   - type: WorldTargetAction
     event: !type:FingerGunsActionEvent
+      prototype: BulletMime
+  - type: AdvancedMimeryAction
+  - type: FingerGunsAction
