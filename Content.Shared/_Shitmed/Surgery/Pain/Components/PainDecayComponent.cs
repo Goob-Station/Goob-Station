@@ -4,8 +4,6 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
-using Robust.Shared.Timing;
-using System;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 

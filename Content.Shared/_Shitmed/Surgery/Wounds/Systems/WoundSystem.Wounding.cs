@@ -33,7 +33,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
+
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 
 public sealed partial class WoundSystem
