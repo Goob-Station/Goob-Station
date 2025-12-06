@@ -7,10 +7,7 @@ using Content.Shared.Contraband;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Configuration;
-using Robust.Shared.Network;
-using Robust.Shared.Timing;
-using Robust.Shared.Network;
-using Robust.Shared.Timing;
+
 
 namespace Content.Goobstation.Client.Security.Systems;
 
@@ -84,5 +81,4 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
     {
         CheckAllContra(uid);
     }
-    
 }
