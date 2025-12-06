@@ -100,13 +100,7 @@ public sealed class ContrabandIconsSystem : SharedContrabandIconsSystem
 
     private bool IsNotContra(EntityUid item, EntityUid user)
     {
-        if (!_contrabandQuery.TryComp(item, out var contra))
-            return true;
-        if (contra.Severity == MinorSeverity || contra.Severity == Honkraband)
-            return true;
-        var hasPermission = _detectorSystem.CheckContrabandPermission(item, user, contra);
-        if ((contra.Severity == RestrictedSeverity || contra.Severity == GrandTheftSeverity) && hasPermission)
-            return true;
-        return false;
+        return !_contrabandQuery.TryComp(item, out var contra) || (contra.Severity == MinorSeverity || contra.Severity == Honkraband || (contra.Severity == RestrictedSeverity || contra.Severity == GrandTheftSeverity)
+            && _detectorSystem.CheckContrabandPermission(item, user, contra));
     }
 }
