@@ -3025,6 +3025,11 @@
     damage:
       types:
         Piercing: 6
+  - type: TerrorSpider # Goobstation - terror spiders
+  - type: TerrorWrap
+  - type: ActionGrant
+    actions:
+      - ActionTerrorWrap
 
 - type: entity
   parent:
@@ -3079,6 +3084,11 @@
     - type: Bloodstream
       bloodMaxVolume: 150
       bloodReagent: Laughter
+    - type: TerrorSpider # Goobstation - terror spiders
+    - type: TerrorWrap
+    - type: ActionGrant
+      actions:
+        - ActionTerrorWrap
 
 - type: entity
   name: wizard spider

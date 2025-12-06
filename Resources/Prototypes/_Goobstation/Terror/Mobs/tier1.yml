@@ -1,0 +1,251 @@
+# =========================================================
+# TIER 1 — BASE SPIDER PROTOTYPE
+# =========================================================
+- type: entity
+  id: TerrorSpiderBaseT1
+  name: terror spider
+  parent: [ SimpleMobBase, ShowMedicalIcons ]
+  description: Oh the misery!
+  abstract: true
+  components:
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: red
+      Dead:
+        Base: red_dead
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: red
+    drawdepth: Mobs
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 250
+        mask: [MobMask]
+        layer: [MobLayer]
+  - type: MobState
+    allowedStates: [Alive, Dead]
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 4
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 10
+  - type: NpcFactionMember
+    factions: [SimpleHostile]
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Xeno
+    understands:
+    - Xeno
+  - type: InteractionPopup
+    successChance: 0.1
+    interactSuccessString: petting-success-tarantula
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/snake_hiss.ogg
+  - type: NoSlip
+  - type: IgnoreSpiderWeb
+  - type: Bloodstream
+    bloodMaxVolume: 150
+    bloodReagent: CopperBlood
+  - type: Speech
+    speechVerb: Arachnid
+    speechSounds: Arachnid
+    allowedEmotes: ['Click', 'Chitter']
+  - type: Vocal
+    sounds:
+      Male: UnisexArachnid
+      Female: UnisexArachnid
+      Unsexed: UnisexArachnid
+  - type: TypingIndicator
+    proto: spider
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+  - type: NightVision
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
+  - type: ThermalVision
+    isActive: true
+    color: white
+    drawOverlay: false
+    lightRadius: 0
+    toggleAction: null
+    thermalShader: null
+  - type: PassiveDamage # Mild passive regenation, with the exception of poison and genetic, which cannot be used effectively against them.
+    allowedStates:
+      - Alive
+    damage:
+      groups:
+        Brute: -1
+        Burn: -1
+        Toxin: -3
+        Genetic: -3
+  - type: TerrorSpider
+  - type: CollectiveMind
+    defaultChannel: TerrorSpiderHivemind
+    respectAccents: true
+    channels:
+    - TerrorSpiderHivemind
+  - type: Puller
+    needsHands: false
+  - type: TerrorWrap
+  - type: TerrorLay
+  - type: ActionGrant
+    actions:
+      - ActionTerrorWeb
+      - ActionTerrorWrap
+
+# =========================================================
+# RED TERROR — Juggernaut
+# =========================================================
+- type: entity
+  id: TerrorSpiderRed
+  parent: TerrorSpiderBaseT1
+  name: red terror spider
+  description: An ominous-looking red spider, it has eight beady red eyes, and nasty, big, pointy fangs! It looks like it has a vicious streak a mile wide.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: red
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: red
+      Dead:
+        Base: red_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 15
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: VentCrawler
+  - type: BerserkerRage
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-red-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+
+# =========================================================
+# GRAY TERROR — Ambusher
+# =========================================================
+- type: entity
+  id: TerrorSpiderGray
+  parent: TerrorSpiderBaseT1
+  name: gray terror spider
+  description: An ominous-looking gray spider. It seems to blend into webs, making it hard to see.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: grey
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: grey
+      Dead:
+        Base: grey_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 10
+  - type: GrayTerror
+  - type: BonusDamageOnStunned
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-gray-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+
+# =========================================================
+# GREEN TERROR — Breeder
+# =========================================================
+- type: entity
+  id: TerrorSpiderGreen
+  parent: TerrorSpiderBaseT1
+  name: green terror spider
+  description: An ominous-looking green spider. It has a small egg-sac attached to it, and dried blood stains on its carapace.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: green
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: green
+      Dead:
+        Base: green_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 10
+  - type: GreenTerror
+  - type: ActionGrant
+    actions:
+      - ActionTerrorSlimyWeb
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-name
+    description: terror-green-briefing
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
