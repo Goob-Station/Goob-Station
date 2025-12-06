@@ -155,6 +155,7 @@
 #    enabled: true
 #    groups:
 #    - XenomorphAccess
+  - type: Targeting # Omu, allow xenos to target limbs
 
 
 - type: entity
