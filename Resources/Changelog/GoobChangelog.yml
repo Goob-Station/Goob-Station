@@ -19024,3 +19024,85 @@ Entries:
       message: the contraband detector is turned off as it doesn't work
   id: 2145
   time: '2025-12-03T16:50:36.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added polling!
+  id: 2146
+  time: '2025-12-04T08:10:08.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Heretic void path reworked.
+    - type: Add
+      message: Seeking blade teleport now works in combat mode.
+    - type: Tweak
+      message: Ice spear is t2 side knowledge now.
+  id: 2147
+  time: '2025-12-04T13:15:49.0000000+00:00'
+- author: TytosB
+  changes:
+    - type: Tweak
+      message: Serpentcrest has a harder to sabotage power network.
+  id: 2148
+  time: '2025-12-04T13:52:36.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Species mass have less of a gap now.
+    - type: Tweak
+      message: Chititnid and IPC have default mass.
+    - type: Tweak
+      message: >-
+        Oni has higher mass compared to other species but most of their other
+        benefits were removed.
+    - type: Tweak
+      message: Mass no longer affects sprinting.
+  id: 2149
+  time: '2025-12-04T14:03:46.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: >-
+        Sleeping Carp no longer reflects outside of combat mode as was
+        originally intended.
+  id: 2150
+  time: '2025-12-04T22:54:48.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Added tinfoil hats
+  id: 2151
+  time: '2025-12-05T22:07:41.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Fixed dwarves unintentionally being lighter than they should be.
+  id: 2152
+  time: '2025-12-06T01:19:22.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: harpies are big now
+  id: 2153
+  time: '2025-12-06T01:32:00.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix holoprojectors not working.
+  id: 2154
+  time: '2025-12-06T01:58:12.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: Made the popup text from the 'Interact' actions italicised.
+    - type: Fix
+      message: Fixed borgs potentially getting softlocked by invalid interaction verbs.
+  id: 2155
+  time: '2025-12-06T02:06:11.0000000+00:00'
+- author: XWASHERE
+  changes:
+    - type: Add
+      message: added a notification sound for prayers
+  id: 2156
+  time: '2025-12-06T18:51:32.0000000+00:00'
