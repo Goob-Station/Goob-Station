@@ -79,7 +79,7 @@
       - Quartermaster
       - Research
       - Robotics # goobstation
-      - RadioStation # goobstation
+      - Journalism # goobstation
       - ResearchDirector
       - Salvage
       - Security
@@ -167,7 +167,7 @@
     - NanotrasenRepresentative # goobstation
     - BlueshieldOfficer # goobstation
     - Robotics # goobstation
-    - RadioStation # goobstation
+    - Journalism # goobstation
     - Wizard
     - Xenoborg
     - GenpopEnter

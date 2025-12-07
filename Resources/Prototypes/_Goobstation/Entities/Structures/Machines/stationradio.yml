@@ -42,6 +42,8 @@
   - type: WiresPanel
   - type: WiresVisuals
   - type: VinylPlayer
+  - type: Machine
+    board: InteractorCircuitboard
   - type: ApcPowerReceiver
     powerLoad: 300 # This is a simple machine
   - type: ContainerContainer
@@ -88,6 +90,8 @@
     - state: icon
     # TODO: unlit & maints panel sprite
   - type: Rotatable
+  - type: Machine
+    board: TapeDeckCircuitboard
   - type: TapeRecorder
   - type: ActiveListener
     range: 4
@@ -122,6 +126,8 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
     state: broadcastradio
+  - type: Machine
+    board: StationRadioServerCircuitboard
   - type: Anchorable
     delay: 10
   - type: TelecomExempt
@@ -138,7 +144,10 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/radiostationrig.rsi
+    drawdepth: SmallObjects
     state: stationradiosetup
+  - type: Machine
+    board: StationRadioRigCircuitboard
   - type: Anchorable
     delay: 10
 
@@ -202,18 +211,6 @@
     - RadioShow
 
 # Container
-
-- type: entity
-  id: CrateRadioStationAds
-  parent: CrateGenericSteel
-  name: ads crate
-  description: A whole crate which sole purpose is to store 6 exclusive ads, aint capitalism great?
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: RandomVinylDisk
-        rolls: 6
 
 - type: entityTable
   id: RandomVinylDisk

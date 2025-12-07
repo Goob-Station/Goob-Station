@@ -45,7 +45,7 @@
   - type: StorageFill
     contents:
     - id: ClawMachineFlatPack
-      
+
 - type: entity
   id: CrateCargoForklift
   parent: CrateLivestock
@@ -56,3 +56,15 @@
       contents:
         - id: VehicleForklift
         - id: VehicleKeyForklift
+
+- type: entity
+  id: CrateRadioStationAds
+  parent: CrateGenericSteel
+  name: ads crate
+  description: A whole crate which sole purpose is to store 6 exclusive ads, aint capitalism great?
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: RandomVinylDisk
+        rolls: 6

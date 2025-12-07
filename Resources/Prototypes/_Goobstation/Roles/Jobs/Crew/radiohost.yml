@@ -8,14 +8,14 @@
   supervisors: job-supervisors-hop
   access:
   - Maintenance
-  - RadioStation
+  - Journalism
 
 - type: startingGear
   id: RadioHostGear
   equipment:
     ears: ClothingHeadsetAltRadioHost
     eyes: ClothingEyesGlassesSunglasses
-    jumpsuit: ClothingUniformJumpsuitReporter
+    jumpsuit: ClothingUniformJumpsuitHawaiBlack
     shoes: ClothingShoesColorBlack
     back: ClothingBackpackSatchel
     id: RadioHostPDA
@@ -26,7 +26,7 @@
   equipment:
     eyes: ClothingEyesGlassesCheapSunglasses
     ear: ClothingHeadsetAltRadioHost
-    jumpsuit: ClothingUniformJumpsuitReporter
+    jumpsuit: ClothingUniformJumpsuitHawaiBlack
     shoes: ClothingShoesColorBlack
     id: RadioHostPDA
 
