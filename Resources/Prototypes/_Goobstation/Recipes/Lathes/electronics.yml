@@ -150,7 +150,7 @@
 
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
-  id: StationRadioRigCircuitboardS
+  id: StationRadioRigCircuitboard
   icon:
     sprite:  _Goobstation/Structures/Machines/StationRadio/radiostationrig.rsi
     state: stationradiosetup
