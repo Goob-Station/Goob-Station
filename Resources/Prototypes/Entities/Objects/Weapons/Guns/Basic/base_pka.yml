@@ -52,10 +52,6 @@
   # Lavaland Change start
   - type: PressureDamageChange
     applyToMelee: false
-  - type: Multishot # Goobstation V
-    missChance: 0.4
-    spreadMultiplier: 3
-    spreadAddition: 20
   - type: UpgradeableGun
   - type: MeleeWeaponRelay # Used for the bayonet to work
   - type: ContainerContainer
