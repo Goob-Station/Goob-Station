@@ -45,6 +45,9 @@
       path: /Audio/_RMC14/Xeno/alien_resin_move1.ogg
     closeSound:
       path: /Audio/_RMC14/Xeno/alien_resin_move2.ogg
+  - type: NpcFactionMember #they parented off a near defunct component JUST for this bro
+    factions:
+    - Xeno
   - type: Appearance
   - type: Airtight
     fixVacuum: true

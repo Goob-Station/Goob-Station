@@ -299,6 +299,5 @@
       state: screech
     useDelay: 60 #it would be lower if it was the only antag ever like in rmc
     priority: 5 #Roar range and stun time in xenomorph queen component
-    XenoEchoRoar
   - type: InstantAction
     event: !type:QueenRoarActionEvent
