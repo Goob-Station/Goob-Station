@@ -896,7 +896,6 @@
     tags:
     - CannotSuicide
     - FootstepSound
-    - DoorBumpOpener
   - type: Respirator
     damage:
       types:
