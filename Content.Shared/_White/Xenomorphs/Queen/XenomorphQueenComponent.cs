@@ -26,7 +26,7 @@ public sealed partial class XenomorphQueenComponent : Component
     //goobstart
     [ViewVariables(VVAccess.ReadWrite), DataField("soundRoar")]
     public SoundSpecifier? SoundRoar =
-        new SoundPathSpecifier("/Audio/_RMC14/Xeno/alien_echoroar_1.ogg") //FIX
+        new SoundPathSpecifier("/Audio/_RMC14/Xeno/alien_queen_screech.ogg")
         {
             Params = AudioParams.Default.WithVolume(3f),
         };
