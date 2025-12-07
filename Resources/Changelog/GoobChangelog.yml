@@ -19106,3 +19106,11 @@ Entries:
       message: added a notification sound for prayers
   id: 2156
   time: '2025-12-06T18:51:32.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: Added Chat icons for radio messages!
+    - type: Fix
+      message: fixed ooc patron icons getting stuck on the screen sometimes
+  id: 2157
+  time: '2025-12-07T12:24:42.0000000+00:00'
