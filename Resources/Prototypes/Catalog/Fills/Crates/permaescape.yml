@@ -175,38 +175,40 @@
   id: CratePermaEscapeLights
   suffix: Glowsticks
   components:
-  - type: StorageFill
-    contents:
-      - id: GlowstickBlue
-        prob: 0.50
-      - id: GlowstickBlue
-        prob: 0.20
-      - id: GlowstickBlue
-        prob: 0.05
-      - id: GlowstickBase
-        prob: 0.50
-      - id: GlowstickBase
-        prob: 0.20
-      - id: GlowstickBase
-        prob: 0.05
-      - id: GlowstickPurple
-        prob: 0.50
-      - id: GlowstickPurple
-        prob: 0.20
-      - id: GlowstickPurple
-        prob: 0.05
-      - id: GlowstickRed
-        prob: 0.50
-      - id: GlowstickRed
-        prob: 0.20
-      - id: GlowstickRed
-        prob: 0.05
-      - id: GlowstickYellow
-        prob: 0.50
-      - id: GlowstickYellow
-        prob: 0.20
-      - id: GlowstickYellow
-        prob: 0.05
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: GlowstickBlue
+          prob: 0.50
+        - id: GlowstickBlue
+          prob: 0.20
+        - id: GlowstickBlue
+          prob: 0.05
+        - id: GlowstickGreen
+          prob: 0.50
+        - id: GlowstickGreen
+          prob: 0.20
+        - id: GlowstickGreen
+          prob: 0.05
+        - id: GlowstickPurple
+          prob: 0.50
+        - id: GlowstickPurple
+          prob: 0.20
+        - id: GlowstickPurple
+          prob: 0.05
+        - id: GlowstickRed
+          prob: 0.50
+        - id: GlowstickRed
+          prob: 0.20
+        - id: GlowstickRed
+          prob: 0.05
+        - id: GlowstickYellow
+          prob: 0.50
+        - id: GlowstickYellow
+          prob: 0.20
+        - id: GlowstickYellow
+          prob: 0.05
 
 - type: entity
   parent: CrateGenericSteel

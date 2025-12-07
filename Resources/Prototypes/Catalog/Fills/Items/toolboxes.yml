@@ -97,24 +97,25 @@
   parent: ToolboxEmergency
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: CrowbarRed
-      - id: RadioHandheld
-      - id: WelderMini
-      - id: FireExtinguisherMini
-      # Random lighting item orGroup
-      - id: FlashlightLantern
-        orGroup: LightingItem
-      - id: Flare
-        orGroup: LightingItem
-      - id: GlowstickBase
-        orGroup: LightingItem
-      # Low-chance items
-      - id: FoodSnackChocolate
-        prob: 0.15
-      - id: HarmonicaInstrument
-        prob: 0.15
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CrowbarRed
+        - id: RadioHandheld
+        - id: WelderMini
+        - id: FireExtinguisherMini
+        # Random lighting item GroupSelector
+        - !type:GroupSelector
+          children:
+          - id: FlashlightLantern
+          - id: Flare
+          - id: GlowstickGreen
+        # Low-chance items
+        - id: FoodSnackChocolate
+          prob: 0.15
+        - id: HarmonicaInstrument
+          prob: 0.15
 
 - type: entity
   id: ToolboxElectricalFilled

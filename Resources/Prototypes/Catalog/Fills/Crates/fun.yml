@@ -524,30 +524,32 @@
   name: party crate
   description: An entire party just waiting for you to open it. Includes party favors, party beverages, and even a cake.
   components:
-  - type: StorageFill
-    contents:
-      - id: GlowstickBase
-        amount: 2
-      - id: GlowstickBlue
-        amount: 2
-      - id: GlowstickPurple
-        amount: 2
-      - id: GlowstickRed
-        amount: 2
-      - id: GlowstickYellow
-        amount: 2
-      - id: FoodCakeBirthday
-      - id: DrinkLean
-        amount: 4
-      - id: KnifePlastic
-      - id: ClothingHeadHatPartyRed
-        amount: 2
-      - id: ClothingHeadHatPartyYellow
-        amount: 2
-      - id: ClothingHeadHatPartyGreen
-        amount: 2
-      - id: ClothingHeadHatPartyBlue
-        amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: GlowstickGreen
+          amount: 2
+        - id: GlowstickBlue
+          amount: 2
+        - id: GlowstickPurple
+          amount: 2
+        - id: GlowstickRed
+          amount: 2
+        - id: GlowstickYellow
+          amount: 2
+        - id: FoodCakeBirthday
+        - id: DrinkLean
+          amount: 4
+        - id: KnifePlastic
+        - id: ClothingHeadHatPartyRed
+          amount: 2
+        - id: ClothingHeadHatPartyYellow
+          amount: 2
+        - id: ClothingHeadHatPartyGreen
+          amount: 2
+        - id: ClothingHeadHatPartyBlue
+          amount: 2
 
 - type: entity
   parent: CratePlastic
