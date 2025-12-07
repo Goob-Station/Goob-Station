@@ -223,6 +223,9 @@
   id: EnergyMagAmmo
 
 - type: Tag
+  id: FacehuggerBlocker
+
+- type: Tag
   id: FelinidEmotes
 
 - type: Tag

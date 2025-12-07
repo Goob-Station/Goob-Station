@@ -25,12 +25,16 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Server.Construction.Conditions;
 using Content.Shared._White.Xenomorphs.FaceHugger;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Atmos.Components;
 using Content.Server.Nutrition.EntitySystems;
-using Content.Shared.Nutrition.Components; // Goobstation end
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Tag;
+using Robust.Shared.Prototypes; // Goobstation end
+
 
 namespace Content.Server._White.Xenomorphs.FaceHugger;
 
@@ -52,7 +56,9 @@ public sealed class FaceHuggerSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly TagSystem _tag = default!; // Goobstation
 
+    private static readonly ProtoId<TagPrototype> FacehuggerBlockerTag = "FacehuggerBlocker";
     public override void Initialize()
     {
         base.Initialize();
@@ -218,7 +224,7 @@ public sealed class FaceHuggerSystem : EntitySystem
             return false;
 
         // Check for any blocking masks or equipment
-        if (CheckAndHandleMask(target, out var blocker))
+        if (CheckAndHandleMaskOrHemet(target, out var blocker))
         {
             // If blocked by a breathable mask, deal damage and schedule a retry
             if (blocker.HasValue && TryComp<BreathToolComponent>(blocker, out _))
@@ -354,10 +360,21 @@ public sealed class FaceHuggerSystem : EntitySystem
     /// Returns true if there's a blocker, false otherwise.
     /// Goobstation
     /// </summary>
-    private bool CheckAndHandleMask(EntityUid target, out EntityUid? blocker)
+    private bool CheckAndHandleMaskOrHemet(EntityUid target, out EntityUid? blocker)
     {
         blocker = null;
-
+        if (_inventory.TryGetSlotEntity(target, "head", out var headUid))
+        {
+            var head = headUid ?? EntityUid.Invalid;
+            // If the headgear has an ingestion blocker component, it's a blocker
+            if (_tag.HasTag(head, FacehuggerBlockerTag))
+            {
+                blocker = head;
+                return true;
+            }
+            // If it's just regular headgear, remove it
+            _inventory.TryUnequip(target, "head", true);
+        }
         // Check for breathable mask
         if (_inventory.TryGetSlotEntity(target, "mask", out var maskUid))
         {

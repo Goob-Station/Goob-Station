@@ -278,6 +278,9 @@
         Blunt: 0.35
         Slash: 0.35
         Piercing: 0.8
+  - type: Tag # goobstation facehugger
+    tags:
+    - FacehuggerBlocker
   #- type: HideLayerClothing  #Goobstation
   #  layers:
   #    Hair: HEAD
@@ -438,6 +441,9 @@
         Slash: 0.45
         Piercing: 0.45
         Heat: 0.45
+  - type: Tag
+    tags:
+    - FacehuggerBlocker
   #- type: HideLayerClothing  #Goobstation
   #  layers:
   #    Hair: HEAD
@@ -559,6 +565,9 @@
         Piercing: 0.5
         Heat: 0.5
         Caustic: 0.5
+  - type: Tag
+    tags:
+    - FacehuggerBlocker
   #- type: HideLayerClothing  #Goobstation
   #  layers:
   #    Hair: HEAD
@@ -575,6 +584,9 @@
     sprite: Clothing/Head/Helmets/ert_leader.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_leader.rsi
+  - type: Tag
+    tags:
+    - FacehuggerBlocker
  # - type: HideLayerClothing  #Goobstation
  #   layers:
  #     Hair: HEAD

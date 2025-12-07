@@ -38,9 +38,9 @@
       - state: equipped-HEAD
       head-vox:
       - state: equipped-HEAD-vox
-      
   - type: Tag
     tags:
+    - FacehuggerBlocker
     - WhitelistChameleon
     - PlasmamanSafe
   - type: IgniteFromGasImmunity
