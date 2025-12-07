@@ -669,7 +669,7 @@
   parent: [ChemicalMedipen, BaseSyndicateContraband]
   id: Stimpack
   name: hyperzine injector
-  description: A chemical injector containing a large shot of pure hyperzine. For when it's time to throw down. Effects last for about 30 seconds.
+  description: A chemical injector containing a large shot of pure hyperzine. For when it's time to throw down. Effects last for about 60 seconds.
   components:
   - type: Item
     inhandVisuals:
@@ -713,7 +713,7 @@
   parent: [ChemicalMedipen, BaseSyndicateContraband]
   id: StimpackMini
   name: hyperzine microinjector
-  description: A chemical microinjector containing a small shot of pure hyperzine. Effects last for about 15 seconds.
+  description: A chemical microinjector containing a small shot of pure hyperzine. Effects last for about 30 seconds.
   components:
   - type: Item
     inhandVisuals:
