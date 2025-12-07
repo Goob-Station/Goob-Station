@@ -67,7 +67,7 @@
   id: ChosenOneProtagGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorWhite
-    outerClothing: JediRobes
+    outerClothing: WhiteRobes
     shoes: ClothingShoesBootsJack
     belt: ClothingBeltAssaultFilled
     id: CentcomPDA

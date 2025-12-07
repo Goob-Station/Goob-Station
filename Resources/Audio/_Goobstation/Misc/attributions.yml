@@ -44,14 +44,14 @@
   source: "https://www.youtube.com/watch?v=UkN2DQYRooA"
 
 - files: ["singulothknight_greeting.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Media Vita"
-  source: "https://www.youtube.com/watch?v=BytxBjXRfS8"
+  license: "CC-BY-4.0"
+  copyright: "Taken from breakingcopyright.com, Composer: Alexander Nakarada, shortened down by john john"
+  source: "https://breakingcopyright.com/song/alexander-nakarada-battle-of-the-creek"
 
 - files: ["darklord_greeting.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "taken from FILMSTRO on youtube"
-  source: "https://www.youtube.com/watch?v=pU_8B6yrZrQ"
+  license: "CC-BY-4.0"
+  copyright: "taken from humanoide9000 on freesound.org"
+  source: "https://freesound.org/people/humanoide9000/sounds/676266/"
 
 - files: ["phone_ring.ogg"]
   license: "CC-BY-4.0"
