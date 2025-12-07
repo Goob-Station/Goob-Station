@@ -9,6 +9,8 @@
   description: Let's you change your voice and the way you speak.
   components:
   - type: Action
-    icon: { sprite: Interface/Actions/voice-mask.rsi, state: icon }
+    icon:
+      sprite: Interface/Actions/voice-mask.rsi
+      state: icon
   - type: InstantAction
     event: !type:OpenIntrinsicVoiceModulatorMenuEvent
