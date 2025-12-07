@@ -62,16 +62,12 @@ public sealed class NuclearCentrifugeSystem : EntitySystem
             {
                 if(comp.ExtractedFuel > 1)
                 {
-                    var amount = (int)Math.Floor(comp.ExtractedFuel);
-
                     // If this while loop causes problems, blame whoever put 1.78e308 plutonium in the centrifuge
-                    while (amount > 1) 
+                    while (comp.ExtractedFuel > 1) 
                     {
                         var plutoniumStack = Spawn("IngotPlutonium1", Transform(uid).Coordinates);
-                        _stackSystem.SetCount(plutoniumStack, Math.Clamp(amount, 1, _stackSize));
-                        var delta = _stackSystem.GetCount(plutoniumStack);
-                        comp.ExtractedFuel -= delta;
-                        amount -= delta;
+                        _stackSystem.SetCount(plutoniumStack, Math.Clamp((int)Math.Floor(comp.ExtractedFuel), 1, _stackSize));
+                        comp.ExtractedFuel -= _stackSystem.GetCount(plutoniumStack);
                         _stackSystem.TryMergeToContacts(plutoniumStack);
                     }
                     _audio.PlayPvs(comp.SoundSucceed, uid);

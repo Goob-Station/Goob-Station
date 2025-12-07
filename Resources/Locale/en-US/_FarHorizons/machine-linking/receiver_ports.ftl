@@ -4,6 +4,9 @@ signal-port-description-vitals-monitor-receiver-med = Sending info about patient
 signal-port-name-vitals-monitor-receiver-stasis = Stasis Bed
 signal-port-description-vitals-monitor-receiver-stasis = Sending info about patient condition to a Vital Monitor.
 
+signal-port-name-nuclear-reactor-data-receiver = Reactor Monitor
+signal-port-description-nuclear-reactor-data-receiver = Receiving info about a nuclear reactor.
+
 signal-port-name-nuclear-reactor-receiver-insert = Control Rods In
 signal-port-description-nuclear-reactor-receiver-insert = Increases the insertion level of the control rods.
 

@@ -37,8 +37,7 @@
   - type: Physics
     bodyType: Static
   - type: InteractionOutline
-  - type: Transform
-    noRot: true
+  - type: Rotatable
   - type: Fixtures
     fixtures:
       fix1:
@@ -128,20 +127,11 @@
 
 # Pipes the turbine uses to connect to the pipe network
 - type: entity
-  parent: GasPipeBase
   id: TurbineGasPipe
   categories: [ HideSpawnMenu ]
-  placement:
-    mode: AlignAtmosPipeLayers
   components:
-  - type: Sprite
-    layers:
-    - state: pipeHalf
-      map: [ "enum.PipeVisualLayers.Pipe" ]
-      visible: false
-  - type: Anchorable
-    flags: 
-    - Anchorable
+  - type: Transform
+    anchored: true
   - type: NodeContainer
     nodes:
       pipe:

@@ -3,6 +3,7 @@
   recipes:
   - NuclearFabricatorMachineCircuitboard
   - NuclearCentrifugeMachineCircuitboard
+  - NuclearReactorMonitorComputerCircuitboard
 
 - type: latheRecipePack
   id: ReactorPartsBasic

@@ -44,6 +44,9 @@ public sealed partial class NuclearReactorWindow : FancyWindow
 
     private EntityUid _entity;
 
+    private bool _isMonitor = false;
+    private EntityUid _monitor;
+
     public NuclearReactorWindow()
     {
         RobustXamlLoader.Load(this);
@@ -137,18 +140,28 @@ public sealed partial class NuclearReactorWindow : FancyWindow
         ControlRodsActual.Value = msg.ControlRodActual;
         ControlRodsSet.Value = msg.ControlRodSet;
 
-        ControlRodsButtons.Visible = !_lock.IsLocked(_entity);
-        ItemAction.Visible = !_lock.IsLocked(_entity);
+        var locktarget = _isMonitor ? _monitor : _entity;
 
-        ItemActionLock.Visible = _lock.IsLocked(_entity);
-        ControlRodsLock.Visible = _lock.IsLocked(_entity);
+        ControlRodsButtons.Visible = !_lock.IsLocked(locktarget);
+        ItemAction.Visible = !_lock.IsLocked(_entity) && !_isMonitor;
+
+        ItemActionLock.Visible = _lock.IsLocked(_entity) && !_isMonitor;
+        ControlRodsLock.Visible = _lock.IsLocked(locktarget);
+
+        Shelf.Visible = !_isMonitor;
 
         ItemName.Text = msg.ItemName ?? "empty";
     }
 
-    public void SetEntity(EntityUid entity)
+    public void SetEntity(EntityUid entity, EntityUid? monitor = null)
     {
         _entity = entity;
+
+        if (monitor != null)
+        {
+            _monitor = monitor.Value;
+            _isMonitor = true;
+        }
 
         this.SetInfoFromEntity(_entityManager, _entity);
     }

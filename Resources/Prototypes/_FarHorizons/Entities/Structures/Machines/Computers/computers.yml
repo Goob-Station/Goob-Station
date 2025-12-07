@@ -1,0 +1,140 @@
+- type: entity
+  parent: ComputerRoboticsControl
+  id: ComputerSecurityRoboticsControl
+  name: Security Robotics Control Console
+  description: A variant of the robotics control console, specifically meant to control security cyborgs.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Machines/Computers/secrobotics.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: computer 
+    - map: ["computerLayerScreen"]
+      state: robot-sec
+    #- map: ["computerLayerKeys"] - Only the screen layer gets turned off, having this active with the merged screen/key png kept the screen on.
+    #  state: robot-sec
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: RoboticsConsole
+  - type: ActiveRadio
+    channels:
+    - Science
+    - Security
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SecurityRoboticsConsole
+    transmitFrequencyId: SecborgControl
+  - type: Computer
+    board: SecurityRoboticsConsoleCircuitboard
+  - type: AccessReader
+    access: [["Armory"]]
+    
+- type: entity
+  parent: BaseComputerAiAccess
+  id: VitalsMonitor
+  name: Vitals Monitor
+  description: A device that monitors the vitals of whoever is laying next to it.
+  components:
+  - type: ApcPowerReceiver
+    powerLoad: 500
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#1f8c28"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - TableMask
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Machines/Computers/vitalmonitor.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerScreen"]
+      state: screen
+  - type: Speech
+  - type: BodyScanner
+  - type: HealthAnalyzer
+    talk: true
+  - type: ActivatableUI
+    key: enum.HealthAnalyzerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.HealthAnalyzerUiKey.Key:
+        type: HealthAnalyzerBoundUserInterface
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wired
+  - type: DeviceLinkSource
+    range: 2
+    ports:
+      - VitalsMonitorSender
+  - type: Machine
+    board: VitalsMonitorMachineCircuitboard
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+
+- type: entity
+  parent: BaseComputerAiAccess
+  id: NuclearReactorMonitor
+  name: nuclear reactor monitor
+  description: A device that monitors the state of a connected nuclear reactor.
+  components:
+  - type: ApcPowerReceiver
+    powerLoad: 500
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#1f8c28"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - TableMask
+  - type: Sprite
+    sprite: Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerScreen"]
+      state: power_monitor
+  - type: NuclearReactorMonitor
+  - type: ActivatableUI
+    key: enum.NuclearReactorUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.NuclearReactorUiKey.Key:
+        type: NuclearReactorMonitorBoundUserInterface
+  - type: AccessReader # You got a permit for that meltdown?
+    access: [["Engineering"]]
+  - type: Lock
+    unlockOnClick: false
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+      - NuclearReactorDataReceiver
+  - type: Computer
+    board: NuclearReactorMonitorComputerCircuitboard
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container

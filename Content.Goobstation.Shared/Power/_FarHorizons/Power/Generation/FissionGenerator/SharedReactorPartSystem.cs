@@ -185,7 +185,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
 
         reactorPart.Melted = true;
         reactorPart.IconStateCap += "_melted_" + _random.Next(1, 4 + 1);
-        reactorSystem.UpdateGridVisual(reactorEnt.Comp);
+        reactorSystem.UpdateGridVisual(reactorEnt);
         reactorPart.NeutronCrossSection = 5f;
         reactorPart.ThermalCrossSection = 20f;
         reactorPart.IsControlRod = false;

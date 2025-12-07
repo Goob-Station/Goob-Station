@@ -348,12 +348,14 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
     private void OnSignalReceived(EntityUid uid, TurbineComponent comp, ref SignalReceivedEvent args)
     {
+        var change = 0f;
         if (args.Port == comp.StatorLoadIncreasePort)
-            AdjustStatorLoad(comp, 1000);
+            change = 1000f;
         else if (args.Port == comp.StatorLoadDecreasePort)
-            AdjustStatorLoad(comp, -1000);
+            change = -1000f;
 
-        _adminLogger.Add(LogType.Action, $"{ToPrettyString(args.Trigger):trigger} set the stator load on {ToPrettyString(uid):target} to {comp.StatorLoad}");
+        if (AdjustStatorLoad(comp, change))
+            _adminLogger.Add(LogType.Action, $"{ToPrettyString(args.Trigger):trigger} set the stator load on {ToPrettyString(uid):target} to {comp.StatorLoad}");
     }
 
     private void OnAnchorChanged(EntityUid uid, TurbineComponent comp, ref AnchorStateChangedEvent args)

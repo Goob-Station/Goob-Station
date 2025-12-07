@@ -11,15 +11,19 @@
       visible: true
       map: [ "enum.ReactorVisualLayers.Sprite" ]
     - state: reactor_status_active
+      shader: unshaded
       visible: false
       map: [ "enum.ReactorVisualLayers.Status" ]
     - state: reactor_gas_input_lights
+      shader: unshaded
       visible: false
       map: [ "enum.ReactorVisualLayers.Input" ]
     - state: reactor_gas_output_lights
+      shader: unshaded
       visible: false
       map: [ "enum.ReactorVisualLayers.Output" ]
     - state: reactor_lights_warning
+      shader: unshaded
       visible: false
       map: [ "enum.ReactorVisualLayers.Lights" ]
     - state: reactor_fire
@@ -40,7 +44,6 @@
           Active: { state: reactor_status_active, visible: true }
           Overheat: { state: reactor_status_overheat, visible: true }
           Meltdown: { state: reactor_status_meltdown, visible: true }
-          Boom: { state: reactor_status_boom, visible: true }
       enum.ReactorVisuals.Input:
         enum.ReactorVisualLayers.Input:
           True: { visible: true }
@@ -66,8 +69,7 @@
   - type: Physics
     bodyType: Static
   - type: InteractionOutline
-  - type: Transform
-    noRot: true
+  - type: Rotatable
   - type: Fixtures
     fixtures:
       fix1:
@@ -101,6 +103,9 @@
     receiveFrequencyId: BasicDevice
   - type: WirelessNetworkConnection
     range: 200
+  - type: DeviceLinkSource
+    ports:
+      - NuclearReactorDataSender
   - type: DeviceLinkSink
     ports:
       - InsertControlRods
@@ -118,6 +123,9 @@
     unlockOnClick: false
   - type: WarpPoint
     location: Nuclear Reactor
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: GuideHelp
     guides:
     - NuclearReactor
@@ -138,52 +146,6 @@
   components:
   - type: NuclearReactor
     prefab: meltdown
-
-# Visual parts on the reactor
-- type: entity
-  id: ReactorComponent
-  name: reactor component
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_component_cap.rsi
-    drawdepth: 1
-    layers:
-    - state: base_cap
-      visible: true
-      map: [ "enum.ReactorCapVisualLayers.Sprite" ]
-  - type: GenericVisualizer
-    visuals:
-      enum.ReactorCapVisuals.Sprite:
-        enum.ReactorCapVisualLayers.Sprite:
-          Base: { state: empty_cap }
-          Control: { state: control_cap }
-          ControlM1: { state: control_cap_melted_1 }
-          ControlM2: { state: control_cap_melted_2 }
-          ControlM3: { state: control_cap_melted_3 }
-          ControlM4: { state: control_cap_melted_4 }
-          Fuel: { state: fuel_cap }
-          FuelM1: { state: fuel_cap_melted_1 }
-          FuelM2: { state: fuel_cap_melted_2 }
-          FuelM3: { state: fuel_cap_melted_3 }
-          FuelM4: { state: fuel_cap_melted_4 }
-          Gas: { state: gas_cap }
-          GasM1: { state: gas_cap_melted_1 }
-          GasM2: { state: gas_cap_melted_2 }
-          GasM3: { state: gas_cap_melted_3 }
-          GasM4: { state: gas_cap_melted_4 }
-          Heat: { state: heat_cap }
-          HeatM1: { state: heat_cap_melted_1 }
-          HeatM2: { state: heat_cap_melted_2 }
-          HeatM3: { state: heat_cap_melted_3 }
-          HeatM4: { state: heat_cap_melted_4 }
-  - type: Appearance
-  - type: ReactorPartVisual
-  - type: Transform
-    noRot: true
-  - type: Tag
-    tags:
-    - HideContextMenu
 
 # Nuclear debris resultant from a meltdown
 - type: entity
@@ -230,20 +192,11 @@
 
 # Pipes the reactor uses to connect to the pipe network
 - type: entity
-  parent: GasPipeBase
   id: ReactorGasPipe
   categories: [ HideSpawnMenu ]
-  placement:
-    mode: AlignAtmosPipeLayers
   components:
-  - type: Sprite
-    layers:
-    - state: pipeHalf
-      map: [ "enum.PipeVisualLayers.Pipe" ]
-      visible: false
-  - type: Anchorable
-    flags:
-    - Anchorable
+  - type: Transform
+    anchored: true
   - type: NodeContainer
     nodes:
       pipe:

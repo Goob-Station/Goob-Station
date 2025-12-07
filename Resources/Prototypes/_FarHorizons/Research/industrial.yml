@@ -10,6 +10,7 @@
   cost: 7500
   recipeUnlocks:
   - NuclearFabricatorMachineCircuitboard
+  - NuclearReactorMonitorComputerCircuitboard
   - UraniumReactorFuelRod
   - PlasmaReactorFuelRod
   - UraniumGlassReactorFuelRod

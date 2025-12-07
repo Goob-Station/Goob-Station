@@ -19,6 +19,11 @@
   name: signal-port-name-nuclear-reactor-receiver-retract
   description: signal-port-description-nuclear-reactor-receiver-retract
 
+- type: sinkPort
+  id: NuclearReactorDataReceiver
+  name: signal-port-name-nuclear-reactor-data-receiver
+  description: signal-port-description-nuclear-reactor-data-receiver
+
 # Gas Turbine
 - type: sinkPort
   id: IncreaseStatorLoad
