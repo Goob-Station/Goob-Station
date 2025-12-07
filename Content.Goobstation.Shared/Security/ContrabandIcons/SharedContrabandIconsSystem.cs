@@ -11,6 +11,7 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
     [Dependency] private readonly SharedContrabandDetectorSystem _detectorSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly INetManager _net = default!;
+
     private EntityQuery<VisibleContrabandComponent> _visibleContrabandQuery;
 
     public override void Initialize()
@@ -18,6 +19,7 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
         base.Initialize();
         _visibleContrabandQuery = GetEntityQuery<VisibleContrabandComponent>();
     }
+
     private string StatusToIcon(ContrabandStatus status)
     {
         return status == ContrabandStatus.Contraband ? "ContrabandIconContraband" : "ContrabandIconNone";
@@ -29,10 +31,11 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
 
         if (!_visibleContrabandQuery.TryComp(uid, out var visible))
             return;
+
         var contraband = _detectorSystem.FindContraband(uid, false, SlotFlags.WITHOUT_POCKET);
         if (contraband == null) // this is stupid but it works
             return;
-        
+
         visible.VisibleItems = contraband.ToHashSet();
         var status = visible.VisibleItems.Count > 0 ? ContrabandStatus.Contraband : ContrabandStatus.None;
         UpdateStatusIcon(visible, uid, status);
