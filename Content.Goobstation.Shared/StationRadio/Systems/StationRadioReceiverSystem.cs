@@ -54,7 +54,7 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 
     private void OnMediaStopped(EntityUid uid, StationRadioReceiverComponent comp, StationRadioMediaStoppedEvent args)
     {
-        if(comp.SoundEntity != null)
-            _audio.Stop(comp.SoundEntity);
+        if (comp.SoundEntity != null)
+            comp.SoundEntity = _audio.Stop(comp.SoundEntity);
     }
 }

@@ -27,14 +27,14 @@ public sealed class VinylPlayerSystem : EntitySystem
 
     private void OnPowerChanged(EntityUid uid, VinylPlayerComponent comp, PowerChangedEvent args)
     {
-        if(comp.SoundEntity != null && !args.Powered)
-            _audio.Stop(comp.SoundEntity);
+        if (comp.SoundEntity != null && !args.Powered)
+            comp.SoundEntity = _audio.Stop(comp.SoundEntity);
 
-        if(!comp.RelayToRadios)
+        if (!comp.RelayToRadios)
             return;
 
         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
-        while (query.MoveNext(out var receiver, out var _))
+        while (query.MoveNext(out var receiver, out _))
         {
             RaiseLocalEvent(receiver, new StationRadioMediaStoppedEvent());
         }
@@ -74,7 +74,7 @@ public sealed class VinylPlayerSystem : EntitySystem
     private void OnVinylRemove(EntityUid uid, VinylPlayerComponent comp, EntRemovedFromContainerMessage args)
     {
         if(comp.SoundEntity != null)
-            _audio.Stop(comp.SoundEntity);
+            comp.SoundEntity = _audio.Stop(comp.SoundEntity);
 
         if(!comp.RelayToRadios)
             return;
