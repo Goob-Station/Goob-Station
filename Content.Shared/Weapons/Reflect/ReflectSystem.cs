@@ -189,12 +189,12 @@ public sealed class ReflectSystem : EntitySystem
 
     public bool TryReflectProjectile(Entity<ReflectComponent> reflector, EntityUid user, Entity<ProjectileComponent?> projectile)
     {
-        if (!TryComp<ReflectiveComponent>(projectile, out var reflective) ||
-            (reflector.Comp.Reflects & reflective.Reflective) == 0x0 ||
-            !_toggle.IsActivated(reflector.Owner) ||
-            !_random.Prob(reflector.Comp.ReflectProb) ||
-            !TryComp<PhysicsComponent>(projectile, out var physics) || // Goob Edit - Scarp fix
-            !TryComp<CombatModeComponent>(reflector, out var combat) || !combat.IsInCombatMode && reflector.Comp.CombatModeRequired) // Goob Edit - Scarp fix
+        if (!TryComp<ReflectiveComponent>(projectile, out var reflective)
+            || (reflector.Comp.Reflects & reflective.Reflective) == 0x0
+            || !_toggle.IsActivated(reflector.Owner)
+            || !_random.Prob(reflector.Comp.ReflectProb)
+            || !TryComp<PhysicsComponent>(projectile, out var physics)
+            || (reflector.Comp.CombatModeRequired && (!TryComp<CombatModeComponent>(reflector, out var combat) || !combat.IsInCombatMode))) // Goob - gus fix
         {
             return false;
         }
@@ -252,11 +252,11 @@ public sealed class ReflectSystem : EntitySystem
         DamageSpecifier? damage, // WD EDIT
         [NotNullWhen(true)] out Vector2? newDirection)
     {
-        if ((reflector.Comp.Reflects & hitscanReflectType) == 0x0 ||
-            !_toggle.IsActivated(reflector.Owner) ||
-            !((reflector.Comp.Reflects & hitscanReflectType) != 0x0 && _random.Prob(reflector.Comp.ReflectProb)) // Goob edit
-            || !TryComp<CombatModeComponent>(reflector, out var combat) // Goob edit
-            || !combat.IsInCombatMode && reflector.Comp.CombatModeRequired) // Goob edit
+        if ((reflector.Comp.Reflects & hitscanReflectType) == 0x0
+            || !_toggle.IsActivated(reflector.Owner)
+            || !((reflector.Comp.Reflects & hitscanReflectType) != 0x0 // Goob edit
+            && _random.Prob(reflector.Comp.ReflectProb))
+            || (reflector.Comp.CombatModeRequired && (!TryComp<CombatModeComponent>(reflector, out var combat) || !combat.IsInCombatMode))) // Goob - gus fix
         {
             newDirection = null;
             return false;
