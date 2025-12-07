@@ -39,9 +39,8 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
 
         if (!_visibleContrabandQuery.TryComp(uid, out var visible))
             return;
-
-        var contraband = _detectorSystem.FindContraband(uid, false, SlotFlags.WITHOUT_POCKET);
-        if (contraband is null) // this is stupid but it works
+        
+        if (_detectorSystem.FindContraband(uid, false, SlotFlags.WITHOUT_POCKET) is not {} contraband)
             return;
 
         visible.VisibleItems = contraband.ToHashSet();
