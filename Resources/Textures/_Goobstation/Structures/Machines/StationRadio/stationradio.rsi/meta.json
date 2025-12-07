@@ -1,14 +1,17 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "recolour of the syndicate uplink made by john john",
+  "copyright": "Taken from Unknown, recolored to blue, split the display animation into its own layer by rouden_ (discord)",
     "size": {
         "x": 32,
         "y": 32
     },
   "states": [
     {
-      "name": "radio",
+      "name": "icon"
+    },
+    {
+      "name": "unlit",
       "delays": [
         [
           1.8,

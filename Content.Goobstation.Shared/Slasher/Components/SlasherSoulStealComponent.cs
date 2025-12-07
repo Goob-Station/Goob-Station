@@ -20,19 +20,19 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// Flat slash bonus per alive soul stolen (applied to machete melee and throw).
     /// </summary>
     [DataField]
-    public float AliveBruteBonusPerSoul = 2.5f;
+    public float AliveBruteBonusPerSoul = 2f;
 
     /// <summary>
     /// Flat slash bonus per corpse soul stolen.
     /// </summary>
     [DataField]
-    public float DeadBruteBonusPerSoul = 1.5f;
+    public float DeadBruteBonusPerSoul = 1f;
 
     /// <summary>
-    /// Armor (damage reduction) granted per alive soul.
+    /// Armor (damage reduction) granted per alive soul. Hits max at 15 souls.
     /// </summary>
     [DataField]
-    public float AliveArmorPercentPerSoul = 0.07f;
+    public float AliveArmorPercentPerSoul = 0.058f;
 
     /// <summary>
     /// Armor (damage reduction) granted per dead soul.
@@ -44,7 +44,7 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// Maximum armor (damage reduction) reduction.
     /// </summary>
     [DataField]
-    public float ArmorCap = 0.94f;
+    public float ArmorCap = 0.85f;
 
     /// <summary>
     /// Current total armor reduction (0-1).
@@ -70,10 +70,33 @@ public sealed partial class SlasherSoulStealComponent : Component
                };
 
     /// <summary>
+    /// The sound to play when reaching ascendance.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier AscendanceSound =
+               new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/SlasherAscendance.ogg")
+               {
+                   Params = AudioParams.Default
+                       .WithVolume(-7f)
+               };
+
+    /// <summary>
+    /// Number of total souls required to trigger ascendance.
+    /// </summary>
+    [DataField]
+    public int AscendanceSoulThreshold = 15;
+
+    /// <summary>
+    /// Whether the ascendance event has been triggered.
+    /// </summary>
+    [ViewVariables]
+    public bool HasAscended;
+
+    /// <summary>
     /// Amount of ammonia gas moles to release on successful soul steal.
     /// </summary>
     [DataField]
-    public float MolesAmmonia = 1000f;
+    public float MolesAmmonia = 700f;
 
     /// <summary>
     /// Total alive souls stolen.
@@ -98,4 +121,28 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// </summary>
     [ViewVariables]
     public EntityUid? LastMachete;
+
+    /// <summary>
+    /// How often lights flicker around the ascended slasher.
+    /// </summary>
+    [DataField]
+    public TimeSpan LightFlickerInterval = TimeSpan.FromSeconds(2);
+
+    /// <summary>
+    /// The next time lights should flicker.
+    /// </summary>
+    [ViewVariables]
+    public TimeSpan NextLightFlicker = TimeSpan.Zero;
+
+    /// <summary>
+    /// Radius around the ascended slasher in which lights will flicker.
+    /// </summary>
+    [DataField]
+    public float LightFlickerRadius = 5f;
+
+    /// <summary>
+    /// Maximum number of lights to flicker per interval.
+    /// </summary>
+    [DataField]
+    public int MaxLightsToFlicker = 3;
 }

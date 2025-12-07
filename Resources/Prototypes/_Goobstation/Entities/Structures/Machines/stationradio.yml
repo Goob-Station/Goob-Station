@@ -1,14 +1,32 @@
 - type: entity
   id: VinylPlayer
-  name: Vinyl Player
-  parent: BaseMachinePowered
+  name: vinyl player
+  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
   description: An old school vinyl record player sat on a set of drawers.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/vinylplayer.rsi
-    state: vinylplayer
-    drawdepth: Walls
-  - type: VinylPlayer
+    snapCardinals: true
+    granularLayersRendering: true
+    layers:
+    - state: icon
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    drawdepth: SmallObjects
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.10,0.10,0.10"
+        density: 500
+        mask:
+        - TabletopMachineMask
+        layer:
+        - BulletImpassable
   - type: Destructible
     thresholds:
     - trigger:
@@ -20,6 +38,17 @@
           collection: MetalGlassBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Appearance
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: VinylPlayer
+  - type: ApcPowerReceiver
+    powerLoad: 300 # This is a simple machine
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      vinyl: !type:ContainerSlot
   - type: ItemSlots
     slots:
       vinyl:
@@ -27,26 +56,38 @@
         whitelist:
           components:
           - Vinyl
-  - type: ContainerContainer
-    containers:
-      vinyl: !type:ContainerSlot
-        showEnts: false
-        occludes: true
-        ent: null
+  - type: ItemMapper
+    containerWhitelist: [vinyl]
+    mapLayers:
+      disk_installed:
+        whitelist:
+          components:
+          - Vinyl
+  - type: GenericVisualizer
+    visuals:
+      enum.WiresVisualLayers.MaintenancePanel:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
 
 - type: entity
   id: TapeDeck
   name: tape deck
-  parent: BaseMachinePowered
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   description: An old school tape deck, ready to play the newest podcast made by the crew.
   components:
+  - type: Transform
+    noRot: false
   - type: Sprite
-    offset: 0.83, 0.5
     sprite: _Goobstation/Structures/Machines/StationRadio/tapedeck.rsi
-    state: tapedeck
-    drawdepth: Walls
-  - type: Anchorable
-    delay: 10
+    layers:
+    - state: icon
+    # TODO: unlit & maints panel sprite
+  - type: Rotatable
   - type: TapeRecorder
   - type: ActiveListener
     range: 4
@@ -62,6 +103,8 @@
           - FitsInTapeRecorder
   - type: ContainerContainer
     containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
       cassette_tape: !type:ContainerSlot
   - type: ActivatableUI
     key: enum.TapeRecorderUIKey.Key
@@ -69,35 +112,16 @@
     interfaces:
       enum.TapeRecorderUIKey.Key:
         type: TapeRecorderBoundUserInterface
-  - type: Physics
-    bodyType: Static
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "0.5,-0.5,1.2,1.3"
-        density: 20
-        mask:
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        hard: true
 
 - type: entity
   id: StationRadioServer
   name: station radio server
-  parent: BaseMachinePowered
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   description: A rack of servers, controls whether your voice is being broadcasted or not
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
     state: broadcastradio
-    drawdepth: Walls
   - type: Anchorable
     delay: 10
   - type: TelecomExempt
@@ -108,14 +132,13 @@
 
 - type: entity
   id: StationRadioRig
-  parent: BaseMachinePowered
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: station radio rig
   description: A collection of everything you need to play music over the station, has a slot for Cds and vinyls.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/radiostationrig.rsi
     state: stationradiosetup
-    drawdepth: Walls
   - type: Anchorable
     delay: 10
 
@@ -131,20 +154,35 @@
 
 - type: entity
   id: StationRadioReceiver
-  name: Station Radio
-  parent: BaseMachinePowered
+  name: station radio
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   description: Listen to the top hits of your stations local radio.
   components:
   - type: StationRadioReceiver
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/stationradio.rsi
-    state: radio
+    layers:
+    - state: icon
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
     drawdepth: SmallObjects
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.10,0.10,0.10"
+        density: 500
+        mask:
+        - TabletopMachineMask
+        layer:
+        - BulletImpassable
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 80
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -169,51 +207,59 @@
   id: CrateRadioStationAds
   parent: CrateGenericSteel
   name: ads crate
-  description: A whole crate which sole purpose is to store ads, aint capitalism great?
+  description: A whole crate which sole purpose is to store 6 exclusive ads, aint capitalism great?
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: RandomVinylDisk
+        rolls: 6
+
+- type: entityTable
+  id: RandomVinylDisk
+  table: !type:GroupSelector
+    children:
     - id: CdDiskDanitosBurritos
-      prob: 0.6
+      weight: 0.6
     - id: CdDiskBillMovie
-      prob: 0.6
+      weight: 0.6
     - id: CdDiskCapTraining
-      prob: 0.6
+      weight: 0.6
     - id: CdDiskCargonia
-      prob: 0.6
+      weight: 0.6
     - id: CdDiskChemistry
-      prob: 0.6
+      weight: 0.6
     - id: CdDiskCloningPsa
-      prob: 0.6
+      weight: 0.6
     - id: CdDiskDansTickets
-      prob: 0.6
+      weight: 0.6
     - id: CdDiskGrones
-      prob: 0.6
+      weight: 0.6
     - id: CdDiskPopeCrunchCereal
-      prob: 0.6
+      weight: 0.6
     - id: CdDiskQuikNoodles
-      prob: 0.6
+      weight: 0.6
     - id: CdDiskRobotics
-      prob: 0.6
+      weight: 0.6
     - id: CdDiskSecurityPsa
-      prob: 0.6
+      weight: 0.6
     - id: CdDiskCommanderAnnouncement
-      prob: 0.2
+      weight: 0.2
     - id: CdDiskCommanderFigurines
-      prob: 0.2
+      weight: 0.2
     - id: CdDiskCommanderResignation
-      prob: 0.2
+      weight: 0.2
     - id: CdDiskCommanderSupport
-      prob: 0.2
+      weight: 0.2
     - id: CdDiskHeisenbeeTrial
-      prob: 0.2
+      weight: 0.2
     - id: CdDiskXgOnboarding1
-      prob: 0.1
+      weight: 0.1
     - id: CdDiskXgOnboarding2
-      prob: 0.1
+      weight: 0.1
     - id: CdDiskXgOnboarding3
-      prob: 0.1
+      weight: 0.1
     - id: CdDiskXgOnboarding4
-      prob: 0.1
+      weight: 0.1
     - id: VinylDiskForgotten
-      prob: 0.05
+      weight: 0.05

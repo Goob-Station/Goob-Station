@@ -1,9 +1,9 @@
 - type: entity
-  abstract: true
   name: cd disk
-  id: BaseCdDisk
   description: A cd disk, usually contains ads.
+  id: BaseCdDisk
   parent: BaseItem
+  abstract: true
   components:
   - type: Vinyl
   - type: Sprite
@@ -26,7 +26,7 @@
 
 - type: entity
   parent: BaseCdDisk
-  name: "cd disk: Danitos Burritos"
+  name: cd disk (Danitos Burritos)
   id: CdDiskDanitosBurritos
   components:
   - type: Vinyl
@@ -35,7 +35,7 @@
 
 - type: entity
   parent: BaseCdDisk
-  name: "cd disk: bill movie"
+  name: cd disk (bill movie)
   id: CdDiskBillMovie
   components:
   - type: Vinyl
@@ -44,7 +44,7 @@
 
 - type: entity
   parent: BaseCdDisk
-  name: "cd disk: captain training PSA"
+  name: cd disk (captain training PSA)
   id: CdDiskCapTraining
   components:
   - type: Vinyl
@@ -53,7 +53,7 @@
 
 - type: entity
   parent: BaseCdDisk
-  name: "cd disk: Cargonia"
+  name: cd disk (Cargonia)
   id: CdDiskCargonia
   components:
   - type: Vinyl
@@ -62,7 +62,7 @@
 
 - type: entity
   parent: BaseCdDisk
-  name: "cd disk: Chemistry"
+  name: cd disk (Chemistry)
   id: CdDiskChemistry
   components:
   - type: Vinyl
@@ -71,7 +71,7 @@
 
 - type: entity
   parent: BaseCdDisk
-  name: "cd disk: cloning PSA"
+  name: cd disk (cloning PSA)
   id: CdDiskCloningPsa
   components:
   - type: Vinyl
@@ -80,7 +80,7 @@
 
 - type: entity
   parent: BaseCdDisk
-  name: "cd disk: Dans Tickets"
+  name: cd disk (Dans Tickets)
   id: CdDiskDansTickets
   components:
   - type: Vinyl
@@ -89,7 +89,7 @@
 
 - type: entity
   parent: BaseCdDisk
-  name: "cd disk: grones"
+  name: cd disk (grones)
   id: CdDiskGrones
   components:
   - type: Vinyl
@@ -98,7 +98,7 @@
 
 - type: entity
   parent: BaseCdDisk
-  name: "cd disk: Pope Crunch Cereal"
+  name: cd disk (Pope Crunch Cereal)
   id: CdDiskPopeCrunchCereal
   components:
   - type: Vinyl
@@ -107,7 +107,7 @@
 
 - type: entity
   parent: BaseCdDisk
-  name: "cd disk: Quik Noodles"
+  name: cd disk (Quik Noodles)
   id: CdDiskQuikNoodles
   components:
   - type: Vinyl
@@ -116,7 +116,7 @@
 
 - type: entity
   parent: BaseCdDisk
-  name: "cd disk: robotics"
+  name: cd disk (robotics)
   id: CdDiskRobotics
   components:
   - type: Vinyl
@@ -125,7 +125,7 @@
 
 - type: entity
   parent: BaseCdDisk
-  name: "cd disk: security psa"
+  name: cd disk (security psa)
   id: CdDiskSecurityPsa
   components:
   - type: Vinyl
@@ -143,7 +143,7 @@
 
 - type: entity
   parent: CdDiskWeird
-  name: "cd disk: commander announcement"
+  name: cd disk (commander announcement)
   id: CdDiskCommanderAnnouncement
   components:
   - type: Vinyl
@@ -152,7 +152,7 @@
 
 - type: entity
   parent: CdDiskWeird
-  name: "cd disk: commander figurines"
+  name: cd disk (commander figurines)
   id: CdDiskCommanderFigurines
   components:
   - type: Vinyl
@@ -161,7 +161,7 @@
 
 - type: entity
   parent: CdDiskWeird
-  name: "cd disk: commander resignation"
+  name: cd disk (commander resignation)
   id: CdDiskCommanderResignation
   components:
   - type: Vinyl
@@ -170,7 +170,7 @@
 
 - type: entity
   parent: CdDiskWeird
-  name: "cd disk: commander support"
+  name: cd disk (commander support)
   id: CdDiskCommanderSupport
   components:
   - type: Vinyl
@@ -179,7 +179,7 @@
 
 - type: entity
   parent: CdDiskWeird
-  name: "cd disk: trial of Heisenbee"
+  name: cd disk (trial of Heisenbee)
   id: CdDiskHeisenbeeTrial
   components:
   - type: Vinyl
@@ -188,7 +188,7 @@
 
 - type: entity
   parent: CdDiskWeird
-  name: "cd disk: xg onboarding 1"
+  name: cd disk (xg onboarding 1)
   id: CdDiskXgOnboarding1
   components:
   - type: Vinyl
@@ -197,7 +197,7 @@
 
 - type: entity
   parent: CdDiskWeird
-  name: "cd disk: xg onboarding 2"
+  name: cd disk (xg onboarding 2)
   id: CdDiskXgOnboarding2
   components:
   - type: Vinyl
@@ -206,7 +206,7 @@
 
 - type: entity
   parent: CdDiskWeird
-  name: "cd disk: xg onboarding 3"
+  name: cd disk (xg onboarding 3)
   id: CdDiskXgOnboarding3
   components:
   - type: Vinyl
@@ -216,7 +216,7 @@
 
 - type: entity
   parent: CdDiskWeird
-  name: "cd disk: xg onboarding 4"
+  name: cd disk (xg onboarding 4)
   id: CdDiskXgOnboarding4
   components:
   - type: Vinyl
