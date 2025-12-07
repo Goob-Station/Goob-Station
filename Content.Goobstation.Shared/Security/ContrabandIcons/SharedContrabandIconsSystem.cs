@@ -35,13 +35,13 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
 
     protected void CheckAllContra(EntityUid uid)
     {
-        uid = GetHighestContainerOwner(uid);
+        GetHighestContainerOwner(ref uid);
 
         if (!_visibleContrabandQuery.TryComp(uid, out var visible))
             return;
 
         var contraband = _detectorSystem.FindContraband(uid, false, SlotFlags.WITHOUT_POCKET);
-        if (contraband == null) // this is stupid but it works
+        if (contraband is null) // this is stupid but it works
             return;
 
         visible.VisibleItems = contraband.ToHashSet();
@@ -60,13 +60,11 @@ public abstract class SharedContrabandIconsSystem : EntitySystem
             Dirty(uid, comp);
     }
 
-    private EntityUid GetHighestContainerOwner(EntityUid uid)
+    private void GetHighestContainerOwner(ref EntityUid uid)
     {
         while (_inventory.TryGetContainingEntity(uid, out var containerEntity))
         {
             uid = containerEntity.Value;
         }
-
-        return uid;
     }
 }
