@@ -43,7 +43,7 @@
   - type: WiresVisuals
   - type: VinylPlayer
   - type: Machine
-    board: InteractorCircuitboard
+    board: VinylPlayerCircuitboard
   - type: ApcPowerReceiver
     powerLoad: 300 # This is a simple machine
   - type: ContainerContainer

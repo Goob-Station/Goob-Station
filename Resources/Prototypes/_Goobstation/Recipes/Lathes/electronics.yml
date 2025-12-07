@@ -123,3 +123,35 @@
     sprite:  _Goobstation/Structures/Machines/comms_transmitter.rsi
     state: base
   result: TelecomTransmitterCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: VinylPlayerCircuitboard
+  icon:
+    sprite:  _Goobstation/Structures/Machines/StationRadio/vinylplayer.rsi
+    state: icon
+  result: VinylPlayerCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: TapeDeckCircuitboard
+  icon:
+    sprite:  _Goobstation/Structures/Machines/StationRadio/tapedeck.rsi
+    state: icon
+  result: TapeDeckCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: StationRadioServerCircuitboard
+  icon:
+    sprite:  _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
+    state: broadcastradio
+  result: StationRadioServerCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: StationRadioRigCircuitboardS
+  icon:
+    sprite:  _Goobstation/Structures/Machines/StationRadio/radiostationrig.rsi
+    state: stationradiosetup
+  result: StationRadioRigCircuitboard
