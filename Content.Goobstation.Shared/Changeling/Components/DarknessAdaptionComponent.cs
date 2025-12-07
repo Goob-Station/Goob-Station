@@ -23,12 +23,6 @@ public sealed partial class DarknessAdaptionComponent : Component
     public bool AlertDisplayed;
 
     /// <summary>
-    /// Was the chemical modifier applied?
-    /// </summary>
-    [DataField]
-    public bool ModifierApplied;
-
-    /// <summary>
     /// The modifier to be applied to a changeling's chemical generation multiplier
     /// </summary>
     [DataField]
@@ -59,6 +53,12 @@ public sealed partial class DarknessAdaptionComponent : Component
     /// </summary>
     [DataField]
     public bool Active;
+
+    /// <summary>
+    /// Is the darkness being adapted to?
+    /// </summary>
+    [DataField]
+    public bool Adapting;
 
     /// <summary>
     /// The visibility to be set for the stealth component.

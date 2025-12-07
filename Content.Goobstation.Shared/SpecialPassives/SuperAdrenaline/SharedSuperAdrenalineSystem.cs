@@ -44,7 +44,7 @@ public sealed class SharedSuperAdrenalineSystem : EntitySystem
         _sleepingQuery = GetEntityQuery<SleepingComponent>();
 
         SubscribeLocalEvent<SuperAdrenalineComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<SuperAdrenalineComponent, ComponentRemove>(OnRemoved);
+        SubscribeLocalEvent<SuperAdrenalineComponent, ComponentShutdown>(OnShutdown);
 
         SubscribeLocalEvent<SuperAdrenalineComponent, BeforeStunEvent>(OnAttemptStun);
         SubscribeLocalEvent<SuperAdrenalineComponent, BeforeKnockdownEvent>(OnAttemptKnockdown);
@@ -61,7 +61,16 @@ public sealed class SharedSuperAdrenalineSystem : EntitySystem
         ent.Comp.UpdateTimer = _timing.CurTime + ent.Comp.UpdateDelay;
 
         if (ent.Comp.Duration.HasValue)
+        {
             ent.Comp.MaxDuration = _timing.CurTime + TimeSpan.FromSeconds((double) ent.Comp.Duration);
+
+            if (ent.Comp.AlertId != null)
+                _alerts.ShowAlert(
+                    ent,
+                    (ProtoId<AlertPrototype>) ent.Comp.AlertId,
+                    cooldown: (_timing.CurTime, _timing.CurTime + TimeSpan.FromSeconds((double) ent.Comp.Duration)),
+                    autoRemove: true);
+        }
 
         if (_mobstateQuery.TryComp(ent, out var state))
             ent.Comp.Mobstate = state.CurrentState;
@@ -110,7 +119,7 @@ public sealed class SharedSuperAdrenalineSystem : EntitySystem
         Cycle(ent);
     }
 
-    private void OnRemoved(Entity<SuperAdrenalineComponent> ent, ref ComponentRemove args)
+    private void OnShutdown(Entity<SuperAdrenalineComponent> ent, ref ComponentShutdown args)
     {
         if (ent.Comp.AlertId != null)
             _alerts.ClearAlert(ent, (ProtoId<AlertPrototype>) ent.Comp.AlertId); // incase there was still time left on removal

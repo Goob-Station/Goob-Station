@@ -65,8 +65,6 @@
   - StutteringAccent
   # <Goobstation>
   - Heretic
-  - Changeling
-  - ChangelingIdentity # the actual ling component
   - WeakToHoly
   - CanEnchant
   - Store # needed for heretic and any other antags with an intrinsic store, IDEALLY this would be on the mind
@@ -91,6 +89,11 @@
   - HeadRevolutionary
   - Revolutionary
   - NukeOperative
+  # goobstation start
+  - Changeling
+  - ChangelingIdentity
+  - ChangelingChemical
+  # goobstation end
   forceCloning: true # Goob - IPC/Vox cloning for paradox ghostrole
 
 # for cloning pods

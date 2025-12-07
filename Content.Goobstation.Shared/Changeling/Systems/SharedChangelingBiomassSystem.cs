@@ -35,7 +35,6 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
     private EntityQuery<AbsorbedComponent> _absorbQuery;
     private EntityQuery<BloodstreamComponent> _bloodQuery;
-    private EntityQuery<ChangelingIdentityComponent> _lingQuery;
 
     public override void Initialize()
     {
@@ -43,12 +42,12 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
         _absorbQuery = GetEntityQuery<AbsorbedComponent>();
         _bloodQuery = GetEntityQuery<BloodstreamComponent>();
-        _lingQuery = GetEntityQuery<ChangelingIdentityComponent>();
 
         SubscribeLocalEvent<ChangelingBiomassComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<ChangelingBiomassComponent, ComponentRemove>(OnRemoved);
+        SubscribeLocalEvent<ChangelingBiomassComponent, ComponentShutdown>(OnShutdown);
 
         SubscribeLocalEvent<ChangelingBiomassComponent, RejuvenateEvent>(OnRejuvenate);
+        SubscribeLocalEvent<ChangelingBiomassComponent, ChangelingChemicalRegenEvent>(OnChangelingChemicalRegenEvent);
     }
 
     private void OnMapInit(Entity<ChangelingBiomassComponent> ent, ref MapInitEvent args)
@@ -59,18 +58,12 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
         ent.Comp.SecondWarnThreshold = ent.Comp.MaxBiomass * 0.5f;
         ent.Comp.ThirdWarnThreshold = ent.Comp.MaxBiomass * 0.25f;
 
-        if (_lingQuery.TryComp(ent, out var ling))
-            ling.ChemicalRegenMultiplier += ent.Comp.ChemicalBoost;
-
         Cycle(ent);
     }
 
-    private void OnRemoved(Entity<ChangelingBiomassComponent> ent, ref ComponentRemove args)
+    private void OnShutdown(Entity<ChangelingBiomassComponent> ent, ref ComponentShutdown args)
     {
         _alerts.ClearAlert(ent, ent.Comp.AlertId);
-
-        if (_lingQuery.TryComp(ent, out var ling))
-            ling.ChemicalRegenMultiplier -= ent.Comp.ChemicalBoost;
     }
 
     public override void Update(float frameTime)
@@ -196,6 +189,11 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
     #endregion
 
     #region Event Handlers
+    private void OnChangelingChemicalRegenEvent(Entity<ChangelingBiomassComponent> ent, ref ChangelingChemicalRegenEvent args)
+    {
+        args.Modifier += ent.Comp.ChemicalBoost;
+    }
+
     private void OnRejuvenate(Entity<ChangelingBiomassComponent> ent, ref RejuvenateEvent args)
     {
         ent.Comp.Biomass = ent.Comp.MaxBiomass;

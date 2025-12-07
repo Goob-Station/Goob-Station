@@ -37,9 +37,4 @@ public abstract class SharedChangelingSystem : EntitySystem
         // old ling cells are very confused by the new friend
         Body.GibBody(ent);
     }
-
-    public virtual void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null)
-    {
-
-    }
 }

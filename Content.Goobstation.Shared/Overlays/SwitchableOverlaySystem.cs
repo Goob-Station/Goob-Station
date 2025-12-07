@@ -138,9 +138,6 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem // t
         if (component is ThermalVisionComponent thermal)
             thermal.LightRadius = state.LightRadius;
 
-        if (component is NightVisionComponent night)
-            night.LightRadius = state.LightRadius;
-
         if (component.IsActive == state.IsActive)
             return;
 

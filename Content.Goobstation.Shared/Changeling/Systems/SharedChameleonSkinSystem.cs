@@ -14,11 +14,11 @@ public sealed partial class SharedChameleonSkinSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedChangelingSystem _lingSys = default!;
+    [Dependency] private readonly SharedChangelingChemicalSystem _lingChem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
 
-    private EntityQuery<ChangelingIdentityComponent> _lingQuery;
+    private EntityQuery<ChangelingChemicalComponent> _chemQuery;
     private EntityQuery<DarknessAdaptionComponent> _darkadaptQuery;
     private EntityQuery<StealthComponent> _stealthQuery;
 
@@ -26,7 +26,7 @@ public sealed partial class SharedChameleonSkinSystem : EntitySystem
     {
         base.Initialize();
 
-        _lingQuery = GetEntityQuery<ChangelingIdentityComponent>();
+        _chemQuery = GetEntityQuery<ChangelingChemicalComponent>();
         _darkadaptQuery = GetEntityQuery<DarknessAdaptionComponent>();
         _stealthQuery = GetEntityQuery<StealthComponent>();
 
@@ -54,11 +54,11 @@ public sealed partial class SharedChameleonSkinSystem : EntitySystem
     private void OnToggleAbility(Entity<ChameleonSkinComponent> ent, ref ActionChameleonSkinEvent args)
     {
         // cancel and refund if darkness adaption is active (prevents issues)
-        if (_lingQuery.TryComp(ent, out var ling)
+        if (_chemQuery.TryComp(ent, out var chem)
             && _darkadaptQuery.TryComp(ent, out var dark)
             && dark.Active)
         {
-            _lingSys.UpdateChemicals(ent, ling, Comp<ChangelingActionComponent>(args.Action).ChemicalCost);
+            _lingChem.UpdateChemicals((ent, chem), Comp<ChangelingActionComponent>(args.Action).ChemicalCost);
             return;
         }
 

@@ -38,6 +38,7 @@ using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
+using Content.Goobstation.Shared.Changeling;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
@@ -158,6 +159,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
+    [Dependency] private readonly SharedChangelingChemicalSystem _chems = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -265,27 +267,15 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     }
     public void Cycle(EntityUid uid, ChangelingIdentityComponent comp)
     {
-        RegenerateChemicals(uid, comp);
         UpdateAbilities(uid, comp);
     }
 
-    private void RegenerateChemicals(EntityUid uid, ChangelingIdentityComponent comp) // this happens passively
+    public void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null)
     {
-        var fireMult = CheckFireStatus(uid) ? comp.FireChemicalMultiplier : 1f;
-        var amount = (comp.ChemicalRegenAmount + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier * fireMult;
+        if (!TryComp<ChangelingChemicalComponent>(uid, out var chemical))
+            return;
 
-        UpdateChemicals(uid, comp, amount);
-    }
-
-    public override void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null)
-    {
-        var chemicals = comp.Chemicals;
-
-        chemicals += amount ?? 0;
-        comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
-
-        Dirty(uid, comp);
-        _alerts.ShowAlert(uid, "ChangelingChemicals");
+        _chems.UpdateChemicals((uid, chemical), amount);
     }
 
     private void UpdateAbilities(EntityUid uid, ChangelingIdentityComponent comp)
@@ -404,7 +394,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (action.Handled)
             return false;
 
-        if (!TryComp<ChangelingActionComponent>(action.Action, out var lingAction))
+        if (!TryComp<ChangelingActionComponent>(action.Action, out var lingAction)
+            || !TryComp<ChangelingChemicalComponent>(uid, out var chemComp))
             return false;
 
         if (CheckFireStatus(uid) && fireAffected) // checks if the changeling is on fire, and if the ability is affected by fire
@@ -422,7 +413,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         var chemCost = chemCostOverride ?? lingAction.ChemicalCost;
 
-        if (comp.Chemicals < chemCost)
+        if (chemComp.Chemicals < chemCost)
         {
             _popup.PopupEntity(Loc.GetString("changeling-chemicals-deficit"), uid, uid);
             return false;
@@ -628,6 +619,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     {
         typeof(AugmentedEyesightComponent),
         typeof(ChangelingBiomassComponent),
+        typeof(ChangelingChemicalComponent),
         typeof(ChameleonSkinComponent),
         typeof(DarknessAdaptionComponent),
         typeof(VoidAdaptionComponent),
@@ -641,9 +633,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         newComp.AbsorbedHistory = comp.AbsorbedHistory;
         newComp.AbsorbedDNA = comp.AbsorbedDNA;
         newComp.AbsorbedDNAIndex = comp.AbsorbedDNAIndex;
-
-        newComp.Chemicals = comp.Chemicals;
-        newComp.MaxChemicals = comp.MaxChemicals;
 
         newComp.IsInLesserForm = comp.IsInLesserForm;
         newComp.IsInLastResort = comp.IsInLastResort;
@@ -821,17 +810,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         foreach (var actionId in comp.BaseChangelingActions)
             _actions.AddAction(uid, actionId);
 
-        // making sure things are right in this world
-        comp.Chemicals = comp.MaxChemicals;
-
         // make sure its set to the default
         comp.TotalEvolutionPoints = _changelingRuleSystem.StartingCurrency;
 
         // don't want instant stasis
         comp.StasisTime = comp.DefaultStasisTime;
 
-        // show alerts
-        UpdateChemicals(uid, comp, 0);
         // make their blood unreal
         _blood.ChangeBloodReagent(uid, "BloodChangeling");
     }
@@ -896,11 +880,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             ent.Comp.StasisTime = ent.Comp.DefaultStasisTime;
 
             _mobState.UpdateMobState(ent);
-        }
-        else
-        {
-            UpdateChemicals(ent, ent.Comp, ent.Comp.MaxChemicals); // only by admin rejuv, for testing and whatevs
-            _popup.PopupEntity(Loc.GetString("changeling-rejuvenate"), ent, ent); // woah...
         }
     }
     #endregion

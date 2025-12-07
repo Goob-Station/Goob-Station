@@ -23,7 +23,6 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
 
-    private EntityQuery<ChangelingIdentityComponent> _lingQuery;
     private EntityQuery<ChameleonSkinComponent> _chameleonQuery;
     private EntityQuery<NightVisionComponent> _nvgQuery;
     private EntityQuery<StealthOnMoveComponent> _stealthOnMoveQuery;
@@ -32,7 +31,6 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
     {
         base.Initialize();
 
-        _lingQuery = GetEntityQuery<ChangelingIdentityComponent>();
         _chameleonQuery = GetEntityQuery<ChameleonSkinComponent>();
         _nvgQuery = GetEntityQuery<NightVisionComponent>();
         _stealthOnMoveQuery = GetEntityQuery<StealthOnMoveComponent>();
@@ -41,6 +39,7 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
         SubscribeLocalEvent<DarknessAdaptionComponent, ComponentShutdown>(OnShutdown);
 
         SubscribeLocalEvent<DarknessAdaptionComponent, ActionDarknessAdaptionEvent>(OnToggleAbility);
+        SubscribeLocalEvent<DarknessAdaptionComponent, ChangelingChemicalRegenEvent>(OnChangelingChemicalRegenEvent);
     }
 
     private void OnMapInit(Entity<DarknessAdaptionComponent> ent, ref MapInitEvent args)
@@ -57,7 +56,7 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
     {
         HandleSpecialComponents(ent);
         HandleAlerts(ent, false);
-        SetChemicalModifier(ent, false);
+        SetAdaptingBool(ent, false);
 
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
     }
@@ -79,6 +78,13 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
             EnsureComp<LightDetectionComponent>(ent);
 
         DoPopup(ent, popup);
+    }
+
+    private void OnChangelingChemicalRegenEvent(Entity<DarknessAdaptionComponent> ent, ref ChangelingChemicalRegenEvent args)
+    {
+        if (ent.Comp.Active
+            && ent.Comp.Adapting)
+            args.Modifier -= ent.Comp.ChemicalModifier;
     }
     #endregion
 
@@ -109,7 +115,7 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
             RemComp<NightVisionComponent>(ent);
         }
 
-        SetChemicalModifier(ent, adapting);
+        SetAdaptingBool(ent, adapting);
     }
 
     private void HandleAlerts(Entity<DarknessAdaptionComponent> ent, bool show)
@@ -149,33 +155,14 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString(popup), ent, ent);
     }
 
-    private void SetChemicalModifier(Entity<DarknessAdaptionComponent> ent, bool adapting)
+    private void SetAdaptingBool(Entity<DarknessAdaptionComponent> ent, bool adapting)
     {
-        if (!_lingQuery.TryComp(ent, out var ling))
-            return;
+        if (adapting)
+            ent.Comp.Adapting = true;
 
-        if (!ent.Comp.ModifierApplied // adapting
-            && adapting)
-        {
-            ent.Comp.ModifierApplied = true;
-            ling.ChemicalRegenMultiplier -= ent.Comp.ChemicalModifier;
-        }
-
-        if (ent.Comp.ModifierApplied // not adapting
-            && !adapting)
-        {
-            ent.Comp.ModifierApplied = false;
-            ling.ChemicalRegenMultiplier += ent.Comp.ChemicalModifier;
-        }
-
-        if (!ent.Comp.Active // disabled
-            && ent.Comp.ModifierApplied)
-        {
-            ent.Comp.ModifierApplied = false;
-            ling.ChemicalRegenMultiplier += ent.Comp.ChemicalModifier;
-        }
-
-        Dirty(ent, ling);
+        else if (!ent.Comp.Active
+            || !adapting)
+            ent.Comp.Adapting = false;
     }
 
     private void EnsureAndSetStealth(Entity<DarknessAdaptionComponent> ent)

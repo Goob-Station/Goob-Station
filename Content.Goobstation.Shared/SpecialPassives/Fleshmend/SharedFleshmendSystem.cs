@@ -47,7 +47,7 @@ public sealed class SharedFleshmendSystem : EntitySystem
         _mobstateQuery = GetEntityQuery<MobStateComponent>();
 
         SubscribeLocalEvent<FleshmendComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<FleshmendComponent, ComponentRemove>(OnRemoved);
+        SubscribeLocalEvent<FleshmendComponent, ComponentShutdown>(OnShutdown);
 
         SubscribeLocalEvent<FleshmendComponent, MobStateChangedEvent>(OnMobStateChange);
     }
@@ -57,7 +57,16 @@ public sealed class SharedFleshmendSystem : EntitySystem
         ent.Comp.UpdateTimer = _timing.CurTime + ent.Comp.UpdateDelay;
 
         if (ent.Comp.Duration.HasValue)
+        {
             ent.Comp.MaxDuration = _timing.CurTime + TimeSpan.FromSeconds((double) ent.Comp.Duration);
+
+            if (ent.Comp.AlertId != null)
+                _alerts.ShowAlert(
+                    ent,
+                    (ProtoId<AlertPrototype>) ent.Comp.AlertId,
+                    cooldown: (_timing.CurTime, _timing.CurTime + TimeSpan.FromSeconds((double) ent.Comp.Duration)),
+                    autoRemove: true);
+        }
 
         if (_mobstateQuery.TryComp(ent, out var state))
             ent.Comp.Mobstate = state.CurrentState;
@@ -65,7 +74,7 @@ public sealed class SharedFleshmendSystem : EntitySystem
         Cycle(ent);
     }
 
-    private void OnRemoved(Entity<FleshmendComponent> ent, ref ComponentRemove args)
+    private void OnShutdown(Entity<FleshmendComponent> ent, ref ComponentShutdown args)
     {
         if (!_netManager.IsClient) // it'll throw a warning otherwise
             RemoveFleshmendEffects(ent);

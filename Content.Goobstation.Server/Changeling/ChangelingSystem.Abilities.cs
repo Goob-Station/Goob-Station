@@ -182,7 +182,10 @@ public sealed partial class ChangelingSystem
 
         var target = args.Args.Target.Value;
 
-        if (args.Cancelled || HasComp<AbsorbedComponent>(target) || (!IsIncapacitated(target) && !IsHardGrabbed(target)))
+        if (args.Cancelled
+            || HasComp<AbsorbedComponent>(target)
+            || (!IsIncapacitated(target) && !IsHardGrabbed(target))
+            || !TryComp<ChangelingChemicalComponent>(uid, out var chemComp))
             return;
 
         PlayMeatySound(args.User, comp);
@@ -203,10 +206,11 @@ public sealed partial class ChangelingSystem
         var biomassMaxIncrease = 0f;
         var biomassValid = false;
 
-        if (TryComp<ChangelingIdentityComponent>(target, out var targetComp))
+        if (TryComp<ChangelingIdentityComponent>(target, out var targetComp)
+            && TryComp<ChangelingChemicalComponent>(target, out var targetChemComp))
         {
             popup = Loc.GetString("changeling-absorb-end-self-ling");
-            bonusChemicals += targetComp.MaxChemicals / 2;
+            bonusChemicals += targetChemComp.MaxChemicals / 2;
             bonusEvolutionPoints += targetComp.TotalEvolutionPoints / 2;
             bonusChangelingAbsorbs += targetComp.TotalChangelingsAbsorbed + 1;
 
@@ -242,7 +246,7 @@ public sealed partial class ChangelingSystem
         TryStealDNA(uid, target, comp, objBool);
 
         _popup.PopupEntity(popup, args.User, args.User);
-        comp.MaxChemicals += bonusChemicals;
+        chemComp.MaxChemicals += bonusChemicals;
 
         if (TryComp<StoreComponent>(args.User, out var store))
         {
@@ -261,7 +265,7 @@ public sealed partial class ChangelingSystem
                 lingAbsorbObj.LingAbsorbed += absorbed.TotalChangelingsAbsorbed + 1;
         }
 
-        UpdateChemicals(uid, comp, comp.MaxChemicals); // refill chems to max
+        UpdateChemicals(uid, comp, chemComp.MaxChemicals); // refill chems to max
 
         // modify biomass if the changeling uses it
         if (TryComp<ChangelingBiomassComponent>(uid, out var biomass)
@@ -747,12 +751,6 @@ public sealed partial class ChangelingSystem
         panacea.Duration = args.Duration;
 
         AddComp(uid, panacea, true);
-
-        _alerts.ShowAlert(
-            uid,
-            args.Alert,
-            cooldown: (_timing.CurTime, _timing.CurTime + TimeSpan.FromSeconds(args.Duration)),
-            autoRemove: true);
     }
     public void OnBiodegrade(EntityUid uid, ChangelingIdentityComponent comp, ref ActionBiodegradeEvent args)
     {
@@ -813,12 +811,6 @@ public sealed partial class ChangelingSystem
         adrenaline.PassiveDamage = args.PassiveDamage;
 
         AddComp(uid, adrenaline, true);
-
-        _alerts.ShowAlert(
-            uid,
-            args.Alert,
-            cooldown: (_timing.CurTime, _timing.CurTime + TimeSpan.FromSeconds(args.Duration)),
-            autoRemove: true);
     }
     // john space made me do this
     public void OnHealUltraSwag(EntityUid uid, ChangelingIdentityComponent comp, ref ActionFleshmendEvent args)
@@ -836,12 +828,6 @@ public sealed partial class ChangelingSystem
         fleshmend.EffectState = args.EffectState;
 
         AddComp(uid, fleshmend, true);
-
-        _alerts.ShowAlert(
-            uid,
-            args.Alert,
-            cooldown: (_timing.CurTime, _timing.CurTime + TimeSpan.FromSeconds(args.Duration)),
-            autoRemove: true);
     }
     public void OnLastResort(EntityUid uid, ChangelingIdentityComponent comp, ref ActionLastResortEvent args)
     {
