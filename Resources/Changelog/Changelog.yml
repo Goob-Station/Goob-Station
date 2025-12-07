@@ -4496,3 +4496,15 @@ Entries:
   id: 9259
   time: '2025-12-06T20:52:51.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/37551
+- author: Beck
+  changes:
+  - message: The voice mask can no longer be purchased in the uplink.
+    type: Remove
+  - message: You can now purchase a voice mask implanter for 2 TC in the uplink!
+    type: Add
+  - message: The thief communicator kit now comes with a voice implanter rather than
+      voice mask!
+    type: Tweak
+  id: 9260
+  time: '2025-12-07T02:48:06.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41551
