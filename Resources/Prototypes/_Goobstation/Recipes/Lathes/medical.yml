@@ -49,6 +49,13 @@
     Plasma: 250
 
 - type: latheRecipe
+  id: TinfoilHats
+  result: ClothingHeadHatTinfoilHat
+  completetime: 5
+  materials:
+    Steel: 500
+
+- type: latheRecipe
   id: SyringeGun
   result: SyringeGun
   completetime: 5

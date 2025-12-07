@@ -641,6 +641,12 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> BleedMultiplier =
         CVarDef.Create("medical.bloodloss_multiplier", 4.0f, CVar.SERVER);
 
+    /// <summary>
+    /// Enable admin notification sounds
+    /// </summary>
+    public static readonly CVarDef<float> AdminNotificationVolume =
+        CVarDef.Create("admin.notification_volume", 1f, CVar.CLIENT | CVar.CLIENTONLY | CVar.ARCHIVE);
+
     #endregion
     /// <summary>
     /// Enables or disables contraband icons.
