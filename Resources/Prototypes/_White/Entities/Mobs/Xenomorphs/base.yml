@@ -163,7 +163,7 @@
   abstract: true
   components:
   - type: Prying #Switched from Tools component to this
-    speedModifier: 2.5 #goob
+    speedModifier: 5 #goob
     pryPowered: true
   - type: ComplexInteraction
   - type: Hands
