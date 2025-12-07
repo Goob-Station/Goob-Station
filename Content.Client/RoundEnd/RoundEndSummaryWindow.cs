@@ -57,7 +57,9 @@ using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 // Goob Station - End of Round Screen
 using Content.Client.Stylesheets;
+using Content.Goobstation.Common.StationReport;
 using Content.Shared.Mobs;
+using Content.Shared.Paper;
 
 namespace Content.Client.RoundEnd
 {
@@ -371,11 +373,20 @@ namespace Content.Client.RoundEnd
 
             return playerManifestTab;
         }
-        private BoxContainer MakeStationReportTab()
+        private BoxContainer MakeStationReportTab() // Goobstation tab
         {
-            //gets the stationreport varibible and sets the station report tab text to it if the map doesn't have a tablet will say No station report submitted
-            var stationReportSystem = _entityManager.System<Content.Goobstation.Common.StationReport.StationReportSystem>();
-            string stationReportText = stationReportSystem.StationReportText ?? Loc.GetString("no-station-report-summited");
+            // Searches for the station report, if it's not null set it to whatever the content is on the paper
+            string stationReportText = Loc.GetString("no-station-report-summited");
+            var query = _entityManager.EntityQueryEnumerator<StationReportComponent>();
+            while (query.MoveNext(out var uid, out _))
+            {
+                if (!_entityManager.TryGetComponent<PaperComponent>(uid, out var paper) || string.IsNullOrWhiteSpace(paper.Content) || paper.Content == Loc.GetString("station-report-text"))
+                    stationReportText = Loc.GetString("no-station-report-summited");
+
+                if (paper != null && paper.Content != Loc.GetString("station-report-text"))
+                    stationReportText = Loc.GetString("station-report-end-round-text", ("bodytext", paper.Content), ("roundid", RoundId));
+                break;
+            }
             var stationReportTab = new BoxContainer
             {
                 Orientation = LayoutOrientation.Vertical,
@@ -392,7 +403,9 @@ namespace Content.Client.RoundEnd
                 Orientation = LayoutOrientation.Vertical
             };
             var StationReportLabel = new RichTextLabel();
+            var StationReportRoundId = new RichTextLabel();
             var StationReportmessage = new FormattedMessage();
+            StationReportRoundId.SetMessage(RoundId.ToString());
             StationReportmessage.AddMarkupOrThrow(stationReportText);
             StationReportLabel.SetMessage(StationReportmessage);
             StationReportContainer.AddChild(StationReportLabel);
