@@ -1,6 +1,6 @@
-using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Shared.Actions.Components;
 
 namespace Content.Goobstation.Shared.Slasher.Components;
 
@@ -46,4 +46,16 @@ public sealed partial class SlasherIncorporealComponent : Component
     /// </summary>
     [DataField]
     public float LightDisableRange = 5f;
+
+    /// <summary>
+    /// Stores the remaining cooldown time for each action when entering incorporeal state.
+    /// </summary>
+    [ViewVariables]
+    public Dictionary<EntityUid, TimeSpan> FrozenCooldowns = new();
+
+    /// <summary>
+    /// The time when the slasher entered incorporeal state, used to calculate cooldown adjustments.
+    /// </summary>
+    [ViewVariables]
+    public TimeSpan? IncorporealStartTime;
 }

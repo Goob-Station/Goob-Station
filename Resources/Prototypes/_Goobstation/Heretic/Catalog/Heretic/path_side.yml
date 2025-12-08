@@ -140,6 +140,22 @@
     stage: 5
 
 - type: listing
+  id: HereticSidePath6IceSpear
+  name: knowledge-path-side-s6-ice-spear-name
+  description: knowledge-path-side-s6-ice-spear-desc
+  icon: { sprite: _Goobstation/Heretic/Entities/ice_spear.rsi, state: spear }
+  productHereticKnowledge: MysteriesOfCreation
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
   id: HereticSidePath8Cleave
   name: knowledge-path-side-s8-cleave-name
   description: knowledge-path-side-s8-cleave-desc

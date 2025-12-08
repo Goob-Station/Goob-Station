@@ -2,7 +2,12 @@ using Content.Goobstation.Server.Devil.Contract;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Goobstation.Shared.Slasher.Events;
 using Content.Goobstation.Shared.Slasher.Objectives;
+using Content.Server.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Chat.Systems;
+using Content.Server.Ghost;
+using Content.Server.Light.EntitySystems;
+using Content.Server.Station.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
@@ -17,10 +22,15 @@ using Content.Shared.Popups;
 using Content.Shared.Standing;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Server.Audio;
+using Content.Shared.Weather;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using FixedPoint2 = Content.Goobstation.Maths.FixedPoint.FixedPoint2;
 using System.Linq;
+using Content.Server.Light.Components;
+using Robust.Server.GameObjects;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 
@@ -38,9 +48,17 @@ public sealed class SlasherSoulStealSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly DevilContractSystem _devilContractSystem = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
+    [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
+    [Dependency] private readonly SharedWeatherSystem _weather = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly PoweredLightSystem _light = default!;
 
     public override void Initialize()
     {
@@ -115,6 +133,9 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         // DoAfter, starting the do-after to the next tick to avoid modifying ActiveDoAfterComponent when active.
         Timer.Spawn(_timing.TickPeriod, () =>
         {
+            if (!Exists(user) || !Exists(target))
+                return;
+
             _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.Soulstealdoafterduration,
                 new SlasherSoulStealDoAfterEvent(), user, target: target)
             {
@@ -186,7 +207,7 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         }
 
         // Apply devil clause downside
-        _devilContractSystem.AddRandomNegativeClause(target);
+        _devilContractSystem.AddRandomNegativeClauseSlasher(target);
 
         // Used to prevent stealing from the same person multiple times
         EnsureComp<SoullessComponent>(target);
@@ -194,6 +215,38 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         //TryFlavorTwistLimbs(user, target); // TODO Originally intended to take off their limbs and replace them with limbs from random species but I couldn't get it working properly
         ApplyArmorBonus(user, armorBonus, comp);
         ApplyMacheteBonus(user, bruteBonus, comp);
+
+        // Check for ascendance at 15 total souls
+        var totalSouls = comp.AliveSouls + comp.DeadSouls;
+        if (!comp.HasAscended && totalSouls >= comp.AscendanceSoulThreshold)
+        {
+            comp.HasAscended = true;
+
+            // Initialize the light flicker timer when ascending
+            comp.NextLightFlicker = _timing.CurTime + comp.LightFlickerInterval;
+
+            var station = _stationSystem.GetOwningStation(user);
+            if (station != null)
+            {
+                // Set station to red alert
+                _alertLevel.SetLevel(station.Value, "red", true, true, true, false);
+
+                // Make it rain in space
+                var xform = Transform(user);
+                _weather.SetWeather(xform.MapID, _protoMan.Index<WeatherPrototype>("Storm"), null);
+
+                // Make station announcement from Central Command
+                _chatSystem.DispatchStationAnnouncement(
+                    station.Value,
+                    Loc.GetString("slasher-soulsteal-ascendance"),
+                    sender: Loc.GetString("comms-console-announcement-title-centcom"),
+                    playDefaultSound: false,
+                    announcementSound: null,
+                    colorOverride: Color.Red);
+
+                _audio.PlayGlobal(comp.AscendanceSound, _stationSystem.GetInOwningStation(station.Value), true);
+            }
+        }
 
         // Popup for user
         _popup.PopupEntity(Loc.GetString("slasher-soulsteal-success", ("target", target)), user, user, PopupType.LargeCaution);
@@ -331,5 +384,64 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         }
 
         Dirty(ent);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<SlasherSoulStealComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (!comp.HasAscended)
+                continue;
+
+            // Don't start unless ascended
+            if (_timing.CurTime < comp.NextLightFlicker)
+                continue;
+
+            // Trigger light flicker around the slasher
+            FlickerLightsAround(uid, comp);
+
+            // Schedule next flicker
+            comp.NextLightFlicker = _timing.CurTime + comp.LightFlickerInterval;
+            Dirty(uid, comp);
+        }
+    }
+
+    private void FlickerLightsAround(EntityUid slasher, SlasherSoulStealComponent comp)
+    {
+        var entities = _lookup.GetEntitiesInRange(slasher, comp.LightFlickerRadius).ToList();
+        _random.Shuffle(entities);
+
+        var flickerCounter = 0;
+        foreach (var entity in entities)
+        {
+            if (!HasComp<PointLightComponent>(entity) && !HasComp<PoweredLightComponent>(entity))
+                continue;
+
+            var handled = false;
+
+            // For powered lights, 50/50 chance to either flicker or destroy the bulb
+            if (TryComp<PoweredLightComponent>(entity, out var lightComp) && _random.Prob(0.5f))
+            {
+                // Destroy the light bulb
+                if (_light.TryDestroyBulb(entity, lightComp))
+                    handled = true;
+            }
+            else
+            {
+                // Flicker the light via ghost boo event
+                var ev = new GhostBooEvent();
+                RaiseLocalEvent(entity, ev);
+                handled = ev.Handled;
+            }
+
+            if (handled)
+                flickerCounter++;
+
+            if (flickerCounter >= comp.MaxLightsToFlicker)
+                break;
+        }
     }
 }

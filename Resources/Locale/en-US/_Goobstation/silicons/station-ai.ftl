@@ -1,1 +1,1 @@
-station-ai-hologram-scurret = Scurret form
+station-ai-hologram-scurret = Scurret appearance

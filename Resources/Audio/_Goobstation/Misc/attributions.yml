@@ -37,3 +37,8 @@
   license: "Custom"
   copyright: "No copyright - ai generated sound"
   source: "https://goida.zip/unknown" # keeping up this tradition
+
+- files: ["phone_ring.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Recorded by nightcustard, trimmed and converted to mono by XWASHERE (github)"
+  source: "https://freesound.org/people/nightcustard/sounds/655404/"

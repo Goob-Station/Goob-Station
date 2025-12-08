@@ -44,3 +44,8 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+  - type: Tag # goob edit
+    tags:
+     - Meat
+     - Organ
+     - Lungs

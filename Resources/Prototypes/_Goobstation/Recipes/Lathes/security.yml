@@ -691,6 +691,16 @@
   materials:
     Steel: 285
 
+- type: latheRecipe
+  id: ClothingEyesGlassesSecurityContraDetect
+  result: ClothingEyesGlassesSecurityContraDetect
+  completetime: 2
+  materials:
+    Steel: 200
+    Glass: 100
+    Silver: 100
+    Gold: 100
+
 # Circuitboards
 
 - type: latheRecipe

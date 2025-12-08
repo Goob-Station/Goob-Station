@@ -92,7 +92,7 @@ public sealed class HolosignSystem : EntitySystem
             if (!_physicsQuery.TryComp(entity, out var physics))
                 continue;
 
-            if ((physics.CollisionLayer |
+            if ((physics.CollisionLayer &
                  (int) (CollisionGroup.Impassable |
                         CollisionGroup.LowImpassable |
                         CollisionGroup.MidImpassable |

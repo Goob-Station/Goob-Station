@@ -1,7 +1,7 @@
 using Content.Shared.Body.Part;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Body.Components;
+namespace Content.Goobstation.Shared.Body;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class OrganInsertOnUseComponent : Component

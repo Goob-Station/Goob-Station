@@ -424,7 +424,7 @@ public sealed partial class GoobCVars
     /// How much should the mass difference affect shove range & speed.
     /// </summary>
     public static readonly CVarDef<float> ShoveMassFactor =
-        CVarDef.Create("game.shove_mass_factor", 5f, CVar.SERVER | CVar.ARCHIVE);
+        CVarDef.Create("game.shove_mass_factor", 3f, CVar.SERVER | CVar.ARCHIVE);
     #endregion
 
     #region Chat
@@ -641,10 +641,16 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> BleedMultiplier =
         CVarDef.Create("medical.bloodloss_multiplier", 4.0f, CVar.SERVER);
 
+    /// <summary>
+    /// Enable admin notification sounds
+    /// </summary>
+    public static readonly CVarDef<float> AdminNotificationVolume =
+        CVarDef.Create("admin.notification_volume", 1f, CVar.CLIENT | CVar.CLIENTONLY | CVar.ARCHIVE);
+
     #endregion
     /// <summary>
     /// Enables or disables contraband icons.
     /// </summary>
     public static readonly CVarDef<bool> ContrabandIconsEnabled =
-        CVarDef.Create("contraband.icons_enabled", true, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("contraband.icons_enabled", false, CVar.SERVER | CVar.REPLICATED);
 }

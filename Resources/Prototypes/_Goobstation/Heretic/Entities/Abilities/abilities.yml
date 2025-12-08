@@ -268,3 +268,78 @@
   - type: Tag
     tags:
       - HideContextMenu
+
+- type: entity
+  id: EffectVoidPrisonEnd
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      sprite: _Goobstation/Heretic/Effects/effects.rsi
+      state: voidball_closing
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: VoidConduit
+  name: Void Conduit
+  description: An open gate which leads to nothingness. Releases pulses which you do not want to get hit by.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Fixtures
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Heretic/void_overlay.rsi
+      state: void_conduit
+      shader: unshaded
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/Heretic/runebreak.ogg
+  - type: AmbientSound
+    sound: /Audio/_Goobstation/Heretic/ambiatm1.ogg
+    volume: 10
+    range: 10
+  - type: VoidConduit
+
+- type: entity
+  id: VoidAscensionAura
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 10
+        density: 1
+        hard: false
+        layer:
+        - BulletImpassable
+        - Opaque
+  - type: VoidAscensionAura

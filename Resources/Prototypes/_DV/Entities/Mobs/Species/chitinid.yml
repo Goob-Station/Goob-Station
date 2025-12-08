@@ -53,18 +53,6 @@
       Male: UnisexChitinid
       Female: UnisexChitinid
       Unsexed: UnisexChitinid
-  - type: Fixtures
-    fixtures: # TODO: This needs a second fixture just for mob collisions.
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.42
-        density: 220
-        restitution: 0.0
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
   - type: Temperature # Ants hate the cold
     heatDamageThreshold: 320
     coldDamageThreshold: 230

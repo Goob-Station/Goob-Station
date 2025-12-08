@@ -121,7 +121,7 @@
     tool:
     - type: BoneSaw
     add:
-    - type: RibcageSawed
+    - type: BonesSawed
     duration: 4
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
@@ -141,7 +141,7 @@
     tool:
     - type: BoneSaw
     add:
-    - type: RibcageOpen
+    - type: BonesOpen
     duration: 5
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
@@ -200,7 +200,7 @@
     tool:
     - type: Retractor
     add:
-    - type: RibcageOpen
+    - type: BonesOpen
     duration: 2
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
@@ -248,7 +248,7 @@
     tool:
     - type: Retractor
     remove:
-    - type: RibcageOpen
+    - type: BonesOpen
     duration: 2
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
@@ -256,18 +256,28 @@
 
 - type: entity
   parent: SurgeryStepBase
-  id: SurgeryStepMendRibcage
-  name: Mend ribcage
+  id: SurgeryStepSealBones
+  name: Seal bones
   components:
   - type: SurgeryStep
     tool:
     - type: BoneGel
     remove:
-    - type: RibcageSawed
+    - type: BonesSawed
     duration: 2
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
     state: bone-gel
+
+- type: entity
+  parent: SurgeryStepSealBones
+  id: SurgeryStepSealSkull
+  name: Seal skull
+
+- type: entity
+  parent: SurgeryStepSealBones
+  id: SurgeryStepSealRibcage
+  name: Seal ribcage
 
 - type: entity
   parent: SurgeryStepBase

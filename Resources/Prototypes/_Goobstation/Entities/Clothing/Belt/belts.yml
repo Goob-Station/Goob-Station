@@ -159,6 +159,8 @@
         - Bloodpack
         - Gauze
         - Ointment
+        - CigPack
+        - Cigarette
       components:
         - Pill
         - Hypospray
