@@ -4571,7 +4571,7 @@ Entries:
 - author: UpAndLeaves
   changes:
   - message: New players no longer have a chance of being Dionae, Vox, Slime People,
-      or Vulpkanine when joining for the first time. They can still manually select
+      or Vulpkanin when joining for the first time. They can still manually select
       these species.
     type: Tweak
   id: 9269
