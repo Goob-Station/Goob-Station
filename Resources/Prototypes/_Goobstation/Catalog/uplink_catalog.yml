@@ -1046,7 +1046,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/SMGs/smartgun.rsi, state: base }
   productEntity: AutosurgeonSmartLink
   cost:
-    Telecrystal: 30
+    Telecrystal: 40
   categories:
   - UplinkImplants
 

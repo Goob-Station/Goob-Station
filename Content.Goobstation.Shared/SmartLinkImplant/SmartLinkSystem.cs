@@ -61,25 +61,9 @@ public sealed class SmartLinkSystem : EntitySystem
             if (HasComp<SmartLinkBlacklistComponent>(projectile))
                 continue;
 
-            var homing = EnsureComp<DelayedHomingProjectileComponent>(projectile);
-            homing.HomingStart = _timing.CurTime + TimeSpan.FromSeconds(0.35f);
+            var homing = EnsureComp<HomingProjectileComponent>(projectile);
             homing.Target = gun.Target.Value;
             Dirty(projectile, homing);
-        }
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-        var query = EntityQueryEnumerator<DelayedHomingProjectileComponent>();
-        while (query.MoveNext(out var ent, out var comp))
-        {
-            if (_timing.CurTime < comp.HomingStart)
-                continue;
-
-            var homing = EnsureComp<DelayedHomingProjectileComponent>(ent);
-            homing.Target = comp.Target;
-            RemCompDeferred<DelayedHomingProjectileComponent>(ent);
         }
     }
 }
