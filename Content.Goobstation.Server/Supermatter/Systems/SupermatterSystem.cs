@@ -650,8 +650,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     private void OnItemInteract(EntityUid uid, SupermatterComponent sm, ref InteractUsingEvent args)
     {
+        if (!sm.Activated)
+            sm.Activated = true;
+
         if (sm.SliverRemoved)
-            return;
+                    return;
 
         if (!HasComp<SharpComponent>(args.Used))
             return;
@@ -667,12 +670,6 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         };
 
         _doAfter.TryStartDoAfter(dae);
-
-        if (HasComp<SupermatterImmuneComponent>(args.User))
-            return;
-
-        if (!sm.Activated)
-            sm.Activated = true;
     }
 
     private void OnGetSliver(EntityUid uid, SupermatterComponent sm, ref SupermatterDoAfterEvent args)
