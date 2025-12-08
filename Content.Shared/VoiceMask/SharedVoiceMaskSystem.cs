@@ -4,9 +4,14 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GabyChangelog <agentepanela2@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kyoth25f <kyoth25f@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.StatusIcon; // GabyStation radio icons
+using Robust.Shared.Prototypes; // GabyStation radio icons
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.VoiceMask;
@@ -22,11 +27,13 @@ public sealed class VoiceMaskBuiState : BoundUserInterfaceState
 {
     public readonly string Name;
     public readonly string? Verb;
+    public ProtoId<JobIconPrototype>? JobIcon { get; } // GabyStation -> Radio icons
 
-    public VoiceMaskBuiState(string name, string? verb)
+    public VoiceMaskBuiState(string name, string? verb, ProtoId<JobIconPrototype>? jobIcon) // GabyStation radio icons
     {
         Name = name;
         Verb = verb;
+        JobIcon = jobIcon; // GabyStation -> Radio icons
     }
 }
 
