@@ -8,7 +8,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Cuffs.Components;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
-using Content.Shared.Mobs.Systems;
+using Content.Shared.Popups;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 
@@ -18,7 +18,7 @@ public sealed class SlasherRegenerateSystem : EntitySystem
     [Dependency] private readonly CuffableSystem _cuffs = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -50,6 +50,14 @@ public sealed class SlasherRegenerateSystem : EntitySystem
         if (args.Handled)
             return;
 
+        // Check if a soul is available to use
+        if (!comp.HasSoulAvailable)
+        {
+            _popup.PopupEntity(Loc.GetString("slasher-regenerate-no-soul"), uid, uid);
+        //    args.Handled = true;
+            return;
+        }
+
         _rejuvenate.PerformRejuvenate(uid);
 
         TryInjectReagent(uid, comp);
@@ -61,6 +69,10 @@ public sealed class SlasherRegenerateSystem : EntitySystem
             _cuffs.Uncuff(uid, cuffs.LastAddedCuffs, cuff);
             QueueDel(cuff);
         }
+
+        // Consume the soul
+        comp.HasSoulAvailable = false;
+        Dirty(uid, comp);
 
         args.Handled = true;
     }
@@ -79,5 +91,17 @@ public sealed class SlasherRegenerateSystem : EntitySystem
             return;
 
         _solutions.TryAddReagent(bloodstream.ChemicalSolution.Value, new ReagentId(comp.Reagent, null), FixedPoint2.New(comp.ReagentAmount), out _);
+    }
+
+    /// <summary>
+    /// Grants a soul to use for regenerate. Called when the slasher successfully steals a soul in soulsteal.
+    /// </summary>
+    public void GrantSoul(EntityUid uid, SlasherRegenerateComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+
+        comp.HasSoulAvailable = true;
+        Dirty(uid, comp);
     }
 }
