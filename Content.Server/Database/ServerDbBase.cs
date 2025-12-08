@@ -431,7 +431,7 @@ namespace Content.Server.Database
             }
             var markings = JsonSerializer.SerializeToDocument(markingStrings);
 
-            profile.CharacterName = humanoid.Name;
+            profile.CharacterName = FormattedMessage.EscapeText(humanoid.Name); // Goob Sanitize Text
             profile.FlavorText = humanoid.FlavorText;
             profile.Species = humanoid.Species;
             profile.Height = humanoid.Height; // Goobstation: port EE height/width sliders
