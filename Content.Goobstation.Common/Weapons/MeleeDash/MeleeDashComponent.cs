@@ -22,7 +22,7 @@ public sealed partial class MeleeDashComponent : Component
     public string? EmoteOnDash = "Flip"; // this sucks to have to turn into a fucking string but i dont have access to content prototypes
 
     /// <summary>
-    /// What sprite should be used when dashing
+    /// What sprite should be used when dashing, goob
     /// </summary>
     [DataField, AutoNetworkedField]
     public string? DashSprite;
@@ -40,7 +40,7 @@ public sealed partial class MeleeDashComponent : Component
     public float MaxDashLength = 4f;
 
     /// <summary>
-    /// How long should we wait before doing the dash (defaults to zero)
+    /// How long should we wait before doing the dash (defaults to zero), Goob
     /// </summary>
     [DataField, AutoNetworkedField]
     public float? DoAfter;
