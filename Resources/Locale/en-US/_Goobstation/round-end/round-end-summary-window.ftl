@@ -1,5 +1,5 @@
 round-end-summary-window-station-report-tab-title = Station Report
-no-station-report-summited = No station report submitted, central command has been imformed about the NTR's negligence.
+no-station-report-summited = No station report submitted, central command has been informed about the NTR's negligence.
 round-end-summary-window-player-name-role = as the {$role}, played by {$player}.
 round-end-summary-window-player-name = played by {$player}.
 round-end-summary-window-last-words = [italic][color=gray]"{$lastWords}"[/color][/italic]
