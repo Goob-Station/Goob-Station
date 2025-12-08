@@ -296,7 +296,7 @@
       radius:
         min: 10
         max: 100
-      kidnap: false # Goobstation
+      telleportPulledEntities: false # Goobstation
 
 - type: entity
   parent: BaseSubdermalImplant
