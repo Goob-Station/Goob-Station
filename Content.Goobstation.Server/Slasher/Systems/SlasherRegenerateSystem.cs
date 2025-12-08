@@ -54,7 +54,6 @@ public sealed class SlasherRegenerateSystem : EntitySystem
         if (!comp.HasSoulAvailable)
         {
             _popup.PopupEntity(Loc.GetString("slasher-regenerate-no-soul"), uid, uid);
-        //    args.Handled = true;
             return;
         }
 
