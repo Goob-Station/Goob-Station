@@ -736,6 +736,15 @@
     Plasma: 1000
     BSCrystal: 100
 
+  id: ClothingEyesGlassesSecurityContraDetect
+  result: ClothingEyesGlassesSecurityContraDetect
+  completetime: 2
+  materials:
+    Steel: 200
+    Glass: 100
+    Silver: 100
+    Gold: 100
+
 # Circuitboards
 
 - type: latheRecipe

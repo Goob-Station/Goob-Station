@@ -240,7 +240,10 @@ public abstract class SharedSecondSkinSystem : EntitySystem
             return;
 
         var parent = Transform(ent).ParentUid;
-        if (ent.Comp.SecondSkinAction != null && TryComp(parent, out ActionsComponent? actions))
+        if (ent.Comp.SecondSkinAction != null && TryComp(parent, out ActionsComponent? actions) &&
+            TryComp(ent, out ActionsContainerComponent? container) &&
+            container.Container != default! &&
+            container.Container.Contains(ent.Comp.SecondSkinAction.Value))
             _actions.AddAction((parent, actions), ent.Comp.SecondSkinAction.Value, ent.Owner);
 
         Appearance.SetData(ent, SecondSkinKey.Equipped, true);
