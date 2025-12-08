@@ -315,6 +315,17 @@
       path: /Audio/_Goobstation/RadioStation/music/FeralAngelWaltz.ogg
 
 - type: entity
+  name: "vinyl disk: we are charlie kirk"
+  id: VinylDiskKirk
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: white-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/WeAreCharlieKirk.ogg
+
+- type: entity
   name: forgotten vinyl disk
   id: VinylDiskForgotten
   parent: BaseVinylDisk

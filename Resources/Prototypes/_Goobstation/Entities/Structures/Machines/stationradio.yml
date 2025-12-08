@@ -260,3 +260,5 @@
       weight: 0.1
     - id: VinylDiskForgotten
       weight: 0.05
+    - id: VinylDiskKirk
+      weight: 0.01
