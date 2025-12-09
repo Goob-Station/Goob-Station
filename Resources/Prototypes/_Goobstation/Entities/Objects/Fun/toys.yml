@@ -1076,58 +1076,6 @@
   parent: BasePlushie
   id: PlushieTwofish
   name: TwoFish plushie
-  description: A cute stuffed toy that resembles a cool lizard. Looks like a chud.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: plushie_twofish
-  - type: Item
-    sprite: _Goobstation/Objects/Fun/toys.rsi
-    inhandVisuals:
-      left:
-      - state: plushietwofish-inhand-left
-      right:
-      - state: plushietwofish-inhand-right
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Effects/Chemistry/bubbles.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Effects/Chemistry/bubbles.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Effects/Chemistry/bubbles.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Effects/Chemistry/bubbles.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Effects/Chemistry/bubbles.ogg
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 0
-    soundHit:
-      path: /Audio/Effects/Chemistry/bubbles.ogg
-  - type: Damageable
-    damageContainer: Inorganic
-  
-  - type: Microwaveable
-    cookTime: 15
-    behaviors:
-    - !type:SpawnEntitiesBehavior # Spawnea la versión Cooler
-      spawn:
-        PlushieCoolerTwofish:
-          min: 1
-          max: 1
-    - !type:DoActsBehavior # Destruye el peluche actual
-      acts: [ Destruction ]
-
----
-- type: entity
-  parent: BasePlushie
-  id: PlushieTwofish
-  name: TwoFish plushie
   description: A cute plushie that resembles a cool lizard. Looks like a chud.
   components:
   - type: Sprite
@@ -1137,9 +1085,9 @@
     sprite: _Goobstation/Objects/Fun/toys.rsi
     inhandVisuals:
       left:
-      - state: plushietwofish-inhand-left # <-- ¡Nombre de estado completo!
+      - state: plushietwofish-inhand-left 
       right:
-      - state: plushietwofish-inhand-right # <-- ¡Nombre de estado completo!
+      - state: plushietwofish-inhand-right 
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
@@ -1179,9 +1127,9 @@
     sprite: _Goobstation/Objects/Fun/toys.rsi
     inhandVisuals:
       left:
-      - state: plushiecoolertwofish-inhand-left # <-- ¡Nombre de estado completo!
+      - state: plushiecoolertwofish-inhand-left 
       right:
-      - state: plushiecoolertwofish-inhand-right # <-- ¡Nombre de estado completo!
+      - state: plushiecoolertwofish-inhand-right 
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
