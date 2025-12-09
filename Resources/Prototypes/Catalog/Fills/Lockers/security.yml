@@ -124,6 +124,7 @@
     - id: Binoculars
     - id: WeaponEnergyShotgun # Goobstation
     - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
+    - id: BoxLethalInjection # Goobstation
     - id: ClothingHeadsetAltWarden # Goobstation
     - id: Multitool # Goobstation
     - id: Wrench # Goobstation
