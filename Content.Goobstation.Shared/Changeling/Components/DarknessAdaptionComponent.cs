@@ -1,6 +1,7 @@
 using Content.Shared.Alert;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Changeling.Components;
 
@@ -40,7 +41,7 @@ public sealed partial class DarknessAdaptionComponent : Component
     [DataField]
     public LocId InactivePopup = "changeling-darkadapt-inactive";
 
-    [DataField, AutoNetworkedField, AutoPausedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan UpdateTimer = default!;
 
     /// <summary>
