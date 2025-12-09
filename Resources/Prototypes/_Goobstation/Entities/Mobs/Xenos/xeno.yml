@@ -503,6 +503,33 @@
       collection: XenoFootstepLarge
       params:
         volume: 1
+  - type: ActionGrant
+    actions:
+    - ActionXenoRend
+    - ActionXenoDestroy
+    - ActionXenoDoom
+  - type: XenoRend
+    damage:
+      groups:
+        Brute: 25
+  - type: XenoDoom
+  - type: XenoDestroy
+    structureDamage:
+      types:
+        Blunt: 1000
+    mobDamage:
+      types:
+        Blunt: 1000
+    structures:
+      tags:
+      - Structure
+      - Wall
+      - Window
+      components:
+      - EntityStorage
+      - ReagentTank
+      - PlaceableSurface
+      - ReagentDispenser
   - type: DashAction
     actionProto: ActionDashGeneric
   - type: Butcherable

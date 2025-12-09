@@ -1,0 +1,14 @@
+- type: entity
+  parent: ActionXenoBase
+  id: ActionXenoDoom
+  name: Doom (50)
+  description: Turns off lights around you for 10 seconds, and slows, dazes, and drains hostiles as well.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _RMC14/Actions/xeno_actions.rsi
+      state: screech
+    useDelay: 45
+  - type: InstantAction
+    event: !type:XenoDoomActionEvent
