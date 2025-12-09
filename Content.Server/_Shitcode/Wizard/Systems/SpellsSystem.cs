@@ -14,7 +14,6 @@ using System.Numerics;
 using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Bloodstream;
 using Content.Server._Goobstation.Wizard.Components;
-using Content.Server.Abilities.Mime;
 using Content.Server.Antag;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
@@ -168,13 +167,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
             false,
             session.Channel,
             args.MessageColor);
-    }
-
-    protected override void MakeMime(EntityUid uid)
-    {
-        base.MakeMime(uid);
-
-        EnsureComp<MimePowersComponent>(uid).CanBreakVow = false;
     }
 
     protected override void Emp(DisableTechEvent ev)

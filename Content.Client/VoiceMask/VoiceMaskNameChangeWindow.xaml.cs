@@ -19,12 +19,16 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Robust.Client.GameObjects;
 
 namespace Content.Client.VoiceMask;
 
 [GenerateTypedNameReferences]
 public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
 {
+    [Dependency] private readonly IEntitySystemManager _entitySystem = default!; // Goob radio icons
+    private readonly SpriteSystem _spriteSystem; // Goob radio icons
+
     public Action<string>? OnNameChange;
     public Action<string?>? OnVerbChange;
     public Action<string>? OnVoiceChange; // CorvaxGoob-TTS
@@ -37,6 +41,9 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
     public VoiceMaskNameChangeWindow()
     {
         RobustXamlLoader.Load(this);
+        IoCManager.InjectDependencies(this); // GabyStation -> Radio icons
+
+        _spriteSystem = _entitySystem.GetEntitySystem<SpriteSystem>(); // GabyStation -> Radio icons
 
         NameSelectorSet.OnPressed += _ =>
         {

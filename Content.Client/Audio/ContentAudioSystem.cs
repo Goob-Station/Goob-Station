@@ -48,6 +48,7 @@ public sealed partial class ContentAudioSystem : SharedContentAudioSystem
     public const float TtsMultiplier = 3f; // CorvaxGoob-TTS
     public const float VoiceChatMultiplier = 5f;
     public const float BarksMultiplier = 3f; // Goob Station - Barks
+    public const float AdminNotificationsMultiplier = 1f; // Goobstation - Admin Notifications
 
     public override void Initialize()
     {

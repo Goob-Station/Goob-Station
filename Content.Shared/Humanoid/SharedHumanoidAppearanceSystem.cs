@@ -169,7 +169,10 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         if (args.Examiner == args.Examined) // Use the selfaware locale when examining yourself
             locale += "-selfaware";
 
-        args.PushText(Loc.GetString(locale, ("user", identity), ("age", age), ("species", species)), 100); // priority for examine
+        // Goob Sanitize Text
+        var escapedIdentity = FormattedMessage.EscapeText(identity.ToString());
+        args.PushText(Loc.GetString(locale, ("user", escapedIdentity), ("age", age), ("species", species)),
+            100); // priority for examine
         // WWDP EDIT END
     }
 
