@@ -32,5 +32,3 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: IngestionBlocker # this needed for facehuggers fuckyou
-    blockSmokeIngestion: true

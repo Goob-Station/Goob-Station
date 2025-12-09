@@ -50,6 +50,9 @@
       NerveDamage: 0.0
   - type: FireProtection
     reduction: 0.1
+  - type: ClothingGrantComponent
+    component:
+    - type: FacehuggerImmune
 
 - type: entity
   parent: ClothingHeadHatHoodHeretic
