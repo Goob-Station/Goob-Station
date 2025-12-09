@@ -22,7 +22,7 @@
   name: guide-entry-drinks
   text: "/ServerInfo/Guidebook/ReferenceTables/Drinks.xml"
   filterEnabled: True
-  children:
+  children: # Goob - Drinks guidebook split
   - AlcoholicDrinks
   - NonAlcoholicDrinks
 

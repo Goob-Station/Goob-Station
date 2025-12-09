@@ -15,7 +15,7 @@
 
 - type: reagent
   id: BaseDrink
-  group: NonAlcoholicDrinks
+  group: NonAlcoholicDrinks # Goob - Drinks guidebook split
   abstract: true
   slipData:
     requiredSlipSpeed: 3.5
@@ -58,7 +58,7 @@
 
 - type: reagent
   id: BaseAlcohol
-  group: AlcoholicDrinks
+  group: AlcoholicDrinks # Goob - Drinks guidebook split
   abstract: true
   slipData:
     requiredSlipSpeed: 3.5
