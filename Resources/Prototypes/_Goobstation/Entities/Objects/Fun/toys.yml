@@ -751,6 +751,12 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: plushie_holy
+  - type: Clothing
+    quickEquip: true
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    equippedPrefix: plushieholy
+    slots:
+    - HEAD
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/Effects/holy.ogg
