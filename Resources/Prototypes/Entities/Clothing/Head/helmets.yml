@@ -584,8 +584,6 @@
     sprite: Clothing/Head/Helmets/ert_leader.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_leader.rsi
-  - type: Tag
-    tags:
   - type: FaceHuggerBlocker # Goobstation
  # - type: HideLayerClothing  #Goobstation
  #   layers:
