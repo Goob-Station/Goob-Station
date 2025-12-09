@@ -2,6 +2,7 @@ using Content.Goobstation.Server.Devil.Contract;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Goobstation.Shared.Slasher.Events;
 using Content.Goobstation.Shared.Slasher.Objectives;
+using Content.Goobstation.Shared.Slasher.Systems;
 using Content.Server.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;

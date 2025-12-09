@@ -1,24 +1,26 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Goobstation.Shared.Slasher.Events;
-using Content.Server.Cuffs;
+using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
-using Content.Server.Actions;
-using Content.Server.Administration.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Rejuvenate;
+using Robust.Shared.Audio.Systems;
 
-namespace Content.Goobstation.Server.Slasher.Systems;
+namespace Content.Goobstation.Shared.Slasher.Systems;
 
 public sealed class SlasherRegenerateSystem : EntitySystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
-    [Dependency] private readonly CuffableSystem _cuffs = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -53,11 +55,11 @@ public sealed class SlasherRegenerateSystem : EntitySystem
         // Check if a soul is available to use
         if (!comp.HasSoulAvailable)
         {
-            _popup.PopupEntity(Loc.GetString("slasher-regenerate-no-soul"), uid, uid);
+            _popup.PopupPredicted(Loc.GetString("slasher-regenerate-no-soul"), uid, uid);
             return;
         }
 
-        _rejuvenate.PerformRejuvenate(uid);
+        RaiseLocalEvent(uid, new RejuvenateEvent());
 
         TryInjectReagent(uid, comp);
 
@@ -65,9 +67,16 @@ public sealed class SlasherRegenerateSystem : EntitySystem
         if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
         {
             var cuff = cuffs.LastAddedCuffs;
-            _cuffs.Uncuff(uid, cuffs.LastAddedCuffs, cuff);
+            _cuffs.Uncuff(uid, uid, cuff);
             QueueDel(cuff);
         }
+
+        // Spawn the visual and light effect entity
+        var effectEnt = Spawn(comp.RegenerateEffect, _transform.GetMapCoordinates(uid));
+        _transform.SetParent(effectEnt, uid);
+
+        // Play sound effect
+        _audio.PlayPredicted(comp.RegenerateSound, uid, uid);
 
         // Consume the soul
         comp.HasSoulAvailable = false;

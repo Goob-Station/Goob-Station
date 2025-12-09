@@ -1,4 +1,5 @@
 using Content.Shared.Chemistry.Reagent;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -35,6 +36,18 @@ public sealed partial class SlasherRegenerateComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool HasSoulAvailable = true; // Start with one soul available
+
+    /// <summary>
+    /// The sound that plays when regenerating
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? RegenerateSound = new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/SlasherRegenerate.ogg");
+
+    /// <summary>
+    /// The effect entity that is spawned when regenerating (includes light, sprite, and auto-despawn)
+    /// </summary>
+    [DataField]
+    public EntProtoId RegenerateEffect = "SlasherRegenerateEffect";
 }
 
 
