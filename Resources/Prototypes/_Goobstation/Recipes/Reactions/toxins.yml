@@ -10,13 +10,13 @@
   id: Triclor
   impact: Medium
   reactants:
-    Ammonia:
+    Impedrezene:
       amount: 1
-    SodiumHydroxide:
+    Amatoxin:
       amount: 1
     Ipecac:
       amount: 1
-    Chlorine:
+    Aluite:
       amount: 3
   products:
     Triclor: 3
