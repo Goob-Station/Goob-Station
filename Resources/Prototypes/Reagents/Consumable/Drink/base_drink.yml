@@ -15,7 +15,7 @@
 
 - type: reagent
   id: BaseDrink
-  group: Drinks
+  group: NonAlcoholicDrinks
   abstract: true
   slipData:
     requiredSlipSpeed: 3.5
@@ -58,7 +58,7 @@
 
 - type: reagent
   id: BaseAlcohol
-  group: Drinks
+  group: AlcoholicDrinks
   abstract: true
   slipData:
     requiredSlipSpeed: 3.5
