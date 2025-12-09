@@ -25,6 +25,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.Clothing.Components;
 using Content.Server.Construction.Conditions;
 using Content.Shared._White.Xenomorphs.FaceHugger;
 using Content.Shared.Mobs.Components;
@@ -362,7 +363,8 @@ public sealed class FaceHuggerSystem : EntitySystem
         if (_inventory.TryGetSlotEntity(target, "head", out var headUid))
         {
             // If the headgear has an ingestion blocker component, it's a blocker
-            if (HasComp<FaceHuggerBlockerComponent>(headUid))
+            var sealable = new SealableClothingComponent();
+            if ((HasComp<FaceHuggerBlockerComponent>(headUid) && !TryComp<SealableClothingComponent>(headUid, out sealable))|| (HasComp<FaceHuggerBlockerComponent>(headUid) && sealable.IsSealed))
             {
                 blocker = headUid;
                 return true;
