@@ -64,7 +64,8 @@
 
 - type: entity
   abstract: true
-  parent: [ BaseStructureDynamic, BaseAutomatedMachine ] # Goob: Automation
+  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized,
+            BaseAutomatedMachine ] # Goob: Automation
   id: GasCanister
   name: gas canister
   description: A canister that can contain any type of gas. It can be attached to connector ports using a wrench.
@@ -177,7 +178,6 @@
           nodeGroupID: Pipe
           rotationsEnabled: false
           volume: 1
-    - type: ItemSlots
     - type: AutomationSlots # Goobstation
       slots:
       - !type:AutomatedItemSlot
@@ -199,16 +199,6 @@
             - GasTank
     - type: StaticPrice
       price: 200
-    - type: PaperLabel
-      labelSlot:
-        insertVerbText: comp-paper-label-insert
-        ejectVerbText: comp-paper-label-eject
-        whitelist:
-          components:
-          - Paper
-        blacklist:
-          tags:
-          - Book
     - type: AccessReader
       access: [["Atmospherics"], ["Engineering"], ["Research"]]
     - type: Lock
