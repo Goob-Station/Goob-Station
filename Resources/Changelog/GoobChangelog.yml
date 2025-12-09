@@ -19114,3 +19114,9 @@ Entries:
       message: fixed ooc patron icons getting stuck on the screen sometimes
   id: 2157
   time: '2025-12-07T12:24:42.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Removed stamina damage from bingles.
+  id: 2158
+  time: '2025-12-08T06:16:58.0000000+00:00'
