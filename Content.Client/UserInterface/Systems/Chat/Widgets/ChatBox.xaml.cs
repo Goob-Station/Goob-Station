@@ -123,7 +123,7 @@ public partial class ChatBox : UIWidget
         if (_coalescence && msg.CanCoalesce && _lastLine == tup)
         {
             _lastLineRepeatCount++;
-            if (msg.Channel != ChatChannel.OOC && msg.Channel != ChatChannel.Radio)
+            if (msg.Channel != ChatChannel.OOC && msg.Channel != ChatChannel.Radio) // Goobstation, stop radio and ooc icons from duplicating
             {
                 AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
                 Contents.RemoveEntry(^2);
@@ -134,7 +134,7 @@ public partial class ChatBox : UIWidget
             _lastLineRepeatCount = 0;
             _lastLine = (msg.WrappedMessage, color);
             AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
-        }
+        } // WD EDIT END
     }
 
     private void OnHighlightsUpdated(string highlights)
