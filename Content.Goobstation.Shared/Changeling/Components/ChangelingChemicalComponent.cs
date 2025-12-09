@@ -1,24 +1,26 @@
 using Content.Shared.Alert;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Changeling.Components;
 
 /// <summary>
 /// Component used for the changeling chemical reserves.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
 public sealed partial class ChangelingChemicalComponent : Component
 {
     [DataField]
     public ProtoId<AlertPrototype> AlertId = "ChangelingChemicals";
 
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan UpdateTimer = default!;
 
     /// <summary>
     /// Delay between update cycles.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan UpdateDelay = TimeSpan.FromSeconds(1);
 
     /// <summary>
@@ -42,6 +44,7 @@ public sealed partial class ChangelingChemicalComponent : Component
     /// <summary>
     /// The default modifier applied to passive chemical generation.
     /// </summary>
+    [DataField, AutoNetworkedField]
     public float Modifier = 1f;
 
     /// <summary>

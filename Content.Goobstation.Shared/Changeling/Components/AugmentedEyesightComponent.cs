@@ -13,10 +13,10 @@ public sealed partial class AugmentedEyesightComponent : Component
     [DataField, AutoNetworkedField]
     public bool Enabled;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntProtoId ActionId = "ActionAugmentedEyesight";
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? ActionEnt;
 
     /// <summary>

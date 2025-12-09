@@ -53,21 +53,26 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
     private void OnMapInit(Entity<BoostedImmunityComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.UpdateTimer = _timing.CurTime + ent.Comp.UpdateDelay;
+        DirtyField(ent, ent.Comp, nameof(BoostedImmunityComponent.UpdateTimer));
 
         if (ent.Comp.Duration.HasValue)
         {
             ent.Comp.MaxDuration = _timing.CurTime + TimeSpan.FromSeconds((double) ent.Comp.Duration);
-
-            if (ent.Comp.AlertId != null)
-                _alerts.ShowAlert(
-                    ent,
-                    (ProtoId<AlertPrototype>) ent.Comp.AlertId,
-                    cooldown: (_timing.CurTime, _timing.CurTime + TimeSpan.FromSeconds((double) ent.Comp.Duration)),
-                    autoRemove: true);
+            DirtyField(ent, ent.Comp, nameof(BoostedImmunityComponent.MaxDuration));
         }
 
+        if (ent.Comp.AlertId != null)
+            _alerts.ShowAlert(
+                ent,
+                (ProtoId<AlertPrototype>) ent.Comp.AlertId,
+                cooldown: ent.Comp.Duration.HasValue ? (_timing.CurTime, ent.Comp.MaxDuration) : null,
+                autoRemove: ent.Comp.Duration.HasValue);
+
         if (_mobStateQuery.TryComp(ent, out var state))
+        {
             ent.Comp.Mobstate = state.CurrentState;
+            DirtyField(ent, ent.Comp, nameof(BoostedImmunityComponent.Mobstate));
+        }
 
         if (ent.Comp.RemoveDisabilities)
             RemoveDisabilities(ent);
@@ -88,9 +93,6 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         var query = EntityQueryEnumerator<BoostedImmunityComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
@@ -102,6 +104,7 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
                 continue;
 
             comp.UpdateTimer = _timing.CurTime + comp.UpdateDelay;
+            Dirty(uid, comp);
 
             Cycle((uid, comp));
         }
@@ -132,6 +135,7 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
     private void OnMobStateChange(Entity<BoostedImmunityComponent> ent, ref MobStateChangedEvent args)
     {
         ent.Comp.Mobstate = args.NewMobState;
+        DirtyField(ent, ent.Comp, nameof(BoostedImmunityComponent.Mobstate));
     }
 
     private void OnBeforeVomitEvent(Entity<BoostedImmunityComponent> ent, ref BeforeVomitEvent args)

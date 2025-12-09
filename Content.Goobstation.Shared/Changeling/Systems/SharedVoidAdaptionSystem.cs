@@ -41,6 +41,8 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         // reset environment adaptions so changeling transform doesnt mess up stuff like the alerts and modifiers
         ent.Comp.AdaptingLowPressure = false;
         ent.Comp.AdaptingLowTemp = false;
+
+        Dirty(ent);
     }
 
     private void OnRemoved(Entity<VoidAdaptionComponent> ent, ref ComponentRemove args)
@@ -66,11 +68,12 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         {
             DoSituationPopup(ent, ent.Comp.EnterLowPressurePopup);
             TryApplyDebuff(ent);
+
             ent.Comp.AdaptingLowPressure = true;
+            DirtyField(ent, ent.Comp, nameof(VoidAdaptionComponent.AdaptingLowPressure));
         }
 
         args.Cancelled = true;
-
     }
 
     private void OnGetSafePressure(Entity<VoidAdaptionComponent> ent, ref SendSafePressureEvent args)
@@ -82,9 +85,10 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
             return;
 
         ent.Comp.AdaptingLowPressure = false;
+        DirtyField(ent, ent.Comp, nameof(VoidAdaptionComponent.AdaptingLowPressure));
+
         DoSituationPopup(ent, ent.Comp.LeaveLowPressurePopup);
         TryRemoveDebuff(ent);
-
     }
 
     private void BeforeTemperatureChangeAttempt(Entity<VoidAdaptionComponent> ent, ref BeforeTemperatureChange args)
@@ -104,13 +108,17 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         {
             DoSituationPopup(ent, ent.Comp.EnterLowTempPopup);
             TryApplyDebuff(ent);
+
             ent.Comp.AdaptingLowTemp = true;
+            DirtyField(ent, ent.Comp, nameof(VoidAdaptionComponent.AdaptingLowTemp));
         }
         else if (newTemp > compareT
             && lastTemp > safeT + diff
             && ent.Comp.AdaptingLowTemp)
         {
             ent.Comp.AdaptingLowTemp = false;
+            DirtyField(ent, ent.Comp, nameof(VoidAdaptionComponent.AdaptingLowTemp));
+
             DoSituationPopup(ent, ent.Comp.LeaveLowTempPopup);
             TryRemoveDebuff(ent);
         }
@@ -152,6 +160,7 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         if (!OnFire(ent))
         {
             ent.Comp.FirePopupSent = false;
+            DirtyField(ent, ent.Comp, nameof(VoidAdaptionComponent.FirePopupSent));
 
             // void adaption recovering from fire can have these alerts show up (mainly when in space/vacuum)
             _alerts.ClearAlert(
@@ -175,6 +184,8 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
 
         ent.Comp.AdaptingLowPressure = false;
         ent.Comp.AdaptingLowTemp = false;
+
+        Dirty(ent);
 
         TryRemoveDebuff(ent);
 

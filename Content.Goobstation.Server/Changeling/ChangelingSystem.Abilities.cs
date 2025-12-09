@@ -246,7 +246,6 @@ public sealed partial class ChangelingSystem
         TryStealDNA(uid, target, comp, objBool);
 
         _popup.PopupEntity(popup, args.User, args.User);
-        chemComp.MaxChemicals += bonusChemicals;
 
         if (TryComp<StoreComponent>(args.User, out var store))
         {
@@ -265,6 +264,7 @@ public sealed partial class ChangelingSystem
                 lingAbsorbObj.LingAbsorbed += absorbed.TotalChangelingsAbsorbed + 1;
         }
 
+        chemComp.MaxChemicals += bonusChemicals;
         UpdateChemicals(uid, comp, chemComp.MaxChemicals); // refill chems to max
 
         // modify biomass if the changeling uses it
@@ -272,9 +272,7 @@ public sealed partial class ChangelingSystem
             && biomassValid)
         {
             biomass.MaxBiomass += biomassMaxIncrease;
-            biomass.Biomass = biomass.MaxBiomass;
-
-            Dirty(uid, biomass);
+            _biomass.UpdateBiomass((uid, biomass), biomass.MaxBiomass);
         }
 
     }

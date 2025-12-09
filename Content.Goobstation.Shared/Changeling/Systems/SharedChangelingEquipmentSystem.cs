@@ -31,6 +31,8 @@ public sealed partial class ChangelingEquipmentSystem : EntitySystem
             return;
 
         ent.Comp.User = args.Equipee;
+
+        Dirty(ent);
     }
 
     private void OnUnequipped(Entity<ChangelingEquipmentComponent> ent, ref GotUnequippedEvent args)

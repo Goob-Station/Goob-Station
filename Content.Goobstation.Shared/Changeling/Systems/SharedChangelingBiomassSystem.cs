@@ -58,6 +58,8 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
         ent.Comp.SecondWarnThreshold = ent.Comp.MaxBiomass * 0.5f;
         ent.Comp.ThirdWarnThreshold = ent.Comp.MaxBiomass * 0.25f;
 
+        Dirty(ent);
+
         Cycle(ent);
     }
 
@@ -70,9 +72,6 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         var query = EntityQueryEnumerator<ChangelingBiomassComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
@@ -80,6 +79,7 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
                 continue;
 
             comp.UpdateTimer = _timing.CurTime + comp.UpdateDelay;
+            Dirty(uid, comp);
 
             Cycle((uid, comp));
         }
@@ -87,7 +87,7 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
     private void Cycle(Entity<ChangelingBiomassComponent> ent)
     {
-        UpdateBiomass(ent);
+        UpdateBiomass(ent, -ent.Comp.DrainAmount);
 
         // first
         if (!ent.Comp.FirstWarnReached
@@ -99,6 +99,8 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
         }
         else if (ent.Comp.Biomass > ent.Comp.FirstWarnThreshold)
             ent.Comp.FirstWarnReached = false;
+
+        DirtyField(ent, ent.Comp, nameof(ChangelingBiomassComponent.FirstWarnReached));
 
         // second
         if (!ent.Comp.SecondWarnReached
@@ -112,6 +114,8 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
         }
         else if (ent.Comp.Biomass > ent.Comp.SecondWarnThreshold)
             ent.Comp.SecondWarnReached = false;
+
+        DirtyField(ent, ent.Comp, nameof(ChangelingBiomassComponent.SecondWarnReached));
 
         // third
         if (!ent.Comp.ThirdWarnReached
@@ -141,6 +145,8 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
         else if (ent.Comp.Biomass > ent.Comp.ThirdWarnThreshold)
             ent.Comp.ThirdWarnReached = false;
 
+        DirtyField(ent, ent.Comp, nameof(ChangelingBiomassComponent.ThirdWarnReached));
+
         // point of no return
         if (ent.Comp.Biomass <= 0
             && !_absorbQuery.HasComp(ent))
@@ -149,12 +155,16 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
     }
 
     #region Helper Methods
-    private void UpdateBiomass(Entity<ChangelingBiomassComponent> ent)
+    public void UpdateBiomass(Entity<ChangelingBiomassComponent> ent, float? amount = null)
     {
-        var newBiomass = ent.Comp.Biomass - ent.Comp.DrainAmount;
+        var newBiomass = ent.Comp.Biomass;
+
+        newBiomass += amount ?? 0;
         ent.Comp.Biomass = Math.Clamp(newBiomass, 0, ent.Comp.MaxBiomass);
 
         _alerts.ShowAlert(ent, ent.Comp.AlertId);
+
+        Dirty(ent);
     }
 
     public readonly ProtoId<DamageTypePrototype> Genetic = "Cellular";
@@ -196,8 +206,7 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
     private void OnRejuvenate(Entity<ChangelingBiomassComponent> ent, ref RejuvenateEvent args)
     {
-        ent.Comp.Biomass = ent.Comp.MaxBiomass;
-        Dirty(ent, ent.Comp);
+        UpdateBiomass(ent, ent.Comp.MaxBiomass);
     }
 
     #endregion

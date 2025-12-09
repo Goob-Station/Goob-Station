@@ -3,24 +3,24 @@ using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Changeling;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ChangelingEquipmentComponent : Component
 {
     /// <summary>
     /// The user of the equipment.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? User;
 
     /// <summary>
     /// The value that will be applied to a changeling's chemical modifier
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float ChemModifier;
 
     /// <summary>
     /// The slot required.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public SlotFlags? RequiredSlot;
 }

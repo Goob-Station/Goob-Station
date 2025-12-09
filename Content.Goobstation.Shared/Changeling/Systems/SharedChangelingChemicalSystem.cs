@@ -29,6 +29,7 @@ public sealed class SharedChangelingChemicalSystem : EntitySystem
     private void OnMapInit(Entity<ChangelingChemicalComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.UpdateTimer = _timing.CurTime + ent.Comp.UpdateDelay;
+        DirtyField(ent, ent.Comp, nameof(ChangelingChemicalComponent.UpdateTimer));
 
         Cycle(ent);
     }
@@ -42,9 +43,6 @@ public sealed class SharedChangelingChemicalSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         var query = EntityQueryEnumerator<ChangelingChemicalComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
@@ -52,6 +50,7 @@ public sealed class SharedChangelingChemicalSystem : EntitySystem
                 continue;
 
             comp.UpdateTimer = _timing.CurTime + comp.UpdateDelay;
+            Dirty(uid, comp);
 
             Cycle((uid, comp));
         }
@@ -83,9 +82,9 @@ public sealed class SharedChangelingChemicalSystem : EntitySystem
         chemicals += amount ?? 0;
         ent.Comp.Chemicals = Math.Clamp(chemicals, 0, ent.Comp.MaxChemicals);
 
-        _alerts.ShowAlert(ent, ent.Comp.AlertId);
-
         Dirty(ent);
+
+        _alerts.ShowAlert(ent, ent.Comp.AlertId);
     }
 
     private bool OnFire(Entity<ChangelingChemicalComponent> ent)

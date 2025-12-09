@@ -3,13 +3,13 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Changeling.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ChameleonSkinComponent : Component
 {
     [DataField]
     public EntProtoId ActionId = "ActionChameleonSkin";
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? ActionEnt;
 
     /// <summary>
@@ -33,41 +33,42 @@ public sealed partial class ChameleonSkinComponent : Component
     /// <summary>
     /// Popup when attempting to toggle while on fire.
     /// </summary>
+    [DataField]
     public LocId OnFirePopup = "changeling-onfire";
 
     /// <summary>
     /// Is the ability currently active?
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool Active;
 
     /// <summary>
     /// Should stealth break on an attack?
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool RevealOnAttack = true;
 
     /// <summary>
     /// Should stealth break on taking damage?
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool RevealOnDamage = true;
 
     /// <summary>
     /// How long should you wait before stealth accumulates?
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan WaitTime = TimeSpan.FromSeconds(1);
 
     /// <summary>
     /// How fast should invisibility recover while active?
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float VisibilityRate = -1f;
 
     /// <summary>
     /// Should invisibility break on move?
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool BreakOnMove = true;
 }

@@ -15,6 +15,7 @@ public sealed partial class DarknessAdaptionSystem : SharedDarknessAdaptionSyste
 
     }
 
+    // unfortunately this can't be moved to shared and predicted without causing issues. so joever.
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -26,6 +27,7 @@ public sealed partial class DarknessAdaptionSystem : SharedDarknessAdaptionSyste
                 continue;
 
             comp.UpdateTimer = _timing.CurTime + comp.UpdateDelay;
+            Dirty(uid, comp);
 
             if (!comp.Active)
                 continue;

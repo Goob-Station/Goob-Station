@@ -50,6 +50,8 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
         ent.Comp.HadLightDetection = HasComp<LightDetectionComponent>(ent);
 
         ent.Comp.ActionEnt = _actions.AddAction(ent, ent.Comp.ActionId);
+
+        Dirty(ent);
     }
 
     private void OnShutdown(Entity<DarknessAdaptionComponent> ent, ref ComponentShutdown args)
@@ -66,6 +68,8 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
     private void OnToggleAbility(Entity<DarknessAdaptionComponent> ent, ref ActionDarknessAdaptionEvent args)
     {
         ent.Comp.Active = !ent.Comp.Active;
+        DirtyField(ent, ent.Comp, nameof(DarknessAdaptionComponent.Active));
+
         var popup = ent.Comp.Active ? ent.Comp.ActivePopup : ent.Comp.InactivePopup;
 
         if (!ent.Comp.Active)
@@ -137,6 +141,8 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
 
             ent.Comp.AlertDisplayed = false;
         }
+
+        DirtyField(ent, ent.Comp, nameof(DarknessAdaptionComponent.AlertDisplayed));
     }
 
     private bool FireInvalidCheck(Entity<DarknessAdaptionComponent> ent)
@@ -163,6 +169,8 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
         else if (!ent.Comp.Active
             || !adapting)
             ent.Comp.Adapting = false;
+
+        DirtyField(ent, ent.Comp, nameof(DarknessAdaptionComponent.Adapting));
     }
 
     private void EnsureAndSetStealth(Entity<DarknessAdaptionComponent> ent)

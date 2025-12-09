@@ -159,6 +159,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
+    [Dependency] private readonly SharedChangelingBiomassSystem _biomass = default!;
     [Dependency] private readonly SharedChangelingChemicalSystem _chems = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";

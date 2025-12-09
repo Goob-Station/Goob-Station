@@ -12,7 +12,6 @@ namespace Content.Goobstation.Shared.Changeling.Systems;
 
 public sealed partial class SharedChameleonSkinSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedChangelingChemicalSystem _lingChem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -40,6 +39,8 @@ public sealed partial class SharedChameleonSkinSystem : EntitySystem
     private void OnMapInit(Entity<ChameleonSkinComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.ActionEnt = _actions.AddAction(ent, ent.Comp.ActionId);
+
+        Dirty(ent);
     }
 
     private void OnShutdown(Entity<ChameleonSkinComponent> ent, ref ComponentShutdown args)
@@ -76,6 +77,8 @@ public sealed partial class SharedChameleonSkinSystem : EntitySystem
         else
             RemoveStealth(ent);
 
+        Dirty(ent);
+
         DoPopup(ent, popup);
     }
 
@@ -89,6 +92,8 @@ public sealed partial class SharedChameleonSkinSystem : EntitySystem
 
         ent.Comp.Active = false;
         _stealth.SetEnabled(ent, false, stealth);
+
+        Dirty(ent);
     }
     #endregion
 
@@ -126,10 +131,7 @@ public sealed partial class SharedChameleonSkinSystem : EntitySystem
 
     private void DoPopup(Entity<ChameleonSkinComponent> ent, LocId popup, PopupType popupType = PopupType.Small)
     {
-        if (_net.IsClient)
-            return;
-
-        _popup.PopupEntity(Loc.GetString(popup), ent, ent, popupType);
+        _popup.PopupClient(Loc.GetString(popup), ent, ent, popupType);
     }
     #endregion
 }
