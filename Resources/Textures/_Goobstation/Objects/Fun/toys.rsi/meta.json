@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-4.0",
-  "copyright": "BeeRobynn, George Gimme, and Ahti, Abductor by Shy Bandit, plushie_jvne by Jvne, plushie_samantha by SolsticeOfTheWinter, fern by Bobbble, plushie_nigel by SS14:gorgan_freemen/Discord:Dummy, plushie_mnwaar by ShieldAcrados based on the Einstein Engines shadowkin plushie, plushiemnwaar-inhand-left and plushiemnwaar-inhand-right by MarkerWicker, plushie_brizby and plushie_baldzby by Zethine, plushie_boggle and plushie_lehmin by KipperSkipp, plushie xeve by Yonsim, plushie holy by SDPowerStroke",
+  "copyright": "BeeRobynn, George Gimme, and Ahti, Abductor by Shy Bandit, plushie_jvne by Jvne, plushie_samantha by SolsticeOfTheWinter, fern by Bobbble, plushie_nigel by SS14:gorgan_freemen/Discord:Dummy, plushie_mnwaar by ShieldAcrados based on the Einstein Engines shadowkin plushie, plushiemnwaar-inhand-left and plushiemnwaar-inhand-right by MarkerWicker, plushie_brizby and plushie_baldzby by Zethine, plushie_boggle and plushie_lehmin by KipperSkipp, plushie xeve by Yonsim, plushie holy by SDPowerStroke, plushie TwoFish by YERO",
   "size": {
     "x": 32,
     "y": 32
@@ -29,7 +29,6 @@
       "name": "plushie_xeve"
     },
     {
-    
       "name": "plushie_holy"
     },
     {
@@ -121,14 +120,14 @@
       "name": "plushielehmin-inhand-right",
       "directions": 4
     },
-	{
+    {
       "name": "plushie_pasha"
     },
     {
       "name": "plushiepasha-equipped-HELMET",
       "directions": 4
-    },    
-	{
+    },
+    {
       "name": "plushiepasha-equipped-HELMET-vox",
       "directions": 4
     },
@@ -168,6 +167,28 @@
     },
     {
       "name": "plushiegrug-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "plushie_coolertwofish"
+    },
+    {
+      "name": "plushiecoolertwofish-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "plushiecoolertwofish-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "plushie_twofish"
+    },
+    {
+      "name": "plushietwofish-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "plushietwofish-inhand-right",
       "directions": 4
     }
   ]
