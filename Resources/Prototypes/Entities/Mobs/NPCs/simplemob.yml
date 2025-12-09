@@ -105,6 +105,7 @@
     tags:
     - DoorBumpOpener
     - StunImmune
+  - type: Blindable
   - type: StatusIcon # Goobstation
     bounds: -0.5,-0.5,0.5,0.5
 
