@@ -364,7 +364,7 @@ public sealed class FaceHuggerSystem : EntitySystem
         {
             // If the headgear has an ingestion blocker component, it's a blocker
             var sealable = new SealableClothingComponent();
-            if ((HasComp<FaceHuggerBlockerComponent>(headUid) && !TryComp<SealableClothingComponent>(headUid, out sealable))|| (HasComp<FaceHuggerBlockerComponent>(headUid) && sealable.IsSealed))
+            if ((HasComp<FaceHuggerBlockerComponent>(headUid) && !TryComp<SealableClothingComponent>(headUid, out sealable)) || (HasComp<FaceHuggerBlockerComponent>(headUid) && sealable.IsSealed))
             {
                 blocker = headUid;
                 return true;

@@ -279,7 +279,7 @@
         Blunt: 0.35
         Slash: 0.35
         Piercing: 0.8
-  - type: FacehuggerBlocker # Goobstation
+  - type: FaceHuggerBlocker # Goobstation
   #- type: HideLayerClothing  #Goobstation
   #  layers:
   #    Hair: HEAD
