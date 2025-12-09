@@ -9,9 +9,8 @@
 - type: reaction
   id: Triclor
   impact: Medium
+  mintemp: 340
   reactants:
-    Impedrezene:
-      amount: 1
     Amatoxin:
       amount: 1
     Ipecac:
@@ -19,7 +18,7 @@
     Aluite:
       amount: 3
   products:
-    Triclor: 3
+    Triclor: 5
 
 - type: reaction
   id: Cyanide
