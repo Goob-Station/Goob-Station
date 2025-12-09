@@ -9,7 +9,6 @@
 - type: reaction
   id: Triclor
   impact: Medium
-  mintemp: 340
   reactants:
     Amatoxin:
       amount: 1
