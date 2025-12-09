@@ -120,18 +120,21 @@ public partial class ChatBox : UIWidget
         // Adding first and then removing does not produce any visual effects.
         // The other option is to copypaste into Content all of OutputPanel and everything it uses but is intertanl to Robust namespace.
         // Thanks robustengine, very cool.
-        if (_coalescence && msg.CanCoalesce && _lastLine == tup && msg.Channel != ChatChannel.Radio)
+        if (_coalescence && msg.CanCoalesce && _lastLine == tup)
         {
             _lastLineRepeatCount++;
-            AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
-            Contents.RemoveEntry(^2);
+            if (msg.Channel != ChatChannel.OOC && msg.Channel != ChatChannel.Radio)
+            {
+                AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
+                Contents.RemoveEntry(^2);
+            }
         }
         else
         {
             _lastLineRepeatCount = 0;
             _lastLine = (msg.WrappedMessage, color);
             AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
-        } // WD EDIT END
+        }
     }
 
     private void OnHighlightsUpdated(string highlights)
