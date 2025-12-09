@@ -443,8 +443,6 @@
         Slash: 0.45
         Piercing: 0.45
         Heat: 0.45
-  - type: Tag
-    tags:
   - type: FaceHuggerBlocker # Goobstation
   #- type: HideLayerClothing  #Goobstation
   #  layers:
