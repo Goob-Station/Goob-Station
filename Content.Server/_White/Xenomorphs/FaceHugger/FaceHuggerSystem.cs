@@ -32,8 +32,6 @@ using Content.Shared.Throwing;
 using Content.Shared.Atmos.Components;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Shared.Nutrition.Components;
-using Content.Shared.Tag;
-using Robust.Shared.Prototypes; // Goobstation end
 
 
 namespace Content.Server._White.Xenomorphs.FaceHugger;
@@ -56,9 +54,7 @@ public sealed class FaceHuggerSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly TagSystem _tag = default!; // Goobstation
 
-    private static readonly ProtoId<TagPrototype> FacehuggerBlockerTag = "FacehuggerBlocker";
     public override void Initialize()
     {
         base.Initialize();
@@ -365,11 +361,10 @@ public sealed class FaceHuggerSystem : EntitySystem
         blocker = null;
         if (_inventory.TryGetSlotEntity(target, "head", out var headUid))
         {
-            var head = headUid ?? EntityUid.Invalid;
             // If the headgear has an ingestion blocker component, it's a blocker
-            if (_tag.HasTag(head, FacehuggerBlockerTag))
+            if (HasComp<FaceHuggerBlockerComponent>(headUid))
             {
-                blocker = head;
+                blocker = headUid;
                 return true;
             }
             // If it's just regular headgear, remove it

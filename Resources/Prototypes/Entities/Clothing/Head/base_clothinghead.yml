@@ -305,7 +305,6 @@
   - type: IngestionBlocker
   - type: Tag
     tags:
-    - FacehuggerBlocker # goobstation facehugger blocker
     - WhitelistChameleon
     - PlasmamanSafe # EE Plasmeme Change
   - type: IdentityBlocker
@@ -315,6 +314,7 @@
     - Snout
     - HeadTop
     - HeadSide
+  - type: FaceHuggerBlocker # Goobstation
 
 - type: entity
   abstract: true
