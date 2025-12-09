@@ -736,6 +736,7 @@
     Plasma: 1000
     BSCrystal: 100
 
+- type: latheRecipe
   id: ClothingEyesGlassesSecurityContraDetect
   result: ClothingEyesGlassesSecurityContraDetect
   completetime: 2
