@@ -396,7 +396,7 @@ public sealed partial class RadioSystem : EntitySystem
             ("boldFontType", language.SpeechOverride.BoldFontId ?? language.SpeechOverride.FontId ?? speech.FontId), // Goob Edit - Custom Bold Fonts
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
             ("channel", $"\\[{channel.LocalizedName}\\]"),
-            ("name", $"[icon src=\"{iconId}\" tooltip=\"{jobName}\"] {name}"), // 🌟Starlight🌟
+            ("name", $"[icon src=\"{iconId}\" tooltip=\"{jobName}\"]  {name}"), // 🌟Starlight🌟
             ("message", message),
             ("language", languageDisplay));
     }
