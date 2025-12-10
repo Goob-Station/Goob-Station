@@ -65,6 +65,7 @@ using Content.Shared.Access.Systems; // Goobstation
 using Content.Shared.Chat.RadioIconsEvents; // Goobstation
 // Goobstation
 using Content.Shared.Whitelist;
+using Content.Shared.StatusIcon;
 
 // Goobstation
 
@@ -175,15 +176,15 @@ public sealed partial class RadioSystem : EntitySystem
         var evt = new TransformSpeakerNameEvent(messageSource, MetaData(messageSource).EntityName);
         RaiseLocalEvent(messageSource, evt);
 
-        // // GabyStation -> JobIcon's begin
-        var (jobIcon, jobName) = GetJobIcon(messageSource);
+        // Goob - Job icons
+        if (TryGetJobIcon(messageSource, out var jobIcon, out var jobName))
+        {
+            var iconEvent = new TransformSpeakerJobIconEvent(messageSource, jobIcon.Value, jobName);
+            RaiseLocalEvent(messageSource, iconEvent);
 
-        var iconEvent = new TransformSpeakerJobIconEvent(messageSource, jobIcon, jobName);
-        RaiseLocalEvent(messageSource, iconEvent);
-
-        jobIcon = iconEvent.JobIcon;
-        jobName = iconEvent.JobName;
-        // GabyStation -> JobIcon's end
+            jobIcon = iconEvent.JobIcon;
+            jobName = iconEvent.JobName;
+        }
 
         var name = evt.VoiceName;
         name = FormattedMessage.EscapeText(name);
@@ -285,7 +286,7 @@ public sealed partial class RadioSystem : EntitySystem
         string name,
         string message,
         LanguagePrototype language,
-        string iconId = "JobIconNoId", // Gaby Radio icons
+        ProtoId<JobIconPrototype>? jobIcon, // Gaby Radio icons + Goob edit
         string? jobName = null) // Gaby Radio icons
     {
         // TODO: code duplication with ChatSystem.WrapMessage
@@ -325,6 +326,9 @@ public sealed partial class RadioSystem : EntitySystem
                 }
             }
 
+        var nameString = jobIcon is null // (unrelated to loudspeakers but still goob)
+            ? name
+            : $"[icon src=\"{jobIcon}\" tooltip=\"{jobName}\"] {name}";
         // goob end
 
         return Loc.GetString(wrapId,
@@ -335,7 +339,7 @@ public sealed partial class RadioSystem : EntitySystem
             ("boldFontType", language.SpeechOverride.BoldFontId ?? language.SpeechOverride.FontId ?? speech.FontId), // Goob Edit - Custom Bold Fonts
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
             ("channel", $"\\[{channel.LocalizedName}\\]"),
-            ("name", $"[icon src=\"{iconId}\" tooltip=\"{jobName}\"] {name}"), // 🌟Starlight🌟
+            ("name", nameString), // goob
             ("message", message),
             ("language", languageDisplay));
     }

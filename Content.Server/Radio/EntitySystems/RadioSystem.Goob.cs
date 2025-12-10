@@ -3,41 +3,79 @@ using Content.Shared.PDA;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.StatusIcon;
+using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server.Radio.EntitySystems;
 
 public sealed partial class RadioSystem
 {
     /// <summary>
-    /// This handles the radio job icons that are displayed next to a players name when sending a message over radio
+    /// This handles getting the radio job icons that are displayed next to a players name when sending a message over radio.
     /// </summary>
-    /// <param name="EntityUID"></param>
-    /// <returns></returns>
-    private (ProtoId<JobIconPrototype>, string?) GetJobIcon(EntityUid ent)
+    /// <param name="ent">The entity making a radio message.</param>
+    /// <param name="jobIcon">
+    /// The prototype ID of <paramref name="ent"/>'s job icon.<br/>
+    /// If the method returns <see langword="false"/> then this will be <see langword="null"/>, otherwise it will always have a non-null value, defaulting to <c>"JobIconNoId"</c>.
+    /// </param>
+    /// <param name="jobName">The name of <paramref name="ent"/>'s job. If they don't <i>have</i> a job, (either none at all or "Unknown") then this will be <see langword="null"/>.</param>
+    /// <returns>If <paramref name="ent"/> has a valid job icon, returns <see langword="true"/> and sets the out parameters. Otherwise returns <see langword="false"/>.</returns>
+    private bool TryGetJobIcon(EntityUid ent, [NotNullWhen(true)] out ProtoId<JobIconPrototype>? jobIcon, out string? jobName)
     {
+        jobIcon = jobName = null;
+
+        // Only show a job icon in chat for entities who normally have one in-game.
+        if (!HasComp<StatusIconComponent>(ent))
+        {
+            return false;
+        }
+
+        // Try to get an ID card.
         if (_accessReader.FindAccessItemsInventory(ent, out var items))
         {
+            IdCardComponent? idCard = null;
             foreach (var item in items)
             {
                 // ID Card
                 if (TryComp<IdCardComponent>(item, out var id))
-                    return (id.JobIcon, id.LocalizedJobTitle);
+                {
+                    idCard = id;
+                    break;
+                }
 
                 // PDA
                 if (TryComp<PdaComponent>(item, out var pda)
                     && pda.ContainedId != null
                     && TryComp(pda.ContainedId, out id))
-                    return (id.JobIcon, id.LocalizedJobTitle);
+                {
+                    idCard = id;
+                    break;
+                }
+            }
+
+            if (idCard != null)
+            {
+                jobIcon = idCard.JobIcon;
+                jobName = idCard.LocalizedJobTitle;
             }
         }
+        // If there's no ID card, check if they're an AI.
+        else if (HasComp<StationAiHeldComponent>(ent))
+        {
+            jobIcon = "JobIconStationAi";
+            jobName = Loc.GetString("job-name-station-ai");
+        }
+        // If not, check if they're a borg.
+        else if (HasComp<BorgChassisComponent>(ent) || HasComp<BorgBrainComponent>(ent))
+        {
+            jobIcon = "JobIconBorg";
+            jobName = Loc.GetString("job-name-borg");
+        }
 
-        if (HasComp<StationAiHeldComponent>(ent))
-            return ("JobIconStationAi", Loc.GetString("job-name-station-ai"));
+        // If `jobIcon` is still null, set it to an 'Unknown' icon.
+        jobIcon ??= "JobIconNoId";
 
-        if (HasComp<BorgChassisComponent>(ent) || HasComp<BorgBrainComponent>(ent))
-            return ("JobIconBorg", Loc.GetString("job-name-borg"));
-
-        return ("JobIconNoId", null);
+        return true;
     }
 }
