@@ -11,6 +11,11 @@ namespace Content.Server.Radio.EntitySystems;
 
 public sealed partial class RadioSystem
 {
+    // These are static vars rather than inlined in `TryGetJobIcon()` so that the YAML linter can verify that they actually exist.
+    private static readonly ProtoId<JobIconPrototype> JobIconAI = new("JobIconStationAi");
+    private static readonly ProtoId<JobIconPrototype> JobIconBorg = new("JobIconBorg");
+    private static readonly ProtoId<JobIconPrototype> JobIconNoID = new("JobIconNoId");
+
     /// <summary>
     /// This handles getting the radio job icons that are displayed next to a players name when sending a message over radio.
     /// </summary>
@@ -28,12 +33,12 @@ public sealed partial class RadioSystem
         // First things first, check if they're an AI or a borg. (They skip the `StatusIconComponent` check)
         if (HasComp<StationAiHeldComponent>(ent))
         {
-            jobIcon = "JobIconStationAi";
+            jobIcon = JobIconAI;
             jobName = Loc.GetString("job-name-station-ai");
         }
         else if (HasComp<BorgChassisComponent>(ent) || HasComp<BorgBrainComponent>(ent))
         {
-            jobIcon = "JobIconBorg";
+            jobIcon = JobIconBorg;
             jobName = Loc.GetString("job-name-borg");
         }
 
@@ -74,7 +79,7 @@ public sealed partial class RadioSystem
         }
 
         // If `jobIcon` is still null, set it to an 'Unknown' icon.
-        jobIcon ??= "JobIconNoId";
+        jobIcon ??= JobIconNoID;
 
         return true;
     }

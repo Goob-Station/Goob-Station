@@ -61,13 +61,9 @@ using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Shared.Access.Systems; // Goobstation
-// Goobstation
 using Content.Shared.Chat.RadioIconsEvents; // Goobstation
-// Goobstation
-using Content.Shared.Whitelist;
-using Content.Shared.StatusIcon;
-
-// Goobstation
+using Content.Shared.Whitelist; // Goobstation
+using Content.Shared.StatusIcon; // Goobstation
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -286,7 +282,7 @@ public sealed partial class RadioSystem : EntitySystem
         string name,
         string message,
         LanguagePrototype language,
-        ProtoId<JobIconPrototype>? jobIcon, // Gaby Radio icons + Goob edit
+        ProtoId<JobIconPrototype>? jobIcon, // Goob edit
         string? jobName = null) // Gaby Radio icons
     {
         // TODO: code duplication with ChatSystem.WrapMessage
@@ -328,7 +324,7 @@ public sealed partial class RadioSystem : EntitySystem
 
         var nameString = jobIcon is null // (unrelated to loudspeakers but still goob)
             ? name
-            : $"[icon src=\"{jobIcon}\" tooltip=\"{jobName}\"] {name}";
+            : Loc.GetString("chat-radio-message-name-with-icon", ("jobIcon", jobIcon), ("jobName", jobName ?? ""), ("name", name));
         // goob end
 
         return Loc.GetString(wrapId,
