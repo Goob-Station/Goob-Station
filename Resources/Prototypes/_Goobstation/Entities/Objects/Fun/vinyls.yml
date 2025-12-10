@@ -315,15 +315,81 @@
       path: /Audio/_Goobstation/RadioStation/music/FeralAngelWaltz.ogg
 
 - type: entity
-  name: "vinyl disk: we are charlie kirk"
-  id: VinylDiskKirk
+  name: "vinyl disk: Also sprach Zarathustra"
+  id: VinylDiskAlsoSprach
   parent: BaseVinylDisk
   components:
   - type: Sprite
     state: white-vinyl-disk
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/music/WeAreCharlieKirk.ogg
+      path: /Audio/_Goobstation/RadioStation/music/PMMUSIC/Also-Sprach-Zarathustra-PM-Music.ogg
+
+- type: entity
+  name: "vinyl disk: Ride of the Valkyries"
+  id: VinylDiskValkyries
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: white-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/PMMUSIC/Ride-of-the-Valkyries-PM-Music.ogg
+
+- type: entity
+  name: "vinyl disk: Romeo and Juliet"
+  id: VinylDiskRomeoJuliet
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: white-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/PMMUSIC/Romeo-and-Juliet-PM-Music.ogg
+
+- type: entity
+  name: "vinyl disk: Russian Dance"
+  id: VinylDiskRussian
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: white-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/PMMUSIC/Russian-Dance-PM-Music.ogg
+
+- type: entity
+  name: "vinyl disk: The Flower Duet"
+  id: VinylDiskFlowerDuet
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: white-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/PMMUSIC/The-Flower-Duet-PM-Music.ogg
+
+- type: entity
+  name: "vinyl disk: Winter Vivaldi"
+  id: VinylDiskWinterVivaldi
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: white-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/PMMUSIC/Winter-Vivaldi-PM-Music.ogg
+
+- type: entity
+  name: "vinyl disk: Bach Cello"
+  id: VinylDiskBachCello
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: white-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/PMMUSIC/Bach-Cello-Suite-PM-Music.ogg
 
 - type: entity
   name: forgotten vinyl disk
