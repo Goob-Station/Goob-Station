@@ -1,4 +1,6 @@
+using Content.Server._Imp.Drone;
 using Content.Shared.Access.Components;
+using Content.Shared.PAI;
 using Content.Shared.PDA;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.StationAi;
@@ -36,7 +38,10 @@ public sealed partial class RadioSystem
             jobIcon = JobIconAI;
             jobName = Loc.GetString("job-name-station-ai");
         }
-        else if (HasComp<BorgChassisComponent>(ent) || HasComp<BorgBrainComponent>(ent))
+        else if (HasComp<BorgChassisComponent>(ent)
+            || HasComp<BorgBrainComponent>(ent)
+            || HasComp<PAIComponent>(ent) // pAIs and Drones don't have radio access, but they can still talk near an intercom.
+            || HasComp<DroneComponent>(ent))
         {
             jobIcon = JobIconBorg;
             jobName = Loc.GetString("job-name-borg");
