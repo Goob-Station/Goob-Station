@@ -347,6 +347,8 @@
     - type: TetherGun
       frequency: 5
       dampingRatio: 4
+      maxForce: 300 # goob
+      massLimit: 150 # goob
     - type: ItemToggle
       onUse: false
     - type: PowerCellDraw
@@ -394,6 +396,7 @@
     - type: ForceGun
       frequency: 15
       dampingRatio: 4
+      throwDistance: 20 # goob
       massLimit: 50
       lineColor: "#18a2d5"
       soundLaunch:
