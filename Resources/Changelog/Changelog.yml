@@ -4623,3 +4623,11 @@ Entries:
   id: 9275
   time: '2025-12-10T10:40:31.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41813
+- author: jckspjf
+  changes:
+  - message: Escape objectives now properly specify escape via the shuttle rather
+      than escape pods.
+    type: Tweak
+  id: 9276
+  time: '2025-12-10T10:55:57.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41809
