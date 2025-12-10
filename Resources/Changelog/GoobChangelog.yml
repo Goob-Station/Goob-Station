@@ -19120,3 +19120,9 @@ Entries:
       message: Removed stamina damage from bingles.
   id: 2158
   time: '2025-12-08T06:16:58.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Fix
+      message: Fixed radio and OOC icons going on an adventure around the chatbox.
+  id: 2159
+  time: '2025-12-10T07:36:47.0000000+00:00'
