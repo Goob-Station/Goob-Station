@@ -25,14 +25,26 @@ public sealed partial class RadioSystem
     {
         jobIcon = jobName = null;
 
-        // Only show a job icon in chat for entities who normally have one in-game.
-        if (!HasComp<StatusIconComponent>(ent))
+        // First things first, check if they're an AI or a borg. (They skip the `StatusIconComponent` check)
+        if (HasComp<StationAiHeldComponent>(ent))
+        {
+            jobIcon = "JobIconStationAi";
+            jobName = Loc.GetString("job-name-station-ai");
+        }
+        else if (HasComp<BorgChassisComponent>(ent) || HasComp<BorgBrainComponent>(ent))
+        {
+            jobIcon = "JobIconBorg";
+            jobName = Loc.GetString("job-name-borg");
+        }
+
+        // If they don't have special silicon privileges, then only show a job icon in chat for entities who normally have one in-game.
+        else if (!HasComp<StatusIconComponent>(ent))
         {
             return false;
         }
 
         // Try to get an ID card.
-        if (_accessReader.FindAccessItemsInventory(ent, out var items))
+        if (jobIcon is null && _accessReader.FindAccessItemsInventory(ent, out var items))
         {
             IdCardComponent? idCard = null;
             foreach (var item in items)
@@ -59,18 +71,6 @@ public sealed partial class RadioSystem
                 jobIcon = idCard.JobIcon;
                 jobName = idCard.LocalizedJobTitle;
             }
-        }
-        // If there's no ID card, check if they're an AI.
-        else if (HasComp<StationAiHeldComponent>(ent))
-        {
-            jobIcon = "JobIconStationAi";
-            jobName = Loc.GetString("job-name-station-ai");
-        }
-        // If not, check if they're a borg.
-        else if (HasComp<BorgChassisComponent>(ent) || HasComp<BorgBrainComponent>(ent))
-        {
-            jobIcon = "JobIconBorg";
-            jobName = Loc.GetString("job-name-borg");
         }
 
         // If `jobIcon` is still null, set it to an 'Unknown' icon.
