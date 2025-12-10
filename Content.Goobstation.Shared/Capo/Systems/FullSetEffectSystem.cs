@@ -9,7 +9,6 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Reflect;
 using Content.Shared.Wieldable;
-using Robust.Shared.Audio;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Capo.Systems;
@@ -22,8 +21,6 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
 
-    private readonly Dictionary<EntityUid, int> _capoPieceCounts = new();
-
     public override void Initialize()
     {
         base.Initialize();
@@ -31,6 +28,7 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
         SubscribeLocalEvent<CaposoutfitComponent, GotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<CaposoutfitComponent, GotUnequippedEvent>(OnUnequipped);
         SubscribeLocalEvent<CaposoutfitComponent, InventoryRelayedEvent<CaposOutfitCountEvent>>(OnCount);
+
         SubscribeLocalEvent<TigersClawComponent, ItemWieldedEvent>(OnWield);
         SubscribeLocalEvent<TigersClawComponent, ItemUnwieldedEvent>(OnUnwield);
     }
@@ -58,26 +56,33 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
         var countEvent = new CaposOutfitCountEvent();
         _inventory.RelayEvent((player, inv), countEvent);
 
-        _capoPieceCounts[player] = countEvent.Count;
+        var tracker = EnsureComp<CaposFullSetTrackerComponent>(player);
+        tracker.Count = countEvent.Count;
 
-        if (countEvent.Count >= 5)
+        if (tracker.Count >= 5)
             AddFullSetEffect(player);
         else
             RemoveFullSetEffect(player);
     }
 
+    private void OnCount(Entity<CaposoutfitComponent> ent, ref InventoryRelayedEvent<CaposOutfitCountEvent> args)
+    {
+        args.Args.Count++;
+    }
+
     private void AddFullSetEffect(EntityUid player)
     {
-
         _movementSpeedModifierSystem.ChangeBaseSpeed(player, 5, 5, 20);
-        var thermal = EntityManager.AddComponent<ThermalVisionComponent>(player);
+
+        var thermal = EnsureComp<ThermalVisionComponent>(player);
         thermal.LightRadius = 15;
         thermal.Color = Color.FromHex("#ffffff");
+
         foreach (var held in _hands.EnumerateHeld(player))
         {
             if (TryComp<TigersClawComponent>(held, out _) && TryComp<ReflectComponent>(held, out var reflect))
             {
-                reflect.ReflectProb = 0.7f;
+                reflect.ReflectProb = 0f;
                 Dirty(held, reflect);
             }
         }
@@ -85,7 +90,7 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
 
     private void RemoveFullSetEffect(EntityUid player)
     {
-        EntityManager.RemoveComponent<ThermalVisionComponent>(player);
+        RemComp<ThermalVisionComponent>(player);
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(player);
         _bodySystem.UpdateMovementSpeed(player);
 
@@ -106,15 +111,15 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
             reflect.ReflectProb = 0f;
             Dirty(ent, reflect);
         }
-        if (TryComp<MeleeWeaponComponent>(ent, out var meleecomp))
+
+        if (TryComp<MeleeWeaponComponent>(ent, out var melee))
         {
-            meleecomp.Animation = "WeaponArcThrust";
-            Dirty(ent, meleecomp);
+            melee.Animation = "WeaponArcThrust";
+            Dirty(ent, melee);
         }
-        if (TryComp<MeleeDashComponent>(ent, out var dash))
-        {
-            EntityManager.RemoveComponent<MeleeDashComponent>(ent);
-        }
+
+        if (HasComp<MeleeDashComponent>(ent))
+            RemComp<MeleeDashComponent>(ent);
     }
 
     private void OnWield(Entity<TigersClawComponent> ent, ref ItemWieldedEvent args)
@@ -122,33 +127,26 @@ public sealed class CaposFullSetEffectSystem : EntitySystem
         var user = args.User;
         if (user == EntityUid.Invalid)
             return;
-        if (TryComp<MeleeWeaponComponent>(ent, out var meleecomp))
+
+        if (TryComp<MeleeWeaponComponent>(ent, out var melee))
         {
-            meleecomp.Animation = "WeaponTigersClawHit";
-            Dirty(ent, meleecomp);
+            melee.Animation = "WeaponTigersClawHit";
+            Dirty(ent, melee);
         }
+
         if (!TryComp<MeleeDashComponent>(ent, out var dash))
         {
-            dash = EntityManager.AddComponent<MeleeDashComponent>(ent);
-            dash.DashSound = new SoundPathSpecifier("/Audio/_Goobstation/Weapons/Effects/tigersclawdash.ogg");
+            dash = AddComp<MeleeDashComponent>(ent);
             dash.DoAfter = 0.6f;
             dash.DashSprite = "ability-icon";
             Dirty(ent, dash);
         }
 
-        if (_capoPieceCounts.TryGetValue(user, out var count) && count >= 5)
+        if (TryComp<CaposFullSetTrackerComponent>(user, out var tracker) && tracker.Count >= 5 && TryComp<ReflectComponent>(ent, out var reflect))
         {
-            if (TryComp<ReflectComponent>(ent, out var reflect))
-            {
-                reflect.ReflectProb = 0.7f;
-                Dirty(ent, reflect);
-            }
+            reflect.ReflectProb = 0.4f;
+            Dirty(ent, reflect);
         }
-    }
-
-    private void OnCount(Entity<CaposoutfitComponent> ent, ref InventoryRelayedEvent<CaposOutfitCountEvent> args)
-    {
-        args.Args.Count++;
     }
 }
 

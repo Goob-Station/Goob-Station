@@ -137,7 +137,7 @@
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledCaposOutfit
   name: the Capos attire
-  description: This bundle holds the Capos attire.
+  description: This bundle holds the Capos attire and the tigers claw.
   components:
   - type: StorageFill
     contents:
@@ -146,3 +146,4 @@
     - id: ClothingShoesCapoSyndi
     - id: ClothingHandsGlovesCapoSyndi
     - id: ClothingNeckCloakCapoSyndi
+    - id: TigersClawSword
