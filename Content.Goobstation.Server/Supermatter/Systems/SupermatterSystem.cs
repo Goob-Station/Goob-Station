@@ -62,20 +62,47 @@ namespace Content.Goobstation.Server.Supermatter.Systems;
 
 public sealed class SupermatterSystem : SharedSupermatterSystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly TransformSystem _xform = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly AmbientSoundSystem _ambient = default!;
-    [Dependency] private readonly LightningSystem _lightning = default!;
-    [Dependency] private readonly AlertLevelSystem _alert = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency]
+    private readonly AtmosphereSystem _atmosphere = default!;
+
+    [Dependency]
+    private readonly ChatSystem _chat = default!;
+
+    [Dependency]
+    private readonly SharedContainerSystem _container = default!;
+
+    [Dependency]
+    private readonly ExplosionSystem _explosion = default!;
+
+    [Dependency]
+    private readonly TransformSystem _xform = default!;
+
+    [Dependency]
+    private readonly SharedAudioSystem _audio = default!;
+
+    [Dependency]
+    private readonly IGameTiming _gameTiming = default!;
+
+    [Dependency]
+    private readonly AmbientSoundSystem _ambient = default!;
+
+    [Dependency]
+    private readonly LightningSystem _lightning = default!;
+
+    [Dependency]
+    private readonly AlertLevelSystem _alert = default!;
+
+    [Dependency]
+    private readonly StationSystem _station = default!;
+
+    [Dependency]
+    private readonly DoAfterSystem _doAfter = default!;
+
+    [Dependency]
+    private readonly SharedTransformSystem _transform = default!;
+
+    [Dependency]
+    private readonly ISharedAdminLogManager _adminLog = default!;
 
     private DelamType _delamType = DelamType.Explosion;
 
@@ -183,10 +210,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         //Lets get the proportions of the gasses in the mix for scaling stuff later
         //They range between 0 and 1
-        gases = gases.ToDictionary(
-            gas => gas.Key,
-            gas => Math.Clamp(absorbedGas.GetMoles(gas.Key) / moles, 0, 1)
-        );
+        gases = gases.ToDictionary(gas => gas.Key, gas => Math.Clamp(absorbedGas.GetMoles(gas.Key) / moles, 0, 1));
 
         //No less then zero, and no greater then one, we use this to do explosions and heat to power transfer.
         var powerRatio = gases.Sum(gas => gases[gas.Key] * facts[gas.Key].PowerMixRatio);
@@ -208,12 +232,15 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         // more moles of gases are harder to heat than fewer,
         // so let's scale heat damage around them
-        sm.MoleHeatPenaltyThreshold = (float) Math.Max(moles * sm.MoleHeatPenalty, 0.25);
+        sm.MoleHeatPenaltyThreshold = (float)Math.Max(moles * sm.MoleHeatPenalty, 0.25);
 
         // Ramps up or down in increments of 0.02 up to the proportion of co2
         // Given infinite time, powerloss_dynamic_scaling = co2comp
         // Some value between 0 and 1
-        if (moles > sm.PowerlossInhibitionMoleThreshold && gases[Gas.CarbonDioxide] > sm.PowerlossInhibitionGasThreshold)
+        if (
+            moles > sm.PowerlossInhibitionMoleThreshold
+            && gases[Gas.CarbonDioxide] > sm.PowerlossInhibitionGasThreshold
+        )
         {
             var co2powerloss = Math.Clamp(gases[Gas.CarbonDioxide] - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
             sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + co2powerloss, 0f, 1f);
@@ -225,11 +252,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         // Ranges from 0 to 1(1-(value between 0 and 1 * ranges from 1 to 1.5(mol / 500)))
         // We take the mol count, and scale it to be our inhibitor
-        var powerlossInhibitor =
-            Math.Clamp(
-                1 - sm.PowerlossDynamicScaling *
-                Math.Clamp(moles / sm.PowerlossInhibitionMoleBoostThreshold, 1f, 1.5f),
-                0f, 1f);
+        var powerlossInhibitor = Math.Clamp(
+            1 - sm.PowerlossDynamicScaling * Math.Clamp(moles / sm.PowerlossInhibitionMoleBoostThreshold, 1f, 1.5f),
+            0f,
+            1f
+        );
 
         if (sm.MatterPower != 0) //We base our removed power off one 10th of the matter_power.
         {
@@ -260,17 +287,19 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         // is on. An increase of 4*C @ 25% efficiency here results in an increase of 1*C / (#tilesincore) overall.
         // Power * 0.55 * (some value between 1.5 and 23) / 5
         absorbedGas.Temperature += energy * heatModifier * sm.ThermalReleaseModifier;
-        absorbedGas.Temperature = Math.Max(0,
-            Math.Min(absorbedGas.Temperature, sm.HeatThreshold * heatModifier));
+        absorbedGas.Temperature = Math.Max(0, Math.Min(absorbedGas.Temperature, sm.HeatThreshold * heatModifier));
 
         // Assmos - /tg/ gases
         // Checks for carbon dioxide and spits out pluoxium if both CO2 and oxygen are present.
         if (mix.GetMoles(Gas.CarbonDioxide) > 0.01f)
         {
             var co2PP = absorbedGas.Pressure * ((mix.GetMoles(Gas.CarbonDioxide) / mix.TotalMoles) * 100);
-            var co2Ratio = Math.Clamp(0.5f * (co2PP - (101.325f*0.01f)) / (co2PP + (101.325f*0.25f)), 0, 1);
+            var co2Ratio = Math.Clamp(0.5f * (co2PP - (101.325f * 0.01f)) / (co2PP + (101.325f * 0.25f)), 0, 1);
             var consumedCO2 = absorbedGas.GetMoles(Gas.CarbonDioxide) * co2Ratio;
-            consumedCO2 = Math.Min(consumedCO2, Math.Min(absorbedGas.GetMoles(Gas.Oxygen), absorbedGas.GetMoles(Gas.CarbonDioxide)));
+            consumedCO2 = Math.Min(
+                consumedCO2,
+                Math.Min(absorbedGas.GetMoles(Gas.Oxygen), absorbedGas.GetMoles(Gas.CarbonDioxide))
+            );
 
             if (consumedCO2 > 0)
             {
@@ -283,15 +312,25 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         // Release the waste
         absorbedGas.AdjustMoles(Gas.Plasma, Math.Max(energy * heatModifier * sm.PlasmaReleaseModifier, 0f));
-        absorbedGas.AdjustMoles(Gas.Oxygen, Math.Max((energy + absorbedGas.Temperature * heatModifier - Atmospherics.T0C) * sm.OxygenReleaseEfficiencyModifier, 0f));
+        absorbedGas.AdjustMoles(
+            Gas.Oxygen,
+            Math.Max(
+                (energy + absorbedGas.Temperature * heatModifier - Atmospherics.T0C)
+                    * sm.OxygenReleaseEfficiencyModifier,
+                0f
+            )
+        );
 
         _atmosphere.Merge(mix, absorbedGas);
 
-        var powerReduction = (float) Math.Pow(sm.Power / 500, 3);
+        var powerReduction = (float)Math.Pow(sm.Power / 500, 3);
 
         // After this point power is lowered
         // This wraps around to the begining of the function
-        sm.Power = Math.Max(sm.Power - Math.Min(powerReduction * powerlossInhibitor, sm.Power * 0.83f * powerlossInhibitor), 0f);
+        sm.Power = Math.Max(
+            sm.Power - Math.Min(powerReduction * powerlossInhibitor, sm.Power * 0.83f * powerlossInhibitor),
+            0f
+        );
     }
 
     /// <summary>
@@ -303,8 +342,13 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         // Makes it pretty obvious that if SM is shooting out red lightnings something is wrong.
         // And if it shoots too weak lightnings it means that it's underfed. Feed the SM :godo:
         var zapPower = sm.Power / sm.PowerPenaltyThreshold * sm.LightningPrototypes.Length;
-        var zapPowerNorm = (int) Math.Clamp(zapPower, 0, sm.LightningPrototypes.Length - 1);
-        _lightning.ShootRandomLightnings(uid, 3.5f, sm.Power > sm.PowerPenaltyThreshold ? 3 : 1, sm.LightningPrototypes[zapPowerNorm]);
+        var zapPowerNorm = (int)Math.Clamp(zapPower, 0, sm.LightningPrototypes.Length - 1);
+        _lightning.ShootRandomLightnings(
+            uid,
+            3.5f,
+            sm.Power > sm.PowerPenaltyThreshold ? 3 : 1,
+            sm.LightningPrototypes[zapPowerNorm]
+        );
     }
 
     /// <summary>
@@ -335,7 +379,14 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         var tempThreshold = Atmospherics.T0C + sm.HeatPenaltyThreshold;
 
         // Temperature start to have a positive effect on damage after 350
-        var tempDamage = Math.Max(Math.Clamp(moles / 200f, .5f, 1f) * absorbedGas.Temperature - tempThreshold * sm.DynamicHeatResistance, 0f) * sm.MoleHeatThreshold / 150f * sm.DamageIncreaseMultiplier;
+        var tempDamage =
+            Math.Max(
+                Math.Clamp(moles / 200f, .5f, 1f) * absorbedGas.Temperature - tempThreshold * sm.DynamicHeatResistance,
+                0f
+            )
+            * sm.MoleHeatThreshold
+            / 150f
+            * sm.DamageIncreaseMultiplier;
         totalDamage += tempDamage;
 
         // Power only starts affecting damage when it is above 5000
@@ -371,7 +422,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 < 25 => 0.0009f,
                 < 45 => 0.005f,
                 < 75 => 0.002f,
-                _ => 0f
+                _ => 0f,
             };
 
             totalDamage += Math.Clamp(sm.Power * factor * sm.DamageIncreaseMultiplier, 0, sm.MaxSpaceExposureDamage);
@@ -433,7 +484,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
             var station = _station.GetOwningStation(uid);
             if (station != null)
-                _alert.SetLevel((EntityUid) station, alertLevel, true, true, true, false);
+                _alert.SetLevel((EntityUid)station, alertLevel, true, true, true, false);
 
             sb.AppendLine(Loc.GetString(loc));
             sb.AppendLine(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelamTimer)));
@@ -484,7 +535,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     public float GetIntegrity(SupermatterComponent sm)
     {
         var integrity = sm.Damage / sm.DelaminationPoint;
-        integrity = (float) Math.Round(100 - integrity * 100, 2);
+        integrity = (float)Math.Round(100 - integrity * 100, 2);
         integrity = integrity < 0 ? 0 : integrity;
         return integrity;
     }
@@ -589,9 +640,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         var target = args.OtherEntity;
 
         // Stop immune entities from activating the sm.
-        if (args.OtherBody.BodyType == BodyType.Static
+        if (
+            args.OtherBody.BodyType == BodyType.Static
             || HasComp<SupermatterImmuneComponent>(target)
-            || _container.IsEntityInContainer(uid))
+            || _container.IsEntityInContainer(uid)
+        )
             return;
 
         if (!sm.Activated)
@@ -602,12 +655,18 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             var impact = isMob ? LogImpact.Extreme : LogImpact.High;
 
             // Original log entry
-            _adminLog.Add(LogType.Supermatter, impact,
-                $"{activator:actor} activated Supermatter {ToPrettyString(uid):subject}");
+            _adminLog.Add(
+                LogType.Supermatter,
+                impact,
+                $"{activator:actor} activated Supermatter {ToPrettyString(uid):subject}"
+            );
 
             // New admin alert
-            _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
-                $"SUPERMATTER ACTIVATED BY {activator} AT {Transform(uid).Coordinates}");
+            _adminLog.Add(
+                LogType.AdminMessage,
+                LogImpact.Extreme,
+                $"SUPERMATTER ACTIVATED BY {activator} AT {Transform(uid).Coordinates}"
+            );
 
             sm.Activated = true;
         }
@@ -615,7 +674,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (TryComp<SupermatterFoodComponent>(target, out var food))
             sm.Power += food.Energy;
         else if (TryComp<ProjectileComponent>(target, out var projectile))
-            sm.Power += (float) projectile.Damage.GetTotal();
+            sm.Power += (float)projectile.Damage.GetTotal();
         else
             sm.Power++;
 
@@ -623,7 +682,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         if (!HasComp<ProjectileComponent>(target))
         {
-            _adminLog.Add(LogType.Supermatter, LogImpact.Medium, $"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");
+            _adminLog.Add(
+                LogType.Supermatter,
+                LogImpact.Medium,
+                $"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}"
+            );
             EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
             _audio.PlayPvs(sm.DustSound, uid);
         }
@@ -652,12 +715,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     {
         if (!HasComp<SupermatterImmuneComponent>(args.User))
             return;
-        
         if (!sm.Activated)
             sm.Activated = true;
 
         if (sm.SliverRemoved)
-                    return;
+            return;
 
         if (!HasComp<SharpComponent>(args.Used))
             return;
@@ -685,7 +747,12 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         sm.DamageArchived += sm.DelaminationPoint / 10;
 
         var integrity = GetIntegrity(sm).ToString("0.00");
-        SupermatterAnnouncement(uid, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)), true, "Central Command");
+        SupermatterAnnouncement(
+            uid,
+            Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)),
+            true,
+            "Central Command"
+        );
 
         Spawn(sm.SliverPrototypeId, _transform.GetMapCoordinates(args.User));
 
@@ -698,7 +765,9 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         // get all close and personal to it
         if (args.IsInDetailsRange)
         {
-            args.PushMarkup(Loc.GetString("supermatter-examine-integrity", ("integrity", GetIntegrity(sm).ToString("0.00"))));
+            args.PushMarkup(
+                Loc.GetString("supermatter-examine-integrity", ("integrity", GetIntegrity(sm).ToString("0.00")))
+            );
         }
     }
 
