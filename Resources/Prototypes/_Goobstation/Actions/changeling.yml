@@ -54,7 +54,6 @@
     event: !type:OpenEvolutionMenuEvent {}
   - type: ChangelingAction
     useInLesserForm: true
-    useInLastResort: true
 
 - type: entity
   parent: BaseAction
@@ -162,7 +161,6 @@
     event: !type:EnterStasisEvent {}
   - type: ChangelingAction
     useInLesserForm: true
-    useInLastResort: true
 
 - type: entity
   parent: BaseAction
@@ -183,7 +181,6 @@
   - type: ChangelingAction
     chemicalCost: 30
     useInLesserForm: true
-    useInLastResort: true
 
 # combat
 - type: entity
