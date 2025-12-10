@@ -26,7 +26,7 @@ public sealed class ExplodeServerSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        if (_roundEndOverlayTime >= _gameTiming.CurTime && _roundEndOverlayTime != TimeSpan.Zero) ; // Start overlay and blink
+        if (_roundEndOverlayTime >= _gameTiming.CurTime && _roundEndOverlayTime != TimeSpan.Zero) // Start overlay and blink
         {
             var remainingTime = _roundEndOverlayTime - _gameTiming.CurTime;
             if (remainingTime.TotalSeconds % 1.25d < 0.5d)
