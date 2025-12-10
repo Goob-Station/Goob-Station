@@ -1,0 +1,37 @@
+﻿
+- type: entity
+  parent: [ClothingEyesBase, ShowMedicalIcons]
+  id: ClothingEyesGlassesMedChem
+  name: medichem goggles
+  description: Goggles that can scan the chemical composition of a solution, with an integrated medical hud.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/Glasses/medichem.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/Glasses/medichem.rsi
+  - type: SolutionScanner
+  - type: Construction
+    graph: GogglesMedChemHUD
+    node: gogglesMedChem
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HudMedichem
+
+- type: entity
+  parent: [ClothingEyesBase, ShowMedicalIcons, ClothingEyesGlassesSunglasses]
+  id: ClothingEyesGlassesMedChemFlash
+  name: medichem glasses
+  description: Sunglasses with a medical hud and solution analyzer.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/Glasses/medichemglasses.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/Glasses/medichemglasses.rsi
+  - type: SolutionScanner
+  - type: Construction
+    graph: GlassesMedChemHUD
+    node: glassesMedChem
+  - type: Tag
+    tags:
+    - WhitelistChameleon
