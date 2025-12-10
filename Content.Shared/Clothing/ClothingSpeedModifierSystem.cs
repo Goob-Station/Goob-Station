@@ -142,6 +142,9 @@ public sealed class ClothingSpeedModifierSystem : EntitySystem
 
     private void OnRefreshMoveSpeed(EntityUid uid, ClothingSpeedModifierComponent component, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
+        if (component.RequireActivated && !_toggle.IsActivated(uid))
+            return;
+
         // goob edit - speed modifier immunity (1 liner)
         if (_toggle.IsActivated(uid) && !HasComp<SpeedModifierImmunityComponent>(uid))
             return;
@@ -202,6 +205,9 @@ public sealed class ClothingSpeedModifierSystem : EntitySystem
 
     private void OnToggled(Entity<ClothingSpeedModifierComponent> ent, ref ItemToggledEvent args)
     {
+        if (!ent.Comp.RequireActivated)
+            return;
+
         // make sentient boots slow or fast too
         _movementSpeed.RefreshMovementSpeedModifiers(ent);
 
