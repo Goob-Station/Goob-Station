@@ -9,6 +9,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 using System.Linq;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
@@ -191,7 +192,10 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         RaiseLocalEvent(ent, ref thresholdEv);
 
         var freezeT = thresholdEv.ColdDamageThreshold;
-        var highestSpeedT = thresholdEv.SpeedThresholds.Keys.Max();
+
+        var highestSpeedT = thresholdEv.SpeedThresholds != null
+            ? thresholdEv.SpeedThresholds.Keys.Max()
+            : freezeT; // only if TemperatureSpeedComponent doesnt exist
 
         return Math.Max(freezeT, highestSpeedT);
     }
