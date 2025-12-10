@@ -203,10 +203,10 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         }
 
         // upgraded grasp
-        if (!TryApplyGraspEffectAndMark(args.User, hereticComp, target, ent))
+        if (!TryApplyGraspEffectAndMark(args.User, hereticComp, target, ent, out var triggerGrasp))
             return;
 
-        if (TryComp(target, out StatusEffectsComponent? status))
+        if (triggerGrasp && TryComp(target, out StatusEffectsComponent? status))
         {
             _stun.KnockdownOrStun(target, comp.KnockdownTime, true, status);
             _stamina.TakeStaminaDamage(target, comp.StaminaDamage);

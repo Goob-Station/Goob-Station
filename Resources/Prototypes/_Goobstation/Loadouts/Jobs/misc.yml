@@ -68,6 +68,12 @@
   equipment:
     eyes: ClothingEyesGlassesCheapSunglasses
 
+- type: loadout
+  id: CrewCassette
+  storage:
+    back:
+    - CrewCassette
+
 # Animals
 - type: loadout
   id: Squackroach

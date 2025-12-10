@@ -41,13 +41,15 @@
         Piercing: 0.5
         Heat: 0.5
         Caustic: 0.5
-        Holy: 1.25
+        # Holy: 1.25
     traumaDeductions:
       Dismemberment: 0.5
       OrganDamage: 0.5
       BoneDamage: 0.5
       VeinsDamage: 0.0
       NerveDamage: 0.0
+  - type: FireProtection
+    reduction: 0.1
 
 - type: entity
   parent: ClothingHeadHatHoodHeretic
