@@ -4615,3 +4615,11 @@ Entries:
   id: 9274
   time: '2025-12-10T02:40:39.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41814
+- author: slarticodefast
+  changes:
+  - message: Fixed rigged power cells immediately exploding when inserted into a device
+      even if it's toggled off.
+    type: Fix
+  id: 9275
+  time: '2025-12-10T10:40:31.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41813
