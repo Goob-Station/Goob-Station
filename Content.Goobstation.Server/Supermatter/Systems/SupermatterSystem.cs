@@ -715,6 +715,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     {
         if (!HasComp<SupermatterImmuneComponent>(args.User))
             return;
+
         if (!sm.Activated)
             sm.Activated = true;
 
