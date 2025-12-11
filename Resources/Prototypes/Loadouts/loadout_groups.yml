@@ -1019,6 +1019,8 @@
   minLimit: 0
   loadouts:
   - ChiefEngineerWintercoat
+  - SeniorEngineerXelthiaJacket
+  - ClothingOuterXelthiaInsulated
 
 - type: loadoutGroup
   id: ChiefEngineerShoes
@@ -1072,6 +1074,8 @@
   loadouts:
   - StationEngineerOuterVest
   - StationEngineerWintercoat
+  - SeniorEngineerXelthiaJacket
+  - ClothingOuterXelthiaInsulated
 
 - type: loadoutGroup
   id: StationEngineerShoes
@@ -1111,7 +1115,8 @@
   minLimit: 0
   loadouts:
   - AtmosphericTechnicianWintercoat
-
+  - SeniorEngineerXelthiaJacket
+  - ClothingOuterXelthiaInsulated
 - type: loadoutGroup
   id: AtmosphericTechnicianBackpack
   name: loadout-group-atmospheric-technician-backpack
@@ -1493,6 +1498,8 @@
   loadouts:
   - ChiefMedicalOfficerLabCoat
   - ChiefMedicalOfficerWintercoat
+  - ClothingOuterXelthiaSurgical # Omu
+  - SeniorPhysicianXelthiaJacket # Omu
   - CMOVetLabCoat #Omu
 
 - type: loadoutGroup
@@ -1545,6 +1552,8 @@
   - RegularLabCoat
   - MedicalDoctorWintercoat
   - ClothingLabcoatLong # OmuStation
+  - ClothingOuterXelthiaSurgical # Omu
+  - SeniorPhysicianXelthiaJacket # Omu
   - SeniorPhysicianLabCoat
 
 - type: loadoutGroup
@@ -1611,6 +1620,8 @@
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
+  - ClothingOuterXelthiaSurgical # Omu
+  - SeniorPhysicianXelthiaJacket # Omu
   - ChemLabcoatLong # OmuStation
   - SeniorPhysicianLabCoat # Goobstation
 
@@ -1653,6 +1664,8 @@
   - ClothingJacketParamedBlue # OmuStation
   - ParamedicDavidsJacket # Goobstation
   - SeniorPhysicianLabCoat # Goobstation
+  - SeniorPhysicianXelthiaJacket # Omu
+  - ClothingOuterXelthiaSurgical # Omu
 
 - type: loadoutGroup
   id: ParamedicShoes
