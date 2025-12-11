@@ -68,4 +68,7 @@
     size: Normal
   - type: Appearance
   - type: XenoVacuum
+    entityWhitelist:
+      components:
+      - type: Slime
 

@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -26,4 +27,7 @@ public sealed partial class XenoVacuumComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public SoundSpecifier? ClearSound = new SoundPathSpecifier("/Audio/Effects/trashbag3.ogg");
+
+    [DataField, AutoNetworkedField]
+    public EntityWhitelist EntityWhitelist;
 }
