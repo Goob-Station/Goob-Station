@@ -10,12 +10,11 @@
       state: core
       color: "#ffff1a"
   - type: Reactive
-    isReactionsUnlimited: false
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-fail" ]
@@ -32,6 +31,7 @@
       - !type:CreateEntityReactionEffect
         entity: XenobioVolatileOrgan
         number: 1
+      - !type:DeleteSelfEntityEffect
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -41,6 +41,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:EmpReactionEffect
+      - !type:DeleteSelfEntityEffect
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -58,8 +59,6 @@
       state: core
       color: "#8e0ff0"
   - type: Reactive
-    isReactionsUnlimited: false
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -71,7 +70,8 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
         entity: SheetPlastic10
-        number: 3 # in parity it did nothing but this is based
+        number: 3
+      - !type:DeleteSelfEntityEffect
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -83,9 +83,11 @@
       - !type:CreateEntityReactionEffect
         entity: SheetPlasma1
         number: 3
+      - !type:DeleteSelfEntityEffect
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-fail" ]
@@ -108,12 +110,11 @@
       state: core
       color: "#1e8cfa"
   - type: Reactive
-    isReactionsUnlimited: false
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-reagent" ]
@@ -125,6 +126,7 @@
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-evil" ]
@@ -136,6 +138,7 @@
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-reagent" ]
@@ -162,12 +165,11 @@
       color: "#c4c4c4"
       shader: XenoMetallic
   - type: Reactive
-    isReactionsUnlimited: false
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-evil" ]
@@ -193,6 +195,7 @@
       - !type:CreateEntityReactionEffect
         entity: IngotSilver1
         number: 2
+      - !type:DeleteSelfEntityEffect
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -202,8 +205,9 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        entity: XenobioGoopBall # acts as a single use atmos holofan. also screams in slime
+        entity: XenobioGoopBall
         number: 3
+      - !type:DeleteSelfEntityEffect
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -222,8 +226,6 @@
       color: "#f0f8ff"
       shader: XenoBluespace
   - type: Reactive
-    isReactionsUnlimited: false
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -236,6 +238,7 @@
       - !type:CreateEntityReactionEffect
         entity: FloorTileItemBluespace
         number: 30
+      - !type:DeleteSelfEntityEffect
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -247,6 +250,7 @@
       - !type:CreateEntityReactionEffect
         entity: MaterialBSCrystal1
         number: 5
+      - !type:DeleteSelfEntityEffect
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -256,6 +260,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:RandomTeleportNearby
+      - !type:DeleteSelfEntityEffect
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -274,12 +279,11 @@
       color: "#704214"
       shader: XenoSepia
   - type: Reactive
-    isReactionsUnlimited: false
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-reagent" ]
@@ -291,6 +295,7 @@
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-evil" ]
@@ -314,6 +319,7 @@
       - !type:CreateEntityReactionEffect
         entity: FloorTileItemSepia
         number: 30
+      - !type:DeleteSelfEntityEffect
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -331,8 +337,6 @@
       state: core
       color: "#2A52BE"
   - type: Reactive
-    isReactionsUnlimited: false
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -343,6 +347,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:OxygenateNearby
+      - !type:DeleteSelfEntityEffect
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -352,9 +357,11 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:ExtinguishNearby
+      - !type:DeleteSelfEntityEffect
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-reagent" ]
@@ -381,8 +388,6 @@
       color: "#dcaa4f"
       shader: XenoMetallic
   - type: Reactive
-    isReactionsUnlimited: false
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -396,6 +401,7 @@
         radius: 12
         duration: 60
         chance: 0.5
+      - !type:DeleteSelfEntityEffect
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -411,6 +417,7 @@
       - !type:ForceStealthNearbyEffect
         duration: 30
         radius: 7
+      - !type:DeleteSelfEntityEffect
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -422,6 +429,7 @@
       - !type:ForceStealthNearbyEffect
         radius: 1.5
         duration: 120
+      - !type:DeleteSelfEntityEffect
   - type: SlimeExtract
   - type: Tag
     tags:

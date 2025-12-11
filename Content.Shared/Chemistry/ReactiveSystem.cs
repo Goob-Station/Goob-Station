@@ -54,6 +54,7 @@ public sealed class ReactiveSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly EntityEffectSystem _effects = default!; // goob edit
 
     public void DoEntityReaction(EntityUid uid, Solution solution, ReactionMethod method)
     {
@@ -76,18 +77,12 @@ public sealed class ReactiveSystem : EntitySystem
         if (!TryComp(uid, out ReactiveComponent? reactive))
             return;
 
-        if (reactive is { IsReactionsUnlimited: false, RemainingReactions: <= 0 }) // goob edit
-            return;
-
         // custom event for bypassing reactivecomponent stuff
         var ev = new ReactionEntityEvent(method, proto, reagentQuantity, source);
         RaiseLocalEvent(uid, ref ev);
 
         // If we have a source solution, use the reagent quantity we have left. Otherwise, use the reaction volume specified.
         var args = new EntityEffectReagentArgs(uid, EntityManager, null, source, source?.GetReagentQuantity(reagentQuantity.Reagent) ?? reagentQuantity.Quantity, proto, method, 1f);
-
-        if (reactive.OneUnitReaction) // goob edit
-            args.Quantity = 1;
 
         // First, check if the reagent wants to apply any effects.
         if (proto.ReactiveEffects != null && reactive.ReactiveGroups != null)
@@ -125,7 +120,7 @@ public sealed class ReactiveSystem : EntitySystem
                             $"Reactive effect {effect.GetType().Name:effect} of reagent {proto.ID:reagent} with method {method} applied on entity {ToPrettyString(entity):entity} at {Transform(entity).Coordinates:coordinates}");
                     }
 
-                    effect.Effect(args);
+                    _effects.Effect(effect, args); // goob edit - use system instead
                 }
             }
         }
@@ -153,22 +148,8 @@ public sealed class ReactiveSystem : EntitySystem
                             $"Reactive effect {effect.GetType().Name:effect} of {ToPrettyString(entity):entity} using reagent {proto.ID:reagent} with method {method} at {Transform(entity).Coordinates:coordinates}");
                     }
 
-                    effect.Effect(args);
+                    _effects.Effect(effect, args); // goob edit - use system instead
                 }
-
-                // goob edit - GOIDA!
-                var maxDelay = entry.Effects.Max(e => e.Delay);
-                var afterReact = new SolutionReactedEvent();
-                RaiseLocalEvent(uid, ref afterReact);
-
-                if (!reactive.IsReactionsUnlimited)
-                {
-                    reactive.RemainingReactions -= 1;
-
-                    if (reactive.RemainingReactions == 0 && reactive.DeleteOnReactionDepletion)
-                        Timer.Spawn((int) (maxDelay * 1000f) + 5, () => QueueDel(uid));
-                }
-                // goob edit end
             }
         }
     }

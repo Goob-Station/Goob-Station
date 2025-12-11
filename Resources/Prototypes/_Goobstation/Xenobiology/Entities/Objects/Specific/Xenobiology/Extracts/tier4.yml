@@ -11,12 +11,11 @@
       color: "#383936"
       shader: XenoMetallic
   - type: Reactive
-    isReactionsUnlimited: false
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-reagent" ]
@@ -42,9 +41,12 @@
         maxIntensity: 1050
         intensitySlope: 4
         intensityPerUnit: 70
+      - !type:DeleteSelfEntityEffect
+        delay: 5
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-fail" ]
@@ -67,12 +69,11 @@
       state: core
       color: "#ffb3ec"
   - type: Reactive
-    isReactionsUnlimited: false
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-reagent" ]
@@ -89,6 +90,7 @@
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-reagent" ]
@@ -102,7 +104,7 @@
       effects:
       - !type:PopupMessage
         type: Pvs
-        messages: [ "xeno-extract-reaction-reagent-evil" ]
+        messages: [ "xeno-extract-reaction-evil" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:Jitter
@@ -110,6 +112,8 @@
         frequency: 20
       - !type:ScrambleNearbyEffect
         radius: 3
+        delay: 3
+      - !type:DeleteSelfEntityEffect
         delay: 3
   - type: SlimeExtract
   - type: Tag
@@ -128,12 +132,11 @@
       state: core
       color: "#000000"
   - type: Reactive
-    isReactionsUnlimited: false
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-fail" ]
@@ -142,6 +145,7 @@
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-reagent" ]
@@ -153,6 +157,7 @@
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-fail" ]
@@ -176,8 +181,6 @@
       color: "#005c33"
       shader: XenoMetallic
   - type: Reactive
-    isReactionsUnlimited: false
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -187,6 +190,7 @@
         multiplier: 55
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:DeleteSelfEntityEffect
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -198,9 +202,11 @@
       - !type:CreateEntityReactionEffect
         entity: XenobioAdamantineBar
         number: 1
+      - !type:DeleteSelfEntityEffect
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-fail" ]

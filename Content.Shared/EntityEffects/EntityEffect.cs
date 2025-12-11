@@ -55,6 +55,9 @@ public abstract partial class EntityEffect
     [DataField]
     public float Delay = 0f;
 
+    /// <summary>
+    ///     Goobstation - use the new EntityEffectSystem instead of a direct call.
+    /// </summary>
     public abstract void Effect(EntityEffectBaseArgs args);
 
     /// <summary>

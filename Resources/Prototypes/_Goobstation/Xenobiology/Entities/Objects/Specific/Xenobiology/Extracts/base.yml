@@ -25,8 +25,6 @@
     solution: extract
   - type: SlimeExtract
   - type: Reactive
-    isReactionsUnlimited: false
-    oneUnitReaction: true
   - type: GuideHelp
     guides:
     - Xenobiology

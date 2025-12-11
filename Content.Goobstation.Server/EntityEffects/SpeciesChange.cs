@@ -4,7 +4,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Humanoid;
 using Content.Shared.Humanoid;
 using Content.Shared.EntityEffects;
 using Content.Shared.Humanoid.Prototypes;
@@ -23,6 +22,10 @@ public sealed partial class SpeciesChange : EntityEffect
 
     public override void Effect(EntityEffectBaseArgs args)
     {
+        // this only changes the sprite of the urist.
+        // a proper species change needs to be using polymorph system
+        // but we can't afford that because polymorph is dogshit.
+
         if (!args.EntityManager.TryGetComponent<HumanoidAppearanceComponent>(args.TargetEntity, out var appearance))
             return;
 

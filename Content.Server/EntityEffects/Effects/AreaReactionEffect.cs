@@ -60,23 +60,16 @@ public sealed partial class AreaReactionEffect : EntityEffect
 
     public override LogImpact LogImpact => LogImpact.High;
 
-    // goob edit - added delay support and moved effect behavior to the method below
     public override void Effect(EntityEffectBaseArgs args)
     {
         if (args is not EntityEffectReagentArgs reagentArgs)
             throw new NotImplementedException();
 
-        if (Delay > 0f) Timer.Spawn((int) (Delay * 1000f), () => DoEffect(reagentArgs));
-        else DoEffect(reagentArgs);
-    }
-
-    private void DoEffect(EntityEffectReagentArgs args)
-    {
-        if (args.Source == null)
+        if (reagentArgs.Source == null)
             return;
 
-        var spreadAmount = (int) Math.Max(0, Math.Ceiling((args.Quantity / OverflowThreshold).Float()));
-        var splitSolution = args.Source.SplitSolution(args.Source.Volume);
+        var spreadAmount = (int) Math.Max(0, Math.Ceiling((reagentArgs.Quantity / OverflowThreshold).Float()));
+        var splitSolution = reagentArgs.Source.SplitSolution(reagentArgs.Source.Volume);
         var transform = args.EntityManager.GetComponent<TransformComponent>(args.TargetEntity);
         var mapManager = IoCManager.Resolve<IMapManager>();
         var mapSys = args.EntityManager.System<MapSystem>();
@@ -102,6 +95,5 @@ public sealed partial class AreaReactionEffect : EntityEffect
 
         var audio = args.EntityManager.System<SharedAudioSystem>();
         audio.PlayPvs(_sound, args.TargetEntity, AudioParams.Default.WithVariation(0.25f));
-        return;
     }
 }

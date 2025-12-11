@@ -14,14 +14,15 @@ public sealed partial class RandomSpeciesChange : EntityEffect
     {
         var protMan = IoCManager.Resolve<IPrototypeManager>();
         var random = IoCManager.Resolve<IRobustRandom>();
+        var entityEffects = args.EntityManager.System<EntityEffectSystem>();
 
         // whatever, go my rngesus
         var species = protMan.EnumeratePrototypes<SpeciesPrototype>();
-        var sc = new SpeciesChange
+        var sce = new SpeciesChange
         {
             NewSpecies = random.Pick(species.ToList()).ID
         };
 
-        sc.Effect(args);
+        entityEffects.Effect(sce, args);
     }
 }

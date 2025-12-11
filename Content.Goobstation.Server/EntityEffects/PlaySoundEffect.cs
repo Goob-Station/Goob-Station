@@ -19,12 +19,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.EntityEffects;
-using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.EntityEffects
 {
@@ -33,21 +30,10 @@ namespace Content.Goobstation.Server.EntityEffects
         [DataField(required: true)]
         public SoundSpecifier Sound;
 
-        // JUSTIFICATION: This is purely cosmetic.
         protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
             => null;
 
-        // Why do I even need to do this???
         public override void Effect(EntityEffectBaseArgs args)
-        {
-            // goob edit - added timer support
-            // why do i even need to do this???
-            // these superclass typeshit types PMO!
-            if (Delay > 0f) Timer.Spawn((int) (Delay * 1000f), () => DoEffect(args));
-            else DoEffect(args);
-        }
-
-        private void DoEffect(EntityEffectBaseArgs args)
         {
             var transform = args.EntityManager.GetComponent<TransformComponent>(args.TargetEntity);
             var audioSys = args.EntityManager.EntitySysManager.GetEntitySystem<SharedAudioSystem>();

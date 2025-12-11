@@ -31,12 +31,6 @@ public sealed partial class ScrambleNearbyEffect : EntityEffect
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        if (Delay > 0f) Timer.Spawn((int) (Delay * 1000f), () => DoEffect(args));
-        else DoEffect(args);
-    }
-
-    private void DoEffect(EntityEffectBaseArgs args)
-    {
         var entityManager = args.EntityManager;
         var lookupSys = entityManager.System<EntityLookupSystem>();
         var scramSys = entityManager.System<ScrambleDnaEffectSystem>();
