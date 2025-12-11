@@ -16,7 +16,7 @@ namespace Content.Goobstation.Server.Xenobiology.HTN;
 public sealed partial class SlimeLatchOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly SlimeLatchSystem _slimeLatch = default!;
+    private SlimeLatchSystem _slimeLatch = default!;
 
     [DataField]
     public string LatchKey = string.Empty;
@@ -24,6 +24,7 @@ public sealed partial class SlimeLatchOperator : HTNOperator
     public override void Initialize(IEntitySystemManager sysManager)
     {
         base.Initialize(sysManager);
+        _slimeLatch = sysManager.GetEntitySystem<SlimeLatchSystem>();
     }
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
