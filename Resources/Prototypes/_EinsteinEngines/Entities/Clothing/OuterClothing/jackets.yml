@@ -1,6 +1,6 @@
 #Insulated Jacket
 - type: entity
-  parent: ClothingOuterBase
+  parent: [ClothingOuterBase, BaseEngineeringContraband]
   id: ClothingOuterJacketInsulated
   name: insulated jacket
   description: A thick jacket with a membrane attached to the end of its sleeves that conforms to the user's hands, allowing it to function as insulated gloves. Useful if you can't wear or find regular insulated gloves.

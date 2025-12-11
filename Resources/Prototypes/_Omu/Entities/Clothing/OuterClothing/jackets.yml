@@ -1,0 +1,33 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterJacketSeniorPhys
+  name: senior physician surgical jacket
+  description: A prestigious surgical membrane jacket for the handless senior physicians.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/GloveJackets/seniorsurgicaljacket.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/GloveJackets/seniorsurgicaljacket.rsi
+  - type: Fiber
+    fiberMaterial: fibers-nitrile
+  - type: FingerprintMask
+  - type: GloveJacket
+
+- type: entity
+  parent: [ClothingOuterBase, BaseEngineeringContraband]
+  id: ClothingOuterJacketSeniorEngineer
+  name: senior engineer insulated jacket
+  description: A prestigious insulated membrane jacket for handless engineers.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/GloveJackets/seniorengineerjacket.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/GloveJackets/seniorengineerjacket.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-blue
+  - type: FingerprintMask
+  - type: GloveJacket # Components for these jackets that allows them to act as gloves. Mostly for surgery.
+# if species-specific sprites are fixed to not have displacement maps apply to them, this will break.
+# replacing the equipped-OUTERCLOTHING-xelthia.png file in the RSI with the one in the InsulatedJacket/insulated_jacket_unmodified folder would fix this.
