@@ -1395,7 +1395,7 @@
   description: uplink-cqc-desc
   productEntity: CQCManual
   cost:
-    Telecrystal: 60
+    Telecrystal: 100
   categories:
   - UplinkWeaponry
   conditions:
