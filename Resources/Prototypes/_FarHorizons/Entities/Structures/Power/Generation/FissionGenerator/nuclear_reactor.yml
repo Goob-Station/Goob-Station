@@ -147,6 +147,37 @@
   - type: NuclearReactor
     prefab: meltdown
 
+- type: entity
+  id: NuclearReactorSmall
+  parent: BaseNuclearReactor
+  name: small nuclear reactor
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/small_nuclear_reactor.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        - HighImpassable
+  - type: NuclearReactor
+    thermalMass: 302400
+    reactorGridWidth: 5
+    reactorGridHeight: 5
+    prefab: normal5x5
+    inletPos: -1, 1
+    inletRot: 180
+    outletPos: 1, 1
+    outletRot: 180
+    arrowPrototype: ReactorSmallFlowArrow
+    gridbounds: [ 12, 11, 0, 0 ]
+
 # Nuclear debris resultant from a meltdown
 - type: entity
   id: NuclearDebrisChunk
@@ -169,7 +200,7 @@
   - type: RadiationSource
     intensity: 1.6
 
-# Arrow to indicate flow
+# Arrows to indicate flow
 - type: entity
   id: ReactorFlowArrow
   categories: [ HideSpawnMenu ]
@@ -189,6 +220,20 @@
     - type: Tag
       tags:
         - HideContextMenu
+
+- type: entity
+  id: ReactorSmallFlowArrow
+  parent: ReactorFlowArrow
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      layers:
+        - state: arrow
+          rotation: 0
+          offset: -1, 2
+        - state: arrow
+          rotation: 180
+          offset: 1, 2
 
 # Pipes the reactor uses to connect to the pipe network
 - type: entity

@@ -20,9 +20,6 @@ public sealed partial class NuclearReactorMonitorSystem : EntitySystem
     private readonly float _threshold = 0.5f;
     private float _accumulator = 0f;
 
-    private static readonly int _gridWidth = NuclearReactorComponent.ReactorGridWidth;
-    private static readonly int _gridHeight = NuclearReactorComponent.ReactorGridHeight;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -92,32 +89,32 @@ public sealed partial class NuclearReactorMonitorSystem : EntitySystem
         if (!_uiSystem.IsUiOpen(uid, NuclearReactorUiKey.Key))
             return;
 
-        var zoff = _gridWidth * _gridHeight;
+        var gridWidth = reactor.ReactorGridWidth;
+        var gridHeight = reactor.ReactorGridHeight;
 
-        var temp = new double[_gridWidth * _gridHeight];
-        var neutron = new int[_gridWidth * _gridHeight];
-        var icon = new string[_gridWidth * _gridHeight];
-        var partName = new string[_gridWidth * _gridHeight];
-        var partInfo = new double[_gridWidth * _gridHeight * 3];
+        var dict = new Dictionary<Vector2i, ReactorSlotBUIData>();
 
-        for (var x = 0; x < _gridWidth; x++)
+        for (var x = 0; x < gridWidth; x++)
         {
-            for (var y = 0; y < _gridHeight; y++)
+            for (var y = 0; y < gridHeight; y++)
             {
                 var reactorPart = reactor.ComponentGrid[x, y];
+                if (reactorPart == null)
+                    continue;
 
-                if (reactorPart != null && reactorPart.Properties == null)
+                if (reactorPart.Properties == null)
                     _partSystem.SetProperties(reactorPart, out reactorPart.Properties);
 
-                var pos = (x * _gridWidth) + y;
-                temp[pos] = reactor.TemperatureGrid[x, y];
-                neutron[pos] = reactor.NeutronGrid[x, y];
-                icon[pos] = reactorPart != null ? reactorPart.IconStateInserted : "base";
-
-                partName[pos] = reactorPart != null ? _prototypes.Index(reactorPart.ProtoId).Name : "empty";
-                partInfo[pos] = reactorPart != null ? reactorPart.Properties!.NeutronRadioactivity : 0;
-                partInfo[pos + zoff] = reactorPart != null ? reactorPart.Properties!.Radioactivity : 0;
-                partInfo[pos + (zoff * 2)] = reactorPart != null ? reactorPart.Properties!.FissileIsotopes : 0;
+                dict.Add(new(x, y), new ReactorSlotBUIData
+                {
+                    Temperature = reactor.TemperatureGrid[x, y],
+                    NeutronCount = reactor.NeutronGrid[x, y],
+                    IconName = reactorPart.IconStateInserted,
+                    PartName = _prototypes.Index(reactorPart.ProtoId).Name,
+                    NeutronRadioactivity = reactorPart.Properties.NeutronRadioactivity,
+                    Radioactivity = reactorPart.Properties.Radioactivity,
+                    SpentFuel = reactorPart.Properties.FissileIsotopes
+                });
             }
         }
 
@@ -125,11 +122,8 @@ public sealed partial class NuclearReactorMonitorSystem : EntitySystem
         _uiSystem.SetUiState(uid, NuclearReactorUiKey.Key,
            new NuclearReactorBuiState
            {
-               TemperatureGrid = temp,
-               NeutronGrid = neutron,
-               IconGrid = icon,
-               PartInfo = partInfo,
-               PartName = partName,
+               SlotData = dict,
+
                ItemName = reactor.PartSlot.Item != null ? Identity.Name(reactor.PartSlot.Item.Value, _entityManager) : null,
 
                ReactorTemp = reactor.Temperature,
@@ -138,6 +132,9 @@ public sealed partial class NuclearReactorMonitorSystem : EntitySystem
 
                ControlRodActual = reactor.AvgInsertion,
                ControlRodSet = reactor.ControlRodInsertion,
+
+               GridWidth = gridWidth,
+               GridHeight = gridHeight,
            });
     }
     private void OnControlRodMessage(EntityUid uid, NuclearReactorMonitorComponent comp, ref ReactorControlRodModifyMessage args)

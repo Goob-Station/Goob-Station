@@ -13,6 +13,7 @@ namespace Content.Goobstation.Client.Power._FarHorizons.Power.UI;
 public sealed class TurbineBoundUserInterface : BoundUserInterface, IBuiPreTickUpdate
 {
     [Dependency] private readonly IClientGameTiming _gameTiming = null!;
+    [Dependency] private readonly IEntityManager _entityManager = null!;
 
     [ViewVariables]
     private TurbineWindow? _window;
@@ -54,16 +55,19 @@ public sealed class TurbineBoundUserInterface : BoundUserInterface, IBuiPreTickU
         if (state is not TurbineBuiState turbineState)
             return;
 
+        if (!_entityManager.TryGetComponent<TurbineComponent>(Owner, out var comp))
+            return;
+
         foreach (var replayMsg in _pred!.MessagesToReplay())
         {
             switch (replayMsg)
             {
                 case TurbineChangeFlowRateMessage setFlowRate:
-                    turbineState.FlowRate = setFlowRate.FlowRate;
+                    turbineState.FlowRate = Math.Clamp(setFlowRate.FlowRate, 0f, comp.FlowRateMax);
                     break;
 
                 case TurbineChangeStatorLoadMessage setStatorLoad:
-                    turbineState.StatorLoad = Math.Clamp(setStatorLoad.StatorLoad, 1000f, 500000f); // The nasty hard-coded gremlin
+                    turbineState.StatorLoad = Math.Clamp(setStatorLoad.StatorLoad, 1000f, comp.StatorLoadMax);
                     break;
             }
         }

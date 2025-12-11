@@ -7,6 +7,7 @@ using Content.Shared.Materials;
 using Content.Shared.DeviceLinking;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization;
+using System.Numerics;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -17,8 +18,18 @@ namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class NuclearReactorComponent : Component
 {
-    public static int ReactorGridWidth = 7;
-    public static int ReactorGridHeight = 7;
+    /// <summary>
+    /// Width of the reactor grid
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public int ReactorGridWidth = 7;
+
+    /// <summary>
+    /// Height of the reactor grid
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public int ReactorGridHeight = 7;
+
     public readonly int ReactorOverheatTemp = 1200;
     public readonly int ReactorFireTemp = 1500;
     public readonly int ReactorMeltdownTemp = 2000;
@@ -27,7 +38,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// 2D grid of reactor components, or null where there are no components. Size is ReactorGridWidth x ReactorGridHeight
     /// </summary>
-    public ReactorPartComponent?[,] ComponentGrid = new ReactorPartComponent[ReactorGridWidth, ReactorGridHeight];
+    public ReactorPartComponent?[,] ComponentGrid;
 
     /// <summary>
     /// Dictionary of data that determines the reactor grid's visuals
@@ -39,7 +50,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// 2D grid of lists of neutrons in each grid slot of the component grid
     /// </summary>
-    public List<ReactorNeutron>[,] FluxGrid = new List<ReactorNeutron>[ReactorGridWidth, ReactorGridHeight];
+    public List<ReactorNeutron>[,] FluxGrid;
 
     /// <summary>
     /// Number of neutrons that hit the edge of the reactor grid last tick
@@ -55,7 +66,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// Reactor casing temperature
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float Temperature = Atmospherics.T20C;
 
     /// <summary>
@@ -91,7 +102,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// The set insertion level of the control rods
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float ControlRodInsertion = 2;
 
     /// <summary>
@@ -150,12 +161,12 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// Grid of temperature values
     /// </summary>
-    public double[,] TemperatureGrid = new double[ReactorGridWidth, ReactorGridHeight];
+    public double[,] TemperatureGrid;
 
     /// <summary>
     /// Grid of neutron counts
     /// </summary>
-    public int[,] NeutronGrid = new int[ReactorGridWidth, ReactorGridHeight];
+    public int[,] NeutronGrid;
 
     /// <summary>
     /// The selected prefab
@@ -175,12 +186,68 @@ public sealed partial class NuclearReactorComponent : Component
     [DataField("material")]
     public ProtoId<MaterialPrototype> Material = "Steel";
 
+    /// <summary>
+    /// Determines the spacing and position of the visual grid. Measured in pixels.
+    /// </summary>
+    /// <remarks>
+    /// [0] Spacing along the x axis<br/>
+    /// [1] Spacing along the y axis<br/>
+    /// [2] Offset of the center along the x axis<br/>
+    /// [3] Offset of the center along the y axis
+    /// </remarks>
+    [DataField]
+    public int[] Gridbounds = [ 18, 15, 0, 5 ];
+
+    #region Pipe Connections
+    /// <summary>
+    /// Name of the pipe node
+    /// </summary>
     [DataField]
     public string PipeName { get; set; } = "pipe";
+
+    /// <summary>
+    /// Inlet entity
+    /// </summary>
     [ViewVariables]
     public EntityUid? InletEnt;
+
+    /// <summary>
+    /// Position of the inlet entity
+    /// </summary>
+    [DataField]
+    public Vector2 InletPos = new(-2, -1);
+
+    /// <summary>
+    /// Rotation of the inlet entity, in degrees
+    /// </summary>
+    [DataField]
+    public float InletRot = -90;
+
+    /// <summary>
+    /// Outlet entity
+    /// </summary>
     [ViewVariables]
     public EntityUid? OutletEnt;
+
+    /// <summary>
+    /// Position of the outlet entity
+    /// </summary>
+    [DataField]
+    public Vector2 OutletPos = new(2, 1);
+
+    /// <summary>
+    /// Rotation of the outlet entity, in degrees
+    /// </summary>
+    [DataField]
+    public float OutletRot = 90;
+
+    /// <summary>
+    /// Name of the prototype of the arrows that indicate flow on inspect
+    /// </summary>
+    [DataField]
+    public EntProtoId ArrowPrototype = "ReactorFlowArrow";
+
+    #endregion
 
     [DataField("controlRodRetractPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
     public string ControlRodRetractPort = "RetractControlRods";

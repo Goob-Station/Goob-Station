@@ -11,9 +11,6 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 {
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-
-    private static readonly EntProtoId ArrowPrototype = "ReactorFlowArrow";
 
     public override void Initialize()
     {
@@ -34,39 +31,43 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             return;
 
         Entity<SpriteComponent?> entSprite = (uid, sprite);
-        var xspace = 18f / 32f;
-        var yspace = 15f / 32f;
-        var yoff = 5f / 32f;
-        var prefab = SelectPrefab(comp.Prefab);
+        var xspace = comp.Gridbounds[0] / 32f;
+        var yspace = comp.Gridbounds[1] / 32f;
+        var xoff = comp.Gridbounds[2] / 32f;
+        var yoff = comp.Gridbounds[3] / 32f;
 
-        for (var x = 0; x < _gridWidth; x++)
+        var gridWidth = comp.ReactorGridWidth;
+        var gridHeight = comp.ReactorGridHeight;
+
+        var xAdj = (gridWidth - 1) / 2f;
+        var yAdj = (gridHeight - 1) / 2f;
+
+        for (var x = 0; x < gridWidth; x++)
         {
-            for (var y = 0; y < _gridHeight; y++)
+            for (var y = 0; y < gridHeight; y++)
             {
-                var state = prefab[x, y] != null ? prefab[x, y]!.IconStateCap : "empty_cap";
-                var color = prefab[x, y] != null ? _proto.Index(prefab[x, y]!.Material).Color : Color.Black;
-                var layerID = _sprite.AddRsiLayer(entSprite, state, resource.RSI);
+                var layerID = _sprite.AddRsiLayer(entSprite, "empty_cap", resource.RSI);
                 _sprite.LayerMapSet(entSprite, FormatMap(x, y), layerID);
-                _sprite.LayerSetOffset(entSprite, layerID, new(xspace * (y - 3), (-yspace * (x - 3)) - yoff));
-                _sprite.LayerSetColor(entSprite, layerID, color);
+                _sprite.LayerSetOffset(entSprite, layerID, new((xspace * (y - yAdj)) - xoff, (-yspace * (x - xAdj)) - yoff));
+                _sprite.LayerSetColor(entSprite, layerID, Color.Black);
             }
         }
     }
 
     private static string FormatMap(int x, int y) => "NuclearReactorCap" + x + "/" + y;
 
-    private void ReactorExamined(EntityUid uid, NuclearReactorComponent comp, ClientExaminedEvent args) => Spawn(ArrowPrototype, new EntityCoordinates(uid, 0, 0));
+    private void ReactorExamined(EntityUid uid, NuclearReactorComponent comp, ClientExaminedEvent args) => Spawn(comp.ArrowPrototype, new EntityCoordinates(uid, 0, 0));
 
-    private void OnAppearanceChange(Entity<NuclearReactorComponent> ent, ref AppearanceChangeEvent args)
+    private void OnAppearanceChange(EntityUid uid, NuclearReactorComponent comp, ref AppearanceChangeEvent args)
     {
-        for (var x = 0; x < _gridWidth; x++)
+        for (var x = 0; x < comp.ReactorGridWidth; x++)
         {
-            for (var y = 0; y < _gridHeight; y++)
+            for (var y = 0; y < comp.ReactorGridHeight; y++)
             {
-                if(ent.Comp.VisualData.TryGetValue(new(x,y), out var data))
-                    UpdateRodAppearance(ent.Owner, FormatMap(x,y), data.cap, data.color);
+                if(comp.VisualData.TryGetValue(new(x,y), out var data))
+                    UpdateRodAppearance(uid, FormatMap(x,y), data.cap, data.color);
                 else
-                    UpdateRodAppearance(ent.Owner, FormatMap(x, y), "empty_cap", Color.Black);
+                    UpdateRodAppearance(uid, FormatMap(x, y), "empty_cap", Color.Black);
             }
         }
     }

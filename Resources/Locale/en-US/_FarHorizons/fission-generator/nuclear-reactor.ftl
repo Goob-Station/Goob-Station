@@ -42,4 +42,4 @@ comp-nuclear-reactor-ui-reactor-control = Control Rods
 comp-nuclear-reactor-ui-therm-format = { POWERWATTS($power) }
 
 comp-nuclear-reactor-ui-footer-left = Danger: high radiation.
-comp-nuclear-reactor-ui-footer-right = 0.6 REV 2
+comp-nuclear-reactor-ui-footer-right = 0.7 REV 1

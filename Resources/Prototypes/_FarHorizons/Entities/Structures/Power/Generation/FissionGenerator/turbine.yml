@@ -103,6 +103,34 @@
     guides:
     - NuclearReactor
     - Power
+
+- type: entity
+  id: TurbineSmall
+  parent: Turbine
+  name: small gas turbine
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/small_turbine.rsi
+    offset: 0, -0.5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,0.5,0.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Turbine
+    turbineMass: 400
+    powerMultiplier: 0.4
+    inletPos: 1, -1
+    inletRot: 0 
+    outletPos: -1, -1
+    outletRot: 0 
+    arrowPrototype: TurbineSmallFlowArrow
   
 # Arrow to indicate flow
 - type: entity
@@ -124,6 +152,20 @@
     - type: Tag
       tags:
         - HideContextMenu
+
+- type: entity
+  id: TurbineSmallFlowArrow
+  parent: TurbineFlowArrow
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      layers:
+        - state: arrow
+          rotation: 180
+          offset: 1, -2
+        - state: arrow
+          rotation: 0
+          offset: -1, -2
 
 # Pipes the turbine uses to connect to the pipe network
 - type: entity

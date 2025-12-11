@@ -86,6 +86,8 @@ public sealed partial class TurbineWindow : FancyWindow
             if (!_suppressSliderEvents)
                 TurbineFlowRateChanged?.Invoke(TurbineFlowRateSlider.Value);
         };
+        FlowRateDecrease.OnPressed += _ => TurbineFlowRateChanged?.Invoke(TurbineFlowRateSlider.Value - 100);
+        FlowRateIncrease.OnPressed += _ => TurbineFlowRateChanged?.Invoke(TurbineFlowRateSlider.Value + 100);
 
         // Handle stator load
         TurbineStatorLoadSlider.OnValueChanged += _ =>

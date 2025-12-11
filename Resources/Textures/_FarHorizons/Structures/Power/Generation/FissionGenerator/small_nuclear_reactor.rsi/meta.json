@@ -1,0 +1,135 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "taken from goonstation https://github.com/goonstation/goonstation/blob/ff86b044/icons/misc/nuclearreactor.dmi by Jhrushbe, modified by Cormorant",
+    "size": {
+        "x": 96,
+        "y": 96
+    },
+    "states": [
+        {
+            "name": "reactor"
+        },
+        {
+            "name": "reactorbroken",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "reactor_gas_input_lights",
+            "delays": [
+                [
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083
+                ]
+            ]
+        },
+        {
+            "name": "reactor_gas_output_lights",
+            "delays": [
+                [
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083
+                ]
+            ]
+        },
+        {
+            "name": "reactor_lights_warning",
+            "delays": [
+                [
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083,
+                    0.083
+                ]
+            ]
+        },
+        {
+            "name": "reactor_lights_meltdown",
+            "delays": [
+                [
+                    0.042,
+                    0.042,
+                    0.042,
+                    0.042,
+                    0.042,
+                    0.042
+                ]
+            ]
+        },
+        {
+            "name": "reactor_status_active",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "reactor_status_overheat",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "reactor_status_meltdown",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "reactor_smoke"
+        },
+        {
+            "name": "reactor_fire"
+        }
+    ]
+}

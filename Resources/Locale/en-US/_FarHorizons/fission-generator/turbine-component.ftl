@@ -51,4 +51,4 @@ comp-turbine-ui-stator-load = Stator Load
 
 comp-turbine-ui-locked-message = Controls locked.
 comp-turbine-ui-footer-left = Danger: fast-moving machinery.
-comp-turbine-ui-footer-right = 1.1 REV 3
+comp-turbine-ui-footer-right = 1.2 REV 1

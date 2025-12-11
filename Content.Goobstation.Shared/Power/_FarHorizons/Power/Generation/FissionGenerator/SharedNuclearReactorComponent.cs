@@ -12,11 +12,10 @@ public enum NuclearReactorUiKey : byte
 [Serializable, NetSerializable]
 public sealed class NuclearReactorBuiState : BoundUserInterfaceState
 {
-    public double[] TemperatureGrid = new double[NuclearReactorComponent.ReactorGridWidth*NuclearReactorComponent.ReactorGridHeight];
-    public int[] NeutronGrid = new int[NuclearReactorComponent.ReactorGridWidth*NuclearReactorComponent.ReactorGridHeight];
-    public string[] IconGrid = new string[NuclearReactorComponent.ReactorGridWidth * NuclearReactorComponent.ReactorGridHeight];
-    public string[] PartName = new string[NuclearReactorComponent.ReactorGridWidth * NuclearReactorComponent.ReactorGridHeight];
-    public double[] PartInfo = new double[NuclearReactorComponent.ReactorGridWidth * NuclearReactorComponent.ReactorGridHeight * 3];
+    public Dictionary<Vector2i, ReactorSlotBUIData> SlotData = [];
+
+    public int GridWidth = 0;
+    public int GridHeight = 0;
 
     public string? ItemName;
 
@@ -25,6 +24,19 @@ public sealed class NuclearReactorBuiState : BoundUserInterfaceState
     public float ReactorTherm = 0;
     public float ControlRodActual = 0;
     public float ControlRodSet = 0;
+}
+
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class ReactorSlotBUIData
+{
+    public double Temperature = 0f;
+    public int NeutronCount = 0;
+    public string IconName = "base";
+    public string PartName = "empty";
+
+    public float NeutronRadioactivity = 0f;
+    public float Radioactivity = 0f;
+    public float SpentFuel = 0f;
 }
 
 [Serializable, NetSerializable]
