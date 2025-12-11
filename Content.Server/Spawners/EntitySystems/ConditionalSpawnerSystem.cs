@@ -168,14 +168,22 @@ namespace Content.Server.Spawners.EntitySystems
             }
 
             if (!Deleted(uid))
-                Spawn(_robustRandom.Pick(component.Prototypes), Transform(uid).Coordinates);
+            {
+                //CorvaxGoob-Rotational Spawners-Start
+                var ent = Spawn(_robustRandom.Pick(component.Prototypes), Transform(uid).Coordinates);
+                EntityManager.System<SharedTransformSystem>().SetWorldRotation(ent, Transform(uid).LocalRotation);
+                //CorvaxGoob-Rotational Spawners-End
+            }
         }
 
         private void Spawn(EntityUid uid, RandomSpawnerComponent component)
         {
             if (component.RarePrototypes.Count > 0 && (component.RareChance == 1.0f || _robustRandom.Prob(component.RareChance)))
             {
-                Spawn(_robustRandom.Pick(component.RarePrototypes), Transform(uid).Coordinates);
+                //CorvaxGoob-Rotational Spawners-Start
+                var ent = Spawn(_robustRandom.Pick(component.RarePrototypes), Transform(uid).Coordinates);
+                EntityManager.System<SharedTransformSystem>().SetWorldRotation(ent, Transform(uid).LocalRotation);
+                //CorvaxGoob-Rotational Spawners-End
                 return;
             }
 
@@ -214,7 +222,10 @@ namespace Content.Server.Spawners.EntitySystems
                 var yOffset = _robustRandom.NextFloat(-ent.Comp.Offset, ent.Comp.Offset);
                 var trueCoords = coords.Offset(new Vector2(xOffset, yOffset));
 
-                SpawnAtPosition(proto, trueCoords);
+                //CorvaxGoob-Rotational Spawners-Start
+                var target = SpawnAtPosition(proto, trueCoords);
+                EntityManager.System<SharedTransformSystem>().SetWorldRotation(target, Transform(ent.Owner).LocalRotation);
+                //CorvaxGoob-Rotational Spawners-End
             }
         }
     }
