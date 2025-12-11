@@ -14,7 +14,7 @@ namespace Content.Goobstation.Server.Administration;
 /// <summary>
 /// Raises awareness about sedentary lifestyles
 /// </summary>
-public sealed class FatAdminSystem : EntitySystem
+public sealed class WideAdminSystem : EntitySystem
 {
     [Dependency] private readonly PlayTimeTrackingManager _playTime = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
@@ -35,7 +35,7 @@ public sealed class FatAdminSystem : EntitySystem
 
     private void OnPlayerAttached(PlayerAttachedEvent args)
     {
-        // Even the fucking method is wide
+        // Even the method is wide
         var session = args.Player;
 
         if (!_admin.IsAdmin(session))
@@ -51,7 +51,7 @@ public sealed class FatAdminSystem : EntitySystem
         if (scale <= MinScale + 0.01f)
             return;
 
-        SetFatness(args.Entity, scale);
+        SetWideness(args.Entity, scale);
     }
 
     private void OnPlayerDetached(PlayerDetachedEvent args)
@@ -59,11 +59,10 @@ public sealed class FatAdminSystem : EntitySystem
         if (!_admin.IsAdmin(args.Player))
             return;
 
-        SetFatness(args.Entity, 1f);
-        RemCompDeferred<ScaleVisualsComponent>(args.Entity);
+        SetWideness(args.Entity, 1f);
     }
 
-    private void SetFatness(EntityUid uid, float scale)
+    private void SetWideness(EntityUid uid, float scale)
     {
         EnsureComp<ScaleVisualsComponent>(uid);
 
