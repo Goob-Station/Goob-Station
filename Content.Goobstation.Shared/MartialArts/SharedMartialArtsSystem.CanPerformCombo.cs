@@ -100,8 +100,13 @@ public partial class SharedMartialArtsSystem
 
     private void CheckCombo(EntityUid uid, EntityUid target, CanPerformComboComponent comp)
     {
+        var success = false;
+
         foreach (var proto in comp.AllowedCombos)
         {
+            if (success)
+                break;
+
             // If we are targeting ourselves and combo doesn't allow it (or otherwise), then continue
             if (uid == target != proto.PerformOnSelf)
                 continue;
