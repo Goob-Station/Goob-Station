@@ -56,21 +56,21 @@ public sealed class GoobRadioSystem : EntitySystem
         {
             jobIcon = JobIconAI;
             jobName = Loc.GetString("job-name-station-ai");
+            return true;
         }
-        else if (HasComp<BorgChassisComponent>(ent)
+        if (HasComp<BorgChassisComponent>(ent)
             || HasComp<BorgBrainComponent>(ent)
             || HasComp<PAIComponent>(ent) // pAIs and Drones don't have radio access, but they can get picked up by an intercom.
             || HasComp<DroneComponent>(ent))
         {
             jobIcon = JobIconBorg;
             jobName = Loc.GetString("job-name-borg");
+            return true;
         }
-        else // Not a silicon
-        {
-            jobIcon = jobName = null;
-            return false;
-        }
-        return true;
+
+        // If neither of those passed.
+        jobIcon = jobName = null;
+        return false;
     }
 
     private bool TryGetEquippedIDJob(EntityUid ent, [NotNullWhen(true)] out ProtoId<JobIconPrototype>? jobIcon, out string? jobName)
