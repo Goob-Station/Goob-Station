@@ -62,7 +62,7 @@
 
 - type: markingPoints
   id: MobArachnidMarkingLimits
-  onlyWhitelisted: true
+  onlyWhitelisted: false # Omu Station
   points:
     Hair:
       points: 1
