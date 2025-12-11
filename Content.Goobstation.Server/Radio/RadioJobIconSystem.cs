@@ -10,7 +10,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Goobstation.Server.Radio;
 
-public sealed class GoobRadioSystem : EntitySystem
+public sealed class RadioJobIconSystem : EntitySystem
 {
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
     [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
