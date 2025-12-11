@@ -5,8 +5,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Server.Xenobiology.Systems;
 using Content.Goobstation.Shared.Xenobiology.Components;
-using Content.Goobstation.Shared.Xenobiology.Systems;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
@@ -16,7 +16,7 @@ namespace Content.Goobstation.Server.Xenobiology.HTN;
 public sealed partial class SlimeLatchOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    private XenobiologySystem _slimeMobActions = default!;
+    [Dependency] private readonly SlimeLatchSystem _slimeLatch = default!;
 
     [DataField]
     public string LatchKey = string.Empty;
@@ -24,7 +24,6 @@ public sealed partial class SlimeLatchOperator : HTNOperator
     public override void Initialize(IEntitySystemManager sysManager)
     {
         base.Initialize(sysManager);
-        _slimeMobActions = sysManager.GetEntitySystem<XenobiologySystem>();
     }
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
@@ -32,12 +31,17 @@ public sealed partial class SlimeLatchOperator : HTNOperator
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
         var target = blackboard.GetValue<EntityUid>(LatchKey);
 
-        return _entManager.TryGetComponent<SlimeComponent>(owner, out var slime)
-               && target.IsValid()
-               && !_entManager.Deleted(target)
-               && target != slime.LatchedTarget
-               && _slimeMobActions.NpcTryLatch(owner, target, slime)
-            ? HTNOperatorStatus.Finished
-            : HTNOperatorStatus.Failed;
+        HTNOperatorStatus status = HTNOperatorStatus.Failed; // failed jic
+        if (!_entManager.TryGetComponent<SlimeComponent>(owner, out var slime))
+            return HTNOperatorStatus.Failed;
+
+        if (_slimeLatch.IsLatched((owner, slime), target))
+            status = HTNOperatorStatus.Finished;
+        else status = HTNOperatorStatus.Continuing;
+
+        if (!_slimeLatch.NpcTryLatch((owner, slime), target))
+            status = HTNOperatorStatus.Failed;
+
+        return status;
     }
 }

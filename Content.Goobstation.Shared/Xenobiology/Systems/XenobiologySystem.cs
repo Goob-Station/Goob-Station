@@ -41,17 +41,10 @@ public sealed partial class XenobiologySystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IConfigurationManager _configuration = default!;
-
-    private EntityQuery<SlimeComponent> _slimeQuery;
-    private EntityQuery<HungerComponent> _hungerQuery;
 
     public override void Initialize()
     {
@@ -59,19 +52,14 @@ public sealed partial class XenobiologySystem : EntitySystem
 
         SubscribeTaming();
         SubscribeBreeding();
-        SubscribeActions();
 
         SubscribeLocalEvent<SlimeComponent, ExaminedEvent>(OnExamined);
-
-        _slimeQuery = GetEntityQuery<SlimeComponent>();
-        _hungerQuery = GetEntityQuery<HungerComponent>();
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
         UpdateMitosis();
-        UpdateHunger();
     }
 
     private void OnExamined(Entity<SlimeComponent> slime, ref ExaminedEvent args)

@@ -119,7 +119,7 @@ public partial class XenobiologySystem
             return null;
 
         var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent, null, newBreed.Components);
-        if (!_slimeQuery.TryComp(newEntityUid, out var newSlime))
+        if (!TryComp<SlimeComponent>(newEntityUid, out var newSlime))
             return null;
 
         if (newSlime.ShouldHaveShader && newSlime.Shader != null)
