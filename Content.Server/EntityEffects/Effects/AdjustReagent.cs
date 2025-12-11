@@ -81,12 +81,6 @@ namespace Content.Server.EntityEffects.Effects
                         }
                     }
                 }
-
-                // goob edit - GOIDA!
-                if (args.EntityManager.TryGetComponent<ReactiveComponent>(args.TargetEntity, out var reactive))
-                    reactive.DeleteOnReactionDepletion = false;
-                // goob edit end
-
                 return;
             }
 
