@@ -191,15 +191,18 @@
   parent: ClothingBeltJanitor
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: Soap #Make a soap group and pick between when i'm not lazy
-      - id: SprayBottleSpaceCleaner
-      - id: CleanerGrenade
-        amount: 2
-      - id: FlashlightLantern
-      - id: LightReplacer
-      - id: WireBrush
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: AllSoapsTable
+        - id: SprayBottleSpaceCleaner
+        - id: CleanerGrenade
+          amount: 2
+        - id: FlashlightLantern
+        - id: LightReplacer
+        - id: WireBrush
 
 - type: entity
   id: ClothingBeltMedicalFilled
