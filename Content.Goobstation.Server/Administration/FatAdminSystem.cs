@@ -30,10 +30,12 @@ public sealed class FatAdminSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
+        SubscribeLocalEvent<PlayerDetachedEvent>(OnPlayerDetached);
     }
 
     private void OnPlayerAttached(PlayerAttachedEvent args)
     {
+        // Even the fucking method is wide
         var session = args.Player;
 
         if (!_admin.IsAdmin(session))
@@ -49,19 +51,32 @@ public sealed class FatAdminSystem : EntitySystem
         if (scale <= MinScale + 0.01f)
             return;
 
-        ApplyFatness(args.Entity, scale);
+        SetFatness(args.Entity, scale);
     }
 
-    private void ApplyFatness(EntityUid uid, float scale)
+    private void OnPlayerDetached(PlayerDetachedEvent args)
+    {
+        if (!_admin.IsAdmin(args.Player))
+            return;
+
+        SetFatness(args.Entity, 1f);
+        RemCompDeferred<ScaleVisualsComponent>(args.Entity);
+    }
+
+    private void SetFatness(EntityUid uid, float scale)
     {
         EnsureComp<ScaleVisualsComponent>(uid);
 
         var appearanceComponent = EnsureComp<AppearanceComponent>(uid);
-        _appearance.SetData(uid, ScaleVisuals.Scale, new Vector2(scale, 1f), appearanceComponent);
+
+        if (!_appearance.TryGetData<Vector2>(uid, ScaleVisuals.Scale, out var oldScale, appearanceComponent))
+            oldScale = Vector2.One;
+
+        _appearance.SetData(uid, ScaleVisuals.Scale, new Vector2(scale, oldScale.Y), appearanceComponent);
 
         if (TryComp(uid, out FixturesComponent? manager))
         {
-            var fixtureScale = (scale - 1f) / 4f;
+            var fixtureScale = (scale - oldScale.X) / 4f;
 
             foreach (var (id, fixture) in manager.Fixtures)
             {
