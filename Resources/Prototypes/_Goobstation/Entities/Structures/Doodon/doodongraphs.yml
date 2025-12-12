@@ -1,0 +1,27 @@
+- type: constructionGraph
+  id: DDwellingGraph
+  graph:
+    - node: start
+      edges:
+        - to: DoodonDwellingComplete
+          steps:
+            - material: DoodonResin
+              amount: 5
+              doAfter: 2
+    - node: DoodonDwellingComplete
+      entity: DoodonDwelling
+
+
+              
+- type: constructionGraph
+  id: WarriorHutGraph
+  graph:
+    - node: start
+      edges:
+        - to: WarriorHutComplete
+          steps:
+            - material: DoodonResin
+              amount: 10
+              doAfter: 2
+    - node: WarriorHutComplete
+      entity: DoodonWarriorHut  

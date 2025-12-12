@@ -1,0 +1,68 @@
+- type: entity
+  parent: SimpleMobBase
+  id: BaseDoodon
+  abstract: true
+  components:
+  - type: LanguageKnowledge # Einstein Engines - Languages (all mobs should speak TauCeti unless otherwise specified, to prevent universal.)
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:GibBehavior
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead 
+      
+- type: entity
+  parent: BaseDoodon
+  id: PapaDoodon
+  name: papa doodon
+  description: The patriarch of the Doodon village.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
+    state: papa
+  - type: Hands
+    slots: 2
+    names: ["left hand", "right hand"]
+  
+  
+- type: entity
+  parent: BaseDoodon
+  id: WorkerDoodon
+  name: worker doodon
+  description: The backbone of the Doodon village.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
+    state: worker
+  - type: Sericulture
+    productionLength: 1
+    entityProduced: MaterialDoodonResin1
+    hungerCost: 10
+  - type: Hands
+    slots: 1
+    names: ["hand"]
+    
+- type: entity
+  parent: BaseDoodon
+  id: WarriorDoodon
+  name: doodon warrior
+  description: The arms of the Doodon village.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Doodon/doodonmobs.rsi
+    state: warrior
+  - type: Hands
+    slots: 2
+    names: ["left hand", "right hand"]

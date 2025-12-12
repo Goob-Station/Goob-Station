@@ -1,0 +1,42 @@
+
+- type: stack
+  id: DoodonResin
+  name: doodon resin
+  spawn: MaterialDoodonResin1
+  maxCount: 30
+  icon: 
+    sprite: _Goobstation/Objects/Materials/materials.rsi
+    state: doodon_resin
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialDoodonResin
+  name: doodon resin
+  description: The condensed, omni-material of the Doodon village. Capable of fufilling all types of doodon needs. Completely useless to non-doodons.
+  suffix: Full
+  components: 
+  - type: Sprite
+    sprite: _Goobstation/Objects/Materials/materials.rsi
+    state: doodon_resin
+  - type: Stack
+    stackType: DoodonResin
+    count: 30
+  - type: Appearance
+  - type: Item
+  - type: Material
+  
+- type: entity
+  parent: MaterialDoodonResin
+  id: MaterialDoodonResin10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+    
+- type: entity
+  parent: MaterialDoodonResin
+  id: MaterialDoodonResin1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
