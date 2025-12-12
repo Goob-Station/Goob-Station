@@ -1535,14 +1535,3 @@
     sprite: Clothing/Uniforms/Jumpsuit/familiar_garbs.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/familiar_garbs.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitPassengerQuarterzip
-  name: grey quarterzip
-  description: A quarterzip for the sophisticated assistant.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/passenger_quarterzip.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/passenger_quarterzip.rsi
