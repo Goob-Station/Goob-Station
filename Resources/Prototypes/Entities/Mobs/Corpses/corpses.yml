@@ -84,7 +84,7 @@
   - type: Loadout
     prototypes:
     - HoPGear
-    - CentcomGear
+    #- CentcomGear ### Goobstation - No.
     - CaptainGear
     - HoSGear
     - ResearchDirectorGear
