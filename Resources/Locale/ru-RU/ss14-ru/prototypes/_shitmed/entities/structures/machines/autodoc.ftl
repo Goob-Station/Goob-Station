@@ -4,5 +4,5 @@ ent-AutodocSyndie = { ent-Autodoc }
     .suffix = Синдикат
     .desc = { ent-Autodoc.desc }
 ent-OmnimedToolAutodoc = { ent-OmnimedTool }
-    .suffix = Unremoveable
+    .suffix = Неснимаемый
     .desc = { ent-OmnimedTool.desc }

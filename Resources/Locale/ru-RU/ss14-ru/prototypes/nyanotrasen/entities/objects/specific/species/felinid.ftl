@@ -1,2 +1,2 @@
-ent-Hairball = комок
-    .desc = Фелиниды..
+ent-Hairball = комок шерсти
+    .desc = Фелиниды...

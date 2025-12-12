@@ -1,4 +1,4 @@
-ent-ActionEatMouse = action-name-eat-mouse
-    .desc = action-description-eat-mouse
-ent-ActionHairball = action-name-hairball
-    .desc = action-description-hairball
+ent-ActionEatMouse = съесть мышь
+    .desc = Съешьте мышь в вашей руке для получения питательных веществ и подготовки выкашлять шерстяной комок.
+ent-ActionHairball = выкашлять шерстянной комок
+    .desc = Выведите часть химикатов из вашего организма и получите классный шерстяной комок для бросания его в прохожих.
