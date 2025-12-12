@@ -13,6 +13,7 @@ reagent-effect-condition-guidebook-stamina-damage-threshold =
                *[other] у цели от { NATURALFIXED($min, 2) } до { NATURALFIXED($max, 2) } урона выносливости
             }
     }
+
 reagent-effect-condition-guidebook-unique-bloodstream-chem-threshold =
     { $max ->
         [2147483648]
@@ -31,6 +32,7 @@ reagent-effect-condition-guidebook-unique-bloodstream-chem-threshold =
                *[other] в организме от { $min } до { $max } реагентов
             }
     }
+
 reagent-effect-condition-guidebook-typed-damage-threshold =
     { $inverse ->
         [true] у цели максимум

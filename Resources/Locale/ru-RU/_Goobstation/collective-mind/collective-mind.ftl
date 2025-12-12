@@ -5,14 +5,14 @@
 
 collective-mind-dragon = Разум Дракона
 collective-mind-lingmind = Разум Улья
-collective-mind-tidemind = Тайд Разум
+collective-mind-tidemind = Разум Грейтайдов
 collective-mind-blobmind = Разум Блоба
 collective-mind-mansus-link = Связь Мансуса
 collective-mind-abductormind = Разум Серых
 collective-mind-binary = Двоичный разум
-collective-mind-mousemind = Разум мышей
+collective-mind-mousemind = Разум Мышей
 collective-mind-dronemind = Разум Дронов
 collective-mind-empathy = Сочувствующий
-collective-mind-bingle = Бинглсвязь
-collective-mind-shadow-mind = Шедоу-разум
+collective-mind-bingle = Связь Бинглов
+collective-mind-shadow-mind = Разум Шедоу
 collective-mind-xeno = Разум Улья

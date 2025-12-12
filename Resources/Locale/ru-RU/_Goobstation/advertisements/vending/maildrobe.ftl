@@ -5,5 +5,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-advertisement-maildrobe-1 = Убегай от любой собаки в наших псевдозамшевых дюракарбоновых шортах! Ограниченный запас!
+advertisement-maildrobe-1 = Убеги от любой злой собаки в наших псевдозамшевых дюракарбоновых шортах! Предложение ограничено!
 advertisement-maildrobe-2 = Тебе идет синий цвет!

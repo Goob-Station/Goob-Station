@@ -1,2 +1,3 @@
 roles-antag-devil-name = Дьявол
-roles-antag-devil-description = Используй свою хитрость и красноречие, чтобы обмануть экипаж и заключить с ними дьявольские сделки.
+roles-antag-devil-description = Используйте свою хитрость и красноречие, чтобы обманом вовлечь членов экипажа в дьявольские сделки.
+roles-antag-devilmidround-name = Дьявол

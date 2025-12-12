@@ -4,4 +4,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-clothing-modify-stun-time-examine = Время оглушения и нокдауна уменьшается на [color=yellow]{ $mod }%[/color]
+clothing-modify-stun-time-examine = Время оглушения и падения снижено на [color=yellow]{ $mod }%[/color]

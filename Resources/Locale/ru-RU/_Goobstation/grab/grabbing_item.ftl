@@ -4,4 +4,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-grabbing-item-attack-fail = Невозможно атаковать с помощью { $item }, пока вы удерживаете { $grabbed }!
+grabbing-item-attack-fail = Невозможно атаковать при помощи { $item }, пока вы удерживаете { $grabbed }!

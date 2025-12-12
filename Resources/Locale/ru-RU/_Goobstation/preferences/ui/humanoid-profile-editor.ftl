@@ -6,5 +6,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-humanoid-profile-editor-borgname-label = Предпочтительное имя синтетика:
-humanoid-profile-editor-antag-roll-before-jobs = Имейте в виду, что все антагонисты, кроме начальных зараженных и спящих агентов, выбираются до распределения профессий.
+humanoid-profile-editor-borgname-label = Предпочтительное имя борга:
+humanoid-profile-editor-antag-roll-before-jobs = Имейте в виду, что все антагонисты, кроме нулевых пациентов и спящих агентов, выбираются до распределения профессий.

@@ -5,6 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 gamemode-dynamic-title = Динамический
-gamemode-dynamic-description = Игры в 3025 году модернизированы.
+gamemode-dynamic-description = Игры в 3026 году модернизированы.
+
 gamemode-dynamic-u-title = Безжалостный Динамический
-gamemode-dynamic-u-description = Пусть бог всех нас спасёт.
+gamemode-dynamic-u-description = Да благослави нас бог.

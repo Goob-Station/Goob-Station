@@ -3,5 +3,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-gas-pipe-sensor-sm-hot-loop = SM горячий контур
-gas-pipe-sensor-sm-cold-loop = SM холодный контур
+gas-pipe-sensor-sm-hot-loop = СМ горячий контур
+gas-pipe-sensor-sm-cold-loop = СМ холодный контур

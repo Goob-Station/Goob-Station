@@ -15,4 +15,4 @@ lathe-category-mechs-gygax = Гигакс
 lathe-category-mechs-durand = Дюранд
 lathe-category-mechs-equipment = Оборудование мехов
 lathe-category-mechs-weapons = Оружие мехов
-lathe-category-modsuit = МОД-костюмы
+lathe-category-modsuit = MOD
