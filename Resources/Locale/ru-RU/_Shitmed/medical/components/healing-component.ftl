@@ -1,5 +1,5 @@
 medical-item-cant-use-rebell = Вы не можете помочь { $target }. Кровотечение слишком сильное...
-cant-heal-damage-container-rebell = Вы не можете помочь { $target } с помощью { $used }.
+cant-heal-damage-container-rebell = Вы не можете помочь { $target } при помощи { $used }.
 rebell-medical-item-stop-bleeding-fully = Вы полностью остановили кровотечение.
 rebell-medical-item-stop-bleeding-partially = Вы частично остановили кровотечение.
 missing-body-part = Часть тела отсутствует.

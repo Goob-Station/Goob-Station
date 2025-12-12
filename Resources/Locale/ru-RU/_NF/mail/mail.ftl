@@ -13,4 +13,4 @@ mail-large-desc-close = Большая посылка, адресованная 
 
 command-mailtestbulk = Отправляет по одной посылке каждого типа на указанный почтовый телепортер. Автоматически вызывает посылку.
 command-mailtestbulk-help = Использование: { $command } <teleporter_id>
-command-mailtestbulk-success = Успешно! Все почтовые телепортеры скоро доставят очередную партию посылок.
+command-mailtestbulk-success = Успех! Все почтовые телепортеры скоро доставят очередную партию посылок.

@@ -4,12 +4,12 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-action-hierophant-place-marker = Установить метку телепортации
-action-hierophant-place-marker-desc = Позволяет установить точку, куда можно всегда телепортироваться.
-action-hierophant-teleport = Мгновенный перенос
-action-hierophant-teleport-desc = Телепортирует вас к уже установленной метке.
+action-hierophant-place-marker = Установить метку
+action-hierophant-place-marker-desc = Позволяет установить метку, на которую всегда можно телепортироваться.
+action-hierophant-teleport = Мгновенный телепорт
+action-hierophant-teleport-desc = Телепортирует вас к установленной метке.
 action-hierophant-spawn-cross = Крест
 action-hierophant-spawn-cross-desc = Создаёт крест, наносящий небольшой урон цели.
-action-hierophant-tile-movement = Даровать движение по тайлу
-action-hierophant-tile-movement-desc = Дарует указанной цели возможность движения по тайлу и бонус к скорости.
-action-hierophant-tile-movement-cast = AS'CELLA!
+action-hierophant-tile-movement = Движение по плиткам
+action-hierophant-tile-movement-desc = Дарует указанной цели возможность движения по плиткам и бонус к скорости.
+action-hierophant-tile-movement-cast = ПЛ'ТКО'С!

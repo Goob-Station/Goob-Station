@@ -1,5 +1,5 @@
 ent-CosmicPolymorphEnt = Неизвестный
-    .desc = Пойманный в ловушку между здесь и там.
+    .desc = Застрял в разрыве между реальностями.
 ent-CosmicPolymorphEntHuman = { ent-CosmicPolymorphEnt }
     .desc = { ent-CosmicPolymorphEnt.desc }
 ent-CosmicPolymorphEntArachnid = { ent-CosmicPolymorphEnt }

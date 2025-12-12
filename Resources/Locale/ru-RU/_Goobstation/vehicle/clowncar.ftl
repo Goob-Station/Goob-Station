@@ -5,10 +5,10 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-clowncar-thank-no-driver = Спасибо что прокатились!
+clowncar-thank-no-driver = Спасибо за поездку!
 clowncar-thank-driver = Спасибо вам, { $driver }. Вы отличный водитель!
 clowncar-quiet-in-the-back = Тихо там сзади!
 uplink-clowncar-name = машина клоуна
-uplink-clowncar-desc = От Honk Co. — идеальный инструмент для "бей и беги". Страховка не включена.
-enter-driver-seat = управлять
-open-trunk = открыть двери
+uplink-clowncar-desc = От Honk Co. — идеальный инструмент для "бей и беги". Страховка в комплект не входит.
+enter-driver-seat = Управлять
+open-trunk = Открыть двери

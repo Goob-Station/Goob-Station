@@ -1,4 +1,4 @@
-ent-WeaponHeadOfSecurityRifle = X-8 "Станционный Очиститель"
+ent-WeaponHeadOfSecurityRifle = X-8 "Чистильщик"
     .desc = Замысловато оформленная винтовка, стреляющая чистым фороном. Низкая скорострельность, средний урон, безумная ёмкость.
     .suffix = Винтовка
 ent-WeaponHeadOfSecuritySMG = X-6 "Разрыватель"

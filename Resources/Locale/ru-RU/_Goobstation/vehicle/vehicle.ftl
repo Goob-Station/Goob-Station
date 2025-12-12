@@ -3,4 +3,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-vehicle-slot-component-slot-name-keys = Keys
+vehicle-slot-component-slot-name-keys = Ключи

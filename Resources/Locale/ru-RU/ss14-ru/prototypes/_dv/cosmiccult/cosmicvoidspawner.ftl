@@ -1,2 +1,2 @@
-ent-CosmicVoidspawner = точка появления пучка
+ent-CosmicVoidspawner = спавнер сгустка
     .desc = { ent-MarkerBase.desc }

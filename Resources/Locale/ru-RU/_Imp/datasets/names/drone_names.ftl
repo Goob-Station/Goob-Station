@@ -94,6 +94,6 @@ names-drone-dataset-93 = Nadreix12
 names-drone-dataset-94 = rafucuk
 names-drone-dataset-95 = kekeker2321
 names-drone-dataset-96 = Akari
-names-drone-dataset-97 = zalupabobra228
+names-drone-dataset-97 = cfif126
 names-drone-dataset-98 = ElCamino
 names-drone-dataset-99 = ghostbak

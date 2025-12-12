@@ -5,15 +5,17 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 lavaland-planet-name-unknown = Неизвестная планета
-lavaland-planet-name-lavaland = Планета Лаваленд
-lavaland-planet-name-icemoon = Ледяная Луна
+lavaland-planet-name-lavaland = Лаваленд
+lavaland-planet-name-icemoon = Ледяная луна
+
 # GPS Сигналы
 lavaland-planet-outpost = Главный форпост
+
 lavaland-ruin-unknown = Неизвестно
 lavaland-ruin-cargo = Грузовой обломок
 lavaland-ruin-arrivals-shuttle = Обломок шаттла прибытия
 lavaland-ruin-wooden = Деревянное здание
-lavaland-ruin-seed-graveyard = Кладбище семян
+lavaland-ruin-seed-graveyard = Кладбище
 lavaland-ruin-seed-vault = Хранилище семян
 lavaland-ruin-anomalous-landscape = Аномальный ландшафт
 lavaland-ruin-shelter = Заброшенное укрытие
@@ -21,7 +23,7 @@ lavaland-ruin-laboratory = Разрушенная лаборатория
 lavaland-ruin-station = Разрушенная исследовательская станция
 lavaland-ruin-big-shuttle = Огромный разрушенный шаттл
 lavaland-ruin-biodome = Биодом
-lavaland-ruin-syndicate = База синдиката
+lavaland-ruin-syndicate = База Синдиката
 lavaland-ruin-hierophant = Межпространственный сигнал
 lavaland-ruin-abductor = Инопланетный сигнал
 lavaland-ruin-cult = Космический сигнал

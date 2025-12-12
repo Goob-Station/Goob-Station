@@ -4,4 +4,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-wieldable-component-requires-fumble = { CAPITALIZE(THE($item)) } слишком тяжёл для использования одной рукой! Ты спотыкаешься и роняешь.
+wieldable-component-requires-fumble = { CAPITALIZE(THE($item)) } слишком тяжёлый для использования в одной руке! Вы спотыкаетесь и роняете { CAPITALIZE(THE($item)) }.

@@ -4,5 +4,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-action-name-insert-self = Insert yourself
-action-name-insert-other = Insert { THE($target) }
+action-name-insert-self = Вставить себя
+action-name-insert-other = Вставить { THE($target) }
