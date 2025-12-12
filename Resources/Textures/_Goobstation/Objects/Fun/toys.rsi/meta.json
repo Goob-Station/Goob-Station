@@ -33,6 +33,10 @@
       "name": "plushie_holy"
     },
     {
+      "name": "plushieholy-equipped-HELMET",
+      "directions": 4
+    },
+    {
       "name": "plushiejvne-inhand-left",
       "directions": 4
     },

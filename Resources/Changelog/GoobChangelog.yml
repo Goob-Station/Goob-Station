@@ -19100,3 +19100,67 @@ Entries:
       message: Fixed borgs potentially getting softlocked by invalid interaction verbs.
   id: 2155
   time: '2025-12-06T02:06:11.0000000+00:00'
+- author: XWASHERE
+  changes:
+    - type: Add
+      message: added a notification sound for prayers
+  id: 2156
+  time: '2025-12-06T18:51:32.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: Added Chat icons for radio messages!
+    - type: Fix
+      message: fixed ooc patron icons getting stuck on the screen sometimes
+  id: 2157
+  time: '2025-12-07T12:24:42.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Removed stamina damage from bingles.
+  id: 2158
+  time: '2025-12-08T06:16:58.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Fix
+      message: Fixed radio and OOC icons going on an adventure around the chatbox.
+  id: 2159
+  time: '2025-12-10T07:36:47.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: >-
+        Lavaland mobs now have Weather Immunity so they no longer die to ash
+        storms
+    - type: Fix
+      message: >-
+        Hivelords now are now a part of the lavaland faction so breakaways wont
+        attack their parent
+  id: 2160
+  time: '2025-12-10T18:41:17.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: >-
+        That one random big wreck is now less shit, contains more loot, and is
+        in general looks not like something engis did mid shift.
+  id: 2161
+  time: '2025-12-11T23:28:07.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Fix
+      message: >-
+        A lot of damage is not going to the vitals that should have been,
+        causing unintended behavior.
+    - type: Fix
+      message: >-
+        Health monitoring console uses vital damage instead of total damage for
+        status.
+    - type: Fix
+      message: Healing pets.
+    - type: Tweak
+      message: >-
+        Random targeting now always targets vital parts, buff/tweak to
+        simplemobs.
+  id: 2162
+  time: '2025-12-12T16:35:35.0000000+00:00'
