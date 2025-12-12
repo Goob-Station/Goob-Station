@@ -24,10 +24,11 @@ ghost-role-information-skibidi-toilet-description = ...
 ghost-role-information-skibidi-toilet-rules = ...
 
 ghost-role-information-Hecu-name = Оперативник HECU
+
 ghost-role-information-Hecu-description = Центральное Командование поручило задание.
 ghost-role-information-Hecu-rules = Вы обязаны выполнять приказы своего начальника, фактически являясь его [color=#6495ed][bold]личным агентом[/bold][/color].
 
-ghost-role-information-lootbug-name = ЛутБаг
+ghost-role-information-lootbug-name = Жук-сборщик
 ghost-role-information-lootbug-description = Постарайтесь не стать жертвой грейтайдов.
 
 ghost-role-information-homunculus-name = Гомункул
