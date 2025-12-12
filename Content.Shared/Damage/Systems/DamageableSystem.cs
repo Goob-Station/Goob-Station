@@ -443,7 +443,7 @@ namespace Content.Shared.Damage
                 if (totalDamage <= 0 || !canMiss) // Whoops i think i fucked up damage here.
                     target = _body.GetTargetBodyPart(uid, origin, targetPart);
                 else
-                    target = _body.GetRandomBodyPart(uid, origin, targetPart);
+                    target = _body.GetRandomVitalBodyPart(uid);
 
                 var (partType, symmetry) = _body.ConvertTargetBodyPart(target);
                 var possibleTargets = _body.GetBodyChildrenOfType(uid, partType, symmetry: symmetry).ToList();

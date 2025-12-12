@@ -1177,6 +1177,15 @@ public partial class SharedBodySystem
             return TargetBodyPart.Chest;
 
 
+        return GetTargetBodyPart(_random.PickAndTake(children));
+    }
+
+    public TargetBodyPart GetRandomVitalBodyPart(EntityUid target)
+    {
+        var children = GetBodyChildren(target).ToList();
+        if (children.Count == 0)
+            return TargetBodyPart.Chest;
+
         var allowedParts = children.Where(part =>
         {
             var partType = part.Component.PartType;
@@ -1191,7 +1200,6 @@ public partial class SharedBodySystem
 
         return GetTargetBodyPart(_random.PickAndTake(allowedParts));
     }
-
     public TargetBodyPart GetRandomBodyPart(EntityUid target,
         EntityUid? attacker,
         TargetBodyPart? targetPart = null,
