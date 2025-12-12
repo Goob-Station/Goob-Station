@@ -1,5 +1,5 @@
-petting-success-scurret = Вы погладили { THE($target) } по юридически отличившийся голове.
-petting-failure-scurret = Вы протянули руку, чтобы погладить { THE($target) }, но { SUBJECT($target) } делает сальто назад!
+petting-success-scurret = Вы погладили { $target } по юридически отличившийся голове.
+petting-failure-scurret = Вы протянули руку, чтобы погладить { $target }, но { SUBJECT($target) } делает сальто назад!
 accent-words-scurret-1 = Ва!
 accent-words-scurret-2 = Ва?
 accent-words-scurret-3 = Ва.

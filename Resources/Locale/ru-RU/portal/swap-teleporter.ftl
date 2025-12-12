@@ -7,7 +7,7 @@ swap-teleporter-popup-teleport-cancel-link = Не связано с другим
 swap-teleporter-popup-teleport-other = { CAPITALIZE($entity) } активируется, и вы оказываетесь в другом месте.
 swap-teleporter-verb-destroy-link = Разорвать квантовую связь
 # Goobstation - QSIs don't teleport across maps
-swap-teleporter-popup-teleport-fail = { CAPITALIZE(THE($entity)) } видимо ничего не делает...
+swap-teleporter-popup-teleport-fail = { CAPITALIZE($entity) } видимо ничего не делает...
 swap-teleporter-examine-link-present = [color=forestgreen]Имеется квантовая связь с другим устройством.[/color] Alt-клик чтобы разорвать квантовую связь.
 swap-teleporter-examine-link-absent = [color=yellow]Квантовая связь отсутствует.[/color] Используйте на другом устройстве, чтобы установить квантовую связь.
 swap-teleporter-examine-time-remaining =

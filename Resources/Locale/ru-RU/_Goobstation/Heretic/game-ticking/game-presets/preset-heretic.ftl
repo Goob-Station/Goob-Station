@@ -29,7 +29,7 @@ heretic-role-greeting-short =
 ## Ghoul
 
 heretic-ghoul-greeting =
-    Вы были вызваны в этот мир { CAPITALIZE(THE($ent)) }!
+    Вы были вызваны в этот мир { CAPITALIZE($ent) }!
     Вы должны помочь ему вознестись и защищать любой ценой.
     Вы можете следовать за другими еретиками, если хозяин уже не воскреснет.
 heretic-ghoul-greeting-noname =

@@ -151,6 +151,6 @@ cosmiccult-spire-entropy = С поверхности шпиля конденси
 cosmiccult-entropy-inserted = Вы вливаете { $count } энтропии в Монумент.
 cosmiccult-entropy-unavailable = Вы не можете сделать это прямо сейчас.
 cosmiccult-astral-ascendant = { $name }, Вознесённый
-cosmiccult-gear-pickup-rejection = { $ITEM } сопротивляется прикосновению { CAPITALIZE(THE($TARGET)) }!
+cosmiccult-gear-pickup-rejection = { $ITEM } сопротивляется прикосновению { CAPITALIZE($TARGET) }!
 cosmiccult-gear-pickup = Вы чувствуете, как ваше Я расплетается, пока вы держите { $ITEM }!
 cult-alert-recall-shuttle = Обнаружены высокие концентрации Лямбда-CDM неизвестного происхождения на станции. Все аномальные присутствия должны быть устранены до эвакуации.

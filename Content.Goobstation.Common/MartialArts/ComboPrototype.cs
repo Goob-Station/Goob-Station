@@ -90,6 +90,6 @@ public sealed partial class ComboListPrototype : IPrototype
 {
     [IdDataField] public string ID { get; private init; } = default!;
 
-    [DataField( required: true)]
+    [DataField(required: true)]
     public List<ProtoId<ComboPrototype>> Combos = new();
 }

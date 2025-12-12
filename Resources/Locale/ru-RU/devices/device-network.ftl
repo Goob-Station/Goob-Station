@@ -14,8 +14,8 @@ device-frequency-prototype-name-turret-control = Управление охран
 
 ## camera frequencies
 
-device-frequency-prototype-name-xenoborg = Xenoborg
-device-frequency-prototype-name-mothership = Mothership
+device-frequency-prototype-name-xenoborg = Ксеноборг
+device-frequency-prototype-name-mothership = Материнский шаттл
 device-frequency-prototype-name-surveillance-camera-test = Тест подсети
 device-frequency-prototype-name-surveillance-camera-engineering = Камеры (Инженерный)
 device-frequency-prototype-name-surveillance-camera-security = Камеры (Охрана)
@@ -37,13 +37,13 @@ device-address-prefix-freezer = ОХЛ-
 device-address-prefix-volume-pump = ОБН-
 device-address-prefix-smes = СМС-
 device-address-prefix-turret = ТРЛ-
-#PDAs and terminals
+# PDAs and terminals
 device-address-prefix-console = Конс-
 device-address-prefix-fire-alarm = Пож-
 device-address-prefix-air-alarm = Возд-
 device-address-prefix-sensor-monitor = МОН-
 device-address-examine-message = Адрес устройства: { $address }.
-#Device net ID names
+# Device net ID names
 device-net-id-private = Частные
 device-net-id-wired = Проводные
 device-net-id-wireless = Беспроводные

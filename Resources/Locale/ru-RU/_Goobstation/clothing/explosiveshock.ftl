@@ -4,4 +4,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-explosive-shock-sizzle = { THE($item) } шипит!
+explosive-shock-sizzle = { $item } шипит!

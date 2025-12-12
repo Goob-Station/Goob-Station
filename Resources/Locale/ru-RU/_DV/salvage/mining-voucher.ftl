@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 mining-voucher-select-first = Сперва выберите купоночный набор!
-mining-voucher-unpowered = { CAPITALIZE(THE($vendor)) } не запитан!
+mining-voucher-unpowered = { CAPITALIZE($vendor) } не запитан!
 mining-voucher-selected = Выбран { $kit }!
 mining-voucher-crusher-name = Набор Крушителя
 mining-voucher-crusher-description =

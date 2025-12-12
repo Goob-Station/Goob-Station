@@ -19,6 +19,7 @@ body-part-head = Голова
 body-part-chest = Грудь
 body-part-left-arm = Левая рука
 body-part-right-arm = Правая рука
+body-part-arm =  Рука
 body-part-left-hand = Левая кисть
 body-part-right-hand = Правая кисть
 body-part-groin = Пах

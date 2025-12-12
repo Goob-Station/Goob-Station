@@ -713,7 +713,7 @@
   - type: ItemSlots
     slots:
       item:
-        name: Sabre
+        # name: Sabre # CorvaxGoob-Loc-in-UI
         insertVerbText: sheath-insert-verb
         ejectVerbText: sheath-eject-verb
         insertSound: /Audio/Items/sheath.ogg

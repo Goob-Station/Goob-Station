@@ -104,7 +104,7 @@
     - type: ItemSlots
       slots:
         item:
-          name: Baton
+          # name: Baton # CorvaxGoob-Loc-in-UI
           insertVerbText: sheath-insert-verb
           ejectVerbText: sheath-eject-verb
           insertSound: /Audio/Items/sheath.ogg

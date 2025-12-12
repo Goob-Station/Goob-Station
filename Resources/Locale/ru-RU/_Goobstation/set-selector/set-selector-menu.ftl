@@ -1,4 +1,4 @@
-set-selector-window-title = выбор набора не определён
+set-selector-window-title = Выбор оружия ОБР
 
 set-selector-window-description =
     Внутри находятся ваши рабочие инструменты, и они будут готовы к использованию, как только будете готовы вы.

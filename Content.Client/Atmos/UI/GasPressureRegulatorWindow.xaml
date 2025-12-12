@@ -1,8 +1,8 @@
 ﻿<controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-                      SetSize="345 380"
-                      MinSize="345 380"
+                      SetSize="380 380"
+                      MinSize="380 380"
                       Title="{Loc gas-pressure-regulator-ui-title}"
                       Resizable="False">
 

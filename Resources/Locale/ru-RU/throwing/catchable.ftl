@@ -1,4 +1,4 @@
-catchable-component-success-self = Вы схватили { THE($item) }!
-catchable-component-success-others = { CAPITALIZE(THE($catcher)) } схватил { THE($item) }!
-catchable-component-fail-self = Вы не смогли схватить { THE($item) }!
-catchable-component-fail-others = { CAPITALIZE(THE($catcher)) } не смог схватить { THE($item) }!
+catchable-component-success-self = Вы схватили { $item }!
+catchable-component-success-others = { CAPITALIZE($catcher) } схватил { $item }!
+catchable-component-fail-self = Вы не смогли схватить { $item }!
+catchable-component-fail-others = { CAPITALIZE($catcher) } не смог схватить { $item }!
