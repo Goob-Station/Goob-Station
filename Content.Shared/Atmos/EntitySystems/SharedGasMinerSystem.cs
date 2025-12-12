@@ -95,8 +95,27 @@ public abstract class SharedGasMinerSystem : EntitySystem
 
         using (args.PushGroup(nameof(GasMinerComponent)))
         {
-            args.PushMarkup(Loc.GetString("gas-miner-mines-text",
-                ("gas", Loc.GetString(_sharedAtmosphereSystem.GetGas(component.SpawnGas).Name))));
+            // CorvaxGoob-GasMiners-Start
+            if (component.ListSpawnGas is not null)
+            {
+                string gasesFormat = "";
+                int len = component.ListSpawnGas.Count;
+                int i = 0;
+
+                foreach (var gas in component.ListSpawnGas)
+                {
+                    gasesFormat += Loc.GetString(_sharedAtmosphereSystem.GetGas(gas.Key).Name)
+                        + $" ({Math.Round(gas.Value * 100, 2)}%)"
+                        + ((i < len - 1) ? ", " : "");
+                    i++;
+                }
+
+                args.PushMarkup(Loc.GetString("gas-miner-mines-text", ("gas", gasesFormat)));
+            }
+
+            if (component.SpawnGas is not null) // CorvaxGoob-GasMiners-End
+                args.PushMarkup(Loc.GetString("gas-miner-mines-text",
+                    ("gas", Loc.GetString(_sharedAtmosphereSystem.GetGas(component.SpawnGas.Value).Name))));
 
             args.PushText(Loc.GetString("gas-miner-amount-text",
                 ("moles", $"{component.SpawnAmount:0.#}")));

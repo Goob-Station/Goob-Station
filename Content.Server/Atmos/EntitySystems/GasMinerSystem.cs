@@ -118,7 +118,15 @@ public sealed class GasMinerSystem : SharedGasMinerSystem
 
             // Time to mine some gas.
             var merger = new GasMixture(1) { Temperature = miner.SpawnTemperature };
-            merger.SetMoles(miner.SpawnGas, toSpawn);
+
+            // CorvaxGoob-GasMiners-Start
+            if (miner.ListSpawnGas is not null)
+                foreach (var gas in miner.ListSpawnGas) // takes every gas coefficient and applies it to mixture spawn moles
+                    merger.SetMoles(gas.Key, toSpawn * gas.Value);
+            else if (miner.SpawnGas is not null)
+                merger.SetMoles(miner.SpawnGas.Value, toSpawn); // either way use old gas spawn method
+            // CorvaxGoob-GasMiners-End
+
             _atmosphereSystem.Merge(environment, merger);
         }
 

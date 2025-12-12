@@ -108,8 +108,16 @@ public sealed partial class GasMinerComponent : Component
     ///     Gas to spawn.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField(required: true)]
-    public Gas SpawnGas;
+    [DataField]
+    public Gas? SpawnGas; // CorvaxGoob-GasMiners : Make it nullable
+
+    // CorvaxGoob-GasMiners
+    /// <summary>
+    ///     List of gases and their coefficient to spawn. Will use this list instead default.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
+    public Dictionary<Gas, float>? ListSpawnGas;
 
     /// <summary>
     ///     Temperature in Kelvin.
