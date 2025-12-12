@@ -1,4 +1,4 @@
-using Content.Server._Imp.Drone;
+using Content.Shared._Imp.Drone;
 using Content.Shared.Access.Systems;
 using Content.Shared.PAI;
 using Content.Shared.Silicons.Borgs.Components;
@@ -60,7 +60,7 @@ public sealed class RadioJobIconSystem : EntitySystem
         }
         if (HasComp<BorgChassisComponent>(ent)
             || HasComp<BorgBrainComponent>(ent)
-            || HasComp<PAIComponent>(ent) // pAIs and Drones don't have radio access, but they can get picked up by an intercom.
+            || HasComp<PAIComponent>(ent) // pAIs and Drones don't have radio access, but they can still get picked up by an intercom.
             || HasComp<DroneComponent>(ent))
         {
             jobIcon = JobIconBorg;
