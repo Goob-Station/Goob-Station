@@ -52,6 +52,10 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
         "game_director_metric_combat_dead_friendly_entities_total",
         "Total number of dead friendly entities counted.");
 
+    private static readonly Gauge DeadHostileEntitiesTotal = Metrics.CreateGauge(
+        "game_director_metric_combat_dead_hostile_entities_total",
+        "Total number of dead hostile entities counted.");
+
     private static readonly Gauge CritFriendlyEntitiesTotal = Metrics.CreateGauge(
         "game_director_metric_combat_crit_friendly_entities_total",
         "Total number of critical friendly entities counted.");
@@ -80,8 +84,7 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
         "game_director_metric_combat_death_chaos_calculated",
         "Calculated chaos value contributed by deaths.");
 
-
-    public double InventoryPower(EntityUid uid, CombatMetricComponent component)
+    private double InventoryPower(EntityUid uid, CombatMetricComponent component)
     {
         // Iterate through items to determine how powerful the entity is
         // Having a good range of offensive items in your inventory makes you more dangerous
@@ -103,10 +106,7 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
             threat += component.ItemThreat.GetValueOrDefault(key);
         }
 
-        if (threat > component.maxItemThreat)
-            return component.maxItemThreat;
-
-        return threat;
+        return threat > component.maxItemThreat ? component.maxItemThreat : threat;
     }
 
     public override ChaosMetrics CalculateChaos(EntityUid metric_uid, CombatMetricComponent combatMetric,
@@ -120,10 +120,11 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
         double deathChaos = 0;
 
         // Prometheus Metric Accumulators
-        int hostileCount = 0;
-        int friendlyCount = 0;
-        int deadFriendlyCount = 0;
-        int critFriendlyCount = 0;
+        var hostileCount = 0;
+        var friendlyCount = 0;
+        var deadFriendlyCount = 0;
+        var deadHostileCount = 0;
+        var critFriendlyCount = 0;
         double hostileInventoryThreat = 0;
         double friendlyInventoryThreat = 0;
 
@@ -153,8 +154,12 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
             var antag = _roles.MindIsAntagonist(mind.Mind);
             if (antag)
             {
-                if (mobState.CurrentState != MobState.Alive)
+                if (mobState.CurrentState != MobState.Alive) // dead enemies should count too
+                {
+                    deadHostileCount++;
+                    deathChaos += combatMetric.DeadScore;
                     continue;
+                }
 
                 hostileCount++;
             }
@@ -167,16 +172,14 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
                     deathChaos += combatMetric.DeadScore;
                     continue;
                 }
-                else
+
+                friendlyCount++;
+                var totalDamage = damage.Damage.GetTotal().Double();
+                medicalChaos += totalDamage * combatMetric.MedicalMultiplier;
+                if (mobState.CurrentState == MobState.Critical)
                 {
-                    friendlyCount++;
-                    var totalDamage = damage.Damage.GetTotal().Double();
-                    medicalChaos += totalDamage * combatMetric.MedicalMultiplier;
-                    if (mobState.CurrentState == MobState.Critical)
-                    {
-                        critFriendlyCount++;
-                        medicalChaos += combatMetric.CritScore;
-                    }
+                    critFriendlyCount++;
+                    medicalChaos += combatMetric.CritScore;
                 }
             }
 
@@ -198,6 +201,7 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
         HostileEntitiesTotal.Set(hostileCount);
         FriendlyEntitiesTotal.Set(friendlyCount);
         DeadFriendlyEntitiesTotal.Set(deadFriendlyCount);
+        DeadHostileEntitiesTotal.Set(deadHostileCount);
         CritFriendlyEntitiesTotal.Set(critFriendlyCount);
         HostileInventoryThreatTotal.Set(hostileInventoryThreat);
         FriendlyInventoryThreatTotal.Set(friendlyInventoryThreat);
