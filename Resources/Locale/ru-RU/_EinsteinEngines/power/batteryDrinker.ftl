@@ -4,5 +4,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-battery-drinker-verb-drink = Поглотить заряд
-battery-drinker-empty = { CAPITALIZE(THE($target)) } уже разряжен!
+battery-drinker-verb-drink = Осушить
+battery-drinker-empty = { CAPITALIZE(THE($target)) } уже пуст!

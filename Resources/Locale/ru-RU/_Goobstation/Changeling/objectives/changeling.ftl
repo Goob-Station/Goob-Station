@@ -5,4 +5,4 @@ objective-condition-absorb-other-description = Чтобы заполучить �
 objective-condition-stealdna-title = Извлечь { $count } совместимых геномов.
 objective-condition-stealdna-description = Мне нужно извлечь { $count } уникальных геномов.
 objective-condition-escape-identity-title = Выжить и сбежать на эвакуационном шаттле свободным, будучи { $targetName }, { CAPITALIZE($job) }.
-objective-condition-changelingsteal-description = Наши поклонники хотят, чтобы мы вернули его. Причина нас не касается.
+objective-condition-changelingsteal-description = Наши почитатели хотят, чтобы мы вернули его. Причины нас не касаются.

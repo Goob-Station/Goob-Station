@@ -6,6 +6,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 marking-OniHornShaved = Бритый
-marking-OniHornShaved-shaved = Бритый
+marking-OniHornShaved-shaved = Основной
 marking-OniHornBull = Бычий
-marking-OniHornBull-bull = Бычий
+marking-OniHornBull-bull = Основной

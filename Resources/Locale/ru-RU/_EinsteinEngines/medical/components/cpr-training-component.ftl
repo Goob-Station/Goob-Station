@@ -6,8 +6,8 @@
 
 cpr-start-second-person = Вы начинаете проводить СЛР { CAPITALIZE($target) }.
 cpr-start-second-person-patient = { CAPITALIZE(THE($user)) } начинает проводить вам СЛР.
-cpr-must-remove = Нужно снять { THE($clothing) } с пациента.
-cpr-must-remove-own-mask = Нужно снять ваш { THE($clothing) }.
+cpr-must-remove = Нужно снять { THE($clothing) } с существа.
+cpr-must-remove-own-mask = Вам нужно снять { THE($clothing) }.
 cpr-target-rotting = { CAPITALIZE($entity) } слишком сильно вздулся...
-cpr-target-cantbreathe = { CAPITALIZE($entity) } или вы не способны дышать.
+cpr-target-cantbreathe = { CAPITALIZE($entity) } или вы не можете дышать.
 cpr-verb = Провести реанимацию

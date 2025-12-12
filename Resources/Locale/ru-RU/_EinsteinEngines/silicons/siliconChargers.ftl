@@ -7,4 +7,4 @@
 silicon-charger-overheatwarning = Вы чувствуете себя как в микроволновке!
 silicon-charger-chargerate-string = Скорость заряда
 silicon-charger-efficiency-string = Эффективность
-silicon-charger-list-full = { CAPITALIZE(THE($charger)) } может вместить только столько целей!
+silicon-charger-list-full = { CAPITALIZE(THE($charger)) } может вместить лишь ограниченное количество!

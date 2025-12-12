@@ -21,13 +21,13 @@ heretic-ritual-basic-heart = Неумолимое сердцебиение
 heretic-ritual-basic-heart-desc = Превратите сердце, ручку и бумагу, чтобы перетасовать свои цели. Возможно выпадение тех же целей. Используйте только в крайней необходимости.
 heretic-ritual-basic-codex = Кодекс Цикатрикс
 heretic-ritual-basic-codex-desc =
-    Оккульт оставляет обрывки знаний и силы повсюду. Кодекс Цикатрикс — один из таких примеров. В его кожаных обложках и древних страницах раскрывается путь в Мансус.
+    Культ оставляет обрывки знаний и силы повсюду. Кодекс Цикатрикс — один из таких примеров. На его кожаных переплётах и древних страницах раскрывается путь в Мансус.
     
-    Позволяет превратить книгу, любую ручку и любой кусок мяса или не-силиконовый орган в Кодекс Цикатрикс.
-    Кодекс можно использовать для вытягивания влияний, чтобы получать дополнительные знания, но с большим риском быть замеченным. Также он упрощает рисование и удаление рун трансмутации и может служить фокусом для заклинаний.
+    Позволяет превратить книгу, любую ручку и любой кусок мяса или не искусственный орган в Кодекс Цикатрикс.
+    Кодекс можно использовать для вытягивания влияний, чтобы получать дополнительные знания, но с большим риском быть замеченным. Его также можно применять для упрощённого создания и удаления рун трансмутации и в качестве фокуса для заклинаний в экстренной ситуации.
 heretic-ritual-basic-reminiscence = Воспоминание
-heretic-ritual-basic-reminiscence-desc = Превратите стул, чтобы мгновенно вернуть один из ваших утерянных клинков.
-heretic-ritual-basic-owls = Пир сов
+heretic-ritual-basic-reminiscence-desc = Трансмутируйте стул, чтобы мгновенно вернуть один из своих потерянных клинков.
+heretic-ritual-basic-owls = Совиный пир
 heretic-ritual-basic-owls-desc =
     Под мягким светом безрассудства бродит зверь, что охотится ночью. Я призову его и позволю войти в моё присутствие. Он насытится моими амбициями и оставит за собой знание.
     
@@ -48,32 +48,32 @@ heretic-ritual-fail-cannot-ascend = Вы не можете вознестись.
 
 ## side quests
 
-heretic-ritual-side-knowledge = Ритуал Знаний
-heretic-ritual-side-shark = Обжигающая Акула
-heretic-ritual-side-cloak = Плащ Пустоты
-heretic-ritual-side-ghoul = Разбитый Ритуал
-heretic-ritual-side-armor = Ритуал Бронника
-heretic-ritual-side-water = Ритуал Жреца
-heretic-ritual-side-knife = Ритуал Резца
-heretic-ritual-side-crucible = Изъеденный Котел
-heretic-ritual-side-coin = Эльдрический Монет
+heretic-ritual-side-knowledge = Ритуал знаний
+heretic-ritual-side-shark = Пылающая акула
+heretic-ritual-side-cloak = Пустотный плащ
+heretic-ritual-side-ghoul = Ритуал гуля
+heretic-ritual-side-armor = Ритуал бронника
+heretic-ritual-side-water = Ритуал жреца
+heretic-ritual-side-knife = Ритуал резца
+heretic-ritual-side-crucible = Изъеденный котел
+heretic-ritual-side-coin = Эльдрическая монета
 
 ## ash path
 
 heretic-ritual-ash-blade = Тайна Ночного Стража
-heretic-ritual-ash-grasp = Хватка Пепла
-heretic-ritual-ash-mask = Маска Безумия
-heretic-ritual-ash-ascend = Ритуал Повелителя Пепла
+heretic-ritual-ash-grasp = Хват пепла
+heretic-ritual-ash-mask = Маска безумия
+heretic-ritual-ash-ascend = Ритуал повелителя пепла
 
 ## flesh path
 
-heretic-ritual-flesh-blade = Принцип Голодания
-heretic-ritual-flesh-ghoul = Несовершенный Ритуал
-heretic-ritual-flesh-prophet = Грубый Ритуал
-heretic-ritual-flesh-stalker = Одинокий Ритуал
-heretic-ritual-flesh-ascend = Последний Гимн Жреца
+heretic-ritual-flesh-blade = Принцип голодания
+heretic-ritual-flesh-ghoul = Несовершенный ритуал
+heretic-ritual-flesh-prophet = Грубый ритуал
+heretic-ritual-flesh-stalker = Одинокий ритуал
+heretic-ritual-flesh-ascend = Последний гимн жреца
 
 ## void path
 
-heretic-ritual-void-blade = Мерцание Зимы
-heretic-ritual-void-ascend = Вальс В Конце Времени
+heretic-ritual-void-blade = Мерцание зимы
+heretic-ritual-void-ascend = Вальс конца времён

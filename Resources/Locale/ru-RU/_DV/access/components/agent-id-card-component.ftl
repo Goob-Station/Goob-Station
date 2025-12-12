@@ -6,4 +6,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-agent-id-card-current-number = Номер НаноЧата
+agent-id-card-current-number = Номер NanoChat

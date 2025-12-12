@@ -4,4 +4,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-store-currency-display-evolutionpoints = Очки Эволюции
+store-currency-display-evolutionpoints = Очки эволюции

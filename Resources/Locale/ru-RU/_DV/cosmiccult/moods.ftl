@@ -1,28 +1,41 @@
 thaven-mood-cosmic-nihilism-name = Астральный нигилизм
-thaven-mood-cosmic-nihilism-desc = Жизнь больше ничего для тебя не значит. Как и всё остальное. Тебе не приносит радости ничто, и ничто не имеет значения.
+thaven-mood-cosmic-nihilism-desc = Жизнь больше ничего не значит для вас, как и всё остальное. Ничто не приносит радости, и ничто не имеет значения.
+
 thaven-mood-cosmic-insignificance-name = Астральная ничтожность
-thaven-mood-cosmic-insignificance-desc = Ты постоянно и мучительно осознаёшь свою ничтожность в масштабах вселенной.
+thaven-mood-cosmic-insignificance-desc = Вы постоянно осознаёте свою ничтожность в грандиозных масштабах вселенной.
+
 thaven-mood-cosmic-unfamiliarity-name = Пустотная чуждость
-thaven-mood-cosmic-unfamiliarity-desc = Мир вокруг кажется тебе странным и незнакомым, а все, кого ты встречаешь, будто бы подменены. Ты не можешь поверить ни единому слову.
+thaven-mood-cosmic-unfamiliarity-desc = Мир вокруг вас странен и чужд, а все, кого вы встречаете, кажутся незнакомыми. Вы не можете заставить себя доверять ни единому их слову.
+
 thaven-mood-cosmic-fakemonument-name = Зловещий Монумент
-thaven-mood-cosmic-fakemonument-desc = Взору разума открывается тень огромной структуры — Монумента. Ты обязан найти его или воздвигнуть сам, любой ценой.
+thaven-mood-cosmic-fakemonument-desc = Ваш разум затмевает тень колоссального сооружения ­— Монумент. Вы должны любой ценой найти его или создать свой.
+
 thaven-mood-cosmic-wakingdream-name = Космический сон
-thaven-mood-cosmic-wakingdream-desc = Эта реальность — всего лишь великая иллюзия, общий сон, идущий из-за Пустоты. Всё уже завершилось. Ликуй!
+thaven-mood-cosmic-wakingdream-desc = Эта реальность — лишь иллюзия, великий сон, что вы разделяете из-за завесы небытия, ведь всё уже давно кончилось. Ликуйте!
+
 thaven-mood-cosmic-livingnightmare-name = Энтропический кошмар
-thaven-mood-cosmic-livingnightmare-desc = Это не реальность — это кошмар наяву, в котором ты и все вокруг оказались заперты. Ты обязан выжить, чего бы это ни стоило.
+thaven-mood-cosmic-livingnightmare-desc = Это не реальность — это кошмар наяву, в котором вы, и все остальные вокруг, оказались в ловушке. Вы должны выжить любой ценой.
+
 thaven-mood-cosmic-grotesqueworld-name = Гротеск
-thaven-mood-cosmic-grotesqueworld-desc = Мир вокруг отвратителен и мерзок. Виды станции вызывают у тебя тошноту, а сослуживцы кажутся чудовищами в человеческом обличье.
-thaven-mood-cosmic-voiceoftheend-name = Глашатай Конца
-thaven-mood-cosmic-voiceoftheend-desc = Конец всего приближается! Ты должен донести эту весть и подготовить к нему как можно больше душ.
-thaven-mood-cosmic-worshipoftheend-name = Вера в Конец
-thaven-mood-cosmic-worshipoftheend-desc = Ты восхищён самой идеей Конца всего сущего. Его следует почитать! Сначала тебе, а потом — каждому, кого удастся обратить.
+thaven-mood-cosmic-grotesqueworld-desc = Мир вокруг отвратителен и мерзок. Вид станции вызывает тошноту, а ваши коллеги кажутся заменёнными чудовищными существами.
+
+thaven-mood-cosmic-voiceoftheend-name = Глашатай конца
+thaven-mood-cosmic-voiceoftheend-desc = Конец всего близок! Вы должны сообщить о нём и подготовить как можно больше людей.
+
+thaven-mood-cosmic-worshipoftheend-name = Космическая вера
+thaven-mood-cosmic-worshipoftheend-desc = Вас захватила идея конца всего сущего. Это должно быть объектом поклонения, вашего и всех, кого вы сможете убедить присоединиться.
+
 thaven-mood-cosmic-disregardoftheliving-name = Безразличие к живым
-thaven-mood-cosmic-disregardoftheliving-desc = Тебе нет дела до нужд живых рядом с тобой, как бы ни было всё плохо. Всё равно они обречены.
+thaven-mood-cosmic-disregardoftheliving-desc = Вам безразличны нужды живых вокруг, какими бы отчаянными они ни были. Всё-равно они все скоро умрут.
+
 thaven-mood-cosmic-disregardoftheself-name = Безразличие к себе
-thaven-mood-cosmic-disregardoftheself-desc = Тебе безразличны даже собственные потребности. Всё равно тебе суждено умереть.
+thaven-mood-cosmic-disregardoftheself-desc = Вам безразличны собственные нужды, какими бы отчаянными они ни были. Всё-равно вы умрёте.
+
 thaven-mood-cosmic-fearofbeingforgotten-name = Летофобия
-thaven-mood-cosmic-fearofbeingforgotten-desc = Ты панически боишься забвения: быть забытым, забыть что-то важное, забыть кого-то. Сделай всё, чтобы остаться в памяти.
+thaven-mood-cosmic-fearofbeingforgotten-desc = У Вас сильный, иррациональный страх забвения: быть забытым, забыть что-то или кого-то. Вы должны сделать всё, чтобы вас запомнили.
+
 thaven-mood-cosmic-fearofendings-name = Апейрофобия
-thaven-mood-cosmic-fearofendings-desc = Тебя мучает иррациональный страх перед вечностями: загробной жизнью, забвением и бесконечностью.
+thaven-mood-cosmic-fearofendings-desc = У Вас сильный, иррациональный страх вечности: загробной жизни, небытия и бесконечности.
+
 thaven-mood-cosmic-painlessendings-name = Эвтаназия
-thaven-mood-cosmic-painlessendings-desc = Ты видел грядущий конец, и он гораздо страшнее всего, что можно вообразить. Доброй милостью было бы избавить существ с более слабым разумом от того, что грядёт. Избери наименее болезненный путь.
+thaven-mood-cosmic-painlessendings-desc = Вы увидели неизбежный конец, и он куда ужаснее, чем вы могли себе представить. Было бы доброй волей избавить существ с меньшим разумом от необходимости видеть его. Вы не хотите, чтобы животные страдали. Пусть их конец будет безболезненным.

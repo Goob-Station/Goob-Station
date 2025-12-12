@@ -7,8 +7,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 alerts-changeling-chemicals-name = Химикаты
-alerts-changeling-chemicals-desc = Трать химикаты, чтобы использовать способности. Постепенно восстанавливаются.
+alerts-changeling-chemicals-desc = Трать химикаты для использования способностей. Постепенно восстанавливаются.
 alerts-changeling-biomass-name = Биомасса
 alerts-changeling-biomass-desc = Это твоё здоровье. Если достигнет 0 — [color=red]конец игры[/color]. Поглощай гуманоидов, чтобы восстановить часть биомассы.
 alerts-changeling-fleshmend-name = Восстановить плоть
-alerts-changeling-fleshmend-desc = Ушибы быстро залечиваются! Ожоги и удушье лечатся медленнее. [color=red]Исцеление прекратится после поджога.[/color]
+alerts-changeling-fleshmend-desc = Ушибы быстро залечиваются! Ожоги и удушье лечатся медленнее. [color=red]Исцеление прекратится в случае поджога.[/color]

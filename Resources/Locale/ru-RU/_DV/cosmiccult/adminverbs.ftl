@@ -1,2 +1,2 @@
-admin-verb-make-cosmiccultist = Сделать цель космическим культистом
-admin-verb-text-make-cosmiccultist = Сделать Космического Культиста
+admin-verb-make-cosmiccultist = Сделать цель Космическим культистом.
+admin-verb-text-make-cosmiccultist = Сделать Космическим культистом

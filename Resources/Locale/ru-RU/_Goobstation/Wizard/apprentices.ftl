@@ -4,7 +4,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-ghost-role-information-apprentice-rules = Вы — [color=red][bold]антогонист в команде[/bold][/color] с призвавшим вас волшебником.
+ghost-role-information-apprentice-rules = Вы — [color=red][bold]Командный антагонист[/bold][/color] с призвавшим вас волшебником.
 ghost-role-information-apprentice-destruction-name = Ученик (Разрушение)
 ghost-role-information-apprentice-destruction-desc = Вы — ученик, владеющий заклинаниями Огненного шара и Мутации. Защищайте волшебника, который вас призвал, любой ценой.
 ghost-role-information-apprentice-ethereal-name = Ученик (Эфир)

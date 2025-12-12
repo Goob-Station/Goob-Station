@@ -1,6 +1,6 @@
-cleanse-deconvert-attempt-begin = { CAPITALIZE(THE($target)) } возносит чётки к тебе, взывая к свету.
-cleanse-deconvert-attempt-begin-user = Ты пытаешься изгнать чуждый разум { CAPITALIZE(THE($target)) }!
-cleanse-deconvert-attempt-success = Ты очищаешь { CAPITALIZE(THE($target)) } потоком святого света!
-cleanse-deconvert-attempt-success-empowered = Ты очищаешь { CAPITALIZE(THE($target)) }, но всплеск тёмной энергии вырывается наружу!
-cleanse-deconvert-attempt-notcult = { CAPITALIZE(THE($target)) } не был под чужим влиянием.
-cleanse-item-sizzle = { CAPITALIZE(THE($target)) } шипит в твоих руках!
+cleanse-deconvert-attempt-begin = { CAPITALIZE(THE($target)) } протягивает вам розарий!
+cleanse-deconvert-attempt-begin-user = Вы пытаетесь очистить { CAPITALIZE(THE($target)) } от потустороннего влияния!
+cleanse-deconvert-attempt-success = Вы очищаете { CAPITALIZE(THE($target)) } в вспышке святого света!
+cleanse-deconvert-attempt-success-empowered = Вы очищаете { CAPITALIZE(THE($target)) }, но вспышка злой энергии вырывается наружу!
+cleanse-deconvert-attempt-notcult = { CAPITALIZE(THE($target)) } не находился под влиянием чего-либо.
+cleanse-item-sizzle = { CAPITALIZE(THE($target)) } шипит у вас в руках!

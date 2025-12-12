@@ -12,7 +12,7 @@
 chat-speech-verb-name-vulpkanin = Вульпканин
 chat-speech-verb-vulpkanin-1 = рычит
 chat-speech-verb-vulpkanin-2 = лает
-chat-speech-verb-vulpkanin-3 = rurs
+chat-speech-verb-vulpkanin-3 = урчит
 chat-speech-verb-vulpkanin-4 = тявкает
 chat-speech-verb-name-felinid = Фелинид
 chat-speech-verb-felinid-1 = мрао

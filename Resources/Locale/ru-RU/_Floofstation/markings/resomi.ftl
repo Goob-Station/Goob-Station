@@ -4,21 +4,21 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-marking-ResomiTail = Хвост
-marking-ResomiTail-tail = Хвост
-marking-ResomiTailFeathers = Хвостовые перья
-marking-ResomiTailFeathers-tail_feathers = Хвостовые перья
-marking-ResomiLArmFeathers = Перья на левой руке
-marking-ResomiLArmFeathers-l_hand_feathers = Перья на левой руке
-marking-ResomiLLegFeathers = Перья на левой ноге
-marking-ResomiLLegFeathers-l_foot_feathers = Перья на левой ноге
-marking-ResomiRArmFeathers = Перья на правой руке
-marking-ResomiRArmFeathers-r_hand_feathers = Перья на правой руке
-marking-ResomiRLegFeathers = Перья на правой ноге
-marking-ResomiRLegFeathers-r_foot_feathers = Перья на правой ноге
+marking-ResomiTail = Резоми
+marking-ResomiTail-tail = Основной
+marking-ResomiTailFeathers = Перья
+marking-ResomiTailFeathers-tail_feathers = Основной
+marking-ResomiLArmFeathers = Перья
+marking-ResomiLArmFeathers-l_hand_feathers = Основной
+marking-ResomiLLegFeathers = Перья
+marking-ResomiLLegFeathers-l_foot_feathers = Основной
+marking-ResomiRArmFeathers = Перья
+marking-ResomiRArmFeathers-r_hand_feathers = Основной
+marking-ResomiRLegFeathers = Перья
+marking-ResomiRLegFeathers-r_foot_feathers = Основной
 marking-ResomiFluff = Пух
-marking-ResomiFluff-fluff = Пух
-marking-ResomiFluffHead = Пух на голове
-marking-ResomiFluffHead-fluff_head = Подпух на голове
-marking-ResomiFluffHeadUp = Приподнятый пух на голове
-marking-ResomiFluffHeadUp-fluff_head_up = Приподнятый пух на голове
+marking-ResomiFluff-fluff = Основной
+marking-ResomiFluffHead = Пух
+marking-ResomiFluffHead-fluff_head = Основной
+marking-ResomiFluffHeadUp = Приподнятый пух
+marking-ResomiFluffHeadUp-fluff_head_up = Основной

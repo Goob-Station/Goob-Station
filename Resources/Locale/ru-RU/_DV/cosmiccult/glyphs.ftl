@@ -1,19 +1,22 @@
-cult-glyph-target-dead = Влияние глифа не действует на мёртвых...
-cult-glyph-target-rotting = Влияние глифа не действует на гнилых.
+cult-glyph-target-dead = Влияние глифа не действует на мёртвых.
+cult-glyph-target-rotting = Влияние глифа не действует на гниющих.
 cult-glyph-not-enough-cultists = Недостаточно культистов для активации глифа!
-cult-glyph-conditions-not-met = Нет подходящих целей в зоне действия глифа!
+cult-glyph-conditions-not-met = Нет подходящих целей в радиусе действия глифа!
 cult-glyph-too-many-targets = Слишком много целей на глифе!
-cult-glyph-target-mindshield = Разумный щит препятствует влиянию глифа!
-cult-glyph-target-chaplain = Искра божественной силы не даёт глифу проявить влияние!
-cult-glyph-name-knowledge = Завет Знаний
-cult-glyph-description-knowledge = Знания. Пробуждает искру неизгладимого понимания. Способен обратить большинство.
-cult-glyph-name-projection = Завет Проекции
-cult-glyph-description-projection = Проекция. Позволяет временно вознестись в астральной форме и шпионить за окружающими.
-cult-glyph-name-warding = Причастие Ограждения
-cult-glyph-description-warding = Ограждение. Преобразует защитную одежду в энтропийные одеяния.
-cult-glyph-name-blades = Причастие Клинков
-cult-glyph-description-blades = Клинки. Преобразует и усиливает острые предметы в смертоносное оружие.
-cult-glyph-name-cessation = Пробуждение Прекращения
-cult-glyph-description-cessation = Прекращение. Преобразует переносной атмосферный фильтр в Пустотный Шпиль.
-cult-glyph-name-truth = Пробуждение Истины
-cult-glyph-description-truth = Истина. Пробуждает чистую, неизгладимую истину. Способен обратить абсолютно любого.
+cult-glyph-target-mindshield = Защита разума предотвращает влияние глифа!
+cult-glyph-target-chaplain = Искра божественной силы предотвращает влияние глифа!
+
+cult-glyph-name-knowledge = Пакт знания
+cult-glyph-description-knowledge = Знание. Прививает искру несмываемого знания. Может обратить большинство в наши ряды.
+cult-glyph-name-projection = Пакт проекции
+cult-glyph-description-projection = Проекция. Позволяет нам вознестись во временной астральной форме, чтобы шпионить за окружающими.
+
+cult-glyph-name-warding = Причастие защиты
+cult-glyph-description-warding = Защита. Преобразует одежду, устойчивую к давлению, в энтропическое одеяние.
+cult-glyph-name-blades = Причастие клинков
+cult-glyph-description-blades = Клинки. Преобразует и вытягивает острые предметы в более смертоносное оружие.
+
+cult-glyph-name-cessation = Согласие прекращения
+cult-glyph-description-cessation = Прекращение. Преобразует переносной скруббер в Пустотный шпиль.
+cult-glyph-name-truth = Согласие истины
+cult-glyph-description-truth = Истина. Прививает чистейшую, несмываемую истину. Может обратить абсолютно любого в наши ряды.

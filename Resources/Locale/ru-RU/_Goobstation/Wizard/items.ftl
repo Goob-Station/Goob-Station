@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 ensouled-item-name = одушевленный { $item }
-ensouled-item-desc = [color=darkred]Ужасная аура окружает этот предмет, само его существование оскорбляет жизнь...[/color]
+ensouled-item-desc = [color=darkred]Ужасающая аура окутала этот предмет, само его существование оскорбляет жизнь...[/color]
 delete-on-drop-attempt-comp-examine = Выбросьте этот предмет, чтобы избавиться от него.
 enchanted-rifle-guns-left = Осталось патронов: [color=yellow]{ $guns }[/color].
 teleport-scroll-uses-left = Осталось использований: [color=yellow]{ $uses }[/color].

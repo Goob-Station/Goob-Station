@@ -97,4 +97,4 @@ names-ipc-first-dataset-96 = Эксплор
 names-ipc-first-dataset-97 = Директрон
 names-ipc-first-dataset-98 = Векториус
 names-ipc-first-dataset-99 = Энерджиус
-names-ipc-first-dataset-100 = ZYVA
+names-ipc-first-dataset-100 = ЗАЗА

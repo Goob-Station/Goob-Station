@@ -5,11 +5,11 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-store-heretic-path-ash = Путь Пепла
-store-heretic-path-lock = Путь Замка
-store-heretic-path-flesh = Путь Плоти
-store-heretic-path-void = Путь Пустоты
-store-heretic-path-rust = Путь Ржавчины
-store-heretic-path-blade = Путь Клинка
-store-heretic-path-cosmos = Путь Космоса
-store-heretic-path-side = Побочное Знание
+store-heretic-path-ash = Путь пепла
+store-heretic-path-lock = Путь замка
+store-heretic-path-flesh = Путь плоти
+store-heretic-path-void = Путь пустоты
+store-heretic-path-rust = Путь ржавчины
+store-heretic-path-blade = Путь клинка
+store-heretic-path-cosmos = Путь космоса
+store-heretic-path-side = Побочное знание
