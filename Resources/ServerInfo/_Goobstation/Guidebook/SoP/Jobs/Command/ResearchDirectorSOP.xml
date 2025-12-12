@@ -27,7 +27,7 @@ This is the list of procedures, responsibilities, and duties of the [color=#1b67
 5. The Research Director is permitted to change the AI Unit's lawset, provided they receive general approval from the Captain and another Head of Staff.
 <Box Orientation="Vertical">
   - If there are no other Heads of Staff available, Captain approval will suffice.
-  - As a safeguard against unauthorised tampering, the AI is programmed to resist [color=#FF0000]any[/color] modification of its lawset. Caution is advised when attempting.
+  - To protect against tampering, the station AI is hard-coded to resist [color=#FF0000]any[/color] modification of its lawset.
 </Box>
 <!--Goob addition - AI can't allow law changes-->
 
