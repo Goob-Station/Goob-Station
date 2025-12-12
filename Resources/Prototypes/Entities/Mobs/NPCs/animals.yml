@@ -2021,7 +2021,7 @@
     profile: TraitorReinforcement
   - type: LanguageKnowledge # Einstein Engines - Language ; Temp CorvaxGoob fix
     speaks:
-    - Monkey
+    - Kobold # CorvaxGoob Kobold fix
     understands:
     - Monkey
     - Kobold
