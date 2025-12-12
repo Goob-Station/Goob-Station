@@ -378,7 +378,6 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_ce.rsi
 
-
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitPassengerQuarterzip
