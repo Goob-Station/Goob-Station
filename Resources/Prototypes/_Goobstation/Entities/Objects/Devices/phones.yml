@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: RotaryPhone
-  name: phone
-  description: its a phone
+  name: phone sender
+  description: it's a phone
   components:
   - type: Sprite
     sprite: _RMC14/Objects/phone/phone.rsi
@@ -11,13 +11,30 @@
     phoneNumber: 999
     dialedNumber: 123
   - type: ActiveListener
-    range: 10
+    range: 1
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Vending
+  - type: UserInterface
+    interfaces:
+      enum.PhoneUiKey.Key:
+        type: PhoneBoundUserInterface
+  - type: ActivatableUI
+    key: enum.PhoneUiKey.Key
+  - type: LanguageSpeaker # Einstein Engines - Languages
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - RobotTalk
 
 - type: entity
   parent: BaseItem
   id: RotaryPhone2
-  name: phone
-  description: its a phone
+  name: phone reviever
+  description: it's a phone
   components:
   - type: Sprite
     sprite: _RMC14/Objects/phone/phone.rsi
@@ -26,7 +43,7 @@
     phoneNumber: 123
     dialedNumber: 000
   - type: ActiveListener
-    range: 10
+    range: 1
   - type: Speech
     speechVerb: Robotic
     speechSounds: Vending
@@ -38,3 +55,36 @@
     understands:
     - TauCetiBasic
     - RobotTalk
+
+- type: entity
+  parent: BaseItem
+  id: RotaryPhoneStand
+  name: phone stand
+  description: it's a phone stand
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/phone/rotary_phone.rsi
+    granularLayersRendering: true
+    state: rotary_phone_ear
+  - type: RotaryPhoneHolder
+  - type: ContainerContainer
+    containers:
+      phone: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      phone:
+        name: phone
+        insertSound: /Audio/_RMC14/phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/phone/sound_machines_phones_pick_up.ogg
+        startingItem: RotaryPhone
+        whitelist:
+          components:
+          - RotaryPhone
+  - type: Appearance
+  - type: ItemMapper
+    containerWhitelist: [phone]
+    mapLayers:
+      rotary_phone:
+        whitelist:
+          components:
+          - RotaryPhone

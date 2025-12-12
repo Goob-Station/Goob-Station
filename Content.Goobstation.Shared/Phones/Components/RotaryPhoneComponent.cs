@@ -1,4 +1,6 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Phones.Components;
 
@@ -13,6 +15,12 @@ public sealed partial class RotaryPhoneComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Engaged;
+
+    /// <summary>
+    /// Should the phones transfer
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Connected;
 
     /// <summary>
     /// The phone number of this phone
@@ -37,4 +45,22 @@ public sealed partial class RotaryPhoneComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? ConnectedPhone;
+
+    [DataField, AutoNetworkedField]
+    public SoundPathSpecifier RingSound = new SoundPathSpecifier("/Audio/_RMC14/Phone/telephone_ring.ogg");
+
+    [DataField, AutoNetworkedField]
+    public SoundPathSpecifier RingingSound = new SoundPathSpecifier("/Audio/_RMC14/Phone/ring_outgoing.ogg");
+
+    [DataField, AutoNetworkedField]
+    public SoundPathSpecifier HandUpSoundLocal = new SoundPathSpecifier ("/Audio/_RMC14/Phone/phone_busy.ogg");
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? SoundEntity;
+}
+
+[Serializable, NetSerializable]
+public enum PhoneUiKey : byte
+{
+    Key
 }

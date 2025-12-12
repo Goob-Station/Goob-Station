@@ -1,0 +1,9 @@
+- files: ["dial.ogg, phone_busy.ogg, remote_hangup.ogg, remote_pickup.ogg, ring_outgoing.ogg, rtb_handset_1.ogg, rtb_handset_2.ogg, rtb_handset_3.ogg, rtb_handset_4.ogg, rtb_handset_5.ogg, talk_phone1.ogg, talk_phone2.ogg, talk_phone3.ogg, talk_phone4.ogg, talk_phone5.ogg, talk_phone6.ogg, talk_phone7.ogg, telephone_ring.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from rmc14"
+  source: "https://github.com/RMC-14/RMC-14/pull/4667/commits/f4f526532f2aed4f5b6744665c5773349b1695bd"
+
+- files: ["sound_machines_phones_hang_up.ogg, sound_machines_phones_pick_up.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from goonstation"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound/machines/phones"
