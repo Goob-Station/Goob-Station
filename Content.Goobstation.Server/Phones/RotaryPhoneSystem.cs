@@ -21,23 +21,36 @@ public sealed class RotaryPhoneSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<RotaryPhoneComponent, ListenEvent>(OnListen);
+        SubscribeLocalEvent<RotaryPhoneComponent, PhoneKeypadMessage>(OnKeyPadPressed);
+        SubscribeLocalEvent<RotaryPhoneComponent, PhoneKeypadClearMessage>(OnKeyPadClear);
+        SubscribeLocalEvent<RotaryPhoneComponent, PhoneDialedMessage>(OnDial);
     }
 
-    private void OnListen(EntityUid uid, RotaryPhoneComponent comp, ref ListenEvent args)
+    private void OnKeyPadPressed(EntityUid uid, RotaryPhoneComponent comp, PhoneKeypadMessage args)
     {
-        if(HasComp<RotaryPhoneComponent>(args.Source) || !_timing.IsFirstTimePredicted || args.Source == uid || HasComp<RadioSpeakerComponent>(args.Source))
-            return;
+        comp.DialedNumber = (comp.DialedNumber ?? 0) * 10 + args.Value;
+        Dirty(uid, comp);
+    }
 
+    private void OnKeyPadClear(EntityUid uid, RotaryPhoneComponent comp, PhoneKeypadClearMessage args)
+    {
+        comp.DialedNumber = null;
+        Dirty(uid, comp);
+    }
+
+    private void OnDial(EntityUid uid, RotaryPhoneComponent comp, PhoneDialedMessage args)
+    {
         if (comp.ConnectedPhone == null)
         {
             var query = EntityQueryEnumerator<RotaryPhoneComponent>();
             while (query.MoveNext(out var phone, out var phoneComp))
             {
-                if (comp.DialedNumber == phoneComp.PhoneNumber)
+                if (comp.DialedNumber == phoneComp.PhoneNumber && phone != uid)
                 {
                     if (!phoneComp.Engaged)
                     {
                         comp.Engaged = true;
+                        comp.ConnectedPhone = phone;
                         phoneComp.Engaged = true;
                         var audio = _audio.PlayPvs(comp.RingingSound, uid, AudioParams.Default.WithLoop(true));
                         if (audio != null)
@@ -55,8 +68,12 @@ public sealed class RotaryPhoneSystem : EntitySystem
                 }
             }
         }
+        Dirty(uid, comp);
+    }
 
-        if (comp.ConnectedPhone == null || !comp.Connected)
+    private void OnListen(EntityUid uid, RotaryPhoneComponent comp, ref ListenEvent args)
+    {
+        if(HasComp<RotaryPhoneComponent>(args.Source) || !_timing.IsFirstTimePredicted || args.Source == uid || HasComp<RadioSpeakerComponent>(args.Source) || comp.ConnectedPhone == null || !comp.Connected)
             return;
 
         _chatSystem.TrySendInGameICMessage(comp.ConnectedPhone.Value, args.Message, InGameICChatType.Speak, hideChat: true, hideLog: true, checkRadioPrefix: false);

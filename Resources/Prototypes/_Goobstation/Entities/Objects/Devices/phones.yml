@@ -1,15 +1,13 @@
 - type: entity
   parent: BaseItem
   id: RotaryPhone
-  name: phone sender
+  name: phone
   description: it's a phone
   components:
   - type: Sprite
     sprite: _RMC14/Objects/phone/phone.rsi
     state: icon
   - type: RotaryPhone
-    phoneNumber: 999
-    dialedNumber: 123
   - type: ActiveListener
     range: 1
   - type: Speech
@@ -21,32 +19,6 @@
         type: PhoneBoundUserInterface
   - type: ActivatableUI
     key: enum.PhoneUiKey.Key
-  - type: LanguageSpeaker # Einstein Engines - Languages
-  - type: LanguageKnowledge # Einstein Engines - Languages
-    speaks:
-    - TauCetiBasic
-    - RobotTalk
-    understands:
-    - TauCetiBasic
-    - RobotTalk
-
-- type: entity
-  parent: BaseItem
-  id: RotaryPhone2
-  name: phone reviever
-  description: it's a phone
-  components:
-  - type: Sprite
-    sprite: _RMC14/Objects/phone/phone.rsi
-    state: icon
-  - type: RotaryPhone
-    phoneNumber: 123
-    dialedNumber: 000
-  - type: ActiveListener
-    range: 1
-  - type: Speech
-    speechVerb: Robotic
-    speechSounds: Vending
   - type: LanguageSpeaker # Einstein Engines - Languages
   - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:

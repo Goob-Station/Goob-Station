@@ -1,5 +1,8 @@
 using Content.Goobstation.Client.Phones.UI;
+using Content.Goobstation.Shared.Phones.Components;
 using Robust.Client.UserInterface;
+
+namespace Content.Goobstation.Client.Phones.UI;
 
 public sealed class PhoneBoundUserInterface : BoundUserInterface
 {
@@ -15,12 +18,25 @@ public sealed class PhoneBoundUserInterface : BoundUserInterface
 
         _menu = this.CreateWindow<PhoneMenu>();
 
-        // Hook UI events → send messages to server
-        _menu.DialButton.OnPressed += _ =>
+        _menu.OnKeypadButtonPressed += i =>
         {
-            Logger.Debug("pp poo poo");
+            SendMessage(new PhoneKeypadMessage(i));
+
+            var current = _menu.DialNumber.GetMessage();
+            _menu.DialNumber.SetMessage(current + i.ToString());
+        };
+        _menu.OnEnterButtonPressed += () =>
+        {
+            SendMessage(new PhoneDialedMessage());
+        };
+        _menu.OnClearButtonPressed += () =>
+        {
+            SendMessage(new PhoneKeypadClearMessage());
+            _menu.DialNumber.SetMessage(string.Empty);
         };
     }
+
+
 
     protected override void UpdateState(BoundUserInterfaceState state)
     {

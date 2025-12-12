@@ -1,9 +1,14 @@
 <DefaultWindow
     xmlns="https://spacestation14.io"
     xmlns:controls="clr-namespace:Content.Goobstation.Client.Phones.UI"
-    Title="Telephone" MinSize="500 400">
+    Title="Telephone" MinSize="200 100">
     <BoxContainer Orientation="Vertical">
-        <TabContainer Name="Tabs" Access="Public" HorizontalExpand="True" VerticalExpand="True" />
-        <Button Name="DialButton" Access="Public" Text="Dial" StyleClasses="OpenBoth" />
+        <BoxContainer Orientation="Horizontal" >
+            <GridContainer Columns="3"
+                           Name="KeypadGrid">
+                <!-- Keypad is filled by code -->
+            </GridContainer>
+            <RichTextLabel Name="DialNumber" Text="" Access="Public"></RichTextLabel>
+        </BoxContainer>
     </BoxContainer>
 </DefaultWindow>

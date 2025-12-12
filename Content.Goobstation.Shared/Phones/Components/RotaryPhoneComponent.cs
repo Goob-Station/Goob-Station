@@ -64,3 +64,24 @@ public enum PhoneUiKey : byte
 {
     Key
 }
+
+[Serializable, NetSerializable]
+public sealed class PhoneKeypadMessage : BoundUserInterfaceMessage
+{
+    public int Value;
+
+    public PhoneKeypadMessage(int value)
+    {
+        Value = value;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class PhoneKeypadClearMessage : BoundUserInterfaceMessage
+{
+}
+
+[Serializable, NetSerializable]
+public sealed class PhoneDialedMessage : BoundUserInterfaceMessage
+{
+}

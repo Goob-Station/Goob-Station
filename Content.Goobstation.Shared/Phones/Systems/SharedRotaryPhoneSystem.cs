@@ -1,20 +1,52 @@
 using Content.Goobstation.Shared.Phones.Components;
 using Content.Goobstation.Shared.Phones.Events;
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Examine;
+using Content.Shared.Stacks;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.Phones.Systems;
 
 public sealed class SharedRotaryPhoneSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<RotaryPhoneComponent, PhoneRingEvent>(OnRing);
         SubscribeLocalEvent<RotaryPhoneComponent, PhoneHungUpEvent>(OnGotHungUp);
+        SubscribeLocalEvent<RotaryPhoneComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<RotaryPhoneHolderComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<RotaryPhoneComponent, BoundUIClosedEvent>(OnUiClosed);
         SubscribeLocalEvent<RotaryPhoneComponent, EntGotRemovedFromContainerMessage>(OnPickup);
         SubscribeLocalEvent<RotaryPhoneComponent, EntGotInsertedIntoContainerMessage>(OnHangUp);
+    }
+
+    private void OnUiClosed(EntityUid uid, RotaryPhoneComponent comp, BoundUIClosedEvent args)
+    {
+        comp.DialedNumber = null;
+    }
+
+    private void OnMapInit(EntityUid uid, RotaryPhoneComponent comp, MapInitEvent args)
+    {
+        comp.PhoneNumber = _random.Next(111,999);
+    }
+
+    private void OnExamine(EntityUid uid, RotaryPhoneHolderComponent comp, ExaminedEvent args)
+    {
+        if(!_itemSlots.TryGetSlot(uid, "phone", out var phoneslot))
+            return;
+
+        RotaryPhoneComponent? stack = null;
+        if (phoneslot.Item == null || !TryComp(phoneslot.Item.Value, out stack) || stack.PhoneNumber == null)
+            return;
+
+
+        args.PushMarkup(Loc.GetString("phone-number-description", ("number", stack.PhoneNumber)));
     }
 
     private void OnRing(EntityUid uid, RotaryPhoneComponent comp, PhoneRingEvent args)
