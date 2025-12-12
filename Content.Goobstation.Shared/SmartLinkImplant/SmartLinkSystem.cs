@@ -59,7 +59,7 @@ public sealed class SmartLinkSystem : EntitySystem
         foreach (var projectile in args.FiredProjectiles)
         {
             if (HasComp<SmartLinkBlacklistComponent>(projectile))
-                continue;
+                return;
 
             var homing = EnsureComp<HomingProjectileComponent>(projectile);
             homing.Target = gun.Target.Value;
