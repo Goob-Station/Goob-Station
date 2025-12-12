@@ -619,6 +619,7 @@
           type:
           - Animal
           - Vox
+          - Plant
           - Yowie # Goobstation - Yowie
           - XenobioSlime # Goobstation - XenobioSlime
           inverted: true
@@ -628,12 +629,20 @@
           type:
           - Animal
           - Vox
+          - Plant
           - Yowie # Goobstation - Yowie
           - XenobioSlime # Goobstation - XenobioSlime
           inverted: true
         damage:
           types:
             Poison: 1
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Plant ]
+        damage:
+          types:
+            Poison: .25
       - !type:AdjustReagent
         conditions:
         - !type:MetabolizerTypeCondition
