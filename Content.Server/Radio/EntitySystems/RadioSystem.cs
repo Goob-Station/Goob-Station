@@ -60,10 +60,10 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Content.Shared.Access.Systems; // Goobstation
 using Content.Shared.Chat.RadioIconsEvents; // Goobstation
 using Content.Shared.Whitelist; // Goobstation
 using Content.Shared.StatusIcon; // Goobstation
-using Content.Goobstation.Common.Radio; // Goobstation
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -78,6 +78,7 @@ public sealed partial class RadioSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly AccessReaderSystem _accessReader = default!; // Goobstation - radio icons
     [Dependency] private readonly LanguageSystem _language = default!; // Einstein Engines - Language
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // Goobstation - Whitelisted radio channels
 
@@ -171,32 +172,15 @@ public sealed partial class RadioSystem : EntitySystem
         var evt = new TransformSpeakerNameEvent(messageSource, MetaData(messageSource).EntityName);
         RaiseLocalEvent(messageSource, evt);
 
-        // Goob - Job icons START
-        var iconEvent = new GetRadioJobIconEvent();
-        RaiseLocalEvent(messageSource, ref iconEvent);
-
-        var jobIcon = iconEvent.JobIconID;
-        var jobName = iconEvent.JobName;
-
-        if (!string.IsNullOrEmpty(jobIcon))
+        // Goob - Job icons
+        if (TryGetJobIcon(messageSource, out var jobIcon, out var jobName))
         {
-            // If the returned job icon isn't null, but it isn't actually a valid `JobIconPrototype`.
-            if (!_prototype.HasIndex<JobIconPrototype>(jobIcon))
-            {
-                // Make an error message and just set it to null.
-                Log.Error($"Invalid `JobIconPrototype` ID returned by `GetRadioJobIconEvent`. ID: '{jobIcon}'");
-                jobIcon = null;
-            }
-            else // If it *is* valid then put it all through `TransformSpeakerJobIconEvent`.
-            {
-                var transformIconEvent = new TransformSpeakerJobIconEvent(messageSource, jobIcon, jobName);
-                RaiseLocalEvent(messageSource, transformIconEvent);
+            var iconEvent = new TransformSpeakerJobIconEvent(messageSource, jobIcon.Value, jobName);
+            RaiseLocalEvent(messageSource, iconEvent);
 
-                jobIcon = transformIconEvent.JobIcon;
-                jobName = transformIconEvent.JobName;
-            }
+            jobIcon = iconEvent.JobIcon;
+            jobName = iconEvent.JobName;
         }
-        // Goob - Job icons END
 
         var name = evt.VoiceName;
         name = FormattedMessage.EscapeText(name);
