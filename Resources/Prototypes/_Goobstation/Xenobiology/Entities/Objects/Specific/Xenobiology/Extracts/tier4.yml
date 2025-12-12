@@ -27,6 +27,7 @@
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-evil" ]
@@ -41,8 +42,6 @@
         maxIntensity: 1050
         intensitySlope: 4
         intensityPerUnit: 70
-      - !type:DeleteSelfEntityEffect
-        delay: 5
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -52,7 +51,6 @@
         messages: [ "xeno-extract-reaction-fail" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyOilExtract
@@ -102,6 +100,7 @@
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-evil" ]
@@ -113,9 +112,6 @@
       - !type:ScrambleNearbyEffect
         radius: 3
         delay: 3
-      - !type:DeleteSelfEntityEffect
-        delay: 3
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyLightPinkExtract
@@ -163,7 +159,6 @@
         messages: [ "xeno-extract-reaction-fail" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyBlackExtract
@@ -185,15 +180,16 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:CreateGas
         gas: Healium
         multiplier: 55
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -202,7 +198,6 @@
       - !type:CreateEntityReactionEffect
         entity: XenobioAdamantineBar
         number: 1
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -212,7 +207,6 @@
         messages: [ "xeno-extract-reaction-fail" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyAdamantineExtract

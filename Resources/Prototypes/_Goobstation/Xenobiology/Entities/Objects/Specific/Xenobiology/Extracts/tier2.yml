@@ -23,6 +23,7 @@
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -31,18 +32,16 @@
       - !type:CreateEntityReactionEffect
         entity: XenobioVolatileOrgan
         number: 1
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:EmpReactionEffect
-      - !type:DeleteSelfEntityEffect
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyYellowExtract
@@ -63,6 +62,7 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -71,10 +71,10 @@
       - !type:CreateEntityReactionEffect
         entity: SheetPlastic10
         number: 3
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -83,7 +83,6 @@
       - !type:CreateEntityReactionEffect
         entity: SheetPlasma1
         number: 3
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -93,7 +92,6 @@
         messages: [ "xeno-extract-reaction-fail" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyDarkPurpleExtract
@@ -147,7 +145,6 @@
       - !type:AdjustReagent
         reagent: Leporazine
         amount: 100
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyDarkBlueExtract
@@ -187,6 +184,7 @@
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -195,10 +193,10 @@
       - !type:CreateEntityReactionEffect
         entity: IngotSilver1
         number: 2
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -207,8 +205,6 @@
       - !type:CreateEntityReactionEffect
         entity: XenobioGoopBall
         number: 3
-      - !type:DeleteSelfEntityEffect
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologySilverExtract
@@ -230,6 +226,7 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -238,10 +235,10 @@
       - !type:CreateEntityReactionEffect
         entity: FloorTileItemBluespace
         number: 30
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -250,18 +247,16 @@
       - !type:CreateEntityReactionEffect
         entity: MaterialBSCrystal1
         number: 5
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:RandomTeleportNearby
-      - !type:DeleteSelfEntityEffect
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyBluespaceExtract
@@ -311,6 +306,7 @@
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -319,8 +315,6 @@
       - !type:CreateEntityReactionEffect
         entity: FloorTileItemSepia
         number: 30
-      - !type:DeleteSelfEntityEffect
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologySepiaExtract
@@ -341,26 +335,27 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:OxygenateNearby
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:ExtinguishNearby
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
@@ -370,7 +365,6 @@
       - !type:AdjustReagent
         reagent: XenobioJellyCerulean
         amount: 1
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyCeruleanExtract
@@ -392,6 +386,7 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -401,10 +396,10 @@
         radius: 12
         duration: 60
         chance: 0.5
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -417,10 +412,10 @@
       - !type:ForceStealthNearbyEffect
         duration: 30
         radius: 7
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -429,8 +424,6 @@
       - !type:ForceStealthNearbyEffect
         radius: 1.5
         duration: 120
-      - !type:DeleteSelfEntityEffect
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyPyriteExtract

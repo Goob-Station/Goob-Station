@@ -11,8 +11,7 @@ using Robust.Client.UserInterface;
 namespace Content.Goobstation.Client.Xenobiology.XenobiologyBountyConsole;
 
 [UsedImplicitly]
-public sealed class XenobiologyBountyConsoleBoundUserInterface(EntityUid owner, Enum uiKey)
-    : BoundUserInterface(owner, uiKey)
+public sealed class XenobiologyBountyConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
     [ViewVariables]
     private XenobiologyBountyMenu? _menu;

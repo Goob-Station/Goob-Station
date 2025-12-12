@@ -37,12 +37,14 @@ public sealed partial class EntityEffectSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        foreach (var item in _queue)
+        for (int i = 0; i < _queue.Count; i++)
         {
+            var item = _queue[i];
             if (item.Time <= _timing.CurTime)
             {
                 InvokeEffect(item.Effect, item.Args);
-                _queue.Remove(item);
+                _queue.RemoveAt(i);
+                i--; // index dont move
             }
         }
     }

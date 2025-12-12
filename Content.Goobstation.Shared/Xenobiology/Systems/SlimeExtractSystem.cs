@@ -9,6 +9,8 @@
 using Content.Goobstation.Common.Chemistry;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reaction;
+using Content.Shared.Examine;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
@@ -22,12 +24,19 @@ public sealed partial class SlimeExtractSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SlimeExtractComponent, BeforeSolutionReactEvent>(BeforeSolutionReact);
+        SubscribeLocalEvent<SlimeExtractComponent, ExaminedEvent>(OnExamined);
     }
 
-    private void BeforeSolutionReact(Entity<SlimeExtractComponent> extract, ref BeforeSolutionReactEvent args)
+    private void BeforeSolutionReact(Entity<SlimeExtractComponent> ent, ref BeforeSolutionReactEvent args)
     {
         // clean up the reagents inside when performing an effect
-        if (_solution.TryGetRefillableSolution(extract.Owner, out var soln, out _))
-            _solution.RemoveAllSolution((extract.Owner, soln));
+        if (_solution.TryGetRefillableSolution(ent.Owner, out var soln, out _))
+            _solution.RemoveAllSolution((ent.Owner, soln));
+    }
+
+    private void OnExamined(Entity<SlimeExtractComponent> ent, ref ExaminedEvent args)
+    {
+        if (!HasComp<ReactiveComponent>(ent))
+            args.PushMarkup(Loc.GetString("xeno-extract-reaction-unreactive"));
     }
 }

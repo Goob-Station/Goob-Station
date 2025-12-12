@@ -86,6 +86,7 @@ public sealed class XenobiologyBountyConsoleSystem : EntitySystem
 
         var pointsToAward = !_proto.TryIndex(bounty.Bounty, out var bp) ? 0 : bp.PointsAwarded;
         _research.ModifyServerPoints(server.Value, (int) pointsToAward, serverComponent);
+        _xenoDatabase.TryRemoveBounty(station, bounty, false, args.Actor);
 
         _audio.PlayPvs(console.Comp.FulfillSound, console);
 

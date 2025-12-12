@@ -14,6 +14,7 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -27,10 +28,10 @@
           reagents:
           - ReagentId: TearGas
             Quantity: 20
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -43,7 +44,6 @@
         maxRange: 7
         rangePerUnit: 1
         sound: /Audio/_Goobstation/Wizard/zapbang.ogg
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -56,7 +56,6 @@
       - !type:AdjustReagent
         reagent: CapsaicinOil
         amount: 100
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyOrangeExtract
@@ -77,6 +76,7 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -85,7 +85,6 @@
       - !type:CreateRQuantityEntityReactionEffect
         entity: ArtifactFragment1
         maxEntities: 4
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -110,7 +109,6 @@
       - !type:AdjustReagent
         reagent: Omnizine
         amount: 100
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyPurpleExtract
@@ -131,6 +129,7 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -141,7 +140,6 @@
         prototypeId: Foam
         sound:
           path: /Audio/Effects/extinguish.ogg
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -166,7 +164,6 @@
       - !type:AdjustReagent
         reagent: XenobioJellyBlue
         amount: 1
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyBlueExtract
@@ -188,6 +185,7 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -199,10 +197,10 @@
       - !type:CreateEntityReactionEffect
         entity: SheetRGlass1
         number: 5
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -214,7 +212,6 @@
       - !type:CreateEntityReactionEffect
         entity: SheetPlasteel1
         number: 5
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -224,7 +221,6 @@
         messages: [ "xeno-extract-reaction-fail" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyMetalExtract

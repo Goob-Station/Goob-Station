@@ -21,6 +21,8 @@ public sealed partial class SlimeLatchOperator : HTNOperator
     [DataField]
     public string LatchKey = string.Empty;
 
+    private HTNOperatorStatus _status;
+
     public override void Initialize(IEntitySystemManager sysManager)
     {
         base.Initialize(sysManager);
@@ -32,17 +34,15 @@ public sealed partial class SlimeLatchOperator : HTNOperator
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
         var target = blackboard.GetValue<EntityUid>(LatchKey);
 
-        HTNOperatorStatus status = HTNOperatorStatus.Failed; // failed jic
         if (!_entManager.TryGetComponent<SlimeComponent>(owner, out var slime))
             return HTNOperatorStatus.Failed;
 
         if (_slimeLatch.IsLatched((owner, slime), target))
-            status = HTNOperatorStatus.Finished;
-        else status = HTNOperatorStatus.Continuing;
+            _status = HTNOperatorStatus.Finished;
+        else if (_status != HTNOperatorStatus.Continuing && _slimeLatch.NpcTryLatch((owner, slime), target))
+            _status = HTNOperatorStatus.Continuing;
+        else _status = HTNOperatorStatus.Failed;
 
-        if (!_slimeLatch.NpcTryLatch((owner, slime), target))
-            status = HTNOperatorStatus.Failed;
-
-        return status;
+        return _status;
     }
 }

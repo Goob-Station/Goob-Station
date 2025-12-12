@@ -14,6 +14,7 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -22,7 +23,6 @@
       - !type:CreateEntityReactionEffect
         entity: XenobioVolatileRedExtractJelly
         number: 1
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -38,6 +38,7 @@
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -47,8 +48,6 @@
         newFaction: AllHostile # BILLIONS MUST KILL
         radius: 3
         duration: 30
-      - !type:DeleteSelfEntityEffect
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyRedExtract
@@ -102,7 +101,6 @@
       - !type:AdjustReagent
         reagent: XenobioHumanToxin
         amount: 5
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyGreenExtract
@@ -122,7 +120,8 @@
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
-      effects: 
+      effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction" ]
@@ -130,7 +129,6 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:MutateNearbyPlantsEntityEffect
         radius: 5
-      - !type:DeleteSelfEntityEffect
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -155,7 +153,6 @@
       - !type:AdjustReagent
         reagent: XenobioGenderFluid
         amount: 5
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyPinkExtract
@@ -177,6 +174,7 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-evil" ]
@@ -189,11 +187,10 @@
         entity: RPassiveMobSpawner
         number: 5
         delay: 3
-      - !type:DeleteSelfEntityEffect
-        delay: 3
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-evil" ]
@@ -206,11 +203,10 @@
         entity: RHostileMobSpawner
         number: 5
         delay: 3
-      - !type:DeleteSelfEntityEffect
-        delay: 3
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:MakeUnreactiveEntityEffect
       - !type:PopupMessage
         type: Pvs
         messages: [ "xeno-extract-reaction-evil" ]
@@ -223,9 +219,6 @@
         entity: RNeutralMobSpawner
         number: 5
         delay: 3
-      - !type:DeleteSelfEntityEffect
-        delay: 3
-  - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyGoldExtract

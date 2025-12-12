@@ -7,7 +7,7 @@
   parent: BaseAction
   id: ActionSlimeLatch
   name: Latch
-  description: Latches onto a target, slowly consuming their flesh.
+  description: Latch onto a target and begin digesting it! Or get off of an existing one if you're already latched onto something.
   components:
   - type: Action
     itemIconStyle: NoItem

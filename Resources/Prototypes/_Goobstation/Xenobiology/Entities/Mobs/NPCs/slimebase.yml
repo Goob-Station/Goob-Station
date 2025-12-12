@@ -22,6 +22,7 @@
     baseDecayRate: 0.5
     starvingSlowdownModifier: 0
   - type: Sprite
+    noRot: true
     drawdepth: Mobs
     sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
     layers:
