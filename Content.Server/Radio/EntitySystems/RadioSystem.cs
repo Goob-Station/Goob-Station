@@ -199,6 +199,7 @@ public sealed partial class RadioSystem : EntitySystem
         {
             name = AnonymizeName(name);
             speech.SpeechVerbStrings = ["chat-speech-verb-default"]; // shitcode :cat_gagaga:
+            jobIcon = "JobIconNoId";
         }
         // CorvaxGoob-Anonymous-Radio-End
 
