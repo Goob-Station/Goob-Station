@@ -63,6 +63,13 @@ public sealed partial class GameRuleComponent : Component
     /// </summary>
     [DataField]
     public float? ChaosScore = null;
+
+    // Goobstation
+    /// <summary>
+    /// Prevent admins from running this event through addgamerule.
+    /// </summary>
+    [DataField]
+    public bool HostOnly = false;
 }
 
 /// <summary>

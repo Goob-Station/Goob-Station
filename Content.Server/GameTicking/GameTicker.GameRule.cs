@@ -366,6 +366,20 @@ public sealed partial class GameTicker
 
             if (shell.Player != null)
             {
+                // Goob start - deny admins gamerules via commands
+                var compFact = IoCManager.Resolve<IComponentFactory>();
+
+                if (_prototypeManager.TryIndex(rule, out var proto)        // meow
+                    && proto.TryGetComponent(out GameRuleComponent? comp, compFact)         // mraow
+                    && comp.HostOnly                                                        // nyah
+                    && !_adminManager.HasAdminFlag(shell.Player, AdminFlags.Host))      // mrrp
+                {
+                    _adminLogger.Add(LogType.EventStopped, $"{shell.Player} attempted to add game rule [{rule}] via command, and was denied.");
+                    shell.WriteError(Loc.GetString("goob-add-gamerule-denied-host-only"));
+                    continue;
+                }
+                // Goob end - deny admins gamerules via commands
+
                 _adminLogger.Add(LogType.EventStarted, $"{shell.Player} tried to add game rule [{rule}] via command");
                 _chatManager.SendAdminAnnouncement(Loc.GetString("add-gamerule-admin", ("rule", rule), ("admin", shell.Player)));
             }
