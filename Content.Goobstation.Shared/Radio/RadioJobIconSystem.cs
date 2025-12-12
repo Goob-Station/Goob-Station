@@ -8,7 +8,7 @@ using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Content.Goobstation.Server.Radio;
+namespace Content.Goobstation.Shared.Radio;
 
 public sealed class RadioJobIconSystem : EntitySystem
 {
@@ -68,7 +68,7 @@ public sealed class RadioJobIconSystem : EntitySystem
             return true;
         }
 
-        // If neither of those passed.
+        // If neither of the comp checks passed.
         jobIcon = jobName = null;
         return false;
     }

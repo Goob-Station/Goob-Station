@@ -64,6 +64,7 @@ using Content.Shared.Access.Systems; // Goobstation
 using Content.Shared.Chat.RadioIconsEvents; // Goobstation
 using Content.Shared.Whitelist; // Goobstation
 using Content.Shared.StatusIcon; // Goobstation
+using Content.Goobstation.Shared.Radio; // Goobstation
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -78,7 +79,7 @@ public sealed partial class RadioSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!; // Goobstation - radio icons
+    [Dependency] private readonly RadioJobIconSystem _radioIconSystem = default!; // Goobstation - radio icons
     [Dependency] private readonly LanguageSystem _language = default!; // Einstein Engines - Language
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // Goobstation - Whitelisted radio channels
 
@@ -173,7 +174,7 @@ public sealed partial class RadioSystem : EntitySystem
         RaiseLocalEvent(messageSource, evt);
 
         // Goob - Job icons
-        if (TryGetJobIcon(messageSource, out var jobIcon, out var jobName))
+        if (_radioIconSystem.TryGetJobIcon(messageSource, out var jobIcon, out var jobName))
         {
             var iconEvent = new TransformSpeakerJobIconEvent(messageSource, jobIcon.Value, jobName);
             RaiseLocalEvent(messageSource, iconEvent);
