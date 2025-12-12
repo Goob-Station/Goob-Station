@@ -285,7 +285,7 @@
   id: ImmovableRodSpawn
   parent: BaseGameRule
   components:
-  - type: GameRule // Goob station - deny admins rods
+  - type: GameRule # Goob station - deny admins rods
     hostOnly: true
   - type: StationEvent
     startAnnouncement: station-event-immovable-rod-start-announcement
