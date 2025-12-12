@@ -367,10 +367,8 @@ public sealed partial class GameTicker
             if (shell.Player != null)
             {
                 // Goob start - deny admins gamerules via commands
-                var compFact = IoCManager.Resolve<IComponentFactory>();
-
                 if (_prototypeManager.TryIndex(rule, out var proto)        // meow
-                    && proto.TryGetComponent(out GameRuleComponent? comp, compFact)         // mraow
+                    && proto.TryGetComponent(out GameRuleComponent? comp, Factory)         // mraow
                     && comp.HostOnly                                                        // nyah
                     && !_adminManager.HasAdminFlag(shell.Player, AdminFlags.Host))      // mrrp
                 {
