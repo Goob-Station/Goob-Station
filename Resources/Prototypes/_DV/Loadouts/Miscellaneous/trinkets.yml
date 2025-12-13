@@ -36,6 +36,12 @@
     - TapeRecorderFilled
 
 - type: loadout
+  id: AACTablet
+  storage:
+    back:
+    - AACTablet
+
+- type: loadout
   id: DrinkOniGourd
   effects:
   - !type:SpeciesLoadoutEffect
