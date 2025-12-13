@@ -19278,3 +19278,11 @@ Entries:
         sprite, rather than just the module default.
   id: 2176
   time: '2025-12-13T08:25:46.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Fix
+      message: >-
+        Svalinn pistols/machine guns now ACTUALLY deal more damage with better
+        cells.
+  id: 2177
+  time: '2025-12-13T08:29:32.0000000+00:00'
