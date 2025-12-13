@@ -68,3 +68,51 @@
           Quantity: 5
         - ReagentId: Fiber
           Quantity: 4
+
+
+- type: entity
+  name: bluespace tomato
+  parent: FoodBlueTomato
+  id: FoodBluespaceTomato
+  description: Be careful with it.
+  components:
+  - type: SwapTeleportOnThrow
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Singulo
+          Quantity: 5
+        canReact: false
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Hydroponics/bluespace_tomato.rsi
+  - type: Item
+    heldPrefix: produce
+  - type: Produce
+    seedId: bluespaceTomato
+  - type: Extractable
+    grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: Singulo
+        Quantity: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpillBehavior
+        solution: food
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - Fruit
+    - Vegetable
