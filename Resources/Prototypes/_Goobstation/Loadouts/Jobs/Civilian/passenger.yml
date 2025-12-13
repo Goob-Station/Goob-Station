@@ -7,3 +7,12 @@
       !type:RoleTimeRequirement
       role: JobPassenger
       time: 288000 # 80 hrs
+
+# Quarterzip
+- type: loadout
+  id: QuarterzipJumpsuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GreyTider
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPassengerQuarterzip
