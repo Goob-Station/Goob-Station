@@ -19238,3 +19238,9 @@ Entries:
         in-game. (Plus borgs and stuff)
   id: 2170
   time: '2025-12-13T07:51:27.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: carving SM slivers
+  id: 2171
+  time: '2025-12-13T08:08:06.0000000+00:00'
