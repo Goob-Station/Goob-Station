@@ -1,0 +1,27 @@
+- type: entity
+  id: SpaceWhaleTest # todo
+  parent: MobCarpCaller # todo this is here because of the htn behaviour
+  suffix: Test debug brbrbrbrbrbrbr
+  components:
+  - type: TailedEntity
+    amount: 65
+    speed: 3.5
+    spacing: 1
+    prototype: CrowbarDebugBobobobobo
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 3
+    baseWalkSpeed: 3
+  - type: RadarBlip
+    scale: 3
+    shape: hexagon
+  # todo timeddespawn, melee damage, much speed, fixtures, infinite hp, sprites etc
+
+
+- type: entity
+  id: CrowbarDebugBobobobobo
+  parent: Crowbar
+  suffix: brbrbrb
+  components:
+  - type: RadarBlip
+    scale: 2
+    shape: diamond
