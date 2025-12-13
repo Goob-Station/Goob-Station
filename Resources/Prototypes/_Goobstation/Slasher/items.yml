@@ -31,9 +31,6 @@
   - type: Prying
     pryPowered: True
     speedModifier: 1.5
-  - type: EmbeddableProjectile
-    offset: -0.15,0.0
-    removalTime: 1
   - type: ThrowingAngle
     angle: 225
 
@@ -66,11 +63,6 @@
   - type: SelfEquipOnly
     unequipRequireConscious: false
   - type: Armor
-    traumaDeductions:
-      Dismemberment: 1
-      OrganDamage: 0.5
-      BoneDamage: 0.5
-      NerveDamage: 0
     coverage:
     - Head
     modifiers:
@@ -102,11 +94,6 @@
     - Apron
     - WhitelistChameleon
   - type: Armor
-    traumaDeductions:
-      Dismemberment: 0.5
-      OrganDamage: 0.5
-      BoneDamage: 0.5
-      NerveDamage: 0
     coverage:
     - Chest
     - Groin
@@ -131,11 +118,6 @@
   description: Heavy black gloves, stained by time.
   components:
   - type: Armor
-    traumaDeductions:
-      Dismemberment: 0.5
-      OrganDamage: 0.5
-      BoneDamage: 0.5
-      NerveDamage: 0
     coverage:
     - Hand
     modifiers:
@@ -153,11 +135,6 @@
   description: Old leather boots that have seen better days.
   components:
   - type: Armor
-    traumaDeductions:
-      Dismemberment: 0.5
-      OrganDamage: 0.5
-      BoneDamage: 0.5
-      NerveDamage: 0
     coverage:
     - Foot
     modifiers:
@@ -215,7 +192,7 @@
   - type: Strap
     position: Down
     rotation: -180
-    selfUnBuckleDelay: 60
+    selfUnBuckleDelay: 30
     blacklist:
       components:
         - Slasher # no lmao

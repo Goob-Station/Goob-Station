@@ -1,4 +1,4 @@
-slasher-role-greeting = You feel an unstoppable urge for vengeance... and synth music. The night is young, the fog is thick, and your machete gleams in the neon starlight. Time to show these spacemen why you’re the legend of the midnight massacre!
+slasher-role-greeting = You feel an unstoppable urge for vengeance... and synth music. The night is young, the fog is thick, and your machete gleams in the neon starlight. Time to show these spacemen why you're the legend of the midnight massacre!
 
 ghost-role-information-slasher-name = Slasher
 ghost-role-information-slasher-description = Slaughter and terrorize the living as the Slasher!
@@ -10,6 +10,8 @@ slasher-summon-meatspike-popup = A gruesome meat spike erupts from the ground!
 
 slasher-staggerarea-victim = A horrifying chill runs down your spine!
 slasher-staggerarea-popup = You unleash a wave of terror.
+
+slasher-regenerate-no-soul = You need a stolen soul to regenerate!
 
 slasher-soulsteal-success = You feel a dark energy course through you.
 slasher-soulsteal-start = You begin to siphon the life force of your victim...
@@ -29,7 +31,7 @@ slasher-massacre-limb = A powerful hit lands!
 slasher-incorporealize-fail-seen = You cannot incorporealize while being watched!
 slasher-corporealize-fail-camera = You cannot corporealize when there's a camera watching!
 slasher-corporealize-fail-nearby = You cannot corporealize while someone is nearby!
-slasher-corporealize-fail-inside-wall = You cannot corporealize while inside a solid object!
+slasher-corporealize-fail-inside-wall = You cannot corporealize while near a solid object!
 
 reagent-name-slasherium = Slasherium
 reagent-desc-slasherium = Used by the Slasher to heal themselves.

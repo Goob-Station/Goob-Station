@@ -20,31 +20,31 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// Flat slash bonus per alive soul stolen (applied to machete melee and throw).
     /// </summary>
     [DataField]
-    public float AliveBruteBonusPerSoul = 2f;
+    public float AliveBruteBonusPerSoul = 1.5f;
 
     /// <summary>
     /// Flat slash bonus per corpse soul stolen.
     /// </summary>
     [DataField]
-    public float DeadBruteBonusPerSoul = 1f;
+    public float DeadBruteBonusPerSoul = 0.75f;
 
     /// <summary>
-    /// Armor (damage reduction) granted per alive soul. Hits max at 15 souls.
+    /// Armor (damage reduction) granted per alive soul.
     /// </summary>
     [DataField]
-    public float AliveArmorPercentPerSoul = 0.058f;
+    public float AliveArmorPercentPerSoul = 0.05f;
 
     /// <summary>
     /// Armor (damage reduction) granted per dead soul.
     /// </summary>
     [DataField]
-    public float DeadArmorPercentPerSoul = 0.03f;
+    public float DeadArmorPercentPerSoul = 0.025f;
 
     /// <summary>
     /// Maximum armor (damage reduction) reduction.
     /// </summary>
     [DataField]
-    public float ArmorCap = 0.85f;
+    public float ArmorCap = 0.70f;
 
     /// <summary>
     /// Current total armor reduction (0-1).

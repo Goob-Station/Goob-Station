@@ -29,7 +29,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead
+      150: Dead
   - type: RandomMetadata
     nameSegments:
     - NamesSlasherTitle
