@@ -19302,3 +19302,9 @@ Entries:
         menu. ('markings-category-Legs' etc.)
   id: 2178
   time: '2025-12-13T23:43:22.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Tweak
+      message: made Santa anoms more common for December
+  id: 2179
+  time: '2025-12-13T23:45:35.0000000+00:00'
