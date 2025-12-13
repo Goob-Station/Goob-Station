@@ -36,6 +36,7 @@ using System.Linq;
 using Content.Shared._Goobstation.Weapons.Ranged;
 using Content.Shared.Actions;
 using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
@@ -48,6 +49,7 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

@@ -12,6 +12,8 @@ public abstract partial class SharedGunUpgradeSystem
 {
     private void InitializeUpgrades()
     {
+        SubscribeLocalEvent<GunUpgradeMapWhitelistComponent, EntParentChangedMessage>(CheckMapWhitelist);
+
         SubscribeLocalEvent<GunUpgradeComponentsComponent, EntGotInsertedIntoContainerMessage>(OnCompsUpgradeInsert);
         SubscribeLocalEvent<GunUpgradeComponentsComponent, EntGotRemovedFromContainerMessage>(OnCompsUpgradeEject);
 
@@ -26,6 +28,18 @@ public abstract partial class SharedGunUpgradeSystem
         SubscribeLocalEvent<ProjectileVampirismComponent, ProjectileHitEvent>(OnVampirismProjectileHit);
 
         SubscribeLocalEvent<GunUpgradeBayonetComponent, GetRelayMeleeWeaponEvent>(OnGetMeleeRelay);
+    }
+
+    private void CheckMapWhitelist(Entity<GunUpgradeMapWhitelistComponent> ent, ref EntParentChangedMessage args)
+    {
+        if (args.Transform.MapUid != args.OldMapId
+            || !TryComp<GunUpgradeComponent>(args.Transform.MapUid, out var upgrade))
+            return;
+
+        var map = args.Transform.MapUid;
+        upgrade.Enabled = map == null
+                          || _whitelist.IsWhitelistPassOrNull(ent.Comp.Whitelist, map.Value)
+                          || _whitelist.IsBlacklistFailOrNull(ent.Comp.Blacklist, map.Value);
     }
 
     private void OnFireRateRefresh(Entity<GunUpgradeFireRateComponent> ent, ref GunRefreshModifiersEvent args)

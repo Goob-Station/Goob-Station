@@ -42,7 +42,6 @@
   - type: PlayerAccuracyModifier
     blacklist:
       components:
-      - DamageBoostOnMarker
       - LeechOnMarker
       - ArcaneBarrage
       tags:

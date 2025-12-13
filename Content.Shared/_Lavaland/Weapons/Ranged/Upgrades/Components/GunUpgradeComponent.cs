@@ -24,9 +24,13 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedGunUpgradeSystem))]
+[Access(typeof(SharedGunUpgradeSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class GunUpgradeComponent : Component
 {
+    [DataField, AutoNetworkedField]
+    public bool Enabled = true;
+
     /// <summary>
     /// Literal name of this upgrade that is shown on all examine texts.
     /// </summary>
