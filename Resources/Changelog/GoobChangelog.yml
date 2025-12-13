@@ -19198,3 +19198,11 @@ Entries:
         beacon. 
   id: 2165
   time: '2025-12-13T03:00:08.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Tweak
+      message: >-
+        buffed onis attack and defense to be in line with more of their tanky
+        mele build styles, and nerfed their shoving capabilities to compensate 
+  id: 2166
+  time: '2025-12-13T03:06:34.0000000+00:00'
