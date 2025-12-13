@@ -1,0 +1,74 @@
+- type: entity
+  abstract: true
+  parent: BaseMachine
+  id: BaseDoodonStructure
+  components:
+  - type: Transform
+    anchored: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - TabletopMachineLayer
+  - type: Damageable
+    damageContainer: Organic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 70
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/gib3.ogg
+          params:
+            variation: 0.125
+            volume: -2
+            
+
+- type: entity
+  parent: BaseDoodonStructure
+  id: DoodonTownHall
+  name: doodon town hall
+  description: The heart of the Doodon village.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: townhall
+    
+- type: entity
+  parent: BaseDoodonStructure
+  id: DoodonDwelling
+  name: doodon dwelling
+  description: The place Doodon workers call home. Can hold one worker Doodon.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: dwelling
+  - type: Construction
+    graph: DDwellingGraph
+    node: DoodonDwellingComplete
+    placementMode: SnapgridCenter
+    
+    
+- type: entity
+  parent: BaseDoodonStructure
+  id: DoodonWarriorHut
+  name: doodon warrior hut
+  description: Training grounds for doodon warriors. Can hold one warrior Doodon.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: warriorhut
+  - type: Construction
+    graph: WarriorHutGraph
+    node: WarriorHutComplete
+    placementMode: SnapgridCenter
