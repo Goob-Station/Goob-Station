@@ -29,7 +29,7 @@ mining-voucher-resonator-description =
 
 mining-voucher-survival-name = Survival Capsule and Explorer's Webbing
 mining-voucher-survival-description =
-    Contains an explorer's webbing, which allows you to carry even more mining equipment, and a spare shelter capsule to go with it.
+    Contains an explorer's webbing, which allows you to carry even more mining equipment, a lavaland death rattle implanter, and a spare shelter capsule to go with it.
 
 mining-voucher-minebot-name = Minebot Kit
 mining-voucher-minebot-description =

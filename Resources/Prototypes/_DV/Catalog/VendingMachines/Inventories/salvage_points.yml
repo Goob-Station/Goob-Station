@@ -69,6 +69,9 @@
     cost: 650
   - id: DoubleEmergencyNitrogenTankFilled
     cost: 650
+  - id: DeathRattleLavalandImplanter
+    cost: 700
+    overrideName: shop-listing-deathrattle-implant-lavaland # stupid implanter structure raagh
   - id: ClothingMaskWeldingGas
     cost: 750
   - id: LavalandJaunter
