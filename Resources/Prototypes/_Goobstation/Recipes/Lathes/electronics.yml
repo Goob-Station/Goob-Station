@@ -155,3 +155,9 @@
     sprite: _Goobstation/Structures/Machines/StationRadio/radiostationrig.rsi
     state: icon
   result: StationRadioRigCircuitboard
+  parent: [ BaseElectronicsRecipe, BaseCircuitryRecipeCategory ]
+  
+- type: latheRecipe
+  id: CameraElectronics
+  icon: { sprite: Structures/Wallmounts/camera.rsi, state: cameracase }
+  result: CameraElectronics
