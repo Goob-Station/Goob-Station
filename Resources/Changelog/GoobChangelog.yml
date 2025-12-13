@@ -19244,3 +19244,9 @@ Entries:
       message: carving SM slivers
   id: 2171
   time: '2025-12-13T08:08:06.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Cameras now require a board to construct, and are easier to break.
+  id: 2172
+  time: '2025-12-13T08:11:49.0000000+00:00'
