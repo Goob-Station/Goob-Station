@@ -13,6 +13,9 @@ public sealed class IFFConsoleBoundUserInterfaceState : BoundUserInterfaceState
 {
     public IFFFlags AllowedFlags;
     public IFFFlags Flags;
+
+    public string? Name; // CorvaxGoob-IIF-Improves
+    public Color Color; // CorvaxGoob-IIF-Improves
 }
 
 [Serializable, NetSerializable]

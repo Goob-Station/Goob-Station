@@ -1,0 +1,5 @@
+- type: sourcePort
+  id: ShuttleDroneTransmitter
+  name: shuttle-drone-transmitter-port-name
+  description: shuttle-drone-transmitter-port-description
+  defaultLinks: [ ShuttleDroneReceiver ]
