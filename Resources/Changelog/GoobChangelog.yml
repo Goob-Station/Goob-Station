@@ -19270,3 +19270,11 @@ Entries:
       message: His Holy Chainsaw won't vanish when wielded anymore
   id: 2175
   time: '2025-12-13T08:21:47.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: >-
+        Made the borg sprites in the Robotics Console show the borg's selected
+        sprite, rather than just the module default.
+  id: 2176
+  time: '2025-12-13T08:25:46.0000000+00:00'
