@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingSuitCapo
+  name: Capos attire
+  description: While you may not be the top predator with this outfit on, your certainty able to catch prey with ease
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/InnerClothing/suits/capo.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/InnerClothing/suits/capo.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSyndicateContraband, ClothingSuitCapo]
+  id: ClothingSuitCapoSyndi
+  name: the Capos attire
+  components:
+  - type: Caposoutfit

@@ -12,13 +12,25 @@ using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Common.Weapons.MeleeDash;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MeleeDashComponent : Component
 {
+    /// <summary>
+    /// What emote should be played on attack
+    /// </summary>
     [DataField]
     public string? EmoteOnDash = "Flip"; // this sucks to have to turn into a fucking string but i dont have access to content prototypes
 
-    [DataField]
+    /// <summary>
+    /// What sprite should be used when dashing, goob
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public string? DashSprite;
+
+    /// <summary>
+    /// What sound should play when dashing
+    /// </summary>
+    [DataField, AutoNetworkedField]
     public SoundSpecifier? DashSound = new SoundPathSpecifier("/Audio/_Goobstation/Weapons/Effects/throwhard.ogg");
 
     [DataField("force")]
@@ -26,6 +38,12 @@ public sealed partial class MeleeDashComponent : Component
 
     [DataField("length")]
     public float MaxDashLength = 4f;
+
+    /// <summary>
+    /// How long should we wait before doing the dash (defaults to zero), Goob
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float? DoAfter;
 }
 
 [Serializable, NetSerializable]
