@@ -1,0 +1,41 @@
+- type: entity
+  # Just fades out with no movement animation
+  parent: RMCBaseEffect
+  id: CMEffectScreech
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 3.2
+  - type: RMCXenoScreechShockWave
+  - type: Sprite
+    sprite: _RMC14/Effects/xeno_screech.rsi
+    noRot: true
+    state: screech
+    drawdepth: Effects
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  parent: CMEffectScreech
+  id: RMCEffectScreechValkyrie
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RMCXenoScreechShockWave
+    waveSpeed: 30.6
+    waveStrength: 0.25
+    downScale: 1.0
+  - type: Sprite
+    layers:
+    - state: screech
+      visible: false
+
+- type: entity
+  parent: RMCEffectScreechValkyrie
+  id: RMCEffectScreechKing
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RMCXenoScreechShockWave
+    waveSpeed: 10
+    waveStrength: 3

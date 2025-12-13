@@ -1,0 +1,5 @@
+﻿- type: entity
+  id: RMCBaseEffect
+  abstract: true
+  components:
+  - type: RMCEffect
