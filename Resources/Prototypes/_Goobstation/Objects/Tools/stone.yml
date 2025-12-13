@@ -1,0 +1,25 @@
+- type: entity
+  name: stone
+  parent: BaseItem
+  id: Stone
+  description: A simple stone. Could be used as a primitive tool or thrown as a weapon.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/stone.rsi
+    state: icon
+    scale: 0.55, 0.55
+  - type: Item
+    sprite: _Goobstation/Objects/Tools/stone.rsi
+    size: Small
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 1
+  - type: StaticPrice
+    price: 1

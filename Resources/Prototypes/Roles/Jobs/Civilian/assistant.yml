@@ -100,6 +100,8 @@
   equipment:
     id: PassengerPDA
     ears: ClothingHeadsetGrey
+  inhand: # Goobstation
+    - Stone 
   #storage:
     #back:
     #- Stuff

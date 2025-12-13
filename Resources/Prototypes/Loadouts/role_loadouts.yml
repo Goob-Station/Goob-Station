@@ -172,15 +172,15 @@
   - GroupTankHarness
   - PassengerJumpsuit
   - CommonBackpack
-  - PassengerNeck
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerShoes
-  - Glasses
-  - Survival
-  - Trinkets
-  - Animals
+#  - PassengerNeck # Goobstation commented out clothes for passengers
+#  - PassengerFace
+#  - PassengerGloves
+#  - PassengerOuterClothing
+#  - PassengerShoes
+#  - Glasses
+#  - Survival
+#  - Trinkets
+#  - Animals
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - AssistantEnvirohelm
