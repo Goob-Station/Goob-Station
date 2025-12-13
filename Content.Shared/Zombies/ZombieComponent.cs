@@ -138,7 +138,7 @@ public sealed partial class ZombieComponent : Component
     /// being overly protected by bundling up.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MinZombieInfectionChance = 0.0f; ///Goob edit, you can now bundle up
+    public float MinZombieInfectionChance = 0.05f;
 
     /// <summary>
     /// How effective each resistance type on a piece of armor is. Using a damage specifier for this seems illegal.
