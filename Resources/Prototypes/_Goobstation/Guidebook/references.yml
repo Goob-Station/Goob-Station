@@ -1,0 +1,11 @@
+- type: guideEntry
+  id: AlcoholicDrinks
+  name: guide-entry-alcoholic-drinks
+  text: /ServerInfo/_Goobstation/Guidebook/ReferenceTables/AlcoholicDrinks.xml
+  filterEnabled: true
+
+- type: guideEntry
+  id: NonAlcoholicDrinks
+  name: guide-entry-non-alcoholic-drinks
+  text: /ServerInfo/_Goobstation/Guidebook/ReferenceTables/NonAlcoholicDrinks.xml
+  filterEnabled: true
