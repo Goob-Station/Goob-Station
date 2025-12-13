@@ -16,9 +16,9 @@
 - type: entity
   parent: SeedBase
   name: packet of blue tomato seeds
-  id: BlueSpaceTomatoSeeds
+  id: BluespaceTomatoSeeds
   components:
   - type: Seed
-    seedId: blueSpaceTomato
+    seedId: bluespaceTomato
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Hydroponics/bluespace_tomato.rsi

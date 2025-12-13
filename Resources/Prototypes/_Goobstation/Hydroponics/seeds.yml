@@ -30,14 +30,14 @@
       PotencyDivisor: 40
 
 - type: seed
-  id: blueSpaceTomato
-  name: seeds-bluespacetomato-name
+  id: bluespaceTomato
+  name: seeds-bluespace-tomato-name
   noun: seeds-noun-seeds
-  displayName: seeds-bluespacetomato-display-name
+  displayName: seeds-bluespace-tomato-display-name
   plantRsi: _Goobstation/Objects/Specific/Hydroponics/bluespace_tomato.rsi
   packetPrototype: BlueTomatoSeeds
   productPrototypes:
-  - FoodBlueSpaceTomato
+  - FoodBluespaceTomato
   harvestRepeat: Repeat
   lifespan: 25
   maturation: 8

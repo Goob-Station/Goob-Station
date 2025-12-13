@@ -73,10 +73,10 @@
 - type: entity
   name: bluespace tomato
   parent: FoodBlueTomato
-  id: FoodBlueSpaceTomato
-  description: This one is blue.
+  id: FoodBluespaceTomato
+  description: Be careful with it.
   components:
-  - type: BlueSpaceTomato
+  - type: SwapTeleportOnThrow
   - type: SolutionContainerManager
     solutions:
       food:
@@ -92,7 +92,7 @@
   - type: Item
     heldPrefix: produce
   - type: Produce
-    seedId: blueSpaceTomato
+    seedId: bluespaceTomato
   - type: Extractable
     grindableSolutionName: food
     juiceSolution:
