@@ -1,0 +1,39 @@
+- type: entity
+  id: StationRadioServer
+  name: station radio server
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  description: A rack of servers, controls whether your voice is being broadcasted or not
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
+    layers:
+    - state: icon
+    # TODO: unlit & maints panel sprite
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+  - type: Machine
+    board: StationRadioServerCircuitboard
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    powerRequired: true
+    broadcastChannel: RadioShow
+    secondaryBroadcastChannel: Common
+
+- type: entity
+  id: StationRadioRig
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: station radio rig
+  description: A collection of everything you need to play music over the station, has a slot for Cds and vinyls.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/StationRadio/radiostationrig.rsi
+    drawdepth: SmallObjects
+    layers:
+    - state: icon
+    # TODO: unlit & maints panel sprite
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+  - type: Machine
+    board: StationRadioRigCircuitboard
