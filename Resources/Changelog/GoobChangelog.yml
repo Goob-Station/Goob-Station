@@ -19206,3 +19206,13 @@ Entries:
         mele build styles, and nerfed their shoving capabilities to compensate 
   id: 2166
   time: '2025-12-13T03:06:34.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Chef spawns on Fland were spaced out through kitchen area properly
+    - type: Fix
+      message: Fland Service Lathe room now has power
+    - type: Tweak
+      message: Redundant pumps removed from Fland SM loop
+  id: 2167
+  time: '2025-12-13T03:06:39.0000000+00:00'
