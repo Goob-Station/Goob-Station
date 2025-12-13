@@ -109,7 +109,6 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Coats/rdaltcoat.rsi
 
-
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRD]
   id: ClothingOuterCoatRDPurpleOpened
