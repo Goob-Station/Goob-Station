@@ -19230,3 +19230,11 @@ Entries:
       message: Reverted all armor balance caused by second skin
   id: 2169
   time: '2025-12-13T05:48:36.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: >-
+        Made the radio job icons only show for entities who have job icons
+        in-game. (Plus borgs and stuff)
+  id: 2170
+  time: '2025-12-13T07:51:27.0000000+00:00'
