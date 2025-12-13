@@ -19286,3 +19286,19 @@ Entries:
         cells.
   id: 2177
   time: '2025-12-13T08:29:32.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: >-
+        Split up the Chitinid 'Arms' and 'Legs' combined markings categories
+        into separate left and right categories.
+    - type: Fix
+      message: >-
+        Harpy wings are actually wings now, rather than weirdly shaped right
+        arms. (Renamed the markings category)
+    - type: Fix
+      message: >-
+        Fixed a bunch of bad localisation strings in the character markings
+        menu. ('markings-category-Legs' etc.)
+  id: 2178
+  time: '2025-12-13T23:43:22.0000000+00:00'
