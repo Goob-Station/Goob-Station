@@ -19,7 +19,9 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared._White.Xenomorphs.Infection;
-using Content.Shared.Body.Components; // Goobstation start
+
+// Goobstation
+using Content.Shared.Body.Components;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -29,8 +31,8 @@ using Content.Shared._White.Xenomorphs.FaceHugger;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Atmos.Components;
-using Content.Server.Nutrition.EntitySystems;
-using Content.Shared.Nutrition.Components; // Goobstation end
+using Content.Shared.Nutrition.Components;
+using Content.Goobstation.Shared.Xenomorph;
 
 namespace Content.Server._White.Xenomorphs.FaceHugger;
 
@@ -120,7 +122,7 @@ public sealed class FaceHuggerSystem : EntitySystem
         BeingUnequippedAttemptEvent args)
     {
         if (component.Slot != args.Slot || args.Unequipee != args.UnEquipTarget ||
-            !component.InfectionPrototype.HasValue || _mobState.IsDead(uid))
+            !component.InfectionPrototype.HasValue || _mobState.IsDead(uid) || HasComp<FacehuggerImmuneComponent>(args.Unequipee)) // Goob, add check for FacehuggerImmune
             return;
 
         _popup.PopupEntity(
@@ -164,7 +166,10 @@ public sealed class FaceHuggerSystem : EntitySystem
                     // Get the entity that has this item equipped
                     if (_container.TryGetContainingContainer(uid, out var container) && container.Owner != uid)
                     {
-                        InjectChemicals(uid, faceHugger, container.Owner);
+                        if (!HasComp<FacehuggerImmuneComponent>(container.Owner)) // Goob, don't inject into people who the facehugger wont infect
+                        {
+                            InjectChemicals(uid, faceHugger, container.Owner);
+                        }
                         // Set the next injection time based on the current time plus interval
                         faceHugger.NextInjectionTime = time + faceHugger.InjectionInterval;
                     }
