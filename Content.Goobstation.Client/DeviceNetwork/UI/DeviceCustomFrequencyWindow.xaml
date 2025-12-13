@@ -1,0 +1,14 @@
+<!--
+SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<DefaultWindow xmlns="https://spacestation14.io" Title="{Loc ui-device-custom-frequency-title}">
+    <BoxContainer Orientation="Vertical" SeparationOverride="4">
+        <BoxContainer Name="ReceiveFrequencyContainer" Orientation="Horizontal"></BoxContainer>
+        <BoxContainer Name="TransmitFrequencyContainer" Orientation="Horizontal"></BoxContainer>
+        <Button Name="ResetToDefaults" Text="{Loc signal-timer-menu-start}" />
+    </BoxContainer>
+</DefaultWindow>

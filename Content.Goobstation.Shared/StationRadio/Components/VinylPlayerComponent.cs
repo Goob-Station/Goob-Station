@@ -1,4 +1,6 @@
+using Content.Shared.DeviceLinking;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.StationRadio.Components;
 
@@ -6,14 +8,26 @@ namespace Content.Goobstation.Shared.StationRadio.Components;
 public sealed partial class VinylPlayerComponent : Component
 {
     /// <summary>
-    /// Should the vinyl player relay to radios around the station, should only be true for the radiostation vinyl player
-    /// </summary>
-    [DataField]
-    public bool RelayToRadios;
-
-    /// <summary>
-    /// The sound entity being played
+    /// Audio entity that plays the sound near the structure.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? SoundEntity;
+
+    /// <summary>
+    /// Server entity that relays all network payloads to station radio receivers.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? ServerEntity;
+
+    /// <summary>
+    /// Signal port to send the music packages to.
+    /// </summary>
+    [DataField]
+    public ProtoId<SinkPortPrototype> ServerPort = "VynilMusic";
+
+    /// <summary>
+    /// If true, will only play music and send packages if the structure is powered.
+    /// </summary>
+    [DataField]
+    public bool RequiresPower = true;
 }
