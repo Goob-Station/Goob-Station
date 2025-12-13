@@ -34,6 +34,7 @@ namespace Content.Server._Lavaland.Weapons.Ranged.Upgrades;
 public sealed class GunUpgradeSystem : SharedGunUpgradeSystem
 {
     [Dependency] private readonly PressureEfficiencyChangeSystem _pressure = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -72,7 +73,7 @@ public sealed class GunUpgradeSystem : SharedGunUpgradeSystem
             && pressure.ApplyToProjectiles)
             multiplier = pressure.AppliedModifier;
 
-        projectile.Damage += ent.Comp.Damage * multiplier * ent.Comp.PelletModifier;
+        projectile.Damage += ent.Comp.Damage * multiplier * ent.Comp.Modifier;
     }
 
     private void OnPressureUpgradeInserted(Entity<GunUpgradePressureComponent> ent, ref EntGotInsertedIntoContainerMessage args)

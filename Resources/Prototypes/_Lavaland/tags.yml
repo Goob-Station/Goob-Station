@@ -58,3 +58,21 @@
 
 - type: Tag
   id: MarkerBeacon
+
+- type: Tag
+  id: CrusherUpgradeMain
+
+- type: Tag
+  id: CrusherUpgradeBlade
+
+- type: Tag
+  id: CrusherUpgradeHandle
+
+- type: Tag
+  id: CrusherUpgradeSpecial
+
+- type: Tag
+  id: CrusherUpgradeMainMarker
+
+- type: Tag
+  id: CrusherUpgradeMainRudeBuster

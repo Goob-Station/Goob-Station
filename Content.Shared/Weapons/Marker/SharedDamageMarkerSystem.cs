@@ -100,9 +100,7 @@ public abstract class SharedDamageMarkerSystem : EntitySystem
             component.Amount <= 0 ||
             _whitelistSystem.IsWhitelistFail(component.Whitelist, args.OtherEntity) ||
             !TryComp<ProjectileComponent>(uid, out var projectile) ||
-            projectile.Weapon == null ||
-            component.OnlyWorkOnFauna && // Lavaland Change
-            !HasComp<FaunaComponent>(args.OtherEntity))
+            projectile.Weapon == null)
         {
             return;
         }
