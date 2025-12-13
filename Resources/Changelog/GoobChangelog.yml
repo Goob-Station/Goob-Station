@@ -19170,3 +19170,15 @@ Entries:
       message: Updated the list of possible Maintenance Drone names.
   id: 2163
   time: '2025-12-13T02:53:31.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Add
+      message: >-
+        Added help buttons to most jobs in the job selection screen, which show
+        parts of the guidebook most helpful for each role.
+    - type: Fix
+      message: >-
+        Fixed the buttons in the NTR's job selection entry being slightly offset
+        to all the others.
+  id: 2164
+  time: '2025-12-13T02:58:44.0000000+00:00'
