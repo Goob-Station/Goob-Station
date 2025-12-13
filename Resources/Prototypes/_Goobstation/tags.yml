@@ -488,6 +488,9 @@
   id: Poppy
 
 - type: Tag
+  id: RatvarianSpear
+
+- type: Tag
   id: ReptilianEmotes
 
 - type: Tag
