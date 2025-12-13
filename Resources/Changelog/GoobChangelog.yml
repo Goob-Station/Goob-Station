@@ -19222,3 +19222,11 @@ Entries:
       message: EE Verbs will now show up in the bottom of the Verb menu.
   id: 2168
   time: '2025-12-13T03:22:25.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Removed Second skin
+    - type: Remove
+      message: Reverted all armor balance caused by second skin
+  id: 2169
+  time: '2025-12-13T05:48:36.0000000+00:00'
