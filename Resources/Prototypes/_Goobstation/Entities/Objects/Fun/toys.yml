@@ -1077,3 +1077,56 @@
   parent: PlushiePasha
   id: EvilPlushiePasha
   suffix: Evil
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieTwofish
+  name: TwoFish plushie
+  description: A cute stuffed toy that resembles a cool lizard. Looks like a chud.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_twofish
+  
+  
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plushietwofish-inhand-left
+      right:
+      - state: plushietwofish-inhand-right
+  
+  
+  - type: Clothing
+    quickEquip: true
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head: 
+      - state: plushietwofish-equipped-HELMET
+        mapKeys: [ "head" ] 
+  
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: Damageable
+    damageContainer: Inorganic
