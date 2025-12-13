@@ -26,6 +26,13 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
     private void OnEmote(EntityUid uid, AnimatedEmotesComponent component, ref EmoteEvent args)
     {
         PlayEmoteAnimation(uid, component, args.Emote.ID);
+
+        if (args.Emote.TargetEvents is not null) // CorvaxGoob-PrototypedAnimations : Raise to play client prototyped animation if it's exist
+            foreach (var targetEvent in args.Emote.TargetEvents)
+            {
+                targetEvent.Target = uid;
+                RaiseLocalEvent(uid, (object) targetEvent, true);
+            }
     }
 
     public void PlayEmoteAnimation(EntityUid uid, AnimatedEmotesComponent component, ProtoId<EmotePrototype> prot)
