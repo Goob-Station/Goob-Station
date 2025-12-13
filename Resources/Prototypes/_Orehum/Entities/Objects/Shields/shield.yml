@@ -1,0 +1,18 @@
+- type: entity
+  id: ShieldTriggeredEffect
+  name: shield
+  description: Focused energy of a shield. Looks like something just hit it!
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: _Orehum/Objects/Shields/baseshield.rsi
+    state: shield
+    drawdepth: Objects
+  - type: TimedDespawn
+    delay: 8.0
+  - type: FadeVisuals
+    delay: 8.0
+  - type: GridShieldVisuals

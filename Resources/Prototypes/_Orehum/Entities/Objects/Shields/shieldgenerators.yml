@@ -1,0 +1,59 @@
+- type: entity
+  parent: BaseStructure
+  id: BaseGridShieldGenerator
+  name: shield generator
+  description: Protects the grid from exterior damage.
+  components:
+  - type: Anchorable
+  - type: GridShieldGenerator
+  - type: ApcPowerReceiver
+    powerLoad: 4000 # TODO make it use MV cable
+  - type: ExtensionCableReceiver
+    receptionRange: 1
+  - type: Sprite
+    sprite: _Orehum/Objects/Shields/shieldgen.rsi
+    state: shield
+    drawdepth: Effects
+  - type: LitOnPowered
+  - type: PointLight
+    radius: 2.2
+    energy: 1.6
+    color: "#1111FF"
+    enabled: false
+
+- type: entity
+  parent: BaseGridShieldGenerator
+  id: GridShieldGeneratorLow
+  name: low-power shield generator
+  description: Protects the grid from exterior damage.
+  components:
+  - type: GridShieldGenerator
+    priority: 1
+    maxDamage: 15000.0
+    damageEnt: DamageGridShieldLow
+
+- type: entity
+  id: BaseDamageGridShieldEntity
+  name: shield damage container
+  description: A dummy entity that contains all damage that is dealt to a grid shield.
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: GridShield
+    damageModifierSet: GridShield
+  - type: GridShieldDamage
+
+- type: entity
+  parent: BaseDamageGridShieldEntity
+  id: DamageGridShieldLow
+  components:
+  - type: PassiveDamage
+    damageCap: 15000
+    damage:
+      types:
+        Structural: -3
+        Heat: -3
+        Shock: -3
+      groups:
+        Brute: -3
+        Electronic: -3

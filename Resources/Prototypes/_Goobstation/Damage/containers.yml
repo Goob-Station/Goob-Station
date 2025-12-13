@@ -46,3 +46,13 @@
   - Heat
   - Caustic
   - Structural
+
+- type: damageContainer
+  id: GridShield
+  supportedGroups:
+  - Brute
+  - Electronic
+  supportedTypes:
+  - Heat
+  - Shock
+  - Structural
