@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Ported from BandaStation ss220 https://github.com/ss220club/BandaStation/blob/master/icons/obj/mining_zones/ash_flora.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "seraka_mushroom1"
+        },
+        {
+            "name": "seraka_mushroom1p"
+        },
+        {
+            "name": "seraka_mushroom2"
+        },
+        {
+            "name": "seraka_mushroom2p"
+        }
+    ]
+}
