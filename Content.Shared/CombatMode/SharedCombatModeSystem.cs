@@ -28,10 +28,12 @@
 using Content.Goobstation.Common.DoAfter;
 using Content.Shared.Actions;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.MouseRotator;
 using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
+using Content.Shared._Shitmed.Targeting;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.CombatMode;
@@ -50,7 +52,21 @@ public abstract class SharedCombatModeSystem : EntitySystem
         SubscribeLocalEvent<CombatModeComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<CombatModeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<CombatModeComponent, ToggleCombatActionEvent>(OnActionPerform);
+
+        SubscribeLocalEvent<CombatModeComponent, MindAddedMessage>(OnMindAdded); // CorvaxGoob-TargetingFix
+        SubscribeLocalEvent<CombatModeComponent, MindRemovedMessage>(OnMindRemove); // CorvaxGoob-TargetingFix
     }
+
+    // CorvaxGoob-TargetingFix-Start
+    private void OnMindAdded(Entity<CombatModeComponent> entity, ref MindAddedMessage args) => EnsureComp<TargetingComponent>(entity);
+
+    private void OnMindRemove(Entity<CombatModeComponent> entity, ref MindRemovedMessage args)
+    {
+        if (HasComp<TargetingComponent>(entity))
+            RemComp<TargetingComponent>(entity);
+    }
+    // CorvaxGoob-TargetingFix-End
+
 
     private void OnMapInit(EntityUid uid, CombatModeComponent component, MapInitEvent args)
     {
