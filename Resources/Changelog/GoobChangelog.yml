@@ -19182,3 +19182,19 @@ Entries:
         to all the others.
   id: 2164
   time: '2025-12-13T02:58:44.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Ratvarian null rod and altar variant.
+    - type: Add
+      message: Clockwork slab bible variant.
+    - type: Tweak
+      message: >-
+        Chaplain armor has full coverage, no slowdown, less insane resists and
+        no heat damage penalty.
+    - type: Add
+      message: >-
+        Chaplain can now select one of 8 armor set variants using armaments
+        beacon. 
+  id: 2165
+  time: '2025-12-13T03:00:08.0000000+00:00'
