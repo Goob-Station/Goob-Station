@@ -28,7 +28,7 @@
   abstract: true
   components:
   - type: Contraband
-    allowedDepartments: [ Security, Engineering, Cargo ]
+    allowedDepartments: [ Security, Engineering, Cargo, CentralCommand ] # stupid fucking BSO
 
 - type: entity
   id: BaseSecurityZookeeperContraband # Tranq shells

@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.Security.ContrabandIcons.Prototypes;
+using Content.Goobstation.Shared.Security.ContrabandIcons.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -12,4 +12,13 @@ public sealed partial class VisibleContrabandComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField] 
     public ProtoId<ContrabandIconPrototype> StatusIcon = "ContrabandIconNone";
+
+    [DataField] 
+    public HashSet<EntityUid> VisibleItems = new();
+}
+
+public enum ContrabandStatus : byte
+{
+    None,
+    Contraband
 }
