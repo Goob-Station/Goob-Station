@@ -23,7 +23,7 @@
     starvingSlowdownModifier: 0
   - type: Sprite
     noRot: true
-    drawdepth: Mobs
+    drawdepth: OverMobs
     sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
