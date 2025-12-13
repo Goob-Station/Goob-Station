@@ -13,12 +13,9 @@ using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared._Shitmed.Medical.Surgery.Pain;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared.Body.Part;
-using Content.Goobstation.Maths.FixedPoint;
-using YamlDotNet.Core.Tokens;
 
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;

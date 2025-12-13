@@ -52,6 +52,10 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
     [DataField]
     public EntityUid? OriginalBody;
 
+    // goida component registry bs fix
+    [ViewVariables, AutoNetworkedField]
+    public HashSet<string> AddedKeys = [];
+
     /// <summary>
     ///     Maximum organ integrity, do keep in mind that Organs are supposed to be VERY and VERY damage sensitive
     /// </summary>
