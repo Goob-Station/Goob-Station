@@ -1,0 +1,181 @@
+- type: entity
+  id: LavalandMobBossRaptor
+  name: Raptor
+  description: A trusty, powerful steed. Taming it might prove difficult...
+  parent: LavalandMobBase
+  abstract: true
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Raptors/bossraptor.rsi
+    layers:
+      - state: raptor_big_red
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: raptor_big_red
+      Dead:
+        Base: dead_raptor_big_red
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 100
+        mask:
+          - LargeMobMask
+        layer:
+          - LargeMobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      500: Dead
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Resomi
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 20
+  - type: NoSlip
+  - type: Pullable
+  - type: InputMover
+  - type: MobMover
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: Hardclaw
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+
+# ───────────────────────────────
+# Big Raptor Variants
+# ───────────────────────────────
+
+- type: entity
+  id: BossRaptorRed
+  parent: LavalandMobBossRaptor
+  name: red raptor
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Raptors/bossraptor.rsi
+    layers:
+      - state: raptor_big_red
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: raptor_big_red
+      Dead:
+        Base: dead_raptor_big_red
+
+- type: entity
+  id: BossRaptorBlue
+  parent: LavalandMobBossRaptor
+  name: blue raptor
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Raptors/bossraptor.rsi
+    layers:
+      - state: raptor_big_blue
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: raptor_big_blue
+      Dead:
+        Base: dead_raptor_big_blue
+
+- type: entity
+  id: BossRaptorGreen
+  parent: LavalandMobBossRaptor
+  name: green raptor
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Raptors/bossraptor.rsi
+    layers:
+      - state: raptor_big_green
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: raptor_big_green
+      Dead:
+        Base: dead_raptor_big_green
+
+- type: entity
+  id: BossRaptorYellow
+  parent: LavalandMobBossRaptor
+  name: yellow raptor
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Raptors/bossraptor.rsi
+    layers:
+      - state: raptor_big_yellow
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: raptor_big_yellow
+      Dead:
+        Base: dead_raptor_big_yellow
+
+- type: entity
+  id: BossRaptorPurple
+  parent: LavalandMobBossRaptor
+  name: purple raptor
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Raptors/bossraptor.rsi
+    layers:
+      - state: raptor_big_purple
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: raptor_big_purple
+      Dead:
+        Base: dead_raptor_big_purple
+
+- type: entity
+  id: BossRaptorWhite
+  parent: LavalandMobBossRaptor
+  name: white raptor
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Raptors/bossraptor.rsi
+    layers:
+      - state: raptor_big_white
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: raptor_big_white
+      Dead:
+        Base: dead_raptor_big_white
+
+- type: entity
+  id: BossRaptorBlack
+  parent: LavalandMobBossRaptor
+  name: black raptor
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Raptors/bossraptor.rsi
+    layers:
+      - state: raptor_big_black
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: raptor_big_black
+      Dead:
+        Base: dead_raptor_big_black
