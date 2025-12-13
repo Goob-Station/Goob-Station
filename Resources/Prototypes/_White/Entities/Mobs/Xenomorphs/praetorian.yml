@@ -46,13 +46,13 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      360: Critical
-      375: Dead
+      300: Critical #goob, was 360
+      350: Dead #was 375
   - type: SlowOnDamage
-    speedModifierThresholds:
-      225: 0.9
-      270: 0.7
-      315: 0.6
+    speedModifierThresholds: #goob
+      200: 0.8 #was 225: 0.9
+      250: 0.6 #was 270: 0.7
+ #     315: 0.6
   - type: MeleeWeapon
     damage:
       groups:
@@ -89,7 +89,7 @@
   - type: MovementSpeedModifier
     baseSprintSpeed: 3.8
   - type: SlowOnDamage
-    speedModifierThresholds:
-      225: 0.7
-      270: 0.6
-      315: 0.5
+    speedModifierThresholds: #goob
+      200: 0.8 #was 225: 0.9
+      250: 0.6 #was 270: 0.7
+#     315: 0.6

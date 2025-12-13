@@ -26,7 +26,7 @@
   #  - ActionSpawnResinMembrane # no membrane its for chuds
   #  - ActionSpawnResinNest
   #  - ActionSpawnResinWeedNode
-  - type: VentCrawler
+  # - type: VentCrawler goob, larva ventcrawl only
   - type: Cuffable
   - type: Body
     prototype: XenomorphDrone

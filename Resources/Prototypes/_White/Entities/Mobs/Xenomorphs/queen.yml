@@ -48,20 +48,23 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      735: Critical
-      750: Dead
+      450: Critical #goob, same as spacedrag
+      500: Dead
   - type: SlowOnDamage
-    speedModifierThresholds:
-      600: 0.9
-      645: 0.7
-      690: 0.6
+    speedModifierThresholds: #goob
+      250: 0.8
+      300: 0.7
+      400: 0.5
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2
-    baseSprintSpeed: 2.5
+    baseWalkSpeed: 3 #goob
+    baseSprintSpeed: 3.5 #goob
   - type: MeleeWeapon
+    range: 2.2
     damage:
       groups:
-        Brute: 50
+        Brute: 35 #goob was 50
+      types:
+        Structural: 30 #goob, didnt exist
   - type: Deathgasp
     prototype: XenomorphQueenDeathgasp
   - type: Speech
