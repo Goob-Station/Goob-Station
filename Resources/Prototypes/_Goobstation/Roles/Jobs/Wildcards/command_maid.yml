@@ -30,8 +30,11 @@
     id: CommandMaidPDA
     gloves: ClothingHandsGlovesLatex
     ears: ClothingHeadsetCommandService
-    belt: ClothingBeltMilitaryWebbingCommandMaidFilled
-    shoes: ClothingShoesGaloshes
+    eyes: ClothingEyesGlassesCommand
+    belt: ClothingBeltJanitorFilled
+    shoes: ClothingShoesBootsJackGaloshes
+  inhand:
+  - AdvMopItem
 
 - type: chameleonOutfit
   id: CommandMaidChameleonOutfit
@@ -41,4 +44,6 @@
     id: CommandMaidPDA
     gloves: ClothingHandsGlovesLatex
     ears: ClothingHeadsetCommandService
-    shoes: ClothingShoesGaloshes
+    eyes: ClothingEyesGlassesCommand
+    belt: ClothingBeltJanitor
+    shoes: ClothingShoesBootsJackGaloshes

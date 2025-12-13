@@ -267,26 +267,3 @@
       amount: 1
     - id: EbifinlLazideChemistryVial
       amount: 1
-
-
-- type: entity
-  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband]
-  id: ClothingBeltMilitaryWebbingCommandMaidFilled
-  name: Tactical cleaning chest rig
-  description: A set of tactical webbing worn by the tidiest Central Command support units.
-  components:
-  - type: Sprite
-    sprite: Clothing/Belt/militarywebbing.rsi
-  - type: Clothing
-    sprite: Clothing/Belt/militarywebbing.rsi
-  - type: ExplosionResistance
-    damageCoefficient: 0.05
-  - type: StorageFill
-    contents: #Same as ClothingBeltJanitorFilled
-    - id: Soap
-    - id: SprayBottleSpaceCleaner
-    - id: CleanerGrenade
-      amount: 2
-    - id: FlashlightLantern
-    - id: LightReplacer
-    - id: WireBrush
