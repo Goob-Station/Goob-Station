@@ -74,6 +74,7 @@
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
   supervisors: job-supervisors-hop
+  guides: [ Chaplain ] # goobstation
   goobcoins: 25 #Goob content
   access:
   - Chapel
@@ -109,4 +110,3 @@
     neck: ClothingNeckStoleChaplain
     outerClothing: ClothingOuterPlagueSuit
     gloves: ClothingHandsGlovesColorBlack
-
