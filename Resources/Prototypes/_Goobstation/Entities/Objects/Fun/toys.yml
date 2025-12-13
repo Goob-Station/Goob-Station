@@ -1005,7 +1005,7 @@
         Blunt: 0
     soundHit:
       path: /Audio/Effects/adminhelp.ogg
-      
+
 - type: entity
   name: evil Xeve plush
   parent: PlushieXeve
@@ -1077,3 +1077,187 @@
   parent: PlushiePasha
   id: EvilPlushiePasha
   suffix: Evil
+
+- type: entity
+  parent: BaseItem
+  id: ToyMansusGrasp
+  name: green grasp
+  description: The power of the Prank Gods, channeled through your grip. Security won't appreciate the prank.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/mansus_grasp.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.5
+    angle: 0
+    animation: WeaponArcThrust
+    wideAnimationRotation: 90
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Items/welder.ogg
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Heretic/mansus_grasp.rsi
+  - type: UseDelay
+    delay: 1.5
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/welder.ogg
+  - type: Construction
+    graph: ToyMansusGrasp
+    node: toymansusgrasp
+
+- type: entity
+  parent: BaseItem
+  id: ToyBladeEldritch
+  name: replica eldritch blade
+  description: A plastic green crescent blade, decorated with an ornamental eye. You feel like you're being watched...
+  components:
+  - type: Construction
+    graph: ToyBlades
+    node: start
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Blades/eldritch_blade.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.5
+    wideAnimationRotation: -125
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Heretic/Blades/eldritch_blade-inhands.rsi
+
+- type: entity
+  parent: ToyBladeEldritch
+  id: ToyBladeAsh
+  name: replica ashen blade
+  description: Molten and unwrought, a hunk of plastic warped to cinders and slag. Unmade, it aspires to be more than it is.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Blades/blade_ash.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.5
+    wideAnimationRotation: -125
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Heretic/Blades/blade_ash-inhand.rsi
+
+- type: entity
+  parent: ToyBladeEldritch
+  id: ToyBladeBlade
+  name: replica sundered blade
+  description: A gallant blade, severed and torn. Furiously, the blade cuts. Plastic scars bind it forever to its dark purpose.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.5
+    wideAnimationRotation: -125
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Heretic/Blades/blade_blade-inhand.rsi
+
+- type: entity
+  parent: ToyBladeEldritch
+  id: ToyBladeFlesh
+  name: replica bloody blade
+  description: A crescent blade born from fleshwarped plastic. Keenly aware, it seeks to spread to others the excruciating comedy it has endured from its dreadful origins.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Blades/blade_flesh.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.5
+    wideAnimationRotation: -125
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Heretic/Blades/blade_flesh-inhand.rsi
+
+- type: entity
+  parent: ToyBladeEldritch
+  id: ToyBladeRust
+  name: replica rusted blade
+  description: This crescent blade is decrepit, wasting to rust. Yet still it bites, ripping flesh and bone with jagged, rotten plastic.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Blades/blade_rust.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.5
+    wideAnimationRotation: -125
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Heretic/Blades/blade_rust-inhand.rsi
+
+- type: entity
+  parent: ToyBladeEldritch
+  id: ToyBladeVoid
+  name: replica void blade
+  description: Devoid of any substance, this blade reflects comedy. It is a real depiction of hilarity, and chaos that ensues after its implementation.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Blades/blade_void.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.5
+    wideAnimationRotation: -125
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Heretic/Blades/blade_void-inhand.rsi
+
+- type: entity
+  parent: BaseItem
+  id: ToyCodexCicatrix
+  name: codex cicatrix
+  description: This light tome is full of cryptic scribbles and confusing diagrams. According to legend, it can be deciphered to reveal the secrets of the veil between worlds.
+  components:
+  - type: UseDelay
+    delay: 1.5
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Goobstation/Heretic/castsummon.ogg
+  - type: Sprite
+    sprite: _Goobstation/Heretic/book.rsi
+    layers:
+    - state: icon
+      map: [ "base" ]
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Heretic/book.rsi
+  - type: Construction
+    graph: ToyCodexCicatrix
+    node: toycodexcicatrix
+

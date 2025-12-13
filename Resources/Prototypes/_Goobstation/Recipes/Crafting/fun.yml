@@ -9,3 +9,18 @@
   targetNode: toygrenade
   category: construction-category-misc
   objectType: Item
+
+- type: construction
+  id: ToyMansusGrasp
+  graph: ToyMansusGrasp
+  targetNode: toymansusgrasp
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: ToyCodexCicatrix
+  graph: ToyCodexCicatrix
+  targetNode: toycodexcicatrix
+  category: construction-category-misc
+  objectType: Item
+
