@@ -145,6 +145,9 @@
   id: ClownEmergencyOxygenTank
 
 - type: Tag
+  id: CodexCicatrix
+
+- type: Tag
   id: CombatMech
 
 - type: Tag
