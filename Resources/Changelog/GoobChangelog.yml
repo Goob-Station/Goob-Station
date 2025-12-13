@@ -18960,3 +18960,273 @@ Entries:
       message: Changed greentext goobcoin to now be able for partial reward
   id: 2138
   time: '2025-12-02T08:40:02.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: Fixed CQC guidebook being wrong about necksnap
+  id: 2139
+  time: '2025-12-02T18:38:14.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Ghouls no longer die to bloodloss rapidly upon being ghoulified.
+    - type: Fix
+      message: Fix flesh mimic npcs attacking ghouls sometimes.
+    - type: Tweak
+      message: Nerfed bleeding steel effect.
+    - type: Tweak
+      message: Nerfed flesh eating buffs for flesh heretic.
+  id: 2140
+  time: '2025-12-02T18:40:55.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Fix
+      message: Fixed crewmembers having eleven ribcages. (Fixed surgery popups)
+  id: 2141
+  time: '2025-12-02T18:46:34.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Add
+      message: Adds 3 more slop plushies to the claw machine.
+  id: 2142
+  time: '2025-12-03T06:34:42.0000000+00:00'
+- author: Lexidoll
+  changes:
+    - type: Add
+      message: Added Chemlab cigarettes, that can be refilled with jugs.
+    - type: Tweak
+      message: Chemlab cigarette packs and empty patches added to the medvend.
+    - type: Tweak
+      message: Medical patches can now be refilled with jugs.
+    - type: Tweak
+      message: Added a portable chemical mixer to the chemists locker.
+    - type: Tweak
+      message: Cautery tools can now light cigarettes.
+    - type: Tweak
+      message: Medical patches lathe cost reduced by 50%
+    - type: Tweak
+      message: Patches can now be inserted into cig packs.
+    - type: Tweak
+      message: Chembags now accept cig packs and cigarettes
+  id: 2143
+  time: '2025-12-03T06:59:03.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: Ai hologram names are now consistent
+  id: 2144
+  time: '2025-12-03T16:43:09.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: The contraband detector is now locked behind research
+    - type: Tweak
+      message: the contraband detector is turned off as it doesn't work
+  id: 2145
+  time: '2025-12-03T16:50:36.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added polling!
+  id: 2146
+  time: '2025-12-04T08:10:08.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Heretic void path reworked.
+    - type: Add
+      message: Seeking blade teleport now works in combat mode.
+    - type: Tweak
+      message: Ice spear is t2 side knowledge now.
+  id: 2147
+  time: '2025-12-04T13:15:49.0000000+00:00'
+- author: TytosB
+  changes:
+    - type: Tweak
+      message: Serpentcrest has a harder to sabotage power network.
+  id: 2148
+  time: '2025-12-04T13:52:36.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Species mass have less of a gap now.
+    - type: Tweak
+      message: Chititnid and IPC have default mass.
+    - type: Tweak
+      message: >-
+        Oni has higher mass compared to other species but most of their other
+        benefits were removed.
+    - type: Tweak
+      message: Mass no longer affects sprinting.
+  id: 2149
+  time: '2025-12-04T14:03:46.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: >-
+        Sleeping Carp no longer reflects outside of combat mode as was
+        originally intended.
+  id: 2150
+  time: '2025-12-04T22:54:48.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Added tinfoil hats
+  id: 2151
+  time: '2025-12-05T22:07:41.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Fixed dwarves unintentionally being lighter than they should be.
+  id: 2152
+  time: '2025-12-06T01:19:22.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: harpies are big now
+  id: 2153
+  time: '2025-12-06T01:32:00.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix holoprojectors not working.
+  id: 2154
+  time: '2025-12-06T01:58:12.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: Made the popup text from the 'Interact' actions italicised.
+    - type: Fix
+      message: Fixed borgs potentially getting softlocked by invalid interaction verbs.
+  id: 2155
+  time: '2025-12-06T02:06:11.0000000+00:00'
+- author: XWASHERE
+  changes:
+    - type: Add
+      message: added a notification sound for prayers
+  id: 2156
+  time: '2025-12-06T18:51:32.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: Added Chat icons for radio messages!
+    - type: Fix
+      message: fixed ooc patron icons getting stuck on the screen sometimes
+  id: 2157
+  time: '2025-12-07T12:24:42.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Removed stamina damage from bingles.
+  id: 2158
+  time: '2025-12-08T06:16:58.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Fix
+      message: Fixed radio and OOC icons going on an adventure around the chatbox.
+  id: 2159
+  time: '2025-12-10T07:36:47.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: >-
+        Lavaland mobs now have Weather Immunity so they no longer die to ash
+        storms
+    - type: Fix
+      message: >-
+        Hivelords now are now a part of the lavaland faction so breakaways wont
+        attack their parent
+  id: 2160
+  time: '2025-12-10T18:41:17.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: >-
+        That one random big wreck is now less shit, contains more loot, and is
+        in general looks not like something engis did mid shift.
+  id: 2161
+  time: '2025-12-11T23:28:07.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Fix
+      message: >-
+        A lot of damage is not going to the vitals that should have been,
+        causing unintended behavior.
+    - type: Fix
+      message: >-
+        Health monitoring console uses vital damage instead of total damage for
+        status.
+    - type: Fix
+      message: Healing pets.
+    - type: Tweak
+      message: >-
+        Random targeting now always targets vital parts, buff/tweak to
+        simplemobs.
+  id: 2162
+  time: '2025-12-12T16:35:35.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: Updated the list of possible Maintenance Drone names.
+  id: 2163
+  time: '2025-12-13T02:53:31.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Add
+      message: >-
+        Added help buttons to most jobs in the job selection screen, which show
+        parts of the guidebook most helpful for each role.
+    - type: Fix
+      message: >-
+        Fixed the buttons in the NTR's job selection entry being slightly offset
+        to all the others.
+  id: 2164
+  time: '2025-12-13T02:58:44.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Ratvarian null rod and altar variant.
+    - type: Add
+      message: Clockwork slab bible variant.
+    - type: Tweak
+      message: >-
+        Chaplain armor has full coverage, no slowdown, less insane resists and
+        no heat damage penalty.
+    - type: Add
+      message: >-
+        Chaplain can now select one of 8 armor set variants using armaments
+        beacon. 
+  id: 2165
+  time: '2025-12-13T03:00:08.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Tweak
+      message: >-
+        buffed onis attack and defense to be in line with more of their tanky
+        mele build styles, and nerfed their shoving capabilities to compensate 
+  id: 2166
+  time: '2025-12-13T03:06:34.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Chef spawns on Fland were spaced out through kitchen area properly
+    - type: Fix
+      message: Fland Service Lathe room now has power
+    - type: Tweak
+      message: Redundant pumps removed from Fland SM loop
+  id: 2167
+  time: '2025-12-13T03:06:39.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: EE Verbs will now show up in the bottom of the Verb menu.
+  id: 2168
+  time: '2025-12-13T03:22:25.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Removed Second skin
+    - type: Remove
+      message: Reverted all armor balance caused by second skin
+  id: 2169
+  time: '2025-12-13T05:48:36.0000000+00:00'

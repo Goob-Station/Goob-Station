@@ -206,6 +206,7 @@
     - Recyclable
     - WhitelistChameleon
 
+# TODO: Make a single ClothingHeadHatArmoreredBeret in goob namespace so all these items dont need to have armor values listed seperately, since they wont have seperate armor values ANYWAY!
 - type: entity
   parent: [ClothingHeadHatBeret, BaseSecurityContraband] #goobstation - contraband marking
   id: ClothingHeadHatBeretSecurity
@@ -235,9 +236,9 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
         Heat: 0.8
 
 - type: entity
@@ -265,9 +266,9 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
         Heat: 0.8
 
 - type: entity
@@ -368,9 +369,9 @@
     coverage:
     - Head
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
@@ -394,9 +395,9 @@
     coverage:
     - Head
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
@@ -446,9 +447,9 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
         Heat: 0.8
   - type: Tag
     tags:
