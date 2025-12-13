@@ -16,3 +16,12 @@
     collection: DuendeSounds
   exclaimSound:
     collection: DuendeSounds
+
+- type: speechSounds
+  id: BikeHorn
+  saySound:
+    path: /Audio/Items/bikehorn.ogg
+  askSound:
+    path: /Audio/Items/brokenbikehorn.ogg
+  exclaimSound:
+    path: /Audio/Items/desk_bell_ring.ogg

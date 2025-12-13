@@ -1,0 +1,87 @@
+- type: entity
+  parent: BaseMobHuman
+  id: MobHumanGreyTide
+  name: The Greytide
+  components:
+  - type: Loadout
+    prototypes: [ GreyTideAntagGear ]
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanTunnelClown
+  name: Tunnel clown
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ TunnelClownAntagGear ]
+  - type: Clumsy
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanSingulothKnight
+  name: Singuloth Knight
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ SingulothKnightsAntagGear ]
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanDarkLord
+  name: The Dark Lord
+  components:
+  - type: ActionGrant
+    actions:
+    - ActionLightningBolt
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ DarkLordAntagGear ]
+  - type: DarkLordMarker
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanChosenOne
+  name: The chosen one
+  components:
+  - type: ActionGrant
+    actions:
+    - ActionRepulseNoRobes
+    - ActionBlindSpell
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ ChosenOneProtagGear ]
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanMimeAssassin
+  name: Mime assassin
+  components:
+  - type: MimePowers
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ MimeAssassinGear ]
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanDarkPriest
+  name: Dark Priest
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ DarkPriestAntagGear ]
+
+- type: entity
+  parent: MobVox
+  id: MobVoxRaider
+  name: Vox Raider
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [ VoxRaiderAntagGear ]

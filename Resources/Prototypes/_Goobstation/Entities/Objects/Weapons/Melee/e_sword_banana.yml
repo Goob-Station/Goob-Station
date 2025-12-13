@@ -80,3 +80,21 @@
     - type: Construction
       graph: BananiumSword
       node: bananiumSword
+
+- type: entity
+  parent: EnergySwordDouble
+  id: EnergySwordDoubleRed
+  suffix: Red
+  components:
+  - type: EnergySword
+    colorOptions:
+    - "#EB212E" # can only be red
+
+- type: entity
+  parent: EnergySword
+  id: EnergySwordBlue
+  suffix: Blue
+  components:
+  - type: EnergySword
+    colorOptions:
+    - "#2E67F8" # can only be blue

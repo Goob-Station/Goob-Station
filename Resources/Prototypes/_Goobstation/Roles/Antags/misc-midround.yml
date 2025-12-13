@@ -1,0 +1,143 @@
+- type: startingGear
+  id: GreyTideAntagGear
+  equipment:
+    mask: ClothingMaskGasUnremoveable
+    jumpsuit: ClothingUniformJumpsuitAncientUnremoveable
+    shoes: ClothingShoesColorBlackUnremoveable
+    id: PassengerPDA
+    ears: ClothingHeadsetGrey
+    belt: ClothingBeltUtilityFilledUnremoveable
+    gloves: ClothingHandsGlovesColorYellowUnremovable
+    back: ClothingBackpackUnremoveable
+  inhand:
+  - Toolboxrobust
+
+- type: startingGear
+  id: TunnelClownAntagGear
+  equipment:
+    mask: ClothingMaskClownUnremoveable
+    jumpsuit: ClothingUniformJumpsuitClown
+    outerClothing: ClothingOuterCoatJacketBiker
+    shoes: ClothingShoesClownUnremoveable
+    id: ClownPDA
+    ears: ClothingHeadsetService
+    gloves: ClothingHandsGlovesCombat
+    back: ClothingBackpackClown
+  inhand:
+  - FireAxe
+  - Stunprod
+  storage:
+    back:
+    - ClownRecorder
+    - FoodMeatClown
+    - TunnelClownBusinessCard
+
+- type: startingGear
+  id: SingulothKnightsAntagGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+    outerClothing: ClothingSingulothArmor
+    shoes: ClothingShoesLeather
+    gloves: ClothingHandsGlovesColorYellow
+    back: ClothingBackpackSatchelLeather
+    belt: ClothingBeltUtilityFilled
+  inhand:
+  - SingulothsHammer
+  storage:
+    back:
+    - MedkitCombatFilled
+
+- type: startingGear
+  id: DarkLordAntagGear
+  equipment:
+    head: ClothingHeadHatHoodCloakSith
+    jumpsuit: ClothingUniformJumpsuitMonasticRobeDark
+    outerClothing: ClothingOuterWizardBlackReal
+    shoes: ClothingShoesColorBlack
+    gloves: ClothingHandsGlovesCombat
+    back: ClothingBackpackSatchelLeather
+    id: SyndiPDA
+  inhand:
+  - EnergySwordDoubleRed
+  storage:
+    back:
+    - BoxSurvivalSlotsSyndicate
+
+- type: startingGear
+  id: ChosenOneProtagGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorWhite
+    outerClothing: WhiteRobes
+    shoes: ClothingShoesBootsJack
+    belt: ClothingBeltAssaultFilled
+    id: CentcomPDA
+  inhand:
+  - EnergySwordBlue
+
+- type: startingGear
+  id: MimeAssassinGear
+  equipment:
+    gloves: ClothingHandsGlovesColorWhite
+    shoes: ClothingShoesColorWhite
+    id: MimePDA
+    pocket1: CrayonMime
+    ears: ClothingHeadsetService
+    jumpsuit: ClothingUniformJumpsuitMime
+    mask: ClothingMaskMime
+    head: ClothingHeadHatBeretFrench
+    back: ClothingBackpackMime
+  storage:
+    back:
+    - RubberStampMime
+    - WeaponPistolCobra
+    - SyringePistol
+    - SyndicateBusinessCard
+    - ChameleonProjector
+    - MagazinePistolCaselessRifle
+    - MagazinePistolCaselessRifle
+    - ChemistryBottleNocturine
+    - Syringe
+    - DeathAcidifierImplanter
+    - FreedomImplanter
+
+- type: startingGear
+  id: DarkPriestAntagGear
+  equipment:
+    head: ClothingHeadHatHoodVoidCloak
+    ears: ClothingHeadsetService
+    jumpsuit: ClothingUniformJumpsuitChaplain
+    shoes: ClothingShoesColorBlack
+    neck: ClothingNeckStoleChaplain
+    id: ChaplainPDA
+    outerClothing: ClothingOuterHoodieChaplain
+    back: ClothingBackpack
+  inhand:
+  - BlessingOfTheReaper
+  storage:
+    back:
+    - ClothingNeckStoleChaplain
+    - ClothingHeadHatHoodVoidCloak
+    - ClothingOuterHoodieChaplain
+    - BoxSurvivalSlots
+
+- type: startingGear
+  id: VoxRaiderAntagGear
+  equipment:
+    ears: ClothingHeadsetAltSyndicate
+    jumpsuit: ClothingUniformJumpsuitTacticool
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesColorBlack
+    id: AgentIDCard
+    gloves: ClothingHandsChameleonThief
+    outerClothing: ClothingOuterHardsuitVoxRaiderStealth
+    suitstorage: ExtendedEmergencyNitrogenTankFilled
+    back: ClothingBackpack
+  storage:
+    back:
+    - BoxSurvivalSlotsNitrogen
+    - ExtendedEmergencyNitrogenTankFilled
+    - ChameleonProjector
+    - DartGun
+    - ChemistryBottleNocturine
+    - ChemistryBottleNocturine
+    - HypopenBox

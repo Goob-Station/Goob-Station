@@ -31,3 +31,9 @@
       collection: FootstepSkates
       params:
         variation: 0.08
+
+- type: entity
+  id: ClothingShoesClownUnremoveable
+  parent: ClothingShoesClown
+  components:
+  - type: Unremoveable
