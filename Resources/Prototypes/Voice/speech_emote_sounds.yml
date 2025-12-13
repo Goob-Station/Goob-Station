@@ -588,7 +588,7 @@
     Buzz:
       path: /Audio/Voice/Moth/moth_scream.ogg
     Scream:
-      path: /Audio/Voice/Moth/moth_scream.ogg
+      collection: MothScreams # Goobstation - Moth scream collection
     Laugh:
       path: /Audio/Voice/Moth/moth_laugh.ogg
     Chitter:
@@ -638,7 +638,7 @@
     Buzz:
       path: /Audio/Voice/Moth/moth_scream.ogg
     Scream:
-      path: /Audio/Voice/Moth/moth_scream.ogg
+      collection: MothScreams # Goobstation - Moth scream collection
     Laugh:
       path: /Audio/Voice/Moth/moth_laugh.ogg
     Chitter:
@@ -688,7 +688,7 @@
     Buzz:
       path: /Audio/Voice/Moth/moth_scream.ogg
     Scream:
-      path: /Audio/Voice/Moth/moth_scream.ogg
+      collection: MothScreams # Goobstation - Moth scream collection
     Laugh:
       path: /Audio/Voice/Moth/moth_laugh.ogg
     Chitter:
