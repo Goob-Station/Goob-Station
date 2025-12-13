@@ -295,6 +295,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     # Does not give dismemberment deduction because of reflection. yeah do with it somehow
     modifiers:
       coefficients:
