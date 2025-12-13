@@ -102,16 +102,6 @@
       role: JobPassenger
       time: 72000 #20 hrs, fun mantle for the most experienced greytiders
 
-# Tide Quarterzip for the sophisticated passengers
-- type: loadoutEffectGroup
-  id: SophisticatedTider
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobPassenger
-      time: 288000 # 80 hrs
-
 # Face
 - type: loadout
   id: PassengerFace
@@ -161,16 +151,6 @@
     proto: GreyTider
   equipment:
     jumpsuit: ClothingUniformJumpsuitAncient
-
-# Quarterzip
-- type: loadout
-  id: QuarterzipJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: GreyTider
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitPassengerQuarterzip
-
 
 # Neck
 - type: loadout
