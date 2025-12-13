@@ -125,6 +125,9 @@ public sealed partial class ChangelingSystem
 
     private void OnOpenEvolutionMenu(EntityUid uid, ChangelingIdentityComponent comp, ref OpenEvolutionMenuEvent args)
     {
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
+            return;
+
         if (!TryComp<StoreComponent>(uid, out var store))
             return;
 
@@ -744,7 +747,7 @@ public sealed partial class ChangelingSystem
 
         _popup.PopupEntity(Loc.GetString("changeling-panacea"), uid, uid);
 
-        var panacea = _compFactory.GetComponent<BoostedImmunityComponent>();
+        var panacea = Factory.GetComponent<BoostedImmunityComponent>();
         panacea.AlertId = args.Alert;
         panacea.Duration = args.Duration;
 
@@ -803,7 +806,7 @@ public sealed partial class ChangelingSystem
 
         _popup.PopupEntity(Loc.GetString("changeling-adrenaline"), uid, uid);
 
-        var adrenaline = _compFactory.GetComponent<SuperAdrenalineComponent>();
+        var adrenaline = Factory.GetComponent<SuperAdrenalineComponent>();
         adrenaline.AlertId = args.Alert;
         adrenaline.Duration = args.Duration;
         adrenaline.PassiveDamage = args.PassiveDamage;
@@ -818,7 +821,7 @@ public sealed partial class ChangelingSystem
 
         _popup.PopupEntity(Loc.GetString("changeling-fleshmend"), uid, uid);
 
-        var fleshmend = _compFactory.GetComponent<FleshmendComponent>();
+        var fleshmend = Factory.GetComponent<FleshmendComponent>();
         fleshmend.AlertId = args.Alert;
         fleshmend.Duration = args.Duration;
         fleshmend.PassiveSound = args.PassiveSound;

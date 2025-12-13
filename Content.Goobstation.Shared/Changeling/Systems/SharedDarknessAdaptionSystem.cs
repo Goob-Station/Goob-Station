@@ -15,7 +15,6 @@ namespace Content.Goobstation.Shared.Changeling.Systems;
 
 public abstract class SharedDarknessAdaptionSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
@@ -24,7 +23,6 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
 
     private EntityQuery<ChameleonSkinComponent> _chameleonQuery;
-    private EntityQuery<NightVisionComponent> _nvgQuery;
     private EntityQuery<StealthOnMoveComponent> _stealthOnMoveQuery;
 
     public override void Initialize()
@@ -32,7 +30,6 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
         base.Initialize();
 
         _chameleonQuery = GetEntityQuery<ChameleonSkinComponent>();
-        _nvgQuery = GetEntityQuery<NightVisionComponent>();
         _stealthOnMoveQuery = GetEntityQuery<StealthOnMoveComponent>();
 
         SubscribeLocalEvent<DarknessAdaptionComponent, MapInitEvent>(OnMapInit);
@@ -192,7 +189,7 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
 
     private void EnsureNightVision(Entity<DarknessAdaptionComponent> ent)
     {
-        var nightVision = _compFactory.GetComponent<NightVisionComponent>();
+        var nightVision = Factory.GetComponent<NightVisionComponent>();
         nightVision.IsActive = true;
         nightVision.Color = Color.FromHex("#606cb3");
         nightVision.ActivateSound = null;

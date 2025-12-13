@@ -45,7 +45,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -610,7 +609,6 @@
   - type: Action
     useDelay: 5
     checkCanInteract: false
-    checkConsciousness: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
