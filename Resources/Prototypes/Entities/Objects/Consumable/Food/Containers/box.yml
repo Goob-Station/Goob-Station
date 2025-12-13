@@ -857,74 +857,38 @@
   name: Happy Honk Big Bite Meal
   description: Someone paid good money to get this fast food meal shipped out this way. It smells fresh, somehow.
   components:
-  - type: StorageFill
-    contents:
-      - id: FoodBurgerBig
-        amount: 1
-      - id: FoodMealFriesCheesy
-        amount: 1
-      - id: DrinkColaBottleFull
-        amount: 1
-      - id: FoodPieAppleSlice
-        amount: 1
-      - id: ToyMouse
-        orGroup: GiftPool
-      - id: ToyAi
-        orGroup: GiftPool
-      - id: ToyNuke
-        orGroup: GiftPool
-      - id: ToyFigurinePassenger
-        orGroup: GiftPool
-      - id: ToyFigurineGriffin
-        orGroup: GiftPool
-      - id: ToyHonk
-        orGroup: GiftPool
-      - id: ToyIan
-        orGroup: GiftPool
-      - id: ToyMarauder
-        orGroup: GiftPool
-      - id: ToyMauler
-        orGroup: GiftPool
-      - id: ToyGygax
-        orGroup: GiftPool
-      - id: ToyOdysseus
-        orGroup: GiftPool
-      - id: ToyFigurineOwlman
-        orGroup: GiftPool
-      - id: ToyDeathRipley
-        orGroup: GiftPool
-      - id: ToyPhazon
-        orGroup: GiftPool
-      - id: ToyFireRipley
-        orGroup: GiftPool
-      - id: ToyReticence
-        orGroup: GiftPool
-      - id: ToyRipley
-        orGroup: GiftPool
-      - id: ToySeraph
-        orGroup: GiftPool
-      - id: ToyDurand
-        orGroup: GiftPool
-      - id: ToyFigurineSkeleton
-        orGroup: GiftPool
-      - id: FoamBlade
-        orGroup: GiftPool
-      - id: ClothingHeadHatBunny
-        orGroup: GiftPool
-      - id: PersonalAI
-        orGroup: GiftPool
-      - id: ToySword
-        orGroup: GiftPool
-      - id: RevolverCapGun
-        orGroup: GiftPool
-      - id: ToyRubberDuck
-        orGroup: GiftPool
-      - id: BikeHorn
-        prob: 0.5
-        orGroup: GiftPool
-      - id: GoldenBikeHorn
-        prob: 0.1
-        orGroup: GiftPool
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FoodBurgerBig
+        - id: FoodMealFriesCheesy
+        - id: DrinkColaBottleFull
+        - id: FoodPieAppleSlice
+        - !type:GroupSelector # One item is too big, so the HappyHonkToySafeEntityTable can't  be used like the others.
+          children:
+          - id: ToyMouse
+          - id: ToyAi
+          - id: ToyNuke
+          - id: ToyFigurinePassenger
+          - id: ToyFigurineGriffin
+          - id: ToyIan
+          - id: ToyFigurineOwlman
+          - id: ToyFigurineSkeleton
+          - id: FoamBlade
+          - id: ClothingHeadHatBunny
+          - id: PersonalAI
+          #- id: CrayonBox
+          - id: ToySword
+          - id: RevolverCapGun
+          - id: ToyRubberDuck
+          - id: BikeHorn
+            weight: 0.5
+          - id: GoldenBikeHorn
+            weight: 0.1
+          - !type:NestedSelector
+            tableId: AllFigurineMechsTable
+            weight: 6
 
 - type: entity
   parent: BoxCardboard
@@ -946,6 +910,48 @@
     size: Normal
     shape:
     - 0,0,1,1
-  - type: StorageFill
-    contents:
-    - id: MaterialCloth10
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MaterialCloth10
+
+- type: entityTable
+  id: HappyHonkToySafeEntityTable
+  table: !type:GroupSelector
+    children:
+    - id: ToyMouse
+    - id: ToyAi
+    - id: ToyNuke
+    - id: ToyFigurinePassenger
+    - id: ToyFigurineGriffin
+    - id: ToyIan
+    - id: ToyFigurineOwlman
+    - id: ToyFigurineSkeleton
+    - id: FoamBlade
+    - id: ClothingHeadHatBunny
+    - id: PersonalAI
+    - id: CrayonBox
+    - id: ToySword
+    - id: RevolverCapGun
+    - id: ToyRubberDuck
+    - id: BikeHorn
+      weight: 0.5
+    - id: GoldenBikeHorn
+      weight: 0.1
+    - !type:NestedSelector
+      tableId: AllFigurineMechsTable
+      weight: 6
+
+- type: entityTable
+  id: HappyHonkToyUnsafeEntityTable
+  table: !type:GroupSelector
+    children:
+    - id: C4
+      weight: 0.02
+    - id: ToyMarauder
+    - id: ToyMauler
+    - id: ToyNuke
+    - id: ToySword
+    - id: BalloonSyn
+      weight: 0.6
+    - id: PlushieNuke
