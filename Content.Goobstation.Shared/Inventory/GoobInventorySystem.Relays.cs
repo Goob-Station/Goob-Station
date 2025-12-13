@@ -8,6 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Changeling;
 using Content.Goobstation.Shared.Chemistry;
 using Content.Goobstation.Shared.Clothing;
 using Content.Goobstation.Shared.Devil;
@@ -37,6 +38,7 @@ public partial class GoobInventorySystem
         SubscribeLocalEvent<InventoryComponent, GetStandingUpTimeMultiplierEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GetSpellInvocationEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GetMessageColorOverrideEvent>(RelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, ChangelingChemicalRegenEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, ClothingAutoInjectRelayedEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, ModifyStunTimeEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GrabModifierEvent>(RefRelayInventoryEvent);

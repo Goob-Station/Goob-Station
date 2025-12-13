@@ -1,12 +1,11 @@
 using Content.Client.Alerts;
 using Content.Client.UserInterface.Systems.Alerts.Controls;
 using Content.Goobstation.Shared.Changeling.Components;
-using Content.Goobstation.Shared.Changeling.Systems;
 using Robust.Client.GameObjects;
 
 namespace Content.Goobstation.Client.Changeling;
 
-public sealed partial class ChangelingBiomassSystem : SharedChangelingBiomassSystem
+public sealed partial class ChangelingChemicalSystem : EntitySystem
 {
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
@@ -14,17 +13,17 @@ public sealed partial class ChangelingBiomassSystem : SharedChangelingBiomassSys
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ChangelingBiomassComponent, UpdateAlertSpriteEvent>(OnUpdateAlert);
+        SubscribeLocalEvent<ChangelingChemicalComponent, UpdateAlertSpriteEvent>(OnUpdateAlert);
     }
 
-    private void OnUpdateAlert(Entity<ChangelingBiomassComponent> ent, ref UpdateAlertSpriteEvent args)
+    private void OnUpdateAlert(Entity<ChangelingChemicalComponent> ent, ref UpdateAlertSpriteEvent args)
     {
         if (args.Alert.ID != ent.Comp.AlertId)
             return;
 
         var alert = args.SpriteViewEnt;
-        var normalized = Math.Round(ent.Comp.Biomass / ent.Comp.MaxBiomass * 16);
-        normalized = Math.Clamp(normalized, 0, 16);
+        var normalized = Math.Round(ent.Comp.Chemicals / ent.Comp.MaxChemicals * 18);
+        normalized = Math.Clamp(normalized, 0, 18);
 
         _sprite.LayerSetRsiState((alert.Owner, alert.Comp), AlertVisualLayers.Base, $"{normalized}");
     }

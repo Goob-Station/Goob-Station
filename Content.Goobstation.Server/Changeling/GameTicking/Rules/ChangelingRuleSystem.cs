@@ -94,6 +94,7 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
         // make sure it's initial chems are set to max
         EnsureComp<ChangelingIdentityComponent>(target);
         EnsureComp<ChangelingComponent>(target);
+        EnsureComp<ChangelingChemicalComponent>(target);
 
         // add store
         var store = EnsureComp<StoreComponent>(target);

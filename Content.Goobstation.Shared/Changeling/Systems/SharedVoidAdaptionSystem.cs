@@ -1,4 +1,5 @@
 using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.Temperature;
 using Content.Goobstation.Shared.Atmos.Events;
 using Content.Goobstation.Shared.Body;
@@ -19,14 +20,11 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
-    private EntityQuery<ChangelingIdentityComponent> _lingQuery;
-
     public override void Initialize()
     {
         base.Initialize();
 
-        _lingQuery = GetEntityQuery<ChangelingIdentityComponent>();
-
+        SubscribeLocalEvent<VoidAdaptionComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<VoidAdaptionComponent, ComponentRemove>(OnRemoved);
 
         SubscribeLocalEvent<VoidAdaptionComponent, ResistPressureEvent>(OnGetDangerousPressure);
@@ -34,6 +32,17 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         SubscribeLocalEvent<VoidAdaptionComponent, BeforeTemperatureChange>(BeforeTemperatureChangeAttempt);
         SubscribeLocalEvent<VoidAdaptionComponent, TemperatureImmunityEvent>(OnTemperatureImmunityCheck);
         SubscribeLocalEvent<VoidAdaptionComponent, CheckNeedsAirEvent>(OnCheckNeedsAir);
+
+        SubscribeLocalEvent<VoidAdaptionComponent, ChangelingChemicalRegenEvent>(OnChangelingChemicalRegenEvent);
+    }
+
+    private void OnMapInit(Entity<VoidAdaptionComponent> ent, ref MapInitEvent args)
+    {
+        // reset environment adaptions so changeling transform doesnt mess up stuff like the alerts and modifiers
+        ent.Comp.AdaptingLowPressure = false;
+        ent.Comp.AdaptingLowTemp = false;
+
+        Dirty(ent);
     }
 
     private void OnRemoved(Entity<VoidAdaptionComponent> ent, ref ComponentRemove args)
@@ -42,15 +51,6 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         _alerts.ClearAlert(
             ent,
             ent.Comp.Alert);
-
-        if (!_lingQuery.TryComp(ent, out var ling)
-            || !ent.Comp.AdaptingLowPressure
-            && !ent.Comp.AdaptingLowTemp)
-            return;
-
-        ling.ChemicalRegenMultiplier += ent.Comp.ChemModifierValue;
-        Dirty(ent, ling);
-
     }
 
     #region Event Handlers
@@ -68,11 +68,12 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         {
             DoSituationPopup(ent, ent.Comp.EnterLowPressurePopup);
             TryApplyDebuff(ent);
+
             ent.Comp.AdaptingLowPressure = true;
+            DirtyField(ent, ent.Comp, nameof(VoidAdaptionComponent.AdaptingLowPressure));
         }
 
         args.Cancelled = true;
-
     }
 
     private void OnGetSafePressure(Entity<VoidAdaptionComponent> ent, ref SendSafePressureEvent args)
@@ -84,9 +85,10 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
             return;
 
         ent.Comp.AdaptingLowPressure = false;
+        DirtyField(ent, ent.Comp, nameof(VoidAdaptionComponent.AdaptingLowPressure));
+
         DoSituationPopup(ent, ent.Comp.LeaveLowPressurePopup);
         TryRemoveDebuff(ent);
-
     }
 
     private void BeforeTemperatureChangeAttempt(Entity<VoidAdaptionComponent> ent, ref BeforeTemperatureChange args)
@@ -106,13 +108,17 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         {
             DoSituationPopup(ent, ent.Comp.EnterLowTempPopup);
             TryApplyDebuff(ent);
+
             ent.Comp.AdaptingLowTemp = true;
+            DirtyField(ent, ent.Comp, nameof(VoidAdaptionComponent.AdaptingLowTemp));
         }
         else if (newTemp > compareT
             && lastTemp > safeT + diff
             && ent.Comp.AdaptingLowTemp)
         {
             ent.Comp.AdaptingLowTemp = false;
+            DirtyField(ent, ent.Comp, nameof(VoidAdaptionComponent.AdaptingLowTemp));
+
             DoSituationPopup(ent, ent.Comp.LeaveLowTempPopup);
             TryRemoveDebuff(ent);
         }
@@ -137,6 +143,12 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         args.Cancelled = true;
     }
 
+    private void OnChangelingChemicalRegenEvent(Entity<VoidAdaptionComponent> ent, ref ChangelingChemicalRegenEvent args)
+    {
+        if (ent.Comp.AdaptingLowPressure || ent.Comp.AdaptingLowTemp)
+            args.Modifier -= ent.Comp.ChemModifierValue;
+    }
+
     #endregion
 
     #region Helper Methods
@@ -148,6 +160,7 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         if (!OnFire(ent))
         {
             ent.Comp.FirePopupSent = false;
+            DirtyField(ent, ent.Comp, nameof(VoidAdaptionComponent.FirePopupSent));
 
             // void adaption recovering from fire can have these alerts show up (mainly when in space/vacuum)
             _alerts.ClearAlert(
@@ -165,12 +178,14 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
             || ent.Comp.AdaptingLowTemp
             && !ent.Comp.FirePopupSent)
         {
-            DoSituationPopup(ent, ent.Comp.FirePopup);
+            DoSituationPopup(ent, ent.Comp.FirePopup, PopupType.LargeCaution);
             ent.Comp.FirePopupSent = true;
         }
 
         ent.Comp.AdaptingLowPressure = false;
         ent.Comp.AdaptingLowTemp = false;
+
+        Dirty(ent);
 
         TryRemoveDebuff(ent);
 
@@ -201,15 +216,9 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
 
     private void TryApplyDebuff(Entity<VoidAdaptionComponent> ent)
     {
-        if (!_lingQuery.TryComp(ent, out var ling))
-            return;
-
         if (ent.Comp.AdaptingLowPressure
             || ent.Comp.AdaptingLowTemp)
             return;
-
-        ling.ChemicalRegenMultiplier -= ent.Comp.ChemModifierValue;
-        Dirty(ent, ling);
 
         _alerts.ShowAlert(
             ent,
@@ -218,27 +227,21 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
 
     private void TryRemoveDebuff(Entity<VoidAdaptionComponent> ent)
     {
-        if (!_lingQuery.TryComp(ent, out var ling))
-            return;
-
         if (ent.Comp.AdaptingLowPressure
             || ent.Comp.AdaptingLowTemp)
             return;
-
-        ling.ChemicalRegenMultiplier += ent.Comp.ChemModifierValue;
-        Dirty(ent, ling);
 
         _alerts.ClearAlert(
             ent,
             ent.Comp.Alert);
     }
 
-    private void DoSituationPopup(Entity<VoidAdaptionComponent> ent, LocId id)
+    private void DoSituationPopup(Entity<VoidAdaptionComponent> ent, LocId id, PopupType popupType = PopupType.Small)
     {
         if (_netManager.IsClient)
             return;
 
-        _popup.PopupEntity(Loc.GetString(id), ent, ent);
+        _popup.PopupEntity(Loc.GetString(id), ent, ent, popupType);
     }
     #endregion
 }

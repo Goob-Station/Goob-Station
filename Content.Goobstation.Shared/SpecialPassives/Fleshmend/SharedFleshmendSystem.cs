@@ -47,7 +47,7 @@ public sealed class SharedFleshmendSystem : EntitySystem
         _mobstateQuery = GetEntityQuery<MobStateComponent>();
 
         SubscribeLocalEvent<FleshmendComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<FleshmendComponent, ComponentRemove>(OnRemoved);
+        SubscribeLocalEvent<FleshmendComponent, ComponentShutdown>(OnShutdown);
 
         SubscribeLocalEvent<FleshmendComponent, MobStateChangedEvent>(OnMobStateChange);
     }
@@ -55,17 +55,31 @@ public sealed class SharedFleshmendSystem : EntitySystem
     private void OnMapInit(Entity<FleshmendComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.UpdateTimer = _timing.CurTime + ent.Comp.UpdateDelay;
+        DirtyField(ent, ent.Comp, nameof(FleshmendComponent.UpdateTimer));
 
         if (ent.Comp.Duration.HasValue)
+        {
             ent.Comp.MaxDuration = _timing.CurTime + TimeSpan.FromSeconds((double) ent.Comp.Duration);
+            DirtyField(ent, ent.Comp, nameof(FleshmendComponent.MaxDuration));
+        }
+
+        if (ent.Comp.AlertId != null)
+            _alerts.ShowAlert(
+                ent,
+                (ProtoId<AlertPrototype>) ent.Comp.AlertId,
+                cooldown: ent.Comp.Duration.HasValue ? (_timing.CurTime, ent.Comp.MaxDuration) : null,
+                autoRemove: ent.Comp.Duration.HasValue);
 
         if (_mobstateQuery.TryComp(ent, out var state))
+        {
             ent.Comp.Mobstate = state.CurrentState;
+            DirtyField(ent, ent.Comp, nameof(FleshmendComponent.Mobstate));
+        }
 
         Cycle(ent);
     }
 
-    private void OnRemoved(Entity<FleshmendComponent> ent, ref ComponentRemove args)
+    private void OnShutdown(Entity<FleshmendComponent> ent, ref ComponentShutdown args)
     {
         if (!_netManager.IsClient) // it'll throw a warning otherwise
             RemoveFleshmendEffects(ent);
@@ -78,9 +92,6 @@ public sealed class SharedFleshmendSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         var query = EntityQueryEnumerator<FleshmendComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
@@ -92,6 +103,7 @@ public sealed class SharedFleshmendSystem : EntitySystem
                 continue;
 
             comp.UpdateTimer = _timing.CurTime + comp.UpdateDelay;
+            Dirty(uid, comp);
 
             Cycle((uid, comp));
         }
@@ -113,6 +125,7 @@ public sealed class SharedFleshmendSystem : EntitySystem
     private void OnMobStateChange(Entity<FleshmendComponent> ent, ref MobStateChangedEvent args)
     {
         ent.Comp.Mobstate = args.NewMobState;
+        DirtyField(ent, ent.Comp, nameof(FleshmendComponent.Mobstate));
     }
 
     #endregion
@@ -189,6 +202,9 @@ public sealed class SharedFleshmendSystem : EntitySystem
 
     private void DoFleshmendSound(Entity<FleshmendComponent> ent)
     {
+        if (_netManager.IsClient) // a necessary evil im afraid
+            return;
+
         var audioParams = AudioParams.Default.WithLoop(true).WithVolume(-3f);
         var source = _audio.PlayPredicted(ent.Comp.PassiveSound, ent, null, audioParams);
         ent.Comp.SoundSource = source?.Entity;

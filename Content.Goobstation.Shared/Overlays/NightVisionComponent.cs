@@ -18,6 +18,9 @@ public sealed partial class NightVisionComponent : SwitchableVisionOverlayCompon
     public override EntProtoId? ToggleAction { get; set; } = "ToggleNightVision";
 
     public override Color Color { get; set; } = Color.FromHex("#98FB98");
+
+    [DataField]
+    public float LightRadius = 20f;
 }
 
 public sealed partial class ToggleNightVisionEvent : InstantActionEvent;

@@ -46,6 +46,7 @@ public sealed class ChangelingArmorTest
 
         var urist = EntityUid.Invalid;
         ChangelingIdentityComponent changelingIdentity;
+        ChangelingChemicalComponent changelingChemical;
         Entity<ActionComponent> armorAction = (EntityUid.Invalid, null);
 
         await server.WaitPost(() =>
@@ -55,9 +56,10 @@ public sealed class ChangelingArmorTest
 
             // Make urist a changeling
             changelingIdentity = entMan.EnsureComponent<ChangelingIdentityComponent>(urist);
+            changelingChemical = entMan.EnsureComponent<ChangelingChemicalComponent>(urist);
             changelingIdentity.TotalAbsorbedEntities += 10;
-            changelingIdentity.MaxChemicals = 1000;
-            changelingIdentity.Chemicals = 1000;
+            changelingChemical.MaxChemicals = 1000;
+            changelingChemical.Chemicals = 1000;
 
             // Give urist chitinous armor action
             var armorActionEntityNullable = actionSys.AddAction(urist, actionProto);

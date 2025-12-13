@@ -15,6 +15,7 @@ namespace Content.Goobstation.Shared.Changeling.Systems;
 public sealed class ChangelingGunSystem : EntitySystem
 {
     [Dependency] private readonly SharedGunSystem _guns = default!;
+    [Dependency] private readonly SharedChangelingChemicalSystem _chem = default!;
 
     public override void Initialize()
     {
@@ -28,7 +29,7 @@ public sealed class ChangelingGunSystem : EntitySystem
 
         var parent = Transform(uid).ParentUid;
 
-        if (!TryComp(parent, out ChangelingIdentityComponent? ling))
+        if (!TryComp(parent, out ChangelingChemicalComponent? chemComp))
             return;
 
         if (component.FireCost == 0)
@@ -38,8 +39,8 @@ public sealed class ChangelingGunSystem : EntitySystem
             return;
         }
 
-        args.Capacity = (int) (ling.MaxChemicals / component.FireCost);
-        args.Count = (int) (ling.Chemicals / component.FireCost);
+        args.Capacity = (int) (chemComp.MaxChemicals / component.FireCost);
+        args.Count = (int) (chemComp.Chemicals / component.FireCost);
     }
 
     private void OnChangelingTakeAmmo(Entity<ChangelingChemicalsAmmoProviderComponent> ent, ref TakeAmmoEvent args)
@@ -48,20 +49,20 @@ public sealed class ChangelingGunSystem : EntitySystem
 
         var parent = Transform(uid).ParentUid;
 
-        if (!TryComp(parent, out ChangelingIdentityComponent? ling))
+        if (!TryComp(parent, out ChangelingChemicalComponent? chemComp))
             return;
 
         for (var i = 0; i < args.Shots; i++)
         {
-            if (ling.Chemicals < component.FireCost)
+            if (chemComp.Chemicals < component.FireCost)
                 return;
 
-            ling.Chemicals -= component.FireCost;
+            _chem.UpdateChemicals((ent, chemComp), component.FireCost);
 
             var shot = Spawn(component.Proto, args.Coordinates);
             args.Ammo.Add((shot, _guns.EnsureShootable(shot)));
         }
 
-        Dirty(parent, ling);
+        Dirty(parent, chemComp);
     }
 }
