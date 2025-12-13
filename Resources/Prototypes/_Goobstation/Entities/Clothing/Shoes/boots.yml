@@ -315,6 +315,7 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: StepHeavyBoots #trol
+  - type: Matchbox #stole component from jackboots
   - type: ItemSlots # Lets it store items like jackboots despite being paranted from galoshes, consistentcy
     slots:
       item:
