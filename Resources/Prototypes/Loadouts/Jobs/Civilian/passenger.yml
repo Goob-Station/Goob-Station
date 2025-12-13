@@ -110,7 +110,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobPassenger
-      time: 288000 # 80 hrs, as requested in bounty
+      time: 288000 # 80 hrs
 
 # Face
 - type: loadout
