@@ -285,6 +285,18 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                         Orientation="Vertical">
                     </BoxContainer>
 
+                    <!-- Goobstation Change -->
+                    <PanelContainer Name="DiseasesDivider"
+                                    Visible="False"
+                                    StyleClasses="LowDivider"/>
+
+                    <BoxContainer Name="DiseasesContainer"
+                                Visible="False"
+                                Margin="0 5"
+                                Orientation="Vertical">
+                    </BoxContainer>
+                    <!-- Goobstation Change End -->
+
                 </BoxContainer>
             </ScrollContainer>
             <customControls:VSeparator VerticalExpand="True" StyleClasses="LowDivider" />

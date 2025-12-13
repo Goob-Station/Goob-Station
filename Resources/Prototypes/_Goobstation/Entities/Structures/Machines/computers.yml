@@ -1,0 +1,38 @@
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerVirology
+  name: virology console
+  description: Used to view information about analyzed diseases and to name them.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: viro
+    - map: ["computerLayerKeys"]
+      state: med_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#00BB00"
+  - type: Computer
+    board: VirologyComputerCircuitboard
+  # - type: ActivatableUI # TODO virology UI
+  #   key: enum.VirologyConsoleUIKey.Key
+  - type: UserInterface
+    interfaces:
+        # enum.VirologyConsoleUIKey.Key: # TODO virology UI
+        #   type: VirologyConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
+  # - type: VirologyConsole # TODO virology UI
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: VirologyServer
+  - type: WirelessNetworkConnection
+    range: 1200

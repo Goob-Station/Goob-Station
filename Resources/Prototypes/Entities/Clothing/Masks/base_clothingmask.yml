@@ -67,6 +67,14 @@
   - type: Tag # goob edit
     tags:
     - Mask
+  # Goobstation
+  - type: DiseaseProtection # light protection for all masks
+    incoming:
+      chanceMultipliers:
+        Aerial: 0.8
+    outgoing:
+      chanceMultipliers:
+        Aerial: 0.6
 
 - type: entity
   abstract: true
