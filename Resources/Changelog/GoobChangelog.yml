@@ -19308,3 +19308,11 @@ Entries:
       message: made Santa anoms more common for December
   id: 2179
   time: '2025-12-13T23:45:35.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Energy surgery tools now do their job slightly faster (2x modifier > 3x
+        speed modifier)
+  id: 2180
+  time: '2025-12-13T23:45:59.0000000+00:00'
