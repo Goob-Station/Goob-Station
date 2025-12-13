@@ -52,3 +52,13 @@
   cost: 6000
   category: cargoproduct-category-name-service
   group: market
+
+- type: cargoProduct
+  id: RadioAdsCrateCargo
+  icon:
+    sprite: Objects/Misc/cd.rsi
+    state: icon
+  product: CrateRadioStationAds
+  cost: 3000
+  category: cargoproduct-category-name-service
+  group: market

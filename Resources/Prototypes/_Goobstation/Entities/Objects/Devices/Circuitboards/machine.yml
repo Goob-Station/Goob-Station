@@ -75,3 +75,59 @@
       BorgArm:
         amount: 1
         defaultPrototype: LeftArmBorg
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: VinylPlayerCircuitboard
+  name: vinyl player machine board
+  description: A machine printed circuit board for a vinyl player.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: VinylPlayer
+    stackRequirements:
+      Manipulator: 3
+      Steel: 1
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: TapeDeckCircuitboard
+  name: tape deck machine board
+  description: A machine printed circuit board for a tape deck.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: TapeDeck
+    stackRequirements:
+      Manipulator: 5
+      Steel: 3
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: StationRadioServerCircuitboard
+  name: radio station server machine board
+  description: A machine printed circuit board for a radio station server.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: StationRadioServer
+    stackRequirements:
+      Manipulator: 5
+      Steel: 10
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: StationRadioRigCircuitboard
+  name: radio station rig machine board
+  description: A machine printed circuit board for a radio station rig.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: StationRadioRig
+    stackRequirements:
+      Manipulator: 10
+      Steel: 20

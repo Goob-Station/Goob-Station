@@ -1,0 +1,9 @@
+- files: ["AirportLounge.ogg", "BoogieParty.ogg", "Corncob.ogg", "DeadlyRoulette.ogg", "JingleBells.ogg", "LateNightRadio.ogg", "MesmerizingGalaxyLoop.ogg", "SpaceJazz.ogg", "VibingOverVenus.ogg, NightInVenice.ogg, BurnTheWorldWaltz.ogg, FeralAngelWaltz.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "music by kevin macleod"
+  source: "https://incompetech.com/music/royalty-free/music.html"
+
+- files: ["peakasshole.ogg"]
+  license: "CC-BY-SA-4.0"
+  copyright: "made by lucifermkshelter (discord)"
+  source: "https://github.com/LuciferEOS"

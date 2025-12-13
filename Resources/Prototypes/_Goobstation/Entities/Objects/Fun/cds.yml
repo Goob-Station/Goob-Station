@@ -1,0 +1,224 @@
+- type: entity
+  name: cd disk
+  description: A cd disk, usually contains ads.
+  id: BaseCdDisk
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Vinyl
+  - type: Sprite
+    sprite: Objects/Misc/cd.rsi
+    state: icon
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 12
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseCdDisk
+  name: cd disk (Danitos Burritos)
+  id: CdDiskDanitosBurritos
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/danitos_burritos.ogg
+
+- type: entity
+  parent: BaseCdDisk
+  name: cd disk (bill movie)
+  id: CdDiskBillMovie
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/bill_movie.ogg
+
+- type: entity
+  parent: BaseCdDisk
+  name: cd disk (captain training PSA)
+  id: CdDiskCapTraining
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/captain_training.ogg
+
+- type: entity
+  parent: BaseCdDisk
+  name: cd disk (Cargonia)
+  id: CdDiskCargonia
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/Cargonia.ogg
+
+- type: entity
+  parent: BaseCdDisk
+  name: cd disk (Chemistry)
+  id: CdDiskChemistry
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/Chemistry.ogg
+
+- type: entity
+  parent: BaseCdDisk
+  name: cd disk (cloning PSA)
+  id: CdDiskCloningPsa
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/cloning_psa.ogg
+
+- type: entity
+  parent: BaseCdDisk
+  name: cd disk (Dans Tickets)
+  id: CdDiskDansTickets
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/dans_tickets.ogg
+
+- type: entity
+  parent: BaseCdDisk
+  name: cd disk (grones)
+  id: CdDiskGrones
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/grones.ogg
+
+- type: entity
+  parent: BaseCdDisk
+  name: cd disk (Pope Crunch Cereal)
+  id: CdDiskPopeCrunchCereal
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/pope_crunch_cereal.ogg
+
+- type: entity
+  parent: BaseCdDisk
+  name: cd disk (Quik Noodles)
+  id: CdDiskQuikNoodles
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/quik_noodles.ogg
+
+- type: entity
+  parent: BaseCdDisk
+  name: cd disk (robotics)
+  id: CdDiskRobotics
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/Robotics.ogg
+
+- type: entity
+  parent: BaseCdDisk
+  name: cd disk (security psa)
+  id: CdDiskSecurityPsa
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/security_psa.ogg
+
+# the weird stuff
+
+- type: entity
+  parent: BaseCdDisk
+  id: CdDiskWeird
+  abstract: true
+  name: weird cd disk
+  description: A weird cd disk, something tells you that this one doesn't contain ads.
+
+- type: entity
+  parent: CdDiskWeird
+  name: cd disk (commander announcement)
+  id: CdDiskCommanderAnnouncement
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/misc/commander_announcement.ogg
+
+- type: entity
+  parent: CdDiskWeird
+  name: cd disk (commander figurines)
+  id: CdDiskCommanderFigurines
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/misc/commander_figurines.ogg
+
+- type: entity
+  parent: CdDiskWeird
+  name: cd disk (commander resignation)
+  id: CdDiskCommanderResignation
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/misc/commander_resignation.ogg
+
+- type: entity
+  parent: CdDiskWeird
+  name: cd disk (commander support)
+  id: CdDiskCommanderSupport
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/misc/commander_support.ogg
+
+- type: entity
+  parent: CdDiskWeird
+  name: cd disk (trial of Heisenbee)
+  id: CdDiskHeisenbeeTrial
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/misc/trial_of_heisenbee.ogg
+
+- type: entity
+  parent: CdDiskWeird
+  name: cd disk (xg onboarding 1)
+  id: CdDiskXgOnboarding1
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/misc/xg_onboarding1.ogg
+
+- type: entity
+  parent: CdDiskWeird
+  name: cd disk (xg onboarding 2)
+  id: CdDiskXgOnboarding2
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/misc/xg_onboarding2.ogg
+
+- type: entity
+  parent: CdDiskWeird
+  name: cd disk (xg onboarding 3)
+  id: CdDiskXgOnboarding3
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/misc/xg_onboarding3.ogg
+
+
+- type: entity
+  parent: CdDiskWeird
+  name: cd disk (xg onboarding 4)
+  id: CdDiskXgOnboarding4
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/misc/xg_onboarding4.ogg

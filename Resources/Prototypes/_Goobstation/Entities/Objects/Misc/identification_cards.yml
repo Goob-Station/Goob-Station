@@ -343,3 +343,15 @@
     - state: idroboticist
   - type: PresetIdCard
     job: Roboticist
+
+- type: entity
+  parent: IDCardStandard
+  id: RadioHostIDCard
+  name: radio host ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idradiohost
+  - type: PresetIdCard
+    job: RadioHost
