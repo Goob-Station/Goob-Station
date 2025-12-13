@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Server.StationEvents.Components;
 using Content.Goobstation.Shared.StationEvents;
 using Content.Shared.GameTicking.Components;
@@ -24,27 +25,10 @@ public sealed partial class GameDirectorSystem
         var weightList = _prototypeManager.Index(scheduler.RoundStartAntagsWeightTable);
 
         if (!scheduler.DualAntags)
-        {
             SpawnSingleAntag(weightList, playerCount);
-        }
         else
-        {
             SpawnDualAntags(weightList, playerCount);
-        }
     }
-
-    /// <summary>
-    /// Gets the player count for antag selection (debug or actual)
-    /// </summary>
-    private int GetPlayerCount()
-    {
-#if RELEASE
-        return _configManager.GetCVar(GoobCVars.GameDirectorDebugPlayerCount);
-#else
-        return GetTotalPlayerCount(_playerManager.Sessions);
-#endif
-    }
-
     /// <summary>
     /// Spawns a single antag game mode
     /// </summary>

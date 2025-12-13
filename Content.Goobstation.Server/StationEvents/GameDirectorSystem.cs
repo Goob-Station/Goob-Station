@@ -49,12 +49,14 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
     private ISawmill _sawmill = default!;
+    private int _gameDirectorDebugPlayerCount;
 
     public override void Initialize()
     {
         base.Initialize();
         _sawmill = _log.GetSawmill("game_rule");
         SubscribeLocalEvent<GameDirectorComponent, EntityUnpausedEvent>(OnUnpaused);
+        Subs.CVar(_configManager, GoobCVars.GameDirectorDebugPlayerCount, x => _gameDirectorDebugPlayerCount = x, true);
     }
 
     private static void OnUnpaused(EntityUid uid, GameDirectorComponent component, ref EntityUnpausedEvent args)
@@ -66,7 +68,6 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
     protected override void Added(EntityUid uid, GameDirectorComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         ResetMetrics();
-
         TrySpawnRoundstartAntags(scheduler); // Roundstart antags need to be selected in the lobby
         if(TryComp<SelectedGameRulesComponent>(uid,out var selectedRules))
             SetupEvents(scheduler, CountActivePlayers(), selectedRules);

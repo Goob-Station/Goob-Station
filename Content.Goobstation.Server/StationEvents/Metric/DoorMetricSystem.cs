@@ -68,7 +68,9 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
         "Calculated chaos value contributed by power status.");
 
 
-    public override ChaosMetrics CalculateChaos(EntityUid metric_uid, DoorMetricComponent component,
+    public override ChaosMetrics CalculateChaos(
+        EntityUid metricUid,
+        DoorMetricComponent component,
         CalculateChaosEvent args)
     {
         var firelockQ = GetEntityQuery<FirelockComponent>();
@@ -134,16 +136,17 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
 
     private static double CalculateDoorPower(ApcPowerReceiverComponent power, double powerCount, ref double doorCounter)
     {
-        if (power is { Recalculate: true, NeedsPower: false }) // this was counting powered doors before
-        {
+        if (power is { NeedsPower: true, Powered: false })
             powerCount += 1;
-        }
 
         doorCounter += 1;
         return powerCount;
     }
 
-    private double CalculateAirlock(EntityQuery<AirlockComponent> airlockQ, EntityUid uid, DoorComponent door, double emagWeightedCount,
+    private double CalculateAirlock(EntityQuery<AirlockComponent> airlockQ,
+        EntityUid uid,
+        DoorComponent door,
+        double emagWeightedCount,
         ref double airlockCounter)
     {
         if (!airlockQ.TryGetComponent(uid, out var airlock))
@@ -159,19 +162,19 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
         return emagWeightedCount;
     }
 
-    private static double CalculateFirelock(EntityQuery<FirelockComponent> firelockQ, EntityUid uid, double fireCount,
-        ref double pressureCount, ref double firelockCounter)
+    private static double CalculateFirelock(EntityQuery<FirelockComponent> firelockQ,
+        EntityUid uid,
+        double fireCount,
+        ref double pressureCount,
+        ref double firelockCounter)
     {
         if (!firelockQ.TryGetComponent(uid, out var firelock))
             return fireCount;
+
         if (firelock.Temperature)
-        {
             fireCount += 1;
-        }
         else if (firelock.Pressure)
-        {
             pressureCount += 1;
-        }
 
         firelockCounter += 1;
 

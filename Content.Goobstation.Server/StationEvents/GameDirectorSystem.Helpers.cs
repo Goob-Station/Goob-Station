@@ -8,6 +8,7 @@ namespace Content.Goobstation.Server.StationEvents;
 
 public sealed partial class GameDirectorSystem
 {
+
     /// <summary>
     ///   Count the active players and ghosts on the server.
     ///   Players gates which stories and events are available
@@ -32,6 +33,18 @@ public sealed partial class GameDirectorSystem
         count.Players += _event.PlayerCountBias;
 
         return count;
+    }
+
+    /// <summary>
+    /// Gets the player count for antag selection (debug or actual)
+    /// </summary>
+    private int GetPlayerCount()
+    {
+#if DEBUG
+        return _gameDirectorDebugPlayerCount;
+#else
+        return GetTotalPlayerCount(_playerManager.Sessions);
+#endif
     }
 
     /// <summary>

@@ -109,7 +109,8 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
         return threat > component.maxItemThreat ? component.maxItemThreat : threat;
     }
 
-    public override ChaosMetrics CalculateChaos(EntityUid metric_uid, CombatMetricComponent combatMetric,
+    public override ChaosMetrics CalculateChaos(EntityUid metricUid,
+        CombatMetricComponent combatMetric,
         CalculateChaosEvent args)
     {
         // Add up the pain of all the puddles
