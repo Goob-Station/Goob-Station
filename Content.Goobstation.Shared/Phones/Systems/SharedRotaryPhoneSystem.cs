@@ -2,6 +2,7 @@ using Content.Goobstation.Shared.Phones.Components;
 using Content.Goobstation.Shared.Phones.Events;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
+using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -15,6 +16,7 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<RotaryPhoneComponent, PhoneRingEvent>(OnRing);
@@ -53,6 +55,8 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
     {
         var audio = _audio.PlayPvs(comp.RingSound, uid, AudioParams.Default.WithLoop(true));
 
+        _popupSystem.PopupPredicted(Loc.GetString("phone-popup-ring", ("location", args.otherPhoneComponent.Name ?? "Unknown")), uid, args.phone, PopupType.Medium);
+
         comp.ConnectedPhone = args.phone;
 
         if(audio != null)
@@ -62,10 +66,10 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
     private void OnPickup(EntityUid uid, RotaryPhoneComponent comp, EntGotRemovedFromContainerMessage args)
     {
 
-        comp.Engaged = true;
-
-        if (!TryComp<RotaryPhoneComponent>(comp.ConnectedPhone, out var otherPhone) || comp.ConnectedPhone == null)
+        if (!TryComp<RotaryPhoneComponent>(comp.ConnectedPhone, out var otherPhone) || comp.ConnectedPhone == null || !TryComp<RotaryPhoneHolderComponent>(args.Container.Owner, out var _))
             return;
+
+        comp.Engaged = true;
 
         comp.Connected = true;
         otherPhone.Connected = true;
@@ -86,6 +90,15 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         if (comp.ConnectedPhone != null)
         {
             RaiseLocalEvent(comp.ConnectedPhone.Value, new PhoneHungUpEvent());
+
+            if (!comp.Connected && TryComp<RotaryPhoneComponent>(comp.ConnectedPhone, out var otherPhone))
+            {
+                if (otherPhone.SoundEntity != null)
+                    otherPhone.SoundEntity = _audio.Stop(otherPhone.SoundEntity);
+
+                otherPhone.ConnectedPhone = null;
+                otherPhone.Engaged = false;
+            }
         }
 
         if (comp.SoundEntity != null)
@@ -97,6 +110,9 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
     }
     private void OnGotHungUp(EntityUid uid, RotaryPhoneComponent comp, PhoneHungUpEvent args)
     {
+        if(!comp.Connected)
+            return;
+
         var audio = _audio.PlayPvs(comp.HandUpSoundLocal, uid);
         if (audio != null)
             comp.SoundEntity = audio.Value.Entity;

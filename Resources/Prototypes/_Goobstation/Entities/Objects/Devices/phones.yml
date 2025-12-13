@@ -12,7 +12,7 @@
     range: 1
   - type: Speech
     speechVerb: Robotic
-    speechSounds: Vending
+    speechSounds: RMCPhoneSpeakSounds
   - type: UserInterface
     interfaces:
       enum.PhoneUiKey.Key:

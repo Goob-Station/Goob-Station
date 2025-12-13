@@ -3,6 +3,7 @@ using Content.Goobstation.Shared.Phones.Events;
 using Content.Server.Chat.Managers;
 using Content.Server.Radio.Components;
 using Content.Server.Speech;
+using Content.Shared.Audio;
 using Content.Shared.Chat;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -28,6 +29,7 @@ public sealed class RotaryPhoneSystem : EntitySystem
 
     private void OnKeyPadPressed(EntityUid uid, RotaryPhoneComponent comp, PhoneKeypadMessage args)
     {
+        PlayPhoneSound(uid, args.Value, comp);
         comp.DialedNumber = (comp.DialedNumber ?? 0) * 10 + args.Value;
         Dirty(uid, comp);
     }
@@ -36,6 +38,17 @@ public sealed class RotaryPhoneSystem : EntitySystem
     {
         comp.DialedNumber = null;
         Dirty(uid, comp);
+    }
+    private void PlayPhoneSound(EntityUid uid, int number, RotaryPhoneComponent? component = null) // Stolen from nuke code
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        var semitoneShift = number - 2;
+
+        var opts = component.KeypadPressSound.Params;
+        opts = AudioHelpers.ShiftSemitone(opts, semitoneShift).AddVolume(-7f);
+        _audio.PlayPvs(component.KeypadPressSound, uid, opts);
     }
 
     private void OnDial(EntityUid uid, RotaryPhoneComponent comp, PhoneDialedMessage args)
@@ -76,6 +89,8 @@ public sealed class RotaryPhoneSystem : EntitySystem
         if(HasComp<RotaryPhoneComponent>(args.Source) || !_timing.IsFirstTimePredicted || args.Source == uid || HasComp<RadioSpeakerComponent>(args.Source) || comp.ConnectedPhone == null || !comp.Connected)
             return;
 
-        _chatSystem.TrySendInGameICMessage(comp.ConnectedPhone.Value, args.Message, InGameICChatType.Speak, hideChat: true, hideLog: true, checkRadioPrefix: false);
+        var entityMeta = MetaData(args.Source);
+
+        _chatSystem.TrySendInGameICMessage(comp.ConnectedPhone.Value, args.Message, InGameICChatType.Speak, hideChat: true, hideLog: true, checkRadioPrefix: false, nameOverride: entityMeta.EntityName);
     }
 }

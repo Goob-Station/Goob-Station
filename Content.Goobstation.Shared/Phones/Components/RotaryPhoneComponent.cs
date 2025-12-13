@@ -41,10 +41,18 @@ public sealed partial class RotaryPhoneComponent : Component
     public string? Category;
 
     /// <summary>
+    /// What should the phone be called
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public string? Name;
+
+    /// <summary>
     /// The connected phone, if any
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? ConnectedPhone;
+
+    public SoundSpecifier KeypadPressSound = new SoundPathSpecifier("/Audio/_RMC14/Phone/Tone1.ogg");
 
     [DataField, AutoNetworkedField]
     public SoundPathSpecifier RingSound = new SoundPathSpecifier("/Audio/_RMC14/Phone/telephone_ring.ogg");

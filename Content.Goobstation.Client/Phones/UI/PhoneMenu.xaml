@@ -1,14 +1,17 @@
-<DefaultWindow
+<controls1:FancyWindow
     xmlns="https://spacestation14.io"
     xmlns:controls="clr-namespace:Content.Goobstation.Client.Phones.UI"
-    Title="Telephone" MinSize="200 100">
+    xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+    Title="Telephone" MinSize="135 90" Resizable="False">
     <BoxContainer Orientation="Vertical">
-        <BoxContainer Orientation="Horizontal" >
-            <GridContainer Columns="3"
-                           Name="KeypadGrid">
-                <!-- Keypad is filled by code -->
-            </GridContainer>
-            <RichTextLabel Name="DialNumber" Text="" Access="Public"></RichTextLabel>
-        </BoxContainer>
+        <controls1:StripeBack>
+            <BoxContainer Orientation="Horizontal" Align="Center">
+                <GridContainer Columns="3"
+                               Name="KeypadGrid">
+                    <!-- Keypad is filled by code -->
+                </GridContainer>
+            </BoxContainer>
+        </controls1:StripeBack>
+        <RichTextLabel Name="DialNumber" Text="" Access="Public" HorizontalAlignment="Center"></RichTextLabel>
     </BoxContainer>
-</DefaultWindow>
+</controls1:FancyWindow>
