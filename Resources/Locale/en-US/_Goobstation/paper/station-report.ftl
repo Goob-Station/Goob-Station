@@ -16,3 +16,6 @@ station-report-text =
     • [color=#c96dbf][bold]Research Department Report[/bold][/color]
     >[mono][/mono]
     Signed by: [color=Green]Nanotrasen Representative name here[/color]
+
+station-report-end-round-text = {$bodytext}
+                                {"["}italic]NTR station report of round: {$roundid}{"["}/italic]
