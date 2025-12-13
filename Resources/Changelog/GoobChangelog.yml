@@ -19264,3 +19264,9 @@ Entries:
       message: Fixed Yowie Kriol not being organized in the language menu as librarian.
   id: 2174
   time: '2025-12-13T08:20:28.0000000+00:00'
+- author: SkippyMcSkips
+  changes:
+    - type: Fix
+      message: His Holy Chainsaw won't vanish when wielded anymore
+  id: 2175
+  time: '2025-12-13T08:21:47.0000000+00:00'
