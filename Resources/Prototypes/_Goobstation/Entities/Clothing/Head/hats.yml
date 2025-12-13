@@ -377,3 +377,21 @@
     - Recyclable
     - WhitelistChameleon
     - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatTinfoilHat
+  name: tinfoil hat
+  description: A high tech helmet crafted from aluminum foil.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/tinfoil_hat.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/tinfoil_hat.rsi
+  - type: Tag
+    tags:
+    - Recyclable
+    - WhitelistChameleon
+  - type: ClothingGrantComponent
+    component:
+      - type: PossessionImmune

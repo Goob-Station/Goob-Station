@@ -59,6 +59,11 @@
   copyright: "Taken from /tg/station"
   source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/magic/demon_attack1.ogg"
 
+- files: ["ambiatm1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/ambience/misc/ambiatm1.ogg"
+
 - files: ["curse.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from /tg/station"

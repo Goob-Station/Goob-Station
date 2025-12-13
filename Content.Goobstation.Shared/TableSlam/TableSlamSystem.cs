@@ -94,7 +94,7 @@ public sealed class TableSlamSystem : EntitySystem
             return;
 
         var massContest = _contestsSystem.MassContest(ent, ent.Comp.Pulling.Value);
-        var attemptChance = Math.Clamp(1 * massContest, 0, 1);
+        var attemptChance = Math.Clamp(0.5f * massContest, 0f, 1f);
         var attemptRoundedToNearestQuarter = Math.Round(attemptChance * 4, MidpointRounding.ToEven) / 4;
         if(_random.Prob((float) attemptRoundedToNearestQuarter)) // base chance to table slam someone is 1 if your mass ratio is less than 1 then your going to have a harder time slamming somebody.
             TryTableSlam((ent.Comp.Pulling.Value, pullableComponent), ent, target);
