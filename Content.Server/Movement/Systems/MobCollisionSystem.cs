@@ -15,6 +15,7 @@ public sealed class MobCollisionSystem : SharedMobCollisionSystem
         base.Initialize();
         _actorQuery = GetEntityQuery<ActorComponent>();
         SubscribeLocalEvent<MobCollisionComponent, MobCollisionMessage>(OnServerMobCollision);
+        SubscribeLocalEvent<MobCollisionComponent, ComponentStartup>(OnStartup);
     }
 
     private void OnServerMobCollision(Entity<MobCollisionComponent> ent, ref MobCollisionMessage args)
@@ -24,7 +25,7 @@ public sealed class MobCollisionSystem : SharedMobCollisionSystem
 
     public override void Update(float frameTime)
     {
-        if (!CfgManager.GetCVar(CCVars.MovementMobPushing))
+        if (!CfgManager.GetCVar(CCVars.MovementMobPushing) && !_mobCollisionSpell.MobCollisionEnabled())
             return;
 
         var query = EntityQueryEnumerator<MobCollisionComponent>();
@@ -47,5 +48,15 @@ public sealed class MobCollisionSystem : SharedMobCollisionSystem
             Direction = direction,
             SpeedModifier = speedMod,
         });
+    }
+
+    private void OnStartup(Entity<MobCollisionComponent> ent,ref ComponentStartup args)
+    {
+        if (_mobCollisionSpell.MobCollisionEnabled())
+        {
+            ent.Comp.EnabledViaEvent = true;
+
+        }
+        Dirty(ent);
     }
 }
