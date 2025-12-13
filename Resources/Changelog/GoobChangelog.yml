@@ -19216,3 +19216,9 @@ Entries:
       message: Redundant pumps removed from Fland SM loop
   id: 2167
   time: '2025-12-13T03:06:39.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: EE Verbs will now show up in the bottom of the Verb menu.
+  id: 2168
+  time: '2025-12-13T03:22:25.0000000+00:00'
