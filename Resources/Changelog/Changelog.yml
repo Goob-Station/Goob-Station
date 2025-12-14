@@ -4673,3 +4673,17 @@ Entries:
   id: 9283
   time: '2025-12-13T19:13:25.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40330
+- author: NoreUhh
+  changes:
+  - message: Vulpkanin hair no longer clips through hoods and hardsuits.
+    type: Fix
+  id: 9284
+  time: '2025-12-14T00:55:00.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41827
+- author: ScarKy0
+  changes:
+  - message: Cyborgs no longer lose access when they run out of power.
+    type: Tweak
+  id: 9285
+  time: '2025-12-14T00:55:00.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41844
