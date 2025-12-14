@@ -102,6 +102,7 @@
     - BibleSet
     - QuaranSet
     - TanakhSet
+    - ClockworkSet
     maxSelectedSets: 1
 
 - type: selectableSet
@@ -133,6 +134,16 @@
     state: scroll2
   content:
   - BibleTanakh
+
+- type: selectableSet
+  id: ClockworkSet
+  name: The Clockwork Slab
+  description: A link between you and the Celestial Derelict. It contains information, recites scripture, and is your most vital tool as a Servant.
+  sprite:
+    sprite: _ShitChap/Objects/clockwork_slab.rsi
+    state: icon
+  content:
+  - BibleSlabClockwork
 ##END SET SELECTION
 
 - type: entity
