@@ -1,0 +1,122 @@
+- type: entity
+  name: NY-6 'Grognard'
+  parent: [BaseItem, BaseSecurityContraband]
+  id: Stunsword
+  description: A mass produced, durable plasteel blade made for only the most experienced and seasoned security officers
+  components:
+  - type: Item
+    sprite: _Omu/Objects/Weapons/Melee/stunsword.rsi
+    size: Ginormous # Use your sheath.
+    heldPrefix: off
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Melee/stunsword.rsi
+    state: icon
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 10
+    autoRechargePause: false
+    autoRechargePauseTime: 25
+  - type: DisarmMalus
+  - type: Tag 
+    tags:
+    - Stunsword
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Slash: 20
+      woundSeverityMultipliers:
+        Slash: 1.5
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    angle: 60
+    animation: WeaponArcThrust
+  - type: ItemSwitch
+    needsPower: true
+    defaultState: off
+    state: "off"
+    showLabel: true
+    states:
+      off: !type:ItemSwitchState
+        verb: off
+        energyPerUse: 0
+        sprite:
+          sprite: _Omu/Objects/Weapons/Melee/stunsword.rsi
+          state: icon
+        components:
+        - type: MeleeWeapon
+          wideAnimationRotation: -135
+          attackRate: 1
+          damage:
+            types:
+              Slash: 20
+            woundSeverityMultipliers:
+              Slash: 1.5
+          soundHit:
+            path: /Audio/Weapons/bladeslice.ogg
+          angle: 60
+          animation: WeaponArcThrust
+
+      stun: !type:ItemSwitchState
+        verb: stun
+        energyPerUse: 100
+        sprite:
+          sprite: _Omu/Objects/Weapons/Melee/stunsword.rsi
+          state: stun-icon
+        components:
+        - type: MeleeWeapon
+          wideAnimationRotation: -135
+          attackRate: 1
+          damage:
+            types:
+              Shock: 0
+          angle: 60
+          animation: WeaponArcThrust
+          soundHit:
+            path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
+        - type: StaminaDamageOnHit
+          damage: 25
+          overtime: 15
+          lightAttackDamageMultiplier: 3
+          lightAttackOvertimeDamageMultiplier: 0
+        - type: DelayedKnockdownOnHit
+          useDelay: stunbaton
+        - type: UseDelayBlockMelee
+          delays:
+          - stunbaton
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.250
+
+      shock: !type:ItemSwitchState
+        verb: shock
+        energyPerUse: 100 
+        sprite:
+          sprite: _Omu/Objects/Weapons/Melee/stunsword.rsi
+          state: shock-icon
+        components:
+        - type: MeleeWeapon
+          wideAnimationRotation: -135
+          attackRate: 1
+          damage:
+            types:
+              Slash: 10
+              Shock: 10
+            woundSeverityMultipliers:
+              Slash: 1.5
+          angle: 60
+          animation: WeaponArcThrust
+          soundHit:
+            path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.250

@@ -1,0 +1,43 @@
+- type: entity
+  parent: ClothingBeltSheath
+  id: ClothingBeltSheathStunsword
+  name: security sword sheath
+  description: A plain black sheath, made to hold the NY-6 stunsword
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Belt/stunswordsheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _Omu/Clothing/Belt/stunswordsheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - Stunsword
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - Stunsword
+  - type: Appearance
+
+# Belt filled for loadouts
+
+- type: entity
+  id: ClothingBeltSheathStunswordFilled
+  parent: ClothingBeltSheathStunsword
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - Stunsword

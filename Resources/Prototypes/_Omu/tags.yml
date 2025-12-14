@@ -2,6 +2,9 @@
   id: AdvancedEnergyMagAmmo
 
 - type: Tag
+  id: Stunsword
+  
+- type: Tag
   id: HudChemistry
 
 - type: Tag
