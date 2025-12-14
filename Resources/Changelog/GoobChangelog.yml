@@ -19364,3 +19364,9 @@ Entries:
       message: Fixed the grammar of some slot machine pop-up messages
   id: 2187
   time: '2025-12-14T18:23:55.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed an issue with cavity implants.
+  id: 2188
+  time: '2025-12-14T23:09:52.0000000+00:00'
