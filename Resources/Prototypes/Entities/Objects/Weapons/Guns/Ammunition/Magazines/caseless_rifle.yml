@@ -22,10 +22,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  abstract: true
+  parent: [ BaseItem, BaseSecurityContraband ]
   id: BaseMagazineCaselessRifle
   name: "magazine (9.5mm HP)" # Goob edit
-  parent: [ BaseItem, BaseSecurityContraband ]
-  abstract: true
   components:
   - type: Tag
     tags:
@@ -75,10 +75,10 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
+  abstract: true
+  parent: BaseMagazineCaselessRifle
   id: BaseMagazinePistolCaselessRifle
   name: "pistol magazine (9.5mm HP)" # Goob edit
-  parent: BaseMagazineCaselessRifle
-  abstract: true
   components:
   - type: Tag
     tags:
@@ -120,9 +120,9 @@
     zeroVisible: false
 
 - type: entity
+  parent: BaseMagazinePistolCaselessRifle
   id: MagazinePistolCaselessRifle
   name: "pistol magazine (9.5mm HP)" # Goob edit
-  parent: BaseMagazinePistolCaselessRifle
   description: 10-round magazine for the Cobra pistol. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
@@ -148,10 +148,10 @@
       - state: inhand-right-stripe
 
 - type: entity
+  parent: BaseMagazinePistolCaselessRifle
   id: MagazinePistolCaselessRiflePractice
   name: "pistol magazine (9.5mm practice)" # Goob edit
-  parent: BaseMagazinePistolCaselessRifle
-  description: 10-round magazine for the Cobra pistol. Intended to hold non-harmful chalk ammunition.
+  description: 10-round magazine for the Cobra pistol. Intended to hold harmless practice ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRiflePractice
@@ -181,9 +181,9 @@
         color: "#dbdbdb"
 
 - type: entity
+  parent: BaseMagazineCaselessRifle
   id: MagazineCaselessRifle
   name: "magazine (9.5mm HP)" # Goob edit
-  parent: BaseMagazineCaselessRifle
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRifle
@@ -201,9 +201,9 @@
       - state: inhand-right-mag
 
 - type: entity
+  parent: BaseMagazineCaselessRifle
   id: MagazineCaselessRiflePractice
   name: "magazine (9.5mm practice)" # Goob edit
-  parent: BaseMagazineCaselessRifle
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRiflePractice

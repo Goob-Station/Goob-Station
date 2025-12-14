@@ -113,8 +113,8 @@
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRiflePractice
-  name: ammunition box (9.5mm practice)
-  description: A cardboard box of 9.5mm caseless rounds. Intended to hold non-harmful chalk ammunition.
+  name: ammunition box (9.5mm practice) # Goob and Goob v
+  description: A cardboard box of 9.5mm caseless rounds. Intended to hold harmless practice ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRiflePractice

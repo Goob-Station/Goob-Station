@@ -28,9 +28,9 @@
 
 - type: entity
   id: BulletCaselessRifle
-  name: bullet (9.5mm HP) # Goobstation edit
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
+  name: bullet (9.5mm HP) # Goobstation edit
   components:
   - type: Projectile
     damage:
@@ -40,9 +40,9 @@
 
 - type: entity
   id: BulletCaselessRiflePractice
-  name: bullet (9.5mm practice) # Goobstation edit
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
+  name: bullet (9.5mm practice) # Goobstation edit
   components:
   - type: Projectile
     damage:
