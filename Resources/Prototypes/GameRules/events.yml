@@ -191,6 +191,8 @@
     - id: ParadoxCloneSpawn
     #- id: RevenantSpawn  # GoobStation - removed till rework
     - id: SleeperAgents
+    - id: HereticMidround # Goob
+    - id: ChangelingMidround # Goob
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
@@ -209,7 +211,7 @@
     #- id: TunnelClownMidround # Goobstation
     #- id: WraithMidround # Goobstation - Wraith
     #TODO when midrounds are "reviewed" by the chudmins add them back
-    #TODO When Slasher is ready- id: SlasherSpawn # Goobstation - The Slasher
+    #TODO When Slasher is Ready - id: SlasherSpawn # Goobstation - The Slasher
 
 - type: entity
   id: BaseStationEvent
