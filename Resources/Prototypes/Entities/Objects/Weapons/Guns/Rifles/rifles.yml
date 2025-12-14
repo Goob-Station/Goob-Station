@@ -126,7 +126,6 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeLightRifle
         priority: 1
         whitelist:
           tags:
@@ -204,7 +203,6 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeLightRifle
         priority: 1
         whitelist:
           tags:
@@ -248,7 +246,6 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeRifle
         priority: 1
         whitelist:
           tags:
@@ -298,7 +295,6 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeRifle
         priority: 1
         whitelist:
           tags:
@@ -385,7 +381,6 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeLightRifle # Goob
         priority: 1
         whitelist:
           tags:
