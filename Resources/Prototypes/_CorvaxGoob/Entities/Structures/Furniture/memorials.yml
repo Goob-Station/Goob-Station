@@ -51,4 +51,22 @@
   - type: Anchorable
   - type: Transform
     noRot: true
+
+- type: entity
+  parent: BaseStructure
+  id: KingstonMylesStatue
+  name: Alexander Protez monument
+  description: "A monument to one of the pioneers of the frontier, whose deeds will never be forgotten."
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    offset: "0.0,0.5"
+    sprite: _CorvaxGoob/Structures/Furniture/Memorials/kingston_myles.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: kingston_myles
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: lights
+      shader: unshaded
     
