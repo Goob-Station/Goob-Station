@@ -13,6 +13,6 @@
   id: QuarterzipJumpsuit
   effects:
   - !type:GroupLoadoutEffect
-    proto: GreyTider
+    proto: SophisticatedTider
   equipment:
     jumpsuit: ClothingUniformJumpsuitPassengerQuarterzip
