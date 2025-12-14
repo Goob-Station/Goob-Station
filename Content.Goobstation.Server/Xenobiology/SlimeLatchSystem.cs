@@ -224,12 +224,12 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         // this will be easy however it's important to take MobGrowthSystem into account... possibly we should use layers?
     }
 
-    private void Unlatch(Entity<SlimeComponent> ent)
+    public void Unlatch(Entity<SlimeComponent> ent)
     {
-        if (!ent.Comp.LatchedTarget.HasValue)
+        if (!IsLatched(ent))
             return;
 
-        var target = ent.Comp.LatchedTarget.Value;
+        var target = ent.Comp.LatchedTarget!.Value;
 
         RemCompDeferred<BeingConsumedComponent>(target);
         RemCompDeferred<SlimeDamageOvertimeComponent>(target);

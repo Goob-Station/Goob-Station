@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Goobstation.Shared.Xenobiology.Components.Equipment;
 using Content.Shared.Coordinates;
 using Content.Shared.Emag.Components;
@@ -13,7 +14,6 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Components;
@@ -24,10 +24,8 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.Network;
-using System.Linq;
 
-namespace Content.Goobstation.Shared.Xenobiology.Systems;
+namespace Content.Goobstation.Server.Xenobiology.Systems;
 
 /// <summary>
 /// This handles the XenoVacuum and it's interactions.
@@ -38,12 +36,12 @@ public sealed partial class XenoVacuumSystem : EntitySystem
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly SlimeLatchSystem _latch = default!;
 
     public override void Initialize()
     {
@@ -76,9 +74,6 @@ public sealed partial class XenoVacuumSystem : EntitySystem
 
     private void OnEquippedHand(Entity<XenoVacuumComponent> ent, ref GotEquippedHandEvent args)
     {
-        if (_net.IsClient)
-            return;
-
         if (!TryGetTank(ent, args.User, out var tank) && !tank.HasValue)
             return;
 
@@ -92,9 +87,6 @@ public sealed partial class XenoVacuumSystem : EntitySystem
 
     private void OnUnequippedHand(Entity<XenoVacuumComponent> ent, ref GotUnequippedHandEvent args)
     {
-        if (_net.IsClient)
-            return;
-
         if (!TryGetTank(ent, args.User, out var tank) && !tank.HasValue)
             return;
 
@@ -110,8 +102,7 @@ public sealed partial class XenoVacuumSystem : EntitySystem
     {
         if (!_emag.CompareFlag(args.Type, EmagType.Interaction)
         || _emag.CheckFlag(ent, EmagType.Interaction)
-        || HasComp<EmaggedComponent>(ent)
-        || _net.IsClient)
+        || HasComp<EmaggedComponent>(ent))
             return;
 
         args.Handled = true;
@@ -119,9 +110,6 @@ public sealed partial class XenoVacuumSystem : EntitySystem
 
     private void OnAfterInteract(Entity<XenoVacuumComponent> ent, ref AfterInteractEvent args)
     {
-        if (_net.IsClient)
-            return;
-
         if (args is { Target: { } target, CanReach: true } && HasComp<MobStateComponent>(target))
         {
             TryDoSuction(args.User, target, ent);
@@ -184,8 +172,6 @@ public sealed partial class XenoVacuumSystem : EntitySystem
 
     private bool TryDoSuction(EntityUid user, EntityUid target, Entity<XenoVacuumComponent> vacuum)
     {
-        if (_net.IsClient) return false;
-
         if (!TryGetTank(vacuum, user, out var tank) || !tank.HasValue)
         {
             var noTankPopup = Loc.GetString("xeno-vacuum-suction-fail-no-tank-popup");
@@ -211,6 +197,9 @@ public sealed partial class XenoVacuumSystem : EntitySystem
 
             return false;
         }
+
+        if (TryComp<SlimeComponent>(target, out var slime) && _latch.IsLatched((target, slime)))
+            _latch.Unlatch((target, slime));
 
         if (!_containerSystem.Insert(target, tankComp.StorageTank))
         {
