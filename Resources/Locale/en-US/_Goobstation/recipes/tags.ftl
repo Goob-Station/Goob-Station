@@ -49,3 +49,4 @@ construction-graph-tag-shiv = shiv
 construction-graph-tag-ash = ash
 construction-graph-tag-ice-bucket = ice bucket
 construction-graph-tag-water-bottle = water bottle
+construction-graph-tag-camera-electronics = surveillance camera electronics

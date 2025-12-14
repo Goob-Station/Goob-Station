@@ -19126,3 +19126,199 @@ Entries:
       message: Fixed radio and OOC icons going on an adventure around the chatbox.
   id: 2159
   time: '2025-12-10T07:36:47.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: >-
+        Lavaland mobs now have Weather Immunity so they no longer die to ash
+        storms
+    - type: Fix
+      message: >-
+        Hivelords now are now a part of the lavaland faction so breakaways wont
+        attack their parent
+  id: 2160
+  time: '2025-12-10T18:41:17.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: >-
+        That one random big wreck is now less shit, contains more loot, and is
+        in general looks not like something engis did mid shift.
+  id: 2161
+  time: '2025-12-11T23:28:07.0000000+00:00'
+- author: Hagvan
+  changes:
+    - type: Fix
+      message: >-
+        A lot of damage is not going to the vitals that should have been,
+        causing unintended behavior.
+    - type: Fix
+      message: >-
+        Health monitoring console uses vital damage instead of total damage for
+        status.
+    - type: Fix
+      message: Healing pets.
+    - type: Tweak
+      message: >-
+        Random targeting now always targets vital parts, buff/tweak to
+        simplemobs.
+  id: 2162
+  time: '2025-12-12T16:35:35.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: Updated the list of possible Maintenance Drone names.
+  id: 2163
+  time: '2025-12-13T02:53:31.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Add
+      message: >-
+        Added help buttons to most jobs in the job selection screen, which show
+        parts of the guidebook most helpful for each role.
+    - type: Fix
+      message: >-
+        Fixed the buttons in the NTR's job selection entry being slightly offset
+        to all the others.
+  id: 2164
+  time: '2025-12-13T02:58:44.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Ratvarian null rod and altar variant.
+    - type: Add
+      message: Clockwork slab bible variant.
+    - type: Tweak
+      message: >-
+        Chaplain armor has full coverage, no slowdown, less insane resists and
+        no heat damage penalty.
+    - type: Add
+      message: >-
+        Chaplain can now select one of 8 armor set variants using armaments
+        beacon. 
+  id: 2165
+  time: '2025-12-13T03:00:08.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Tweak
+      message: >-
+        buffed onis attack and defense to be in line with more of their tanky
+        mele build styles, and nerfed their shoving capabilities to compensate 
+  id: 2166
+  time: '2025-12-13T03:06:34.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Chef spawns on Fland were spaced out through kitchen area properly
+    - type: Fix
+      message: Fland Service Lathe room now has power
+    - type: Tweak
+      message: Redundant pumps removed from Fland SM loop
+  id: 2167
+  time: '2025-12-13T03:06:39.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: EE Verbs will now show up in the bottom of the Verb menu.
+  id: 2168
+  time: '2025-12-13T03:22:25.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Removed Second skin
+    - type: Remove
+      message: Reverted all armor balance caused by second skin
+  id: 2169
+  time: '2025-12-13T05:48:36.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: >-
+        Made the radio job icons only show for entities who have job icons
+        in-game. (Plus borgs and stuff)
+  id: 2170
+  time: '2025-12-13T07:51:27.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Fix
+      message: carving SM slivers
+  id: 2171
+  time: '2025-12-13T08:08:06.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Cameras now require a board to construct, and are easier to break.
+  id: 2172
+  time: '2025-12-13T08:11:49.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Add
+      message: >-
+        Mid round lings and heretics are back as well as mid round heretics
+        being buffed slightly 
+  id: 2173
+  time: '2025-12-13T08:19:40.0000000+00:00'
+- author: Gab
+  changes:
+    - type: Fix
+      message: Fixed Yowie Kriol not being organized in the language menu as librarian.
+  id: 2174
+  time: '2025-12-13T08:20:28.0000000+00:00'
+- author: SkippyMcSkips
+  changes:
+    - type: Fix
+      message: His Holy Chainsaw won't vanish when wielded anymore
+  id: 2175
+  time: '2025-12-13T08:21:47.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: >-
+        Made the borg sprites in the Robotics Console show the borg's selected
+        sprite, rather than just the module default.
+  id: 2176
+  time: '2025-12-13T08:25:46.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Fix
+      message: >-
+        Svalinn pistols/machine guns now ACTUALLY deal more damage with better
+        cells.
+  id: 2177
+  time: '2025-12-13T08:29:32.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: >-
+        Split up the Chitinid 'Arms' and 'Legs' combined markings categories
+        into separate left and right categories.
+    - type: Fix
+      message: >-
+        Harpy wings are actually wings now, rather than weirdly shaped right
+        arms. (Renamed the markings category)
+    - type: Fix
+      message: >-
+        Fixed a bunch of bad localisation strings in the character markings
+        menu. ('markings-category-Legs' etc.)
+  id: 2178
+  time: '2025-12-13T23:43:22.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Tweak
+      message: made Santa anoms more common for December
+  id: 2179
+  time: '2025-12-13T23:45:35.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Energy surgery tools now do their job slightly faster (2x modifier > 3x
+        speed modifier)
+  id: 2180
+  time: '2025-12-13T23:45:59.0000000+00:00'
+- author: Thatonestomf
+  changes:
+    - type: Fix
+      message: Certain Diona emotes now have audio
+  id: 2181
+  time: '2025-12-13T23:47:11.0000000+00:00'
