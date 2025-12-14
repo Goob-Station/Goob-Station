@@ -4703,3 +4703,15 @@ Entries:
   id: 9288
   time: '2025-12-14T19:27:31.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41627
+- author: Hitlinemoss
+  changes:
+  - message: All shotgun shells (and associated ammo boxes / magazines) now have proper
+      descriptions.
+    type: Fix
+  - message: Machine pistol magazines are now considered Security contraband.
+    type: Fix
+  - message: Practice machine pistol magazines are no longer loaded with real bullets.
+    type: Fix
+  id: 9289
+  time: '2025-12-14T20:27:56.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41841
