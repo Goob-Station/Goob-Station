@@ -117,6 +117,6 @@ public sealed partial class DevourerComponent : Component
     /// </summary>
     // Goobstation
     [DataField, AutoNetworkedField]
-    public float HealRate = 7.5f;
+    public float HealRate = 5f;
 
 }
