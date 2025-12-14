@@ -63,12 +63,13 @@ knowledge-path-side-s3-shark-name = Scorching Shark
 knowledge-path-side-s3-shark-desc =
     The cradle of the nebula was cold, but not dead. Light and heat flits even through the deepest darkness, and is hunted by its own predators.
 
-    Allows you to transmute a pool of ash, a liver, and a sheet of plasma into a Fire Shark.
+    Allows you to transmute 3 pools of ash, a liver, and 3 sheets of plasma into 3 Fire Sharks.
     Fire Sharks are fast and strong in groups, but die quickly. They are also highly resistant against fire attacks.
-    Fire Sharks ignite their victims and spawn plasma once they die.
+    Fire Sharks ignite their victims and drop plasma sheet once they die.
+    You can only create 15 at a time.
 
-knowledge-path-side-s3-ice-spear-name = Mysteries of Creation
-knowledge-path-side-s3-ice-spear-desc =
+knowledge-path-side-s6-ice-spear-name = Mysteries of Creation
+knowledge-path-side-s6-ice-spear-desc =
     Artifacts linked to the Winter Dawn exude unnatural stillness. Time slows around them. Fires choke. Thoughts become brittle. Proximity breeds hallucinations of endless white fields, a sky with no sun, and a voice that speaks only in cracking ice.
 
     Grants you Mysteries of Creation, a spell that allows you to summon the Glacier Spear at will. This magical spear chills victims upon hit, but more importantly, it shatters upon throwing, dealing a significant amount of damage and temporarily freezing the target into an ice cube. If the spear is destroyed, activating this ability will create a new one, otherwise it will summon the existing spear into your hand.

@@ -18,8 +18,10 @@ using System.Numerics;
 using System.Text;
 using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Common.Physics;
+using Content.Goobstation.Common.SecondSkin;
 using Content.Goobstation.Common.Weapons;
 using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared._Goobstation.Wizard.SanguineStrike;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Atmos.Rotting;
@@ -38,8 +40,10 @@ using Content.Shared.Teleportation;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
+using Content.Shared.Popups;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -58,7 +62,11 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
+    [Dependency] private readonly SharedVoidCurseSystem _voidCurse = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -68,6 +76,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         SubscribeLocalEvent<HereticBladeComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<HereticBladeComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<HereticBladeComponent, GetLightAttackRangeEvent>(OnGetRange);
+        SubscribeLocalEvent<HereticBladeComponent, LightAttackSpecialInteractionEvent>(OnSpecial);
         SubscribeLocalEvent<HereticBladeComponent, AfterInteractEvent>(OnAfterInteract);
     }
 
@@ -79,13 +88,24 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         if (!TryComp(args.User, out HereticComponent? heretic))
             return;
 
-        if (ent.Comp.Path != heretic.CurrentPath)
+        if (ent.Comp.Path != heretic.CurrentPath || heretic.PathStage < 7)
             return;
+
+        // Required for seeking blade, client weapon code should send attack event regardless of distance
+        if (heretic.CurrentPath == "Void")
+        {
+            if (_net.IsServer)
+                return;
+
+            args.Range = 16f;
+            args.Cancel = true;
+            return;
+        }
 
         if (heretic.CurrentPath != "Cosmos")
             return;
 
-        if (heretic.PathStage >= 7 && HasComp<StarMarkComponent>(args.Target.Value))
+        if (HasComp<StarMarkComponent>(args.Target.Value))
         {
             if (heretic.Ascended)
             {
@@ -105,63 +125,89 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     }
 
     // Void seeking blade
+
+    private void OnSpecial(Entity<HereticBladeComponent> ent, ref LightAttackSpecialInteractionEvent args)
+    {
+        if (args.Target == null)
+            return;
+
+        if (SeekingBladeTeleport(ent, args.User, args.Target.Value, args.Range))
+            args.Cancel = true;
+    }
+
     private void OnAfterInteract(Entity<HereticBladeComponent> ent, ref AfterInteractEvent args)
     {
-        // Goobstation start
+        if (args.Target == null)
+            return;
+
+        if (SeekingBladeTeleport(ent, args.User, args.Target.Value))
+            args.Handled = true;
+    }
+
+    private bool SeekingBladeTeleport(Entity<HereticBladeComponent> ent,
+        EntityUid user,
+        EntityUid target,
+        float minRange = 0f,
+        float maxRange = 16f)
+    {
         var ev = new TeleportAttemptEvent();
-        RaiseLocalEvent(args.User, ref ev);
+        RaiseLocalEvent(user, ref ev);
         if (ev.Cancelled)
-            return;
-        // Goobstation end
+            return false;
 
-        if (args.Target == ent || ent.Comp.Path != "Void" || !TryComp(args.User, out HereticComponent? heretic) ||
-            !TryComp(args.User, out CombatModeComponent? combat) ||
-            heretic is not { CurrentPath: "Void", PathStage: >= 7 } || !HasComp<MobStateComponent>(args.Target) ||
-            !TryComp(ent, out MeleeWeaponComponent? melee) ||
-            melee.NextAttack + TimeSpan.FromSeconds(0.5) > _timing.CurTime)
-            return;
+        if (target == user || ent.Comp.Path != "Void" || !TryComp(user, out HereticComponent? heretic) ||
+            !TryComp(user, out CombatModeComponent? combat) ||
+            heretic is not { CurrentPath: "Void", PathStage: >= 7 } || !HasComp<MobStateComponent>(target) ||
+            !TryComp(ent, out MeleeWeaponComponent? melee) || melee.NextAttack > _timing.CurTime)
+            return false;
 
-        var xform = Transform(args.User);
-        var targetXform = Transform(args.Target.Value);
+        var xform = Transform(user);
+        var targetXform = Transform(target);
 
         if (xform.MapID != targetXform.MapID)
-            return;
+            return false;
 
         var coords = _xform.GetWorldPosition(xform);
         var targetCoords = _xform.GetWorldPosition(targetXform);
 
         var dir = targetCoords - coords;
         var len = dir.Length();
-        if (len is <= 0f or >= 16f)
-            return;
+        if (len >= maxRange || len <= minRange)
+            return false;
 
         var normalized = new Vector2(dir.X / len, dir.Y / len);
         var ray = new CollisionRay(coords,
             normalized,
             (int) (CollisionGroup.Impassable | CollisionGroup.InteractImpassable));
-        var result = _physics.IntersectRay(xform.MapID, ray, len, args.User).FirstOrNull();
-        if (result != null && result.Value.HitEntity != args.Target.Value)
-            return;
+        var result = _physics.IntersectRay(xform.MapID, ray, len, user).FirstOrNull();
+        if (result != null && result.Value.HitEntity != target)
+            return false;
 
         var newPos = result?.HitPos ?? targetCoords - normalized * 0.5f;
 
-        _audio.PlayPredicted(ent.Comp.DepartureSound, xform.Coordinates, args.User);
-        _xform.SetWorldPosition(args.User, newPos);
-        var combatMode = _combat.IsInCombatMode(args.User, combat);
-        _combat.SetInCombatMode(args.User, true, combat);
-        if (!_melee.AttemptLightAttack(args.User, ent.Owner, melee, args.Target.Value))
-            melee.NextAttack += TimeSpan.FromSeconds(1f / _melee.GetAttackRate(ent, args.User, melee));
-        _combat.SetInCombatMode(args.User, combatMode, combat);
-        _audio.PlayPredicted(ent.Comp.ArrivalSound, xform.Coordinates, args.User);
-        args.Handled = true;
+        _audio.PlayPredicted(ent.Comp.DepartureSound, xform.Coordinates, user);
+        _xform.SetWorldPosition(user, newPos);
+        var combatMode = _combat.IsInCombatMode(user, combat);
+        _combat.SetInCombatMode(user, true, combat);
+        if (!_melee.AttemptLightAttack(user, ent.Owner, melee, target))
+            melee.NextAttack = _timing.CurTime + TimeSpan.FromSeconds(1f / _melee.GetAttackRate(ent, user, melee));
+        melee.NextAttack += TimeSpan.FromSeconds(0.5);
+        Dirty(ent.Owner, melee);
+        _combat.SetInCombatMode(user, combatMode, combat);
+        _audio.PlayPredicted(ent.Comp.ArrivalSound, xform.Coordinates, user);
+        return true;
     }
 
     public void ApplySpecialEffect(EntityUid performer, EntityUid target, MeleeHitEvent args)
     {
-        if (!TryComp<HereticComponent>(performer, out var hereticComp))
+        var path = HasComp<HereticBladeUserBonusDamageComponent>(performer) ? "Flesh" : null;
+        if (TryComp<HereticComponent>(performer, out var hereticComp))
+            path = hereticComp.CurrentPath;
+
+        if (path == null)
             return;
 
-        switch (hereticComp.CurrentPath)
+        switch (path)
         {
             case "Ash":
                 ApplyAshBladeEffect(target);
@@ -180,12 +226,17 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                 break;
 
             case "Void":
-                ApplyVoidBladeEffect(target);
+                _voidCurse.DoCurse(target);
                 break;
 
             case "Rust":
                 if (_mobState.IsDead(target))
                     _rotting.ReduceAccumulator(target, -TimeSpan.FromMinutes(1f));
+                else
+                {
+                    var ev = new ModifyDisgustEvent(20f);
+                    RaiseLocalEvent(target, ref ev);
+                }
                 break;
 
             default:
@@ -195,8 +246,14 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
     private void OnInteract(Entity<HereticBladeComponent> ent, ref UseInHandEvent args)
     {
-        if (!HasComp<HereticComponent>(args.User))
+        if (!TryComp<HereticComponent>(args.User, out var heretic))
             return;
+
+        if (heretic.Ascended)
+        {
+            _popup.PopupClient(Loc.GetString("heretic-blade-break-fail-acended-message"), args.User, args.User);
+            return;
+        }
 
         if (!TryComp<RandomTeleportComponent>(ent, out var rtp))
             return;
@@ -208,25 +265,19 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
         RandomTeleport(args.User, ent, rtp);
         _audio.PlayPredicted(ent.Comp.ShatterSound, args.User, args.User);
+        _popup.PopupClient(Loc.GetString("heretic-blade-use"), args.User, args.User);
         args.Handled = true;
     }
 
     private void OnExamine(Entity<HereticBladeComponent> ent, ref ExaminedEvent args)
     {
-        if (!HasComp<HereticComponent>(args.Examiner))
+        if (!TryComp<HereticComponent>(args.Examiner, out var heretic) || heretic.Ascended)
             return;
 
-        var canBreak = HasComp<RandomTeleportComponent>(ent);
-
-        if (!canBreak)
+        if (!HasComp<RandomTeleportComponent>(ent))
             return;
 
-        var sb = new StringBuilder();
-
-        if (canBreak)
-            sb.AppendLine(Loc.GetString("heretic-blade-examine"));
-
-        args.PushMarkup(sb.ToString());
+        args.PushMarkup(Loc.GetString("heretic-blade-examine"));
     }
 
     private void OnMeleeHit(Entity<HereticBladeComponent> ent, ref MeleeHitEvent args)
@@ -234,10 +285,22 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         if (!args.IsHit || string.IsNullOrWhiteSpace(ent.Comp.Path))
             return;
 
-        if (ent.Comp.Path == "Flesh" && HasComp<GhoulComponent>(args.User))
-            args.BonusDamage += args.BaseDamage * 0.5f; // "ghouls can use bloody blades effectively... so real..."
+        TryComp<HereticComponent>(args.User, out var hereticComp);
 
-        if (!TryComp<HereticComponent>(args.User, out var hereticComp))
+        if (TryComp(args.User, out HereticBladeUserBonusDamageComponent? bonus) &&
+            (bonus.Path == null || bonus.Path == ent.Comp.Path))
+        {
+            args.BonusDamage += args.BaseDamage * bonus.BonusMultiplier; // "ghouls can use bloody blades effectively... so real..."
+            if (hereticComp == null)
+            {
+                foreach (var hit in args.HitEntities)
+                {
+                    ApplySpecialEffect(args.User, hit, args);
+                }
+            }
+        }
+
+        if (hereticComp == null)
             return;
 
         if (ent.Comp.Path != hereticComp.CurrentPath)
@@ -252,7 +315,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                     {
                         DamageDict =
                         {
-                            { "Poison", 8f },
+                            { "Poison", 5f },
                         },
                     };
                     break;
@@ -328,8 +391,6 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     protected virtual void ApplyAshBladeEffect(EntityUid target) { }
 
     protected virtual void ApplyFleshBladeEffect(EntityUid target) { }
-
-    protected virtual void ApplyVoidBladeEffect(EntityUid target) { }
 
     protected virtual void RandomTeleport(EntityUid user, EntityUid blade, RandomTeleportComponent comp) { }
 }
