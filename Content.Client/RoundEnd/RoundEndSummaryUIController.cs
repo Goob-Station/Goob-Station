@@ -10,6 +10,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Input;
 using JetBrains.Annotations;
 using Robust.Client.Input;
+using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
@@ -21,6 +22,7 @@ public sealed class RoundEndSummaryUIController : UIController,
     IOnSystemLoaded<ClientGameTicker>
 {
     [Dependency] private readonly IInputManager _input = default!;
+    [Dependency] private readonly IFileDialogManager _fileDialogManager = default!; // CorvaxGoob-PhotoCamera
 
     private RoundEndSummaryWindow? _window;
 
@@ -47,7 +49,7 @@ public sealed class RoundEndSummaryUIController : UIController,
             return;
 
         _window = new RoundEndSummaryWindow(message.GamemodeTitle, message.RoundEndText,
-            message.RoundDuration, message.RoundId, message.AllPlayersEndInfo, EntityManager);
+            message.RoundDuration, message.RoundId, message.AllPlayersEndInfo, EntityManager, _fileDialogManager); // CorvaxGoob-PhotoCamera
     }
 
     public void OnSystemLoaded(ClientGameTicker system)

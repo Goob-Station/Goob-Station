@@ -79,6 +79,7 @@
     - CassetteTape
     - MicrophoneInstrument # Goobstation
     - PhotoCameraFilled # CorvaxGoob-PhotoCamera
+    - PhotoAlbum # CorvaxGoob-PhotoCamera
 
 - type: chameleonOutfit
   id: ReporterChameleonOutfit

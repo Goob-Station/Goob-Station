@@ -82,6 +82,7 @@
     tags:
     - Document
     - Paper
+    - Photo
   - type: Flammable
     fireSpread: true
     alwaysCombustible: true

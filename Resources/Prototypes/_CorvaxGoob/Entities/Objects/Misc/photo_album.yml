@@ -1,0 +1,38 @@
+- type: entity
+  id: PhotoAlbum
+  parent: BaseItem
+  name: photo album
+  description: A book with a bunch of memories. Put the photos in it and they will end up in the round end summary window. Use the labeler to name the photos.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Misc/photo_album.rsi
+    layers:
+      - state: album-empty
+      - state: filled-0
+      - map: ["enum.StorageFillLayers.Fill"]
+  - type: Item
+    size: Large
+  - type: StorageFillVisualizer
+    maxFillLevels: 5
+    fillBaseName: filled
+  - type: Appearance
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Icon
+    sprite: _CorvaxGoob/Objects/Misc/photo_album.rsi
+    state: icon
+  - type: PhotoAlbum
+  - type: Storage
+    grid:
+    - 0,0,2,2
+    maxItemSize: Small
+    whitelist:
+      tags:
+        - Photo
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
