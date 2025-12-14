@@ -357,17 +357,11 @@ public sealed partial class PolymorphSystem : EntitySystem
         // Goob edit end
 
         // Einstein Engines - Language begin
+
         // Copy specified components over
         foreach (var compName in configuration.CopiedComponents)
-        {
-            if (!_compFact.TryGetRegistration(compName, out var reg)
-                || !EntityManager.TryGetComponent(uid, reg.Idx, out var comp))
-                continue;
+            CopyPolymorphComponent(uid, child, compName);
 
-            var copy = _serialization.CreateCopy(comp, notNullableOverride: true);
-            copy.Owner = child;
-            AddComp(child, copy, true);
-        }
         // Einstein Engines - Language end
 
         var polymorphedComp = Factory.GetComponent<PolymorphedEntityComponent>();
@@ -708,4 +702,20 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (actions.TryGetValue(id, out var action))
             _actions.RemoveAction(target.Owner, action);
     }
+
+    // goob edit
+    // it makes more sense for it to be here than anywhere.
+    // if anywhere it should be embedded in the engine but we can't afford that :P
+    public void CopyPolymorphComponent<T>(EntityUid old, EntityUid @new) where T : Component
+        => CopyPolymorphComponent(old, @new, nameof(T));
+
+    public void CopyPolymorphComponent(EntityUid old, EntityUid @new, string componentId)
+    {
+        if (old == @new || !_compFact.TryGetRegistration(componentId, out var reg) || !EntityManager.TryGetComponent(old, reg.Idx, out var comp))
+            return;
+
+        var copy = _serialization.CreateCopy(comp, notNullableOverride: true);
+        AddComp(@new, copy, true);
+    }
+    // goob edit end
 }

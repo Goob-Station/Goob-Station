@@ -9,6 +9,8 @@ using Content.Shared.EntityEffects;
 using Content.Shared.Humanoid.Prototypes;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
+using Content.Server.Polymorph.Systems;
+using Content.Shared.Polymorph;
 
 namespace Content.Goobstation.Server.EntityEffects;
 
@@ -16,23 +18,41 @@ namespace Content.Goobstation.Server.EntityEffects;
 public sealed partial class SpeciesChange : EntityEffect
 {
     [DataField(required: true)] public ProtoId<SpeciesPrototype> NewSpecies;
+    [DataField] public bool Polymorph = false;
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-change-species", ("species", NewSpecies));
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        // this only changes the sprite of the urist.
-        // a proper species change needs to be using polymorph system
-        // but we can't afford that because polymorph is dogshit.
-
         if (!args.EntityManager.TryGetComponent<HumanoidAppearanceComponent>(args.TargetEntity, out var appearance))
             return;
 
-        var humanoidAppearanceSystem = args.EntityManager.System<SharedHumanoidAppearanceSystem>();
+        if (!Polymorph)
+        {
+            var humanoidAppearanceSystem = args.EntityManager.System<SharedHumanoidAppearanceSystem>();
+            humanoidAppearanceSystem.SetSpecies(args.TargetEntity, NewSpecies);
+            return;
+        }
 
-        humanoidAppearanceSystem.SetSpecies(args.TargetEntity, NewSpecies);
+        var polymorphSystem = args.EntityManager.System<PolymorphSystem>();
+        var protMan = IoCManager.Resolve<IPrototypeManager>();
 
-        // TODO add slime species specific content here
+        if (Polymorph && protMan.TryIndex(NewSpecies, out var species))
+        {
+            var config = new PolymorphConfiguration
+            {
+                Entity = species.Prototype,
+                TransferDamage = true,
+                Forced = true,
+                Inventory = PolymorphInventoryChange.Transfer,
+                RevertOnCrit = false,
+                RevertOnDeath = false
+            };
+
+            polymorphSystem.PolymorphEntity(args.TargetEntity, config);
+        }
+
+        // TODO add slime subspecies specific content here
     }
 }

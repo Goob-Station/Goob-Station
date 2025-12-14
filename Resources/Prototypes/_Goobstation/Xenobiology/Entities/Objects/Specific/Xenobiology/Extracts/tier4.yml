@@ -2,7 +2,6 @@
   id: OilSlimeExtract
   parent: BaseSlimeExtract
   name: oil slime extract
-  description:
   components:
   - type: Sprite
     layers:
@@ -59,7 +58,6 @@
   id: LightPinkSlimeExtract
   parent: BaseSlimeExtract
   name: light pink slime extract
-  description:
   components:
   - type: Sprite
     layers:
@@ -120,7 +118,6 @@
   id: BlackSlimeExtract
   parent: BaseSlimeExtract
   name: black slime extract
-  description:
   components:
   - type: Sprite
     layers:
@@ -167,7 +164,6 @@
   id: AdamantineSlimeExtract
   parent: BaseSlimeExtract
   name: adamantine slime extract
-  description:
   components:
   - type: Sprite
     layers:

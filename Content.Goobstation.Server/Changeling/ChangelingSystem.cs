@@ -43,7 +43,6 @@ using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
 using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.MartialArts.Components;
-using Content.Goobstation.Shared.Traits.Components;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
@@ -60,7 +59,6 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
-using Content.Server.Traits.Assorted;
 using Content.Server.Zombies;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared.Actions;
@@ -78,29 +76,22 @@ using Content.Shared.Flash.Components;
 using Content.Shared.Fluids;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Medical;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
-using Content.Shared.Overlays;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
-using Content.Shared.Revolutionary.Components;
-using Content.Shared.Speech.Muting;
-using Content.Shared.Store.Components;
 using Content.Shared.Tag;
-using Content.Shared.Traits.Assorted;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -181,6 +172,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, ComponentRemove>(OnComponentRemove);
         SubscribeLocalEvent<ChangelingIdentityComponent, TargetBeforeDefibrillatorZapsEvent>(OnDefibZap);
         SubscribeLocalEvent<ChangelingIdentityComponent, RejuvenateEvent>(OnRejuvenate);
+        SubscribeLocalEvent<ChangelingIdentityComponent, PolymorphedEvent>(OnPolymorphed);
+        SubscribeLocalEvent<ChangelingComponent, PolymorphedEvent>(OnPolymorphedTakeTwo);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
 
@@ -192,6 +185,13 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         SubscribeAbilities();
     }
+
+    private void OnPolymorphed(Entity<ChangelingIdentityComponent> ent, ref PolymorphedEvent args)
+        => _polymorph.CopyPolymorphComponent<ChangelingIdentityComponent>(ent, args.NewEntity);
+
+    // we really should get rid of it.
+    private void OnPolymorphedTakeTwo(Entity<ChangelingComponent> ent, ref PolymorphedEvent args)
+        => _polymorph.CopyPolymorphComponent<ChangelingComponent>(ent, args.NewEntity);
 
     private void OnDartHit(Entity<ChangelingDartComponent> ent, ref ProjectileHitEvent args)
     {
@@ -738,49 +738,24 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             }
         }
 
-        //    if (TryComp<StoreComponent>(uid, out var storeComp))
-        //    {
-        //        var storeCompCopy = _serialization.CreateCopy(storeComp, notNullableOverride: true);
-        //        RemComp<StoreComponent>(newUid.Value);
-        //        EntityManager.AddComponent(newUid.Value, storeCompCopy);
-        //    }
-        //}
-
         // exceptional comps check
-        // there's no foreach for types i believe so i gotta thug it out yandev style.
+        // TODO make PolymorphedEvent handlers for all
         List<Type> types = new()
         {
-            typeof(HeadRevolutionaryComponent),
-            typeof(RevolutionaryComponent),
-            typeof(GhoulComponent),
-            typeof(HereticComponent),
-            typeof(StoreComponent),
             typeof(FlashImmunityComponent),
             typeof(EyeProtectionComponent),
             typeof(Shared.Overlays.NightVisionComponent),
             typeof(Shared.Overlays.ThermalVisionComponent),
-
-            // changeling related
             typeof(VoidAdaptionComponent),
-            // ADD MORE TYPES HERE
         };
         foreach (var type in types)
-        {
-            if (EntityManager.TryGetComponent(uid, type, out var icomp))
-            {
-                var newComp = (Component) _compFactory.GetComponent(_compFactory.GetComponentName(type));
-                var temp = (object) newComp;
-                _serialization.CopyTo(icomp, ref temp, notNullableOverride: true);
-                EntityManager.AddComponent(newEnt, (Component) temp!);
-            }
-        }
+            _polymorph.CopyPolymorphComponent(uid, newEnt, nameof(type));
 
         RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(uid)), newEnt);
 
-        Timer.Spawn(300, () => { QueueDel(uid); });
-
         return newUid;
     }
+
     public bool TryTransform(EntityUid target, ChangelingIdentityComponent comp, bool sting = false, bool persistentDna = false)
     {
         if (HasComp<AbsorbedComponent>(target))
@@ -804,12 +779,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         var locName = Identity.Entity(target, EntityManager);
         EntityUid? newUid = null;
-        if (sting)
-            newUid = TransformEntity(target, data: data, persistentDna: persistentDna);
+        if (sting) newUid = TransformEntity(target, data: data, persistentDna: persistentDna);
         else
         {
             comp.IsInLesserForm = false;
             newUid = TransformEntity(target, data: data, comp: comp, persistentDna: persistentDna);
+            RemoveAllChangelingEquipment(target, comp);
         }
 
         if (newUid != null)

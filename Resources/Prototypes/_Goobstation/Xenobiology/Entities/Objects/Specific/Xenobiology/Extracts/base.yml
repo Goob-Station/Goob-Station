@@ -2,7 +2,7 @@
   id: BaseSlimeExtract
   parent: BaseItem
   name: slime extract
-  description:
+  description: Goo extracted from a slime. Legends claim these to have "magical powers".
   abstract: true
   components:
   - type: Item

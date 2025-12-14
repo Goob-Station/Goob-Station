@@ -2,7 +2,7 @@
   parent: BaseItem
   id: SlimeScannerXenobio
   name: slime scanner
-  description: Using it on a slime will give you all the necessary info you've ever wanted. Now comes in multiple colors!
+  description: Applying on a slime and it's produces will grant you all the info you'll ever need. A must for any slime rancher!
   components:
   - type: SlimeScanner
   - type: Sprite

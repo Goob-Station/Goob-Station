@@ -2,7 +2,6 @@
   id: OrangeSlimeExtract
   parent: BaseSlimeExtract
   name: orange slime extract
-  description:
   components:
   - type: Sprite
     layers:
@@ -64,7 +63,6 @@
   id: PurpleSlimeExtract
   parent: BaseSlimeExtract
   name: purple slime extract
-  description:
   components:
   - type: Sprite
     layers:
@@ -117,7 +115,6 @@
   id: BlueSlimeExtract
   parent: BaseSlimeExtract
   name: blue slime extract
-  description:
   components:
   - type: Sprite
     layers:
@@ -172,7 +169,6 @@
   id: MetalSlimeExtract
   parent: BaseSlimeExtract
   name: metal slime extract
-  description:
   components:
   - type: Sprite
     layers:

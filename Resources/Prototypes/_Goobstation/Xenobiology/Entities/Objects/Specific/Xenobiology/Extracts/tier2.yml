@@ -2,7 +2,6 @@
   id: YellowSlimeExtract
   parent: BaseSlimeExtract
   name: yellow slime extract
-  description:
   components:
   - type: Sprite
     layers:
@@ -50,7 +49,6 @@
   id: DarkPurpleSlimeExtract
   parent: BaseSlimeExtract
   name: dark purple slime extract
-  description:
   components:
   - type: Sprite
     layers:
@@ -100,7 +98,6 @@
   id: DarkBlueSlimeExtract
   parent: BaseSlimeExtract
   name: dark blue slime extract
-  description:
   components:
   - type: Sprite
     layers:
@@ -153,7 +150,6 @@
   id: SilverSlimeExtract
   parent: BaseSlimeExtract
   name: silver slime extract
-  description:
   components:
   - type: Sprite
     layers:
@@ -213,7 +209,6 @@
   id: BluespaceSlimeExtract
   parent: BaseSlimeExtract
   name: bluespace slime extract
-  description:
   components:
   - type: Sprite
     layers:
@@ -265,7 +260,6 @@
   id: SepiaSlimeExtract
   parent: BaseSlimeExtract
   name: sepia slime extract
-  description:
   components:
   - type: Sprite
     layers:
@@ -323,7 +317,6 @@
   id: CeruleanSlimeExtract
   parent: BaseSlimeExtract
   name: cerulean slime extract
-  description:
   components:
   - type: Sprite
     layers:
@@ -373,7 +366,6 @@
   id: PyriteSlimeExtract
   parent: BaseSlimeExtract
   name: pyrite slime extract
-  description:
   components:
   - type: Sprite
     layers:

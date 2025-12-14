@@ -2,7 +2,6 @@
   id: GreySlimeExtract
   parent: BaseSlimeExtract
   name: grey slime extract
-  description:
   components:
   - type: Sprite
     layers:

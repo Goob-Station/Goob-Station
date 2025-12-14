@@ -2,7 +2,6 @@
   id: RedSlimeExtract
   parent: BaseSlimeExtract
   name: red slime extract
-  description:
   components:
   - type: Sprite
     layers:
@@ -56,7 +55,6 @@
   id: GreenSlimeExtract
   parent: BaseSlimeExtract
   name: green slime extract
-  description:
   components:
   - type: Sprite
     layers:
@@ -109,7 +107,6 @@
   id: PinkSlimeExtract
   parent: BaseSlimeExtract
   name: pink slime extract
-  description:
   components:
   - type: Sprite
     layers:
@@ -161,7 +158,6 @@
   id: GoldSlimeExtract
   parent: BaseSlimeExtract
   name: gold slime extract
-  description:
   components:
   - type: Sprite
     layers:
