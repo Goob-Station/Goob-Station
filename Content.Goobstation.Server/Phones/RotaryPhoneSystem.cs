@@ -7,6 +7,7 @@ using Content.Shared.Audio;
 using Content.Shared.Chat;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Phones;
@@ -86,11 +87,29 @@ public sealed class RotaryPhoneSystem : EntitySystem
 
     private void OnListen(EntityUid uid, RotaryPhoneComponent comp, ref ListenEvent args)
     {
-        if(HasComp<RotaryPhoneComponent>(args.Source) || !_timing.IsFirstTimePredicted || args.Source == uid || HasComp<RadioSpeakerComponent>(args.Source) || comp.ConnectedPhone == null || !comp.Connected)
+        if(HasComp<RotaryPhoneComponent>(args.Source) || !_timing.IsFirstTimePredicted || args.Source == uid || HasComp<RadioSpeakerComponent>(args.Source) || comp.ConnectedPhone == null || !comp.Connected || !TryComp(comp.ConnectedPhone, out RotaryPhoneComponent? otherPhoneComponent))
             return;
 
         var entityMeta = MetaData(args.Source);
 
-        _chatSystem.TrySendInGameICMessage(comp.ConnectedPhone.Value, args.Message, InGameICChatType.Speak, hideChat: true, hideLog: true, checkRadioPrefix: false, nameOverride: entityMeta.EntityName);
+        if (otherPhoneComponent.SpeakerPhone)
+        {
+            _chatSystem.TrySendInGameICMessage(comp.ConnectedPhone.Value,
+                args.Message,
+                InGameICChatType.Speak,
+                hideChat: true,
+                hideLog: true,
+                checkRadioPrefix: false,
+                nameOverride: entityMeta.EntityName);
+
+            return;
+        }
+
+        if(!TryComp(comp.ConnectedPlayer, out ActorComponent? actor) || otherPhoneComponent.ConnectedPlayer == null)
+            return;
+
+        var sound = _audio.GetSound(comp.SpeakSound);
+
+        _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, args.Message, otherPhoneComponent.ConnectedPlayer.Value, false, actor.PlayerSession.Channel, Color.FromHex("#9956D3"), true, sound, -12, hidePopup: true);
     }
 }

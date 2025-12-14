@@ -2,11 +2,15 @@ using Content.Goobstation.Shared.Phones.Components;
 using Content.Goobstation.Shared.Phones.Events;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
+using Content.Shared.Physics;
 using Content.Shared.Popups;
-using Content.Shared.Stacks;
+using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Network;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.Phones.Systems;
@@ -17,6 +21,9 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedJointSystem _jointSystem = default!;
+    [Dependency] private readonly INetManager _net = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<RotaryPhoneComponent, PhoneRingEvent>(OnRing);
@@ -26,6 +33,26 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         SubscribeLocalEvent<RotaryPhoneComponent, BoundUIClosedEvent>(OnUiClosed);
         SubscribeLocalEvent<RotaryPhoneComponent, EntGotRemovedFromContainerMessage>(OnPickup);
         SubscribeLocalEvent<RotaryPhoneComponent, EntGotInsertedIntoContainerMessage>(OnHangUp);
+        SubscribeLocalEvent<RotaryPhoneComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
+    }
+
+    private void OnGetVerbs(EntityUid uid, RotaryPhoneComponent comp, GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (args.Hands == null || args.Using == null || !args.CanAccess || !args.CanInteract)
+            return;
+
+        AlternativeVerb verb = new()
+        {
+            Text = Loc.GetString("phone-speakerphone"),
+            Message = Loc.GetString("phone-speakerphone-message"),
+            Act = () =>
+            {
+                comp.SpeakerPhone = !comp.SpeakerPhone;
+                var state = Loc.GetString(comp.SpeakerPhone ? "handheld-radio-component-on-state" : "handheld-radio-component-off-state");
+                var message = Loc.GetString("phone-speakerphone-onoff", ("status", state));
+            }
+        };
+        args.Verbs.Add(verb);
     }
 
     private void OnUiClosed(EntityUid uid, RotaryPhoneComponent comp, BoundUIClosedEvent args)
@@ -35,7 +62,8 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, RotaryPhoneComponent comp, MapInitEvent args)
     {
-        comp.PhoneNumber = _random.Next(111,999);
+        if(comp.PhoneNumber == null)
+            comp.PhoneNumber = _random.Next(111,999);
     }
 
     private void OnExamine(EntityUid uid, RotaryPhoneHolderComponent comp, ExaminedEvent args)
@@ -65,11 +93,23 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
 
     private void OnPickup(EntityUid uid, RotaryPhoneComponent comp, EntGotRemovedFromContainerMessage args)
     {
+        comp.ConnectedPlayer = null;
 
-        if (!TryComp<RotaryPhoneComponent>(comp.ConnectedPhone, out var otherPhone) || comp.ConnectedPhone == null || !TryComp<RotaryPhoneHolderComponent>(args.Container.Owner, out var _))
+        if (!TryComp<RotaryPhoneHolderComponent>(args.Container.Owner, out var _))
             return;
 
         comp.Engaged = true;
+
+        if (_net.IsServer)
+        {
+            var visuals = EnsureComp<JointVisualsComponent>(uid);
+            visuals.Sprite = comp.RopeSprite;
+            visuals.Target = GetNetEntity(args.Container.Owner);
+            Dirty(uid, visuals);
+        }
+
+        if(comp.ConnectedPhone == null || !TryComp<RotaryPhoneComponent>(comp.ConnectedPhone, out var otherPhone) )
+            return;
 
         comp.Connected = true;
         otherPhone.Connected = true;
@@ -84,8 +124,17 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
 
     private void OnHangUp(EntityUid uid, RotaryPhoneComponent comp, EntGotInsertedIntoContainerMessage args)
     {
-        if(!TryComp<RotaryPhoneHolderComponent>(args.Container.Owner, out var _))
+        if(TryComp<ActorComponent>(args.Container.Owner, out var _))
+            comp.ConnectedPlayer = args.Container.Owner;
+
+        if (!TryComp<RotaryPhoneHolderComponent>(args.Container.Owner, out var _))
             return;
+
+        if (_net.IsServer)
+        {
+            RemComp<JointVisualsComponent>(uid);
+            Dirty(uid, comp);
+        }
 
         if (comp.ConnectedPhone != null)
         {

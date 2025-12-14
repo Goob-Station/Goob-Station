@@ -1,6 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Phones.Components;
 
@@ -21,6 +22,9 @@ public sealed partial class RotaryPhoneComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Connected;
+
+    [DataField, AutoNetworkedField]
+    public bool SpeakerPhone;
 
     /// <summary>
     /// The phone number of this phone
@@ -51,6 +55,15 @@ public sealed partial class RotaryPhoneComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? ConnectedPhone;
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? ConnectedPlayer;
+
+    [AutoNetworkedField]
+    public SpriteSpecifier RopeSprite = new SpriteSpecifier.Rsi(new ResPath("_RMC14/Objects/phone/phone.rsi"), "rope");
+
+    [DataField, AutoNetworkedField]
+    public SoundSpecifier SpeakSound = new SoundCollectionSpecifier("RMCPhoneSpeak", AudioParams.Default.WithVolume(-3));
 
     public SoundSpecifier KeypadPressSound = new SoundPathSpecifier("/Audio/_RMC14/Phone/Tone1.ogg");
 

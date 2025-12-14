@@ -29,7 +29,7 @@
     - RobotTalk
 
 - type: entity
-  parent: BaseItem
+  parent: BaseStructure
   id: RotaryPhoneStand
   name: phone stand
   description: it's a phone stand
