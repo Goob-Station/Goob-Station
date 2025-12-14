@@ -19322,3 +19322,11 @@ Entries:
       message: Certain Diona emotes now have audio
   id: 2181
   time: '2025-12-13T23:47:11.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: >-
+        Split the 'Drinks' section of the guidebook into two 'Alcoholic' and
+        'Non-Alcoholic' sections.
+  id: 2182
+  time: '2025-12-14T10:28:09.0000000+00:00'
