@@ -63,15 +63,15 @@
     requiredLegs: 2
     gibSound: /Audio/Effects/bone_rattle.ogg
   - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Skeleton
-#  - type: DamageVisuals
-#    damageOverlayGroups:
-#      Brute:
-#        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
-#        color: "#555555AA"
-#      Burn:
-#        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    damageContainer: BiologicalMetaphysical # Allows them to take Holy damage
+    damageModifierSet: Skeleton # If we get non-Holy metaphysical damage types in the future, the Skeleton set might need to be adjusted to provide immunity to them (depends on what exactly the new types are)
+  #  - type: DamageVisuals
+  #    damageOverlayGroups:
+  #      Brute:
+  #        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+  #        color: "#555555AA"
+  #      Burn:
+  #        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: MobState
   - type: MobThresholds
     thresholds:
@@ -139,9 +139,10 @@
       effects: # TODO: when magic is around - make a milk transformation to a skeleton monster
       - !type:HealthChange
         damage:
-          groups:
+          groups: # these groups are the only 3 possible ways to damage a skeleton. numerical values obviously up to discussion
             Burn: -4 # healing obviously up to discussion # Shitmed value
             Brute: -3 # these groups are the only 2 possible ways to damage a skeleton # Shitmed value
+            Metaphysical: -2 # Gameplay: skeletons need some way to heal holy damage. Lore: milk is an unholy liquid that shuns the light of god. (/j)
       - !type:PopupMessage
         type: Local
         visualType: Large
