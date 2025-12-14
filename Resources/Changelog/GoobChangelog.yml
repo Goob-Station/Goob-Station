@@ -19330,3 +19330,11 @@ Entries:
         'Non-Alcoholic' sections.
   id: 2182
   time: '2025-12-14T10:28:09.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: >-
+        HOS'es justice sword and NTRs executive briefcase can now roll as a
+        traitor objective. (They couldn't before)
+  id: 2183
+  time: '2025-12-14T10:30:12.0000000+00:00'
