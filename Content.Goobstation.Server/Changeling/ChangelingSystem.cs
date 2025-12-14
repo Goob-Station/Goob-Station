@@ -703,7 +703,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             RevertOnDeath = false
         };
 
-
         var newUid = _polymorph.PolymorphEntity(uid, config);
 
         if (newUid == null)
@@ -721,22 +720,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             _popup.PopupEntity(message, newEnt, newEnt);
         }
 
+        // otherwise we can only transform once
         RemCompDeferred<PolymorphedEntityComponent>(newEnt);
-
-        if (comp != null)
-        {
-            // copy our stuff
-            var newLingComp = CopyChangelingComponent(newEnt, comp);
-            if (!persistentDna && data != null)
-                newLingComp?.AbsorbedDNA.Remove(data);
-            RemCompDeferred<ChangelingIdentityComponent>(uid);
-
-            if (TryComp<ChangelingBiomassComponent>(uid, out var bioComp))
-            {
-                CopyBiomassComponent(newEnt, bioComp);
-                RemCompDeferred<ChangelingBiomassComponent>(uid);
-            }
-        }
 
         // exceptional comps check
         // TODO make PolymorphedEvent handlers for all
