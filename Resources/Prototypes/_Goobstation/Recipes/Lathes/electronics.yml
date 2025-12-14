@@ -123,3 +123,9 @@
     sprite:  _Goobstation/Structures/Machines/comms_transmitter.rsi
     state: base
   result: TelecomTransmitterCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseElectronicsRecipe, BaseCircuitryRecipeCategory ]
+  id: CameraElectronics
+  icon: { sprite: Structures/Wallmounts/camera.rsi, state: cameracase }
+  result: CameraElectronics
