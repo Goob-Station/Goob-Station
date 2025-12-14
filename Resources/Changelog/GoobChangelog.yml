@@ -19350,3 +19350,11 @@ Entries:
       message: Added bluespace tomato plant!
   id: 2185
   time: '2025-12-14T10:37:39.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: >-
+        Riot Helmet, Swat, Ert, Heretic, Coscult, changeling and hopefully most
+        modsuit (sealed only) and hardsuit helmets should block the facehugger
+  id: 2186
+  time: '2025-12-14T10:41:28.0000000+00:00'
