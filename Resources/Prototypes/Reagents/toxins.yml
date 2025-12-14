@@ -686,8 +686,8 @@
     Poison:
       metabolismRate: 0.05
       effects:
-      - !type:Polymorph
-        prototype: Bananamen
+      - !type:SpeciesChange
+        newSpecies: BananaMen
         conditions:
         - !type:ReagentThreshold
           min: 30

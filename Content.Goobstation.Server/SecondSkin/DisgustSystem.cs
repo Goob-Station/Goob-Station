@@ -14,8 +14,8 @@ namespace Content.Goobstation.Server.SecondSkin;
 public sealed class DisgustSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
-
     [Dependency] private readonly AlertsSystem _alets = default!;
+    [Dependency] private readonly EntityEffectSystem _effect = default!;
 
     public override void Initialize()
     {
@@ -99,7 +99,7 @@ public sealed class DisgustSystem : EntitySystem
                 if (!effect.ShouldApply(args, _random))
                     break; // If one of the effects cant be applied, then the rest of them are not applied
 
-                effect.Effect(args);
+                _effect.Effect(effect, args);
             }
         }
     }

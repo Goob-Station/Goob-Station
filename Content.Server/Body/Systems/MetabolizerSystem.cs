@@ -91,6 +91,7 @@ namespace Content.Server.Body.Systems
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+        [Dependency] private readonly EntityEffectSystem _effect = default!; // goob edit
 
         private EntityQuery<OrganComponent> _organQuery;
         private EntityQuery<SolutionContainerManagerComponent> _solutionQuery;
@@ -283,7 +284,7 @@ namespace Content.Server.Body.Systems
                             );
                         }
 
-                        effect.Effect(args);
+                        _effect.Effect(effect, args); // goob edit - use system instead
                     }
                 }
 

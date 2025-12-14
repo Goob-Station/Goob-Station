@@ -36,10 +36,10 @@ public sealed class EldritchInfluenceSystem : EntitySystem
     [Dependency] private readonly HereticSystem _heretic = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-
     [Dependency] private readonly IChatManager _chatMan = default!;
     [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly EntityEffectSystem _effect = default!;
 
     public override void Initialize()
     {
@@ -77,7 +77,7 @@ public sealed class EldritchInfluenceSystem : EntitySystem
         foreach (var effect in effects)
         {
             if (effect.ShouldApply(effectArgs, _random))
-                effect.Effect(effectArgs);
+                _effect.Effect(effect, effectArgs);
         }
     }
 

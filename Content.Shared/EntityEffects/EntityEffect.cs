@@ -49,6 +49,15 @@ public abstract partial class EntityEffect
     /// </summary>
     public virtual bool ShouldLog { get; private set; } = false;
 
+    /// <summary>
+    ///     After how much seconds do we want it to trigger? - Goobstation
+    /// </summary>
+    [DataField]
+    public float Delay = 0f;
+
+    /// <summary>
+    ///     Goobstation - use the new EntityEffectSystem instead of a direct call.
+    /// </summary>
     public abstract void Effect(EntityEffectBaseArgs args);
 
     /// <summary>

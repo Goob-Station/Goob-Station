@@ -721,7 +721,7 @@ public abstract partial class SharedMindSystem : EntitySystem
                 continue;
 
             // Goobstation: Skip changelings from selections
-            if (excludeChangeling && HasComp<ChangelingComponent>(uid))
+            if (excludeChangeling && HasComp<ChangelingComponent>(uid)) // TODO change to ChangelingIdentityComponent
                 continue;
 
             allHumans.Add(new Entity<MindComponent>(mind, mindComp));
