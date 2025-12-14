@@ -11,6 +11,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Polymorph;
+using Content.Server.Polymorph.Components;
 
 namespace Content.Goobstation.Server.EntityEffects;
 
@@ -18,7 +19,7 @@ namespace Content.Goobstation.Server.EntityEffects;
 public sealed partial class SpeciesChange : EntityEffect
 {
     [DataField(required: true)] public ProtoId<SpeciesPrototype> NewSpecies;
-    [DataField] public bool Polymorph = false;
+    [DataField] public bool Polymorph = true;
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-change-species", ("species", NewSpecies));
@@ -50,7 +51,11 @@ public sealed partial class SpeciesChange : EntityEffect
                 RevertOnDeath = false
             };
 
-            polymorphSystem.PolymorphEntity(args.TargetEntity, config);
+            var @new = polymorphSystem.PolymorphEntity(args.TargetEntity, config);
+            if (@new.HasValue)
+            {
+                args.EntityManager.RemoveComponentDeferred<PolymorphedEntityComponent>(@new.Value);
+            }
         }
 
         // TODO add slime subspecies specific content here

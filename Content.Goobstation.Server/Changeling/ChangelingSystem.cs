@@ -44,7 +44,6 @@ using Content.Goobstation.Shared.Changeling.Systems;
 using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Server.Actions;
-using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
@@ -91,7 +90,6 @@ using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
-using Content.Shared.Tag;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -144,9 +142,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuv = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
@@ -638,39 +634,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         }
 
         return true;
-    }
-
-    private ChangelingIdentityComponent? CopyChangelingComponent(EntityUid target, ChangelingIdentityComponent comp)
-    {
-        EnsureComp<ChangelingComponent>(target);
-
-        var newComp = EnsureComp<ChangelingIdentityComponent>(target);
-        newComp.AbsorbedHistory = comp.AbsorbedHistory;
-        newComp.AbsorbedDNA = comp.AbsorbedDNA;
-        newComp.AbsorbedDNAIndex = comp.AbsorbedDNAIndex;
-
-        newComp.Chemicals = comp.Chemicals;
-        newComp.MaxChemicals = comp.MaxChemicals;
-
-        newComp.IsInLesserForm = comp.IsInLesserForm;
-        newComp.IsInLastResort = comp.IsInLastResort;
-        newComp.CurrentForm = comp.CurrentForm;
-
-        newComp.TotalAbsorbedEntities = comp.TotalAbsorbedEntities;
-        newComp.TotalStolenDNA = comp.TotalStolenDNA;
-
-        return comp;
-    }
-    private void CopyBiomassComponent(EntityUid target, ChangelingBiomassComponent comp)
-    {
-        var newComp = EnsureComp<ChangelingBiomassComponent>(target);
-
-        newComp.MaxBiomass = comp.MaxBiomass;
-        newComp.Biomass = comp.Biomass;
-
-        newComp.FirstWarnReached = comp.FirstWarnReached;
-        newComp.SecondWarnReached = comp.SecondWarnReached;
-        newComp.ThirdWarnReached = comp.ThirdWarnReached;
     }
     private EntityUid? TransformEntity(
         EntityUid uid,

@@ -89,7 +89,7 @@
   color: "#4DFF4D"
   metabolisms:
     Poison:
-      metabolismRate: 10 # hello hypospray users!
+      metabolismRate: 5 # hello hypospray users!
       effects:
       - !type:SpeciesChange
         conditions:
@@ -111,7 +111,7 @@
   color: "#000000"
   metabolisms:
     Poison:
-      metabolismRate: 10 # hello hypospray users!
+      metabolismRate: 5 # hello hypospray users!
       effects:
       - !type:SpeciesChange
         conditions:
@@ -149,7 +149,7 @@
   color: "#000000"
   metabolisms:
     Poison:
-      metabolismRate: 10 # hello hypospray users!
+      metabolismRate: 5 # hello hypospray users!
       effects:
       - !type:RandomSpeciesChange
         conditions:
@@ -170,7 +170,7 @@
   color: "#000000"
   metabolisms:
     Poison:
-      metabolismRate: 10 # hello hypospray users!
+      metabolismRate: 5 # hello hypospray users!
       effects:
       - !type:SpeciesChange
         conditions:
