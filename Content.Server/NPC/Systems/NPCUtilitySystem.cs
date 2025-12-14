@@ -45,7 +45,8 @@ using Content.Server.Body.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.EntityEffects.Effects.Body;
-using Content.Shared.EntityEffects.Effects.Solution; // Goobstation end
+using Content.Shared.EntityEffects.Effects.Solution;
+using Content.Shared.EntityEffects.Effects.Damage; // Goobstation end
 
 namespace Content.Server.NPC.Systems;
 

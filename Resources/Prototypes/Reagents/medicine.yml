@@ -239,10 +239,10 @@
           - !type:TemperatureCondition
             # this is a little arbitrary but they gotta be pretty cold
             max: 213.0
-          scaleByTemperature: # Shitmed Change
-            min: 100.0
-            max: 213.0
-            scale: 1.6
+          #scaleByTemperature: # Shitmed Change # TODO SHITMED add properly for EvenHealthChange
+          #  min: 100.0
+          #  max: 213.0
+          #  scale: 1.6
           damage:
           # todo scale with temp like SS13
           # Goob - Cryo buff till temp scaling is implemented
@@ -1709,7 +1709,7 @@
         conditions:
         - !type:TemperatureCondition
           max: 213.0
-        scaleByTemperature: # Shitmed Change
+          scaleByTemperature: # Shitmed Change
           min: 100.0
           max: 213.0
           scale: 1.6
