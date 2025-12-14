@@ -52,6 +52,9 @@
   id: MagazineLargeCaliber
 
 - type: Tag
+  id: Photo
+
+- type: Tag
   id: Retractor
 
 - type: Tag
