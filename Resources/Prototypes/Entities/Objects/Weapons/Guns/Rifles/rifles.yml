@@ -434,3 +434,5 @@
       path: /Audio/Weapons/Guns/Empty/empty.ogg
     clumsyProof: true
   - type: PacifismAllowedGun
+  - type: StaticPrice
+    price: 100

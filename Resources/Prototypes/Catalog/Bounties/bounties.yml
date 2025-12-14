@@ -620,11 +620,10 @@
 
 - type: cargoBounty
   id: BountyRollerskates
-  reward: 6500
+  reward: 1400
   description: bounty-description-rollerskates
   entries:
   - name: bounty-item-rollerskates
-    amount: 2
     whitelist:
       components:
       - Skates

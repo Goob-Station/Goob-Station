@@ -98,9 +98,10 @@
 
 
 - type: entity
-  name: pie cannon
   parent: BaseStorageItem
   id: LauncherCreamPie
+  name: pie cannon
+  suffix: Empty
   description: Load cream pie for optimal results.
   components:
   - type: Sprite
