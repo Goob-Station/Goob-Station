@@ -161,7 +161,7 @@
   components:
   - type: StationEvent
     earliestStart: 20
-    weight: 3
+    weight: 3.5 # CorvaxGoob Changes: 3 > 3.5
     minimumPlayers: 30
     maxOccurrences: 1
     duration: null
@@ -274,7 +274,7 @@
   id: SlasherSpawn
   components:
   - type: StationEvent
-    weight: 3
+    weight: 4 # CorvaxGoob Changes: 3 > 4
     duration: null
     earliestStart: 30
     minimumPlayers: 30
