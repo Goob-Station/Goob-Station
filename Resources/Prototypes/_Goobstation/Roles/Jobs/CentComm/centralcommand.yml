@@ -262,6 +262,3 @@
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom
     pocket1: BoxFolderCentCom
-  storage:
-    back:
-    - ClothingBackpackCentcomm
