@@ -1,0 +1,18 @@
+- type: constructionGraph
+  id: StationRadioGraph
+  graph:
+  - node: start
+    edges:
+    - to: radio
+      steps:
+      - material: Glass
+        amount: 5
+        doAfter: 2
+      - material: Steel
+        amount: 15
+        doAfter: 2
+      - material: Cable
+        amount: 4
+        doAfter: 2
+  - node: radio
+    entity: StationRadioReceiver

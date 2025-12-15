@@ -65,3 +65,13 @@
   placementMode: SnapgridCenter
   canRotate: true
   canBuildInImpassable: true
+
+- type: construction
+  id: StationRadioConstruction
+  graph: StationRadioGraph
+  targetNode: radio
+  category: construction-category-structures
+  objectType: Item
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true
