@@ -7,15 +7,27 @@
     noRot: true
     drawdepth: Effects
     sprite: /Textures/_Goobstation/Effects/welding_effect.rsi
-    state: welding_sparks
+    layers:
+    - state: smoke
+    - state: welding_sparks
+      shader: unshaded
+  - type: PointLight
+    color: orange
+    radius: 1.5
   - type: Tag
     tags:
     - HideContextMenu
+    energy: 2
 
 - type: entity
   parent: EffectWeldingSparks
-  id: EffectWeldingSparksGreen
+  id: EffectWeldingSparksExp
   #categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    state: exp_welding_sparks
+    layers:
+    - state: smoke
+    - state: exp_welding_sparks
+      shader: unshaded
+  - type: PointLight
+    color: MediumAquamarine
