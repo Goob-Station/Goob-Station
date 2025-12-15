@@ -127,6 +127,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using System.Numerics;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 
 // Shitmed Change
@@ -321,6 +322,8 @@ public sealed partial class ExplosionSystem
         HashSet<EntityUid> processed,
         string id,
         float? fireStacks,
+        float? temperature,
+        float currentIntensity,
         EntityUid? cause)
     {
         var size = grid.Comp.TileSize;
@@ -351,6 +354,12 @@ public sealed partial class ExplosionSystem
         {
             processed.Add(entity);
             ProcessEntity(entity, epicenter, damage, throwForce, id, null, fireStacks, cause);
+        }
+
+        // heat the atmosphere
+        if (temperature != null)
+        {
+            _atmosphere.HotspotExpose(grid.Owner, tile, temperature.Value, currentIntensity, cause, true);
         }
 
         // Walls and reinforced walls will break into girders. These girders will also be considered turf-blocking for
@@ -589,7 +598,7 @@ public sealed partial class ExplosionSystem
             }
         }
 
-        // ignite
+        // ignite entities with the flammable component
         if (fireStacksOnIgnite != null)
         {
             if (_flammableQuery.TryGetComponent(uid, out var flammable))
@@ -1029,6 +1038,8 @@ sealed class Explosion
                     ProcessedEntities,
                     ExplosionType.ID,
                     ExplosionType.FireStacks,
+                    ExplosionType.Temperature,
+                    _currentIntensity,
                     Cause);
 
                 // If the floor is not blocked by some dense object, damage the floor tiles.
