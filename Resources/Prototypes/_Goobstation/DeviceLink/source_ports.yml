@@ -174,15 +174,3 @@
   id: Triggered
   name: signal-port-name-triggered-signaller
   description: signal-port-description-triggered-signaller
-
-# Station Radio
-
-- type: sourcePort
-  id: VynilMusic
-  name: signal-port-name-vynil-music
-  description: signal-port-description-vynil-music
-
-- type: sourcePort
-  id: Microphone
-  name: signal-port-name-microphone
-  description: signal-port-description-microphone

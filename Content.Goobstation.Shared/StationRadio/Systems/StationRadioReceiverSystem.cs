@@ -1,65 +1,60 @@
 using Content.Goobstation.Shared.StationRadio.Components;
-using Content.Shared.DeviceNetwork;
-using Content.Shared.DeviceNetwork.Events;
-using Content.Shared.DeviceNetwork.Systems;
+using Content.Goobstation.Shared.StationRadio.Events;
+using Content.Shared.Interaction;
+using Content.Shared.Power;
+using Content.Shared.Power.EntitySystems;
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Shared.StationRadio.Systems;
 
-public sealed class StationRadioSystem : EntitySystem
+public sealed class StationRadioReceiverSystem : EntitySystem
 {
-    public const string PlayAudioCommand = "station_radio_play_audio";
-    public const string StopAudioCommand = "station_radio_stop_audio";
-    public const string SetAudioStateCommand = "station_radio_set_audio_state";
-
-    public const string AudioPathData = "station_radio_data_audio_path";
-    public const string AudioPlaybackData = "station_radio_data_audio_playback";
-    public const string AudioStateData = "station_radio_data_audio_state";
-
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDeviceNetworkSystem _device = default!;
-
+    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<StationRadioServerComponent, DeviceNetworkPacketEvent>(OnServerRelay);
-        SubscribeLocalEvent<StationRadioReceiverComponent, DeviceNetworkPacketEvent>(OnReceive);
+        SubscribeLocalEvent<StationRadioReceiverComponent, StationRadioMediaPlayedEvent>(OnMediaPlayed);
+        SubscribeLocalEvent<StationRadioReceiverComponent, StationRadioMediaStoppedEvent>(OnMediaStopped);
+        SubscribeLocalEvent<StationRadioReceiverComponent, ActivateInWorldEvent>(OnRadioToggle);
+        SubscribeLocalEvent<StationRadioReceiverComponent, PowerChangedEvent>(OnPowerChanged);
     }
 
-    private void OnServerRelay(Entity<StationRadioServerComponent> ent, ref DeviceNetworkPacketEvent args)
+    private void OnPowerChanged(EntityUid uid, StationRadioReceiverComponent comp, PowerChangedEvent args)
     {
-        _device.QueuePacket(ent.Owner, null, args.Data);
+        if(comp.SoundEntity != null && args.Powered)
+            _audio.SetGain(comp.SoundEntity, comp.Active ? 1f : 0f);
+        else if(comp.SoundEntity != null)
+            _audio.SetGain(comp.SoundEntity, 0);
     }
 
-    private void OnReceive(Entity<StationRadioReceiverComponent> ent, ref DeviceNetworkPacketEvent args)
+    private void OnRadioToggle(EntityUid uid, StationRadioReceiverComponent comp, ActivateInWorldEvent args)
     {
-        if (!args.Data.TryGetValue(DeviceNetworkConstants.Command, out string? command))
-            return;
+        comp.Active = !comp.Active;
+        if (comp.SoundEntity != null && _power.IsPowered(uid))
+            _audio.SetGain(comp.SoundEntity, comp.Active ? 1f : 0f);
+    }
 
-        switch (command)
+    private void OnMediaPlayed(EntityUid uid, StationRadioReceiverComponent comp, StationRadioMediaPlayedEvent args)
+    {
+        var gain = comp.Active ? 3f : 0f;
+        var audio = _audio.PlayPredicted(args.MediaPlayed, uid, uid, AudioParams.Default.WithVolume(3f).WithMaxDistance(4.5f));
+        if (audio != null && _power.IsPowered(uid))
         {
-            case PlayAudioCommand:
-                if (args.Data.TryGetValue(AudioPathData, out SoundSpecifier? sound))
-                    PlayAudio(ent, sound);
-                break;
-            case StopAudioCommand:
-                ent.Comp.SoundEntity = _audio.Stop(ent.Comp.SoundEntity);
-                break;
-            case SetAudioStateCommand:
-                if (args.Data.TryGetValue(AudioStateData, out AudioState state))
-                    _audio.SetState(ent.Comp.SoundEntity, state);
-                break;
+            comp.SoundEntity = audio.Value.Entity;
+            _audio.SetGain(comp.SoundEntity, gain);
+        }
+        else if(audio != null && !_power.IsPowered(uid))
+        {
+            comp.SoundEntity = audio.Value.Entity;
+            _audio.SetGain(comp.SoundEntity, 0);
         }
     }
 
-    private void PlayAudio(Entity<StationRadioReceiverComponent> ent, SoundSpecifier? sound)
+    private void OnMediaStopped(EntityUid uid, StationRadioReceiverComponent comp, StationRadioMediaStoppedEvent args)
     {
-        var audio = _audio.PlayPvs(sound,
-            ent.Owner,
-            AudioParams.Default.WithVolume(3f).WithMaxDistance(4.5f));
-        if (audio != null)
-            ent.Comp.SoundEntity = audio.Value.Entity;
+        if (comp.SoundEntity != null)
+            comp.SoundEntity = _audio.Stop(comp.SoundEntity);
     }
 }

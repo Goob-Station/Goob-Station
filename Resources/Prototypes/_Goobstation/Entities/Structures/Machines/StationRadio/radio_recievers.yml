@@ -5,6 +5,7 @@
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   description: Listen to the top hits of your stations local radio.
   components:
+  - type: StationRadioReceiver
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/stationradio.rsi
     layers:
@@ -35,27 +36,14 @@
           collection: MetalGlassBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  #- type: RadioSpeaker
-  #  powerRequired: true
-  #  speakNormally: true
-  #  enabled: true
-  #  channels:
-  #  - RadioShow
-  #- type: Speech
-  #  speechVerb: Robotic
-  #- type: ActiveRadio
-  #  channels:
-  #  - RadioShow
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    receiveFrequencyId: StationRadio # Default value, can be changed
-  - type: DeviceCustomFrequency
-    receiveChange: true
-  - type: ActivatableUI
-    key: enum.DeviceCustomFrequencyUiKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.DeviceCustomFrequencyUiKey.Key:
-        type: DeviceCustomFrequencyBoundUserInterface
-  - type: ActivatableUIRequiresPower
-  - type: StationRadioReceiver
+  - type: RadioSpeaker
+    powerRequired: true
+    speakNormally: true
+    enabled: true
+    channels:
+    - RadioShow
+  - type: Speech
+    speechVerb: Robotic
+  - type: ActiveRadio
+    channels:
+    - RadioShow

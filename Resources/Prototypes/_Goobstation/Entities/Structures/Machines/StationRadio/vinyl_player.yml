@@ -41,6 +41,7 @@
   - type: Appearance
   - type: WiresPanel
   - type: WiresVisuals
+  - type: VinylPlayer
   - type: Machine
     board: VinylPlayerCircuitboard
   - type: ApcPowerReceiver
@@ -74,11 +75,3 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { visible: true }
           False: { visible: false }
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    transmitFrequencyId: StationRadio # Default value, can be changed
-  - type: DeviceNetworkRequiresPower
-  - type: DeviceLinkSource
-    ports:
-    - VynilMusic
-  - type: VinylPlayer

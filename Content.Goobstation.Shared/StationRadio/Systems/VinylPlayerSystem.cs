@@ -1,11 +1,9 @@
 using Content.Goobstation.Shared.StationRadio.Components;
-using Content.Shared.DeviceLinking;
-using Content.Shared.DeviceLinking.Events;
-using Content.Shared.DeviceNetwork;
+using Content.Goobstation.Shared.StationRadio.Events;
+using Content.Shared.Destructible;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
@@ -14,113 +12,77 @@ namespace Content.Goobstation.Shared.StationRadio.Systems;
 
 public sealed class VinylPlayerSystem : EntitySystem
 {
+
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
-    [Dependency] private readonly SharedDeviceLinkSystem _link = default!;
-
     public override void Initialize()
     {
         base.Initialize();
-
-        SubscribeLocalEvent<VinylPlayerComponent, EntityTerminatingEvent>(OnDelete);
-        SubscribeLocalEvent<VinylPlayerComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<VinylPlayerComponent, EntInsertedIntoContainerMessage>(OnVinylInserted);
         SubscribeLocalEvent<VinylPlayerComponent, EntRemovedFromContainerMessage>(OnVinylRemove);
-        SubscribeLocalEvent<VinylPlayerComponent, NewLinkEvent>(OnNewLink);
-        SubscribeLocalEvent<VinylPlayerComponent, PortDisconnectedEvent>(OnDisconnect);
+        SubscribeLocalEvent<VinylPlayerComponent, DestructionEventArgs>(OnDestruction);
+        SubscribeLocalEvent<VinylPlayerComponent, PowerChangedEvent>(OnPowerChanged);
     }
 
-    private void OnPowerChanged(Entity<VinylPlayerComponent> ent, ref PowerChangedEvent args)
+    private void OnPowerChanged(EntityUid uid, VinylPlayerComponent comp, PowerChangedEvent args)
     {
-        SetAudioState(ent, !args.Powered ? AudioState.Paused : AudioState.Playing);
-    }
+        if (comp.SoundEntity != null && !args.Powered)
+            comp.SoundEntity = _audio.Stop(comp.SoundEntity);
 
-    private void OnNewLink(Entity<VinylPlayerComponent> ent, ref NewLinkEvent args)
-    {
-        if (args.SourcePort != ent.Comp.ServerPort)
+        if (!comp.RelayToRadios)
             return;
 
-        ent.Comp.ServerEntity = args.Sink;
+        var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
+        while (query.MoveNext(out var receiver, out _))
+        {
+            RaiseLocalEvent(receiver, new StationRadioMediaStoppedEvent());
+        }
     }
 
-    private void OnDisconnect(Entity<VinylPlayerComponent> ent, ref PortDisconnectedEvent args)
+    private void OnDestruction(EntityUid uid, VinylPlayerComponent comp, DestructionEventArgs args)
     {
-        if (args.Port != ent.Comp.ServerPort)
+        if(!comp.RelayToRadios)
             return;
 
-        ent.Comp.ServerEntity = null;
+        var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
+        while (query.MoveNext(out var receiver, out var _))
+        {
+            RaiseLocalEvent(receiver, new StationRadioMediaStoppedEvent());
+        }
     }
 
-    private void OnDelete(Entity<VinylPlayerComponent> ent, ref EntityTerminatingEvent args)
+    private void OnVinylInserted(EntityUid uid, VinylPlayerComponent comp, EntInsertedIntoContainerMessage args)
     {
-        StopAudio(ent);
-    }
-
-    private void OnVinylInserted(Entity<VinylPlayerComponent> ent, ref EntInsertedIntoContainerMessage args)
-    {
-        StartAudio(ent, args.Entity);
-    }
-
-    private void OnVinylRemove(Entity<VinylPlayerComponent> ent, ref EntRemovedFromContainerMessage args)
-    {
-        StopAudio(ent);
-    }
-
-    public void StartAudio(Entity<VinylPlayerComponent> ent, Entity<VinylComponent?> vinyl)
-    {
-        var (uid, comp) = ent;
-        if (_net.IsClient
-            || comp.RequiresPower
-            && !_power.IsPowered(uid)
-            || !Resolve(vinyl.Owner, ref vinyl.Comp, false)
-            || vinyl.Comp.Song == null)
+        if (!TryComp(args.Entity, out VinylComponent? vinylcomp) || _net.IsClient || vinylcomp.Song == null || !_power.IsPowered(uid))
             return;
 
-        var audio = _audio.PlayPredicted(vinyl.Comp.Song, uid, uid, AudioParams.Default.WithVolume(3f).WithMaxDistance(4.5f));
+        var audio = _audio.PlayPredicted(vinylcomp.Song, uid, uid, AudioParams.Default.WithVolume(3f).WithMaxDistance(4.5f));
         if (audio != null)
             comp.SoundEntity = audio.Value.Entity;
 
-        if (ent.Comp.ServerEntity == null)
+        if(!comp.RelayToRadios)
             return;
 
-        var payload = new NetworkPayload()
+        var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
+        while (query.MoveNext(out var receiver, out var _))
         {
-            [DeviceNetworkConstants.Command] = StationRadioSystem.PlayAudioCommand,
-            [StationRadioSystem.AudioPathData] = vinyl.Comp.Song,
-        };
-
-        _link.InvokePort(ent.Owner, ent.Comp.ServerPort, payload);
+            RaiseLocalEvent(receiver, new StationRadioMediaPlayedEvent(vinylcomp.Song));
+        }
     }
 
-    public void StopAudio(Entity<VinylPlayerComponent> ent)
+    private void OnVinylRemove(EntityUid uid, VinylPlayerComponent comp, EntRemovedFromContainerMessage args)
     {
-        ent.Comp.SoundEntity = _audio.Stop(ent.Comp.SoundEntity);
+        if(comp.SoundEntity != null)
+            comp.SoundEntity = _audio.Stop(comp.SoundEntity);
 
-        if (ent.Comp.ServerEntity == null)
+        if(!comp.RelayToRadios)
             return;
 
-        var payload = new NetworkPayload()
+        var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
+        while (query.MoveNext(out var receiver, out var _))
         {
-            [DeviceNetworkConstants.Command] = StationRadioSystem.StopAudioCommand
-        };
-
-        _link.InvokePort(ent.Owner, ent.Comp.ServerPort, payload);
-    }
-
-    public void SetAudioState(Entity<VinylPlayerComponent> ent, AudioState state)
-    {
-        _audio.SetState(ent.Comp.SoundEntity, state);
-
-        if (ent.Comp.ServerEntity == null)
-            return;
-
-        var payload = new NetworkPayload()
-        {
-            [DeviceNetworkConstants.Command] = StationRadioSystem.SetAudioStateCommand,
-            [StationRadioSystem.AudioStateData] = state,
-        };
-
-        _link.InvokePort(ent.Owner, ent.Comp.ServerPort, payload);
+            RaiseLocalEvent(receiver, new StationRadioMediaStoppedEvent());
+        }
     }
 }
