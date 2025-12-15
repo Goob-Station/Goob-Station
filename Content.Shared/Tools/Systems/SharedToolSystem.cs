@@ -75,6 +75,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Tools; // Goob (obviously)
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.DoAfter;
@@ -258,7 +259,11 @@ public abstract partial class SharedToolSystem : EntitySystem
             AttemptFrequency = fuel > 0 || toolComponent.AlwaysCheckDoAfter ? AttemptFrequency.EveryTick : AttemptFrequency.Never
         };
 
-        _doAfterSystem.TryStartDoAfter(doAfterArgs, out id);
+        // Goobstation - Moved `TryStartDoAfter` into a check and added `UseToolEvent`.
+        if (_doAfterSystem.TryStartDoAfter(doAfterArgs, out id))
+        {
+            RaiseLocalEvent(tool, new UseToolEvent(user, target));
+        }
         return true;
     }
 
@@ -348,7 +353,7 @@ public abstract partial class SharedToolSystem : EntitySystem
     #region DoAfterEvents
 
     [Serializable, NetSerializable]
-    protected sealed partial class ToolDoAfterEvent : DoAfterEvent
+    public sealed partial class ToolDoAfterEvent : DoAfterEvent // Goob - Protected -> Public
     {
         [DataField]
         public float Fuel;

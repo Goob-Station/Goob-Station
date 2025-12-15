@@ -1,0 +1,21 @@
+- type: entity
+  id: EffectWeldingSparks
+  #categories: [ HideSpawnMenu ] // remember to uncomment these
+  components:
+  - type: Sprite
+    snapCardinals: true
+    noRot: true
+    drawdepth: Effects
+    sprite: /Textures/_Goobstation/Effects/welding_effect.rsi
+    state: welding_sparks
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  parent: EffectWeldingSparks
+  id: EffectWeldingSparksGreen
+  #categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: exp_welding_sparks
