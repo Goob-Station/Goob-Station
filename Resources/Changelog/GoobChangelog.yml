@@ -19322,3 +19322,60 @@ Entries:
       message: Certain Diona emotes now have audio
   id: 2181
   time: '2025-12-13T23:47:11.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: >-
+        Split the 'Drinks' section of the guidebook into two 'Alcoholic' and
+        'Non-Alcoholic' sections.
+  id: 2182
+  time: '2025-12-14T10:28:09.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: >-
+        HOS'es justice sword and NTRs executive briefcase can now roll as a
+        traitor objective. (They couldn't before)
+  id: 2183
+  time: '2025-12-14T10:30:12.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: Cosmic winter coat to hacked winterdrobe.
+  id: 2184
+  time: '2025-12-14T10:30:47.0000000+00:00'
+- author: temm1ie
+  changes:
+    - type: Add
+      message: Added bluespace tomato plant!
+  id: 2185
+  time: '2025-12-14T10:37:39.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: >-
+        Riot Helmet, Swat, Ert, Heretic, Coscult, changeling and hopefully most
+        modsuit (sealed only) and hardsuit helmets should block the facehugger
+  id: 2186
+  time: '2025-12-14T10:41:28.0000000+00:00'
+- author: SkippyMcSkips
+  changes:
+    - type: Fix
+      message: Fixed the grammar of some slot machine pop-up messages
+  id: 2187
+  time: '2025-12-14T18:23:55.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed an issue with cavity implants.
+  id: 2188
+  time: '2025-12-14T23:09:52.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added lavaland death rattle implant to the salvage vendor and Survival
+        voucher kit - it sends a message in the supply radio channel after it's
+        owner dies on Lavaland's surface with exact death coordinates.
+  id: 2189
+  time: '2025-12-15T09:18:36.0000000+00:00'
