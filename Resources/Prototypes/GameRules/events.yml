@@ -849,6 +849,7 @@
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
+    occursDuringRoundEnd: false
     chaos: # Goobstation
       Hostile: 100
       Medical: 200
