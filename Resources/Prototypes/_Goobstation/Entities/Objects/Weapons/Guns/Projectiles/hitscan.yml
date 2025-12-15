@@ -314,6 +314,7 @@
     state: impact_beam_light_pulse
 # endregion Revolver Lasers
 
+# region misc lasers
 - type: hitscan
   id: HeavyRedLaser
   damage:
@@ -329,3 +330,35 @@
   impactFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: impact_beam_heavy
+    
+- type: hitscan
+  id: MediumOverchargedLaser
+  fireStacks: 0.7
+  damage:
+    types:
+      Heat: 14
+  muzzleFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+    state: muzzle_beam_light_overcharged
+  travelFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+    state: beam_light_overcharged
+  impactFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+    state: impact_beam_light_overcharged
+
+- type: hitscan
+  id: MediumRedLaser
+  damage:
+    types:
+      Heat: 10
+  muzzleFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+    state: muzzle_beam_light
+  travelFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+    state: beam_light
+  impactFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+    state: impact_beam_light
+# endregion misc lasers
