@@ -3,6 +3,7 @@
     xmlns:controls="clr-namespace:Content.Goobstation.Client.Phones.UI"
     xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
     Title="Telephone" MinSize="135 90" Resizable="False">
+    <GridContainer Columns="2">
     <BoxContainer Orientation="Vertical">
         <controls1:StripeBack>
             <BoxContainer Orientation="Horizontal" Align="Center">
@@ -14,4 +15,13 @@
         </controls1:StripeBack>
         <RichTextLabel Name="DialNumber" Text="" Access="Public" HorizontalAlignment="Center"></RichTextLabel>
     </BoxContainer>
+    <BoxContainer MinSize="100 90">
+        <Collapsible>
+            <CollapsibleHeading Title="Service"/>
+            <CollapsibleBody>
+                <RichTextLabel Text="Hey there"/>
+            </CollapsibleBody>
+        </Collapsible>
+    </BoxContainer>
+    </GridContainer>
 </controls1:FancyWindow>
