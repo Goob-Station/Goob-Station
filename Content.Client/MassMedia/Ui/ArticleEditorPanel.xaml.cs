@@ -7,6 +7,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Message;
+using Content.Client.RichText;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.RichText;
 using Content.Shared.MassMedia.Systems;
@@ -107,7 +108,7 @@ public sealed partial class ArticleEditorPanel : Control
         PreviewPanel.Visible = _preview;
 
         var articleBody = Rope.Collapse(ContentField.TextRope);
-        PreviewLabel.SetMessage(FormattedMessage.FromMarkupPermissive(articleBody), AllowedTags);
+        PreviewLabel.SetMessage(FormattedMessage.FromMarkupPermissive(articleBody), UserFormattableTags.BaseAllowedTags);
     }
 
     private void OnCancel(BaseButton.ButtonEventArgs eventArgs)
