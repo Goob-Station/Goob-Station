@@ -1,6 +1,8 @@
 using Content.Goobstation.Shared.StationRadio.Components;
 using Content.Goobstation.Shared.StationRadio.Events;
 using Content.Shared.Destructible;
+using Content.Shared.DeviceLinking;
+using Content.Shared.DeviceNetwork.Systems;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
 using Robust.Shared.Audio;
@@ -16,7 +18,7 @@ public sealed class VinylPlayerSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly SharedDeviceLinkSystem _deviceLinkSystem = default!;
 
     public override void Initialize()
     {
@@ -32,7 +34,7 @@ public sealed class VinylPlayerSystem : EntitySystem
         if (comp.SoundEntity != null && !args.Powered)
             comp.SoundEntity = _audio.Stop(comp.SoundEntity);
 
-        if (!comp.RelayToRadios)
+        if(!CheckForRadioRig(uid))
             return;
 
         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
@@ -44,7 +46,7 @@ public sealed class VinylPlayerSystem : EntitySystem
 
     private void OnDestruction(EntityUid uid, VinylPlayerComponent comp, DestructionEventArgs args)
     {
-        if(!comp.RelayToRadios)
+        if(!CheckForRadioRig(uid))
             return;
 
         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
@@ -63,7 +65,7 @@ public sealed class VinylPlayerSystem : EntitySystem
         if (audio != null)
             comp.SoundEntity = audio.Value.Entity;
 
-        if(!comp.RelayToRadios)
+        if(!CheckForRadioRig(uid))
             return;
 
         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
@@ -79,7 +81,7 @@ public sealed class VinylPlayerSystem : EntitySystem
         if(comp.SoundEntity != null)
             comp.SoundEntity = _audio.Stop(comp.SoundEntity);
 
-        if(!comp.RelayToRadios)
+        if(!CheckForRadioRig(uid))
             return;
 
         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
@@ -87,5 +89,20 @@ public sealed class VinylPlayerSystem : EntitySystem
         {
             RaiseLocalEvent(receiver, new StationRadioMediaStoppedEvent());
         }
+    }
+
+    private bool CheckForRadioRig(EntityUid uid)
+    {
+        if (TryComp<DeviceLinkSourceComponent>(uid, out var source))
+        {
+            foreach (var linked in source.LinkedPorts.Keys)
+            {
+                if (HasComp<RadioRigComponent>(linked))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

@@ -145,7 +145,7 @@
   id: StationRadioServerCircuitboard
   icon:
     sprite:  _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
-    state: broadcastradio
+    state: icon
   result: StationRadioServerCircuitboard
 
 - type: latheRecipe
@@ -153,9 +153,9 @@
   id: StationRadioRigCircuitboard
   icon:
     sprite:  _Goobstation/Structures/Machines/StationRadio/radiostationrig.rsi
-    state: stationradiosetup
+    state: icon
   result: StationRadioRigCircuitboard
-  
+
 - type: latheRecipe
   parent: [ BaseElectronicsRecipe, BaseCircuitryRecipeCategory ]
   id: CameraElectronics

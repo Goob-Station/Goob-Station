@@ -174,3 +174,10 @@
   id: Triggered
   name: signal-port-name-triggered-signaller
   description: signal-port-description-triggered-signaller
+
+# Vinyl player
+
+- type: sourcePort
+  id: VinylPlayerPort
+  name: signal-port-name-vinyl-player
+  description: signal-port-description-vinyl-player

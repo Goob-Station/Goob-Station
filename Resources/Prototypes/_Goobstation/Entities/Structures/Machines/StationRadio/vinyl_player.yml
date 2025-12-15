@@ -46,6 +46,10 @@
     board: VinylPlayerCircuitboard
   - type: ApcPowerReceiver
     powerLoad: 300 # This is a simple machine
+  - type: DeviceLinkSource
+    ports:
+    - VinylPlayerPort
+  - type: DeviceList
   - type: ContainerContainer
     containers:
       machine_board: !type:Container

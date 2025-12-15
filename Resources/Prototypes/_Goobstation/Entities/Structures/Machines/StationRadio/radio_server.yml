@@ -32,8 +32,12 @@
     layers:
     - state: icon
     # TODO: unlit & maints panel sprite
+  - type: DeviceLinkSink
+    ports:
+    - StationRadioRigPort
   - type: Transform
     noRot: false
   - type: Rotatable
   - type: Machine
     board: StationRadioRigCircuitboard
+  - type: RadioRig
