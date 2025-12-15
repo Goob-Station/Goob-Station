@@ -84,13 +84,6 @@
         - type: StaminaDamageOnHit
           damage: 25
           overtime: 15
-          lightAttackDamageMultiplier: 3
-          lightAttackOvertimeDamageMultiplier: 0
-        - type: DelayedKnockdownOnHit
-          useDelay: stunbaton
-        - type: UseDelayBlockMelee
-          delays:
-          - stunbaton
         soundStateActivate:
           collection: sparks
           params:
@@ -103,13 +96,18 @@
           sprite: _Omu/Objects/Weapons/Melee/stunsword.rsi
           state: shock-icon
         components:
+        - type: IgnitionSource
+          temperature: 700
+        - type: Tool
+          qualities:
+          - Ignition
         - type: MeleeWeapon
           wideAnimationRotation: -135
           attackRate: 1
           damage:
             types:
-              Slash: 10
-              Shock: 10
+              Slash: 5
+              Heat: 15
             woundSeverityMultipliers:
               Slash: 1.5
           angle: 60
