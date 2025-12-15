@@ -16,6 +16,8 @@ public sealed class VinylPlayerSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -65,9 +67,10 @@ public sealed class VinylPlayerSystem : EntitySystem
             return;
 
         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
-        while (query.MoveNext(out var receiver, out var _))
+        while (query.MoveNext(out var receiver, out var receiverComponent))
         {
-            RaiseLocalEvent(receiver, new StationRadioMediaPlayedEvent(vinylcomp.Song));
+            if(!receiverComponent.SoundEntity.HasValue)
+                RaiseLocalEvent(receiver, new StationRadioMediaPlayedEvent(vinylcomp.Song));
         }
     }
 
