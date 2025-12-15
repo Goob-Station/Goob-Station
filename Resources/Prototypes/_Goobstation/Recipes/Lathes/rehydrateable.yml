@@ -152,11 +152,3 @@
   materials:
     Biomass: 70
     Plasma: 250
-
-- type: latheRecipe
-  id: Gingerbreadcube
-  result: Gingerbreadcube
-  completetime: 30
-  materials:
-    Biomass: 70
-    Plasma: 250
