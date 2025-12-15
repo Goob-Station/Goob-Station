@@ -4767,3 +4767,10 @@ Entries:
   id: 9296
   time: '2025-12-15T03:59:08.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41861
+- author: Samuka
+  changes:
+  - message: Repairing borgs now takes multiple mini doafters instead of one big one
+    type: Tweak
+  id: 9297
+  time: '2025-12-15T12:27:53.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41638
