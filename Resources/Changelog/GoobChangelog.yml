@@ -19370,3 +19370,12 @@ Entries:
       message: Fixed an issue with cavity implants.
   id: 2188
   time: '2025-12-14T23:09:52.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added lavaland death rattle implant to the salvage vendor and Survival
+        voucher kit - it sends a message in the supply radio channel after it's
+        owner dies on Lavaland's surface with exact death coordinates.
+  id: 2189
+  time: '2025-12-15T09:18:36.0000000+00:00'
