@@ -58,4 +58,11 @@ public sealed class SpawnOnDespawnSystem : EntitySystem
     {
         entity.Comp.Prototype = prototype;
     }
+
+    // <Goobstation>
+    public void SetPrototypes(Entity<SpawnOnDespawnComponent> entity, List<EntProtoId> prototypes)
+    {
+        entity.Comp.Prototypes = prototypes;
+    }
+    // </Goobstation>
 }

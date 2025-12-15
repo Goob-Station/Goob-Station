@@ -425,3 +425,13 @@
   cost: 1000
   category: cargoproduct-category-name-fun
   group: market
+
+- type: cargoProduct # Goob addition
+  id: ClownCarInsurance
+  icon:
+    sprite: _Goobstation/Objects/Misc/bureaucracy.rsi
+    state: paper_green_words
+  product: ClownCarInsurancePolicy
+  cost: 250
+  category: cargoproduct-category-name-fun
+  group: market

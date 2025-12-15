@@ -1,0 +1,26 @@
+- type: entity
+  id: ClownCarInsurancePolicy
+  name: Honk! Co. insurance policy
+  parent: BasePaper
+  description: It's an insurance policy to protect your clown car.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/bureaucracy.rsi
+    state: paper_green_words
+  - type: InsurancePolicy
+    validEntities:
+      components: [ Clowncar ]
+    extraCompensationItems: [ ClownCarInsuranceLetter, BikeHorn ]
+
+- type: entity
+  id: ClownCarInsuranceLetter
+  categories: [ HideSpawnMenu ]
+  parent: Paper
+  components:
+  - type: Paper
+    content: |2
+
+               [head=1]Insurance Claim Detected[/head]
+
+      Our sensors have detected irreversable damage to your insured vehicle.
+      Here is your replacement, as agreed.
