@@ -433,6 +433,7 @@
     - Harpy
     - Plasmaman # EE
     # Goobstation end
+    - Xelthia # Omu Edit - They can't use gloves and ninja objectives needs gloves
   - type: AntagObjectives
     objectives:
     - StealResearchObjective
