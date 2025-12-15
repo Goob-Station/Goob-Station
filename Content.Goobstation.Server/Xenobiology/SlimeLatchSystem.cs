@@ -8,6 +8,7 @@
 
 using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
+using Content.Goobstation.Shared.Xenobiology.Components.Equipment;
 using Content.Server.Buckle.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.ActionBlocker;
@@ -56,6 +57,9 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
     private void OnSlimeContained(Entity<SlimeComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
+        if (!HasComp<XenoVacuumTankComponent>(args.Container.Owner))
+            return;
+
         if (IsLatched(ent))
             Unlatch(ent);
     }
