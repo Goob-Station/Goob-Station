@@ -1,20 +1,63 @@
 - type: entity
   id: SpaceWhaleTest # todo
-  parent: MobCarpCaller # todo this is here because of the htn behaviour
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
   suffix: Test debug brbrbrbrbrbrbr
   components:
-  - type: TailedEntity
+  - type: TailedEntity # todo
     amount: 65
-    speed: 3.5
+    speed: 7
     spacing: 1
     prototype: CrowbarDebugBobobobobo
   - type: MovementSpeedModifier
-    baseSprintSpeed: 3
-    baseWalkSpeed: 3
+    baseSprintSpeed: 6
+    baseWalkSpeed: 6
   - type: RadarBlip
     scale: 3
     shape: hexagon
-  # todo timeddespawn, melee damage, much speed, fixtures, infinite hp, sprites etc
+  - type: MovementIgnoreGravity
+    gravityState: true # wtf lol?
+  - type: TimedDespawn
+    lifetime: 190 # to further prevent shitters from abusing it if something came up
+  - type: WarpPoint
+    follow: true
+    location: space leviathan
+  - type: HTN
+    rootTask:
+      task: DragonCarpCompound
+  - type: NpcFactionMember
+    factions:
+    - Dragon #goida, also the carpsuit buff
+  - type: Physics
+  - type: Fixtures # todo
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40 # todo when sprites are here
+        density: 137992
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Blunt: 40
+        Slash: 50
+        Structural: 800 #lol
+  - type: Speech
+    speechVerb: LargeMob
+  - type: InteractionPopup
+    interactSuccessString: petting-success-leviathan
+    interactFailureString: petting-failure-leviathan
+    interactFailureSound:
+      path: /Audio/Effects/bite.ogg
+  # todo timeddespawn, melee damage, much speed, fixtures, infinite hp(?), sprites etc
 
 
 - type: entity
