@@ -5,11 +5,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Xenobiology.Systems;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
+using Content.Shared.DoAfter;
 
 namespace Content.Goobstation.Server.Xenobiology.HTN;
 
@@ -17,11 +17,10 @@ public sealed partial class SlimeLatchOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     private SlimeLatchSystem _slimeLatch = default!;
+    private SharedDoAfterSystem _doAfter = default!;
 
     [DataField]
     public string LatchKey = string.Empty;
-
-    private HTNOperatorStatus _status;
 
     public override void Initialize(IEntitySystemManager sysManager)
     {
@@ -36,13 +35,13 @@ public sealed partial class SlimeLatchOperator : HTNOperator
 
         if (!_entManager.TryGetComponent<SlimeComponent>(owner, out var slime))
             return HTNOperatorStatus.Failed;
-
+        if (_entManager.HasComponent<BeingLatchedComponent>(target))
+            return HTNOperatorStatus.Continuing;
         if (_slimeLatch.IsLatched((owner, slime), target))
-            _status = HTNOperatorStatus.Finished;
-        else if (_status != HTNOperatorStatus.Continuing && _slimeLatch.NpcTryLatch((owner, slime), target))
-            _status = HTNOperatorStatus.Continuing;
-        else _status = HTNOperatorStatus.Failed;
+            return HTNOperatorStatus.Finished;
 
-        return _status;
+        return _slimeLatch.NpcTryLatch((owner, slime), target)
+            ? HTNOperatorStatus.Continuing
+            : HTNOperatorStatus.Failed;
     }
 }

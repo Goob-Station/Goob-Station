@@ -13,4 +13,4 @@ namespace Content.Goobstation.Shared.Xenobiology.Components;
 /// Freaky.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class BeingConsumedComponent : Component;
+public sealed partial class BeingLatchedComponent : Component;

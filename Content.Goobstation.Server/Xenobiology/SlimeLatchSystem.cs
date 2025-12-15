@@ -24,7 +24,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Xenobiology.Systems;
+namespace Content.Goobstation.Server.Xenobiology;
 
 // This handles any actions that slime mobs may have.
 public sealed partial class SlimeLatchSystem : EntitySystem
@@ -49,8 +49,15 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         SubscribeLocalEvent<SlimeComponent, EntRemovedFromContainerMessage>(OnEntityEscape);
         SubscribeLocalEvent<SlimeComponent, MobStateChangedEvent>(OnEntityDied);
+        SubscribeLocalEvent<SlimeComponent, EntInsertedIntoContainerMessage>(OnSlimeContained);
 
         SubscribeLocalEvent<SlimeDamageOvertimeComponent, MobStateChangedEvent>(OnMobStateChangeSOD);
+    }
+
+    private void OnSlimeContained(Entity<SlimeComponent> ent, ref EntInsertedIntoContainerMessage args)
+    {
+        if (IsLatched(ent))
+            Unlatch(ent);
     }
 
     public override void Update(float frameTime)
@@ -71,11 +78,11 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         ent.Comp.NextTickTime = _gameTiming.CurTime + ent.Comp.Interval;
         _damageable.TryChangeDamage(ent, ent.Comp.Damage, ignoreResistances: true, targetPart: TargetBodyPart.All);
 
-        if (ent.Comp.SourceEntityUid is { } source && TryComp<HungerComponent>(ent.Comp.SourceEntityUid, out var hunger))
-        {
-            _hunger.ModifyHunger(source, addedHunger, hunger);
-            Dirty(source, hunger);
-        }
+        if (ent.Comp.SourceEntityUid is not { } source
+            || !TryComp<HungerComponent>(ent.Comp.SourceEntityUid, out var hunger))
+            return;
+        _hunger.ModifyHunger(source, addedHunger, hunger);
+        Dirty(source, hunger);
     }
 
     private void OnLatchAttempt(SlimeLatchEvent args)
@@ -93,12 +100,9 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             return;
         }
 
-        if (CanLatch((args.Performer, slime), args.Target))
-        {
-            StartSlimeLatchDoAfter((args.Performer, slime), args.Target);
+        if (!CanLatch((args.Performer, slime), args.Target))
             return;
-        }
-
+        StartSlimeLatchDoAfter((args.Performer, slime), args.Target);
         // improvement space (tm)
     }
 
@@ -129,7 +133,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             BreakOnMove = true,
         };
 
-        EnsureComp<BeingConsumedComponent>(target);
+        EnsureComp<BeingLatchedComponent>(target);
         _doAfter.TryStartDoAfter(doAfterArgs);
         return true;
     }
@@ -141,7 +145,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         if (args.Handled || args.Cancelled)
         {
-            RemCompDeferred<BeingConsumedComponent>(target);
+            RemCompDeferred<BeingLatchedComponent>(target);
             return;
         }
 
@@ -173,7 +177,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             return;
 
         RemCompDeferred<SlimeDamageOvertimeComponent>(args.Entity);
-        RemCompDeferred<BeingConsumedComponent>(args.Entity);
+        RemCompDeferred<BeingLatchedComponent>(args.Entity);
         ent.Comp.LatchedTarget = null;
     }
 
@@ -185,7 +189,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
     public bool IsLatched(Entity<SlimeComponent> ent, EntityUid target)
         => IsLatched(ent) && ent.Comp.LatchedTarget!.Value == target;
 
-    public bool CanLatch(Entity<SlimeComponent> ent, EntityUid target)
+    private bool CanLatch(Entity<SlimeComponent> ent, EntityUid target)
     {
         return !(IsLatched(ent) // already latched
             || _mobState.IsDead(target) // target dead
@@ -195,15 +199,12 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
     public bool NpcTryLatch(Entity<SlimeComponent> ent, EntityUid target)
     {
-        if (!CanLatch(ent, target))
-            return false;
-
-        return StartSlimeLatchDoAfter(ent, target);
+        return CanLatch(ent, target) && StartSlimeLatchDoAfter(ent, target);
     }
 
-    public void Latch(Entity<SlimeComponent> ent, EntityUid target)
+    private void Latch(Entity<SlimeComponent> ent, EntityUid target)
     {
-        RemCompDeferred<BeingConsumedComponent>(target);
+        RemCompDeferred<BeingLatchedComponent>(target);
 
         _xform.SetCoordinates(ent, Transform(target).Coordinates);
         _xform.SetParent(ent, target);
@@ -231,7 +232,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         var target = ent.Comp.LatchedTarget!.Value;
 
-        RemCompDeferred<BeingConsumedComponent>(target);
+        RemCompDeferred<BeingLatchedComponent>(target);
         RemCompDeferred<SlimeDamageOvertimeComponent>(target);
 
         _xform.SetParent(ent, _xform.GetParentUid(target)); // deparent it. probably.

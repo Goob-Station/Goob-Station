@@ -13,7 +13,6 @@
     size: Ginormous
   - type: Clothing
     slots:
-    - back
     - SUITSTORAGE
     sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_pack.rsi
   - type: ContainerContainer
@@ -71,4 +70,3 @@
     entityWhitelist:
       components:
       - Slime
-

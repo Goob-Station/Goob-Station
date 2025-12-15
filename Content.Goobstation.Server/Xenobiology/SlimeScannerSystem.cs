@@ -9,7 +9,7 @@ using Robust.Shared.Utility;
 using System.Linq;
 using System.Text;
 
-namespace Content.Goobstation.Server.Xenobiology.Systems;
+namespace Content.Goobstation.Server.Xenobiology;
 public sealed partial class SlimeScannerSystem : EntitySystem
 {
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;

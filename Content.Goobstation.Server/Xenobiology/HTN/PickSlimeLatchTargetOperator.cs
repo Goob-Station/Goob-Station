@@ -66,7 +66,7 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
         var huAppQuery = _entManager.GetEntityQuery<HumanoidAppearanceComponent>();
         var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
-        var beingConsumedQuery = _entManager.GetEntityQuery<BeingConsumedComponent>();
+        var beingConsumedQuery = _entManager.GetEntityQuery<BeingLatchedComponent>();
         var targets = new List<EntityUid>();
 
         if (!blackboard.TryGetValue<float>(RangeKey, out var range, _entManager)
