@@ -30,6 +30,8 @@ public sealed partial class SlimeLatchOperator : HTNOperator
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
     {
+        base.Update(blackboard, frameTime);
+
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
         var target = blackboard.GetValue<EntityUid>(LatchKey);
 
