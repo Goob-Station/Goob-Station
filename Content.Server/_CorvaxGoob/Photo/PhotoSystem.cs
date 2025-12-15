@@ -1,12 +1,17 @@
 using Content.Server.Hands.Systems;
 using Content.Server.Materials;
+using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Popups;
+using Content.Shared._CorvaxGoob.CCCVars;
 using Content.Shared._CorvaxGoob.Photo;
+using Content.Shared.CCVar;
 using Content.Shared.Materials;
 using Content.Shared.Timing;
 using Content.Shared.UserInterface;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Server.Player;
+using Robust.Shared.Configuration;
 
 namespace Content.Server._CorvaxGoob.Photo;
 
@@ -19,9 +24,15 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly PlayTimeTrackingManager _playTime = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     //96 KB
     const int MAX_SIZE = 1024 * 96;
+
+    private bool _photoTimeRequiredEnabled = true;
+    private float _photoTimeRequiredHours = 10;
 
     public override void Initialize()
     {
@@ -36,6 +47,9 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
         SubscribeLocalEvent<PhotoCameraComponent, MaterialAmountChangedEvent>(OnPaperInserted);
 
         SubscribeLocalEvent<PhotoCardComponent, AfterActivatableUIOpenEvent>(OnOpenCardInterface);
+
+        Subs.CVar(_cfg, CCCVars.PhotoPlayTimeRequire, value => _photoTimeRequiredEnabled = value, true);
+        Subs.CVar(_cfg, CCCVars.PhotoPlayTimeHours, value => _photoTimeRequiredHours = value, true);
     }
 
     private void OnOpenCameraInterface(EntityUid uid, PhotoCameraComponent component, AfterActivatableUIOpenEvent args)
@@ -63,7 +77,7 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
         if (!CheckPngSignature(message.Data))
             return;
 
-        if (TryTakeImage(uid, component, message.Data))
+        if (TryTakeImage(uid, component, message.Actor, message.Data))
             RaiseLocalEvent(new PhotoCameraTakeImageEvent(uid, message.Actor, message.PhotoPosition, message.Zoom));
     }
 
@@ -83,8 +97,20 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
         UpdateCameraInterface(uid, component, component.User);
     }
 
-    private bool TryTakeImage(EntityUid uid, PhotoCameraComponent component, byte[] imageData)
+    private bool TryTakeImage(EntityUid uid, PhotoCameraComponent component, EntityUid actor, byte[] imageData)
     {
+        if (_photoTimeRequiredEnabled)
+        {
+            if (!_player.TryGetSessionByEntity(actor, out var session))
+                return false;
+
+            if (_playTime.GetOverallPlaytime(session).Hours < _photoTimeRequiredHours)
+            {
+                _audio.PlayPvs(component.ErrorSound, uid);
+                return false;
+            }
+        }
+
         if (_delay.IsDelayed(uid))
             return false;
 
