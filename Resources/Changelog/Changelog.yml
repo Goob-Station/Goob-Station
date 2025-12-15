@@ -4752,3 +4752,11 @@ Entries:
   id: 9293
   time: '2025-12-15T01:33:51.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41705
+- author: ScarKy0
+  changes:
+  - message: Removed roundstart tools module from the Medical, Service and Janitor
+      cyborgs. The module can still be printed at the exosuit fab.
+    type: Remove
+  id: 9294
+  time: '2025-12-15T01:50:21.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41823
