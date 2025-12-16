@@ -39,8 +39,6 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, RotaryPhoneComponent comp, MapInitEvent args)
     {
-        comp.PhoneComponents.Add(comp);
-
         if(comp.PhoneNumber == null)
             comp.PhoneNumber = _random.Next(11111,99999);
     }

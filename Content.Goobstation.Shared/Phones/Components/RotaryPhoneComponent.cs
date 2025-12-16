@@ -62,9 +62,6 @@ public sealed partial class RotaryPhoneComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? ConnectedPlayer;
 
-    [DataField, AutoNetworkedField]
-    public List<RotaryPhoneComponent> PhoneComponents;
-
     #region sounds
 
     [AutoNetworkedField]
