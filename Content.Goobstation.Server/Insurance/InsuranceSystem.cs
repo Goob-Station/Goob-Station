@@ -41,15 +41,12 @@ public sealed partial class InsuranceSystem : EntitySystem
 
     private MapCoordinates SelectDropPos(TransformComponent xform, int searchRadius)
     {
-        if (xform.GridUid == null)
+        if (xform.GridUid == null || !TryComp<MapGridComponent>(xform.GridUid.Value, out var grid))
             return _xform.ToMapCoordinates(xform.Coordinates);
-
-        if (!TryComp<MapGridComponent>(xform.GridUid.Value, out var grid))
-            return _xform.ToMapCoordinates(xform.Coordinates);
-
-        var tileCoords = _map.CoordinatesToTile(xform.GridUid.Value, grid, xform.Coordinates);
 
         List<Vector2i> validTiles = [];
+
+        var tileCoords = _map.CoordinatesToTile(xform.GridUid.Value, grid, xform.Coordinates);
 
         var physQuery = GetEntityQuery<PhysicsComponent>();
 
@@ -59,10 +56,8 @@ public sealed partial class InsuranceSystem : EntitySystem
             {
                 Vector2i coords = new(x, y);
 
-                if (!_map.TryGetTileRef(xform.GridUid.Value, grid, coords, out var tileRef))
-                    continue;
-
-                if (_turf.IsSpace(tileRef))
+                if (!_map.TryGetTileRef(xform.GridUid.Value, grid, coords, out var tileRef) ||
+                        _turf.IsSpace(tileRef))
                     continue;
 
                 var valid = true;
@@ -71,6 +66,7 @@ public sealed partial class InsuranceSystem : EntitySystem
                 {
                     if (!physQuery.TryGetComponent(ent, out var body))
                         continue;
+
                     if (body.Hard && (body.CollisionMask & (int) CollisionGroup.MobMask) != 0)
                     {
                         valid = false;
