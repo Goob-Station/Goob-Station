@@ -115,6 +115,7 @@
     - MobCorgiIanOld
     - MobCorgiLisa
     - MobCorgiIanPup
+    - MobCorgiIanClown
 
 - type: entity
   parent: MarkerBase
