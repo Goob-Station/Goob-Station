@@ -72,9 +72,9 @@ public sealed class RotaryPhoneSystem : EntitySystem
 
                         RaiseLocalEvent(phone, new PhoneRingEvent(uid, comp));
                     }
-                    else
+                    else if(comp.SoundEntity == null)
                     {
-                        var audio = _audio.PlayPvs(comp.HandUpSoundLocal, uid);
+                        var audio = _audio.PlayPvs(comp.BusySound, uid);
                         if (audio != null)
                             comp.SoundEntity = audio.Value.Entity;
                     }
@@ -110,6 +110,8 @@ public sealed class RotaryPhoneSystem : EntitySystem
 
         var sound = _audio.GetSound(comp.SpeakSound);
 
-        _chatManager.ChatMessageToOne(ChatChannel.Local, args.Message, args.Message, otherPhoneComponent.ConnectedPlayer.Value, false, actor.PlayerSession.Channel, Color.FromHex("#9956D3"), true, sound, -12, hidePopup: true);
+        var message = Loc.GetString("phone-speak", ("name", entityMeta.EntityName), ("message", args.Message));
+
+        _chatManager.ChatMessageToOne(ChatChannel.Local, message, message, otherPhoneComponent.ConnectedPlayer.Value, false, actor.PlayerSession.Channel, Color.FromHex("#9956D3"), true, sound, -12, hidePopup: true);
     }
 }

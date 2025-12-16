@@ -48,8 +48,11 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
             Act = () =>
             {
                 comp.SpeakerPhone = !comp.SpeakerPhone;
+                Dirty(uid, comp);
+
                 var state = Loc.GetString(comp.SpeakerPhone ? "handheld-radio-component-on-state" : "handheld-radio-component-off-state");
                 var message = Loc.GetString("phone-speakerphone-onoff", ("status", state));
+                _popupSystem.PopupPredicted(message, uid, args.User);
             }
         };
         args.Verbs.Add(verb);

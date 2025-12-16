@@ -42,7 +42,7 @@ public sealed partial class RotaryPhoneComponent : Component
     /// What category under the phone book should this phone be under
     /// </summary>
     [DataField, AutoNetworkedField]
-    public string? Category;
+    public string? Category = "Uncategorized";
 
     /// <summary>
     /// What should the phone be called
@@ -75,6 +75,10 @@ public sealed partial class RotaryPhoneComponent : Component
 
     [DataField, AutoNetworkedField]
     public SoundPathSpecifier HandUpSoundLocal = new SoundPathSpecifier ("/Audio/_RMC14/Phone/phone_busy.ogg");
+
+    [DataField, AutoNetworkedField]
+    public SoundPathSpecifier BusySound = new SoundPathSpecifier ("/Audio/_RMC14/Phone/Phone_voicemail.ogg");
+
 
     [DataField, AutoNetworkedField]
     public EntityUid? SoundEntity;

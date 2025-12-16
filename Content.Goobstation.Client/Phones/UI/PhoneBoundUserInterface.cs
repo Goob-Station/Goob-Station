@@ -1,4 +1,3 @@
-using Content.Goobstation.Client.Phones.UI;
 using Content.Goobstation.Shared.Phones.Components;
 using Robust.Client.UserInterface;
 
@@ -17,6 +16,7 @@ public sealed class PhoneBoundUserInterface : BoundUserInterface
         base.Open();
 
         _menu = this.CreateWindow<PhoneMenu>();
+        _menu.FillPhoneBook();
 
         _menu.OnKeypadButtonPressed += i =>
         {
@@ -34,20 +34,5 @@ public sealed class PhoneBoundUserInterface : BoundUserInterface
             SendMessage(new PhoneKeypadClearMessage());
             _menu.DialNumber.SetMessage(string.Empty);
         };
-    }
-
-
-
-    protected override void UpdateState(BoundUserInterfaceState state)
-    {
-        base.UpdateState(state);
-
-        if (_menu == null)
-            return;
-
-        switch (state)
-        {
-
-        }
     }
 }

@@ -15,13 +15,52 @@
         </controls1:StripeBack>
         <RichTextLabel Name="DialNumber" Text="" Access="Public" HorizontalAlignment="Center"></RichTextLabel>
     </BoxContainer>
-    <BoxContainer MinSize="100 90">
-        <Collapsible>
-            <CollapsibleHeading Title="Service"/>
-            <CollapsibleBody>
-                <RichTextLabel Text="Hey there"/>
-            </CollapsibleBody>
-        </Collapsible>
-    </BoxContainer>
+<!-- phonebook is filled by code -->
+    <ScrollContainer MinSize="200 90">
+        <BoxContainer MinSize="100 90" Orientation="Vertical">
+            <Collapsible>
+                <CollapsibleHeading Title="Command"/>
+                <CollapsibleBody>
+                    <BoxContainer Name="CommandHeading" Access="Public" Orientation="Vertical"></BoxContainer>
+                </CollapsibleBody>
+            </Collapsible>
+            <Collapsible>
+                <CollapsibleHeading Title="Security"/>
+                <CollapsibleBody>
+                    <BoxContainer Name="SecurityHeading" Access="Public" Orientation="Vertical"></BoxContainer>
+                </CollapsibleBody>
+            </Collapsible>
+            <Collapsible>
+                <CollapsibleHeading Title="Engineering"/>
+                <CollapsibleBody>
+                    <BoxContainer Name="EngineeringHeading" Access="Public" Orientation="Vertical"></BoxContainer>
+                </CollapsibleBody>
+            </Collapsible>
+            <Collapsible>
+                <CollapsibleHeading Title="Cargo"/>
+                <CollapsibleBody>
+                    <BoxContainer Name="CargoHeading" Access="Public" Orientation="Vertical"></BoxContainer>
+                </CollapsibleBody>
+            </Collapsible>
+            <Collapsible>
+                <CollapsibleHeading Title="Medical"/>
+                <CollapsibleBody>
+                    <BoxContainer Name="MedicalHeading" Access="Public" Orientation="Vertical"></BoxContainer>
+                </CollapsibleBody>
+            </Collapsible>
+            <Collapsible>
+                <CollapsibleHeading Title="Science"/>
+                <CollapsibleBody>
+                    <BoxContainer Name="ScienceHeading" Access="Public" Orientation="Vertical"></BoxContainer>
+                </CollapsibleBody>
+            </Collapsible>
+            <Collapsible>
+                <CollapsibleHeading Title="Service"/>
+                <CollapsibleBody>
+                    <BoxContainer Name="ServiceHeading" Access="Public" Orientation="Vertical"></BoxContainer>
+                </CollapsibleBody>
+            </Collapsible>
+        </BoxContainer>
+    </ScrollContainer>
     </GridContainer>
 </controls1:FancyWindow>
