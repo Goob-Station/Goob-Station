@@ -142,6 +142,7 @@
     quickEquip: false
     slots:
       - Belt
+      - suitStorage # Goobstation
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Plastic: 25
@@ -198,6 +199,7 @@
     quickEquip: false
     slots:
       - Belt
+      - suitStorage # Goobstation
   - type: AttachmentFlashlight # Lavaland Change
 
 - type: entity
