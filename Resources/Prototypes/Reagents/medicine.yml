@@ -332,7 +332,7 @@
   metabolisms:
     Medicine:
       effects:
-        - !type:HealthChange
+        - !type:EvenHealthChange
           conditions:
           - !type:TemperatureCondition
             # this is a little arbitrary but they gotta be pretty cold
@@ -342,10 +342,11 @@
             max: 213.0
             scale: 1.6
           damage:
-            groups: # Goobstation - Cryo rebalance
-              Airloss: -3
-              Brute: -3
-              Burn: -3
+          # todo scale with temp like SS13
+            Airloss: -3
+            Brute: -3 # Goob
+            Burn: -3 # Goob
+            Toxin: -2
 
 - type: reagent
   id: Doxarubixadone
@@ -1659,6 +1660,38 @@
             mobstate: Dead
 
 - type: reagent
+  id: Arcryox
+  name: reagent-name-arcryox
+  group: Medicine
+  desc: reagent-desc-arcryox
+  physicalDesc: reagent-physical-desc-arcryox
+  flavor: medicine
+  color: "#0cbfe9"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:EvenHealthChange
+        conditions:
+        - !type:TemperatureCondition
+          max: 213.0
+        - !type:TotalDamageCondition
+          min: 199.9
+        damage:
+          Brute: -2
+          Burn: -2
+      - !type:EvenHealthChange
+        conditions:
+        - !type:TemperatureCondition
+          max: 213.0
+        - !type:TotalDamageCondition
+          min: 500
+        damage:
+          Brute: -4
+          Burn: -4
+
+- type: reagent
   id: Necrosol
   name: reagent-name-necrosol
   group: Medicine
@@ -1676,6 +1709,13 @@
   metabolisms:
     Medicine:
       effects:
+        - !type:EvenHealthChange
+          conditions:
+          - !type:TemperatureCondition
+            max: 213.0
+          damage:
+            Brute: -2
+            Burn: -2
         - !type:ModifyBloodLevel # Goobstation - Cryo rebalance
           conditions:
           - !type:TemperatureCondition
@@ -1708,7 +1748,7 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         conditions:
         - !type:TemperatureCondition
           max: 213.0
