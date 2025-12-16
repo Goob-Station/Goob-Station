@@ -66,7 +66,7 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
     private void OnMapInit(EntityUid uid, RotaryPhoneComponent comp, MapInitEvent args)
     {
         if(comp.PhoneNumber == null)
-            comp.PhoneNumber = _random.Next(111,999);
+            comp.PhoneNumber = _random.Next(00001,99999);
     }
 
     private void OnExamine(EntityUid uid, RotaryPhoneHolderComponent comp, ExaminedEvent args)
@@ -103,7 +103,7 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
 
         comp.Engaged = true;
 
-        if (_net.IsServer)
+        if (_net.IsServer && !Deleted(uid) || !Terminating(uid))
         {
             var visuals = EnsureComp<JointVisualsComponent>(uid);
             visuals.Sprite = comp.RopeSprite;
@@ -170,7 +170,6 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
             comp.SoundEntity = audio.Value.Entity;
 
         comp.ConnectedPhone = null;
-        comp.Engaged = false;
         comp.Connected = false;
     }
 }

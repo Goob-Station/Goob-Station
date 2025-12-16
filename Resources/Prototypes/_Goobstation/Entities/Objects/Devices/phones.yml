@@ -29,6 +29,16 @@
     - RobotTalk
 
 - type: entity
+  parent: RotaryPhone
+  id: RotaryPhoneaa
+  name: phone
+  description: it's a phone
+  components:
+  - type: RotaryPhone
+    phoneNumber: 1234
+
+
+- type: entity
   parent: BaseStructure
   id: RotaryPhoneStand
   name: phone stand

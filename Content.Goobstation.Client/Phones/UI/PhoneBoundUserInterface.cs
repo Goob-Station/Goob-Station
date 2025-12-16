@@ -16,7 +16,6 @@ public sealed class PhoneBoundUserInterface : BoundUserInterface
         base.Open();
 
         _menu = this.CreateWindow<PhoneMenu>();
-        _menu.FillPhoneBook();
 
         _menu.OnKeypadButtonPressed += i =>
         {

@@ -16,7 +16,7 @@
         <RichTextLabel Name="DialNumber" Text="" Access="Public" HorizontalAlignment="Center"></RichTextLabel>
     </BoxContainer>
 <!-- phonebook is filled by code -->
-    <ScrollContainer MinSize="200 90">
+    <ScrollContainer MinSize="250 90">
         <BoxContainer MinSize="100 90" Orientation="Vertical">
             <Collapsible>
                 <CollapsibleHeading Title="Command"/>
@@ -58,6 +58,12 @@
                 <CollapsibleHeading Title="Service"/>
                 <CollapsibleBody>
                     <BoxContainer Name="ServiceHeading" Access="Public" Orientation="Vertical"></BoxContainer>
+                </CollapsibleBody>
+            </Collapsible>
+            <Collapsible>
+                <CollapsibleHeading Title="Uncategorized"/>
+                <CollapsibleBody>
+                    <BoxContainer Name="UncategorizedHeading" Access="Public" Orientation="Vertical"></BoxContainer>
                 </CollapsibleBody>
             </Collapsible>
         </BoxContainer>
