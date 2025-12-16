@@ -231,6 +231,9 @@ public abstract partial class SharedStunSystem : EntitySystem
         var ev = new StunnedEvent();
         RaiseLocalEvent(uid, ref ev);// todo: rename event or change how it is raised - this event is raised each time duration of stun was externally changed
 
+        var evDropHands = new DropHandItemsEvent();
+        RaiseLocalEvent(uid, ref evDropHands);
+
         var timeForLogs = duration.HasValue
             ? duration.Value.Seconds.ToString()
             : "Infinite";
