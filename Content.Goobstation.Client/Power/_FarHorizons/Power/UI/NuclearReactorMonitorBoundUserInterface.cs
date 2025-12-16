@@ -10,7 +10,7 @@ namespace Content.Client._FarHorizons.Power.UI;
 [UsedImplicitly]
 public sealed class NuclearReactorMonitorBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     [ViewVariables]
     private NuclearReactorWindow? _window;
@@ -29,8 +29,8 @@ public sealed class NuclearReactorMonitorBoundUserInterface : BoundUserInterface
         if (!_entityManager.TryGetEntity(reactorMonitorComponent.reactor, out var reactor) || reactor == null)
             return;
 
-        // Check if the attached entity is a nuclear reactor
-        if (!_entityManager.HasComponent<NuclearReactorComponent>(reactor))
+        // Check if the attached entity is a nuclear reactor and that it's not melted
+        if (!_entityManager.TryGetComponent<NuclearReactorComponent>(reactor, out var reactorComponent) || reactorComponent.Melted)
             return;
 
         base.Open();

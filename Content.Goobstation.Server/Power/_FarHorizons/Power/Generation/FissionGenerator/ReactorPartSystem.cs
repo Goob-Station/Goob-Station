@@ -1,7 +1,6 @@
 using Content.Goobstation.Common.Materials._FarHorizons.Systems;
 using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Piping.Components;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos;
 using Robust.Shared.Random;
@@ -25,7 +24,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     /// <param name="reactorEnt">The entity representing the reactor this part is inserted into.</param>
     /// <param name="inGas">The gas to be processed.</param>
     /// <returns></returns>
-    public GasMixture? ProcessGas(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, AtmosDeviceUpdateEvent args, GasMixture inGas)
+    public GasMixture? ProcessGas(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, GasMixture inGas)
     {
         if (reactorPart.RodType != ReactorPartComponent.RodTypes.GasChannel)
             return null;
@@ -72,7 +71,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
 
         if (inGas != null && _atmosphereSystem.GetThermalEnergy(inGas) > 0)
         {
-            reactorPart.AirContents = inGas.RemoveVolume(Math.Min(reactorPart.GasVolume * _atmosphereSystem.PumpSpeedup() * args.dt, inGas.Volume));
+            reactorPart.AirContents = inGas.RemoveVolume(reactorPart.GasVolume);
             reactorPart.AirContents.Volume = reactorPart.GasVolume;
 
             if (reactorPart.AirContents != null && reactorPart.AirContents.TotalMoles < 1)

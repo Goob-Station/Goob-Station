@@ -10,7 +10,6 @@ using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Atmos;
 using Content.Shared.Database;
-using Content.Shared.Explosion.Components;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -19,7 +18,8 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Shared.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
 using Content.Shared.Construction.Components;
-using Robust.Shared.Physics;
+using Content.Shared.DeviceLinking;
+using Content.Shared.DeviceNetwork;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -42,9 +42,6 @@ public sealed class TurbineSystem : SharedTurbineSystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public event Action<string>? TurbineRepairMessage;
-
-    private readonly float _threshold = 0.5f;
-    private float _accumulator = 0f;
 
     private readonly List<string> _damageSoundList = [
         "/Audio/_FarHorizons/Effects/engine_grump1.ogg",
@@ -160,6 +157,17 @@ public sealed class TurbineSystem : SharedTurbineSystem
             comp.AlarmAudioOvertemp = _audio.Stop(comp.AlarmAudioOvertemp);
         }
 
+        // Update stator load based on device network
+        if (comp.IncreasePortState != SignalState.Low)
+            AdjustStatorLoad(comp, 1000);
+        if (comp.DecreasePortState != SignalState.Low)
+            AdjustStatorLoad(comp, -1000);
+
+        if (comp.IncreasePortState == SignalState.Momentary)
+            comp.IncreasePortState = SignalState.Low;
+        if (comp.DecreasePortState == SignalState.Momentary)
+            comp.DecreasePortState = SignalState.Low;
+
         if (!comp.Ruined && AirContents != null)
         {
             var InputStartingEnergy = _atmosphereSystem.GetThermalEnergy(AirContents);
@@ -258,10 +266,8 @@ public sealed class TurbineSystem : SharedTurbineSystem
         }
 
         // Send signals to device network
-        if (comp.RPM > comp.BestRPM*1.05)
-            _signal.InvokePort(uid, comp.SpeedHighPort);
-        else if (comp.RPM < comp.BestRPM*0.95)
-            _signal.InvokePort(uid, comp.SpeedLowPort);
+        _signal.SendSignal(uid, comp.SpeedHighPort, comp.RPM > comp.BestRPM * 1.05);
+        _signal.SendSignal(uid, comp.SpeedLowPort, comp.RPM < comp.BestRPM * 0.95);
 
         Dirty(uid, comp);
         UpdateUI(uid, comp);
@@ -281,7 +287,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
     {
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/metal_break5.ogg"), uid, AudioParams.Default);
         _popupSystem.PopupEntity(Loc.GetString("turbine-explode", ("owner", uid)), uid, PopupType.LargeCaution);
-        _explosion.TriggerExplosive(uid, Comp<ExplosiveComponent>(uid), false, comp.RPM/10, 5);
+        _explosion.QueueExplosion(uid, "Default", comp.RPM / 10, 15, 5, 0, canCreateVacuum: false);
         ShootShrapnel(uid);
         _adminLogger.Add(LogType.Explosion, LogImpact.High, $"{ToPrettyString(uid)} destroyed by overspeeding for too long");
         comp.Ruined = true;
@@ -329,14 +335,21 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
     private void OnSignalReceived(EntityUid uid, TurbineComponent comp, ref SignalReceivedEvent args)
     {
-        var change = 0f;
+        var state = SignalState.Momentary;
+        args.Data?.TryGetValue(DeviceNetworkConstants.LogicState, out state);
+        
         if (args.Port == comp.StatorLoadIncreasePort)
-            change = 1000f;
+            comp.IncreasePortState = state;
         else if (args.Port == comp.StatorLoadDecreasePort)
-            change = -1000f;
+            comp.DecreasePortState = state;
 
-        if (AdjustStatorLoad(comp, change))
-            _adminLogger.Add(LogType.Action, $"{ToPrettyString(args.Trigger):trigger} set the stator load on {ToPrettyString(uid):target} to {comp.StatorLoad}");
+        var logtext = "maintain";
+        if (comp.IncreasePortState != SignalState.Low && comp.DecreasePortState == SignalState.Low)
+            logtext = "increase";
+        else if (comp.DecreasePortState != SignalState.Low && comp.IncreasePortState == SignalState.Low)
+            logtext = "decrease";
+
+        _adminLogger.Add(LogType.Action, $"{ToPrettyString(args.Trigger):trigger} set the stator load on {ToPrettyString(uid):target} to {logtext}");
     }
 
     private void OnAnchorChanged(EntityUid uid, TurbineComponent comp, ref AnchorStateChangedEvent args)

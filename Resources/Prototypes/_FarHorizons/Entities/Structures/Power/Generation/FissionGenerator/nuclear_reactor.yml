@@ -140,12 +140,30 @@
     prefab: empty
 
 - type: entity
+  id: NuclearReactorRandom
+  parent: BaseNuclearReactor
+  suffix: Random
+  components:
+  - type: NuclearReactor
+    prefab: random
+
+- type: entity
   id: NuclearReactorMeltdown
   parent: BaseNuclearReactor
   suffix: Meltdown
   components:
   - type: NuclearReactor
     prefab: meltdown
+
+- type: entity
+  id: NuclearReactorMelted
+  parent: NuclearReactorEmpty
+  suffix: Melted
+  description: A nuclear reactor vessel, long since melted down. It still glows with residual heat and radiation.
+  components:
+  - type: NuclearReactor
+    melted: true
+    meltdownRadiation: 3.5
 
 - type: entity
   id: NuclearReactorSmall
@@ -177,6 +195,25 @@
     outletRot: 180
     arrowPrototype: ReactorSmallFlowArrow
     gridbounds: [ 12, 11, 0, 0 ]
+
+- type: entity
+  id: NuclearReactorSmallRandom
+  parent: NuclearReactorSmall
+  suffix: Random
+  components:
+  - type: NuclearReactor
+    prefab: random
+
+- type: entity
+  id: NuclearReactorSmallMelted
+  parent: NuclearReactorSmall
+  suffix: Melted
+  description: A nuclear reactor vessel, long since melted down. It still glows with residual heat and radiation.
+  components:
+  - type: NuclearReactor
+    prefab: empty
+    melted: true
+    meltdownRadiation: 2.5
 
 # Nuclear debris resultant from a meltdown
 - type: entity
@@ -249,6 +286,25 @@
         nodeGroupID: Pipe
         pipeDirection: South
         volume: 1000
+        pipeLayer: 0
+      pipe1:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: South
+        volume: 1000
+        pipeLayer: 1
+      pipe2:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: South
+        volume: 1000
+        pipeLayer: 2
+  - type: GasPipeManifold
+    inlets:
+    - pipe1
+    - pipe2
+    outlets:
+    - pipe
   - type: Tag
     tags:
       - HideContextMenu

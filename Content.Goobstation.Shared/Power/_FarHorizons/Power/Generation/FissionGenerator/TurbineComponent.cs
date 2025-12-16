@@ -213,17 +213,43 @@ public sealed partial class TurbineComponent : Component
     public EntProtoId ArrowPrototype = "TurbineFlowArrow";
     #endregion
 
+    #region Device Network
+    /// <summary>
+    /// The proto ID of the "Speed: High" source port
+    /// </summary>
     [DataField("speedHighPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
     public string SpeedHighPort = "TurbineSpeedHigh";
 
+    /// <summary>
+    /// The proto ID of the "Speed: Low" source port
+    /// </summary>
     [DataField("speedLowPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
     public string SpeedLowPort = "TurbineSpeedLow";
 
+    /// <summary>
+    /// The proto ID of the "Increase Stator Load" sink port
+    /// </summary>
     [DataField("statorLoadIncreasePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
     public string StatorLoadIncreasePort = "IncreaseStatorLoad";
 
+    /// <summary>
+    /// The proto ID of the "Decrease Stator Load" sink port
+    /// </summary>
     [DataField("statorLoadDecreasePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
     public string StatorLoadDecreasePort = "DecreaseStatorLoad";
+
+    /// <summary>
+    /// The signal state of the increase stator load port
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public SignalState IncreasePortState = SignalState.Low;
+
+    /// <summary>
+    /// The signal state of the decrease stator load port
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public SignalState DecreasePortState = SignalState.Low;
+    #endregion
 
     #region Debug
     [ViewVariables(VVAccess.ReadOnly)]

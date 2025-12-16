@@ -44,7 +44,7 @@
 							<BoxContainer Orientation="Vertical">
 								<BoxContainer Orientation="Horizontal">
 									<Label Text="{Loc comp-turbine-ui-flow-rate}" StyleClasses="StatusFieldTitle" HorizontalExpand="True" />
-									<Label Name="TurbineFlowRateLabel" />
+									<LineEdit Name="TurbineFlowRateLabel" MinSize="70 0"/>
 								</BoxContainer>
 								<Slider Name="TurbineFlowRateSlider" />
 								<BoxContainer Orientation="Horizontal">
@@ -59,7 +59,7 @@
 							<BoxContainer Orientation="Vertical" >
 								<BoxContainer Orientation="Horizontal">
 									<Label Text="{Loc comp-turbine-ui-stator-load}" StyleClasses="StatusFieldTitle" HorizontalExpand="True" />
-									<Label Name="TurbineStatorLoadLabel" />
+									<LineEdit Name="TurbineStatorLoadLabel" MinSize="70 0"/>
 								</BoxContainer>
 								<Slider Name="TurbineStatorLoadSlider" />
 								<BoxContainer Orientation="Horizontal">

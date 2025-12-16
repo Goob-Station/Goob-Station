@@ -96,7 +96,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// Flag indicating total meltdown has happened
     /// </summary>
-    [ViewVariables]
+    [DataField, ViewVariables]
     public bool Melted = false;
 
     /// <summary>
@@ -139,6 +139,32 @@ public sealed partial class NuclearReactorComponent : Component
     /// </summary>
     [DataField]
     public string MeltdownAlertLevel = "yellow";
+
+    /// <summary>
+    /// The minimum radiation from the melted reactor
+    /// </summary>
+    [DataField]
+    public float MeltdownRadiation = 10;
+
+    /// <summary>
+    /// How quickly radiation decreases
+    /// </summary>
+    /// <remarks>Cannot be less than 1</remarks>
+    [DataField]
+    public float RadiationStability = 2;
+
+    /// <summary>
+    /// The maximum radiation the reactor can emit during normal operation
+    /// </summary>
+    [DataField]
+    public float MaximumRadiation = 50;
+
+    /// <summary>
+    /// The maximum thermal power the reactor is expected to produce
+    /// </summary>
+    /// <remarks>This will NOT stop the reactor from making more than this value</remarks>
+    [DataField]
+    public float MaximumThermalPower = 10000000;
 
     /// <summary>
     /// The estimated thermal power the reactor is making
@@ -249,11 +275,31 @@ public sealed partial class NuclearReactorComponent : Component
 
     #endregion
 
+    #region Device Network
+    /// <summary>
+    /// The proto ID of the "Retract Control Rods" sink port
+    /// </summary>
     [DataField("controlRodRetractPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
     public string ControlRodRetractPort = "RetractControlRods";
 
+    /// <summary>
+    /// The proto ID of the "Insert Control Rods" sink port
+    /// </summary>
     [DataField("controlRodInsertPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
     public string ControlRodInsertPort = "InsertControlRods";
+
+    /// <summary>
+    /// The signal state of the retract control rods port
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public SignalState RetractPortState = SignalState.Low;
+
+    /// <summary>
+    /// The signal state of the insert control rods port
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public SignalState InsertPortState = SignalState.Low;
+    #endregion
 
     #region Debug
     [ViewVariables(VVAccess.ReadOnly)]

@@ -33,6 +33,10 @@
     neutronCrossSection: 1.0
     thermalCrossSection: 10
     thermalMass: 420000 # specific heat capacity of steel (420 J/KgK) * mass of component (1000Kg)
+  - type: Edible # Blame Abby for making them edible
+    transferAmount: null
+    delay: 30
+    forceFeedDelay: 60
   - type: FlavorProfile
     flavors:
       - metal
@@ -98,6 +102,21 @@
   components:
   - type: ReactorPart
     material: UraniumGlass
+
+- type: entity
+  id: MeatReactorFuelRod
+  parent: BaseReactorFuelRod
+  name: meat fuel rod
+  description: A fuel rod fo- wait, is it alive?
+  components:
+  - type: ReactorPart
+    material: Meaterial
+    properties:
+      electrical: 4
+      hard: 1
+      density: 3
+      flammable: 3
+      radioactive: 5
 
 # Control Rods
 - type: entity
@@ -344,3 +363,43 @@
   components:
   - type: ReactorPart
     material: Diamond
+
+# Parts to chose from for a random prefab
+- type: weightedRandom
+  id: NuclearReactorRandomParts
+  weights:
+    # Fuel rods (0.125 total)
+    CerenkiteReactorFuelRod: 0.0625
+    UraniumReactorFuelRod: 0.03125
+    PlutoniumReactorFuelRod: 0.0015625
+    BananiumReactorFuelRod: 0.00625
+    PlasmaReactorFuelRod: 0.015625
+    UraniumGlassReactorFuelRod: 0.0078125
+    # Control rods (5 total)
+    BohrumReactorControlRod: 1.25
+    SteelReactorControlRod: 1.25
+    GoldReactorControlRod: 0.125
+    SilverReactorControlRod: 0.25
+    BrassReactorControlRod: 0.5
+    PlasteelReactorControlRod: 0.75
+    GlassReactorControlRod: 0.5
+    PlasmaGlassReactorControlRod: 0.25
+    DiamondReactorControlRod: 0.125
+    # Gas channels (40 total)
+    SteelReactorGasChannel: 20
+    GoldReactorGasChannel: 1
+    SilverReactorGasChannel: 2
+    BrassReactorGasChannel: 4
+    PlasteelReactorGasChannel: 6
+    GlassReactorGasChannel: 4
+    PlasmaGlassReactorGasChannel: 2
+    DiamondReactorGasChannel: 1
+    # Heat exchangers (40 total)
+    SteelReactorHeatExchanger: 20
+    GoldReactorHeatExchanger: 1
+    SilverReactorHeatExchanger: 2
+    BrassReactorHeatExchanger: 4
+    PlasteelReactorHeatExchanger: 6
+    GlassReactorHeatExchanger: 4
+    PlasmaGlassReactorHeatExchanger: 2
+    DiamondReactorHeatExchanger: 1

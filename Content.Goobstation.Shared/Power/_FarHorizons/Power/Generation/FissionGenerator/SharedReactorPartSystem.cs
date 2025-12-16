@@ -2,15 +2,16 @@ using Content.Shared.Atmos;
 using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
 using Content.Shared.Radiation.Components;
-using Content.Goobstation.Common.Materials._FarHorizons.Systems;
-using Content.Goobstation.Common.Materials._FarHorizons.Materials;
-using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Audio;
 using Robust.Shared.Random;
+using Robust.Shared.Prototypes;
+using Content.Shared._FarHorizons.Materials;
+using Content.Shared._FarHorizons.Materials.Systems;
+using Content.Shared.Nutrition;
+using Content.Shared.Damage;
 
-namespace Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
+namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
 // Ported and modified from goonstation by Jhrushbe.
 // CC-BY-NC-SA-3.0
@@ -53,6 +54,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ReactorPartComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<ReactorPartComponent, IngestedEvent>(OnIngest);
     }
 
     private void OnExamine(Entity<ReactorPartComponent> ent, ref ExaminedEvent args)
@@ -114,6 +116,30 @@ public abstract class SharedReactorPartSystem : EntitySystem
                 args.PushMarkup(Loc.GetString("reactor-part-burning"));
             else if (comp.Temperature > Atmospherics.T0C + 80)
                 args.PushMarkup(Loc.GetString("reactor-part-hot"));
+        }
+    }
+
+    private void OnIngest(Entity<ReactorPartComponent> ent, ref IngestedEvent args)
+    {
+        var comp = ent.Comp;
+        if (comp.Properties == null)
+            return;
+
+        var properties = comp.Properties;
+
+        if (!_entityManager.TryGetComponent<DamageableComponent>(args.Target, out var damageable) || damageable.Damage.DamageDict == null)
+            return;
+
+        var dict = damageable.Damage.DamageDict;
+
+        var dmgKey = "Radiation";
+        var dmg = properties.NeutronRadioactivity * 20 + properties.Radioactivity * 10 + properties.FissileIsotopes * 5;
+
+        if (!dict.TryAdd(dmgKey, dmg))
+        {
+            var prev = dict[dmgKey];
+            dict.Remove(dmgKey);
+            dict.Add(dmgKey, prev + dmg);
         }
     }
 

@@ -1,6 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
 using Content.Client.UserInterface.Controls;
-using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos;
 using Content.Shared.Lock;
@@ -10,7 +8,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Client.Power._FarHorizons.Power.UI;
+namespace Content.Client._FarHorizons.Power.UI;
 
 /// <summary>
 /// Client-side UI used to view a nuclear reactor.
@@ -23,14 +21,15 @@ public sealed partial class NuclearReactorWindow : FancyWindow
 
     private readonly Dictionary<Vector2i, StyleBoxFlat> _reactorGrid = [];
     private readonly Dictionary<Vector2i, TextureRect> _reactorRect = [];
+    private readonly Dictionary<Vector2i, Button> _reactorButton = [];
 
     private readonly StyleBoxFlat _temperatureBar = new(Color.Black);
     private readonly StyleBoxFlat _radiationBar = new(Color.Black);
     private readonly StyleBoxFlat _powerBar = new(Color.Black);
 
     private Dictionary<Vector2i, ReactorSlotBUIData> _data = [];
-    private int _gridWidth;
-    private int _gridHeight;
+    private int _gridWidth = 0;
+    private int _gridHeight = 0;
 
     private byte _displayMode = 1<<0;
 
@@ -72,58 +71,21 @@ public sealed partial class NuclearReactorWindow : FancyWindow
         ControlRodsRemoveLarge.OnPressed += _ => AdjustControlRods(-0.1f);
     }
 
-    public void InitReactorGrid(int gridWidth, int gridHeight)
-    {
-        _gridWidth = gridWidth;
-        _gridHeight = gridHeight;
-
-        ReactorGrid.Columns = _gridWidth;
-
-        for (var x = 0; x < _gridWidth; x++)
-        {
-            for (var y = 0; y < _gridHeight; y++)
-            {
-                var styleBox = new StyleBoxFlat();
-                var icon = new TextureRect() {
-                    SetSize = new(32, 32),
-                    TexturePath = "/Textures/_FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_part_inserted/base.png"
-                };
-
-                var vect = new Vector2i(x, y);
-                _reactorGrid.Add(vect, styleBox);
-                _reactorRect.Add(vect, icon);
-
-                var control = new PanelContainer
-                {
-                    Margin = new Thickness(2),
-                    PanelOverride = styleBox,
-                    HorizontalExpand = true,
-                    VerticalExpand = true,
-                };
-                control.AddChild(icon);
-                ReactorGrid.AddChild(control);
-            }
-        }
-    }
-
     public void Update(NuclearReactorBuiState msg)
     {
-        if (_reactorGrid.Count == 0)
-            InitReactorGrid(msg.GridWidth, msg.GridHeight);
-
         _data = msg.SlotData;
 
         ReactorTempValue.Text = Math.Round(msg.ReactorTemp - Atmospherics.T0C, 1).ToString() + "C";
         ReactorTempBar.Value = msg.ReactorTemp;
-        _temperatureBar.BackgroundColor = GetColor(293.15, 1500, msg.ReactorTemp);
+        _temperatureBar.BackgroundColor = GetColor(Atmospherics.T20C, ReactorTempBar.MaxValue * 0.75, msg.ReactorTemp);
 
         ReactorRadsValue.Text = Math.Round(msg.ReactorRads, 1).ToString();
         ReactorRadsBar.Value = msg.ReactorRads;
-        _radiationBar.BackgroundColor = GetColor(0, 25, msg.ReactorRads);
+        _radiationBar.BackgroundColor = GetColor(0, ReactorRadsBar.MaxValue * 0.5, msg.ReactorRads);
 
         ReactorThermValue.Text = FormatPower(msg.ReactorTherm) + "t";
         ReactorThermBar.Value = msg.ReactorTherm;
-        _powerBar.BackgroundColor = GetSteppedColor(7500000, 10000000, msg.ReactorTherm);
+        _powerBar.BackgroundColor = GetSteppedColor(ReactorThermBar.MaxValue * 0.75, ReactorThermBar.MaxValue, msg.ReactorTherm);
 
         ControlRodsValue.Text = Math.Round(msg.ControlRodActual * 50, 1).ToString() + "%";
         ControlRodsActual.Value = msg.ControlRodActual;
@@ -152,7 +114,62 @@ public sealed partial class NuclearReactorWindow : FancyWindow
             _isMonitor = true;
         }
 
-        this.SetInfoFromEntity(_entityManager, _reactor);
+        this.SetInfoFromEntity(_entityManager, _isMonitor ? _monitor : _reactor);
+
+        if (!_entityManager.TryGetComponent<NuclearReactorComponent>(_reactor, out var reactorComponent))
+            return;
+
+        _gridWidth = reactorComponent.ReactorGridWidth;
+        _gridHeight = reactorComponent.ReactorGridHeight;
+
+        ReactorGrid.Columns = _gridWidth;
+
+        ReactorTempBar.MaxValue = reactorComponent.ReactorMeltdownTemp;
+        ReactorRadsBar.MaxValue = reactorComponent.MaximumRadiation;
+        ReactorThermBar.MaxValue = reactorComponent.MaximumThermalPower;
+
+        InitReactorGrid();
+    }
+
+    public void InitReactorGrid()
+    {
+        for (var x = 0; x < _gridWidth; x++)
+        {
+            for (var y = 0; y < _gridHeight; y++)
+            {
+                var styleBox = new StyleBoxFlat();
+                var icon = new TextureRect()
+                {
+                    SetSize = new(32, 32),
+                    TexturePath = "/Textures/_FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_part_inserted/base.png"
+                };
+                var button = new Button
+                {
+                    Margin = new(0),
+                    StyleBoxOverride = new StyleBoxFlat(Color.Transparent),
+                    ToolTip = "",
+                    TooltipDelay = 0.5f
+                };
+
+                var vect = new Vector2i(x, y);
+                _reactorGrid.Add(vect, styleBox);
+                _reactorRect.Add(vect, icon);
+                _reactorButton.Add(vect, button);
+
+                var control = new PanelContainer
+                {
+                    Margin = new Thickness(2),
+                    PanelOverride = styleBox,
+                    HorizontalExpand = true,
+                    VerticalExpand = true,
+                };
+                control.AddChild(button);
+                var nvect = new Vector2i(y, x); // Can't be declared as a part of the line below for some reason, will break if you try
+                button.OnPressed += _ => SetTarget(nvect);
+                button.AddChild(icon);
+                ReactorGrid.AddChild(control);
+            }
+        }
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
@@ -185,6 +202,10 @@ public sealed partial class NuclearReactorWindow : FancyWindow
 
                 var icon = exists ? _data[vect].IconName : "base";
                 _reactorRect[vect].TexturePath = "/Textures/_FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_part_inserted/" +  icon + ".png";
+                
+                _reactorButton[vect].ToolTip = exists && _data[vect].SpentFuel > 0
+                    ? "Fuel Level: " + (Math.Round(1 - (_data[vect].SpentFuel / (_data[vect].SpentFuel + (_data[vect].Radioactivity * 0.5) + (_data[vect].NeutronRadioactivity * 0.25))), 2) * 100) + "%"
+                    : "";
             }
         }
 
@@ -275,10 +296,14 @@ public sealed partial class NuclearReactorWindow : FancyWindow
             : Loc.GetString("comp-nuclear-reactor-ui-insert-button");
     }
 
-    private void MoveTarget(int x, int y)
+    private void MoveTarget(int x, int y) => SetTarget(_targetX + x, _targetY + y);
+
+    private void SetTarget(Vector2i vect) => SetTarget(vect.X, vect.Y);
+
+    private void SetTarget(int x, int y)
     {
-        _targetX = Math.Clamp(_targetX + x, 0, _gridWidth);
-        _targetY = Math.Clamp(_targetY + y, 0, _gridHeight);
+        _targetX = Math.Clamp(x, 0, _gridWidth - 1);
+        _targetY = Math.Clamp(y, 0, _gridHeight - 1);
 
         XPos.Text = _targetX.ToString();
         YPos.Text = _targetY.ToString();
