@@ -11,6 +11,6 @@ public sealed partial class WeldingSparksComponent : Component
     /// <summary>
     /// Prototype of the effect to spawn. (Defaults to <c>EffectWeldingSparks</c>)
     /// </summary>
-    [DataField]
-    public EntProtoId Effect = "EffectWeldingSparks";
+    [DataField("effect")]
+    public EntProtoId EffectProto = "EffectWeldingSparks";
 }

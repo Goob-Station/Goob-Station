@@ -5,7 +5,7 @@ namespace Content.Goobstation.Server.Tools;
 
 public sealed class WeldingSparksSystem : EntitySystem
 {
-    private EntityUid? _sparksEffect;
+    private Dictionary<EntityUid, EntityUid> _spawnedEffects = [];
 
     public override void Initialize()
     {
@@ -22,11 +22,27 @@ public sealed class WeldingSparksSystem : EntitySystem
         if (args.Target is not { } target || target == ent.Owner)
             return;
 
-        _sparksEffect = Spawn(ent.Comp.Effect, Transform(target).Coordinates);
+        // Prioritise the newer one
+        if (_spawnedEffects.ContainsKey(target))
+        {
+            RemoveFromTarget(target);
+        }
+        _spawnedEffects.Add(target, Spawn(ent.Comp.EffectProto, Transform(target).Coordinates));
     }
 
     private void OnAfterUseTool(Entity<WeldingSparksComponent> ent, ref SharedToolSystem.ToolDoAfterEvent args)
     {
-        QueueDel(_sparksEffect);
+        if (args.OriginalTarget is not { } target)
+            return;
+        RemoveFromTarget(GetEntity(target));
+    }
+
+    private void RemoveFromTarget(EntityUid target)
+    {
+        if (!_spawnedEffects.TryGetValue(target, out var effect))
+            return;
+
+        QueueDel(effect);
+        _spawnedEffects.Remove(target);
     }
 }
