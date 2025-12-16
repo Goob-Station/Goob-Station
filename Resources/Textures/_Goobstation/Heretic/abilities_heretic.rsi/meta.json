@@ -8,6 +8,12 @@
     },
     "states": [
         {
+            "name": "void_rift"
+        },
+        {
+            "name": "voidball"
+        },
+        {
             "name": "shapeshift"
         },
         {

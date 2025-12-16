@@ -18,3 +18,16 @@
         - id: OxygenTankFilled
         - id: ClothingMaskBreath
         - id: NitrogenTankFilled
+
+#Detective's hardsuit 
+- type: entity
+  id: SuitStorageDetective
+  parent: SuitStorageBase
+  suffix: Detective
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerDetectiveHardsuit
+  - type: AccessReader
+    access: [["Detective"]]
