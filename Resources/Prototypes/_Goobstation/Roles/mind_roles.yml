@@ -42,6 +42,18 @@
 
 - type: entity
   parent: BaseMindRoleAntag
+  id: MindRoleGhoul
+  name: Ghoul
+  components:
+  - type: MindRole
+    antagPrototype: Ghoul
+    exclusiveAntag: false
+    roleType: Familiar
+    subtype: role-subtype-ghoul
+  - type: GhoulRole
+
+- type: entity
+  parent: BaseMindRoleAntag
   id: MindRoleBrainwashed
   name: Brainwashed Role
   components:
@@ -52,23 +64,14 @@
     subtype: role-subtype-brainwashed
   - type: MindcontrolledRole
 
+# Slasher
 - type: entity
-  parent: MindRoleChangeling
-  id: MindRoleChangelingmidround
-  name: Sleeper Changeling Role
+  parent: BaseMindRoleAntag
+  id: MindRoleSlasher
+  name: Slasher Role
   components:
   - type: MindRole
-    exclusiveAntag: false           #  bastard experiment
-
-- type: entity
-  parent: MindRoleHeretic
-  id: MindRoleHereticmidround
-  name: Sleeper Heretic Role
-  components:
-  - type: MindRole
-    exclusiveAntag: false   # bastard experiment
-
-- type: entity
-  parent: DevilMindRole
-  id: DevilMindRolemidround
-  name: Sleeper Devil Role
+    antagPrototype: Slasher
+    exclusiveAntag: true
+    roleType: SoloAntagonist
+    subtype: role-subtype-slasher
