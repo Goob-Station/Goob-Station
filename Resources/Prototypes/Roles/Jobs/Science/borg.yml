@@ -38,6 +38,7 @@
   - !type:RoleTimeRequirement
     role: JobBorg
     time: 5h
+  weight: 10
   canBeAntag: false
   goobcoins: 40 #Goob content
   weight: 10 # Goob Edit
