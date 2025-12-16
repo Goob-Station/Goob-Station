@@ -221,7 +221,11 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         // blocked from wide attacks in YAML. should never have more than 1
         if (args.HitEntities.Count > 1)
             return;
-        args.Handled = graspTarget(ent, args.User,args.HitEntities.First());
+        var target = args.HitEntities.First();
+        // no fumbling!
+        if (target == args.User)
+            return;
+        args.Handled = graspTarget(ent, args.User,target);
     }
 
     private void OnAfterInteract(Entity<MansusGraspComponent> ent, ref AfterInteractEvent args)
