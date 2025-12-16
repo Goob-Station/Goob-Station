@@ -19379,3 +19379,9 @@ Entries:
         owner dies on Lavaland's surface with exact death coordinates.
   id: 2189
   time: '2025-12-15T09:18:36.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: 'Fixed: Xenomorph Larva hosts being able to kill themselves.'
+  id: 2190
+  time: '2025-12-16T11:02:13.0000000+00:00'
