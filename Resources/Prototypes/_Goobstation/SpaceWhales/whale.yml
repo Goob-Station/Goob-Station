@@ -5,12 +5,12 @@
   components:
   - type: TailedEntity # todo
     amount: 65
-    speed: 7
+    speed: 13
     spacing: 1
     prototype: CrowbarDebugBobobobobo
   - type: MovementSpeedModifier
-    baseSprintSpeed: 6
-    baseWalkSpeed: 6
+    baseSprintSpeed: 11
+    baseWalkSpeed: 11
   - type: RadarBlip
     scale: 3
     shape: hexagon
@@ -41,14 +41,15 @@
         - FlyingMobLayer
   - type: MeleeWeapon
     altDisarm: false
+    attackRate: 8
     angle: 0
     animation: WeaponArcBite
     soundHit:
       path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Blunt: 40
-        Slash: 50
+        Blunt: 15
+        Slash: 30
         Structural: 800 #lol
   - type: Speech
     speechVerb: LargeMob
@@ -57,14 +58,26 @@
     interactFailureString: petting-failure-leviathan
     interactFailureSound:
       path: /Audio/Effects/bite.ogg
+  - type: Sprite
+    sprite: _Goobstation/Mobs/SpaceWhale/leviathan.rsi
+    state: head
+    noRot: false
+  - type: NightVision # Goobstation - Nigthvision
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
   # todo timeddespawn, melee damage, much speed, fixtures, infinite hp(?), sprites etc
 
 
 - type: entity
   id: CrowbarDebugBobobobobo
-  parent: Crowbar
+  parent: FlyingMobBase
   suffix: brbrbrb
   components:
   - type: RadarBlip
     scale: 2
     shape: diamond
+  - type: Sprite
+    sprite: _Goobstation/Mobs/SpaceWhale/leviathan.rsi
+    state: segment
+    noRot: false

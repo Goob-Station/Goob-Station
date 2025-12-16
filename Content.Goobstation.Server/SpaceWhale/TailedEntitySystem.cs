@@ -76,7 +76,7 @@ namespace Content.Goobstation.Server.SpaceWhale // predictions? how bout you pre
             }
         }
 
-        private void UpdateTailPositions(EntityUid uid, TailedEntityComponent comp, TransformComponent xform, float frameTime)
+       private void UpdateTailPositions(EntityUid uid, TailedEntityComponent comp, TransformComponent xform, float frameTime)
         {
             var headPos = _transformSystem.GetWorldPosition(xform);
             var headRot = _transformSystem.GetWorldRotation(xform);
@@ -107,6 +107,43 @@ namespace Content.Goobstation.Server.SpaceWhale // predictions? how bout you pre
                     var newPos = currentPos + direction * moveDistance;
                     _transformSystem.SetWorldPosition(segment, newPos);
                 }
+            }
+
+            //rotation shit
+            for (var i = 0; i < comp.TailSegments.Count; i++)
+            {
+                var segment = comp.TailSegments[i];
+                if (!Exists(segment)
+                    || !TryComp(segment, out TransformComponent? segmentXform))
+                    continue;
+
+                var target = new Angle();
+
+                if (i == 0)
+                {// first segment should look at the head because there isnt a segment to look for
+                    var segmentPos = _transformSystem.GetWorldPosition(segmentXform);
+                    var direction = headPos - segmentPos;
+                    target = direction.ToWorldAngle();
+                }
+                else
+                {// while other segments should look towards other segments
+                    var prevSegment = comp.TailSegments[i - 1];
+                    if (TryComp(prevSegment, out TransformComponent? prevXform))
+                    {
+                        var segmentPos = _transformSystem.GetWorldPosition(segmentXform);
+                        var prevPos = _transformSystem.GetWorldPosition(prevXform);
+                        var direction = prevPos - segmentPos;
+                        target = direction.ToWorldAngle();
+                    }
+                    else
+                    {
+                        target = _transformSystem.GetWorldRotation(segmentXform);
+                    }
+                }
+
+                var curRot = _transformSystem.GetWorldRotation(segmentXform);
+                var newRot = Angle.Lerp(curRot, target, comp.Speed * frameTime * 2f);
+                _transformSystem.SetWorldRotation(segment, newRot);
             }
         }
     }
