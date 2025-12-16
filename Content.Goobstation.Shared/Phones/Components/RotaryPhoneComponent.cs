@@ -56,8 +56,16 @@ public sealed partial class RotaryPhoneComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? ConnectedPhone;
 
+    /// <summary>
+    /// What player is holding the other phone
+    /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? ConnectedPlayer;
+
+    [DataField, AutoNetworkedField]
+    public List<RotaryPhoneComponent> PhoneComponents;
+
+    #region sounds
 
     [AutoNetworkedField]
     public SpriteSpecifier RopeSprite = new SpriteSpecifier.Rsi(new ResPath("_RMC14/Objects/phone/phone.rsi"), "rope");
@@ -79,9 +87,10 @@ public sealed partial class RotaryPhoneComponent : Component
     [DataField, AutoNetworkedField]
     public SoundPathSpecifier BusySound = new SoundPathSpecifier ("/Audio/_RMC14/Phone/Phone_voicemail.ogg");
 
-
     [DataField, AutoNetworkedField]
     public EntityUid? SoundEntity;
+
+    #endregion
 }
 
 [Serializable, NetSerializable]

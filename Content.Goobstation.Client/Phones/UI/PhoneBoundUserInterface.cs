@@ -33,5 +33,11 @@ public sealed class PhoneBoundUserInterface : BoundUserInterface
             SendMessage(new PhoneKeypadClearMessage());
             _menu.DialNumber.SetMessage(string.Empty);
         };
+
+        _menu.OnPhoneBookButtonPressed += i =>
+        {
+            SendMessage(new PhoneKeypadMessage(i));
+            _menu.DialNumber.SetMessage(i.ToString());
+        };
     }
 }

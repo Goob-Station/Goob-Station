@@ -19,22 +19,53 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedJointSystem _jointSystem = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<RotaryPhoneComponent, PhoneRingEvent>(OnRing);
         SubscribeLocalEvent<RotaryPhoneComponent, PhoneHungUpEvent>(OnGotHungUp);
         SubscribeLocalEvent<RotaryPhoneComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<RotaryPhoneHolderComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<RotaryPhoneComponent, BoundUIClosedEvent>(OnUiClosed);
         SubscribeLocalEvent<RotaryPhoneComponent, EntGotRemovedFromContainerMessage>(OnPickup);
         SubscribeLocalEvent<RotaryPhoneComponent, EntGotInsertedIntoContainerMessage>(OnHangUp);
         SubscribeLocalEvent<RotaryPhoneComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<RotaryPhoneComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<RotaryPhoneHolderComponent, ExaminedEvent>(OnExamineHolder);
     }
+
+    private void OnMapInit(EntityUid uid, RotaryPhoneComponent comp, MapInitEvent args)
+    {
+        comp.PhoneComponents.Add(comp);
+
+        if(comp.PhoneNumber == null)
+            comp.PhoneNumber = _random.Next(11111,99999);
+    }
+
+    private void OnExamine(EntityUid uid, RotaryPhoneComponent comp, ExaminedEvent args)
+    {
+        if(comp.PhoneNumber != null)
+            args.PushMarkup(Loc.GetString("phone-number-description", ("number", comp.PhoneNumber)));
+    }
+
+    private void OnExamineHolder(EntityUid uid, RotaryPhoneHolderComponent comp, ExaminedEvent args)
+    {
+        if (comp.PhoneNumber != null)
+            args.PushMarkup(Loc.GetString("phone-number-description", ("number", comp.PhoneNumber)));
+
+        if(!_itemSlots.TryGetSlot(uid, "phone", out var phoneslot))
+            return;
+
+        RotaryPhoneComponent? stack = null;
+        if (phoneslot.Item == null || !TryComp(phoneslot.Item.Value, out stack) || stack.PhoneNumber == null)
+            return;
+
+        comp.PhoneNumber = stack.PhoneNumber.Value;
+    }
+
 
     private void OnGetVerbs(EntityUid uid, RotaryPhoneComponent comp, GetVerbsEvent<AlternativeVerb> args)
     {
@@ -63,25 +94,6 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         comp.DialedNumber = null;
     }
 
-    private void OnMapInit(EntityUid uid, RotaryPhoneComponent comp, MapInitEvent args)
-    {
-        if(comp.PhoneNumber == null)
-            comp.PhoneNumber = _random.Next(00001,99999);
-    }
-
-    private void OnExamine(EntityUid uid, RotaryPhoneHolderComponent comp, ExaminedEvent args)
-    {
-        if(!_itemSlots.TryGetSlot(uid, "phone", out var phoneslot))
-            return;
-
-        RotaryPhoneComponent? stack = null;
-        if (phoneslot.Item == null || !TryComp(phoneslot.Item.Value, out stack) || stack.PhoneNumber == null)
-            return;
-
-
-        args.PushMarkup(Loc.GetString("phone-number-description", ("number", stack.PhoneNumber)));
-    }
-
     private void OnRing(EntityUid uid, RotaryPhoneComponent comp, PhoneRingEvent args)
     {
         var audio = _audio.PlayPvs(comp.RingSound, uid, AudioParams.Default.WithLoop(true));
@@ -103,7 +115,7 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
 
         comp.Engaged = true;
 
-        if (_net.IsServer && !Deleted(uid) || !Terminating(uid))
+        if (_net.IsServer && !Deleted(uid) && !Terminating(uid))
         {
             var visuals = EnsureComp<JointVisualsComponent>(uid);
             visuals.Sprite = comp.RopeSprite;
@@ -114,15 +126,7 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         if(comp.ConnectedPhone == null || !TryComp<RotaryPhoneComponent>(comp.ConnectedPhone, out var otherPhone) )
             return;
 
-        comp.Connected = true;
-        otherPhone.Connected = true;
-        otherPhone.ConnectedPhone = uid;
-
-        if(otherPhone.SoundEntity != null)
-            otherPhone.SoundEntity = _audio.Stop(otherPhone.SoundEntity);
-
-        if (comp.SoundEntity != null)
-            comp.SoundEntity = _audio.Stop(comp.SoundEntity);
+        ConnectPhones(comp, otherPhone, uid);
     }
 
     private void OnHangUp(EntityUid uid, RotaryPhoneComponent comp, EntGotInsertedIntoContainerMessage args)
@@ -139,26 +143,8 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
             Dirty(uid, comp);
         }
 
-        if (comp.ConnectedPhone != null)
-        {
-            RaiseLocalEvent(comp.ConnectedPhone.Value, new PhoneHungUpEvent());
+        DisconnectPhones(comp);
 
-            if (!comp.Connected && TryComp<RotaryPhoneComponent>(comp.ConnectedPhone, out var otherPhone))
-            {
-                if (otherPhone.SoundEntity != null)
-                    otherPhone.SoundEntity = _audio.Stop(otherPhone.SoundEntity);
-
-                otherPhone.ConnectedPhone = null;
-                otherPhone.Engaged = false;
-            }
-        }
-
-        if (comp.SoundEntity != null)
-            comp.SoundEntity = _audio.Stop(comp.SoundEntity);
-
-        comp.ConnectedPhone = null;
-        comp.Engaged = false;
-        comp.Connected = false;
     }
     private void OnGotHungUp(EntityUid uid, RotaryPhoneComponent comp, PhoneHungUpEvent args)
     {
@@ -172,4 +158,44 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         comp.ConnectedPhone = null;
         comp.Connected = false;
     }
+
+    //Helper Functions
+
+    private void ConnectPhones(RotaryPhoneComponent thisPhone, RotaryPhoneComponent otherPhone, EntityUid uid)
+    {
+        thisPhone.Connected = true;
+        otherPhone.Connected = true;
+        otherPhone.ConnectedPhone = uid;
+
+        if(otherPhone.SoundEntity != null)
+            otherPhone.SoundEntity = _audio.Stop(otherPhone.SoundEntity);
+
+        if (thisPhone.SoundEntity != null)
+            thisPhone.SoundEntity = _audio.Stop(thisPhone.SoundEntity);
+    }
+
+    private void DisconnectPhones(RotaryPhoneComponent thisPhone)
+    {
+        if (thisPhone.ConnectedPhone != null)
+        {
+            RaiseLocalEvent(thisPhone.ConnectedPhone.Value, new PhoneHungUpEvent());
+
+            if (!thisPhone.Connected && TryComp<RotaryPhoneComponent>(thisPhone.ConnectedPhone, out var otherPhone))
+            {
+                if (otherPhone.SoundEntity != null)
+                    otherPhone.SoundEntity = _audio.Stop(otherPhone.SoundEntity);
+
+                otherPhone.ConnectedPhone = null;
+                otherPhone.Engaged = false;
+            }
+        }
+
+        if (thisPhone.SoundEntity != null)
+            thisPhone.SoundEntity = _audio.Stop(thisPhone.SoundEntity);
+
+        thisPhone.ConnectedPhone = null;
+        thisPhone.Engaged = false;
+        thisPhone.Connected = false;
+    }
+
 }
