@@ -22,7 +22,7 @@ public sealed class StationProximitySystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
 
     private static readonly TimeSpan CheckInterval = TimeSpan.FromSeconds(60); // le hardcode major
-    private const float MaxDistance = 200; // todo 1000 or so
+    private const float MaxDistance = 965; // make it lower for testing idk
     private TimeSpan _nextCheck = TimeSpan.Zero;
 
     public override void Initialize()
@@ -159,9 +159,9 @@ public sealed class StationProximitySystem : EntitySystem
         if (HasComp<MobCallerComponent>(entity))
             return;
 
-        var mobCaller = AddComp<MobCallerComponent>(entity);
+        var mobCaller = EnsureComp<MobCallerComponent>(entity);
 
-        mobCaller.SpawnProto = "SpaceWhaleTest"; // todo
+        mobCaller.SpawnProto = "SpaceLeviathanDespawn";
         mobCaller.MaxAlive = 1; // nuh uh
         mobCaller.MinDistance = 100f; // should be far away
         mobCaller.NeedAnchored = false;

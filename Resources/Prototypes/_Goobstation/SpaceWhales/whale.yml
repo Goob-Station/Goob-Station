@@ -1,13 +1,15 @@
 - type: entity
-  id: SpaceWhaleTest # todo
+  id: SpaceLeviathan
   parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
-  suffix: Test debug brbrbrbrbrbrbr
+  name: space whale
+  description: When the space becomes too quiet, there is no hope, there is no escape, but there is this.
+  suffix: keeps tiles, no despawn
   components:
-  - type: TailedEntity # todo
+  - type: TailedEntity
     amount: 65
     speed: 13
     spacing: 1
-    prototype: CrowbarDebugBobobobobo
+    prototype: SpaceWhaleSegment
   - type: MovementSpeedModifier
     baseSprintSpeed: 11
     baseWalkSpeed: 11
@@ -16,8 +18,6 @@
     shape: hexagon
   - type: MovementIgnoreGravity
     gravityState: true # wtf lol?
-  - type: TimedDespawn
-    lifetime: 190 # to further prevent shitters from abusing it if something came up
   - type: WarpPoint
     follow: true
     location: space leviathan
@@ -28,12 +28,12 @@
     factions:
     - Dragon #goida, also the carpsuit buff
   - type: Physics
-  - type: Fixtures # todo
+  - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.40 # todo when sprites are here
+          radius: 2
         density: 137992
         mask:
         - FlyingMobMask
@@ -41,15 +41,15 @@
         - FlyingMobLayer
   - type: MeleeWeapon
     altDisarm: false
-    attackRate: 8
+    attackRate: 0.3
     angle: 0
     animation: WeaponArcBite
     soundHit:
       path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Blunt: 15
-        Slash: 30
+        Blunt: 50
+        Slash: 45
         Structural: 800 #lol
   - type: Speech
     speechVerb: LargeMob
@@ -66,13 +66,25 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
-  # todo timeddespawn, melee damage, much speed, fixtures, infinite hp(?), sprites etc
+  - type: AmbientSound
+    enabled: true
+    volume: 1
+    range: 50
+    sound:
+      path: /Audio/_Goobstation/Ambience/SpaceWhale/leviathan-ambient.ogg
+  - type: Vocal
+    wilhelm: "/Audio/_Goobstation/Ambience/SpaceWhale/imafuckingworm.ogg"
+    wilhelmProbability: 1 # funy
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      4000: Dead # todo maybe add some good loot in the future to make space salv go whale hunting
 
 
 - type: entity
-  id: CrowbarDebugBobobobobo
+  id: SpaceWhaleSegment
   parent: FlyingMobBase
-  suffix: brbrbrb
+  suffix: do not spawn
   components:
   - type: RadarBlip
     scale: 2
@@ -81,3 +93,47 @@
     sprite: _Goobstation/Mobs/SpaceWhale/leviathan.rsi
     state: segment
     noRot: false
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: SpaceLeviathanDespawn
+  parent: SpaceLeviathan
+  suffix: despawns
+  components:
+  - type: TimedDespawn
+    lifetime: 190 # to further prevent shitters from abusing it if something came up
+
+- type: entity
+  id: SpaceLeviathanAdmeme
+  suffix: Admeme, singulo, doesnt despawn # i would prefer for this to spawn, BUT, i am fucking 100% sure some fuck will find a way to lure it to the station and it will kill everything, so bru naw man
+  parent: SpaceLeviathan
+  components:
+  - type: Fixtures
+    fixtures:
+      EventHorizonCollider:
+        shape:
+          !type:PhysShapeCircle
+          radius: 2
+        density: 137992
+        mask:
+        - Opaque
+        layer:
+        - GlassLayer
+      EventHorizonConsumer:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.65
+        hard: false
+        mask:
+        - Opaque
+        layer:
+        - GlassLayer
+  - type: EventHorizon
+    radius: 2.5
+    canBreachContainment: false
+    colliderFixtureId: EventHorizonCollider
+    consumerFixtureId: EventHorizonConsumer
+    consumeTiles: true
+    consumeEntities: false
