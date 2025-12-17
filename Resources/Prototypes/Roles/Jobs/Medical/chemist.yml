@@ -76,6 +76,9 @@
   skills: # CorvaxGoob-Skills
   - Surgery
   - MedicalEquipment
+  guides: # goobstation
+  - Chemist
+  - Chemicals
   access:
   - Medical
   - Chemistry

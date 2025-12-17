@@ -161,6 +161,12 @@
   skills: # CorvaxGoob-Skills
   - Surgery
   - MedicalEquipment
+  guides: # goobstation
+  - Medical
+  # - ChiefMedicalOfficer SOP Hidden by CorvaxGoob
+  # - Medical SOP Hidden by CorvaxGoob
+  - Command
+  - Chemicals
   weight: 10 #Goob Edit
   access:
   - Medical

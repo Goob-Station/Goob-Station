@@ -155,6 +155,13 @@
   #goobcoins: 40 #Goob content Corvax-Goob-coins
   skills: # CorvaxGoob-Skills
   - ShuttleControl
+  #canBeAntag: false
+  antagAdvantage: 75 # Goobstation
+  guides: # goobstation
+  - Cargo
+  # - Quartermaster SOP Hidden by CorvaxGoob
+  # - Cargo SOP Hidden by CorvaxGoob
+  - Command
   access:
   - Cargo
   - Salvage

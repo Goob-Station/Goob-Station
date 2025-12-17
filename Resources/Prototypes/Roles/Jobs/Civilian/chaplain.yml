@@ -75,6 +75,7 @@
   icon: "JobIconChaplain"
   supervisors: job-supervisors-hop
   #goobcoins: 25 #Goob content Corvax-Goob-coins
+  guides: [ Chaplain ] # goobstation
   access:
   - Chapel
   - Maintenance
@@ -98,6 +99,7 @@
     - ChaplainUndeterminedBible
     - RubberStampChaplain
     - Nullrod
+    - ArmamentsBeacon # Goobstation
 
 - type: chameleonOutfit
   id: ChaplainChameleonOutfit
@@ -109,4 +111,3 @@
     neck: ClothingNeckStoleChaplain
     outerClothing: ClothingOuterPlagueSuit
     gloves: ClothingHandsGlovesColorBlack
-

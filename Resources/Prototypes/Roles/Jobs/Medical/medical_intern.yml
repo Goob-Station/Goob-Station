@@ -74,6 +74,10 @@
   #goobcoins: 20 #Goob content Corvax-Goob-coins
   skills: # CorvaxGoob-Skills
   - MedicalEquipment
+  guides: # goobstation
+  - MedicalDoctor
+  - Cloning
+  - Medicine
   access:
   - Medical
   - Maintenance

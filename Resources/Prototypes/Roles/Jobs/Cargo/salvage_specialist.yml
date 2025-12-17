@@ -80,6 +80,9 @@
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   #goobcoins: 20 #Goob content Corvax-Goob-coins
+  guides: # goobstation
+  - Salvage
+  - Cargo
   supervisors: job-supervisors-qm
   skills: # CorvaxGoob-Skills
   - ShuttleControl

@@ -83,6 +83,10 @@
   #goobcoins: 30 #Goob content Corvax-Goob-coins
   skills: # CorvaxGoob-Skills
   - Shooting
+  guides: # goobstation
+  - Forensics
+  - Security
+  # - Detective SOP Hidden by CorvaxGoob
   access:
   - Security
   - Brig

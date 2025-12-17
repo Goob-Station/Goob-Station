@@ -159,6 +159,13 @@
   #goobcoins: 40 #Goob content Corvax-Goob-coins
   skills: # CorvaxGoob-Skills
   - AdvancedBuilding
+  #canBeAntag: false
+  antagAdvantage: 75 # Goobstation
+  guides: # goobstation
+  - Science
+  - Command
+  # - ResearchDirector SOP Hidden by CorvaxGoob
+  # - Science SOP Hidden by CorvaxGoob
   access:
   - Research
   - Command

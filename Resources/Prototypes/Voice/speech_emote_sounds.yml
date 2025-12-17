@@ -443,6 +443,16 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     # Surprised: # Goob Commented by CorvaxGoob
       # path: /Audio/_Goobstation/Voice/surprised.ogg
+    Crying: #goob
+      collection: Dionacry
+    Whistle: #goob
+      collection: Dionawhistle
+    Cough: #goob
+      collection: Dionacough
+    Yawn: #goob
+      collection: Dionayawn
+    Sigh: #goob
+      collection: Dionasigh
   params:
     variation: 0.125
 

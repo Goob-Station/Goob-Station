@@ -91,6 +91,10 @@
   #goobcoins: 15 #Goob content Corvax-Goob-coins
   skills: # CorvaxGoob-Skills
   - Butchering
+  guides: # goobstation
+  - Chef
+  - FoodRecipes
+  - CQC
   access:
   - Service
   - Maintenance

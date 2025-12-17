@@ -88,6 +88,10 @@
   skills: # CorvaxGoob-Skills
   - Surgery
   - MedicalEquipment
+  guides: # goobstation
+  - MedicalDoctor
+  - Medical
+  - Medicine
   access:
   - Medical
   - Maintenance

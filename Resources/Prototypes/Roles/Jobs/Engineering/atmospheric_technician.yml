@@ -75,6 +75,8 @@
   skills: # CorvaxGoob-Skills
   - ShuttleControl
   - AdvancedBuilding
+  guides: # goobstation
+  - Atmospherics
   access:
   - Maintenance
   - Engineering

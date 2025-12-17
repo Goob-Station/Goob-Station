@@ -86,6 +86,7 @@
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service
   #goobcoins: 10 #Goob content Corvax-Goob-coins
+  guides: [ Service ] # goobstation
   access:
   - Service
   - Maintenance

@@ -161,6 +161,12 @@
       species:
       - Abductor
   #goobcoins: 40 #Goob content Corvax-Goob-coins
+  guides: # goobstation
+  - Command
+  # - Succession Hidden by CorvaxGoob
+  # - StandardProcedures SOP Hidden by CorvaxGoob
+  # - HeadOfPersonnel SOP Hidden by CorvaxGoob
+  - Writing
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
@@ -223,4 +229,3 @@
     mask: ClothingMaskNeckGaiterRed
     neck: ClothingNeckCloakHop
     outerClothing: ClothingOuterWinterHoP
-

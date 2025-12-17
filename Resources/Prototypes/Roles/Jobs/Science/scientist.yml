@@ -83,6 +83,7 @@
   #goobcoins: 20 #Goob content Corvax-Goob-coins
   skills: # CorvaxGoob-Skills
   - AdvancedBuilding
+  guides: [ Science ] # goobstation
   access:
   - Research
   - Maintenance
