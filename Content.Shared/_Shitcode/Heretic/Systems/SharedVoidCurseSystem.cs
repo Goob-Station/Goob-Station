@@ -8,6 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Religion;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
@@ -46,33 +47,50 @@ public abstract class SharedVoidCurseSystem : EntitySystem
 
     private void OnRefreshMoveSpeed(Entity<VoidCurseComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
-        // If entity is not slowed down by temperature - slow them down even more
-        var divisor = HasComp<TemperatureSpeedComponent>(ent) ? 15f : 10f;
-        var modifier = 1f - Math.Clamp(ent.Comp.Stacks / divisor, 0f, 1f);
-        args.ModifySpeed( modifier, modifier);
+        var modifier = 1f - ent.Comp.Stacks * 0.14f;
+        if (TryComp(ent, out TemperatureSpeedComponent? tempSpeed) &&
+            tempSpeed.CurrentSpeedModifier != null && tempSpeed.CurrentSpeedModifier != 0f)
+            modifier /= 1.2f * tempSpeed.CurrentSpeedModifier.Value;
+
+        modifier = Math.Clamp(modifier, 0f, 1f);
+
+        args.ModifySpeed(modifier, modifier, true);
     }
 
-    protected virtual void Cycle(Entity<VoidCurseComponent> ent)
+    protected void RefreshLifetime(VoidCurseComponent comp)
     {
-
+        comp.Lifetime = comp.MaxLifetime + comp.LifetimeIncreasePerLevel * comp.Stacks;
     }
 
-    public void DoCurse(EntityUid uid, int stacks = 1)
+    public bool DoCurse(EntityUid uid, int stacks = 1, int max = 0)
     {
         if (stacks < 1)
-            return;
+            return false;
 
         if (!HasComp<MobStateComponent>(uid))
-            return; // ignore non mobs because holy shit
+            return false; // ignore non mobs because holy shit
 
         if (TryComp<HereticComponent>(uid, out var h) && h.CurrentPath == "Void" || HasComp<GhoulComponent>(uid))
-            return;
+            return false;
+
+        var ev = new BeforeCastTouchSpellEvent(uid, false);
+        RaiseLocalEvent(uid, ev, true);
+        if (ev.Cancelled)
+            return false;
 
         var curse = EnsureComp<VoidCurseComponent>(uid);
-        curse.Lifetime = curse.MaxLifetime;
+
+        if (max > 0 && curse.Stacks > max)
+            return false;
+
+        if (max > 0 && curse.Stacks + stacks > max)
+            stacks = Math.Max(0, max - (int) curse.Stacks);
+
         curse.Stacks = Math.Clamp(curse.Stacks + stacks, 0, curse.MaxStacks);
+        RefreshLifetime(curse);
         Dirty(uid, curse);
 
         _modifier.RefreshMovementSpeedModifiers(uid);
+        return true;
     }
 }

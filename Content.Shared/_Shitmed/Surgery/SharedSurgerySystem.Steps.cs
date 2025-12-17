@@ -234,6 +234,8 @@ public abstract partial class SharedSurgerySystem
 
         var activeHandEntity = _hands.EnumerateHeld(args.User).FirstOrDefault();
         if (activeHandEntity != default
+            && !HasComp<BodyPartComponent>(activeHandEntity) // Omu
+            && !HasComp<OrganComponent>(activeHandEntity) // Omu
             && ent.Comp.Action == "Insert"
             && TryComp(activeHandEntity, out ItemComponent? itemComp)
             && (itemComp.Size.Id == "Tiny"
