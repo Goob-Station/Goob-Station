@@ -33,7 +33,8 @@
 
 - type: entity
   id: BulletRifle
-  name: bullet (05.56x45mm)
+  name: bullet (5.56x45mm)
+``
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
