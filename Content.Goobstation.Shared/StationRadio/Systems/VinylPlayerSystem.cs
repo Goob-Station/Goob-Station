@@ -96,7 +96,22 @@ public sealed class VinylPlayerSystem : EntitySystem
         {
             foreach (var linked in source.LinkedPorts.Keys)
             {
-                if (HasComp<RadioRigComponent>(linked))
+                if (HasComp<RadioRigComponent>(linked) && CheckForRadioServer(linked))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private bool CheckForRadioServer(EntityUid uid)
+    {
+        if (TryComp<DeviceLinkSinkComponent>(uid, out var source))
+        {
+            foreach (var linked in source.LinkedSources)
+            {
+                if (HasComp<StationRadioServerComponent>(linked))
                 {
                     return true;
                 }

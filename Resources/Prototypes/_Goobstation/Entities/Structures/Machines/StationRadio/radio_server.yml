@@ -8,6 +8,10 @@
     sprite: _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
     layers:
     - state: icon
+  - type: StationRadioServer
+  - type: DeviceLinkSource
+    ports:
+    - StationRadioServerPort
     # TODO: unlit & maints panel sprite
   - type: Transform
     noRot: false
@@ -28,7 +32,6 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/radiostationrig.rsi
-    drawdepth: SmallObjects
     layers:
     - state: icon
     # TODO: unlit & maints panel sprite

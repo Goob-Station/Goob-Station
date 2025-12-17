@@ -181,3 +181,8 @@
   id: VinylPlayerPort
   name: signal-port-name-vinyl-player
   description: signal-port-description-vinyl-player
+
+- type: sourcePort
+  id: StationRadioServerPort
+  name: signal-port-name-radio-server
+  description: signal-port-description-radio-server
