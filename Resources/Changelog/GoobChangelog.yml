@@ -19407,3 +19407,11 @@ Entries:
       message: Added "Goblin clown"
   id: 2191
   time: '2025-12-17T18:00:56.0000000+00:00'
+- author: JacktheJukebox
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaked Ichor values to provide more healing than Omnizine to humanoids,
+        while retaining their old values for the Dragon.
+  id: 2192
+  time: '2025-12-17T20:24:29.0000000+00:00'
