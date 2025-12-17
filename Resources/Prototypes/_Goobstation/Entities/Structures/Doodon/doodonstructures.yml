@@ -16,8 +16,6 @@
         - MachineMask
         layer:
         - TabletopMachineLayer
-  - type: Damageable
-    damageContainer: Organic
   - type: Destructible
     thresholds:
     - trigger:
@@ -32,6 +30,7 @@
           params:
             variation: 0.125
             volume: -2
+  - type: DoodonBuilding
             
 
 - type: entity
@@ -43,6 +42,14 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
     state: townhall
+  - type: DoodonTownHall
+  - type: DoodonMachine
+    outputPrototype: PapaDoodon
+    resinStack: DoodonResin
+    resinCost: 30
+    processTime: 5
+    respectPopulationCap: true
+    spawnOnMapInit: true
     
 - type: entity
   parent: BaseDoodonStructure
@@ -57,7 +64,13 @@
     graph: DDwellingGraph
     node: DoodonDwellingComplete
     placementMode: SnapgridCenter
-    
+  - type: DoodonMachine
+    outputPrototype: WorkerDoodon
+    resinStack: DoodonResin
+    resinCost: 3
+    processTime: 5
+    respectPopulationCap: true
+    spawnOnMapInit: true
     
 - type: entity
   parent: BaseDoodonStructure
