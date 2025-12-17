@@ -57,7 +57,7 @@
 - type: entity
   id: BulletRifleIncendiary
   parent: BaseBulletIncendiary
-  name: bullet (05.56x45mm incendiary)
+  name: bullet (5.56x45mm incendiary)
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
