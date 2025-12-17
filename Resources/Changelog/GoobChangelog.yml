@@ -19429,3 +19429,9 @@ Entries:
         healing values.
   id: 2194
   time: '2025-12-17T20:27:04.0000000+00:00'
+- author: Rounded
+  changes:
+    - type: Tweak
+      message: Reworked Hierophant's AI. It's getting smarter.
+  id: 2195
+  time: '2025-12-17T20:27:11.0000000+00:00'
