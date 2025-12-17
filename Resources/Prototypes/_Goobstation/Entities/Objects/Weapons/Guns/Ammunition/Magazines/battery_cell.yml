@@ -120,7 +120,7 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_bluespace.rsi
   - type: HitscanBatteryAmmoProvider
     proto: SMGLaserBluespace
-    fireCost: 75
+    fireCost: 50
 # pulse smg power cell
 - type: entity
   name: pulse SMG power cell
@@ -234,7 +234,7 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_bluespace.rsi
   - type: HitscanBatteryAmmoProvider
     proto: SniperBluespaceLaser
-    fireCost: 150
+    fireCost: 100
 # pulse sniper power cell
 - type: entity
   name: pulse sniper power cell
@@ -397,7 +397,7 @@
             shader: null
   - type: HitscanBatteryAmmoProvider
     proto: RevolverBluespaceLaser
-    fireCost: 93.75
+    fireCost: 62.5
 # ion revolver power cell
 - type: entity
   name: ion revolver power cell

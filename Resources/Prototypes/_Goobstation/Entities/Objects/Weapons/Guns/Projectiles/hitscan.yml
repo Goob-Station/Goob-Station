@@ -72,8 +72,8 @@
   id: SMGLaserBluespace
   damage:
     types:
-      Heat: 8
-    armorPenetration: 0.3
+      Heat: 9
+    armorPenetration: 0.4
   muzzleFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: muzzle_beam_light_pulse
@@ -170,8 +170,8 @@
   id: SniperBluespaceLaser
   damage:
     types:
-      Heat: 12
-    armorPenetration: 0.3
+      Heat: 14
+    armorPenetration: 0.4
   muzzleFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: muzzle_beam_light_pulse
@@ -219,8 +219,8 @@
   id: LMGLaserBluespace
   damage:
     types:
-      Heat: 8
-    armorPenetration: 0.3
+      Heat: 9
+    armorPenetration: 0.4
   muzzleFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: muzzle_beam_light_pulse
@@ -301,8 +301,8 @@
   id: RevolverBluespaceLaser
   damage:
     types:
-      Heat: 10
-    armorPenetration: 0.3
+      Heat: 11.5
+    armorPenetration: 0.4
   muzzleFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
     state: muzzle_beam_light_pulse
