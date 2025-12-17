@@ -933,14 +933,6 @@ Entries:
   url: https://github.com/space-wizards/space-station-14/pull/39177
 - author: SlamBamActionman
   changes:
-  - message: Potassium-water explosion damage scaling has been tweaked to be less
-      potent.
-    type: Tweak
-  id: 8807
-  time: '2025-07-25T16:04:27.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/37924
-- author: SlamBamActionman
-  changes:
   - message: Chemistry foam and smoke reactions now trigger after regular mix reactions.
     type: Tweak
   - message: Foam, smoke and explosion reactions no longer transfer the reagents'
@@ -4853,3 +4845,10 @@ Entries:
   id: 9307
   time: '2025-12-16T19:00:27.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41879
+- author: kontakt
+  changes:
+  - message: Flammable items no longer have bonus mass.
+    type: Fix
+  id: 9308
+  time: '2025-12-17T08:37:35.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41803
