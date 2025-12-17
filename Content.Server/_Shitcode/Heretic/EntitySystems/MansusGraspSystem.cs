@@ -238,7 +238,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         if (args.Target == null || args.Target == args.User)
             return;
 
-        args.Handled = graspTarget(ent, args.User,args.Target.Value);
+        args.Handled = GraspTarget(ent, args.User,args.Target.Value);
     }
 
     public void InvokeGrasp(EntityUid user, Entity<MansusGraspComponent>? ent)
