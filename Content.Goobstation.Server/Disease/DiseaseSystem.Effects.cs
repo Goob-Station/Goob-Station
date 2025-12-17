@@ -1,5 +1,4 @@
 using Content.Server.Chat.Systems;
-using Content.Server.Medical;
 using Content.Goobstation.Shared.Disease;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -8,6 +7,7 @@ using System.Numerics;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.EntityEffects;
+
 namespace Content.Goobstation.Server.Disease;
 
 public sealed partial class DiseaseSystem

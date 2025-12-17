@@ -1,7 +1,5 @@
 using Content.Shared.Inventory;
 using Robust.Shared.Prototypes;
-using System;
-using System.Runtime.CompilerServices;
 
 namespace Content.Goobstation.Shared.Disease;
 

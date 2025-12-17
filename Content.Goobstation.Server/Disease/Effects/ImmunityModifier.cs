@@ -3,7 +3,7 @@ using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Disease.Chemistry;
+namespace Content.Goobstation.Server.Disease.Effects;
 
 /// <summary>
 /// Modifies the entity's immunity's strength, with accumulation.
@@ -56,15 +56,15 @@ public sealed partial class ImmunityModifier : EntityEffect
             statusLifetime *= reagentArgs.Scale.Float();
         }
 
-        IncreaseTimer(status, statusLifetime);
+        IncreaseTimer(status, statusLifetime, args.EntityManager, args.TargetEntity);
     }
-    public void IncreaseTimer(ImmunityModifierMetabolismComponent status, float time)
+    public void IncreaseTimer(ImmunityModifierMetabolismComponent status, float time,IEntityManager entityManager, EntityUid uid)
     {
         var gameTiming = IoCManager.Resolve<IGameTiming>();
 
         var offsetTime = Math.Max(status.ModifierTimer.TotalSeconds, gameTiming.CurTime.TotalSeconds);
 
         status.ModifierTimer = TimeSpan.FromSeconds(offsetTime + time);
-        status.Dirty();
+        entityManager.Dirty(uid, status);
     }
 }

@@ -10,8 +10,6 @@ namespace Content.Goobstation.Shared.Disease.Components;
 [EntityCategory("Diseases")]
 public sealed partial class DiseaseComponent : Component
 {
-    // <state>
-
     /// <summary>
     /// The effects this disease has
     /// </summary>
@@ -32,10 +30,6 @@ public sealed partial class DiseaseComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float InfectionProgress;
-
-    // </state>
-
-    // <parameters>
 
     /// <summary>
     /// Dictionary of effects to add on component startup to their respective severities
@@ -60,8 +54,6 @@ public sealed partial class DiseaseComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float ImmunityGainRate = 1f;
-
-    // NO magic constants, not allowed
 
     /// <summary>
     /// Affects mutation of mutation rate
@@ -150,6 +142,4 @@ public sealed partial class DiseaseComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<DiseaseTypePrototype> DiseaseType = "Debug";
-
-    // </parameters>
 }

@@ -2,7 +2,7 @@ using Content.Goobstation.Shared.Disease;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Disease.Chemistry;
+namespace Content.Goobstation.Server.Disease.Effects;
 
 /// <summary>
 /// Reduces the progress of diseases of chosen type on the entity.

@@ -31,11 +31,11 @@ public sealed partial class DiseasePeriodicConditionComponent : ScalingDiseaseEf
     public TimeSpan DelayMax = TimeSpan.FromSeconds(30);
 
     // state: time since last passed
-    [ViewVariables, AutoNetworkedField]
+    [AutoNetworkedField]
     public TimeSpan TimeSinceLast = TimeSpan.FromSeconds(0);
 
     // state: delay until next pass
-    [ViewVariables, AutoNetworkedField]
+    [AutoNetworkedField]
     public TimeSpan? CurrentDelay;
 }
 

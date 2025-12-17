@@ -1,4 +1,3 @@
-using Content.Goobstation.Shared.Disease;
 using Content.Goobstation.Shared.Disease.Systems;
 using Content.Goobstation.Shared.Virology;
 using Content.Shared.Examine;

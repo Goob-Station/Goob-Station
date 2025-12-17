@@ -4,17 +4,17 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Disease;
 
 [DataDefinition, Serializable, NetSerializable]
-public partial class DiseaseSpreadModifier
+public sealed partial class DiseaseSpreadModifier
 {
     /// <summary>
     /// How much to modify spread attempts' power.
-    /// <summary>
+    /// </summary>
     [DataField]
     public Dictionary<ProtoId<DiseaseSpreadPrototype>, float> PowerModifiers = new();
 
     /// <summary>
     /// By how much to multiply spread attempts' chance.
-    /// <summary>
+    /// </summary>
     [DataField]
     public Dictionary<ProtoId<DiseaseSpreadPrototype>, float> ChanceMultipliers = new();
 

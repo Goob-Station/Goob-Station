@@ -2,9 +2,6 @@ using Content.Client.Overlays;
 using Content.Goobstation.Shared.Disease;
 using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.Inventory.Events;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Overlays;
-using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 

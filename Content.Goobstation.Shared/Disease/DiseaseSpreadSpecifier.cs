@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Disease;
 
 [DataDefinition, Serializable, NetSerializable]
-public partial class DiseaseSpreadSpecifier
+public sealed partial class DiseaseSpreadSpecifier
 {
     /// <summary>
     /// If the infection attempt gets through, chance for it to actually work

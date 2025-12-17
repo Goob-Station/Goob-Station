@@ -2,12 +2,11 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.Damage;
 using Content.Shared.Flash;
-using Content.Shared.Flash.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.StatusIcon.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
@@ -20,7 +19,6 @@ namespace Content.Goobstation.Shared.Disease.Systems;
 
 public partial class SharedDiseaseSystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedFlashSystem _flash = default!;
@@ -82,8 +80,8 @@ public partial class SharedDiseaseSystem
 
     private void OnDiseaseForceSpreadEffect(EntityUid uid, DiseaseForceSpreadEffectComponent effect, DiseaseEffectEvent args)
     {
-        var xform = Transform(args.Ent);
-        var targets = _lookup.GetEntitiesInRange<DamageableComponent>(xform.MapPosition, effect.Range);
+        var transform = _transform.GetMapCoordinates(args.Ent);
+        var targets = _lookup.GetEntitiesInRange<DamageableComponent>(transform, effect.Range);
 
         foreach (var target in targets)
         {
@@ -114,7 +112,7 @@ public partial class SharedDiseaseSystem
         if (_net.IsClient) // flashes twice if ran on both server and client
             return;
 
-        _status.TryAddStatusEffect<FlashedComponent>(args.Ent, _flash.FlashedKey, effect.Duration * GetScale(args, effect), true);
+        _status.TryAddStatusEffect(args.Ent, _flash.FlashedKey.Id, out _, effect.Duration * GetScale(args, effect));
         _stun.TrySlowdown(args.Ent, effect.Duration * GetScale(args, effect), true, effect.SlowTo, effect.SlowTo);
 
         if (effect.StunDuration != null)
@@ -138,12 +136,13 @@ public partial class SharedDiseaseSystem
             return;
 
         var xform = Transform(args.Ent);
-        if (_mapMan.TryFindGridAt(xform.MapPosition, out var gridUid, out var grid))
+        var mapPos = _transform.GetMapCoordinates(xform);
+        if (_mapMan.TryFindGridAt(mapPos, out var gridUid, out var grid))
         {
             for (int i = 0; i < effect.Attempts; i++)
             {
                 var distance = effect.Range * MathF.Sqrt(_random.NextFloat());
-                var tileCoordinates = xform.MapPosition.Offset(_random.NextAngle().ToVec() * distance);
+                var tileCoordinates = mapPos.Offset(_random.NextAngle().ToVec() * distance);
                 var tile = _map.GetTileRef((gridUid, grid), tileCoordinates);
                 if (_tile.DeconstructTile(tile))
                     break;
@@ -184,7 +183,8 @@ public partial class SharedDiseaseSystem
         var weights = new Dictionary<string, float>(effects.Weights);
         foreach (var diseaseEffect in disease.Effects) // no rolling effects we have
         {
-            if (TryComp<MetaDataComponent>(diseaseEffect, out var metadata) && metadata.EntityPrototype != null)
+            var metadata = MetaData(diseaseEffect);
+            if (metadata.EntityPrototype != null)
                 weights.Remove(metadata.EntityPrototype.ID);
         }
 
@@ -194,7 +194,7 @@ public partial class SharedDiseaseSystem
             return null;
         }
 
-        var protoId = new EntProtoId(_random.Pick<string>(weights));
+        var protoId = new EntProtoId(_random.Pick(weights));
         var proto = _proto.Index(protoId);
         Entity<DiseaseEffectComponent>? effect = null;
         if (proto.TryGetComponent<DiseaseEffectComponent>(out var effectComp, _factory))

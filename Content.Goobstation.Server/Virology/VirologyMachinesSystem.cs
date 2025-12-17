@@ -1,5 +1,3 @@
-using Content.Goobstation.Server.Disease;
-using Content.Goobstation.Shared.Disease;
 using Content.Goobstation.Shared.Virology;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Containers.ItemSlots;

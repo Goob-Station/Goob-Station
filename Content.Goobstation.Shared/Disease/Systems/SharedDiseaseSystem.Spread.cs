@@ -96,7 +96,7 @@ public partial class SharedDiseaseSystem
 
     /// <summary>
     /// Chance function that can take arbitrarily large values
-    /// <summary>
+    /// </summary>
     public bool ExpProb(float prob)
     {
         return _random.Prob(1f - MathF.Exp(-prob));
@@ -169,7 +169,7 @@ public partial class SharedDiseaseSystem
         }
         // try to adjust complexity to target
         // will hopefully succeed on first iteration
-        // if it doesn't, whatever the user did, i don't trust it to not infinite loop
+        // if it doesn't, whatever the user did, I don't trust it to not infinite loop
         for (var limit = 0; limit < 20; limit++)
         {
             Entity<DiseaseEffectComponent>? changedEffect;
