@@ -853,6 +853,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     public override void Update(float frameTime)
     {
         UpdateBattery(frameTime);
+        UpdateBallistic(frameTime);
     }
 }
 
