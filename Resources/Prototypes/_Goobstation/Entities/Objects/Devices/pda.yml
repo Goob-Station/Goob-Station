@@ -300,9 +300,6 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-virology
-  - type: GuideHelp
-    guides:
-    - MedicalDoctor # TODO guidebook: virology
 
 # event-resctricted jobs
 - type: entity
@@ -369,7 +366,4 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-virology
-  - type: GuideHelp
-    guides:
-    - Medical Doctor # TODO guidebook: virology
 # </Viro>
