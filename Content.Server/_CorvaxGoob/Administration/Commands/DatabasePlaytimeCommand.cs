@@ -100,6 +100,8 @@ public sealed class DatabasePlaytimeAddTrackerTimeCommand : IConsoleCommand
         }
 
         var updateList = new List<PlayTimeUpdate>();
+        var updateDictionary = new Dictionary<string, TimeSpan>();
+
         var currentPlayTimes = await _db.GetPlayTimes(playerRecord.UserId);
 
         for (var i = 1; i < args.Length; i = i + 2)
@@ -115,7 +117,6 @@ public sealed class DatabasePlaytimeAddTrackerTimeCommand : IConsoleCommand
             var tracker = currentPlayTimes.Where(p => p.Tracker == trackerProto.ID).FirstOrDefault();
 
             var time = TimeSpan.Zero;
-
             var timeToAdd = TimeSpan.FromMinutes(minutes);
 
             if (tracker is not null)
@@ -126,9 +127,17 @@ public sealed class DatabasePlaytimeAddTrackerTimeCommand : IConsoleCommand
             if (time.TotalMinutes < 0)
                 time = TimeSpan.Zero;
 
-            updateList.Add(new PlayTimeUpdate(playerRecord.UserId, trackerProto.ID, time));
+            if (updateDictionary.ContainsKey(trackerProto.ID))
+                updateDictionary[trackerProto.ID].Add(time);
+            else
+                updateDictionary.Add(trackerProto.ID, time);
+        }
 
-            shell.WriteLine(Loc.GetString("cmd-database-playtime_addrole-succeed", ("username", playerRecord.LastSeenUserName), ("tracker", trackerProto.ID), ("time", time)));
+        foreach (var tracker in updateDictionary)
+        {
+            updateList.Add(new PlayTimeUpdate(playerRecord.UserId, tracker.Key, tracker.Value));
+
+            shell.WriteLine(Loc.GetString("cmd-database-playtime_addrole-succeed", ("username", playerRecord.LastSeenUserName), ("tracker", tracker.Key), ("time", tracker.Value)));
         }
 
         await _db.UpdatePlayTimes(updateList);

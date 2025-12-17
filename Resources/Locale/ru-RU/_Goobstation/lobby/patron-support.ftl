@@ -34,7 +34,7 @@ patron-support-window-tier5-name = 🙪 Парадокс клон (1800RUB/ме�
 patron-support-window-tier5-perk1 = = Всё за предыдущий уровень
 patron-support-window-tier5-perk2 = • 🟡 Оранжевый цвет ника в OOC
 
-patron-support-window-tier6-name = 🪶 Ниндзя (1800RUB/месяц)
+patron-support-window-tier6-name = 🪶 Ниндзя (3000RUB/месяц)
 patron-support-window-tier6-perk1 = = Всё за предыдущий уровень
 patron-support-window-tier6-perk2 = • 🟡 Зелёный цвет ника в OOC
 patron-support-window-tier6-perk3 = • 📦 Добавим ваш кастомный косметический предмет на время подписки

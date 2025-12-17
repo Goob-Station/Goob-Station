@@ -4,7 +4,6 @@ using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Popups;
 using Content.Shared._CorvaxGoob.CCCVars;
 using Content.Shared._CorvaxGoob.Photo;
-using Content.Shared.CCVar;
 using Content.Shared.Materials;
 using Content.Shared.Timing;
 using Content.Shared.UserInterface;
@@ -104,9 +103,10 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
             if (!_player.TryGetSessionByEntity(actor, out var session))
                 return false;
 
-            if (_playTime.GetOverallPlaytime(session).Hours < _photoTimeRequiredHours)
+            if (_playTime.GetOverallPlaytime(session).TotalHours < _photoTimeRequiredHours)
             {
                 _audio.PlayPvs(component.ErrorSound, uid);
+                _popup.PopupEntity(Loc.GetString("photo-camera-not-enough-playtime"), actor, session);
                 return false;
             }
         }
