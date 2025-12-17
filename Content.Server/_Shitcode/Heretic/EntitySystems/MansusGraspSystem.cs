@@ -218,6 +218,8 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
 
     private void OnMelee(Entity<MansusGraspComponent> ent, ref MeleeHitEvent args)
     {
+        if (args.HitEntities.Count == 0)
+            return;
         // blocked from wide attacks in YAML. should never have more than 1
         if (args.HitEntities.Count > 1)
             return;
