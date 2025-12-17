@@ -1,0 +1,19 @@
+- type: entity
+  id: AltarClock
+  parent: AltarBase
+  name: clockwork altar
+  description: Altar of the Ratvar.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Structures/clockaltar.rsi
+    state: clock
+  - type: Icon
+    sprite: _ShitChap/Structures/clockaltar.rsi
+    state: clock
+  - type: Construction
+    graph: AltarsGraph
+    node: ClockAltarNode
+  - type: AltarSource
+    rodProto: RatvarianSpear
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
