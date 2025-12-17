@@ -247,8 +247,9 @@
     chaosScore: 0
   - type: VentCrittersRule
     max: 1
-    table:
-      id: MobFloorGoblin
+    table: !type:GroupSelector
+      children:
+      - id: MobFloorGoblin
   - type: Tag
     tags:
     - MidroundAntag
