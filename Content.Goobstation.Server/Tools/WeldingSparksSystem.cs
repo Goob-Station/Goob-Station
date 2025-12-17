@@ -1,10 +1,14 @@
 using Content.Goobstation.Common.Tools;
+using Content.Server.Tools;
+using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
 
 namespace Content.Goobstation.Server.Tools;
 
 public sealed class WeldingSparksSystem : EntitySystem
 {
+    [Dependency] private readonly ToolSystem _toolSystem = default!;
+
     private Dictionary<EntityUid, EntityUid> _spawnedEffects = [];
 
     public override void Initialize()
@@ -21,6 +25,11 @@ public sealed class WeldingSparksSystem : EntitySystem
         // Spawning the sparks on top of the welder looks silly so just return instead.
         if (args.Target is not { } target || target == ent.Owner)
             return;
+
+        if (TryComp<ToolComponent>(ent, out var toolComp))
+        {
+            _toolSystem.PlayToolSound(ent, toolComp, null);
+        }
 
         // Prioritise the newer one
         if (_spawnedEffects.ContainsKey(target))
