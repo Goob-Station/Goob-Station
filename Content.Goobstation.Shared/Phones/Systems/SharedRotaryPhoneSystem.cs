@@ -8,6 +8,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
@@ -23,6 +24,7 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
     [Dependency] private readonly SharedJointSystem _jointSystem = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly SharedPvsOverrideSystem _pvsOverride = default!;
 
     public override void Initialize()
     {
@@ -39,6 +41,7 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, RotaryPhoneComponent comp, MapInitEvent args)
     {
+        _pvsOverride.AddGlobalOverride(uid);
         if(comp.PhoneNumber == null)
             comp.PhoneNumber = _random.Next(11111,99999);
     }

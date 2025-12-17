@@ -108,6 +108,17 @@ public sealed class PhoneKeypadMessage : BoundUserInterfaceMessage
 }
 
 [Serializable, NetSerializable]
+public sealed class PhoneBookPressedMessage : BoundUserInterfaceMessage
+{
+    public int Value;
+
+    public PhoneBookPressedMessage(int value)
+    {
+        Value = value;
+    }
+}
+
+[Serializable, NetSerializable]
 public sealed class PhoneKeypadClearMessage : BoundUserInterfaceMessage
 {
 }

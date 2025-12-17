@@ -25,7 +25,14 @@ public sealed class RotaryPhoneSystem : EntitySystem
         SubscribeLocalEvent<RotaryPhoneComponent, ListenEvent>(OnListen);
         SubscribeLocalEvent<RotaryPhoneComponent, PhoneKeypadMessage>(OnKeyPadPressed);
         SubscribeLocalEvent<RotaryPhoneComponent, PhoneKeypadClearMessage>(OnKeyPadClear);
+        SubscribeLocalEvent<RotaryPhoneComponent, PhoneBookPressedMessage>(OnPhoneBookButtonPressed);
         SubscribeLocalEvent<RotaryPhoneComponent, PhoneDialedMessage>(OnDial);
+    }
+
+    private void OnPhoneBookButtonPressed(EntityUid uid, RotaryPhoneComponent comp, PhoneBookPressedMessage args)
+    {
+        comp.DialedNumber = args.Value;
+        Dirty(uid, comp);
     }
 
     private void OnKeyPadPressed(EntityUid uid, RotaryPhoneComponent comp, PhoneKeypadMessage args)

@@ -36,7 +36,7 @@ public sealed class PhoneBoundUserInterface : BoundUserInterface
 
         _menu.OnPhoneBookButtonPressed += i =>
         {
-            SendMessage(new PhoneKeypadMessage(i));
+            SendMessage(new PhoneBookPressedMessage(i));
             _menu.DialNumber.SetMessage(i.ToString());
         };
     }
