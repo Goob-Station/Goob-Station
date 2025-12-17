@@ -45,7 +45,7 @@
 
 - type: entity
   id: BulletRiflePractice
-  name: bullet (05.56x45mm practice)
+  name: bullet (5.56x45mm practice)
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
   components:
