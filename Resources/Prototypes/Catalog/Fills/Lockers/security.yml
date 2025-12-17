@@ -250,7 +250,6 @@
     - id: Betty # Goobstation
     - id: BoxTapeRecorder # DeltaV
     - id: PhotoCameraFilled # CorvaxGoob
-    - id: SecondSkinSecurity # Goobstation
 
 - type: entity
   id: ClosetBombFilled
