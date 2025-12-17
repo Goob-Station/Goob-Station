@@ -40,4 +40,33 @@ public sealed class PhoneBoundUserInterface : BoundUserInterface
             _menu.DialNumber.SetMessage(i.ToString());
         };
     }
+
+    protected override void UpdateState(BoundUserInterfaceState state)
+    {
+        Logger.Debug("Updating PhoneBoundUserInterfaceState");
+
+        if (_menu == null || state is not GoobPhoneBuiState s)
+            return;
+
+        Logger.Debug("Got past goobphonebui check");
+
+        Refresh(s);
+    }
+
+    private void Refresh(GoobPhoneBuiState state)
+    {
+        if (_menu == null)
+            return;
+
+        _menu.ClearPhoneBook();
+
+        foreach (var phone in state.Phones)
+        {
+            _menu.AddPhoneBookLabel(
+                phone.Name,
+                phone.Category,
+                phone.Number
+            );
+        }
+    }
 }

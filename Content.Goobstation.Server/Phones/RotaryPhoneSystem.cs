@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Goobstation.Shared.Phones.Components;
 using Content.Goobstation.Shared.Phones.Events;
 using Content.Server.Chat.Managers;
@@ -5,8 +6,10 @@ using Content.Server.Radio.Components;
 using Content.Server.Speech;
 using Content.Shared.Audio;
 using Content.Shared.Chat;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
@@ -19,6 +22,7 @@ public sealed class RotaryPhoneSystem : EntitySystem
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {
@@ -27,6 +31,35 @@ public sealed class RotaryPhoneSystem : EntitySystem
         SubscribeLocalEvent<RotaryPhoneComponent, PhoneKeypadClearMessage>(OnKeyPadClear);
         SubscribeLocalEvent<RotaryPhoneComponent, PhoneBookPressedMessage>(OnPhoneBookButtonPressed);
         SubscribeLocalEvent<RotaryPhoneComponent, PhoneDialedMessage>(OnDial);
+        SubscribeLocalEvent<RotaryPhoneComponent, BoundUIOpenedEvent>(OnOpen);
+    }
+
+    private void OnOpen(EntityUid uid, RotaryPhoneComponent component, BoundUIOpenedEvent args)
+    {
+        Logger.Debug("Opened fired");
+        var state = new GoobPhoneBuiState(GetAllPhoneData());
+        _ui.SetUiState(uid, PhoneUiKey.Key, state);
+    }
+
+    private List<PhoneData> GetAllPhoneData()
+    {
+        var data = new List<PhoneData>();
+        var query = EntityQueryEnumerator<RotaryPhoneComponent, TransformComponent>();
+
+        while (query.MoveNext(out var phone, out var phoneComp, out var xform))
+        {
+            if (xform.MapID == MapId.Nullspace)
+                continue;
+
+            if (phoneComp.PhoneNumber == null || phoneComp.Category == null)
+                continue;
+
+            var phones = new PhoneData(phoneComp.Name ?? "Unknown", phoneComp.Category, phoneComp.PhoneNumber.Value);
+
+            data.Add(phones);
+        }
+
+        return data;
     }
 
     private void OnPhoneBookButtonPressed(EntityUid uid, RotaryPhoneComponent comp, PhoneBookPressedMessage args)

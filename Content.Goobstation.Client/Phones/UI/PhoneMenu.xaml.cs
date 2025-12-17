@@ -21,7 +21,6 @@ public sealed partial class PhoneMenu : FancyWindow
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
         FillKeypadGrid();
-        FillPhoneBook();
     }
 
     private void FillKeypadGrid()
@@ -52,26 +51,6 @@ public sealed partial class PhoneMenu : FancyWindow
         KeypadGrid.AddChild(enterBtn);
     }
 
-    public void FillPhoneBook()
-    {
-        var query = _entitySystem.EntityQueryEnumerator<RotaryPhoneComponent, TransformComponent>();
-
-        while (query.MoveNext(out var phone, out var phoneComp, out var xform))
-        {
-            if (xform.MapID == MapId.Nullspace)
-                continue;
-
-            if (phoneComp.PhoneNumber == null || phoneComp.Category == null)
-                continue;
-
-            AddPhoneBookLabel(
-                phoneComp.Name ?? "Unknown",
-                phoneComp.Category,
-                phoneComp.PhoneNumber.Value
-            );
-        }
-    }
-
     private void AddKeypadButton(int i)
     {
         var btn = new Button()
@@ -83,7 +62,19 @@ public sealed partial class PhoneMenu : FancyWindow
         KeypadGrid.AddChild(btn);
     }
 
-    private void AddPhoneBookLabel(string name, string catagory, int phonenumber)
+    public void ClearPhoneBook()
+    {
+        CommandHeading.DisposeAllChildren();
+        SecurityHeading.DisposeAllChildren();
+        EngineeringHeading.DisposeAllChildren();
+        CargoHeading.DisposeAllChildren();
+        MedicalHeading.DisposeAllChildren();
+        ScienceHeading.DisposeAllChildren();
+        ServiceHeading.DisposeAllChildren();
+        UncategorizedHeading.DisposeAllChildren();
+    }
+
+    public void AddPhoneBookLabel(string name, string catagory, int phonenumber)
     {
         var btn = new Button()
         {

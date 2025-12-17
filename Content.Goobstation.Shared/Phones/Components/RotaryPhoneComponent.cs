@@ -127,3 +127,29 @@ public sealed class PhoneKeypadClearMessage : BoundUserInterfaceMessage
 public sealed class PhoneDialedMessage : BoundUserInterfaceMessage
 {
 }
+
+[Serializable, NetSerializable]
+public sealed class GoobPhoneBuiState : BoundUserInterfaceState
+{
+    public List<PhoneData> Phones { get; }
+
+    public GoobPhoneBuiState(List<PhoneData> phones)
+    {
+        Phones = phones;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class PhoneData
+{
+    public string Name;
+    public string Category;
+    public int Number;
+
+    public PhoneData(string name, string category, int number)
+    {
+        Name = name;
+        Category = category;
+        Number = number;
+    }
+}
