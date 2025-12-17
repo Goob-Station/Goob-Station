@@ -313,7 +313,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             return;
         }
 
-        var typeMatch = part.PartType == ent.Comp.Part;
+        var typeMatch = ent.Comp.Parts.Contains(part.PartType);
         var symmetryMatch = ent.Comp.Symmetry == null || part.Symmetry == ent.Comp.Symmetry;
         var valid = typeMatch && symmetryMatch;
 
@@ -354,7 +354,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
 
     private void OnBodyConditionValid(Entity<SurgeryBodyConditionComponent> ent, ref SurgeryValidEvent args)
     {
-        if (_bodyQuery.CompOrNull(args.Body)?.Prototype is {} bodyId)
+        if (_bodyQuery.CompOrNull(args.Body)?.Prototype is { } bodyId)
             args.Cancelled |= ent.Comp.Accepted.Contains(bodyId) == ent.Comp.Inverse;
     }
 

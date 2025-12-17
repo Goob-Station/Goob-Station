@@ -17,7 +17,7 @@ using Content.Goobstation.Server.Possession;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.Contract;
-using Content.Server._Imp.Drone;
+using Content.Shared._Imp.Drone; // Goob - Moved to shared
 using Content.Server.Body.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
@@ -469,6 +469,21 @@ public sealed partial class DevilContractSystem : EntitySystem
     {
         var negativeClauses = _prototypeManager.EnumeratePrototypes<DevilClausePrototype>()
             .Where(c => c.ClauseWeight >= 0)
+            .ToList();
+
+        if (negativeClauses.Count == 0)
+            return;
+
+        var selectedClause = _random.Pick(negativeClauses);
+        ApplyEffectToTarget(target, selectedClause, null);
+
+        _sawmill.Debug($"Selected {selectedClause.ID} effect for {ToPrettyString(target)}");
+    }
+
+    public void AddRandomNegativeClauseSlasher(EntityUid target)
+    {
+        var negativeClauses = _prototypeManager.EnumeratePrototypes<DevilClausePrototype>()
+            .Where(c => c.ClauseWeight >= 0 && c.ID != "humanity")
             .ToList();
 
         if (negativeClauses.Count == 0)
