@@ -140,9 +140,3 @@
   - ThrusterMachineCircuitboard
   - GyroscopeMachineCircuitboard
   - MiniGravityGeneratorCircuitboard
-
-- type: latheRecipePack
-  id: XenobioPack
-  recipes:
-  - SlimeGrinderMachineCircuitboard
-  - ClothingBackpackXenoBioTank

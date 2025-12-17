@@ -21,29 +21,26 @@ namespace Content.Goobstation.Client.Xenobiology;
 public sealed class XenoSlimeVisualizerSystem : VisualizerSystem<SlimeComponent>
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     protected override void OnAppearanceChange(EntityUid uid, SlimeComponent component, ref AppearanceChangeEvent args)
     {
-        if (args.Sprite == null
-            || !AppearanceSystem.TryGetData<Color>(uid, XenoSlimeVisuals.Color, out var color, args.Component))
+        if (args.Sprite == null || !AppearanceSystem.TryGetData<Color>(uid, XenoSlimeVisuals.Color, out var color, args.Component) || !TryComp<SpriteComponent>(uid, out var spriteComponent))
             return;
 
         foreach (var layer in args.Sprite.AllLayers)
             layer.Color = color.WithAlpha(layer.Color.A);
 
-        if (AppearanceSystem.TryGetData<string>(uid, XenoSlimeVisuals.Shader, out var shader, args.Component))
-        {
-            var spriteComp = args.Sprite;
-            var newShader = _proto.Index<ShaderPrototype>(shader).InstanceUnique();
+        if (!AppearanceSystem.TryGetData<string>(uid, XenoSlimeVisuals.Shader, out var shader, args.Component))
+            return;
+        var spriteComp = args.Sprite;
+        var newShader = _proto.Index<ShaderPrototype>(shader).InstanceUnique();
 
-            var layerExists = spriteComp.LayerMapTryGet(DamageStateVisualLayers.Base, out var layerKey);
-
-            if (!layerExists)
-                return;
-
-            spriteComp.LayerSetShader(layerKey, newShader);
-            spriteComp.GetScreenTexture = newShader is not null;
-            spriteComp.RaiseShaderEvent = newShader is not null;
-        }
+        var layerExists = _sprite.LayerMapTryGet(uid, DamageStateVisualLayers.Base, out var layerKey, false);
+        if (!layerExists)
+            return;
+        spriteComp.LayerSetShader(layerKey, newShader);
+        spriteComp.GetScreenTexture = true;
+        spriteComp.RaiseShaderEvent = true;
     }
 }

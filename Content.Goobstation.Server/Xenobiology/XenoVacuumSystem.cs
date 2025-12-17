@@ -8,6 +8,7 @@
 
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Goobstation.Shared.Xenobiology.Components.Equipment;
+using Content.Server.NPC.HTN;
 using Content.Shared.Coordinates;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
@@ -25,7 +26,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 
-namespace Content.Goobstation.Server.Xenobiology.Systems;
+namespace Content.Goobstation.Server.Xenobiology;
 
 /// <summary>
 /// This handles the XenoVacuum and it's interactions.
@@ -41,20 +42,19 @@ public sealed partial class XenoVacuumSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly SlimeLatchSystem _latch = default!;
+    [Dependency] private readonly HTNSystem _htn = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
+        // Init
         SubscribeLocalEvent<XenoVacuumTankComponent, MapInitEvent>(OnTankInit);
+
+        // Interaction
         SubscribeLocalEvent<XenoVacuumTankComponent, ExaminedEvent>(OnTankExamined);
-
         SubscribeLocalEvent<XenoVacuumComponent, GotEmaggedEvent>(OnGotEmagged);
-
         SubscribeLocalEvent<XenoVacuumComponent, GotEquippedHandEvent>(OnEquippedHand);
         SubscribeLocalEvent<XenoVacuumComponent, GotUnequippedHandEvent>(OnUnequippedHand);
-
         SubscribeLocalEvent<XenoVacuumComponent, AfterInteractEvent>(OnAfterInteract);
     }
 
@@ -74,7 +74,7 @@ public sealed partial class XenoVacuumSystem : EntitySystem
 
     private void OnEquippedHand(Entity<XenoVacuumComponent> ent, ref GotEquippedHandEvent args)
     {
-        if (!TryGetTank(ent, args.User, out var tank) && !tank.HasValue)
+        if (!TryGetTank(args.User, out var tank) && !tank.HasValue)
             return;
 
         var tankComp = tank!.Value.Comp;
@@ -87,7 +87,7 @@ public sealed partial class XenoVacuumSystem : EntitySystem
 
     private void OnUnequippedHand(Entity<XenoVacuumComponent> ent, ref GotUnequippedHandEvent args)
     {
-        if (!TryGetTank(ent, args.User, out var tank) && !tank.HasValue)
+        if (!TryGetTank(args.User, out var tank) && !tank.HasValue)
             return;
 
         var tankComp = tank!.Value.Comp;
@@ -116,7 +116,7 @@ public sealed partial class XenoVacuumSystem : EntitySystem
             return;
         }
 
-        if (!TryGetTank(ent, args.User, out var tank) && !tank.HasValue
+        if (!TryGetTank(args.User, out var tank) && !tank.HasValue
         && tank!.Value.Comp.StorageTank.ContainedEntities.Count <= 0)
             return;
 
@@ -127,11 +127,12 @@ public sealed partial class XenoVacuumSystem : EntitySystem
             var popup = Loc.GetString("xeno-vacuum-clear-popup", ("ent", removedEnt));
             _popup.PopupEntity(popup, ent, args.User);
 
-            if (args.Target is { } thrown) _throw.TryThrow(removedEnt, thrown.ToCoordinates());
-            else _throw.TryThrow(removedEnt, args.ClickLocation);
-
-            // TODO move it to _throw.TryThrow
+            if (args.Target is { } thrown)
+                _throw.TryThrow(removedEnt, thrown.ToCoordinates());
+            else
+                _throw.TryThrow(removedEnt, args.ClickLocation);
             _stun.TryParalyze(removedEnt, TimeSpan.FromSeconds(2), true);
+            _htn.SetHTNEnabled(removedEnt, true,2f);
         }
 
         _audio.PlayEntity(ent.Comp.ClearSound, ent, args.User, AudioParams.Default.WithVolume(-2f));
@@ -139,17 +140,16 @@ public sealed partial class XenoVacuumSystem : EntitySystem
 
     #region Helpers
 
-    private bool TryGetTank(Entity<XenoVacuumComponent> ent, EntityUid user, out Entity<XenoVacuumTankComponent>? tank)
+    private bool TryGetTank(EntityUid user, out Entity<XenoVacuumTankComponent>? tank)
     {
         tank = null;
 
         foreach (var item in _hands.EnumerateHeld(user))
         {
-            if (TryComp<XenoVacuumTankComponent>(item, out var xenovacTank))
-            {
-                tank = (item, xenovacTank);
-                return true;
-            }
+            if (!TryComp<XenoVacuumTankComponent>(item, out var xenoVacTank))
+                continue;
+            tank = (item, xenoVacTank);
+            return true;
         }
 
         if (!_inventorySystem.TryGetContainerSlotEnumerator(user, out var slotEnum, SlotFlags.WITHOUT_POCKET))
@@ -160,11 +160,10 @@ public sealed partial class XenoVacuumSystem : EntitySystem
             if (!item.ContainedEntity.HasValue)
                 continue;
 
-            if (TryComp<XenoVacuumTankComponent>(item.ContainedEntity.Value, out var xenovacTank))
-            {
-                tank = (item.ContainedEntity.Value, xenovacTank);
-                return true;
-            }
+            if (!TryComp<XenoVacuumTankComponent>(item.ContainedEntity.Value, out var xenoVacTank))
+                continue;
+            tank = (item.ContainedEntity.Value, xenoVacTank);
+            return true;
         }
 
         return false;
@@ -172,7 +171,7 @@ public sealed partial class XenoVacuumSystem : EntitySystem
 
     private bool TryDoSuction(EntityUid user, EntityUid target, Entity<XenoVacuumComponent> vacuum)
     {
-        if (!TryGetTank(vacuum, user, out var tank) || !tank.HasValue)
+        if (!TryGetTank(user, out var tank) || !tank.HasValue)
         {
             var noTankPopup = Loc.GetString("xeno-vacuum-suction-fail-no-tank-popup");
             _popup.PopupEntity(noTankPopup, vacuum, user);
@@ -198,8 +197,7 @@ public sealed partial class XenoVacuumSystem : EntitySystem
             return false;
         }
 
-        if (TryComp<SlimeComponent>(target, out var slime) && _latch.IsLatched((target, slime)))
-            _latch.Unlatch((target, slime));
+        _htn.SetHTNEnabled(target, false);
 
         if (!_containerSystem.Insert(target, tankComp.StorageTank))
         {

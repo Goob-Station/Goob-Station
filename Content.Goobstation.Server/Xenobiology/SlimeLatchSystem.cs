@@ -8,6 +8,7 @@
 
 using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
+using Content.Goobstation.Shared.Xenobiology.Components.Equipment;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
@@ -24,7 +25,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Xenobiology.Systems;
+namespace Content.Goobstation.Server.Xenobiology;
 
 // This handles any actions that slime mobs may have.
 public sealed partial class SlimeLatchSystem : EntitySystem
@@ -48,8 +49,18 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         SubscribeLocalEvent<SlimeComponent, EntRemovedFromContainerMessage>(OnEntityEscape);
         SubscribeLocalEvent<SlimeComponent, MobStateChangedEvent>(OnEntityDied);
+        SubscribeLocalEvent<SlimeComponent, EntInsertedIntoContainerMessage>(OnSlimeContained);
 
         SubscribeLocalEvent<SlimeDamageOvertimeComponent, MobStateChangedEvent>(OnMobStateChangeSOD);
+    }
+
+    private void OnSlimeContained(Entity<SlimeComponent> ent, ref EntInsertedIntoContainerMessage args)
+    {
+        if (!HasComp<XenoVacuumTankComponent>(args.Container.Owner))
+            return;
+
+        if (IsLatched(ent))
+            Unlatch(ent);
     }
 
     public override void Update(float frameTime)
@@ -128,7 +139,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             BreakOnMove = true,
         };
 
-        EnsureComp<BeingConsumedComponent>(target);
+        EnsureComp<BeingLatchedComponent>(target);
         _doAfter.TryStartDoAfter(doAfterArgs);
         return true;
     }
@@ -140,7 +151,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         if (args.Handled || args.Cancelled)
         {
-            RemCompDeferred<BeingConsumedComponent>(target);
+            RemCompDeferred<BeingLatchedComponent>(target);
             return;
         }
 
@@ -172,7 +183,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             return;
 
         RemCompDeferred<SlimeDamageOvertimeComponent>(args.Entity);
-        RemCompDeferred<BeingConsumedComponent>(args.Entity);
+        RemCompDeferred<BeingLatchedComponent>(args.Entity);
         ent.Comp.LatchedTarget = null;
     }
 
@@ -202,7 +213,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
     public void Latch(Entity<SlimeComponent> ent, EntityUid target)
     {
-        RemCompDeferred<BeingConsumedComponent>(target);
+        RemCompDeferred<BeingLatchedComponent>(target);
 
         _xform.SetCoordinates(ent, Transform(target).Coordinates);
         _xform.SetParent(ent, target);
@@ -233,7 +244,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         var target = ent.Comp.LatchedTarget!.Value;
 
-        RemCompDeferred<BeingConsumedComponent>(target);
+        RemCompDeferred<BeingLatchedComponent>(target);
         RemCompDeferred<SlimeDamageOvertimeComponent>(target);
 
         EnsureComp<PullableComponent>(ent);
