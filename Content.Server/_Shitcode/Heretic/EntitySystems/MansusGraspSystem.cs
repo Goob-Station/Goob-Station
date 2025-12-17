@@ -163,7 +163,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         }
     }
 
-    private bool graspTarget(Entity<MansusGraspComponent> grasp, EntityUid user, EntityUid target)
+    private bool GraspTarget(Entity<MansusGraspComponent> grasp, EntityUid user, EntityUid target)
     {
         if (!TryComp<HereticComponent>(user, out var hereticComp))
         {
