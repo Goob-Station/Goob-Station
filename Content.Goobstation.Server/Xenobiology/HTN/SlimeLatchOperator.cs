@@ -17,7 +17,6 @@ public sealed partial class SlimeLatchOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     private SlimeLatchSystem _slimeLatch = default!;
-    private SharedDoAfterSystem _doAfter = default!;
 
     [DataField]
     public string LatchKey = string.Empty;

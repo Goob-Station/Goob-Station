@@ -233,6 +233,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         Dirty(ent);
         Dirty(target, comp);
+
         // We also need to set a new state for the slime when it's consuming,
         // this will be easy however it's important to take MobGrowthSystem into account... possibly we should use layers?
     }
