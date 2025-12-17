@@ -22,6 +22,9 @@
   name: guide-entry-drinks
   text: "/ServerInfo/Guidebook/ReferenceTables/Drinks.xml"
   filterEnabled: True
+  children: # Goob - Drinks guidebook split
+  - AlcoholicDrinks
+  - NonAlcoholicDrinks
 
 - type: guideEntry
   id: FoodRecipes
@@ -139,4 +142,3 @@
   id: Writing
   name: guide-entry-writing
   text: "/ServerInfo/Guidebook/Writing.xml"
-
