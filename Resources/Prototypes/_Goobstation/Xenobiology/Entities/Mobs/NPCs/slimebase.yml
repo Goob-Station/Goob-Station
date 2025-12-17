@@ -60,11 +60,6 @@
     - FootstepSound
     - DoorBumpOpener
     - XenoSlime
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
-    - id: FoodMeatSlime
-      amount: 2
   - type: Respirator
     damage:
       types:
@@ -142,6 +137,9 @@
   - type: HTN
     rootTask:
       task: XenoSlimeCompound
+  - type: GuideHelp
+    guides:
+    - Xenobiology
 
 # Begin Slimes
 

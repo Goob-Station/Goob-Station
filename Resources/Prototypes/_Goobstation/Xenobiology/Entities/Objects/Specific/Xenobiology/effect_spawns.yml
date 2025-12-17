@@ -9,7 +9,7 @@
 - type: entity
   id: XenoGooWall
   name: gelatinous growth
-  description: It's pulsating... is it alive? it's grown to fill the entire space.
+  description: This could very well be the blob from space LIDL.
   placement:
     mode: SnapgridCenter
     snap:
@@ -97,15 +97,11 @@
     - MobLuminousPerson
     - MobLuminousObject
     - MobLuminousEntity
-    - MobMimic
     - MobLaserRaptor
     - MobTomatoKiller
     - MobRatKing
     - MobTick
-    - MobXenomorphDrone
     - MobXenomorphHunter
-    - MobXenomorphSentinel
-    - MobXenomorphLarva
     - MobXenomorphFaceHugger # trollage
     - MobPurpleSnake
     - MobSmallPurpleSnake

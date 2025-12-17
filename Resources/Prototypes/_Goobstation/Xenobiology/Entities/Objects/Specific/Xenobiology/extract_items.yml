@@ -68,7 +68,7 @@
   name: goop ball
   parent: [ BaseItem, ItemHeftyBase ]
   id: XenobioGoopBall
-  description: Not as goopy as it looks. Try throwing it at a nearby wall and see if it sticks!
+  description: Not as goopy as it looks. Proven to capture fires on the same level as the holofan. Screaming included!
   components:
   - type: Sprite
     layers:

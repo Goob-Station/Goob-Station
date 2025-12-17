@@ -8,7 +8,6 @@
 
 using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
-using Content.Server.Buckle.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
@@ -17,6 +16,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
@@ -38,7 +38,6 @@ public sealed partial class SlimeLatchSystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly BuckleSystem _buckle = default!;
 
     public override void Initialize()
     {
@@ -215,6 +214,9 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         EnsureComp(target, out SlimeDamageOvertimeComponent comp);
         comp.SourceEntityUid = ent;
 
+        RemComp<PullableComponent>(ent);
+        RemComp<PullerComponent>(ent); // crutches
+
         _audio.PlayEntity(ent.Comp.EatSound, ent, ent);
         _popup.PopupEntity(Loc.GetString("slime-action-latch-success", ("slime", ent), ("target", target)), ent, PopupType.SmallCaution);
 
@@ -233,6 +235,9 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         RemCompDeferred<BeingConsumedComponent>(target);
         RemCompDeferred<SlimeDamageOvertimeComponent>(target);
+
+        EnsureComp<PullableComponent>(ent);
+        EnsureComp<PullerComponent>(ent); // on top of crutches
 
         _xform.SetParent(ent, _xform.GetParentUid(target)); // deparent it. probably.
         if (TryComp<InputMoverComponent>(ent, out var inpm))

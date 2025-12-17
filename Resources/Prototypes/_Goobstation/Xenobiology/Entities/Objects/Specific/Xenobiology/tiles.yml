@@ -1,7 +1,7 @@
 - type: entity
   id: FloorBluespaceEntity
   name: bluespace carpet
-  description: State of the art carpets produced in the Nanotrasen Aperture Laboratory.
+  description: State of the art carpets produced in the Nanotrasen Aperture Laboratory. These ones make you faster on them!
   placement:
     mode: SnapgridCenter
   components:
@@ -57,7 +57,7 @@
 - type: entity
   id: FloorSepiaEntity
   name: sepia carpet
-  description: The carpet feel somehow nostalgic.
+  description: The carpet feels somehow nostalgic. So nostalgic you don't want to take a step off of it.
   placement:
     mode: SnapgridCenter
   components:

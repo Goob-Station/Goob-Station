@@ -17,7 +17,7 @@
     solutions:
       extract:
         maxVol: 100
-  - type: RefillableSolution
+  - type: InjectableSolution
     solution: extract
   - type: DrawableSolution
     solution: extract
@@ -31,4 +31,3 @@
   - type: GuideHelp
     guides:
     - Xenobiology
-    - Science
