@@ -19,10 +19,10 @@
       visible: false
   - type: Xenomorph
     caste: Sentinel
-  - type: ActionGrant
-    actions:
-    - ActionTransferPlasma
-    - ActionSpawnResinWeedNode
+  #- type: ActionGrant # Goobstation - moved to organs
+  #  actions:
+  #  - ActionTransferPlasma
+  #  - ActionSpawnResinWeedNode
   - type: VentCrawler
   - type: Cuffable
   - type: Body

@@ -18,10 +18,10 @@
       visible: false
   - type: Xenomorph
     caste: Maid
-  - type: ActionGrant
-    actions:
-    - ActionTransferPlasma
-    - ActionSpawnResinWeedNode
+  #- type: ActionGrant # Goobstation - moved to organ
+  #  actions:
+  #  - ActionTransferPlasma
+  #  - ActionSpawnResinWeedNode
   - type: Cuffable
   - type: MobThresholds
     thresholds:

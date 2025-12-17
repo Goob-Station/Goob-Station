@@ -129,7 +129,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.20
-        density: 20
+        density: 10 # Goob edit
         mask:
         - SmallMobMask
         layer:
@@ -141,7 +141,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      15: Dead
+      5: Dead
   - type: Destructible
     thresholds:
     - trigger:
@@ -153,6 +153,7 @@
         recursive: false
   - type: Stamina
     critThreshold: 15
+    animationThreshold: 7.5 # Goob edit
   - type: MovementAlwaysTouching
   - type: DamageStateVisuals
     states:

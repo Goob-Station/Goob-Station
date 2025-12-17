@@ -1,0 +1,14 @@
+- type: entity
+  id: WraithDeathEffect
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wraith/wraith.rsi
+    state: wraithdie
+  - type: PointLight
+    radius: 6
+    netsync: false
+    energy: 5
+    color: "#FF0000"
+  - type: FadingTimedDespawn
+    lifetime: 1.4
+    fadeOutTime: 1.2

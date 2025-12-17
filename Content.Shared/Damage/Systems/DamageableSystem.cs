@@ -138,6 +138,7 @@ namespace Content.Shared.Damage
         public float UniversalTopicalsHealModifier { get; private set; } = 1f;
         public float UniversalMobDamageModifier { get; private set; } = 1f;
 
+        private ProtoId<DamageGroupPrototype>[] _vitalOnlyDamageTypes = { "Airloss", "Toxin", "Genetic", "Metaphysical" }; // Goobstation
         public override void Initialize()
         {
             SubscribeLocalEvent<DamageableComponent, ComponentInit>(DamageableInit);
@@ -249,7 +250,8 @@ namespace Content.Shared.Damage
             DamageSpecifier? damageDelta = null,
             bool interruptsDoAfters = true,
             EntityUid? origin = null,
-            bool ignoreBlockers = false)
+            bool ignoreBlockers = false,
+            DamageSpecifier? uncappedDamage = null) // Goobstation
         {
             component.Damage.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
             component.TotalDamage = component.Damage.GetTotal();
@@ -261,7 +263,7 @@ namespace Content.Shared.Damage
                 var data = new DamageVisualizerGroupData(component.DamagePerGroup.Keys.ToList());
                 _appearance.SetData(uid, DamageVisualizerKeys.DamageUpdateGroups, data, appearance);
             }
-            RaiseLocalEvent(uid, new DamageChangedEvent(component, damageDelta, interruptsDoAfters, origin, ignoreBlockers));
+            RaiseLocalEvent(uid, new DamageChangedEvent(component, damageDelta, interruptsDoAfters, origin, ignoreBlockers, uncappedDamage)); // Goob edit
         }
 
         /// <summary>
@@ -295,6 +297,18 @@ namespace Content.Shared.Damage
             if (damage.Empty)
                 return damage;
 
+            // Goobstation start
+            var vitalDamage = new DamageSpecifier(damage);
+            vitalDamage -= vitalDamage;
+            vitalDamage.TrimZeros();
+            foreach (var type in _vitalOnlyDamageTypes)
+            {
+                vitalDamage += new DamageSpecifier(_prototypeManager.Index(type), 0f);
+            }
+            vitalDamage.ExclusiveAdd(damage);
+            vitalDamage.TrimZeros();
+            // Goobstation end
+
             var before = new BeforeDamageChangedEvent(damage, origin, canBeCancelled, targetPart); // Shitmed Change
             RaiseLocalEvent(uid.Value, ref before);
 
@@ -305,10 +319,22 @@ namespace Content.Shared.Damage
             if (_bodyQuery.TryGetComponent(uid.Value, out var body)
                 && body.BodyType == BodyType.Complex)
             {
+                damage -= vitalDamage; // Goobstation
+                damage.TrimZeros(); // Goobstation
+
                 var appliedDamage = ApplyDamageToBodyParts(uid.Value, damage, origin, ignoreResistances,
                     interruptsDoAfters, targetPart, partMultiplier, ignoreBlockers, splitDamage, canMiss);
 
-                return appliedDamage;
+                // Goobstation start
+                var appliedVitalDamage = ApplyDamageToBodyParts(uid.Value, vitalDamage, origin, ignoreResistances,
+                    interruptsDoAfters, TargetBodyPart.Vital, partMultiplier, ignoreBlockers, splitDamage, canMiss);
+
+                var totalDamage = appliedDamage;
+                if (totalDamage != null && appliedVitalDamage != null)
+                    totalDamage += appliedVitalDamage;
+
+                return totalDamage;
+                // Goobstation end
             }
 
             // For entities without a body, apply damage directly
@@ -371,12 +397,26 @@ namespace Content.Shared.Damage
                         return null;
                 }
 
-                var damagePerPart = ApplySplitDamageBehaviors(splitDamageBehavior, adjustedDamage, targetedBodyParts);
+                // Goob edit start
+                List<float>? multipliers = null;
+                var damagePerPart = adjustedDamage;
+                if (targetedBodyParts.Count > 0 && adjustedDamage.PartDamageVariation != 0f)
+                {
+                    multipliers =
+                        GetDamageVariationMultipliers(adjustedDamage.PartDamageVariation, targetedBodyParts.Count);
+                }
+                else
+                    damagePerPart = ApplySplitDamageBehaviors(splitDamageBehavior, adjustedDamage, targetedBodyParts);
                 var appliedDamage = new DamageSpecifier();
                 var surplusHealing = new DamageSpecifier();
-                foreach (var (partId, _, partDamageable) in targetedBodyParts)
+                for (var i = 0; i < targetedBodyParts.Count; i++)
                 {
-                    var modifiedDamage = damagePerPart + surplusHealing;
+                    var (partId, _, partDamageable) = targetedBodyParts[i];
+                    var modifiedDamage = damagePerPart;
+                    if (multipliers != null && multipliers.Count == targetedBodyParts.Count)
+                        modifiedDamage *= multipliers[i];
+                    modifiedDamage += surplusHealing;
+                    // Goob edit end
 
                     // Apply damage to this part
                     var partDamageResult = TryChangeDamage(partId, modifiedDamage, ignoreResistances,
@@ -512,7 +552,9 @@ namespace Content.Shared.Damage
 
             damage = ApplyUniversalAllModifiers(damage);
 
-            var delta = new DamageSpecifier();
+            var delta = new DamageSpecifier(damage.ArmorPenetration,
+                damage.PartDamageVariation,
+                damage.WoundSeverityMultipliers); // Goob edit
             delta.DamageDict.EnsureCapacity(damage.DamageDict.Count);
             var dict = damageable.Damage.DamageDict;
 
@@ -575,21 +617,20 @@ namespace Content.Shared.Damage
                 }
             }
 
-            if (delta.DamageDict.Count > 0)
-            {
-                DamageChanged(uid, damageable, delta, interruptsDoAfters, origin, ignoreBlockers);
+            // Goob edit start
+            DamageChanged(uid, damageable, delta, interruptsDoAfters, origin, ignoreBlockers, damage);
 
-                // Shitmed Change: This means that the damaged part was a woundable
-                // which also means we send that shit to refresh the body.
-                if (isWoundable)
-                {
-                    UpdateParentDamageFromBodyParts(uid,
-                        delta,
-                        interruptsDoAfters,
-                        origin,
-                        ignoreBlockers: ignoreBlockers);
-                }
+            // Shitmed Change: This means that the damaged part was a woundable
+            // which also means we send that shit to refresh the body.
+            if (delta.DamageDict.Count > 0 && isWoundable)
+            {
+                UpdateParentDamageFromBodyParts(uid,
+                    delta,
+                    interruptsDoAfters,
+                    origin,
+                    ignoreBlockers: ignoreBlockers);
             }
+            // Goob edit end
 
             return delta;
         }
@@ -649,6 +690,30 @@ namespace Content.Shared.Damage
             return true;
         }
 
+        public List<float> GetDamageVariationMultipliers(float variation, int count)
+        {
+            DebugTools.AssertNotEqual(count, 0);
+            var list = new List<float>(count);
+            var weights = new List<float>(count);
+            var totalWeight = 0f;
+            var random = new System.Random((int) _timing.CurTick.Value);
+            for (var i = 0; i < count; i++)
+            {
+                var weight = random.NextFloat() * MathF.Abs(variation) + 1f;
+                weights.Add(weight);
+                totalWeight += weight;
+            }
+
+            DebugTools.AssertNotEqual(totalWeight, 0f);
+
+            foreach (var weight in weights)
+            {
+                list.Add(weight / totalWeight);
+            }
+
+            return list;
+        }
+
         public DamageSpecifier ApplySplitDamageBehaviors(SplitDamageBehavior splitDamageBehavior,
             DamageSpecifier damage,
             List<(EntityUid Id, BodyPartComponent Component, DamageableComponent Damageable)> parts)
@@ -660,6 +725,14 @@ namespace Content.Shared.Damage
                     return newDamage;
                 case SplitDamageBehavior.Split:
                     return newDamage / parts.Count;
+                case SplitDamageBehavior.SplitEnsureAllDamaged:
+                    var damagedParts = parts.Where(part =>
+                        part.Damageable.TotalDamage > FixedPoint2.Zero).ToList();
+
+                    parts.Clear();
+                    parts.AddRange(damagedParts);
+
+                    goto case SplitDamageBehavior.SplitEnsureAll;
                 case SplitDamageBehavior.SplitEnsureAllOrganic:
                     var organicParts = parts.Where(part =>
                         part.Component.PartComposition == BodyPartComposition.Organic).ToList();
@@ -667,6 +740,14 @@ namespace Content.Shared.Damage
                     parts.Clear();
                     parts.AddRange(organicParts);
 
+                    goto case SplitDamageBehavior.SplitEnsureAll;
+                case SplitDamageBehavior.SplitEnsureAllDamagedAndOrganic:
+                    var compatableParts = parts.Where(part =>
+                        part.Damageable.TotalDamage > FixedPoint2.Zero &&
+                        part.Component.PartComposition == BodyPartComposition.Organic).ToList();
+
+                    parts.Clear();
+                    parts.AddRange(compatableParts);
                     goto case SplitDamageBehavior.SplitEnsureAll;
                 case SplitDamageBehavior.SplitEnsureAll:
                     foreach (var (type, val) in newDamage.DamageDict)
@@ -771,8 +852,16 @@ namespace Content.Shared.Damage
 
                 // Create wounds if damage was applied
                 if (newValue > 0 && woundable.AllowWounds)
+                {
                     foreach (var (type, value) in component.Damage.DamageDict)
-                        _wounds.TryInduceWound(uid, type, value, out _, woundable);
+                    {
+                        _wounds.TryInduceWound(uid,
+                            type,
+                            value * component.Damage.WoundSeverityMultipliers.GetValueOrDefault(type, 1),
+                            out _,
+                            woundable);
+                    }
+                }
             }
         }
 
@@ -942,7 +1031,7 @@ namespace Content.Shared.Damage
 
             // Has the damage actually changed?
             DamageSpecifier newDamage = new() { DamageDict = new(state.DamageDict) };
-            var delta = component.Damage - newDamage;
+            var delta = newDamage - component.Damage;
             delta.TrimZeros();
 
             if (delta.Empty)
@@ -1011,6 +1100,11 @@ namespace Content.Shared.Damage
         public readonly DamageSpecifier? DamageDelta;
 
         /// <summary>
+        ///     Damage before clamp of excessive heal and damage cap was applied
+        /// </summary>
+        public readonly DamageSpecifier? UncappedDamage;
+
+        /// <summary>
         ///     Was any of the damage change dealing damage, or was it all healing?
         /// </summary>
         public readonly bool DamageIncreased;
@@ -1032,7 +1126,7 @@ namespace Content.Shared.Damage
         /// </summary>
         public readonly bool IgnoreBlockers;
 
-        public DamageChangedEvent(DamageableComponent damageable, DamageSpecifier? damageDelta, bool interruptsDoAfters, EntityUid? origin, bool ignoreBlockers = false) // Shitmed Change
+        public DamageChangedEvent(DamageableComponent damageable, DamageSpecifier? damageDelta, bool interruptsDoAfters, EntityUid? origin, bool ignoreBlockers = false, DamageSpecifier? uncapped = null) // Shitmed Change, Goob edit
         {
             Damageable = damageable;
             DamageDelta = damageDelta;
@@ -1040,6 +1134,8 @@ namespace Content.Shared.Damage
             IgnoreBlockers = ignoreBlockers;
             if (DamageDelta == null)
                 return;
+
+            UncappedDamage = uncapped ?? damageDelta; // Goobstation
 
             foreach (var damageChange in DamageDelta.DamageDict.Values)
             {

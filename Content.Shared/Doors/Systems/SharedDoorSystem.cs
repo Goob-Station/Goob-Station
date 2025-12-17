@@ -77,6 +77,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Map.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Wires;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Doors.Systems;
 
@@ -106,8 +107,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
     [Dependency] private readonly SharedWiresSystem _sharedWiresSystem = default!;
     // Goobstation - End - Manual unbolting
 
-    [ValidatePrototypeId<TagPrototype>]
-    public const string DoorBumpTag = "DoorBumpOpener";
+    public static readonly ProtoId<TagPrototype> DoorBumpTag = "DoorBumpOpener";
 
     /// <summary>
     ///     A set of doors that are currently opening, closing, or just queued to open/close after some delay.

@@ -123,6 +123,13 @@
   - type: EmitSoundOnLand
     sound:
       collection: ShotgunsDrop
+  - type: RestrictGunshotsByUserTag
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   # Goobstation edit end
   - type: AltFireMelee # Goobstation V
     attackType: Heavy
@@ -192,6 +199,13 @@
   - type: Appearance
   - type: StaticPrice
     price: 5000
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
 
 - type: entity
   name: double-barreled shotgun
@@ -209,6 +223,8 @@
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 3
+  - type: GunSpreadModifier
+    spread: 0.6
   - type: BallisticAmmoProvider
     capacity: 2
   - type: Construction
@@ -295,6 +311,8 @@
     sprite: Objects/Weapons/Guns/Shotguns/sawn_inhands_64x.rsi
   - type: Gun
     fireRate: 3
+  - type: GunSpreadModifier
+    spread: 1.4
   - type: BallisticAmmoProvider
     capacity: 2
   - type: Construction

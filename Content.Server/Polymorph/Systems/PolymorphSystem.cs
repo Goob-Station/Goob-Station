@@ -106,6 +106,7 @@ using Content.Server.Humanoid;
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
 using Content.Server.Polymorph.Components;
+using Content.Shared._DV.Polymorph;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
@@ -175,8 +176,6 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly WoundSystem _wound = default!;
 
-    private ISawmill _sawMill = default!; // Goobstation
-
     private const string RevertPolymorphId = "ActionRevertPolymorph";
 
     public override void Initialize()
@@ -193,8 +192,6 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         InitializeMap();
         InitializeTrigger();
-
-        _sawMill = Logger.GetSawmill("polymorph"); // Goobstation
     }
 
     public override void Update(float frameTime)
@@ -246,6 +243,8 @@ public sealed partial class PolymorphSystem : EntitySystem
         {
             _actions.SetEntityIcon((component.Action.Value, action), component.Parent);
             _actions.SetUseDelay(component.Action.Value, TimeSpan.FromSeconds(component.Configuration.Delay));
+            if (component.Configuration.SkipRevertConfirmation) // Goobstation
+                RemComp<ConfirmableActionComponent>(component.Action.Value);
         }
     }
 
@@ -493,7 +492,7 @@ public sealed partial class PolymorphSystem : EntitySystem
                 }
                 catch (UnknownComponentException e)
                 {
-                    _sawMill.Error(e.Message);
+                    Log.Error(e.Message);
                     continue;
                 }
 

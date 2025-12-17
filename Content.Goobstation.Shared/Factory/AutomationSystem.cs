@@ -126,10 +126,7 @@ public sealed class AutomationSystem : EntitySystem
         return null;
     }
 
-    public bool IsAutomated(EntityUid uid)
-    {
-        return _automatedQuery.HasComp(uid);
-    }
+    public bool IsAutomated(EntityUid uid) => _automatedQuery.HasComp(uid);
 
     public bool HasSlot(Entity<AutomationSlotsComponent?> ent, string port, bool input)
     {

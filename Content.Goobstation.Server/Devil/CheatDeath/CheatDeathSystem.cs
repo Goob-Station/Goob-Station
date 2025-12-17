@@ -6,6 +6,7 @@
 
 using Content.Goobstation.Common.DelayedDeath;
 using Content.Goobstation.Shared.CheatDeath;
+using Content.Goobstation.Shared.Devour.Events;
 using Content.Server._Shitmed.DelayedDeath;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
@@ -87,6 +88,13 @@ public sealed partial class CheatDeathSystem : EntitySystem
 
             return;
         }
+
+        // check if we're allowed to revive
+        var reviveEv = new BeforeSelfRevivalEvent(ent, "self-revive-fail");
+        RaiseLocalEvent(ent, ref reviveEv);
+
+        if (reviveEv.Cancelled)
+            return;
 
         // If the entity is out of revives, or if they are unrevivable, return.
         if (ent.Comp.ReviveAmount <= 0 || HasComp<UnrevivableComponent>(ent))

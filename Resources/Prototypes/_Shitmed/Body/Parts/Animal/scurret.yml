@@ -20,7 +20,7 @@
   components:
   - type: Sprite
     state: "chest"
-    enableDirectionOverride: true
+    enableOverrideDir: true
     overrideDir: south
   - type: Extractable
     juiceSolution:
@@ -37,7 +37,7 @@
   components:
   - type: Sprite
     state: "groin"
-    enableDirectionOverride: true
+    enableOverrideDir: true
     overrideDir: south
   - type: Extractable
     juiceSolution:
@@ -55,7 +55,7 @@
   components:
   - type: Sprite
     state: "head"
-    enableDirectionOverride: true
+    enableOverrideDir: true
     overrideDir: south
   - type: Extractable
     juiceSolution:
@@ -72,7 +72,7 @@
   components:
   - type: Sprite
     state: "l_arm"
-    enableDirectionOverride: true
+    enableOverrideDir: true
     overrideDir: west
 
 - type: entity
@@ -82,7 +82,7 @@
   components:
   - type: Sprite
     state: "r_arm"
-    enableDirectionOverride: true
+    enableOverrideDir: true
     overrideDir: east
 
 - type: entity
@@ -92,7 +92,7 @@
   components:
   - type: Sprite
     state: "l_hand"
-    enableDirectionOverride: true
+    enableOverrideDir: true
     overrideDir: west
 
 - type: entity
@@ -102,7 +102,7 @@
   components:
   - type: Sprite
     state: "r_hand"
-    enableDirectionOverride: true
+    enableOverrideDir: true
     overrideDir: east
 
 - type: entity
@@ -128,7 +128,7 @@
   components:
   - type: Sprite
     state: "l_foot"
-    enableDirectionOverride: true
+    enableOverrideDir: true
     overrideDir: west
 
 - type: entity
@@ -138,5 +138,5 @@
   components:
   - type: Sprite
     state: "r_foot"
-    enableDirectionOverride: true
+    enableOverrideDir: true
     overrideDir: east

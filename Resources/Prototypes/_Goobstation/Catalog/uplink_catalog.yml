@@ -415,7 +415,7 @@
   icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
   productEntity: BowHardlight
   cost:
-    Telecrystal: 75
+    Telecrystal: 60
   categories:
   - UplinkWeaponry
   conditions:
@@ -587,6 +587,18 @@
   productEntity: BoxReverseBearTrap
   cost:
     Telecrystal: 23 # novelty item for rp
+  categories:
+  - UplinkWearables
+
+
+- type: listing
+  id: UplinkClothingHandsGlovesGuerrilla
+  name: uplink-guerrilla-gloves-name
+  description: uplink-guerrilla-gloves-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
+  productEntity: ClothingHandsGlovesGuerrilla
+  cost:
+    Telecrystal: 20
   categories:
   - UplinkWearables
 
@@ -766,6 +778,23 @@
   - !type:BuyerJobCondition
     whitelist:
     - SalvageSpecialist
+
+- type: listing
+  id: UplinkGreyTide
+  name: uplink-grey-tide-name
+  description: uplink-grey-tide-desc
+  icon: { sprite: Objects/Weapons/Melee/plasma_spear.rsi, state: spear }
+  productEntity: SpearGreyTide
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Passenger
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 # chemicals
 
@@ -961,6 +990,23 @@
       - NukeOpsUplink
 
 - type: listing
+  id: NukieUplinkAutosurgeonSandevistan
+  name: uplink-autosurgeon-sandevistan-name
+  description: uplink-autosurgeon-sandevistan-desc
+  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
+  productEntity: AutosurgeonSandevistan
+  cost:
+    Telecrystal: 124
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - LoneOpsUplink
+
+
+- type: listing
   id: UplinkClothingOuterDavidsJacketValid
   name: uplink-davids-jacket-name
   description: uplink-davids-jacket-desc
@@ -982,6 +1028,55 @@
     blacklist:
       components:
       - SurplusBundle
+
+- type: listing
+  id: UplinkAutosurgeonSmartLink
+  name: uplink-autosurgeon-smartlink-name
+  description: uplink-autosurgeon-smartlink-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/SMGs/smartgun.rsi, state: base }
+  productEntity: AutosurgeonSmartLink
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonRecoilAbsorber
+  name: uplink-autosurgeon-recoil-absorbing-name
+  description: uplink-autosurgeon-recoil-absorbing-desc
+  icon: { sprite: Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+  productEntity: AutosurgeonRecoilAbsorber
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonBerserkerHeart
+  name: uplink-autosurgeon-berserker-heart-name
+  description: uplink-autosurgeon-berserker-heart-desc
+  icon: { sprite: _Goobstation/Objects/Misc/berserker_heart.rsi, state: icon }
+  productEntity: AutosurgeonBerserker
+  cost:
+    Telecrystal: 66
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonJumpstarter
+  name: uplink-autosurgeon-jumpstarter-heart-name
+  description: uplink-autosurgeon-jumpstarter-heart-desc
+  icon: { sprite: _Goobstation/Objects/Misc/jumpstarter_heart.rsi, state: icon }
+  productEntity: AutosurgeonJumpstarter
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkImplants
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink
 
 # Deception
 
@@ -1466,15 +1561,34 @@
     - Dwarf # Rock and stone
 
 - type: listing
-  id: UplinkBloodredCasette
-  name: uplink-bloodred-casette-name
-  description: uplink-bloodred-casette-desc
-  icon: { sprite: _Goobstation/Objects/Fun/bloodmonica.rsi, state: icon }
-  productEntity: BloodredCasette
+  id: UplinkBloodredCassette
+  name: uplink-bloodred-cassette-name
+  description: uplink-bloodred-cassette-desc
+  icon: { sprite: _Goobstation/Objects/Fun/bloodred_cassette_player.rsi, state: icon }
+  productEntity: BloodredCassette
   cost:
     Telecrystal: 3
   categories:
   - UplinkPointless
+
+- type: listing
+  id: UplinkStarterKit
+  name: uplink-starter-kit-name
+  description: uplink-starter-kit-desc
+  productEntity: CrateSyndicateStarterKit
+  cost:
+    Telecrystal: 225
+  categories:
+  - UplinkWeaponry # Usually the first tab new players look at
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+        - NukeOpsUplink
+    - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+        - SurplusBundle
 
 - type: listing
   id: UplinkSyndiedrobe
@@ -1486,3 +1600,13 @@
     Telecrystal: 40
   categories:
   - UplinkPointless
+
+- type: listing
+  id: UplinkCustomLawboard
+  name: uplink-customboard-name
+  description: uplink-customboard-desc
+  productEntity: SyndicateCustomLawboard
+  cost:
+    Telecrystal: 50 # Same price as what Antimov was. Might be worth increasing the price for nukies as they can do some BAD things with this.
+  categories:
+  - UplinkDisruption

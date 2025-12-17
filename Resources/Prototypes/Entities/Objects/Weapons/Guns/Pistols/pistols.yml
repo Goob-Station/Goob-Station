@@ -173,6 +173,13 @@
     missChance: 0.4
     spreadMultiplier: 2
     spreadAddition: 40
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   - type: EmitSoundOnPickup
     sound:
       collection: PistolsPickUp

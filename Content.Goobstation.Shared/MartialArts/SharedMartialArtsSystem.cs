@@ -28,6 +28,7 @@ using System.Linq;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Goobstation.Shared.Sprinting;
 using Content.Goobstation.Shared.Stealth;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
@@ -39,6 +40,7 @@ using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -56,6 +58,7 @@ using Content.Shared.Speech;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
@@ -79,8 +82,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly SharedStatusEffectsSystem _newStatus = default!;
+    [Dependency] private readonly Content.Shared.StatusEffect.StatusEffectsSystem _status = default!;
+    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _newStatus = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly GrabThrownSystem _grabThrowing = default!;
@@ -104,6 +107,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private readonly SharedSprintingSystem _sprinting = default!;
 
     public override void Initialize()
     {
@@ -127,6 +131,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
         SubscribeLocalEvent<MartialArtModifiersComponent, GetMeleeAttackRateEvent>(OnGetMeleeAttackRate);
         SubscribeLocalEvent<MartialArtModifiersComponent, RefreshMovementSpeedModifiersEvent>(OnGetMovespeed);
+
+        SubscribeLocalEvent<StatusEffectContainerComponent, BeforeStaminaDamageEvent>(OnBeforeStatusStamina);
 
         SubscribeLocalEvent<MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<InteractHandEvent>(OnInteract);
@@ -242,6 +248,17 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     }
 
     #region Event Methods
+
+    private void OnBeforeStatusStamina(Entity<StatusEffectContainerComponent> ent, ref BeforeStaminaDamageEvent args)
+    {
+        if (!_newStatus.TryEffectsWithComp<StaminaResistanceModifierStatusEffectComponent>(ent, out var effects))
+            return;
+
+        foreach (var effect in effects)
+        {
+            args.Value *= effect.Comp1.Modifier;
+        }
+    }
 
     private void OnInteract(InteractHandEvent args)
     {
@@ -373,9 +390,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (!martialArtsPrototype.RandomDamageModifier)
             return;
 
-        var randomDamage = _random.Next(martialArtsPrototype.MinRandomDamageModifier, martialArtsPrototype.MaxRandomDamageModifier);
+        var randomDamage = _random.Next(martialArtsPrototype.MinRandomDamageModifier, martialArtsPrototype.MaxRandomDamageModifier + 1);
         var bonusDamageSpec = new DamageSpecifier();
-        bonusDamageSpec.DamageDict.Add("Blunt", randomDamage);
+        bonusDamageSpec.DamageDict.Add(martialArtsPrototype.DamageModifierType, randomDamage);
         args.BonusDamage += bonusDamageSpec;
     }
 
@@ -533,7 +550,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         }
 
         var newDamage = new DamageSpecifier();
-        newDamage.DamageDict.Add("Blunt", martialArtsPrototype.BaseDamageModifier);
+        newDamage.DamageDict.Add(martialArtsPrototype.DamageModifierType, martialArtsPrototype.BaseDamageModifier);
         meleeWeaponComponent.Damage += newDamage;
 
         Dirty(user, canPerformComboComponent);

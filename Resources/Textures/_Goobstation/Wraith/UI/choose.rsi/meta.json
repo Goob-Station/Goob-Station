@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Goobstation 13 https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/icons/mob/critter_ui.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        { "name": "choose_commander" },
+        { "name": "choose_hound" },
+        { "name": "choose_piker" }
+    ]
+}

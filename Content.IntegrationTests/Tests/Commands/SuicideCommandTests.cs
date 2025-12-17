@@ -119,6 +119,8 @@ public sealed class SuicideCommandTests
   components:
   - type: MaterialReclaimer";
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
+    private static readonly ProtoId<DamageTypePrototype> DamageType = "Slash";
+
     /// <summary>
     /// Run the suicide command in the console
     /// Should successfully kill the player and ghost them
@@ -194,6 +196,7 @@ public sealed class SuicideCommandTests
         var damageableSystem = entManager.System<DamageableSystem>();
         var mindSystem = entManager.System<SharedMindSystem>();
         var mobStateSystem = entManager.System<MobStateSystem>();
+        var mobThresholdSystem = entManager.System<MobThresholdSystem>(); // Goobstation
 
         // We need to know the player and whether they can be hurt, killed, and whether they have a mind
         var player = playerMan.Sessions.First().AttachedEntity!.Value;
@@ -212,8 +215,8 @@ public sealed class SuicideCommandTests
             mobThresholdsComp = entManager.GetComponent<MobThresholdsComponent>(player);
             damageableComp = entManager.GetComponent<DamageableComponent>(player);
 
-            if (protoMan.TryIndex<DamageTypePrototype>("Slash", out var slashProto))
-                damageableSystem.TryChangeDamage(player, new DamageSpecifier(slashProto, FixedPoint2.New(47)));
+            if (protoMan.TryIndex(DamageType, out var slashProto))
+                damageableSystem.TryChangeDamage(player, new DamageSpecifier(slashProto, FixedPoint2.New(46.5)));
         });
 
         // Check that running the suicide command kills the player
@@ -229,7 +232,7 @@ public sealed class SuicideCommandTests
                 Assert.That(mobStateSystem.IsDead(player, mobStateComp));
                 Assert.That(entManager.TryGetComponent<GhostComponent>(mindComponent.CurrentEntity, out var ghostComp) &&
                             !ghostComp.CanReturnToBody);
-                Assert.That(damageableComp.Damage.GetTotal(), Is.EqualTo(lethalDamageThreshold));
+                Assert.That(mobThresholdSystem.CheckVitalDamage(player, damageableComp), Is.EqualTo(lethalDamageThreshold)); // Goobstation
             });
         });
 

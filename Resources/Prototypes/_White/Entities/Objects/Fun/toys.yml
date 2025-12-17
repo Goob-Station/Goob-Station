@@ -9,12 +9,12 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+    sprite: _White/Mobs/Aliens/Xenomorphs/old_facehugger.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: facehugger
   - type: Clothing
-    sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
+    sprite: _White/Mobs/Aliens/Xenomorphs/old_facehugger.rsi
     slots: [mask]
   - type: IngestionBlocker
   - type: Blindfold

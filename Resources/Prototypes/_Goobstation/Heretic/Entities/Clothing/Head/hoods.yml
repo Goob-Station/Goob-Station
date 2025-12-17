@@ -41,8 +41,17 @@
         Piercing: 0.5
         Heat: 0.5
         Caustic: 0.5
-        Holy: 1.25
-
+        # Holy: 1.25
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0.0
+      NerveDamage: 0.0
+  - type: FireProtection
+    reduction: 0.1
+  - type: FaceHuggerBlocker
+    
 - type: entity
   parent: ClothingHeadHatHoodHeretic
   id: ClothingHeadHatHoodHereticVoid
@@ -84,6 +93,16 @@
     sprite: _Goobstation/Heretic/Clothing/Head/blade_hood.rsi
 
 - type: entity
+  parent: ClothingHeadHatHoodHeretic
+  id: ClothingHeadHatHoodHereticCosmos
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/Head/cosmos_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/Head/cosmos_hood.rsi
+
+- type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHoodVoidCloakHeretic
   name: void hood
@@ -109,3 +128,10 @@
         Heat: 0.7
         Caustic: 0.7
         # Holy: 1.25
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0.0
+      NerveDamage: 0.0
+  - type: FaceHuggerBlocker

@@ -23,7 +23,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-
 using Content.Shared._DV.Chemistry.Components; // DeltaV
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -31,6 +30,7 @@ using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Body.Components;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Goobstation.Maths.FixedPoint;
@@ -40,6 +40,9 @@ using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Stacks;
 using Content.Shared.Nutrition.EntitySystems;
+using Robust.Shared.Timing; // Goobstation
+using System.Linq; // Goobstation
+using Content.Shared.Chemistry.Reagent; // Goobstation
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -48,6 +51,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
     [Dependency] private readonly OpenableSystem _openable = default!;
+    [Dependency] private readonly IGameTiming _timing = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -269,7 +273,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
         // Move units from attackSolution to targetSolution
         var removedSolution = SolutionContainers.SplitSolution(target.Comp.ChemicalSolution.Value, realTransferAmount);
 
-        _blood.TryAddToChemicals(target, removedSolution, target.Comp);
+        _blood.TryAddToChemicals(target.AsNullable(), removedSolution);
 
         _reactiveSystem.DoEntityReaction(target, removedSolution, ReactionMethod.Injection);
 
@@ -437,6 +441,14 @@ public sealed class InjectorSystem : SharedInjectorSystem
                 ref target.Comp.BloodSolution))
         {
             var bloodTemp = SolutionContainers.SplitSolution(target.Comp.BloodSolution.Value, drawAmount);
+            // Goobstation start
+            // On blood draw, freshness will almost always be at it's best
+            foreach (var dna in bloodTemp
+                .SelectMany(r => r.Reagent.EnsureReagentData().OfType<DnaData>()))
+            {
+                dna.Freshness = _timing.CurTime;
+            }
+            // Goobstation end
             SolutionContainers.TryAddSolution(injectorSolution, bloodTemp);
         }
 

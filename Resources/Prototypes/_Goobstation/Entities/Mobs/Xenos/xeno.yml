@@ -84,7 +84,6 @@
       groups:
         Brute: 5
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: drone
@@ -185,7 +184,6 @@
           Slash: 8
           Structural: 10
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: burrower
@@ -227,7 +225,6 @@
       200: Critical
       250: Dead
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: warrior
@@ -269,7 +266,6 @@
       400: Critical
       500: Dead
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: crusher
@@ -308,7 +304,6 @@
       280: Critical
       340: Dead
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: ravager
@@ -352,7 +347,6 @@
       500: Critical
       600: Dead
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: king
@@ -412,7 +406,6 @@
       750: Critical
       800: Dead
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: queen
@@ -439,8 +432,12 @@
     - id: ClothingOuterArmorQueenCarapace
       amount: 1
   - type: Devourer
-    foodPreference: Humanoid
-    shouldStoreDevoured: true
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidAppearance
+    stomachStorageWhitelist:
+      components:
+      - MobState
     chemical: Ichor
     healRate: 7.5
     whitelist:
@@ -485,7 +482,6 @@
       800: Critical
       900: Dead
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: rogue

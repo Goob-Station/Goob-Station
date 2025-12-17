@@ -75,6 +75,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Alzore <140123969+Blackern5000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FrostRibbon <107171544+FrostRibbon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -763,6 +764,7 @@
   color: "#ff867d"
   metabolisms:
     Medicine:
+      metabolismRate: 0.25 #goob
       effects:
       - !type:HealthChange
         conditions:
@@ -950,7 +952,16 @@
     Drink:
       effects:
         - !type:SatiateThirst
+          conditions: # DeltaV nerf of saline for Feroxi
+          - !type:OrganType
+            type: Feroxi
+            shouldHave: false
           factor: 6
+        - !type:SatiateThirst # DeltaV nerf of saline for Feroxi
+          conditions:
+          - !type:OrganType
+            type: Feroxi
+          factor: 2
         - !type:ModifyBloodLevel
           amount: 12 # Goobstation - buffed by two times due to shitmed changes
 
@@ -1107,12 +1118,20 @@
       - !type:SuppressPain
         amount: 2
         time: 14
-      - !type:EvenHealthChange
+      - !type:HealthChange # Goobstation - Make Omnizine great again!!!!!!!
         damage:
-          Burn: -3
-          Toxin: -3
-          Airloss: -3
-          Brute: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
+          types: # Goobstation change, Healthchange needs types or groups and groups fuck up the math for some reason and split the groups into types anyway
+            Heat: -3 # Goob change from group to types
+            Shock: -3 # Goob change from group to types
+            Cold: -3 # Goob change from group to types
+            Caustic: -3 # Goob change from group to types
+            Poison: -3 # Goob change from group to types
+            Radiation: -3 # Goob change from group to types
+            Asphyxiation: -3 # Goob change from group to types
+            Bloodloss: -3 # Goob change from group to types
+            Blunt: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
+            Slash: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
+            Piercing: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
 
 - type: reagent
   id: Ultravasculine
@@ -1419,15 +1438,15 @@
       methods: [ Touch ]
       effects:
       - !type:ExtinguishReaction
-    Acidic:
-      methods: [ Touch ]
-      effects:
-      - !type:HealthChange
-        scaleByQuantity: true
-        ignoreResistances: false
-        damage:
-          types:
-            Holy: 0.7 # Goobstation - Down from two. You can't just inta-kill people with super-soakers, as funny as that is.
+#    Acidic:  # Goobstation - Removing holy water damage on touch pending rework.
+#      methods: [ Touch ]
+#      effects:
+#      - !type:HealthChange
+#        scaleByQuantity: true
+#        ignoreResistances: false
+#        damage:
+#          types:
+#            Holy: 0.7
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1
@@ -1542,7 +1561,7 @@
     Medicine:
       effects:
         - !type:ReduceRotting
-          seconds: 20
+          seconds: 10 # Goob - Reduce effectiveness in exchange for easier recipe
           conditions:
           #Patient must be dead and in a cryo tube (or something cold)
           - !type:Temperature
@@ -1728,6 +1747,9 @@
         time: 4
         type: Add
         refresh: false
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
       - !type:GenericStatusEffect
         key: Jitter
         time: 4.0

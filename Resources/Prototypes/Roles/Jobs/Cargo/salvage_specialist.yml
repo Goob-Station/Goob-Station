@@ -79,8 +79,10 @@
       time: 9000 # 2.5 hrs
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
+  guides: # goobstation
+  - Salvage
+  - Cargo
   goobcoins: 20 #Goob content
-  canBeAntag: false # Goobstation - salv lings crashing the economy
   supervisors: job-supervisors-qm
   access:
   - Cargo

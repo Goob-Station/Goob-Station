@@ -112,11 +112,13 @@
       - id: MobCockroach
         weight: 0.79
       - id: MobMothroach
-        weight: 0.21
+        weight: 0.20
       - id: MobSquackroach # Goobstation
         weight: 0.1
       - id: MobLootbug # Goobstation
         weight: 0.3
+      - id: MobMoproach
+        weight: 0.01
 
 - type: entity
   id: SnailMigrationLowPop

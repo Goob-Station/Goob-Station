@@ -103,6 +103,37 @@
       ftlToSameMap: true
       cooldownTime: 180
 
+- type: entity
+  id: MachineFTLDriveAutomated
+  parent: FTLDriveBase
+  name: CTLA-2048 bluespace drive
+  description: FTL Drive for Fixed Route Transport, has short cooldown at the cost of only working for Nanotrasen's preengineered transport routes
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/ShuttleComponents/drive.rsi
+    snapCardinals: true
+    layers:
+    - state: control
+    - state: control_on
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      visible: false
+      shader: unshaded
+  - type: ApcPowerReceiver
+    powerLoad: 1000
+  - type: PowerCharge
+    windowTitle: ftl-drive-window-title
+    idlePower: 20
+    activePower: 1000
+  - type: FTLDriveGenerator
+    priority: 1
+    data:
+      ftlToSameMap: false
+      cooldownTime: 20
+      startupTime: 5
+      knockdownTime: 2
+      travelTime: 15
+      arrivalTime: 5
+
 # Debug drives
 - type: entity
   id: MachineFTLDriveDebug

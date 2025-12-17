@@ -263,6 +263,7 @@
   - PowerCellXrayRevolver # Goobstation
   - PowerCellXraySMG # Goobstation
   - PowerCellXraySniper # Goobstation
+  - AntiMindControlDevice # Goobstation
   # Goobstation R&D Console rework start
   technologyPrerequisites:
   - WeaponizedLaserManipulation
@@ -291,6 +292,22 @@
   technologyPrerequisites:
   - Shuttlecraft  # Goobstation R&D Console rework
   position: 3,-4  # Goobstation R&D Console rework
+
+- type: technology
+  id: DualWieldingTechnology
+  name: research-technology-dual-wielding-technology
+  icon:
+    sprite: Clothing/Back/Specific/harmpack.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ClothingBackpackHarmpack
+  technologyPrerequisites: # Goobstation R&D Console rework
+  - SmartWeaponry
+  - SpecialMeans
+  position: 5, 3 # Goobstation R&D Console rework
 
 # Tier 3
 

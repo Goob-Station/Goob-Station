@@ -72,6 +72,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage;
@@ -99,8 +100,10 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
 using Content.Server.Animals.Components;
+using Content.Shared.Mech.Components;
 using Content.Shared.Rejuvenate; // Shitmed Change
 using Content.Shared.NPC.Prototypes;
+using Content.Shared.Mech.EntitySystems; // Goobstation
 
 namespace Content.Server.Zombies;
 
@@ -126,6 +129,7 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly SharedMechSystem _mech = default!; // Goobstation
 
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
     private static readonly ProtoId<NpcFactionPrototype> ZombieFaction = "Zombie";
@@ -347,5 +351,7 @@ public sealed partial class ZombieSystem
         RaiseLocalEvent(target, ref ev, true);
         //zombies get slowdown once they convert
         _movementSpeedModifier.RefreshMovementSpeedModifiers(target);
+        if (TryComp<MechPilotComponent>(target, out var mechPilotComponent)) // Goobstation - kick out zombies from mechs on conversion
+            _mech.TryEject(mechPilotComponent.Mech, null, target);
     }
 }

@@ -115,6 +115,11 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  guides:
+  - NanotrasenRep SOP
+  - SOP
+  - SpaceLaw
+  - Writing
   goobcoins: 40
   access:
   - Security
@@ -153,6 +158,8 @@
     back:
     - Flash
     - TelescopicBaton
+  # inhand:
+  #   - ExecutiveBriefcaseEmpty # TODO: Maybe change this to not-empty, so that ntr wouldn't be poor at the start of every shift but whatever
 
 - type: chameleonOutfit
   id: NanotrasenRepresentativeChameleonOutfit

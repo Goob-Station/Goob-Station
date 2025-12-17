@@ -6,7 +6,6 @@
 
 - type: nameIdentifierGroup
   id: Drone
-  prefix: DR
-  #fullName: true
+  format: name-identifier-format-drone
   minValue: 100
   maxValue: 999

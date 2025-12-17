@@ -317,9 +317,12 @@ public sealed class BodySetupTest
                         Assert.That(entMan.HasComponent<NerveComponent>(bodyPart.Id));
                         Assert.That(entMan.TryGetComponent(bodyPart.Id, out WoundableComponent woundable));
 
-                        var bone = woundable.Bone.ContainedEntities.FirstOrNull();
-                        Assert.That(bone, Is.Not.Null);
-                        Assert.That(entMan.HasComponent<BoneComponent>(bone));
+                        if (!entMan.HasComponent<BonelessComponent>(bodyPart.Id))
+                        {
+                            var bone = woundable.Bone.ContainedEntities.FirstOrNull();
+                            Assert.That(bone, Is.Not.Null);
+                            Assert.That(entMan.HasComponent<BoneComponent>(bone));
+                        }
                     });
                 }
             }

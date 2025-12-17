@@ -1,0 +1,45 @@
+// only for aurafarmers
+
+light_mode unshaded;
+
+uniform highp float mango;
+uniform highp vec3 auraColor;
+uniform highp float distortion;
+
+void fragment()
+{
+    highp vec4 sprite = zTexture(UV);
+
+    // Distort the UV for the glow effect
+    highp vec2 distortedUV = UV + vec2(
+        sin(UV.y * 20.0 + TIME * 5.0),
+        cos(UV.x * 20.0 + TIME * 5.0)
+    ) * distortion;
+
+    // Approximate an outline by sampling nearby pixels WITH DISTORTION
+    highp float outline = 0.0;
+    highp float step = 1.5 / 32.0; // small radius around pixel
+
+    for (highp float x = -step; x <= step; x += step)
+    {
+        for (highp float y = -step; y <= step; y += step)
+        {
+            highp vec2 sampleUV = distortedUV + vec2(x, y);
+            highp float sampleAlpha = zTexture(sampleUV).a;
+            if (sampleAlpha > 0.1) // Found an opaque neighbor
+                outline = max(outline, sampleAlpha);
+        }
+    }
+
+    // Only glow where the current pixel is transparent
+    outline *= (1.01 - sprite.a);
+
+    // No more pulse - just use mango intensity
+    highp float glow = outline * mango;
+
+    // Mix sprite with glow
+    highp vec3 finalRGB = mix(sprite.rgb, auraColor, glow);
+    highp float finalAlpha = max(sprite.a, glow); // Extend alpha with glow!
+
+    COLOR = vec4(finalRGB, finalAlpha);
+}

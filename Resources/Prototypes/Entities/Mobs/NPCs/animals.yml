@@ -403,6 +403,7 @@
       5: Dead # Goob edit
   - type: Stamina
     critThreshold: 10
+    animationThreshold: 5 # Goob edit
   - type: DamageStateVisuals
     states:
       Alive:
@@ -658,7 +659,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 100
+        density: 2 # Goob edit
         mask:
         - SmallMobMask
         layer:
@@ -787,7 +788,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 120
+        density: 12 # Goob edit
         mask:
         - SmallMobMask
         layer:
@@ -939,7 +940,10 @@
           32:
             sprite: Mobs/Animals/mothroach/displacement.rsi
             state: neck
-
+  - type: EatToGrow # Goobstation Eat To Grow System
+    growth: 0.05
+    maxGrowth: 2
+    
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
 # The white duck is more akin to a pekin or call duck.
 
@@ -1622,7 +1626,7 @@
 - type: entity
   name: genetic ancestor
   id: MobBaseAncestor
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase, BaseMobDisgust] # Goob edit
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
@@ -1714,7 +1718,6 @@
         enum.ToggleableVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
-
   - type: Body # Shitmed Change
     bodyType: Complex
     prototype: Monkey
@@ -1827,6 +1830,9 @@
         Piercing: 4
       groups:
         Burn: 3
+    catchingFailDamage:
+      types:
+        Blunt: 1
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
 
@@ -1983,6 +1989,9 @@
         Piercing: 7
       groups:
         Burn: 3
+    catchingFailDamage:
+      types:
+        Blunt: 1
     clumsySound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
 
@@ -2088,7 +2097,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 100
+        density: 10 # Goob eedit
         mask:
         - SmallMobMask
         layer:
@@ -2247,6 +2256,7 @@
     staminaRatio: 1 # mice are small so can probably evade without much stamina drain
   - type: Stamina
     critThreshold: 20
+    animationThreshold: 10 # Goob edit
   - type: LayingDown
   - type: NPCRetaliation
     attackMemoryLength: 5 # stop caring fast if you don't keep hitting
@@ -2578,9 +2588,9 @@
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
-  name: parrot
   parent: [ SimpleMobBase, FlyingMobBase ]
-  id: MobParrot
+  id: MobParrotBase
+  abstract: true
   description: Infiltrates your domain, spies on you, and somehow still a cool pet.
   components:
   - type: MovementSpeedModifier
@@ -2591,7 +2601,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: parrot
-      sprite: Mobs/Animals/parrot.rsi
+      sprite: Mobs/Animals/parrot/parrot.rsi
   - type: Fixtures
     fixtures:
       fix1:
@@ -2627,6 +2637,29 @@
     - TauCetiBasic
     understands:
     - TauCetiBasic
+  - type: ActiveListener
+  - type: Vocalizer
+  - type: RadioVocalizer
+  - type: ParrotListener
+  - type: ParrotMemory
+  - type: Inventory
+    templateId: parrot
+    speciesId: parrot
+    # transparent displacement map to hide the headset. this should be an animated displacement map to follow the parrot
+    # as it bobs up and down, but this in turn needs some way to change the displacement map on inventory entities when
+    # the parrot dies, otherwise the visuals will be broken
+    displacements:
+      ears:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/parrot/displacement.rsi
+            state: ears
+  - type: InventorySlots
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
   - type: InteractionPopup
     successChance: 0.6
     interactSuccessString: petting-success-bird
@@ -2636,6 +2669,13 @@
       path: /Audio/Animals/parrot_raught.ogg
   - type: Bloodstream
     bloodMaxVolume: 50
+
+- type: entity
+  name: parrot
+  parent: MobParrotBase
+  id: MobParrot
+  components:
+  - type: ParrotAccent # regular parrots have a parrotaccent. Polly is special and does not
 
 - type: entity
   name: penguin
@@ -3573,7 +3613,7 @@
     factions:
     - Syndicate
   - type: Access
-    tags: 
+    tags:
     - NuclearOperative
     - SyndicateAgent
   - type: MeleeWeapon
@@ -3852,7 +3892,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 120
+        density: 12 # Goob edit
         mask:
         - SmallMobMask
         layer:
@@ -4272,13 +4312,18 @@
       belt:
         sizeMaps:
           32:
-            sprite: Mobs/Pets/corgi.rsi
-            state: belt_displacement
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_belt_displacement
       ears:
         sizeMaps:
           32:
-            sprite: Mobs/Pets/corgi.rsi
-            state: belt_displacement
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_belt_displacement
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_head_displacement
   - type: Hands # HANDS!
   - type: Puller
   - type: Cuffable # bad dog!

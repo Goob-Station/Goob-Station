@@ -22,6 +22,9 @@
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Zekins <zekins3366@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -58,13 +61,10 @@ public abstract class SharedChatSystem : EntitySystem
     public const char CollectiveMindPrefix = '+'; // Goobstation - Starlight collective mind port
     public const char DefaultChannelKey = 'h';
 
-    [ValidatePrototypeId<RadioChannelPrototype>]
-    public const string CommonChannel = "Common";
+    public static readonly ProtoId<RadioChannelPrototype> CommonChannel = "Common";
 
-    public static string DefaultChannelPrefix = $"{RadioChannelPrefix}{DefaultChannelKey}";
-
-    [ValidatePrototypeId<SpeechVerbPrototype>]
-    public const string DefaultSpeechVerb = "Default";
+    public static readonly string DefaultChannelPrefix = $"{RadioChannelPrefix}{DefaultChannelKey}";
+    public static readonly ProtoId<SpeechVerbPrototype> DefaultSpeechVerb = "Default";
 
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -80,7 +80,7 @@ public abstract class SharedChatSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        DebugTools.Assert(_prototypeManager.HasIndex<RadioChannelPrototype>(CommonChannel));
+        DebugTools.Assert(_prototypeManager.HasIndex(CommonChannel));
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypeReload);
         CacheRadios();
         CacheCollectiveMinds(); // Goobstation - Starlight collective mind port
@@ -117,13 +117,13 @@ public abstract class SharedChatSystem : EntitySystem
     public SpeechVerbPrototype GetSpeechVerb(EntityUid source, string message, SpeechComponent? speech = null)
     {
         if (!Resolve(source, ref speech, false))
-            return _prototypeManager.Index<SpeechVerbPrototype>(DefaultSpeechVerb);
+            return _prototypeManager.Index(DefaultSpeechVerb);
 
         // check for a suffix-applicable speech verb
         SpeechVerbPrototype? current = null;
         foreach (var (str, id) in speech.SuffixSpeechVerbs)
         {
-            var proto = _prototypeManager.Index<SpeechVerbPrototype>(id);
+            var proto = _prototypeManager.Index(id);
             if (message.EndsWith(Loc.GetString(str)) && proto.Priority >= (current?.Priority ?? 0))
             {
                 current = proto;
@@ -131,7 +131,7 @@ public abstract class SharedChatSystem : EntitySystem
         }
 
         // if no applicable suffix verb return the normal one used by the entity
-        return current ?? _prototypeManager.Index<SpeechVerbPrototype>(speech.SpeechVerb);
+        return current ?? _prototypeManager.Index(speech.SpeechVerb);
     }
 
     /// <summary>
@@ -289,7 +289,7 @@ public abstract class SharedChatSystem : EntitySystem
         ICommonSession? player = null, string? nameOverride = null,
         bool checkRadioPrefix = true,
         bool ignoreActionBlocker = false,
-        string wrappedMessagePostfix = "" // Goobstation
+        Color? colorOverride = null // Goobstation
     ) { }
 
     public string SanitizeMessageCapital(string message)
@@ -335,6 +335,31 @@ public abstract class SharedChatSystem : EntitySystem
 
         return message;
     }
+
+    // Goobstation start - add newlines to string so that it fits in chat if its font is larger than default
+    public static void UpdateFontSize(int fontSize, ref string message, ref string wrappedMessage)
+    {
+        var newLines = GetChatNewLines(message);
+        var ratio = GetFontRatio(fontSize);
+        for (var i = 1; i < newLines * (int) MathF.Round(ratio); i++)
+        {
+            message += '\n';
+            wrappedMessage += '\n';
+        }
+    }
+
+    public static int GetChatNewLines(string message)
+    {
+        const string pattern = @"\r\n|\n|\r";
+        return new Regex(pattern).Matches(message).Count + 1;
+    }
+
+    public static float GetFontRatio(int fontSize)
+    {
+        const int defaultFontSize = 12;
+        return (float) fontSize / defaultFontSize;
+    }
+    // Goobstation end
 
     public static string SanitizeAnnouncement(string message, int maxLength = 0, int maxNewlines = 2)
     {

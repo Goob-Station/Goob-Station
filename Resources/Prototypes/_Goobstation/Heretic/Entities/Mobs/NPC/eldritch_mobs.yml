@@ -79,7 +79,7 @@
     description: ghostrole-ghoul-desc
     rules: ghostrole-ghoul-rules
     mindRoles:
-    - MindRoleGhostRoleFamiliar
+    - MindRoleGhoul
     raffle:
       settings: short
   - type: CollectiveMind
@@ -88,11 +88,13 @@
     - MansusLink
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: HereticSummonCompound
     blackboard:
       NavSmash: !type:Bool
         true
   - type: Targeting
+  - type: Bloodstream
+    maxBleedAmount: 0
 
 - type: entity
   parent: BaseMobGhoul
@@ -102,6 +104,8 @@
   components:
   - type: Ghoul
     totalHealth: 150
+    ghostRoleName: ghostrole-stalker-name
+    ghostRoleDesc: ghostrole-stalker-desc
   - type: Sprite
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     state: stalker
@@ -109,12 +113,13 @@
     name: ghostrole-stalker-name
     description: ghostrole-stalker-desc
     mindRoles:
-    - MindRoleGhostRoleFamiliar
+    - MindRoleGhoul
   - type: ActionsProvider
     actions:
     - ActionHereticJaunt
     # basically an EMP implant. don't feel like making 1 more emp action
     - ActionActivateEmpImplant
+    - ActionHereticShapeshift
   - type: TriggerImplantAction
   - type: EmpOnTrigger
     range: 5
@@ -124,6 +129,19 @@
     baseWalkSpeed: 5
     baseSprintSpeed: 5
   - type: FlashImmunity
+  - type: ThermalVision
+    thermalShader: null
+    isActive: true
+    color: white
+    drawOverlay: false
+    lightRadius: 0
+    toggleAction: null
+  - type: MeleeWeapon
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 15
+        Piercing: 10
 
 - type: entity
   parent: BaseMobGhoul
@@ -132,7 +150,9 @@
   description: An abomination stitched together from a few severed arms and one swollen, orphaned eye.
   components:
   - type: Ghoul
-    totalHealth: 75
+    totalHealth: 65
+    ghostRoleName: ghostrole-prophet-name
+    ghostRoleDesc: ghostrole-prophet-desc
   - type: Sprite
     noRot: true
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
@@ -150,11 +170,87 @@
     name: ghostrole-prophet-name
     description: ghostrole-prophet-desc
     mindRoles:
-    - MindRoleGhostRoleFamiliar
+    - MindRoleGhoul
   - type: ActionsProvider
     actions:
-    - ActionHereticJaunt
+    - ActionHereticJauntLong
     - ActionHereticMansusLink
+  - type: HealingAura
+    selfHealMultiplier: 2
+    componentHealMultipliers:
+      Heretic: 1
+      Ghoul: 2
+  - type: NightVision
+    color: white
+    activateSound: null
+    deactivateSound: null
+    drawOverlay: false
+  - type: Eye
+    drawFov: false
+  - type: ContentEye
+    maxZoom: 1.25, 1.25
+    targetZoom: 1.25, 1.25
+  - type: ShowHealthBars
+  - type: ShowHealthIcons
+
+- type: entity
+  parent: [BaseMobGhoul, FlyingMobBase]
+  id: MobGhoulFireShark
+  name: fire shark
+  description: It is a eldritch dwarf space shark, also known as a fire shark.
+  components:
+  - type: Ghoul
+    spawnOnDeathPrototype: SheetPlasma1
+    totalHealth: 15
+    ghostRoleName: ghostrole-fire-shark-name
+    ghostRoleDesc: ghostrole-fire-shark-desc
+  - type: Sprite
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    state: fire_shark
+  - type: GhostRole
+    name: ghostrole-fire-shark-name
+    description: ghostrole-fire-shark-desc
+    mindRoles:
+    - MindRoleGhoul
+  - type: Body
+    prototype: null
+    bodyType: Simple
+  - type: IgniteOnMeleeHit
+    fireStacks: 2
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 7
+    baseSprintSpeed: 7
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Heat: 6
+        Slash: 6
+        Piercing: 6
+  - type: Flammable
+    canResistFire: false
+    damage:
+      types:
+        Heat: 0
+  - type: Temperature
+    heatDamage:
+      types:
+        Heat: 0
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: "#ff8227"
+  - type: Damageable
+    damageModifierSet: FireShark
+  - type: Bloodstream
+    bloodReagent: Plasma
+    bloodMaxVolume: 10
+    bleedReductionAmount: 0.1
+    maxBleedAmount: 0.5
 
 - type: entity
   parent:
@@ -169,6 +265,8 @@
   components:
   - type: Ghoul
     totalHealth: 100
+    ghostRoleName: ghostrole-rustwalker-name
+    ghostRoleDesc: ghostrole-rustwalker-desc
   - type: Sprite
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     layers:
@@ -186,21 +284,6 @@
     - ActionHereticAggressiveSpread
     - ActionHereticRustWave
   - type: LeechingWalk
-    toHeal:
-      types:
-        Blunt: -2
-        Slash: -2
-        Piercing: -2
-        Heat: -2
-        Cold: -2
-        Shock: -2
-        Asphyxiation: -2
-        Bloodloss: -2
-        Caustic: -2
-        Poison: -2
-        Radiation: -2
-        Cellular: -2
-        Holy: -2
   - type: MeleeWeapon
     soundHit:
       collection: MetalThud
@@ -307,7 +390,7 @@
   - type: FlashImmunity
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: HereticSummonCompound
     blackboard:
       NavSmash: !type:Bool
         true

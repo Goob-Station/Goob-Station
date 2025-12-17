@@ -75,7 +75,6 @@
       - Alive
       - Dead
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: alive
@@ -101,10 +100,6 @@
     baseSprintSpeed : 4
   - type: Stamina
     critThreshold: 120
-  - type: StaminaDamageOnHit # from stunbaton
-    damage: 15
-    overtime: 40
-    sound: /Audio/Weapons/egloves.ogg
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Bingle
@@ -141,6 +136,8 @@
     activateSound: null
     deactivateSound: null
   - type: FlashImmunity
+  - type: ScannableForPoints # NTR update
+    points: 2 # this would be abused so much if i made it more
   - type: Butcherable
     spawned:
     - id: FoodMeatBingle
@@ -153,6 +150,7 @@
   components:
   - type: Bingle
     prime: true
+  - type: ScannableForPoints # NTR update, 5 points is the default.
 
 - type: entity
   id: MobBingleUpgraded
@@ -171,7 +169,6 @@
       state: combat
       visible: false
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: Upgraded

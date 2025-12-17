@@ -147,6 +147,7 @@
         type: SurgeryBui
   - type: Bloodstream
     bloodMaxVolume: 650
+    bleedReductionAmount: 5 #goob
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -278,15 +279,20 @@
         Piercing: 15
         Slash: 15
   - type: Devourer
-    foodPreference: Humanoid
-    shouldStoreDevoured: true
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidAppearance
+    stomachStorageWhitelist:
+      components:
+      - MobState
+      - Item
     chemical: Ichor
     healRate: 7.5
     whitelist:
       components:
       - MobState
       - Door
-      - Food # Goobstation - Allow devouring food items only
+      - Item
       tags:
       - Wall
   - type: Tag
@@ -312,7 +318,6 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
-  - type: ThermalVision # Goobstation - Thermal vision
   - type: CombatPower # Goobstation
     factor: 4 # times more dangerous than a crew-member
   - type: Fauna # Lavaland Change
@@ -322,6 +327,13 @@
     speedModifier: 2.5 # fast because dragon strong
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: LanguageKnowledge # goob edit - carp language (keeping basic as an option because the space monster gloating is funny)
+    speaks:
+    - TauCetiBasic
+    - Carptongue
+    understands:
+    - TauCetiBasic
+    - Carptongue
 
 - type: entity
   parent: BaseMobDragon
@@ -424,7 +436,7 @@
       components:
       - MobState
       - Door
-      - Food # Goobstation - Allow targeting food items only
+      - Item # Goobstation
       tags:
       - Wall
     event: !type:DevourActionEvent

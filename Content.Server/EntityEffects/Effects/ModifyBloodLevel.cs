@@ -12,10 +12,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.EntityEffects;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Body.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.EntityEffects.Effects;
@@ -45,7 +45,7 @@ public sealed partial class ModifyBloodLevel : EntityEffect
                 amt *= reagentArgs.Scale;
             }
 
-            sys.TryModifyBloodLevel(args.TargetEntity, amt, blood);
+            sys.TryModifyBloodLevel((args.TargetEntity, blood), amt);
         }
     }
 }

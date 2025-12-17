@@ -17,6 +17,7 @@
   - WeaponNailgun
   - MagazineNailgun
   - MagazineNailgunEmpty
+  - ConstructionBag #putting it here for less pack clutter
 
 - type: latheRecipePack
   id: NailgunEvilStatic # Emag-locked
@@ -33,3 +34,8 @@
   - LatheUpgradeKitCryo
   - UpgradeKitAutomation
   - AutodocUpgradeKitBluespace
+
+- type: latheRecipePack
+  id: ConstructionBagOfHolding
+  recipes:
+  - ConstructionBagOfHolding

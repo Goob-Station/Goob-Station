@@ -11,8 +11,8 @@
 
 using System.Text.RegularExpressions;
 using Content.Goobstation.Common.Speech;
-using Content.Server.Speech;
 using Content.Server.Speech.EntitySystems;
+using Content.Shared.Speech;
 
 namespace Content.Goobstation.Server.Speech;
 

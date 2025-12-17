@@ -199,6 +199,7 @@
         amount: 2
       - id: FlashlightLantern
       - id: LightReplacer
+      - id: WireBrush
 
 - type: entity
   id: ClothingBeltMedicalFilled

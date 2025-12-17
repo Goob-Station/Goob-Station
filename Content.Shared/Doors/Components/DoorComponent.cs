@@ -343,7 +343,6 @@ public enum DoorVisuals : byte
     BoltLights,
     EmergencyLights,
     ClosedLights,
-    BaseRSI,
 }
 
 public enum DoorVisualLayers : byte
