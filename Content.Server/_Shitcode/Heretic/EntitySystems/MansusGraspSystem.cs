@@ -227,7 +227,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         // no fumbling!
         if (target == args.User)
             return;
-        args.Handled = graspTarget(ent, args.User,target);
+        args.Handled = GraspTarget(ent, args.User,target);
     }
 
     private void OnAfterInteract(Entity<MansusGraspComponent> ent, ref AfterInteractEvent args)
