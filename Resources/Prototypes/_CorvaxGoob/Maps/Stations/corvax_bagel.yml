@@ -75,4 +75,4 @@
         - type: StationBlobConfig
           stageBegin: 40
           stageCritical: 450
-          stageTheEnd: 900
+          stageTheEnd: 1000
