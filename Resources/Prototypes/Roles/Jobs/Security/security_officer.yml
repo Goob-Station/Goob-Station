@@ -103,6 +103,12 @@
   #goobcoins: 30 #Goob content Corvax-Goob-coins
   skills: # CorvaxGoob-Skills
   - Shooting
+  guides: # goobstation
+  - Security
+  - Legal SOP
+  - OfficerCadet SOP
+  - CorporateJudo
+  - Alert Levels
   access:
   - Security
   - Brig

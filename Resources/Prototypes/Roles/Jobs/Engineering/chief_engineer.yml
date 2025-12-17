@@ -160,6 +160,14 @@
   skills: # CorvaxGoob-Skills
   - ShuttleControl
   - AdvancedBuilding
+  #canBeAntag: false
+  antagAdvantage: 75 # Goobstation
+  guides: # goobstation
+  - Engineering
+  - ChiefEngineer SOP
+  - Engineering SOP
+  - Command
+  - Emergencies SOP
   access:
   - Maintenance
   - Engineering

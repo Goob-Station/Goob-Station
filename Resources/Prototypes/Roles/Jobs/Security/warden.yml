@@ -157,6 +157,12 @@
   #goobcoins: 35 #Goob content Corvax-Goob-coins
   skills: # CorvaxGoob-Skills
   - Shooting
+  guides: # goobstation
+  - SpaceLaw
+  - Legal SOP
+  - Security
+  - Warden SOP
+  - KravMaga
   access:
   - Security
   - Brig

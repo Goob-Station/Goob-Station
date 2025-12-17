@@ -91,6 +91,10 @@
   skills: # CorvaxGoob-Skills
   - Surgery
   - MedicalEquipment
+  guides: # goobstation
+  - MedicalDoctor
+  - Medical
+  - Medicine
   access:
   - Medical
   - Maintenance
@@ -102,7 +106,7 @@
   - !type:AddComponentSpecial
     components:
     - type: SurgerySpeedModifier
-      speedModifier: 1.25     
+      speedModifier: 1.25
 
 - type: startingGear
   id: ParamedicGear

@@ -173,6 +173,14 @@
   skills: # CorvaxGoob-Skills
   - ShuttleControl
   - Shooting
+  guides: # goobstation
+  - Security
+  - SpaceLaw
+  - Legal SOP
+  - Command
+  - HeadOfSecurity SOP
+  - Security SOP
+  - Alert Levels
   access:
   - HeadOfSecurity
   - Command

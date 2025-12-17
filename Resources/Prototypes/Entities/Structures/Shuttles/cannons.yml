@@ -71,7 +71,7 @@
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
-      cell_slot: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot # goob edit - svalinn buff fix
   - type: Destructible
     thresholds:
     - trigger:
@@ -95,21 +95,23 @@
     zeroVisible: true
   - type: Machine
     board: ShuttleGunSvalinnMachineGunCircuitboard
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
+  # - type: PowerCellSlot # goob edit - svalinn buff fix
+  #   cellSlotId: cell_slot
   - type: ItemSlots
     slots:
-      cell_slot:
-        # name: Magazine # CorvaxGoob-Loc-in-UI
+      gun_magazine: # goob edit - svalinn buff fix
+        name: Magazine
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
           tags:
             - PowerCell
             - PowerCellSmall
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLightLaser
-    fireCost: 50
+            - PotatoBattery # goob edits start
+  # - type: HitscanBatteryAmmoProvider
+  #   proto: RedLightLaser
+  #   fireCost: 50
+  - type: MagazineAmmoProvider # goob edits end
 
 - type: entity
   id: ShuttleGunPerforator

@@ -82,6 +82,7 @@
   icon: "JobIconJanitor"
   supervisors: job-supervisors-hop
   #goobcoins: 15 #Goob content Corvax-Goob-coins
+  guides: [ Janitorial ] # goobstation
   access:
   - Service
   - Janitor
