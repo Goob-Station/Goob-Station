@@ -4,7 +4,7 @@
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   description: Listen to the top hits of your stations local radio.
   components:
-  - type: StationRadioReceiver
+  - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/stationradio.rsi
     layers:
@@ -35,6 +35,8 @@
           collection: MetalGlassBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Machine
+    board: StationRadioCircuitboard
   - type: RadioSpeaker
     powerRequired: true
     speakNormally: true
@@ -46,3 +48,4 @@
   - type: ActiveRadio
     channels:
     - RadioShow
+  - type: StationRadioReceiver

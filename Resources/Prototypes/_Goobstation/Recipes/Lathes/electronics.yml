@@ -141,7 +141,7 @@
   result: TapeDeckCircuitboard
 
 - type: latheRecipe
-  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  parent: [ BaseGoldCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
   id: StationRadioServerCircuitboard
   icon:
     sprite:  _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
@@ -149,12 +149,20 @@
   result: StationRadioServerCircuitboard
 
 - type: latheRecipe
-  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  parent: [ BaseSilverCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
   id: StationRadioRigCircuitboard
   icon:
     sprite:  _Goobstation/Structures/Machines/StationRadio/radiostationrig.rsi
     state: icon
   result: StationRadioRigCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseMachineRecipeCategory ]
+  id: StationRadioCircuitboard
+  icon:
+    sprite:  _Goobstation/Structures/Machines/StationRadio/stationradio.rsi
+    state: icon
+  result: StationRadioCircuitboard
 
 - type: latheRecipe
   parent: [ BaseElectronicsRecipe, BaseCircuitryRecipeCategory ]
