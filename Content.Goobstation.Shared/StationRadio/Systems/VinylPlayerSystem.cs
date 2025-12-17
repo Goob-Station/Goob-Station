@@ -38,7 +38,7 @@ public sealed class VinylPlayerSystem : EntitySystem
 
     private void OnNewLink(Entity<VinylPlayerComponent> ent, ref NewLinkEvent args)
     {
-        if (args.SourcePort != ent.Comp.ServerPort)
+        if (args.SourcePort != ent.Comp.MusicOutputPort)
             return;
 
         ent.Comp.ServerEntity = args.Sink;
@@ -46,7 +46,7 @@ public sealed class VinylPlayerSystem : EntitySystem
 
     private void OnDisconnect(Entity<VinylPlayerComponent> ent, ref PortDisconnectedEvent args)
     {
-        if (args.Port != ent.Comp.ServerPort)
+        if (args.Port != ent.Comp.MusicOutputPort)
             return;
 
         ent.Comp.ServerEntity = null;
@@ -90,7 +90,7 @@ public sealed class VinylPlayerSystem : EntitySystem
             [StationRadioSystem.AudioPathData] = vinyl.Comp.Song,
         };
 
-        _link.InvokePort(ent.Owner, ent.Comp.ServerPort, payload);
+        _link.InvokePort(ent.Owner, ent.Comp.MusicOutputPort, payload);
     }
 
     public void StopAudio(Entity<VinylPlayerComponent> ent)
@@ -105,7 +105,7 @@ public sealed class VinylPlayerSystem : EntitySystem
             [DeviceNetworkConstants.Command] = StationRadioSystem.StopAudioCommand
         };
 
-        _link.InvokePort(ent.Owner, ent.Comp.ServerPort, payload);
+        _link.InvokePort(ent.Owner, ent.Comp.MusicOutputPort, payload);
     }
 
     public void SetAudioState(Entity<VinylPlayerComponent> ent, AudioState state)
@@ -121,6 +121,6 @@ public sealed class VinylPlayerSystem : EntitySystem
             [StationRadioSystem.AudioStateData] = state,
         };
 
-        _link.InvokePort(ent.Owner, ent.Comp.ServerPort, payload);
+        _link.InvokePort(ent.Owner, ent.Comp.MusicOutputPort, payload);
     }
 }

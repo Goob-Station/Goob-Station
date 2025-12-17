@@ -47,6 +47,7 @@
   #  channels:
   #  - RadioShow
   - type: DeviceNetwork
+    receiveAll: true
     deviceNetId: Wireless
     receiveFrequencyId: StationRadio # Default value, can be changed
   - type: DeviceCustomFrequency

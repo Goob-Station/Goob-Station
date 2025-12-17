@@ -20,10 +20,10 @@ public sealed partial class VinylPlayerComponent : Component
     public EntityUid? ServerEntity;
 
     /// <summary>
-    /// Signal port to send the music packages to.
+    /// Signal port that is sending out music data.
     /// </summary>
     [DataField]
-    public ProtoId<SinkPortPrototype> ServerPort = "VynilMusic";
+    public ProtoId<SourcePortPrototype> MusicOutputPort = "VynilMusic";
 
     /// <summary>
     /// If true, will only play music and send packages if the structure is powered.
