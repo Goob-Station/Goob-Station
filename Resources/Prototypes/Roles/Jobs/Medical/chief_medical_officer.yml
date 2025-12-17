@@ -163,8 +163,8 @@
   - MedicalEquipment
   guides: # goobstation
   - Medical
-  - ChiefMedicalOfficer SOP
-  - Medical SOP
+  # - ChiefMedicalOfficer SOP Hidden by CorvaxGoob
+  # - Medical SOP Hidden by CorvaxGoob
   - Command
   - Chemicals
   weight: 10 #Goob Edit

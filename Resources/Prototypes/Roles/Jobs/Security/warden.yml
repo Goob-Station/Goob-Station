@@ -158,10 +158,10 @@
   skills: # CorvaxGoob-Skills
   - Shooting
   guides: # goobstation
-  - SpaceLaw
-  - Legal SOP
+  # - SpaceLaw Hidden by CorvaxGoob
+  # - Legal SOP Hidden by CorvaxGoob
   - Security
-  - Warden SOP
+  # - Warden SOP Hidden by CorvaxGoob
   - KravMaga
   access:
   - Security

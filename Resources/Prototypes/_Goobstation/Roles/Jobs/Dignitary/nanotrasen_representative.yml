@@ -121,9 +121,9 @@
   canBeAntag: false
   #goobcoins: 40 Corvax-Goob-coins
   guides:
-  - NanotrasenRep SOP
-  - SOP
-  - SpaceLaw
+  # - NanotrasenRep SOP Hidden by CorvaxGoob
+  # - SOP Hidden by CorvaxGoob
+  # - SpaceLaw Hidden by CorvaxGoob
   - Writing
   access:
   - Security

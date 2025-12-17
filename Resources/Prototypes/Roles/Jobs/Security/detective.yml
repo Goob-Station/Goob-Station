@@ -86,7 +86,7 @@
   guides: # goobstation
   - Forensics
   - Security
-  - Detective SOP
+  # - Detective SOP Hidden by CorvaxGoob
   access:
   - Security
   - Brig

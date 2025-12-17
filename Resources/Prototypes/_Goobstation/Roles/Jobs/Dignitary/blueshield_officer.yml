@@ -54,9 +54,9 @@
       - Abductor
   #goobcoins: 45 Corvax-Goob-coins
   guides:
-  - BlueshieldOfficer SOP
+  # - BlueshieldOfficer SOP Hidden by CorvaxGoob
   - Command
-  - Succession
+  # - Succession Hidden by CorvaxGoob
   weight: 20
   startingGear: BlueshieldOfficerGear
   icon: "JobIconBlueshield"

@@ -164,8 +164,8 @@
   guides: # goobstation
   - Science
   - Command
-  - ResearchDirector SOP
-  - Science SOP
+  # - ResearchDirector SOP Hidden by CorvaxGoob
+  # - Science SOP Hidden by CorvaxGoob
   access:
   - Research
   - Command

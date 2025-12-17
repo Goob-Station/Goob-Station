@@ -105,10 +105,10 @@
   - Shooting
   guides: # goobstation
   - Security
-  - Legal SOP
-  - OfficerCadet SOP
+  # - Legal SOP Hidden by CorvaxGoob
+  # - OfficerCadet SOP Hidden by CorvaxGoob
   - CorporateJudo
-  - Alert Levels
+  # - Alert Levels Hidden by CorvaxGoob
   access:
   - Security
   - Brig

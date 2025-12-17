@@ -159,8 +159,8 @@
   antagAdvantage: 75 # Goobstation
   guides: # goobstation
   - Cargo
-  - Quartermaster SOP
-  - Cargo SOP
+  # - Quartermaster SOP Hidden by CorvaxGoob
+  # - Cargo SOP Hidden by CorvaxGoob
   - Command
   access:
   - Cargo

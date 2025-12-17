@@ -175,12 +175,12 @@
   - Shooting
   guides: # goobstation
   - Security
-  - SpaceLaw
-  - Legal SOP
+  # - SpaceLaw Hidden by CorvaxGoob
+  # - Legal SOP Hidden by CorvaxGoob
   - Command
-  - HeadOfSecurity SOP
-  - Security SOP
-  - Alert Levels
+  # - HeadOfSecurity SOP Hidden by CorvaxGoob
+  # - Security SOP Hidden by CorvaxGoob
+  # - Alert Levels Hidden by CorvaxGoob
   access:
   - HeadOfSecurity
   - Command
