@@ -253,7 +253,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             // Adjust solution amount based on transfer efficiency
             var solutionToInject = removedSolution.SplitSolution(removedSolution.Volume * injector.Comp.TransferEfficiency);
             // Inject our portion into the target's bloodstream
-            if (_bloodstream.TryAddToChemicals((target, bloodstream), solutionToInject))
+            if (_bloodstream.TryAddToBloodstream(targetBloodstream.AsNullable(), individualInjection))
                 anySuccess = true;
         }
         // Goobstation - Armor resisting syringe gun

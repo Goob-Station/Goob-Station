@@ -111,7 +111,7 @@ public sealed class DevourSystem : EntitySystem
         // Grant ichor if the devoured thing meets the dragon's food preference
         if (args.Args.Target != null && _whitelistSystem.IsWhitelistPassOrNull(ent.Comp.FoodPreferenceWhitelist, (EntityUid)args.Args.Target))
         {
-            _bloodstreamSystem.TryAddToChemicals(ent.Owner, ichorInjection);
+            _bloodstreamSystem.TryAddToBloodstream(ent.Owner, ichorInjection);
         }
         // <Goobstation> voring walls is good for iron intake
         if (args.Args.Target is {} target && _solution.TryGetSolution(target, "food", out _, out var food))
