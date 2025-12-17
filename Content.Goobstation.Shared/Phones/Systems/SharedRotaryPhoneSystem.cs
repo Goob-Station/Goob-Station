@@ -4,6 +4,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Storage.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -24,7 +25,6 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
     [Dependency] private readonly SharedJointSystem _jointSystem = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly SharedPvsOverrideSystem _pvsOverride = default!;
 
     public override void Initialize()
     {
@@ -37,11 +37,11 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         SubscribeLocalEvent<RotaryPhoneComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
         SubscribeLocalEvent<RotaryPhoneComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<RotaryPhoneHolderComponent, ExaminedEvent>(OnExamineHolder);
+        SubscribeLocalEvent<RotaryPhoneHolderComponent, EntInsertedIntoContainerMessage>(OnPhoneInsertHolder);
+        SubscribeLocalEvent<RotaryPhoneHolderComponent, ItemSlotInsertAttemptEvent>(OnInsertAttempt);
     }
-
     private void OnMapInit(EntityUid uid, RotaryPhoneComponent comp, MapInitEvent args)
     {
-        _pvsOverride.AddGlobalOverride(uid);
         if(comp.PhoneNumber == null)
             comp.PhoneNumber = _random.Next(11111,99999);
     }
@@ -56,15 +56,6 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
     {
         if (comp.PhoneNumber != null)
             args.PushMarkup(Loc.GetString("phone-number-description", ("number", comp.PhoneNumber)));
-
-        if(!_itemSlots.TryGetSlot(uid, "phone", out var phoneslot))
-            return;
-
-        RotaryPhoneComponent? stack = null;
-        if (phoneslot.Item == null || !TryComp(phoneslot.Item.Value, out stack) || stack.PhoneNumber == null)
-            return;
-
-        comp.PhoneNumber = stack.PhoneNumber.Value;
     }
 
 
@@ -89,6 +80,24 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         };
         args.Verbs.Add(verb);
     }
+
+    private void OnPhoneInsertHolder(EntityUid uid, RotaryPhoneHolderComponent comp, EntInsertedIntoContainerMessage args)
+    {
+        if (TryComp<RotaryPhoneComponent>(args.Entity, out var phone))
+        {
+            comp.PhoneNumber = phone.PhoneNumber;
+        }
+    }
+
+    private void OnInsertAttempt(EntityUid uid, RotaryPhoneHolderComponent comp, ref ItemSlotInsertAttemptEvent args)
+    {
+        if(!TryComp<RotaryPhoneComponent>(args.Item, out var phone))
+            return;
+
+        if(phone.PhoneNumber != comp.PhoneNumber)
+            args.Cancelled = true;
+    }
+
 
     private void OnUiClosed(EntityUid uid, RotaryPhoneComponent comp, BoundUIClosedEvent args)
     {

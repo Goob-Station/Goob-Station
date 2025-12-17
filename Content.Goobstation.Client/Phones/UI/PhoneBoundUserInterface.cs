@@ -43,12 +43,8 @@ public sealed class PhoneBoundUserInterface : BoundUserInterface
 
     protected override void UpdateState(BoundUserInterfaceState state)
     {
-        Logger.Debug("Updating PhoneBoundUserInterfaceState");
-
         if (_menu == null || state is not GoobPhoneBuiState s)
             return;
-
-        Logger.Debug("Got past goobphonebui check");
 
         Refresh(s);
     }

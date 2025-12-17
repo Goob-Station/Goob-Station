@@ -36,7 +36,6 @@ public sealed class RotaryPhoneSystem : EntitySystem
 
     private void OnOpen(EntityUid uid, RotaryPhoneComponent component, BoundUIOpenedEvent args)
     {
-        Logger.Debug("Opened fired");
         var state = new GoobPhoneBuiState(GetAllPhoneData());
         _ui.SetUiState(uid, PhoneUiKey.Key, state);
     }
