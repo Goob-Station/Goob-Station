@@ -69,7 +69,7 @@
 - type: entity
   id: BulletRifleUranium
   parent: BaseBulletUranium
-  name: bullet (05.56x45mm uranium)
+  name: bullet (5.56x45mm uranium)
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
