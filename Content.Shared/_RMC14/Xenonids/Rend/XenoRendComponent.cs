@@ -21,6 +21,10 @@ public sealed partial class XenoRendComponent : Component
     [DataField]
     public SoundSpecifier Sound = new SoundCollectionSpecifier("AlienClaw");
 
+    // Goob edit
+    [DataField]
+    public float BleedAmount = 50f;
+
     //[DataField]
     //public ProtoId<EmotePrototype> HissEmote = "Hiss";
 }

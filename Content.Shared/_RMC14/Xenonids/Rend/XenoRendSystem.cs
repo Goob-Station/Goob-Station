@@ -3,6 +3,8 @@
 //using Content.Shared._RMC14.Explosion;
 //using Content.Shared._RMC14.Xenonids.Sweep;
 //using Content.Shared.Coordinates;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Effects;
 //using Content.Shared.FixedPoint;
@@ -27,6 +29,7 @@ public sealed class XenoRendSystem : EntitySystem
     [Dependency] private readonly SharedColorFlashEffectSystem _colorFlash = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<XenoRendComponent, XenoRendActionEvent>(OnXenoRendAction);
@@ -62,6 +65,15 @@ public sealed class XenoRendSystem : EntitySystem
 
             //if (_net.IsServer)
             //SpawnAttachedTo(xeno.Comp.Effect, ent.Owner.ToCoordinates());
+
+            if (!TryComp<BloodstreamComponent>(ent.Owner, out var blood))
+                return;
+
+            if (ent.Owner == xeno.Owner)
+                continue;
+
+            _bloodstream.TryModifyBloodLevel((ent.Owner, blood), xeno.Comp.BleedAmount);
+            _bloodstream.TryModifyBleedAmount((ent.Owner, blood), blood.MaxBleedAmount);
 
             _audio.PlayPredicted(xeno.Comp.Sound, xeno, xeno);
         }

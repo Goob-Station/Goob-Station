@@ -130,6 +130,7 @@ public abstract class SharedXenoDestroySystem : EntitySystem
             RaiseNetworkEvent(ev, filter);
         }
 
+        _audio.PlayPredicted(xeno.Comp.HissSound, xeno, xeno);
         PredictedSpawnAtPosition(xeno.Comp.Telegraph, coords);
     }
 

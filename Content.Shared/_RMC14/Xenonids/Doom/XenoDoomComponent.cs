@@ -28,8 +28,8 @@ public sealed partial class XenoDoomComponent : Component
     //[DataField, AutoNetworkedField]
     //public FixedPoint2 RemovalPerReagent = 100;
 
-    //[DataField, AutoNetworkedField]
-    //public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/_RMC14/Xeno/deep_alien_screech2.ogg");
+    [DataField, AutoNetworkedField]
+    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/_RMC14/Xeno/deep_alien_screech2.ogg");
 
     [DataField, AutoNetworkedField]
     public EntProtoId Effect = "RMCEffectScreechKing";

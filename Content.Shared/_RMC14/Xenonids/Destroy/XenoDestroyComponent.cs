@@ -35,6 +35,9 @@ public sealed partial class XenoDestroyComponent : Component
     public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/_RMC14/Effects/meteorimpact.ogg");
 
     [DataField, AutoNetworkedField]
+    public SoundSpecifier HissSound = new SoundPathSpecifier("/Audio/_RMC14/Xeno/deep_alien_screech1.ogg");
+
+    [DataField, AutoNetworkedField]
     public EntityWhitelist Structures = new();
 
     [DataField, AutoNetworkedField]

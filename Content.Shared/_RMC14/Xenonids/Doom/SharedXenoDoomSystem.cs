@@ -112,7 +112,7 @@ public abstract class SharedXenoDoomSystem : EntitySystem
 
         args.Handled = true;
 
-        //_audio.PlayPredicted(xeno.Comp.Sound, xeno, xeno);
+        _audio.PlayPredicted(xeno.Comp.Sound, xeno, xeno);
         PredictedSpawnAttachedTo(xeno.Comp.Effect, xeno.Owner.ToCoordinates());
         //PredictedSpawnAtPosition(xeno.Comp.Smoke, xeno.Owner.ToCoordinates());
 
