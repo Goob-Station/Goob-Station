@@ -19385,3 +19385,25 @@ Entries:
       message: 'Fixed: Xenomorph Larva hosts being able to kill themselves.'
   id: 2190
   time: '2025-12-16T11:02:13.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: 'Added New Midround Antag: "The Grey Tide"'
+    - type: Add
+      message: 'Added New Midround Antag: "Tunnel Clown"'
+    - type: Add
+      message: 'Added New Midround Antag: "Singuloth Knights"'
+    - type: Add
+      message: 'Added New Midround Antag: "The Dark Lord"'
+    - type: Add
+      message: 'Added New Midround Antag: "Mime Assassin"'
+    - type: Add
+      message: 'Added New Midround Antag: "Dark Priest"'
+    - type: Add
+      message: 'Added New Midround Antags: "Vox Raiders"'
+    - type: Add
+      message: 'Added New Midround Protag: "The Chosen One"'
+    - type: Add
+      message: Added "Goblin clown"
+  id: 2191
+  time: '2025-12-17T18:00:56.0000000+00:00'

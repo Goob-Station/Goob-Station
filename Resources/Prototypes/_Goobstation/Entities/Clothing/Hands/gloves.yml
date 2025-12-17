@@ -356,6 +356,12 @@
   - type: Insulated
   - type: Caposoutfit
 
+- type: entity
+  parent: ClothingHandsGlovesColorYellow
+  id: ClothingHandsGlovesColorYellowUnremovable
+  suffix: Unremovable
+  components:
+  - type: Unremoveable
 
 # Knuckle Dusters
 
