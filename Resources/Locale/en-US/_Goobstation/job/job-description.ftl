@@ -31,3 +31,6 @@ job-description-hecu = Fufill the orders of your supervisor, no matter the moral
 job-description-conquest = Stand ready for my arrival, worm.
 job-description-mercenarycaptain = Order other mercs around. Act as muscle for the highest bidder. Just because it's NT now, doesn't mean it won't change later.
 job-description-roboticist = Build and maintain borgs and mechs. Keep the AI in check.
+
+# Viro
+job-description-virologist = Study spreading viruses, produce cures for ailing crewmembers, experiment in creating beneficial viruses. Make sure pandemics don't spread.
