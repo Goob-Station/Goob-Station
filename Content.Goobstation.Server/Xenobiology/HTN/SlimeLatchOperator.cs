@@ -9,7 +9,6 @@ using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
-using Content.Shared.DoAfter;
 
 namespace Content.Goobstation.Server.Xenobiology.HTN;
 
@@ -37,7 +36,6 @@ public sealed partial class SlimeLatchOperator : HTNOperator
         if (!_entManager.TryGetComponent<SlimeComponent>(owner, out var slime))
             return HTNOperatorStatus.Failed;
 
-        // already latched. why bother
         if (_slimeLatch.IsLatched((owner, slime), target))
             return HTNOperatorStatus.Finished;
 
