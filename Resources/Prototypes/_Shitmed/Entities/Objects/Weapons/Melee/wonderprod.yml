@@ -123,7 +123,7 @@
           attackRate: 1
           damage:
             types:
-              Ion: 30
+              Ion: 0
           angle: 60
           animation: WeaponArcThrust
         - type: InjectOnHit
