@@ -146,18 +146,6 @@
       - 0    # nitrogen
       - 0    # CO2
       - 100  # plasma
-  - type: Fixtures
-    fixtures: # TODO: This needs a second fixture just for mob collisions.
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 160
-        restitution: 0.0
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
   - type: Destructible
     thresholds:
     - trigger:

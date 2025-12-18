@@ -526,7 +526,7 @@
   icon: { sprite: /Textures/Clothing/Head/Helmets/swat_syndicate.rsi, state: icon }
   productEntity: ClothingHeadHelmetSwatSyndicate
   cost:
-    Telecrystal: 10
+    Telecrystal: 5
   categories:
   - UplinkWearables
 
@@ -587,6 +587,28 @@
   productEntity: BoxReverseBearTrap
   cost:
     Telecrystal: 23 # novelty item for rp
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkSecondSkinSyndicate
+  name: uplink-second-skin-name
+  description: uplink-second-skin-desc
+  icon: { sprite: _Goobstation/Clothing/OuterClothing/second_skin.rsi, state: action }
+  productEntity: SecondSkinSyndicate
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkClothingHandsGlovesGuerrilla
+  name: uplink-guerrilla-gloves-name
+  description: uplink-guerrilla-gloves-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
+  productEntity: ClothingHandsGlovesGuerrilla
+  cost:
+    Telecrystal: 20
   categories:
   - UplinkWearables
 
@@ -766,6 +788,23 @@
   - !type:BuyerJobCondition
     whitelist:
     - SalvageSpecialist
+
+- type: listing
+  id: UplinkGreyTide
+  name: uplink-grey-tide-name
+  description: uplink-grey-tide-desc
+  icon: { sprite: Objects/Weapons/Melee/plasma_spear.rsi, state: spear }
+  productEntity: SpearGreyTide
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Passenger
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 # chemicals
 
@@ -1532,11 +1571,11 @@
     - Dwarf # Rock and stone
 
 - type: listing
-  id: UplinkBloodredCasette
-  name: uplink-bloodred-casette-name
-  description: uplink-bloodred-casette-desc
-  icon: { sprite: _Goobstation/Objects/Fun/bloodmonica.rsi, state: icon }
-  productEntity: BloodredCasette
+  id: UplinkBloodredCassette
+  name: uplink-bloodred-cassette-name
+  description: uplink-bloodred-cassette-desc
+  icon: { sprite: _Goobstation/Objects/Fun/bloodred_cassette_player.rsi, state: icon }
+  productEntity: BloodredCassette
   cost:
     Telecrystal: 3
   categories:
@@ -1571,3 +1610,13 @@
     Telecrystal: 40
   categories:
   - UplinkPointless
+
+- type: listing
+  id: UplinkCustomLawboard
+  name: uplink-customboard-name
+  description: uplink-customboard-desc
+  productEntity: SyndicateCustomLawboard
+  cost:
+    Telecrystal: 50 # Same price as what Antimov was. Might be worth increasing the price for nukies as they can do some BAD things with this.
+  categories:
+  - UplinkDisruption

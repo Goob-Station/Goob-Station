@@ -40,20 +40,22 @@
   - type: PlayerToolModifier
     pryTimeMultiplier: 0.6
   - type: PlayerAccuracyModifier
-    spreadMultiplier: 15
-    maxSpreadAngle: 180
-  - type: BonusStaminaDamage
-    multiplier: 1.25
+    blacklist:
+      components:
+      - DamageBoostOnMarker
+      - LeechOnMarker
+      - ArcaneBarrage
+      tags:
+      - WizardWand
+      - WizardStaff
   - type: BonusMeleeDamage
     damageModifierSet:
       coefficients:
-        Blunt: 1.3
-        Slash: 1.3
-        Piercing: 1.3
-        Asphyxiation: 1.3
-        Structural: 1.3
-  - type: Damageable
-    damageModifierSet: Oni
+        Blunt: 1.1
+        Slash: 1.1
+        Piercing: 1.1
+        Asphyxiation: 1.1
+        Structural: 1.1
   - type: Body
     prototype: Oni
   - type: LightweightDrunk
@@ -64,14 +66,12 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35 # Goobstation: port EE height/width sliders
-        density: 275 #Goob - HEAVY Bastards
+        density: 240
         restitution: 0.0
         mask:
         - MobMask
         layer:
         - MobLayer
-  - type: Stamina
-    critThreshold: 115
   - type: TypingIndicator
     proto: oni
   - type: Tag

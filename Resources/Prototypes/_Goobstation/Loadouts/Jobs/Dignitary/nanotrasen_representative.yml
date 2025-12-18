@@ -177,6 +177,10 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentative
 
+- type: loadout
+  id: NanotrasenRepresentativeFancyJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentativeFancy
 
 - type: loadout
   id: NanotrasenRepresentativeJumpskirt

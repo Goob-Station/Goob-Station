@@ -11,7 +11,7 @@
     Dragon: 1
     # Revenant: 1 # Goob - Removed in favor of LoneOperative
     SlaughterDemon: 1 # Goobstation
-    Wraith: 1 # Goobstation
+    # Wraith: 1 # Goobstation
     LoneOperative: 1 # Goobstation
     #TODO When Slasher is ready Slasher: 1 # Goobstation
 
@@ -31,12 +31,13 @@
   announcement: terror-lone-operative
   rule: LoneOpsSpawn
 
-- type: ninjaHackingThreat
-  id: Wraith
-  announcement: terror-wraith
-  rule: WraithMidround
+# Goob - Wraith
+#- type: ninjaHackingThreat
+#  id: Wraith
+#  announcement: terror-wraith
+#  rule: WraithMidround
 
-# TODO When Slasher is ready
+# TODO When Slasher is Ready
 #- type: ninjaHackingThreat
 #  id: Slasher
 #  announcement: terror-slasher

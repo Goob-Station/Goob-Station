@@ -53,6 +53,7 @@
   - type: BreathingImmunity
   - type: SpecialLowTempImmunity
   - type: ThermalVision
+    thermalShader: null
     color: "#BF40BF"
     activateSound: null
     deactivateSound: null
@@ -87,6 +88,10 @@
         Base: asc_dead
   - type: NameIdentifier
     identifier: 1
+  - type: CollectiveMind # goob edit
+    defaultChannel: Shadowmind
+    channels:
+    - Shadowmind
   - type: CurseImmune
 
 - type: entity
