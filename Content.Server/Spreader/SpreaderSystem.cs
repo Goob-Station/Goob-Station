@@ -57,7 +57,7 @@ public sealed class SpreaderSystem : EntitySystem
 
     // goob edit - faster smoke.
     // it's funny how it's stored here and spreader prototype updates have 0 references.
-    public const float SpreadCooldownSeconds = .15f;
+    public const float SpreadCooldownSeconds = .33f;
 
     private static readonly ProtoId<TagPrototype> IgnoredTag = "SpreaderIgnore";
 

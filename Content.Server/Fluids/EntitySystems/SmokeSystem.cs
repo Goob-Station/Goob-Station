@@ -163,7 +163,7 @@ public sealed class SmokeSystem : EntitySystem
             if (curTime < smoke.NextSecond)
                 continue;
 
-            smoke.NextSecond += TimeSpan.FromSeconds(1);
+            smoke.NextSecond += TimeSpan.FromSeconds(1.5f); // goob edit - increased the timer
             SmokeReact(uid, smoke.SmokeEntity);
         }
     }

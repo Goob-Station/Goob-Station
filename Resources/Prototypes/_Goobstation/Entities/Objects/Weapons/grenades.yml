@@ -13,9 +13,9 @@
   - type: Sprite
     sprite: Objects/Weapons/Grenades/tear_gas.rsi
   - type: SmokeOnTrigger # drop duration to 15 if it's a problem (wont crit from caustic) btw lab coats reduce the caustic damage
-    duration: 15 # Lower and you wont even crit from the caustic if you have internals on, also useful for area denial
+    duration: 20 # Lower and you wont even crit from the caustic if you have internals on, also useful for area denial
     spreadAmount: 30
     solution:
       reagents:
       - ReagentId: Sarin
-        Quantity: 25 # it's already a death sentence bro
+        Quantity: 50
