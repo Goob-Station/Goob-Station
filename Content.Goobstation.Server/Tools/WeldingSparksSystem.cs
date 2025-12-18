@@ -1,7 +1,10 @@
 using Content.Goobstation.Common.Tools;
+using Content.Goobstation.Shared.Tools;
 using Content.Server.Tools;
+using Content.Shared.Doors.Components;
 using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Tools;
 
@@ -36,7 +39,8 @@ public sealed class WeldingSparksSystem : EntitySystem
         {
             RemoveFromTarget(target);
         }
-        _spawnedEffects.Add(target, Spawn(ent.Comp.EffectProto, Transform(target).Coordinates));
+
+        AddToTarget(ent.Comp.EffectProto, target, args.DoAfterLength);
     }
 
     private void OnAfterUseTool(Entity<WeldingSparksComponent> ent, ref SharedToolSystem.ToolDoAfterEvent args)
@@ -44,6 +48,24 @@ public sealed class WeldingSparksSystem : EntitySystem
         if (args.OriginalTarget is not { } target)
             return;
         RemoveFromTarget(GetEntity(target));
+    }
+
+    private void AddToTarget(EntProtoId effectProto, EntityUid target, TimeSpan weldingTime)
+    {
+        var effect = SpawnAttachedTo(effectProto, Transform(target).Coordinates);
+        _spawnedEffects.Add(target, effect);
+
+        // If it's a door then play an animation of welding the seam.
+        if (TryComp<DoorComponent>(target, out var door))
+        {
+            RaiseNetworkEvent(new PlayWeldAnimationEvent(
+                GetNetEntity(effect),
+                new WeldAnimationData(
+                    HasComp<FirelockComponent>(target) ? AnimationType.Firelock : AnimationType.Airlock,
+                    door.State == DoorState.Welded,
+                    weldingTime)
+            ));
+        }
     }
 
     private void RemoveFromTarget(EntityUid target)

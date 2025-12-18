@@ -2,6 +2,7 @@
   id: EffectWeldingSparks
   #categories: [ HideSpawnMenu ] // remember to uncomment these
   components:
+  - type: WeldingSparksVisuals
   - type: Sprite
     snapCardinals: true
     noRot: true
