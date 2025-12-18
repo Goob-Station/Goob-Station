@@ -166,3 +166,14 @@
     # TODO: add a special component to Syndicate nuke, so pinpointers can
     # ignore it and instead track only station nukes
     targetName: nuclear fission explosive
+
+- type: entity
+  name: dark lord pinpointer
+  id: PinpointerDarkLord
+  parent: [ PinpointerBase, BaseCommandContraband ]
+  components:
+  - type: Pinpointer
+    whitelist: # Goob edit: pinpointer whitelist
+      components:
+      - DarkLordMarker
+    targetName: the Dark Lord

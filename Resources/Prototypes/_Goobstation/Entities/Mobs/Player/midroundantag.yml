@@ -50,6 +50,7 @@
     actions:
     - ActionRepulseNoRobes
     - ActionBlindSpell
+  - type: MindShield
   - type: RandomHumanoidAppearance
     randomizeName: true
   - type: Loadout
