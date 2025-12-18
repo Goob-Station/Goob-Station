@@ -29,6 +29,9 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Robust.Shared.Random;
+using Robust.Shared.Audio;
+using Robust.Server.Audio;
 
 namespace Content.Server.NukeOps;
 
@@ -45,6 +48,8 @@ public sealed class WarDeclaratorSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
     [Dependency] private readonly SharedSpecialAnimationSystem _specialAnimation = default!; // Goob edit
+    [Dependency] private readonly IRobustRandom _random = default!; // Goob edit - War Not Guaranteed
+    [Dependency] private readonly AudioSystem _audio = default!; // Goob edit - War Not Guaranteed
 
     public override void Initialize()
     {
@@ -64,14 +69,28 @@ public sealed class WarDeclaratorSystem : EntitySystem
     {
         if (!_accessReaderSystem.IsAllowed(args.User, ent))
         {
-            var msg = Loc.GetString("war-declarator-not-working");
-            _popupSystem.PopupEntity(msg, ent);
+            var msgnoaccess = Loc.GetString("war-declarator-not-working");
+            _popupSystem.PopupEntity(msgnoaccess, ent);
             args.Cancel();
             return;
         }
 
-        UpdateUI(ent, ent.Comp.CurrentStatus);
-    }
+///Goobstation start - War Not Guaranteed
+        if (!ent.Comp.HasRunNoWarCheck && _random.Prob(0.4f))
+        {
+            var coords = Transform(args.User).Coordinates;
+            var msgwarfail = Loc.GetString("war-declarator-random-failure");
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/buzz-two.ogg"), coords);
+            _popupSystem.PopupCoordinates(msgwarfail, coords);
+            QueueDel(ent);
+            return;
+        }
+
+        ent.Comp.HasRunNoWarCheck = true;
+///Goobstation end - War Not Guaranteed
+
+            UpdateUI(ent, ent.Comp.CurrentStatus);
+        }
 
     private void OnActivated(Entity<WarDeclaratorComponent> ent, ref WarDeclaratorActivateMessage args)
     {

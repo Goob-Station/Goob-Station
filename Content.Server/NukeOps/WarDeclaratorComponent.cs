@@ -37,6 +37,16 @@ public sealed partial class WarDeclaratorComponent : Component
     [DataField]
     public bool AllowEditingMessage = true;
 
+    /// Goob edit start - War Not Guaranteed
+    /// <summary>
+    /// The 40% chance for the declarator to vanish check, runs once.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
+
+    public bool HasRunNoWarCheck = false;
+    /// Goob edit end - War Not Guaranteed
+
     /// <summary>
     /// War declaration text color
     /// </summary>

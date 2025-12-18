@@ -7,6 +7,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 war-declarator-not-working = The device makes beeping noises, but nothing happens...
+war-declarator-random-failure = The device emits a loud buzz before vanishing into thin air.
 war-declarator-ui-header = Declaration of War
 war-declarator-ui-war-button = DECLARE WAR!
 war-declarator-ui-try-war-button = Try to declare war
