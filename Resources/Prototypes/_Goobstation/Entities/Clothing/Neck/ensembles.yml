@@ -95,7 +95,7 @@
   components:
   - type: Item
     size: Small
-    heldPrefix: both
+    heldPrefix: all
     inhandVisuals:
       left:
       - state: inhand-left
@@ -105,17 +105,17 @@
     sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
-    equippedPrefix: both
+    equippedPrefix: all
     slots:
     - Neck
   - type: StealTarget
     stealGroup: HeadCloak
   - type: ItemSwitch
-    state: both
+    state: all
     showLabel: true
     states:
-      both: !type:ItemSwitchState
-        verb: both
+      all: !type:ItemSwitchState
+        verb: all
         sprite:
           sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
           state: icon
@@ -129,7 +129,26 @@
         sprite:
           sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
           state: cloak-icon
-
+      wings: !type:ItemSwitchState
+        verb: wings
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
+          state: wings-icon
+      cloakmantle: !type:ItemSwitchState
+        verb: cloak&mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
+          state: cloakmantle-icon
+      cloakwings: !type:ItemSwitchState
+        verb: cloak&wings
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
+          state: cloakwings-icon
+      mantlewings: !type:ItemSwitchState
+        verb: mantle&wings
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
+          state: mantlewings-icon
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleHeadOfSecurity
