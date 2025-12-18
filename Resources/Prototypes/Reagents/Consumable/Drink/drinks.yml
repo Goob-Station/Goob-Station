@@ -138,7 +138,7 @@
 - type: reagent
   id: Cream
   name: reagent-name-cream
-  group: Drinks
+  #group: Drinks - Goob: Drinks guidebook split
   desc: reagent-desc-cream
   physicalDesc: reagent-physical-desc-creamy
   flavor: creamy
@@ -299,7 +299,7 @@
   id: JuiceBerryPoison
   parent: BaseJuice
   name: reagent-name-juice-berry-poison
-  group: Drinks
+  #group: Drinks - Goob: Drinks guidebook split
   desc: reagent-desc-juice-berry-poison
   physicalDesc: reagent-physical-desc-sickly
   flavor: bitter
@@ -323,7 +323,7 @@
   id: Lemonade
   parent: BaseJuice
   name: reagent-name-lemonade
-  group: Drinks
+  #group: Drinks - Goob: Drinks guidebook split
   desc: reagent-desc-lemonade
   physicalDesc: reagent-physical-desc-tart
   flavor: sweet
@@ -343,7 +343,7 @@
 - type: reagent
   id: Milk
   name: reagent-name-milk
-  group: Drinks
+  #group: Drinks - Goob: Drinks guidebook split
   desc: reagent-desc-milk
   physicalDesc: reagent-physical-desc-opaque
   flavor: milk
@@ -380,7 +380,7 @@
 - type: reagent
   id: MilkOat
   name: reagent-name-milk-oat
-  group: Drinks
+  #group: Drinks - Goob: Drinks guidebook split
   desc: reagent-desc-milk-oat
   physicalDesc: reagent-physical-desc-refreshing
   flavor: oats
@@ -404,7 +404,7 @@
 - type: reagent
   id: MilkSpoiled
   name: reagent-name-milk-spoiled
-  group: Drinks
+  #group: Drinks - Goob: Drinks guidebook split
   desc: reagent-desc-milk-spoiled
   physicalDesc: reagent-physical-desc-putrid
   flavor: terrible
@@ -419,7 +419,7 @@
   id: Nothing
   name: reagent-name-nothing
   desc: reagent-desc-nothing
-  group: Drinks
+  #group: Drinks - Goob: Drinks guidebook split
   physicalDesc: reagent-physical-desc-nothing
   metabolisms:
     Drink:
@@ -432,7 +432,7 @@
   id: NuclearCola
   parent: BaseSoda
   name: reagent-name-nuclear-cola
-  group: Drinks
+  #group: Drinks - Goob: Drinks guidebook split
   desc: reagent-desc-nuclear-cola
   physicalDesc: reagent-physical-desc-fizzy
   flavor: atomiccola

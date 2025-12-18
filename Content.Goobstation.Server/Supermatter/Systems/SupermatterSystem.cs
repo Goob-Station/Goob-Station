@@ -650,7 +650,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     private void OnItemInteract(EntityUid uid, SupermatterComponent sm, ref InteractUsingEvent args)
     {
-        if (HasComp<SupermatterImmuneComponent>(args.User))
+        if (!HasComp<SupermatterImmuneComponent>(args.User))
             return;
 
         if (!sm.Activated)
