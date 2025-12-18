@@ -4914,3 +4914,10 @@ Entries:
   id: 9316
   time: '2025-12-18T20:55:15.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/33251
+- author: Empoleon4444
+  changes:
+  - message: Changed Ghost Role Raffles to be shorter overall
+    type: Tweak
+  id: 9317
+  time: '2025-12-18T21:08:51.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/33157
