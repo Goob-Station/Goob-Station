@@ -93,6 +93,12 @@ public sealed partial class BoostedImmunityComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool RemoveAlienEmbryo = true;
+    
+    /// <summary>
+    /// Should the entity be cured of all diseases?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool RemoveDiseases = true;
 
     [DataField, AutoNetworkedField]
     public float ToxinHeal = -10f;
@@ -103,5 +109,5 @@ public sealed partial class BoostedImmunityComponent : Component
     [DataField, AutoNetworkedField]
     public int EyeDamageHeal = 1;
 
-    // add bools later for curing diseases and mutations (when they exist)
+    // add bool later for curing mutations (when they exist)
 }
