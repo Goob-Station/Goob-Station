@@ -96,6 +96,8 @@
   - type: Tag
     tags:
     - HideContextMenu
+  - type: Physics
+    canCollide: false
 
 - type: entity
   id: SpaceLeviathanDespawn
