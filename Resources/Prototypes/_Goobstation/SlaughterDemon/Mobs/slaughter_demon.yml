@@ -135,7 +135,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 1000
+        density: 666
         mask:
         - MobMask
         layer:
@@ -182,7 +182,7 @@
     heatDamage:
       types:
         Heat: 0
-    heatDamageThreshold: 666 
+    heatDamageThreshold: 666
     coldDamageThreshold: 66
 
 # laughter demon

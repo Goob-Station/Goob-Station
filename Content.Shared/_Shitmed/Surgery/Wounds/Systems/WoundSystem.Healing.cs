@@ -130,7 +130,7 @@ public partial class WoundSystem
             .Select(x => x.Woundable)
             .ToList();
 
-        float remainingHealAmount = healAmount;
+        float remainingHealAmount = healAmount * sortedWoundables.Count();
         bool anyHealed = false;
 
         // Apply healing to each woundable in order

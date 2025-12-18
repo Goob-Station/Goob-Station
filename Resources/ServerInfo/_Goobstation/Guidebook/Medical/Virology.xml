@@ -1,0 +1,95 @@
+<Document>
+# Virology
+This is a guide to diseases and how to handle them.
+
+## Infection
+Diseases initially come from a specific source. Most often, it's a plague mouse.
+
+<GuideEntityEmbed Entity="MobMousePlague" Caption="plague mouse"/>
+
+If you're bitten by a plague mouse, there's a significant chance you get infected with a disease. The disease is random and can be anything, but will generally be weak. Alternatively, someone can cough near you, and you will get infected if not wearing protective gear.
+
+Infections can also affect monkeys and other mice, but diseases do not have any effect in mice, so they act as disease spread vectors. However, non-plague mice have a smaller chance to infect on bite.
+
+## Disease lifecycle
+Once you're infected, the disease gains infection progress while inside of you. The only way to tell you're infected at this point is to use a health analyzer or a swab. Additionally, you gain permanent immunity to that disease's genotype, as if you've taken a vaccine, so one disease can't infect you twice.
+
+Symptoms will begin showing up once the infection progress crosses certain thresholds. The more infection progress, the stronger the effects. Eventually it will hit its full force and stop progressing.
+
+At that time, immunity progress will also start catching up, if not suppressed by the disease. Immunity progress will make the infection progress slow down and eventually reverse. For most diseases, this will make you eventually lose the disease on your own.
+
+Disease effects can be varied. Most diseases will have some effect that makes it obvious you are sick, but rarely they will simply silently damage you. Some diseases will fight back against your immunity, not going away on their own.
+
+Once the infection progress hits 0, you lose the disease.
+
+## Treatment
+There's several ways to treat diseases.
+
+The first and most important, of course, is simply not getting infected:
+- Avoid mice, especially if it's trying to bite you.
+- If you see someone coughing, keep away.
+- Wear sterile masks and other protective gear. Wear a biosuit for full protection. They can be ordered at cargo.
+- Wear a MedHUD to see who is infected.
+- Vaccines. If the virologist has gotten their hands on a disease, they might have a vaccine that will make you permanently immune.
+
+If that didn't work, you'll have to cure the disease, and not even vaccines will work. This can be done in several ways:
+- Immurin. It's a chemical that boosts your immunity, causing the disease to go away on its own much quicker.
+- Specialised anti-disease-type chemicals, such as devirate or spaceacilin.
+- Additionally, pay a visit to the virologist and let them swab you so they may analyze the disease and make vaccines against it.
+
+## Disease specifics and mutation
+Diseases aren't static, and they mutate every time they spread. Just about everything about a disease can mutate, even mutation rate itself, but not the disease type. Bacteria aren't going to mutate into viruses.
+
+The main properties of a disease are its genotype and its effects.
+
+The genotype is relevant for immunity against this disease. If the disease mutates its genotype, the resulting mutated disease will be able to infect even people who have been sick with the original disease.
+
+The disease effects are self-explanatory. It's what the disease does, such as coughing, damage, immunity suppression, vomiting, or positive effects such as speeding you up.
+
+# Virologist
+This is a sub-guide on how to be the virologist.
+
+## The job
+As a virologist, your job is both to combat disease and to use it to your advantage.
+
+You have many tools you can use for that purpose.
+
+## Your toolkit
+- Your ViroHUD. It's significantly more avanced than the MedHUD at spotting who is infected, and can tell the rough severity.
+- Disease-related chemicals. Ask chemistry to make some.
+- Your biosuit, which will protect you from infection. Plague mice can't infect you through it.
+- Swabs, which let you take samples of disease from infected people.
+- A health analyzer, which can see what people are infected with.
+- And of course, your virology machinery.
+
+<Box>
+<GuideEntityEmbed Entity="ClothingEyesHudViro" Caption="viro HUD"/>
+<GuideEntityEmbed Entity="VirologistPDA"/>
+<GuideEntityEmbed Entity="ClothingOuterBioVirology" Caption="biosuit"/>
+<GuideEntityEmbed Entity="Syringe"/>
+<GuideEntityEmbed Entity="HandheldHealthAnalyzer"/>
+</Box>
+
+## Virology machines
+The disease analyzer and vaccinator are necessary to be able to properly handle disease. To use both of the machines, you will need a swab with disease on it. To get one, take a sterile swab and use it on someone who is infected.
+
+<GuideEntityEmbed Entity="DiseaseSwab" Caption="swab"/>
+
+The disease analyzer is a machine that can tell the specifics of a disease. It's important for triage and deciding what to do about the disease.
+
+<GuideEntityEmbed Entity="DiseaseDiagnoser" Caption="disease analyzer"/>
+
+The vaccinator has 2 modes. Vaccine mode, and live injector mode. In vaccine mode, when inserted a swab, it will output a vaccine against the genotype of the disease on the swab. Vaccines make it so that people they are applied to gain permanent immunity to the disease's genotype. In live injector mode, the vaccinator will instead output an injector that infects whoever it's applied to with the source disease.
+
+<Box>
+<GuideEntityEmbed Entity="Vaccine" Caption="vaccine"/>
+<GuideEntityEmbed Entity="LiveInjector" Caption="injector"/>
+<GuideEntityEmbed Entity="Vaccinator" Caption="vaccinator"/>
+</Box>
+
+## Experimentation
+And now, on why the live injector mode is needed, other than purposes not condoned by Nanotrasen.
+
+Diseases work on monkeys, so you can infect them and try to get the disease to mutate. Eventually, this might result in a positive effect, getting you a helpful disease. Additionally, if you get lucky, you might get a disease with the same genotype but way weaker. People sick with the weaker disease will gain immunity against the original disease. There's more usages that this guide won't go through.
+
+</Document>
