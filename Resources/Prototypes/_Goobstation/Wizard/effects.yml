@@ -450,3 +450,5 @@
         hard: false
   - type: HomingProjectile
     homingSpeed: null
+  - type: TileFrictionModifier
+    modifier: 0

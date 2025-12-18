@@ -28,6 +28,7 @@
     baseSprintSpeed: 5
     baseWeightlessModifier: 1.5
   - type: Insulated
+  - type: ZombieImmune # Goobstation
   - type: StepTriggerImmune
   - type: Clickable
   - type: Physics
@@ -50,7 +51,9 @@
     deactivateSound: null
   - type: PressureImmunity
   - type: BreathingImmunity
+  - type: SpecialLowTempImmunity
   - type: ThermalVision
+    thermalShader: null
     color: "#BF40BF"
     activateSound: null
     deactivateSound: null
@@ -85,6 +88,11 @@
         Base: asc_dead
   - type: NameIdentifier
     identifier: 1
+  - type: CollectiveMind # goob edit
+    defaultChannel: Shadowmind
+    channels:
+    - Shadowmind
+  - type: CurseImmune
 
 - type: entity
   parent: [BaseMobShadowlingAscendant]

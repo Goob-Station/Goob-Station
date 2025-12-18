@@ -220,7 +220,8 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         if (!TryComp<RandomTeleportComponent>(uid, out var teleport))
             return;
 
-        _teleportSys.RandomTeleport(ent, teleport);
+        if (!_teleportSys.RandomTeleport(ent, teleport))
+            return;
 
         args.Handled = true;
     }

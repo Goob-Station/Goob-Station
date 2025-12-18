@@ -194,4 +194,10 @@ public sealed partial class StaminaComponent : Component
     public Vector2 StartOffset = Vector2.Zero;
 
     #endregion
+
+    /// <summary>
+    /// Goobstation - Used for the sprinting event to get rather we sprinting or not from Goob Mod folder
+    /// </summary>
+    [DataField]
+    public bool IsSprinting { get; set; }
 }

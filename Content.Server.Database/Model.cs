@@ -117,6 +117,7 @@
 // SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Zekins <zekins3366@gmail.com>
 // SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -189,6 +190,11 @@ namespace Content.Server.Database
         public DbSet<RMCLinkedAccountLogs> RMCLinkedAccountLogs { get; set; } = default!;
         public DbSet<RMCPatronLobbyMessage> RMCPatronLobbyMessages { get; set; } = default!;
         public DbSet<RMCPatronRoundEndNTShoutout> RMCPatronRoundEndNTShoutouts { get; set; } = default!;
+
+        // Goobstation Polls
+        public DbSet<Poll> Polls { get; set; } = default!;
+        public DbSet<PollOption> PollOptions { get; set; } = default!;
+        public DbSet<PollVote> PollVotes { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -568,6 +574,43 @@ namespace Content.Server.Database
                 .HasForeignKey(l => l.DiscordId)
                 .HasPrincipalKey(p => p.Id)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            // Goobstation Polls
+            modelBuilder.Entity<Poll>()
+                .HasOne(p => p.CreatedBy)
+                .WithMany()
+                .HasForeignKey(p => p.CreatedById)
+                .HasPrincipalKey(p => p.UserId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<PollOption>()
+                .HasOne(o => o.Poll)
+                .WithMany(p => p.Options)
+                .HasForeignKey(o => o.PollId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<PollVote>()
+                .HasOne(v => v.Poll)
+                .WithMany(p => p.Votes)
+                .HasForeignKey(v => v.PollId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<PollVote>()
+                .HasOne(v => v.PollOption)
+                .WithMany(o => o.Votes)
+                .HasForeignKey(v => v.PollOptionId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<PollVote>()
+                .HasOne(v => v.Player)
+                .WithMany()
+                .HasForeignKey(v => v.PlayerUserId)
+                .HasPrincipalKey(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<PollVote>()
+                .HasIndex(v => new { v.PollId, v.PlayerUserId, v.PollOptionId })
+                .IsUnique();
         }
 
         public virtual IQueryable<AdminLog> SearchLogs(IQueryable<AdminLog> query, string searchText)
@@ -605,6 +648,7 @@ namespace Content.Server.Database
         public string Species { get; set; } = null!;
         public float Height { get; set; } = 1f; // Goobstation: port EE height/width sliders
         public float Width { get; set; } = 1f; // Goobstation: port EE height/width sliders
+        public string BarkVoice { get; set; } = null!; // Goob Station - Barks
         [Column(TypeName = "jsonb")] public JsonDocument? Markings { get; set; } = null!;
         public string HairName { get; set; } = null!;
         public string HairColor { get; set; } = null!;

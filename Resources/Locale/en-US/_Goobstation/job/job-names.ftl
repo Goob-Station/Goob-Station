@@ -12,6 +12,7 @@ job-name-salvagediver = Salvage Diver
 job-name-ntr = Nanotrasen Representative
 job-name-bs = Blueshield
 job-name-overall = Overall
+job-name-tider = Tider
 
 job-name-exec = Executive Access
 
@@ -52,3 +53,6 @@ JobGovernmentMan = The G-Man
 JobConquest = Conquest
 JobInspector = Central Command Auditor
 JobMercenaryCaptain = Mercenary Captain
+JobRoboticist = Roboticist
+
+JobVirologist = Virologist

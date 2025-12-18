@@ -112,6 +112,7 @@
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Zekins <zekins3366@gmail.com>
 // SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -388,6 +389,8 @@ namespace Content.Server.Database
                 loadouts[role.RoleName] = loadout;
             }
 
+            var barkVoice = profile.BarkVoice ?? SharedHumanoidAppearanceSystem.DefaultBarkVoice; // Goob Station - Barks
+
             return new HumanoidCharacterProfile(
                 profile.CharacterName,
                 profile.FlavorText,
@@ -412,7 +415,8 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts
+                loadouts,
+                barkVoice // Goob Station - Barks
             );
         }
 
@@ -464,6 +468,8 @@ namespace Content.Server.Database
                 humanoid.TraitPreferences
                         .Select(t => new Trait { TraitName = t })
             );
+
+            profile.BarkVoice = humanoid.BarkVoice; // Goob Station - Barks
 
             profile.Loadouts.Clear();
 
@@ -2046,9 +2052,8 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             await db.DbContext.SaveChangesAsync();
         }
 
-        public async Task<(string Message, string User)?> GetRandomLobbyMessage()
+        public async Task<List<(string Message, string User)>> GetLobbyMessages()
         {
-            // TODO RMC14 the random row is evaluated outside the DB, if we have that many patrons I guess we have better problems!
             await using var db = await GetDb();
             var messages = await db.DbContext.RMCPatronLobbyMessages
                 .Include(p => p.Patron)
@@ -2056,18 +2061,14 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 .Where(p => p.Patron.Tier.LobbyMessage)
                 .Where(p => !string.IsNullOrWhiteSpace(p.Message))
                 .Select(p => new { p.Message, p.Patron.Player.LastSeenUserName })
+                .Select(p => new ValueTuple<string, string>(p.Message, p.LastSeenUserName))
                 .ToListAsync();
 
-            if (messages.Count == 0)
-                return null;
-
-            var random = messages[Random.Shared.Next(messages.Count)];
-            return (random.Message, random.LastSeenUserName);
+            return messages;
         }
 
-        public async Task<string?> GetRandomShoutout()
+        public async Task<List<string>> GetShoutouts()
         {
-            // TODO RMC14 the random row is evaluated outside the DB, if we have that many patrons I guess we have better problems!
             await using var db = await GetDb();
             var ntNames = await db.DbContext.RMCPatronRoundEndNTShoutouts
                 .Include(p => p.Patron)
@@ -2076,12 +2077,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 .Select(p => p.Name)
                 .ToListAsync();
 
-            var ntName = ntNames.Count == 0 ? null : ntNames[Random.Shared.Next(ntNames.Count)];
-
-            if (ntName == null)
-                ntName = "John Nanotrasen";
-
-            return (ntName);
+            return ntNames;
         }
 
         #endregion
@@ -2149,6 +2145,170 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
             await db.DbContext.SaveChangesAsync();
             return true;
+        }
+
+        #endregion
+
+        #region Goob Polls
+
+        public async Task<int> CreatePollAsync(Poll poll)
+        {
+            await using var db = await GetDb();
+            db.DbContext.Polls.Add(poll);
+            await db.DbContext.SaveChangesAsync();
+            return poll.Id;
+        }
+
+        public async Task<Poll?> GetPollAsync(int pollId, CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            return await db.DbContext.Polls
+                .Include(p => p.Options)
+                .Include(p => p.Votes)
+                .Include(p => p.CreatedBy)
+                .AsSplitQuery()
+                .SingleOrDefaultAsync(p => p.Id == pollId, cancel);
+        }
+
+        public async Task<List<Poll>> GetActivePollsAsync(CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            return await db.DbContext.Polls
+                .Include(p => p.Options)
+                .Include(p => p.CreatedBy)
+                .AsSplitQuery()
+                .Where(p => p.Active && (p.EndTime == null || p.EndTime > DateTime.UtcNow))
+                .OrderByDescending(p => p.StartTime)
+                .ToListAsync(cancel);
+        }
+
+        public async Task<List<Poll>> GetAllPollsAsync(bool includeInactive = true, CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            var query = db.DbContext.Polls
+                .Include(p => p.Options)
+                .Include(p => p.CreatedBy)
+                .AsSplitQuery();
+
+            if (!includeInactive)
+                query = query.Where(p => p.Active);
+
+            return await query.OrderByDescending(p => p.StartTime).ToListAsync(cancel);
+        }
+
+        public async Task UpdatePollStatusAsync(int pollId, bool active, CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            var poll = await db.DbContext.Polls.SingleOrDefaultAsync(p => p.Id == pollId, cancel);
+            if (poll == null)
+                return;
+
+            poll.Active = active;
+            await db.DbContext.SaveChangesAsync(cancel);
+        }
+
+        public async Task<bool> AddPollVoteAsync(int pollId, int optionId, NetUserId userId, CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            var poll = await db.DbContext.Polls
+                .Include(p => p.Options)
+                .SingleOrDefaultAsync(p => p.Id == pollId, cancel);
+
+            if (poll?.Active != true)
+                return false;
+
+            if (poll.EndTime < DateTime.UtcNow)
+                return false;
+
+            if (!poll.Options.Any(o => o.Id == optionId))
+                return false;
+
+            var existingVote = await db.DbContext.PollVotes
+                .AnyAsync(v => v.PollId == pollId && v.PollOptionId == optionId && v.PlayerUserId == userId.UserId, cancel);
+
+            if (existingVote)
+                return false;
+
+            if (!poll.AllowMultipleChoices)
+            {
+                var existingVotes = await db.DbContext.PollVotes
+                    .Where(v => v.PollId == pollId && v.PlayerUserId == userId.UserId)
+                    .ToListAsync(cancel);
+
+                db.DbContext.PollVotes.RemoveRange(existingVotes);
+            }
+
+            var vote = new PollVote
+            {
+                PollId = pollId,
+                PollOptionId = optionId,
+                PlayerUserId = userId.UserId,
+                VotedAt = DateTime.UtcNow
+            };
+
+            db.DbContext.PollVotes.Add(vote);
+            await db.DbContext.SaveChangesAsync(cancel);
+            return true;
+        }
+
+        public async Task<bool> RemovePollVoteAsync(int pollId, int optionId, NetUserId userId, CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            var vote = await db.DbContext.PollVotes
+                .FirstOrDefaultAsync(v => v.PollId == pollId && v.PollOptionId == optionId && v.PlayerUserId == userId.UserId, cancel);
+
+            if (vote == null)
+                return false;
+
+            db.DbContext.PollVotes.Remove(vote);
+            await db.DbContext.SaveChangesAsync(cancel);
+            return true;
+        }
+
+        public async Task<List<PollVote>> GetPollVotesAsync(int pollId, CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            return await db.DbContext.PollVotes
+                .Include(v => v.Player)
+                .Include(v => v.PollOption)
+                .Where(v => v.PollId == pollId)
+                .ToListAsync(cancel);
+        }
+
+        public async Task<List<PollVote>> GetPlayerVotesAsync(int pollId, NetUserId userId, CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            return await db.DbContext.PollVotes
+                .Include(v => v.PollOption)
+                .Where(v => v.PollId == pollId && v.PlayerUserId == userId.UserId)
+                .ToListAsync(cancel);
+        }
+
+        public async Task<bool> HasPlayerVotedAsync(int pollId, NetUserId userId, CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            return await db.DbContext.PollVotes
+                .AnyAsync(v => v.PollId == pollId && v.PlayerUserId == userId.UserId, cancel);
+        }
+
+        public async Task<Dictionary<int, int>> GetPollResultsAsync(int pollId, CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            return await db.DbContext.PollVotes
+                .Where(v => v.PollId == pollId)
+                .GroupBy(v => v.PollOptionId)
+                .Select(g => new { OptionId = g.Key, Count = g.Count() })
+                .ToDictionaryAsync(x => x.OptionId, x => x.Count, cancel);
         }
 
         #endregion

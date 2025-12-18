@@ -9,6 +9,7 @@ using Content.Shared.Actions;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
+using Content.Shared.Speech.Muting;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.PreAscension;
@@ -83,13 +84,6 @@ public sealed class ShadowlingGlareSystem : EntitySystem
         var distance = (_transform.GetWorldPosition(user) - targetCoords).Length();
         comp.GlareTarget = target;
 
-        // Glare mutes and slows down the target no matter what.
-        if (TryComp<StatusEffectsComponent>(target, out var statComp))
-        {
-            _effects.TryAddStatusEffect(target, "Muted", TimeSpan.FromSeconds(comp.MuteTime), false, statComp);
-            _stun.TrySlowdown(target, TimeSpan.FromSeconds(comp.SlowTime), false, 0.5f, 0.5f, statComp);
-        }
-
         if (distance <= comp.MinGlareDistance)
         {
             comp.GlareStunTime = comp.MaxGlareStunTime;
@@ -102,6 +96,13 @@ public sealed class ShadowlingGlareSystem : EntitySystem
             comp.GlareTimeBeforeEffect = comp.MinGlareDelay + (comp.MaxGlareDelay - comp.MinGlareDelay) * Math.Clamp(distance / comp.MaxGlareDistance, 0, 1);
 
             comp.ActivateGlareTimer = true;
+        }
+
+        // Glare mutes and slows down the target no matter what.
+        if (TryComp<StatusEffectsComponent>(target, out var statComp))
+        {
+            _effects.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(comp.MuteTime), true);
+            _stun.TrySlowdown(target, TimeSpan.FromSeconds(comp.SlowTime), true, 0.5f, 0.5f, statComp);
         }
 
         var effectEnt = PredictedSpawnAtPosition(comp.EffectGlare, Transform(uid).Coordinates);

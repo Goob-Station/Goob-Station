@@ -693,6 +693,7 @@
   - type: Tag
     tags:
     - Trash
+    - RotHulkTrash # Goobstation - Wraith
   - type: PhysicalComposition #Goobstation - Recycle update - Changed trash to plastic
     materialComposition:
       Plastic: 50
@@ -702,10 +703,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 12 #goob, was 10
         reagents:
         - ReagentId: ToxinTrash
           Quantity: 5
+        - ReagentId: Microplastics #Goob
+          Quantity: 2
   - type: Food
     requiresSpecialDigestion: true
 

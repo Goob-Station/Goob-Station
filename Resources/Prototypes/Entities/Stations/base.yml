@@ -143,7 +143,7 @@
           - /Maps/Ruins/chunked_tcomms.yml
           - /Maps/Ruins/biodome_satellite.yml
           - /Maps/Ruins/derelict.yml
-          - /Maps/Ruins/djstation.yml
+          - /Maps/_Goobstation/Ruins/goobdjstation.yml # goob - this was so fucking bad
           - /Maps/Ruins/empty_flagship.yml
           - /Maps/Ruins/hydro_outpost.yml
           - /Maps/Ruins/old_ai_sat.yml

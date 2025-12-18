@@ -1,0 +1,61 @@
+# SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: body
+  name: species-name-feroxi
+  id: Feroxi
+  root: chest
+  slots:
+    head:
+      part: HeadFeroxi
+      connections:
+      - chest
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    chest:
+      part: ChestFeroxi
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed Change
+      organs:
+        heart: OrganAnimalHeart
+        lungs: OrganFeroxiLungs
+    groin:
+      part: GroinFeroxi
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganFeroxiStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmFeroxi
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmFeroxi
+      connections:
+      - left hand
+    right hand:
+      part: RightHandFeroxi
+    left hand:
+      part: LeftHandFeroxi
+    right leg:
+      part: RightLegFeroxi
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegFeroxi
+      connections:
+      - left foot
+    right foot:
+      part: RightFootFeroxi
+    left foot:
+      part: LeftFootFeroxi

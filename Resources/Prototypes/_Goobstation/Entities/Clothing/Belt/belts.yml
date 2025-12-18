@@ -159,6 +159,8 @@
         - Bloodpack
         - Gauze
         - Ointment
+        - CigPack
+        - Cigarette
       components:
         - Pill
         - Hypospray
@@ -265,3 +267,10 @@
       amount: 1
     - id: EbifinlLazideChemistryVial
       amount: 1
+
+- type: entity
+  parent: ClothingBeltUtilityFilled
+  id: ClothingBeltUtilityFilledUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable

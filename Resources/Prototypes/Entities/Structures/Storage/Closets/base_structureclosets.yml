@@ -118,6 +118,9 @@
         layer:
         - MachineLayer
   - type: EntityStorage
+    # Goob start; allow changing collisionmasks to remove when opening containers
+    masksToRemove: 84
+    #Goob end
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container

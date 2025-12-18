@@ -99,7 +99,7 @@ public partial struct ReagentQuantity : IEquatable<ReagentQuantity>
 
     public ReagentQuantity(ReagentId reagent, FixedPoint2 quantity)
     {
-        Reagent = reagent;
+        Reagent = new(reagent.Prototype, reagent.Data); // Goobstation - fix shallow cloning of solution
         Quantity = quantity;
     }
 

@@ -172,6 +172,8 @@
     - id: MailTeleporterMachineCircuitboard # GoobStation port of DeltaV mail
     - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
     - id: SalvageJobBoardComputerCircuitboard # Goobstation - This doesn't really have a use right now but it's there incase it ever gets use again
+    - id: CargoMegaphone # goob - loudspeaker
+    - id: SlotMachineHighRollerFlatPack # Goob - gambling
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -296,6 +298,7 @@
     - id: WeaponDisabler
     - id: ClothingEyesHudCommand
     - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
+    - id: CommandMegaphone # goob - loudspeakers
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -396,6 +399,7 @@
     - id: MedkitFilled
     - id: RubberStampCMO
     # Goobstation Start
+    - id: ChemistryHotplateFlatPack
     - id: CloningpodFlatpack
     - id: MedicalScannerFlatpack
     - id: ComputerCloningConsoleFlatpack
@@ -408,6 +412,9 @@
     - id: ClothingBackpackDuffelSurgeryFilled
     # Shitmed
     - id: MedicalBiofabricatorFlatpack
+    # Virology
+    - id: DiseaseDiagnoserFlatPack
+    - id: VaccinatorFlatPack
     # Goobstation End
 
 # Hardsuit table, used for suit storage as well
@@ -583,4 +590,3 @@
     - id: SpaceCash1000
     - id: BeachBall
     - id: BikeHorn
-

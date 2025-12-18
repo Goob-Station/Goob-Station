@@ -127,8 +127,7 @@ public sealed partial class WoundSystem : EntitySystem
                 || _timing.CurTime - damageable.LastModifiedTime < _minimumTimeBeforeHeal
                 || _timing.CurTime < body.HealAt
                 || _mobState.IsIncapacitated(ent)
-                || !_body.TryGetRootPart(ent, out var rootPart, body: body)
-                || damageable.Damage.GetTotal() <= 0)
+                || !_body.TryGetRootPart(ent, out var rootPart, body: body))
                 continue;
 
             body.HealAt += TimeSpan.FromSeconds(1f / _medicalHealingTickrate);
@@ -372,15 +371,16 @@ public sealed partial class WoundSystem : EntitySystem
 
         if (component.WoundableIntegrity != state.WoundableIntegrity)
         {
-            var bodyPart = Comp<BodyPartComponent>(uid);
-
             var ev = new WoundableIntegrityChangedEvent(component.WoundableIntegrity, state.WoundableIntegrity);
             RaiseLocalEvent(uid, ref ev);
 
             var bodySeverity = FixedPoint2.Zero;
-            if (bodyPart.Body.HasValue)
+            if (TryComp<BodyPartComponent>(uid, out var bodyPart) && bodyPart.Body.HasValue)
             {
-                var rootPart = Comp<BodyComponent>(bodyPart.Body.Value)?.RootContainer?.ContainedEntity;
+                if (!TryComp<BodyComponent>(bodyPart.Body.Value, out var bodyComp))
+                    return;
+
+                var rootPart = bodyComp.RootContainer?.ContainedEntity;
                 if (rootPart.HasValue)
                 {
                     foreach (var woundable in GetAllWoundableChildren(rootPart.Value))
