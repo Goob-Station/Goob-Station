@@ -19476,3 +19476,9 @@ Entries:
       message: Rebuffed terminus, returned to Oni only. It can pry doors.
   id: 2199
   time: '2025-12-18T01:13:31.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added virology guidebook.
+  id: 2200
+  time: '2025-12-18T09:51:12.0000000+00:00'
