@@ -69,8 +69,8 @@ public sealed class WarDeclaratorSystem : EntitySystem
     {
         if (!_accessReaderSystem.IsAllowed(args.User, ent))
         {
-            var msgnoaccess = Loc.GetString("war-declarator-not-working");
-            _popupSystem.PopupEntity(msgnoaccess, ent);
+            var msg = Loc.GetString("war-declarator-not-working");
+            _popupSystem.PopupEntity(msg, ent);
             args.Cancel();
             return;
         }
