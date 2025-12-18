@@ -4,6 +4,7 @@ using Content.Server.Tools;
 using Content.Shared.Doors.Components;
 using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Tools;
@@ -31,7 +32,7 @@ public sealed class WeldingSparksSystem : EntitySystem
 
         if (TryComp<ToolComponent>(ent, out var toolComp))
         {
-            _toolSystem.PlayToolSound(ent, toolComp, null);
+            _toolSystem.PlayToolSound(ent, toolComp, null, AudioParams.Default.AddVolume(-2f));
         }
 
         // Prioritise the newer one
