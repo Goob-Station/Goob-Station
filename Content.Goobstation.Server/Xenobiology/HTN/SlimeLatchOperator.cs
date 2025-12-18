@@ -36,10 +36,13 @@ public sealed partial class SlimeLatchOperator : HTNOperator
 
         if (!_entManager.TryGetComponent<SlimeComponent>(owner, out var slime))
             return HTNOperatorStatus.Failed;
-        if (_entManager.HasComponent<BeingLatchedComponent>(target))
-            return HTNOperatorStatus.Continuing;
+
+        // already latched. why bother
         if (_slimeLatch.IsLatched((owner, slime), target))
             return HTNOperatorStatus.Finished;
+
+        if (_entManager.HasComponent<BeingLatchedComponent>(target))
+            return HTNOperatorStatus.Continuing;
 
         return _slimeLatch.NpcTryLatch((owner, slime), target)
             ? HTNOperatorStatus.Continuing
