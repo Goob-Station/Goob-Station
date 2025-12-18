@@ -45,6 +45,14 @@ public sealed partial class WarDeclaratorComponent : Component
     [DataField]
 
     public bool HasRunNoWarCheck = false;
+
+    /// <summary>
+    /// The 40% chance for the declarator to vanish check, runs once.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
+
+    public float NoWarChance = 0.4f;
     /// Goob edit end - War Not Guaranteed
 
     /// <summary>

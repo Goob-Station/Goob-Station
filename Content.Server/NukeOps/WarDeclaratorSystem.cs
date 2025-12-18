@@ -76,7 +76,7 @@ public sealed class WarDeclaratorSystem : EntitySystem
         }
 
 ///Goobstation start - War Not Guaranteed
-        if (!ent.Comp.HasRunNoWarCheck && _random.Prob(0.4f))
+        if (!ent.Comp.HasRunNoWarCheck && _random.Prob(ent.Comp.NoWarChance))
         {
             var coords = Transform(args.User).Coordinates;
             var msgwarfail = Loc.GetString("war-declarator-random-failure");
@@ -85,11 +85,13 @@ public sealed class WarDeclaratorSystem : EntitySystem
             QueueDel(ent);
             return;
         }
-
-        ent.Comp.HasRunNoWarCheck = true;
+        else
+        {
+            ent.Comp.HasRunNoWarCheck = true;
+        }
 ///Goobstation end - War Not Guaranteed
 
-            UpdateUI(ent, ent.Comp.CurrentStatus);
+        UpdateUI(ent, ent.Comp.CurrentStatus);
         }
 
     private void OnActivated(Entity<WarDeclaratorComponent> ent, ref WarDeclaratorActivateMessage args)
