@@ -19482,3 +19482,9 @@ Entries:
       message: Added virology guidebook.
   id: 2200
   time: '2025-12-18T09:51:12.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added virologist spawns to active maps.
+  id: 2201
+  time: '2025-12-18T20:43:38.0000000+00:00'
