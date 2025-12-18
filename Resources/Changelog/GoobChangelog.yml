@@ -19488,3 +19488,12 @@ Entries:
       message: Added virologist spawns to active maps.
   id: 2201
   time: '2025-12-18T20:43:38.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: >-
+        Oni can again damage peoples stam so you don't just get to escape.
+        Removed accuracy nonsense again - Oni's should not be able to use most,
+        if not all guns. 
+  id: 2202
+  time: '2025-12-18T23:26:35.0000000+00:00'
