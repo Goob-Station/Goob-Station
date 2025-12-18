@@ -106,14 +106,15 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Players.PlayTimeTracking; // Goobstation
+using Content.Server.Popups;
 using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Server.Shuttles.Components;
-using Content.Server.Station.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Antag;
 using Content.Shared.Clothing;
+using Content.Shared.Clumsy;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Components;
@@ -153,6 +154,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly LastRolledAntagManager _lastRolled = default!; // Goobstation
     [Dependency] private readonly PlayTimeTrackingManager _playTime = default!; // Goobstation
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly PopupSystem _popup = default!; // goobstation
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
@@ -623,6 +625,13 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         // goob edit - actual pacifism implant
         foreach (var special in def.Special)
             special.AfterEquip(ent);
+
+        // goob edit - clumsy antag no more
+        if (HasComp<ClumsyComponent>(player))
+        {
+            RemComp<ClumsyComponent>(player);
+            _popup.PopupEntity(Loc.GetString("antag-gain-remove-clumsy"), player, player, Shared.Popups.PopupType.Medium);
+        }
 
         var afterEv = new AfterAntagEntitySelectedEvent(session, player, ent, def);
         RaiseLocalEvent(ent, ref afterEv, true);
