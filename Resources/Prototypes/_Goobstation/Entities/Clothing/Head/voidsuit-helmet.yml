@@ -293,6 +293,65 @@
   - type: FireProtection
     reduction: 0.4
 
+# singuloth head
+
+- type: entity
+  parent: [ClothingHeadHelmetHardsuitBlueshield, BaseMagicalContraband]
+  id: ClothingHeadSinguloth
+  name: singuloth knight's helm
+  description: An adamantium helmet from the chapter of the Singuloth Knights. It shines with a holy aura
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hardsuits/singulothhelm.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hardsuits/singulothhelm.rsi
+  - type: PointLight
+    color: "#CD7F32"
+    rotation: 30
+    energy: 10
+    radius: 5
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.75
+        Heat: 0.7
+        Radiation: 0.9
+        Caustic: 0.9
+  - type: FireProtection
+    reduction: 0.4
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitCybersunStealth
+  id: ClothingHeadHelmetHardsuitVoxRaiderStealth
+  name: vox raider stealth helmet
+  description: A smoothly contoured, matte-black alien helmet.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hardsuits/vox-raiders-stealth-head.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hardsuits/vox-raiders-stealth-head.rsi
+  - type: PointLight
+    color: "#180031"
+    rotation: 30
+    energy: 10
+    radius: 5
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide
+    - FacialHair
+  
 # Detective's Hardsuit
 
 - type: entity

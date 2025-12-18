@@ -172,3 +172,138 @@
           Slash: 0.7
           Piercing: 0.7
           Heat: 0.8
+
+# Shitchap
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHelmetTemplar
+  name: crusader helmet
+  description: Deus Vult.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Head/Misc/templar.rsi
+    state: icon
+  - type: Clothing
+    sprite: _ShitChap/Clothing/Head/Misc/templar.rsi
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.9
+  - type: Tag
+    tags:
+    - HidesHair
+    - WhitelistChameleon
+  - type: FireProtection
+    reduction: 0.1
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop: HEAD
+      HeadSide: HEAD
+
+- type: entity
+  parent: ClothingHeadHatHelmetTemplar
+  id: ClothingHeadHatHelmetCage
+  name: cage
+  description: A cage that restrains the will of the self, allowing one to see the profane world for what it is.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Head/Misc/cage.rsi
+    state: icon
+  - type: Clothing
+    sprite: _ShitChap/Clothing/Head/Misc/cage.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.21875"
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    layers: {}
+
+- type: entity
+  parent: ClothingHeadHatHelmetTemplar
+  id: ClothingHeadHatHelmetAncient
+  name: ancient helmet
+  description: None may pass!
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Head/Misc/ancient.rsi
+    state: icon
+  - type: Clothing
+    sprite: _ShitChap/Clothing/Head/Misc/ancient.rsi
+
+- type: entity
+  parent: ClothingHeadHatHelmetTemplar
+  id: ClothingHeadHatHelmetWitchhunter
+  name: witchunter hat
+  description: This hat saw much use back in the day.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Head/Misc/witchhunter.rsi
+    state: icon
+  - type: Clothing
+    sprite: _ShitChap/Clothing/Head/Misc/witchhunter.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    layers: {}
+
+- type: entity
+  parent: ClothingHeadHatHelmetTemplar
+  id: ClothingHeadHatHelmetAdept
+  name: adept hood
+  description: Its only heretical when others do it.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Head/Misc/adept.rsi
+    state: icon
+  - type: Clothing
+    sprite: _ShitChap/Clothing/Head/Misc/adept.rsi
+
+- type: entity
+  parent: ClothingHeadHatHelmetTemplar
+  id: ClothingHeadHatHelmetClock
+  name: forgotten helmet
+  description: It has the unyielding gaze of a god eternally forgotten.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Head/Misc/clock.rsi
+    state: icon
+  - type: Clothing
+    sprite: _ShitChap/Clothing/Head/Misc/clock.rsi
+
+- type: entity
+  parent: ClothingHeadHatHelmetTemplar
+  id: ClothingHeadHatHelmetMonk
+  name: monk's hood
+  description: For when a man wants to cover up his tonsure.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Head/Misc/monkhood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _ShitChap/Clothing/Head/Misc/monkhood.rsi
+
+- type: entity
+  parent: ClothingHeadHatHelmetTemplar
+  id: ClothingHeadHatHelmetBishop
+  name: bishop mitre
+  description: An opulent hat that functions as a radio to God. Or as a lightning rod, depending on who you ask.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Head/Misc/bishop.rsi
+    state: icon
+  - type: Clothing
+    sprite: _ShitChap/Clothing/Head/Misc/bishop.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    layers: {}
