@@ -183,6 +183,10 @@
     {
       "name": "plushietwofish-inhand-right",
       "directions": 4
+    },
+    {
+      "name": "plushieholy-equipped-HELMET",
+      "directions": 4
     }
   ]
 }
