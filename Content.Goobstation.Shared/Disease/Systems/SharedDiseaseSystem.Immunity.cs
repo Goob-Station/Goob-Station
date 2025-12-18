@@ -11,23 +11,23 @@ public partial class SharedDiseaseSystem
         SubscribeLocalEvent<ImmunityComponent, DiseaseInfectAttemptEvent>(OnImmunityInfectAttempt);
     }
 
-    private void OnGetImmunity(EntityUid uid, ImmunityComponent immunity, ref GetImmunityEvent args)
+    private void OnGetImmunity(Entity<ImmunityComponent> ent, ref GetImmunityEvent args)
     {
-        args.ImmunityGainRate += immunity.ImmunityGainRate;
-        args.ImmunityStrength += immunity.ImmunityStrength;
+        args.ImmunityGainRate += ent.Comp.ImmunityGainRate;
+        args.ImmunityStrength += ent.Comp.ImmunityStrength;
     }
 
-    private void OnImmunityDiseaseGained(EntityUid uid, ImmunityComponent immunity, DiseaseGainedEvent args)
+    private void OnImmunityDiseaseGained(Entity<ImmunityComponent> ent, ref DiseaseGainedEvent args)
     {
-        if (!args.DiseaseGained.Comp.CanGainImmunity)
+        if (!args.Disease.Comp.CanGainImmunity)
             return;
 
-        TryAddImmunity(uid, args.DiseaseGained.Owner, immunity, args.DiseaseGained.Comp);
+        TryAddImmunity((ent, ent.Comp), (args.Disease, args.Disease.Comp));
     }
 
-    private void OnImmunityInfectAttempt(EntityUid uid, ImmunityComponent immunity, DiseaseInfectAttemptEvent args)
+    private void OnImmunityInfectAttempt(Entity<ImmunityComponent> ent, ref DiseaseInfectAttemptEvent args)
     {
-        if (HasImmunity(uid, args.Disease.Owner, immunity, args.Disease.Comp))
+        if (HasImmunity((ent, ent.Comp), (args.Disease, args.Disease.Comp)))
             args.CanInfect = false;
     }
 
@@ -36,67 +36,59 @@ public partial class SharedDiseaseSystem
     /// <summary>
     /// Checks whether the entity has developed an immunity to this genotype
     /// </summary>
-    public bool HasImmunity(EntityUid uid, int genotype, ImmunityComponent? comp = null)
+    public bool HasImmunity(Entity<ImmunityComponent?> ent, int genotype)
     {
-        if (!Resolve(uid, ref comp, false))
+        if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
-        return comp.ImmuneTo.Contains(genotype);
+        return ent.Comp.ImmuneTo.Contains(genotype);
     }
 
     /// <summary>
     /// Checks whether the entity has developed an immunity to this disease
     /// </summary>
-    public bool HasImmunity(EntityUid uid, EntityUid disease, ImmunityComponent? comp = null, DiseaseComponent? diseaseComp = null)
+    public bool HasImmunity(Entity<ImmunityComponent?> ent, Entity<DiseaseComponent?> disease)
     {
-        if (!Resolve(disease, ref diseaseComp))
+        if (!Resolve(disease, ref disease.Comp))
             return false;
 
-        return HasImmunity(uid, diseaseComp.Genotype, comp);
+        return HasImmunity(ent, disease.Comp.Genotype);
     }
 
     /// <summary>
     /// Checks whether this entity can be infected by diseases of this genotype
     /// </summary>
-    public bool CanInfect(EntityUid uid, int genotype, DiseaseCarrierComponent? comp = null, ImmunityComponent? immunityComp = null)
+    public bool CanInfect(Entity<DiseaseCarrierComponent?, ImmunityComponent?> ent, int genotype)
     {
-        if (!Resolve(uid, ref comp, false))
-            return false;
-
-        return !HasDisease(uid, genotype, comp) && !HasImmunity(uid, genotype, immunityComp);
+        return !HasDisease((ent, ent.Comp1), genotype) && !HasImmunity((ent, ent.Comp2), genotype);
     }
 
-    public bool TryAddImmunity(EntityUid uid, int genotype, ImmunityComponent? immunity)
+    public bool TryAddImmunity(Entity<ImmunityComponent?> ent, int genotype)
     {
-        if (!Resolve(uid, ref immunity, false))
+        if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
-        immunity.ImmuneTo.Add(genotype);
+        ent.Comp.ImmuneTo.Add(genotype);
         return true;
     }
 
-    public bool TryAddImmunity(EntityUid uid, EntityUid disease, ImmunityComponent? immunity = null, DiseaseComponent? diseaseComp = null)
+    public bool TryAddImmunity(Entity<ImmunityComponent?> ent, Entity<DiseaseComponent?> disease)
     {
-        if (!Resolve(disease, ref diseaseComp))
+        if (!Resolve(disease, ref disease.Comp))
             return false;
 
-        return TryAddImmunity(uid, diseaseComp.Genotype, immunity);
+        return TryAddImmunity(ent, disease.Comp.Genotype);
     }
 
-    public bool CanImmunityAffect(EntityUid uid, DiseaseComponent disease, ImmunityComponent? immunity = null)
+    public bool CanImmunityAffect(Entity<ImmunityComponent?> ent, DiseaseComponent disease)
     {
-        if (!Resolve(uid, ref immunity, false))
+        if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
-        return CanImmunityAffect((uid, immunity), disease);
-    }
-
-    public bool CanImmunityAffect(Entity<ImmunityComponent> immunity, DiseaseComponent disease)
-    {
-        if (_mobState.IsDead(immunity.Owner) && !immunity.Comp.InDead)
+        if (_mobState.IsDead(ent.Owner) && !ent.Comp.InDead)
             return false;
 
-        return immunity.Comp.AffectedTypes.Contains(disease.DiseaseType);
+        return ent.Comp.AffectedTypes.Contains(disease.DiseaseType);
     }
 
     #endregion

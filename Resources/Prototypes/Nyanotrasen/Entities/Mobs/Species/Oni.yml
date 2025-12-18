@@ -39,15 +39,8 @@
     # scale: 1.2, 1.2 # Goobstation: port EE height/width sliders
   - type: PlayerToolModifier
     pryTimeMultiplier: 0.6
-  - type: PlayerAccuracyModifier
-    blacklist:
-      components:
-      - DamageBoostOnMarker
-      - LeechOnMarker
-      - ArcaneBarrage
-      tags:
-      - WizardWand
-      - WizardStaff
+  - type: BonusStaminaDamage
+    multiplier: 1.25
   - type: BonusMeleeDamage
     damageModifierSet:
       coefficients:
