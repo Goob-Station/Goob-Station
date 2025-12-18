@@ -2,6 +2,7 @@ disease-swab-unclean = This swab looks unclean.
 disease-swab-cant-swab = You can't swab {$target}.
 disease-swab-swabbed = You take a sample from {$target}.
 disease-swab-swabbed-by = {$user} swabs you.
+disease-swab-yourself = yourself
 
 disease-analyzer-report-title = Disease Analysis Report
 disease-analyzer-report-genotype = Genotype: {$genotype}
