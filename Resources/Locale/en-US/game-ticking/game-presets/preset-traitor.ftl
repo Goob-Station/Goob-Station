@@ -73,11 +73,11 @@ traitor-role-moreinfo =
     Find more information about your role in the character menu.
 
 traitor-role-nouplink =
-    You do not have a syndicate uplink. Make it count.
+    You do not have a syndicate uplink.
 
 traitor-role-allegiances =
     Your allegiances:
 
 traitor-role-notes =
-    Notes from your employer:
+    Additional notes:
 
