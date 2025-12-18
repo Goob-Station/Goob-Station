@@ -53,7 +53,7 @@
     sprite: _Omu/Clothing/Belt/clothingbelthoscqc.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Belt/clothingbelthoscqc.rsi
-  - type: GrantCqc
+  - type: GrantCapoeira
   - type: Storage
     whitelist:
       tags:
@@ -83,6 +83,6 @@
       - ScatteringGrenade
   - type: GuideHelp
     guides:
-    - CQC
+    - Capoeira
   - type: StealTarget
     stealGroup: WeaponSecHeadSword
