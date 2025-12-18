@@ -341,6 +341,30 @@ public partial class SharedBodySystem
         }
     }
 
+    // Goobstation start
+    public IEnumerable<(EntityUid Id, BodyPartComponent Component)> GetVitalBodyChildren(
+        EntityUid? id,
+        BodyComponent? body = null,
+        BodyPartComponent? rootPart = null)
+    {
+        if (id is null
+            || !Resolve(id.Value, ref body, logMissing: false)
+            || body is null // Shitmed Change
+            || body.RootContainer == null // Shitmed Change
+            || body.RootContainer.ContainedEntity is null
+            || !Resolve(body.RootContainer.ContainedEntity.Value, ref rootPart))
+        {
+            yield break;
+        }
+
+        foreach (var child in GetBodyPartChildren(body.RootContainer.ContainedEntity.Value, rootPart))
+        {
+            if ((int) (child.Component.PartType & BodyPartType.Vital) != 0)
+                yield return child;
+        }
+    }
+    // Goobstation end
+
     public IEnumerable<(EntityUid Id, OrganComponent Component)> GetBodyOrgans(
         EntityUid? bodyId,
         BodyComponent? body = null)
@@ -537,6 +561,18 @@ public partial class SharedBodySystem
 
     private void OnRejuvenate(EntityUid ent, BodyComponent body, ref RejuvenateEvent args)
     {
+        RestoreBody((ent, body)); // Goobstation
+    }
+
+    // Goob edit start
+    public void RestoreBody(Entity<BodyComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp, false))
+            return;
+
+        var ent = entity.Owner;
+        var body = entity.Comp;
+
         if (body.Prototype == null)
             return;
 
@@ -693,6 +729,7 @@ public partial class SharedBodySystem
             _woundSystem.ForceHealWoundsOnWoundable(bodyPart.Id, out _);
         }
     }
+    // Goob edit end
 
     /// <summary>
     /// Gets all child body parts of this entity that have component T, including the root entity if it has component T.

@@ -101,7 +101,7 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 30
+        maxVol: 20
   - type: ExaminableSolution
     solution: drink
   - type: Sticky
@@ -146,11 +146,13 @@
   - type: SolutionContainerManager
     solutions:
       drink:  #drink is the same as Bottle solution, this is to prevent recoding chem master. TODO: recode chem master
-        maxVol: 40
+        maxVol: 20
   - type: Tag
     tags:
     - MedicalPatch
   - type: Spillable # only way empty the patch is wring it out and spill it on the floor
+    solution: drink
+  - type: RefillableSolution  # I don't know why this wasn't like this to begin with.
     solution: drink
 
 - type: entity
@@ -234,9 +236,12 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 60 # +50% from basic
+        maxVol: 40 # +50% from basic
   - type: MedicalPatch
-    injectPercentageOnAttatch: 15 # 10u when full
+    injectPercentageOnAttatch: 10 # 4u when full
+  - type: Item
+    shape:
+    - 0,0,0,1
 
 - type: entity
   parent: BaseMedicalPatch
@@ -254,43 +259,9 @@
     solutions:
       drink:
         maxVol: 20  # lasts for 40 seconds, effectively half as good as a normal patch
-  - type: RefillableSolution  # So Tiders can fill ther bandages whit hotch and ventcurd
-    solution: drink
   - type: Construction
     graph: MedicalPatchMakeshift
     node: medicalPatchMakeshift
-
-- type: latheRecipe
-  id: MedicalPatchBasic
-  result: MedicalPatchBasic
-  completetime: 2
-  materials:
-    Plastic: 100
-    Cloth: 100
-
-- type: latheRecipe
-  id: MedicalPatchRapid
-  result: MedicalPatchRapid
-  completetime: 2
-  materials:
-    Cloth: 100
-    Plastic: 100
-
-- type: latheRecipe
-  id: MedicalPatchTherapeutic
-  result: MedicalPatchTherapeutic
-  completetime: 2
-  materials:
-    Cloth: 100
-    Plastic: 100
-
-- type: latheRecipe
-  id: MedicalPatchLarge
-  result: MedicalPatchLarge
-  completetime: 2
-  materials:
-    Plastic: 100
-    Cloth: 100
 
 - type: constructionGraph
   id: MedicalPatchMakeshift
@@ -301,8 +272,8 @@
     - to: medicalPatchMakeshift
       steps:
       - material: Cloth
-        amount: 2
-        doAfter: 10
+        amount: 1
+        doAfter: 5
   - node: medicalPatchMakeshift
     entity: MedicalPatchMakeshift
 
@@ -323,8 +294,8 @@
     - to: silkPatchMakeshift
       steps:
       - material: WebSilk
-        amount: 8
-        doAfter: 10
+        amount: 4
+        doAfter: 5
   - node: silkPatchMakeshift
     entity: MedicalPatchMakeshift
 

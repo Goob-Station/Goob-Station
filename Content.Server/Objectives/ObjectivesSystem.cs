@@ -45,6 +45,7 @@ using System.Linq;
 using System.Text;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.ServerCurrency;
+using Content.Goobstation.Shared.ManifestListings;
 using Content.Server.Objectives.Commands;
 using Content.Shared.CCVar;
 using Content.Shared.Prototypes;
@@ -53,6 +54,7 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 using Content.Shared.Administration.Logs;
+using Robust.Shared.Network; //Goobstation
 
 namespace Content.Server.Objectives;
 
@@ -74,7 +76,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
     private bool _showGreentext;
 
-    private int _goobcoinsPerGreentext = 5;
     private int _goobcoinsServerMultiplier = 1;
     public override void Initialize()
     {
@@ -85,7 +86,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
         Subs.CVar(_cfg, CCVars.GameShowGreentext, value => _showGreentext = value, true);
 
         _prototypeManager.PrototypesReloaded += CreateCompletions;
-        Subs.CVar(_cfg, GoobCVars.GoobcoinsPerGreentext, value => _goobcoinsPerGreentext = value, true);
         Subs.CVar(_cfg, GoobCVars.GoobcoinServerMultiplier, value => _goobcoinsServerMultiplier = value, true);
     }
 

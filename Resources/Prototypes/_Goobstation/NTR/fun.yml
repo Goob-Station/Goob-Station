@@ -1,3 +1,155 @@
+
+# marlen
+
+- type: entity
+  parent: [BaseItem, BaseCentcommContraband]
+  id: Marlen
+  name: marlen
+  description: A stylish intricate souvenir made from tough hyper-woven durathread by "NanoFashion". Looks expensive.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
+    state: icon
+  - type: DisarmMalus
+    malus: 0.5
+  - type: UseDelay
+    delay: 5
+  - type: Item
+    heldPrefix: off
+    sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
+    shape:
+    - 0,0,2,0
+    storedRotation: 45
+  - type: Sharp
+  - type: MeleeWeapon
+    animationRotation: 225
+    wideAnimationRotation: -135
+    attackRate: 0.8
+    damage:
+      types:
+        Slash: 15
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: ItemSwitch
+    state: off
+    states:
+      off: !type:ItemSwitchState
+        sprite:
+          sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
+          state: icon
+        components:
+        - type: Item
+          sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
+          shape:
+          - 0,0,2,0
+          storedRotation: 45
+        - type: Sharp
+        - type: MeleeWeapon
+          animationRotation: 225
+          wideAnimationRotation: -135
+          attackRate: 0.8
+          damage:
+            types:
+              Slash: 15 # worse than the betty because its not supposed to be deadly
+          soundHit:
+            path: /Audio/Weapons/bladeslice.ogg
+        soundStateActivate:
+          path: /Audio/_Goobstation/Misc/umbrella.ogg
+      on: !type:ItemSwitchState
+        sprite:
+          sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
+          state: icon-on
+        components:
+        - type: HeldSpeedModifier
+          walkModifier: 0.65
+          sprintModifier: 0.65
+        - type: MeleeWeapon
+          mustBeEquippedToUse: true # This thing shouldn't be able to attack at all but setting attackRate to 0 breaks stuff
+          damage:
+            types:
+              Blunt: 30
+          soundHit:
+            collection: TrayHit
+        - type: MeleeThrowOnHit
+          throwWhileOnDelay: true
+          distance: 5
+        - type: KnockdownOnHit
+        - type: MultiHandedItem
+        - type: StaminaDamageOnHit
+          damage: 75
+        - type: Item
+          size: Ginormous
+          sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
+          heldPrefix: on
+          storedRotation: -45
+        - type: CounterattackWeapon
+          setItemSwitch: off
+        soundStateActivate:
+          path: /Audio/_Goobstation/Misc/umbrella.ogg
+
+# cigvend
+
+- type: entity
+  parent: VendingMachineCigs
+  id: VendingMachineCigsDeluxe
+  name: ShadyCigs Ultra Premium Pro DLC Deluxe
+  description: If you dont have one of these in your home, you cant call yourself a smoker.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Structures/Machines/cigvend.rsi
+    layers:
+    - state: "off"
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
+    - state: "off"
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+      shader: unshaded
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: VendingMachine
+    pack: CigaretteMachineInventoryDeluxe
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+  - type: DatasetVocalizer
+    dataset: CigaretteMachineAdsDLC
+
+# nt soaps
+
+- type: entity
+  id: SoapGold
+  name: golden soap
+  description: Finally, you slipped 1000 people and unlocked a new golden soap. Smells like whiskey.
+  parent: TrashBananaPeel # because you can eat the soaps for some reason idk
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/soap.rsi
+    state: soap_gld
+  - type: Tag
+    tags:
+    - Soap
+  - type: Slippery
+    slipData:
+      paralyzeTime: 5.0 # omegaslop
+      launchForwardsMultiplier: 3.0
+  - type: CleansForensics
+  - type: FloorCleaner
+    cleanDelay: 3 # goida soap
+
+- type: entity
+  parent: SoapGold
+  id: SoapCentcomm
+  description: They clearly should stop with the green theme on everything man. Smells like lube.
+  name: centcomm soap
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/soap.rsi
+    state: soap_cc
+
 - type: entity
   id: WaterCoolerGold
   name: executive water cooler

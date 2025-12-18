@@ -8,7 +8,6 @@
 
 using System.Linq;
 using System.Numerics;
-using Content.Client.Stealth;
 using Content.Goobstation.Shared.Overlays;
 using Content.Shared.Body.Components;
 using Content.Shared.Stealth.Components;
@@ -17,18 +16,20 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.Overlays;
 
 public sealed class ThermalVisionOverlay : Overlay
 {
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private readonly TransformSystem _transform;
-    private readonly StealthSystem _stealth;
+    private readonly SpriteSystem _sprite;
     private readonly ContainerSystem _container;
     private readonly SharedPointLightSystem _light;
 
@@ -49,7 +50,7 @@ public sealed class ThermalVisionOverlay : Overlay
 
         _container = _entity.System<ContainerSystem>();
         _transform = _entity.System<TransformSystem>();
-        _stealth = _entity.System<StealthSystem>();
+        _sprite = _entity.System<SpriteSystem>();
         _light = _entity.System<SharedPointLightSystem>();
 
         ZIndex = -1;
@@ -119,7 +120,7 @@ public sealed class ThermalVisionOverlay : Overlay
 
         foreach (var entry in _entries)
         {
-            Render(entry.Ent, entry.Map, worldHandle, entry.EyeRot, Comp.Color, alpha);
+            Render(entry.Ent, entry.Map, worldHandle, entry.EyeRot, Comp.Color, Comp.ThermalShader, alpha);
         }
 
         worldHandle.SetTransform(Matrix3x2.Identity);
@@ -130,6 +131,7 @@ public sealed class ThermalVisionOverlay : Overlay
         DrawingHandleWorld handle,
         Angle eyeRot,
         Color color,
+        string? shader,
         float alpha)
     {
         var (uid, sprite, xform) = ent;
@@ -139,11 +141,40 @@ public sealed class ThermalVisionOverlay : Overlay
         var position = _transform.GetWorldPosition(xform);
         var rotation = _transform.GetWorldRotation(xform);
 
-
         var originalColor = sprite.Color;
-        sprite.Color = color.WithAlpha(alpha);
-        sprite.Render(handle, eyeRot, rotation, position: position);
-        sprite.Color = originalColor;
+        Dictionary<int, (ShaderInstance? shader, Color color)> layerData = new();
+        if (shader != null)
+        {
+            // Layer shaders break handle shader so we have to do this. It has a side effect of clothing not rendering
+            // on some species or on female characters but its fine cause shader itself makes things hard to see
+            var allLayers = sprite.AllLayers.ToList();
+            for (var i = 0; i < allLayers.Count; i++)
+            {
+                if (allLayers[i] is not SpriteComponent.Layer { Visible: true } layer)
+                    continue;
+
+                if (layer.ShaderPrototype?.Id is "DisplacedDraw" or "DisplacedStencilDraw")
+                    _sprite.LayerSetVisible((uid, sprite), i, false);
+
+                layerData[i] = (layer.Shader, layer.Color);
+                layer.Shader = null;
+                _sprite.LayerSetColor(layer, Color.White.WithAlpha(layer.Color.A));
+            }
+
+            _sprite.SetColor((uid, sprite), Color.White.WithAlpha(alpha));
+            handle.UseShader(_protoMan.Index<ShaderPrototype>(shader).Instance());
+        }
+        else
+            _sprite.SetColor((uid, sprite), color.WithAlpha(alpha));
+        _sprite.RenderSprite((uid, sprite), handle, eyeRot, rotation, position);
+        _sprite.SetColor((uid, sprite), originalColor);
+        handle.UseShader(null);
+        foreach (var (key, value) in layerData)
+        {
+            ((SpriteComponent.Layer) sprite[key]).Shader = value.shader;
+            _sprite.LayerSetColor((uid, sprite), key, value.color);
+            _sprite.LayerSetVisible((uid, sprite), key, true);
+        }
     }
 
     private bool CanSee(EntityUid uid, SpriteComponent sprite)

@@ -1,4 +1,9 @@
 - type: entityCategory
   id: Enchants
   name: entity-category-name-enchants
+
+# For disease entities
+- type: entityCategory
+  id: Diseases
+  name: entity-category-name-diseases
   hideSpawnMenu: true
