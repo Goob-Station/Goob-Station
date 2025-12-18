@@ -8,3 +8,8 @@
   id: Medical Patches
   name: guide-entry-medpatches
   text: "/ServerInfo/_Goobstation/Guidebook/Medical/Medicalpatches.xml"
+
+- type: guideEntry
+  id: Virology
+  name: guide-entry-virology
+  text: "/ServerInfo/_Goobstation/Guidebook/Medical/Virology.xml"
