@@ -25,3 +25,10 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Backpacks/blueshield.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
