@@ -363,6 +363,3 @@
         - NamesSlasherTitle
         - NamesSlasher
         nameFormat: name-format-slasher
-  - type: Tag
-    tags:
-    - MidroundAntag
