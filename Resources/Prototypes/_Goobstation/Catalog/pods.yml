@@ -83,3 +83,13 @@
     prototypes:
     - ClothingOuterArmorBishop
     - ClothingHeadHatHelmetBishop
+
+- type: entity
+  id: SpawnArmamentsDraconic
+  categories: [ HideSpawnMenu ]
+  name: dragon suit
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototypes:
+    - ClothingOuterArmorDragon

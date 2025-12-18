@@ -708,7 +708,7 @@
         Slash: 25
         Piercing: 15
         Holy: 10
-       
+
 - type: entity
   parent: BaseNullrod
   id: RatvarianSpear
@@ -794,3 +794,37 @@
   - type: SolutionTransfer
     maxTransferAmount: 2
   - type: ThrowableBlocked # Goobstation
+
+- type: entity
+  name: dragon's tail
+  parent: BaseNullrod
+  id: DragonsTail
+  description: A dragon's tail impaled on a stick. Still holds that deep fiery power within.
+  components:
+  - type: Item
+    size: Large
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Heat: 20
+    UntrainedUseString: nullrod-dragontail-untrained-usage-popup
+    sprite: _ShitChap/Objects/Weapons/Nullrod/dragontail.rsi
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/dragontail.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1
+    animationRotation: -135
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Holy: 5
+        Heat: 5
+        Blunt: 5
+    soundHit:
+      path: /Audio/Weapons/slash.ogg
+  - type: IgniteOnMeleeHit
+    fireStacks: 1
+  - type: Tag
+    tags:
+    - DragonsTail
