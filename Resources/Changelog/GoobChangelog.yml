@@ -19497,3 +19497,13 @@ Entries:
         if not all guns. 
   id: 2202
   time: '2025-12-18T23:26:35.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added more possible disease effects.
+    - type: Add
+      message: Drinking unstable mutagen now mutates viruses in you.
+    - type: Fix
+      message: Disease type is no longer always bacterial.
+  id: 2203
+  time: '2025-12-18T23:29:02.0000000+00:00'
