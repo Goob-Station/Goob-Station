@@ -1,3 +1,4 @@
+using Content.Shared.Chat.Prototypes;
 using Content.Shared.Whitelist;
 
 namespace Content.Goobstation.Shared.MobCall;
@@ -21,5 +22,5 @@ public sealed partial class MobCallSourceComponent : Component
     public string Key = "CallTarget";
 
     [DataField]
-    public string ScreamId = "Scream";
+    public ProtoId<EmoteProtype> Emote = "Scream";
 }
