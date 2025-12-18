@@ -131,3 +131,15 @@
     rules: ghost-role-information-wraith-rules
     raffle:
       settings: short
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostHastur
+  id: HasturToken
+  components:
+  - type: GhostRole
+    name: ghost-role-information-hastur-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-hastur-rules
+    raffle:
+      settings: short

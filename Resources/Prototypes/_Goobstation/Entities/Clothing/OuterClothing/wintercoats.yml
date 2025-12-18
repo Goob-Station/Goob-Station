@@ -66,3 +66,16 @@
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/seniorsecvestcoat.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/seniorsecvestcoat.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterCosmic
+  name: cosmic winter coat
+  description: An expensive machine-made winter coat.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/cosmic.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/cosmic.rsi
+

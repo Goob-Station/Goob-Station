@@ -37,3 +37,23 @@
   license: "Custom"
   copyright: "No copyright - ai generated sound"
   source: "https://goida.zip/unknown" # keeping up this tradition
+
+- files: ["clownalwayswinsshort.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Clown Always Wins by NИTRODE"
+  source: "https://www.youtube.com/watch?v=UkN2DQYRooA"
+
+- files: ["singulothknight_greeting.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Taken from breakingcopyright.com, Composer: Alexander Nakarada, shortened down by john john"
+  source: "https://breakingcopyright.com/song/alexander-nakarada-battle-of-the-creek"
+
+- files: ["darklord_greeting.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "taken from humanoide9000 on freesound.org"
+  source: "https://freesound.org/people/humanoide9000/sounds/676266/"
+
+- files: ["phone_ring.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Recorded by nightcustard, trimmed and converted to mono by XWASHERE (github)"
+  source: "https://freesound.org/people/nightcustard/sounds/655404/"
