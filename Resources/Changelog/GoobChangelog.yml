@@ -19464,3 +19464,21 @@ Entries:
       message: The scram implant is now limited to three uses.
   id: 2197
   time: '2025-12-18T00:56:29.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: Changed central command loot pool on space salvage corpses.
+  id: 2198
+  time: '2025-12-18T01:11:51.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Rebuffed terminus, returned to Oni only. It can pry doors.
+  id: 2199
+  time: '2025-12-18T01:13:31.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added virology guidebook.
+  id: 2200
+  time: '2025-12-18T09:51:12.0000000+00:00'
