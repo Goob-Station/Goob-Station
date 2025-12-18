@@ -19407,3 +19407,78 @@ Entries:
       message: Added "Goblin clown"
   id: 2191
   time: '2025-12-17T18:00:56.0000000+00:00'
+- author: JacktheJukebox
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaked Ichor values to provide more healing than Omnizine to humanoids,
+        while retaining their old values for the Dragon.
+  id: 2192
+  time: '2025-12-17T20:24:29.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Fix
+      message: 'Fixed: Floor Goblins now spawn properly'
+  id: 2193
+  time: '2025-12-17T20:25:26.0000000+00:00'
+- author: JacktheJukebox
+  changes:
+    - type: Tweak
+      message: >-
+        Changed both of the Combat Medipen prices to better reflect their
+        healing values.
+  id: 2194
+  time: '2025-12-17T20:27:04.0000000+00:00'
+- author: Rounded
+  changes:
+    - type: Tweak
+      message: Reworked Hierophant's AI. It's getting smarter.
+  id: 2195
+  time: '2025-12-17T20:27:11.0000000+00:00'
+- author: ilya246 and gusxyz
+  changes:
+    - type: Add
+      message: >-
+        A new disease system that scale in strength over time, while your body
+        slowly builds immunity and eventually fights them off.
+    - type: Add
+      message: Added plague mice as new major sources of infection.
+    - type: Add
+      message: >-
+        MedHUD and ViroHUD now detect infections earlier, with ViroHUD showing
+        rough severity.
+    - type: Add
+      message: >-
+        Added new disease-related chemicals, including immune boosters and
+        disease-killing reagents with side effects.
+    - type: Add
+      message: >-
+        Added swabs, disease analyzers, and vaccinators - you can now collect
+        samples, read disease data, create vaccines, and even produce live
+        disease injectors, CMO's check your lockers for even more flatpacks!
+  id: 2196
+  time: '2025-12-17T20:42:00.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: The scram implant is now limited to three uses.
+  id: 2197
+  time: '2025-12-18T00:56:29.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: Changed central command loot pool on space salvage corpses.
+  id: 2198
+  time: '2025-12-18T01:11:51.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Rebuffed terminus, returned to Oni only. It can pry doors.
+  id: 2199
+  time: '2025-12-18T01:13:31.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added virology guidebook.
+  id: 2200
+  time: '2025-12-18T09:51:12.0000000+00:00'
