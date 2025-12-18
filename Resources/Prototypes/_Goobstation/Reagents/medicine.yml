@@ -1475,3 +1475,61 @@
       - !type:SuppressPain
         amount: 1.2
         time: 30
+
+# <Viro>
+
+- type: reagent
+  id: Immurin
+  name: reagent-name-immurin
+  group: Medicine
+  desc: reagent-desc-immurin
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: terrible
+  color: "#A2AF8A"
+  metabolisms:
+    Medicine:
+      effects:
+      # it's a cheap mass-produceable cure-all so it's rather weak
+      - !type:ImmunityModifier
+        gainRateModifier: 0.0015
+        strengthModifier: 0.01
+        statusLifetime: 3 # 3s per 1u
+
+- type: reagent
+  id: Spaceacilin
+  name: reagent-name-spaceacilin
+  group: Medicine
+  desc: reagent-desc-spaceacilin
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#559955"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:DiseaseProgressChange
+        affectedType: Bacterial
+        progressModifier: -0.1 # strong
+      - !type:ImmunityModifier
+        gainRateModifier: -0.0008
+        strengthModifier: -0.004
+        statusLifetime: 1.5 # 1.5s per 1u
+
+- type: reagent
+  id: Devirate
+  name: reagent-name-devirate
+  group: Medicine
+  desc: reagent-desc-devirate
+  physicalDesc: reagent-physical-desc-opaque
+  flavor: medicine
+  color: "#995555"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:DiseaseProgressChange
+        affectedType: Viral
+        progressModifier: -0.08 # strong
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.5
+# </Viro>
