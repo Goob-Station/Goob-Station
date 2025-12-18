@@ -31,3 +31,15 @@ reagent-effect-guidebook-dnascramble = Scrambles the person's DNA.
 reagent-effect-guidebook-change-species = Turns the target into a {$species}
 
 reagent-effect-guidebook-sex-change = Swaps the person's gender
+
+reagent-effect-guidebook-immunity-modifier =
+    { $chance ->
+        [1] Modifies
+        *[other] modify
+    } immunity gain rate by {NATURALFIXED($gainrate, 5)}, strength by {NATURALFIXED($strength, 5)} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)}
+
+reagent-effect-guidebook-disease-progress-change =
+    { $chance ->
+        [1] Modifies
+        *[other] modify
+    } progress of {$type} diseases by {NATURALFIXED($amount, 5)}

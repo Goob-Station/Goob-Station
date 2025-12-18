@@ -9,3 +9,14 @@
   - type: ComputerBoard
     prototype: ComputerScienceXenobiologyBounty
   - type: StaticPrice
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: VirologyComputerCircuitboard
+  name: virology computer board
+  description: A computer printed circuit board for a virology console.
+  components:
+  - type: Sprite
+    state: cpu_medical
+  - type: ComputerBoard
+    prototype: ComputerVirology
