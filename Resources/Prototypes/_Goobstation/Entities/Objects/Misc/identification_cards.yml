@@ -355,3 +355,15 @@
     - state: idradiohost
   - type: PresetIdCard
     job: RadioHost
+
+- type: entity
+  parent: IDCardStandard
+  id: VirologistIDCard
+  name: virology ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idvirologist
+  - type: PresetIdCard
+    job: Virologist
