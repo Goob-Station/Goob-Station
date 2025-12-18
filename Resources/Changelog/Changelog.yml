@@ -4869,3 +4869,17 @@ Entries:
   id: 9310
   time: '2025-12-17T23:04:41.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38537
+- author: NoreUhh
+  changes:
+  - message: Fixed Vulpkanin stomachs being smaller than other species.
+    type: Fix
+  id: 9311
+  time: '2025-12-18T00:53:37.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41893
+- author: Samuka
+  changes:
+  - message: Renamed some xenoborg modules
+    type: Tweak
+  id: 9312
+  time: '2025-12-18T02:29:30.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41625
