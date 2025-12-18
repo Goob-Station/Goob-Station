@@ -803,12 +803,12 @@
   components:
   - type: Item
     size: Large
+    sprite: _ShitChap/Objects/Weapons/Nullrod/dragontail.rsi
   - type: Nullrod
     DamageOnUntrainedUse:
       types:
         Heat: 20
     UntrainedUseString: nullrod-dragontail-untrained-usage-popup
-    sprite: _ShitChap/Objects/Weapons/Nullrod/dragontail.rsi
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Nullrod/dragontail.rsi
     state: icon
