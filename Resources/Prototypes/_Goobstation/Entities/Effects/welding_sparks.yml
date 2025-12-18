@@ -12,13 +12,13 @@
     - state: smoke
     - state: welding_sparks
       shader: unshaded
+  - type: AnimationPlayer
   - type: PointLight
     color: orange
     radius: 1.5
   - type: Tag
     tags:
     - HideContextMenu
-    energy: 2
 
 - type: entity
   parent: EffectWeldingSparks

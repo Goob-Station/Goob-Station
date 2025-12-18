@@ -12,7 +12,7 @@ public sealed class WeldingSparksSystem : EntitySystem
 {
     [Dependency] private readonly ToolSystem _toolSystem = default!;
 
-    private Dictionary<EntityUid, EntityUid> _spawnedEffects = [];
+    private Dictionary<EntityUid, EntityUid> _spawnedEffects = []; // todo: make this less awful
 
     public override void Initialize()
     {
@@ -58,10 +58,9 @@ public sealed class WeldingSparksSystem : EntitySystem
         // If it's a door then play an animation of welding the seam.
         if (TryComp<DoorComponent>(target, out var door))
         {
-            RaiseNetworkEvent(new PlayWeldAnimationEvent(
-                GetNetEntity(effect),
+            RaiseNetworkEvent(new PlayWeldAnimationEvent(GetNetEntity(effect),
                 new WeldAnimationData(
-                    HasComp<FirelockComponent>(target) ? AnimationType.Firelock : AnimationType.Airlock,
+                    HasComp<FirelockComponent>(target) ? AnimationDir.Horizontal : AnimationDir.Vertical,
                     door.State == DoorState.Welded,
                     weldingTime)
             ));

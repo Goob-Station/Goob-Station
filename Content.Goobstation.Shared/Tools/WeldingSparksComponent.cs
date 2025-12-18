@@ -32,19 +32,20 @@ public sealed class PlayWeldAnimationEvent(NetEntity sparksEnt, WeldAnimationDat
 /// <summary>
 /// Enum specifiying the movement direction of the animation, to match up with the seam on the door.
 /// </summary>
-public enum AnimationType : byte
+public enum AnimationDir : byte
 {
-    /// <summary>Vertical</summary>
-    Airlock,
-    /// <summary>Horizontal</summary>
-    Firelock
+    /// <summary>Weld top-to-bottom. (Airlocks)</summary>
+    Vertical,
+    /// <summary>Weld left-to-right. (Firelocks)</summary>
+    Horizontal
 }
 
 /// <summary>
-/// I'll fill this in later
+/// Various settings for the welding sparks animation, collected together in a record for ease of access.
 /// </summary>
-/// <param name="Type"></param>
-/// <param name="IsAlreadyWelded"></param>
-/// <param name="Duration"></param>
+/// <param name="WeldDir">The direction the sparks effect should be animated in. (Currently vertical or horizontal)</param>
+/// <param name="IsAlreadyWelded">Has the target already been welded shut. (If so, the animation plays backwards)</param>
+/// <param name="Duration">How long should the animation take to complete.</param>
+/// <seealso cref="PlayWeldAnimationEvent"/>
 [Serializable, NetSerializable]
-public readonly record struct WeldAnimationData(AnimationType Type, bool IsAlreadyWelded, TimeSpan Duration);
+public readonly record struct WeldAnimationData(AnimationDir WeldDir, bool IsAlreadyWelded, TimeSpan Duration);

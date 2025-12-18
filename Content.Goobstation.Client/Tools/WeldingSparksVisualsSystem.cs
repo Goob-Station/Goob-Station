@@ -22,17 +22,21 @@ public sealed class WeldingSparksVisualsSystem : EntitySystem
     private void PlayWeldAnimation(PlayWeldAnimationEvent ev)
     {
         var ent = GetEntity(ev.SparksEnt);
-        var (animType, alreadyWelded, duration) = ev.AnimData;
+        var (weldDir, alreadyWelded, duration) = ev.AnimData;
 
-        if (_animation.HasRunningAnimation(ent, ANIM_KEY))
+        if (!HasComp<WeldingSparksVisualsComponent>(ent))
+            return;
+
+        var animationPlayer = EnsureComp<AnimationPlayerComponent>(ent);
+        if (_animation.HasRunningAnimation(ent, animationPlayer, ANIM_KEY))
             return;
 
         // `0.5f` is halfway between the centre of the source tile and the centre of the next tile over, so right on the edge.
-        var startingOffset = animType switch
+        var startingOffset = weldDir switch
         {
-            AnimationType.Airlock => new Vector2(0f, 0.5f),
-            AnimationType.Firelock => new Vector2(-0.5f, 0f),
-            _ => throw new Exception($"Invalid welding sparks animation: '{animType}'")
+            AnimationDir.Vertical => new Vector2(0f, 0.5f), // Airlocks
+            AnimationDir.Horizontal => new Vector2(-0.5f, 0f), // Firelocks
+            _ => throw new Exception($"Invalid welding sparks `AnimationDir` argument: '{weldDir}'")
         };
 
         // Go in reverse if unwelding.
@@ -53,8 +57,9 @@ public sealed class WeldingSparksVisualsSystem : EntitySystem
                     InterpolationMode = AnimationInterpolationMode.Linear,
                     KeyFrames =
                     {
+                        // Move from one side of the tile to the other.
                         new AnimationTrackProperty.KeyFrame(startingOffset, 0f),
-                        new AnimationTrackProperty.KeyFrame(-startingOffset, duration.Seconds),
+                        new AnimationTrackProperty.KeyFrame(-startingOffset, (float) duration.TotalSeconds),
                     }
                 }
             }
