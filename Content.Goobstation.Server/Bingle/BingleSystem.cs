@@ -12,7 +12,7 @@
 using System.Numerics;
 using Content.Goobstation.Common.Bingle;
 using Content.Goobstation.Shared.Bingle;
-using Content.Server.Polymorph.Components;
+using Content.Goobstation.Shared.Bingle.Events;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.CombatMode;
 using Content.Shared.Flash.Components;
@@ -20,9 +20,10 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Actions;
 using Content.Shared.Polymorph;
-using Content.Shared.Actions.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Physics;
+using Content.Shared.Physics;
 
 namespace Content.Goobstation.Server.Bingle;
 
@@ -32,6 +33,8 @@ public sealed class BingleSystem : EntitySystem
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly PhysicsSystem _physics = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -40,6 +43,7 @@ public sealed class BingleSystem : EntitySystem
         SubscribeLocalEvent<BingleComponent, Shared.Overlays.ToggleNightVisionEvent>(OnNightvision);
         SubscribeLocalEvent<BingleComponent, ToggleCombatActionEvent>(OnCombatToggle);
         SubscribeLocalEvent<BingleComponent, BingleUpgradeActionEvent>(OnUpgradeAction);
+        SubscribeLocalEvent<BingleComponent, BingleSpawnPitActionEvent>(OnSpawnPitAction);
     }
 
     private void OnMapInit(EntityUid uid, BingleComponent component, MapInitEvent args)
@@ -51,7 +55,9 @@ public sealed class BingleSystem : EntitySystem
             return;
 
         if (component.Prime)
-            component.MyPit = Spawn("BinglePit", cords);
+        {
+            _actions.AddAction(uid, ref component.SpawnPitAction, "ActionBingleSpawnPit");
+        }
         else
         {
             var query = EntityQueryEnumerator<BinglePitComponent>();
@@ -68,9 +74,11 @@ public sealed class BingleSystem : EntitySystem
             }
             component.MyPit = closestPit;
         }
+
+        UpdateCollisonMask(uid, component);
     }
 
-    //ran by the pit to upgrade bingle damage
+    // ran by the pit to upgrade bingle damage
     public void UpgradeBingle(EntityUid uid, BingleComponent component)
     {
         if (component.Upgraded)
@@ -101,7 +109,7 @@ public sealed class BingleSystem : EntitySystem
 
     private void OnAttackAttempt(EntityUid uid, BingleComponent component, AttackAttemptEvent args)
     {
-        //Prevent Friendly Bingle fire
+        // Prevent Friendly Bingle fire
         if (HasComp<BinglePitComponent>(args.Target) || HasComp<BingleComponent>(args.Target))
             args.Cancel();
     }
@@ -119,5 +127,54 @@ public sealed class BingleSystem : EntitySystem
         if (!TryComp<CombatModeComponent>(uid, out var combat))
             return;
         _appearance.SetData(uid, BingleVisual.Combat, combat.IsInCombatMode);
+    }
+
+    private void OnSpawnPitAction(EntityUid uid, BingleComponent component, BingleSpawnPitActionEvent args)
+    {
+        if (!component.Prime || component.MyPit != null)
+            return;
+
+        var xform = Transform(uid);
+        if (xform.GridUid == null)
+        {
+            _popup.PopupEntity(Loc.GetString("bingle-pit-spawn-location-invalid"), uid, uid);
+            return;
+        }
+
+        _actions.RemoveAction(component.SpawnPitAction);
+
+        component.Prime = false;
+        component.MyPit = Spawn("BinglePit", xform.Coordinates);
+
+        UpdateCollisonMask(uid, component);
+    }
+
+    private void UpdateCollisonMask(EntityUid uid, BingleComponent component)
+    {
+        int mask;
+        int layer;
+
+        // allow bingle to fit under airlocks if it is placing pit
+        if (component.Prime && component.MyPit == null)
+        {
+            mask = (int) CollisionGroup.SmallMobMask;
+            layer = (int) CollisionGroup.SmallMobLayer;
+        }
+        else
+        {
+            mask = (int) CollisionGroup.MobMask;
+            layer = (int) CollisionGroup.MobLayer;
+        }
+
+        if (!TryComp<FixturesComponent>(uid, out var fixtures))
+            return;
+
+        foreach (var fixture in fixtures.Fixtures)
+        {
+            _physics.SetCollisionMask(uid, fixture.Key, fixture.Value, mask, fixtures);
+            _physics.SetCollisionLayer(uid, fixture.Key, fixture.Value, layer, fixtures);
+        }
+
+        Dirty(uid, fixtures);
     }
 }

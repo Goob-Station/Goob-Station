@@ -20,12 +20,18 @@ public sealed partial class BingleComponent : Component
 {
     [DataField]
     public bool Upgraded = false;
+
     [DataField]
     public bool Prime = false;
+
     [DataField]
     public EntityUid? MyPit;
+
     [DataField]
     public EntProtoId? UpgradedID;
+
+    [DataField]
+    public EntityUid? SpawnPitAction;
 }
 
 [Serializable, NetSerializable]
