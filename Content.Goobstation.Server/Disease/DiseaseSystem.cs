@@ -154,7 +154,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     /// </summary>
     public override bool TryCureAll(Entity<DiseaseCarrierComponent?> ent)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
         while (ent.Comp.Diseases.Count != 0)
