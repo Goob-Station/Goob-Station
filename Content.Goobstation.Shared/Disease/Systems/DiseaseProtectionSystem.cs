@@ -13,13 +13,13 @@ public sealed partial class DiseaseProtectionSystem : EntitySystem
         SubscribeLocalEvent<DiseaseProtectionComponent, InventoryRelayedEvent<DiseaseOutgoingSpreadAttemptEvent>>(OnOutgoingSpread);
     }
 
-    private void OnIncomingSpread(EntityUid uid, DiseaseProtectionComponent protection, ref InventoryRelayedEvent<DiseaseIncomingSpreadAttemptEvent> args)
+    private void OnIncomingSpread(Entity<DiseaseProtectionComponent> ent, ref InventoryRelayedEvent<DiseaseIncomingSpreadAttemptEvent> args)
     {
-        args.Args.ApplyModifier(protection.Incoming);
+        args.Args.ApplyModifier(ent.Comp.Incoming);
     }
 
-    private void OnOutgoingSpread(EntityUid uid, DiseaseProtectionComponent protection, ref InventoryRelayedEvent<DiseaseOutgoingSpreadAttemptEvent> args)
+    private void OnOutgoingSpread(Entity<DiseaseProtectionComponent> ent, ref InventoryRelayedEvent<DiseaseOutgoingSpreadAttemptEvent> args)
     {
-        args.Args.ApplyModifier(protection.Outgoing);
+        args.Args.ApplyModifier(ent.Comp.Outgoing);
     }
 }

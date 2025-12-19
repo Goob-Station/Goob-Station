@@ -13,7 +13,10 @@
   - type: GhostTakeoverAvailable
   - type: GrantDisease
     baseDisease: DiseaseBaseMouse
-    complexity: 20
+    complexity: 30
+    possibleTypes:
+    - Bacterial
+    - Viral
   - type: DiseaseOnHit
     spreadParams:
       chance: 0.2 # higher chance for plague mice
@@ -21,20 +24,11 @@
       spreadType: Blood
 
 - type: entity
-  parent: MobMouse
+  parent: MobMousePlague
   id: MobMousePandemic
   suffix: Plague, Admeme
   components:
-  - type: GhostRole
-    makeSentient: true
-    allowSpeech: true
-    allowMovement: true
-    name: ghost-role-information-plague-mouse-name
-    description: ghost-role-information-plague-mouse-description
-    rules: ghost-role-information-freeagent-rules
-  - type: GhostTakeoverAvailable
   - type: GrantDisease
-    baseDisease: DiseaseBaseMouse
     complexity: 100
   - type: DiseaseOnHit
     spreadParams:
