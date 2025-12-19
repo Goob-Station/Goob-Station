@@ -21332,7 +21332,7 @@ entities:
       parent: 2
 - proto: ComputerScienceXenobiologyBounty
   entities:
-  - uid: 7943
+  - uid: 79430
     components:
     - type: Transform
       pos: -21.5,-27.5

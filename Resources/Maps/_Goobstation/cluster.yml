@@ -68744,7 +68744,7 @@ entities:
       parent: 2
 - proto: SpawnPointVirologist
   entities:
-  - uid: 12864
+  - uid: 128640
     components:
     - type: Transform
       pos: -16.5,19.5

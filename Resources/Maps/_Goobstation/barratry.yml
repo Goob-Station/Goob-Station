@@ -89353,7 +89353,7 @@ entities:
       parent: 2
 - proto: SpawnPointVirologist
   entities:
-  - uid: 9143
+  - uid: 91430
     components:
     - type: Transform
       pos: 8.5,16.5
