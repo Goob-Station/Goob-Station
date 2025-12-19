@@ -1620,3 +1620,13 @@
     Telecrystal: 50 # Same price as what Antimov was. Might be worth increasing the price for nukies as they can do some BAD things with this.
   categories:
   - UplinkDisruption
+
+- type: listing
+  id: UplinkInjectionSaw
+  name: uplink-injectionsaw-name
+  description: uplink-injectionsaw-desc
+  productEntity: InjectionSaw
+  cost:
+    Telecrystal: 35
+  categories:
+  - UplinkChemicals # Chemicals because it's more of a chemical weapon than a genuine melee.
