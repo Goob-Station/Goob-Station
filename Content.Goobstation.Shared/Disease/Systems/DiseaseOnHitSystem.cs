@@ -14,25 +14,25 @@ public sealed partial class DiseaseOnHitSystem : EntitySystem
         SubscribeLocalEvent<DiseaseOnHitComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
-    private void OnMeleeHit(EntityUid uid, DiseaseOnHitComponent diseaseOnHit, ref MeleeHitEvent args)
+    private void OnMeleeHit(Entity<DiseaseOnHitComponent> ent, ref MeleeHitEvent args)
     {
         if (!args.IsHit)
             return;
 
         foreach (var target in args.HitEntities)
         {
-            if (diseaseOnHit.Disease != null)
+            if (ent.Comp.Disease != null)
             {
-                _disease.DoInfectionAttempt(target, diseaseOnHit.Disease.Value, diseaseOnHit.SpreadParams);
+                _disease.DoInfectionAttempt(target, ent.Comp.Disease.Value, ent.Comp.SpreadParams);
             }
             else
             {
-                if (!TryComp<DiseaseCarrierComponent>(uid, out var carrier))
+                if (!TryComp<DiseaseCarrierComponent>(ent, out var carrier))
                     return;
 
                 foreach (var disease in carrier.Diseases)
                 {
-                    _disease.DoInfectionAttempt(target, disease, diseaseOnHit.SpreadParams);
+                    _disease.DoInfectionAttempt(target, disease, ent.Comp.SpreadParams);
                 }
             }
         }
