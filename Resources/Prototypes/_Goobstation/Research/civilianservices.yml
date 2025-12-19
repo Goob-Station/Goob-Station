@@ -83,6 +83,25 @@
   - AudioVisualCommunication
 
 - type: technology
+  id: RadioMusicCommunications
+  name: research-technology-radio-music-communication
+  icon:
+    sprite: _Goobstation/Structures/Machines/StationRadio/vinylplayer.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - VinylPlayerCircuitboard
+  - TapeDeckCircuitboard
+  - StationRadioServerCircuitboard
+  - StationRadioRigCircuitboard
+  - StationRadioCircuitboard
+  position: 2,6
+  technologyPrerequisites:
+  - ExtendedCommunications
+
+- type: technology
   id: HONKWeapons
   name: research-technology-honk-weapons
   icon:
