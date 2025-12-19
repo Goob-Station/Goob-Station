@@ -29,7 +29,7 @@ public sealed partial class ActivatableUISystem
         SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, ItemToggledEvent>(OnToggled);
         SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, BoundUIOpenedEvent>(OnBatteryOpened);
         SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, BoundUIClosedEvent>(OnBatteryClosed);
-        SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, PredictedBatteryStateChangedEvent>(OnBatteryStateChanged);
+        SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, BatteryStateChangedEvent>(OnBatteryStateChanged);
         SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, ActivatableUIOpenAttemptEvent>(OnBatteryOpenAttempt);
     }
 
@@ -70,7 +70,7 @@ public sealed partial class ActivatableUISystem
             _toggle.TryDeactivate(uid);
     }
 
-    private void OnBatteryStateChanged(Entity<ActivatableUIRequiresPowerCellComponent> ent, ref PredictedBatteryStateChangedEvent args)
+    private void OnBatteryStateChanged(Entity<ActivatableUIRequiresPowerCellComponent> ent, ref BatteryStateChangedEvent args)
     {
         // Deactivate when empty.
         if (args.NewState != BatteryState.Empty)

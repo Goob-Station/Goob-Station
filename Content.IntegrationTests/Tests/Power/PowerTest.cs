@@ -76,6 +76,7 @@ namespace Content.IntegrationTests.Tests.Power
         nodeGroupID: HVPower
   - type: PowerNetworkBattery
   - type: Battery
+    netsync: false
   - type: BatteryCharger
 
 - type: entity
@@ -90,6 +91,7 @@ namespace Content.IntegrationTests.Tests.Power
         nodeGroupID: HVPower
   - type: PowerNetworkBattery
   - type: Battery
+    netsync: false
   - type: BatteryDischarger
 
 - type: entity
@@ -107,6 +109,7 @@ namespace Content.IntegrationTests.Tests.Power
         nodeGroupID: HVPower
   - type: PowerNetworkBattery
   - type: Battery
+    netsync: false
   - type: BatteryDischarger
     node: output
   - type: BatteryCharger
@@ -132,6 +135,7 @@ namespace Content.IntegrationTests.Tests.Power
     maxSupply: 1000
     supplyRampTolerance: 1000
   - type: Battery
+    netsync: false
     maxCharge: 1000
     startingCharge: 1000
   - type: Transform
@@ -141,6 +145,7 @@ namespace Content.IntegrationTests.Tests.Power
   id: ApcDummy
   components:
   - type: Battery
+    netsync: false
     maxCharge: 10000
     startingCharge: 10000
   - type: PowerNetworkBattery
@@ -403,6 +408,8 @@ namespace Content.IntegrationTests.Tests.Power
             const float startingCharge = 100_000;
 
             PowerNetworkBatteryComponent netBattery = default!;
+            EntityUid generatorEnt = default!;
+            EntityUid consumerEnt = default!;
             BatteryComponent battery = default!;
             PowerConsumerComponent consumer = default!;
 
@@ -418,8 +425,8 @@ namespace Content.IntegrationTests.Tests.Power
                     entityManager.SpawnEntity("CableHV", grid.Owner.ToCoordinates(0, i));
                 }
 
-                var generatorEnt = entityManager.SpawnEntity("DischargingBatteryDummy", grid.Owner.ToCoordinates());
-                var consumerEnt = entityManager.SpawnEntity("ConsumerDummy", grid.Owner.ToCoordinates(0, 2));
+                generatorEnt = entityManager.SpawnEntity("DischargingBatteryDummy", grid.Owner.ToCoordinates());
+                consumerEnt = entityManager.SpawnEntity("ConsumerDummy", grid.Owner.ToCoordinates(0, 2));
 
                 netBattery = entityManager.GetComponent<PowerNetworkBatteryComponent>(generatorEnt);
                 battery = entityManager.GetComponent<BatteryComponent>(generatorEnt);
@@ -464,7 +471,8 @@ namespace Content.IntegrationTests.Tests.Power
 
                     // Trivial integral to calculate expected power spent.
                     const double spentExpected = (200 + 100) / 2.0 * 0.25;
-                    Assert.That(battery.CurrentCharge, Is.EqualTo(startingCharge - spentExpected).Within(tickDev));
+                    var currentCharge = batterySys.GetCharge((generatorEnt, battery));
+                    Assert.That(currentCharge, Is.EqualTo(startingCharge - spentExpected).Within(tickDev));
                 });
             });
 
@@ -483,7 +491,8 @@ namespace Content.IntegrationTests.Tests.Power
 
                     // Trivial integral to calculate expected power spent.
                     const double spentExpected = (400 + 100) / 2.0 * 0.75 + 400 * 0.25;
-                    Assert.That(battery.CurrentCharge, Is.EqualTo(startingCharge - spentExpected).Within(tickDev));
+                    var currentCharge = batterySys.GetCharge((generatorEnt, battery));
+                    Assert.That(currentCharge, Is.EqualTo(startingCharge - spentExpected).Within(tickDev));
                 });
             });
 
@@ -599,6 +608,8 @@ namespace Content.IntegrationTests.Tests.Power
             var entityManager = server.ResolveDependency<IEntityManager>();
             var batterySys = entityManager.System<BatterySystem>();
             var mapSys = entityManager.System<SharedMapSystem>();
+            EntityUid generatorEnt = default!;
+            EntityUid batteryEnt = default!;
             PowerSupplierComponent supplier = default!;
             BatteryComponent battery = default!;
 
@@ -614,8 +625,8 @@ namespace Content.IntegrationTests.Tests.Power
                     entityManager.SpawnEntity("CableHV", grid.Owner.ToCoordinates(0, i));
                 }
 
-                var generatorEnt = entityManager.SpawnEntity("GeneratorDummy", grid.Owner.ToCoordinates());
-                var batteryEnt = entityManager.SpawnEntity("ChargingBatteryDummy", grid.Owner.ToCoordinates(0, 2));
+                generatorEnt = entityManager.SpawnEntity("GeneratorDummy", grid.Owner.ToCoordinates());
+                batteryEnt = entityManager.SpawnEntity("ChargingBatteryDummy", grid.Owner.ToCoordinates(0, 2));
 
                 supplier = entityManager.GetComponent<PowerSupplierComponent>(generatorEnt);
                 var netBattery = entityManager.GetComponent<PowerNetworkBatteryComponent>(batteryEnt);
@@ -638,7 +649,8 @@ namespace Content.IntegrationTests.Tests.Power
                 {
                     // half a second @ 500 W = 250
                     // 50% efficiency, so 125 J stored total.
-                    Assert.That(battery.CurrentCharge, Is.EqualTo(125).Within(0.1));
+                    var currentCharge = batterySys.GetCharge((batteryEnt, battery));
+                    Assert.That(currentCharge, Is.EqualTo(125).Within(0.1));
                     Assert.That(supplier.CurrentSupply, Is.EqualTo(500).Within(0.1));
                 });
             });
@@ -656,6 +668,9 @@ namespace Content.IntegrationTests.Tests.Power
             var gameTiming = server.ResolveDependency<IGameTiming>();
             var batterySys = entityManager.System<BatterySystem>();
             var mapSys = entityManager.System<SharedMapSystem>();
+            EntityUid batteryEnt = default!;
+            EntityUid supplyEnt = default!;
+            EntityUid consumerEnt = default!;
             PowerConsumerComponent consumer = default!;
             PowerSupplierComponent supplier = default!;
             PowerNetworkBatteryComponent netBattery = default!;
@@ -676,9 +691,9 @@ namespace Content.IntegrationTests.Tests.Power
                 var terminal = entityManager.SpawnEntity("CableTerminal", grid.Owner.ToCoordinates(0, 1));
                 entityManager.GetComponent<TransformComponent>(terminal).LocalRotation = Angle.FromDegrees(180);
 
-                var batteryEnt = entityManager.SpawnEntity("FullBatteryDummy", grid.Owner.ToCoordinates(0, 2));
-                var supplyEnt = entityManager.SpawnEntity("GeneratorDummy", grid.Owner.ToCoordinates(0, 0));
-                var consumerEnt = entityManager.SpawnEntity("ConsumerDummy", grid.Owner.ToCoordinates(0, 3));
+                batteryEnt = entityManager.SpawnEntity("FullBatteryDummy", grid.Owner.ToCoordinates(0, 2));
+                supplyEnt = entityManager.SpawnEntity("GeneratorDummy", grid.Owner.ToCoordinates(0, 0));
+                consumerEnt = entityManager.SpawnEntity("ConsumerDummy", grid.Owner.ToCoordinates(0, 3));
 
                 consumer = entityManager.GetComponent<PowerConsumerComponent>(consumerEnt);
                 supplier = entityManager.GetComponent<PowerSupplierComponent>(supplyEnt);
@@ -717,7 +732,8 @@ namespace Content.IntegrationTests.Tests.Power
                     Assert.That(netBattery.SupplyRampPosition, Is.EqualTo(200).Within(0.1));
 
                     const int expectedSpent = 200;
-                    Assert.That(battery.CurrentCharge, Is.EqualTo(battery.MaxCharge - expectedSpent).Within(tickDev));
+                    var currentCharge = batterySys.GetCharge((batteryEnt, battery));
+                    Assert.That(currentCharge, Is.EqualTo(battery.MaxCharge - expectedSpent).Within(tickDev));
                 });
             });
 
@@ -734,6 +750,9 @@ namespace Content.IntegrationTests.Tests.Power
             var gameTiming = server.ResolveDependency<IGameTiming>();
             var batterySys = entityManager.System<BatterySystem>();
             var mapSys = entityManager.System<SharedMapSystem>();
+            EntityUid batteryEnt = default!;
+            EntityUid supplyEnt = default!;
+            EntityUid consumerEnt = default!;
             PowerConsumerComponent consumer = default!;
             PowerSupplierComponent supplier = default!;
             PowerNetworkBatteryComponent netBattery = default!;
@@ -754,9 +773,9 @@ namespace Content.IntegrationTests.Tests.Power
                 var terminal = entityManager.SpawnEntity("CableTerminal", grid.Owner.ToCoordinates(0, 1));
                 entityManager.GetComponent<TransformComponent>(terminal).LocalRotation = Angle.FromDegrees(180);
 
-                var batteryEnt = entityManager.SpawnEntity("FullBatteryDummy", grid.Owner.ToCoordinates(0, 2));
-                var supplyEnt = entityManager.SpawnEntity("GeneratorDummy", grid.Owner.ToCoordinates(0, 0));
-                var consumerEnt = entityManager.SpawnEntity("ConsumerDummy", grid.Owner.ToCoordinates(0, 3));
+                batteryEnt = entityManager.SpawnEntity("FullBatteryDummy", grid.Owner.ToCoordinates(0, 2));
+                supplyEnt = entityManager.SpawnEntity("GeneratorDummy", grid.Owner.ToCoordinates(0, 0));
+                consumerEnt = entityManager.SpawnEntity("ConsumerDummy", grid.Owner.ToCoordinates(0, 3));
 
                 consumer = entityManager.GetComponent<PowerConsumerComponent>(consumerEnt);
                 supplier = entityManager.GetComponent<PowerSupplierComponent>(supplyEnt);
@@ -795,7 +814,8 @@ namespace Content.IntegrationTests.Tests.Power
                     Assert.That(netBattery.SupplyRampPosition, Is.EqualTo(400).Within(0.1));
 
                     const int expectedSpent = 400;
-                    Assert.That(battery.CurrentCharge, Is.EqualTo(battery.MaxCharge - expectedSpent).Within(tickDev));
+                    var currentCharge = batterySys.GetCharge((batteryEnt, battery));
+                    Assert.That(currentCharge, Is.EqualTo(battery.MaxCharge - expectedSpent).Within(tickDev));
                 });
             });
 
@@ -1246,6 +1266,9 @@ namespace Content.IntegrationTests.Tests.Power
             var entityManager = server.ResolveDependency<IEntityManager>();
             var batterySys = entityManager.System<BatterySystem>();
             var mapSys = entityManager.System<SharedMapSystem>();
+            EntityUid generatorEnt = default!;
+            EntityUid substationEnt = default!;
+            EntityUid apcEnt = default!;
             PowerNetworkBatteryComponent substationNetBattery = default!;
             BatteryComponent apcBattery = default!;
 
@@ -1265,9 +1288,9 @@ namespace Content.IntegrationTests.Tests.Power
                 entityManager.SpawnEntity("CableMV", grid.Owner.ToCoordinates(0, 1));
                 entityManager.SpawnEntity("CableMV", grid.Owner.ToCoordinates(0, 2));
 
-                var generatorEnt = entityManager.SpawnEntity("GeneratorDummy", grid.Owner.ToCoordinates(0, 0));
-                var substationEnt = entityManager.SpawnEntity("SubstationDummy", grid.Owner.ToCoordinates(0, 1));
-                var apcEnt = entityManager.SpawnEntity("ApcDummy", grid.Owner.ToCoordinates(0, 2));
+                generatorEnt = entityManager.SpawnEntity("GeneratorDummy", grid.Owner.ToCoordinates(0, 0));
+                substationEnt = entityManager.SpawnEntity("SubstationDummy", grid.Owner.ToCoordinates(0, 1));
+                apcEnt = entityManager.SpawnEntity("ApcDummy", grid.Owner.ToCoordinates(0, 2));
 
                 var generatorSupplier = entityManager.GetComponent<PowerSupplierComponent>(generatorEnt);
                 substationNetBattery = entityManager.GetComponent<PowerNetworkBatteryComponent>(substationEnt);
@@ -1285,8 +1308,9 @@ namespace Content.IntegrationTests.Tests.Power
             {
                 Assert.Multiple(() =>
                 {
+                    var currentCharge = batterySys.GetCharge((apcEnt, apcBattery));
                     Assert.That(substationNetBattery.CurrentSupply, Is.GreaterThan(0)); //substation should be providing power
-                    Assert.That(apcBattery.CurrentCharge, Is.GreaterThan(0)); //apc battery should have gained charge
+                    Assert.That(currentCharge, Is.GreaterThan(0)); //apc battery should have gained charge
                 });
             });
 

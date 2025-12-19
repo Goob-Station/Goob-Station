@@ -76,7 +76,7 @@
     delays:
     - stunbaton
   - type: LandAtCursor # it deals stamina damage when thrown
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 360
     startingCharge: 360
   - type: UseDelay

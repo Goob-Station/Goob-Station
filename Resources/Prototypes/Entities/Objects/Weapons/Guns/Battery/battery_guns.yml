@@ -166,7 +166,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 1000
     startingCharge: 1000
   - type: StaticPrice
@@ -471,7 +471,7 @@
   - type: BatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 500
     startingCharge: 500
   - type: Tag
@@ -572,7 +572,7 @@
   - type: BatteryAmmoProvider
     proto: LightPulse # Goobstation
     fireCost: 200
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 2000
     startingCharge: 2000
   - type: Tag
@@ -630,7 +630,7 @@
     verbOnly: true
     verbText: mode-select-verb-text
     key: enum.AmmoSelectorUiKey.Key # Goobstation - End
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 5000
     startingCharge: 5000
   # Goobstation
@@ -688,7 +688,7 @@
     verbOnly: true
     verbText: mode-select-verb-text
     key: enum.AmmoSelectorUiKey.Key # Goobstation - End
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 40000
     startingCharge: 40000
   # Goobstation
@@ -760,7 +760,7 @@
     - type: BatteryAmmoProvider
       proto: AntiParticlesProjectile
       fireCost: 500
-    - type: PredictedBattery
+    - type: Battery
       maxCharge: 10000
       startingCharge: 10000
     - type: PhysicalComposition #Goobstation - Recycle update
@@ -1017,7 +1017,7 @@
   - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
-  - type: PredictedBatterySelfRecharger
+  - type: BatterySelfRecharger
     autoRechargeRate: 40
   - type: MagazineVisuals
     magState: mag
@@ -1065,7 +1065,7 @@
   - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
-  - type: PredictedBatterySelfRecharger
+  - type: BatterySelfRecharger
     autoRechargeRate: 30
   - type: RestrictGunshotsByUserTag # Goobstation
     doesntContain:
@@ -1177,7 +1177,7 @@
   - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
-  - type: PredictedBatterySelfRecharger
+  - type: BatterySelfRecharger
     autoRechargeRate: 40
   - type: StaticPrice
     price: 750
@@ -1244,7 +1244,7 @@
     sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
     heldPrefix: energy
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 1200 # Goobstation
     startingCharge: 1200 # Goobstation
 
@@ -1291,7 +1291,7 @@
     - proto: BulletDisabler
       fireCost: 62.5
       pacifismAllowedMode: true
-  - type: PredictedBatterySelfRecharger
+  - type: BatterySelfRecharger
     autoRechargeRate: 48
     autoRechargePauseTime: 10
 
@@ -1336,7 +1336,7 @@
       fireCost: 100
     - proto: BulletTemperatureHot # Goobstation - im lazy to port shit from wizden so i just use goob prototypes that are already balanced
       fireCost: 100
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 2500 # Goobstation - 1000 -> 2500
     startingCharge: 2500 # 1000 -> 2500
   - type: StaticPrice
@@ -1360,7 +1360,7 @@
   components:
   - type: BatterySelfRecharger
     autoRechargeRate: 30
-  # "remove" wield bonus and penalty so borgs can use it 
+  # "remove" wield bonus and penalty so borgs can use it
   - type: GunWieldBonus
     minAngle: 0
     maxAngle: 0
