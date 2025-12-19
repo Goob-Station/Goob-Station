@@ -630,6 +630,8 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
+  - type: EyeProtection #Goob
+  - type: FlashImmunity #Goob
 
 #Head of Security's hardsuit
 - type: entity

@@ -737,6 +737,8 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
+  - type: EyeProtection
+  - type: FlashImmunity
 
 - type: entity
   parent: BaseClothingModsuitHelmet
