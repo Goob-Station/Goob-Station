@@ -127,7 +127,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
 
         if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
             && _roundEndSystem.ExpectedCountdownEnd != null
-            && !_emergency.EmergencyShuttleArrived) // Goobstation edit
+            && !_emergency.EmergencyShuttleArrived)
         {
             _roundEndSystem.CancelRoundEndCountdown(checkCooldown: false);
             _chatSystem.DispatchStationAnnouncement(stationUid,
