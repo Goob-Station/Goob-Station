@@ -495,7 +495,7 @@ public sealed class SuitSensorSystem : EntitySystem
         // get mob total damage
         var totalDamage = 0;
         if (TryComp<DamageableComponent>(sensor.User.Value, out var damageable))
-            totalDamage = damageable.TotalDamage.Int();
+            totalDamage = _mobThresholdSystem.CheckVitalDamage(sensor.User.Value, damageable).Int(); // Goobstation
 
         // Get mob total damage crit threshold
         int? totalDamageThreshold = null;

@@ -90,3 +90,49 @@
     - type: Clothing
       sprite: _Goobstation/Clothing/OuterClothing/Misc/nopro.rsi
       quickEquip: true
+
+- type: entity
+  parent: ClothingOuterWizardCentCommReal
+  id: WhiteRobes
+  name: robes of the chosen one
+  description: theses white robes are worn by only the finest of Nanotrasen's special operations department.
+  suffix: chosen one
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/robesjedi.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/robesjedi.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterSuitHotDog
+  name: hotdog costume
+  description: Hot-diggity-dog!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/hotdog.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/hotdog.rsi
+    quickEquip: true
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterSuitPickle
+  name: pickle suit
+  description: Smells horribly of vinegar.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/pickle.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/pickle.rsi
+    quickEquip: true
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide

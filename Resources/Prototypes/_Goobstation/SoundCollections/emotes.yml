@@ -38,3 +38,31 @@
   id: Bagawk
   files:
   - /Audio/_Mono/Voice/bagawk.ogg
+
+- type: soundCollection
+  id: Dionacry
+  files:
+  - /Audio/_Goobstation/Voice/Diona/dionacry.ogg
+
+- type: soundCollection
+  id: Dionawhistle
+  files:
+  - /Audio/_Goobstation/Voice/Diona/dionawhistle1.ogg
+  - /Audio/_Goobstation/Voice/Diona/dionawhistle2.ogg
+
+- type: soundCollection
+  id: Dionacough
+  files:
+  - /Audio/_Goobstation/Voice/Diona/dionacough.ogg
+
+- type: soundCollection
+  id: Dionayawn
+  files:
+  - /Audio/_Goobstation/Voice/Diona/dionayawn.ogg
+
+- type: soundCollection
+  id: Dionasigh
+  files:
+  - /Audio/_Goobstation/Voice/Diona/dionasigh.ogg
+
+

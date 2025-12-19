@@ -1,0 +1,13 @@
+- type: entity
+  id: CigaretteMedical
+  suffix: Medical
+  description: An extra absorbant chemlab cigarette, tastes kinda like asbestos.
+  parent: Cigarette
+  name: cigarette
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 10
+  - type: RefillableSolution # it would make more sense for all cigerattes to work like this.
+    solution: smokable

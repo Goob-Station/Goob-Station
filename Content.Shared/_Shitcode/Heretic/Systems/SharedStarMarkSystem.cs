@@ -12,10 +12,12 @@ using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Spawners;
@@ -34,6 +36,7 @@ public abstract class SharedStarMarkSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedStaminaSystem _stam = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
@@ -52,6 +55,21 @@ public abstract class SharedStarMarkSystem : EntitySystem
 
         SubscribeLocalEvent<StarMarkStatusEffectComponent, StatusEffectAppliedEvent>(OnApply);
         SubscribeLocalEvent<StarMarkStatusEffectComponent, StatusEffectRemovedEvent>(OnRemove);
+
+        SubscribeLocalEvent<StarMarkComponent, PullStoppedMessage>(OnPullStop);
+        SubscribeLocalEvent<StarMarkComponent, PullStartedMessage>(OnPullStart);
+    }
+
+    private void OnPullStart(Entity<StarMarkComponent> ent, ref PullStartedMessage args)
+    {
+        if (args.PulledUid == ent.Owner)
+            RegenerateContacts(ent.Owner);
+    }
+
+    private void OnPullStop(Entity<StarMarkComponent> ent, ref PullStoppedMessage args)
+    {
+        if (args.PulledUid == ent.Owner)
+            RegenerateContacts(ent.Owner);
     }
 
     private void OnRemove(Entity<StarMarkStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
@@ -59,8 +77,11 @@ public abstract class SharedStarMarkSystem : EntitySystem
         if (_timing.ApplyingState)
             return;
 
-        if (!TerminatingOrDeleted(args.Target) && TryComp(args.Target, out StarMarkComponent? mark))
-            RemCompDeferred(args.Target, mark);
+        if (TerminatingOrDeleted(args.Target) || !TryComp(args.Target, out StarMarkComponent? mark))
+            return;
+
+        RemCompDeferred(args.Target, mark);
+        RegenerateContacts(args.Target);
     }
 
     private void OnApply(Entity<StarMarkStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
@@ -134,7 +155,7 @@ public abstract class SharedStarMarkSystem : EntitySystem
     {
         if (args.OurFixture.Hard && (!HasComp<StarMarkComponent>(args.OtherEntity) ||
                                      TryComp(args.OtherEntity, out PullableComponent? pullable) &&
-                                     (HasComp<StarGazerComponent>(args.OtherEntity) ||
+                                     (HasComp<StarGazerComponent>(pullable.Puller) ||
                                       TryComp(pullable.Puller, out HereticComponent? heretic) &&
                                       heretic.CurrentPath == "Cosmos")))
             args.Cancelled = true;
@@ -215,23 +236,28 @@ public abstract class SharedStarMarkSystem : EntitySystem
         var ents = _lookup.GetEntitiesInRange<MobStateComponent>(coords, range, LookupFlags.Dynamic);
         foreach (var entity in ents)
         {
-            TryApplyStarMark(entity!, user);
+            TryApplyStarMark(entity.AsNullable());
         }
     }
 
-    public bool TryApplyStarMark(Entity<MobStateComponent?> entity, EntityUid? user, bool ignoreGhouls = false)
+    public bool TryApplyStarMark(Entity<MobStateComponent?> entity)
     {
-        if (entity == user || !Resolve(entity, ref entity.Comp, false) ||
+        if (!Resolve(entity, ref entity.Comp, false) ||
             TryComp(entity, out HereticComponent? heretic) && heretic.CurrentPath == "Cosmos" ||
-            !ignoreGhouls && user != null && TryComp(entity, out GhoulComponent? ghoul) &&
-            ghoul.BoundHeretic == user.Value)
+            HasComp<GhoulComponent>(entity))
             return false;
 
         var ev = new BeforeCastTouchSpellEvent(entity, false);
         RaiseLocalEvent(entity, ev, true);
 
-        return !ev.Cancelled &&
-               _status.TryUpdateStatusEffectDuration(entity, StarMarkStatusEffect, TimeSpan.FromSeconds(30));
+        var result = !ev.Cancelled &&
+                     _status.TryUpdateStatusEffectDuration(entity, StarMarkStatusEffect, TimeSpan.FromSeconds(30));
+
+        if (!result)
+            return false;
+
+        RegenerateContacts(entity.Owner);
+        return true;
     }
 
     protected virtual void InitializeCosmicField(Entity<CosmicFieldComponent> field, int strength)
@@ -244,5 +270,13 @@ public abstract class SharedStarMarkSystem : EntitySystem
 
         modifier.IsActive = true;
         Dirty(field.Owner, modifier);
+    }
+
+    private void RegenerateContacts(Entity<PhysicsComponent?, FixturesComponent?, TransformComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp1, ref ent.Comp2, ref ent.Comp3, false))
+            return;
+
+        _broadphase.RegenerateContacts(ent);
     }
 }

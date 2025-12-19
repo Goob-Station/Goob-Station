@@ -14,9 +14,7 @@ using Content.Shared.CombatMode;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
-using Content.Shared.DoAfter;
 using Content.Shared.Gravity;
 using Content.Shared.Input;
 using Content.Shared.Mech.Components;
@@ -151,10 +149,6 @@ public abstract class SharedSprintingSystem : EntitySystem
 
         component.LastSprint = _timing.CurTime;
         component.IsSprinting = newSprintState;
-
-        // Raise the stamina-specific event (for `SharedStaminaSystem.cs`)
-        var staminaEv = new SprintingStateChangedEvent(uid, newSprintState);
-        RaiseLocalEvent(uid, ref staminaEv);
 
         if (newSprintState)
         {
@@ -296,7 +290,7 @@ public abstract class SharedSprintingSystem : EntitySystem
         if (!sprinter.IsSprinting)
             return;
 
-        _staminaSystem.TakeStaminaDamage(uid, sprinter.StaminaPenaltyOnShove, applyResistances: true);
+        _staminaSystem.TakeStaminaDamage(uid, sprinter.StaminaPenaltyOnShove, applyResistances: true, logDamage: false);
         ToggleSprint(uid, sprinter, false, gracefulStop: true);
     }
 

@@ -6,7 +6,7 @@ using Content.Shared.Fluids.Components;
 using Content.Shared.Popups;
 using Content.Shared.Whitelist;
 
-namespace Content.Goobstation.Shared.Wraith.Minions.Plaguebinger;
+namespace Content.Goobstation.Shared.Wraith.Minions.Plaguebringer;
 public sealed class EatFilthSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;

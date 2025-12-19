@@ -157,6 +157,27 @@
   - GroupPocketTankDouble
 
 - type: roleLoadout
+  id: JobRoboticist
+  groups:
+  - GroupTankHarness
+  - ScientistHead
+  - ScientistNeck
+  - ScientistJumpsuit
+  - ScientistBackpack
+  - ScientistOuterClothing
+  - ScientistGloves
+  - ScientistShoes
+  - ScientistPDA
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  # Plasmaman
+  - ScientistEnvirohelm
+  - ScientistEnvirosuit
+  - ScientistEnvirogloves
+
+- type: roleLoadout
   id: JobBrigmedic
   groups:
   - BrigmedicHead
@@ -185,3 +206,43 @@
   id: RoleSurvivalPlasmaTank
   groups:
   - GroupEVATankPlasma
+
+# Event-restricted roles
+
+- type: roleLoadout
+  id: JobSecurityClown
+  groups:
+  - ClownBackpack
+  - SurvivalSecurity
+  - GroupSpeciesBreathToolSecurity
+
+- type: roleLoadout
+  id: JobCommandMaid
+  groups:
+  - CommonBackpack
+  - Survival
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobPartyMaker
+  groups:
+  - GroupTankHarness
+  - CommonBackpack
+  - Survival
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobVirologist
+  groups:
+   - GroupTankHarness
+   - MedicalDoctorHead
+   - MedicalMask
+   - VirologistJumpsuit
+   - MedicalGloves
+   - VirologistBackpack
+   - VirologistOuterClothing
+   - MedicalShoes
+   - VirologistPDA
+   - SurvivalMedical
+   - Trinkets
+   - GroupSpeciesBreathToolMedical
