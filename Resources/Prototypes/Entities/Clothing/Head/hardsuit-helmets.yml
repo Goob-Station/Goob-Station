@@ -626,12 +626,12 @@
         Heat: 0.45
         Radiation: 0.05
         Caustic: 0.4
+  - type: EyeProtection #Goob
+  - type: FlashImmunity #Goob
   - type: Tag
     tags:
     - CorgiWearable
     - WhitelistChameleon
-  - type: EyeProtection #Goob
-  - type: FlashImmunity #Goob
 
 #Head of Security's hardsuit
 - type: entity

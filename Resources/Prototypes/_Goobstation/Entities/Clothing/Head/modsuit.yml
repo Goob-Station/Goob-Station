@@ -693,6 +693,8 @@
         Shock: 0.75
         Caustic: 0.25
         Radiation: 0.01
+  - type: EyeProtection
+  - type: FlashImmunity
   - type: ComponentToggler
     components:
     - type: BreathMask
@@ -737,8 +739,6 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
-  - type: EyeProtection
-  - type: FlashImmunity
 
 - type: entity
   parent: BaseClothingModsuitHelmet
