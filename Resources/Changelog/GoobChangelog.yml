@@ -19513,3 +19513,9 @@ Entries:
       message: Changed the outfits of command's most esteemed cleaners.
   id: 2204
   time: '2025-12-18T23:37:44.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Greytide spear clones now wont attack other syndicate members.
+  id: 2205
+  time: '2025-12-19T07:21:02.0000000+00:00'
