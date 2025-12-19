@@ -2,7 +2,7 @@
   name: injection saw
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: InjectionSaw
-  description: Modified saw outfitted with both a long needle and knife underneath, perfect for "practicing medicine".
+  description: Modified saw outfitted with both a long needle and knife underneath. Perfect for "practicing medicine".
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/injection_saw.rsi
