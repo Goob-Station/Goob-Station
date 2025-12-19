@@ -1,12 +1,28 @@
 {
   "version": 1,
-  "license": null,
-  "copyright": "",
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": null,
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
+    {
+      "name": "inhand-left-fill-1",
+        "directions": 4
+    },
+    {
+      "name": "inhand-left-fill-2",
+        "directions": 4
+    },
+    {
+      "name": "inhand-left-fill-3",
+        "directions": 4
+    },
+    {
+      "name": "inhand-right",
+        "directions": 4
+    },
     {
       "name": "inhand-right-fill-1",
         "directions": 4
@@ -20,19 +36,23 @@
         "directions": 4
     },
     {
-      "name": "injection_saw"
+      "name": "injection_saw",
     },
     {
-      "name": "injection_saw-1"
+      "name": "injection_saw-1",
+        "directions": 4
     },
     {
-      "name": "injection_saw-2"
+      "name": "injection_saw-2",
+        "directions": 4
     },
     {
-      "name": "injection_saw-3"
+      "name": "injection_saw-3",
+        "directions": 4
     },
     {
-      "name": "injection_saw-4"
+      "name": "injection_saw-4",
+        "directions": 4
     },
     {
       "name": "icon"
