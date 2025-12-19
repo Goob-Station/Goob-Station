@@ -712,7 +712,7 @@
     tags:
     - DonkPocket
     - Meat
-    - Lighter
+    - Lighter # Goobstation
   - type: SolutionContainerManager
     solutions:
       Welder:
