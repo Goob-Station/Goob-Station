@@ -409,6 +409,9 @@
   - type: UseDelay
   - type: IgnitionSource
     ignited: false
+  - type: Tag
+    tags:
+    - Lighter
 
 - type: entity
   parent: [BaseBrandedLighter, BaseSyndicateContraband]
@@ -528,6 +531,9 @@
     netsync: false
     radius: 2
     color: cyan
+  - type: Tag
+    tags:
+    - Lighter
 
 - type: entity
   parent: [BaseBrandedLighter]
@@ -558,6 +564,9 @@
         - ReagentId: Plasma
           Quantity: 10
         maxVol: 10
+  - type: Tag
+    tags:
+    - Lighter
 
 - type: entity
   parent: [BaseBrandedLighter, BaseCentcommContraband]
@@ -708,6 +717,7 @@
     tags:
     - DonkPocket
     - Meat
+    - Lighter
   - type: SolutionContainerManager
     solutions:
       Welder:
