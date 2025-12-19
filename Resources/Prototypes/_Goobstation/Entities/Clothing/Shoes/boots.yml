@@ -288,6 +288,13 @@
         Slash: 0.95
         Piercing: 0.95
 
+- type: entity
+  parent: ClothingShoesColorBlack
+  id: ClothingShoesColorBlackUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+
 # Western Undetermined Set
 - type: entity
   parent: [ClothingShoesMilitaryBase, BaseMajorContraband]
@@ -301,3 +308,29 @@
     sprite: Clothing/Shoes/Boots/cowboybootsbrown.rsi
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
+
+- type: entity
+  parent: [BaseCommandContraband, ClothingShoesGaloshes]
+  id: ClothingShoesBootsJackGaloshes
+  name: Jack Galoshes
+  description: This pair of jackboots was designed for the elite maids of our station. Perhaps the most coveted item on station.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/jackgaloshes.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/jackgaloshes.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: StepHeavyBoots #trol
+  - type: Matchbox #stole component from jackboots
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+  - type: ItemSlots # Lets it store items like jackboots despite being paranted from galoshes, consistentcy
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
