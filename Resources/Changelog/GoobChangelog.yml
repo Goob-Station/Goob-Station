@@ -19531,3 +19531,9 @@ Entries:
       message: All lighters now fit in cigarett packs. Smokers rejoice!
   id: 2207
   time: '2025-12-19T15:27:43.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: Foam and smoke now spread a lot faster
+  id: 2208
+  time: '2025-12-19T15:29:55.0000000+00:00'
