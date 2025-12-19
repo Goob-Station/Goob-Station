@@ -1,0 +1,20 @@
+- type: weightedRandom
+  id: DiseaseBehaviorsStandard
+  weights:
+    DiseaseBehaviorCancer: 0.5
+    DiseaseBehaviorPoison: 1
+    DiseaseBehaviorBlunt: 1
+    DiseaseBehaviorVomit: 1
+    DiseaseBehaviorFeelUnwell: 1
+    DiseaseBehaviorHeadache: 1
+    DiseaseBehaviorTemperature: 1.5
+    DiseaseBehaviorCold: 1
+    DiseaseBehaviorFightImmunity: 0.5
+    DiseaseBehaviorCough: 2
+    DiseaseBehaviorHyperactive: 0.5
+    DiseaseBehaviorHealing: 0.5
+    DiseaseBehaviorRapidMutation: 0.5
+    # total of 0.5 for gravitosis
+    DiseaseBehaviorGravitosisA: 0.25
+    DiseaseBehaviorGravitosisB: 0.125
+    DiseaseBehaviorGravitosisC: 0.125

@@ -48960,6 +48960,13 @@ entities:
     - type: Transform
       pos: -35.5,9.5
       parent: 2
+- proto: SpawnPointVirologist
+  entities:
+  - uid: 7943
+    components:
+    - type: Transform
+      pos: 1.5,-21.5
+      parent: 2
 - proto: SpawnPointWarden
   entities:
   - uid: 7459
