@@ -20,6 +20,15 @@ public sealed partial class InsideCryoPodComponent: Component
     [DataField("previousOffset")]
     public Vector2 PreviousOffset { get; set; } = new(0, 0);
 
+    #region Goob
     [DataField] // Shitmed Change
     public EntityUid? SleepAction;
+
+    /// <summary>
+    /// Store the original tempature transfer for species if any
+    /// </summary>
+    [DataField]
+    public float? OriginalAtmosTemperatureTransferEfficiency;
+
+    #endregion
 }
