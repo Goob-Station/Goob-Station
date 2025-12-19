@@ -19549,3 +19549,14 @@ Entries:
       message: Added Santa
   id: 2210
   time: '2025-12-19T18:51:14.0000000+00:00'
+- author: John John
+  changes:
+    - type: Add
+      message: >-
+        Added new job "Radio host" they host a the stations local radiostation
+        and play music and report of stuff around the station, this isn't mapped
+        yet but should be soon! 
+    - type: Add
+      message: Added "vinyl player" it plays vinyls!
+  id: 2211
+  time: '2025-12-19T19:37:06.0000000+00:00'
