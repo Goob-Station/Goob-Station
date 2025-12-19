@@ -251,16 +251,6 @@ public sealed class RadioDeviceSystem : EntitySystem
         var channel = _protoMan.Index<RadioChannelPrototype>(component.BroadcastChannel)!;
         if (_recentlySent.Add((args.Message, args.Source, channel)))
             _radio.SendRadioMessage(args.Source, args.Message, channel, uid);
-
-        // Goob start
-        if(component.SecondaryBroadcastChannel == null)
-            return;
-
-        var secondaryChannel = _protoMan.Index<RadioChannelPrototype>(component.SecondaryBroadcastChannel)!;
-
-        if (_recentlySent.Add((args.Message, args.Source, secondaryChannel)))
-            _radio.SendRadioMessage(args.Source, args.Message, secondaryChannel, uid);
-        // Goob end
     }
 
     private void OnAttemptListen(EntityUid uid, RadioMicrophoneComponent component, ListenAttemptEvent args)

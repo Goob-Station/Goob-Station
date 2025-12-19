@@ -22,7 +22,6 @@
   - type: RadioMicrophone
     powerRequired: true
     broadcastChannel: RadioShow
-    secondaryBroadcastChannel: Common
 
 - type: entity
   id: StationRadioRig
