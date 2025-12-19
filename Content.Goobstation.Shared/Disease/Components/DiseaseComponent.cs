@@ -14,7 +14,7 @@ public sealed partial class DiseaseComponent : Component
     /// The effects this disease has
     /// </summary>
     [ViewVariables, AutoNetworkedField]
-    public readonly List<EntityUid> Effects = [];
+    public List<EntityUid> Effects = [];
 
     /// <summary>
     /// Current strength of the organism's immunity against this disease

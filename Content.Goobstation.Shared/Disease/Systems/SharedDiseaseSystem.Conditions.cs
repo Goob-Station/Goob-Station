@@ -12,41 +12,41 @@ public partial class SharedDiseaseSystem
         SubscribeLocalEvent<DiseaseProgressConditionComponent, DiseaseCheckConditionsEvent>(CheckSeverityCondition);
     }
 
-    private void CheckChanceCondition(EntityUid uid, DiseaseChanceConditionComponent condition, DiseaseCheckConditionsEvent args)
+    private void CheckChanceCondition(Entity<DiseaseChanceConditionComponent> ent, ref DiseaseCheckConditionsEvent args)
     {
-        args.DoEffect = args.DoEffect && _random.Prob(condition.Chance * GetScale(args, condition));
+        args.DoEffect = args.DoEffect && _random.Prob(ent.Comp.Chance * GetScale(args, ent.Comp));
     }
 
-    private void CheckPeriodicCondition(EntityUid uid, DiseasePeriodicConditionComponent condition, DiseaseCheckConditionsEvent args)
+    private void CheckPeriodicCondition(Entity<DiseasePeriodicConditionComponent> ent, ref DiseaseCheckConditionsEvent args)
     {
-        if (condition.CurrentDelay == null)
+        if (ent.Comp.CurrentDelay == null)
         {
             if (_net.IsClient)
             {
                 args.DoEffect = false;
                 return;
             }
-            condition.CurrentDelay = TimeSpan.FromSeconds(_random.NextDouble(condition.DelayMin.TotalSeconds, condition.DelayMax.TotalSeconds));
+            ent.Comp.CurrentDelay = TimeSpan.FromSeconds(_random.NextDouble(ent.Comp.DelayMin.TotalSeconds, ent.Comp.DelayMax.TotalSeconds));
         }
 
-        condition.TimeSinceLast += TimeSpan.FromSeconds(GetScale(args, condition));
-        if (condition.TimeSinceLast > condition.CurrentDelay)
+        ent.Comp.TimeSinceLast += TimeSpan.FromSeconds(GetScale(args, ent.Comp));
+        if (ent.Comp.TimeSinceLast > ent.Comp.CurrentDelay)
         {
-            condition.TimeSinceLast = TimeSpan.FromSeconds(0);
-            condition.CurrentDelay = null;
+            ent.Comp.TimeSinceLast = TimeSpan.FromSeconds(0);
+            ent.Comp.CurrentDelay = null;
             args.DoEffect = args.DoEffect && true;
         }
         else
             args.DoEffect = false;
 
-        Dirty(uid, condition);
+        Dirty(ent);
     }
 
-    private void CheckSeverityCondition(EntityUid uid, DiseaseProgressConditionComponent condition, DiseaseCheckConditionsEvent args)
+    private void CheckSeverityCondition(Entity<DiseaseProgressConditionComponent> ent, ref DiseaseCheckConditionsEvent args)
     {
         args.DoEffect = args.DoEffect
-            && (condition.MinProgress == null || args.Disease.Comp.InfectionProgress > condition.MinProgress)
-            && (condition.MaxProgress == null || args.Disease.Comp.InfectionProgress > condition.MaxProgress);
+            && (ent.Comp.MinProgress == null || args.Disease.Comp.InfectionProgress > ent.Comp.MinProgress)
+            && (ent.Comp.MaxProgress == null || args.Disease.Comp.InfectionProgress > ent.Comp.MaxProgress);
     }
 
     protected float GetScale(DiseaseCheckConditionsEvent args, ScalingDiseaseEffect effect)

@@ -33,8 +33,13 @@ public sealed class DiseaseSwabSystem : EntitySystem
             return;
         }
 
-        _popup.PopupEntity(Loc.GetString("disease-swab-swabbed", ("target", args.Target)), args.User, args.User);
-        _popup.PopupEntity(Loc.GetString("disease-swab-swabbed-by", ("user", args.User)), args.Target.Value, args.Target.Value);
+        _popup.PopupEntity(Loc.GetString("disease-swab-swabbed",
+            ("target", args.Target == args.User ? Loc.GetString("disease-swab-yourself") : args.Target )),
+            args.User,
+            args.User);
+
+        if(args.Target != args.User)
+            _popup.PopupEntity(Loc.GetString("disease-swab-swabbed-by", ("user", args.User)), args.Target.Value, args.Target.Value);
 
         if (carrier.Diseases.Count == 0)
             return;

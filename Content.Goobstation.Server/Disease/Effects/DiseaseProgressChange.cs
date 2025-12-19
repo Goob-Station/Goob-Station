@@ -52,7 +52,7 @@ public sealed partial class DiseaseProgressChange : EntityEffect
                     amt *= reagentArgs.Scale.Float();
                 }
 
-                sys.ChangeInfectionProgress(diseaseUid, amt, disease);
+                sys.ChangeInfectionProgress((diseaseUid, disease), amt);
             }
         }
     }
