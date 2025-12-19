@@ -125,6 +125,46 @@
   result: TelecomTransmitterCircuitboard
 
 - type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: VinylPlayerCircuitboard
+  icon:
+    sprite:  _Goobstation/Structures/Machines/StationRadio/vinylplayer.rsi
+    state: icon
+  result: VinylPlayerCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: TapeDeckCircuitboard
+  icon:
+    sprite:  _Goobstation/Structures/Machines/StationRadio/tapedeck.rsi
+    state: icon
+  result: TapeDeckCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: StationRadioServerCircuitboard
+  icon:
+    sprite:  _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
+    state: icon
+  result: StationRadioServerCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseSilverCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: StationRadioRigCircuitboard
+  icon:
+    sprite:  _Goobstation/Structures/Machines/StationRadio/radiostationrig.rsi
+    state: icon
+  result: StationRadioRigCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseMachineRecipeCategory ]
+  id: StationRadioCircuitboard
+  icon:
+    sprite:  _Goobstation/Structures/Machines/StationRadio/stationradio.rsi
+    state: icon
+  result: StationRadioCircuitboard
+
+- type: latheRecipe
   parent: [ BaseElectronicsRecipe, BaseCircuitryRecipeCategory ]
   id: CameraElectronics
   icon: { sprite: Structures/Wallmounts/camera.rsi, state: cameracase }

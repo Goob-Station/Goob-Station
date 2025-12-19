@@ -131,7 +131,7 @@ public partial class SharedDiseaseSystem
         for (var limit = 0; limit < 20 && _random.Prob(effectProb); limit++) // no infinite loop
         {
             if (_random.Prob(0.5f)) // half chance to remove effect, half chance to add
-                RemoveRandomEffect((ent, ent.Comp));
+                RemoveRandomEffect((ent, ent.Comp), allowFail: true);
             else
                 AddRandomEffect((ent, ent.Comp));
 
