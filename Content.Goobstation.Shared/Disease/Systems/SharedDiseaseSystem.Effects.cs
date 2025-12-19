@@ -1,12 +1,14 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.Damage;
 using Content.Shared.Flash;
+using Content.Shared.Flash.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
-using Content.Shared.StatusEffectNew;
+using Content.Shared.StatusEffect;
 using Content.Shared.StatusIcon.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
@@ -43,24 +45,24 @@ public partial class SharedDiseaseSystem
         SubscribeLocalEvent<DiseasePryTileEffectComponent, DiseaseEffectEvent>(OnPryTileEffect);
     }
 
-    private void OnAudioEffect(EntityUid uid, DiseaseAudioEffectComponent effect, DiseaseEffectEvent args)
+    private void OnAudioEffect(Entity<DiseaseAudioEffectComponent> ent, ref DiseaseEffectEvent args)
     {
         if (_net.IsClient)
             return;
 
-        var sound = effect.Sound;
-        if (effect.SoundFemale != null && TryComp<HumanoidAppearanceComponent>(args.Ent, out var humanoid) && humanoid.Sex == Sex.Female)
-            sound = effect.SoundFemale;
+        var sound = ent.Comp.Sound;
+        if (ent.Comp.SoundFemale != null && TryComp<HumanoidAppearanceComponent>(args.Ent, out var humanoid) && humanoid.Sex == Sex.Female)
+            sound = ent.Comp.SoundFemale;
 
         _audio.PlayPvs(sound, args.Ent);
     }
-    private void OnDiseaseSpreadEffect(EntityUid uid, DiseaseSpreadEffectComponent effect, DiseaseEffectEvent args)
+    private void OnDiseaseSpreadEffect(Entity<DiseaseSpreadEffectComponent> ent, ref DiseaseEffectEvent args)
     {
         // for gear that makes you less(/more?) infective to others
         var ev = new DiseaseOutgoingSpreadAttemptEvent(
-            effect.SpreadParams.Power,
-            effect.SpreadParams.Chance,
-            effect.SpreadParams.Type
+            ent.Comp.SpreadParams.Power,
+            ent.Comp.SpreadParams.Chance,
+            ent.Comp.SpreadParams.Type
         );
         RaiseLocalEvent(args.Ent, ref ev);
 
@@ -70,67 +72,68 @@ public partial class SharedDiseaseSystem
         var xform = Transform(args.Ent);
         var (selfPos, selfRot) = _transform.GetWorldPositionRotation(xform);
 
-        var targets = _melee.ArcRayCast(selfPos, selfRot, effect.Arc, effect.Range, xform.MapID, args.Ent);
+        var targets = _melee.ArcRayCast(selfPos, selfRot, ent.Comp.Arc, ent.Comp.Range, xform.MapID, args.Ent);
 
         foreach (var target in targets)
         {
-            DoInfectionAttempt(target, args.Disease, ev.Power, ev.Chance * GetScale(args, effect), effect.SpreadParams.Type);
+            DoInfectionAttempt(target, args.Disease, ev.Power, ev.Chance * GetScale(args, ent.Comp), ent.Comp.SpreadParams.Type);
         }
     }
 
-    private void OnDiseaseForceSpreadEffect(EntityUid uid, DiseaseForceSpreadEffectComponent effect, DiseaseEffectEvent args)
+    private void OnDiseaseForceSpreadEffect(Entity<DiseaseForceSpreadEffectComponent> ent, ref DiseaseEffectEvent args)
     {
         var transform = _transform.GetMapCoordinates(args.Ent);
-        var targets = _lookup.GetEntitiesInRange<DamageableComponent>(transform, effect.Range);
+        var targets = _lookup.GetEntitiesInRange<DamageableComponent>(transform, ent.Comp.Range);
 
         foreach (var target in targets)
         {
-            if (!_random.Prob(effect.Chance * GetScale(args, effect)))
+            if (!_random.Prob(ent.Comp.Chance * GetScale(args, ent.Comp)))
                 continue;
             if (HasDisease(target.Owner, args.Disease.Comp.Genotype))
                 continue;
 
-            var newDisease = TryClone(args.Disease);
+            var newDisease = TryClone((args.Disease, args.Disease.Comp));
             if (newDisease == null)
                 continue;
 
             MutateDisease(newDisease.Value);
-            if (!TryInfect(target.Owner, newDisease.Value, null, true))
+            if (!TryInfect(target.Owner, newDisease.Value, true))
                 QueueDel(newDisease);
-            else if (effect.AddIcon)
+            else if (ent.Comp.AddIcon)
                 EnsureComp<StatusIconComponent>(target.Owner);
         }
     }
 
-    private void OnFightImmunityEffect(EntityUid uid, DiseaseFightImmunityEffectComponent effect, DiseaseEffectEvent args)
+    private void OnFightImmunityEffect(Entity<DiseaseFightImmunityEffectComponent> ent, ref DiseaseEffectEvent args)
     {
-        ChangeImmunityProgress(args.Disease.Owner, effect.Amount * GetScale(args, effect), args.Disease.Comp);
+        ChangeImmunityProgress((args.Disease, args.Disease.Comp), ent.Comp.Amount * GetScale(args, ent.Comp));
     }
 
-    private void OnFlashEffect(EntityUid uid, DiseaseFlashEffectComponent effect, DiseaseEffectEvent args)
+    private void OnFlashEffect(Entity<DiseaseFlashEffectComponent> ent, ref DiseaseEffectEvent args)
     {
         if (_net.IsClient) // flashes twice if ran on both server and client
             return;
 
-        _status.TryAddStatusEffect(args.Ent, _flash.FlashedKey.Id, out _, effect.Duration * GetScale(args, effect));
-        _stun.TrySlowdown(args.Ent, effect.Duration * GetScale(args, effect), true, effect.SlowTo, effect.SlowTo);
+        // migrate this to new status effects once flashes are
+        _status.TryAddStatusEffect<FlashedComponent>(args.Ent, _flash.FlashedKey.Id, ent.Comp.Duration * GetScale(args, ent.Comp), true);
+        _stun.TrySlowdown(args.Ent, ent.Comp.Duration * GetScale(args, ent.Comp), true, ent.Comp.SlowTo, ent.Comp.SlowTo);
 
-        if (effect.StunDuration != null)
-            _stun.TryKnockdown(args.Ent, effect.StunDuration.Value * GetScale(args, effect), true);
+        if (ent.Comp.StunDuration != null)
+            _stun.TryKnockdown(args.Ent, ent.Comp.StunDuration.Value * GetScale(args, ent.Comp), true);
     }
 
-    private void OnPopupEffect(EntityUid uid, DiseasePopupEffectComponent effect, DiseaseEffectEvent args)
+    private void OnPopupEffect(Entity<DiseasePopupEffectComponent> ent, ref DiseaseEffectEvent args)
     {
         if (_net.IsClient)
             return;
 
-        if (effect.HostOnly)
-            _popup.PopupEntity(Loc.GetString(effect.String, ("source", args.Ent)), args.Ent, args.Ent, effect.Type);
+        if (ent.Comp.HostOnly)
+            _popup.PopupEntity(Loc.GetString(ent.Comp.String, ("source", args.Ent)), args.Ent, args.Ent, ent.Comp.Type);
         else
-            _popup.PopupEntity(Loc.GetString(effect.String, ("source", args.Ent)), args.Ent, effect.Type);
+            _popup.PopupEntity(Loc.GetString(ent.Comp.String, ("source", args.Ent)), args.Ent, ent.Comp.Type);
     }
 
-    private void OnPryTileEffect(EntityUid uid, DiseasePryTileEffectComponent effect, DiseaseEffectEvent args)
+    private void OnPryTileEffect(Entity<DiseasePryTileEffectComponent> ent, ref DiseaseEffectEvent args)
     {
         if (_net.IsClient)
             return;
@@ -139,9 +142,9 @@ public partial class SharedDiseaseSystem
         var mapPos = _transform.GetMapCoordinates(xform);
         if (_mapMan.TryFindGridAt(mapPos, out var gridUid, out var grid))
         {
-            for (int i = 0; i < effect.Attempts; i++)
+            for (int i = 0; i < ent.Comp.Attempts; i++)
             {
-                var distance = effect.Range * MathF.Sqrt(_random.NextFloat());
+                var distance = ent.Comp.Range * MathF.Sqrt(_random.NextFloat());
                 var tileCoordinates = mapPos.Offset(_random.NextAngle().ToVec() * distance);
                 var tile = _map.GetTileRef((gridUid, grid), tileCoordinates);
                 if (_tile.DeconstructTile(tile))
@@ -157,31 +160,40 @@ public partial class SharedDiseaseSystem
             * (effect.ProgressScale ? args.Disease.Comp.InfectionProgress : 1f);
     }
 
-    private Entity<DiseaseEffectComponent>? RemoveRandomEffect(EntityUid uid, DiseaseComponent disease)
+    private Entity<DiseaseEffectComponent>? RemoveRandomEffect(Entity<DiseaseComponent> ent, bool negativeOnly = false)
     {
-        if (disease.Effects.Count < 1)
+        // evil linq but how often is this gonna be called
+        var effects = negativeOnly ? ent.Comp.Effects.Where(e => _effectQuery.TryComp(e, out var eff) && eff.Complexity > 0).ToList()
+                        : ent.Comp.Effects;
+
+        if (effects.Count < 1)
         {
-            Log.Error($"Disease {ToPrettyString(uid)} attempted to remove a random effect, but had no effects left.");
+            Log.Error($"Disease {ToPrettyString(ent)} attempted to remove a random effect, but had either no or only positive effects left.");
             return null;
         }
-        var index = _random.Next(disease.Effects.Count - 1);
-        var effectUid = disease.Effects[index];
-        disease.Effects.RemoveAt(index);
 
-        Dirty(uid, disease);
-        return TryComp<DiseaseEffectComponent>(effectUid, out var comp) ? (effectUid, comp) : null;
+        var index = _random.Next(effects.Count - 1);
+        var effectUid = effects[index];
+        TryRemoveEffect((ent, ent.Comp), effectUid);
+
+        return _effectQuery.TryComp(effectUid, out var comp) ? (effectUid, comp) : null;
     }
 
-    private Entity<DiseaseEffectComponent>? AddRandomEffect(EntityUid uid, DiseaseComponent disease)
+    private Entity<DiseaseEffectComponent>? AddRandomEffect(Entity<DiseaseComponent> ent, bool negativeOnly = false)
     {
-        if (!_proto.TryIndex(disease.AvailableEffects, out var effects))
+        if (!_proto.TryIndex(ent.Comp.AvailableEffects, out var effects))
         {
-            Log.Error($"Disease {ToPrettyString(uid)} attempted to mutate to add an effect, but there are no valid effects for its type.");
+            Log.Error($"Disease {ToPrettyString(ent)} attempted to mutate to add an effect, but there are no valid effects for its type.");
             return null;
         }
 
         var weights = new Dictionary<string, float>(effects.Weights);
-        foreach (var diseaseEffect in disease.Effects) // no rolling effects we have
+        if (negativeOnly)
+            weights = weights.Where(w => _proto.TryIndex<EntityPrototype>(w.Key, out var effProto)
+                                        && effProto.TryGetComponent<DiseaseEffectComponent>(out var effComp, EntityManager.ComponentFactory)
+                                    ).ToDictionary(w => w.Key, w => w.Value);
+
+        foreach (var diseaseEffect in ent.Comp.Effects) // no rolling effects we have
         {
             var metadata = MetaData(diseaseEffect);
             if (metadata.EntityPrototype != null)
@@ -190,7 +202,7 @@ public partial class SharedDiseaseSystem
 
         if (weights.Count == 0)
         {
-            Log.Error($"Disease {ToPrettyString(uid)} attempted to mutate to add an effect, but it has all available effects.");
+            Log.Error($"Disease {ToPrettyString(ent)} attempted to mutate to add an effect, but it has all available effects.");
             return null;
         }
 
@@ -198,9 +210,9 @@ public partial class SharedDiseaseSystem
         var proto = _proto.Index(protoId);
         Entity<DiseaseEffectComponent>? effect = null;
         if (proto.TryGetComponent<DiseaseEffectComponent>(out var effectComp, _factory))
-            TryAdjustEffect(uid, proto, out effect, _random.NextFloat(effectComp.MinSeverity, 1f), disease);
+            TryAdjustEffect((ent, ent.Comp), proto, out effect, _random.NextFloat(effectComp.MinSeverity, 1f));
 
-        Dirty(uid, disease);
+        Dirty(ent);
         return effect;
     }
 
@@ -209,18 +221,18 @@ public partial class SharedDiseaseSystem
     /// <summary>
     /// Finds an effect of specified prototype, if any
     /// </summary>
-    public bool FindEffect(EntityUid uid, EntProtoId effectId, [NotNullWhen(true)] out Entity<DiseaseEffectComponent>? outEffect, DiseaseComponent? comp = null)
+    public bool FindEffect(Entity<DiseaseComponent?> ent, EntProtoId effectId, [NotNullWhen(true)] out Entity<DiseaseEffectComponent>? outEffect)
     {
         outEffect = null;
-        if (!Resolve(uid, ref comp))
+        if (!Resolve(ent, ref ent.Comp))
             return false;
 
         var effectProto = _proto.Index(effectId);
-        foreach (var effectUid in comp.Effects)
+        foreach (var effectUid in ent.Comp.Effects)
         {
             if (effectProto == Prototype(effectUid))
             {
-                if (!TryComp<DiseaseEffectComponent>(effectUid, out var diseaseEffect))
+                if (!_effectQuery.TryComp(effectUid, out var diseaseEffect))
                 {
                     Log.Error($"Found disease effect {ToPrettyString(effectUid)} without DiseaseEffectComponent");
                     return false;
@@ -235,15 +247,15 @@ public partial class SharedDiseaseSystem
     /// <summary>
     /// Checks if the disease has an effect of specified prototype
     /// </summary>
-    public bool HasEffect(EntityUid uid, EntProtoId effectId, DiseaseComponent? comp = null)
+    public bool HasEffect(Entity<DiseaseComponent?> ent, EntProtoId effectId)
     {
-        return FindEffect(uid, effectId, out _, comp);
+        return FindEffect(ent, effectId, out _);
     }
 
     /// <summary>
     /// Removes the specified disease effect from this disease
     /// </summary>
-    public virtual bool TryRemoveEffect(EntityUid uid, EntityUid effect, DiseaseComponent? comp = null)
+    public virtual bool TryRemoveEffect(Entity<DiseaseComponent?> ent, EntityUid effect)
     {
         // does nothing on client
         return false;
@@ -252,39 +264,39 @@ public partial class SharedDiseaseSystem
     /// <summary>
     /// Removes the disease effect of specified prototype from this disease
     /// </summary>
-    public bool TryRemoveEffect(EntityUid uid, EntProtoId effectId, DiseaseComponent? comp = null)
+    public bool TryRemoveEffect(Entity<DiseaseComponent?> ent, EntProtoId effectId)
     {
-        if (!Resolve(uid, ref comp) || !FindEffect(uid, effectId, out var effect, comp))
+        if (!Resolve(ent, ref ent.Comp) || !FindEffect(ent, effectId, out var effect))
             return false;
 
-        return TryRemoveEffect(uid, effect.Value, comp);
+        return TryRemoveEffect(ent, effect.Value);
     }
 
     /// <summary>
     /// Removes the specified disease effect from this disease
     /// </summary>
-    public virtual bool TryAddEffect(EntityUid uid, EntityUid effectUid, [NotNullWhen(true)] out Entity<DiseaseEffectComponent>? effect, DiseaseComponent? comp = null)
+    public virtual bool TryAddEffect(Entity<DiseaseComponent?> ent, EntityUid effectUid, [NotNullWhen(true)] out Entity<DiseaseEffectComponent>? effect)
     {
         effect = null;
-        if (!Resolve(uid, ref comp, false))
+        if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
-        if (!TryComp<DiseaseEffectComponent>(effectUid, out var diseaseEffect))
+        if (!_effectQuery.TryComp(effectUid, out var diseaseEffect))
         {
             Log.Error($"Tried to add disease effect {ToPrettyString(effect)}, but it had no DiseaseEffectComponent");
             return false;
         }
         effect = (effectUid, diseaseEffect);
-        comp.Effects.Add(effectUid);
+        ent.Comp.Effects.Add(effectUid);
 
-        Dirty(uid, comp);
+        Dirty(ent);
         return true;
     }
 
     /// <summary>
     /// Adds an effect of given prototype to the specified disease
     /// </summary>
-    public virtual bool TryAddEffect(EntityUid uid, EntProtoId effectId, [NotNullWhen(true)] out Entity<DiseaseEffectComponent>? effect, DiseaseComponent? comp = null)
+    public virtual bool TryAddEffect(Entity<DiseaseComponent?> ent, EntProtoId effectId, [NotNullWhen(true)] out Entity<DiseaseEffectComponent>? effect)
     {
         effect = null;
         // does nothing on client
@@ -295,18 +307,18 @@ public partial class SharedDiseaseSystem
     /// Tries to adjust the strength of the effect of given prototype, creating or removing it as needed
     /// Non-present effects are assumed to have severity 0 regardless of the prototype's specified severity
     /// </summary>
-    public bool TryAdjustEffect(EntityUid uid, EntProtoId effectId, [NotNullWhen(true)] out Entity<DiseaseEffectComponent>? effect, float delta, DiseaseComponent? comp = null)
+    public bool TryAdjustEffect(Entity<DiseaseComponent?> ent, EntProtoId effectId, [NotNullWhen(true)] out Entity<DiseaseEffectComponent>? effect, float delta)
     {
         effect = null;
-        if (!Resolve(uid, ref comp))
+        if (!Resolve(ent, ref ent.Comp))
             return false;
 
         bool spawned = false;
-        FindEffect(uid, effectId, out effect, comp);
+        FindEffect(ent, effectId, out effect);
         if (effect == null)
         {
             spawned = true;
-            if (!TryAddEffect(uid, effectId, out effect, comp))
+            if (!TryAddEffect(ent, effectId, out effect))
                 return false;
         }
 
@@ -316,12 +328,12 @@ public partial class SharedDiseaseSystem
         effect.Value.Comp.Severity += delta;
         if (effect.Value.Comp.Severity <= 0f)
         {
-            if (!TryRemoveEffect(uid, effect.Value.Owner, comp))
+            if (!TryRemoveEffect(ent, effect.Value.Owner))
                 return false;
         }
 
         Dirty(effect.Value);
-        Dirty(uid, comp);
+        Dirty(ent);
         return true;
     }
 

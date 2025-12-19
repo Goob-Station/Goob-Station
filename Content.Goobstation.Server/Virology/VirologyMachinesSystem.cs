@@ -7,8 +7,10 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Text;
+using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
+using Robust.Shared.Audio;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Virology;
@@ -78,6 +80,9 @@ public sealed partial class VirologyMachinesSystem : EntitySystem
             return;
 
         EnsureComp<ActiveVirologyMachineComponent>(ent, out var active);
+        var audio = _audio.PlayPvs(ent.Comp.AnalysisSound, ent, AudioParams.Default.WithLoop(true).WithVariation(0.15f));
+        if (audio.HasValue)
+            ent.Comp.SoundEntity = audio.Value.Entity;
         active.EndTime = _timing.CurTime + ent.Comp.AnalysisDuration;
     }
 
@@ -96,10 +101,16 @@ public sealed partial class VirologyMachinesSystem : EntitySystem
 
     private void OnMachineDone(Entity<VirologyMachineComponent> ent, ref VirologyMachineDoneEvent args)
     {
-        if (!args.Success)
-            return;
+        RemCompDeferred<ActiveVirologyMachineComponent>(ent);
+        if (ent.Comp.SoundEntity != null)
+        {
+            _audio.Stop(ent.Comp.SoundEntity);
+            ent.Comp.SoundEntity = null;
+        }
 
-        if (!_itemSlots.TryGetSlot(ent, VirologyMachineComponent.SwabSlotId, out var slot) || slot.Item == null)
+        if (!args.Success
+            || !_itemSlots.TryGetSlot(ent, VirologyMachineComponent.SwabSlotId, out var slot)
+            || slot.Item == null)
             return;
 
         if(!ent.Comp.Vaccinator)
@@ -111,10 +122,7 @@ public sealed partial class VirologyMachinesSystem : EntitySystem
     private void CreatePen(Entity<VirologyMachineComponent> ent, Entity<DiseaseSwabComponent?> swab)
     {
         // create a vaccine
-        if (!Resolve(swab, ref swab.Comp))
-            return;
-
-        if (!TryComp<Shared.Disease.Components.DiseaseComponent>(swab.Comp.DiseaseUid, out var disease))
+        if (!Resolve(swab, ref swab.Comp) || !TryComp<DiseaseComponent>(swab.Comp.DiseaseUid, out var disease))
             return;
 
         var vaccine = Spawn(ent.Comp.VaccinePrototype, Transform(ent).Coordinates);
@@ -132,10 +140,7 @@ public sealed partial class VirologyMachinesSystem : EntitySystem
 
     private void AnalyzeSwab(Entity<VirologyMachineComponent> ent, Entity<DiseaseSwabComponent?> swab)
     {
-        if (!Resolve(swab, ref swab.Comp))
-            return;
-
-        if (!TryComp<Shared.Disease.Components.DiseaseComponent>(swab.Comp.DiseaseUid, out var disease))
+        if (!Resolve(swab, ref swab.Comp) || !TryComp<DiseaseComponent>(swab.Comp.DiseaseUid, out var disease))
             return;
 
         // build the report
@@ -175,7 +180,7 @@ public sealed partial class VirologyMachinesSystem : EntitySystem
 
     private void AddAltVerb(Entity<VirologyMachineComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!ent.Comp.Vaccinator)
+        if (!ent.Comp.Vaccinator || HasComp<ActiveVirologyMachineComponent>(ent))
             return;
 
         AlternativeVerb verb = new()
@@ -196,8 +201,8 @@ public sealed partial class VirologyMachinesSystem : EntitySystem
                 }
             },
             Text = "Switch Mode",
-            Priority = 1, // Higher priority verbs appear first
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Nano/button.svg.96dpi.png")), // Optional
+            Priority = 25,
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/dot.svg.192dpi.png"))
         };
 
         args.Verbs.Add(verb);
