@@ -38,11 +38,6 @@
     drawdepth: BelowFloor
     layers:
     - state: chasm
-    #Goobstation edit start
-    - map: [ "enum.SolutionContainerLayers.Fill" ]
-      state: fill-1
-      visible: false
-    #Goobstation edit end
   - type: Icon
     sprite: Tiles/Planet/Chasms/basalt_chasm.rsi
     state: full
@@ -74,11 +69,6 @@
     solutions:
       drainBuffer:
         maxVol: 1000
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 1
-    fillBaseName: fill-
-    solutionName: drainBuffer
   - type: DrainableSolution
     solution: drainBuffer
   - type: DumpableSolution
