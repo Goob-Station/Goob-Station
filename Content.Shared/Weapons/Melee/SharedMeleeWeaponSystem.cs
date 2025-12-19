@@ -571,6 +571,13 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 if (weaponUid == target)
                     return false;
 
+                // Goobstation start
+                var specialEv = new LightAttackSpecialInteractionEvent(target, user, weapon.Range);
+                RaiseLocalEvent(weaponUid, ref specialEv);
+                if (specialEv.Cancel)
+                    return false;
+                // Goobstation end
+
                 break;
             case DisarmAttackEvent disarm:
                 if (disarm.Target != null && !TryGetEntity(disarm.Target, out target))
@@ -608,7 +615,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         DirtyField(weaponUid, weapon, nameof(MeleeWeaponComponent.NextAttack));
 
         // Do this AFTER attack so it doesn't spam every tick
-        var ev = new AttemptMeleeEvent(user, weaponUid, weapon); // Lavaland Change: WHY ARENT YOU FUCKS PASSING THE USER RAHHHHHHHHHHH
+        var ev = new AttemptMeleeEvent(user, weaponUid, weapon, attack is HeavyAttackEvent); // Goob edit
         RaiseLocalEvent(weaponUid, ref ev);
         RaiseLocalEvent(user, ref ev); // Shitmed Change
 
@@ -678,14 +685,15 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Goobstation start
         var rangeEv = new GetLightAttackRangeEvent(target, user, component.Range);
         RaiseLocalEvent(meleeUid, ref rangeEv);
+        // Not in LOS.
+        if (target != null && !InRange(user, target.Value, rangeEv.Cancel ? component.Range : rangeEv.Range, session))
+            return;
         // Goobstation end
 
         // For consistency with wide attacks stuff needs damageable.
         if (Deleted(target) ||
             !HasComp<DamageableComponent>(target) ||
-            !TryComp(target, out TransformComponent? targetXform) ||
-            // Not in LOS.
-            !InRange(user, target.Value, rangeEv.Range, session)) // Goob edit
+            !TryComp(target, out TransformComponent? targetXform)) // Goob edit
         {
             // Leave IsHit set to true, because the only time it's set to false
             // is when a melee weapon is examined. Misses are inferred from an
@@ -1082,9 +1090,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     {
         var baseStaminaDamage = TryComp<ShovingComponent>(disarmer, out var shoving) ? shoving.StaminaDamage : ShovingComponent.DefaultStaminaDamage;
 
-        return
-            baseStaminaDamage
-            * _contests.MassContest(disarmer, disarmed, false, 4f);
+        return baseStaminaDamage * _contests.MassContest(disarmer, disarmed);
     }
 
     protected virtual bool DoDisarm(EntityUid user,

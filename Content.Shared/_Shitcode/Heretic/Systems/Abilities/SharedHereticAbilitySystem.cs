@@ -1,5 +1,7 @@
 using System.Linq;
+using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Damage;
@@ -9,14 +11,16 @@ using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
+using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
@@ -50,6 +54,8 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
     [Dependency] protected readonly EntityLookupSystem Lookup = default!;
     [Dependency] protected readonly StatusEffectsSystem Status = default!;
+    [Dependency] protected readonly SharedVoidCurseSystem Voidcurse = default!;
+
     [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusNew = default!;
     [Dependency] private readonly SharedProjectileSystem _projectile = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
@@ -70,8 +76,11 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly PainSystem _pain = default!;
     [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
 
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 
@@ -103,6 +112,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         SubscribeBlade();
         SubscribeRust();
         SubscribeCosmos();
+        SubscribeVoid();
         SubscribeFlesh();
         SubscribeSide();
 
@@ -112,7 +122,8 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     protected List<Entity<MobStateComponent>> GetNearbyPeople(EntityUid ent,
         float range,
         string? path,
-        EntityCoordinates? coords = null)
+        EntityCoordinates? coords = null,
+        bool checkNullRod = true)
     {
         var list = new List<Entity<MobStateComponent>>();
         var lookup = Lookup.GetEntitiesInRange<MobStateComponent>(coords ?? Transform(ent).Coordinates, range);
@@ -125,6 +136,14 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
             if (!HasComp<StatusEffectsComponent>(look))
                 continue;
+
+            if (checkNullRod)
+            {
+                var ev = new BeforeCastTouchSpellEvent(look, false);
+                RaiseLocalEvent(look, ev, true);
+                if (ev.Cancelled)
+                    continue;
+            }
 
             list.Add(look);
         }
@@ -261,11 +280,16 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     /// <param name="toHeal">how much to heal, null = full heal</param>
     /// <param name="boneHeal">how much to heal bones, null = full heal</param>
     /// <param name="painHeal">how much to heal pain, null = full heal</param>
+    /// <param name="woundHeal">how much to heal wounds, null = full heal</param>
+    /// <param name="bloodHeal">how much to restore blood, null = fully restore</param>
+    /// <param name="bleedHeal">how much to heal bleeding, null = full heal</param>
     public void IHateWoundMed(Entity<DamageableComponent?, BodyComponent?, ConsciousnessComponent?> uid,
         DamageSpecifier? toHeal,
         FixedPoint2? boneHeal,
         FixedPoint2? painHeal,
-        FixedPoint2? woundHeal)
+        FixedPoint2? woundHeal,
+        FixedPoint2? bloodHeal,
+        FixedPoint2? bleedHeal)
     {
         if (!Resolve(uid, ref uid.Comp1, false))
             return;
@@ -379,6 +403,35 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
                 // Read this method name
                 _consciousness.RemoveConsciousnessModifier(uid, modifier.Key.Item1, modifier.Key.Item2, uid.Comp3);
             }
+        }
+
+        if (bleedHeal == FixedPoint2.Zero && bloodHeal == FixedPoint2.Zero ||
+            !TryComp(uid, out BloodstreamComponent? blood))
+            return;
+
+        if (bleedHeal != FixedPoint2.Zero && blood.BleedAmount > 0f)
+        {
+            if (bleedHeal == null)
+                _blood.TryModifyBleedAmount((uid, blood), -blood.BleedAmount);
+            else
+                _blood.TryModifyBleedAmount((uid, blood), bleedHeal.Value.Float());
+        }
+
+        if (bloodHeal == FixedPoint2.Zero || !TryComp(uid, out SolutionContainerManagerComponent? sol) ||
+            !_solution.ResolveSolution((uid, sol), blood.BloodSolutionName, ref blood.BloodSolution) ||
+            blood.BloodSolution.Value.Comp.Solution.Volume >= blood.BloodMaxVolume)
+            return;
+
+        if (bloodHeal == null)
+        {
+            _blood.TryModifyBloodLevel((uid, blood),
+                blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume);
+        }
+        else
+        {
+            _blood.TryModifyBloodLevel((uid, blood),
+                FixedPoint2.Min(bloodHeal.Value,
+                    blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume));
         }
     }
 
