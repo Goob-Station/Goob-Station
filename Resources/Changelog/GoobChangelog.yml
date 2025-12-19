@@ -19525,3 +19525,9 @@ Entries:
       message: Added guidebook entry for enchanting.
   id: 2206
   time: '2025-12-19T15:27:17.0000000+00:00'
+- author: 8Redacted8
+  changes:
+    - type: Fix
+      message: All lighters now fit in cigarett packs. Smokers rejoice!
+  id: 2207
+  time: '2025-12-19T15:27:43.0000000+00:00'
