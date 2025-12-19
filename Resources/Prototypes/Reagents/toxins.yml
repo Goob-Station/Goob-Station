@@ -377,6 +377,10 @@
         damage:
           types:
             Radiation: 3
+    Narcotic:
+      effects:
+      - !type:MutateDiseases
+        mutationRate: 0.08 # 5u equivalent to one normal disease hop
 
 - type: reagent
   id: HeartbreakerToxin
