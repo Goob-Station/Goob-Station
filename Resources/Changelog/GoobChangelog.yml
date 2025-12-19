@@ -19507,3 +19507,9 @@ Entries:
       message: Disease type is no longer always bacterial.
   id: 2203
   time: '2025-12-18T23:29:02.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: Changed the outfits of command's most esteemed cleaners.
+  id: 2204
+  time: '2025-12-18T23:37:44.0000000+00:00'
