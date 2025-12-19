@@ -19537,3 +19537,9 @@ Entries:
       message: Foam and smoke now spread a lot faster
   id: 2208
   time: '2025-12-19T15:29:55.0000000+00:00'
+- author: mikusssssss
+  changes:
+    - type: Add
+      message: Cosmic Cult Hardsuit helmets now have flash protection.
+  id: 2209
+  time: '2025-12-19T18:31:49.0000000+00:00'
