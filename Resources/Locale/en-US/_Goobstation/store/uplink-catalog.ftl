@@ -365,5 +365,5 @@ uplink-syndiedrobe-desc = A vending machine stocked with Syndicate-branded cloth
 uplink-customboard-name = Custom Syndicate Lawboard
 uplink-customboard-desc = A modified lawboard that allows the user to change the laws to anything they want. Comes with Antimov pre-installed.
 
-uplink-injection-name = Injection Saw
-uplink-injection-desc = Modified saw outfitted with both a long needle and knife underneath, capable of storing reagents inside, perfect for "practicing medicine". Seems to inject chemicals fast. Starts empty.
+uplink-injectionsaw-name = Injection Saw
+uplink-injectionsaw-desc = Modified saw outfitted with both a long needle and knife underneath, capable of storing reagents inside, perfect for "practicing medicine". Seems to inject chemicals fast. Starts empty.
