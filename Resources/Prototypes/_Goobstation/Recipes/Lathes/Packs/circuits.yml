@@ -31,3 +31,12 @@
   - InteractorCircuitboard
   - PlumbingPumpCircuitboard
   - TelecomTransmitterCircuitboard
+
+- type: latheRecipePack
+  id: ServiceBoardsGoob
+  recipes:
+  - VinylPlayerCircuitboard
+  - TapeDeckCircuitboard
+  - StationRadioServerCircuitboard
+  - StationRadioRigCircuitboard
+  - StationRadioCircuitboard
