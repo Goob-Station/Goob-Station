@@ -73,7 +73,7 @@
   id: CrateRadioStationVinyls
   parent: CrateGenericSteel
   name: vinyls crate
-  description: A create with 12 vinyls so you'll NEVER play the same song twice, they come in sleeves!
+  description: A crate with 12 vinyls so you'll NEVER play the same song twice, they come in sleeves!
   components:
   - type: EntityTableContainerFill
     containers:
