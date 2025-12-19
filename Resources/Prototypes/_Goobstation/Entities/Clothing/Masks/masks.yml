@@ -147,7 +147,7 @@
   - type: Unremoveable
 
 - type: entity
-  parent: [ ClothingMaskGas, BaseSecurityContraband ]
+  parent: [ ClothingMaskGas, BaseCentcommContraband ]
   id: ClothingBSOMaskGasSwat
   name: Blueshield SWAT gas mask
   description: A standard issue gas mask for BlueShield Officers
