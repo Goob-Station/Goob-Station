@@ -264,7 +264,7 @@ public abstract partial class SharedToolSystem : EntitySystem
         // Goobstation - Moved `TryStartDoAfter` into a check and added `UseToolEvent`.
         if (_doAfterSystem.TryStartDoAfter(doAfterArgs, out id))
         {
-            RaiseLocalEvent(tool, new UseToolEvent(user, target, doAfterLength));
+            RaiseLocalEvent(tool, new UseToolEvent(user, target, id.Value.Index, doAfterLength));
         }
         return true;
     }

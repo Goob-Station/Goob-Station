@@ -1,11 +1,14 @@
 using Content.Goobstation.Common.Tools;
 using Content.Goobstation.Shared.Tools;
 using Content.Server.Tools;
+using Content.Shared.Coordinates.Helpers;
+using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
+using Content.Shared.Interaction;
 using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Map;
 
 namespace Content.Goobstation.Server.Tools;
 
@@ -13,7 +16,11 @@ public sealed class WeldingSparksSystem : EntitySystem
 {
     [Dependency] private readonly ToolSystem _toolSystem = default!;
 
-    private Dictionary<EntityUid, EntityUid> _spawnedEffects = []; // todo: make this less awful
+    /// <summary>
+    /// Dictionary of currently active welding spark effects, indexed by the <see cref="DoAfterId"/> of the DoAfter that triggered them.
+    /// </summary>
+    /// <remarks>(This still really seems like a bad way of tracking these but I mean it works.)</remarks>
+    private Dictionary<DoAfterId, EntityUid> _spawnedEffects = [];
 
     public override void Initialize()
     {
@@ -21,59 +28,72 @@ public sealed class WeldingSparksSystem : EntitySystem
 
         SubscribeLocalEvent<WeldingSparksComponent, UseToolEvent>(OnUseTool);
         SubscribeLocalEvent<WeldingSparksComponent, SharedToolSystem.ToolDoAfterEvent>(OnAfterUseTool);
+        SubscribeLocalEvent<WeldingSparksComponent, BeforeRangedInteractEvent>(OnBeforeInteract);
     }
 
     private void OnUseTool(Entity<WeldingSparksComponent> ent, ref UseToolEvent args)
     {
-        // `target` can be ent in a few cases like welding a tile.
-        // Spawning the sparks on top of the welder looks silly so just return instead.
-        if (args.Target is not { } target || target == ent.Owner)
-            return;
-
         if (TryComp<ToolComponent>(ent, out var toolComp))
         {
             _toolSystem.PlayToolSound(ent, toolComp, null, AudioParams.Default.AddVolume(-2f));
         }
 
-        // Prioritise the newer one
-        if (_spawnedEffects.ContainsKey(target))
-        {
-            RemoveFromTarget(target);
-        }
+        // Get the actual `DoAfterID` using its index, for use as a dictionary key.
+        var doAfterId = new DoAfterId(args.User, args.DoAfterIdx);
 
-        AddToTarget(ent.Comp.EffectProto, target, args.DoAfterLength);
+        var spawnLoc = GetSpawnLoc(ent, args.Target);
+        SpawnEffect(ent, ref args, doAfterId, spawnLoc);
     }
 
-    private void OnAfterUseTool(Entity<WeldingSparksComponent> ent, ref SharedToolSystem.ToolDoAfterEvent args)
+    private void SpawnEffect(Entity<WeldingSparksComponent> ent, ref UseToolEvent args, DoAfterId id, EntityCoordinates spawnLoc)
     {
-        if (args.OriginalTarget is not { } target)
-            return;
-        RemoveFromTarget(GetEntity(target));
-    }
+        var effect = Spawn(ent.Comp.EffectProto, spawnLoc);
+        _spawnedEffects.Add(id, effect);
 
-    private void AddToTarget(EntProtoId effectProto, EntityUid target, TimeSpan weldingTime)
-    {
-        var effect = SpawnAttachedTo(effectProto, Transform(target).Coordinates);
-        _spawnedEffects.Add(target, effect);
-
-        // If it's a door then play an animation of welding the seam.
-        if (TryComp<DoorComponent>(target, out var door))
+        // Doors get an animation.
+        if (args.Target is { } target && TryComp<DoorComponent>(target, out var door))
         {
             RaiseNetworkEvent(new PlayWeldAnimationEvent(GetNetEntity(effect),
                 new WeldAnimationData(
                     HasComp<FirelockComponent>(target) ? AnimationDir.Horizontal : AnimationDir.Vertical,
                     door.State == DoorState.Welded,
-                    weldingTime)
+                    args.DoAfterLength)
             ));
         }
     }
 
-    private void RemoveFromTarget(EntityUid target)
+    private EntityCoordinates GetSpawnLoc(Entity<WeldingSparksComponent> ent, EntityUid? target)
     {
-        if (!_spawnedEffects.TryGetValue(target, out var effect))
+        // If there's a `target` (other than the parent tool), go with that.
+        if (target is not null && target != ent.Owner)
+            return Transform(target.Value).Coordinates;
+
+        // Otherwise, try to spawn it on the tile where the player clicked.
+        if (ent.Comp.LastClickLocation is { } clickLoc && clickLoc.IsValid(EntityManager))
+            return clickLoc.SnapToGrid(EntityManager);
+
+        // this shouldn't really be possible but you know how it is
+        throw new Exception("Attempted to spawn welding sparks with no valid spawn location!");
+    }
+
+    private void OnAfterUseTool(Entity<WeldingSparksComponent> ent, ref SharedToolSystem.ToolDoAfterEvent args)
+    {
+        RemoveEffect(args.DoAfter.Id);
+    }
+
+    // This is a pretty hacky way of putting the spark effect in the right spot when welding a floor tile, since that doesn't pass a `target` arg.
+    private void OnBeforeInteract(Entity<WeldingSparksComponent> ent, ref BeforeRangedInteractEvent args)
+    {
+        if (args.CanReach) // `clickLoc.IsValid()` is checked later in `GetSpawnLoc()`.
+            ent.Comp.LastClickLocation = args.ClickLocation;
+    }
+
+    private void RemoveEffect(DoAfterId key)
+    {
+        if (!_spawnedEffects.TryGetValue(key, out var effect))
             return;
 
         QueueDel(effect);
-        _spawnedEffects.Remove(target);
+        _spawnedEffects.Remove(key);
     }
 }
