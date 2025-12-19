@@ -1,6 +1,6 @@
 - type: entity
   id: EffectWeldingSparks
-  #categories: [ HideSpawnMenu ] // remember to uncomment these
+  categories: [ HideSpawnMenu ]
   components:
   - type: WeldingSparksVisuals
   - type: Sprite
@@ -23,7 +23,7 @@
 - type: entity
   parent: EffectWeldingSparks
   id: EffectWeldingSparksExp
-  #categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
