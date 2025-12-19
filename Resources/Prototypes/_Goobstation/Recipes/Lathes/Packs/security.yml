@@ -46,6 +46,16 @@
   recipes:
   - Terminus
 
+- type: latheRecipePack
+  id: ERTAmmoStaticGoob
+  recipes:
+  - MagazineBoxLightRifle
+  - MagazineBoxCaselessRifle
+  - MagazineLightRifleEmpty
+  - MagazineLightRifle
+  - MagazineShotgunLeverRifleEmpty
+  - MagazineBoxShotgunHighCaliber
+
 ## Dynamic
 - type: latheRecipePack
   id: SecurityWeaponsGoob
