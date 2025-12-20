@@ -346,6 +346,18 @@
 
 - type: entity
   parent: IDCardStandard
+  id: RadioHostIDCard
+  name: radio host ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idradiohost
+  - type: PresetIdCard
+    job: RadioHost
+
+- type: entity
+  parent: IDCardStandard
   id: VirologistIDCard
   name: virology ID card
   components:

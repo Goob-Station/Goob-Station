@@ -282,6 +282,7 @@
     - SharedBoards
     - CameraBoards
     - ServiceTools
+    - ServiceBoardsGoob # goob
     # Einstein Engines Packs
     - Translators
   - type: EmagLatheRecipes
