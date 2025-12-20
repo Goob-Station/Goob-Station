@@ -1,0 +1,26 @@
+- type: constructionGraph
+  id: CritterBallGraph
+  graph:
+  - node: start
+    edges:
+    - to: unfinished
+      steps:
+      - material: Plastic
+        amount: 4
+        doAfter: 3
+      - material: ReinforcedGlass
+        amount: 4
+        doAfter: 2
+  - node: unfinished
+    entity: CritterBallUnfinished
+    edges:
+    - to: end
+      steps:
+      - tool: Welding
+        doAfter: 3
+      - tool: Screwing
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+  - node: end
+    entity: CritterBall

@@ -392,20 +392,22 @@
     containers:
       crate_storage: !type:Container
 
+- type: entity
   id: CritterBall
   parent: BaseVehicle
   name: critter ball
-  description: A luxury hoverchair, kick back and relax.
+  description: A composite-glass sphere to safely store small animals in case of spacing, or a low oxygen environment. Additionally, it has storage for a air tank, and ID card for those VIP pets.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Vehicles/critterball.rsi
     layers:
     - state: vehicle
     noRot: true
+    drawdepth: OverMobs
   - type: Vehicle
     requiredHands: 0
     engineRunning: true
-    renderOver: None
+    renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
   - type: MovementSpeedModifier
     acceleration: 1
     friction: 1
@@ -424,3 +426,34 @@
     whitelist:
       tags:
         - VimPilot  # Small creatures only
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: InventorySlots
+  - type: Inventory
+    templateId: critterball
+    displacements:
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: suitstorage
+  - type: Construction
+    graph: CritterBallGraph
+    node: end
+  - type: ResistLocker
+
+- type: entity
+  parent: BaseItem
+  id: CritterBallUnfinished
+  name: unfinished critter ball
+  description: A future ride for your small critters, but for now it's just a mess of plastic and reinforced glass.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Vehicles/critterball.rsi
+    state: unfinished
+  - type: Construction
+    graph: CritterBallGraph
+    node: unfinished
