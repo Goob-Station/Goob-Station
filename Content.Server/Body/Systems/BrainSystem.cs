@@ -31,7 +31,7 @@ using Content.Shared.Pointing;
 // Shitmed Change
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Body.Systems;
-using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Shared.Changeling.Components;
 
 
 namespace Content.Server.Body.Systems
@@ -54,7 +54,7 @@ namespace Content.Server.Body.Systems
         {
             if (TerminatingOrDeleted(uid)
                 || TerminatingOrDeleted(args.OldBody)
-                || HasComp<ChangelingComponent>(args.OldBody))
+                || HasComp<ChangelingIdentityComponent>(args.OldBody))
                 return;
 
             brain.Active = false;
@@ -70,7 +70,7 @@ namespace Content.Server.Body.Systems
         {
             if (TerminatingOrDeleted(uid)
                 || TerminatingOrDeleted(args.Body)
-                || HasComp<ChangelingComponent>(args.Body))
+                || HasComp<ChangelingIdentityComponent>(args.Body))
                 return;
 
             if (!CheckOtherBrains(args.Body))

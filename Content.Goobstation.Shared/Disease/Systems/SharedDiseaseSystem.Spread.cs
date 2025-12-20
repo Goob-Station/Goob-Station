@@ -61,7 +61,7 @@ public partial class SharedDiseaseSystem
         if (power < 0 || chance < 0)
             return false;
 
-        if (_random.Prob(power * chance))
+        if (_random.Prob(Math.Min(power * chance, 1f)))
         {
             var infectDisease = disease;
             EntityUid? newDisease = null;
@@ -131,7 +131,7 @@ public partial class SharedDiseaseSystem
         for (var limit = 0; limit < 20 && _random.Prob(effectProb); limit++) // no infinite loop
         {
             if (_random.Prob(0.5f)) // half chance to remove effect, half chance to add
-                RemoveRandomEffect((ent, ent.Comp));
+                RemoveRandomEffect((ent, ent.Comp), allowFail: true);
             else
                 AddRandomEffect((ent, ent.Comp));
 
