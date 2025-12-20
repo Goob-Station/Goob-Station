@@ -23,6 +23,7 @@ public sealed partial class SprayPainterDecals : Control
     public Action<Color?>? OnColorChanged;
     public Action<int>? OnAngleChanged;
     public Action<bool>? OnSnapChanged;
+    public Action<bool>? OnColorPickerToggled;
 
     private PaletteColorPicker? _palette;
 
@@ -42,7 +43,9 @@ public sealed partial class SprayPainterDecals : Control
         UseCustomColorCheckBox.OnPressed += UseCustomColorCheckBoxOnOnPressed;
         SnapToTileCheckBox.OnPressed += SnapToTileCheckBoxOnOnPressed;
         ColorSelector.OnColorChanged += OnColorSelected;
+
         ColorPalette.OnPressed += ColorPaletteOnPressed;
+        ColorPicker.OnPressed += args => OnColorPickerToggled?.Invoke(args.Button.Pressed);
     }
 
     private void UseCustomColorCheckBoxOnOnPressed(BaseButton.ButtonEventArgs _)

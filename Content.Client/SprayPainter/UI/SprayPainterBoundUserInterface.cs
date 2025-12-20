@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.SprayPainter;
 using Content.Shared.Decals;
 using Content.Shared.SprayPainter;
 using Content.Shared.SprayPainter.Components;
@@ -39,6 +40,7 @@ public sealed class SprayPainterBoundUserInterface(EntityUid owner, Enum uiKey) 
             _window.OnDecalColorChanged += OnDecalColorChanged;
             _window.OnDecalAngleChanged += OnDecalAngleChanged;
             _window.OnDecalSnapChanged += OnDecalSnapChanged;
+            _window.OnDecalColorPickerToggled += OnDecalColorPickerToggled;
         }
 
         var sprayPainter = EntMan.System<SprayPainterSystem>();
@@ -80,6 +82,11 @@ public sealed class SprayPainterBoundUserInterface(EntityUid owner, Enum uiKey) 
     private void OnDecalColorChanged(Color? color)
     {
         SendPredictedMessage(new SprayPainterSetDecalColorMessage(color));
+    }
+
+    private void OnDecalColorPickerToggled(bool toggle)
+    {
+        SendPredictedMessage(new SprayPainterSetDecalColorPickerMessage(toggle));
     }
 
     private void OnDecalChanged(ProtoId<DecalPrototype> protoId)
