@@ -33,5 +33,5 @@
   - type: DiseaseOnHit
     spreadParams:
       chance: 1
-      power: 1
+      power: 2
       spreadType: Blood
