@@ -664,6 +664,73 @@
 - type: Tag
   id: WizardHat
 
+# XENOBIO - START
+
+- type: Tag
+  id: XenobiologyGreyExtract
+
+- type: Tag
+  id: XenobiologyOrangeExtract
+
+- type: Tag
+  id: XenobiologyPurpleExtract
+
+- type: Tag
+  id: XenobiologyBlueExtract
+
+- type: Tag
+  id: XenobiologyMetalExtract
+
+- type: Tag
+  id: XenobiologyYellowExtract
+
+- type: Tag
+  id: XenobiologyDarkPurpleExtract
+
+- type: Tag
+  id: XenobiologyDarkBlueExtract
+
+- type: Tag
+  id: XenobiologySilverExtract
+
+- type: Tag
+  id: XenobiologyBluespaceExtract
+
+- type: Tag
+  id: XenobiologySepiaExtract
+
+- type: Tag
+  id: XenobiologyCeruleanExtract
+
+- type: Tag
+  id: XenobiologyPyriteExtract
+
+- type: Tag
+  id: XenobiologyRedExtract
+
+- type: Tag
+  id: XenobiologyGreenExtract
+
+- type: Tag
+  id: XenobiologyPinkExtract
+
+- type: Tag
+  id: XenobiologyGoldExtract
+
+- type: Tag
+  id: XenobiologyOilExtract
+
+- type: Tag
+  id: XenobiologyLightPinkExtract
+
+- type: Tag
+  id: XenobiologyBlackExtract
+
+- type: Tag
+  id: XenobiologyAdamantineExtract
+
+# XENOBIO - END
+
 - type: Tag
   id: Wonderprod
 

@@ -65,6 +65,8 @@ using Content.Shared.Roles;
 using Content.Shared.Species.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Content.Shared.Polymorph;
+using Content.Server.Polymorph.Systems;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -87,6 +89,7 @@ public sealed class GhoulSystem : EntitySystem
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly HTNSystem _htn = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
 
     public override void Initialize()
     {
@@ -98,11 +101,15 @@ public sealed class GhoulSystem : EntitySystem
         SubscribeLocalEvent<GhoulComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
         SubscribeLocalEvent<GhoulComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<GhoulComponent, MobStateChangedEvent>(OnMobStateChange);
+        SubscribeLocalEvent<GhoulComponent, PolymorphedEvent>(OnPolymorphed);
 
         SubscribeLocalEvent<GhoulRoleComponent, GetBriefingEvent>(OnGetBriefing);
 
         SubscribeLocalEvent<GhoulWeaponComponent, ExaminedEvent>(OnWeaponExamine);
     }
+
+    private void OnPolymorphed(Entity<GhoulComponent> ent, ref PolymorphedEvent args)
+        => _polymorph.CopyPolymorphComponent<GhoulComponent>(ent, args.NewEntity);
 
     private void OnGetBriefing(Entity<GhoulRoleComponent> ent, ref GetBriefingEvent args)
     {
