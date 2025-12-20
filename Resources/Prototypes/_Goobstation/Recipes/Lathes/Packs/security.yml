@@ -53,6 +53,8 @@
   - MagazineBoxCaselessRifle
   - MagazineLightRifleEmpty
   - MagazineLightRifle
+  - MagazineMagnumEmpty
+  - MagazineMagnum
   - MagazineShotgunLeverRifleEmpty
   - MagazineBoxShotgunHighCaliber
 
