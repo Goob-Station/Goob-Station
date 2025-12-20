@@ -1,9 +1,0 @@
-tiles-concrete-outside = наружный бетонный пол
-tiles-concrete-outside-slab = наружная бетонная плита
-tiles-concrete-outside-smooth = наружный гладкий бетонный пол
-tiles-gray-concrete-outside = наружный серый бетонный пол
-tiles-gray-concrete-outside-slab = наружная серая бетонная плита
-tiles-gray-concrete-outside-smooth = наружный гладкий серый бетонный пол
-tiles-old-concrete-outside = наружный старый бетонный пол
-tiles-old-concrete-outside-slab = наружная старая бетонная плита
-tiles-old-concrete-outside-smooth = наружный старый гладкий бетонный пол

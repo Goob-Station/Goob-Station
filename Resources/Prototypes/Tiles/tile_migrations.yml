@@ -63,3 +63,41 @@
 - type: tileAlias
   id: FloorRGlassAlt
   target: FloorRGlass
+  
+# 2025-12-12 Corvax
+
+- type: tileAlias
+  id: FloorConcreteOutside
+  target: FloorConcrete
+
+- type: tileAlias
+  id: FloorConcreteOutsideMono
+  target: FloorConcreteMono
+
+- type: tileAlias
+  id: FloorConcreteOutsideSmooth
+  target: FloorConcreteSmooth
+
+- type: tileAlias
+  id: FloorGrayConcreteOutside
+  target: FloorGrayConcrete
+
+- type: tileAlias
+  id: FloorGrayConcreteOutsideMono
+  target: FloorGrayConcreteMono
+  
+- type: tileAlias
+  id: FloorGrayConcreteOutsideSmooth
+  target: FloorGrayConcreteSmooth
+ 
+- type: tileAlias
+  id: FloorOldConcreteOutside
+  target: FloorOldConcrete
+
+- type: tileAlias
+  id: FloorOldConcreteOutsideMono
+  target: FloorOldConcreteMono
+  
+- type: tileAlias
+  id: FloorOldConcreteOutsideSmooth
+  target: FloorOldConcreteSmooth
