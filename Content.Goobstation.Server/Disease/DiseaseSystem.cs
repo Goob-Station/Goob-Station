@@ -24,45 +24,53 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
         SubscribeLocalEvent<DiseaseCarrierComponent, RejuvenateEvent>(OnRejuvenate);
     }
 
-    private void OnClonedInto(EntityUid uid, DiseaseComponent disease, DiseaseCloneEvent args)
+    private void OnClonedInto(Entity<DiseaseComponent> ent, ref DiseaseCloneEvent args)
     {
         foreach (var effectUid in args.Source.Comp.Effects)
         {
-            if (!TryComp<DiseaseEffectComponent>(effectUid, out var effectComp) || MetaData(effectUid).EntityPrototype == null)
+            if (!_effectQuery.TryComp(effectUid, out var effectComp) || MetaData(effectUid).EntityPrototype == null)
                 continue;
 
             var entProtoId = MetaData(effectUid).EntityPrototype;
             if (entProtoId != null)
-                TryAdjustEffect(uid, entProtoId, out _, effectComp.Severity, disease);
+                TryAdjustEffect((ent, ent.Comp), entProtoId, out _, effectComp.Severity);
         }
-        // no idea how to do this better
-        disease.InfectionRate = args.Source.Comp.InfectionRate;
-        disease.MutationRate = args.Source.Comp.MutationRate;
-        disease.ImmunityGainRate = args.Source.Comp.ImmunityGainRate;
-        disease.MutationMutationCoefficient = args.Source.Comp.MutationMutationCoefficient;
-        disease.ImmunityGainMutationCoefficient = args.Source.Comp.ImmunityGainMutationCoefficient;
-        disease.InfectionRateMutationCoefficient = args.Source.Comp.InfectionRateMutationCoefficient;
-        disease.ComplexityMutationCoefficient = args.Source.Comp.ComplexityMutationCoefficient;
-        disease.SeverityMutationCoefficient = args.Source.Comp.SeverityMutationCoefficient;
-        disease.EffectMutationCoefficient = args.Source.Comp.EffectMutationCoefficient;
-        disease.GenotypeMutationCoefficient = args.Source.Comp.GenotypeMutationCoefficient;
-        disease.Complexity = args.Source.Comp.Complexity;
-        disease.Genotype = args.Source.Comp.Genotype;
-        disease.CanGainImmunity = args.Source.Comp.CanGainImmunity;
-        disease.AffectsDead = args.Source.Comp.AffectsDead;
-        disease.DeadInfectionRate = args.Source.Comp.DeadInfectionRate;
-        disease.AvailableEffects = args.Source.Comp.AvailableEffects;
-        disease.DiseaseType = args.Source.Comp.DiseaseType;
+
+        ent.Comp.InfectionRate = args.Source.Comp.InfectionRate;
+        ent.Comp.MutationRate = args.Source.Comp.MutationRate;
+        ent.Comp.ImmunityGainRate = args.Source.Comp.ImmunityGainRate;
+        ent.Comp.MutationMutationCoefficient = args.Source.Comp.MutationMutationCoefficient;
+        ent.Comp.ImmunityGainMutationCoefficient = args.Source.Comp.ImmunityGainMutationCoefficient;
+        ent.Comp.InfectionRateMutationCoefficient = args.Source.Comp.InfectionRateMutationCoefficient;
+        ent.Comp.ComplexityMutationCoefficient = args.Source.Comp.ComplexityMutationCoefficient;
+        ent.Comp.SeverityMutationCoefficient = args.Source.Comp.SeverityMutationCoefficient;
+        ent.Comp.EffectMutationCoefficient = args.Source.Comp.EffectMutationCoefficient;
+        ent.Comp.GenotypeMutationCoefficient = args.Source.Comp.GenotypeMutationCoefficient;
+        ent.Comp.Complexity = args.Source.Comp.Complexity;
+        ent.Comp.Genotype = args.Source.Comp.Genotype;
+        ent.Comp.CanGainImmunity = args.Source.Comp.CanGainImmunity;
+        ent.Comp.AffectsDead = args.Source.Comp.AffectsDead;
+        ent.Comp.DeadInfectionRate = args.Source.Comp.DeadInfectionRate;
+        ent.Comp.AvailableEffects = args.Source.Comp.AvailableEffects;
+        ent.Comp.DiseaseType = args.Source.Comp.DiseaseType;
     }
 
-    private void OnGrantDiseaseInit(EntityUid uid, GrantDiseaseComponent grant, MapInitEvent args)
+    private void OnGrantDiseaseInit(Entity<GrantDiseaseComponent> ent, ref MapInitEvent args)
     {
-        var disease = MakeRandomDisease(grant.BaseDisease, grant.Complexity);
-        if (TryComp<DiseaseComponent>(disease, out var diseaseComp))
-            diseaseComp.InfectionProgress = grant.Severity;
+        var disease = MakeRandomDisease(ent.Comp.BaseDisease, ent.Comp.Complexity);
+
         if (disease == null)
             return;
-        if (!TryInfect(uid, disease.Value))
+
+        if (TryComp<DiseaseComponent>(disease, out var diseaseComp))
+        {
+            if (ent.Comp.PossibleTypes != null)
+                diseaseComp.DiseaseType = _random.Pick(ent.Comp.PossibleTypes);
+
+            diseaseComp.InfectionProgress = ent.Comp.Severity;
+        }
+
+        if (!TryInfect(ent.Owner, disease.Value))
             QueueDel(disease);
     }
 
@@ -76,13 +84,9 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     }
     */
 
-    private void OnRejuvenate(EntityUid uid, DiseaseCarrierComponent comp, RejuvenateEvent args)
+    private void OnRejuvenate(Entity<DiseaseCarrierComponent> ent, ref RejuvenateEvent args)
     {
-        while (comp.Diseases.Count != 0)
-        {
-            if (!TryCure(uid, comp.Diseases[0], comp))
-                break;
-        }
+        TryCureAll((ent, ent.Comp));
     }
 
     #region public API
@@ -107,60 +111,76 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     public override EntityUid? MakeRandomDisease(EntProtoId baseProto, float complexity, float mutationRate = 0f)
     {
         var ent = Spawn(baseProto);
-        // requiring us to add DiseaseCarrier is just inconveniencing the user for no reason
         EnsureComp<DiseaseComponent>(ent, out var disease);
         disease.Complexity = complexity;
         disease.Genotype = _random.Next();
-        MutateDisease(ent, disease, mutationRate);
+        MutateDisease(ent);
         return ent;
     }
 
     /// <summary>
     /// Makes a clone of the provided disease entity
     /// </summary>
-    public override EntityUid? TryClone(EntityUid source, DiseaseComponent? comp)
+    public override EntityUid? TryClone(Entity<DiseaseComponent?> ent)
     {
-        if (!Resolve(source, ref comp))
+        if (!Resolve(ent, ref ent.Comp))
             return null;
 
-        var ent = Spawn(BaseDisease);
-        var ev = new DiseaseCloneEvent((source, comp));
-        RaiseLocalEvent(ent, ev);
-        return ent;
+        var disease = Spawn(BaseDisease);
+        var ev = new DiseaseCloneEvent((ent, ent.Comp));
+        RaiseLocalEvent(disease, ref ev);
+        return disease;
     }
 
     /// <summary>
     /// Tries to cure the entity of the given disease entity
     /// </summary>
-    protected override bool TryCure(EntityUid uid, EntityUid disease, DiseaseCarrierComponent? comp = null)
+    public override bool TryCure(Entity<DiseaseCarrierComponent?> ent, EntityUid disease)
     {
-        if (!Resolve(uid, ref comp))
+        if (!Resolve(ent, ref ent.Comp))
             return false;
 
-        if (comp.Diseases.Remove(disease))
+        if (ent.Comp.Diseases.Remove(disease))
             QueueDel(disease);
         else
             return false;
 
-        Dirty(uid, comp);
+        Dirty(ent);
+        return true;
+    }
+
+    /// <summary>
+    /// Tries to cure the entity of all diseases
+    /// </summary>
+    public override bool TryCureAll(Entity<DiseaseCarrierComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
+            return false;
+
+        while (ent.Comp.Diseases.Count != 0)
+        {
+            if (!TryCure((ent, ent.Comp), ent.Comp.Diseases[0]))
+                return false;
+        }
+
         return true;
     }
 
     /// <summary>
     /// Tries to infect the entity with a given disease prototype
     /// </summary>
-    public override bool TryInfect(EntityUid uid, EntProtoId diseaseId, [NotNullWhen(true)] out EntityUid? disease, DiseaseCarrierComponent? comp = null, bool force = false)
+    public override bool TryInfect(Entity<DiseaseCarrierComponent?> ent, EntProtoId diseaseId, [NotNullWhen(true)] out EntityUid? disease, bool force = false)
     {
         disease = null;
 
         if (force)
-            EnsureComp<DiseaseCarrierComponent>(uid, out comp);
+            EnsureComp<DiseaseCarrierComponent>(ent, out ent.Comp);
 
-        if (!Resolve(uid, ref comp, false))
+        if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
-        var spawned = Spawn(diseaseId, new EntityCoordinates(uid, Vector2.Zero));
-        if (!TryInfect(uid, spawned, comp, force))
+        var spawned = Spawn(diseaseId, new EntityCoordinates(ent, Vector2.Zero));
+        if (!TryInfect(ent, spawned, force))
         {
             QueueDel(spawned);
             return false;
