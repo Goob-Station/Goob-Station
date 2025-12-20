@@ -19560,3 +19560,90 @@ Entries:
       message: Added "vinyl player" it plays vinyls!
   id: 2211
   time: '2025-12-19T19:37:06.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Tweak
+      message: Makes the gravity well viro effect rarer
+  id: 2212
+  time: '2025-12-20T08:28:55.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: Guerrilla gloves are now correctly marked as Syndicate contraband.
+  id: 2213
+  time: '2025-12-20T08:29:27.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Barks can no longer be heard cross-map/in lobby
+  id: 2214
+  time: '2025-12-20T08:38:21.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: >-
+        Fixed ion breaking bones and organs. (This fixes wonderprod breaking
+        your ribcage too)
+  id: 2215
+  time: '2025-12-20T08:40:11.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Mice now enter ventcrawl faster.
+  id: 2216
+  time: '2025-12-20T08:40:51.0000000+00:00'
+- author: Thatonestomf
+  changes:
+    - type: Tweak
+      message: buffed reactions with vestine to provide more chem per reaction.
+  id: 2217
+  time: '2025-12-20T08:41:07.0000000+00:00'
+- author: gaiads
+  changes:
+    - type: Add
+      message: New 5 Biogenerator recipes.
+  id: 2218
+  time: '2025-12-20T08:42:42.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Added Moth sax!
+  id: 2219
+  time: '2025-12-20T08:42:59.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Tweak
+      message: >-
+        Increases changeling armblade damage from 15 to 20 slashl. as it was
+        before.
+  id: 2220
+  time: '2025-12-20T08:43:22.0000000+00:00'
+- author: Alvixeon
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the Noir glasses to reflect the Detective's role in security,
+        adding SecHud to them. Giving the glasses more utility.
+  id: 2221
+  time: '2025-12-20T08:43:43.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: >-
+        Added a line to RD SOP to clarify that, while the RD is allowed
+        (legally) to change the AI's lawset, the AI's programming still requires
+        them to resist it. Try being sneaky if you need to change laws!
+  id: 2222
+  time: '2025-12-20T08:46:01.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Add
+      message: Added a new costume to the theatre drobe.
+  id: 2223
+  time: '2025-12-20T09:00:45.0000000+00:00'
+- author: GoidaYAMLWarrior
+  changes:
+    - type: Add
+      message: Added a grey quarterzip jumpsuit for passengers with 80 hours
+  id: 2224
+  time: '2025-12-20T09:37:08.0000000+00:00'
