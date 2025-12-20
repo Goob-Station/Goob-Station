@@ -25,6 +25,7 @@
     solution: extract
   - type: SlimeExtract
   - type: Reactive
+    oneUnitReaction: true
   - type: StatusEffects # used for jittering and stuff
     allowed:
     - Jitter
