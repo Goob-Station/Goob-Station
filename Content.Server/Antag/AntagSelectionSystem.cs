@@ -631,9 +631,15 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             special.AfterEquip(ent);
 
         // goob edit - clumsy antag no more
-        if (HasComp<ClumsyComponent>(player))
+        if (TryComp<ClumsyComponent>(player, out var clumsy))
         {
-            RemComp<ClumsyComponent>(player);
+            // if not for the clown car i would've nuked it off the planet
+            clumsy.ClumsyCatching = false;
+            clumsy.ClumsyDefib = false;
+            clumsy.ClumsyGuns = false;
+            clumsy.ClumsyVaulting = false;
+            clumsy.ClumsyHypo = false;
+
             _popup.PopupEntity(Loc.GetString("antag-gain-remove-clumsy"), player, player, Shared.Popups.PopupType.Medium);
         }
 
