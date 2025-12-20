@@ -30,8 +30,8 @@ public sealed partial class SprayPainterDecals : Control
     {
         RobustXamlLoader.Load(this);
 
-        AddAngleButton.OnButtonUp += _ => AngleSpinBox.Value += 90;
-        SubAngleButton.OnButtonUp += _ => AngleSpinBox.Value -= 90;
+        AddAngleButton.OnButtonUp += _ => AngleSpinBox.Value = (AngleSpinBox.Value + 90) % 360;
+        SubAngleButton.OnButtonUp += _ => AngleSpinBox.Value = (AngleSpinBox.Value - 90) % 360;
         SetZeroAngleButton.OnButtonUp += _ => AngleSpinBox.Value = 0;
         AngleSpinBox.ValueChanged += args => OnAngleChanged?.Invoke(args.Value);
 
