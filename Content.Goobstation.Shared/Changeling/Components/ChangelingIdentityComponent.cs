@@ -196,7 +196,7 @@ public sealed partial class ChangelingIdentityComponent : Component
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public TransformData? CurrentForm;
 
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadOnly)]
     public TransformData? SelectedForm;
 }
 
@@ -224,6 +224,6 @@ public sealed partial class TransformData
     /// <summary>
     ///     Entity's humanoid appearance component.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly), NonSerialized]
+    [DataField, ViewVariables(VVAccess.ReadOnly), NonSerialized]
     public HumanoidAppearanceComponent Appearance;
 }
