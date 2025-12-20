@@ -577,16 +577,12 @@
       injector:
         maxVol: 5
   - type: Injector
-    injectOnly: false
     ignoreMobs: true
     ignoreClosed: false
-    transferAmounts:
-    - 1
-    - 2
-    - 3
-    - 4
-    - 5
-    currentTransferAmount: 1
+    activeModeProtoId: DropperDrawMode
+    allowedModes:
+    - DropperDrawMode
+    - DropperInjectMode
   - type: ExaminableSolution
     solution: dropper
     exactVolume: true
@@ -662,11 +658,10 @@
       injector:
         maxVol: 15
   - type: Injector
-    injectOnly: false
-    transferAmounts:
-    - 5
-    - 10
-    - 15
+    activeModeProtoId: SyringeDrawMode
+    allowedModes:
+    - SyringeDrawMode
+    - SyringeInjectMode
   - type: ExaminableSolution
     solution: injector
     exactVolume: true
@@ -833,7 +828,7 @@
   id: PrefilledSyringe
   components:
   - type: Injector
-    toggleState: Inject
+    activeModeProtoId: SyringeInjectMode
 
 - type: entity
   id: SyringeBluespace
@@ -856,8 +851,10 @@
       injector:
         maxVol: 100
   - type: Injector
-    delay: 1 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
-    injectOnly: false
+    activeModeProtoId: BluespaceSyringeDrawMode
+    allowedModes:
+    - BluespaceSyringeInjectMode
+    - BluespaceSyringeDrawMode
   - type: SolutionContainerVisuals
     maxFillLevels: 2
     fillBaseName: syringe
@@ -898,12 +895,10 @@
         maxVol: 20 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
         canReact: false
   - type: Injector
-    delay: 2 # Goobstation
-    injectOnly: false
-    transferAmounts:
-    - 5
-    - 20
-    currentTransferAmount: 20 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+    activeModeProtoId: CryostasisSyringeDrawMode
+    allowedModes:
+    - CryostasisSyringeInjectMode
+    - CryostasisSyringeDrawMode
   - type: Tag
     tags:
     - Syringe
