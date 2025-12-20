@@ -20,8 +20,8 @@
   - type: Unremoveable
   - type: Item
   - type: UnholyItem
-  - type: MansusGrasp
   - type: AlwaysHot
+  - type: MansusGrasp
     blacklist:
       components:
       - Puddle # Ruins rust path tile rusting and is annoying in general.
