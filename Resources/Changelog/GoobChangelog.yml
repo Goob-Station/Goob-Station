@@ -19586,3 +19586,9 @@ Entries:
         your ribcage too)
   id: 2215
   time: '2025-12-20T08:40:11.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Mice now enter ventcrawl faster.
+  id: 2216
+  time: '2025-12-20T08:40:51.0000000+00:00'
