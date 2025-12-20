@@ -19647,3 +19647,32 @@ Entries:
       message: Added a grey quarterzip jumpsuit for passengers with 80 hours
   id: 2224
   time: '2025-12-20T09:37:08.0000000+00:00'
+- author: John Shitcode, Rubin, Solstice, Gus, Mocho
+  changes:
+    - type: Add
+      message: >-
+        Added Xenobiology! Scientists can now grow slimes, grind them for
+        extracts, and sell it for points!
+    - type: Add
+      message: >-
+        Electrocutions, teleportations and other stuff are now accompanied by
+        sparks.
+    - type: Add
+      message: >-
+        NPCs will no longer be able to detect fully stealthed entities, unless
+        they've seen one before becoming transparent.
+    - type: Fix
+      message: >-
+        Implants and certain antagonist specific items now get transfered on
+        polymorph. Omniantag can now become real!
+    - type: Fix
+      message: >-
+        Non-heretics who try to swap their brains into heretic bodies will no
+        longer be able to use their abilities! This does not apply to
+        changelings, but expect disappointing results.
+    - type: Fix
+      message: Changelings cannot be beheaded anymore after transformation.
+    - type: Fix
+      message: Implants such as mindshields don't reappear on cloning anymore.
+  id: 2225
+  time: '2025-12-20T09:45:17.0000000+00:00'
