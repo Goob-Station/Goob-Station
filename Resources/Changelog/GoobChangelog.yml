@@ -19598,3 +19598,9 @@ Entries:
       message: buffed reactions with vestine to provide more chem per reaction.
   id: 2217
   time: '2025-12-20T08:41:07.0000000+00:00'
+- author: gaiads
+  changes:
+    - type: Add
+      message: New 5 Biogenerator recipes.
+  id: 2218
+  time: '2025-12-20T08:42:42.0000000+00:00'
