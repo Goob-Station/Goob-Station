@@ -1,5 +1,4 @@
-﻿using Content.Goobstation.Maths.FixedPoint;
-using Robust.Shared.Prototypes;
+﻿using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Harvestable;
 
@@ -15,5 +14,5 @@ public sealed partial class HarvestableComponent : Component
 
     // Harvest doAfter delay.
     [DataField]
-    public float Delay;
+    public float Delay = 1f;
 }

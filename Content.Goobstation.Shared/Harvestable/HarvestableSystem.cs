@@ -1,22 +1,21 @@
-﻿using Content.Goobstation.Shared.Harvestable;
-using Content.Server.Hands.Systems;
-using Content.Shared.DoAfter;
+﻿using Content.Shared.DoAfter;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 
-namespace Content.Goobstation.Server.Harvestable;
+namespace Content.Goobstation.Shared.Harvestable;
 
 /// <summary>
 /// "Click on me to get loot" behavior system
 /// </summary>
 public sealed class HarvestableSystem : EntitySystem
 {
-
-    [Dependency] private readonly HandsSystem _handSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _handSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<HarvestableComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<HarvestableComponent, HarvestedDoAfterEvent>(OnHarvestedDoAfter);
     }
@@ -26,14 +25,12 @@ public sealed class HarvestableSystem : EntitySystem
         if (args.Handled)
             return;
 
-        args.Handled = true;
-
-        TryHarvest(ent, args.User);
+        args.Handled = TryHarvest(ent, args.User);
     }
 
-    private void TryHarvest(Entity<HarvestableComponent> ent, EntityUid harvester)
+    private bool TryHarvest(Entity<HarvestableComponent> ent, EntityUid harvester)
     {
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, harvester, ent.Comp.Delay, new HarvestedDoAfterEvent(), ent.Owner, ent.Owner)
+        return _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, harvester, ent.Comp.Delay, new HarvestedDoAfterEvent(), ent.Owner, ent.Owner)
         {
             BreakOnMove = true,
             BreakOnDamage = true,
@@ -47,10 +44,12 @@ public sealed class HarvestableSystem : EntitySystem
 
     private void OnHarvestedDoAfter(Entity<HarvestableComponent> ent, ref HarvestedDoAfterEvent args)
     {
-        if (args.Cancelled)
+        if (args.Handled
+            || args.Cancelled)
             return;
 
         Harvest(ent,args.User);
+        args.Handled = true;
     }
 
     public void Harvest(Entity<HarvestableComponent> ent, EntityUid harvester)
@@ -58,7 +57,7 @@ public sealed class HarvestableSystem : EntitySystem
         // Harvest part
         var activeHand =  _handSystem.GetActiveHand(harvester);
 
-        if (ent.Comp.Loot is { } loot)
+        if (ent.Comp.Loot != null)
         {
             var item = PredictedSpawnAtPosition(ent.Comp.Loot, Transform(harvester).Coordinates);
             _handSystem.TryPickup(harvester, item, activeHand, false);
