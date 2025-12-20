@@ -180,7 +180,7 @@ public sealed class SuicideSystem : EntitySystem
         // CannotSuicide tag will allow the user to ghost, but also return to their mind
         // This is kind of weird, not sure what it applies to?
         if (_tagSystem.HasTag(victim, CannotSuicideTag)
-            || HasComp<XenomorphPreventSuicideComponent>(victim))
+            || HasComp<XenomorphPreventSuicideComponent>(victim)) // Goob station - Xenomorphs
             args.CanReturnToBody = true;
 
         if (_ghostSystem.OnGhostAttempt(victim.Comp.Mind.Value, args.CanReturnToBody, mind: mindComponent))
@@ -232,7 +232,7 @@ public sealed class SuicideSystem : EntitySystem
     private void OnDamageableSuicide(Entity<DamageableComponent> victim, ref SuicideEvent args)
     {
         if (args.Handled
-            || HasComp<XenomorphPreventSuicideComponent>(victim))
+            || HasComp<XenomorphPreventSuicideComponent>(victim)) // Goob station - Xenomorphs
             return;
 
         var othersMessage = Loc.GetString("suicide-command-default-text-others", ("name", Identity.Entity(victim, EntityManager)));

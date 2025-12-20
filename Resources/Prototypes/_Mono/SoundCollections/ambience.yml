@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Wow. Everything is Computer.
+
+- type: soundCollection
+  id: MonoComputerSFX
+  files:
+  # the buzzes
+  - /Audio/_Mono/Effects/Computer/buzz2.ogg
+  # the beeps
+  - /Audio/_Mono/Effects/Computer/beep1.ogg
+  - /Audio/_Mono/Effects/Computer/beep2.ogg
+  - /Audio/_Mono/Effects/Computer/beep3.ogg
+  - /Audio/_Mono/Effects/Computer/beep4.ogg
+  - /Audio/_Mono/Effects/Computer/beep6.ogg # there is no beep 5 or 7 in life
+  - /Audio/_Mono/Effects/Computer/beep8.ogg
+  - /Audio/_Mono/Effects/Computer/beep_series1.ogg
+  - /Audio/_Mono/Effects/Computer/beep_series2.ogg
+  - /Audio/_Mono/Effects/Computer/high_beep.ogg
+  - /Audio/_Mono/Effects/Computer/high_beep_series.ogg
+  - /Audio/_Mono/Effects/Computer/short_beep2.ogg
+  - /Audio/_Mono/Effects/Computer/short_beep3.ogg
+  # the hums
+  - /Audio/_Mono/Effects/Computer/hum1.ogg
+  - /Audio/_Mono/Effects/Computer/hum2.ogg
+  - /Audio/_Mono/Effects/Computer/hum3.ogg
+  # the scroll
+  - /Audio/_Mono/Effects/Computer/scroll1.ogg
+  - /Audio/_Mono/Effects/Computer/scroll2.ogg
+  - /Audio/_Mono/Effects/Computer/scroll_start.ogg
+  # misc
+  - /Audio/_Mono/Effects/Computer/startup.ogg
+  - /Audio/_Mono/Effects/Computer/whir1.ogg
+  - /Audio/_Mono/Effects/Computer/rattle.ogg

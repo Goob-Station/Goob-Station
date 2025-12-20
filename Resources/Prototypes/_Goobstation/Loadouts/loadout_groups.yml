@@ -1515,3 +1515,35 @@
   hidden: true
   loadouts:
   - LoadoutSpeciesPlasma
+
+# Virologist
+
+- type: loadoutGroup
+  id: VirologistJumpsuit
+  name: loadout-group-virologist-jumpsuit
+  loadouts:
+   - VirologistJumpsuit
+   - VirologistJumpskirt
+   - VirologistMJ # goobin
+
+- type: loadoutGroup
+  id: VirologistBackpack
+  name: loadout-group-virologist-backpack
+  loadouts:
+   - VirologistBackpack
+   - VirologistSatchel
+   - VirologistDuffel
+
+- type: loadoutGroup
+  id: VirologistOuterClothing
+  name: loadout-group-virologist-outerclothing
+  minLimit: 0
+  loadouts:
+   - VirologistLabCoat
+   - VirologistWintercoat
+
+- type: loadoutGroup
+  id: VirologistPDA
+  name: loadout-group-virologist-id
+  loadouts:
+   - VirologistPDA

@@ -55,7 +55,6 @@ using Robust.Shared.Audio;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Server.Heretic.EntitySystems;
-using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Actions;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -78,7 +77,6 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Body.Components;
-using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Tag;
@@ -112,7 +110,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly ProtectiveBladeSystem _pblade = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
@@ -125,7 +122,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly MansusGraspSystem _mansusGrasp = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly PvsOverrideSystem _pvs = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
@@ -151,7 +147,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         SubscribeLocalEvent<GhoulComponent, EventHereticMansusLink>(OnMansusLink);
         SubscribeLocalEvent<GhoulComponent, HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
 
-        SubscribeVoid();
         SubscribeLock();
     }
 
@@ -387,9 +382,9 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         thermalVision.FlashDurationMultiplier = 1f;
         thermalVision.ActivateSound = null;
         thermalVision.DeactivateSound = null;
-        thermalVision.ToggleAction = null;
+        thermalVision.ThermalShader = null;
 
-        AddComp(ent, thermalVision);
+        AddComp(ent, thermalVision, true);
 
         var toggleEvent = new ToggleThermalVisionEvent();
         RaiseLocalEvent(ent, toggleEvent);
@@ -488,6 +483,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         var statusQuery = GetEntityQuery<StatusEffectsComponent>();
         var resiratorQuery = GetEntityQuery<RespiratorComponent>();
         var hereticQuery = GetEntityQuery<HereticComponent>();
+        var ghoulQuery = GetEntityQuery<GhoulComponent>();
 
         var leechQuery = EntityQueryEnumerator<LeechingWalkComponent, TransformComponent>();
         while (leechQuery.MoveNext(out var uid, out var leech, out var xform))
@@ -506,7 +502,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 {
                     if (heretic.Ascended)
                     {
-                        multiplier = 4f;
+                        multiplier = 5f;
                         if (resiratorQuery.TryComp(uid, out var respirator))
                         {
                             _respirator.UpdateSaturation(uid,
@@ -526,7 +522,10 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                     boneHeal = leech.BoneHeal * multiplier;
                 }
             }
-            var otherHeal = boneHeal; // Same as boneHeal because I don't give a fuck
+            else if (ghoulQuery.HasComp(uid))
+                multiplier = 3f;
+
+            var otherHeal = boneHeal;
 
             RemCompDeferred<DelayedKnockdownComponent>(uid);
 
