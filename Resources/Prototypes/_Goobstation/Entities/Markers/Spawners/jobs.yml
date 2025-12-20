@@ -54,6 +54,18 @@
       - state: scientist
 
 - type: entity
+  id: SpawnPointRadioHost
+  parent: SpawnPointJobBase
+  name: SpawnPointRadioHost
+  components:
+  - type: SpawnPoint
+    job_id: RadioHost
+  - type: Sprite
+    layers:
+    - state: green
+    - state: radiohost
+
+- type: entity
   id: SpawnPointVirologist
   parent: SpawnPointJobBase
   name: virologist
