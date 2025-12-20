@@ -286,7 +286,10 @@ public sealed class SprayPainterSystem : SharedSprayPainterSystem
 
         var decals = _decals.GetDecalsInRange(grid, args.ClickLocation.Position);
         if (decals.Count == 0)
+        {
+            _popup.PopupEntity(Loc.GetString("spray-painter-interact-no-color"), args.User, args.User);
             return;
+        }
 
         // Get the decal at the click location with the highest `ZIndex`. (If there's multiple stacked it'll be the visible one)
         var topmostDecal = decals.Aggregate((d1, d2) => d1.Decal.ZIndex > d2.Decal.ZIndex ? d1 : d2).Decal;
