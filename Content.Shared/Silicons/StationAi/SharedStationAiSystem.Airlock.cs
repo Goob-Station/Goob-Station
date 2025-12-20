@@ -24,6 +24,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.Doors.Components;
 using Robust.Shared.Serialization;
 using Content.Shared.Electrocution;
@@ -33,6 +35,8 @@ namespace Content.Shared.Silicons.StationAi;
 // Handles airlock radial
 public abstract partial class SharedStationAiSystem
 {
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+
     private void InitializeAirlock()
     {
         SubscribeLocalEvent<DoorBoltComponent, StationAiBoltEvent>(OnAirlockBolt);
@@ -48,19 +52,29 @@ public abstract partial class SharedStationAiSystem
         if (component.BoltWireCut || !PowerReceiver.IsPowered(ent))
         {
             ShowDeviceNotRespondingPopup(args.User);
+            _adminLogger.Add(LogType.Action,
+                $"{args.User} was unable to change bolt status on {ent} to [{args.Bolted}] using the Station AI radial because it was unpowered.");
             return;
         }
 
         if (!_access.IsAllowed(args.User, ent))
         {
             ShowDeviceNoAccessPopup(args.User);
+            _adminLogger.Add(LogType.Action,
+                $"{args.User} was unable to change bolt status on {ent} to [{args.Bolted}] using the Station AI radial because they had no access.");
             return;
         }
 
         var setResult = _doors.TrySetBoltDown((ent, component), args.Bolted, args.User, predicted: true);
         if (!setResult)
         {
+            _adminLogger.Add(LogType.Action,
+                $"{args.User} was unable to change bolt status on {ent} to [{args.Bolted}] using the Station AI radial.");
             ShowDeviceNotRespondingPopup(args.User);
+        }
+        else
+        {
+            _adminLogger.Add(LogType.Action, $"{args.User} set bolt status on {ent} to [{args.Bolted}] using the Station AI radial.");
         }
     }
 
@@ -72,16 +86,21 @@ public abstract partial class SharedStationAiSystem
         if (!PowerReceiver.IsPowered(ent))
         {
             ShowDeviceNotRespondingPopup(args.User);
+            _adminLogger.Add(LogType.Action,
+                $"{args.User} was unable to change emergency access status on {ent} to [{args.EmergencyAccess}] using the Station AI radial because it was unpowered.");
             return;
         }
 
         if (!_access.IsAllowed(args.User, ent))
         {
             ShowDeviceNoAccessPopup(args.User);
+            _adminLogger.Add(LogType.Action,
+                $"{args.User} was unable to change emergency access status on {ent} to [{args.EmergencyAccess}] using the Station AI radial because they had no access.");
             return;
         }
 
         _airlocks.SetEmergencyAccess((ent, component), args.EmergencyAccess, args.User, predicted: true);
+        _adminLogger.Add(LogType.Action, $"{args.User} set emergency access status on {ent} to [{args.EmergencyAccess}] using the Station AI radial.");
     }
 
     /// <summary>
@@ -92,15 +111,20 @@ public abstract partial class SharedStationAiSystem
         if (component.IsWireCut || !PowerReceiver.IsPowered(ent))
         {
             ShowDeviceNotRespondingPopup(args.User);
+            _adminLogger.Add(LogType.Action,
+                $"{args.User} was unable to change electrified status on {ent} to [{args.Electrified}] using the Station AI radial because it was unpowered.");
             return;
         }
 
         if (!_access.IsAllowed(args.User, ent))
         {
             ShowDeviceNoAccessPopup(args.User);
+            _adminLogger.Add(LogType.Action,
+                $"{args.User} was unable to change electrified status on {ent} to [{args.Electrified}] using the Station AI radial because they had no access.");
             return;
         }
 
+        _adminLogger.Add(LogType.Action, $"{args.User} set electrified status on {ent} to [{args.Electrified}] using the Station AI radial.");
         _electrify.SetElectrified((ent, component), args.Electrified);
         var soundToPlay = component.Enabled
             ? component.AirlockElectrifyDisabled
