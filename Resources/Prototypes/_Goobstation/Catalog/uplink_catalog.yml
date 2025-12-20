@@ -590,6 +590,18 @@
   categories:
   - UplinkWearables
 
+
+- type: listing
+  id: UplinkClothingHandsGlovesGuerrilla
+  name: uplink-guerrilla-gloves-name
+  description: uplink-guerrilla-gloves-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
+  productEntity: ClothingHandsGlovesGuerrilla
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWearables
+
 # Job specific
 - type: listing
   id: UplinkPieCannon
@@ -767,6 +779,23 @@
     whitelist:
     - SalvageSpecialist
 
+- type: listing
+  id: UplinkGreyTide
+  name: uplink-grey-tide-name
+  description: uplink-grey-tide-desc
+  icon: { sprite: Objects/Weapons/Melee/plasma_spear.rsi, state: spear }
+  productEntity: SpearGreyTide
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Passenger
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # chemicals
 
 - type: listing
@@ -775,7 +804,7 @@
   description: uplink-advanced-combat-medipen-desc
   productEntity: AdvancedCombatMedipen
   cost:
-    Telecrystal: 20
+    Telecrystal: 24
   categories:
   - UplinkChemicals
 
