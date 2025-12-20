@@ -4952,3 +4952,11 @@ Entries:
   id: 9320
   time: '2025-12-20T01:50:14.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41326
+- author: chromiumboy
+  changes:
+  - message: Station AI cores constructed with a positronic brain that is actively
+      seeking a mind will open a ghost role to become its AI.
+    type: Tweak
+  id: 9321
+  time: '2025-12-20T14:34:40.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40607
