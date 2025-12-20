@@ -1,5 +1,6 @@
 using Robust.Client.UserInterface;
 using Robust.Shared.Console;
+using Content.Shared.Administration;
 
 namespace Content.Goobstation.Client.Polls;
 
