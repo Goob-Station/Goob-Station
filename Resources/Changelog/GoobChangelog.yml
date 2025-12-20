@@ -19700,3 +19700,19 @@ Entries:
         can hear them from 8 meters away instead of 3.
   id: 2227
   time: '2025-12-20T17:14:02.0000000+00:00'
+- author: Gallagin
+  changes:
+    - type: Add
+      message: Xenobio to Leonid
+    - type: Add
+      message: Radiohost job and equipment to Leonid
+    - type: Add
+      message: More docking areas for shuttles on Leonid
+    - type: Remove
+      message: Space cobras and lube grenades on Leonid
+    - type: Tweak
+      message: Adjusted layout of Virology
+    - type: Tweak
+      message: upped the min pop of Leonid from 35 to 50
+  id: 2228
+  time: '2025-12-20T17:31:41.0000000+00:00'
