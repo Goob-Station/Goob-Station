@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/20/2025 16:17:53
-  entityCount: 22962
+  time: 12/20/2025 17:39:36
+  entityCount: 22959
 maps:
 - 1
 grids:
@@ -9159,11 +9159,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 49.5,6.5
       parent: 2
-    - type: DeviceList
-      devices:
-      - 22900
-      - 22899
-      - 22951
 - proto: AirAlarmElectronics
   entities:
   - uid: 90
@@ -11139,7 +11134,7 @@ entities:
       pos: -1.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1776.4127
+      secondsUntilStateChange: -1868.3665
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11641,7 +11636,7 @@ entities:
       pos: 40.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5522.2393
+      secondsUntilStateChange: -5614.193
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11678,7 +11673,7 @@ entities:
       pos: 41.5,8.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2370.7788
+      secondsUntilStateChange: -2462.7327
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12358,15 +12353,6 @@ entities:
     - type: Transform
       pos: -2.5,8.5
       parent: 2
-  - uid: 22951
-    components:
-    - type: Transform
-      pos: 50.5,7.5
-      parent: 2
-    - type: DeviceNetwork
-      configurators:
-      deviceLists:
-      - 22922
 - proto: AltarConvertRed
   entities:
   - uid: 610
@@ -65374,7 +65360,7 @@ entities:
       pos: 12.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -738.747
+      secondsUntilStateChange: -830.7008
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 1795.33154
@@ -90422,18 +90408,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
-  - uid: 22899
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 49.5,7.5
-      parent: 2
-    - type: DeviceNetwork
-      configurators:
-      deviceLists:
-      - 22922
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
 - proto: GasVentScrubber
   entities:
   - uid: 7897
@@ -91834,18 +91808,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 22829
-  - uid: 22900
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 49.5,8.5
-      parent: 2
-    - type: DeviceNetwork
-      configurators:
-      deviceLists:
-      - 22922
-    - type: AtmosPipeColor
-      color: '#990000FF'
 - proto: GasVolumePump
   entities:
   - uid: 13465
@@ -104735,14 +104697,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 47.5,10.5
       parent: 2
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
-    - type: Door
-      secondsUntilStateChange: -2012.0125
-      state: Opening
-    - type: Airlock
-      autoClose: False
   - uid: 22859
     components:
     - type: Transform
