@@ -9,6 +9,7 @@
       state: core
       color: "#ffff1a"
   - type: Reactive
+    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -56,6 +57,7 @@
       state: core
       color: "#8e0ff0"
   - type: Reactive
+    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -105,6 +107,7 @@
       state: core
       color: "#1e8cfa"
   - type: Reactive
+    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -158,6 +161,7 @@
       color: "#c4c4c4"
       shader: XenoMetallic
   - type: Reactive
+    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -217,6 +221,7 @@
       color: "#f0f8ff"
       shader: XenoBluespace
   - type: Reactive
+    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -268,6 +273,7 @@
       color: "#704214"
       shader: XenoSepia
   - type: Reactive
+    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -324,6 +330,7 @@
       state: core
       color: "#2A52BE"
   - type: Reactive
+    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -374,6 +381,7 @@
       color: "#dcaa4f"
       shader: XenoMetallic
   - type: Reactive
+    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
