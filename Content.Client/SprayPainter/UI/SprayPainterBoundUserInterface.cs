@@ -67,6 +67,7 @@ public sealed class SprayPainterBoundUserInterface(EntityUid owner, Enum uiKey) 
         _window.SetDecalAngle(sprayPainter.SelectedDecalAngle);
         _window.SetDecalColor(sprayPainter.SelectedDecalColor);
         _window.SetDecalSnap(sprayPainter.SnapDecals);
+        _window.SetDecalColorPicker(sprayPainter.ColorPickerEnabled);
     }
 
     private void OnDecalSnapChanged(bool snap)

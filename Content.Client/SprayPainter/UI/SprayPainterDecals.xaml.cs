@@ -204,4 +204,9 @@ public sealed partial class SprayPainterDecals : Control
     {
         SnapToTileCheckBox.Pressed = snap;
     }
+
+    public void SetColorPicker(bool enabled)
+    {
+        ColorPicker.Pressed = enabled;
+    }
 }

@@ -305,7 +305,12 @@ public sealed partial class SprayPainterWindow : DefaultWindow
         if (_sprayPainterDecals != null)
             _sprayPainterDecals.SetSnap(snap);
     }
-    # endregion
+
+    internal void SetDecalColorPicker(bool colorPickerEnabled)
+    {
+        _sprayPainterDecals?.SetColorPicker(colorPickerEnabled);
+    }
+    #endregion
 }
 
 public record SpriteListData(string Group, string Style, EntProtoId Prototype, int SelectedIndex) : ListData;
