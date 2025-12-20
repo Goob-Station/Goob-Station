@@ -19566,3 +19566,9 @@ Entries:
       message: Makes the gravity well viro effect rarer
   id: 2212
   time: '2025-12-20T08:28:55.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: Guerrilla gloves are now correctly marked as Syndicate contraband.
+  id: 2213
+  time: '2025-12-20T08:29:27.0000000+00:00'
