@@ -19572,3 +19572,9 @@ Entries:
       message: Guerrilla gloves are now correctly marked as Syndicate contraband.
   id: 2213
   time: '2025-12-20T08:29:27.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Barks can no longer be heard cross-map/in lobby
+  id: 2214
+  time: '2025-12-20T08:38:21.0000000+00:00'
