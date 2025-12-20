@@ -522,8 +522,8 @@ public abstract class SharedMagicSystem : EntitySystem
 
         var ent = Spawn(ev.Prototype, fromMap);
         var direction = _transform.ToMapCoordinates(ev.Target).Position -
-                        fromMap.Position;
-        _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, ev.Speed); // Goob edit
+                         fromMap.Position;
+        _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, 25f);
 
         if (ev.Entity != null) // Goobstation
             _gunSystem.SetTarget(ent, ev.Entity.Value, out _);

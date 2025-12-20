@@ -89,61 +89,59 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             bloodstream.NextUpdate += bloodstream.AdjustedUpdateInterval;
             DirtyField(uid, bloodstream, nameof(BloodstreamComponent.NextUpdate)); // needs to be dirtied on the client so it can be rerolled during prediction
 
-            if (!SolutionContainer.ResolveSolution(uid, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution))
+            if (!SolutionContainer.ResolveSolution(uid, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution))
                 continue;
 
             // Blood level regulation. Must be alive.
-            TryRegulateBloodLevel(uid, bloodstream.BloodRefreshAmount);
-
-            // Removes blood from the bloodstream based on bleed amount (bleed rate)
-            // as well as stop their bleeding to a certain extent.
-            if (bloodstream.BleedAmount > 0)
+            if (!_mobStateSystem.IsDead(uid))
             {
-                var ev = new BleedModifierEvent(bloodstream.BleedAmount, bloodstream.BleedReductionAmount);
-                RaiseLocalEvent(uid, ref ev);
+                TryRegulateBloodLevel(uid, bloodstream.BloodRefreshAmount);
 
-                // Blood is removed from the bloodstream at a 1-1 rate with the bleed amount
-                TryBleedOut((uid, bloodstream), ev.BleedAmount);
+                TickBleed((uid, bloodstream));
 
-                // Bleed rate is reduced by the bleed reduction amount in the bloodstream component.
-                TryModifyBleedAmount((uid, bloodstream), -ev.BleedReductionAmount);
-            }
+                // deal bloodloss damage if their blood level is below a threshold.
+                var bloodPercentage = GetBloodLevel(uid);
+                if (bloodPercentage < bloodstream.BloodlossThreshold)
+                {
+                    // bloodloss damage is based on the base value, and modified by how low your blood level is.
+                    var amt = bloodstream.BloodlossDamage / (0.1f + bloodPercentage);
 
-            // deal bloodloss damage if their blood level is below a threshold.
-            var bloodPercentage = GetBloodLevel(uid);
-            if (bloodPercentage < bloodstream.BloodlossThreshold && !_mobStateSystem.IsDead(uid))
-            {
-                // bloodloss damage is based on the base value, and modified by how low your blood level is.
-                var amt = bloodstream.BloodlossDamage * (1 - bloodPercentage) * 10f * _bloodlossMultiplier; // Goobstation
-
+                    _damageableSystem.TryChangeDamage(uid, amt, ignoreResistances: false, interruptsDoAfters: false);
                 // Goobstation start
                 var multiplierEv = new GetBloodlossDamageMultiplierEvent();
                 RaiseLocalEvent(uid, multiplierEv);
                 amt *= multiplierEv.Multiplier;
-                // Goobstation end
+
 
                 _damageableSystem.TryChangeDamage(uid, amt,
                     ignoreResistances: false, interruptsDoAfters: false,
                     splitDamage: SplitDamageBehavior.SplitEnsureAll, targetPart: TargetBodyPart.All);
 
+                // Goobstation end
+
                 // Apply dizziness as a symptom of bloodloss.
                 // The effect is applied in a way that it will never be cleared without being healthy.
                 // Multiplying by 2 is arbitrary but works for this case, it just prevents the time from running out
                 _status.TrySetStatusEffectDuration(uid, Bloodloss);
-            }
-            else if (!_mobStateSystem.IsDead(uid))
-            {
-                // If they're healthy, we'll try and heal some bloodloss instead.
-                _damageableSystem.TryChangeDamage(
-                    uid,
-                    bloodstream.BloodlossHealDamage * bloodPercentage * _bloodlossMultiplier, // Goobstation
-                    ignoreResistances: true,
-                    interruptsDoAfters: false,
-                    ignoreBlockers: true,
-                    targetPart: TargetBodyPart.All,
-                    splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
+                }
+                else if (!_mobStateSystem.IsDead(uid))
+                {
+                    // If they're healthy, we'll try and heal some bloodloss instead.
+                    _damageableSystem.TryChangeDamage(
+                        uid,
+                        bloodstream.BloodlossHealDamage * bloodPercentage * _bloodlossMultiplier, // Goobstation
+                        ignoreResistances: true,
+                        interruptsDoAfters: false,
+                        ignoreBlockers: true,
+                        targetPart: TargetBodyPart.All,
+                        splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
 
-                _status.TryRemoveStatusEffect(uid, Bloodloss);
+                    _status.TryRemoveStatusEffect(uid, Bloodloss);
+                }
+            }
+            else
+            {
+                TickBleed((uid, bloodstream));
             }
 
             // Shitmed Change Start
@@ -525,6 +523,23 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         }
 
         return true;
+    }
+
+    public void TickBleed(Entity<BloodstreamComponent> entity)
+    {
+        // Removes blood from the bloodstream based on bleed amount (bleed rate)
+        // as well as stop their bleeding to a certain extent.
+        if (entity.Comp.BleedAmount <= 0)
+            return;
+
+        var ev = new BleedModifierEvent(entity.Comp.BleedAmount, entity.Comp.BleedReductionAmount);
+        RaiseLocalEvent(entity, ref ev);
+
+        // Blood is removed from the bloodstream at a 1-1 rate with the bleed amount
+        TryBleedOut(entity.AsNullable(), ev.BleedAmount);
+
+        // Bleed rate is reduced by the bleed reduction amount in the bloodstream component.
+        TryModifyBleedAmount(entity.AsNullable(), -ev.BleedReductionAmount);
     }
 
     /// <summary>
