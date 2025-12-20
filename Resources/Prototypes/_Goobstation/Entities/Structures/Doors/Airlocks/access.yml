@@ -139,3 +139,10 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsJournalism ]
+
+- type: entity
+  parent: AirlockJournalismLocked
+  id: AirlockMaintJournalismLocked
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
