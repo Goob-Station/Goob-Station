@@ -733,7 +733,7 @@ public sealed partial class ChangelingSystem
 
         PlayMeatySound(uid, comp);
 
-        Body.GibBody(uid);
+        _body.GibBody(uid);
     }
 
     #endregion
@@ -841,7 +841,6 @@ public sealed partial class ChangelingSystem
             uid,
             protoId: "MobHeadcrab",
             comp: comp,
-            transferProgress: false,
             dropInventory: true,
             transferDamage: false);
 

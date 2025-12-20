@@ -6,11 +6,10 @@ using Content.Shared.Atmos;
 using Content.Shared.Popups;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
-using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
 
-public sealed partial class SharedChameleonSkinSystem : EntitySystem
+public abstract partial class SharedChameleonSkinSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedChangelingChemicalSystem _lingChem = default!;

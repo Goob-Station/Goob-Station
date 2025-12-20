@@ -94,6 +94,12 @@ public sealed partial class BoostedImmunityComponent : Component
     [DataField, AutoNetworkedField]
     public bool RemoveAlienEmbryo = true;
 
+    /// <summary>
+    /// Should the entity be cured of all diseases?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool RemoveDiseases = true;
+
     [DataField, AutoNetworkedField]
     public float ToxinHeal = -10f;
 

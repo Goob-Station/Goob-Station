@@ -1,17 +1,34 @@
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
 using Content.Server.Chat.Systems;
+using Content.Server.Polymorph.Systems;
+using Content.Shared.Polymorph;
 
 namespace Content.Goobstation.Server.Changeling;
 
 public sealed partial class ChangelingBiomassSystem : SharedChangelingBiomassSystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+
+    private EntityQuery<ChangelingIdentityComponent> _lingQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        _lingQuery = GetEntityQuery<ChangelingIdentityComponent>();
+
+        SubscribeLocalEvent<ChangelingBiomassComponent, PolymorphedEvent>(OnPolymorphed);
+    }
+
+    private void OnPolymorphed(Entity<ChangelingBiomassComponent> ent, ref PolymorphedEvent args)
+    {
+        if (_lingQuery.TryComp(ent, out var ling)
+            && ling.IsInLastResort)
+            return;
+
+        _polymorph.CopyPolymorphComponent<ChangelingBiomassComponent>(ent, args.NewEntity);
     }
 
     protected override void DoCough(Entity<ChangelingBiomassComponent> ent)

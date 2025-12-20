@@ -1,5 +1,4 @@
 using Content.Goobstation.Common.Atmos;
-using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.Temperature;
 using Content.Goobstation.Shared.Atmos.Events;
 using Content.Goobstation.Shared.Body;
@@ -14,7 +13,7 @@ using System.Linq;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
 
-public sealed class SharedVoidAdaptionSystem : EntitySystem
+public abstract partial class SharedVoidAdaptionSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;

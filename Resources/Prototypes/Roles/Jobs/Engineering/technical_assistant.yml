@@ -72,6 +72,10 @@
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
   supervisors: job-supervisors-engineering
+  guides: # goobstation
+  - Construction
+  - Power
+  - Networking
   goobcoins: 20 #Goob content
   access:
   - Maintenance

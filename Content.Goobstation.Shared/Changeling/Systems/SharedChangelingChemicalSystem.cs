@@ -1,12 +1,13 @@
 using Content.Goobstation.Common.Atmos;
-using Content.Goobstation.Shared.Changeling;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Shared.Alert;
 using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Timing;
 
-public sealed class SharedChangelingChemicalSystem : EntitySystem
+namespace Content.Goobstation.Shared.Changeling.Systems;
+
+public abstract partial class SharedChangelingChemicalSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;

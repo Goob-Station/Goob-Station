@@ -44,9 +44,7 @@ using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
 using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.MartialArts.Components;
-using Content.Goobstation.Shared.Traits.Components;
 using Content.Server.Actions;
-using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
@@ -61,11 +59,11 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
-using Content.Server.Traits.Assorted;
 using Content.Server.Zombies;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
+using Content.Shared.Body.Systems;
 using Content.Shared.Camera;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
@@ -80,29 +78,21 @@ using Content.Shared.Flash.Components;
 using Content.Shared.Fluids;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Medical;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
-using Content.Shared.Overlays;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
-using Content.Shared.Revolutionary.Components;
-using Content.Shared.Speech.Muting;
-using Content.Shared.Store.Components;
-using Content.Shared.Tag;
-using Content.Shared.Traits.Assorted;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -143,6 +133,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly PoweredLightSystem _light = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
@@ -154,9 +145,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuv = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
     [Dependency] private readonly SharedChangelingBiomassSystem _biomass = default!;
     [Dependency] private readonly SharedChangelingChemicalSystem _chems = default!;
@@ -184,6 +173,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, ComponentRemove>(OnComponentRemove);
         SubscribeLocalEvent<ChangelingIdentityComponent, TargetBeforeDefibrillatorZapsEvent>(OnDefibZap);
         SubscribeLocalEvent<ChangelingIdentityComponent, RejuvenateEvent>(OnRejuvenate);
+        SubscribeLocalEvent<ChangelingIdentityComponent, PolymorphedEvent>(OnPolymorphed);
+        SubscribeLocalEvent<ChangelingComponent, PolymorphedEvent>(OnPolymorphedTakeTwo);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
 
@@ -197,6 +188,13 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         SubscribeAbilities();
     }
+
+    private void OnPolymorphed(Entity<ChangelingIdentityComponent> ent, ref PolymorphedEvent args)
+        => _polymorph.CopyPolymorphComponent<ChangelingIdentityComponent>(ent, args.NewEntity);
+
+    // we really should get rid of it.
+    private void OnPolymorphedTakeTwo(Entity<ChangelingComponent> ent, ref PolymorphedEvent args)
+        => _polymorph.CopyPolymorphComponent<ChangelingComponent>(ent, args.NewEntity);
 
     private void OnDartHit(Entity<ChangelingDartComponent> ent, ref ProjectileHitEvent args)
     {
@@ -602,61 +600,19 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         return true;
     }
 
-    private static readonly List<Type> TypeCopies = new()
+    private static readonly List<Type> Types = new()
     {
-        typeof(HeadRevolutionaryComponent),
-        typeof(RevolutionaryComponent),
-        typeof(GhoulComponent),
-        typeof(HereticComponent),
-        typeof(StoreComponent),
         typeof(FlashImmunityComponent),
         typeof(EyeProtectionComponent),
         typeof(Shared.Overlays.NightVisionComponent),
         typeof(Shared.Overlays.ThermalVisionComponent),
-        // ADD MORE TYPES HERE
     };
-    private static readonly List<Type> LingTypeCopies = new()
-    {
-        typeof(AugmentedEyesightComponent),
-        typeof(ChangelingBiomassComponent),
-        typeof(ChangelingChemicalComponent),
-        typeof(ChameleonSkinComponent),
-        typeof(DarknessAdaptionComponent),
-        typeof(VoidAdaptionComponent),
-    };
-
-    private ChangelingIdentityComponent? CopyChangelingComponent(EntityUid target, ChangelingIdentityComponent comp)
-    {
-        EnsureComp<ChangelingComponent>(target);
-
-        var newComp = EnsureComp<ChangelingIdentityComponent>(target);
-        newComp.AbsorbedHistory = comp.AbsorbedHistory;
-        newComp.AbsorbedDNA = comp.AbsorbedDNA;
-        newComp.AbsorbedDNAIndex = comp.AbsorbedDNAIndex;
-
-        newComp.IsInLesserForm = comp.IsInLesserForm;
-        newComp.IsInLastResort = comp.IsInLastResort;
-        newComp.CurrentForm = comp.CurrentForm;
-
-        newComp.TotalAbsorbedEntities = comp.TotalAbsorbedEntities;
-        newComp.TotalStolenDNA = comp.TotalStolenDNA;
-
-        return comp;
-    }
-
-    private void CopyComponents(EntityUid uid, EntityUid newEnt, List<Type> types)
-    {
-        foreach (var type in types)
-            if (EntityManager.TryGetComponent(uid, type, out var icomp))
-                CopyComp(uid, newEnt, icomp);
-    }
 
     private EntityUid? TransformEntity(
         EntityUid uid,
         TransformData? data = null,
         EntProtoId? protoId = null,
         ChangelingIdentityComponent? comp = null,
-        bool transferProgress = true,
         bool dropInventory = false,
         bool transferDamage = true,
         bool persistentDna = false)
@@ -700,43 +656,15 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             _popup.PopupEntity(message, newEnt, newEnt);
         }
 
+        // otherwise we can only transform once
         RemCompDeferred<PolymorphedEntityComponent>(newEnt);
 
-        if (comp != null)
-        {
-            if (transferProgress)
-            {
-                // copy our stuff
-                var newLingComp = CopyChangelingComponent(newEnt, comp);
-
-                CopyComponents(uid, newEnt, LingTypeCopies);
-
-                if (!persistentDna
-                    && data != null)
-                    newLingComp?.AbsorbedDNA.Remove(data);
-            }
-            else
-            {
-                EnsureComp<ChangelingComponent>(newEnt);
-                EnsureComp<ChangelingIdentityComponent>(newEnt);
-            }
-
-            RemCompDeferred<ChangelingIdentityComponent>(uid);
-        }
-
-        //    if (TryComp<StoreComponent>(uid, out var storeComp))
-        //    {
-        //        var storeCompCopy = _serialization.CreateCopy(storeComp, notNullableOverride: true);
-        //        RemComp<StoreComponent>(newUid.Value);
-        //        EntityManager.AddComponent(newUid.Value, storeCompCopy);
-        //    }
-        //}
-
-        CopyComponents(uid, newEnt, TypeCopies);
+        // exceptional comps check
+        // TODO make PolymorphedEvent handlers for all
+        foreach (var type in Types)
+            _polymorph.CopyPolymorphComponent(uid, newEnt, nameof(type));
 
         RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(uid)), newEnt);
-
-        Timer.Spawn(300, () => { QueueDel(uid); });
 
         return newUid;
     }
@@ -764,12 +692,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         var locName = Identity.Entity(target, EntityManager);
         EntityUid? newUid = null;
-        if (sting)
-            newUid = TransformEntity(target, data: data, persistentDna: persistentDna);
+        if (sting) newUid = TransformEntity(target, data: data, persistentDna: persistentDna);
         else
         {
             comp.IsInLesserForm = false;
             newUid = TransformEntity(target, data: data, comp: comp, persistentDna: persistentDna);
+            RemoveAllChangelingEquipment(target, comp);
         }
 
         if (newUid != null)

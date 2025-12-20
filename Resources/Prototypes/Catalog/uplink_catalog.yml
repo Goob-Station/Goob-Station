@@ -844,7 +844,7 @@
   description: uplink-combat-medipen-desc
   productEntity: CombatMedipen
   cost:
-    Telecrystal: 8 # Goobstation - Combat pen rebalance
+    Telecrystal: 12 # Goobstation - Combat pen rebalance
   categories:
   - UplinkChemicals
 
@@ -1749,7 +1749,7 @@
   description: uplink-clothing-outer-vest-web-desc
   productEntity: ClothingOuterVestWeb
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 15 # goob
   categories:
   - UplinkWearables
 
@@ -1760,7 +1760,7 @@
   description: uplink-clothing-outer-vest-web-elite-desc
   productEntity: ClothingOuterVestWebElite
   cost:
-    Telecrystal: 15 # goob
+    Telecrystal: 25 # goob
   categories:
   - UplinkWearables
 

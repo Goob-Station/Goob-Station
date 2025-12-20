@@ -8,7 +8,7 @@ using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
 
-public sealed partial class SharedAugmentedEyesightSystem : EntitySystem
+public abstract partial class SharedAugmentedEyesightSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
