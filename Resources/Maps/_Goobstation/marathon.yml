@@ -12364,7 +12364,6 @@ entities:
       pos: 50.5,7.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
       deviceLists:
       - 22922
 - proto: AltarConvertRed
@@ -90429,7 +90428,6 @@ entities:
       pos: 49.5,7.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
       deviceLists:
       - 22922
     - type: AtmosPipeColor
@@ -91841,7 +91839,6 @@ entities:
       pos: 49.5,8.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
       deviceLists:
       - 22922
     - type: AtmosPipeColor
