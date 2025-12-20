@@ -16,12 +16,6 @@ public sealed class WeldingSparksSystem : EntitySystem
 {
     [Dependency] private readonly ToolSystem _toolSystem = default!;
 
-    /// <summary>
-    /// Dictionary of currently active welding spark effects, indexed by the <see cref="DoAfterId"/> of the DoAfter that triggered them.
-    /// </summary>
-    /// <remarks>(This still really seems like a bad way of tracking these but I mean it works.)</remarks>
-    private Dictionary<DoAfterId, EntityUid> _spawnedEffects = [];
-
     public override void Initialize()
     {
         base.Initialize();
@@ -48,7 +42,7 @@ public sealed class WeldingSparksSystem : EntitySystem
     private void SpawnEffect(Entity<WeldingSparksComponent> ent, ref UseToolEvent args, DoAfterId id, EntityCoordinates spawnLoc)
     {
         var effect = Spawn(ent.Comp.EffectProto, spawnLoc);
-        _spawnedEffects.Add(id, effect);
+        ent.Comp.SpawnedEffects.Add(id, effect);
 
         // Doors get an animation.
         if (args.Target is { } target && TryComp<DoorComponent>(target, out var door))
@@ -76,9 +70,14 @@ public sealed class WeldingSparksSystem : EntitySystem
         throw new Exception("Attempted to spawn welding sparks with no valid spawn location!");
     }
 
+    // After the tool's DoAfter finishes or is cancelled, remove the effect associated with it.
     private void OnAfterUseTool(Entity<WeldingSparksComponent> ent, ref SharedToolSystem.ToolDoAfterEvent args)
     {
-        RemoveEffect(args.DoAfter.Id);
+        if (!ent.Comp.SpawnedEffects.TryGetValue(args.DoAfter.Id, out var effect))
+            return;
+
+        QueueDel(effect);
+        ent.Comp.SpawnedEffects.Remove(args.DoAfter.Id);
     }
 
     // This is a pretty hacky way of putting the spark effect in the right spot when welding a floor tile, since that doesn't pass a `target` arg.
@@ -86,14 +85,5 @@ public sealed class WeldingSparksSystem : EntitySystem
     {
         if (args.CanReach) // `clickLoc.IsValid()` is checked later in `GetSpawnLoc()`.
             ent.Comp.LastClickLocation = args.ClickLocation;
-    }
-
-    private void RemoveEffect(DoAfterId key)
-    {
-        if (!_spawnedEffects.TryGetValue(key, out var effect))
-            return;
-
-        QueueDel(effect);
-        _spawnedEffects.Remove(key);
     }
 }
