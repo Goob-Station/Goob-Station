@@ -179,6 +179,7 @@
     - id: MalignRiftSpawn # DeltaV
     - id: FloorGoblinMidRound # Goobstation
     - id: ClownGoblinMigration # Goobstation - New Midrounds
+    - id: SantaClausSpawn # Goobstation, remove after new year
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -723,9 +724,7 @@
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
-      - id: MobAdultSlimesBlueAngry
-      - id: MobAdultSlimesGreenAngry
-      - id: MobAdultSlimesYellowAngry
+      - id: XenobioSlimeBabySpawner # goob edit - nuke wizden slimes in favor of xenobio
 
 - type: entity
   id: SnakeSpawn

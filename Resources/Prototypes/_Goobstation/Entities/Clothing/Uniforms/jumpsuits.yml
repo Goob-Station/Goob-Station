@@ -379,6 +379,17 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_ce.rsi
 
 - type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPassengerQuarterzip
+  name: grey quarterzip
+  description: A quarterzip for the sophisticated assistant.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/passenger_quarterzip.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/passenger_quarterzip.rsi
+
+- type: entity
   parent: ClothingUniformJumpsuitAncient
   id: ClothingUniformJumpsuitAncientUnremoveable
   suffix: Unremoveable

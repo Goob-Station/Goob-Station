@@ -2044,6 +2044,7 @@
   description: Squeak!
   components:
   - type: VentCrawler # goobstation - Ventcrawl
+    enterDelay: 0.5
   - type: Body
     prototype: Mouse
   - type: GhostRole
