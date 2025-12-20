@@ -19610,3 +19610,11 @@ Entries:
       message: Added Moth sax!
   id: 2219
   time: '2025-12-20T08:42:59.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Tweak
+      message: >-
+        Increases changeling armblade damage from 15 to 20 slashl. as it was
+        before.
+  id: 2220
+  time: '2025-12-20T08:43:22.0000000+00:00'
