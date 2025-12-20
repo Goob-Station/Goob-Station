@@ -12,7 +12,6 @@
     diseaseType: Bacterial # TODO: make it roll the disease type
     effects:
       DiseaseBehaviorCough: 1 # guaranteed cough
-      DiseaseBehaviorFeelUnwell: 1 # gotta mutate to be stealthy
 
 - type: entity
   id: DiseaseFlu
@@ -46,3 +45,27 @@
     effects:
       DiseaseBehaviorCancer: 0.5
       DiseaseBehaviorFightImmunity: 1 # won't let you cure it
+
+- type: entity
+  id: DiseaseGravitosisA
+  parent: DiseaseBase
+  name: gravitosis A
+  description: A strange disease.
+  components:
+  - type: Disease
+    diseaseType: Bacterial
+    genotype: 56441
+    effects:
+      DiseaseBehaviorGravitosisA: 1
+
+- type: entity
+  id: DiseaseGunemia
+  parent: DiseaseBase
+  name: gunemia
+  description: A strange disease.
+  components:
+  - type: Disease
+    diseaseType: Bacterial
+    genotype: 666323
+    effects:
+      DiseaseBehaviorGunemia: 1

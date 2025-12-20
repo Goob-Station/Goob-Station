@@ -23,6 +23,12 @@ public sealed partial class VirologyMachineComponent : Component
     [DataField]
     public SoundSpecifier AnalyzedSound = new SoundPathSpecifier("/Audio/Machines/diagnoser_printing.ogg");
 
+    [DataField]
+    public SoundSpecifier AnalysisSound = new SoundPathSpecifier("/Audio/Machines/buzz_loop.ogg");
+
+    [ViewVariables]
+    public EntityUid? SoundEntity;
+
     [DataField, ViewVariables]
     public TimeSpan AnalysisDuration = TimeSpan.FromSeconds(5);
 
