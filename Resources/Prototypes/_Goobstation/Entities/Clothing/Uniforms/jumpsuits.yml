@@ -388,3 +388,10 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/passenger_quarterzip.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/passenger_quarterzip.rsi
+
+- type: entity
+  parent: ClothingUniformJumpsuitAncient
+  id: ClothingUniformJumpsuitAncientUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
