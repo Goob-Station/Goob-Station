@@ -19618,3 +19618,11 @@ Entries:
         before.
   id: 2220
   time: '2025-12-20T08:43:22.0000000+00:00'
+- author: Alvixeon
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the Noir glasses to reflect the Detective's role in security,
+        adding SecHud to them. Giving the glasses more utility.
+  id: 2221
+  time: '2025-12-20T08:43:43.0000000+00:00'
