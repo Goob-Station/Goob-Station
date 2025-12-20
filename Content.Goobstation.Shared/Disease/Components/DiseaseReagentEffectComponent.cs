@@ -17,23 +17,4 @@ public sealed partial class DiseaseReagentEffectComponent : ScalingDiseaseEffect
     /// </summary>
     [DataField(required: true, serverOnly: true)]
     public List<EntityEffect> Effects = [];
-
-    /// <summary>
-    /// Base quantity to pass to reagent effects (gets multiplied by Severity from DiseaseEffectComponent)
-    /// </summary>
-    [DataField]
-    public float BaseQuantity = 1.0f;
-
-    /// <summary>
-    /// Additional multiplier on top of severity scaling
-    /// Use this to tune how strongly severity affects this particular effect
-    /// </summary>
-    [DataField]
-    public float SeverityMultiplier = 1.0f;
-
-    /// <summary>
-    /// Whether to use the effect scale or not, some reagent effects do not scale.
-    /// </summary>
-    [DataField]
-    public bool Scale = true;
 }

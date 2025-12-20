@@ -1,0 +1,4 @@
+- files: ["commander_announcement.ogg", "commander_figurines.ogg", "commander_resignation.ogg", "commander_support.ogg", "trial_of_heisenbee.ogg", "xg_onboarding1.ogg", "xg_onboarding2.ogg", "xg_onboarding3.ogg", "xg_onboarding4.ogg"]
+  license: "CC-BY-SA-4.0"
+  copyright: "taken from goonstation"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound/radio_station"

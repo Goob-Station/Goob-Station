@@ -24,4 +24,10 @@ public sealed partial class GrantDiseaseComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId BaseDisease = "DiseaseBase";
+
+    /// <summary>
+    /// If not null, will set the disease to one of those types.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<DiseaseTypePrototype>>? PossibleTypes = null;
 }
