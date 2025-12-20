@@ -322,6 +322,8 @@
       - SecurityAmmoStatic
       - SecurityAmmoStaticGoob
       - ERTAmmoStaticGoob
+      - SecurityHypoStatic
+      - SecurityEquipmentStaticGoob
     - type: MaterialStorage
       whitelist:
         tags:
