@@ -19722,3 +19722,15 @@ Entries:
       message: Devil has been removed
   id: 2229
   time: '2025-12-20T17:55:54.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Fix
+      message: >-
+        Changelings will now properly have their progress carried over after
+        transformations.
+    - type: Fix
+      message: >-
+        Headslugs will no longer be able to use abilities they shouldn't be able
+        to.
+  id: 2230
+  time: '2025-12-20T19:52:02.0000000+00:00'
