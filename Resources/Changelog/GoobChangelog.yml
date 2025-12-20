@@ -19716,3 +19716,9 @@ Entries:
       message: upped the min pop of Leonid from 35 to 50
   id: 2228
   time: '2025-12-20T17:31:41.0000000+00:00'
+- author: Moony33
+  changes:
+    - type: Remove
+      message: Devil has been removed
+  id: 2229
+  time: '2025-12-20T17:55:54.0000000+00:00'
