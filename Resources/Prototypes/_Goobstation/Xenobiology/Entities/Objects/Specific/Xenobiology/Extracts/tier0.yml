@@ -9,6 +9,7 @@
       state: core
       color: "#828282"
   - type: Reactive
+    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
