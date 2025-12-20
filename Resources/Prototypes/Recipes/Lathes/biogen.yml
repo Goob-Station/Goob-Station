@@ -256,4 +256,16 @@
   materials:
     Biomass: 18
 
+- type: latheRecipe #Goobstation Change
+  id: BioGenDylo
+  resultReagents:
+    Dylovene: 10
+  categories:
+  - Chemicals
+  icon:
+    sprite: Objects/Specific/Chemistry/bottle.rsi
+    state: bottle-1
+  completetime: 1
+  materials:
+    Biomass: 15
 
