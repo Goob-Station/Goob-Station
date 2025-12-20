@@ -19626,3 +19626,12 @@ Entries:
         adding SecHud to them. Giving the glasses more utility.
   id: 2221
   time: '2025-12-20T08:43:43.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: >-
+        Added a line to RD SOP to clarify that, while the RD is allowed
+        (legally) to change the AI's lawset, the AI's programming still requires
+        them to resist it. Try being sneaky if you need to change laws!
+  id: 2222
+  time: '2025-12-20T08:46:01.0000000+00:00'
