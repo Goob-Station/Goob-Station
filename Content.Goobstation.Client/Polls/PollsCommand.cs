@@ -3,6 +3,7 @@ using Robust.Shared.Console;
 
 namespace Content.Goobstation.Client.Polls;
 
+[AnyCommand]
 public sealed class PollsCommand : LocalizedCommands
 {
     [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
