@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/12/2025 18:58:10
-  entityCount: 25007
+  time: 11/23/2025 08:37:00
+  entityCount: 25026
 maps:
 - 1
 grids:
@@ -62711,6 +62711,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -109.5,11.5
       parent: 2
+- proto: ComputerScienceXenobiologyBounty
+  entities:
+  - uid: 25025
+    components:
+    - type: Transform
+      pos: -67.5,0.5
+      parent: 2
 - proto: ComputerShuttleCargo
   entities:
   - uid: 9521
@@ -71091,6 +71098,36 @@ entities:
     components:
     - type: Transform
       pos: -40.5,22.5
+      parent: 2
+  - uid: 25009
+    components:
+    - type: Transform
+      pos: -71.5,1.5
+      parent: 2
+  - uid: 25010
+    components:
+    - type: Transform
+      pos: -71.5,-2.5
+      parent: 2
+  - uid: 25011
+    components:
+    - type: Transform
+      pos: -75.5,-2.5
+      parent: 2
+  - uid: 25012
+    components:
+    - type: Transform
+      pos: -75.5,1.5
+      parent: 2
+  - uid: 25013
+    components:
+    - type: Transform
+      pos: -67.5,1.5
+      parent: 2
+  - uid: 25014
+    components:
+    - type: Transform
+      pos: -67.5,-2.5
       parent: 2
 - proto: FancyTableSpawner
   entities:
@@ -110544,6 +110581,8 @@ entities:
     - type: Transform
       pos: -43.5,-10.5
       parent: 2
+- proto: LockerScienceFilledXenobiology
+  entities:
   - uid: 16591
     components:
     - type: Transform
@@ -110555,6 +110594,11 @@ entities:
       pos: -65.5,0.5
       parent: 2
   - uid: 16593
+    components:
+    - type: Transform
+      pos: -63.5,0.5
+      parent: 2
+  - uid: 25026
     components:
     - type: Transform
       pos: -64.5,0.5
@@ -128552,6 +128596,13 @@ entities:
     components:
     - type: Transform
       pos: 60.464996,-29.58106
+      parent: 2
+- proto: SlimeGrinder
+  entities:
+  - uid: 25008
+    components:
+    - type: Transform
+      pos: -71.5,0.5
       parent: 2
 - proto: SMESAdvancedEmpty
   entities:
@@ -157983,6 +158034,58 @@ entities:
     - type: Transform
       pos: -16.536282,-2.5396385
       parent: 24675
+- proto: XenobioSlimeBabySpawner
+  entities:
+  - uid: 25015
+    components:
+    - type: Transform
+      pos: -74.5,3.5
+      parent: 2
+  - uid: 25016
+    components:
+    - type: Transform
+      pos: -73.5,3.5
+      parent: 2
+  - uid: 25017
+    components:
+    - type: Transform
+      pos: -73.5,2.5
+      parent: 2
+  - uid: 25018
+    components:
+    - type: Transform
+      pos: -72.5,2.5
+      parent: 2
+  - uid: 25019
+    components:
+    - type: Transform
+      pos: -73.5,-3.5
+      parent: 2
+  - uid: 25020
+    components:
+    - type: Transform
+      pos: -74.5,-4.5
+      parent: 2
+  - uid: 25021
+    components:
+    - type: Transform
+      pos: -72.5,-4.5
+      parent: 2
+  - uid: 25022
+    components:
+    - type: Transform
+      pos: -68.5,-3.5
+      parent: 2
+  - uid: 25023
+    components:
+    - type: Transform
+      pos: -69.5,-4.5
+      parent: 2
+  - uid: 25024
+    components:
+    - type: Transform
+      pos: -69.5,-2.5
+      parent: 2
 - proto: XylophoneInstrument
   entities:
   - uid: 24634
