@@ -19578,3 +19578,11 @@ Entries:
       message: Barks can no longer be heard cross-map/in lobby
   id: 2214
   time: '2025-12-20T08:38:21.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: >-
+        Fixed ion breaking bones and organs. (This fixes wonderprod breaking
+        your ribcage too)
+  id: 2215
+  time: '2025-12-20T08:40:11.0000000+00:00'
