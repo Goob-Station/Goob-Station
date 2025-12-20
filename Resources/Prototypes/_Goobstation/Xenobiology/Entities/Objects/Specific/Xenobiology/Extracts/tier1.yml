@@ -9,6 +9,7 @@
       state: core
       color: "#ff9f1a"
   - type: Reactive
+    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -70,6 +71,7 @@
       state: core
       color: "#BF77F6"
   - type: Reactive
+    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -122,6 +124,7 @@
       state: core
       color: "#79F6FC"
   - type: Reactive
+    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -177,6 +180,7 @@
       color: "#595959"
       shader: XenoMetallic
   - type: Reactive
+    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
