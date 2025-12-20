@@ -93,7 +93,7 @@ using Content.Shared.SprayPainter;
 using Content.Shared.SprayPainter.Components;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
-using System.Linq;
+using System.Linq; // Goob
 
 namespace Content.Server.SprayPainter;
 
@@ -126,6 +126,7 @@ public sealed class SprayPainterSystem : SharedSprayPainterSystem
     /// </summary>
     private void OnFloorAfterInteract(Entity<SprayPainterComponent> ent, ref AfterInteractEvent args)
     {
+        // Goob START - Moved `CanReach` check, added Colour picker
         if (args.Handled || args.Target != null)
             return;
 
@@ -137,6 +138,7 @@ public sealed class SprayPainterSystem : SharedSprayPainterSystem
 
         if (!args.CanReach)
             return;
+        // Goob END
 
         // Includes both off and all other don't cares
         if (ent.Comp.DecalMode != DecalPaintMode.Add && ent.Comp.DecalMode != DecalPaintMode.Remove)
@@ -277,7 +279,7 @@ public sealed class SprayPainterSystem : SharedSprayPainterSystem
         args.Handled = DoAfter.TryStartDoAfter(doAfterEventArgs);
     }
 
-    private void PickColor(Entity<SprayPainterComponent> ent, ref AfterInteractEvent args)
+    private void PickColor(Entity<SprayPainterComponent> ent, ref AfterInteractEvent args) // Goob
     {
         if (!args.ClickLocation.IsValid(EntityManager) || _transform.GetGrid(args.ClickLocation) is not { } grid)
             return;

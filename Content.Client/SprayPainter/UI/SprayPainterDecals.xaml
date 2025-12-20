@@ -9,8 +9,9 @@
             </GridContainer>
         </ScrollContainer>
 
-        <PanelContainer StyleClasses="LowDivider" />
+        <PanelContainer StyleClasses="LowDivider" /> <!--Goob-->
         <BoxContainer Orientation="Vertical">
+            <!--Goob START-->
             <ColorSelectorSliders Name="ColorSelector" IsAlphaVisible="True">
                 <BoxContainer HorizontalAlignment="Right" VerticalAlignment="Top" SetHeight="29">
                     <Button Name="ColorPalette" Text="Palette" />
@@ -19,6 +20,7 @@
                     </Button>
                 </BoxContainer>
             </ColorSelectorSliders>
+            <!--Goob END-->
             <CheckBox Name="UseCustomColorCheckBox" Text="{Loc 'spray-painter-use-custom-color'}" />
             <CheckBox Name="SnapToTileCheckBox" Text="{Loc 'spray-painter-use-snap-to-tile'}" />
         </BoxContainer>
@@ -26,6 +28,7 @@
         <BoxContainer Orientation="Horizontal">
             <Label Text="{Loc 'spray-painter-angle-rotation'}" />
             <SpinBox Name="AngleSpinBox" HorizontalExpand="True" />
+            <!--Goob START-->
             <Button Name="SubAngleButton" ToolTip="{Loc 'spray-painter-angle-rotation-90-sub'}" SetSize="48 32">
                 <TextureRect TexturePath="/Textures/Interface/VerbIcons/rotate_cw.svg.192dpi.png" Stretch="KeepAspectCentered" SetSize="32 32" />
             </Button>
@@ -33,6 +36,7 @@
             <Button Name="AddAngleButton" ToolTip="{Loc 'spray-painter-angle-rotation-90-add'}" SetSize="48 32">
                 <TextureRect TexturePath="/Textures/Interface/VerbIcons/rotate_ccw.svg.192dpi.png" Stretch="KeepAspectCentered" SetSize="32 32" />
             </Button>
+            <!--Goob END-->
         </BoxContainer>
     </BoxContainer>
 </controls:SprayPainterDecals>

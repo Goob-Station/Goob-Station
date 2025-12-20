@@ -75,7 +75,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.SprayPainter;
+using Content.Goobstation.Common.SprayPainter; // Goob (obviously)
 using Content.Shared.Administration.Logs;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
@@ -131,7 +131,7 @@ public abstract class SharedSprayPainterSystem : EntitySystem
                 subs.Event<SprayPainterSetDecalColorMessage>(OnSetDecalColor);
                 subs.Event<SprayPainterSetDecalAngleMessage>(OnSetDecalAngle);
                 subs.Event<SprayPainterSetDecalSnapMessage>(OnSetDecalSnap);
-                subs.Event<SprayPainterSetDecalColorPickerMessage>(OnSetDecalColorPicker);
+                subs.Event<SprayPainterSetDecalColorPickerMessage>(OnSetDecalColorPicker); // Goob
             });
     }
 
@@ -382,7 +382,7 @@ public abstract class SharedSprayPainterSystem : EntitySystem
     /// <summary>
     /// Enables or disables the decal colour picker.
     /// </summary>
-    private void OnSetDecalColorPicker(Entity<SprayPainterComponent> ent, ref SprayPainterSetDecalColorPickerMessage args)
+    private void OnSetDecalColorPicker(Entity<SprayPainterComponent> ent, ref SprayPainterSetDecalColorPickerMessage args) // Goob
     {
         ent.Comp.ColorPickerEnabled = args.Toggle;
         Dirty(ent);

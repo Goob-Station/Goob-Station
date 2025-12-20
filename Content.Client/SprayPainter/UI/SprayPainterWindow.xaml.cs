@@ -35,7 +35,7 @@ public sealed partial class SprayPainterWindow : DefaultWindow
     public event Action<Color?>? OnDecalColorChanged;
     public event Action<int>? OnDecalAngleChanged;
     public event Action<bool>? OnDecalSnapChanged;
-    public event Action<bool>? OnDecalColorPickerToggled;
+    public event Action<bool>? OnDecalColorPickerToggled; // Goob
 
     // Pipe color data
     private ItemList _colorList = default!;
@@ -201,7 +201,7 @@ public sealed partial class SprayPainterWindow : DefaultWindow
                 _sprayPainterDecals.OnColorChanged += color => OnDecalColorChanged?.Invoke(color);
                 _sprayPainterDecals.OnAngleChanged += angle => OnDecalAngleChanged?.Invoke(angle);
                 _sprayPainterDecals.OnSnapChanged += snap => OnDecalSnapChanged?.Invoke(snap);
-                _sprayPainterDecals.OnColorPickerToggled += toggle => OnDecalColorPickerToggled?.Invoke(toggle);
+                _sprayPainterDecals.OnColorPickerToggled += toggle => OnDecalColorPickerToggled?.Invoke(toggle); // Goob
 
                 Tabs.AddChild(_sprayPainterDecals);
                 TabContainer.SetTabTitle(_sprayPainterDecals, Loc.GetString("spray-painter-tab-category-decals"));
@@ -306,7 +306,7 @@ public sealed partial class SprayPainterWindow : DefaultWindow
             _sprayPainterDecals.SetSnap(snap);
     }
 
-    internal void SetDecalColorPicker(bool colorPickerEnabled)
+    public void SetDecalColorPicker(bool colorPickerEnabled) // Goob
     {
         _sprayPainterDecals?.SetColorPicker(colorPickerEnabled);
     }

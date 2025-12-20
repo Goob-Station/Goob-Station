@@ -122,7 +122,7 @@ public sealed partial class SprayPainterComponent : Component
     /// Whether the decal color picker is currently active.
     /// </summary>
     [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public bool ColorPickerEnabled = false;
+    public bool ColorPickerEnabled = false; // Goob
 }
 
 /// <summary>
