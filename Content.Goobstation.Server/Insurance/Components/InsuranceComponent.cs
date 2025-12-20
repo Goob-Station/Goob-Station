@@ -1,6 +1,4 @@
-using Robust.Shared.Prototypes;
-
-namespace Content.Goobstation.Server.Insurance;
+namespace Content.Goobstation.Server.Insurance.Components;
 
 [RegisterComponent]
 public sealed partial class InsuranceComponent : Component
@@ -9,5 +7,5 @@ public sealed partial class InsuranceComponent : Component
     public EntityUid PolicyOwner;
 
     [DataField]
-    public List<EntProtoId> CompensationItems;
+    public InsurancePolicy Policy;
 }

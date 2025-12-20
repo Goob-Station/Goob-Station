@@ -8,9 +8,11 @@
     sprite: _Goobstation/Objects/Misc/bureaucracy.rsi
     state: paper_green_words
   - type: InsurancePolicy
-    validEntities:
-      components: [ Clowncar ]
-    extraCompensationItems: [ ClownCarInsuranceLetter, BikeHorn ]
+    policy:
+      validEntities:
+        components: [ Clowncar ]
+      extraCompensationItems: [ ClownCarInsuranceLetter, BikeHorn ]
+      dropDelay: 20
 
 - type: entity
   id: ClownCarInsuranceLetter

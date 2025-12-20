@@ -9,8 +9,10 @@ using Robust.Shared.Random;
 using Content.Shared.Physics;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Physics.Components;
+using Content.Goobstation.Server.Insurance.Components;
+using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Insurance;
+namespace Content.Goobstation.Server.Insurance.Systems;
 
 public sealed partial class InsuranceSystem : EntitySystem
 {
@@ -25,6 +27,11 @@ public sealed partial class InsuranceSystem : EntitySystem
         SubscribeLocalEvent<InsuranceComponent, DestructionEventArgs>(OnDestruct);
     }
 
+    public override void Update(float frameTime)
+    {
+        UpdateScheduledDrops(frameTime);
+    }
+
     private void OnDestruct(Entity<InsuranceComponent> ent, ref DestructionEventArgs args)
     {
         if (!Exists(ent.Comp.PolicyOwner))
@@ -33,10 +40,84 @@ public sealed partial class InsuranceSystem : EntitySystem
         if (!TryComp(ent.Comp.PolicyOwner, out TransformComponent? xform))
             return;
 
-        var dropPod = Spawn("SpawnSupplyEmpty", SelectDropPos(xform, 2));
-        var spawnOnDespawn = AddComp<SpawnOnDespawnComponent>(dropPod);
-        _spawnOnDespawn.SetPrototypes(new Entity<SpawnOnDespawnComponent>(dropPod, spawnOnDespawn),
-                ent.Comp.CompensationItems);
+        ScheduleDrop(ent);
+    }
+
+    #region Drop scheduling
+
+    private LinkedList<ScheduledDrop> _scheduledDrops = [];
+
+    private void ScheduleDrop(Entity<InsuranceComponent> ent)
+    {
+        var drop = new ScheduledDrop()
+        {
+            Target = ent.Comp.PolicyOwner,
+            Policy = ent.Comp.Policy,
+            TimeLeft = ent.Comp.Policy.DropDelay,
+        };
+
+        if (Prototype(ent) is EntityPrototype proto)
+            drop.Proto = proto;
+
+        if (ent.Comp.Policy.DropDelay == null)
+            Drop(drop);
+        else
+            _scheduledDrops.AddFirst(drop);
+    }
+
+    private void UpdateScheduledDrops(float frameTime)
+    {
+        var node = _scheduledDrops.First;
+        while (node != null)
+        {
+            var next = node.Next;
+            if (node.Value.TimeLeft != null)
+            {
+                node.Value.TimeLeft -= frameTime;
+                if (node.Value.TimeLeft < 0)
+                {
+                    Drop(node.Value);
+                    _scheduledDrops.Remove(node);
+                }
+            }
+            node = next;
+        }
+    }
+
+    private sealed class ScheduledDrop
+    {
+        public required EntityUid Target;
+
+        public required InsurancePolicy Policy;
+
+        public EntProtoId? Proto;
+
+        public float? TimeLeft;
+    }
+
+    #endregion
+
+    #region Dropping
+
+    private void Drop(ScheduledDrop drop)
+    {
+        if (!Exists(drop.Target))
+            return;
+
+        if (!TryComp(drop.Target, out TransformComponent? xform))
+            return;
+
+        List<EntProtoId> protos = [];
+
+        if (drop.Policy.IncludeTarget && drop.Proto != null)
+            protos.Add(drop.Proto.Value);
+
+        if (drop.Policy.ExtraCompensationItems != null)
+            protos.AddRange(drop.Policy.ExtraCompensationItems);
+
+        var dropPod = Spawn("SpawnSupplyEmpty", SelectDropPos(xform, drop.Policy.DropRadius));
+        var spawnOnDespawn = EnsureComp<SpawnOnDespawnComponent>(dropPod);
+        _spawnOnDespawn.SetPrototypes(new(dropPod, spawnOnDespawn), protos);
     }
 
     private MapCoordinates SelectDropPos(TransformComponent xform, int searchRadius)
@@ -84,4 +165,6 @@ public sealed partial class InsuranceSystem : EntitySystem
         else
             return _xform.ToMapCoordinates(xform.Coordinates);
     }
+
+    #endregion
 }
