@@ -109,5 +109,5 @@ public sealed partial class BoostedImmunityComponent : Component
     [DataField, AutoNetworkedField]
     public int EyeDamageHeal = 1;
 
-    // add bools later for curing diseases and mutations (when they exist)
+    // add bool later for curing mutations (when they exist)
 }
