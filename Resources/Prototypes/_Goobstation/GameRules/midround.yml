@@ -247,11 +247,323 @@
     chaosScore: 0
   - type: VentCrittersRule
     max: 1
-    table:
-      id: MobFloorGoblin
+    table: !type:GroupSelector
+      children:
+      - id: MobFloorGoblin
   - type: Tag
     tags:
     - MidroundAntag
+
+- type: entity
+  parent: BaseGameRule
+  id: GreyTideAntagMidround
+  components:
+  - type: StationEvent
+    weight: 3
+    duration: null
+    earliestStart: 20
+    minimumPlayers: 40
+    chaos:
+      Hostile: 50
+      Combat: 20
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 220
+  - type: AntagSpawner
+    prototype: MobHumanGreyTide
+  - type: AntagSelection
+    agentName: ghost-role-information-grey-tide-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostGreyTide
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
+      briefing:
+        text: grey-tide-role-greeting
+        color: Red
+        sound: /Audio/_Goobstation/Music/the_gray_tide_song.ogg
+  - type: AntagRandomSpawn # TODO replace with MaintsSpawnRuleComponent once mapped
+  - type: AntagObjectives
+    objectives:
+    - GrayTideKillEveryoneObjective
+
+- type: entity
+  parent: BaseGameRule
+  id: TunnelClownMidround
+  components:
+  - type: StationEvent
+    weight: 4
+    duration: null
+    earliestStart: 15
+    minimumPlayers: 20
+    chaos:
+      Hostile: 15
+      Combat: 20
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 200
+  - type: AntagSpawner
+    prototype: MobHumanTunnelClown
+  - type: AntagSelection
+    agentName: ghost-role-information-tunnel-clown-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostTunnelClown
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
+      briefing:
+        text: tunnel-clown-role-greeting
+        color: Pink
+        sound: /Audio/_Goobstation/Misc/clownalwayswinsshort.ogg
+  - type: AntagRandomSpawn # TODO replace with MaintsSpawnRuleComponent once mapped
+  - type: AntagObjectives
+    objectives:
+    - TunnelClownProtectMaintenanceObjective
+
+- type: entity
+  parent: BaseGameRule
+  id: SingulothKnightsMidround
+  components:
+  - type: StationEvent
+    weight: 2.5
+    duration: null
+    earliestStart: 45
+    minimumPlayers: 50
+    chaos:
+      Hostile: 75
+      Combat: 40
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 350
+  - type: AntagSpawner
+    prototype: MobHumanSingulothKnight
+  - type: AntagSelection
+    agentName: ghost-role-information-Singuloth-Knight-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSingulothKnight
+      min: 3
+      max: 3
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleFreeAgent
+      briefing:
+        text: Singuloth-Knight-role-greeting
+        color: Red
+        sound: /Audio/_Goobstation/Misc/singulothknight_greeting.ogg
+  - type: AntagRandomSpawn
+  - type: AntagObjectives
+    objectives:
+    - SingulothKnightPreachObjective
+    - SingulothKnightSingularityObjective
+    - SingulothKnightTeslaObjective
+
+- type: entity
+  parent: BaseGameRule
+  id: DarkLordMidround
+  components:
+  - type: StationEvent
+    weight: 2
+    duration: null
+    earliestStart: 30
+    minimumPlayers: 30
+    chaos:
+      Death: 100
+      Combat: 85
+      Hostile: 40
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 400
+  - type: AntagSpawner
+    prototype: MobHumanDarkLord
+  - type: AntagSelection
+    agentName: ghost-role-information-dark-lord-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDarkLord
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
+      briefing:
+        text: dark-lord-role-greeting
+        color: Red
+        sound: /Audio/_Goobstation/Misc/darklord_greeting.ogg
+  - type: AntagRandomSpawn
+  - type: AntagObjectives
+    objectives:
+    - HijackShuttleObjective
+    - KillRandomHeadObjective
+    - DarkLordDuelObjective
+
+- type: entity # Only has a chance to spawn whenever dark lord spawns
+  parent: BaseGameRule
+  id: ChosenOneMidround
+  components:
+  - type: GameRule
+    chaosScore: 50
+  - type: AntagSpawner
+    prototype: MobHumanChosenOne
+  - type: AntagSelection
+    agentName: ghost-role-information-chosen-one-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostChosenOne
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleNeutral
+      briefing:
+        text: chosen-one-role-greeting
+        color: Green
+        sound: /Audio/_Goobstation/Misc/darklord_greeting.ogg
+  - type: AntagRandomSpawn
+  - type: AntagObjectives
+    objectives:
+    - ChosenOneKillDarkLordObjective
+
+- type: entity
+  parent: BaseGameRule
+  id: MimeAssassinMidround
+  components:
+  - type: StationEvent
+    weight: 4
+    duration: null
+    earliestStart: 30
+    minimumPlayers: 30
+    chaos:
+      Hostile: 40
+      Combat: 50
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 200
+  - type: AntagSpawner
+    prototype: MobHumanMimeAssassin
+  - type: AntagSelection
+    agentName: ghost-role-information-mime-Assassin-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostMimeAssassin
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
+      briefing:
+        text: mime-Assassin-role-greeting
+        color: Red
+        sound: /Audio/Misc/thief_greeting.ogg
+  - type: AntagRandomSpawn
+  - type: AntagObjectives
+    objectives:
+    - KillRandomHeadObjective
+    - KillRandomHeadObjective
+    - KillRandomHeadObjective
+    - EscapeShuttleObjective
+
+- type: entity
+  parent: BaseGameRule
+  id: DarkPriestMidround
+  components:
+  - type: StationEvent
+    weight: 3
+    duration: null
+    earliestStart: 30
+    minimumPlayers: 30
+    chaos:
+      Death: 60
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 250
+  - type: AntagSpawner
+    prototype: MobHumanDarkPriest
+  - type: AntagSelection
+    agentName: ghost-role-information-dark-priest-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDarkPriest
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleFreeAgent
+      briefing:
+        text: dark-priest-role-greeting
+        color: Purple
+        sound: /Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg
+  - type: AntagRandomSpawn
+  - type: AntagObjectives
+    objectives:
+    - DarkPriestProtectObjective
+    - DarkPriestHireApprentice
+    - KillRandomPersonObjective
+    - EscapeShuttleObjective
+
+- type: entity
+  parent: BaseGameRule
+  id: VoxRaidersMidround
+  components:
+  - type: AntagObjectives
+    objectives:
+    - EscapeThiefShuttleObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: ThiefBigObjectiveGroups
+      prob: 0.7
+      maxPicks: 2
+    - groups: ThiefObjectiveGroups
+      maxPicks: 15
+    maxDifficulty: 2
+  - type: StationEvent
+    earliestStart: 35
+    weight: 2.5
+    minimumPlayers: 50
+    duration: 1
+    chaos:
+      Hostile: 300
+      Medical: 200
+      Death: 300
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 800
+  - type: AntagSpawner
+    prototype: MobVoxRaider
+  - type: RuleGrids
+  - type: LoadMapRule
+    gridPath: /Maps/_Goobstation/Shuttles/VoxRaiderShuttle.yml
+  - type: AntagSelection
+    agentName: ghost-role-information-vox-raider-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostVoxRaider
+      min: 3
+      max: 4
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+      briefing:
+        text: vox-raider-role-greeting
+        color: Purple
+        sound: /Audio/Misc/thief_greeting.ogg
+
+
+- type: entity
+  id: ClownGoblinMigration
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 15
+    earliestStart: 15
+    minimumPlayers: 15
+    maxOccurrences: 2
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: 0
+  - type: VentCrittersRule
+    max: 1
+    table:
+      id: MobClownGoblin
+  - type: Tag
 
 # Slasher
 - type: entity
@@ -331,3 +643,22 @@
   - type: Tag
     tags:
     - MidroundAntag
+
+# Santa
+
+- type: entity
+  id: SantaClausSpawn
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 25 # Tune down after Christmas
+    earliestStart: 3
+    minimumPlayers: 10
+    maxOccurrences: 1
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: 100
+  - type: VentCrittersRule # like a chimney
+    max: 1
+    table:
+      id: SantaClaus
