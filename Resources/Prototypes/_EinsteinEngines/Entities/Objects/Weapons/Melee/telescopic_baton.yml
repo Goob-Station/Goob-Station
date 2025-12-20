@@ -18,6 +18,9 @@
     layers:
     - state: icon-off
       map: [ "enum.ItemToggleVisuals.Layer" ]
+  - type: Tag # CorvaxGoob
+    tags:
+    - SecBeltEquip
   - type: Item
     sprite: _Goobstation/Objects/Weapons/Melee/telebaton.rsi # Goob edit
     size: Small

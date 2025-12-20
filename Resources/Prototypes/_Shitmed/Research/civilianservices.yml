@@ -33,7 +33,6 @@
   cost: 10000
   recipeUnlocks:
   - DefibrillatorCompact # Goob
-  - OmnimedTool # Shitmed
   - EnergyScalpel # Shitmed
   - AdvancedRetractor # Shitmed
   - EnergyCautery # Shitmed
@@ -176,6 +175,7 @@
   recipeUnlocks:
   - ClothingHandsGlovesSurgical
   - AutodocUpgradeKitBluespace # Goobstation
+  - OmnimedTool # Shitmed # CorvaxGoobChanges: AdvancedTreatment > HighEndSurgery
   technologyPrerequisites:
   - AdvancedCybernetics
   position: -2,9

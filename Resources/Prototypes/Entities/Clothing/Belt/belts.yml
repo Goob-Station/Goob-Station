@@ -669,6 +669,8 @@
         - EnergySpeedloader # Goobstation
         - MilitaryPowerCell # Goobstation
         - HandGrenade
+        - TelescopicBaton # CorvaxGoob
+        - TelescopicShield # CorvaxGoob
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -886,6 +888,11 @@
         - Hammer # Goobstation
         - Nailgun # Goobstation
         - MagazineNailgun # Goobstation
+        - SeismicCharge # CorvaxGoob
+        - MiningDrill # CorvaxGoob
+        - LavalandJaunter # CorvaxGoob
+        - FlashlightSeclite # CorvaxGoob
+        - MineralScanner # CorvaxGoob
       components:
         - StationMap
         - SprayPainter
@@ -899,6 +906,8 @@
         - TrayScanner
         - GasAnalyzer
         - HandLabeler
+        - ShelterCapsule # CorvaxGoob
+        - Fulton # CorvaxGoob
     # CorvaxGoob-WorkBelts-Techfab-end
 
 - type: entity

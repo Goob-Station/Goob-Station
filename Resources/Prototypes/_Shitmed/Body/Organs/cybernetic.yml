@@ -162,6 +162,7 @@
     onAdd:
     - type: StaminaModifier
       modifier: 1.7
+    - type: PressureImmunity # CorvaxGoob
   - type: Metabolizer
     maxPoisonsProcessable: 2
     metabolizerTypes: [ Cybernetic ]
@@ -269,3 +270,4 @@
     onAdd:
     - type: StaminaRegeneration
       regenerationRate: -3.0
+    - type: BreathingImmunity # CorvaxGoob

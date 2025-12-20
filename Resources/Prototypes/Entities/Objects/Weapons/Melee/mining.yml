@@ -134,6 +134,7 @@
   - type: Tag
     tags:
     - Pickaxe
+    - MiningDrill # CorvaxGoob
   - type: Sprite
     sprite: Objects/Tools/handdrill.rsi
     state: handdrill

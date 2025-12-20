@@ -157,6 +157,7 @@
   - type: Tag
     tags:
       - SecBeltEquip
+      - FlashlightSeclite # CorvaxGoob
   - type: ItemSlots
     slots:
       cell_slot:

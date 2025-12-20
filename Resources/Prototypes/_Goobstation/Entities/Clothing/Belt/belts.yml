@@ -121,6 +121,8 @@
       - EnergySpeedloader
       - MilitaryPowerCell
       - HandGrenade
+      - TelescopicBaton # CorvaxGoob
+      - TelescopicShield # CorvaxGoob
       components:
       - FlashOnTrigger
       - SmokeOnTrigger
@@ -169,7 +171,6 @@
         - Defibrillator
         - SolutionTransfer
         - GunApplySolution # Dart gun
-
 
 - type: entity
   parent: ClothingBeltSheath
