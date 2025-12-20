@@ -1,0 +1,120 @@
+- type: breed
+  breedName: yellow slime
+  id: YellowMutation
+  producedExtract: YellowSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#ffff1a"
+    breed: YellowMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - OrangeMutation
+    - MetalMutation
+    - BluespaceMutation
+
+- type: breed
+  breedName: dark purple slime
+  id: DarkPurpleMutation
+  producedExtract: DarkPurpleSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#8e0ff0"
+    breed: DarkPurpleMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - PurpleMutation
+    - OrangeMutation
+    - SepiaMutation
+
+- type: breed
+  breedName: dark blue slime
+  id: DarkBlueMutation
+  producedExtract: DarkBlueSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#1e8cfa"
+    breed: DarkBlueMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - BlueMutation
+    - PurpleMutation
+    - CeruleanMutation
+
+- type: breed
+  breedName: silver slime
+  id: SilverMutation
+  producedExtract: SilverSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#c4c4c4"
+    shouldHaveShader: true
+    shader: XenoMetallic
+    breed: SilverMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - BlueMutation
+    - MetalMutation
+    - PyriteMutation
+
+# These don't upgrade anymore so might consider it tier 2.5
+- type: breed
+  breedName: bluespace slime
+  id: BluespaceMutation
+  producedExtract: BluespaceSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#f0f8ff"
+    shouldHaveShader: true
+    shader: XenoBluespace
+    breed: BluespaceMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - BluespaceMutation
+
+- type: breed
+  breedName: sepia slime
+  id: SepiaMutation
+  producedExtract: SepiaSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#704214"
+    shouldHaveShader: true
+    shader: XenoSepia
+    breed: SepiaMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - SepiaMutation
+
+- type: breed
+  breedName: cerulean slime
+  id: CeruleanMutation
+  producedExtract: CeruleanSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#2A52BE"
+    breed: CeruleanMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - CeruleanMutation
+
+- type: breed
+  breedName: pyrite slime
+  id: PyriteMutation
+  producedExtract: PyriteSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#dcaa4f"
+    shouldHaveShader: true
+    shader: XenoMetallic
+    breed: PyriteMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - PyriteMutation
