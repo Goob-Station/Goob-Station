@@ -19560,3 +19560,9 @@ Entries:
       message: Added "vinyl player" it plays vinyls!
   id: 2211
   time: '2025-12-19T19:37:06.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Tweak
+      message: Makes the gravity well viro effect rarer
+  id: 2212
+  time: '2025-12-20T08:28:55.0000000+00:00'
