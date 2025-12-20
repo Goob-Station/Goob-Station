@@ -132,7 +132,7 @@ evolutionmenu-utility-panacea-desc =
 
 evolutionmenu-utility-eyesight-name = Augmented Eyesight
 evolutionmenu-utility-eyesight-desc =
-    Evolve additional features in your eyes, such as toggleable a polarized flash-immune vision and x-ray vision. Being flashed cannot be protected against while using x-ray vision.
+    Evolve additional features in your eyes, such as toggleable polarized flash-immune vision and x-ray vision. Being flashed cannot be protected against while using x-ray vision.
     Cost-free.
 
 evolutionmenu-utility-biodegrade-name = Biodegrade

@@ -90,9 +90,15 @@
   - Revolutionary
   - NukeOperative
   # goobstation start
+  # Changelings
   - Changeling
   - ChangelingIdentity
   - ChangelingChemical
+  - ChangelingBiomass
+  - AugmentedEyesight
+  - ChameleonSkin
+  - DarknessAdaption
+  - VoidAdaption
   # goobstation end
   forceCloning: true # Goob - IPC/Vox cloning for paradox ghostrole
 
