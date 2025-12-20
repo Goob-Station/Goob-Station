@@ -1,0 +1,18 @@
+﻿- type: loadoutEffectGroup
+  id: MasterRaider
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobPassenger
+      time: 360000 #100 hrs
+
+- type: loadout
+  id: ClothingNeckRaiderPin
+  storage:
+    back:
+    - ClothingNeckGoldRaiderPin
+  groupBy: "pin"
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterRaider

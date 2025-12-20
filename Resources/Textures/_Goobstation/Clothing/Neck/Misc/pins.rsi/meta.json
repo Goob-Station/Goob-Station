@@ -1,0 +1,19 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Raider pin by DeusMaldPr for Goobstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "raider"
+        },
+        {
+            "name": "raider-equipped-NECK",
+            "directions": 4
+        }
+    ]
+}
+

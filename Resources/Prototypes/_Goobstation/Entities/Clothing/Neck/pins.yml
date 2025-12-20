@@ -1,0 +1,17 @@
+﻿- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckGoldRaiderPin
+  name: raider pin
+  description: Товарищи набегаторы! Сокрушим преграды застоя! Пусть наша стремительная тесла станет грозой для врагов и зарей для угнетенных. Набегаторы всех серверов, объединяйтесь! Нам нечего терять, кроме наших оков и сменных аккаунтов! Гойда!
+  # TRANSLATION: Comrade raiders! Let's break down the barriers of stagnation! Let our tesla become a thunderstorm for enemies and a dawn for the oppressed. Raiders of all servers, unite! We have nothing to lose except our shackles and disposal accounts! Goida!
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Misc/pins.rsi
+    state: raider
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Misc/pins.rsi
+    equippedPrefix: raider
+
+#If you make more pins add a ClothingNeckPinBaseGoob to parent off of to make the yaml more readable
