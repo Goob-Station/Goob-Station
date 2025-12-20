@@ -19688,3 +19688,15 @@ Entries:
         reactions.
   id: 2226
   time: '2025-12-20T12:35:28.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added radio host to Amber, Bagel, Box, Chloris, Cog, Delta, Loop and
+        Origin.
+    - type: Tweak
+      message: >-
+        Station radios are now also craftable on circut roundstart, and now you
+        can hear them from 8 meters away instead of 3.
+  id: 2227
+  time: '2025-12-20T17:14:02.0000000+00:00'
