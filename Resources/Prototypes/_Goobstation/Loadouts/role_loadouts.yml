@@ -199,6 +199,18 @@
   - BrigmedicEnvirosuit
   - BrigmedicEnvirogloves
 
+- type: roleLoadout
+  id: JobRadioHost
+  groups:
+  - CommonBackpack
+  - Survival
+  - Trinkets
+  - Animals
+  - GroupSpeciesBreathTool
+  - Glasses
+  - ServiceWorkerEnvirohelm
+  - ServiceWorkerEnvirosuit
+  - ServiceWorkerEnvirogloves
 
 # gives plasmaman a plasma breathing tank
 # other species get nothing
@@ -230,3 +242,19 @@
   - CommonBackpack
   - Survival
   - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobVirologist
+  groups:
+   - GroupTankHarness
+   - MedicalDoctorHead
+   - MedicalMask
+   - VirologistJumpsuit
+   - MedicalGloves
+   - VirologistBackpack
+   - VirologistOuterClothing
+   - MedicalShoes
+   - VirologistPDA
+   - SurvivalMedical
+   - Trinkets
+   - GroupSpeciesBreathToolMedical
