@@ -3,9 +3,11 @@ using Content.Shared._White.Xenomorphs.Larva;
 using Content.Shared.Body.Events;
 using Content.Shared.EntityEffects;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Mind;  // Goobstation
 using Robust.Server.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Server.Mind; // Goobstation
 
 namespace Content.Server._White.Xenomorphs.Infection;
 
@@ -16,6 +18,7 @@ public sealed class XenomorphInfectionSystem : EntitySystem
 
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly MindSystem _mind = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -101,8 +104,23 @@ public sealed class XenomorphInfectionSystem : EntitySystem
                 Dirty(infection.Infected.Value, larvaVictim);
             }
 
+            // Goobstation - Transfer mind from embryo to larva
+            EntityUid? mindIdToTransfer = null;
+            if (TryComp<SentientInfectionComponent>(uid, out var sentientInfection) &&
+                sentientInfection.SourceMindId != null &&
+                TryComp<MindComponent>(sentientInfection.SourceMindId.Value, out _))
+            {
+                mindIdToTransfer = sentientInfection.SourceMindId.Value;
+            }
+            // Goobstation end
+
             _container.Remove(uid, container);
             _container.Insert(larva, container);
+
+            // Goobstation - Transfer mind from embryo to larva and prevent ghosting
+            if (mindIdToTransfer.HasValue)
+                _mind.TransferTo(mindIdToTransfer.Value, larva);
+            // Goobstation end
 
             QueueDel(uid);
         }

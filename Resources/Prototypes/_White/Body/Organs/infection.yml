@@ -13,7 +13,7 @@
     price: 2000
   - type: XenomorphInfection
     maxGrowthStage: 6
-    growProb: 0.5
+    growProb: 0.75
     infectedIcons:
       0: XenomorphInfectionIconStageZero
       1: XenomorphInfectionIconStageOne
@@ -107,3 +107,14 @@
             Blunt: 40
       - !type:Jitter
         time: 16
+
+# Goobstation - Sentient facehugger embryo
+- type: entity
+  parent: XenomorphInfection
+  id: XenomorphInfectionSentient
+  name: sentient xenomorph larva embryo
+  description: A parasitic life form in its early stages of development, carrying the consciousness of its progenitor. It's lighter than a typical embryo, and worth more due to its rarity.
+  components:
+  - type: SentientInfection
+  - type: StaticPrice
+    price: 5000

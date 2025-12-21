@@ -25,3 +25,11 @@ xenomorphs-cond-xenotakeoverstation = The xenomorphs managed to take over the st
 xenomorphs-cond-xenoinfiltratedoncentcom = Xenomorphs infiltrated the Central Command station.
 xenomorphs-cond-allreproducexenodead = The crew eliminated all Xenomorphs capable of reproduction.
 xenomorphs-cond-allcrewdead = All crew members have died.
+
+queen-roar-start = You begin to prepare a mighty roar!
+queen-roar-start-others = The queen begins to prepare a mighty roar!
+queen-roar-complete = You unleash a terrifying roar!
+queen-roar-victim = A deafening roar fills your ears, stunning you in place!
+
+neurotoxin-gland-activated = You strain your gland.
+neurotoxin-gland-deactivated = You relax your gland.
