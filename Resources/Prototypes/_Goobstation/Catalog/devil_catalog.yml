@@ -1,0 +1,25 @@
+- type: listing
+  id: DevilPitchfork
+  name: Summon pitchfork
+  description:  devil-pitchfork-desc
+  productAction: ActionSummonPitchfork
+  cost:
+    SoulsStored: 1
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: DevilGrip
+  name: Devil grip
+  description: devil-grip-desc
+  productAction: ActionDevilGrip
+  cost:
+    SoulsStored: 1
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

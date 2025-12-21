@@ -1,0 +1,43 @@
+- type: entity
+  id: ProjectileHellfire
+  name: Hellfire
+  description: And you thought fire was already bad enough.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    color: "#E25822"
+    radius: 2.0
+    energy: 5.0
+  - type: Projectile
+    damage:
+      types:
+        Heat: 10
+  - type: Sprite
+    sprite: _Goobstation/Devil/projectiles.rsi
+    layers:
+    - state: hellfire
+      shader: unshaded
+  - type: TriggerOnProjectileHit
+    explosiveProjectile: true
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 1 # Goob edit
+    intensitySlope: 2 # Goob edit
+    totalIntensity: 5 # Gobo edit
+    maxTileBreak: 0
+  - type: IgnitionSource
+    temperature: 800
+    ignited: true
+  - type: IgniteOnCollide
+    fireStacks: 0.6
+  - type: Ammo # Goobstation
+    muzzleFlash: null
+  - type: FlashOnTrigger # Goobstation
+    duration: 4
+    range: 1.8
+  - type: Reflective
+    reflective: Magic
+  - type: Tag # Goobstation
+    tags:
+      - FlashIgnoreResistances

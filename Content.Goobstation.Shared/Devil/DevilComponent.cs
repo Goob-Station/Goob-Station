@@ -23,7 +23,7 @@ public sealed partial class DevilComponent : Component
     {
         "ActionCreateContract",
         "ActionShadowJaunt",
-        "ActionDevilGrip",
+        "ActionDevilOpenShop"
     };
 
     [DataField]

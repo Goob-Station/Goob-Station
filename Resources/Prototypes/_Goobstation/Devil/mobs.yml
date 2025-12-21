@@ -1,4 +1,97 @@
 - type: entity
+  name: lesser devil
+  id: MobLesserDevil
+  parent: [ SimpleSpaceMobBase, MobCombat ]
+  description: A pile of infernal energy, taking a vaguely humanoid form.
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Devil/32x64.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: true_devil
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: true_devil
+      Dead:
+        Base: true_devil
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      350: Dead
+  - type: Hands
+  - type: ComplexInteraction
+  - type: ReplacementAccent
+    accent: genericAggressive
+  - type: ActionGrant
+    actions:
+    - ActionSummonPitchfork
+    - ActionCreateContract
+    - ActionShadowJaunt
+    - ActionDevilGrip
+
+- type: entity
+  name: archdevil
+  id: MobArchDevil
+  parent: MobLesserDevil
+  description: Daemon qui formam ultimam attigit.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Devil/32x64.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: arch_devil
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: arch_devil
+      Dead:
+        Base: arch_devil
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      5000: Dead
+  - type: SpamEmitSound
+    minInterval: 15
+    maxInterval: 45
+    sound:
+      collection: ArchLaugh
+      params:
+        volume: 6
+        maxDistance: 12
+        variation: 0.1
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: XenoFootstepLarge
+      params:
+        volume: -1
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: ArchScream
+      params:
+        volume: 8
+        maxDistance: 60
+        pitch: 0.2
+  - type: ActionGrant
+    actions:
+    - ActionSummonPitchfork
+    - ActionHellFire
+    - ActionCreateContract
+    - ActionShadowJaunt
+    - ActionDevilGrip
+
+- type: entity
   name: frog
   parent: MobFrog
   id: MobFrogPathetic
