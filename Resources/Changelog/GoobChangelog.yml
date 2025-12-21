@@ -19734,3 +19734,19 @@ Entries:
         to.
   id: 2230
   time: '2025-12-20T19:52:02.0000000+00:00'
+- author: John Shitcode
+  changes:
+    - type: Fix
+      message: Slimes now properly unlatch on being pulled or bashed in the head.
+    - type: Tweak
+      message: Updated xenobio guidebook.
+    - type: Tweak
+      message: Slimes now require less food to grow up and split.
+    - type: Tweak
+      message: Roundstart slimes now spawn with pseudo randomized stats.
+    - type: Tweak
+      message: >-
+        Latched slimes now deal caustic instead of brute. No more bloodbaths in
+        xenobio, but the damage is nasty.
+  id: 2231
+  time: '2025-12-21T05:18:54.0000000+00:00'
