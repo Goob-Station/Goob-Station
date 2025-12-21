@@ -86,7 +86,7 @@
   name: Bojevic
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunCombat
-  description: For when you need to repel targets that are behind two plasteel walls, a fridge, and a car door. Pump action and fun as hell to shoot, though not as much for your shoulder. Takes 8 Gauge shells.
+  description: For when you need to repel targets that are behind two plasteel walls, a fridge, and a car door. Pump action and fun as hell to shoot, though not as much for your shoulder. Loads 5 rounds of 8 Gauge.
   components:
   - type: Item
     size: Large
