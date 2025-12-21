@@ -68,6 +68,7 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 2 ]
             Reporter: [ 1, 2 ]
+            RadioHost: [ 1, 1 ]
             ServiceWorker: [ 3, 4 ]
             Zookeeper: [ 1, 1 ]
             Passenger: [ -1, -1 ]

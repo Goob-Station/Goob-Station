@@ -7,10 +7,10 @@
   components:
   - type: Appearance
   - type: Hunger
-    startingHunger: 50
+    startingHunger: 40
     thresholds:
-      Overfed: 250
-      Okay: 100
+      Overfed: 150
+      Okay: 75
       Peckish: 25 #Baby Slimes will begin hunting here, Adult Slimes will target their tamers here.
       Starving: 10
       Dead: 0
@@ -159,7 +159,7 @@
       state: base
       color: "#FFFFFF"
   - type: MobGrowth
-    hungerRequired: 100
+    hungerRequired: 75
     currentStage: baby
     stages:
       baby:
@@ -179,7 +179,7 @@
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: MobGrowth
-    hungerRequired: 100
+    hungerRequired: 75
     currentStage: adult
     stages:
       baby:
