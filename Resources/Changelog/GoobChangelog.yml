@@ -19773,3 +19773,9 @@ Entries:
       message: Slime scanner now displays properly when is on tables.
   id: 2234
   time: '2025-12-21T09:36:24.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Remove
+      message: Removed viro gravity well effect
+  id: 2235
+  time: '2025-12-21T16:37:51.0000000+00:00'
