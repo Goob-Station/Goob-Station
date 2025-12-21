@@ -297,6 +297,17 @@
       path: /Audio/_Goobstation/RadioStation/music/goonstation/floaty.ogg
 
 - type: entity
+  name: "vinyl disk: key lime"
+  id: VinylDiskLime
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: lime-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/key_lime.ogg
+
+- type: entity
   name: "vinyl disk: christmassong"
   id: VinylDiskPink
   parent: BaseVinylDisk
