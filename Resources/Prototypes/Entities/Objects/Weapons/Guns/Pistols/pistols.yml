@@ -324,7 +324,7 @@
     price: 1500
 
 - type: entity
-  name: mk 58
+  name: MK58
   parent: [BaseWeaponPistol, BaseSecurityContraband]
   id: WeaponPistolMk58
   description: A bog standard semi-automatic pistol chambered in thity-five. Slim, simple, and accurate in the right hands, it's one of NanoTrasen Small Arms' crown jewels and the most common sidearm in the free world. Feeds from .35 Auto pistol magazines. # Goobstation
