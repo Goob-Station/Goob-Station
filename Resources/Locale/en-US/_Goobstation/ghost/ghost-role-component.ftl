@@ -189,4 +189,7 @@ vox-raider-role-greeting = You are a [color=#7851A9]Vox Raider[/color], a Vox th
 ghost-role-information-clown-goblin-name = Clown goblin
 ghost-role-information-clown-goblin-description = A terrible creature, born out of hell.
 
+ghost-role-information-santa-name = Santa Claus
+ghost-role-information-santa-description = Spread christmas cheer around the station!
+
 ghost-role-information-slasher-token = The Slasher (Token)
