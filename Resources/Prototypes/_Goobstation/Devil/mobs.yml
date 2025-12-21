@@ -1,0 +1,20 @@
+- type: entity
+  name: frog
+  parent: MobFrog
+  id: MobFrogPathetic
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Body
+    prototype: Animal
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:GibBehavior
+        recursive: true

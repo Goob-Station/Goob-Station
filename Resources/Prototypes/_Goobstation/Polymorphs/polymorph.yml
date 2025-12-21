@@ -79,6 +79,14 @@
     transferName: true
 
 - type: polymorph
+  id: MobFrogPolymorphPathetic
+  configuration:
+    entity: MobFrogPathetic
+    forced: true
+    inventory: Transfer
+    transferName: true
+
+- type: polymorph
   id: BinglePolymorph
   configuration:
     entity: MobBingleUpgraded

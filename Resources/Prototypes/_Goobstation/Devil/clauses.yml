@@ -138,7 +138,7 @@
 - type: clause
   id: humanity
   clauseWeight: 80
-  polymorph: MobFrogPolymorph
+  polymorph: MobFrogPolymorphPathetic # Gibs before death. No free revert.
 
 - type: clause
   id: strength
@@ -150,6 +150,12 @@
   clauseWeight: 60
   addedComponents:
   - type: Pacified
+
+- type: clause
+  id: buckling
+  clauseWeight: 5
+  addedComponents:
+  - type: PreventBuckling
 
 - type: clause
   id: sight

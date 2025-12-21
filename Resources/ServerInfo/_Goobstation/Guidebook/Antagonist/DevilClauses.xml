@@ -115,6 +115,20 @@
 
   - Makes the contractee immune to low temperatures.
 
+  ## Buckling
+  <Box>
+    [color=#999999][italic]-5 Weight[/italic][/color]
+  </Box>
+
+  - Makes the contractee incapable of being buckled to a chair or bed.
+
+  ## Water
+  <Box>
+    [color=#999999][italic]20 Weight[/italic][/color]
+  </Box>
+
+  - Makes the contractee take considerable damage from water, through both touch and ingestion.
+
   ## Greed
   <Box>
     [color=#999999][italic]-10 Weight[/italic][/color]
@@ -148,14 +162,14 @@
     [color=#999999][italic]20 Weight[/italic][/color]
   </Box>
 
-  - Immediately severs one of the contractees hands.
+  - Immediately severs one of the contractees hands. Prevents reattachment.
 
   ## A leg
   <Box>
     [color=#999999][italic]20 Weight[/italic][/color]
   </Box>
 
-  - Immediately severs one of the contractees legs.
+  - Immediately severs one of the contractees legs. Prevents reattachment.
 
   ## Soul Ownership
   <Box>
