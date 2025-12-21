@@ -159,7 +159,7 @@
   name: Atreides
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunAtreides
-  description: A rare, compact machine pistol not often found in the Spinward sector. Being produced during the Corporate Wars and the design specs being long since lost to time, the Atredies excels at CQB due to its overwhelming firerate. Feeds from .35 Auto SMG magazines. # Goobstation
+  description: A rare, compact machine pistol not often found in the Spinward sector. Being produced during the Corporate Wars and the design specs being long since lost to time, the Atreides excels at CQB due to its overwhelming firerate. Feeds from .35 Auto SMG magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
