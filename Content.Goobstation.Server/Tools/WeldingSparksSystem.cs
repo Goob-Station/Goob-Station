@@ -3,12 +3,13 @@ using Content.Goobstation.Shared.Tools;
 using Content.Server.Tools;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.DoAfter;
-using Content.Shared.Doors.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes; // temporary debugging thing
+using System.Linq; // temporary debugging thing
 
 namespace Content.Goobstation.Server.Tools;
 
@@ -44,15 +45,18 @@ public sealed class WeldingSparksSystem : EntitySystem
         var effect = Spawn(ent.Comp.EffectProto, spawnLoc);
         ent.Comp.SpawnedEffects.Add(id, effect);
 
-        // Doors get an animation.
-        if (args.Target is { } target && TryComp<DoorComponent>(target, out var door))
+        // temporary debugging thing
+        var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
+        var remaining = prototypeManager.EnumeratePrototypes<EntityPrototype>()
+            .Where(p => p.Components.TryGetComponent("Door", out _))
+            .Where(p => p.Components.TryGetComponent("Weldable", out _))
+            .Where(p => !p.Components.TryGetComponent("WeldingSparksAnimation", out _))
+            .Select(p => p.ID)
+            .ToList();
+
+        if (args.Target is { } target)
         {
-            RaiseNetworkEvent(new PlayWeldAnimationEvent(GetNetEntity(effect),
-                new WeldAnimationData(
-                    HasComp<FirelockComponent>(target) ? AnimationDir.Horizontal : AnimationDir.Vertical,
-                    door.State == DoorState.Welded,
-                    args.DoAfterLength)
-            ));
+            RaiseNetworkEvent(new SpawnedWeldingSparksEvent(GetNetEntity(target), GetNetEntity(effect), args.DoAfterLength));
         }
     }
 
