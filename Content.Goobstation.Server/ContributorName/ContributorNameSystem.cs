@@ -22,7 +22,7 @@ public sealed class ContributorNameSystem : EntitySystem
     private string[] LoadNames()
     {
         // Hardcoded file path :(
-        var fullText = _resourceManager.ContentFileReadAllText("/Credits/GitHub.txt");
+        var fullText = _resourceManager.ContentFileReadAllText("/Credits/CorvaxGitHub.txt"); // CorvaxGoob-Credits
         return fullText.Trim().Split(", ");
     }
 
