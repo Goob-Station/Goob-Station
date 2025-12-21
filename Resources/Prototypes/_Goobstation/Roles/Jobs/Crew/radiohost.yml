@@ -9,6 +9,7 @@
   access:
   - Maintenance
   - Journalism
+  - Service
 
 - type: startingGear
   id: RadioHostGear

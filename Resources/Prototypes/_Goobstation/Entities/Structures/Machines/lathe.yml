@@ -262,6 +262,7 @@
     runningState: icon
     staticPacks:
     - ServiceBoardsStatic
+    - ServiceBoardsStaticGoob
     - MaterialsStatic
     - LightsStatic
     - ServiceStatic
