@@ -119,7 +119,7 @@
   name: Miniature Energy Crossbow
   parent: [ BaseWeaponBatterySmall, BaseSyndicateContraband ]
   id: MiniatureEnergyCrossbow
-  description: A signature design from Donk. Co, this crossbow fires a thin dart loaded with sedatives and depressants designed to pierce even the heaviest of armor.
+  description: A signature design from Donk Co., this crossbow fires a thin dart loaded with sedatives and depressants designed to pierce even the heaviest of armor.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi

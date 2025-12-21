@@ -319,7 +319,7 @@
   name: Svalinn # Goobstation
   parent: [BaseWeaponCustomCellSmall, BaseSecurityContraband] # goob edit - svalinn buff fix
   id: WeaponLaserSvalinn
-  description: A cheap and modular laser pistol often carried by civilans. Takes standard power cells, with higher capacity ones amplifying the capacity and power of the resulting beam. # Goobstation
+  description: A cheap and modular laser pistol often carried by civilians. Takes standard power cells, with higher capacity ones amplifying the capacity and power of the resulting beam. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
@@ -528,7 +528,7 @@
   name: Pulse Pistol # Goobstation
   parent: [BaseWeaponBatterySmall, BaseCentcommContraband]
   id: WeaponPulsePistol
-  description: A state-of-the-art laser pistol that fires a rapidly pulsing beam. It's favored as a sidearm for the Emergency Response corps due to it's self-recharging design. # Goobstation
+  description: A state-of-the-art laser pistol that fires a rapidly pulsing beam. It's favored as a sidearm for the Emergency Response corps due to its self-recharging design. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
@@ -795,7 +795,7 @@
   name: Practice Disabler
   parent: BaseWeaponBatterySmall
   id: WeaponDisablerPractice
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one has been undertuned for use in training scenarios or target practice
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one has been undertuned for use in training scenarios or target practice.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/practice_disabler.rsi
@@ -997,7 +997,7 @@
   name: Advanced Laser Pistol # Goobstation
   parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponAdvancedLaser
-  description: An experimental laser pistol fitted a self-charging nuclear battery. # Goobstation
+  description: An experimental laser pistol fitted with a self-charging nuclear battery. # Goobstation
   components:
   - type: Item
     # size: Normal  # Intentionally larger than other pistols # Goobstation - no fuck you
@@ -1207,7 +1207,7 @@
   name: Temperature Gun # Goobstation
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponTemperatureGun
-  description: A versatile energy gun that fires projectiles that modify internal body temperature, originally designed for use against opponents in armoured hardsuits. Probably constitutes as a war crime in corporate space. # Goobstation
+  description: A versatile energy gun that fires projectiles that modify internal body temperature, originally designed for use against opponents in armoured hardsuits. Probably constitutes some kind of war crime in corporate space. # Goobstation
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi # Goobstation
