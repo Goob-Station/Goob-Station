@@ -188,6 +188,10 @@
       weight: 0.6
     - id: VinylDiskBachCello
       weight: 0.6
+    - id: VinylDiskFloaty
+      weight: 0.6
+    - id: VinylDiskLime
+      weight: 0.6
 
 - type: entityTable
   id: RandomVinylSleeve
