@@ -363,7 +363,7 @@
   name: retro laser blaster
   parent: [BaseWeaponBatterySmall, BaseMajorContraband]
   id: WeaponLaserGun
-  description: A laser pistol from another time. It's design is pretty rare in the current era, but it's compatible with modern rechargers. # Goobstation
+  description: A laser pistol from another time. Its design is pretty rare in the current era, but it's compatible with modern rechargers. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
@@ -493,7 +493,7 @@
   name: laser carbine # Goobstation
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCarbine
-  description: An ergonomic and light laser weapon favoured by NanoTrasen security teams because of its low capacity for structural damage. # Goobstation
+  description: An ergonomic and light laser weapon favored by NanoTrasen security teams because of its low capacity for structural damage. # Goobstation
   components:
   - type: StaticPrice
     price: 420
@@ -1207,7 +1207,7 @@
   name: temperature gun # Goobstation
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponTemperatureGun
-  description: A versatile energy gun that fires projectiles that modify internal body temperature, originally designed for use against opponents in armoured hardsuits. Probably constitutes some kind of war crime in corporate space. # Goobstation
+  description: A versatile energy gun that fires projectiles that modify internal body temperature, originally designed for use against opponents in armored hardsuits. Probably constitutes some kind of war crime in corporate space. # Goobstation
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi # Goobstation
