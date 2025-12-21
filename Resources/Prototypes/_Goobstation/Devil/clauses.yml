@@ -212,12 +212,13 @@
   - type: CheatDeath
     reviveAmount: 1
 
-- type: clause
-  id: mortality
-  clauseWeight: -135
-  addedComponents:
-  - type: CheatDeath
-    infiniteRevives: true
+# Removed due to being too obstructive to the round and just not fun to play around.
+#- type: clause
+#  id: mortality
+#  clauseWeight: -135
+#  addedComponents:
+#  - type: CheatDeath
+#    infiniteRevives: true
 
 - type: clause
   id: time

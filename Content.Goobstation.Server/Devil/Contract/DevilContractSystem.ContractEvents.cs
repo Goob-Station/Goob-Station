@@ -6,19 +6,22 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Goobstation.Shared.Devil;
+using Content.Goobstation.Shared.Devil.Components;
 using Content.Server.Body.Components;
 using Content.Shared._Shitmed.Body.Events;
+using Robust.Shared.Containers;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Robust.Shared.Random;
+using System.Linq;
 
 namespace Content.Goobstation.Server.Devil.Contract;
 
 public sealed partial class DevilContractSystem
 {
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     private void InitializeSpecialActions()
     {
         SubscribeLocalEvent<DevilContractSoulOwnershipEvent>(OnSoulOwnership);
@@ -41,22 +44,27 @@ public sealed partial class DevilContractSystem
             return;
 
         var hands = _bodySystem.GetBodyChildrenOfType(args.Target, BodyPartType.Hand, body).ToList();
-
-        if (hands.Count <= 0)
-            return;
+        if (hands.Count == 0) return;
 
         var pick = _random.Pick(hands);
 
-        if (!TryComp<WoundableComponent>(pick.Id, out var woundable)
-            || !woundable.ParentWoundable.HasValue)
+        // FIX: We use the _container system we just added as a dependency
+        if (!_container.TryGetContainingContainer(pick.Id, out var container))
+            return;
+
+        var slotName = container.ID;
+
+        if (!TryComp<WoundableComponent>(pick.Id, out var woundable) || !woundable.ParentWoundable.HasValue)
             return;
 
         _wounds.AmputateWoundableSafely(woundable.ParentWoundable.Value, pick.Id, woundable);
         QueueDel(pick.Id);
 
+        var noLimb = EnsureComp<NoLimbForYouComponent>(args.Target);
+        noLimb.ForbiddenSlots.Add(slotName);
+
         Dirty(args.Target, body);
-        _sawmill.Debug($"Removed part {ToPrettyString(pick.Id)} from {ToPrettyString(args.Target)}");
-        QueueDel(pick.Id);
+        _sawmill.Debug($"Removed hand from slot {slotName} on {ToPrettyString(args.Target)}");
     }
 
     private void OnLoseLeg(DevilContractLoseLegEvent args)
@@ -65,21 +73,27 @@ public sealed partial class DevilContractSystem
             return;
 
         var legs = _bodySystem.GetBodyChildrenOfType(args.Target, BodyPartType.Leg, body).ToList();
-
-        if (legs.Count <= 0)
-            return;
+        if (legs.Count == 0) return;
 
         var pick = _random.Pick(legs);
 
-        if (!TryComp<WoundableComponent>(pick.Id, out var woundable)
-            || !woundable.ParentWoundable.HasValue)
+        // FIX: Using the container system dependency here too
+        if (!_container.TryGetContainingContainer(pick.Id, out var container))
+            return;
+
+        var slotName = container.ID;
+
+        if (!TryComp<WoundableComponent>(pick.Id, out var woundable) || !woundable.ParentWoundable.HasValue)
             return;
 
         _wounds.AmputateWoundableSafely(woundable.ParentWoundable.Value, pick.Id, woundable);
+        QueueDel(pick.Id);
+
+        var noLimb = EnsureComp<NoLimbForYouComponent>(args.Target);
+        noLimb.ForbiddenSlots.Add(slotName);
 
         Dirty(args.Target, body);
-        _sawmill.Debug($"Removed part {ToPrettyString(pick.Id)} from {ToPrettyString(args.Target)}");
-        QueueDel(pick.Id);
+        _sawmill.Debug($"Removed leg from slot {slotName} on {ToPrettyString(args.Target)}");
     }
 
     private void OnLoseOrgan(DevilContractLoseOrganEvent args)
