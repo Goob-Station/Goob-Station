@@ -19750,3 +19750,11 @@ Entries:
         xenobio, but the damage is nasty.
   id: 2231
   time: '2025-12-21T05:18:54.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added radio host to Oasis!
+    - type: Fix
+      message: 'Fixed the """mapping""" """"job"""" of Oasis Xenobiology. '
+  id: 2232
+  time: '2025-12-21T05:19:28.0000000+00:00'
