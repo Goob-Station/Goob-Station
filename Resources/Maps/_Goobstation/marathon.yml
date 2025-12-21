@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/20/2025 16:17:53
-  entityCount: 22962
+  time: 12/21/2025 05:29:09
+  entityCount: 22966
 maps:
 - 1
 grids:
@@ -11002,14 +11002,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 8.5,-17.5
       parent: 2
-- proto: AirlockJournalismLocked
-  entities:
-  - uid: 403
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 6.5,-16.5
-      parent: 2
 - proto: AirlockKitchenGlassLocked
   entities:
   - uid: 373
@@ -11139,7 +11131,7 @@ entities:
       pos: -1.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1776.4127
+      secondsUntilStateChange: -2229.776
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11641,7 +11633,7 @@ entities:
       pos: 40.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5522.2393
+      secondsUntilStateChange: -5975.602
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11678,7 +11670,7 @@ entities:
       pos: 41.5,8.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2370.7788
+      secondsUntilStateChange: -2824.1418
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -55003,6 +54995,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -8.5,45.5
       parent: 2
+- proto: ComputerMassMedia
+  entities:
+  - uid: 22963
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,-16.5
+      parent: 2
 - proto: ComputerMedicalRecords
   entities:
   - uid: 8440
@@ -65373,7 +65373,7 @@ entities:
       pos: 12.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -738.747
+      secondsUntilStateChange: -1192.1101
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 1795.33154
@@ -103321,6 +103321,20 @@ entities:
       rot: 3.141592653589793 rad
       pos: -27.5,40.5
       parent: 2
+- proto: MobSlimeXenobioBabyGrey
+  entities:
+  - uid: 22940
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 46.5,12.5
+      parent: 2
+  - uid: 22941
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 47.5,11.5
+      parent: 2
 - proto: MonkeyCube
   entities:
   - uid: 15438
@@ -104732,14 +104746,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 47.5,10.5
       parent: 2
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
-    - type: Door
-      secondsUntilStateChange: -2012.0125
-      state: Opening
-    - type: Airlock
-      autoClose: False
   - uid: 22859
     components:
     - type: Transform
@@ -117983,6 +117989,13 @@ entities:
     - type: Transform
       pos: -7.5,30.5
       parent: 2
+- proto: SignNews
+  entities:
+  - uid: 22964
+    components:
+    - type: Transform
+      pos: 7.5,-17.5
+      parent: 2
 - proto: SignPlaque
   entities:
   - uid: 17743
@@ -120445,6 +120458,13 @@ entities:
     - type: Transform
       pos: 7.5,-14.5
       parent: 2
+- proto: SpawnPointReporter
+  entities:
+  - uid: 22965
+    components:
+    - type: Transform
+      pos: 8.5,-16.5
+      parent: 2
 - proto: SpawnPointResearchAssistant
   entities:
   - uid: 18187
@@ -120711,6 +120731,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -30.5,48.5
+      parent: 2
+  - uid: 22966
+    components:
+    - type: Transform
+      pos: 8.5,-14.5
       parent: 2
 - proto: SpawnVehicleChairOfficeLight
   entities:
@@ -137326,6 +137351,11 @@ entities:
       parent: 2
 - proto: WallSolid
   entities:
+  - uid: 403
+    components:
+    - type: Transform
+      pos: 6.5,-16.5
+      parent: 2
   - uid: 13878
     components:
     - type: Transform
@@ -145745,18 +145775,6 @@ entities:
       parent: 2
 - proto: XenobioSlimeBabySpawner
   entities:
-  - uid: 22940
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 46.5,12.5
-      parent: 2
-  - uid: 22941
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 47.5,11.5
-      parent: 2
   - uid: 22942
     components:
     - type: Transform
