@@ -19734,3 +19734,42 @@ Entries:
         to.
   id: 2230
   time: '2025-12-20T19:52:02.0000000+00:00'
+- author: John Shitcode
+  changes:
+    - type: Fix
+      message: Slimes now properly unlatch on being pulled or bashed in the head.
+    - type: Tweak
+      message: Updated xenobio guidebook.
+    - type: Tweak
+      message: Slimes now require less food to grow up and split.
+    - type: Tweak
+      message: Roundstart slimes now spawn with pseudo randomized stats.
+    - type: Tweak
+      message: >-
+        Latched slimes now deal caustic instead of brute. No more bloodbaths in
+        xenobio, but the damage is nasty.
+  id: 2231
+  time: '2025-12-21T05:18:54.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added radio host to Oasis!
+    - type: Fix
+      message: 'Fixed the """mapping""" """"job"""" of Oasis Xenobiology. '
+  id: 2232
+  time: '2025-12-21T05:19:28.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Remove
+      message: >-
+        Reach has been removed from the current map rotation, as its comically
+        small size ended up hindering players and prevented adding new content.
+        As a result, Atlas is now the defacto lowest pop station.
+  id: 2233
+  time: '2025-12-21T05:20:34.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Slime scanner now displays properly when is on tables.
+  id: 2234
+  time: '2025-12-21T09:36:24.0000000+00:00'
