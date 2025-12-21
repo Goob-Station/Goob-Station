@@ -147,7 +147,7 @@
   # Don't parent to BaseWeaponShotgun because it differs significantly
   parent: [BaseItem, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunBulldog
-  description: A fully automatic, bullpupped shotgun for when you have three seconds to turn eight people into pasta sauce. Kicks like a mule on steroids. Feeds from 12 Gauge drum magazines. # Goobstation
+  description: A fully automatic, bullpup shotgun for when you have three seconds to turn eight people into pasta sauce. Kicks like a mule on steroids. Feeds from 12 Gauge drum magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
