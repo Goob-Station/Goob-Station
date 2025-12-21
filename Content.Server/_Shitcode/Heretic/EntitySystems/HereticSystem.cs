@@ -95,15 +95,10 @@ public sealed class HereticSystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, EventHereticRerollTargets>(OnRerollTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticAscension>(OnAscension);
 
-        SubscribeLocalEvent<HereticComponent, PolymorphedEvent>(OnPolymorphed);
-
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRestart);
 
         Subs.CVar(_cfg, GoobCVars.AscensionRequiresObjectives, value => _ascensionRequiresObjectives = value, true);
     }
-
-    private void OnPolymorphed(Entity<HereticComponent> ent, ref PolymorphedEvent args)
-        => _polymorph.CopyPolymorphComponent<HereticComponent>(ent, args.NewEntity);
 
     private void OnRestart(RoundRestartCleanupEvent ev)
     {
