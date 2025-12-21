@@ -275,7 +275,7 @@
   name: Cobra
   parent: [ BaseWeaponPistol, BaseSyndicateContraband ]
   id: WeaponPistolCobra
-  description: An integrally suppressed pistol that fires a proprietary, caseless cartridge. Being subsonic, the rounds are near silent at the cost of penetration and velocity. Feeds from 9.5mm pistol magazines. # Goobstation
+  description: An integrally suppressed, semi-automatic pistol that leaves no trace. Being subsonic, the rounds are near silent at the cost of damage. Feeds from 9.5mm pistol magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
