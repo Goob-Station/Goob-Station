@@ -336,10 +336,10 @@
     autoRechargeRate: 80
 
 - type: entity
-  name: CR-2 EAR
+  name: CR-2 Hera
   parent: [ BaseWeaponCustomCell, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponEnergyRifle
-  description: A modular plasma rifle, iterated off of the now defunct energy gun. Loads from energy SMG magazines.
+  description: A versatile plasma assault rifle, iterated off of the now defunct energy gun. Loads from energy rifle magazines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
