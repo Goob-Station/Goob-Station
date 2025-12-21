@@ -19758,3 +19758,12 @@ Entries:
       message: 'Fixed the """mapping""" """"job"""" of Oasis Xenobiology. '
   id: 2232
   time: '2025-12-21T05:19:28.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Remove
+      message: >-
+        Reach has been removed from the current map rotation, as its comically
+        small size ended up hindering players and prevented adding new content.
+        As a result, Atlas is now the defacto lowest pop station.
+  id: 2233
+  time: '2025-12-21T05:20:34.0000000+00:00'
