@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/20/2025 18:27:01
+  time: 12/20/2025 16:17:53
   entityCount: 22962
 maps:
 - 1
@@ -11139,7 +11139,7 @@ entities:
       pos: -1.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1813.9727
+      secondsUntilStateChange: -1776.4127
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11641,7 +11641,7 @@ entities:
       pos: 40.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5559.7993
+      secondsUntilStateChange: -5522.2393
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11678,7 +11678,7 @@ entities:
       pos: 41.5,8.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2408.3389
+      secondsUntilStateChange: -2370.7788
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -65373,7 +65373,7 @@ entities:
       pos: 12.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -776.30695
+      secondsUntilStateChange: -738.747
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 1795.33154
@@ -104732,6 +104732,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: 47.5,10.5
       parent: 2
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: True
+    - type: Door
+      secondsUntilStateChange: -2012.0125
+      state: Opening
+    - type: Airlock
+      autoClose: False
   - uid: 22859
     components:
     - type: Transform
