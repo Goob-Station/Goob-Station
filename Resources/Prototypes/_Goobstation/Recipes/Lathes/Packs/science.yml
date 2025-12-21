@@ -21,5 +21,11 @@
 - type: latheRecipePack
   id: XenobioPack
   recipes:
-  - SlimeGrinderMachineCircuitboard
   - ClothingBackpackXenoBioTank
+  - SlimeScannerXenobio
+
+- type: latheRecipePack
+  id: ScienceBoardsGoob
+  recipes:
+  - SlimeGrinderMachineCircuitboard
+  - XenobiologyBountyComputerCircuitboard
