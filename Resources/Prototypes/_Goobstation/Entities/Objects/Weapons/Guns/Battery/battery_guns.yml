@@ -152,7 +152,7 @@
     resetOnHandSelected: false
 
 - type: entity
-  name: Plasma Rifle # Goobstation
+  name: plasma rifle
   parent: BaseWeaponBattery
   id: WeaponPlasmaRifle
   description: It may or may not explode in your face.
@@ -256,7 +256,7 @@
             - EnergySpeedloader
 
 - type: entity
-  name: Advanced Disabler
+  name: advanced disabler
   parent: [ WeaponDisablerPractice, BaseCentcommContraband ]
   id: WeaponDisablerAdvanced
   description: A self-defense weapon for corporate execs with money to burn. Slim, sturdy, and self-rechargable for your convenience.
@@ -284,7 +284,7 @@
     autoRechargeRate: 40
 
 - type: entity
-  name: Syndicate Disabler
+  name: syndicate disabler
   parent: [ WeaponDisablerPractice, BaseSyndicateContraband ]
   id: WeaponDisablerSyndicate
   description: A sleek disabler designed from a reverse-engineered NanoTrasen prototype. While it lacks stopping power, it makes up for it with a self-recharging cell.
@@ -323,7 +323,7 @@
       autoRechargeRate: 50
 
 - type: entity
-  name: Advanced Pulse Carbine
+  name: advanced pulse carbine
   parent: WeaponPulseCarbine
   id: WeaponPulseCarbineAdvanced
   description: A state-of-the-art laser carbine that fires a rapidly pulsing beam. Expensive, though favoured by the Emergency Response corps due to its ability to self-recharge.
