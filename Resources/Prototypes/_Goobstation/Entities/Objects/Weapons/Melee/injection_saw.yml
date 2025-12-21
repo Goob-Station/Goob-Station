@@ -34,7 +34,7 @@
   - type: SolutionContainerManager
     solutions:
       injector:
-        maxVol: 30                # Same as dart gun
+        maxVol: 30 # Same as dart gun
   - type: Injector
     delay: 1
     maxTransferAmount: 10
