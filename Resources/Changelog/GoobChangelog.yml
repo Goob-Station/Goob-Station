@@ -19785,3 +19785,9 @@ Entries:
       message: '2 New Vinyl disks have been added: "Floaty" and "Key lime"'
   id: 2236
   time: '2025-12-21T16:38:52.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: Potassium iodine heals a very slight amount of rads.
+  id: 2237
+  time: '2025-12-21T17:08:37.0000000+00:00'
