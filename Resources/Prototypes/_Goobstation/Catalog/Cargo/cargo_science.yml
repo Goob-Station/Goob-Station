@@ -17,3 +17,13 @@
   cost: 3000
   category: cargoproduct-category-name-science
   group: market
+
+- type: cargoProduct
+  id: LivestockXenobioSlimes
+  icon:
+    sprite: _Goobstation/Mobs/Animals/lootbug.rsi
+    state: icon
+  product: CrateNPCXenobioSlime
+  cost: 4000 # You should buy it usually if you messed up something
+  category: cargoproduct-category-name-science
+  group: market
