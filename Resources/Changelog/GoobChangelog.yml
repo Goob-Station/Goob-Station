@@ -19767,3 +19767,9 @@ Entries:
         As a result, Atlas is now the defacto lowest pop station.
   id: 2233
   time: '2025-12-21T05:20:34.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Slime scanner now displays properly when is on tables.
+  id: 2234
+  time: '2025-12-21T09:36:24.0000000+00:00'
