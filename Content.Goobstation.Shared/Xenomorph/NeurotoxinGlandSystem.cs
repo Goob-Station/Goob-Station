@@ -18,12 +18,12 @@ public sealed class NeurotoxinGlandSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<NeurotoxinGlandComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<NeurotoxinGlandComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<NeurotoxinGlandComponent, ToggleAcidSpitEvent>(OnToggleAcidSpit);
         SubscribeLocalEvent<NeurotoxinGlandComponent, ShotAttemptedEvent>(OnShotAttempted);
     }
 
-    private void OnComponentInit(EntityUid uid, NeurotoxinGlandComponent component, ComponentInit args)
+    private void OnMapInit(EntityUid uid, NeurotoxinGlandComponent component, MapInitEvent args)
     {
         _actions.AddAction(uid, component.ActionId);
 

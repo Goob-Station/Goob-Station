@@ -25,13 +25,13 @@ public sealed partial class QueenRoarSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<QueenRoarComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<QueenRoarComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<QueenRoarComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<QueenRoarComponent, QueenRoarActionEvent>(OnQueenRoar);
         SubscribeLocalEvent<QueenRoarComponent, QueenRoarDoAfterEvent>(OnQueenRoarDoAfter);
     }
 
-    private void OnInit(EntityUid uid, QueenRoarComponent component, ComponentInit args)
+    private void OnMapInit(EntityUid uid, QueenRoarComponent component, MapInitEvent args)
     {
         _actions.AddAction(uid, ref component.RoarActionEntity, component.RoarAction);
     }
