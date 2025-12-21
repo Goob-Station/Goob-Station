@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Ported from BandaStation ss220 https://github.com/ss220club/BandaStation/blob/master/icons/obj/mining_zones/ash_flora.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "cactus1p"
+    },
+    {
+      "name": "cactus1"
+    },
+    {
+      "name": "cactus2p"
+    },
+    {
+      "name": "cactus2"
+    },
+    {
+      "name": "cactus3p"
+    },
+    {
+      "name": "cactus3"
+    },
+    {
+      "name": "cactus4p"
+    },
+    {
+      "name": "cactus4"
+    }
+  ]
+}
