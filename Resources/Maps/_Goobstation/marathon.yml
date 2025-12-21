@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/21/2025 05:29:09
-  entityCount: 22966
+  time: 12/21/2025 05:55:05
+  entityCount: 22978
 maps:
 - 1
 grids:
@@ -11131,7 +11131,7 @@ entities:
       pos: -1.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2229.776
+      secondsUntilStateChange: -2766.2576
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11633,7 +11633,7 @@ entities:
       pos: 40.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5975.602
+      secondsUntilStateChange: -6512.0835
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11670,7 +11670,7 @@ entities:
       pos: 41.5,8.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2824.1418
+      secondsUntilStateChange: -3360.6235
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -55095,11 +55095,11 @@ entities:
       parent: 2
 - proto: ComputerScienceXenobiologyBounty
   entities:
-  - uid: 22937
+  - uid: 22975
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 53.5,7.5
+      rot: 3.141592653589793 rad
+      pos: 52.5,7.5
       parent: 2
 - proto: ComputerShuttleCargo
   entities:
@@ -62762,6 +62762,16 @@ entities:
     - type: Transform
       pos: 24.571924,11.2297535
       parent: 2
+  - uid: 22967
+    components:
+    - type: Transform
+      pos: 49.973526,7.799904
+      parent: 2
+  - uid: 22968
+    components:
+    - type: Transform
+      pos: 49.973526,7.737404
+      parent: 2
 - proto: DVSmartFridgeMedical
   entities:
   - uid: 17819
@@ -65373,7 +65383,7 @@ entities:
       pos: 12.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1192.1101
+      secondsUntilStateChange: -1728.5918
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 1795.33154
@@ -103323,17 +103333,15 @@ entities:
       parent: 2
 - proto: MobSlimeXenobioBabyGrey
   entities:
-  - uid: 22940
+  - uid: 22944
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 46.5,12.5
+      pos: 47.5,12.5
       parent: 2
-  - uid: 22941
+  - uid: 22945
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 47.5,11.5
+      pos: 46.5,12.5
       parent: 2
 - proto: MonkeyCube
   entities:
@@ -110329,6 +110337,12 @@ entities:
     - type: Transform
       pos: 19.5,10.5
       parent: 2
+  - uid: 22937
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 53.5,7.5
+      parent: 2
   - uid: 22954
     components:
     - type: Transform
@@ -110471,6 +110485,36 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 7.5,36.5
+      parent: 2
+  - uid: 22971
+    components:
+    - type: Transform
+      pos: 52.5,11.5
+      parent: 2
+  - uid: 22972
+    components:
+    - type: Transform
+      pos: 53.5,11.5
+      parent: 2
+  - uid: 22973
+    components:
+    - type: Transform
+      pos: 46.5,11.5
+      parent: 2
+  - uid: 22974
+    components:
+    - type: Transform
+      pos: 47.5,11.5
+      parent: 2
+  - uid: 22976
+    components:
+    - type: Transform
+      pos: 49.5,11.5
+      parent: 2
+  - uid: 22977
+    components:
+    - type: Transform
+      pos: 50.5,11.5
       parent: 2
 - proto: RailingCorner
   entities:
@@ -115554,6 +115598,12 @@ entities:
     components:
     - type: Transform
       pos: 30.50643,22.626024
+      parent: 2
+  - uid: 22978
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 53.513298,7.4805737
       parent: 2
 - proto: SheetPlasteel
   entities:
@@ -123683,6 +123733,16 @@ entities:
     components:
     - type: Transform
       pos: -33.61232,-13.437607
+      parent: 2
+  - uid: 22969
+    components:
+    - type: Transform
+      pos: 49.8329,7.471779
+      parent: 2
+  - uid: 22970
+    components:
+    - type: Transform
+      pos: 49.973526,7.362404
       parent: 2
 - proto: Table
   entities:
@@ -145775,28 +145835,24 @@ entities:
       parent: 2
 - proto: XenobioSlimeBabySpawner
   entities:
+  - uid: 22940
+    components:
+    - type: Transform
+      pos: 52.5,12.5
+      parent: 2
+  - uid: 22941
+    components:
+    - type: Transform
+      pos: 53.5,12.5
+      parent: 2
   - uid: 22942
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 49.5,12.5
+      pos: 50.5,12.5
       parent: 2
   - uid: 22943
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 50.5,11.5
-      parent: 2
-  - uid: 22944
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 52.5,12.5
-      parent: 2
-  - uid: 22945
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 53.5,11.5
+      pos: 49.5,12.5
       parent: 2
 ...
