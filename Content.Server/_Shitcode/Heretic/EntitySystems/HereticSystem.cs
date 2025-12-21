@@ -95,9 +95,19 @@ public sealed class HereticSystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, EventHereticRerollTargets>(OnRerollTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticAscension>(OnAscension);
 
+        SubscribeLocalEvent<HereticComponent, PolymorphedEvent>(OnPolymorphed);
+
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRestart);
 
         Subs.CVar(_cfg, GoobCVars.AscensionRequiresObjectives, value => _ascensionRequiresObjectives = value, true);
+    }
+
+    private void OnPolymorphed(Entity<HereticComponent> ent, ref PolymorphedEvent args)
+    {
+        if (args.IsRevert)
+            return;
+
+        _polymorph.CopyPolymorphComponent<HereticComponent>(ent, args.NewEntity);
     }
 
     private void OnRestart(RoundRestartCleanupEvent ev)
@@ -207,23 +217,19 @@ public sealed class HereticSystem : EntitySystem
             _eye.SetVisibilityMask(ent, eye.VisibilityMask | HereticVisFlags, eye);
 
         foreach (var k in ent.Comp.BaseKnowledge)
-            _knowledge.AddKnowledge(ent, ent.Comp, k, research: false);
+            _knowledge.AddKnowledge(ent, ent.Comp, k);
 
-        // in case of polymorph
-        foreach (var k in ent.Comp.ResearchedKnowledge)
-            _knowledge.AddKnowledge(ent, ent.Comp, k, research: false);
+        if (ent.Comp.KnowledgeRequiredTags.Count == 0)
+            GenerateRequiredKnowledgeTags(ent);
 
-        GenerateRequiredKnowledgeTags(ent);
-        RaiseLocalEvent(ent, new EventHereticRerollTargets());
+        if (ent.Comp.SacrificeTargets.Count == 0)
+            RaiseLocalEvent(ent, new EventHereticRerollTargets());
     }
 
     private void OnShutdown(Entity<HereticComponent> ent, ref ComponentShutdown args)
     {
         if (TryComp<EyeComponent>(ent, out var eye))
             _eye.SetVisibilityMask(ent, eye.VisibilityMask & ~HereticVisFlags, eye);
-
-        foreach (var action in ent.Comp.ProvidedActions)
-            _actions.RemoveAction(action);
     }
 
     private void OnGetVisMask(Entity<HereticComponent> uid, ref GetVisMaskEvent args)
