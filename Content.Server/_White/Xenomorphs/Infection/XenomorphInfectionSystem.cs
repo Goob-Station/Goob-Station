@@ -18,6 +18,7 @@ public sealed class XenomorphInfectionSystem : EntitySystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly EntityEffectSystem _effect = default!;
+    [Dependency] private readonly MindSystem _mind = default!; // Goobstation
 
     public override void Initialize()
     {
