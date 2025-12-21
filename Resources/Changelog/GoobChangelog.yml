@@ -19791,3 +19791,11 @@ Entries:
       message: Potassium iodine heals a very slight amount of rads.
   id: 2237
   time: '2025-12-21T17:08:37.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Add
+      message: Marathon station now has an actual xenobio room.
+    - type: Add
+      message: Marathon station now has a radio host booth.
+  id: 2238
+  time: '2025-12-21T17:12:32.0000000+00:00'
