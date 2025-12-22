@@ -12,7 +12,7 @@
   description: Visualizer for shuttles arriving. You shouldn't see this!
   components:
   - type: Transform
-    noRot: true
+    noRot: false
     gridTraversal: false
   - type: FtlVisualizer
     sprite:
