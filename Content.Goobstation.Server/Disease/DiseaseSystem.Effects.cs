@@ -137,27 +137,15 @@ public sealed partial class DiseaseSystem
         return true;
     }
 
-    private void CleanupEffects(Entity<DiseaseComponent?> ent, EntityUid effect)
-    {
-        var carrier = Transform(ent.Owner).ParentUid;
-        if (!TryComp<DiseaseCarrierComponent>(carrier, out var carrierComp) || ent.Comp == null)
-            return;
-        var effectEnt = new Entity<DiseaseEffectComponent>(effect, EffectQuery.GetComponent(effect));
-        var failEv = new DiseaseEffectFailedEvent(effectEnt, (ent,ent.Comp), (carrier, carrierComp));
-        RaiseLocalEvent(effect, ref failEv);
-    }
     /// <summary>
     /// Removes the specified disease effect from this disease
     /// </summary>
     public override bool TryRemoveEffect(Entity<DiseaseComponent?> ent, EntityUid effect)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp) || !ent.Comp.Effects.Contains(effect))
             return false;
 
-        if (!ent.Comp.Effects.Contains(effect))
-            return false;
-
-        CleanupEffects(ent, effect);
+        CleanupEffect(ent, effect);
         QueueDel(effect);
         Dirty(ent);
         return true;

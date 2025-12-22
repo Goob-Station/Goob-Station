@@ -49,8 +49,14 @@ public partial class SharedDiseaseSystem
 
     private void OnGrantComponent(Entity<DiseaseGrantComponentEffectComponent> ent, ref DiseaseEffectEvent args)
     {
-        foreach (var (_, entry) in ent.Comp.Components)
-            EntityManager.AddComponent(args.Ent, entry.Component);
+        foreach (var (compName, _) in ent.Comp.Components)
+        {
+            if (!Factory.TryGetRegistration(compName, out var registration)
+                || EntityManager.HasComponent(args.Ent, registration.Type))
+                continue;
+            var component = _factory.GetComponent(registration.Type);
+            EntityManager.AddComponent(args.Ent, component);
+        }
     }
 
     private void OnGrantComponentEffectFail(Entity<DiseaseGrantComponentEffectComponent> ent, ref DiseaseEffectFailedEvent args)
@@ -62,13 +68,24 @@ public partial class SharedDiseaseSystem
         }
     }
 
+    protected void CleanupEffect(Entity<DiseaseComponent?> ent, EntityUid effect)
+    {
+        var carrier = Transform(ent.Owner).ParentUid;
+        if (!EffectQuery.TryGetComponent(effect, out var effectComp)
+            || !TryComp<DiseaseCarrierComponent>(carrier, out var carrierComp)
+            || ent.Comp == null)
+            return;
+        var failEv = new DiseaseEffectFailedEvent(effectComp, (ent.Owner, ent.Comp), (carrier, carrierComp));
+        RaiseLocalEvent(effect, ref failEv);
+    }
+
     private void OnAudioEffect(Entity<DiseaseAudioEffectComponent> ent, ref DiseaseEffectEvent args)
     {
         var sound = ent.Comp.Sound;
         if (ent.Comp.SoundFemale != null && TryComp<HumanoidAppearanceComponent>(args.Ent, out var humanoid) && humanoid.Sex == Sex.Female)
             sound = ent.Comp.SoundFemale;
 
-        _audio.PlayPredicted(sound, args.Ent, args.Ent);
+        _audio.PlayPvs(sound,args.Ent);
     }
 
     private void OnDiseaseSpreadEffect(Entity<DiseaseSpreadEffectComponent> ent, ref DiseaseEffectEvent args)

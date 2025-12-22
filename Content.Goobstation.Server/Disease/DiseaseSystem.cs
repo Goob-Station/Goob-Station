@@ -136,16 +136,18 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     /// <summary>
     /// Tries to cure the entity of the given disease entity
     /// </summary>
-    protected override bool TryCure(Entity<DiseaseCarrierComponent?> ent, EntityUid disease)
+    public override bool TryCure(Entity<DiseaseCarrierComponent?> ent, EntityUid disease)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp) || !ent.Comp.Diseases.Contains(disease))
             return false;
 
-        if (ent.Comp.Diseases.ContainedEntities.Contains(disease))
-            QueueDel(disease);
-        else
-            return false;
+        if (TryComp<DiseaseComponent>(disease, out var diseaseComp))
+        {
+            foreach (var effect in diseaseComp.Effects.ContainedEntities)
+                CleanupEffect((disease, diseaseComp), effect);
+        }
 
+        QueueDel(disease);
         Dirty(ent);
         return true;
     }
@@ -170,7 +172,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     /// <summary>
     /// Tries to infect the entity with a given disease prototype
     /// </summary>
-    protected override bool TryInfect(Entity<DiseaseCarrierComponent?> ent, EntProtoId diseaseId, [NotNullWhen(true)] out EntityUid? disease, bool force = false)
+    public override bool TryInfect(Entity<DiseaseCarrierComponent?> ent, EntProtoId diseaseId, [NotNullWhen(true)] out EntityUid? disease, bool force = false)
     {
         disease = null;
 

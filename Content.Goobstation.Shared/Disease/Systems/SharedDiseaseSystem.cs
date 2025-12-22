@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.Mobs.Systems;
+using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -67,7 +68,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
 
         var diseaseCarriers = EntityQueryEnumerator<DiseaseCarrierComponent>();
         // so that we can EnsureComp disease carriers while we're looping over them without erroring
-        HashSet<Entity<DiseaseCarrierComponent>> carriers = [];
+        List<Entity<DiseaseCarrierComponent>> carriers = [];
         while (diseaseCarriers.MoveNext(out var uid, out var diseaseCarrier))
             carriers.Add((uid, diseaseCarrier));
         foreach (var carrier in carriers)
@@ -178,7 +179,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         RaiseLocalEvent(args.Ent.Owner, ref curedEv);
     }
 
-    #region public API
+    #region Public API
 
     #region disease
 
@@ -197,7 +198,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
     /// <summary>
     /// Changes immunity progress for given disease
     /// </summary>
-    private void ChangeImmunityProgress(Entity<DiseaseComponent?> ent, float amount)
+    public void ChangeImmunityProgress(Entity<DiseaseComponent?> ent, float amount)
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
@@ -251,7 +252,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
     /// <summary>
     /// Tries to cure the entity of the given disease entity
     /// </summary>
-    protected virtual bool TryCure(Entity<DiseaseCarrierComponent?> ent, EntityUid disease)
+    public virtual bool TryCure(Entity<DiseaseCarrierComponent?> ent, EntityUid disease)
     {
         // does nothing on client
         return false;
@@ -301,7 +302,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
     /// <summary>
     /// Tries to infect the entity with a given disease prototype
     /// </summary>
-    protected virtual bool TryInfect(Entity<DiseaseCarrierComponent?> ent, EntProtoId diseaseId, [NotNullWhen(true)] out EntityUid? disease, bool force = false)
+    public virtual bool TryInfect(Entity<DiseaseCarrierComponent?> ent, EntProtoId diseaseId, [NotNullWhen(true)] out EntityUid? disease, bool force = false)
     {
         // does nothing on client
         disease = null;
