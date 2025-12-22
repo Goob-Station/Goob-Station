@@ -109,7 +109,7 @@ uplink-c20r-desc = A one-handed, bullpup SMG that sacrifices accuracy for pure f
 uplink-buldog-name = Bulldog
 uplink-buldog-desc = A fully automatic, bullpup shotgun for when you have three seconds to turn eight people into pasta sauce.
 
-uplink-l6-saw-name = L6 Saw
+uplink-l6-saw-name = L6 SAW
 uplink-l6-saw-desc = A bulky light machine gun excellent at suppressive, sustained fire. Feeds from .30 Rifle box magazines.
 
 uplink-m90-name = M-90
