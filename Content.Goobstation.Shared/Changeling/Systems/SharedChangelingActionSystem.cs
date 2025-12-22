@@ -31,7 +31,7 @@ public sealed class SharedChanglingActionSystem : EntitySystem
 
         if (!ent.Comp.UseOnFire && OnFire(args.User))
         {
-            DoPopup(args.User, ent.Comp.OnFirePopup);
+            DoPopup(args.User, ent.Comp.OnFirePopup, PopupType.LargeCaution);
             args.Cancelled = true;
 
             return;
@@ -75,14 +75,14 @@ public sealed class SharedChanglingActionSystem : EntitySystem
     }
 
     #region Helper Methods
-    private void DoPopup(EntityUid user, LocId popup)
+    private void DoPopup(EntityUid user, LocId popup, PopupType popupType = PopupType.Small)
     {
-        _popup.PopupClient(Loc.GetString(popup), user, user, PopupType.LargeCaution);
+        _popup.PopupClient(Loc.GetString(popup), user, user, popupType);
     }
 
-    private void DoPopup(EntityUid user, string popup)
+    private void DoPopup(EntityUid user, string popup, PopupType popupType = PopupType.Small)
     {
-        _popup.PopupClient(popup, user, user, PopupType.LargeCaution);
+        _popup.PopupClient(popup, user, user, popupType);
     }
 
     private bool OnFire(EntityUid user)
