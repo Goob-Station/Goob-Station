@@ -4,6 +4,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Shared.Disease.Components;
 using Content.Goobstation.Shared.Disease.Systems;
@@ -28,7 +29,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     {
         foreach (var effectUid in args.Source.Comp.Effects)
         {
-            if (!_effectQuery.TryComp(effectUid, out var effectComp) || MetaData(effectUid).EntityPrototype == null)
+            if (!EffectQuery.TryComp(effectUid, out var effectComp) || MetaData(effectUid).EntityPrototype == null)
                 continue;
 
             var entProtoId = MetaData(effectUid).EntityPrototype;
@@ -135,12 +136,12 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     /// <summary>
     /// Tries to cure the entity of the given disease entity
     /// </summary>
-    public override bool TryCure(Entity<DiseaseCarrierComponent?> ent, EntityUid disease)
+    protected override bool TryCure(Entity<DiseaseCarrierComponent?> ent, EntityUid disease)
     {
         if (!Resolve(ent, ref ent.Comp))
             return false;
 
-        if (ent.Comp.Diseases.Remove(disease))
+        if (ent.Comp.Diseases.ContainedEntities.Contains(disease))
             QueueDel(disease);
         else
             return false;
@@ -159,7 +160,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
 
         while (ent.Comp.Diseases.Count != 0)
         {
-            if (!TryCure((ent, ent.Comp), ent.Comp.Diseases[0]))
+            if (!TryCure((ent, ent.Comp), ent.Comp.Diseases.ContainedEntities[0]))
                 return false;
         }
 
@@ -169,7 +170,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     /// <summary>
     /// Tries to infect the entity with a given disease prototype
     /// </summary>
-    public override bool TryInfect(Entity<DiseaseCarrierComponent?> ent, EntProtoId diseaseId, [NotNullWhen(true)] out EntityUid? disease, bool force = false)
+    protected override bool TryInfect(Entity<DiseaseCarrierComponent?> ent, EntProtoId diseaseId, [NotNullWhen(true)] out EntityUid? disease, bool force = false)
     {
         disease = null;
 

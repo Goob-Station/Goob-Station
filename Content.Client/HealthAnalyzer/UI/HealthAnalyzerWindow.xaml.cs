@@ -294,7 +294,7 @@ namespace Content.Client.HealthAnalyzer.UI
             // Goobstation
             if (_entityManager.TryGetComponent<Goobstation.Shared.Disease.Components.DiseaseCarrierComponent>(_target, out var carrier))
             {
-                DrawDiseases(carrier.Diseases);
+                DrawDiseases(carrier.Diseases.ContainedEntities);
             }
 
             ConditionsListContainer.RemoveAllChildren();
@@ -595,7 +595,7 @@ namespace Content.Client.HealthAnalyzer.UI
         }
 
         // Goobstation
-        private void DrawDiseases(List<EntityUid> diseases)
+        private void DrawDiseases(IReadOnlyList<EntityUid> diseases)
         {
             DiseasesContainer.RemoveAllChildren();
 

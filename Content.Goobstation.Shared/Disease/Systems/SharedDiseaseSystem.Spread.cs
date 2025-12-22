@@ -145,7 +145,7 @@ public partial class SharedDiseaseSystem
         // effect severity mutation
         foreach (var effectUid in ent.Comp.Effects)
         {
-            if (!_effectQuery.TryComp(effectUid, out var effect))
+            if (!EffectQuery.TryComp(effectUid, out var effect))
                 continue;
 
             if (ExpProb(ent.Comp.SeverityMutationCoefficient * rate))
@@ -160,7 +160,7 @@ public partial class SharedDiseaseSystem
         var maxComplexity = 0f;
         foreach (var effectUid in ent.Comp.Effects)
         {
-            if (!_effectQuery.TryComp(effectUid, out var effect))
+            if (!EffectQuery.TryComp(effectUid, out var effect))
                 continue;
 
             complexity += effect.GetComplexity();
@@ -218,7 +218,7 @@ public partial class SharedDiseaseSystem
                 for (var i = 0; i < 20 && !done; i++) // no infinite loops
                 {
                     var effectUid = ent.Comp.Effects[_random.Next(ent.Comp.Effects.Count - 1)];
-                    if (!_effectQuery.TryComp(effectUid, out var effect))
+                    if (!EffectQuery.TryComp(effectUid, out var effect))
                         continue;
 
                     var targetSeverity = effect.Severity + delta / effect.Complexity;

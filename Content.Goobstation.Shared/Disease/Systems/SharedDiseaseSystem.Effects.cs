@@ -163,7 +163,7 @@ public partial class SharedDiseaseSystem
     private Entity<DiseaseEffectComponent>? RemoveRandomEffect(Entity<DiseaseComponent> ent, bool negativeOnly = false, bool allowFail = false)
     {
         // evil linq but how often is this gonna be called
-        var effects = negativeOnly ? ent.Comp.Effects.Where(e => _effectQuery.TryComp(e, out var eff) && eff.Complexity > 0).ToList()
+        var effects = negativeOnly ? ent.Comp.Effects.Where(e => EffectQuery.TryComp(e, out var eff) && eff.Complexity > 0).ToList()
                         : ent.Comp.Effects;
 
         if (effects.Count < 1)
@@ -177,7 +177,7 @@ public partial class SharedDiseaseSystem
         var effectUid = effects[index];
         TryRemoveEffect((ent, ent.Comp), effectUid);
 
-        return _effectQuery.TryComp(effectUid, out var comp) ? (effectUid, comp) : null;
+        return EffectQuery.TryComp(effectUid, out var comp) ? (effectUid, comp) : null;
     }
 
     private Entity<DiseaseEffectComponent>? AddRandomEffect(Entity<DiseaseComponent> ent, bool negativeOnly = false)
@@ -233,7 +233,7 @@ public partial class SharedDiseaseSystem
         {
             if (effectProto == Prototype(effectUid))
             {
-                if (!_effectQuery.TryComp(effectUid, out var diseaseEffect))
+                if (!EffectQuery.TryComp(effectUid, out var diseaseEffect))
                 {
                     Log.Error($"Found disease effect {ToPrettyString(effectUid)} without DiseaseEffectComponent");
                     return false;
@@ -282,7 +282,7 @@ public partial class SharedDiseaseSystem
         if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
-        if (!_effectQuery.TryComp(effectUid, out var diseaseEffect))
+        if (!EffectQuery.TryComp(effectUid, out var diseaseEffect))
         {
             Log.Error($"Tried to add disease effect {ToPrettyString(effect)}, but it had no DiseaseEffectComponent");
             return false;

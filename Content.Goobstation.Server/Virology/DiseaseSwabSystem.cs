@@ -45,7 +45,7 @@ public sealed class DiseaseSwabSystem : EntitySystem
             return;
 
         // Pick a random disease
-        var diseaseToClone = _random.Pick(carrier.Diseases);
+        var diseaseToClone = _random.Pick(carrier.Diseases.ContainedEntities);
         SetDisease((ent, ent.Comp), diseaseToClone);
         args.Handled = true;
     }
