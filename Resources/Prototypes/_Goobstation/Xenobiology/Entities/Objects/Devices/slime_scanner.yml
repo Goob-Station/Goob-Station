@@ -8,7 +8,6 @@
   - type: Sprite
     noRot: true
     sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_scanner.rsi
-    drawdepth: HighFloorObjects
     layers:
     - state: icon
     - state: analyzer
