@@ -76,6 +76,9 @@
   startingGear: LawyerGear
   icon: "JobIconLawyer"
   supervisors: job-supervisors-hop
+  guides: # goobstation
+  - SpaceLaw
+  - Legal SOP
   goobcoins: 10 #Goob content
   access:
   - Service

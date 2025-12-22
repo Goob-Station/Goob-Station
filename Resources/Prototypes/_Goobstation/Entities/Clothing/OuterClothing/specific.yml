@@ -92,6 +92,18 @@
       quickEquip: true
 
 - type: entity
+  parent: ClothingOuterWizardCentCommReal
+  id: WhiteRobes
+  name: robes of the chosen one
+  description: theses white robes are worn by only the finest of Nanotrasen's special operations department.
+  suffix: chosen one
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/robesjedi.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/robesjedi.rsi
+
+- type: entity
   parent: ClothingOuterBase
   id: ClothingOuterSuitHotDog
   name: hotdog costume
@@ -124,3 +136,80 @@
     - Hair
     - HeadTop
     - HeadSide
+
+- type: entity
+  parent: ClothingOuterBaseToggleable
+  id: ClothingOuterArmorHereticCostume
+  name: occult robes
+  description: A ragged, dusty set of robes. Strange smudgy eyes line the inside.
+  components:
+  - type: Construction
+    graph: HereticCostume
+    node: start
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticCostume
+  - type: Tag
+    tags:
+      - HereticCostume
+
+- type: entity
+  parent: ClothingOuterArmorHereticCostume
+  id: ClothingOuterArmorHereticVoidCostume
+  suffix: Void
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticVoidCostume
+
+- type: entity
+  parent: ClothingOuterArmorHereticCostume
+  id: ClothingOuterArmorHereticAshCostume
+  suffix: Ash
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/ashen_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/ashen_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticAshCostume
+
+- type: entity
+  parent: ClothingOuterArmorHereticCostume
+  id: ClothingOuterArmorHereticFleshCostume
+  suffix: Flesh
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/flesh_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/flesh_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticFleshCostume
+
+- type: entity
+  parent: ClothingOuterArmorHereticCostume
+  id: ClothingOuterArmorHereticBladeCostume
+  suffix: Blade
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/blade_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/blade_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticBladeCostume

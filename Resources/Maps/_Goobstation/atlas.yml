@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/08/2025 10:43:44
-  entityCount: 9207
+  time: 11/23/2025 08:37:54
+  entityCount: 9217
 maps:
 - 1
 grids:
@@ -2660,12 +2660,12 @@ entities:
             0: 65391
           -13,-2:
             0: 34943
-            6: 12288
+            3: 12288
           -12,-1:
             0: 65535
           -13,-1:
             0: 34952
-            3: 12336
+            4: 12336
           -12,0:
             0: 65535
           -12,-5:
@@ -2701,7 +2701,7 @@ entities:
           -13,-6:
             2: 61680
           -13,-5:
-            3: 61152
+            4: 61152
           -11,-6:
             2: 49
             0: 56320
@@ -2730,8 +2730,8 @@ entities:
             0: 305
           -13,0:
             0: 34952
-            4: 48
-            5: 12288
+            5: 48
+            6: 12288
           -12,1:
             1: 30576
           -13,1:
@@ -2809,8 +2809,8 @@ entities:
             2: 119
           -14,0:
             0: 13107
-            4: 128
-            5: 32768
+            5: 128
+            6: 32768
           -14,1:
             0: 32947
           -14,2:
@@ -2823,7 +2823,7 @@ entities:
             2: 34952
           -14,-1:
             0: 13107
-            3: 32896
+            4: 32896
           -14,4:
             0: 8
             2: 63552
@@ -2849,7 +2849,7 @@ entities:
             0: 2184
           -14,-2:
             0: 13311
-            6: 32768
+            3: 32768
           -14,-4:
             2: 4573
             0: 32768
@@ -2965,6 +2965,25 @@ entities:
           - 0
           - 0
           - 0
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -3004,25 +3023,6 @@ entities:
           - 6666.982
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 0
-          - 0
-          - 6666.982
           - 0
           - 0
           - 0
@@ -4437,7 +4437,7 @@ entities:
       pos: 4.5,19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -7688.196
+      secondsUntilStateChange: -7853.8677
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -21329,6 +21329,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -50.5,12.5
+      parent: 2
+- proto: ComputerScienceXenobiologyBounty
+  entities:
+  - uid: 79430
+    components:
+    - type: Transform
+      pos: -21.5,-27.5
       parent: 2
 - proto: ComputerShuttleCargo
   entities:
@@ -41308,6 +41315,18 @@ entities:
     - type: Transform
       pos: -20.5,-14.5
       parent: 2
+- proto: LockerScienceFilledXenobiology
+  entities:
+  - uid: 8635
+    components:
+    - type: Transform
+      pos: -20.5,-21.5
+      parent: 2
+  - uid: 8636
+    components:
+    - type: Transform
+      pos: -24.5,-20.5
+      parent: 2
 - proto: LockerSecurityFilled
   entities:
   - uid: 6338
@@ -48160,6 +48179,18 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -2.5,-8.5
       parent: 2
+- proto: SlimeGrinder
+  entities:
+  - uid: 8633
+    components:
+    - type: Transform
+      pos: -21.5,-30.5
+      parent: 2
+  - uid: 8634
+    components:
+    - type: Transform
+      pos: -23.5,-30.5
+      parent: 2
 - proto: SMESBasic
   entities:
   - uid: 7341
@@ -48928,6 +48959,13 @@ entities:
     components:
     - type: Transform
       pos: -35.5,9.5
+      parent: 2
+- proto: SpawnPointVirologist
+  entities:
+  - uid: 7943
+    components:
+    - type: Transform
+      pos: 1.5,-21.5
       parent: 2
 - proto: SpawnPointWarden
   entities:
@@ -59124,5 +59162,32 @@ entities:
     components:
     - type: Transform
       pos: -16.439703,-22.499609
+      parent: 2
+- proto: XenobioSlimeBabySpawner
+  entities:
+  - uid: 7944
+    components:
+    - type: Transform
+      pos: -25.5,-30.5
+      parent: 2
+  - uid: 7945
+    components:
+    - type: Transform
+      pos: -25.5,-31.5
+      parent: 2
+  - uid: 7946
+    components:
+    - type: Transform
+      pos: -24.5,-31.5
+      parent: 2
+  - uid: 8631
+    components:
+    - type: Transform
+      pos: -19.5,-30.5
+      parent: 2
+  - uid: 8632
+    components:
+    - type: Transform
+      pos: -20.5,-31.5
       parent: 2
 ...
