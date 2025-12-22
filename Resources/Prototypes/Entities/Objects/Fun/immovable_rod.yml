@@ -104,8 +104,10 @@
     shouldGib: false
     damage:
       types:
-        Blunt: 70 # Goob edit
-  # - type: InputMover # Goob edit
+        Blunt: 70 # Goobstation
+  - type: Physics
+    bodyType: KinematicController
+  #- type: InputMover Goob edit
   - type: MovementSpeedModifier
     baseWeightlessAcceleration: 5
     baseWeightlessModifier: 2

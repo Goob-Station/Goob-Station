@@ -89,6 +89,8 @@ namespace Content.IntegrationTests.Tests.Buckle
   - type: Hands
   - type: ComplexInteraction
   - type: InputMover
+  - type: Physics
+    bodyType: KinematicController
   - type: Body
     prototype: Human
   - type: StandingState
