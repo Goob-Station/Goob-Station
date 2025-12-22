@@ -15,7 +15,6 @@ namespace Content.Goobstation.Shared.Changeling.Systems;
 public sealed class ChangelingGunSystem : EntitySystem
 {
     [Dependency] private readonly SharedGunSystem _guns = default!;
-    [Dependency] private readonly SharedChangelingChemicalSystem _chem = default!;
 
     public override void Initialize()
     {
@@ -57,7 +56,8 @@ public sealed class ChangelingGunSystem : EntitySystem
             if (chemComp.Chemicals < component.FireCost)
                 return;
 
-            _chem.UpdateChemicals((ent, chemComp), component.FireCost);
+            var chemEv = new ChangelingModifyChemicalsEvent(component.FireCost);
+            RaiseLocalEvent(ent, ref chemEv);
 
             var shot = Spawn(component.Proto, args.Coordinates);
             args.Ammo.Add((shot, _guns.EnsureShootable(shot)));

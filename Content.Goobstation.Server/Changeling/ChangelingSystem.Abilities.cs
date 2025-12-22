@@ -275,7 +275,9 @@ public sealed partial class ChangelingSystem
             && biomassValid)
         {
             biomass.MaxBiomass += biomassMaxIncrease;
-            _biomass.UpdateBiomass((uid, biomass), biomass.MaxBiomass);
+
+            var bioEv = new ChangelingModifyBiomassEvent(biomass.MaxBiomass);
+            RaiseLocalEvent(uid, ref bioEv);
         }
 
     }

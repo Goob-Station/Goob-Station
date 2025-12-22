@@ -46,8 +46,9 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
         SubscribeLocalEvent<ChangelingBiomassComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ChangelingBiomassComponent, ComponentShutdown>(OnShutdown);
 
-        SubscribeLocalEvent<ChangelingBiomassComponent, RejuvenateEvent>(OnRejuvenate);
+        SubscribeLocalEvent<ChangelingBiomassComponent, ChangelingModifyBiomassEvent>(OnModifyBiomassEvent);
         SubscribeLocalEvent<ChangelingBiomassComponent, ChangelingChemicalRegenEvent>(OnChangelingChemicalRegenEvent);
+        SubscribeLocalEvent<ChangelingBiomassComponent, RejuvenateEvent>(OnRejuvenate);
     }
 
     private void OnMapInit(Entity<ChangelingBiomassComponent> ent, ref MapInitEvent args)
@@ -155,7 +156,7 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
     }
 
     #region Helper Methods
-    public void UpdateBiomass(Entity<ChangelingBiomassComponent> ent, float? amount = null)
+    private void UpdateBiomass(Entity<ChangelingBiomassComponent> ent, float? amount = null)
     {
         var newBiomass = ent.Comp.Biomass;
 
@@ -199,6 +200,11 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
     #endregion
 
     #region Event Handlers
+    private void OnModifyBiomassEvent(Entity<ChangelingBiomassComponent> ent, ref ChangelingModifyBiomassEvent args)
+    {
+        UpdateBiomass(ent, args.Amount);
+    }
+
     private void OnChangelingChemicalRegenEvent(Entity<ChangelingBiomassComponent> ent, ref ChangelingChemicalRegenEvent args)
     {
         args.Modifier += ent.Comp.ChemicalBoost;

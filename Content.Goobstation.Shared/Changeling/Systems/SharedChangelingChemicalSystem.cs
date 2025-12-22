@@ -1,4 +1,5 @@
 using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Shared.Alert;
 using Content.Shared.Popups;
@@ -24,6 +25,7 @@ public abstract partial class SharedChangelingChemicalSystem : EntitySystem
         SubscribeLocalEvent<ChangelingChemicalComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ChangelingChemicalComponent, ComponentShutdown>(OnShutdown);
 
+        SubscribeLocalEvent<ChangelingChemicalComponent, ChangelingModifyChemicalsEvent>(OnModifyChemicalsEvent);
         SubscribeLocalEvent<ChangelingChemicalComponent, RejuvenateEvent>(OnRejuvenate);
     }
 
@@ -76,7 +78,7 @@ public abstract partial class SharedChangelingChemicalSystem : EntitySystem
         UpdateChemicals(ent, amount);
     }
 
-    public void UpdateChemicals(Entity<ChangelingChemicalComponent> ent, float? amount = null)
+    private void UpdateChemicals(Entity<ChangelingChemicalComponent> ent, float? amount = null)
     {
         var chemicals = ent.Comp.Chemicals;
 
@@ -99,6 +101,11 @@ public abstract partial class SharedChangelingChemicalSystem : EntitySystem
     #endregion
 
     #region Event Handlers
+    private void OnModifyChemicalsEvent(Entity<ChangelingChemicalComponent> ent, ref ChangelingModifyChemicalsEvent args)
+    {
+        UpdateChemicals(ent, args.Amount);
+    }
+
     private void OnRejuvenate(Entity<ChangelingChemicalComponent> ent, ref RejuvenateEvent args)
     {
         if (_lingQuery.TryComp(ent, out var ling)

@@ -1,4 +1,5 @@
 using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Shared.Actions;
@@ -12,7 +13,6 @@ namespace Content.Goobstation.Shared.Changeling.Systems;
 public abstract partial class SharedChameleonSkinSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedChangelingChemicalSystem _lingChem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
 
@@ -58,7 +58,10 @@ public abstract partial class SharedChameleonSkinSystem : EntitySystem
             && _darkadaptQuery.TryComp(ent, out var dark)
             && dark.Active)
         {
-            _lingChem.UpdateChemicals((ent, chem), Comp<ChangelingActionComponent>(args.Action).ChemicalCost);
+            var amount = Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+
+            var chemEv = new ChangelingModifyChemicalsEvent(amount);
+            RaiseLocalEvent(ent, ref chemEv);
             return;
         }
 

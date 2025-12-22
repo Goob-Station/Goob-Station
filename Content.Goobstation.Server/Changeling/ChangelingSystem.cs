@@ -147,8 +147,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
     [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
-    [Dependency] private readonly SharedChangelingBiomassSystem _biomass = default!;
-    [Dependency] private readonly SharedChangelingChemicalSystem _chems = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -268,12 +266,10 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         UpdateAbilities(uid, comp);
     }
 
-    public void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null)
+    private void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float amount)
     {
-        if (!TryComp<ChangelingChemicalComponent>(uid, out var chemical))
-            return;
-
-        _chems.UpdateChemicals((uid, chemical), amount);
+        var chemEv = new ChangelingModifyChemicalsEvent(amount);
+        RaiseLocalEvent(uid, ref chemEv);
     }
 
     private void UpdateAbilities(EntityUid uid, ChangelingIdentityComponent comp)

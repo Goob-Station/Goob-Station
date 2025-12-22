@@ -23,7 +23,7 @@ public sealed partial class ChangelingBiomassComponent : Component
     /// Delay between update cycles.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan UpdateDelay = TimeSpan.FromSeconds(1); // will last 50 minutes give or take
+    public TimeSpan UpdateDelay = TimeSpan.FromSeconds(30); // will last 50 minutes give or take
 
     /// <summary>
     /// Current level of biomass the changeling currently has.
