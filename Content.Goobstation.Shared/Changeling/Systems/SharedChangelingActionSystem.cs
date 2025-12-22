@@ -1,4 +1,3 @@
-using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Atmos.Components;
@@ -27,7 +26,12 @@ public sealed class SharedChanglingActionSystem : EntitySystem
             return;
 
         if (!_lingQuery.TryComp(args.User, out var ling))
+        {
+            DoPopup(args.User, ent.Comp.NotChangelingPopup);
+            args.Cancelled = true;
+
             return;
+        }
 
         if (!ent.Comp.UseOnFire && OnFire(args.User))
         {
