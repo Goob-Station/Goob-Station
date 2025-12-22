@@ -244,7 +244,7 @@
       types:
         Slash: 19 #cmon, it has to be at least BETTER than the rest. # Goob edit
       woundSeverityMultipliers:
-        Slash: 3
+        Slash: 1.5 #WE LOVE ANTAG MECHANICS FOR CREW!
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
