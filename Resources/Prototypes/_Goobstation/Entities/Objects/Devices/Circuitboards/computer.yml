@@ -1,4 +1,16 @@
 - type: entity
+  id: XenobiologyBountyComputerCircuitboard
+  parent: BaseComputerCircuitboard
+  name: xenobiological bounty console board
+  description: A computer printed circuit board for a xenobiological bounty console.
+  components:
+  - type: Sprite
+    state: cpu_science
+  - type: ComputerBoard
+    prototype: ComputerScienceXenobiologyBounty
+  - type: StaticPrice
+
+- type: entity
   parent: BaseComputerCircuitboard
   id: VirologyComputerCircuitboard
   name: virology computer board
