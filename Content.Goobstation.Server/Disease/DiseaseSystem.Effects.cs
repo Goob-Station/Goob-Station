@@ -7,6 +7,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Numerics;
 
@@ -136,6 +137,15 @@ public sealed partial class DiseaseSystem
         return true;
     }
 
+    private void CleanupEffects(Entity<DiseaseComponent?> ent, EntityUid effect)
+    {
+        var carrier = Transform(ent.Owner).ParentUid;
+        if (!TryComp<DiseaseCarrierComponent>(carrier, out var carrierComp) || ent.Comp == null)
+            return;
+        var effectEnt = new Entity<DiseaseEffectComponent>(effect, EffectQuery.GetComponent(effect));
+        var failEv = new DiseaseEffectFailedEvent(effectEnt, (ent,ent.Comp), (carrier, carrierComp));
+        RaiseLocalEvent(effect, ref failEv);
+    }
     /// <summary>
     /// Removes the specified disease effect from this disease
     /// </summary>
@@ -144,11 +154,11 @@ public sealed partial class DiseaseSystem
         if (!Resolve(ent, ref ent.Comp))
             return false;
 
-        if (ent.Comp.Effects.Remove(effect))
-            QueueDel(effect);
-        else
+        if (!ent.Comp.Effects.Contains(effect))
             return false;
 
+        CleanupEffects(ent, effect);
+        QueueDel(effect);
         Dirty(ent);
         return true;
     }

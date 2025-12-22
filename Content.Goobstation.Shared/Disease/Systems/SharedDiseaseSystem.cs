@@ -20,7 +20,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;
 
     private TimeSpan _lastUpdated = TimeSpan.FromSeconds(0);
 
@@ -42,6 +42,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         SubscribeLocalEvent<DiseaseCarrierComponent, ComponentStartup>(OnDiseaseCarrierStartup);
 
         SubscribeLocalEvent<DiseaseComponent, MapInitEvent>(OnDiseaseInit);
+        SubscribeLocalEvent<DiseaseComponent, ComponentStartup>(OnDiseaseStartup);
         SubscribeLocalEvent<DiseaseComponent, DiseaseUpdateEvent>(OnUpdateDisease);
 
         EffectQuery = GetEntityQuery<DiseaseEffectComponent>();
@@ -50,6 +51,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         InitializeEffects();
         InitializeImmunity();
     }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -84,13 +86,18 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
 
     private void OnDiseaseCarrierStartup(Entity<DiseaseCarrierComponent> ent, ref ComponentStartup args)
     {
-        ent.Comp.Diseases = _container.EnsureContainer<Container>(ent.Owner, DiseaseCarrierComponent.DiseaseContainerId);
+        ent.Comp.Diseases = ContainerSystem.EnsureContainer<Container>(ent.Owner, DiseaseCarrierComponent.DiseaseContainerId);
     }
 
     private void OnDiseaseCarrierInit(Entity<DiseaseCarrierComponent> ent, ref MapInitEvent args)
     {
         foreach (var diseaseId in ent.Comp.StartingDiseases)
             TryInfect((ent, ent.Comp), diseaseId, out _);
+    }
+
+    private void OnDiseaseStartup(Entity<DiseaseComponent> ent, ref ComponentStartup args)
+    {
+        ent.Comp.Effects = ContainerSystem.EnsureContainer<Container>(ent.Owner, DiseaseComponent.EffectContainerId);
     }
 
     private void OnDiseaseInit(Entity<DiseaseComponent> ent, ref MapInitEvent args)
@@ -123,7 +130,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
 
         if (!args.Ent.Comp.EffectImmune)
         {
-            foreach (var effectUid in ent.Comp.Effects)
+            foreach (var effectUid in ent.Comp.Effects.ContainedEntities)
             {
                 if (!EffectQuery.TryComp(effectUid, out var effect))
                     continue;
@@ -284,7 +291,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
             return false;
 
         _transform.SetCoordinates(disease, new EntityCoordinates(ent, Vector2.Zero));
-        _container.Insert(disease, ent.Comp.Diseases);
+        ContainerSystem.Insert(disease, ent.Comp.Diseases);
         var ev = new DiseaseGainedEvent((disease, diseaseComp));
         RaiseLocalEvent(ent, ref ev);
         Dirty(ent);

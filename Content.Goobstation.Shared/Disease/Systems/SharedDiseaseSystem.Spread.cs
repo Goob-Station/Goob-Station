@@ -143,22 +143,18 @@ public partial class SharedDiseaseSystem
             ent.Comp.Genotype = _random.Next();
 
         // effect severity mutation
-        foreach (var effectUid in ent.Comp.Effects)
+        foreach (var effectUid in ent.Comp.Effects.ContainedEntities)
         {
-            if (!EffectQuery.TryComp(effectUid, out var effect))
+            if (!EffectQuery.TryComp(effectUid, out var effect) || !ExpProb(ent.Comp.SeverityMutationCoefficient * rate))
                 continue;
-
-            if (ExpProb(ent.Comp.SeverityMutationCoefficient * rate))
-            {
-                effect.Severity = _random.NextFloat(effect.MinSeverity, MaxEffectSeverity);
-                Dirty(effectUid, effect);
-            }
+            effect.Severity = _random.NextFloat(effect.MinSeverity, MaxEffectSeverity);
+            Dirty(effectUid, effect);
         }
 
         var complexity = 0f;
         var minComplexity = 0f;
         var maxComplexity = 0f;
-        foreach (var effectUid in ent.Comp.Effects)
+        foreach (var effectUid in ent.Comp.Effects.ContainedEntities)
         {
             if (!EffectQuery.TryComp(effectUid, out var effect))
                 continue;
@@ -214,10 +210,10 @@ public partial class SharedDiseaseSystem
                 var delta = ent.Comp.Complexity - complexity;
 
                 // try to adjust complexity, adjust severities of random effects until we hit the target
-                bool done = false;
+                var done = false;
                 for (var i = 0; i < 20 && !done; i++) // no infinite loops
                 {
-                    var effectUid = ent.Comp.Effects[_random.Next(ent.Comp.Effects.Count - 1)];
+                    var effectUid = ent.Comp.Effects.ContainedEntities[_random.Next(ent.Comp.Effects.Count - 1)];
                     if (!EffectQuery.TryComp(effectUid, out var effect))
                         continue;
 

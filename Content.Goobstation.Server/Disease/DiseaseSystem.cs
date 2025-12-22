@@ -27,7 +27,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
 
     private void OnClonedInto(Entity<DiseaseComponent> ent, ref DiseaseCloneEvent args)
     {
-        foreach (var effectUid in args.Source.Comp.Effects)
+        foreach (var effectUid in args.Source.Comp.Effects.ContainedEntities)
         {
             if (!EffectQuery.TryComp(effectUid, out var effectComp) || MetaData(effectUid).EntityPrototype == null)
                 continue;
