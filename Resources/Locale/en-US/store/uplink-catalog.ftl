@@ -97,7 +97,7 @@
 
 # Weapons
 uplink-pistol-viper-name = Viper
-uplink-pistol-viper-desc = A sleek and concelable pistol that punches high above its weight class. Can be switched between semi and full-auto. Feeds from .35 Auto pistol magazines.
+uplink-pistol-viper-desc = A light and concelable pistol that punches high above its weight class. Can be switched between semi and full-auto. Feeds from .35 Auto pistol magazines.
 
 uplink-estoc-bundle-name = Estoc DMR bundle
 uplink-estoc-bundle-desc = A designated marksman rifle, fitted with a mid-range optic for longer-range combat. Bundled with two rifle magazines (.20 rifle).
