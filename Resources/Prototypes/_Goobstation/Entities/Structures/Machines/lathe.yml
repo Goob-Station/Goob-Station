@@ -316,7 +316,7 @@
         - state: panel
           map: ["enum.WiresVisualLayers.MaintenancePanel"]
     - type: Machine
-      board: AmmoTechFabCircuitboard
+      board: ERTTechFabCircuitboard
     - type: Lathe
       idleState: icon
       runningState: icon
