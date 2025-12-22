@@ -36,7 +36,7 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:AdjustReagent
         reagent: FrostOil
-        amount: 100
+        amount: 30
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
