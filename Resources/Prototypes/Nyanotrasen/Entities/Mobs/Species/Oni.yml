@@ -39,15 +39,10 @@
     # scale: 1.2, 1.2 # Goobstation: port EE height/width sliders
   - type: PlayerToolModifier
     pryTimeMultiplier: 0.6
-  - type: BonusStaminaDamage
-    multiplier: 1.25
   - type: BonusMeleeDamage
     damageModifierSet:
       coefficients:
-        Blunt: 1.25
-        Slash: 1.25
-        Piercing: 1.25
-        Asphyxiation: 1.25
+        Blunt: 1.2
         Structural: 1.25
   - type: Body
     prototype: Oni
@@ -59,7 +54,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35 # Goobstation: port EE height/width sliders
-        density: 220
+        density: 220 # PROKLYATIE
         restitution: 0.0
         mask:
         - MobMask
@@ -74,6 +69,13 @@
     - DoorBumpOpener
     - AnomalyHost
     - Oni
+  - type: RestrictGunshotsByUserTag # get over it.
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
 
 - type: entity
   save: false

@@ -15,10 +15,6 @@
   id: Terminus
   description: An advanced melee weapon crafted specifically for an oni. It is also capable of firing a spread of disabler shots from its tip.
   components:
-  - type: RestrictedMelee # Omu port
-    whitelist:
-      tags:
-        - Oni
   - type: Sprite
     sprite: _EinsteinEngines/Objects/Weapons/Melee/terminus.rsi
     state: icon

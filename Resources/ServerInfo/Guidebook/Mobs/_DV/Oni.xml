@@ -16,18 +16,17 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="MobOni" Caption=""/>
   </Box>
 
-  Large, horned people that come in a variety of colors. Their accuracy with guns is terrible, but their physical strength brings them a lot of boons both in and out of combat.
+  Large, horned people that come in a variety of colors. Their physical strength brings them a lot of boons both in and out of combat. On the other hand, due to tradition and certain genetic issues, they cannot use any form or ranged weaponry.
 
   ## Diet
   - Just about anything. Can even eat many things raw.
 
   ## Benefits
-  - They take [color=#1e90ff]15% less Blunt, Pierce and Slash.[/color].
-  - Does more damage in melee; 25% more Blunt, Slash, Pierce, Stamina, and Structural damage.
-  - Due to their big size, they can easily carry and pull any other species.
+  - Does more damage in melee; 20% more Blunt and 25% more Structural damage.
+  - Due to their big size, they can easily carry and pull any other species. They also deal more stamina damage due to mass contest.
 
   ## Drawbacks
-  - Oni are unable to fire any weapons with accuracy, with reports of bullets managing to fire even behind them
+  - Onis cannot use ANY form of ranged weaponry.
   - They are harder to carry and pull.
   - They are bigger than Humans, making them easier to hit.
 
