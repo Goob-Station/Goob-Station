@@ -163,10 +163,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         SubscribeLocalEvent<ChangelingIdentityComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ChangelingIdentityComponent, MobStateChangedEvent>(OnMobStateChange);
-        SubscribeLocalEvent<ChangelingIdentityComponent, UpdateMobStateEvent>(OnUpdateMobState);
-        SubscribeLocalEvent<ChangelingIdentityComponent, DamageChangedEvent>(OnDamageChange);
         SubscribeLocalEvent<ChangelingIdentityComponent, ComponentRemove>(OnComponentRemove);
-        SubscribeLocalEvent<ChangelingIdentityComponent, TargetBeforeDefibrillatorZapsEvent>(OnDefibZap);
         SubscribeLocalEvent<ChangelingIdentityComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<ChangelingIdentityComponent, PolymorphedEvent>(OnPolymorphed);
         SubscribeLocalEvent<ChangelingComponent, PolymorphedEvent>(OnPolymorphedTakeTwo);
@@ -295,10 +292,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             if (stamina.StaminaDamage >= stamina.CritThreshold || _gravity.IsWeightless(uid))
                 ToggleStrainedMuscles(uid, comp);
         }
-
-        if (comp.IsInStasis && comp.StasisTime > 0f)
-            comp.StasisTime -= 1f;
-
     }
 
     private void RegenerateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float amount) // this happens passively
@@ -789,9 +782,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         // make sure its set to the default
         comp.TotalEvolutionPoints = _changelingRuleSystem.StartingCurrency;
 
-        // don't want instant stasis
-        comp.StasisTime = comp.DefaultStasisTime;
-
         // show alerts
         UpdateChemicals(uid, comp, 0);
         // make their blood unreal
@@ -804,66 +794,15 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             RemoveAllChangelingEquipment(uid, comp);
     }
 
-    private void OnUpdateMobState(Entity<ChangelingIdentityComponent> ent, ref UpdateMobStateEvent args)
-    {
-        if (ent.Comp.IsInStasis)
-            args.State = MobState.Dead;
-    }
-
-    private void OnDamageChange(Entity<ChangelingIdentityComponent> ent, ref DamageChangedEvent args)
-    {
-        if (ent.Comp.IsInStasis
-            || !_mobThreshold.TryGetThresholdForState(ent, MobState.Dead, out var maxThreshold)
-            || !_mobThreshold.TryGetThresholdForState(ent, MobState.Critical, out var critThreshold))
-            return;
-
-        var lowestStasisTime = ent.Comp.DefaultStasisTime; // 15 sec
-        var highestStasisTime = ent.Comp.MaxStasisTime; // 45 sec
-        var catastrophicStasisTime = ent.Comp.CatastrophicStasisTime; // 1 min
-
-        var damage = args.Damageable;
-        var damageTaken = damage.TotalDamage;
-
-        var damageScaled = float.Round((float) (damageTaken / critThreshold.Value * highestStasisTime));
-
-        var damageToTime = MathF.Min(damageScaled, highestStasisTime);
-        var newStasisTime = MathF.Max(lowestStasisTime, damageToTime);
-
-        if (damageTaken < maxThreshold)
-            ent.Comp.StasisTime = newStasisTime;
-        else
-            ent.Comp.StasisTime = catastrophicStasisTime;
-    }
-
     private void OnComponentRemove(Entity<ChangelingIdentityComponent> ent, ref ComponentRemove args)
     {
         RemoveAllChangelingEquipment(ent, ent.Comp);
     }
 
-    private void OnDefibZap(Entity<ChangelingIdentityComponent> ent, ref TargetBeforeDefibrillatorZapsEvent args)
-    {
-        if (ent.Comp.IsInStasis) // so you don't get a free insta-rejuvenate after being defibbed
-        {
-            ent.Comp.IsInStasis = false;
-            _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-defib"), ent, ent);
-        }
-    }
-
-    // triggered by leaving stasis and by admin rejuvenate
     private void OnRejuvenate(Entity<ChangelingIdentityComponent> ent, ref RejuvenateEvent args)
     {
-        if (ent.Comp.IsInStasis) // only triggered if event raised by stasis (or admin rejuv'd in stasis)
-        {
-            ent.Comp.IsInStasis = false;
-            ent.Comp.StasisTime = ent.Comp.DefaultStasisTime;
-
-            _mobState.UpdateMobState(ent);
-        }
-        else
-        {
-            UpdateChemicals(ent, ent.Comp, ent.Comp.MaxChemicals); // only by admin rejuv, for testing and whatevs
-            _popup.PopupEntity(Loc.GetString("changeling-rejuvenate"), ent, ent); // woah...
-        }
+        UpdateChemicals(ent, ent.Comp, ent.Comp.MaxChemicals); // only by admin rejuv, for testing and whatevs
+        _popup.PopupEntity(Loc.GetString("changeling-rejuvenate"), ent, ent); // woah...
     }
     #endregion
 }

@@ -184,6 +184,27 @@
     useInLesserForm: true
     useInLastResort: true
 
+- type: entity
+  parent: BaseAction
+  id: ActionRegenerate
+  name: Regenerate
+  description: Regenerate missing limbs, restore blood, stop bleeding, fix wounds and repair broken bones. Costs 15 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: regrow
+  - type: InstantAction
+    event: !type:ChangelingRegenerateEvent {}
+  - type: ChangelingAction
+    chemicalCost: 15
+    useInLastResort: true
+
 # combat
 - type: entity
   parent: BaseAction
