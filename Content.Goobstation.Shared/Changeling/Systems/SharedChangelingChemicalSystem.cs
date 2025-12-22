@@ -1,7 +1,7 @@
-using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Shared.Alert;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Timing;
@@ -92,10 +92,7 @@ public abstract partial class SharedChangelingChemicalSystem : EntitySystem
 
     private bool OnFire(Entity<ChangelingChemicalComponent> ent)
     {
-        var ev = new GetFireStateEvent();
-        RaiseLocalEvent(ent, ref ev);
-
-        return ev.OnFire;
+        return HasComp<OnFireComponent>(ent);
     }
 
     #endregion

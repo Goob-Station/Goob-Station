@@ -3,13 +3,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.SpecialPassives.Fleshmend.Components;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Alert;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -218,10 +218,9 @@ public sealed class SharedFleshmendSystem : EntitySystem
 
     private bool IsValidFireCheck(Entity<FleshmendComponent> ent)
     {
-        var fireEv = new GetFireStateEvent();
-        RaiseLocalEvent(ent, ref fireEv);
+        var onFire = HasComp<OnFireComponent>(ent);
 
-        if (fireEv.OnFire
+        if (onFire
             && !ent.Comp.IgnoreFire)
         {
             RemoveFleshmendEffects(ent);

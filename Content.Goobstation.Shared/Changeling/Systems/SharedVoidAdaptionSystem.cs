@@ -1,4 +1,3 @@
-using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Common.Temperature;
 using Content.Goobstation.Shared.Atmos.Events;
 using Content.Goobstation.Shared.Body;
@@ -6,6 +5,7 @@ using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Temperature;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -193,10 +193,7 @@ public abstract partial class SharedVoidAdaptionSystem : EntitySystem
 
     private bool OnFire(Entity<VoidAdaptionComponent> ent)
     {
-        var fireEv = new GetFireStateEvent();
-        RaiseLocalEvent(ent, ref fireEv);
-
-        return fireEv.OnFire;
+        return HasComp<OnFireComponent>(ent);
     }
 
     private float GetTempThreshold(Entity<VoidAdaptionComponent> ent)
@@ -237,6 +234,7 @@ public abstract partial class SharedVoidAdaptionSystem : EntitySystem
 
     private void DoSituationPopup(Entity<VoidAdaptionComponent> ent, LocId id, PopupType popupType = PopupType.Small)
     {
+        // unfortunately i can't just use PopupClient since the system listens to server-side raised atmos events. gg.
         if (_netManager.IsClient)
             return;
 

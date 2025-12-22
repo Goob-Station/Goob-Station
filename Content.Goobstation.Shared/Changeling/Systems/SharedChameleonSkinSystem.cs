@@ -1,9 +1,9 @@
-using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Shared.Actions;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
@@ -125,10 +125,7 @@ public abstract partial class SharedChameleonSkinSystem : EntitySystem
 
     private bool FireInvalidCheck(Entity<ChameleonSkinComponent> ent)
     {
-        var fireEv = new GetFireStateEvent();
-        RaiseLocalEvent(ent, ref fireEv);
-
-        return fireEv.OnFire;
+        return HasComp<OnFireComponent>(ent);
     }
 
     private void DoPopup(Entity<ChameleonSkinComponent> ent, LocId popup, PopupType popupType = PopupType.Small)

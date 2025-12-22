@@ -1,10 +1,10 @@
-using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Common.Medical;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.SpecialPassives.BoostedImmunity.Components;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Alert;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage;
@@ -203,10 +203,9 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
 
     private bool TryValidFireCheck(Entity<BoostedImmunityComponent> ent)
     {
-        var fireEv = new GetFireStateEvent();
-        RaiseLocalEvent(ent, ref fireEv);
+        var onFire = HasComp<OnFireComponent>(ent);
 
-        if (fireEv.OnFire
+        if (onFire
             && !ent.Comp.IgnoreFire)
             return false;
 

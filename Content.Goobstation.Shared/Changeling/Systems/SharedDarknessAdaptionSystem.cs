@@ -1,10 +1,10 @@
-using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.Overlays;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
@@ -144,18 +144,12 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
 
     private bool FireInvalidCheck(Entity<DarknessAdaptionComponent> ent)
     {
-        var fireEv = new GetFireStateEvent();
-        RaiseLocalEvent(ent, ref fireEv);
-
-        return fireEv.OnFire;
+        return HasComp<OnFireComponent>(ent);
     }
 
     private void DoPopup(Entity<DarknessAdaptionComponent> ent, LocId popup)
     {
-        if (_net.IsClient)
-            return;
-
-        _popup.PopupEntity(Loc.GetString(popup), ent, ent);
+        _popup.PopupClient(Loc.GetString(popup), ent, ent);
     }
 
     private void SetAdaptingBool(Entity<DarknessAdaptionComponent> ent, bool adapting)
