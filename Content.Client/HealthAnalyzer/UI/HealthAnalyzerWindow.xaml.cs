@@ -100,6 +100,7 @@ using Content.Shared.Body.Part;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using System.Globalization;
+using Content.Goobstation.Shared.Disease.Components;
 
 namespace Content.Client.HealthAnalyzer.UI
 {
@@ -292,7 +293,7 @@ namespace Content.Client.HealthAnalyzer.UI
             DrawDiagnosticGroups(damageSortedGroups, damagePerType);
 
             // Goobstation
-            if (_entityManager.TryGetComponent<Goobstation.Shared.Disease.Components.DiseaseCarrierComponent>(_target, out var carrier))
+            if (_entityManager.TryGetComponent<DiseaseCarrierComponent>(_target, out var carrier))
             {
                 DrawDiseases(carrier.Diseases.ContainedEntities);
             }
@@ -615,7 +616,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
             foreach (var diseaseUid in diseases)
             {
-                if (!_entityManager.TryGetComponent<Goobstation.Shared.Disease.Components.DiseaseComponent>(diseaseUid, out var disease))
+                if (!_entityManager.TryGetComponent<DiseaseComponent>(diseaseUid, out var disease))
                     continue;
 
                 var diseaseInfoContainer = new BoxContainer
