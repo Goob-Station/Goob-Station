@@ -96,7 +96,7 @@ public sealed class DamageSquareSystem : EntitySystem
         var grid = xform.GridUid.Value;
         var tile = _map.GetTileRef(grid, Comp<MapGridComponent>(grid), xform.Coordinates);
 
-        var lookup = _lookup.GetLocalEntitiesIntersecting(tile, 0f, LookupFlags.Uncontained);
+        var lookup = _lookup.GetLocalEntitiesIntersecting(tile, 0f);
 
         foreach (var target in lookup)
         {
