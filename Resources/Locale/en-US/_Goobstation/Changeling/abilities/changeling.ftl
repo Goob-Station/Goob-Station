@@ -11,7 +11,7 @@
 # Abilities
 changeling-biomass-deficit = Not enough biomass!
 changeling-chemicals-deficit = Not enough chemicals!
-changeling-action-fail-lesserform = Can't use it while in lesser form!
+changeling-action-fail-lesserform = Can't perform this action while in a lesser form!
 
 changeling-biomass-warn-first = We begin to hunger...
 changeling-biomass-warn-second = Our hunger causes a bout of pain...
