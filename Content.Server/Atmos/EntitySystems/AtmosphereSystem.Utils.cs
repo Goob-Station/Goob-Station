@@ -12,8 +12,6 @@ using System.Runtime.CompilerServices;
 using Content.Server.Atmos.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
-using Content.Shared.Maps;
-using Robust.Shared.Map;
 using Content.Shared.Atmos.Piping.Components;
 using Robust.Shared.Map.Components;
 
