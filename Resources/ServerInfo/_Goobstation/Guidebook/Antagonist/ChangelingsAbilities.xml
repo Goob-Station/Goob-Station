@@ -44,27 +44,20 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - Transforms you to have the exact name and voice of your currently active DNA, consumes the DNA.
   - Can be used while cuffed or in lesser form.
 
-  ## Enter Regenerative Statis
+  ## Regenerative Stasis
   <Box>
-    [color=#999999][italic]0 chems[italic][/color]
+    [color=#999999][italic]0/15 Chems[italic][/color]
   </Box>
 
-  - Changeling instantly dies, and the exit stasis ability is unlocked.
-  - The time to leave stasis scales with damage taken, minimum of 15s to maximum of 60s.
-  - Can be used while cuffed or in lesser form.
-  - Can be used while on fire.
-
-  ## Exit Regenerative Statis
-  <Box>
-    [color=#999999][italic]15 Chems[italic][/color]
-  </Box>
-
-  - Changeling instantly revives, all health is fully recovered.
+  - Enters stasis if not already in it.
+  - Stasis is also automatically triggered when the user dies.
+  - Cannot ghost while stasis is active.
+  - When leaving stasis, instantly revive with all health fully recovered.
   - Limbs are not regrown.
   - Diseases and chemicals are not purged.
   - Can be used while cuffed or in lesser form.
   - Can be used while on fire.
-  - Can only be used after a set duration. This scales with damage taken prior to stasis, up to 60 seconds and a minimum of 15 seconds.
+  - The time to leave stasis scales with damage taken, minimum of 15s to maximum of 60s.
 
   ## Regenerate
   <Box>

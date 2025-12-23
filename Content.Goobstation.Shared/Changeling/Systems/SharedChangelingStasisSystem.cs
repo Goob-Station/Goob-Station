@@ -57,11 +57,12 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
         SubscribeLocalEvent<ChangelingStasisComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ChangelingStasisComponent, ComponentShutdown>(OnShutdown);
 
-        SubscribeLocalEvent<ChangelingStasisComponent, EnterStasisEvent>(OnEnterStasisAction);
-        SubscribeLocalEvent<ChangelingStasisComponent, ExitStasisEvent>(OnExitStasisAction);
+        SubscribeLocalEvent<ChangelingStasisComponent, ChangelingStasisEvent>(OnStasisAction);
 
         SubscribeLocalEvent<ChangelingStasisComponent, MobStateChangedEvent>(OnMobStateChange);
         SubscribeLocalEvent<ChangelingStasisComponent, TargetBeforeDefibrillatorZapsEvent>(OnDefibZap);
+        SubscribeLocalEvent<ChangelingStasisComponent, CritSuccumbEvent>(OnSuccumb);
+        SubscribeLocalEvent<ChangelingStasisComponent, CritLastWordsEvent>(OnLastWords);
 
         _absorbQuery = GetEntityQuery<AbsorbedComponent>();
         _bloodQuery = GetEntityQuery<BloodstreamComponent>();
@@ -79,29 +80,23 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
     {
         SetStasisTime(ent);
 
-        ent.Comp.EnterActionEnt = _actions.AddAction(ent, ent.Comp.EnterActionId);
+        ent.Comp.ActionEnt = _actions.AddAction(ent, ent.Comp.ActionId);
     }
 
     private void OnShutdown(Entity<ChangelingStasisComponent> ent, ref ComponentShutdown args)
     {
         SetPreventGhosting(ent, false);
 
-        if (ent.Comp.EnterActionEnt != null)
-            _actions.RemoveAction(ent.Owner, ent.Comp.EnterActionEnt);
-
-        if (ent.Comp.ExitActionEnt != null)
-            _actions.RemoveAction(ent.Owner, ent.Comp.ExitActionEnt);
+        _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
     }
 
     #region Event Handlers
-    private void OnEnterStasisAction(Entity<ChangelingStasisComponent> ent, ref EnterStasisEvent args)
+    private void OnStasisAction(Entity<ChangelingStasisComponent> ent, ref ChangelingStasisEvent args)
     {
-        EnterStasis(ent);
-    }
-
-    private void OnExitStasisAction(Entity<ChangelingStasisComponent> ent, ref ExitStasisEvent args)
-    {
-        ExitStasis(ent);
+        if (!ent.Comp.IsInStasis)
+            EnterStasis(ent);
+        else
+            ExitStasis(ent);
     }
 
     private void OnMobStateChange(Entity<ChangelingStasisComponent> ent, ref MobStateChangedEvent args)
@@ -118,6 +113,17 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
 
         DoPopup(ent, ent.Comp.ExitDefibPopup);
         ExitStasis(ent, false);
+    }
+
+    // prevents you from cheesing the no-ghost mechanic
+    private void OnSuccumb(Entity<ChangelingStasisComponent> ent, ref CritSuccumbEvent args)
+    {
+        args.Handled = true;
+    }
+
+    private void OnLastWords(Entity<ChangelingStasisComponent> ent, ref CritLastWordsEvent args)
+    {
+        args.Handled = true;
     }
 
     #endregion
@@ -165,11 +171,11 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
 
         SetPreventGhosting(ent, true); // prevent ghosting
 
-        // remove enter action, add exit action
-        _actions.RemoveAction(ent.Owner, ent.Comp.EnterActionEnt);
+        // set the cooldown and change icon state
+        _actions.SetToggled(ent.Comp.ActionEnt, true);
+        _actions.SetCooldown(ent.Comp.ActionEnt, ent.Comp.StasisTime);
 
-        ent.Comp.ExitActionEnt = _actions.AddAction(ent, ent.Comp.ExitActionId);
-        _actions.SetCooldown(ent.Comp.ExitActionEnt, ent.Comp.StasisTime);
+        Dirty(ent);
     }
 
     private void ExitStasis(Entity<ChangelingStasisComponent> ent, bool heal = true)
@@ -213,10 +219,10 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
 
         ent.Comp.IsInStasis = false;
 
-        // remove exit action, add enter action
-        _actions.RemoveAction(ent.Owner, ent.Comp.ExitActionEnt);
+        // change icon state back
+        _actions.SetToggled(ent.Comp.ActionEnt, false);
 
-        ent.Comp.EnterActionEnt = _actions.AddAction(ent, ent.Comp.EnterActionId);
+        Dirty(ent);
     }
 
     private void SetStasisTime(Entity<ChangelingStasisComponent> ent)

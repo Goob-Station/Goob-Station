@@ -10,10 +10,7 @@ public sealed partial class ChangelingStasisComponent : Component
 {
     // protoIDs
     [DataField]
-    public EntProtoId EnterActionId = "ActionEnterStasis";
-
-    [DataField]
-    public EntProtoId ExitActionId = "ActionExitStasis";
+    public EntProtoId ActionId = "ActionRegenerativeStasis";
 
     [DataField]
     public ProtoId<DamageTypePrototype> AliveDamageProto = "Slash";
@@ -22,12 +19,8 @@ public sealed partial class ChangelingStasisComponent : Component
     public ProtoId<DamageTypePrototype> CritDamageProto = "Asphyxiation";
 
     // actionsEnts
-
     [DataField, AutoNetworkedField]
-    public EntityUid? EnterActionEnt;
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? ExitActionEnt;
+    public EntityUid? ActionEnt;
 
     // LocIds
     [DataField]
