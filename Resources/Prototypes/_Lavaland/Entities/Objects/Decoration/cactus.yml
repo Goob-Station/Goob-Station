@@ -1,21 +1,21 @@
-- type: entity
-  name: lavashroom
+﻿- type: entity
+  name: fruiting cacti
   parent: BaseStructure
-  id: Lavashroom
-  suffix: Structure
-  description: A wild mushroom that likes to grow in hot, moist environments.
+  id: FruitCactus
+  description: Several prickly cacti, brimming with ripe fruit and covered in a thin layer of ash.
   components:
   - type: Sprite
-    sprite: _Lavaland/Objects/Decoration/Flora/lavashroom.rsi
+    sprite: _Lavaland/Objects/Decoration/Flora/fruiting_cactus.rsi
     layers:
-    - state: shroom1
+    - state: cactus1
       map: ["random"]
   - type: RandomSprite
     available:
     - random:
-        shroom1: ""
-        shroom2: ""
-        shroom3: ""
+        cactus1: ""
+        cactus2: ""
+        cactus3: ""
+        cactus4: ""
   - type: Transform
     anchored: true
   - type: Physics
@@ -28,8 +28,8 @@
           radius: 0.2
   - type: InteractionOutline
   - type: Harvestable
-    delay: 3.5
-    loot: FoodSpaceshroom # TODO: make lavashroom food
+    delay: 2.5
+    loot: FoodMealCactusFruit
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Wood
