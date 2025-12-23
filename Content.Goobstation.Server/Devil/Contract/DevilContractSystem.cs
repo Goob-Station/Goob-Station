@@ -10,7 +10,6 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
-using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.Paper;
 using Content.Goobstation.Server.Devil.Objectives.Components;
 using Content.Goobstation.Server.Possession;
@@ -40,6 +39,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Diagnostics.Contracts;
 using System.Diagnostics.CodeAnalysis;
+using Content.Goobstation.Shared.Changeling.Components;
 
 namespace Content.Goobstation.Server.Devil.Contract;
 
@@ -248,7 +248,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         if (HasComp<CondemnedComponent>(user)
             || HasComp<SiliconComponent>(user)
             || HasComp<DroneComponent>(user)
-            || HasComp<ChangelingComponent>(user)
+            || HasComp<ChangelingIdentityComponent>(user)
             || HasComp<BorgChassisComponent>(user))
         {
             failReason = Loc.GetString("devil-contract-no-soul-sign-failed");

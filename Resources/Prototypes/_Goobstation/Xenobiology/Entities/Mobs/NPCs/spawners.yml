@@ -1,0 +1,16 @@
+- type: entity
+  name: random T1 xenobio slime spawner
+  id: XenobioSlimeBabySpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
+        state: base
+  - type: RandomSpawner
+    prototypes:
+    - MobSlimeXenobioBabyGrey
+    - MobSlimeXenobioBabyGrey # more chance to get spawned because it's the mother of all slimes
+    - MobSlimeXenobioBabyPurple
+    - MobSlimeXenobioBabyBlue

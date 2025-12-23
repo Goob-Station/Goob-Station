@@ -844,7 +844,7 @@
   description: uplink-combat-medipen-desc
   productEntity: CombatMedipen
   cost:
-    Telecrystal: 8 # Goobstation - Combat pen rebalance
+    Telecrystal: 12 # Goobstation - Combat pen rebalance
   categories:
   - UplinkChemicals
 

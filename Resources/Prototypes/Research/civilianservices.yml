@@ -353,7 +353,7 @@
   - MedkitCombat # Goobstation - remove medkitcombat from static to research
   - VialBluespace # goob edit - bluespace vials
   # Goobstation R&D Console rework start
-  position: 2,6
+  position: 4,5
   technologyPrerequisites:
   - BiochemicalStasis
   # Goobstation R&D Console rework end

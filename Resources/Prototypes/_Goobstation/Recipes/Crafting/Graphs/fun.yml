@@ -24,3 +24,140 @@
               doAfter: 1
     - node: toygrenade
       entity: GrenadeToy
+
+- type: constructionGraph
+  id: ToyMansusGrasp
+  graph:
+  - node: start
+    edges:
+    - to: toymansusgrasp
+      steps:
+      - tag: Igniter
+        icon:
+          sprite: Objects/Devices/igniter.rsi
+          state: icon
+        name: construction-graph-tag-igniter
+        doAfter: 1
+      - tag: CrayonGreen
+        icon:
+          sprite: Objects/Fun/crayons.rsi
+          state: green
+        name: construction-graph-tag-green-crayon
+        doAfter: 1
+      - tag: GreenGloves
+        icon:
+          sprite: Clothing/Hands/Gloves/Color/color.rsi
+          state: icon
+        name: construction-graph-tag-green-gloves
+        doAfter: 1
+  - node: toymansusgrasp
+    entity: ToyMansusGrasp
+
+- type: constructionGraph
+  id: ToyCodexCicatrix
+  graph:
+  - node: start
+    edges:
+    - to: toycodexcicatrix
+      steps:
+      - tag: CrayonPurple
+        icon:
+          sprite: Objects/Fun/crayons.rsi
+          state: purple
+        name: construction-graph-tag-purple-crayon
+        doAfter: 1
+      - tag: Book
+        icon:
+          sprite: Objects/Misc/books.rsi
+          state: book_icon
+        name: construction-graph-tag-book
+        doAfter: 1
+      - tag: Meat
+        icon:
+          sprite: Objects/Consumable/Food/meat.rsi
+          state: plain
+        name: construction-graph-tag-meat
+  - node: toycodexcicatrix
+    entity: ToyCodexCicatrix
+
+- type: constructionGraph
+  id: ToyBlades
+  start: start
+  graph:
+  - node: start
+    entity: ToyBladeEldritch
+    edges:
+    - to: ashbladetoy
+      steps:
+      - tag: Ash
+        name: construction-graph-tag-ash
+        doAfter: 1
+    - to: bladebladetoy
+      steps:
+      - tag: Shiv
+        name: construction-graph-tag-shiv
+        doAfter: 1
+    - to: fleshbladetoy
+      steps:
+      - tag: Meat
+        name: construction-graph-tag-meat
+        doAfter: 1
+    - to: voidbladetoy
+      steps:
+      - tag: IceBucket
+        name: construction-graph-tag-ice-bucket
+        doAfter: 1
+    - to: rustbladetoy
+      steps:
+      - tag: WaterBottle
+        name: construction-graph-tag-water-bottle
+        doAfter: 1
+
+  - node: ashbladetoy
+    entity: ToyBladeAsh
+  - node: bladebladetoy
+    entity: ToyBladeBlade
+  - node: fleshbladetoy
+    entity: ToyBladeFlesh
+  - node: voidbladetoy
+    entity: ToyBladeVoid
+  - node: rustbladetoy
+    entity: ToyBladeRust
+
+
+- type: constructionGraph
+  id: HereticCostume
+  start: start
+  graph:
+  - node: start
+    entity: ClothingOuterArmorHereticCostume
+    edges:
+    - to: ashcostume
+      steps:
+      - tag: Ash
+        name: construction-graph-tag-ash
+        doAfter: 1
+    - to: bladecostume
+      steps:
+      - tag: Shiv
+        name: construction-graph-tag-shiv
+        doAfter: 1
+    - to: fleshcostume
+      steps:
+      - tag: Meat
+        name: construction-graph-tag-meat
+        doAfter: 1
+    - to: voidcostume
+      steps:
+      - tag: IceBucket
+        name: construction-graph-tag-ice-bucket
+        doAfter: 1
+
+  - node: ashcostume
+    entity: ClothingOuterArmorHereticAshCostume
+  - node: bladecostume
+    entity: ClothingOuterArmorHereticBladeCostume
+  - node: fleshcostume
+    entity: ClothingOuterArmorHereticFleshCostume
+  - node: voidcostume
+    entity: ClothingOuterArmorHereticVoidCostume
