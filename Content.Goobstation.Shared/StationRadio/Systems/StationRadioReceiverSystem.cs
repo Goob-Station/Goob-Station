@@ -3,7 +3,6 @@ using Content.Goobstation.Shared.StationRadio.Events;
 using Content.Shared.Interaction;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Shared.StationRadio.Systems;
@@ -24,7 +23,7 @@ public sealed class StationRadioReceiverSystem : EntitySystem
     private void OnPowerChanged(EntityUid uid, StationRadioReceiverComponent comp, PowerChangedEvent args)
     {
         if(comp.SoundEntity != null && args.Powered)
-            _audio.SetGain(comp.SoundEntity, comp.Active ? 1f : 0f);
+            _audio.SetGain(comp.SoundEntity, comp.Active ? comp.DefaultParams.Volume : 0f);
         else if(comp.SoundEntity != null)
             _audio.SetGain(comp.SoundEntity, 0);
     }
@@ -33,19 +32,15 @@ public sealed class StationRadioReceiverSystem : EntitySystem
     {
         comp.Active = !comp.Active;
         if (comp.SoundEntity != null && _power.IsPowered(uid))
-            _audio.SetGain(comp.SoundEntity, comp.Active ? 1f : 0f);
+            _audio.SetGain(comp.SoundEntity, comp.Active ? comp.DefaultParams.Volume : 0f);
     }
 
     private void OnMediaPlayed(EntityUid uid, StationRadioReceiverComponent comp, StationRadioMediaPlayedEvent args)
     {
-        var gain = comp.Active ? 3f : 0f;
-        var audio = _audio.PlayPredicted(args.MediaPlayed, uid, uid, AudioParams.Default.WithVolume(3f).WithMaxDistance(4.5f));
+        var audio = _audio.PlayPredicted(args.MediaPlayed, uid, uid, comp.DefaultParams);
         if (audio != null && _power.IsPowered(uid))
-        {
             comp.SoundEntity = audio.Value.Entity;
-            _audio.SetGain(comp.SoundEntity, gain);
-        }
-        else if(audio != null && !_power.IsPowered(uid))
+        else if (audio != null && !_power.IsPowered(uid))
         {
             comp.SoundEntity = audio.Value.Entity;
             _audio.SetGain(comp.SoundEntity, 0);
