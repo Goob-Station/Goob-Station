@@ -9,7 +9,6 @@
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.Nutrition.Components;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
@@ -19,31 +18,36 @@ public partial class XenobiologySystem
 {
     private void SubscribeBreeding()
     {
-        SubscribeLocalEvent<PendingSlimeSpawnComponent, MapInitEvent>(OnPendingSlimeMapInit);
+        SubscribeLocalEvent<RandomSlimeChangeComponent, MapInitEvent>(OnPendingSlimeMapInit);
         SubscribeLocalEvent<SlimeComponent, MapInitEvent>(OnSlimeMapInit);
     }
 
-    private void OnPendingSlimeMapInit(Entity<PendingSlimeSpawnComponent> ent, ref MapInitEvent args)
+    private void OnPendingSlimeMapInit(Entity<RandomSlimeChangeComponent> ent, ref MapInitEvent args)
     {
-        if (!_net.IsServer) return;
-
-        // it sucks but it works and now y*ml warriors can add more slimes 500% faster
-        var slime = SpawnSlime(ent, ent.Comp.BasePrototype, ent.Comp.Breed);
-        if (!slime.HasValue)
+        if (!_net.IsServer
+            || !TryComp(ent.Owner, out SlimeComponent? slime))
             return;
 
-        var s = slime.Value.Comp;
         // every xenobio slime copy is personalized. feel free to tweak it as you like
-        // the rest of the shit such as inheritance is handled by SpawnSlime
-        s.MutationChance *= _random.NextFloat(.5f, 1.5f);
-        s.MaxOffspring += _random.Next(-1, 2);
-        s.ExtractsProduced += _random.Next(0, 2);
-        s.MitosisHunger *= _random.NextFloat(.75f, 1.2f);
+        slime.MutationChance *= _random.NextFloat(.5f, 1.5f);
+        slime.MaxOffspring += _random.Next(-1, 2);
+        slime.ExtractsProduced += _random.Next(0, 2);
+        slime.MitosisHunger *= _random.NextFloat(.75f, 1.2f);
+
+        RemComp(ent.Owner, ent.Comp);
     }
 
     private void OnSlimeMapInit(Entity<SlimeComponent> ent, ref MapInitEvent args)
     {
-        if (!_net.IsServer) return;
+        var (uid, comp) = ent;
+
+        if (comp.Shader != null)
+            _appearance.SetData(uid, XenoSlimeVisuals.Shader, comp.Shader);
+
+        _appearance.SetData(uid, XenoSlimeVisuals.Color, comp.SlimeColor);
+
+        if (!_net.IsServer)
+            return;
 
         Subs.CVar(_configuration, GoobCVars.BreedingInterval, val => ent.Comp.UpdateInterval = TimeSpan.FromSeconds(val), true);
         ent.Comp.NextUpdateTime = _gameTiming.CurTime + ent.Comp.UpdateInterval;
@@ -54,8 +58,6 @@ public partial class XenobiologySystem
     /// </summary>
     private void UpdateMitosis()
     {
-        var eligibleSlimes = new HashSet<Entity<SlimeComponent, MobGrowthComponent, HungerComponent>>();
-
         var query = EntityQueryEnumerator<SlimeComponent, MobGrowthComponent, HungerComponent>();
         while (query.MoveNext(out var uid, out var slime, out var growthComp, out var hungerComp))
         {
@@ -64,19 +66,14 @@ public partial class XenobiologySystem
                 || growthComp.IsFirstStage)
                 continue;
 
-            eligibleSlimes.Add((uid, slime, growthComp, hungerComp));
-            slime.NextUpdateTime = _gameTiming.CurTime + slime.UpdateInterval;
-        }
+            if (_hunger.GetHunger(hungerComp) > slime.MitosisHunger - slime.JitterDifference)
+                _jitter.DoJitter(uid, TimeSpan.FromSeconds(1), true);
 
-        foreach (var ent in eligibleSlimes)
-        {
-            if (_hunger.GetHunger(ent) > ent.Comp1.MitosisHunger - ent.Comp1.JitterDifference)
-                _jitter.DoJitter(ent, TimeSpan.FromSeconds(1), true);
-
-            if (_hunger.GetHunger(ent) < ent.Comp1.MitosisHunger)
+            if (_hunger.GetHunger(hungerComp) < slime.MitosisHunger)
                 continue;
 
-            DoMitosis(ent);
+            DoMitosis((uid, slime));
+            slime.NextUpdateTime = _gameTiming.CurTime + slime.UpdateInterval;
         }
     }
 
@@ -100,44 +97,18 @@ public partial class XenobiologySystem
             if (_random.Prob(ent.Comp.MutationChance) && ent.Comp.PotentialMutations.Count > 0)
                 selectedBreed = _random.Pick(ent.Comp.PotentialMutations);
 
-            var sl = SpawnSlime(ent, ent.Comp.DefaultSlimeProto, selectedBreed);
-            if (sl.HasValue)
+            var sl = SpawnNextToOrDrop(selectedBreed, ent.Owner);
+            if (TryComp(sl, out SlimeComponent? newComp))
             {
                 // carries over generations. type shit.
-                var newSlime = sl.Value.Comp;
-                newSlime.Tamer = ent.Comp.Tamer;
-                newSlime.MutationChance = ent.Comp.MutationChance;
-                newSlime.MaxOffspring = ent.Comp.MaxOffspring;
-                newSlime.ExtractsProduced = ent.Comp.ExtractsProduced;
+                newComp.Tamer = ent.Comp.Tamer;
+                newComp.MutationChance = ent.Comp.MutationChance;
+                newComp.MaxOffspring = ent.Comp.MaxOffspring;
+                newComp.ExtractsProduced = ent.Comp.ExtractsProduced;
             }
         }
 
         _containerSystem.EmptyContainer(ent.Comp.Stomach);
         QueueDel(ent);
-    }
-
-    /// <summary>
-    ///     Spawns a slime with a given mutation
-    /// </summary>
-    /// <param name="parent">The original entity.</param>
-    /// <param name="newEntityProto">The proto of the entity being spawned.</param>
-    /// <param name="selectedBreed">The selected breed of the entity.</param>
-    private Entity<SlimeComponent>? SpawnSlime(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
-    {
-        if (Deleted(parent)
-        || !_prototypeManager.TryIndex(selectedBreed, out var newBreed) || _net.IsClient)
-            return null;
-
-        var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent, null, newBreed.Components);
-        if (!TryComp<SlimeComponent>(newEntityUid, out var newSlime))
-            return null;
-
-        if (newSlime.ShouldHaveShader && newSlime.Shader != null)
-            _appearance.SetData(newEntityUid, XenoSlimeVisuals.Shader, newSlime.Shader);
-
-        _appearance.SetData(newEntityUid, XenoSlimeVisuals.Color, newSlime.SlimeColor);
-        _metaData.SetEntityName(newEntityUid, newBreed.BreedName);
-
-        return new Entity<SlimeComponent>(newEntityUid, newSlime);
     }
 }
