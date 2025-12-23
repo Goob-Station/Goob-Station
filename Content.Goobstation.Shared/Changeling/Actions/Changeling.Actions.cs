@@ -21,7 +21,6 @@
 using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
-using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -128,18 +127,5 @@ public sealed partial class ActionLastResortEvent : InstantActionEvent { }
 public sealed partial class ActionLesserFormEvent : InstantActionEvent { }
 public sealed partial class ActionHivemindAccessEvent : InstantActionEvent { }
 public sealed partial class ActionContortBodyEvent : InstantActionEvent { }
-
-#endregion
-
-#region Events - Misc
-
-[DataDefinition]
-public sealed partial class AugmentedEyesightPurchasedEvent : EntityEventArgs;
-
-[DataDefinition]
-public sealed partial class AwakenedInstinctPurchasedEvent : EntityEventArgs;
-
-[DataDefinition]
-public sealed partial class VoidAdaptionPurchasedEvent : EntityEventArgs;
 
 #endregion

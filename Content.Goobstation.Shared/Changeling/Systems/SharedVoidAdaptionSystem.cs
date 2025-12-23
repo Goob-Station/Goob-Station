@@ -19,13 +19,9 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
-    private EntityQuery<ChangelingIdentityComponent> _lingQuery;
-
     public override void Initialize()
     {
         base.Initialize();
-
-        _lingQuery = GetEntityQuery<ChangelingIdentityComponent>();
 
         SubscribeLocalEvent<VoidAdaptionComponent, ComponentRemove>(OnRemoved);
 
@@ -34,6 +30,8 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         SubscribeLocalEvent<VoidAdaptionComponent, BeforeTemperatureChange>(BeforeTemperatureChangeAttempt);
         SubscribeLocalEvent<VoidAdaptionComponent, TemperatureImmunityEvent>(OnTemperatureImmunityCheck);
         SubscribeLocalEvent<VoidAdaptionComponent, CheckNeedsAirEvent>(OnCheckNeedsAir);
+
+        SubscribeLocalEvent<VoidAdaptionComponent, ChangelingChemicalRegenEvent>(OnChangelingChemicalRegenEvent);
     }
 
     private void OnRemoved(Entity<VoidAdaptionComponent> ent, ref ComponentRemove args)
@@ -42,15 +40,6 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         _alerts.ClearAlert(
             ent,
             ent.Comp.Alert);
-
-        if (!_lingQuery.TryComp(ent, out var ling)
-            || !ent.Comp.AdaptingLowPressure
-            && !ent.Comp.AdaptingLowTemp)
-            return;
-
-        ling.ChemicalRegenMultiplier += ent.Comp.ChemModifierValue;
-        Dirty(ent, ling);
-
     }
 
     #region Event Handlers
@@ -137,6 +126,12 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         args.Cancelled = true;
     }
 
+    private void OnChangelingChemicalRegenEvent(Entity<VoidAdaptionComponent> ent, ref ChangelingChemicalRegenEvent args)
+    {
+        if (ent.Comp.AdaptingLowPressure || ent.Comp.AdaptingLowTemp)
+            args.Modifier -= ent.Comp.ChemModifierValue;
+    }
+
     #endregion
 
     #region Helper Methods
@@ -201,15 +196,9 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
 
     private void TryApplyDebuff(Entity<VoidAdaptionComponent> ent)
     {
-        if (!_lingQuery.TryComp(ent, out var ling))
-            return;
-
         if (ent.Comp.AdaptingLowPressure
             || ent.Comp.AdaptingLowTemp)
             return;
-
-        ling.ChemicalRegenMultiplier -= ent.Comp.ChemModifierValue;
-        Dirty(ent, ling);
 
         _alerts.ShowAlert(
             ent,
@@ -218,15 +207,9 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
 
     private void TryRemoveDebuff(Entity<VoidAdaptionComponent> ent)
     {
-        if (!_lingQuery.TryComp(ent, out var ling))
-            return;
-
         if (ent.Comp.AdaptingLowPressure
             || ent.Comp.AdaptingLowTemp)
             return;
-
-        ling.ChemicalRegenMultiplier += ent.Comp.ChemModifierValue;
-        Dirty(ent, ling);
 
         _alerts.ClearAlert(
             ent,
