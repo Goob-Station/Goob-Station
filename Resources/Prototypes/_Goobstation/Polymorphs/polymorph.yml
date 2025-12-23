@@ -113,12 +113,12 @@
     attachToGridOrMap: true
 
 - type: polymorph
-  id: ForcedHumanMorph
+  id: ForcedUristifcation
   configuration:
     entity: MobHuman
     forced: true
     transferName: true
     inventory: Transfer
-    transferHumanoidAppearance: false
+    transferHumanoidAppearance: false #neccesary so it works on intended targets, though it does make people who were already human bald
     revertOnDeath: false
     revertOnCrit: false
