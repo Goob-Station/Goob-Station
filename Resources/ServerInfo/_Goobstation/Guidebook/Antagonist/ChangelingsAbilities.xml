@@ -50,12 +50,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </Box>
 
   - Changeling instantly dies, and the exit stasis ability is unlocked.
+  - The time to leave stasis scales with damage taken, minimum of 15s to maximum of 60s.
   - Can be used while cuffed or in lesser form.
   - Can be used while on fire.
 
   ## Exit Regenerative Statis
   <Box>
-    [color=#999999][italic]30 Chems[italic][/color]
+    [color=#999999][italic]15 Chems[italic][/color]
   </Box>
 
   - Changeling instantly revives, all health is fully recovered.
