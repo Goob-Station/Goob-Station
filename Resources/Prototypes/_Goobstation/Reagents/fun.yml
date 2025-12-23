@@ -218,10 +218,6 @@
         force: true
         probability: 1
 
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.06
-
 - type: reagent
   id: Uristinaise
   name: reagent-name-uristinaize
