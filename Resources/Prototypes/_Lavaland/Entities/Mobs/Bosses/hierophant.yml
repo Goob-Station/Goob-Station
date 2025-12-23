@@ -105,7 +105,8 @@
     loot: LavalandHierophantClub
     deleteOnDeath: true
   - type: MegafaunaAi
-    actionDelay: 0.5
+    actionDelay: !type:MegafaunaConstantNumberSelector
+      value: 0.5
     selector: !type:NestedMegafaunaSelector
       id: Hierophant
   - type: AngerPlayerScaling

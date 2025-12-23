@@ -7,14 +7,6 @@
     Glass: 1000
 
 - type: latheRecipe
-  id: TileItemBluespace
-  result: FloorTileItemBluespace
-  completetime: 1.5
-  materials:
-    Uranium: 40
-    Steel: 100
-
-- type: latheRecipe
   id: FillableMedipen
   result: FillableMedipen
   completetime: 3
