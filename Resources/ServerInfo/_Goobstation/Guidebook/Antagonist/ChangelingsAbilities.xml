@@ -59,9 +59,22 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </Box>
 
   - Changeling instantly revives, all health is fully recovered.
+  - Limbs are not regrown.
+  - Diseases and chemicals are not purged.
   - Can be used while cuffed or in lesser form.
   - Can be used while on fire.
-  - Can only be used after a set duration. This scales with damage taken prior to stasis, up to 180 seconds.
+  - Can only be used after a set duration. This scales with damage taken prior to stasis, up to 60 seconds and a minimum of 15 seconds.
+
+  ## Regenerate
+  <Box>
+    [color=#999999][italic]15 Chems[italic][/color]
+  </Box>
+
+  - Changeling instantly regrows any missing limbs.
+  - Wounds, bleeding and broken bones are all treated instantly.
+  - Blood levels are restored to full.
+  - If used when limbs are missing, a sound is made.
+  - Can be used while cuffed or in lesser form.
 
   # Combat Abilities
 
