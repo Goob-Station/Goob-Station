@@ -26,12 +26,12 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
     public HereticKnowledgePrototype GetKnowledge(ProtoId<HereticKnowledgePrototype> id)
         => _proto.Index(id);
 
-    public void AddKnowledge(EntityUid uid, HereticComponent comp, ProtoId<HereticKnowledgePrototype> id, bool silent = true)
+    public void AddKnowledge(EntityUid uid, HereticComponent comp, ProtoId<HereticKnowledgePrototype> id, bool silent = true, bool research = true)
     {
         var data = GetKnowledge(id);
 
         if (data.Event != null)
-            RaiseLocalEvent(uid, (object) data.Event, true);
+            RaiseLocalEvent(uid, data.Event, true);
 
         if (data.ActionPrototypes != null && data.ActionPrototypes.Count > 0)
         {
@@ -61,8 +61,8 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         if (data.Stage > comp.PathStage && data.Path == comp.CurrentPath)
             comp.PathStage = data.Stage;
 
-        if (!silent)
-            _popup.PopupEntity(Loc.GetString("heretic-knowledge-gain"), uid, uid);
+        if (!silent) _popup.PopupEntity(Loc.GetString("heretic-knowledge-gain"), uid, uid);
+        if (research) comp.ResearchedKnowledge.Add(id);
     }
     public void RemoveKnowledge(EntityUid uid, HereticComponent comp, ProtoId<HereticKnowledgePrototype> id, bool silent = false)
     {

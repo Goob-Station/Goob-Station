@@ -40,7 +40,7 @@ public sealed class MegafaunaNumberSelectorTypeSerializer :
     {
         var type = typeof(MegafaunaNumberSelector);
 
-        if (float.TryParse(node.Value, out var result))
+        if (float.TryParse(node.Value, CultureInfo.InvariantCulture, out var result))
             return new MegafaunaConstantNumberSelector(result);
 
         if (VectorSerializerUtility.TryParseArgs(node.Value, 2, out var args))
@@ -50,6 +50,6 @@ public sealed class MegafaunaNumberSelectorTypeSerializer :
             return new MegafaunaRangeNumberSelector(new Vector2(x, y));
         }
 
-        return (MegafaunaNumberSelector) serializationManager.Read(type, node, context)!;
+        throw new InvalidOperationException($"Cannot parse MegafaunaNumberSelector from value: {node.Value}");
     }
 }
