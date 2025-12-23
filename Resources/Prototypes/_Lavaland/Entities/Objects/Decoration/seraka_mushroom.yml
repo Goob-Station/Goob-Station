@@ -1,21 +1,19 @@
 - type: entity
-  name: lavashroom
+  name: seraka mushrooms
   parent: BaseStructure
-  id: Lavashroom
-  suffix: Structure
-  description: A wild mushroom that likes to grow in hot, moist environments.
+  id: SerakaMushroom
+  description: A small cluster of seraka mushrooms. These must have come with the ashlizards.
   components:
   - type: Sprite
-    sprite: _Lavaland/Objects/Decoration/Flora/lavashroom.rsi
+    sprite: _Lavaland/Objects/Decoration/Flora/seraka_mushroom.rsi
     layers:
-    - state: shroom1
+    - state: seraka_mushroom1
       map: ["random"]
   - type: RandomSprite
     available:
     - random:
-        shroom1: ""
-        shroom2: ""
-        shroom3: ""
+        seraka_mushroom1: ""
+        seraka_mushroom2: ""
   - type: Transform
     anchored: true
   - type: Physics
@@ -29,7 +27,7 @@
   - type: InteractionOutline
   - type: Harvestable
     delay: 3.5
-    loot: FoodSpaceshroom # TODO: make lavashroom food
+    loot: FoodMealSerakaCap
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Wood
