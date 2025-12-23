@@ -774,6 +774,7 @@ public sealed partial class ChangelingSystem
         fleshmend.PassiveSound = args.PassiveSound;
         fleshmend.ResPath = args.ResPath;
         fleshmend.EffectState = args.EffectState;
+        fleshmend.BloodLevelAdjust = 0;
 
         AddComp(uid, fleshmend, true);
 
