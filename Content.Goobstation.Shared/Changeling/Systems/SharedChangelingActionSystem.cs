@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.Changeling.Components;
+using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Popups;
@@ -69,10 +70,12 @@ public sealed class SharedChanglingActionSystem : EntitySystem
             return;
         }
 
+        var toggled = Comp<ActionComponent>(ent).Toggled;
+
         // ideally this should be done via an event.
         var chemicals = ling.Chemicals;
 
-        chemicals -= ent.Comp.ChemicalCost;
+        chemicals -= !toggled ? ent.Comp.ChemicalCost : ent.Comp.AltChemicalCost;
         ling.Chemicals = Math.Clamp(chemicals, 0, ling.MaxChemicals);
 
         Dirty(args.User, ling);

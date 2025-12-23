@@ -24,6 +24,9 @@ public sealed partial class ChangelingActionComponent : Component
     public float ChemicalCost = 0;
 
     [DataField, AutoNetworkedField]
+    public float AltChemicalCost = 0; // specifically for actions with an on/off state
+
+    [DataField, AutoNetworkedField]
     public bool UseOnFire = false;
 
     [DataField, AutoNetworkedField]
