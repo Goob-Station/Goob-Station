@@ -1660,7 +1660,7 @@
   - type: DeviceNetworkRequiresPower
   - type: NewsWriter
   - type: AccessReader
-    access: [[ "Service" ]]
+    access: [[ "Journalism" ]] # Goob edit
   - type: ActivatableUI
     key: enum.NewsWriterUiKey.Key
   - type: ActivatableUIRequiresVision
