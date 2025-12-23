@@ -217,3 +217,31 @@
         showInGuidebook: true
         force: true
         probability: 1
+
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.06
+
+- type: reagent
+  id: Uristinaise
+  name: reagent-name-uristinaize
+  group: Medicine
+  desc: reagent-desc-uristinaize
+  physicalDesc: reagent-physical-desc-calming
+  flavor: robust
+  color: "#915E48"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Polymorph
+        prototype: ForcedHumanMorph
+        conditions:
+        - !type:ReagentThreshold
+          min: 17
+      - !type:AdjustReagent
+        reagent: Copium
+        amount: 0.4
+        conditions:
+        - !type:ReagentThreshold
+          min: 10

@@ -111,3 +111,14 @@
     forced: true
     duration: 180
     attachToGridOrMap: true
+
+- type: polymorph
+  id: ForcedHumanMorph
+  configuration:
+    entity: MobHuman
+    forced: true
+    transferName: true
+    inventory: Transfer
+    transferHumanoidAppearance: false
+    revertOnDeath: false
+    revertOnCrit: false

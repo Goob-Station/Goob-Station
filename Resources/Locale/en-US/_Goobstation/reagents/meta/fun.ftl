@@ -55,3 +55,7 @@ reagent-desc-tilenol = You can feel yourself becoming more robust just by holdin
 
 reagent-name-crapotoxin = crapotoxin
 reagent-desc-crapotoxin = Causes the metabolizer to fart uncontrollably.
+
+reagent-name-uristinaize = Uristinaize
+reagent-desc-uristinaize = A purifying essence, this reagent frees spessmen from their false forms. Created by an evil scientist to cure main charcter syndrome.
+flavor-base-yakubian = yakubian
