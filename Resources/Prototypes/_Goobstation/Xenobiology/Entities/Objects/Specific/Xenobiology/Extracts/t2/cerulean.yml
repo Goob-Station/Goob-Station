@@ -20,7 +20,9 @@
         messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:OxygenateNearby
+      - !type:CreateGas
+        gas: Pluoxium
+        multiplier: 55
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
