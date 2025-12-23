@@ -27,6 +27,3 @@ xenobio-reagent-toxin-felinid-desc = Turns any humanoid that ingests enough of i
 
 xenobio-reagent-toxin-advanced-name = Advanced mutation toxin
 xenobio-reagent-toxin-advanced-desc = Turns any humanoid that ingests enough of it into a random species. Yes, even a skeleton. Don't ask how.
-
-xenobio-reagent-genderfluid-name = Gender fluid
-xenobio-reagent-genderfluid-desc = Swaps genders of the person ingesting it. If this existed 100 years ago, humankind would probably have achieved world peace.

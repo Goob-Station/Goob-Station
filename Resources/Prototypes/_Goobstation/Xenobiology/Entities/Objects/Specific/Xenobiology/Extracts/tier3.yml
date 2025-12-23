@@ -151,8 +151,8 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:AdjustReagent
-        reagent: XenobioGenderFluid
-        amount: 5
+        reagent: Fentanyl
+        amount: 0.2
   - type: Tag
     tags:
     - XenobiologyPinkExtract

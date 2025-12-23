@@ -183,24 +183,3 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
-
-- type: reagent
-  parent: Slime
-  id: XenobioGenderFluid
-  name: xenobio-reagent-genderfluid-name
-  desc: xenobio-reagent-genderfluid-desc
-  color: "#FF4DD2"
-  metabolisms:
-    Narcotic:
-      metabolismRate: 1
-      effects:
-      - !type:SexChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 5
-      - !type:AdjustReagent
-        reagent: XenobioGenderFluid
-        amount: -50.0
-        conditions:
-        - !type:ReagentThreshold
-          min: 5
