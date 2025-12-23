@@ -167,7 +167,7 @@
   parent: BaseAction
   id: ActionExitStasis
   name: Exit stasis
-  description: Rise from the dead with full health. Costs 30 chemicals.
+  description: Rise from the dead with full health. Costs 15 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -180,7 +180,7 @@
   - type: InstantAction
     event: !type:ExitStasisEvent {}
   - type: ChangelingAction
-    chemicalCost: 30
+    chemicalCost: 15
     useInLesserForm: true
     useInLastResort: true
 
