@@ -688,6 +688,28 @@
       - WeaponPistolCasul
 
 - type: entity
+  name: blessing of the reaper
+  parent: [Nullrod, ArmBlade, BaseMajorContraband]
+  id: BlessingOfTheReaper
+  description: A special undroppable armblade nullrod, it's blessed by the dark gods.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/blessing_reaper.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Objects/Weapons/Melee/blessing_reaper.rsi
+  - type: Unremoveable
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 25
+        Piercing: 15
+        Holy: 10
+       
+- type: entity
   parent: BaseNullrod
   id: RatvarianSpear
   name: ancient spear
