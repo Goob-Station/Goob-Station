@@ -61,3 +61,9 @@ loadout-group-brigmedic-backpack = Brigmedic backpack
 loadout-group-security-melee = Security melee weapon
 
 loadout-group-animals = Animals
+
+# Virology
+loadout-group-virologist-jumpsuit = Virologist jumpsuit
+loadout-group-virologist-backpack = Virologist backpack
+loadout-group-virologist-outerclothing = Virologist outer clothing
+loadout-group-virologist-id = Virologist ID

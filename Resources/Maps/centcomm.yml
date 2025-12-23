@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/08/2025 11:06:30
-  entityCount: 6793
+  time: 12/06/2025 18:30:00
+  entityCount: 6794
 maps: []
 grids:
 - 1668
@@ -51,6 +51,8 @@ entities:
     components:
     - type: MetaData
       name: Central Command
+    - type: Transform
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
@@ -19248,7 +19250,7 @@ entities:
       pos: -11.5,-22.5
       parent: 1668
     - type: Door
-      secondsUntilStateChange: -13377.107
+      secondsUntilStateChange: -13698.61
       state: Closing
 - proto: CurtainsOrangeOpen
   entities:
@@ -27979,6 +27981,13 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
+- proto: PlushieTheHolyCrusader
+  entities:
+  - uid: 6530
+    components:
+    - type: Transform
+      pos: 23.500582,6.6679215
+      parent: 1668
 - proto: PlushieXeve
   entities:
   - uid: 6519
