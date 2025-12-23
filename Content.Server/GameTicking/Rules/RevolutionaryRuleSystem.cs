@@ -86,6 +86,7 @@ using Content.Server.Chat.Systems;
 using Content.Shared._EinsteinEngines.Revolutionary;
 using Robust.Shared.Player;
 using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goobstation.Common.Conversion;
 
 
 namespace Content.Server.GameTicking.Rules;
@@ -242,6 +243,10 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         if (!_mind.TryGetMind(ev.Target, out var mindId, out var mind))
             return;
 
+        // goob - event instead of whatever the fuck the hascomp obelisk below is (whoever did this needs to be flogged)
+        var convEv = new BeforeConversionEvent();
+        RaiseLocalEvent(ev.Target, ref convEv);
+
         if (HasComp<RevolutionaryComponent>(ev.Target) ||
             HasComp<MindShieldComponent>(ev.Target) ||
             !HasComp<HumanoidAppearanceComponent>(ev.Target) &&
@@ -249,7 +254,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             !_mobState.IsAlive(ev.Target) ||
             HasComp<ZombieComponent>(ev.Target) ||
             HasComp<HereticComponent>(ev.Target) ||
-            HasComp<ChangelingIdentityComponent>(ev.Target) || // goob edit - no more ling or heretic revs
+            HasComp<ChangelingComponent>(ev.Target) || // goob edit - no more ling or heretic revs
             HasComp<AntagImmuneComponent>(ev.Target)) // Antag immune MEANS antag immune.
         {
             if (ev.User != null)
@@ -257,6 +262,16 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
             return;
         }
+
+        // goob - event start
+        if (convEv.Blocked)
+        {
+            if (ev.User != null)
+                _popup.PopupEntity("The conversion failed!", ev.User.Value, ev.User.Value);
+
+            return;
+        }
+        // goob - event end
 
         if (HasComp<RevolutionEnemyComponent>(ev.Target))
             RemComp<RevolutionEnemyComponent>(ev.Target);
