@@ -625,7 +625,7 @@
   parent: BaseAction
   id: ActionChameleonSkin
   name: Chameleon Skin
-  description: Slowly blend in with the environment. Costs 25 chemicals.
+  description: Slowly blend in with the environment. Costs 20 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
