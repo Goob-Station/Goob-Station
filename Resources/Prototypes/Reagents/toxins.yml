@@ -405,10 +405,10 @@
     amount: 10
 
 - type: reagent
-  id: Lexorin
-  name: reagent-name-lexorin
+  id: Lexorine
+  name: reagent-name-lexorine
   group: Toxins
-  desc: reagent-desc-lexorin
+  desc: reagent-desc-lexorine
   physicalDesc: reagent-physical-desc-pungent
   color: "#6b0007"
   metabolisms:
@@ -780,10 +780,10 @@
             Airloss: 2
 
 - type: reagent
-  id: Tazinide
-  name: reagent-name-tazinide
+  id: Tazinine
+  name: reagent-name-tazinine
   group: Toxins
-  desc: reagent-desc-tazinide
+  desc: reagent-desc-tazinine
   physicalDesc: reagent-physical-desc-metallic
   flavor: shocking
   color: "#FDD023"

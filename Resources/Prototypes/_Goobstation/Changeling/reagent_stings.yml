@@ -7,7 +7,7 @@
 - type: reagentStingConfiguration
   id: StingMute
   reagents:
-    MuteToxin: 2
+    Mimerine: 2
 
 - type: reagentStingConfiguration
   id: StingBlind

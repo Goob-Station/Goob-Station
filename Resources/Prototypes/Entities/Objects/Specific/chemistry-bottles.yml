@@ -414,17 +414,17 @@
 
 - type: entity
   id: ChemistryBottleMuteToxin
-  suffix: mute toxin
+  suffix: mimerine
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-mute-toxin
+    currentLabel: reagent-name-mimerine
   - type: SolutionContainerManager
     solutions:
       drink:
         maxVol: 30
         reagents:
-        - ReagentId: MuteToxin
+        - ReagentId: Mimerine
           Quantity: 30
 
 - type: entity

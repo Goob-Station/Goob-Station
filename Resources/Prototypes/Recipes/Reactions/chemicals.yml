@@ -386,7 +386,7 @@
     Ephedrine: 4
 
 - type: reaction
-  id: MuteToxin
+  id: Mimerine
   impact: Medium
   minTemp: 370
   reactants:
@@ -397,7 +397,7 @@
     SpaceGlue:
       amount: 2
   products:
-    MuteToxin: 4 #goob edit
+    Mimerine: 4 #goob edit
 
 - type: reaction
   id: ChloralHydrate
@@ -555,7 +555,7 @@
     Nocturine: 2 #goob edit
 
 - type: reaction
-  id: Tazinide
+  id: Tazinine
   impact: Medium
   reactants:
     Licoxide:
@@ -563,7 +563,7 @@
     Vestine:
       amount: 1
   products:
-    Tazinide: 2 #goob edit
+    Tazinine: 2 #goob edit
 
 - type: reaction
   id: ArtifactGlue

@@ -38,6 +38,6 @@
     animation: WeaponArcThrust
   - type: InjectOnHit
     reagents:
-    - ReagentId: MuteToxin
+    - ReagentId: Mimerine
       Quantity: 5
     limit: 10

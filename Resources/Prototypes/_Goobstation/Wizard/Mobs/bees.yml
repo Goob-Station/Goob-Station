@@ -48,11 +48,11 @@
 
 - type: entity
   parent: MobAngryBeeWizard
-  id: BeeLexorin
-  name: bee (lexorin)
+  id: BeeLexorine
+  name: bee (lexorine)
   components:
   - type: Bloodstream
-    bloodReagent: Lexorin
+    bloodReagent: Lexorine
 
 - type: entity
   parent: MobAngryBeeWizard
@@ -121,10 +121,10 @@
 - type: entity
   parent: MobAngryBeeWizard
   id: BeeMuteToxin
-  name: bee (mute toxin)
+  name: bee (mimerine)
   components:
   - type: Bloodstream
-    bloodReagent: MuteToxin
+    bloodReagent: Mimerine
 
 - type: entity
   parent: MobAngryBeeWizard

@@ -95,7 +95,7 @@ evolutionmenu-sting-lethargic-desc =
 
 evolutionmenu-sting-mute-name = Mute Sting
 evolutionmenu-sting-mute-desc =
-    Inject mute toxin into an organic target, completely silencing them for a while.
+    Inject mimerine into an organic target, completely silencing them for a while.
     May be used while under the effects of Lesser Form.
     Costs 20 chemicals.
 

@@ -1233,7 +1233,7 @@
     - id: FoodSnackLollypopOmnizine
       orGroup: LollypopMystery
       prob: 0.35
-    - id: FoodSnackLollypopLexorin
+    - id: FoodSnackLollypopLexorine
       orGroup: LollypopMystery
       prob: 0.35
     - id: FoodSnackLollypopCyanide
@@ -1324,14 +1324,14 @@
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
-# Lexorin Lollypop
+# Lexorine Lollypop
 
 - type: entity
   parent: FoodSnackLollypopWrappedSyndicate
-  id: FoodSnackLollypopWrappedLexorin
+  id: FoodSnackLollypopWrappedLexorine
   name: wrapped syndicate lollypop
-  suffix: lexorin
-  description: A lollypop containing lexorin. Appears completely ordinary when unwrapped.
+  suffix: lexorine
+  description: A lollypop containing lexorine. Appears completely ordinary when unwrapped.
   components:
   - type: Tag
     tags:
@@ -1339,15 +1339,15 @@
   - type: SpawnItemsOnUse
     items:
     - id: FoodSnackLollypopTrashSyndicate
-    - id: FoodSnackLollypopLexorin
+    - id: FoodSnackLollypopLexorine
     sound:
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
-  id: FoodSnackLollypopLexorin
+  id: FoodSnackLollypopLexorine
   name: lollypop
-  suffix: lexorin
+  suffix: lexorine
   components:
   - type: Tag
     tags:
@@ -1360,7 +1360,7 @@
         reagents:
         - ReagentId: Sugar
           Quantity: 5
-        - ReagentId: Lexorin
+        - ReagentId: Lexorine
           Quantity: 10
 
 # Romerol Lollypop - Very Rare

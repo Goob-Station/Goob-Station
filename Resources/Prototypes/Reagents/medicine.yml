@@ -1526,7 +1526,7 @@
         reagent: Licoxide
         amount: -4
       - !type:AdjustReagent
-        reagent:  Tazinide
+        reagent:  Tazinine
         amount: -4
       # makes you a little chilly when not oding
       - !type:AdjustTemperature

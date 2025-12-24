@@ -214,7 +214,7 @@
   waterConsumption: 0.60
   idealHeat: 298
   chemicals:
-    MuteToxin:
+    Mimerine:
       Min: 1
       Max: 5
       PotencyDivisor: 20

@@ -668,10 +668,10 @@
 - type: entity
   id: ReagentSlimeMuteToxin
   parent: ReagentSlime
-  suffix: Mute Toxin
+  suffix: mimerine
   components:
   - type: Bloodstream
-    bloodReagent: MuteToxin
+    bloodReagent: Mimerine
   - type: PointLight
     color: "#0f0f0f"
   - type: Sprite

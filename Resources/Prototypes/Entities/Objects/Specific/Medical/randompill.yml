@@ -118,7 +118,7 @@
     - quantity: 20
       weight: 10.5
       reagents:
-      - MuteToxin
+      - Mimerine
       - Pax
       - Fresium
       - Cryptobiolin
@@ -146,11 +146,11 @@
       - CarpoToxin
       - BuzzochloricBees
       - Amatoxin
-      - Tazinide
+      - Tazinine
     - quantity: 5
       weight: 2.5
       reagents:
-      - Lexorin
+      - Lexorine
       - Lead
 
 - type: entity

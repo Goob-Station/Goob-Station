@@ -504,10 +504,10 @@
         type: Add
 
 - type: reagent
-  id: MuteToxin
-  name: reagent-name-mute-toxin
+  id: Mimerine
+  name: reagent-name-mimerine
   group: Narcotics
-  desc: reagent-desc-mute-toxin
+  desc: reagent-desc-mimerine
   physicalDesc: reagent-physical-desc-syrupy
   color: "#000000"
   boilingPoint: 255.0

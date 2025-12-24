@@ -571,7 +571,7 @@
       food:
         maxVol: 7
         reagents:
-        - ReagentId: MuteToxin
+        - ReagentId: Mimerine
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 2

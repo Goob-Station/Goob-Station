@@ -485,7 +485,7 @@
           Quantity: 5
         - ReagentId: Nothing
           Quantity: 5
-        - ReagentId: MuteToxin
+        - ReagentId: Mimerine
           Quantity: 5
 # Tastes like bread, cheese.
 
@@ -514,7 +514,7 @@
           Quantity: 1
         - ReagentId: Nothing
           Quantity: 1
-        - ReagentId: MuteToxin
+        - ReagentId: Mimerine
           Quantity: 1
 
 - type: entity

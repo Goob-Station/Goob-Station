@@ -314,7 +314,7 @@
     Impedrezene: 1
 
 - type: reaction
-  id: Lexorin
+  id: Lexorine
   impact: High
   reactants:
     HeartbreakerToxin:
@@ -324,7 +324,7 @@
     Vestine:
       amount: 1
   products:
-    Lexorin: 2
+    Lexorine: 2
 
 - type: reaction
   id: Lipozine
