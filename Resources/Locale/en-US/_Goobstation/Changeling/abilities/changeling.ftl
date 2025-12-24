@@ -86,6 +86,9 @@ changeling-adrenaline = We inject highly potent adrenaline into our body.
 changeling-chameleon-start = We adapt our skin to the environment
 changeling-chameleon-end = Our skin is losing its translucency
 
+changeling-darkadapt-active = We prepare to adjust to the dark.
+changeling-darkadapt-inactive = We stop preparing for the dark.
+
 changeling-voidadapt-lowpressure-start = We adapt to the surrounding low pressure.
 changeling-voidadapt-lowpressure-end = The surrounding pressure is no longer low. We cast off our adaption.
 changeling-voidadapt-lowtemperature-start = We adapt to the surrounding freezing temperature.
