@@ -44,6 +44,11 @@
   minLimit: 0
   loadouts:
   - SecurityPilotBeret
+  - SecurityHelmet
+  - SecurityHelmetAlt
+  - SecurityBeret
+  - SecurityHat
+  - TrooperHat
 
 - type: loadoutGroup
   id: PilotJumpsuit
@@ -51,12 +56,23 @@
   loadouts:
   - JumpsuitPilot
   - JumpskirtPilot
+  - SecurityJumpsuit
+  - SecurityJumpskirt
+  - SecurityJumpsuitGrey
+  - SecurityJumpskirtGrey
+  - SeniorOfficerJumpsuit
+  - SeniorOfficerJumpskirt
+  - TrooperUniform
 
 - type: loadoutGroup
   id: PilotOuterClothing
   name: loadout-group-pilot-outerclothing
   loadouts:
   - OuterWinterPilot
+  - ArmorVest
+  - ArmorVestSlim
+  - SecurityOfficerWintercoat
+  - WinterCoatSeniorSecArmored
 
 - type: loadoutGroup
   id: BrigmedicMask

@@ -42,12 +42,12 @@
   id: JobPilot
   groups:
   - Inventory
-  - SecurityHead
-  - SecurityJumpsuit
+  - PilotHead
+  - PilotJumpsuit
   - SecurityBackpack
   - SecurityMelee
   - SecurityNeck
-  - SecurityOuterClothing
+  - PilotOuterClothing
   - SecurityBelt
   - SecurityShoes
   - SurvivalSecurity

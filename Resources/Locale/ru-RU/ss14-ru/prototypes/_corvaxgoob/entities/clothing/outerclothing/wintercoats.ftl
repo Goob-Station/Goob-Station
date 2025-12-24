@@ -1,2 +1,2 @@
-ent-ClothingOuterWinterPilot = зимняя куртка бронекуртка пилота
+ent-ClothingOuterWinterPilot = зимняя бронекуртка пилота
     .desc = Бронированная утепленная куртка для пилотов службы безопасности.
