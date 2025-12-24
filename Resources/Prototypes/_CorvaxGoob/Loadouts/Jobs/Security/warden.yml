@@ -1,0 +1,22 @@
+# Head:
+- type: loadout
+  id: WardenCap
+  equipment:
+    head: ClothingHeadHatWardenHelper
+
+- type: loadout
+  id: WardenHeadAlt
+  equipment:
+    head: ClothingHeadHatCapWardenAlt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorWardenHat
+    
+- type: loadoutEffectGroup
+  id: SeniorWardenHat
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobWarden
+      time: 187200 # 52 hours

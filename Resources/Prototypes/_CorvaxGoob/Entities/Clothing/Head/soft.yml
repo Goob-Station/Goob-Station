@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingHeadHeadHatBaseFlippable
+  parent: [ClothingHeadHeadHatBaseFlippable, BaseSecurityContraband]
   id: ClothingHeadHatWardenHelper
   name: warden cap
   description: Еhe perfect cap for aspiring wardens.

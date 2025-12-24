@@ -239,7 +239,7 @@
           Heat: 0.8
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ClothingHeadBase, BaseSecurityContraband]
   id: ClothingHeadHatCapWardenAlt
   name: warden's police hat
   description: It's a special blue hat issued to the Warden of a security force.

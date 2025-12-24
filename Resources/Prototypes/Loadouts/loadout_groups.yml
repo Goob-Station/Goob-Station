@@ -1304,6 +1304,10 @@
   loadouts:
   - WardenHead
   - WardenBeret
+# CorvaxGoob-Loadouts-Start
+  - WardenCap
+  - WardenHeadAlt
+# CorvaxGoob-Loadouts-End
 
 - type: loadoutGroup
   id: WardenJumpsuit

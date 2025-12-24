@@ -192,3 +192,5 @@
       - id: ClothingHeadHatBeretWarden
       - id: ClothingUniformJumpskirtWarden
       - id: ClothingUniformJumpsuitWarden
+      - id: ClothingHeadHatCapWardenAlt # CorvaxGoob
+      - id: ClothingHeadHatWardenHelper # CorvaxGoob
