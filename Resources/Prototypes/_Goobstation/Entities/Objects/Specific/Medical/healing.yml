@@ -274,3 +274,63 @@
         reagents:
         - ReagentId: Microplastics
           Quantity: 15
+
+- type: entity
+  name: pill
+  suffix: ibuprofen 3u
+  parent: Pill
+  id: PillIbuprofenSmall
+  components:
+  - type: Pill
+    pillType: 12
+  - type: Sprite
+    state: pill12
+  - type: Label
+    currentLabel: ibuprofen 3u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Ibuprofen
+          Quantity: 3 # heals 20 brute over 20 seconds
+
+- type: entity
+  suffix: ibuprofen 3u, fentanyl 1u
+  parent: PillIbuprofenSmall
+  id: PillIbuprofenFent
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Ibuprofen
+          Quantity: 3
+        - ReagentId: Fentanyl # extra-strong pill
+          Quantity: 1
+
+- type: entity
+  name: Dan's Pain-A-Way pill canister
+  parent: PillCanister
+  id: PillCanisterIbuprofenDan
+  description: The tamper seal on this comes pre-torn.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        rolls: !type:RangeNumberSelector
+          range: 9, 14
+        tableId: RandomPainkillerPillTable
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/ibuprofen_bottle.rsi
+    state: icon
+
+- type: entityTable
+  id: RandomPainkillerPillTable
+  table: !type:GroupSelector
+    children:
+    - id: PillIbuprofenSmall
+      weight: 24
+    - id: PillIbuprofenFent
+      weight: 1
