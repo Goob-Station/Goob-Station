@@ -377,16 +377,10 @@
   id: MagazineHighCaliber
 
 - type: Tag
-  id: MagazineLowCaliberM7S
-
-- type: Tag
   id: MagazineMagnumLeverRifle
 
 - type: Tag
   id: MagazineNailgun
-
-- type: Tag
-  id: MagazineShotgunHeavy
 
 - type: Tag
   id: MagazineSmart
@@ -558,9 +552,6 @@
 
 - type: Tag
   id: SyndicateBreathMask
-
-- type: Tag
-  id: ShellShotgunHeavier
 
 - type: Tag
   id: SheetGlass
@@ -799,6 +790,6 @@
 
 - type: Tag
   id: HereticCostume
-  
+
 - type: Tag
   id: VinylSleeveFit

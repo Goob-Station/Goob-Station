@@ -385,19 +385,6 @@
     node: icon
 
 - type: entity
-  parent: [ClothingHandsKnuckleDustersBase, BaseSyndicateContraband]
-  id: ClothingHandsKnuckleDustersSyndicate
-  name: syndicate knuckle dusters
-  description: Plastitanium knuckle dusters branded with the syndicate logo. A real man beats someone to death with these.
-  components:
-  - type: Sprite
-    state: syndicateknuckleduster
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 16
-
-- type: entity
   parent: [ClothingHandsKnuckleDustersBase, BaseGrandTheftContraband]
   id: ClothingHandsKnuckleDustersQM
   suffix: DO NOT MAP
@@ -439,27 +426,3 @@
         Blunt: 35
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
-
-- type: entity
-  parent: [BaseSyndicateContraband, ClothingHandsGlovesCombat]
-  id: ClothingHandsGlovesGuerrilla
-  name: guerrilla gloves
-  description: Superior quality combative gloves, good for grabs as well as absorbing electrical shocks.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Gloves/guerrilla.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/Hands/Gloves/guerrilla.rsi
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-        color: "#940000"
-      right:
-      - state: inhand-right
-        color: "#940000"
-  - type: GrabModifier
-    startingGrabStage: Hard
-    grabEscapeModifier: -0.1
-    grabEscapeMultiplier: 0.8
-    grabMoveSpeedMultiplier: 2 # 0.8 speed modifier on hard grab

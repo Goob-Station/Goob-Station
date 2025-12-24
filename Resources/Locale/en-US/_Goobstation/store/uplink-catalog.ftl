@@ -287,9 +287,6 @@ uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced
 uplink-belt-rig-name = Grenadier Belt
 uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
 
-uplink-guerrilla-gloves-name = Guerrilla Gloves
-uplink-guerrilla-gloves-desc = A special shock resistant pair of gloves that make you hard grab by default, reduce your slowdown when actively grabbing and make it harder for victims to escape your grabs.
-
 # Deception
 
 uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves
@@ -328,9 +325,6 @@ uplink-pizza-party-crate-desc = A crate coming in the form of disaster pizza del
 
 uplink-undetermined-bundle-name = Undetermined Bundle Crate
 uplink-undetermined-bundle-desc = This crate comes with three random bundles and allows to choose one of them. Guaranteed to include Syndicate encryption key.
-
-uplink-energy-pickaxe-name = Energy Pickaxe
-uplink-energy-pickaxe-desc = A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
 
 uplink-bloodred-cassette-name = Bloodred Casette Player
 uplink-bloodred-cassette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!

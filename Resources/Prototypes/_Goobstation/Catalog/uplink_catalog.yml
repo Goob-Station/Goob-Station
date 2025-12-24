@@ -329,17 +329,6 @@
     stock: 1
 
 - type: listing
-  id: UplinkGlovesKnuckleDusters
-  name: uplink-gloves-knuckleduster-name
-  description: uplink-gloves-knuckleduster-desc
-  icon: { sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi, state: syndicateknuckleduster }
-  productEntity: ClothingHandsKnuckleDustersSyndicate
-  cost:
-    Telecrystal: 20
-  categories:
-  - UplinkWeaponry
-
-- type: listing
   id: UplinkSyndicateDisabler
   name: uplink-syndicate-disabler-name
   description: uplink-syndicate-disabler-desc
@@ -566,18 +555,6 @@
   productEntity: BoxReverseBearTrap
   cost:
     Telecrystal: 23 # novelty item for rp
-  categories:
-  - UplinkWearables
-
-
-- type: listing
-  id: UplinkClothingHandsGlovesGuerrilla
-  name: uplink-guerrilla-gloves-name
-  description: uplink-guerrilla-gloves-desc
-  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
-  productEntity: ClothingHandsGlovesGuerrilla
-  cost:
-    Telecrystal: 20
   categories:
   - UplinkWearables
 
