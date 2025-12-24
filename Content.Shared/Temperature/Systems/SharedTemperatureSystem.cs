@@ -96,6 +96,8 @@ public abstract class SharedTemperatureSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
 
+    protected EntityQuery<TemperatureComponent> TemperatureQuery;
+
     /// <summary>
     /// Band-aid for unpredicted atmos. Delays the application for a short period so that laggy clients can get the replicated temperature.
     /// </summary>
@@ -107,6 +109,8 @@ public abstract class SharedTemperatureSystem : EntitySystem
 
         SubscribeLocalEvent<TemperatureSpeedComponent, OnTemperatureChangeEvent>(OnTemperatureChanged);
         SubscribeLocalEvent<TemperatureSpeedComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
+
+        TemperatureQuery = GetEntityQuery<TemperatureComponent>();
 
         SubscribeLocalEvent<TemperatureSpeedComponent, GetTemperatureThresholdsEvent>(OnGetTemperatureThresholds); // goob edit
     }
@@ -176,7 +180,7 @@ public abstract class SharedTemperatureSystem : EntitySystem
 
     public float GetHeatCapacity(EntityUid uid, TemperatureComponent? comp = null, PhysicsComponent? physics = null)
     {
-        if (!Resolve(uid, ref comp) || !Resolve(uid, ref physics, false) || physics.FixturesMass <= 0)
+        if (!TemperatureQuery.Resolve(uid, ref comp) || !Resolve(uid, ref physics, false) || physics.FixturesMass <= 0)
         {
             return Atmospherics.MinimumHeatCapacity;
         }

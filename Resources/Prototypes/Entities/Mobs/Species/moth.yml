@@ -186,11 +186,12 @@
     damage:
       types:
         Heat: 1.5 # moths burn more easily # Goobstation
-  - type: Temperature # Moths hate the heat and thrive in the cold.
-    heatDamageThreshold: 320
-    coldDamageThreshold: 230
+  - type: Temperature
     currentTemperature: 310.15
     specificHeat: 46
+  - type: TemperatureDamage # Moths hate the heat and thrive in the cold.
+    heatDamageThreshold: 320
+    coldDamageThreshold: 230
     coldDamage:
       types:
         Cold : 0.05 #per second, scales with temperature & other constants

@@ -88,6 +88,7 @@
           Structural: 50
     - type: Insulated
     - type: Temperature
+    - type: TemperatureDamage
       heatDamageThreshold: 10000
       coldDamageThreshold: -300
     - type: Flammable

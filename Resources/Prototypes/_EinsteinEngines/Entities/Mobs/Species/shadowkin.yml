@@ -116,9 +116,10 @@
       - ReagentId: BlackBlood
         Quantity: 200
   - type: Temperature
+    currentTemperature: 310.15
+  - type: TemperatureDamage
     heatDamageThreshold: 330
     coldDamageThreshold: 195
-    currentTemperature: 310.15
     specificHeat: 46
     coldDamage:
       types:

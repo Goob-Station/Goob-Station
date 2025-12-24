@@ -220,6 +220,9 @@
   - type: Damageable # Goobstation - resomi damage modifiers
     damageModifierSet: Resomi
   - type: Temperature
+    currentTemperature: 310.15 # todo goob redo this
+    specificHeat: 50
+  - type: TemperatureDamage
     coldDamageThreshold: 0 # Goobstation - hyperborean velociraptors or some shit, ice planes of norway is where they came from, but in space
     heatDamageThreshold: 320.15 # Goobstation - space chickens can't tolerate reasonable temperatures, but requiring them to stay icy would be cringe, so instead make their heat damage threshold dangerously close to standard atmos, at 47°C
     coldDamage:

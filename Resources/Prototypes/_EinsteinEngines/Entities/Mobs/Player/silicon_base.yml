@@ -83,10 +83,11 @@
         1: 0.45
         0: 0.00
     - type: Temperature
-      heatDamageThreshold: 450 # Another goob edit: Wanted to do 363.15 for le realism, but reptiles have 400K limit which is ????
-      coldDamageThreshold: 260
       currentTemperature: 310.15 # Goob note: 310K is the standard operating temperature of a home circuit breaker
       specificHeat: 42
+    - type: TemperatureDamage # Goob?
+      heatDamageThreshold: 450 # Another goob edit: Wanted to do 363.15 for le realism, but reptiles have 400K limit which is ????
+      coldDamageThreshold: 260
       coldDamage:
         types:
           Cold: 0.1 #per second, scales with temperature & other constants

@@ -218,9 +218,10 @@
   - type: TypingIndicator
     proto: alien
   - type: Temperature
+    currentTemperature: 310.15
+  - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: -150
-    currentTemperature: 310.15
   - type: Tag
     tags:
       - CannotSuicide
@@ -649,9 +650,10 @@
   - type: TypingIndicator
     proto: alien
   - type: Temperature
+    currentTemperature: 310.15
+  - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: -150
-    currentTemperature: 310.15
   - type: NoSlip
   - type: Perishable #Ummmm the acid kills a lot of the bacteria or something
     molsPerSecondPerUnitMass: 0.0005

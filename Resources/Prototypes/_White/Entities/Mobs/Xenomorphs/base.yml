@@ -109,9 +109,10 @@
     proto: alien
   - type: AtmosExposed
   - type: Temperature
+    currentTemperature: 310.15
+  - type: TemperatureDamage
     heatDamageThreshold: 600
     coldDamageThreshold: -150
-    currentTemperature: 310.15
     coldDamage: #per second, scales with temperature & other constants
       types:
         Cold : 0.1

@@ -2025,10 +2025,52 @@
         Slash: 5
         Piercing: 4
   - type: Temperature
-    heatDamageThreshold: 360
-    coldDamageThreshold: 285
     currentTemperature: 310.15
     specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 360
+    coldDamageThreshold: 285
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: Mobs/Animals/kobold.rsi
+      state: kobold
+    - map: [ "outline" ]
+      sprite: Mobs/Animals/kobold.rsi
+      state: outline
+    - map: [ "horns" ]
+      sprite: Mobs/Customization/reptilian_parts.rsi
+      state: horns_short
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "ears" ]
+    - map: [ "id" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "clownedon" ]
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human"
+      visible: false
+  - type: RandomSprite
+    getAllGroups: true
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          kobold: KoboldColors
+      - horns:
+          horns_curled: KoboldHornColors
+          horns_ram: KoboldHornColors
+          horns_short: KoboldHornColors
+          horns_myrsore: KoboldHornColors
+          horns_bighorn: KoboldHornColors
+          horns_argali: KoboldHornColors
+          horns_ayrshire: KoboldHornColors
+          horns_floppy_kobold_ears: Inherit
+          horns_double: Inherit
+          horns_kobold_ears: Inherit
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -2830,10 +2872,11 @@
     factions:
     - Passive
   - type: Temperature
-    heatDamageThreshold: 335
-    coldDamageThreshold: 230
     currentTemperature: 310.15
     specificHeat: 46
+  - type: TemperatureDamage
+    heatDamageThreshold: 335
+    coldDamageThreshold: 230
     coldDamage:
       types:
         Cold : 0.05 #per second, scales with temperature & other constants
@@ -3577,13 +3620,14 @@
     damageContainer: BiologicalMetaphysical
     damageModifierSet: Infernal
   - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+  - type: TemperatureDamage
     heatDamageThreshold: 4000 #They come from hell, so..
     coldDamageThreshold: 260
-    currentTemperature: 310.15
     coldDamage:
       types:
         Cold : 1 #per second, scales with temperature & other constants
-    specificHeat: 42
     heatDamage:
       types:
         Heat : 1 #per second, scales with temperature & other constants
@@ -3790,6 +3834,7 @@
       Dead:
         Base: spacecat_dead
   - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 423
     coldDamageThreshold: 0
   - type: Tag
