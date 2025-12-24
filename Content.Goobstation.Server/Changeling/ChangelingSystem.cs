@@ -256,9 +256,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     {
         if (ent.Comp.ChameleonActive)
             args.Modifier -= 0.25f;
-
-        if (ent.Comp.ActiveArmor != null)
-            args.Modifier -= 0.25f;
     }
 
     public override void Update(float frameTime)
