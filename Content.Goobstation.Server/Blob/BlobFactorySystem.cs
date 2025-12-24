@@ -94,7 +94,7 @@ public sealed class BlobFactorySystem : EntitySystem
 
     [ValidatePrototypeId<ReagentPrototype>]
 
-    private const string Lexorin = "Lexorin";
+    private const string Lexorin = "Lexorine";
 
     [ValidatePrototypeId<ReagentPrototype>]
     private const string Mold = "Mold";
