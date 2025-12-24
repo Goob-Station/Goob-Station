@@ -16,7 +16,7 @@ heretic-gamemode-title = Еретики
 heretic-gamemode-description = Обнаружена измерительная аномалия на станции. Дополнительных данных нет.
 heretic-role-greeting-fluff =
     Ещё один день бессмысленной работы. Вы ощущаете лёгкое мерцание. Вы заглядываете внутрь себя и обнаруживаете нечто, что изменит вашу жизнь.
-
+    
     Врата Мансуса открываются вашему разуму.
 heretic-role-greeting =
     Вы — Еретик!
@@ -35,13 +35,21 @@ heretic-ghoul-greeting =
 heretic-ghoul-greeting-noname =
     Вы были призван из бездны.
     Подчиняйтесь приказам своих хозяев во что бы то ни стало.
+heretic-ghoul-briefing-start = Вы были призваны в этот мир { CAPITALIZE($ent) }!
+heretic-ghoul-briefing-start-noname = Вы были призваны в этот мир сверхъестественной силой.
+heretic-ghoul-briefing-end =
+    Подчиняйтесь воле своего призывателя, не смотря ни на что.
+    
+    используйте +m для общения через Разум Мансуса.
 ghostrole-ghoul-name = Гуль
+ghostrole-flesh-mimic-name = Имитатор плоти
 ghostrole-prophet-name = Пророк
 ghostrole-stalker-name = Сталкер
 ghostrole-fire-shark-name = Пылающая акула
 ghostrole-rustwalker-name = Ржавый странник
 ghostrole-stargazer-name = Звёздный наблюдатель
 ghostrole-ghoul-desc = Помогите вашему призывателю достичь вознесения.
+ghostrole-flesh-mimic-desc = Помогите вознестись своему призывателю. Помните, что со временем вы умрёте.
 ghostrole-prophet-desc = Помогите вашему призывателю достичь вознесения. Коммуницируйте с другими верующими через Связь Мансуса.
 ghostrole-stalker-desc = Помогите вашему призывателю достичь вознесения. Телепортируйтесь и саботируйте освещение экипажа.
 ghostrole-fire-shark-desc = Помогите вашему призывателю достичь вознесения. Сжигайте своих жертв.

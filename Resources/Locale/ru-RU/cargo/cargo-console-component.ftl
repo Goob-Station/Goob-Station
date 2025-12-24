@@ -2,6 +2,8 @@
 
 cargo-console-menu-title = Консоль заказа грузов
 cargo-console-menu-account-name-label = Аккаунт:{ " " }
+cargo-console-menu-flavor-left = Закажите ещё больше пиццы, чем обычно!
+cargo-console-menu-flavor-right = v2.1
 cargo-console-menu-account-name-none-text = Нет
 cargo-console-menu-account-name-format = [bold][color={ $color }]{ $name }[/color][/bold] [font="Monospace"]\[{ $code }\][/font]
 cargo-console-menu-shuttle-name-label = Название шаттла:{ " " }
@@ -18,11 +20,16 @@ cargo-console-menu-search-bar-placeholder = Поиск
 cargo-console-menu-requests-label = Запросы
 cargo-console-menu-orders-label = Заказы
 cargo-console-menu-order-reason-description = Причина: { $reason }
+cargo-console-menu-order-row-title = { $productName } (x{ $orderAmount } за { $orderPrice }$)
 cargo-console-menu-populate-categories-all-text = Все
+cargo-console-menu-order-row-product-description = Причина: { $orderReason }
+cargo-console-menu-order-row-button-approve = Одобрить
+cargo-console-menu-order-row-button-cancel = Отменить
+cargo-console-menu-order-row-alerts-reason-absent = Причина не указана
+cargo-console-menu-order-row-alerts-requester-unknown = Неизвестно
 cargo-console-menu-populate-orders-cargo-order-row-product-name-text = { $productName } (x{ $orderAmount }) от { $orderRequester } со счёта [color={ $accountColor }]{ $account }[/color]
-cargo-console-menu-cargo-order-row-approve-button = Одобрить
-cargo-console-menu-cargo-order-row-cancel-button = Отменить
 cargo-console-menu-tab-title-orders = Заказы
+cargo-console-menu-account-action-transfer-limit-amount = ${ $amount }
 cargo-console-menu-tab-title-funds = Переводы
 cargo-console-menu-account-action-transfer-limit = [bold]Лимит перевода:[/bold] ${ $limit }
 cargo-console-menu-account-action-transfer-limit-unlimited-notifier = [color=gold](Безлимитно)[/color]

@@ -1,0 +1,14 @@
+ghost-role-information-xenomorph-drone-name = Ксеноморф Дрон
+ghost-role-information-xenomorph-drone-description = Вы — Дрон. Развивайте и расширяйте свой улей.
+ghost-role-information-xenomorph-hunter-name = Ксеноморф Охотник
+ghost-role-information-xenomorph-hunter-description = Вы — Охотник. Охотьтесь на гуманоидов и заражайте их лицехватами.
+ghost-role-information-xenomorph-larva-name = Ксеноморф Грудолом
+ghost-role-information-xenomorph-larva-description = Вы — Грудолом. Помогайте улью расширяться и эволюционируйте в более высокую касту.
+ghost-role-information-xenomorph-maid-name = Ксеномейдочка
+ghost-role-information-xenomorph-maid-description = Вы — Ксеномейдочка. Выполняйте самую важную работу в улье — поддерживайте чистоту.
+ghost-role-information-xenomorph-praetorian-name = Ксеноморф Преторианец
+ghost-role-information-xenomorph-praetorian-description = Вы — Преторианец. Защищайте улей и королеву. Вселяйте страх в своих врагов.
+ghost-role-information-xenomorph-queen-name = Королева Ксеноморфов
+ghost-role-information-xenomorph-queen-description = Вы — Королева Ксеноморфов. Производите потомство и управляйте ульем, и самое главное — НЕ УМРИТЕ.
+ghost-role-information-xenomorph-sentinel-name = Ксеноморф Плевальщик
+ghost-role-information-xenomorph-sentinel-description = Вы — Плевальщик. Помогайте преторианцу защищать улей и атакуйте гуманоидов по необходимости.

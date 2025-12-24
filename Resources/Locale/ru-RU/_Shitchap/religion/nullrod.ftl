@@ -10,8 +10,6 @@ nullrod-honkmother-untrained-usage-popup = Думаешь, ты смешной, 
 nullrod-uristhand-untrained-usage-popup = Незаконное проникновение пресечено.
 nullrod-chainsaw-untrained-usage-popup = Ага, посмотрите-ка, у нас здесь кровавый язычник!
 nullrod-bulwark-untrained-usage-popup = Вы не в силах нести тяжесть собственных грехов, не говоря уже об этом куске металла.
-
 alternate-pray-prompt = Молиться { $item }
 alternate-pray-start = { $user } начинает шептать { $item }...
-
 nullrod-spelldenial-popup = БОЖЬЯ СИЛА ПРИНУЖДАЕТ ВАС!

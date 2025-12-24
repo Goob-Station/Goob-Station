@@ -14,3 +14,7 @@ ent-ClothingOuterVoidsuitSecurity = security hardsuit
     .desc = A light hardsuit with an in-built plate carrier to provide moderate protection while remaining mobile.
 ent-ClothingOuterHardsuitHeadOfSecurityExperimental = FI-52 "Honor Guard" parade hardsuit
     .desc = A special hardsuit that protects against hazardous, low pressure environments. Has an experimental inbuilt stimulant autoinjector system.
+ent-ClothingOuterHardsuitExperimentalNanorep = NTX5-Mirrorduss
+    .desc = A crude dark exosuit of reinforced plating, etched with faintly glowing Bluespace circuits. You can tell someone attempted to scratch out part of the text — Prototype No. 2
+ent-ClothingOuterHardsuitDetective = detective hardsuit
+    .desc = A hardsuit custom-made for the Detective. It has a strong smell of alcohol and cigarettes.

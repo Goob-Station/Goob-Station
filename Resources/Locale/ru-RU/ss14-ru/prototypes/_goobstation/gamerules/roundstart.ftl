@@ -1,3 +1,5 @@
+ent-TraitorSubGamemodesRule = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }
 ent-Changeling = { ent-BaseGameRule }
     .desc = { ent-BaseGameRule.desc }
 ent-CorporateAgent = { ent-BaseTraitorRule }
@@ -20,5 +22,7 @@ ent-Honkops = { ent-BaseNukeopsRule }
     .desc = { ent-BaseNukeopsRule.desc }
 ent-Devil = { ent-BaseGameRule }
     .desc = { ent-BaseGameRule.desc }
+ent-OopsAllThieves = { ent-Thief }
+    .desc = { ent-Thief.desc }
 ent-DuoAbductorRoundstart = { ent-DuoAbductorSpawn }
     .desc = { ent-DuoAbductorSpawn.desc }

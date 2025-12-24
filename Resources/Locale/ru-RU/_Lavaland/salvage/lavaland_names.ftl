@@ -7,10 +7,8 @@
 lavaland-planet-name-unknown = Неизвестная планета
 lavaland-planet-name-lavaland = Лаваленд
 lavaland-planet-name-icemoon = Ледяная луна
-
 # GPS Сигналы
 lavaland-planet-outpost = Главный форпост
-
 lavaland-ruin-unknown = Неизвестно
 lavaland-ruin-cargo = Грузовой обломок
 lavaland-ruin-arrivals-shuttle = Обломок шаттла прибытия

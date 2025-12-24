@@ -43,3 +43,6 @@ ent-SyringeIbuprofen = шприц
 ent-SyringeHeroin = шприц
     .desc = Чувааааак!
     .suffix = Героин 15u
+ent-SyringeMicroplastics = { ent-PrefilledSyringe }
+    .desc = Человечество раньше принимало это в больших дозах. Теперь используется в медицине для Воксов.
+    .suffix = Микропластик 15u

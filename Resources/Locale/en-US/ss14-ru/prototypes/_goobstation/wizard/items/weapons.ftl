@@ -13,3 +13,5 @@ ent-HighFrequencyBlade = high frequency blade
     .desc = A sword reinforced by a powerful alternating current and resonating at extremely high vibration frequencies. This oscillation weakens the molecular bonds of anything it cuts, thereby increasing its cutting ability.
 ent-Spellblade = spellblade
     .desc = An enchanted blade with a series of runes along the side.
+ent-EchoKatana = echo katana
+    .desc = Vibrations are constantly flowing through this sword, like they desperately try to find a way out.

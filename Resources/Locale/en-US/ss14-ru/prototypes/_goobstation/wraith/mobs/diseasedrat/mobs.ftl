@@ -1,0 +1,12 @@
+ent-MobPlagueRatSmall = plague rat
+    .desc = A diseased looking rat.
+    .suffix = Wraith
+ent-MobPlagueRatMedium = plague-ridden rat
+    .desc = A wretched, disgusting rat.
+    .suffix = Wraith
+ent-MobPlagueRatLarge = Bloated rat mass
+    .desc = A horrible mass of pus and warts, that once used to look like a rat.
+    .suffix = Wraith
+ent-MobMadRat = mad rat
+    .desc = A very weak rat spawned from a den.
+    .suffix = Wraith

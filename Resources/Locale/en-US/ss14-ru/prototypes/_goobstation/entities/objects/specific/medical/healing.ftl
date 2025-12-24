@@ -43,3 +43,6 @@ ent-SyringeIbuprofen = syringe
 ent-SyringeHeroin = syringe
     .desc = Damn.
     .suffix = heroin 15u
+ent-SyringeMicroplastics = { ent-PrefilledSyringe }
+    .desc = Humanity used to macrodose themselves with this. Now its just a medicine for vox.
+    .suffix = microplastics

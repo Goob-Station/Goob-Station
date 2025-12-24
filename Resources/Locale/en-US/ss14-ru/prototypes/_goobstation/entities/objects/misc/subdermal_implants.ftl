@@ -40,3 +40,5 @@ ent-AntagImplantSpaceNinja = ninja implant
     .desc = This implant allows the user to gain the skills of a space ninja.
 ent-XenoCompatibilityImplant = xeno compatibility implant
     .desc = Allows a subject to have xeno organs transplanted.
+ent-RedspaceLifelineImplant = redspace lifeline implant
+    .desc = Teleports the hosts body to Syndicate High Command on activation. They will not be able to return.

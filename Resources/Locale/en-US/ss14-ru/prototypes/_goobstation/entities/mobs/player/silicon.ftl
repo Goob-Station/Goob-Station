@@ -1,5 +1,7 @@
 ent-HelpimovCircuitBoard = law board (Helpimov)
     .desc = An electronics board containing the Helpimov lawset.
+ent-GambamovCircuitBoard = law board (Gambamov)
+    .desc = An electronics board containing the Gambamov lawset.
 ent-PlayerBorgDerelictSyndicateAssaultBattery = { ent-BorgChassisDerelictSyndicateAssault }
     .suffix = Battery, Module, Operative, Derelict
     .desc = { ent-BorgChassisDerelictSyndicateAssault.desc }

@@ -24,3 +24,5 @@ ent-ClothingShoesBootsWinterSnowjackBso = blueshield's snowjacks
     .desc = For when you need to save a head from a changeling on a research station in Antarctica.
 ent-ClothingShoesWinterCombatBoots = snowjacks boots
     .desc = Nanotrasen-issue Security combat boots for combat scenarios or combat situations. Now in winter edition.
+ent-ClothingShoesBootsCowboyBrownRobust = authentic brown cowboy boots
+    .desc = For a real cowboy.

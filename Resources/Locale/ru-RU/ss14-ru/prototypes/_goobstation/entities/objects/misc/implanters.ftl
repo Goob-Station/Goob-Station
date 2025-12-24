@@ -78,3 +78,6 @@ ent-AntagImplanterSpaceNinja = { ent-BaseImplantOnlyImplanterCentcomm }
 ent-XenoCompatibilityImplanter = { ent-BaseImplantOnlyImplanter }
     .suffix = Ксено совместимость
     .desc = { ent-BaseImplantOnlyImplanter.desc }
+ent-RedspaceLifelineImplanter = { ent-BaseImplantOnlyImplanterSyndi }
+    .suffix = Редспейс коридор
+    .desc = { ent-BaseImplantOnlyImplanterSyndi.desc }

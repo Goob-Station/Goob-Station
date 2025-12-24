@@ -6,5 +6,3 @@ ent-StatueVenusBlue = statue of a pure maiden
     .suffix = Blue
 ent-StatueBananiumClown = bananium savior statue
     .desc = A bananium statue. It portrays the return of the savior who will rise up and lead the clowns to the great honk.
-ent-StatueHellGoose = hell goose statue
-    .desc = A stone statue. It depicts a goose with blood red eyes, on the pedestal writen is "Bones upon flesh upon organs upon blood, the hell geese will arise to purge this world of it's sins and enlighten all those who accept."

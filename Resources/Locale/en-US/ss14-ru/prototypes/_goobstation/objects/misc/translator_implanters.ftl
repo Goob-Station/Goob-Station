@@ -10,3 +10,6 @@ ent-BasicSpaceItalianTranslatorImplanter = { ent-BaseTranslatorImplanter }
 ent-AdvancedSpaceItalianTranslatorImplanter = { ent-BaseTranslatorImplanter }
     .suffix = Advanced Space Italian
     .desc = { ent-BaseTranslatorImplanter.desc }
+ent-YowKriolTranslatorImplanter = { ent-BaseTranslatorImplanter }
+    .suffix = Yow Kriol
+    .desc = { ent-BaseTranslatorImplanter.desc }

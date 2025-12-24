@@ -16,3 +16,5 @@ ent-ArrowXray = x-ray arrow
     .desc = An arrow made from hardlight. This one pierces through everything.
 ent-ArrowBee = bee arrow
     .desc = An arrow made from hardlight. This one summons angry bees.
+ent-ArrowIon = ion arrow
+    .desc = An arrow made from hardlight. causes EMP on hit.

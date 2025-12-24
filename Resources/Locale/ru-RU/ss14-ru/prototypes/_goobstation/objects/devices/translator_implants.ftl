@@ -6,3 +6,5 @@ ent-BasicSpaceItalianTranslatorImplant = имплант "переводчик К
     .desc = Позволяет понимать обитателей кухни.
 ent-SpaceItalianTranslatorImplant = имплант "продвинутый переводчик Космо-итальянский"
     .desc = Позволяет говорить на языке кухни.
+ent-YowKriolTranslatorImplant = имплант "продвинутый переводчик Йовикрол"
+    .desc = Позволяет понимать и говорить на языке Йовикрол.

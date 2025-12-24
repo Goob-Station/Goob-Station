@@ -41,3 +41,5 @@ ent-NewKinPidginTranslator = Ka'rakk translator
     .desc = Interprets speech for, colloquially, Vox Pidgin. It almost sounds... Alive, inside. Atleast it takes batteries!
 ent-SchechiTranslator = Schechi translator
     .desc = Interprets the birdsong known as Schechi and translates it to Galactic Common. Primarily spoken by Resomi.
+ent-GruntishTranslator = Gruntish translator
+    .desc = Interprets the mess known as Gruntish and translates it to Galactic Common. Primarily spoken by oni.

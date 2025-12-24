@@ -5,17 +5,14 @@ cult-glyph-conditions-not-met = Нет подходящих целей в рад
 cult-glyph-too-many-targets = Слишком много целей на глифе!
 cult-glyph-target-mindshield = Защита разума предотвращает влияние глифа!
 cult-glyph-target-chaplain = Искра божественной силы предотвращает влияние глифа!
-
 cult-glyph-name-knowledge = Пакт знания
 cult-glyph-description-knowledge = Знание. Прививает искру несмываемого знания. Может обратить большинство в наши ряды.
 cult-glyph-name-projection = Пакт проекции
 cult-glyph-description-projection = Проекция. Позволяет нам вознестись во временной астральной форме, чтобы шпионить за окружающими.
-
 cult-glyph-name-warding = Причастие защиты
 cult-glyph-description-warding = Защита. Преобразует одежду, устойчивую к давлению, в энтропическое одеяние.
 cult-glyph-name-blades = Причастие клинков
 cult-glyph-description-blades = Клинки. Преобразует и вытягивает острые предметы в более смертоносное оружие.
-
 cult-glyph-name-cessation = Согласие прекращения
 cult-glyph-description-cessation = Прекращение. Преобразует переносной скруббер в Пустотный шпиль.
 cult-glyph-name-truth = Согласие истины

@@ -30,6 +30,8 @@ ntr-executive-softsuit-name = Заказать базовый ВКД
 ntr-executive-softsuit-desc = Базовый ВКД, предназначенный для кратковременного пребывания в космосе. Обеспечивает минимальную защиту.
 ntr-executive-hardsuit-name = Заказать ВКД
 ntr-executive-hardsuit-desc = Прочный ВКД для экстремальных условий. Вы уверены, что эта покупка оправдана?
+ntr-experimental-hardsuit-name = Заказать скафандр
+ntr-experimental-hardsuit-desc = NanoTrasen тестирует экспериментальный экокостюм, собранный из блюспейс-проводящих пластин, созданный путём обратной инженерии скафандра Дредноут от Cybersun’s, с проведением реальных испытаний под вашим наблюдением.
 ntr-executive-cigar-name = Кейс с премиальными сигарами
 ntr-executive-cigar-desc = Стандартный кейс с премиальными сигарами. Только руководителям разрешено курить их в общественных местах.
 ntr-executive-whiskey-name = Премиальный виски
@@ -42,6 +44,8 @@ ntr-executive-1984-name = Револьвер Декард
 ntr-executive-1984-desc = Стандартный револьвер Декард для личной защиты.
 ntr-executive-combatmed-name = Боевой медкомплект
 ntr-executive-combatmed-desc = Для ситуаций, когда базовых средств первой помощи недостаточно.
+ntr-executive-cassette-name = Административный кассетный плеер
+ntr-executive-cassette-desc = Кассетный плеер для прослушивания музыки, пока вы заключаете важные сделки.
 
 # response teams
 

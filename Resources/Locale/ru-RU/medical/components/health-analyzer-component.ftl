@@ -18,12 +18,10 @@ health-analyzer-window-scan-mode-active = АКТИВЕН
 health-analyzer-window-scan-mode-inactive = НЕАКТИВЕН
 health-analyzer-popup-scan-target = { CAPITALIZE($user) } пытается просканировать вас!
 health-analyzer-window-return-button-text = < Назад
-
 health-analyzer-window-body = Тело
 health-analyzer-window-organs = Органы
 health-analyzer-window-chemicals = Химикаты
 health-analyzer-window-conditions = Состояние
-
 solution-type-chemicals = Химикаты в крови
 solution-type-bloodstream = Количество крови
 solution-type-stomach = Химикаты в желудке

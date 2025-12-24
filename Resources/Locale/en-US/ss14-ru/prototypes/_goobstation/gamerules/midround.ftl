@@ -12,3 +12,5 @@ ent-BlobMidround = { ent-BaseGameRule }
     .desc = { ent-BaseGameRule.desc }
 ent-FloorGoblinMidRound = { ent-BaseGameRule }
     .desc = { ent-BaseGameRule.desc }
+ent-SlasherSpawn = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }

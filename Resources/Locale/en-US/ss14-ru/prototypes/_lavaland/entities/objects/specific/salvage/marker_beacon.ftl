@@ -1,0 +1,14 @@
+ent-MarkerBeacon = marker beacon
+    .desc = Shines you the way through the darkness. Useful to not get lost on vast landscapes.
+    .suffix = Unanchored
+ent-MarkerBeaconActive = { ent-MarkerBeacon }
+    .suffix = Unanchored, Active
+    .desc = { ent-MarkerBeacon.desc }
+ent-MarkerBeaconAnchored = { ent-MarkerBeacon }
+    .suffix = Anchored
+    .desc = { ent-MarkerBeacon.desc }
+ent-MarkerBeaconActiveAnchored = { ent-MarkerBeaconActive }
+    .suffix = Anchored, Active
+    .desc = { ent-MarkerBeaconActive.desc }
+ent-BoxMarkerBeacons = marker beacon dispenser
+    .desc = Dispenses 30 marker beacons, extremely useful for space and planet exploration.

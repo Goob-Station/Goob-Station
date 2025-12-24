@@ -1,3 +1,12 @@
+signal-port-name-powered = Запитан
+signal-port-description-powered = Этот порт активируется с высоким или низким уровнем, в зависимости от питания.
+signal-port-name-plumbing-input = Труба: Вход
+signal-port-description-plumbing-input = Слот автоматизации трубы для подачи жидкостей.
+signal-port-name-plumbing-output = Труба: Выход
+signal-port-description-plumbing-output = Слот автоматизации трубы для вывода жидкостей.
+signal-port-name-plumbing-dispenser = Труба: Раздатчик
+signal-port-description-plumbing-dispenser = Слот автоматизации трубы для подачи жидкостей в колбу раздатчика или из неё.
+
 # Роботизированная рука
 
 signal-port-name-input-machine = Предмет: Машина ввода
@@ -76,6 +85,8 @@ signal-port-name-automation-slot-gas-tank = Слот: Баллон
 signal-port-description-automation-slot-gas-tank = Автоматизированный слот для газовой емкости.
 signal-port-name-rad-empty = Пусто
 signal-port-description-rad-empty = Выдает сигнал HIGH, если емкость отсутствует или заполнена менее чем на 33%, в остальных случаях - LOW.
+signal-port-name-automation-slot-bottles = Предмет: Хранилище
+signal-port-description-automation-slot-bottles = Слот автоматизации ХимМастера для таблеток или жидкостей.
 signal-port-name-rad-low = Низкий
 signal-port-description-rad-low = Выдает сигнал HIGH, если емкость заполнена менее чем на 66%, в остальных случаях - LOW.
 signal-port-name-rad-full = Полный

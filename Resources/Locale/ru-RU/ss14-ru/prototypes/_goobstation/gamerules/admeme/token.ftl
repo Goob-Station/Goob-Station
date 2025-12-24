@@ -20,5 +20,7 @@ ent-TokenWizard = { ent-WizardMidround }
     .desc = { ent-WizardMidround.desc }
 ent-TokenSlaughterDemon = { ent-SlaughterDemonMidround }
     .desc = { ent-SlaughterDemonMidround.desc }
+ent-TokenSlasherSpawn = { ent-SlasherSpawn }
+    .desc = { ent-SlasherSpawn.desc }
 ent-TokenLaughterDemon = { ent-LaughterDemonSummon }
     .desc = { ent-LaughterDemonSummon.desc }

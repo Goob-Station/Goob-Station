@@ -1,0 +1,9 @@
+execution-popup-gun-initial-internal = Вы приставляете дуло { $weapon } к голове { $victim }.
+execution-popup-gun-initial-external = { $attacker } приставляет дуло { $weapon } к голове { $victim }.
+execution-popup-gun-complete-internal = Вы стреляете в голову { $victim }!
+execution-popup-gun-complete-external = { $attacker } стреляет в голову { $victim }!
+execution-popup-gun-empty = { CAPITALIZE($weapon) } щёлкает.
+suicide-popup-gun-initial-internal = Вы суёте дуло { THE($weapon) } себе в рот.
+suicide-popup-gun-initial-external = { $attacker } суёт дуло { THE($weapon) } в рот { POSS-ADJ($attacker) }.
+suicide-popup-gun-complete-internal = Вы стреляете себе в голову!
+suicide-popup-gun-complete-external = { $attacker } стреляет в голову { REFLEXIVE($attacker) }!

@@ -8,7 +8,6 @@
 
 goobstation-medicalpatch-bounty-desc = Происходит медицинская чрезвычайная ситуация. Пришлите несколько пластырей, чтобы помочь нам.
 goobstation-medicalpatch-bounty-name = Медицинские пластыри
-
 goobstation-medicalpatch-sticy-trystick = Начато наложение пластыря
 goobstation-medicalpatch-sticy-trystick-success = Пластырь наложен
 goobstation-medicalpatch-sticy-tryremove = Начато снятие пластыря

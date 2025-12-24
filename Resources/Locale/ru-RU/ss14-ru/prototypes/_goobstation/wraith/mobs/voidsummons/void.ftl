@@ -1,0 +1,15 @@
+ent-MobSkeletonCommander = командир скелетов
+    .desc = Крупный скелет, пришедший воодушевлять своих товарищей.
+ent-MobVoidSpiker = тентаклевый монстр
+    .desc = Стоять на месте, вероятно, плохая идея.
+ent-MobVoidHound = гончая Пустоты
+    .desc = Вам, вероятно, не стоит пялиться на эту штуку.
+ent-MobSkeletonCommanderWraith = { ent-MobSkeletonCommander }
+    .suffix = Фантом
+    .desc = { ent-MobSkeletonCommander.desc }
+ent-MobVoidSpikerWraith = { ent-MobVoidSpiker }
+    .suffix = Фантом
+    .desc = { ent-MobVoidSpiker.desc }
+ent-MobVoidHoundWraith = { ent-MobVoidHound }
+    .suffix = Фантом
+    .desc = { ent-MobVoidHound.desc }

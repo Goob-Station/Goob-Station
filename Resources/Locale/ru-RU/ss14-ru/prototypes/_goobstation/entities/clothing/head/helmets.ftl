@@ -11,3 +11,5 @@ ent-ClothingHeadHatHoodCloakSith = капюшон тёмного владыки
     .desc = Что начиналось как простой костюмный капюшон, было незаконно усилено броневыми пластинами, превратившись в функциональный защитный элемент. Похоже, он даже способен защитить владельца от отсутствия давления в космосе.
 ent-ClothingHeadHelmetBaseFoldable = { ent-ClothingHeadHelmetBase }
     .desc = { ent-ClothingHeadHelmetBase.desc }
+ent-ClothingHeadHatCowboyBrownRobust = истинная коричневая ковбойская шляпа
+    .desc = "Эта станция слишком тесна для нас двоих."

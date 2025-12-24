@@ -15,3 +15,4 @@ sanguine-strike-examine = [color=#c41515]Это оружие усилено кр
 scrying-orb-verb-message = Войти в царство мертвых
 scrying-orb-verb-text = Активировать шар
 wizard-mirror-guardian-change-species-fail = Вы не можете изменить вид после того, как стали хранителем!
+wizard-mirror-blood-crawl-change-species-fail = Вы не можете изменить вид после использования демонического сердца!

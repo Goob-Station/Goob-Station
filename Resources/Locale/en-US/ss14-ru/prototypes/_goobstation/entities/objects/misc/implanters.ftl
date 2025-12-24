@@ -78,3 +78,6 @@ ent-AntagImplanterSpaceNinja = { ent-BaseAntagImplantOnlyImplanter }
 ent-XenoCompatibilityImplanter = { ent-BaseImplantOnlyImplanter }
     .suffix = Xeno Compatibility
     .desc = { ent-BaseImplantOnlyImplanter.desc }
+ent-RedspaceLifelineImplanter = { ent-BaseImplantOnlyImplanterSyndi }
+    .suffix = Redspace Lifeline
+    .desc = { ent-BaseImplantOnlyImplanterSyndi.desc }

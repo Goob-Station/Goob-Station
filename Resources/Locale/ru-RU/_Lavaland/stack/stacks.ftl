@@ -1,3 +1,4 @@
+stack-artifact-fragment-ore = необработанный фрагмент артефакта
 stack-unprocessed-gold-ore = необработанная золотая руда
 stack-unprocessed-diamond-ore = необработанная алмазная руда
 stack-unprocessed-steel-ore = необработанная железная руда
@@ -7,3 +8,4 @@ stack-unprocessed-quartz-ore = необработанная кварцевая �
 stack-unprocessed-uranium-ore = необработанная урановая руда
 stack-unprocessed-bananium-ore = необработанная бананиумная руда
 stack-unprocessed-coal = необработанный уголь
+stack-unprocessed-artifact-fragment-ore = незавершённый фрагмент артефакта

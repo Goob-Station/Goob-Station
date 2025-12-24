@@ -6,5 +6,6 @@
 
 roles-antag-changeling-name = Генокрад
 roles-antag-changeling-description = Используй свои способности измененять форму, чтобы выполнить свои цели.
+roles-antag-changelingmidround-name = Генокрад
 roles-antag-corporate-agent-name = Корпоративный агент
 roles-antag-corporate-agent-description = Используй свои корпоративные ресурсы, чтобы выполнить свои цели.

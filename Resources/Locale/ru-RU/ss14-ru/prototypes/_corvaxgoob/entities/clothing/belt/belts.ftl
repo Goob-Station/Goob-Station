@@ -7,3 +7,5 @@ ent-ClothingBeltSurgicalBoard = магнитная доска хирурга
 ent-ClothingBeltSurgicalBoardFilled = { ent-ClothingBeltSurgicalBoard }
     .desc = { ent-ClothingBeltSurgicalBoard.desc }
     .suffix = Заполненный
+ent-ClothingBeltScience = научный пояс
+    .desc = Укреплённый пояс, специально для учёных, под различные инструменты, способный выдержать на себе даже перчатку Г.О.Р.И.Л.Л.А.

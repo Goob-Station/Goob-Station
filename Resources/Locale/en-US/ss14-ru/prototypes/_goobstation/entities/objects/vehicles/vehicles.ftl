@@ -15,3 +15,7 @@ ent-VehicleWheelchairFolded = { ent-VehicleWheelchair }
     .desc = { ent-VehicleWheelchair.desc }
 ent-VehicleHoverchair = hoverchair
     .desc = A luxury hoverchair, kick back and relax.
+ent-VehicleForkliftOverlay = forklift overlay
+    .desc = { "" }
+ent-VehicleForklift = forklift
+    .desc = NanoTrasen approved Forklift Certification required.

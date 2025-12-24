@@ -30,3 +30,5 @@ ent-BulletPistolSilver = bullet (.45 silver)
     .desc = { ent-BaseBullet.desc }
 ent-BulletFlock = stun bolt
     .desc = { ent-BaseBullet.desc }
+ent-ProjectileMonkeyDart = monkey-thrown dart
+    .desc = { ent-BaseBullet.desc }

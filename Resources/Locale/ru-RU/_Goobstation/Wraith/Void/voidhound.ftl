@@ -1,0 +1,6 @@
+wraith-voidhound-cloak-slip = Мы скользим в тени...
+wraith-voidhound-cloak-reappear = Мы вновь проявляемся...
+wraith-voidhound-rushdown-leap = Мы вырываемся из теней!
+#Unused
+
+wraith-voidhound-rushdown-cant-jump = Вы не можете прыгнуть прямо сейчас!

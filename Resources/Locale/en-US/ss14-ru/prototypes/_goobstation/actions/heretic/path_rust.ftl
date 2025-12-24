@@ -4,5 +4,7 @@ ent-ActionHereticAggressiveSpread = Aggressive Spread
     .desc = Spreads rust onto nearby surfaces.
 ent-ActionHereticEntropicPlume = Entropic Plume
     .desc = Spews forth a disorienting plume that causes enemies to strike each other, briefly blinds them and poisons them. Also spreads rust in the path of the plume.
+ent-ActionHereticRustCharge = Rust Charge
+    .desc = A charge that must be started on a rusted tile and will destroy any rusted objects you come into contact with, will deal high damage to others and rust around you during the charge. As it is the rust that empowers you with this ability, no focus is needed.
 ent-ActionHereticRustWave = Patron's Reach
     .desc = Release a toxic wave of rust.

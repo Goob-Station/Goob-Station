@@ -39,6 +39,8 @@ ui-options-admin-sounds = Музыка админов
 ui-options-bwoink-sound = Звук уведомления Ахелпа
 ui-options-volume-label = Громкость
 ui-options-display-label = Дисплей
+# Goobstation - Highlight Volume
+ui-options-highlight-volume = Громкость упоминаний в чате:
 ui-options-quality-label = Качество
 ui-options-misc-label = Разное
 ui-options-interface-label = Интерфейс
@@ -279,6 +281,8 @@ ui-options-function-text-cursor-select-begin = Расширить выделен
 ui-options-function-text-cursor-select-end = Расширить выделение до конца
 ui-options-header-targeting = Прицеливание
 ui-options-function-target-head = Целиться в голову
+# Goobstation - Highlight chat sounds!
+ui-options-highlight-sound = Проигрывать звук упоминаний
 ui-options-function-target-chest = Целиться в грудь
 ui-options-function-target-groin = Целиться в пах
 ui-options-function-target-left-arm = Целиться в левую руку

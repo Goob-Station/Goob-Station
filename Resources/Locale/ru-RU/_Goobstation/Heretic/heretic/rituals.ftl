@@ -45,6 +45,7 @@ heretic-ritual-fail-limit = Вы достигли лимита предмето�
 heretic-ritual-fail-no-lost-blades = Клинки не найдены.
 heretic-ritual-fail-already-ascended = Вы уже вознеслись.
 heretic-ritual-fail-cannot-ascend = Вы не можете вознестись.
+heretic-ritual-fail-cannot-ascend-objectives = Вы должны выполнить свои цели для вознесения.
 
 ## side quests
 

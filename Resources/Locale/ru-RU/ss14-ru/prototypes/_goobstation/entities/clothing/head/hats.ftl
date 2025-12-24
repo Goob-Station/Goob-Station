@@ -33,3 +33,5 @@ ent-ClothingHeadLehmin = топовый головной убор ГВ
     .suffix = Адмем
 ent-ClothingHeadHatJanitorCap = кепка уборщика
     .desc = Вычурная фиолетовая кепка только для ЛУЧШИХ уборщиков.
+ent-ClothingHeadHatTinfoilHat = шапочка из фольги
+    .desc = Высокотехнологичный шлем, состоящий из алюминиевой фольги.

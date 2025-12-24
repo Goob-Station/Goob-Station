@@ -12,6 +12,7 @@ inspect-part-status-conjunction3 = Это{ " " }
 inspect-part-status-and = и{ " " }
 inspect-part-status-you = { "" }
 inspect-part-status-their = { "" }
+
 # inspect-part-status-you = Ваша
 # inspect-part-status-their = Их
 
@@ -19,7 +20,7 @@ body-part-head = Голова
 body-part-chest = Грудь
 body-part-left-arm = Левая рука
 body-part-right-arm = Правая рука
-body-part-arm =  Рука
+body-part-arm = Рука
 body-part-left-hand = Левая кисть
 body-part-right-hand = Правая кисть
 body-part-groin = Пах

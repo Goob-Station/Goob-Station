@@ -32,3 +32,5 @@ ent-SchechiTranslatorImplant = schechi translator implant
     .desc = An implant giving the ability to understand and speak Schechi.
 ent-NewKinPidginTranslatorImplant = ka'rakk translator implant
     .desc = An implant giving the ability to understand and speak Ka'rakk.
+ent-GruntishTranslatorImplant = Gruntish translator implant
+    .desc = An implant giving the ability to understand and speak Gruntish.

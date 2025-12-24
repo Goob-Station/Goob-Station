@@ -15,3 +15,5 @@ ent-ClothingHeadsetAltSecurityRegular = полноразмерная гарни�
     .desc = { ent-ClothingHeadsetAlt.desc }
 ent-ClothingHeadsetAltBlueshield = полноразмерная гарнитура офицера синего щита
     .desc = { ent-ClothingHeadsetAlt.desc }
+ent-ClothingHeadsetCommandService = полноразмерная гарнитура сервиса
+    .desc = Гарнитура с командный и сервисным каналом.

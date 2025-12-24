@@ -1,6 +1,12 @@
-ent-BalloonPackage = balloon package
+ent-BalloonPackageBasic = balloon package
+    .desc = A package containing one random balloon.
+ent-BalloonPackagePremium = premium balloon package
     .desc = A package containing one random balloon.
 ent-BoxBalloonPackage = balloon package box
     .desc = A box full of soon to be balloons.
+ent-PremiumBoxBalloonPackage = premium balloon package box
+    .desc = A box full of soon to be balloons.
 ent-CrateBalloonPackage = balloon popper's package
     .desc = A crate containing 2 full balloon boxes and some additional popping equipment.
+ent-PremiumCrateBalloonPackage = premium balloon warrior's package
+    .desc = Contains the most elite balloons and some additional popping equipment. WARNING! SEVERAL MOAB CLASS BALLOONS INCOMING!

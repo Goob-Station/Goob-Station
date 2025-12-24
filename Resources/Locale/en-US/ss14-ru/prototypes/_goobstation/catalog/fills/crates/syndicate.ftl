@@ -14,3 +14,6 @@ ent-CratePizzaParty = disaster pizza delivery
     .suffix = bombs
 ent-CrateSyndicateUndetermined = undetermined Syndicate bundle crate
     .desc = Contains a Syndicate bundle. Which one is yet to be determined.
+ent-CrateSyndicateStarterKit = basic operative bundle
+    .desc = Contains everything an operative needs to wreak havoc.
+    .suffix = Filled

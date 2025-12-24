@@ -8,3 +8,5 @@ ent-ClothingNeckCloakCarpAlt = carp cloak
     .desc = Restricted to extraterrestrial entities. That means NOT you.
 ent-ClothingNeckCloakSanabi = brigadier general cloak
     .desc = A tattered, yet imposing cloak, worn by elite warriors.
+ent-ClothingNeckCloakVetCap = Veteran Captain's cloak
+    .desc = Captains Aura Cloak

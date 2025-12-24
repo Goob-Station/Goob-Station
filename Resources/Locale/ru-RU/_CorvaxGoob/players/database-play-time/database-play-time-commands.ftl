@@ -4,17 +4,14 @@ cmd-database-playtime_addrole-succeed = Игровое время для { $user
 cmd-database-playtime_addrole-arg-user = <user name>
 cmd-database-playtime_addrole-arg-tracker = <трекер>
 cmd-database-playtime_addrole-arg-time = <время>
-
 cmd-database-playtime_addrole-error-args = Ожидается минимум три аргумента или они неверно указаны
 cmd-database-playtime_addrole-error-tracker-prototype = Неверно указан прототипа трекера времени
 cmd-database-playtime_addrole-error-player-not-found = Указанный игрок не найден
-
 cmd-database-playtime_gettracker-desc = Получает из базы данных информацию о игроке и наигранном времени на указанном трекеру
 cmd-database-playtime_gettracker-help = Использование: { $command } <user name> <tracker>
 cmd-database-playtime_gettracker-succeed = Общее игровое время трекера { $username } игрока { $username } составляет { TOSTRING($time, "dddd\\:hh\\:mm") }
 cmd-database-playtime_gettracker-arg-user = <user name>
 cmd-database-playtime_gettracker-arg-tracker = <трекер>
-
 cmd-database-playtime_gettracker-error-args = Ожидается два аргумента
 cmd-database-playtime_gettracker-error-tracker-prototype = Неверно указан прототипа трекера времени
 cmd-database-playtime_gettracker-error-player-not-found = Указанный игрок не найден

@@ -7,3 +7,5 @@ ent-PolymorphAshJaunt = Unknown
 ent-MobHereticFleshAscend = eldritch horror
     .desc = An incomprehensible mess of limbs and eyes. You can feel it's stare into your soul.
     .suffix = DO NOT MAP
+ent-VoidPrison = Void Prison
+    .desc = A Yawning void encases their mortal coil.

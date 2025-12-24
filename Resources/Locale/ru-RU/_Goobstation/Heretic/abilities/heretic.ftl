@@ -27,6 +27,7 @@ mansus-grasp-trigger-fail = Что-то мешает вам активирова
 ## blade
 
 heretic-blade-examine = [color=yellow]Использование этого предмета в руке разрушит клинок и телепортирует вас подальше от опасности.[/color]
+heretic-blade-break-fail-acended-message = Вы не можете сломать клинок после вознесения!
 heretic-blade-use = Клинок рассыпается, и вы чувствуете, как голоса утаскивают вас.
 heretic-riposte-used = Контратака применена!
 heretic-riposte-available = Контратака доступна!
@@ -51,10 +52,8 @@ heretic-livingheart-offstation = Оно { $state }, вне станции, { $di
 heretic-livingheart-onstation = Оно { $state }, { $direction }!
 heretic-livingheart-unknown = Оно... не в этом измерении.
 heretic-livingheart-faraway = Оно { $state }, невероятно далеко!
-
 heretic-stargaze-obliterate-other = Вы видите, как { $uid } поглощается испепеляющим гневом космоса. На мгновение вы замечаете его силуэт, корчащийся в агонии, прежде чем он рассыпается в атомы.
 heretic-stargaze-obliterate-user = САМА СИЛА КОСМОСА ИЗЛИВАЕТСЯ НА ВАШУ ПЛОТЬ. ОБЖАГИЮЩИЕ ВОЛНЫ ОХВАТЫВАЮТ ВАШЕ ТЕЛО, РАЗДИРАЯ ЕГО НА ЧАСТИ. ВО МГНОВЕНИЕ ВЫ АННИГИЛИРУЕТЕ, ПРЕВРАЩАЕТЕСЬ В ТО, ЧЕМ ВСЕГДА БЫЛИ — В ПЫЛЬ...
-
 heretic-stargazer-reset-consciousness = ЭТО ДЕЙСТВИЕ НЕОБРАТИМО ИЗМЕНИТ СОЗНАНИЕ ВАШЕГО ЗВЁЗДНОГО НАБЛЮДАТЕЛЯ! Используйте снова, чтобы подтвердить.
 heretic-stargazer-consciousness-reset-fail = Ваш запрос на смену личности звездного наблюдателя, похоже, был отклонён... Вам пока придётся смириться с этим.
 heretic-stargazer-consciousness-reset-target = Ваш призыватель сбросил вас, и тело было захвачено призраком. Похоже, его не устроила ваша работа.
@@ -78,6 +77,8 @@ heretic-speech-void-blast = З'МОР'ЗЬ!
 heretic-speech-void-phase = П'РИ'Д Р'ЛЬН'СТ'!
 heretic-speech-void-pull = ПРИВ'Д' 'Х К' М'Н!!
 heretic-speech-cosmic-rune = ЗВ'ЗДН'Я Р'Н'!
+heretic-speech-void-prison = П'СТОТН З'КЛ'Ч'НИЕ!
+heretic-speech-void-conduit = ПКЛ'НС П'СТ'ТЕ!
 heretic-speech-star-touch = ЗВ'ЗДН'Е ПР'К'СН'В'Н'Е!!
 heretic-speech-star-blast = ЗВ'ЗДН'Й ВСТ'Р'Л!!
 heretic-speech-cosmic-expansion = К'СМ'Ч'СК'Я ЭК'СП'НС'Я!
@@ -88,3 +89,4 @@ heretic-speech-mansuslink = ПРО'Н'КН' В Р'ЗУМ!
 heretic-speech-realignment = СБР'С!
 heretic-speech-fuckoff = П'Ш'Л Н'Х'Й!!
 heretic-speech-ice-spear = Р'ССВ'Т Л'ДА!
+heretic-speech-shapeshft = Р'ВОК

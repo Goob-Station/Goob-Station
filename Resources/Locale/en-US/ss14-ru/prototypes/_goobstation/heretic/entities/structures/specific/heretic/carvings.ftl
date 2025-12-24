@@ -5,4 +5,4 @@ ent-GraspingCarving = grasping carving
 ent-MadCarving = mad carving
     .desc = When stepped on, causes heavy stamina damage, blindness, and muteness the victim. Has 2 charges.
 ent-AlertCarving = alert carving
-    .desc = A nearly invisible rune that, when stepped on, alerts the carver who triggered it and where.
+    .desc = A nearly invisible rune that, when stepped on, alerts the carver who triggered it and where and allows them to teleport to carving location.

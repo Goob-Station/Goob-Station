@@ -23,3 +23,5 @@ ent-ClothingEyesGlassesMedDiag = meddiag glasses
     .desc = Sunglasses with a medical and diagnostic hud.
 ent-ClothingEyesGlassesSecurityAdvanced = advanced security goggles
     .desc = A set of goggles that provide flash protection, a security HUD, and basic thermal vision.
+ent-ClothingEyesGlassesSecurityContraDetect = contraband detector security glasses
+    .desc = A set of glasses that provide flash protection, a security HUD, and a built in contraband detector.

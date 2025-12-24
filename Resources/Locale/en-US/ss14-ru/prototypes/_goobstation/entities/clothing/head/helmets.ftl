@@ -11,3 +11,5 @@ ent-ClothingHeadHatHoodCloakSith = dark lord hood
     .desc = What began as a simple cosplay hood was illegally reinforced with armored plates, transforming it into a functional piece of armor. Looks like it's even capable of protecting the user from the lack of pressure in space.
 ent-ClothingHeadHelmetBaseFoldable = { ent-ClothingHeadHelmetBase }
     .desc = { ent-ClothingHeadHelmetBase.desc }
+ent-ClothingHeadHatCowboyBrownRobust = authentic brown cowboy hat
+    .desc = "This station ain't big enough for the two of us."

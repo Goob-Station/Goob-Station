@@ -8,5 +8,5 @@ ent-MeleeDebugSever200 = дебаг клинок 200урн
 ent-MeleeDebugBurner = дебаг поджигатель
     .desc = Сожжёт вас за долю секунды.
     .suffix = DEBUG
-ent-MeleeDebugBurner200 =  дебаг поджигатель 200урн
+ent-MeleeDebugBurner200 = дебаг поджигатель 200урн
     .desc = { ent-MeleeDebugBurner.desc }

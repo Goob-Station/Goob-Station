@@ -51,3 +51,6 @@ ent-SchechiTranslatorImplanter = { ent-BaseTranslatorImplanter }
 ent-NewKinPidginTranslatorImplanter = { ent-BaseTranslatorImplanter }
     .suffix = Ka'Rakk
     .desc = { ent-BaseTranslatorImplanter.desc }
+ent-GruntishTranslatorImplanter = { ent-BaseTranslatorImplanter }
+    .suffix = Gruntish
+    .desc = { ent-BaseTranslatorImplanter.desc }

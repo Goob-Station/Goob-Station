@@ -1,0 +1,10 @@
+ent-BaseSlotMachine = slot machine
+    .desc = Gambling for the antisocial.
+ent-SlotMachine = slot machine
+    .desc = Gambling for the antisocial.
+ent-SlotMachineHighRoller = the QM's personal slot machine
+    .desc = A high roller version of the slot machine, takes a whopping 100k per spin, but you can win 1 MILLION from it!
+ent-CoinFlipper = coin flipper
+    .desc = Coinflipping for the antisocial.
+ent-ClawMachine = claw machine
+    .desc = Sure we got our health insurance benefits cut, and yeah we don't get any overtime on holidays, but hey - free to play claw machines!

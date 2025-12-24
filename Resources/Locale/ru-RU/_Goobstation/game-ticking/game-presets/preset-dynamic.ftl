@@ -6,6 +6,5 @@
 
 gamemode-dynamic-title = Динамический
 gamemode-dynamic-description = Игры в 3026 году модернизированы.
-
 gamemode-dynamic-u-title = Безжалостный Динамический
 gamemode-dynamic-u-description = Да благослави нас бог.

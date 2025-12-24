@@ -33,3 +33,5 @@ ent-ClothingHeadLehmin = top CMO headgear
     .suffix = ADMIN
 ent-ClothingHeadHatJanitorCap = janitorial cap
     .desc = An extravagant purple cap for only the BEST of janitorial workers.
+ent-ClothingHeadHatTinfoilHat = tinfoil hat
+    .desc = A high tech helmet crafted from aluminum foil.

@@ -16,15 +16,13 @@ loadout-group-ntr-neck = ПNT, шея
 loadout-group-ntr-jumpsuit = ПNT, комбинезон
 loadout-group-ntr-belt = ПNT, пояс
 loadout-group-ntr-shoes = ПNT, обувь
-
 loadout-group-bso-head = ОСЩ, голова
 loadout-group-bso-backpack = ОСЩ, рюкзак
 loadout-group-bso-jumpsuit = ОСЩ, комбинезон
-loadout-group-bso-mask = ОСЩ, маскак
+loadout-group-bso-mask = ОСЩ, маска
 loadout-group-bso-outer = ОСЩ, броня
 loadout-group-bso-neck = ОСЩ, шея
 loadout-group-bso-shoes = ОСЩ, обувь
-
 loadout-group-nct-head = НNT, голова
 loadout-group-nct-backpack = НNT, рюкзак
 loadout-group-nct-jumpsuit = НNT, комбинезон
@@ -32,9 +30,7 @@ loadout-group-nct-outerclothing = НNT, верхняя одежда
 loadout-group-nct-belt = НNT, пояс
 loadout-group-nct-gloves = НNT, перчатки
 loadout-group-nct-shoes = НNT, обувь
-
 loadout-group-reporter-outerclothing = Репортёр, верхняя одежда
-
 loadout-group-roboticist-head = Робототехник, голова
 loadout-group-roboticist-jumpsuit = Робототехник, комбинезон
 loadout-group-roboticist-backpack = Робототехник, рюкзак
@@ -42,22 +38,14 @@ loadout-group-roboticist-outerclothing = Робототехник, верхня�
 loadout-group-roboticist-gloves = Робототехник, перчатки
 loadout-group-roboticist-shoes = Робототехник, обувь
 loadout-group-roboticist-id = Робототехник, ID карта
-
 loadout-group-security-neck = СБ, шея
-
 loadout-group-captain-mask = Капитан, маска
-
 loadout-group-salvage-specialist-neck = Утилизатор, шея
-
 loadout-group-chemist-head = Химик, голова
-
 loadout-group-hos-shoes = ГСБ, обувь
-
 loadout-group-brigmedic-jumpsuit = Бригмедик, комбинезон
 loadout-group-brigmedic-head = Бригмедик, голова
 loadout-group-brigmedic-outer = Бригмедик, верхняя одежда
 loadout-group-brigmedic-backpack = Бригмедик, рюкзак
-
 loadout-group-security-melee = СБ, оружие ближнего боя
-
 loadout-group-animals = Питомцы

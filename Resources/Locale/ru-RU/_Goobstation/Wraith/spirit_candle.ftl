@@ -1,0 +1,3 @@
+construction-graph-candle = свеча
+spirit-candle-caught-wraith = Вы заставили злого духа проявиться!
+spirit-candle-fail = Вокруг вас нет злых духов...

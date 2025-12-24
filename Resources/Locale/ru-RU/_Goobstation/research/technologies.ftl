@@ -19,6 +19,7 @@ research-technology-ripley-mkii = Рипли MK-II
 research-technology-clarke = Кларк
 research-technology-gygax = Гигакс (необходимо разрешение ЦК)
 research-technology-durand = Дюранд (необходимо разрешение ЦК)
+research-technology-plumbing = Технологии труб
 research-technology-explosive-mech-ammunition = Взрывные боеприпасы для мехов
 research-technology-honk-weapons = Бананиумное оружие
 research-technology-modsuits = Модульные технологии

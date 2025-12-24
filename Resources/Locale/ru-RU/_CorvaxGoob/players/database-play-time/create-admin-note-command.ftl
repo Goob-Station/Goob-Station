@@ -1,14 +1,12 @@
 cmd-create-admin-note-command-desc = Создаёт админ-заметку указанному игроку
 cmd-create-admin-note-command-help = Использование: { $command } <user name> <сообщение> <тип заметки> <уровень> [длительность] [секретно]
 cmd-create-admin-note-command-succeed = Заметка успешно создана.
-
 cmd-create-admin-note-command-arg-user = <user name>
 cmd-create-admin-note-command-arg-message = <сообщение>
 cmd-create-admin-note-command-arg-note-type = <тип заметки>
 cmd-create-admin-note-command-arg-note-severity = <уровень>
 cmd-create-admin-note-command-arg-duration = [длительность]
 cmd-create-admin-note-command-arg-note-secret = [секретно]
-
 cmd-create-admin-note-command-error-not-player = Использовать команду может только игрок
 cmd-create-admin-note-command-error-args = Ожидается минимум четыре аргументов команды
 cmd-create-admin-note-command-error-player-not-found = Указанный игрок не найден

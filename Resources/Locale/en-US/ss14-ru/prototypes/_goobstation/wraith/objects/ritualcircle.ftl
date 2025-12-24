@@ -1,0 +1,12 @@
+ent-RitualCircleInact = Summoning portal
+    .desc = It hums and thrums as you stare at it. Dark shadows weave in and out of sight within.
+ent-RitualCircle1 = { ent-RitualCircleInact }
+    .desc = { ent-RitualCircleInact.desc }
+ent-RitualCircle2 = { ent-RitualCircleInact }
+    .desc = { ent-RitualCircleInact.desc }
+ent-RitualCircle3 = { ent-RitualCircleInact }
+    .desc = { ent-RitualCircleInact.desc }
+ent-RitualCircle4 = { ent-RitualCircleInact }
+    .desc = { ent-RitualCircleInact.desc }
+ent-RitualCircle5 = { ent-RitualCircleInact }
+    .desc = { ent-RitualCircleInact.desc }

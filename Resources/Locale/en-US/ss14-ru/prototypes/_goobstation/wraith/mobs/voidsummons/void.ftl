@@ -1,0 +1,15 @@
+ent-MobSkeletonCommander = skeleton commander
+    .desc = A bulky skeleton here to encourage his friends.
+ent-MobVoidSpiker = Tentacle fiend
+    .desc = Standing still is probably not a good idea.
+ent-MobVoidHound = Voidhound
+    .desc = You probably shouldn't be staring at this thing.
+ent-MobSkeletonCommanderWraith = { ent-MobSkeletonCommander }
+    .suffix = Wraith
+    .desc = { ent-MobSkeletonCommander.desc }
+ent-MobVoidSpikerWraith = { ent-MobVoidSpiker }
+    .suffix = Wraith
+    .desc = { ent-MobVoidSpiker.desc }
+ent-MobVoidHoundWraith = { ent-MobVoidHound }
+    .suffix = Wraith
+    .desc = { ent-MobVoidHound.desc }

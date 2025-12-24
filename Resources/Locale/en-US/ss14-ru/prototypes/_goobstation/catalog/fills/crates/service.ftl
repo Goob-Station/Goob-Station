@@ -1,2 +1,10 @@
 ent-CrateFishingGoodies = fishing goodies crate
     .desc = A couple of fishing rods, a bear, and a hat. Everything you need to catch all fish on the station!
+ent-CrateSlotMachine = slot machine crate
+    .desc = A crate with a slot machine inside, Everything you need to start your own gambling addiction!
+ent-CrateCoinFlipper = coin flipper crate
+    .desc = A crate with a coin flipper inside, 50/50 odds are good!
+ent-CrateClawMachine = claw machine crate
+    .desc = A crate with a claw machine inside, plushies included with every purchase!
+ent-CrateCargoForklift = Forklift crate
+    .desc = A perfect utility vehicle for cargo.

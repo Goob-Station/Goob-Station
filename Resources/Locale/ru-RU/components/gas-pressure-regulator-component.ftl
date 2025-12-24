@@ -9,7 +9,8 @@ gas-pressure-regulator-ui-subtract-10 = -10
 gas-pressure-regulator-ui-subtract-100 = -100
 gas-pressure-regulator-ui-subtract-1000 = -1000
 gas-pressure-regulator-ui-title = Регулятор входного давления
-gas-pressure-regulator-ui-target = { "         " }Установленное
+gas-pressure-regulator-ui-target =
+    { "         " }Установленное
     значение
 gas-pressure-regulator-ui-flow = Поток
 gas-pressure-regulator-ui-outlet = Выход

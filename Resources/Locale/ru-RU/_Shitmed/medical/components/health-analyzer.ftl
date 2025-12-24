@@ -10,18 +10,15 @@ condition-body-pain-decreased = • Нервы { $woundable } онемели.
 condition-body-pain-increased = • Нервы { $woundable } стали необычно чувствительными.
 condition-body-unrevivable = • У { $entity } слабое здоровье. Они не выдерживают разряд дефибриллятора.
 condition-body-bleeding = • У { $entity } кровотечение.
-
 condition-organ-damage-Normal = • { $organ } в основном в порядке.
 condition-organ-damage-Damaged = • { $organ } повреждён.
 condition-organ-damage-Destroyed = • { $organ } разрушен...
 condition-organ-rotting = • { $organ } гниёт!
-
 condition-none = • Нет обнаруженных состояний.
 group-organ-status = { $organ } функционирует на { $capacity }%
 group-solution-name = { $solution }
 group-solution-unknown = Неизвестно
 group-solution-contents = { $reagent }: { $quantity }
-
 condition-body-bleeding-Head = • Кровотечение из головы у { $entity }.
 condition-body-bleeding-Chest = • Кровотечение из груди у { $entity }.
 condition-body-bleeding-Groin = • Кровотечение из паха у { $entity }.

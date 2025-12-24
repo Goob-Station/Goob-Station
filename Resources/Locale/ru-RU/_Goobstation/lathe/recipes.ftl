@@ -15,3 +15,4 @@ lathe-recipe-MarishTranslatorImplanter-subname = иплантер "Перево�
 lathe-recipe-SchechiTranslatorImplanter-subname = иплантер "Переводчик Шшечи"
 lathe-recipe-NewKinPidginTranslatorImplanter-subname = иплантер "Переводчик Ка'ракк"
 lathe-recipe-ChevalTranslatorImplanter-subname = иплантер "Переводчик Парнокопытный"
+lathe-recipe-YowKriolTranslatorImplanter-subname = имплантер "Переводчик Йовикрол"

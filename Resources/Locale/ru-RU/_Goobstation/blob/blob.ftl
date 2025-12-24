@@ -11,19 +11,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 objective-issuer-blob = Блоб
-
-
 ghost-role-information-blobbernaut-name = Блоббернаут
 ghost-role-information-blobbernaut-description = Вы — блоббернаут. Вы должны защищать ядро блоба. Используйте + или +e в чате, чтобы говорить в Коллективный разум Блоба.
-
 ghost-role-information-blob-name = Блоб
 ghost-role-information-blob-description = Вы — инфекция Блоба. Поглощайте станцию.
-
 roles-antag-blob-name = Блоб
 roles-antag-blob-objective = Достигните критической массы.
-
 guide-entry-blob = Блоб
-
 # Popups
 blob-target-normal-blob-invalid = Неверный тип блоба, выберите обычный блоб.
 blob-target-factory-blob-invalid = Неверный тип блоба, выберите фабричный блоб.
@@ -42,17 +36,12 @@ blob-get-resource = +{ $point }
 blob-spent-resource = -{ $point }
 blobberaut-not-on-blob-tile = Вы умираете вне плиток блоба.
 carrier-blob-alert = У вас осталось { $second } секунд до превращения.
-
 blob-mob-zombify-second-start = { $pod } начинает превращать вас в подконтрольного.
 blob-mob-zombify-third-start = { $pod } начинает превращать { $target } в подконтрольного.
-
 blob-mob-zombify-second-end = { $pod } превратил вас в подконтрольного.
 blob-mob-zombify-third-end = { $pod } превратил { $target } в подконтрольного.
-
 blobberaut-factory-destroy = фабрика уничтожена
 blob-target-already-connected = уже подключено
-
-
 # UI
 blob-chem-swap-ui-window-name = Обмен химикатами
 blob-chem-reactivespines-info =
@@ -77,21 +66,17 @@ blob-chem-electromagneticweb-info =
     Наносит 20 урона от ожогов, 20% шанс вызвать импульс ЭМИ при атаке.
     Плитки блоба вызывают ЭМИ при уничтожении.
     Получаете на 25% больше урона ушибами и ожога.
-
 blob-alert-out-off-station = Блоб был удалён, так как находился вне станции!
-
 # Announcment
-blob-alert-recall-shuttle = Аварийный шаттл не может быть вызван, пока на станции присутствует биоугроза 5-го уровня.
+blob-alert-recall-shuttle = Аварийный шаттл не может быть вызван, пока на станции присутствует биологическая угроза 5-го уровня.
 blob-alert-detect = Подтверждена вспышка биологической угрозы 5-го уровня на станции. Все сотрудники обязаны сдерживать угрозу.
 blob-alert-critical = Критический уровень биологической угрозы. На станцию отправлены коды ядерной аутентификации. Центральное командование приказывает всем оставшимся членам экипажа активировать механизм самоуничтожения.
 blob-alert-critical-NoNukeCode = Критический уровень биологической угрозы. Центральное командование приказывает оставшимся членам экипажа укрыться и ожидать помощь.
-
 # Actions
 blob-teleport-to-node-action-name = Телепорт к узлу (0)
 blob-teleport-to-node-action-desc = Телепортирует вас к случайному узловому блобу.
 blob-help-action-name = Помощь
 blob-help-action-desc = Получить базовую информацию об игре за блоба.
-
 # Ghost role
 blob-carrier-role-name = Носитель блоба
 blob-carrier-role-desc = Существо, инфицированное блобом.
@@ -99,19 +84,16 @@ blob-carrier-role-rules =
     Вы — антагонист. У вас есть 10 минут до превращения в блоба.
     Используйте это время, чтобы найти безопасное место на станции. Учтите, что после превращения вы будете очень слабы.
 blob-carrier-role-greeting = Вы — носитель блоба. Найдите укромное место на станции и превратитесь в блоба. Превратите станцию в массу, а её обитателей в своих слуг. Мы все — блобы.
-
 # Verbs
 blob-pod-verb-zombify = Подчинить
 blob-verb-upgrade-to-strong = Улучшить до усиленного блоба
 blob-verb-upgrade-to-reflective = Улучшить до отражающего блоба
 blob-verb-remove-blob-tile = Убрать блоб
-
 # Alerts
 blob-resource-alert-name = Ресурсы ядра
 blob-resource-alert-desc = Ваши ресурсы, производимые ядром и ресурсными блобами. Используйте их для расширения и создания специализированных блобов.
 blob-health-alert-name = Здоровье ядра
 blob-health-alert-desc = Здоровье вашего ядра. Вы умрёте, если оно упадёт до нуля.
-
 # Greeting
 blob-role-greeting =
     Вы — блоб, паразитическое космическое существо, способное уничтожать целые станции.
@@ -122,24 +104,19 @@ blob-role-greeting =
         Помните, что ресурсные блобы и фабрики работают только рядом с узловыми блобами или ядрами.
         Используйте + или +e в чате, чтобы общаться со своими подчинёнными при помощи коллективного разума Блоба.
 blob-zombie-greeting = Вы были заражены и воскрешены спорами блоба. Теперь вам нужно помочь блобу захватить станцию. Используйте +e в чате для общения через коллективный разум Блоба.
-
 # End round
 blob-round-end-result =
     { $blobCount ->
         [one] Было одно заражение блобом.
        *[other] Было { $blobCount } заражений блобами.
     }
-
 blob-user-was-a-blob = [color=gray]{ $user }[/color] был(а) блобом.
 blob-user-was-a-blob-named = [color=White]{ $name }[/color] ([color=gray]{ $user }[/color]) был(а) блобом.
 blob-was-a-blob-named = [color=White]{ $name }[/color] был(а) блобом.
-
 preset-blob-objective-issuer-blob = [color=#33cc00]Блоб[/color]
-
 blob-user-was-a-blob-with-objectives = [color=gray]{ $user }[/color] был(а) блобом со следующими целями:
 blob-user-was-a-blob-with-objectives-named = [color=White]{ $name }[/color] ([color=gray]{ $user }[/color]) был(а) блобом со следующими целями:
 blob-was-a-blob-with-objectives-named = [color=White]{ $name }[/color] был(а) блобом со следующими целями:
-
 # Objectivies
 objective-condition-blob-capture-title = Захватить станцию
 objective-condition-blob-capture-description = Ваша единственная цель — захватить всю станцию. Для этого у вас должно быть не менее { $count } плиток блоба.
@@ -150,7 +127,6 @@ objective-condition-fail = { $condition } | [color={ $markupColor }]Провал
 
 admin-verb-make-blob = Сделать цель носителем блоба.
 admin-verb-text-make-blob = Сделать носителем блоба
-
 # Language
 language-Blob-name = Блоб
 chat-language-Blob-name = Блоб

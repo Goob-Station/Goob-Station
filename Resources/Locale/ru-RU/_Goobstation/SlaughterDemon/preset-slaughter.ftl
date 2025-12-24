@@ -4,6 +4,7 @@ objective-condition-kill-wizard-first = [color=#FF0000]ПЕРВОЕ,[/color]
 objective-condition-kill-everyone-else = [color=#FF0000]ВТОРОЕ,[/color]
 objective-condition-kill-wizard-title = УБЕЙТЕ МАГА, КОТОРЫЙ ВАС ПРИЗВАЛ
 objective-condition-kill-everyone-else-title = УБЕЙТЕ ВСЕХ ОСТАЛЬНЫХ
+objective-condition-kill-everyone-title = УБЕЙТЕ ВСЕХ
 objective-condition-hug-and-tickle-title = ОБНИМИТЕ ИХ ВСЕХ
 objective-condition-hug-and-tickle-desc = Экипаж так в восторге, что разбрызгивает вишнёвое варенье повсюду! Хорошо, что вы обожаете варенье! Ура!
 objective-kill-wizard-desc =

@@ -28,3 +28,6 @@ ent-AirlockAllServiceLocked = { ent-AirlockServiceLocked }
 ent-AirlockAllServiceGlassLocked = { ent-AirlockServiceGlassLocked }
     .suffix = Весь сервис, Закрыт
     .desc = { ent-AirlockServiceGlassLocked.desc }
+ent-AirlockRoboticsLocked = { ent-AirlockRobotics }
+    .suffix = Робототехник, Закрыт
+    .desc = { ent-AirlockRobotics.desc }

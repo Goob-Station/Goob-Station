@@ -7,3 +7,5 @@ ent-ClothingBeltSurgicalBoard = surgical magnetic board
 ent-ClothingBeltSurgicalBoardFilled = { ent-ClothingBeltSurgicalBoard }
     .suffix = Filled
     .desc = { ent-ClothingBeltSurgicalBoard.desc }
+ent-ClothingBeltScience = science belt
+    .desc = A enlarged belt for various tools that can also support weight G.O.R.I.L.L.A. gauntlet.

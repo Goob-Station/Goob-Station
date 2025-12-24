@@ -22,3 +22,5 @@ ent-SpawnPointLaughterDemonToken = { ent-SpawnPointGhostLaughterDemon }
     .desc = { ent-SpawnPointGhostLaughterDemon.desc }
 ent-AncientRogueKingToken = { ent-CMMobXenoRogueKingSentient }
     .desc = { ent-CMMobXenoRogueKingSentient.desc }
+ent-WraithToken = { ent-SpawnPointGhostWraith }
+    .desc = { ent-SpawnPointGhostWraith.desc }

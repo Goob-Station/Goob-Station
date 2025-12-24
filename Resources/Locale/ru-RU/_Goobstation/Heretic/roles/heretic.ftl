@@ -8,3 +8,6 @@
 
 roles-antag-heretic-name = Еретик
 roles-antag-heretic-description = Найдите источники влияния, осознайте, что они уже заняты. Принесите людей в жертву и станьте всесильным.
+roles-antag-hereticmidround-name = Еретик
+roles-antag-ghoul-name = Гуль
+roles-antag-ghoul-description = Помогите своему призывателю вознестись.

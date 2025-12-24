@@ -7,7 +7,6 @@
 
 ghost-role-information-onestar-mecha-name = Мех OneStar
 ghost-role-information-onestar-mecha-description = Вы — конец этой станции.
-
 ghost-role-information-drone-name = Обслуживающий дрон
 # Goobstation
 ghost-role-information-drone-description = Поддерживай станцию. Игнорируй всех, кроме дронов. Используй + / +d для общения в Разуме Дронов.

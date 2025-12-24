@@ -10,3 +10,7 @@ ent-TeslaCoilCircuitboard = tesla coil board
     .desc = { ent-BaseMachineCircuitboard.desc }
 ent-RadiationCollectorCircuitboard = radiation collector board
     .desc = { ent-BaseMachineCircuitboard.desc }
+ent-PlumbingPumpCircuitboard = liquid pump board
+    .desc = { ent-BaseMachineCircuitboard.desc }
+ent-TelecomTransmitterCircuitboard = telecommunication transmitter machine board
+    .desc = A machine printed circuit board for an telecommunication transmitter.

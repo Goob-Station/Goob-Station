@@ -46,5 +46,3 @@ ent-ClothingBackpackDuffelSyndicateDecoyKitFilled = decoy bundle
     .desc = Contains distractions, both auditory and visual. Smell coming soon.
 ent-ClothingBackpackDuffelAcolyteBundle = acolyte armor bundle
     .desc = Contains the Acolyte Armor, the must have of any cult leader.
-ent-ClothingBackpackDuffelSyndicateFilledStarterKit = basic operative bundle
-    .desc = Contains a weapon, medical supplies, breaching tools, spare ammo, and some simple utilities.

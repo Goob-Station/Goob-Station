@@ -36,3 +36,5 @@ ent-ClothingHandsKnuckleDustersQM = quartermaster's engraved knuckleduster
     .suffix = DO NOT MAP
 ent-ClothingHandsKnuckleBoneCrushers = bone crushers
     .desc = Blessed by the Gods to break all those who don't obey.
+ent-ClothingHandsGlovesGuerrilla = guerrilla gloves
+    .desc = Superior quality combative gloves, good for grabs as well as absorbing electrical shocks.

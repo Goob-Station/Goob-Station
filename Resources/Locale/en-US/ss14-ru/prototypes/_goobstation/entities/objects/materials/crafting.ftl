@@ -1,0 +1,12 @@
+ent-MaterialHexNut = steel hex nut
+    .desc = A roughly bent nut made of steel.
+    .suffix = Full
+ent-MaterialHexNutSingle = { ent-MaterialHexNut }
+    .suffix = Single
+    .desc = { ent-MaterialHexNut.desc }
+ent-MaterialScrew = steel screw
+    .desc = This screw is really rusty, you wouldn't want to get cut by it...
+    .suffix = Full
+ent-MaterialScrewSingle = { ent-MaterialScrew }
+    .suffix = Single
+    .desc = { ent-MaterialScrew.desc }

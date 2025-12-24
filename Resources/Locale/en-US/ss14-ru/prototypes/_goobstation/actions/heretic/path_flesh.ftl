@@ -1,2 +1,2 @@
-ent-ActionHereticFleshSurgery = flesh surgery
-    .desc = Remove a random organ from someone, or heal your teammates.
+ent-ActionHereticFleshSurgery = Knit Flesh
+    .desc = A touch spell that allows you to either perform quick surgery or restore flesh of target.

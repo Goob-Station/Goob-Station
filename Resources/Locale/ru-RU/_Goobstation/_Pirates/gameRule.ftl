@@ -12,15 +12,10 @@ antag-pirate-briefing =
     
     При активации сифона данных вы начнёте высасывать кредиты из отдела снабжения станции.
     Будьте осторожны — это заякорит ваш корабль, оповестит экипаж и приведёт его в ярость, так что готовьтесь к серьёзной битве!
-
 antag-pirate-briefing-short =
     Вы — пират.
     Защищайте корабль, выкачивайте кредиты со станции и грабьте её ради ещё большей добычи!
-
 pirate-roundend-append = Пиратская команда ограбила станцию на сумму в [color=yellow]{ $num }[/color] кредитов!
-
 pirate-roundend-append-siphon = [color=green]Пиратам удалось выкачать[/color] [color=yellow]{ $num }[/color] [color=green]кредитов со станции![/color]
-
 pirate-roundend-append-lose = [color=red]Пираты потеряли свой банк данных![/color]
-
 pirate-roundend-list = Пиратами были:
