@@ -398,17 +398,6 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkWeaponShotgunHeavy
-  name: uplink-weapon-heavy-shotgun-name
-  description: uplink-weapon-heavy-shotgun-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Shotguns/magshot.rsi, state: icon }
-  productEntity: WeaponShotgunHeavy
-  cost:
-    Telecrystal: 200
-  categories:
-  - UplinkWeaponry
-
-- type: listing
   id: UplinkBowHardlight
   name: uplink-hardlight-bow-name
   description: uplink-hardlight-bow-desc
@@ -459,16 +448,6 @@
     Telecrystal: 25
   categories:
     - UplinkWeaponry
-
-- type: listing
-  id: UplinkWeaponM7S
-  name: uplink-m7s-name
-  description: uplink-m7s-desc
-  productEntity: WeaponSubMachineGunM7S
-  cost:
-    Telecrystal: 60
-  categories:
-    -  UplinkWeaponry
 
 - type: listing
   id: UplinkWeaponHE1SG8
@@ -1191,28 +1170,6 @@
 #  categories:
 #  - UplinkAmmo
 
-- type: listing
-  id: UplinkMagazineShotgunHeavy
-  name: uplink-heavy-shotgun-magazine-name
-  description: uplink-heavy-shotgun-magazine-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi, state: icon }
-  productEntity: MagazineShotgunHeavy
-  cost:
-    Telecrystal: 30
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkMagazineShotgunHeavySlug
-  name: uplink-heavy-shotgun-magazine-slug-name
-  description: uplink-heavy-shotgun-magazine-slug-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi, state: icon2 }
-  productEntity: MagazineShotgunHeavySlug
-  cost:
-    Telecrystal: 40
-  categories:
-  - UplinkAmmo
-
 # 弾薬
 - type: listing
   id: UplinkCaselessRifleMag
@@ -1261,28 +1218,6 @@
     Telecrystal: 40 # goob
   categories:
   - UplinkDisruption
-
-- type: listing
-  id: UplinkMagazinePistolCaselessRifleSAPHE
-  name: uplink-pistol-magazine-caseless-saphe-name
-  description: uplink-pistol-magazine-caseless-saphe-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: base }
-  productEntity: MagazinePistolCaselessRifleSAPHE
-  cost:
-    Telecrystal: 5 # 23 damage but ~1/3 of a rifle magazine and semi armor piercing, remember the damage is 13 pierce 10.5 explosive
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkMagazineM7S
-  name: uplink-m7s-mag-name
-  description: uplink-m7s-mag-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/M7S_magazine.rsi, state: icon }
-  productEntity: MagazineLowCaliberM7S
-  cost:
-    Telecrystal: 5 # 105 dmg per TC which seems huge, but you're missing half of your shots
-  categories:
-  - UplinkAmmo
 
 - type: listing
   id: UplinkCartridgeG8Demolishing
