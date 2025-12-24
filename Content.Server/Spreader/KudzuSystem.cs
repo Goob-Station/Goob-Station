@@ -26,6 +26,7 @@ public sealed class KudzuSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SpreaderSystem _spreaderSystem = default!;
 
     private static readonly ProtoId<EdgeSpreaderPrototype> KudzuGroup = "Kudzu";
 
@@ -65,6 +66,10 @@ public sealed class KudzuSystem : EntitySystem
             RemCompDeferred<ActiveEdgeSpreaderComponent>(uid);
             return;
         }
+        component.TimeAccumulated += SpreaderSystem.SpreadCooldownSeconds;
+        if (component.TimeAccumulated < 1f)
+            return;
+        component.TimeAccumulated = 0f;
 
         if (!_robustRandom.Prob(component.SpreadChance))
             return;
