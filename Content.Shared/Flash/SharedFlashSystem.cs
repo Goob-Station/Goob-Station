@@ -173,9 +173,13 @@ public abstract class SharedFlashSystem : EntitySystem
         TimeSpan? stunDuration = null)
     {
         // Goob edit start
+
+        var vulnerableEv = new CheckFlashVulnerable();
+        RaiseLocalEvent(target, ref vulnerableEv);
+
         if (used == null
             || !_tag.HasTag(used.Value, IgnoreResistancesTag)
-            && !HasComp<FlashVulnerableComponent>(target))
+            && !vulnerableEv.Vulnerable)
         {
             var attempt = new FlashAttemptEvent(target, user, used);
             RaiseLocalEvent(target, ref attempt, true);
