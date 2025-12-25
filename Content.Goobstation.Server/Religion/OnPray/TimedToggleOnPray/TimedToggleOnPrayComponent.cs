@@ -10,7 +10,10 @@ public sealed partial class TimedToggleOnPrayComponent : Component
     public float Duration = 1f;
 
     [DataField]
-    public TimeSpan Time = null;
+    public bool TimerRun = false;
+
+    [DataField]
+    public TimeSpan Time;
 
     [DataField, AutoNetworkedField]
     public bool Activated = false;

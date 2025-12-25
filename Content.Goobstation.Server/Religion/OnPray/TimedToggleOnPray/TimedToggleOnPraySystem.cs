@@ -2,7 +2,7 @@ using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Shared.Popups;
 using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
-using Robust.Server.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 using Content.Shared.Item.ItemToggle.Components;
 
@@ -10,9 +10,8 @@ namespace Content.Goobstation.Server.Religion.OnPray.TimedToggleOnPray;
 
 public sealed partial class TimedToggleOnPraySystem : EntitySystem
 {
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     private EntityQuery<TimedToggleOnPrayComponent> _query;
@@ -45,12 +44,15 @@ public sealed partial class TimedToggleOnPraySystem : EntitySystem
         RaiseLocalEvent(ent, ref ev);
     }
 
-    private void OnPray(EntityUid uid, TimedToggleOnPrayComponent comp, ref AlternatePrayEvent args, bool active = ent.Comp.Activated, EntityUid? user = null)
+    private void OnPray(Entity<TimedToggleOnPrayComponent> ent, ref AlternatePrayEvent args)
     {
+        var (uid, comp) = ent;
+        var active = comp.Activated;
+
         if (active)
             return;
 
-        Activate((uid, comp), user);
+        Activate((uid, comp));
     }
 
     private void Activate(Entity<TimedToggleOnPrayComponent> ent, EntityUid? user = null)
@@ -58,11 +60,13 @@ public sealed partial class TimedToggleOnPraySystem : EntitySystem
         var (uid, comp) = ent;
         var soundToPlay = comp.SoundActivate;
         var duration = comp.Duration;
+        var predicted = true;
 
         _audio.PlayPredicted(soundToPlay, uid, user);
 
         comp.Activated = true;
-        comp.Time = _timing.curTime + TimeSpan.FromSecond(comp.Duration)
+        comp.Time = _timing.CurTime + TimeSpan.FromSeconds(comp.Duration);
+        comp.TimerRun = true;
         UpdateVisuals((uid, comp));
         Dirty(uid, comp);
 
@@ -77,13 +81,13 @@ public sealed partial class TimedToggleOnPraySystem : EntitySystem
         var query = EntityQueryEnumerator<TimedToggleOnPrayComponent>();
         while (query.MoveNext(out var ent, out var time))
         {
-            if (time.Time is null)
+            if (time.TimerRun == false)
                 continue;
 
-            if (_timing.curTime > comp.Time == false)
+            if (_timing.CurTime > time.Time == false)
                 continue;
 
-            time.Time = null;
+            time.TimerRun = false;
             Deactivate((ent, time));
         }
     }
@@ -92,10 +96,8 @@ public sealed partial class TimedToggleOnPraySystem : EntitySystem
     {
         var (uid, comp) = ent;
         var soundToPlay = comp.SoundDeactivate;
-        if (predicted)
-            _audio.PlayPredicted(soundToPlay, uid, user);
-        else
-            _audio.PlayPvs(soundToPlay, uid);
+        var predicted = true;
+        _audio.PlayPredicted(soundToPlay, uid, user);
 
         comp.Activated = false;
         UpdateVisuals((uid, comp));
