@@ -120,31 +120,17 @@ public sealed class StationProximitySystem : EntitySystem
 
             isNearStation = closestDistance <= MaxDistance;
         }
-        HandleStationProximity(humanoid, isNearStation);
-    }
-
-    /// <summary>
-    /// Proccess the entity near the station for space whales spawning
-    /// </summary>
-    private void HandleStationProximity(EntityUid entity, bool isNearStation)
-    {
-        // ok this is goida but it saves like 300 lines because the logic is already here
-        var hasMobCaller = HasComp<MobCallerComponent>(entity);
 
         if (isNearStation)
-        {
-            if (hasMobCaller)// if the entity is near the station and has mobcallercomp, delete it, we dont want whales to spawn near the station do we
-                RemComp<MobCallerComponent>(entity);
-        }
+            RemComp<MobCallerComponent>(humanoid);
         else
-        {
-            if (!hasMobCaller) // if the entity is far from the station
-                HandleFarFromStation(entity);
-        }
+            HandleFarFromStation(humanoid);
     }
 
     private void HandleFarFromStation(EntityUid entity) // basically handles space whale spawnings
     {
+        if (HasComp<MobCallerComponent>(entity))
+            return; // KURWA POHUI GOIDA
         _popup.PopupEntity(
             Loc.GetString("station-proximity-far-from-station"),
             entity,
@@ -156,9 +142,6 @@ public sealed class StationProximitySystem : EntitySystem
             entity,
             AudioParams.Default.WithVolume(1f));
 
-        if (HasComp<MobCallerComponent>(entity))
-            return;
-
         var mobCaller = EnsureComp<MobCallerComponent>(entity);
 
         mobCaller.SpawnProto = "SpaceLeviathanDespawn";
@@ -167,6 +150,5 @@ public sealed class StationProximitySystem : EntitySystem
         mobCaller.NeedAnchored = false;
         mobCaller.NeedPower = false;
         mobCaller.SpawnSpacing = TimeSpan.FromSeconds(65); // to give the guy some time to get back to the station + prevent him from like, QSI-ing to the station to summon the worm in the station lmao, also bru these 5 seconds are really important
-        mobCaller.SpawnedEntities = new List<EntityUid>(); // crashes without this
     }
 }
