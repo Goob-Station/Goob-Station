@@ -163,7 +163,7 @@
   result: StationRadioRigCircuitboard
 
 - type: latheRecipe
-  parent: [ BaseCircuitboardRecipe, BaseMachineRecipeCategory ]
+  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
   id: StationRadioCircuitboard
   icon:
     sprite:  _Goobstation/Structures/Machines/StationRadio/stationradio.rsi

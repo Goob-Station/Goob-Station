@@ -96,7 +96,6 @@
   - TapeDeckCircuitboard
   - StationRadioServerCircuitboard
   - StationRadioRigCircuitboard
-  - StationRadioCircuitboard
   position: 2,6
   technologyPrerequisites:
   - ExtendedCommunications

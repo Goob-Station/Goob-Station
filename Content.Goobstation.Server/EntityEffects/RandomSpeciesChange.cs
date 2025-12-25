@@ -7,8 +7,6 @@ using System.Linq;
 namespace Content.Goobstation.Server.EntityEffects;
 public sealed partial class RandomSpeciesChange : EntityEffect
 {
-    [DataField] public bool Polymorph = false;
-
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => null;
 
@@ -23,7 +21,6 @@ public sealed partial class RandomSpeciesChange : EntityEffect
         var sce = new SpeciesChange
         {
             NewSpecies = random.Pick(species.ToList()).ID,
-            Polymorph = this.Polymorph
         };
 
         entityEffects.Effect(sce, args);
