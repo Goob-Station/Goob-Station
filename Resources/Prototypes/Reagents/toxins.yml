@@ -377,6 +377,10 @@
         damage:
           types:
             Radiation: 3
+    Narcotic:
+      effects:
+      - !type:MutateDiseases
+        mutationRate: 0.08 # 5u equivalent to one normal disease hop
 
 - type: reagent
   id: HeartbreakerToxin
@@ -686,8 +690,8 @@
     Poison:
       metabolismRate: 0.2 # CorvaxGoob-debaf-honk // 0.05 -> 0.2
       effects:
-      - !type:Polymorph
-        prototype: Bananamen
+      - !type:SpeciesChange
+        newSpecies: BananaMen
         conditions:
         - !type:ReagentThreshold
           min: 50 # CorvaxGoob-debaf-honk // 30 -> 50

@@ -178,6 +178,8 @@
     - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
     - id: MalignRiftSpawn # DeltaV
     - id: FloorGoblinMidRound # Goobstation
+    - id: ClownGoblinMigration # Goobstation - New Midrounds
+    - id: SantaClausSpawn # Goobstation, remove after new year
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -201,7 +203,15 @@
     - id: BingleSpawn #Goobstation - Bingle
     - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
+    #- id: GreyTideAntagMidround # Goobstation - New Midrounds
+    #- id: SingulothKnightsMidround # Goobstation - New Midrounds
+    #- id: DarkLordMidround # Goobstation - New Midrounds
+    #- id: MimeAssassinMidround # Goobstation - New Midrounds
+    #- id: DarkPriestMidround # Goobstation - New Midrounds
+    #- id: VoxRaidersMidround # Goobstation - New Midrounds
+    #- id: TunnelClownMidround # Goobstation
     #- id: WraithMidround # Goobstation - Wraith
+    #TODO when midrounds are "reviewed" by the chudmins add them back
     #TODO When Slasher is Ready - id: SlasherSpawn # Goobstation - The Slasher
 
 - type: entity
@@ -751,9 +761,7 @@
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
-      - id: MobAdultSlimesBlueAngry
-      - id: MobAdultSlimesGreenAngry
-      - id: MobAdultSlimesYellowAngry
+      - id: XenobioSlimeBabySpawner # goob edit - nuke wizden slimes in favor of xenobio
 
 - type: entity
   id: SnakeSpawn

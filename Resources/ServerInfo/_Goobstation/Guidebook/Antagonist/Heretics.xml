@@ -95,14 +95,32 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - \[ [color=red]Пир Совы[/color] \] — Ритуал, дающий 5 очков знаний, но блокирующий вознесение. Маленькая жертва ради быстрой силы. Возврата нет.
   - \[ [color=red]Воспоминание[/color] \] — Еретические клинки ограничены. Можно создать от 2 до 4 клинков в зависимости от пути, выполнив ритуал создания клинка второго этапа. Ритуал Reminiscence позволяет трансмутировать стул, чтобы вернуть ранее созданный клинок к руне трансмутации.
 
-  ## Советы
-  - На Пути Пепла всегда носи с собой огнетушитель или бутылку с водой! Хотя можешь выпускать огненные шары, ты не невосприимчив к огню, пока не вознесёшься!
-  - Как [color=purple]Пророк[/color], твоя способность [color=green]Связь Мансуса[/color] очень полезна для общения. При использовании на ком-то они получают радиоканал, похожий на канал генокрадов, с кнопкой :z для приватного разговора.
-  - Хват Мансуса временно искажает речь тех, на кого ты его направляешь. Это поможет уйти от подозрений при общении, но не полностью.
-  - [color=purple]Влияния[/color] могут появляться почти в любом месте станции — от основных коридоров и общих туалетов до [color=cyan]офисов команды[/color] и [color=red]ограниченных зон безопасности[/color] в бриге. Проверяй все доступные места.
-  - Обезьяны и другие животные — хорошие и обычно не вызывающие подозрений источники органов и трупов для ритуалов.
-  - Большинство призванных гулей при смерти оставляют компоненты для повторного призыва. Хотя убивать их нежелательно, детали легко собрать и вызвать другого.
-  - [color=yellow]Эльдрическая Фляга[/color], знание третьей стадии бокового пути, действует как криотехнологическая колба с ёмкостью 100 единиц, позволяя создавать опасные смеси, легко активируемые.
-  - Ржавые плитки вызывают рвоту и другие отрицательные эффекты у органиков и наносят сильный урон силикону. Совет — держаться подальше от ржавчины, если ты не еретик, гуль или призванное существо. С другой стороны, ржавчину можно использовать в своих целях.
-  - [color=yellow]Жуткая Эссенция[/color], содержимое фляги, может ржавить плитки при попадании. Напротив, [color=yellow]Space Cola[/color] очищает плитки от ржавчины, что полезно для экипажа при борьбе с еретиками Пути Ржавчины.
+  ## Focus is Necessary
+  To cast more advanced spells, you must focus by wearing an [color=orange]Amber Focus[/color].
+  You can acquire Amber Focus using the eponymous ritual.
+  Some more powerful heretical equipment also functions as a focus - namely, the Ominous Armor from the Armorer's Ritual (when the hood is flipped up).
+  [color=yellow]Ascension[/color] disables the need for a focus.
+
+  ## Starting Knowledge
+  - \[ [color=red]Mansus Grasp[/color] \] - A short range spell that channels eldritch power straight to your palm. Upon contact, knocks down and confuses unsuspecting targets. It can be used as a surgical tool for obtaining organs.
+  - \[ [color=red]Heartbeat of the Mansus[/color] \] - Allows you to sacrifice targets who are dead to the Mansus, gibbing them and rewarding you with two knowledge point; three if your victim was a head of staff, security, or another heretic.
+  - \[ [color=red]Amber Focus[/color] \] - Allows you to transmute a sheet of glass and a pair of eyes into an Amber Focus. This is a small neck-worn item that allows you to cast advanced spells while worn.
+  - \[ [color=red]Living Heart[/color] \] - Allows you to pinpoint your targets. Plays an audible heartbeat sound, so use it carefully.
+  - \[ [color=red]Relentless Heartbeat[/color] \] - Allows you to transmute a heart, a pen and paper to reroll your target selection, in case you've run out of bodies or want a different approach.
+  - \[ [color=red]Codex Cicatrix[/color] \] - Allows you to transmute a book, any pen, and any piece of meat or non-silicon organ to create a Codex Cicatrix. The Codex Cicatrix can be used when draining influences to gain additional knowledge, but comes at greater risk of being noticed. It can also be used to draw and remove transmutation runes faster, and as a spell focus in a pinch.
+  - \[ [color=red]Cloak of Shadow[/color] \] - A spell, which will conceal your identity in an obvious purple smoke, making you move faster but interact slower. Requires a focus to cast.
+  - \[ [color=red]Feast of Owls[/color] \] - Allows you to perform a ritual that grants you 5 knowledge points but locks you out of ascension. A small sacrifice to gain power quickly. There is no going back.
+  - \[ [color=red]Reminiscence[/color] \] - Heretic blades are limited. You can only create up to 2-4 blades depending on your path by performing stage 2 blade creation ritual. Reminiscence ritual allows you to transmute a chair to recall your lost blade that you have previously created to the transmutation rune.
+
+  ## Tips
+  - You can enchant items using your Codex Cicatrix and Transmutation rune. [textlink="For more info on enchanting, click here." link="Enchanting"]
+  - Be wary of other heretics. They worship false gods, and will sacrifice you for knowledge just as easily as they would any other heathen. However, you can sacrifice them to the Mansus as well. Let the strongest god win.
+  - On Ashen Path, always carry a fire extinguisher or a bottle of water with you! While you can spew out fireballs, you are not immune to them until you ascend or wear a Mask of Madness!
+  - As a [color=purple]Raw Prophet[/color], your [color=green]Mansus Link[/color] ability is extremely useful for communication. When you use it on someone, they gain a hivemind similar to changelings with +m key to talk privately.
+  - Your Mansus Grasp will temporarily garble the speech of people who you use it on. This can let you get away with murder while comms are online, but be careful - it's not foolproof.
+  - [color=purple]Influences[/color] can spawn in almost any location on the station, ranging from the main hallways and public restrooms to [color=cyan]Command staff offices[/color] and [color=red]restricted security areas[/color] in the Brig. It's best to check every area you can access, public and department.
+  - Monkeys and other animals make for great, usually non-suspicious sources of organs or corpses for your heretical rituals.
+  - Most summoned ghouls will drop the components used to create them on death. While having them to die is not ideal, you can easily grab the parts and summon another.
+  - [color=yellow]Eldritch Flask[/color], a stage 3 side path knowledge acts like a cryostasis beaker and has a total capacity of 100 units, meaning you can create deadly mixes that are easily triggered.
+  - [color=yellow]Eldritch Essence[/color], contained in eldritch flask is able to rust tiles upon splashing on them. Contrariwise, [color=yellow]Space Cola[/color] clears tile rusting, which is useful for crew when fighting Rusted Path heretic.
 </Document>

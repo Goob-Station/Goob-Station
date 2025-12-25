@@ -167,7 +167,6 @@
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
-  - TileItemBluespace # Corvax-Goob-BluespaceTile
   # Goobstation R&D Console rework start
   position: 1,5
   technologyPrerequisites:
@@ -353,7 +352,7 @@
   - MedkitCombat # Goobstation - remove medkitcombat from static to research
   - VialBluespace # goob edit - bluespace vials
   # Goobstation R&D Console rework start
-  position: 2,6
+  position: 4,5
   technologyPrerequisites:
   - BiochemicalStasis
   # Goobstation R&D Console rework end

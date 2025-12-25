@@ -64,6 +64,14 @@
       BoneDamage: 0.05
       VeinsDamage: 0
       NerveDamage: 0
+  # Goobstation
+  - type: DiseaseProtection # light protection for all masks
+    incoming:
+      chanceMultipliers:
+        Aerial: 0.8
+    outgoing:
+      chanceMultipliers:
+        Aerial: 0.6
   - type: Tag # goob edit
     tags:
     - Mask

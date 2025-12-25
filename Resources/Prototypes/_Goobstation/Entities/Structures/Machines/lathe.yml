@@ -226,6 +226,7 @@
     - MechBoardsScience
     - Pinpointers
     - Genetics
+    - XenobioPack
     # Einstein Engines Packs
     - Translators
     - TranslatorImplanters
@@ -271,6 +272,7 @@
     runningState: icon
     staticPacks:
     - ServiceBoardsStatic
+    - ServiceBoardsStaticGoob
     - MaterialsStatic
     - LightsStatic
     - ServiceStatic
@@ -291,6 +293,7 @@
     - SharedBoards
     - CameraBoards
     - ServiceTools
+    - ServiceBoardsGoob # goob
     # Einstein Engines Packs
     - Translators
     # CorvaxGoob Packs

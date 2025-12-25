@@ -167,6 +167,7 @@
   # - Medical SOP Hidden by CorvaxGoob
   - Command
   - Chemicals
+  - Virology
   weight: 10 #Goob Edit
   access:
   - Medical

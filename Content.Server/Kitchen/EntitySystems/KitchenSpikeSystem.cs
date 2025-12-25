@@ -94,6 +94,7 @@
 
 using Content.Goobstation.Common.Changeling;
 using Content.Server._CorvaxGoob.Skills;
+using Content.Goobstation.Shared.Changeling.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
 using Content.Server.Kitchen.Components;
@@ -338,7 +339,7 @@ namespace Content.Server.Kitchen.EntitySystems
             }
 
             // Goobstation - start
-            if (HasComp<ChangelingComponent>(victimUid))
+            if (HasComp<ChangelingIdentityComponent>(victimUid))
             {
                 _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-changeling", ("victim", Identity.Entity(victimUid, EntityManager)), ("this", uid)), victimUid, userUid);
                 return false;

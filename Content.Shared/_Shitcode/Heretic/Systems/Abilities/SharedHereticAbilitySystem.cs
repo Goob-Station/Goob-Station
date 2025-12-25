@@ -24,11 +24,13 @@ using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Roles;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
@@ -81,6 +83,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
 
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 
@@ -176,19 +179,21 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
     public bool TryUseAbility(EntityUid ent, BaseActionEvent args)
     {
-        if (args.Handled)
+        if (args.Handled
+        || HasComp<RustChargeComponent>(ent) // no abilities while charging
+        || !TryComp<HereticActionComponent>(args.Action, out var actionComp))
             return false;
 
-        // No using abilities while charging
-        if (HasComp<RustChargeComponent>(ent))
-            return false;
-
-        if (!TryComp<HereticActionComponent>(args.Action, out var actionComp))
+        // doesn't have any roles that allow heretic abilities
+        // this is mostly a barrier for idiots who want to transfer their brains into heretic bodies.
+        if (_mind.TryGetMind(ent, out var mindId, out var mind)
+        && mind.MindRoles.Where(q => HasComp<HereticRoleComponent>(q)).ToList().Count == 0)
             return false;
 
         // check if any magic items are worn
-        if (!TryComp<HereticComponent>(ent, out var hereticComp) || !actionComp.RequireMagicItem ||
-            hereticComp.Ascended)
+        if (!TryComp<HereticComponent>(ent, out var hereticComp)
+        || !actionComp.RequireMagicItem
+        || hereticComp.Ascended)
         {
             SpeakAbility(ent, actionComp);
             return true;
