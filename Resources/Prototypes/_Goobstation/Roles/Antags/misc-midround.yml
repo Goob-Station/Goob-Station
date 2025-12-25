@@ -141,3 +141,21 @@
     - ChemistryBottleNocturine
     - ChemistryBottleNocturine
     - HypopenBox
+
+# christmas
+
+- type: startingGear
+  id: SantaGear
+  equipment:
+    ears: ClothingHeadsetCentCom
+    head: ClothingHeadHatSantahat
+    jumpsuit: ClothingUniformJumpsuitColorWhite
+    shoes: ClothingShoesColorBlack
+    id: CentcomPDA
+    pocket1: FoodBakedCookie
+    pocket2: DrinkGlassWhite
+    gloves: ClothingHandsGlovesColorWhite
+    outerClothing: ClothingOuterSanta
+    back: ClothingBackpackSantasSack
+  inhand:
+  - SantaCannonRegenerating

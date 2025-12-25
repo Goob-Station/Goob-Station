@@ -176,3 +176,35 @@
         Blunt: 5
   - type: DiseaseOnHit
     disease: DiseaseFlu
+
+- type: entity
+  id: MeleeDebugInfectGravitosisA
+  parent: MeleeDebugGib
+  name: gravitosis stick
+  description: Gives you gravitosis A.
+  components:
+  - type: Tag
+    tags:
+      - Debug
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+  - type: DiseaseOnHit
+    disease: DiseaseGravitosisA
+
+- type: entity
+  id: MeleeDebugInfectGunemia
+  parent: MeleeDebugGib
+  name: gunemia stick
+  description: Gives you gunemia.
+  components:
+  - type: Tag
+    tags:
+      - Debug
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+  - type: DiseaseOnHit
+    disease: DiseaseGunemia

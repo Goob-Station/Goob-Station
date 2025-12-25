@@ -261,6 +261,9 @@
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 100
+  - type: Tag # Goobstation edit
+    tags:
+      - IceBucket
 
 - type: entity
   parent: DrinkBase

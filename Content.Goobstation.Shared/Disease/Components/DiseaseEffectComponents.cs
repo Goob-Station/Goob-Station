@@ -239,3 +239,30 @@ public sealed partial class DiseaseEmoteEffectComponent : Component
     [DataField]
     public bool WithChat = true;
 }
+
+/// <summary>
+/// Causes the target component to have set fields have their chosen fields set to a multiple of the default specified according to effect application severity.
+/// Can be used to have, say, gravity well component scale its acceleration from the effect severity.
+/// </summary>
+[RegisterComponent]
+public sealed partial class DiseaseGenericEffectComponent : ScalingDiseaseEffect
+{
+    /// <summary>
+    /// Component to act on.
+    /// </summary>
+    [DataField(required: true)]
+    public string Component = string.Empty;
+
+    /// <summary>
+    /// Fields to set.
+    /// String is field, key is max value.
+    /// </summary>
+    [DataField(required: true)]
+    public Dictionary<string, float> Defaults = new();
+
+    /// <summary>
+    /// Whether to apply a severity of zero when conditions to executing the effect fail.
+    /// </summary>
+    [DataField]
+    public bool ZeroOnFail = true;
+}
