@@ -817,17 +817,10 @@
     sprite: _ShitChap/Objects/Weapons/Nullrod/chainsword.rsi
     slots:
     - belt
-  - type: ItemToggle
-    # Goobstation start
-    soundFailToActivate:
-      path: /Audio/Machines/button.ogg
-      params:
-        variation: 0.250
-    # Goobstation end
+  - type: TimedToggleOnPray
+    duration: 10
     soundActivate:
-      path: /Audio/Weapons/ebladeon.ogg
-    soundDeactivate:
-      path: /Audio/Weapons/ebladeoff.ogg
+      collection: GeneratorTugEmpty 
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/chainsawidle.ogg

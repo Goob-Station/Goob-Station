@@ -1,16 +1,26 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Server.Religion.OnPray.ReloadOnPray;
+namespace Content.Goobstation.Server.Religion.OnPray.TimedToggleOnPray;
 
 [RegisterComponent]
-public sealed partial class ReloadOnPrayComponent : Component
+public sealed partial class TimedToggleOnPrayComponent : Component
 {
     [DataField]
-    public SoundPathSpecifier ReloadSoundPath = new ("/Audio/Weapons/Guns/MagIn/shotgun_insert.ogg");
+    public float Duration = 1f;
+
+    [DataField]
+    public TimeSpan Time = null;
+
+    [DataField, AutoNetworkedField]
+    public bool Activated = false;
+
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public bool Predictable = true;
+
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public SoundSpecifier? SoundActivate;
+
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public SoundSpecifier? SoundDeactivate;
 }
