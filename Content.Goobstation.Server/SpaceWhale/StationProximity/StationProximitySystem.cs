@@ -130,7 +130,8 @@ public sealed class StationProximitySystem : EntitySystem
     private void HandleFarFromStation(EntityUid entity) // basically handles space whale spawnings
     {
         if (HasComp<MobCallerComponent>(entity))
-            return; // KURWA POHUI GOIDA
+            return;
+
         _popup.PopupEntity(
             Loc.GetString("station-proximity-far-from-station"),
             entity,

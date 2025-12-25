@@ -12,3 +12,6 @@
     sprite: _DV/CosmicCult/Objects/unknownplushie.rsi
     state: plushie_cosmic
   - type: UnholyItem # Goobstation Shitchap
+  - type: GibThisGuy
+    ocNames:
+    - LuciferMkshelter
