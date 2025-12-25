@@ -72,6 +72,7 @@
   - WhiteCane
   - OffsetCane
   - OffsetCaneWood
+  - JetInjector
 
 - type: latheRecipePack
   id: RollerBedsStatic
@@ -121,6 +122,9 @@
   - SyringeCryostasis
   - BluespaceBeaker
   - SyringeBluespace
+  - LauncherSyringe
+  #- MiniSyringe # Goob i think  we dont have these
+  - AdvancedJetInjector
   - MedkitCombat #goob - Move combat kit to research
   - VialBluespace # goob edit - bluespace vials
   - CryostasisCigarette # goob - cryo cig

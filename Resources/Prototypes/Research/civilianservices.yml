@@ -199,7 +199,7 @@
   - AccessibilityTech
   # Goobstation R&D Console rework end
 
-# Goob edit
+# marty todo
 #- type: technology # Merge with other T2 medical research if possible!
 #  id: MechanizedTreatment
 #  name: research-technology-mechanized-treatment
@@ -208,16 +208,15 @@
 #    state: medical
 #  discipline: CivilianServices
 #  tier: 2
-#  cost: 5000
 #  recipeUnlocks:
 #  - BorgModuleAdvancedChemical
+#  - AdvancedJetInjector
 #  # Goobstation R&D Console rework start
 #  position: -1, 4
 #  technologyPrerequisites:
 #  - AdvancedEntertainment
 #  - BasicRobotics
 #  # Goobstation R&D Console rework end
-
 
 - type: technology
   id: AdvancedCleaning
