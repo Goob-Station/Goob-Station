@@ -608,7 +608,7 @@
       - NukeOpsUplink
 
 - type: listing
-  id: UplinkClothingHandsGlovesGuerrilla
+  id: UplinkClothingHandsGlovesGuerrillaNukeops
   name: uplink-guerrilla-gloves-name
   description: uplink-guerrilla-gloves-desc
   icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
