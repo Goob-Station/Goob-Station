@@ -37,6 +37,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -65,6 +66,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -230,6 +232,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     modifiers:
       coefficients: #hello genius this is an ADMEME item do not TOUCH IT during your BALANCE PATCHES
         Blunt: 0.35
@@ -335,6 +338,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     traumaDeductions:
       Dismemberment: 0.2
       OrganDamage: 0.4
