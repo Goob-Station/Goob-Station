@@ -19,7 +19,7 @@ public sealed partial class ChangelingChemicalComponent : Component
     /// The InternalResourcesData of the prototype.
     /// </summary>
     [DataField]
-    public InternalResourcesData? ResourceData;
+    public InternalResourcesData ResourceData = new();
 
     /// <summary>
     /// The multiplier applied to passive chemical generation while on fire.

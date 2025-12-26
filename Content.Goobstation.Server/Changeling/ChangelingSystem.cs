@@ -773,8 +773,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         foreach (var actionId in comp.BaseChangelingActions)
             _actions.AddAction(uid, actionId);
 
-        EnsureComp<ChangelingChemicalComponent>(uid);
-
         // make sure its set to the default
         comp.TotalEvolutionPoints = _changelingRuleSystem.StartingCurrency;
 
