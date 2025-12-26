@@ -316,8 +316,12 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         var damage = component.Damage;
         var overtime = component.Overtime;
 
-        damage *= hitEvent.Value;
-        overtime *= hitEvent.Value;
+        // goob edit - ignore armor check
+        if (!component.IgnoreArmor)
+        {
+            damage *= hitEvent.Value;
+            overtime *= hitEvent.Value;
+        }
 
         TakeStaminaDamage(target, damage, source: uid, sound: component.Sound);
         TakeOvertimeStaminaDamage(target, overtime); // Goobstation

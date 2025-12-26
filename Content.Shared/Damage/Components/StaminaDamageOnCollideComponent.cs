@@ -24,6 +24,10 @@ public sealed partial class StaminaDamageOnCollideComponent : Component
     [DataField]
     public float Overtime = 0f;
 
+    // goob edit
+    [DataField]
+    public bool IgnoreArmor = false;
+
     [DataField("sound")]
     public SoundSpecifier? Sound;
 }

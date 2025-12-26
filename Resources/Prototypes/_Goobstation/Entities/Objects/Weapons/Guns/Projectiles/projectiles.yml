@@ -41,6 +41,7 @@
         Shock: 10
   - type: StaminaDamageOnCollide
     damage: 30
+    ignoreArmor: true
   - type: KnockdownOnCollide
     behavior: DropIfStanding
   - type: BlurOnCollide
