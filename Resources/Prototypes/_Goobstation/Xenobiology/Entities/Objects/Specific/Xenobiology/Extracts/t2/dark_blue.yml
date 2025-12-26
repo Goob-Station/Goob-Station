@@ -1,0 +1,52 @@
+- type: entity
+  id: DarkBlueSlimeExtract
+  parent: BaseSlimeExtract
+  name: dark blue slime extract
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
+      state: core
+      color: "#1e8cfa"
+  - type: Reactive
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:AdjustReagent
+        reagent: XenobioJellyDarkBlue
+        amount: 1
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-evil" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:CreateGas
+        gas: Frezon
+        multiplier: 35
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:AdjustReagent
+        reagent: Leporazine
+        amount: 30
+  - type: Tag
+    tags:
+    - XenobiologyDarkBlueExtract

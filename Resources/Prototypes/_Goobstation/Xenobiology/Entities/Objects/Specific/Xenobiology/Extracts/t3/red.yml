@@ -1,0 +1,53 @@
+- type: entity
+  id: RedSlimeExtract
+  parent: BaseSlimeExtract
+  name: red slime extract
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
+      state: core
+      color: "#ff3333"
+  - type: Reactive
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:CreateEntityReactionEffect
+        entity: XenobioVolatileRedExtractJelly
+        number: 1
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:AdjustReagent
+        reagent: XenobioJellyRed
+        amount: 1
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:ChangeFactionNearbyEffect
+        newFaction: AllHostile # BILLIONS MUST KILL
+        radius: 3
+        duration: 30
+  - type: Tag
+    tags:
+    - XenobiologyRedExtract

@@ -1,0 +1,61 @@
+- type: entity
+  id: OrangeSlimeExtract
+  parent: BaseSlimeExtract
+  name: orange slime extract
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
+      state: core
+      color: "#ff9f1a"
+  - type: Reactive
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:DoSmokeEntityEffect
+        duration: 10
+        spreadAmount: 75
+        smokePrototype: Smoke
+        solution:
+          reagents:
+          - ReagentId: TearGas
+            Quantity: 20
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:IgniteNearbyEffect
+        radius: 3
+        fireStacks: 5
+      - !type:FlashReactionEffect
+        maxRange: 7
+        rangePerUnit: 1
+        sound: /Audio/_Goobstation/Wizard/zapbang.ogg
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:AdjustReagent
+        reagent: CapsaicinOil
+        amount: 30
+  - type: Tag
+    tags:
+    - XenobiologyOrangeExtract

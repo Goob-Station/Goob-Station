@@ -1,0 +1,58 @@
+- type: entity
+  id: PyriteSlimeExtract
+  parent: BaseSlimeExtract
+  name: pyrite slime extract
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
+      state: core
+      color: "#dcaa4f"
+      shader: XenoMetallic
+  - type: Reactive
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:ForceStealthNearbyEffect
+        radius: 12
+        duration: 60
+        chance: 0.5
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:DoSmokeEntityEffect
+        duration: 5
+        spreadAmount: 75
+        smokePrototype: Smoke
+      - !type:ForceStealthNearbyEffect
+        duration: 30
+        radius: 7
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:ForceStealthNearbyEffect
+        radius: 1.5
+        duration: 120
+  - type: Tag
+    tags:
+    - XenobiologyPyriteExtract

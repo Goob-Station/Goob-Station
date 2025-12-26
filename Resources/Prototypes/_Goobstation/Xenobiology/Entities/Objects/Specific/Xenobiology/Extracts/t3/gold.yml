@@ -1,0 +1,65 @@
+- type: entity
+  id: GoldSlimeExtract
+  parent: BaseSlimeExtract
+  name: gold slime extract
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
+      state: core
+      color: "#e8b923"
+      shader: XenoMetallic
+  - type: Reactive
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-evil" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:Jitter
+        time: 3
+        frequency: 20
+      - !type:CreateEntityReactionEffect
+        entity: RPassiveMobSpawner
+        number: 5
+        delay: 3
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-evil" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:Jitter
+        time: 3
+        frequency: 20
+      - !type:CreateEntityReactionEffect
+        entity: RHostileMobSpawner
+        number: 5
+        delay: 3
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-evil" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:Jitter
+        time: 3
+        frequency: 20
+      - !type:CreateEntityReactionEffect
+        entity: RNeutralMobSpawner
+        number: 5
+        delay: 3
+  - type: Tag
+    tags:
+    - XenobiologyGoldExtract
