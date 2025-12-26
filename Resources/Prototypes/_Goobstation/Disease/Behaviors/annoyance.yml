@@ -102,3 +102,15 @@
       BaseRadialAcceleration: -6
   - type: GravityWell
     maxRange: 4
+
+- type: entity
+  id: DiseaseBehaviorOwO
+  parent: DiseaseBehaviorBase
+  name: OwOify
+  description: Rare and exotic disease symptom that causes you to vocalize like a cat.
+  components:
+  - type: DiseaseEffect
+    complexity: 14 # doesn't do that much but very annoying
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: OwOAccent

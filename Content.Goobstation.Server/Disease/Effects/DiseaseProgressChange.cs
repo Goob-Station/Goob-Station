@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.Disease;
+using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
@@ -34,26 +35,25 @@ public sealed partial class DiseaseProgressChange : EntityEffect
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        if (args.EntityManager.TryGetComponent<Shared.Disease.Components.DiseaseCarrierComponent>(args.TargetEntity, out var carrier))
+        if (!args.EntityManager.TryGetComponent<DiseaseCarrierComponent>(args.TargetEntity, out var carrier))
+            return;
+
+        foreach (var diseaseUid in carrier.Diseases.ContainedEntities)
         {
-            foreach (var diseaseUid in carrier.Diseases)
+            if (!args.EntityManager.TryGetComponent<DiseaseComponent>(diseaseUid, out var disease)
+                || disease.DiseaseType != AffectedType)
+                continue;
+
+            var sys = args.EntityManager.System<DiseaseSystem>();
+            var amt = ProgressModifier;
+            if (args is EntityEffectReagentArgs reagentArgs)
             {
-                if (!args.EntityManager.TryGetComponent<Shared.Disease.Components.DiseaseComponent>(diseaseUid, out var disease))
-                    continue;
-                if (disease.DiseaseType != AffectedType)
-                    continue;
-
-                var sys = args.EntityManager.System<DiseaseSystem>();
-                var amt = ProgressModifier;
-                if (args is EntityEffectReagentArgs reagentArgs)
-                {
-                    if (Scaled)
-                        amt *= reagentArgs.Quantity.Float();
-                    amt *= reagentArgs.Scale.Float();
-                }
-
-                sys.ChangeInfectionProgress((diseaseUid, disease), amt);
+                if (Scaled)
+                    amt *= reagentArgs.Quantity.Float();
+                amt *= reagentArgs.Scale.Float();
             }
+
+            sys.ChangeInfectionProgress((diseaseUid, disease), amt);
         }
     }
 }

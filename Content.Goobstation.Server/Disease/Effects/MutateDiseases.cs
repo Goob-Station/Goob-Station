@@ -27,23 +27,22 @@ public sealed partial class MutateDiseases : EntityEffect
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        if (args.EntityManager.TryGetComponent<DiseaseCarrierComponent>(args.TargetEntity, out var carrier))
+        if (!args.EntityManager.TryGetComponent<DiseaseCarrierComponent>(args.TargetEntity, out var carrier))
+            return;
+        foreach (var diseaseUid in carrier.Diseases.ContainedEntities)
         {
-            foreach (var diseaseUid in carrier.Diseases)
-            {
-                if (!args.EntityManager.TryGetComponent<DiseaseComponent>(diseaseUid, out var disease))
-                    continue;
+            if (!args.EntityManager.TryGetComponent<DiseaseComponent>(diseaseUid, out var disease))
+                continue;
 
-                var sys = args.EntityManager.System<DiseaseSystem>();
-                var amt = 1f;
-                if (args is EntityEffectReagentArgs reagentArgs)
-                {
-                    if (Scaled)
-                        amt *= reagentArgs.Quantity.Float();
-                    amt *= reagentArgs.Scale.Float();
-                }
-                sys.MutateDisease((diseaseUid, disease), MutationRate * amt);
+            var sys = args.EntityManager.System<DiseaseSystem>();
+            var amt = 1f;
+            if (args is EntityEffectReagentArgs reagentArgs)
+            {
+                if (Scaled)
+                    amt *= reagentArgs.Quantity.Float();
+                amt *= reagentArgs.Scale.Float();
             }
+            sys.MutateDisease((diseaseUid, disease), MutationRate * amt);
         }
     }
 }
