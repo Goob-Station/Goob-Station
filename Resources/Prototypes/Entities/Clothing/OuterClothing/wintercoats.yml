@@ -134,8 +134,8 @@
         Slash: 0.9
         Heat: 0.8
     priceMultiplier: 0
-  - type: ZombificationResistance
-    zombificationResistanceCoefficient: 0.55
+ # - type: ZombificationResistance
+ #   zombificationResistanceCoefficient: 0.55 Goob edit
   - type: Food
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
@@ -278,6 +278,8 @@
         Heat: 0.8
         Caustic: 0.6
     priceMultiplier: 0.15
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.95 #goob edit
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterChem
@@ -298,6 +300,8 @@
         Heat: 0.8
         Caustic: 0.6
     priceMultiplier: 0.15
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.9 #goob edit
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterCMO
@@ -341,6 +345,8 @@
         Heat: 0.8
         Caustic: 0.8
     priceMultiplier: 0.15
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.95 #goob edit
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterSci
@@ -451,6 +457,8 @@
         Heat: 0.8
         Caustic: 0.8
     priceMultiplier: 0.15
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.95 #goob edit
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterMed
@@ -598,6 +606,8 @@
         Heat: 0.8
         Caustic: 0.8
     priceMultiplier: 0.15
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.95 #goob edit
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterSci
