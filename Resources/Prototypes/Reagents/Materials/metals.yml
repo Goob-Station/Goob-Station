@@ -27,6 +27,12 @@
   name: materials-steel
   icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: steel }
   price: 0.15 # $15 for 1 unit
+  properties: # FH edit
+    electrical: 5
+    thermal: 6
+    hard: 3
+    density: 4
+    chemical: 6
 
 - type: material
   id: Gold
@@ -36,6 +42,13 @@
   icon: { sprite: Objects/Materials/ingots.rsi, state: gold }
   color: "#FFD700"
   price: 0.75 # $75 for 1 unit
+  properties: # FH edit
+    electrical: 7
+    thermal: 7
+    hard: 2
+    density: 6
+    reflective: 6
+    chemical: 6
 
 - type: material
   id: Silver
@@ -45,6 +58,13 @@
   icon: { sprite: Objects/Materials/ingots.rsi, state: silver }
   color: "#C0C0C0"
   price: 0.60 # $60 for 1 unit
+  properties: # FH edit
+    electrical: 6
+    thermal: 6
+    hard: 2
+    density: 4
+    reflective: 6
+    chemical: 6
 
 - type: material
   id: Brass
@@ -53,6 +73,12 @@
   icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: brass }
   color: "#b18b25"
   price: 0.20 # Goobstation - Cargo repricing
+  properties: # FH edit
+    electrical: 6
+    thermal: 7
+    hard: 2
+    density: 5
+    chemical: 7
 
 - type: material
   id: Plasteel
@@ -61,3 +87,9 @@
   icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: plasteel }
   color: "#696969" #Okay, this is epic
   price: 0.3 # Goobstation - Cargo repricing
+  properties: # FH edit
+    electrical: 5
+    thermal: 6
+    hard: 3
+    density: 7
+    chemical: 6
