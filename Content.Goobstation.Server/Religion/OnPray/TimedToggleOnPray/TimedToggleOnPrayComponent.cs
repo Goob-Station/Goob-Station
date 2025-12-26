@@ -10,6 +10,12 @@ public sealed partial class TimedToggleOnPrayComponent : Component
     public float Duration = 1f;
 
     [DataField]
+    public bool UseDelayOnPray = true;
+
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public bool Predictable = true;
+
+    [DataField]
     public bool TimerRun = false;
 
     [DataField]

@@ -105,4 +105,4 @@
   description: A bulky cloak decorated with sacred writings and the symbol of the Inquisition.
   components:
   - type: Sprite
-    sprite: _ShitChap/Clothing/Head/Misc/inquisitor.rsi
+    sprite: _ShitChap/Clothing/Head/Neck/inquisitor.rsi

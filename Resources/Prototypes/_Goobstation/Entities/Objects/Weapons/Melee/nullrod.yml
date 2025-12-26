@@ -818,14 +818,20 @@
     slots:
     - belt
   - type: TimedToggleOnPray
-    duration: 10
+    duration: 15
     soundActivate:
       collection: GeneratorTugEmpty 
+      params:
+        volume: 5
+    soundDeactivate:
+      path: /Audio/_Goobstation/Weapons/ChainSword/chainIdle.ogg
+      params:
+        volume: 5
   - type: ItemToggleActiveSound
     activeSound:
-      path: /Audio/Weapons/chainsawidle.ogg
+      path: /Audio/_Goobstation/Weapons/ChainSword/chainIdle.ogg
       params:
-        volume: 3
+        volume: 5
   - type: ComponentToggler
     components:
     - type: Sharp
@@ -850,13 +856,14 @@
     activatedDamage:
       types:
         Slash: 20
-        Holy: 15
+        Holy: 20
         Structural: 20
       woundSeverityMultipliers:
-        Slash: 3
+        Slash: 2
   - type: MeleeWeapon
     animationRotation: -45 
-    heavyStaminaCost: 4 
+    autoAttack: true
+    heavyStaminaCost: 10 
     wideAnimationRotation: -135
     attackRate: 1.2
     damage:
@@ -864,7 +871,7 @@
         Blunt: 10
         Holy: 5
   - type: UseDelay
-    delay: 1.0
+    delay: 20.0
   - type: Appearance
   - type: ToggleableVisuals
     spriteLayer: blade
