@@ -180,7 +180,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     private void AddSummary(StringBuilder result, string agent, List<(EntityUid, string)> minds)
     {
         var agentSummaries = new List<(string summary, float successRate, int completedObjectives)>();
-        var currencyStorage = new Dictionary<NetUserId, float>(); //goobstation- store all currency and add at end off round
+        var currencyStorage = new Dictionary<NetUserId, float>(); //goobstation - store all currency and add at end off round
 
         foreach (var (mindId, name) in minds)
         {
