@@ -48,6 +48,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Goobstation.Common.CorticalBorer;
 using Content.Shared._Shitmed.Surgery;
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
@@ -79,6 +80,7 @@ public abstract partial class SharedSurgerySystem
 
         SubSurgery<SurgeryTendWoundsEffectComponent>(OnTendWoundsStep, OnTendWoundsCheck);
         SubSurgery<SurgeryStepCavityEffectComponent>(OnCavityStep, OnCavityCheck);
+        SubSurgery<SurgeryStepRemoveCorticalBorerComponent>(OnCorticalBorerRemovalStep, OnCorticalBorerRemovalCheck);
         SubSurgery<SurgeryAddPartStepComponent>(OnAddPartStep, OnAddPartCheck);
         SubSurgery<SurgeryAffixPartStepComponent>(OnAffixPartStep, OnAffixPartCheck);
         SubSurgery<SurgeryRemovePartStepComponent>(OnRemovePartStep, OnRemovePartCheck);
@@ -255,6 +257,20 @@ public abstract partial class SharedSurgerySystem
             && !itemComp.Slots[partComp.ContainerName].HasItem
             || ent.Comp.Action == "Remove"
             && itemComp.Slots[partComp.ContainerName].HasItem)
+            args.Cancelled = true;
+    }
+
+    private void OnCorticalBorerRemovalStep(Entity<SurgeryStepRemoveCorticalBorerComponent> ent, ref SurgeryStepEvent args)
+    {
+        var ev = new EjectCorticalBorerEvent();
+        RaiseLocalEvent(args.Body, ref ev);
+    }
+
+    private void OnCorticalBorerRemovalCheck(Entity<SurgeryStepRemoveCorticalBorerComponent> ent, ref SurgeryStepCompleteCheckEvent args)
+    {
+        var ev = new CheckCorticalBorerEvent();
+        RaiseLocalEvent(args.Body, ref ev);
+        if (ev.Found)
             args.Cancelled = true;
     }
 
