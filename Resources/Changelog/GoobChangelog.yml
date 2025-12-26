@@ -19811,3 +19811,21 @@ Entries:
       message: Fixed Captain not having radio station access
   id: 2240
   time: '2025-12-26T09:04:23.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Tinfoil hats now block possession from slashers.
+    - type: Tweak
+      message: >-
+        Slashers regenerate action must now be recharged after every use by
+        stealing a soul.
+    - type: Tweak
+      message: It is now very obvious when a slasher uses their regenerate action.
+    - type: Tweak
+      message: Slashers do-after to enter incorporeal has been increased.
+    - type: Tweak
+      message: Slashers max resistance has been massively nerfed.
+    - type: Tweak
+      message: Slashers max health has been nerfed.
+  id: 2241
+  time: '2025-12-26T09:06:58.0000000+00:00'
