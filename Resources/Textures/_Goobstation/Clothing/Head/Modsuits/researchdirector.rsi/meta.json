@@ -10,24 +10,32 @@
     {
       "name": "helmet"
     },
-		{
-		  "name": "helmet-sealed"
-		},
-		{
-			"name": "equipped-HEAD",
-			"directions": 4
-		},
-		{
-			"name": "equipped-HEAD-sealed",
-			"directions": 4
-		},
-		{
-			"name": "equipped-HEAD-vox",
-			"directions": 4
-		},
-		{
-			"name": "equipped-HEAD-sealed-vox",
-			"directions": 4
-		}
+    {
+      "name": "helmet-sealed"
+    },
+    {
+      "name": "equipped-HEAD",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-vulpkanin",
+      "directions": 4
+    }
   ]
 }
