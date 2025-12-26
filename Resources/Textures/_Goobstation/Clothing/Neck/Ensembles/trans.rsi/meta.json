@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited by wyvernrer (Discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "cloak-icon"
+    },
+    {
+      "name": "cloakSash-icon"
+    },
+    {
+      "name": "cloakSashL-icon"
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "all-equipped-NECK",
+      "directions": 4
+    },
+    {
+      "name": "cloak-equipped-NECK",
+      "directions": 4
+    },
+    {
+      "name": "cloakJewelry-equipped-NECK",
+      "directions": 4
+    },
+    {
+      "name": "cloakSash-equipped-NECK",
+      "directions": 4
+    },
+    {
+      "name": "cloakSashL-equipped-NECK",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    }
+  ]
+}

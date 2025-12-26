@@ -87,6 +87,16 @@
       role: JobChiefMedicalOfficer
       time: 72000 #20 hrs
 
+# Goobstation - For Ensembles
+- type: loadoutEffectGroup
+  id: GrandMasterCMO
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChiefMedicalOfficer
+      time: 360000 # 100 hrs
+
 # Jumpsuit
 - type: loadout
   id: ChiefMedicalOfficerJumpsuit
@@ -149,6 +159,14 @@
   id: ChiefMedicalOfficerMantle
   equipment:
     neck: ClothingNeckMantleCMO
+
+- type: loadout # Goobstation - Ensembles
+  id: ChiefMedicalOfficerEnsemble
+  equipment:
+    neck: ClothingNeckEnsembleChiefMedicalOfficer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterCMO
 
 # Outer clothing
 - type: loadout
