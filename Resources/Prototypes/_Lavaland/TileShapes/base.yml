@@ -1,0 +1,23 @@
+- type: entityShape
+  id: BoxFilled
+  shape: !type:BoxEntityShape
+
+- type: entityShape
+  id: BoxHollow
+  shape: !type:BoxEntityShape
+    hollow: true
+
+- type: entityShape
+  id: RookCross
+  shape: !type:RookEntityShape
+
+- type: entityShape
+  id: BishopCross
+  shape: !type:BishopEntityShape
+
+- type: entityShape
+  id: QueenCross
+  shape: !type:AllEntityShape
+    children:
+    - id: RookCross
+    - id: BishopCross

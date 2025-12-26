@@ -79,7 +79,7 @@ namespace Content.Server.Atmos.Components
 
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
-        public float MaximumFireStacks = 10f;
+        public float MaximumFireStacks = 15f;
 
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
@@ -126,10 +126,11 @@ namespace Content.Server.Atmos.Components
         public bool CanExtinguish = true;
 
         /// <summary>
-        ///     EE Plasmamen Change: Should the component ignore fire protection when on fire?
+        ///     Goobstation
+        ///     ArmorPenetration but for fire resistance
         /// </summary>
         [DataField]
-        public bool IgnoreFireProtection = false;
+        public float FireProtectionPenetration;
 
         /// <summary>
         ///     How many firestacks should be applied to component when being set on fire?

@@ -22,7 +22,7 @@
       reagents:
       - ReagentId: Fat
         Quantity: 3
-      - ReagentId: Blood
+      - ReagentId: BlackBlood # Goob Edit
         Quantity: 10
   - type: Damageable
     damageContainer: Biological # Shadowkin
@@ -37,6 +37,13 @@
       state: "chest_m"
     - type: Icon
       state: "chest_m"
+    - type: Extractable # Goob edit start
+      juiceSolution:
+        reagents:
+        - ReagentId: Fat
+          Quantity: 10
+        - ReagentId: BlackBlood
+          Quantity: 20 # Goob edit end
 
 - type: entity
   id: GroinShadowkin
@@ -47,6 +54,13 @@
       state: "groin_m"
     - type: Icon
       state: "groin_m"
+    - type: Extractable # Goob edit start
+      juiceSolution:
+        reagents:
+        - ReagentId: Fat
+          Quantity: 10
+        - ReagentId: BlackBlood
+          Quantity: 20 # Goob edit end
 
 - type: entity
   id: HeadShadowkin
@@ -57,6 +71,13 @@
       state: "head_m"
     - type: Icon
       state: "head_m"
+    - type: Extractable # Goob edit start
+      juiceSolution:
+        reagents:
+        - ReagentId: Fat
+          Quantity: 5
+        - ReagentId: BlackBlood
+          Quantity: 20 # Goob edit end
 
 - type: entity
   id: LeftArmShadowkin

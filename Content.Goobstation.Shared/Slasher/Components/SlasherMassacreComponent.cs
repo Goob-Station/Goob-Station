@@ -28,7 +28,7 @@ public sealed partial class SlasherMassacreUserComponent : Component
 
     [DataField]
     public SoundSpecifier MassacreIntro =
-         new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/Massacreintro.ogg")
+         new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/MassacreIntro.ogg")
          {
              Params = AudioParams.Default
                  .WithVolume(-5f)
@@ -66,7 +66,7 @@ public sealed partial class SlasherMassacreMacheteComponent : Component
     /// <summary>
     /// Chance to sever a random limb.
     /// </summary>
-    [DataField] public float LimbSeverChance = 0.50f;
+    [DataField] public float LimbSeverChance = 0.40f;
 
     /// <summary>
     /// How many hits to decapitate

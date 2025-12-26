@@ -25,6 +25,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Content.Shared.Chemistry.Reaction;
 
 namespace Content.Server.EntityEffects.Effects
 {

@@ -87,6 +87,17 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitNanotrasenRepresentativeFancy
+  name: fancy nanotrasen representative suit
+  description: A fancy black suit worn by officials, embellished with more golden threads than Normal.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/fancy_nanotrasen_representative.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/fancy_nanotrasen_representative.rsi
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCasualSyndicate
   name: casual syndicate jumpsuit
   description: Short sleeves, short temper.
@@ -366,3 +377,21 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_ce.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualshirt_ce.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPassengerQuarterzip
+  name: grey quarterzip
+  description: A quarterzip for the sophisticated assistant.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/passenger_quarterzip.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/passenger_quarterzip.rsi
+
+- type: entity
+  parent: ClothingUniformJumpsuitAncient
+  id: ClothingUniformJumpsuitAncientUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable

@@ -70,9 +70,10 @@
     soundHit:
       path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
   - type: StaminaDamageOnHit
-    damage: 5
-    overtime: 25
-    lightAttackOvertimeDamageMultiplier: 2.3 # Why the fuck was the one of a kind baton given the same stunbaton stats as a batong
+    damage: 15
+    overtime: 45
+    lightAttackDamageMultiplier: 5
+    lightAttackOvertimeDamageMultiplier: 0
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor
   - type: Battery
