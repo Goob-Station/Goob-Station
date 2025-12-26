@@ -1,0 +1,107 @@
+# Important Note!
+# Crusher upgrade entities have the exact same ID as their respective TagPrototype.
+# Remember to take this into account when adding new upgrades!
+
+- type: entity
+  id: BaseCrusherUpgrade
+  parent: [BaseItem, BaseSecurityCargoContraband]
+  name: crusher modkit
+  description: A modkit for crusher weapons.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Upgrades/crusher.rsi
+  - type: Item
+    size: Small
+  - type: GunUpgrade
+  - type: GunUpgradeMapWhitelist
+    whitelist:
+      components:
+      - LavalandMap
+  - type: StaticPrice
+    price: 750
+  - type: Tag
+    tags:
+    - CrusherUpgradeMain
+
+- type: entity
+  id: CrusherUpgradeMainMarker
+  parent: BaseCrusherUpgrade
+  name: crusher modkit (kinetic marker)
+  description: Compact generator of a bluespace field that can be shot on a living target to make it more vulnerable to crusher attacks. It's projectile also can destroy some types of rocks.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#4269eb"
+    - state: overlay-2
+      color: "#4269eb"
+    - state: overlay-3
+      color: "#4269eb"
+  - type: GunUpgrade
+    name: gun-upgrade-crusher-kinetic-marker-name
+    unique: true
+  - type: GunUpgradeComponents
+    components:
+    - type: AmmoCounter
+    - type: UseDelayOnShoot
+    - type: UseDelay
+      delay: 0.8
+    - type: Gun
+      soundGunshot: /Audio/Weapons/plasma_cutter.ogg
+      fireRate: 2
+      useKey: false
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 1
+      rechargeSound:
+        path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+    - type: BasicEntityAmmoProvider
+      proto: BulletCharge
+      capacity: 1
+      count: 1
+  - type: Tag
+    tags:
+    - CrusherUpgradeMain
+    - CrusherUpgradeMainMarker
+
+- type: entity
+  id: CrusherUpgradeMainRudeBuster
+  parent: BaseCrusherUpgrade
+  name: crusher upgrade chip (rude buster)
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#ae00ff"
+    - state: overlay-2
+      color: "#ae00ff"
+    - state: overlay-3
+      color: "#ae00ff"
+  - type: GunUpgrade
+    name: gun-upgrade-crusher-rude-buster-name
+    unique: true
+  - type: GunUpgradeComponents
+    components:
+    - type: AmmoCounter
+    - type: UseDelayOnShoot
+    - type: UseDelay
+      delay: 0.9
+    - type: Gun
+      projectileSpeed: 12
+      soundGunshot: /Audio/Weapons/plasma_cutter.ogg
+      fireRate: 1
+      useKey: false
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 10
+      rechargeSound:
+        path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+    - type: BasicEntityAmmoProvider
+      proto: ProjectileRudeBuster
+      capacity: 1
+      count: 1
+  - type: Tag
+    tags:
+    - CrusherUpgradeMain
+    - CrusherUpgradeMainRudeBuster

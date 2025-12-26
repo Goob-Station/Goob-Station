@@ -55,8 +55,6 @@
     cost: 500
   - id: ClothingBeltSalvageWebbing
     cost: 500
-  - id: PKAUpgradeLight
-    cost: 500
   - id: ClothingShoesBootsJack
     cost: 550
   - id: MineralScanner

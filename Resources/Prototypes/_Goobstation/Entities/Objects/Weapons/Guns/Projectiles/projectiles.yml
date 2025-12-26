@@ -421,14 +421,13 @@
       shader: unshaded
   - type: GatheringProjectile
   - type: DamageMarkerOnCollide
-    onlyWorkOnFauna: false
     whitelist:
       components:
       - MobState
     damage:
       types:
         Burn: 3
-        Holy: 5
+        Holy: 20
     effect: { sprite: /Textures/_ShitChap/Effects/holy_beam.rsi, state: beam }
     sound: /Audio/Effects/holy.ogg
   - type: Projectile

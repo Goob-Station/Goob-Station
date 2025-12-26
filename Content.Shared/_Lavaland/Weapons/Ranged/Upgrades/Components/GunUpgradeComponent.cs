@@ -20,23 +20,40 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Tag;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedGunUpgradeSystem))]
+[Access(typeof(SharedGunUpgradeSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class GunUpgradeComponent : Component
 {
-    [DataField]
-    public List<ProtoId<TagPrototype>> Tags = new();
+    [DataField, AutoNetworkedField]
+    public bool Enabled = true;
 
-    [DataField]
-    public LocId ExamineText;
+    /// <summary>
+    /// Literal name of this upgrade that is shown on all examine texts.
+    /// </summary>
+    [DataField(required: true)]
+    public LocId Name;
 
+    /// <summary>
+    /// Text to use when examining the upgrade itself.
+    /// </summary>
     [DataField]
-    public int CapacityCost = 30; // By default drains 30% of the capacity.
+    public LocId? ExamineTextType = "gun-upgrade-examine-type-upgrade";
+
+    /// <summary>
+    /// Text template to use when examining a weapon where this upgrade is inserted to.
+    /// </summary>
+    [DataField]
+    public LocId? InsertedTextType = "gun-upgrade-inserted-examine-type-contains";
+
+    /// <summary>
+    /// If specified, this gun can
+    /// </summary>
+    [DataField]
+    public int? CapacityCost;
 
     /// <summary>
     /// If true, only one such upgrade can be inserted into a gun.
