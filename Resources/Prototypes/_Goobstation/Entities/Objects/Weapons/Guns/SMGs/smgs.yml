@@ -6,10 +6,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: M7S "Ventilator" submachine gun
+  name: M7S Ventilator
   parent: [BaseWeaponSubMachineGun, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponSubMachineGunM7S
-  description: You may or may not be green, but you are still very very mean. Takes proprietary side-loading 5x23mm rifle magazines.
+  description: For when you need to air out an entire hallway, forcibly. Feeds from side-loading 5x23mm magazines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/SMGs/M7S.rsi
