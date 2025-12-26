@@ -301,9 +301,6 @@
         color: "#5ABF2F"
   - type: Fiber
     fiberColor: fibers-green
-  - type: Tag # Goobstation edit
-    tags:
-      - GreenGloves
 
 # Light Brown Gloves
 - type: entity
