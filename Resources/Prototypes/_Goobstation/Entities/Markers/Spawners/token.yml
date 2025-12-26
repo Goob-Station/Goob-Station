@@ -128,7 +128,19 @@
   - type: GhostRole
     name: ghost-role-information-wraith-name-token
     description: ghost-role-information-description-token-generic
-    rules: ghost-role-information-wraith-rules
+    rules: ghost-role-information-giant-spider-rules
+    raffle:
+      settings: short
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostTerrorQueen
+  id: TerrorQueenToken
+  components:
+  - type: GhostRole
+    name: terror-spider-round-end-agent-name
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-terror-rules
     raffle:
       settings: short
 

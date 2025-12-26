@@ -82,9 +82,13 @@
           MaterialWebSilk:
             min: 0
             max: 1
+  - type: TerrorWeb # Goobstation - Terror spider
+  - type: InvisibleOnTile # Goobstation - Terror spider
+  - type: StepTrigger # Goobstation - Terror spider
+    stepOn: true
   - type: SpeedModifierContacts
-    walkSpeedModifier: 0.5
-    sprintSpeedModifier: 0.5
+    walkSpeedModifier: 1 # Goobstation - Terror spider
+    sprintSpeedModifier: 1 # Goobstation - Terror spider
     ignoreWhitelist:
       components:
       - IgnoreSpiderWeb
