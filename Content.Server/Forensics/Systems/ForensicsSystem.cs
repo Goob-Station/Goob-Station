@@ -116,8 +116,10 @@ using Robust.Shared.Utility;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Timing; // Goobstation
-
+using Content.Goobstation.Common.CCVar;
+using Robust.Shared.Configuration; // Goobstation
 namespace Content.Server.Forensics
+
 {
     public sealed class ForensicsSystem : EntitySystem
     {
@@ -127,7 +129,8 @@ namespace Content.Server.Forensics
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly IGameTiming _timing = default!; // Goobstation
-
+        [Dependency] private readonly IConfigurationManager _configuration = default!; // Goobstation cvar dependency
+        private float _revealChance; // Goobstation revealchance cvar
         public override void Initialize()
         {
             SubscribeLocalEvent<HandsComponent, ContactInteractionEvent>(OnInteract);
@@ -145,6 +148,7 @@ namespace Content.Server.Forensics
             SubscribeLocalEvent<DnaComponent, TransferDnaEvent>(OnTransferDnaEvent);
             SubscribeLocalEvent<DnaSubstanceTraceComponent, SolutionContainerChangedEvent>(OnSolutionChanged);
             SubscribeLocalEvent<CleansForensicsComponent, GetVerbsEvent<UtilityVerb>>(OnUtilityVerb);
+            Subs.CVar(_configuration, GoobCVars.RevealChance, value => _revealChance = value, true); // Goobstation revealchance cvar
         }
 
         private void OnSolutionChanged(Entity<DnaSubstanceTraceComponent> ent, ref SolutionContainerChangedEvent ev)
@@ -259,9 +263,9 @@ namespace Content.Server.Forensics
                 dest.Fibers.Add(fiber);
             }
 
-            foreach (var print in src.Fingerprints)
+            foreach (var (full,visible) in src.Fingerprints) // Goobstation copies keys and values correctly
             {
-                dest.Fingerprints.Add(print);
+                dest.Fingerprints[full] = visible;
             }
 
             foreach (var residue in src.Residues)
@@ -442,7 +446,7 @@ namespace Content.Server.Forensics
             return DNA;
         }
 
-        private void ApplyEvidence(EntityUid user, EntityUid target)
+        private void ApplyEvidence(EntityUid user, EntityUid target) // Heavily modified for Goobstation
         {
             if (HasComp<IgnoresFingerprintsComponent>(target))
                 return;
@@ -450,14 +454,50 @@ namespace Content.Server.Forensics
             var component = EnsureComp<ForensicsComponent>(target);
             if (_inventory.TryGetSlotEntity(user, "gloves", out var gloves))
             {
-                if (TryComp<FiberComponent>(gloves, out var fiber) && !string.IsNullOrEmpty(fiber.FiberMaterial))
-                    component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial)) : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
+                if (TryComp<FiberComponent>(gloves, out var fiber) 
+                    && !string.IsNullOrEmpty(fiber.FiberMaterial))
+                    component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial))
+                        : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
+                // Goob Station - Start
+                if (_revealChance > 0f && _revealChance <= 1f)
+                {
+                    if (TryComp<FingerprintComponent>(user, out var userFingerprintComp) &&
+                        !string.IsNullOrEmpty(userFingerprintComp.Fingerprint))
+                    {
+                        var existingPartial =
+                            component.Fingerprints.TryGetValue(userFingerprintComp.Fingerprint, out var partial)
+                                ? partial
+                                : null;
+
+                        var result = CreateOrMergePartialFingerprintRandomly(
+                            userFingerprintComp.Fingerprint,
+                            existingPartial);
+
+                        if (string.IsNullOrEmpty(result))
+                            return;
+
+                        component.Fingerprints[userFingerprintComp.Fingerprint] = result;
+                        Dirty(target, component);
+                        return;
+                    }
+                }
+                // Goob Station - End
             }
 
-            if (TryComp<FingerprintComponent>(user, out var fingerprint) && CanAccessFingerprint(user, out _))
-                component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
-        }
+            if (TryComp<FingerprintComponent>(user, out var fingerprint) 
+                && CanAccessFingerprint(user, out _) &&
+                !string.IsNullOrEmpty(fingerprint.Fingerprint))
+            {
+                var full = fingerprint.Fingerprint ?? "";
+                // Goobstation start
+                // Look for an existing partial from the same person
 
+                component.Fingerprints[full] = full;
+
+                // Goobstation end
+                Dirty(target, component);
+            }
+        }
         private void ApplyScent(EntityUid user, EntityUid target) // Einstein Engines
         {
             if (HasComp<ScentComponent>(target))
@@ -479,9 +519,43 @@ namespace Content.Server.Forensics
             recipientComp.DNAs.Add((component.DNA, TimeSpan.Zero)); // Goobstation
             recipientComp.CanDnaBeCleaned = args.CanDnaBeCleaned;
         }
+        
+        #region Goobstation Fingerprint Methods
 
+        /// <summary>
+        /// Merges an existing partial fingerprint with a full fingerprint, revealing some characters randomly based on the reveal
+        /// chance.
+        /// </summary>
+        private string CreateOrMergePartialFingerprintRandomly(string full, string? currentMask)
+        {
+            if (string.IsNullOrEmpty(full))
+                return string.Empty;
+            var buffer = currentMask?.ToCharArray() ?? new string('#', full.Length).ToCharArray();
+
+            if (buffer.Length != full.Length)
+                return string.Empty;
+
+            var revealedAnyNew = false;
+
+            for (var i = 0; i < buffer.Length; i++)
+            {
+                if (buffer[i] == '#')
+                {
+                    if (_random.Prob(_revealChance))
+                    {
+                        buffer[i] = full[i];
+                        revealedAnyNew = true;
+                    }
+                }
+            }
+
+            return revealedAnyNew ? new string(buffer) : string.Empty;
+        }
+        #endregion
+        
         #region Public API
 
+        
         /// <summary>
         /// Give the entity a new, random DNA string and call an event to notify other systems like the bloodstream that it has been changed.
         /// Does nothing if it does not have the DnaComponent.

@@ -310,6 +310,9 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<int> GoobcoinsPerPlayer =
         CVarDef.Create("servercurrency.per_player", 10, CVar.SERVERONLY);
 
+    public static readonly CVarDef<int> GoobcoinsPerGreentext =
+        CVarDef.Create("servercurrency.per_greentext", 5, CVar.SERVERONLY);
+
     public static readonly CVarDef<int> GoobcoinNonAntagMultiplier =
         CVarDef.Create("servercurrency.non_antag_multiplier", 1, CVar.SERVERONLY);
 
@@ -561,9 +564,8 @@ public sealed partial class GoobCVars
 
     public static readonly CVarDef<float> MaxSpeed =
         CVarDef.Create("movement.max_speed", 2.7f, CVar.SERVER | CVar.REPLICATED);
-
+    
     #endregion
-
     #region LightDetection
 
     /// <summary>
@@ -644,10 +646,10 @@ public sealed partial class GoobCVars
         CVarDef.Create("heretic.ascension_requires_objectives", true, CVar.SERVERONLY);
 
     /// <summary>
-    /// A multiplier for bloodloss damage and heal.
+    /// Affects the chance of revealing forensics evidence with gloves.
     /// </summary>
-    public static readonly CVarDef<float> BleedMultiplier =
-        CVarDef.Create("medical.bloodloss_multiplier", 4.0f, CVar.SERVER);
+    public static readonly CVarDef<float> RevealChance =
+        CVarDef.Create("forensics.reveal_chance", 0.005f, CVar.SERVERONLY, "Affects the chance of revealing forensics evidence with gloves.");
 
     /// <summary>
     /// Enable admin notification sounds
