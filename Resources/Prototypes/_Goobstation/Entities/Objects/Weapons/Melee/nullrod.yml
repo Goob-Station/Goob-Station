@@ -213,6 +213,7 @@
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: Unremoveable
+  - type: AlwaysHot
   - type: Nullrod
     DamageOnUntrainedUse:
       types:
