@@ -7,3 +7,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 store-category-uplink-sales = Sales!
+
+# PAI
+store-category-syndicate-abilities = Syndicate Abilities
+store-category-luxury-abilities = Luxury Abilities

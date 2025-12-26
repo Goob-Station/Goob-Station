@@ -436,6 +436,7 @@
       - id: ModularReceiver
       - id: WeaponFlareGun
       - id: BarberScissors
+      - id: PersonalAIMemoryDisk # GoobStation - PAI
       - !type:GroupSelector
         children:
         - id: DrinkSpaceGlue
