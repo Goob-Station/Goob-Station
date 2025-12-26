@@ -161,3 +161,21 @@
   - type: Rehydratable
     possibleSpawns:
     - MobFeroxiRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: Onicube
+  name: oni cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobOniRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: Gingerbreadcube
+  name: gingerbread cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobGingerbreadRandom

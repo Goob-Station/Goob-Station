@@ -144,3 +144,11 @@
   materials:
     Biomass: 70
     Plasma: 250
+
+- type: latheRecipe
+  id: Onicube
+  result: Onicube
+  completetime: 30
+  materials:
+    Biomass: 70
+    Plasma: 250
