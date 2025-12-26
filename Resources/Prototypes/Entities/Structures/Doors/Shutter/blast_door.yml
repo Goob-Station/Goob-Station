@@ -73,6 +73,8 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 200
     damagePenalty: 0.4
+  - type: WeldingSparksAnimation # Goobstation
+    startingOffset: 0, 0.5
 
 - type: entity
   id: BlastDoorOpen
