@@ -90,6 +90,7 @@ public sealed partial class ActionAnatomicPanaceaEvent : InstantActionEvent
 }
 public sealed partial class ActionBiodegradeEvent : InstantActionEvent { }
 public sealed partial class ActionChameleonSkinEvent : InstantActionEvent { }
+public sealed partial class ActionDarknessAdaptionEvent : InstantActionEvent { }
 public sealed partial class ActionAdrenalineReservesEvent : InstantActionEvent
 {
     [DataField]
@@ -138,6 +139,9 @@ public sealed partial class AugmentedEyesightPurchasedEvent : EntityEventArgs;
 
 [DataDefinition]
 public sealed partial class AwakenedInstinctPurchasedEvent : EntityEventArgs;
+
+[DataDefinition]
+public sealed partial class DarknessAdaptionPurchasedEvent : EntityEventArgs;
 
 [DataDefinition]
 public sealed partial class VoidAdaptionPurchasedEvent : EntityEventArgs;

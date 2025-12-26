@@ -643,6 +643,27 @@
 
 - type: entity
   parent: BaseAction
+  id: ActionDarknessAdaption
+  name: Darkness Adaption
+  description: Toggle becoming translucent and gaining night vision in the darkness. Costs 10 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: darkness_adaption
+  - type: InstantAction
+    event: !type:ActionDarknessAdaptionEvent {}
+  - type: ChangelingAction
+    chemicalCost: 10
+    useInLesserForm: true
+
+- type: entity
+  parent: BaseAction
   id: ActionAdrenalineReserves
   name: Adrenaline Reserves
   description: Release powerful adrenaline from your glands. Costs 30 chemicals.
