@@ -124,3 +124,21 @@
       amount: 1
   products:
     CrapoToxin: 3
+
+- type: reaction
+  id: Uristinaise
+  impact: Low
+  quantized: true
+  reactants:
+#    Nicotine: # Unobtainable for now, but know i would add it.
+#      amount: 1
+    FluorosulfuricAcid:
+      amount: 1
+    Desoxyephedrine:
+      amount: 1
+    Ethanol:
+      amount: 4
+    Copium:
+      amount: 4
+  products:
+    Uristinaise: 5

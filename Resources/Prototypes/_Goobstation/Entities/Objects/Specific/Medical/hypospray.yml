@@ -484,6 +484,33 @@
     - Medipen
     - EmergencyMedipen
 
+- type: entity
+  name: Uristinaise medipen
+  parent: ChemicalMedipen
+  id: UristinaiseAutoInjector
+  suffix: DO NOT MAP
+  description: A dose of medicine that cures Felinids of their ailment.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/stasipen.rsi
+    layers:
+    - state: stasipen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: stasipen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 20
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+        reagents:
+        - ReagentId: Uristinaise
+          Quantity: 20
+
 # Actual hyposprays
 
 - type: entity
