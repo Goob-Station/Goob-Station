@@ -175,6 +175,7 @@ public sealed class AlertLevelSystem : EntitySystem
         if (!force)
         {
             if (!detail.Selectable
+                && !detail.EmagSelectable // Goobstation
                 || component.CurrentDelay > 0
                 || component.IsLevelLocked)
             {
