@@ -153,7 +153,7 @@ public sealed class FaceHuggerSystem : EntitySystem
 
             // Handle continuous chemical injection when equipped
             // Goobstation
-            if (TryComp<ClothingComponent>(uid, out var clothing) && clothing.InSlot != null)
+            if (TryComp<ClothingComponent>(uid, out var clothing) && clothing.InSlot != null && !_mobState.IsDead(uid))
             {
                 // Initialize NextInjectionTime if it's zero
                 if (faceHugger.NextInjectionTime == TimeSpan.Zero)
