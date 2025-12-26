@@ -116,7 +116,8 @@
   - type: LanguageKnowledge
     speaks:
     - Bingle
-    understands: []
+    understands:
+    - TauCetiBasic
   - type: CollectiveMind
     defaultChannel: Binglemind
     respectAccents: true
