@@ -289,7 +289,8 @@ public abstract class SharedChatSystem : EntitySystem
         ICommonSession? player = null, string? nameOverride = null,
         bool checkRadioPrefix = true,
         bool ignoreActionBlocker = false,
-        Color? colorOverride = null // Goobstation
+        Color? colorOverride = null, // Goobstation
+        bool forced = false // goobstation
     ) { }
 
     public string SanitizeMessageCapital(string message)
