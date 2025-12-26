@@ -38,9 +38,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Traits;
-using Content.Shared.Body.Systems;
 using Content.Shared.Buckle.Components;
-using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
 using Content.Shared.Throwing;
@@ -52,54 +50,44 @@ public sealed class LegsParalyzedSystem : EntitySystem
 {
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
     [Dependency] private readonly StandingStateSystem _standingSystem = default!;
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<LegsParalyzedComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<LegsParalyzedComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<LegsParalyzedComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<LegsParalyzedComponent, BuckledEvent>(OnBuckled);
         SubscribeLocalEvent<LegsParalyzedComponent, UnbuckledEvent>(OnUnbuckled);
         SubscribeLocalEvent<LegsParalyzedComponent, ThrowPushbackAttemptEvent>(OnThrowPushbackAttempt);
         SubscribeLocalEvent<LegsParalyzedComponent, StandAttemptEvent>(OnStandTry);
-        SubscribeLocalEvent<LegsParalyzedComponent, DownedEvent>(OnDowned);
+        SubscribeLocalEvent<LegsParalyzedComponent, RefreshMovementSpeedModifiersEvent>(OnRefresh);
     }
 
-    private void OnStartup(EntityUid uid, LegsParalyzedComponent component, ComponentStartup args)
+    private void OnRefresh(Entity<LegsParalyzedComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
-        // Completely paralyzed: cannot walk or run.
-        _movementSpeedModifierSystem.ChangeBaseSpeed(uid, 0, 0, 20);
+        args.ModifySpeed(_standingSystem.IsDown(ent) ? ent.Comp.CrawlSpeedModifier : 0f, true);
+    }
+
+    private void OnMapInit(EntityUid uid, LegsParalyzedComponent component, MapInitEvent args)
+    {
+        _standingSystem.Down(uid);
+        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
     }
 
     private void OnShutdown(EntityUid uid, LegsParalyzedComponent component, ComponentShutdown args)
     {
         _standingSystem.Stand(uid);
-        _bodySystem.UpdateMovementSpeed(uid);
+        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
     }
 
     private void OnBuckled(EntityUid uid, LegsParalyzedComponent component, ref BuckledEvent args)
     {
         _standingSystem.Stand(uid);
-        _movementSpeedModifierSystem.ChangeBaseSpeed(
-            uid,
-            component.CrawlMoveSpeed,
-            component.CrawlMoveSpeed,
-            component.CrawlMoveAcceleration);
     }
 
     private void OnUnbuckled(EntityUid uid, LegsParalyzedComponent component, ref UnbuckledEvent args)
     {
         _standingSystem.Down(uid);
-    }
-
-    private void OnDowned(EntityUid uid, LegsParalyzedComponent component, DownedEvent args)
-    {
-        _movementSpeedModifierSystem.ChangeBaseSpeed(
-            uid,
-            component.CrawlMoveSpeed,
-            component.CrawlMoveSpeed,
-            component.CrawlMoveAcceleration);
     }
 
     private void OnStandTry(EntityUid uid, LegsParalyzedComponent component, StandAttemptEvent args)

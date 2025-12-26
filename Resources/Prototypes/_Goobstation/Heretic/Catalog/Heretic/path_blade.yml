@@ -33,7 +33,7 @@
   icon: { sprite: _Goobstation/Heretic/Blades/blade_blade.rsi, state: icon }
   productHereticKnowledge: CuttingEdge
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 0
   categories:
   - HereticPathBlade
   conditions:
@@ -58,7 +58,7 @@
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: GraspOfBlade
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 0
   categories:
   - HereticPathBlade
   conditions:
@@ -69,15 +69,14 @@
     whitelist:
     - Blade
 
-# side
 - type: listing
   id: HereticBladePath3
   name: knowledge-path-blade-s3-name
   description: knowledge-path-blade-s3-desc
-  icon: { sprite: _Goobstation/Heretic/book.rsi, state: icon-on }
-  productHereticKnowledge: DanceOfTheBrand
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: MarkOfBlade
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 0
   categories:
   - HereticPathBlade
   conditions:
@@ -88,12 +87,13 @@
     whitelist:
     - Blade
 
+# side
 - type: listing
   id: HereticBladePath4
   name: knowledge-path-blade-s4-name
   description: knowledge-path-blade-s4-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
-  productHereticKnowledge: MarkOfBlade
+  icon: { sprite: _Goobstation/Heretic/book.rsi, state: icon-on }
+  productHereticKnowledge: DanceOfTheBrand
   cost:
     KnowledgePoint: 2
   categories:
@@ -132,7 +132,7 @@
   icon: { sprite: _Goobstation/Heretic/book.rsi, state: icon-on }
   productHereticKnowledge: TornChampionStance
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathBlade
   conditions:
@@ -169,7 +169,7 @@
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: furious_steel }
   productHereticKnowledge: FuriousSteel
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathBlade
   conditions:
@@ -187,7 +187,7 @@
   icon: { sprite: _Goobstation/Heretic/items.rsi, state: protective_blade }
   productHereticKnowledge: AscensionBlade
   cost:
-    KnowledgePoint: 3
+    KnowledgePoint: 2
   categories:
   - HereticPathBlade
   conditions:

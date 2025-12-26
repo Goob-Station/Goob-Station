@@ -9,3 +9,10 @@
   id: Heretics
   name: guide-entry-heretics
   text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Heretics.xml"
+  children:
+  - HereticCurses
+
+- type: guideEntry
+  id: HereticCurses
+  name: guide-entry-heretic-curses
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/HereticCurses.xml"

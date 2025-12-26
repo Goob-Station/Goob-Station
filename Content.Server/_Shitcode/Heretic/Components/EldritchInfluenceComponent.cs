@@ -55,4 +55,10 @@ public sealed partial class EldritchInfluenceComponent : Component
 
     [DataField]
     public List<List<EntityEffect>> PossibleExamineEffects = new();
+
+    /// <summary>
+    /// Can the influence be collected by hand or does it require special item?
+    /// </summary>
+    [DataField]
+    public bool RequireDrainer = true;
 }
