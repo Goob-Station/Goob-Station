@@ -1,0 +1,13 @@
+- type: htnCompound
+  id: MoveCallTargetCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: CallTarget
+      operator: !type:MoveToOperator
+        pathfindInPlanning: true
+        targetKey: CallTarget
+        rangeKey: MeleeRange
+        removeKeyOnFinish: true
