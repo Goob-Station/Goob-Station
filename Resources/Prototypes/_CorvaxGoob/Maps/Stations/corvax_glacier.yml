@@ -39,6 +39,7 @@
             Paramedic: [ 1, 1 ]
             Chemist: [ 2, 2 ]
             Surgeon: [ 1, 1 ]
+            Virologist: [ 1, 1 ]
             # science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 4, 5 ]
