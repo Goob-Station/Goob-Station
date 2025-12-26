@@ -10,14 +10,13 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
-using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.Paper;
 using Content.Goobstation.Server.Devil.Objectives.Components;
 using Content.Goobstation.Server.Possession;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.Contract;
-using Content.Server._Imp.Drone;
+using Content.Shared._Imp.Drone; // Goob - Moved to shared
 using Content.Server.Body.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
@@ -38,6 +37,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Goobstation.Shared.Changeling.Components;
 
 namespace Content.Goobstation.Server.Devil.Contract;
 
@@ -246,7 +246,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         if (HasComp<CondemnedComponent>(user)
             || HasComp<SiliconComponent>(user)
             || HasComp<DroneComponent>(user)
-            || HasComp<ChangelingComponent>(user)
+            || HasComp<ChangelingIdentityComponent>(user)
             || HasComp<BorgChassisComponent>(user))
         {
             failReason = Loc.GetString("devil-contract-no-soul-sign-failed");
@@ -469,6 +469,21 @@ public sealed partial class DevilContractSystem : EntitySystem
     {
         var negativeClauses = _prototypeManager.EnumeratePrototypes<DevilClausePrototype>()
             .Where(c => c.ClauseWeight >= 0)
+            .ToList();
+
+        if (negativeClauses.Count == 0)
+            return;
+
+        var selectedClause = _random.Pick(negativeClauses);
+        ApplyEffectToTarget(target, selectedClause, null);
+
+        _sawmill.Debug($"Selected {selectedClause.ID} effect for {ToPrettyString(target)}");
+    }
+
+    public void AddRandomNegativeClauseSlasher(EntityUid target)
+    {
+        var negativeClauses = _prototypeManager.EnumeratePrototypes<DevilClausePrototype>()
+            .Where(c => c.ClauseWeight >= 0 && c.ID != "humanity")
             .ToList();
 
         if (negativeClauses.Count == 0)

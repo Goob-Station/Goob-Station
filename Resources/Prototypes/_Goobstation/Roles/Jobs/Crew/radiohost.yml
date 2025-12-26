@@ -1,0 +1,33 @@
+- type: job
+  id: RadioHost
+  name: job-name-radiohost
+  description: job-description-radiohost
+  playTimeTracker: JobRadioHost
+  startingGear: RadioHostGear
+  icon: "JobIconRadioHost"
+  supervisors: job-supervisors-hop
+  access:
+  - Maintenance
+  - Journalism
+  - Service
+
+- type: startingGear
+  id: RadioHostGear
+  equipment:
+    ears: ClothingHeadsetAltRadioHost
+    eyes: ClothingEyesGlassesSunglasses
+    jumpsuit: ClothingUniformJumpsuitHawaiBlack
+    shoes: ClothingShoesColorBlack
+    back: ClothingBackpackSatchel
+    id: RadioHostPDA
+
+- type: chameleonOutfit
+  id: RadioHostChameleonOutfit
+  job: RadioHost
+  equipment:
+    eyes: ClothingEyesGlassesCheapSunglasses
+    ear: ClothingHeadsetAltRadioHost
+    jumpsuit: ClothingUniformJumpsuitHawaiBlack
+    shoes: ClothingShoesColorBlack
+    id: RadioHostPDA
+

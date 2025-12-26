@@ -30,6 +30,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
+using Robust.Shared.Utility; // Goob
 
 namespace Content.Server._DV.CartridgeLoader.Cartridges;
 
@@ -287,7 +288,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         var content = msg.Content;
         if (!string.IsNullOrWhiteSpace(content))
         {
-            content = content.Trim();
+            content = FormattedMessage.EscapeText(content.Trim()); // Goob Sanitize Text
             if (content.Length > NanoChatMessage.MaxContentLength)
                 content = content[..NanoChatMessage.MaxContentLength];
         }

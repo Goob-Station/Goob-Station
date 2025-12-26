@@ -1,0 +1,100 @@
+# Boxes
+- type: entityShape
+  id: DebugBoxFilled1
+  shape: !type:BoxEntityShape
+    size: 1
+
+- type: entityShape
+  id: DebugBoxHollow1
+  shape: !type:BoxEntityShape
+    hollow: true
+    size: 1
+
+- type: entityShape
+  id: DebugBoxFilled2
+  shape: !type:BoxEntityShape
+    size: 2
+
+- type: entityShape
+  id: DebugBoxHollow2
+  shape: !type:BoxEntityShape
+    hollow: true
+    size: 2
+
+- type: entityShape
+  id: DebugBoxFilled3
+  shape: !type:BoxEntityShape
+    size: 3
+
+- type: entityShape
+  id: DebugBoxHollow3
+  shape: !type:BoxEntityShape
+    hollow: true
+    size: 3
+
+- type: entityShape
+  id: DebugBoxFilled4
+  shape: !type:BoxEntityShape
+    size: 4
+
+- type: entityShape
+  id: DebugBoxHollow4
+  shape: !type:BoxEntityShape
+    hollow: true
+    size: 4
+
+- type: entityShape
+  id: DebugBoxFilled5
+  shape: !type:BoxEntityShape
+    size: 5
+
+- type: entityShape
+  id: DebugBoxHollow5
+  shape: !type:BoxEntityShape
+    hollow: true
+    size: 5
+
+# Crosses
+
+- type: entityShape
+  id: DebugCrossRook1
+  shape: !type:RookEntityShape
+    size: 1
+
+- type: entityShape
+  id: DebugCrossBishop1
+  shape: !type:RookEntityShape
+    size: 1
+
+- type: entityShape
+  id: DebugCrossRook5
+  shape: !type:RookEntityShape
+    size: 5
+
+- type: entityShape
+  id: DebugCrossBishop5
+  shape: !type:RookEntityShape
+    size: 5
+
+# Options
+
+- type: entityShape
+  id: DebugOptionsTest
+  shape: !type:AllEntityShape
+    children:
+    - id: DebugBoxFilled1
+      group: First
+    - id: DebugBoxFilled1
+      group: Second
+    - id: DebugCrossRook1
+      group: Third
+    options:
+      First:
+        groupSize: 5
+        offset: 0,10
+      Second:
+        groupSize: 3
+        offset: 0,-10
+      Third:
+        groupSize: 5
+        offset: 10,0

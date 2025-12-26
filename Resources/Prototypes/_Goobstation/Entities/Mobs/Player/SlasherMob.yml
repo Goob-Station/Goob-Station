@@ -26,6 +26,10 @@
     baseDecayRate: 0
   - type: Thirst
     baseDecayRate: 0
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
   - type: RandomMetadata
     nameSegments:
     - NamesSlasherTitle

@@ -392,14 +392,16 @@ public sealed class HealingSystem : EntitySystem
             var bleedBefore = 0.0;
             if (TryComp<BloodstreamComponent>(ent, out var bloodstream))
                 bleedBefore = bloodstream.BleedAmountFromWounds + bloodstream.BleedAmountNotFromWounds;
+            healedBleed = bleedBefore > 0.0;
             _wounds.TryHealBleedingWounds(targetedWoundable, healing.BloodlossModifier, out modifiedBleedStopAbility, woundableComp);
             if (healing.BloodlossModifier + modifiedBleedStopAbility < 0.0)
                 _bloodstreamSystem.TryModifyBleedAmount(ent, (healing.BloodlossModifier + modifiedBleedStopAbility).Float()); // Use the leftover bleed heal
-            _popupSystem.PopupClient(bleedBefore + healing.BloodlossModifier <= 0.0
-                    ? Loc.GetString("rebell-medical-item-stop-bleeding-fully")
-                    : Loc.GetString("rebell-medical-item-stop-bleeding-partially"),
-                ent,
-                args.User);
+            if (healedBleed)
+                _popupSystem.PopupClient(bleedBefore + healing.BloodlossModifier <= 0.0
+                        ? Loc.GetString("rebell-medical-item-stop-bleeding-fully")
+                        : Loc.GetString("rebell-medical-item-stop-bleeding-partially"),
+                    ent,
+                    args.User);
             // Goobstation end
         }
 
@@ -409,58 +411,69 @@ public sealed class HealingSystem : EntitySystem
         //healedBleed = healedBleedWound || healedBleedLevel;
 
         // Goobstation start
-        // Create parts to go over queue: targetted part -> head -> torso -> groin -> everything else
-        // Iterate over the parts in the predefined order until we run out of parts or run out of healing
-        var woundablesQueue = new Queue<EntityUid>();
-        woundablesQueue.Enqueue(targetedWoundable);
-        for (var i = 0; i < _partHealingOrder.Length; i++)
-        {
-            var (partType, symmetry) = _bodySystem.ConvertTargetBodyPart(_partHealingOrder[i]);
-            var targetedBodyPart = _bodySystem.GetBodyChildrenOfType(ent, partType, comp, symmetry).ToList().FirstOrDefault();
-            if (targetedBodyPart.Id == targetedWoundable)
-                continue;
-            woundablesQueue.Enqueue(targetedBodyPart.Id);
-        }
-
         var leftoverHealAndTrauma = false;
         var leftoverHealAndBleed = false;
         var healingLeft = healing.Damage * _damageable.UniversalTopicalsHealModifier;
-        while (woundablesQueue.Count > 0 && healingLeft.GetTotal() < 0.0)
+        if (TryComp<BodyComponent>(ent, out var bodyComp) && bodyComp.BodyType == _Shitmed.Body.BodyType.Complex)
         {
-            canHeal = true;
-            targetedWoundable = woundablesQueue.Dequeue();
-            if (!TryComp<WoundableComponent>(targetedWoundable, out var woundableComp2))
-                continue;
-            if (TraumaSystem.TraumasBlockingHealing.Any(traumaType => _trauma.HasWoundableTrauma(targetedWoundable, traumaType, woundableComp2, false)))
+            // Create parts to go over queue: targetted part -> head -> torso -> groin -> everything else
+            // Iterate over the parts in the predefined order until we run out of parts or run out of healing
+            var woundablesQueue = new Queue<EntityUid>();
+            woundablesQueue.Enqueue(targetedWoundable);
+            for (var i = 0; i < _partHealingOrder.Length; i++)
             {
-                canHeal = false;
-
-                if (!healedBleedLevel)
-                {
-                    leftoverHealAndTrauma = true;
+                var (partType, symmetry) = _bodySystem.ConvertTargetBodyPart(_partHealingOrder[i]);
+                var targetedBodyPart = _bodySystem.GetBodyChildrenOfType(ent, partType, comp, symmetry).ToList().FirstOrDefault();
+                if (targetedBodyPart.Id == targetedWoundable)
                     continue;
+                woundablesQueue.Enqueue(targetedBodyPart.Id);
+            }
+            while (woundablesQueue.Count > 0 && healingLeft.GetTotal() < 0.0)
+            {
+                canHeal = true;
+                targetedWoundable = woundablesQueue.Dequeue();
+                if (!TryComp<WoundableComponent>(targetedWoundable, out var woundableComp2))
+                    continue;
+                if (TraumaSystem.TraumasBlockingHealing.Any(traumaType => _trauma.HasWoundableTrauma(targetedWoundable, traumaType, woundableComp2, false)))
+                {
+                    canHeal = false;
+
+                    if (!healedBleedLevel)
+                    {
+                        leftoverHealAndTrauma = true;
+                        continue;
+                    }
+                }
+
+                if (canHeal)
+                {
+                    if (healing.BloodlossModifier == 0 && healing.ModifyBloodLevel >= 0 && woundableComp2.Bleeds > 0)  // If the healing item has no bleeding heals, and its bleeding, we raise the alert. Goobstation edit
+                    {
+                        leftoverHealAndBleed = true;
+                        continue;
+                    }
+
+                    var damageChanged = _damageable.TryChangeDamage(targetedWoundable, healingLeft, true, origin: args.User, ignoreBlockers: healedBleed || healing.BloodlossModifier == 0); // GOOBEDIT
+
+                    if (damageChanged is not null)
+                    {
+                        healedTotal += -damageChanged;
+                        healingLeft += -damageChanged;
+                    }
                 }
             }
 
-            if (canHeal)
-            {
-                if (healing.BloodlossModifier == 0 && healing.ModifyBloodLevel >= 0 && woundableComp2.Bleeds > 0)  // If the healing item has no bleeding heals, and its bleeding, we raise the alert. Goobstation edit
-                {
-                    leftoverHealAndBleed = true;
-                    continue;
-                }
-
-                var damageChanged = _damageable.TryChangeDamage(targetedWoundable, healingLeft, true, origin: args.User, ignoreBlockers: healedBleed || healing.BloodlossModifier == 0); // GOOBEDIT
-
-                if (damageChanged is not null)
-                {
-                    healedTotal += -damageChanged;
-                    healingLeft += -damageChanged;
-                }
-            }
+        }
+        else
+        {
+            var healed = _damageable.TryChangeDamage(ent, healing.Damage * _damageable.UniversalTopicalsHealModifier, true, origin: args.User);
+            if (healed != null)
+                healingLeft -= healed;
         }
 
-        if (healingLeft.GetTotal() < 0.0 && (leftoverHealAndTrauma || leftoverHealAndBleed))
+        var isAnyTypeFullyConsumed = healingLeft.DamageDict.Any(d => d.Value == 0);
+
+        if (!healedBleed && !isAnyTypeFullyConsumed && (leftoverHealAndTrauma || leftoverHealAndBleed))
         {
             if (leftoverHealAndTrauma)
                 _popupSystem.PopupClient(Loc.GetString("medical-item-requires-surgery-rebell", ("target", ent)), ent, args.User, PopupType.MediumCaution);
