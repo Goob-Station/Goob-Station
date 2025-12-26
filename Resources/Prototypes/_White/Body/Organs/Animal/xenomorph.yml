@@ -184,6 +184,12 @@
     state: hive_node
   - type: Organ
     slotId: hive_node
+    onAdd:
+      - type: FacehuggerImmune
+      - type: Access # Goobstation - xeno doors
+        enabled: true
+        groups:
+          - XenomorphAccess
   - type: HiveNode
     # TODO: Organ should give XenoHivemind language and Xeno faction
 
