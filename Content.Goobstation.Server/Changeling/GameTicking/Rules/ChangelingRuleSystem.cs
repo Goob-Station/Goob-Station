@@ -91,9 +91,11 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, ChangelingFactionId);
 
-        // make sure it's initial chems are set to max
+        // TODO move these to a MapInitEvent for ChangelingComp
         EnsureComp<ChangelingIdentityComponent>(target);
         EnsureComp<ChangelingComponent>(target);
+        EnsureComp<ChangelingRegenerateComponent>(target);
+        EnsureComp<ChangelingStasisComponent>(target);
 
         // add store
         var store = EnsureComp<StoreComponent>(target);

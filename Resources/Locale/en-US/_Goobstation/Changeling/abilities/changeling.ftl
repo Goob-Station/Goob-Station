@@ -57,13 +57,14 @@ changeling-dartgun-no-stings = We don't have any reagent stings evolved!
 
 changeling-stasis-enter = We enter regenerative stasis...
 changeling-stasis-enter-damaged = We enter regenerative stasis. Our sustained injuries will prove troublesome to heal...
-changeling-stasis-enter-catastrophic = We enter regenerative stasis. Our catastrophic injuries will take extreme time to heal...
-changeling-stasis-enter-fail = Can't enter stasis!
+changeling-stasis-enter-dead = We enter regenerative stasis. Our catastrophic injuries will take extreme time to heal...
 changeling-stasis-exit = We exit regenerative stasis, clear of wounds and injuries...
-changeling-stasis-exit-fail = We're not in stasis!
-changeling-stasis-exit-fail-dead = We feel... hollow. It is over.
-changeling-stasis-exit-fail-time = Our body is still recovering!
-changeling-stasis-exit-defib = A shock pulses through us. Our stasis has been interrupted!
+
+changeling-stasis-absorbed = We have no control over our cells. Our body is silent. It is over.
+changeling-stasis-defib = A shock pulses through us. Our stasis has been interrupted!
+
+changeling-regenerate = Our body is instantly cleared of any wounds and broken bones.
+changeling-regenerate-limbs = Our body emits a loud crack as missing limbs, wounds and broken bones are instantly regenerated!
 
 changeling-fail-hands = Need to drop something beforehand
 
