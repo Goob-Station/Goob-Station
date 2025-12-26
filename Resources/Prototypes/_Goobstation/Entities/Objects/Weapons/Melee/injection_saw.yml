@@ -6,9 +6,8 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/injection_saw.rsi
-    scale: 0.9 , 0.9
     layers:
-    - state: icon
+    - state: injection_saw
       map: ["enum.SolutionContainerLayers.Base"]
     - state: injection_saw-1
       map: ["enum.SolutionContainerLayers.Fill"]
@@ -25,8 +24,8 @@
     wideAnimationRotation: -90
     damage:
       types:
-        Piercing: 1
-        Slash: 3
+        Piercing: 5
+        Slash: 5
     angle: 0
     animation: WeaponArcThrust
     soundHit:
@@ -49,9 +48,6 @@
     fillBaseName: injection_saw-
     inHandsFillBaseName: -fill-
     inHandsMaxFillLevels: 3
-  - type: Icon
-    sprite: _Goobstation/Objects/Weapons/Melee/injection_saw.rsi
-    state: injection_saw
   - type: Appearance
   - type: Scalpel
     speed: 0.65    # 65
