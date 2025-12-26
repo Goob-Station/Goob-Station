@@ -22,6 +22,7 @@
 
 using System;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using Content.Goobstation.Shared.Supermatter;
 using Content.Goobstation.Shared.Supermatter.Components;
@@ -53,6 +54,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
+using Robust.Shared.Map;
 using Robust.Shared.Maths;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
@@ -410,20 +412,20 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
             switch (_delamType)
             {
-                case DelamType.Explosion:
-                default:
-                    loc = "supermatter-delam-explosion";
-                    break;
+               case DelamType.Explosion:
+               default:
+                   loc = "supermatter-delam-explosion";
+                   break;
 
-                case DelamType.Singulo:
-                    loc = "supermatter-delam-overmass";
-                    alertLevel = "delta";
-                    break;
+               case DelamType.Singulo:
+                   loc = "supermatter-delam-overmass";
+                   alertLevel = "delta";
+                   break;
 
-                case DelamType.Tesla:
-                    loc = "supermatter-delam-tesla";
-                    alertLevel = "delta";
-                    break;
+               case DelamType.Tesla:
+                   loc = "supermatter-delam-tesla";
+                   alertLevel = "delta";
+                   break;
 
                 case DelamType.Cascade:
                     loc = "supermatter-delam-cascade";
@@ -508,9 +510,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (sm.Power >= sm.PowerPenaltyThreshold)
             return DelamType.Tesla;
 
-        // TODO: add resonance cascade when there's crazy conditions, or a destabilizing crystal :godo:
-
-        return DelamType.Explosion;
+        return DelamType.Cascade;
     }
 
     /// <summary>
@@ -554,7 +554,9 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 break;
 
             case DelamType.Cascade:
+                Spawn("SupermatterCascadeEndRound", MapCoordinates.Nullspace);
                 Spawn(sm.SupermatterKudzuPrototypeId, xform.Coordinates);
+                QueueDel(uid); // slon edit
                 break;
         }
     }
