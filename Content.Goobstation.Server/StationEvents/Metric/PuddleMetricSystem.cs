@@ -42,8 +42,7 @@ public sealed class PuddleMetricSystem : ChaosMetricSystem<PuddleMetricComponent
         // Add up the pain of all the puddles
         var query = EntityQueryEnumerator<PuddleComponent, SolutionContainerManagerComponent>();
         double messChaos = 0;
-
-        int puddleCount = 0;
+        var puddleCount = 0;
         double totalPuddleVolume = 0;
 
         while (query.MoveNext(out var puddleUid, out var puddle, out var solutionMgr))
