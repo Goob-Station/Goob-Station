@@ -124,6 +124,7 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: Appearance
   - type: SpentAmmoVisuals
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   id: ShellShotgunBeanbag
