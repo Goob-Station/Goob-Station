@@ -61,7 +61,7 @@ public partial class SharedDiseaseSystem
         if (power < 0 || chance < 0)
             return false;
 
-        if (_random.Prob(power * chance))
+        if (_random.Prob(Math.Min(power * chance, 1f)))
         {
             var infectDisease = disease;
             EntityUid? newDisease = null;
