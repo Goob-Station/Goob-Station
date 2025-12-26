@@ -721,7 +721,6 @@ public sealed partial class ChangelingSystem
         eggComp.lingComp = comp;
         eggComp.lingMind = (EntityUid) mind;
         eggComp.lingStore = _serialization.CreateCopy(storeComp, notNullableOverride: true);
-        eggComp.AugmentedEyesightPurchased = HasComp<Shared.Overlays.ThermalVisionComponent>(uid);
 
         EnsureComp<AbsorbedComponent>(target);
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);

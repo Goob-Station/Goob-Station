@@ -588,7 +588,7 @@
   parent: BaseAction
   id: ActionAugmentedEyesight
   name: Augmented Eyesight
-  description: Toggle thermal vision.
+  description: Toggle x-ray vision.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -599,7 +599,7 @@
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: augmented_eyesight
   - type: InstantAction
-    event: !type:ToggleThermalVisionEvent {}
+    event: !type:ActionAugmentedEyesightEvent {}
 
 - type: entity
   parent: BaseAction

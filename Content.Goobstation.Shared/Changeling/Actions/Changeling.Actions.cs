@@ -88,6 +88,7 @@ public sealed partial class ActionAnatomicPanaceaEvent : InstantActionEvent
     [DataField]
     public float Duration = 10f;
 }
+public sealed partial class ActionAugmentedEyesightEvent : InstantActionEvent { }
 public sealed partial class ActionBiodegradeEvent : InstantActionEvent { }
 public sealed partial class ActionChameleonSkinEvent : InstantActionEvent { }
 public sealed partial class ActionAdrenalineReservesEvent : InstantActionEvent

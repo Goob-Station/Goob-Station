@@ -242,9 +242,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   <Box>
     [color=#999999][italic] 4 Evolution Points / 0 Chems [italic][/color]
   </Box>
-  - Changeling can toggle eyesight between flash resistant and thermal vision.
-  - While using thermal vision, flashes stun the changeling for twice as long.
-  - Thermal vision also provides changeling with night vision.
+  - Changeling can toggle between x-ray vision and flash immune vision.
+  - While using x-ray vision, flashes will bypass all forms of worn protection.
+  - Flash effects will last twice as long while x-ray vision is active.
   - Can be used while cuffed or in lesser form.
 
   ## Biodegrade
