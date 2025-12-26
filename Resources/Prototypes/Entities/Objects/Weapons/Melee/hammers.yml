@@ -26,7 +26,7 @@
         Blunt: 10
         Structural: 10
       woundSeverityMultipliers:
-        Blunt: 2
+        Blunt: 1.5
     soundHit:
       collection: MetalThud
   - type: Wieldable
