@@ -494,6 +494,9 @@
   id: RatvarianSpear
 
 - type: Tag
+  id: DragonsTail
+
+- type: Tag
   id: ReptilianEmotes
 
 - type: Tag
