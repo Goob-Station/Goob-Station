@@ -1,0 +1,364 @@
+- type: entity
+  parent: BaseStructureDynamic
+  id: RMCSmallFloodlight
+  name: small floodlight
+  description: A small bit of light in the darkness.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: _RMC14/Objects/Misc/Lights/floodlight.rsi
+    layers:
+      - state: smallfloodon # Temporary until power works.
+      - state: smallflood
+        visible: false
+        map: [ "light" ]
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: PointLight
+    enabled: true
+    radius: 6
+    netsync: false
+    energy: 2
+    offset: "0, 0"
+    color: "#ECFFFF"
+    mask: /Textures/_RMC14/Effects/LightMasks/quad_cone.png
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+  - type: Appearance
+
+- type: entity
+  parent: BaseStructure
+  id: RMCTallFloodlight
+  name: tall floodlight
+  description: A pillar of light in the darkness.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: _RMC14/Objects/Misc/Lights/floodlightbig.rsi
+    layers:
+      - state: bigflood
+      - state: bigfloodon
+        visible: false
+        map: [ "light" ]
+    offset: "0.0,0.5"
+    drawdepth: Mobs
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: PointLight
+    enabled: false
+    radius: 7
+    netsync: false
+    offset: "0,0.5"
+    color: "#ECFFFF"
+    mask: /Textures/_RMC14/Effects/LightMasks/quad_cone.png
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+  - type: Repairable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+  - type: Appearance
+  - type: ToggleableVisuals
+    spriteLayer: light
+
+- type: entity
+  parent: BaseStructure
+  id: RMCFloodlightBroken
+  name: tall broken floodlight
+  description: A pasted on note says 'To fix, unscrew the panel, crowbar out the damaged assembly, weld it fixed, add 2 cable, then close the panel.'
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: _RMC14/Objects/Misc/Lights/floodlightbig.rsi
+    state: broken
+    offset: "0.0,0.5"
+    drawdepth: Mobs
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 155
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+
+# LZ Floodlights
+
+- type: entity
+  parent: BaseStructure
+  id: RMCLZFloodlight
+  name: landing light
+  description: A powerful light usually stationed near landing zones to provide better visibility. This one seems to have been bolted down and is unable to be moved.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _RMC14/Objects/Misc/Lights/floodlight.rsi
+    state: magical
+  - type: InteractionOutline
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 2
+    netsync: false
+    color: "#ECFFFF"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 50
+        mask:
+        - HighImpassable
+  - type: Appearance
+
+# Engineer Ship Light
+
+- type: entity
+  parent: RMCLZFloodlight
+  id: RMCEngineerShipLight
+  name: circular light
+  description: A huge circular light
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Misc/Lights/engineer_ship.rsi
+    state: engineerlight_on
+  - type: PointLight
+    enabled: true
+    radius: 14
+    energy: 3
+    color: "#00FFA0"
+
+# Street
+
+- type: entity
+  parent: RMCTallFloodlight
+  id: RMCStreetlight
+  name: colony streetlight
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+  - type: Sprite
+    noRot: true
+    sprite: _RMC14/Objects/Misc/Lights/streetlight.rsi
+    offset: 0.0,0.8
+    layers:
+      - state: street_off
+        visible: false
+      - state: street_on
+        visible: true
+        map: [ "light" ]
+    drawdepth: Mobs
+  - type: PointLight
+    enabled: true
+
+- type: entity
+  parent: RMCStreetlight
+  id: RMCStreetlightOff
+  suffix: Off
+  name: colony streetlight
+  components:
+  - type: PointLight
+    enabled: false
+  - type: Sprite
+    layers:
+      - state: street_off
+        visible: true
+      - state: street_on
+        visible: false
+        map: [ "light" ]
+
+- type: entity
+  parent: RMCFloodlightBroken
+  id: RMCStreetlightBroken
+  name: broken colony streetlight
+  description: This thing is ancient, how are you gonna fix it now? Good job, smartass.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _RMC14/Objects/Misc/Lights/streetlight.rsi
+    offset: 0.0,0.8
+    state: broken
+    drawdepth: Mobs
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+
+# Traffic light
+
+- type: entity
+  parent: BaseStructure
+  id: RMCTrafficLightBase
+  name: traffic light
+  description: A traffic light.
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: _RMC14/Objects/Misc/Lights/trafficlights.rsi
+    offset: 0.65,0.8
+    layers:
+      - state: trafficlight
+      - state: trafficlight_on
+        visible: false
+        map: [ "light" ]
+    drawdepth: Mobs
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+  - type: Appearance
+  - type: ToggleableVisuals
+    spriteLayer: light
+
+- type: entity
+  parent: RMCTrafficLightBase
+  id: RMCTrafficLight
+
+- type: entity
+  parent: RMCStreetlightBroken
+  id: RMCTrafficLightBroken
+  name: broken traffic light
+  description: This thing is ancient, how are you gonna fix it now? Good job, smartass.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _RMC14/Objects/Misc/Lights/trafficlights.rsi
+    offset: 0.65,0.8
+    state: trafficlight_damaged
+    drawdepth: Mobs
+
+- type: entity
+  parent: RMCTrafficLight
+  id: RMCTrafficLightAlt
+  suffix: Alt
+  components:
+  - type: Sprite
+    layers:
+      - state: trafficlight_alt
+      - state: trafficlight_alt_on
+        visible: false
+        map: [ "light" ]
+
+- type: entity
+  parent: RMCTrafficLightBroken
+  id: RMCTrafficLightBrokenAlt
+  suffix: Alt
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Misc/Lights/trafficlights.rsi
+    state: trafficlight_alt_damaged
+    drawdepth: Mobs
