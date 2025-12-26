@@ -136,6 +136,9 @@ uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. h
 uplink-m7s-name = M7S "Ventilator"
 uplink-m7s-desc = The spread of this submachine gun gets tighter the longer you suppress your foes with it. The gunshots are suppressed too. Pretty convenient.
 
+uplink-tigers-claw-name = The tigers claw
+uplink-tigers-claw-desc = The latest from Cybersuns R&D department, a legendary blade forged out of the highest quality metals, weilding this blade with the "Capos Attire" give the sword special properties.
+
 uplink-combat-shotgun-name = 'Bojevic' Combat shotgun
 uplink-combat-shotgun-desc = A beefy pump-action shotgun chambered in 8 gauge, with a 5 round magazine tube.
 
@@ -304,6 +307,9 @@ uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced
 
 uplink-belt-rig-name = Grenadier Belt
 uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
+
+uplink-clothing-capo-outfit-name = The Capos Attire
+uplink-clothing-capo-outfit-desc = A collection of clothes tailoried out of the highest quality fibres, wearing the entire outfit gives special abilities, comes with the tigers claw sword.
 
 uplink-guerrilla-gloves-name = Guerrilla Gloves
 uplink-guerrilla-gloves-desc = A special shock resistant pair of gloves that make you hard grab by default, reduce your slowdown when actively grabbing and make it harder for victims to escape your grabs.

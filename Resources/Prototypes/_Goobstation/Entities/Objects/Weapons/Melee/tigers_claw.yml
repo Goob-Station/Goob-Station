@@ -1,0 +1,44 @@
+- type: entity
+  parent: [BaseSword, BaseSyndicateContraband]
+  id: TigersClawSword
+  name: the tigers claw
+  description: Y'all don't go huntn' tigers expecting to not get chomped!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/tigers_claw.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Objects/Weapons/Melee/tigers_claw_inhand.rsi
+  - type: Sharp
+  - type: DisarmMalus
+    malus: 0.6
+  - type: Execution
+    doAfterDuration: 3.0
+  - type: Scalpel # Shitmed
+    speed: 0.75
+  - type: Wieldable
+  - type: MeleeWeapon
+    animation: WeaponArcThrust
+    heavyStaminaCost: 2.5
+    attackRate: 1.6
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 15
+        Heat: 5
+        Structural: 10
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 10
+        Heat: 2.5
+        Structural: 10
+  - type: Reflect
+    reflectProb: 0
+    spread: 90
+  - type: TigersClaw
+  - type: UseDelay
+    delay: 1.1
