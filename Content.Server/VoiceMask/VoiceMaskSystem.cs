@@ -22,6 +22,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.IntrinsicVoiceModulator.VoiceMask; // Goobstation
+using Content.Server.Speech;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -35,7 +36,6 @@ using Content.Shared.Implants;
 using Content.Shared.Inventory;
 using Content.Shared.Lock;
 using Content.Shared.Popups;
-using Content.Shared.Preferences;
 using Content.Shared.Roles.Jobs; // Goobstation
 using Content.Shared.Speech;
 using Content.Shared.VoiceMask;
@@ -71,10 +71,39 @@ public sealed partial class VoiceMaskSystem : EntitySystem
         SubscribeLocalEvent<VoiceMaskComponent, LockToggledEvent>(OnLockToggled);
         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeNameMessage>(OnChangeName);
         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeVerbMessage>(OnChangeVerb);
+        SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskToggleMessage>(OnToggle);
+        SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskAccentToggleMessage>(OnAccentToggle);
         SubscribeLocalEvent<VoiceMaskComponent, ClothingGotEquippedEvent>(OnEquip);
         SubscribeLocalEvent<VoiceMaskSetNameEvent>(OpenUI);
+        SubscribeLocalEvent<VoiceMaskComponent, TransformSpeechEvent>(OnTransformSpeech, before: [typeof(AccentSystem)]);
+        SubscribeLocalEvent<VoiceMaskComponent, InventoryRelayedEvent<TransformSpeechEvent>>(OnTransformSpeechInventory, before: [typeof(AccentSystem)]);
+        SubscribeLocalEvent<VoiceMaskComponent, ImplantRelayEvent<TransformSpeechEvent>>(OnTransformSpeechImplant, before: [typeof(AccentSystem)]);
 
         Subs.CVar(_cfgManager, CCVars.MaxNameLength, value => _maxNameLength = value, true);
+    }
+
+    /// <summary>
+    ///     Hides accent if the voice mask is on and the option to block accents is on
+    /// </summary>
+    private void TransformSpeech(Entity<VoiceMaskComponent> entity, TransformSpeechEvent args)
+    {
+        if (entity.Comp.AccentHide && entity.Comp.Active)
+            args.Cancel();
+    }
+
+    private void OnTransformSpeech(Entity<VoiceMaskComponent> entity, ref TransformSpeechEvent args)
+    {
+        TransformSpeech(entity, args);
+    }
+
+    private void OnTransformSpeechInventory(Entity<VoiceMaskComponent> entity, ref InventoryRelayedEvent<TransformSpeechEvent> args)
+    {
+        TransformSpeech(entity, args.Args);
+    }
+
+    private void OnTransformSpeechImplant(Entity<VoiceMaskComponent> entity, ref ImplantRelayEvent<TransformSpeechEvent> args)
+    {
+        TransformSpeech(entity, args.Event);
     }
 
     private void OnTransformSpeakerNameInventory(Entity<VoiceMaskComponent> entity, ref InventoryRelayedEvent<TransformSpeakerNameEvent> args)
@@ -89,8 +118,10 @@ public sealed partial class VoiceMaskSystem : EntitySystem
 
     private void OnSeeIdentityAttemptEvent(Entity<VoiceMaskComponent> entity, ref ImplantRelayEvent<SeeIdentityAttemptEvent> args)
     {
-        if (entity.Comp.OverrideIdentity)
-            args.Event.NameOverride = GetCurrentVoiceName(entity);
+        if (!entity.Comp.OverrideIdentity || !entity.Comp.Active)
+            return;
+
+        args.Event.NameOverride = GetCurrentVoiceName(entity);
     }
 
     private void OnImplantImplantedEvent(Entity<VoiceMaskComponent> entity, ref ImplantImplantedEvent ev)
@@ -144,6 +175,20 @@ public sealed partial class VoiceMaskSystem : EntitySystem
         UpdateUI(entity);
     }
 
+    private void OnToggle(Entity<VoiceMaskComponent> entity, ref VoiceMaskToggleMessage args)
+    {
+        _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-toggle"), entity, args.Actor);
+        entity.Comp.Active = !entity.Comp.Active;
+
+        // Update identity because of possible name override
+        _identity.QueueIdentityUpdate(args.Actor);
+    }
+
+    private void OnAccentToggle(Entity<VoiceMaskComponent> entity, ref VoiceMaskAccentToggleMessage args)
+    {
+        _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-accent-toggle"), entity, args.Actor);
+        entity.Comp.AccentHide = !entity.Comp.AccentHide;
+    }
     #endregion
 
     #region UI
@@ -172,7 +217,8 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     public void UpdateUI(Entity<VoiceMaskComponent> entity) // Make public by goobstation
     {
         if (_uiSystem.HasUi(entity, VoiceMaskUIKey.Key))
-            _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(GetCurrentVoiceName(entity), entity.Comp.VoiceMaskSpeechVerb, entity.Comp.JobIconProtoId)); // GabyStation -> Radio icons
+            _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(GetCurrentVoiceName(entity), entity.Comp.VoiceMaskSpeechVerb, entity.Comp.Active, entity.Comp.AccentHide,
+                entity.Comp.JobIconProtoId)); // GabyStation -> Radio icons
     }
     #endregion
 
@@ -184,6 +230,9 @@ public sealed partial class VoiceMaskSystem : EntitySystem
 
     private void TransformVoice(Entity<VoiceMaskComponent> entity, TransformSpeakerNameEvent args)
     {
+        if (!entity.Comp.Active)
+            return;
+
         args.VoiceName = GetCurrentVoiceName(entity);
         args.SpeechVerb = entity.Comp.VoiceMaskSpeechVerb ?? args.SpeechVerb;
     }

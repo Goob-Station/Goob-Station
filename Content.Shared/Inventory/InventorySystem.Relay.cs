@@ -108,6 +108,7 @@ public partial class InventorySystem
 
         SubscribeLocalEvent<InventoryComponent, TransformSpeakerFontEvent>(RelayInventoryEvent); // goobstation -> font mask
         SubscribeLocalEvent<InventoryComponent, TransformSpeakerNameEvent>(RelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, TransformSpeechEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, SelfBeforeInjectEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, BeforeInjectTargetEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, TransformSpeakerJobIconEvent>(RelayInventoryEvent); // GabyStation -> Radio icons
