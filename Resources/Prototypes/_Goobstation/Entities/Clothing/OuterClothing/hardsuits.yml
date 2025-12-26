@@ -212,8 +212,8 @@
       NerveDamage: 0.9
     modifiers:
       coefficients:
-        Blunt: 0.1
-        Slash: 0.1 # holy shit bruv
+        Blunt: 0.2 #it was 0.1, realistically it wont really matter unless i make it stupid
+        Slash: 0.2 # holy shit bruv
         Piercing: 0.1
         Heat: 0.1
         Radiation: 0.25 # do people even know rad ammo exists? anyway making rad its weakness is kinda fair
