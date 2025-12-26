@@ -1,0 +1,26 @@
+
+- type: construction
+  name: doodon dwelling
+  id: BuildDoodonDwelling
+  graph: DDwellingGraph
+  placementMode: SnapgridCenter
+  startNode: start
+  targetNode: DoodonDwellingComplete
+  category: Structures
+  description: A home for worker doodons.
+  icon:
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: dwelling
+  
+- type: construction
+  name: doodon warrior hut
+  id: BuildDoodonWHut
+  graph: WarriorHutGraph
+  placementMode: SnapgridCenter
+  startNode: start
+  targetNode: WarriorHutComplete
+  category: Structures
+  description: A training ground for warrior doodons.
+  icon:
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: warrior
