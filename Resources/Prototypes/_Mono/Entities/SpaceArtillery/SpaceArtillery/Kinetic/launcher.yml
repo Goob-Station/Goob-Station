@@ -13,8 +13,8 @@
     layers:
     - state: space_artillery
   - type: Battery
-    maxCharge: 20000
-    startingCharge: 20000
+    maxCharge: 300 #CorvaxGoob-ShuttleGuns-Rebalance
+    startingCharge: 300 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: ExaminableBattery
   - type: Appearance
   - type: AutoShootGun
@@ -25,7 +25,7 @@
     ports:
     - Toggle
   - type: Gun
-    fireRate: 12
+    fireRate: 8 #CorvaxGoob-ShuttleGuns-Rebalance
     projectileSpeed: 75
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
@@ -33,9 +33,9 @@
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 550
+    autoRechargeRate: 0 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: SpaceArtillery
-    powerChargeRate: 100
+    powerChargeRate: 1000 #CorvaxGoob-ShuttleGuns-Rebalance
     powerUsePassive: 100
   - type: Actions
   - type: CombatMode
@@ -43,7 +43,7 @@
   - type: Airtight
   - type: ProjectileBatteryAmmoProvider
     proto: 20mmBulletArmorPiercing
-    fireCost: 15
+    fireCost: 1 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: RadiationBlocker
     resistance: 8
   - type: RadarBlip
@@ -71,29 +71,29 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
-    maxCharge: 30000
-    startingCharge: 30000
+    maxCharge: 1500 #CorvaxGoob-ShuttleGuns-Rebalance
+    startingCharge: 1500 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 1.5
+    fireRate: 0.3 #CorvaxGoob-ShuttleGuns-Rebalance
     projectileSpeed: 75
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/mortar.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 220
+    autoRecharge: false #CorvaxGoob-ShuttleGuns-Rebalance
+    autoRechargeRate: 0 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: SpaceArtillery
-    powerChargeRate: 220
-    powerUsePassive: 750
-    powerUseActive: 0
+    powerChargeRate: 30 #CorvaxGoob-ShuttleGuns-Rebalance
+    powerUsePassive: 0
+    powerUseActive: 500
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
     proto: ShipDravonProjectile
-    fireCost: 250
+    fireCost: 300 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 1.5
@@ -119,16 +119,16 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
-    maxCharge: 40000
-    startingCharge: 40000
+    maxCharge: 12000 #CorvaxGoob-ShuttleGuns-Rebalance
+    startingCharge: 12000 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 2.5
+    fireRate: 0.3 #CorvaxGoob-ShuttleGuns-Rebalance
     projectileSpeed: 75
-    burstCooldown: 0.5
-    burstFireRate: 10
+    burstCooldown: 2 #CorvaxGoob-ShuttleGuns-Rebalance
+    burstFireRate: 4 #CorvaxGoob-ShuttleGuns-Rebalance
     shotsPerBurst: 2
     selectedMode: Burst
     availableModes: Burst
@@ -140,13 +140,13 @@
     autoRecharge: true
     autoRechargeRate: 125
   - type: SpaceArtillery
-    powerChargeRate: 125
-    powerUsePassive: 600
-    powerUseActive: 0
+    powerChargeRate: 400 #CorvaxGoob-ShuttleGuns-Rebalance
+    powerUsePassive: 0 #CorvaxGoob-ShuttleGuns-Rebalance
+    powerUseActive: 500 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
     proto: 90mmBulletArmorPiercing
-    fireCost: 50
+    fireCost: 1000 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: RadarBlip
     radarColor: "#FF0000"
     scale: 1.5
@@ -189,7 +189,7 @@
     autoRechargeRate: 214
   - type: SpaceArtillery
     powerChargeRate: 214
-    powerUsePassive: 3500
+    powerUsePassive: 0 #CorvaxGoob-ShuttleGuns-Rebalance
     powerUseActive: 0
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
@@ -254,7 +254,7 @@
     autoRechargeRate: 12000
   - type: SpaceArtillery
     powerChargeRate: 12000
-    powerUsePassive: 1500
+    powerUsePassive: 0 #CorvaxGoob-ShuttleGuns-Rebalance
     powerUseActive: 0
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
@@ -286,8 +286,8 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
-    maxCharge: 12000
-    startingCharge: 12000
+    maxCharge: 18000 #CorvaxGoob-ShuttleGuns-Rebalance
+    startingCharge: 18000 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
@@ -316,10 +316,10 @@
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 12000
+    autoRechargeRate: 1000 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: SpaceArtillery
-    powerChargeRate: 12000
-    powerUsePassive: 1500
+    powerChargeRate: 500 #CorvaxGoob-ShuttleGuns-Rebalance
+    powerUsePassive: 500 #CorvaxGoob-ShuttleGuns-Rebalance
     powerUseActive: 0
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
@@ -372,7 +372,7 @@
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
     proto: ShipRailgunProjectile
-    fireCost: 1500
+    fireCost: 10000 #CorvaxGoob-ShuttleGuns-Rebalance
   - type: Fixtures
     fixtures:
       fix1:
