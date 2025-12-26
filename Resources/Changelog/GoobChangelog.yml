@@ -19805,3 +19805,9 @@ Entries:
       message: New flora detected in Lavaland Wastes!
   id: 2239
   time: '2025-12-21T17:14:47.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed Captain not having radio station access
+  id: 2240
+  time: '2025-12-26T09:04:23.0000000+00:00'
