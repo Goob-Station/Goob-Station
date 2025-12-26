@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.InternalResources.Components;
 using Content.Goobstation.Shared.InternalResources.Events;
+using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
@@ -37,7 +38,8 @@ public sealed partial class SharedInternalResourcesActionSystem : EntitySystem
 
     private void OnActionPerformed(Entity<InternalResourcesActionComponent> action, ref ActionPerformedEvent args)
     {
-        var actionCost = GetActionCost(args.Performer, action.Comp.UseAmount);
+        var toggled = Comp<ActionComponent>(action).Toggled;
+        var actionCost = GetActionCost(args.Performer, !toggled ? action.Comp.UseAmount : action.Comp.AltUseAmount);
 
         _internalResources.TryUpdateResourcesAmount(args.Performer, action.Comp.ResourceProto, -actionCost);
     }

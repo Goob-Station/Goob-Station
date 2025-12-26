@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Shared.Alert;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -12,6 +13,8 @@ public sealed partial class VoidAdaptionComponent : Component
 {
     public ProtoId<AlertPrototype> Alert = "VoidAdaption";
 
+    public ProtoId<InternalResourcesPrototype> ResourceType = "ChangelingChemicals";
+
     public bool FirePopupSent;
     public LocId FirePopup = "changeling-voidadapt-onfire";
 
@@ -24,5 +27,4 @@ public sealed partial class VoidAdaptionComponent : Component
     public LocId LeaveLowTempPopup = "changeling-voidadapt-lowtemperature-end";
 
     public float ChemModifierValue = 0.25f;
-
 }

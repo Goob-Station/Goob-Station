@@ -11,15 +11,25 @@ public sealed partial class ChangelingBiomassSystem : SharedChangelingBiomassSys
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
 
+    private EntityQuery<ChangelingIdentityComponent> _lingQuery;
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ChangelingBiomassComponent, PolymorphedEvent>(OnPolymorphed);
+
+        _lingQuery = GetEntityQuery<ChangelingIdentityComponent>();
     }
 
     private void OnPolymorphed(Entity<ChangelingBiomassComponent> ent, ref PolymorphedEvent args)
-        => _polymorph.CopyPolymorphComponent<ChangelingBiomassComponent>(ent, args.NewEntity);
+    {
+        if (_lingQuery.TryComp(ent, out var ling)
+            && ling.IsInLastResort)
+            return;
+
+        _polymorph.CopyPolymorphComponent<ChangelingBiomassComponent>(ent, args.NewEntity);
+    }
 
     protected override void DoCough(Entity<ChangelingBiomassComponent> ent)
     {

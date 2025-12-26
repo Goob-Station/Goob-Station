@@ -183,7 +183,11 @@ public sealed partial class ChangelingSystem
 
         var target = args.Args.Target.Value;
 
-        if (args.Cancelled || HasComp<AbsorbedComponent>(target) || (!IsIncapacitated(target) && !IsHardGrabbed(target)))
+        if (args.Cancelled
+            || HasComp<AbsorbedComponent>(target)
+            || (!IsIncapacitated(target) && !IsHardGrabbed(target))
+            || !TryComp<ChangelingChemicalComponent>(uid, out var chemComp)
+            || chemComp.ResourceData == null)
             return;
 
         PlayMeatySound(args.User, comp);
@@ -204,10 +208,12 @@ public sealed partial class ChangelingSystem
         var biomassMaxIncrease = 0f;
         var biomassValid = false;
 
-        if (TryComp<ChangelingIdentityComponent>(target, out var targetComp))
+        if (TryComp<ChangelingIdentityComponent>(target, out var targetComp)
+            && TryComp<ChangelingChemicalComponent>(target, out var targetChemComp)
+            && targetChemComp.ResourceData != null)
         {
             popup = Loc.GetString("changeling-absorb-end-self-ling");
-            bonusChemicals += targetComp.MaxChemicals / 2;
+            bonusChemicals += targetChemComp.ResourceData.MaxAmount / 2;
             bonusEvolutionPoints += targetComp.TotalEvolutionPoints / 2;
             bonusChangelingAbsorbs += targetComp.TotalChangelingsAbsorbed + 1;
 
@@ -243,7 +249,7 @@ public sealed partial class ChangelingSystem
         TryStealDNA(uid, target, comp, objBool);
 
         _popup.PopupEntity(popup, args.User, args.User);
-        comp.MaxChemicals += bonusChemicals;
+        _resources.TryUpdateResourcesCapacity(uid, chemComp.ResourceData, bonusChemicals);
 
         if (TryComp<StoreComponent>(args.User, out var store))
         {
@@ -262,16 +268,16 @@ public sealed partial class ChangelingSystem
                 lingAbsorbObj.LingAbsorbed += absorbed.TotalChangelingsAbsorbed + 1;
         }
 
-        UpdateChemicals(uid, comp, comp.MaxChemicals); // refill chems to max
+        UpdateChemicals(uid, comp, chemComp.ResourceData.MaxAmount, chemComp); // refill chems to max
 
         // modify biomass if the changeling uses it
         if (TryComp<ChangelingBiomassComponent>(uid, out var biomass)
             && biomassValid)
         {
             biomass.MaxBiomass += biomassMaxIncrease;
-            biomass.Biomass = biomass.MaxBiomass;
 
-            Dirty(uid, biomass);
+            var bioEv = new ChangelingModifyBiomassEvent(biomass.MaxBiomass);
+            RaiseLocalEvent(uid, ref bioEv);
         }
 
     }
@@ -360,7 +366,7 @@ public sealed partial class ChangelingSystem
         if (!TryStealDNA(uid, target, comp, objBool))
         {
             // royal cashback
-            comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+            UpdateChemicals(uid, comp, Comp<ChangelingActionComponent>(args.Action).ChemicalCost);
         }
         else _popup.PopupEntity(Loc.GetString("changeling-sting", ("target", Identity.Entity(target, EntityManager))), uid, uid);
     }
@@ -387,7 +393,7 @@ public sealed partial class ChangelingSystem
             return;
 
         if (!TryTransform(uid, comp))
-            comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+            UpdateChemicals(uid, comp, Comp<ChangelingActionComponent>(args.Action).ChemicalCost);
     }
 
     private void OnEnterStasis(EntityUid uid, ChangelingIdentityComponent comp, ref EnterStasisEvent args)
@@ -543,7 +549,7 @@ public sealed partial class ChangelingSystem
 
         if (ammoSelector.Prototypes.Count == 0)
         {
-            comp.Chemicals += chemCostOverride ?? Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+            UpdateChemicals(uid, comp, chemCostOverride ?? Comp<ChangelingActionComponent>(args.Action).ChemicalCost);
             _popup.PopupEntity(Loc.GetString("changeling-dartgun-no-stings"), uid, uid);
             comp.Equipment.Remove(DartGunPrototype);
             QueueDel(dartgun.Value);
@@ -574,7 +580,7 @@ public sealed partial class ChangelingSystem
         if (!TryToggleArmor(uid, comp, [(ArmorHelmetPrototype, "head"), (ArmorPrototype, "outerClothing")]))
         {
             _popup.PopupEntity(Loc.GetString("changeling-equip-armor-fail"), uid, uid);
-            comp.Chemicals += chemCostOverride ?? Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+            UpdateChemicals(uid, comp, chemCostOverride ?? Comp<ChangelingActionComponent>(args.Action).ChemicalCost);
             return;
         }
 
@@ -655,7 +661,7 @@ public sealed partial class ChangelingSystem
 
         var target = args.Target;
         if (!TryTransform(target, comp, true, true))
-            comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+            UpdateChemicals(uid, comp, Comp<ChangelingActionComponent>(args.Action).ChemicalCost);
     }
     private void OnStingFakeArmblade(EntityUid uid, ChangelingIdentityComponent comp, ref StingFakeArmbladeEvent args)
     {
@@ -677,7 +683,7 @@ public sealed partial class ChangelingSystem
         if (!handsValid)
         {
             QueueDel(fakeArmblade);
-            comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+            UpdateChemicals(uid, comp, Comp<ChangelingActionComponent>(args.Action).ChemicalCost);
             _popup.PopupEntity(Loc.GetString("changeling-sting-fail-fakeweapon"), uid, uid);
             return;
         }
@@ -813,7 +819,6 @@ public sealed partial class ChangelingSystem
             EnsureComp<StealthOnMoveComponent>(uid);
             _popup.PopupEntity(Loc.GetString("changeling-chameleon-start"), uid, uid);
             comp.ChameleonActive = true;
-            comp.ChemicalRegenMultiplier -= 0.25f; // chem regen slowed by a flat 25%
         }
         else
         {
@@ -821,7 +826,6 @@ public sealed partial class ChangelingSystem
             RemComp<StealthOnMoveComponent>(uid);
             _popup.PopupEntity(Loc.GetString("changeling-chameleon-end"), uid, uid);
             comp.ChameleonActive = false;
-            comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
         }
     }
 
@@ -885,7 +889,7 @@ public sealed partial class ChangelingSystem
         if (newUid == null)
         {
             comp.IsInLastResort = false;
-            comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+            UpdateChemicals(uid, comp, Comp<ChangelingActionComponent>(args.Action).ChemicalCost);
             return;
         }
 
@@ -910,7 +914,7 @@ public sealed partial class ChangelingSystem
         if (newUid == null)
         {
             comp.IsInLesserForm = false;
-            comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+            UpdateChemicals(uid, comp, Comp<ChangelingActionComponent>(args.Action).ChemicalCost);
             return;
         }
 

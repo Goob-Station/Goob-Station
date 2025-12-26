@@ -8,6 +8,7 @@ namespace Content.Goobstation.Shared.InternalResources.Data;
 /// Data structure for storing and changing inner resource in entities
 /// </summary>
 [Serializable, NetSerializable]
+[DataDefinition]
 public sealed partial class InternalResourcesData
 {
     /// <summary>
