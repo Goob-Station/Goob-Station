@@ -140,6 +140,9 @@ public sealed partial class AugmentedEyesightPurchasedEvent : EntityEventArgs;
 public sealed partial class AwakenedInstinctPurchasedEvent : EntityEventArgs;
 
 [DataDefinition]
+public sealed partial class ChameleonSkinPurchasedEvent : EntityEventArgs;
+
+[DataDefinition]
 public sealed partial class VoidAdaptionPurchasedEvent : EntityEventArgs;
 
 #endregion

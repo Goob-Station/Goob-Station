@@ -177,6 +177,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         SubscribeLocalEvent<ChangelingIdentityComponent, AwakenedInstinctPurchasedEvent>(OnAwakenedInstinctPurchased);
         SubscribeLocalEvent<ChangelingIdentityComponent, AugmentedEyesightPurchasedEvent>(OnAugmentedEyesightPurchased);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ChameleonSkinPurchasedEvent>(OnChameleonSkinPurchased);
         SubscribeLocalEvent<ChangelingIdentityComponent, VoidAdaptionPurchasedEvent>(OnVoidAdaptionPurchased);
 
         SubscribeAbilities();
@@ -218,6 +219,11 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     private void OnAugmentedEyesightPurchased(Entity<ChangelingIdentityComponent> ent, ref AugmentedEyesightPurchasedEvent args)
     {
         InitializeAugmentedEyesight(ent);
+    }
+
+    private void OnChameleonSkinPurchased(Entity<ChangelingIdentityComponent> ent, ref ChameleonSkinPurchasedEvent args)
+    {
+        EnsureComp<ChameleonSkinComponent>(ent);
     }
 
     private void OnVoidAdaptionPurchased(Entity<ChangelingIdentityComponent> ent, ref VoidAdaptionPurchasedEvent args)

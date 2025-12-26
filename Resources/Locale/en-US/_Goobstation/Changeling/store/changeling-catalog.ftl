@@ -143,8 +143,7 @@ evolutionmenu-utility-biodegrade-desc =
 
 evolutionmenu-utility-chameleon-name = Chameleon Skin
 evolutionmenu-utility-chameleon-desc =
-    Alter the pigment in your skin to match your surroundings, rendering you invisible.
-    Maintaining this chameleon state slows chemical generation.
+    Alter the pigment in your skin to match your surroundings, rendering you invisible when motionless.
     Costs 20 chemicals.
 
 evolutionmenu-utility-voidadapt-name = Void Adaption
