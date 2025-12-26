@@ -1,4 +1,5 @@
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Shared.Alert;
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.GameStates;
@@ -15,6 +16,9 @@ public sealed partial class ChangelingBiomassComponent : Component
 {
     [DataField]
     public ProtoId<AlertPrototype> AlertId = "ChangelingBiomass";
+
+    [DataField]
+    public ProtoId<InternalResourcesPrototype> ResourceType = "ChangelingChemicals";
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan UpdateTimer = default!;

@@ -43,6 +43,9 @@ using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
 using Content.Goobstation.Shared.Flashbang;
+using Content.Goobstation.Shared.InternalResources.Data;
+using Content.Goobstation.Shared.InternalResources.EntitySystems;
+using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Server.Actions;
 using Content.Server.Atmos.Components;
@@ -145,6 +148,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
     [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
+    [Dependency] private readonly SharedInternalResourcesSystem _resources = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -173,7 +177,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         SubscribeLocalEvent<ChangelingComponent, PolymorphedEvent>(OnPolymorphedTakeTwo);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ChangelingChemicalRegenEvent>(OnChemicalRegen);
+        SubscribeLocalEvent<ChangelingIdentityComponent, InternalResourcesRegenModifierEvent>(OnChemicalRegen);
 
         SubscribeLocalEvent<ChangelingDartComponent, ProjectileHitEvent>(OnDartHit);
 
@@ -251,9 +255,13 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             args.ModifySpeed(1f, 1f);
     }
 
-    // TODO have this handled by systems for each relevant ability, like biomass does
-    private void OnChemicalRegen(Entity<ChangelingIdentityComponent> ent, ref ChangelingChemicalRegenEvent args)
+    // TODO nuke this in the future and have this handled by systems for each relevant ability, like biomass does
+    public readonly ProtoId<InternalResourcesPrototype> ResourceType = "ChangelingChemicals";
+    private void OnChemicalRegen(Entity<ChangelingIdentityComponent> ent, ref InternalResourcesRegenModifierEvent args)
     {
+        if (args.Data.InternalResourcesType != ResourceType)
+            return;
+
         if (ent.Comp.ChameleonActive)
             args.Modifier -= 0.25f;
     }
@@ -282,10 +290,15 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         UpdateAbilities(uid, comp);
     }
 
-    private void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float amount)
+    private void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float amount, ChangelingChemicalComponent? chemComp = null)
     {
-        var chemEv = new ChangelingModifyChemicalsEvent(amount);
-        RaiseLocalEvent(uid, ref chemEv);
+        if (!Resolve(uid, ref chemComp))
+            return;
+
+        if (chemComp.ResourceData == null)
+            return;
+
+        _resources.TryUpdateResourcesAmount(uid, chemComp.ResourceData, amount);
     }
 
     private void UpdateAbilities(EntityUid uid, ChangelingIdentityComponent comp)
@@ -405,7 +418,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             return false;
 
         if (!TryComp<ChangelingActionComponent>(action.Action, out var lingAction)
-            || !TryComp<ChangelingChemicalComponent>(uid, out var chemComp))
+            || !TryComp<ChangelingChemicalComponent>(uid, out var chemComp)
+            || chemComp.ResourceData == null)
             return false;
 
         if (CheckFireStatus(uid) && fireAffected) // checks if the changeling is on fire, and if the ability is affected by fire
@@ -423,7 +437,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         var chemCost = chemCostOverride ?? lingAction.ChemicalCost;
 
-        if (chemComp.Chemicals < chemCost)
+        if (chemComp.ResourceData.CurrentAmount < chemCost)
         {
             _popup.PopupEntity(Loc.GetString("changeling-chemicals-deficit"), uid, uid);
             return false;
@@ -436,7 +450,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             return false;
         }
 
-        UpdateChemicals(uid, comp, -chemCost);
+        UpdateChemicals(uid, comp, -chemCost, chemComp);
 
         action.Handled = true;
 
@@ -767,8 +781,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         // don't want instant stasis
         comp.StasisTime = comp.DefaultStasisTime;
 
-        // show alerts
-        UpdateChemicals(uid, comp, 0);
         // make their blood unreal
         _blood.ChangeBloodReagent(uid, "BloodChangeling");
     }

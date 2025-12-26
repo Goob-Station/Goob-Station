@@ -1,6 +1,8 @@
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goobstation.Shared.InternalResources.Data;
+using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Alert;
@@ -47,7 +49,7 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
         SubscribeLocalEvent<ChangelingBiomassComponent, ComponentShutdown>(OnShutdown);
 
         SubscribeLocalEvent<ChangelingBiomassComponent, ChangelingModifyBiomassEvent>(OnModifyBiomassEvent);
-        SubscribeLocalEvent<ChangelingBiomassComponent, ChangelingChemicalRegenEvent>(OnChangelingChemicalRegenEvent);
+        SubscribeLocalEvent<ChangelingBiomassComponent, InternalResourcesRegenModifierEvent>(OnChangelingChemicalRegenEvent);
         SubscribeLocalEvent<ChangelingBiomassComponent, RejuvenateEvent>(OnRejuvenate);
     }
 
@@ -205,8 +207,11 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
         UpdateBiomass(ent, args.Amount);
     }
 
-    private void OnChangelingChemicalRegenEvent(Entity<ChangelingBiomassComponent> ent, ref ChangelingChemicalRegenEvent args)
+    private void OnChangelingChemicalRegenEvent(Entity<ChangelingBiomassComponent> ent, ref InternalResourcesRegenModifierEvent args)
     {
+        if (args.Data.InternalResourcesType != ent.Comp.ResourceType)
+            return;
+
         args.Modifier += ent.Comp.ChemicalBoost;
     }
 

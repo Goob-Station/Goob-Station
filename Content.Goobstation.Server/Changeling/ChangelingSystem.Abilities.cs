@@ -186,7 +186,8 @@ public sealed partial class ChangelingSystem
         if (args.Cancelled
             || HasComp<AbsorbedComponent>(target)
             || (!IsIncapacitated(target) && !IsHardGrabbed(target))
-            || !TryComp<ChangelingChemicalComponent>(uid, out var chemComp))
+            || !TryComp<ChangelingChemicalComponent>(uid, out var chemComp)
+            || chemComp.ResourceData == null)
             return;
 
         PlayMeatySound(args.User, comp);
@@ -208,10 +209,11 @@ public sealed partial class ChangelingSystem
         var biomassValid = false;
 
         if (TryComp<ChangelingIdentityComponent>(target, out var targetComp)
-            && TryComp<ChangelingChemicalComponent>(target, out var targetChemComp))
+            && TryComp<ChangelingChemicalComponent>(target, out var targetChemComp)
+            && targetChemComp.ResourceData != null)
         {
             popup = Loc.GetString("changeling-absorb-end-self-ling");
-            bonusChemicals += targetChemComp.MaxChemicals / 2;
+            bonusChemicals += targetChemComp.ResourceData.MaxAmount / 2;
             bonusEvolutionPoints += targetComp.TotalEvolutionPoints / 2;
             bonusChangelingAbsorbs += targetComp.TotalChangelingsAbsorbed + 1;
 
@@ -247,7 +249,7 @@ public sealed partial class ChangelingSystem
         TryStealDNA(uid, target, comp, objBool);
 
         _popup.PopupEntity(popup, args.User, args.User);
-        chemComp.MaxChemicals += bonusChemicals;
+        _resources.TryUpdateResourcesCapacity(uid, chemComp.ResourceData, bonusChemicals);
 
         if (TryComp<StoreComponent>(args.User, out var store))
         {
@@ -266,7 +268,7 @@ public sealed partial class ChangelingSystem
                 lingAbsorbObj.LingAbsorbed += absorbed.TotalChangelingsAbsorbed + 1;
         }
 
-        UpdateChemicals(uid, comp, chemComp.MaxChemicals); // refill chems to max
+        UpdateChemicals(uid, comp, chemComp.ResourceData.MaxAmount, chemComp); // refill chems to max
 
         // modify biomass if the changeling uses it
         if (TryComp<ChangelingBiomassComponent>(uid, out var biomass)

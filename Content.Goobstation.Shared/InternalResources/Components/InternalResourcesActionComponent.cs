@@ -15,4 +15,7 @@ public sealed partial class InternalResourcesActionComponent : Component
 
     [DataField]
     public float UseAmount = 0;
+
+    [DataField]
+    public float AltUseAmount = 0;
 }

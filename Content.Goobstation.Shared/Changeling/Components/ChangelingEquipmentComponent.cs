@@ -1,5 +1,7 @@
+using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Shared.Inventory;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Changeling;
 
@@ -23,4 +25,10 @@ public sealed partial class ChangelingEquipmentComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public SlotFlags? RequiredSlot;
+
+    /// <summary>
+    /// The prototype of the resource being affected.
+    /// </summary>
+    [DataField]
+    public ProtoId<InternalResourcesPrototype> ResourceType = "ChangelingChemicals";
 }

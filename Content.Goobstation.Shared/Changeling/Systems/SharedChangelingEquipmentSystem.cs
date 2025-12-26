@@ -1,7 +1,10 @@
+using Content.Goobstation.Shared.InternalResources.Data;
+using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
@@ -20,7 +23,7 @@ public sealed partial class ChangelingEquipmentSystem : EntitySystem
 
         SubscribeLocalEvent<ChangelingEquipmentComponent, ContainerGettingRemovedAttemptEvent>(OnRemoveAttempt);
 
-        SubscribeLocalEvent<ChangelingEquipmentComponent, InventoryRelayedEvent<ChangelingChemicalRegenEvent>>(OnChangelingChemicalRegenEvent);
+        SubscribeLocalEvent<ChangelingEquipmentComponent, InventoryRelayedEvent<InternalResourcesRegenModifierEvent>>(OnChangelingChemicalRegenEvent);
     }
 
     private void OnEquipped(Entity<ChangelingEquipmentComponent> ent, ref GotEquippedEvent args)
@@ -50,9 +53,12 @@ public sealed partial class ChangelingEquipmentSystem : EntitySystem
             args.Cancel();
     }
 
-    private void OnChangelingChemicalRegenEvent(Entity<ChangelingEquipmentComponent> ent, ref InventoryRelayedEvent<ChangelingChemicalRegenEvent> args)
+    private void OnChangelingChemicalRegenEvent(Entity<ChangelingEquipmentComponent> ent, ref InventoryRelayedEvent<InternalResourcesRegenModifierEvent> args)
     {
-        if (ent.Comp.User != null)
-            args.Args.Modifier -= ent.Comp.ChemModifier;
+        if (args.Args.Data.InternalResourcesType != ent.Comp.ResourceType
+            || ent.Comp.User == null)
+            return;
+
+        args.Args.Modifier -= ent.Comp.ChemModifier;
     }
 }

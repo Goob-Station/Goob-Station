@@ -3,9 +3,12 @@ using Content.Goobstation.Common.Temperature;
 using Content.Goobstation.Shared.Atmos.Events;
 using Content.Goobstation.Shared.Body;
 using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goobstation.Shared.InternalResources.Data;
+using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Goobstation.Shared.Temperature;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -31,7 +34,7 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         SubscribeLocalEvent<VoidAdaptionComponent, TemperatureImmunityEvent>(OnTemperatureImmunityCheck);
         SubscribeLocalEvent<VoidAdaptionComponent, CheckNeedsAirEvent>(OnCheckNeedsAir);
 
-        SubscribeLocalEvent<VoidAdaptionComponent, ChangelingChemicalRegenEvent>(OnChangelingChemicalRegenEvent);
+        SubscribeLocalEvent<VoidAdaptionComponent, InternalResourcesRegenModifierEvent>(OnChangelingChemicalRegenEvent);
     }
 
     private void OnRemoved(Entity<VoidAdaptionComponent> ent, ref ComponentRemove args)
@@ -126,10 +129,14 @@ public sealed class SharedVoidAdaptionSystem : EntitySystem
         args.Cancelled = true;
     }
 
-    private void OnChangelingChemicalRegenEvent(Entity<VoidAdaptionComponent> ent, ref ChangelingChemicalRegenEvent args)
+    private void OnChangelingChemicalRegenEvent(Entity<VoidAdaptionComponent> ent, ref InternalResourcesRegenModifierEvent args)
     {
-        if (ent.Comp.AdaptingLowPressure || ent.Comp.AdaptingLowTemp)
-            args.Modifier -= ent.Comp.ChemModifierValue;
+        if (args.Data.InternalResourcesType != ent.Comp.ResourceType
+            || !ent.Comp.AdaptingLowPressure
+            && !ent.Comp.AdaptingLowTemp)
+            return;
+
+        args.Modifier -= ent.Comp.ChemModifierValue;
     }
 
     #endregion
