@@ -60,6 +60,14 @@
     {
       "name": "up-inhand-right",
       "directions": 4
+    },
+    {
+      "name": "equipped-HELMET-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "up-equipped-HELMET-vulpkanin",
+      "directions": 4
     }
   ]
 }
