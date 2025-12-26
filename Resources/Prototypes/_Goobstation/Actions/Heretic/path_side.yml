@@ -16,6 +16,7 @@
   components:
   - type: Action
     checkCanInteract: true
+    raiseOnUser: true
     useDelay: 5
     itemIconStyle: NoItem
     sound:
@@ -44,6 +45,7 @@
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: cleave
     checkCanInteract: false
+    raiseOnUser: true
   - type: TargetAction
     checkCanAccess: false
     range: 4
