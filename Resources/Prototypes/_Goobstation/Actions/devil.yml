@@ -7,6 +7,17 @@
 # Devil Specific
 
 - type: entity
+  parent: BaseMentalAction
+  id: ActionDevilOpenShop
+  name: Soul store
+  description: Use the souls contracted to you to regain the power that you lost.
+  components:
+  - type: Action
+    icon: Interface/Actions/shop.png
+  - type: InstantAction
+    event: !type:DevilOpenStoreEvent
+
+- type: entity
   parent: BaseAction
   id: ActionCreateContract
   name: Summon infernal contract
@@ -129,3 +140,71 @@
       state: cheat-death
   - type: InstantAction
     event: !type:CheatDeathEvent {}
+
+# Greater forms
+
+- type: entity
+  id: ActionSummonPitchfork
+  name: Summon pitchfork
+  description: A devil's weapon of choice. Use this to summon/unsummon your pitchfork.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: pitchfork
+  - type: InstantAction
+    event: !type:SlasherSummonMacheteEvent
+
+- type: entity
+  parent: ActionFireball
+  id: ActionHellFire
+  name: Hellfire
+  description: This spell launches hellfire at the target.
+  components:
+  - type: Action
+    useDelay: 20
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/fireball.ogg
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: hellfire
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectileHellfire
+      speed: 20
+
+- type: entity
+  parent: BaseActionPolymorph
+  id: ActionPolymorphLesserDevil
+  name: Ascend to lesser form
+  description: Return to your lesser form, only a fragment of your true power. Gains new actions in the process. This cannot be undone.
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: lesserform
+  - type: InstantAction
+    event: !type:PolymorphActionEvent
+      protoId: MobLesserDevil
+
+- type: entity
+  parent: BaseActionPolymorph
+  id: ActionPolymorphArchDevil
+  name: Ascend to Archdevil
+  description: Return to your true form. Command respect from any other demons.
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: archdevil
+  - type: InstantAction
+    event: !type:PolymorphActionEvent
+      protoId: MobArchDevil
