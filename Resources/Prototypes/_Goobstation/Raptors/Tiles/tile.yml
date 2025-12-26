@@ -1,0 +1,21 @@
+- type: entity
+  id: Hay
+  name: hay
+  description: Loved by ranch critters.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Clickable
+    - type: Sprite
+      sprite: Textures/_Goobstation/Raptors/Tiles/hay.png
+      layers:
+        - state: hay
+          shader: unshaded
+      drawdepth: LowFloors
+    - type: SyncSprite
+    - type: RequiresTile
+    - type: Transform
+      anchored: true
+    - type: Tag
+      tags:
+        - HideContextMenu
