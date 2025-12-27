@@ -928,7 +928,6 @@
       Female: ClownGoblin
       Unsexed: ClownGoblin
 
-# Non Sentient Monkey
 - type: entity
   name: monkey
   id: MobLabMonkey
@@ -960,7 +959,6 @@
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
 
-  # Non Sentient Kobold
 - type: entity
   name: kobold
   id: MobLabKobold

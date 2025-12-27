@@ -1,0 +1,70 @@
+- type: entity
+  parent: BoxCardboard
+  name: monkey lab cube box
+  id: MonkeyLabCubeBox
+  description: Drymate brand lab monkey cubes. Just add water!
+  components:
+  - type: StorageFill
+    contents:
+      - id: MonkeyLabCubeWrapped
+        amount: 8
+  - type: Sprite
+    sprite: Objects/Misc/monkeycube.rsi
+    state: box
+
+- type: entity
+  parent: BaseWrappedCube
+  name: monkey lab cube
+  id: MonkeyLabCubeWrapped
+  description: Unwrap this to get a laboratory made monkey cube.
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: MonkeyLabCube
+  - type: Sprite
+    state: wrapper
+  - type: Tag
+    tags:
+    - MonkeyCube
+
+- type: entity
+  parent: BaseWrappedCube
+  name: kobold lab cube
+  id: KoboldLabCubeWrapped
+  description: Unwrap this to get a laboratory made kobold cube.
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: KoboldLabCube
+  - type: Sprite
+    state: wrapper_kobold
+
+- type: entity
+  parent: MonkeyCubeBox
+  name: kobold lab cube box
+  id: KoboldLabCubeBox
+  description: Condensed laboratory made kobolds in a cube. Just add water!
+  components:
+  - type: StorageFill
+    contents:
+      - id: KoboldLabCubeWrapped
+        amount: 8
+  - type: Sprite
+    sprite: Objects/Misc/monkeycube.rsi
+    state: box_kobold
+
+- type: entity
+  parent: MonkeyCubeBox
+  name: variant lab cube box
+  id: VariantLabCubeBox
+  description: Laboratory made kobold and monkey cubes. Just add water!
+  components:
+  - type: StorageFill
+    contents:
+      - id: KoboldLabCubeWrapped
+        amount: 4
+      - id: MonkeyLabCubeWrapped
+        amount: 4
+  - type: Sprite
+    sprite: Objects/Misc/monkeycube.rsi
+    state: box_variant
