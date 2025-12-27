@@ -1,7 +1,11 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD:Resources/Textures/_ShitChap/Clothing/Head/Misc/clock.rsi/meta.json
   "copyright": "Taken from TGstation github https://github.com/tgstation/tgstation/commit/d0dffe7ca643db2624424fdcebf45863f85c0448, sprites made by YERO",
+=======
+  "copyright": "Made by _starch_ (discord), -reptilian/hydrakin sprite by Zethine / @synthetic_086 (discord).",
+>>>>>>> bd8a5fa551 (Hydrakin (#2644)):Resources/Textures/_Mono/Clothing/Head/Hardsuits/scaf_pirate.rsi/meta.json
   "size": {
     "x": 32,
     "y": 32
@@ -16,6 +20,10 @@
     },
     {
       "name": "equipped-HELMET-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HELMET-hydrakin",
       "directions": 4
     }
   ]

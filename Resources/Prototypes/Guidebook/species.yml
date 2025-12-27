@@ -24,6 +24,7 @@
   name: guide-entry-species
   text: "/ServerInfo/Guidebook/Mobs/Species.xml"
   children:
+<<<<<<< HEAD
     - Arachnid
     - Diona
     - Dwarf
@@ -47,6 +48,28 @@
     - Plasmaman
     - Feroxi
     - Shadowkin
+=======
+  - Arachnid
+  - Diona # Note: Frontier changes inside
+  - Dwarf # Note: Frontier changes inside
+  - Human
+  - Moth
+  - Reptilian
+  - SlimePerson
+  - Vox
+  - Goblin # Frontier
+  - Vulpkanin # DeltaV
+  - Harpy # DeltaV
+  - Felinid # DeltaV
+  - Oni # DeltaV
+  - Chitinid # DeltaV
+  - Resomi # Floof
+  - Protogen # Mono
+  - IPC # EE
+  - Rodentia # DeltaV
+  - Tajaran # Goobstation
+  - Hydrakin # Monolith/Obelisk
+>>>>>>> bd8a5fa551 (Hydrakin (#2644))
 
 - type: guideEntry
   id: Arachnid
@@ -130,6 +153,7 @@
   text: "/ServerInfo/Guidebook/Mobs/Tajaran.xml"
 
 - type: guideEntry
+<<<<<<< HEAD
   id: Plasmaman
   name: species-name-plasmaman
   text: "/ServerInfo/Guidebook/Mobs/Plasmaman.xml"
@@ -138,3 +162,8 @@
   id: Shadowkin
   name: species-name-shadowkin
   text: "/ServerInfo/Guidebook/Mobs/Shadowkin.xml"
+=======
+  id: Hydrakin
+  name: species-name-hydrakin
+  text: "/ServerInfo/Guidebook/Mobs/Hydrakin.xml"
+>>>>>>> bd8a5fa551 (Hydrakin (#2644))

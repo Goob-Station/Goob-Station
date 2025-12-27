@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites by Zethine (discord: synthetic_086)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "arm_left",
+      "directions": 4
+    },
+    {
+      "name": "arm_right",
+      "directions": 4
+    },
+    {
+      "name": "chest",
+      "directions": 4
+    },
+    {
+      "name": "face_1",
+      "directions": 4
+    },
+    {
+      "name": "face_2",
+      "directions": 4
+    },
+    {
+      "name": "face_3",
+      "directions": 4
+    },
+    {
+      "name": "face_4",
+      "directions": 4
+    },
+    {
+      "name": "face_5",
+      "directions": 4
+    },
+    {
+      "name": "leg_left",
+      "directions": 4
+    },
+    {
+      "name": "leg_right",
+      "directions": 4
+    },
+    {
+      "name": "visor",
+      "directions": 4
+    }
+  ]
+}

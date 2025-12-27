@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2025 sneb
+#
+# SPDX-License-Identifier: MPL-2.0
+
+- type: entity
+  id: ActionHydrakinCoolOff
+  name: hydrakin-action-name-cool-off
+  description: hydrakin-action-description-cool-off
+  categories: [ HideSpawnMenu ] # Frontier
+  components:
+  - type: InstantAction
+    icon: { sprite: Structures/Piping/Atmospherics/heatexchanger.rsi, state: heStraight }
+    useDelay: 5
+    event: !type:HydrakinCoolOffActionEvent

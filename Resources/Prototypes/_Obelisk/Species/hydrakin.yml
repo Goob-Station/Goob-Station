@@ -1,0 +1,168 @@
+# SPDX-FileCopyrightText: 2025 sneb
+#
+# SPDX-License-Identifier: MPL-2.0
+
+- type: species
+  id: Hydrakin
+  name: species-name-hydrakin
+  roundStart: true
+  prototype: MobHydrakin
+  sprites: MobHydrakinSprites
+  defaultSkinTone: "#ffffff"
+  markingLimits: MobHydrakinMarkingLimits
+  dollPrototype: MobHydrakinDummy
+  skinColoration: Hues
+
+- type: speciesBaseSprites
+  id: MobHydrakinSprites
+  sprites:
+    Head: MobHydrakinHead
+    Hair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobHydrakinTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    # Eyes: MobHydrakinEyes
+    LArm: MobHydrakinLArm
+    RArm: MobHydrakinRArm
+    LHand: MobHydrakinLHand
+    RHand: MobHydrakinRHand
+    LLeg: MobHydrakinLLeg
+    RLeg: MobHydrakinRLeg
+    LFoot: MobHydrakinLFoot
+    RFoot: MobHydrakinRFoot
+
+- type: markingPoints
+  id: MobHydrakinMarkingLimits
+  points:
+    Hair:
+      points: 0
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 0
+      required: false
+    Head:
+      points: 1
+      required: true
+      defaultMarkings: [ HydrakinEyesDefault]
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ HydrakinTailDefault ]
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ HydrakinEarsDefault ]
+    Chest:
+      points: 4
+      required: false
+    Legs:
+      points: 8 # imp 2<8
+      required: false
+    Arms:
+      points: 8 # imp 2<8
+      required: false
+    Overlay:
+      points: 2
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobHydrakinEyes
+  baseSprite:
+    sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: eyes_none
+
+- type: humanoidBaseSprite
+  id: MobHydrakinAnyMarking
+
+# - type: humanoidBaseSprite
+#   id: MobHydrakinMarkingMatchSkin
+#   markingsMatchSkin: true
+
+- type: humanoidBaseSprite
+  id: MobHydrakinHead
+  baseSprite:
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobHydrakinHeadMale
+  baseSprite:
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobHydrakinHeadFemale
+  baseSprite:
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobHydrakinTorso
+  baseSprite:
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobHydrakinTorsoMale
+  baseSprite:
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobHydrakinTorsoFemale
+  baseSprite:
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobHydrakinLLeg
+  baseSprite:
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobHydrakinLArm
+  baseSprite:
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobHydrakinLHand
+  baseSprite:
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobHydrakinLFoot
+  baseSprite:
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobHydrakinRLeg
+  baseSprite:
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobHydrakinRArm
+  baseSprite:
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobHydrakinRHand
+  baseSprite:
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobHydrakinRFoot
+  baseSprite:
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: r_foot

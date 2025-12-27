@@ -1,0 +1,128 @@
+# SPDX-FileCopyrightText: 2025 sneb
+#
+# SPDX-License-Identifier: MPL-2.0
+
+# TODO: Add descriptions (many)
+# TODO BODY: Part damage
+- type: entity
+  id: PartHydrakin
+  parent: [BaseItem, BasePart]
+  name: "hydrakin body part"
+  abstract: true
+  components:
+  - type: Icon # Shitmed Change
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+  - type: BodyPart # Shitmed Change
+    species: Hydrakin
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: AmmoniaBlood
+        Quantity: 10
+
+- type: entity
+  id: TorsoHydrakin
+  name: "hydrakin torso"
+  parent: [PartHydrakin, BaseTorso]
+  components:
+  - type: Sprite
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: "torso_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: AmmoniaBlood
+        Quantity: 20
+
+
+- type: entity
+  id: HeadHydrakin
+  name: "hydrakin head"
+  parent: [PartHydrakin, BaseHead]
+  components:
+  - type: Sprite
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: "head_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: AmmoniaBlood
+        Quantity: 10
+
+- type: entity
+  id: LeftArmHydrakin
+  name: "left hydrakin arm"
+  parent: [PartHydrakin, BaseLeftArm]
+  components:
+  - type: Sprite
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmHydrakin
+  name: "right hydrakin arm"
+  parent: [PartHydrakin, BaseRightArm]
+  components:
+  - type: Sprite
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandHydrakin
+  name: "left hydrakin hand"
+  parent: [PartHydrakin, BaseLeftHand]
+  components:
+  - type: Sprite
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandHydrakin
+  name: "right hydrakin hand"
+  parent: [PartHydrakin, BaseRightHand]
+  components:
+  - type: Sprite
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegHydrakin
+  name: "left Hydrakin leg"
+  parent: [PartHydrakin, BaseLeftLeg]
+  components:
+  - type: Sprite
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  id: RightLegHydrakin
+  name: "right hydrakin leg"
+  parent: [PartHydrakin, BaseRightLeg]
+  components:
+  - type: Sprite
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootHydrakin
+  name: "left hydrakin foot"
+  parent: [PartHydrakin, BaseLeftFoot]
+  components:
+  - type: Sprite
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootHydrakin
+  name: "right hydrakin foot"
+  parent: [PartHydrakin, BaseRightFoot]
+  components:
+  - type: Sprite
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: "r_foot"

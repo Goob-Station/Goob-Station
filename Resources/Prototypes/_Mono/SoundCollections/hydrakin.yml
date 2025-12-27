@@ -1,0 +1,29 @@
+- type: soundCollection
+  id: HydrakinScream
+  files:
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-scream-1.ogg
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-scream-2.ogg
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-scream-3.ogg
+
+- type: soundCollection
+  id: HydrakinCry
+  files:
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-cry-1.ogg
+
+- type: soundCollection
+  id: HydrakinSigh
+  files:
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-sigh-1.ogg
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-sigh-2.ogg
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-sigh-3.ogg
+
+- type: soundCollection
+  id: HydrakinLaugh
+  files:
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-laugh-1.ogg
+
+- type: soundCollection
+  id: HydrakinFlap
+  files:
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-flap1.ogg
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-flap2.ogg

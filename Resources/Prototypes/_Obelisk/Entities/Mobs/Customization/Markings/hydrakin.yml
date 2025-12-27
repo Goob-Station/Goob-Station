@@ -1,0 +1,242 @@
+# SPDX-FileCopyrightText: 2025 sneb
+#
+# SPDX-License-Identifier: MPL-2.0
+
+- type: marking
+  id: HydrakinEyesDefault
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: eyes_default
+
+- type: marking
+  id: HydrakinEyesOmega
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: eyes_omega
+
+- type: marking
+  id: HydrakinEyesQuad
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: eyes_quad
+
+- type: marking
+  id: HydrakinEyesSaint
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: eyes_saint
+
+- type: marking
+  id: HydrakinEyesHex
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: eyes_hex
+
+- type: marking
+  id: HydrakinEyesRing
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: eyes_ring
+
+
+- type: marking
+  id: HydrakinTailDefault
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: tail_default
+
+- type: marking
+  id: HydrakinTailBig
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: tail_big
+
+- type: marking
+  id: HydrakinTailFeathers
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: tail_feathers
+
+- type: marking
+  id: HydrakinTailSpiny
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: tail_spiny
+
+- type: marking
+  id: HydrakinTailFins
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: tail_fins
+
+
+- type: marking
+  id: HydrakinEarsDefault
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: ears_default
+
+- type: marking
+  id: HydrakinEarsOld
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: ears_old
+
+- type: marking
+  id: HydrakinEarsFin
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: ears_fin
+
+- type: marking
+  id: HydrakinEarsFrilled
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: ears_frilled
+
+# Cyber-proto-esque sprites
+
+- type: marking
+  id: HydrakinProtoFace1
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydraproto_parts.rsi
+    state: face_1
+
+- type: marking
+  id: HydrakinProtoFace2
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydraproto_parts.rsi
+    state: face_2
+
+- type: marking
+  id: HydrakinProtoFace3
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydraproto_parts.rsi
+    state: face_3
+
+- type: marking
+  id: HydrakinProtoFace4
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydraproto_parts.rsi
+    state: face_4
+
+- type: marking
+  id: HydrakinProtoFace5
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydraproto_parts.rsi
+    state: face_5
+
+
+- type: marking
+  id: HydrakinProtoVisor
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydraproto_parts.rsi
+    state: visor
+
+- type: marking
+  id: HydrakinProtoChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydraproto_parts.rsi
+    state: chest
+
+- type: marking
+  id: HydrakinProtoLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydraproto_parts.rsi
+    state: arm_left
+
+- type: marking
+  id: HydrakinProtoRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydraproto_parts.rsi
+    state: arm_right
+
+- type: marking
+  id: HydrakinProtoLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydraproto_parts.rsi
+    state: leg_left
+
+- type: marking
+  id: HydrakinProtoRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydraproto_parts.rsi
+    state: leg_right

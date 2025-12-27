@@ -1,0 +1,58 @@
+# SPDX-FileCopyrightText: 2022 DrSmugleaf
+# SPDX-FileCopyrightText: 2022 Jezithyr
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2025 Ark
+# SPDX-FileCopyrightText: 2025 sneb
+#
+# SPDX-License-Identifier: MPL-2.0
+
+- type: body
+  id: Hydrakin
+  name: "hydrakin"
+  root: torso
+  slots:
+    head:
+      part: HeadHydrakin
+      connections:
+      - torso
+      organs:
+        brain: OrganHydrakinBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoHydrakin
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed
+      organs:
+        heart: OrganHydrakinHeart
+        lungs: OrganHydrakinLungs
+        stomach: OrganHydrakinStomach
+        liver: OrganHydrakinLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmHydrakin
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmHydrakin
+      connections:
+      - left hand
+    right hand:
+      part: RightHandHydrakin
+    left hand:
+      part: LeftHandHydrakin
+    right leg:
+      part: RightLegHydrakin
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegHydrakin
+      connections:
+      - left foot
+    right foot:
+      part: RightFootHydrakin
+    left foot:
+      part: LeftFootHydrakin

@@ -1,0 +1,172 @@
+- type: inventoryTemplate
+  id: hydrakin
+  slots:
+    - name: shoes
+      slotTexture: shoes
+      slotFlags: FEET
+      stripTime: 3
+      uiWindowPos: 1,1
+      strippingWindowPos: 1,3
+      displayName: Shoes
+    - name: jumpsuit
+      slotTexture: uniform
+      slotFlags: INNERCLOTHING
+      stripTime: 6
+      uiWindowPos: 0,1
+      strippingWindowPos: 0,2
+      displayName: Jumpsuit
+    - name: outerClothing
+      slotTexture: suit
+      slotFlags: OUTERCLOTHING
+      stripTime: 6
+      uiWindowPos: 1,2
+      strippingWindowPos: 1,2
+      displayName: Suit
+    - name: gloves
+      slotTexture: gloves
+      slotFlags: GLOVES
+      uiWindowPos: 2,1
+      strippingWindowPos: 2,2
+      displayName: Gloves
+    - name: neck
+      slotTexture: neck
+      slotFlags: NECK
+      uiWindowPos: 0,3
+      strippingWindowPos: 0,1
+      displayName: Neck
+    - name: mask
+      slotTexture: mask
+      slotFlags: MASK
+      uiWindowPos: 1,3
+      strippingWindowPos: 1,1
+      displayName: Mask
+#   - name: eyes
+#     slotTexture: glasses
+#     slotFlags: EYES
+#     stripTime: 3
+#     uiWindowPos: 0,4
+#     strippingWindowPos: 0,0
+#     displayName: Eyes
+    - name: ears
+      slotTexture: ears
+      slotFlags: EARS
+      stripTime: 3
+      uiWindowPos: 2,3
+      strippingWindowPos: 2,0
+      displayName: Ears
+    - name: head
+      slotTexture: head
+      slotFlags: HEAD
+      uiWindowPos: 1,4
+      strippingWindowPos: 1,0
+      displayName: Head
+    - name: pocket1
+      slotTexture: pocket
+      fullTextureName: template_small
+      slotFlags: POCKET
+      slotGroup: MainHotbar
+      stripTime: 3
+      uiWindowPos: 0,4
+      strippingWindowPos: 0,4
+      dependsOn: jumpsuit
+      displayName: Pocket 1
+      stripHidden: true
+    - name: pocket2
+      slotTexture: pocket
+      fullTextureName: template_small
+      slotFlags: POCKET
+      slotGroup: MainHotbar
+      stripTime: 3
+      uiWindowPos: 2,4
+      strippingWindowPos: 1,4
+      dependsOn: jumpsuit
+      displayName: Pocket 2
+      stripHidden: true
+    - name: suitstorage
+      slotTexture: suit_storage
+      slotFlags:   SUITSTORAGE
+      slotGroup: MainHotbar
+      stripTime: 3
+      uiWindowPos: 2,1
+      strippingWindowPos: 2,5
+#      dependsOn: outerClothing #Mono: Disable shoulder slot restrictions
+#      dependsOnComponents:
+#      - type: AllowSuitStorage
+      displayName: Suit Storage
+    - name: id
+      slotTexture: id
+      fullTextureName: template_small
+      slotFlags: IDCARD
+      slotGroup: SecondHotbar
+      stripTime: 6
+      uiWindowPos: 2,2
+      strippingWindowPos: 2,4
+      dependsOn: jumpsuit
+      displayName: ID
+    - name: belt
+      slotTexture: belt
+      fullTextureName: template_small
+      slotFlags: BELT
+      slotGroup: SecondHotbar
+      stripTime: 6
+      uiWindowPos: 3,2
+      strippingWindowPos: 1,5
+      displayName: Belt
+    - name: back
+      slotTexture: back
+      fullTextureName: template_small
+      slotFlags: BACK
+      slotGroup: SecondHotbar
+      stripTime: 6
+      uiWindowPos: 3,1
+      strippingWindowPos: 0,5
+      displayName: Back
+    # Frontier: wallet slot
+    - name: wallet
+      slotTexture: wallet
+      slotFlags: WALLET
+      stripTime: 6
+      uiWindowPos: 1,0
+      strippingWindowPos: 3,5
+      dependsOn: jumpsuit
+      displayName: Wallet
+    # End Frontier: wallet slot
+    #Mono slots
+    - name: balaclava
+      slotTexture: balaclava
+      slotFlags: BALACLAVA
+      stripTime: 6
+      uiWindowPos: 2,4
+      strippingWindowPos: 3,0
+      displayName: Balaclava
+    - name: leftarmband
+      slotTexture: armband_left
+      slotFlags: ARMBANDLEFT
+      stripTime: 6
+      uiWindowPos: 2,2
+      strippingWindowPos: 3,1
+      displayName: Left_armband
+    - name: rightarmband
+      slotTexture: armband_right
+      slotFlags: ARMBANDRIGHT
+      stripTime: 6
+      uiWindowPos: 0,2
+      strippingWindowPos: 3,2
+      displayName: Right_armband
+    - name: helmetcover
+      slotTexture: helmet_cover
+      slotFlags: HELMETCOVER
+      stripTime: 3
+      uiWindowPos: 1,5
+      strippingWindowPos: 3,3
+      dependsOn: head
+      displayName: Helmet cover
+    - name: helmetattachment
+      slotTexture: helmet_attachment
+      slotFlags: HELMETATTACHMENT
+      stripTime: 3
+      uiWindowPos: 0,5
+      strippingWindowPos: 3,4
+      dependsOn: head
+      displayName: Helmet_attachment
+    #End Mono

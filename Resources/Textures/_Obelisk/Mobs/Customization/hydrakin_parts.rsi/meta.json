@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites by Zethine (discord: synthetic_086)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "eyes_default",
+      "directions": 4
+    },
+    {
+      "name": "eyes_omega",
+      "directions": 4
+    },
+    {
+      "name": "eyes_quad",
+      "directions": 4
+    },
+    {
+      "name": "eyes_saint",
+      "directions": 4
+    },
+    {
+      "name": "eyes_hex",
+      "directions": 4
+    },
+    {
+      "name": "eyes_ring",
+      "directions": 4
+    },
+    {
+      "name": "eyes_none",
+      "directions": 4
+    },
+    {
+      "name": "tail_default",
+      "directions": 4
+    },
+    {
+      "name": "tail_big",
+      "directions": 4
+    },
+    {
+      "name": "tail_feathers",
+      "directions": 4
+    },
+    {
+      "name": "tail_spiny",
+      "directions": 4
+    },
+    {
+      "name": "tail_fins",
+      "directions": 4
+    },
+    {
+      "name": "ears_default",
+      "directions": 4
+    },
+    {
+      "name": "ears_old",
+      "directions": 4
+    },
+    {
+      "name": "ears_fin",
+      "directions": 4
+    },
+    {
+      "name": "ears_frilled",
+      "directions": 4
+    }
+  ]
+}

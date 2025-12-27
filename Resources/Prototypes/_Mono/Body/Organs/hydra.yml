@@ -1,0 +1,120 @@
+- type: metabolizerType
+  id: Hydrakin
+  name: metabolizer-type-hydrakin
+
+- type: entity
+  id: BaseHydrakinOrgan
+  name: hydrakin organ 
+  parent: [BaseItem]
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi # Placeholder.
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Fat
+          Quantity: 10
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fat
+          Quantity: 5
+        - ReagentId: AmmoniaBlood
+          Quantity: 5
+
+- type: entity
+  id: OrganHydrakinStomach
+  parent: BaseHydrakinOrgan
+  name: hydrakin stomach
+  components:
+  - type: Sprite
+    state: stomach
+  - type: Stomach
+  - type: Organ
+    slotId: stomach
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [ Animal ]
+    removeEmpty: true
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 30 # Their body is thin as fuck.
+  - type: Item
+    size: Small
+    heldPrefix: stomach
+
+- type: entity
+  id: OrganHydrakinBrain
+  parent: [ BaseHydrakinOrgan, OrganHumanBrain ]
+  name: hydrakin brain
+  components:
+  - type: Sprite
+    state: brain
+  - type: Item
+    size: Small
+    heldPrefix: brain
+
+- type: entity
+  id: OrganHydrakinLiver
+  parent: BaseHydrakinOrgan
+  name: hydrakin liver
+  components:
+  - type: Sprite
+    layers:
+    - state: kidney-l
+    - state: kidney-r
+  - type: Item
+    size: Small
+    heldPrefix: liver
+  - type: Liver # Shitmed Change
+  - type: Organ # Shitmed Change
+    slotId: liver # Shitmed Change
+
+- type: entity
+  id: OrganHydrakinHeart
+  parent: [ BaseHydrakinOrgan , OrganHumanHeart ]
+  name: hydrakin heart
+
+- type: entity
+  id: OrganHydrakinLungs
+  parent: BaseHydrakinOrgan
+  name: hydrakin lungs
+  description: "Hydrakin lungs, capable of processing any gas without negative effects."
+  components:
+  - type: Sprite
+    layers:
+    - state: lung-l
+    - state: lung-r
+  - type: Item
+    size: Small
+    heldPrefix: lungs
+  - type: Organ
+    slotId: lungs
+  - type: Lung
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Hydrakin ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      Lung:
+        maxVol: 100.0
+        canReact: false
+      organ:
+        reagents:
+        - ReagentId: Fat
+          Quantity: 10
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fat
+          Quantity: 5
+        - ReagentId: AmmoniaBlood
+          Quantity: 5

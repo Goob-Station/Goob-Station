@@ -1,7 +1,11 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD:Resources/Textures/_ShitChap/Clothing/OuterClothing/Misc/inquisitor.rsi/meta.json
   "copyright": "By RedTerror",
+=======
+  "copyright": "made by kyres1, modified by Arcticular1, inhand sprites taken from NSV-13, hydrakin sprite by Zethine / @synthetic_086 (discord).",
+>>>>>>> bd8a5fa551 (Hydrakin (#2644)):Resources/Textures/_Mono/Clothing/OuterClothing/Hardsuits/ullman_industries_director.rsi/meta.json
   "size": {
     "x": 32,
     "y": 32
@@ -24,6 +28,10 @@
     },
     {
       "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-hydrakin",
       "directions": 4
     }
   ]

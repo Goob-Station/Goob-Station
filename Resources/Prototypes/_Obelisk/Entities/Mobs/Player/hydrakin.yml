@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2025 sneb
+#
+# SPDX-License-Identifier: MPL-2.0
+
+- type: entity
+  save: false
+  name: Urist McHydra
+  parent: BaseMobHydrakin
+  id: MobHydrakin
+  components:
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Canilunzt
+    - Hydraspeak
+    understands:
+    - TauCetiBasic
+    - Canilunzt
+    - Hydraspeak

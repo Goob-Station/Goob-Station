@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2025 sneb
+#
+# SPDX-License-Identifier: MPL-2.0
+
+- type: damageModifierSet # Mono
+  id: Hydrakin
+  coefficients:
+    Heat: 1.25
+    Cold: 0.0 # Total cold immunity
+    Radiation: 1.0
+    Shock: 1.0
+    Blunt: 0.9
+    Slash: 1.15
+    Piercing: 0.9
