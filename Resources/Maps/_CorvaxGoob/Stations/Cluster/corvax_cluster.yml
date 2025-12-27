@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/15/2025 18:36:04
-  entityCount: 13268
+  time: 12/27/2025 11:28:13
+  entityCount: 13270
 maps:
 - 12281
 grids:
@@ -4012,7 +4012,8 @@ entities:
           -4,3:
             0: 64989
           -5,3:
-            0: 64440
+            0: 64408
+            2: 32
           -4,4:
             0: 65309
           -3,0:
@@ -6417,7 +6418,7 @@ entities:
       pos: 16.5,-5.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -27800.154
+      secondsUntilStateChange: -28054.4
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -9787,7 +9788,7 @@ entities:
   - uid: 5907
     components:
     - type: Transform
-      pos: -12.516884,19.876278
+      pos: -12.34394,20.736406
       parent: 1
 - proto: BoxLightbulb
   entities:
@@ -9815,12 +9816,7 @@ entities:
   - uid: 5906
     components:
     - type: Transform
-      pos: -12.390701,20.206486
-      parent: 1
-  - uid: 5908
-    components:
-    - type: Transform
-      pos: -12.415903,19.683134
+      pos: -17.40933,21.549288
       parent: 1
   - uid: 12456
     components:
@@ -9844,7 +9840,7 @@ entities:
   - uid: 5905
     components:
     - type: Transform
-      pos: -12.531326,20.581486
+      pos: -12.599917,20.520084
       parent: 1
   - uid: 6054
     components:
@@ -30769,6 +30765,14 @@ entities:
     components:
     - type: Transform
       pos: -14.5,-4.5
+      parent: 1
+- proto: ComputerVirology
+  entities:
+  - uid: 5692
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -12.5,19.5
       parent: 1
 - proto: ContrabandDetectorSecure
   entities:
@@ -72629,6 +72633,18 @@ entities:
     - type: Transform
       pos: 22.5,-6.5
       parent: 1
+- proto: SpawnPointVirologist
+  entities:
+  - uid: 5908
+    components:
+    - type: Transform
+      pos: -15.5,20.5
+      parent: 1
+  - uid: 13269
+    components:
+    - type: Transform
+      pos: -10.5,21.5
+      parent: 1
 - proto: SpawnPointWarden
   entities:
   - uid: 6043
@@ -73115,10 +73131,10 @@ entities:
       parent: 1
 - proto: SuitStorageCMO
   entities:
-  - uid: 5374
+  - uid: 13270
     components:
     - type: Transform
-      pos: -18.5,13.5
+      pos: -18.5,14.5
       parent: 1
 - proto: SuitStorageEngi
   entities:
@@ -74262,11 +74278,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 13.5,-23.5
-      parent: 1
-  - uid: 5692
-    components:
-    - type: Transform
-      pos: -12.5,19.5
       parent: 1
   - uid: 5693
     components:
@@ -76411,6 +76422,13 @@ entities:
     components:
     - type: Transform
       pos: -1.5,-21.5
+      parent: 1
+- proto: VirologyServer
+  entities:
+  - uid: 5374
+    components:
+    - type: Transform
+      pos: -18.5,13.5
       parent: 1
 - proto: VoiceTrigger
   entities:
