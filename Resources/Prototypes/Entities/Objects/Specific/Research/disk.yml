@@ -18,8 +18,8 @@
 - type: entity
   parent: BaseItem
   id: ResearchDisk
-  name: research point disk (1000)
-  description: A disk for the R&D server containing 1000 points.
+  name: research point disk (5000) # Goobstation: Buff research disks
+  description: A disk for the R&D server containing 5000 points. # Goobstation: Buff research disks
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -42,6 +42,7 @@
     sprite: Objects/Specific/Research/researchdisk.rsi
     state: icon
   - type: ResearchDisk
+    points: 5000 # Goobstation: Buff research disks
   - type: GuideHelp
     guides:
     - Science
@@ -49,20 +50,20 @@
 - type: entity
   parent: ResearchDisk
   id: ResearchDisk5000
-  name: research point disk (5000)
-  description: A disk for the R&D server containing 5000 points.
+  name: research point disk (25000) # Goobstation: Buff research disks
+  description: A disk for the R&D server containing 25000 points. # Goobstation: Buff research disks
   components:
   - type: ResearchDisk
-    points: 5000
+    points: 25000 # Goobstation: Buff research disks
 
 - type: entity
   parent: ResearchDisk
   id: ResearchDisk10000
-  name: research point disk (10000)
-  description: A disk for the R&D server containing 10000 points.
+  name: research point disk (50000) # Goobstation: Buff research disks
+  description: A disk for the R&D server containing 50000 points. # Goobstation: Buff research disks
   components:
   - type: ResearchDisk
-    points: 10000
+    points: 50000 # Goobstation: Buff research disks
 
 - type: entity
   parent: ResearchDisk
