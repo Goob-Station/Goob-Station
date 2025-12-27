@@ -141,6 +141,8 @@
   - ClothingUniformJumpsuitMime
   - ClothingUniformJumpskirtMime
   - ClothingUniformJumpsuitMusician
+  - ClothingUniformJumpsuitReporter # goob change
+  - ClothingUniformJumpskirtReporter # goob change
 
 - type: latheRecipePack
   id: WinterCoats
