@@ -75,14 +75,19 @@ public sealed partial class ChangelingIdentityComponent : Component
 
     #endregion
 
+    [DataField]
     public bool IsInStasis = false;
 
+    [DataField]
     public bool StrainedMusclesActive = false;
 
+    [DataField]
     public bool IsInLesserForm = false;
 
+    [DataField]
     public bool IsInLastResort = false;
 
+    [DataField]
     public bool ChameleonActive = false;
 
     public List<EntityUid>? ActiveArmor = null;
@@ -149,30 +154,31 @@ public sealed partial class ChangelingIdentityComponent : Component
     /// <summary>
     ///     All of the DNA that the changeling had extracted in their lifetime.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public List<TransformData> AbsorbedHistory = new();
 
     /// <summary>
     ///     The DNA that the changeling has stored up.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public List<TransformData> AbsorbedDNA = new();
 
     /// <summary>
     ///     Index of <see cref="AbsorbedDNA"/>. Used for switching forms.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public int AbsorbedDNAIndex = 0;
 
     /// <summary>
     ///     Maximum amount of DNA a changeling can absorb.
     /// </summary>
+    [DataField]
     public int MaxAbsorbedDNA = 5;
 
     /// <summary>
     ///     Total absorbed DNA. Counts towards objectives.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public int TotalAbsorbedEntities = 0;
 
     /// <summary>
@@ -184,10 +190,10 @@ public sealed partial class ChangelingIdentityComponent : Component
     /// <summary>
     ///     Total stolen DNA. Counts towards objectives.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public int TotalStolenDNA = 0;
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public TransformData? CurrentForm;
 
     [ViewVariables(VVAccess.ReadOnly)]
@@ -218,6 +224,6 @@ public sealed partial class TransformData
     /// <summary>
     ///     Entity's humanoid appearance component.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly), NonSerialized]
+    [DataField, ViewVariables(VVAccess.ReadOnly), NonSerialized]
     public HumanoidAppearanceComponent Appearance;
 }
