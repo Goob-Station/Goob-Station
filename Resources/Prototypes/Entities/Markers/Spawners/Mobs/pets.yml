@@ -112,10 +112,15 @@
   - type: ConditionalSpawner
     prototypes:
     - MobCorgiIan
+      Weight: 3
     - MobCorgiIanOld
+      Weight: 2
     - MobCorgiLisa
+      Weight: 2
     - MobCorgiIanPup
+      Weight: 2
     - MobCorgiIanClown
+      Weight: 1
 
 - type: entity
   parent: MarkerBase
