@@ -39,6 +39,7 @@
             Paramedic: [ 1, 1 ]
             Chemist: [ 2, 2 ]
             Surgeon: [ 1, 1 ]
+            Virologist: [ 1, 1 ]
             # science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 6 ]
@@ -65,6 +66,7 @@
             Mime: [ 1, 1 ]
             Musician: [ 2, 2 ]
             Reporter: [ 1, 1 ]
+            RadioHost: [ 1, 1 ]
             ServiceWorker: [ 3, 4 ]
             Zookeeper: [ 1, 1 ]
             Passenger: [ -1, -1 ]
