@@ -26,3 +26,24 @@
     contents:
       - id: MobLootbug
         amount: 3
+
+- type: entity
+  id: CrateNPCMonkeyLabCube
+  parent: CrateGenericSteel
+  name: monkey lab cube crate
+  description: A crate containing single box of laboratory made monkey cubes.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MonkeyLabCubeBox
+
+- type: entity
+  id: CrateNPCKoboldLabCube
+  parent: CrateGenericSteel
+  name: kobold lab cube crate
+  description: A crate containing single box of laboratory made kobold cubes.
+  components:
+  - type: StorageFill
+    contents:
+      - id: KoboldLabCubeBox
+

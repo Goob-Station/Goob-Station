@@ -14,3 +14,25 @@
   - type: Rehydratable
     possibleSpawns:
     - MobCarpHolo
+
+- type: entity
+  parent: RehydratableAnimalCube
+  id: MonkeyLabCube
+  name: monkey lab cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobLabMonkey
+  - type: Tag
+    tags:
+    - Meat
+    - MonkeyCube
+
+- type: entity
+  parent: RehydratableAnimalCube
+  id: KoboldLabCube
+  name: kobold lab cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobLabKobold

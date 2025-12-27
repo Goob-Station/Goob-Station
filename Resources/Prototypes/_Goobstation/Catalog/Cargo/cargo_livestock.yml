@@ -13,3 +13,23 @@
   cost: 5000
   category: cargoproduct-category-name-livestock
   group: market
+
+- type: cargoProduct
+  id: LivestockMonkeyLabCube
+  icon:
+    sprite: Objects/Misc/monkeycube.rsi
+    state: box
+  product: CrateNPCMonkeyLabCube
+  cost: 2000
+  category: cargoproduct-category-name-livestock
+  group: market
+
+- type: cargoProduct
+  id: LivestockKoboldLabCube
+  icon:
+    sprite: Objects/Misc/monkeycube.rsi
+    state: box_kobold
+  product: CrateNPCKoboldLabCube
+  cost: 2000
+  category: cargoproduct-category-name-livestock
+  group: market
