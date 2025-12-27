@@ -40,9 +40,10 @@
             Paramedic: [ 1, 1 ]
             Chemist: [ 2, 2 ]
             Surgeon: [ 1, 1 ]
+            Virologist: [ 1, 1 ]
             # science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 3, 3 ]
+            Scientist: [ 4, 4 ]
             ResearchAssistant: [ 4, 4 ]
             Roboticist: [ 1, 1 ]
             # security
@@ -69,6 +70,7 @@
             Reporter: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
             Passenger: [ -1, -1 ]
+            RadioHost: [ 1, 1 ]
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
