@@ -307,3 +307,19 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     layers: {}
+
+- type: entity
+  parent: ClothingHeadHatHelmetTemplar
+  id: ClothingHeadHatHelmetInquisitor
+  name: inquisitor cap
+  description: A majestic gilded cap. The personification of the punishment that will befall heretics!
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Head/Misc/inquisitor.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/Head/Misc/inquisitor.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    layers: {}

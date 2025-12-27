@@ -17,3 +17,23 @@
     rodProto: RatvarianSpear
     effectProto: EffectSpark
     soundPath: /Audio/Effects/hallelujah.ogg
+
+- type: entity
+  id: AltarEmpire
+  parent: AltarBase
+  name: imperial altar
+  description: Altar of the Great Emperor
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Structures/empirealtar.rsi
+    state: empire
+  - type: Icon
+    sprite: _ShitChap/Structures/empirealtar.rsi
+    state: empire
+  - type: Construction
+    graph: AltarsGraph
+    node: EmpireAltarNode
+  - type: AltarSource
+    rodProto: InquisitorChainSword
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg

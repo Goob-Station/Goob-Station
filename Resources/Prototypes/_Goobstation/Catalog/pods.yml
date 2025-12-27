@@ -83,3 +83,15 @@
     prototypes:
     - ClothingOuterArmorBishop
     - ClothingHeadHatHelmetBishop
+
+- type: entity
+  id: SpawnArmamentsInquisitor
+  categories: [ HideSpawnMenu ]
+  name: inquisitor armour
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototypes:
+    - ClothingHeadHatHelmetInquisitor
+    - ClothingOuterArmorInquisitor
+    - ClothingNeckCloakInquisitor
