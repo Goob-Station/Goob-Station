@@ -5077,3 +5077,10 @@ Entries:
   id: 9334
   time: '2025-12-26T21:47:30.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38481
+- author: SonarZeBat
+  changes:
+  - message: Xenoborgs gamemode minimum players changed from 40 to 30.
+    type: Tweak
+  id: 9335
+  time: '2025-12-27T14:14:07.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42111
