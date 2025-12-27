@@ -1,0 +1,254 @@
+- type: nuclearReactorPrefab
+  id: ReactorPrefabEmpty
+  parts:
+   -1,-1: BaseReactorPart # Can't be empty, so I'll put this nothing part in an inaccessible spot
+
+- type: nuclearReactorPrefab
+  id: ReactorPrefab7x7Normal
+  parts:
+    2,0: SteelReactorGasChannel
+    2,2: SteelReactorGasChannel
+    2,4: SteelReactorGasChannel
+    2,6: SteelReactorGasChannel
+    4,0: SteelReactorGasChannel
+    4,2: SteelReactorGasChannel
+    4,4: SteelReactorGasChannel
+    4,6: SteelReactorGasChannel
+    
+    2,1: SteelReactorHeatExchanger
+    2,3: SteelReactorHeatExchanger
+    2,5: SteelReactorHeatExchanger
+    3,0: SteelReactorHeatExchanger
+    3,6: SteelReactorHeatExchanger
+    4,1: SteelReactorHeatExchanger
+    4,3: SteelReactorHeatExchanger
+    4,5: SteelReactorHeatExchanger
+
+    3,2: BohrumReactorControlRod
+    3,4: BohrumReactorControlRod
+
+- type: nuclearReactorPrefab
+  id: ReactorPrefab7x7Debug
+  parts:
+    2,0: SteelReactorGasChannel
+    2,2: SteelReactorGasChannel
+    2,4: SteelReactorGasChannel
+    2,6: SteelReactorGasChannel
+    4,0: SteelReactorGasChannel
+    4,2: SteelReactorGasChannel
+    4,4: SteelReactorGasChannel
+    4,6: SteelReactorGasChannel
+    
+    2,1: SteelReactorHeatExchanger
+    2,3: SteelReactorHeatExchanger
+    2,5: SteelReactorHeatExchanger
+    3,0: SteelReactorHeatExchanger
+    3,6: SteelReactorHeatExchanger
+    4,1: SteelReactorHeatExchanger
+    4,3: SteelReactorHeatExchanger
+    4,5: SteelReactorHeatExchanger
+
+    3,2: BohrumReactorControlRod
+    3,4: BohrumReactorControlRod
+
+    3,1: CerenkiteReactorFuelRod
+    3,3: CerenkiteReactorFuelRod
+    3,5: CerenkiteReactorFuelRod
+
+- type: nuclearReactorPrefab
+  id: ReactorPrefab7x7Meltdown
+  parts:
+    0,0: PlutoniumReactorFuelRod
+    1,0: PlutoniumReactorFuelRod
+    2,0: PlutoniumReactorFuelRod
+    3,0: PlutoniumReactorFuelRod
+    4,0: PlutoniumReactorFuelRod
+    5,0: PlutoniumReactorFuelRod
+    6,0: PlutoniumReactorFuelRod
+    
+    0,1: PlutoniumReactorFuelRod
+    1,1: PlutoniumReactorFuelRod
+    2,1: PlutoniumReactorFuelRod
+    3,1: PlutoniumReactorFuelRod
+    4,1: PlutoniumReactorFuelRod
+    5,1: PlutoniumReactorFuelRod
+    6,1: PlutoniumReactorFuelRod
+    
+    0,2: PlutoniumReactorFuelRod
+    1,2: PlutoniumReactorFuelRod
+    2,2: PlutoniumReactorFuelRod
+    3,2: PlutoniumReactorFuelRod
+    4,2: PlutoniumReactorFuelRod
+    5,2: PlutoniumReactorFuelRod
+    6,2: PlutoniumReactorFuelRod
+
+    0,3: PlutoniumReactorFuelRod
+    1,3: PlutoniumReactorFuelRod
+    2,3: PlutoniumReactorFuelRod
+    3,3: PlutoniumReactorFuelRod
+    4,3: PlutoniumReactorFuelRod
+    5,3: PlutoniumReactorFuelRod
+    6,3: PlutoniumReactorFuelRod
+    
+    0,4: PlutoniumReactorFuelRod
+    1,4: PlutoniumReactorFuelRod
+    2,4: PlutoniumReactorFuelRod
+    3,4: PlutoniumReactorFuelRod
+    4,4: PlutoniumReactorFuelRod
+    5,4: PlutoniumReactorFuelRod
+    6,4: PlutoniumReactorFuelRod
+    
+    0,5: PlutoniumReactorFuelRod
+    1,5: PlutoniumReactorFuelRod
+    2,5: PlutoniumReactorFuelRod
+    3,5: PlutoniumReactorFuelRod
+    4,5: PlutoniumReactorFuelRod
+    5,5: PlutoniumReactorFuelRod
+    6,5: PlutoniumReactorFuelRod
+    
+    0,6: PlutoniumReactorFuelRod
+    1,6: PlutoniumReactorFuelRod
+    2,6: PlutoniumReactorFuelRod
+    3,6: PlutoniumReactorFuelRod
+    4,6: PlutoniumReactorFuelRod
+    5,6: PlutoniumReactorFuelRod
+    6,6: PlutoniumReactorFuelRod
+
+- type: nuclearReactorPrefab
+  id: ReactorPrefab7x7Arachne
+  parts:
+    0,0: SteelReactorGasChannel
+    0,2: SteelReactorGasChannel
+    0,4: SteelReactorGasChannel
+    0,6: SteelReactorGasChannel
+    2,0: SteelReactorGasChannel
+    2,3: SteelReactorGasChannel
+    2,6: SteelReactorGasChannel
+    3,2: SteelReactorGasChannel
+    3,4: SteelReactorGasChannel
+    4,0: SteelReactorGasChannel
+    4,3: SteelReactorGasChannel
+    4,6: SteelReactorGasChannel
+    6,0: SteelReactorGasChannel
+    6,2: SteelReactorGasChannel
+    6,4: SteelReactorGasChannel
+    6,6: SteelReactorGasChannel
+
+    0,1: SteelReactorHeatExchanger
+    0,3: SteelReactorHeatExchanger
+    0,5: SteelReactorHeatExchanger
+    1,0: SteelReactorHeatExchanger
+    1,6: SteelReactorHeatExchanger
+    3,0: SteelReactorHeatExchanger
+    3,6: SteelReactorHeatExchanger
+    5,0: SteelReactorHeatExchanger
+    5,6: SteelReactorHeatExchanger
+    6,1: SteelReactorHeatExchanger
+    6,3: SteelReactorHeatExchanger
+    6,5: SteelReactorHeatExchanger
+
+    1,2: BohrumReactorControlRod
+    1,4: BohrumReactorControlRod
+    2,1: BohrumReactorControlRod
+    2,2: BohrumReactorControlRod
+    2,4: BohrumReactorControlRod
+    2,5: BohrumReactorControlRod
+    3,3: BohrumReactorControlRod
+    4,1: BohrumReactorControlRod
+    4,2: BohrumReactorControlRod
+    4,4: BohrumReactorControlRod
+    4,5: BohrumReactorControlRod
+    5,2: BohrumReactorControlRod
+    5,4: BohrumReactorControlRod
+    
+    1,1: CerenkiteReactorFuelRod
+    1,3: CerenkiteReactorFuelRod
+    1,5: CerenkiteReactorFuelRod
+    3,1: CerenkiteReactorFuelRod
+    3,5: CerenkiteReactorFuelRod
+    5,1: CerenkiteReactorFuelRod
+    5,3: CerenkiteReactorFuelRod
+    5,5: CerenkiteReactorFuelRod
+
+- type: nuclearReactorPrefab
+  id: ReactorPrefab7x7Lens
+  parts:
+    0,0: SteelReactorGasChannel
+    0,2: SteelReactorGasChannel
+    0,4: SteelReactorGasChannel
+    0,6: SteelReactorGasChannel
+    1,3: SteelReactorGasChannel
+    2,0: SteelReactorGasChannel
+    2,6: SteelReactorGasChannel
+    3,1: SteelReactorGasChannel
+    3,5: SteelReactorGasChannel
+    4,0: SteelReactorGasChannel
+    4,6: SteelReactorGasChannel
+    5,3: SteelReactorGasChannel
+    6,0: SteelReactorGasChannel
+    6,2: SteelReactorGasChannel
+    6,4: SteelReactorGasChannel
+    6,6: SteelReactorGasChannel
+
+    0,1: SteelReactorHeatExchanger
+    0,3: SteelReactorHeatExchanger
+    0,5: SteelReactorHeatExchanger
+    1,0: SteelReactorHeatExchanger
+    1,6: SteelReactorHeatExchanger
+    2,3: SteelReactorHeatExchanger
+    3,0: SteelReactorHeatExchanger
+    3,2: SteelReactorHeatExchanger
+    3,4: SteelReactorHeatExchanger
+    3,6: SteelReactorHeatExchanger
+    4,3: SteelReactorHeatExchanger
+    5,0: SteelReactorHeatExchanger
+    5,6: SteelReactorHeatExchanger
+    6,1: SteelReactorHeatExchanger
+    6,3: SteelReactorHeatExchanger
+    6,5: SteelReactorHeatExchanger
+
+    1,2: BohrumReactorControlRod
+    1,4: BohrumReactorControlRod
+    2,1: BohrumReactorControlRod
+    2,2: BohrumReactorControlRod
+    2,4: BohrumReactorControlRod
+    2,5: BohrumReactorControlRod
+    4,1: BohrumReactorControlRod
+    4,2: BohrumReactorControlRod
+    4,4: BohrumReactorControlRod
+    4,5: BohrumReactorControlRod
+    5,2: BohrumReactorControlRod
+    5,4: BohrumReactorControlRod
+    
+    1,1: CerenkiteReactorFuelRod
+    1,5: CerenkiteReactorFuelRod
+    3,3: CerenkiteReactorFuelRod
+    5,1: CerenkiteReactorFuelRod
+    5,5: CerenkiteReactorFuelRod
+
+- type: nuclearReactorPrefab
+  id: ReactorPrefab5x5Normal
+  parts:
+    0,0: SteelReactorGasChannel
+    0,2: SteelReactorGasChannel
+    0,4: SteelReactorGasChannel
+    2,0: SteelReactorGasChannel
+    2,4: SteelReactorGasChannel
+    4,0: SteelReactorGasChannel
+    4,2: SteelReactorGasChannel
+    4,4: SteelReactorGasChannel
+    
+    0,1: SteelReactorHeatExchanger
+    0,3: SteelReactorHeatExchanger
+    1,0: SteelReactorHeatExchanger
+    1,4: SteelReactorHeatExchanger
+    3,0: SteelReactorHeatExchanger
+    3,4: SteelReactorHeatExchanger
+    4,1: SteelReactorHeatExchanger
+    4,3: SteelReactorHeatExchanger
+
+    1,2: BohrumReactorControlRod
+    2,1: BohrumReactorControlRod
+    2,2: BohrumReactorControlRod
+    2,3: BohrumReactorControlRod
+    3,2: BohrumReactorControlRod

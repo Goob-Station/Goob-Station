@@ -23,7 +23,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </Box>
 
   <Box>
-	  <GuideEntityEmbed Entity="BaseNuclearReactor" Caption=""/>
+	  <GuideEntityEmbed Entity="NuclearReactorNormal" Caption=""/>
 	  <GuideEntityEmbed Entity="Turbine" Caption=""/>
   </Box>
   <Box>

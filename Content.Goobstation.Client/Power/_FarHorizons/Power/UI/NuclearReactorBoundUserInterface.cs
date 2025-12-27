@@ -21,14 +21,23 @@ public sealed class NuclearReactorBoundUserInterface : BoundUserInterface
 
     protected override void Open()
     {
-        // No UI if Owner is not a reactor or the reactor is melted
-        if (!_entityManager.TryGetComponent<NuclearReactorComponent>(Owner, out var reactorComponent) || reactorComponent.Melted)
+        EntityUid? reactorUid = null;
+        if (_entityManager.TryGetComponent<NuclearReactorMonitorComponent>(Owner, out var reactorMonitorComponent))
+        {
+            if (!_entityManager.TryGetEntity(reactorMonitorComponent.reactor, out reactorUid) || reactorUid == null
+                || !_entityManager.TryGetComponent<NuclearReactorComponent>(reactorUid, out var monitoredReactorComponent) || monitoredReactorComponent.Melted)
+                return;
+        }
+        else if (!_entityManager.TryGetComponent<NuclearReactorComponent>(Owner, out var reactorComponent) || reactorComponent.Melted)
             return;
 
         base.Open();
 
         _window = this.CreateWindow<NuclearReactorWindow>();
-        _window.SetEntity(Owner);
+        if (_entityManager.EntityExists(reactorUid))
+            _window.SetEntity(reactorUid.Value, Owner);
+        else
+            _window.SetEntity(Owner);
 
         _window.ItemActionButtonPressed += OnActionButtonPressed;
         _window.EjectButtonPressed += OnEjectButtonPressed;

@@ -40,7 +40,7 @@ comp-nuclear-reactor-ui-reactor-temp = Temperature
 comp-nuclear-reactor-ui-reactor-rads = Radiation
 comp-nuclear-reactor-ui-reactor-therm = Thermal Power
 comp-nuclear-reactor-ui-reactor-control = Control Rods
-comp-nuclear-reactor-ui-therm-format = { POWERWATTS($power) }
+comp-nuclear-reactor-ui-therm-format = { POWERWATTS($power) }t
 
 comp-nuclear-reactor-ui-footer-left = Danger: high radiation.
 comp-nuclear-reactor-ui-footer-right = 0.8 REV 3

@@ -34,3 +34,8 @@
   id: DecreaseStatorLoad
   name: signal-port-name-gas-turbine-receiver-decrease
   description: signal-port-description-gas-turbine-receiver-decrease
+
+- type: sinkPort
+  id: GasTurbineDataReceiver
+  name: signal-port-name-gas-turbine-data-receiver
+  description: signal-port-description-gas-turbine-data-receiver

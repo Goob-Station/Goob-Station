@@ -39,6 +39,9 @@ turbine-anchor-warning = Invalid anchor position.
 ### UI
 
 # Shown when using the UI
+comp-turbine-ui-tab-main = Controls
+comp-turbine-ui-tab-parts = Parts
+
 comp-turbine-ui-rpm = RPM
 
 comp-turbine-ui-overspeed = OVERSPEED
@@ -49,6 +52,16 @@ comp-turbine-ui-undertemp = UNDERTEMP
 comp-turbine-ui-flow-rate = Flow Rate
 comp-turbine-ui-stator-load = Stator Load
 
+comp-turbine-ui-blade = Turbine Blade
+comp-turbine-ui-blade-integrity = Integrity
+comp-turbine-ui-blade-stress = Stress
+
+comp-turbine-ui-stator = Turbine Stator
+comp-turbine-ui-stator-potential = Potential
+comp-turbine-ui-stator-supply = Supply
+
+comp-turbine-ui-power = { POWERWATTS($power) }
+
 comp-turbine-ui-locked-message = Controls locked.
 comp-turbine-ui-footer-left = Danger: fast-moving machinery.
-comp-turbine-ui-footer-right = 1.2 REV 1
+comp-turbine-ui-footer-right = 2.0 REV 1

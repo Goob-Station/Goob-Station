@@ -77,9 +77,11 @@
   - type: WirelessNetworkConnection
     range: 200
   - type: DeviceLinkSource
+    range: 50
     ports:
       - TurbineSpeedHigh
       - TurbineSpeedLow
+      - GasTurbineDataSender
   - type: DeviceLinkSink
     ports:
       - IncreaseStatorLoad
@@ -172,6 +174,7 @@
   components:
   - type: Transform
     anchored: true
+  - type: Anchorable
   - type: NodeContainer
     nodes:
       pipe:
@@ -198,6 +201,7 @@
     - pipe2
     outlets:
     - pipe
+  - type: PipeRestrictOverlap
   - type: Tag
     tags:
       - HideContextMenu

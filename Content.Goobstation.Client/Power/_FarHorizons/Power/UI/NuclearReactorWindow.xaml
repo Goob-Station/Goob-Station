@@ -33,7 +33,7 @@
 						<Label Name="TargetName" Text="Rod" ClipText="True"/>
 						<GridContainer Name="TargetTemperatureGrid" Columns="2" Margin="2 2 2 2">
 							<Label Text="T: " StyleClasses="StatusFieldTitle"  HorizontalExpand="True"/>
-							<Label Name="TargetTemperature" Text="20C" HorizontalAlignment="Right"/>
+							<Button Name="TargetTemperature" Text="20C" HorizontalAlignment="Right"/>
 						</GridContainer>
 						<GridContainer Name="TargetNRadiationGrid" Columns="2" Margin="2 2 2 2">
 							<Label Text="N: " StyleClasses="StatusFieldTitle"  HorizontalExpand="True"/>

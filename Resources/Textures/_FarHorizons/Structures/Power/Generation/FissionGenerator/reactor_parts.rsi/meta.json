@@ -12,6 +12,9 @@
         },
         {
             "name": "default_rod"
+        },
+        {
+            "name": "nuclear_waste"
         }
     ]
 }

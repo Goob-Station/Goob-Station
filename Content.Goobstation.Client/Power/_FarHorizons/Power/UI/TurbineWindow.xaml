@@ -3,80 +3,121 @@
             xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
             MinSize="525 415" Title="Gas Turbine">
     <BoxContainer Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="10">
-		<!--Main Content-->
-		<BoxContainer Name="MainContent" Orientation="Horizontal" VerticalExpand="True" Margin="4">
-			
-			<!--View of turbine sprite-->
-			<BoxContainer Name="TurbineVeiw" Orientation="Horizontal" VerticalExpand="True" Margin="4">
-				<SpriteView Name="EntityView" SetSize="96 160" Scale="2 2" OverrideDirection="South" Margin="15" />
+		<TabContainer Name="CTabContainer" VerticalExpand="True" Margin="1 1 1 2">
+			<!--Main Content-->
+			<BoxContainer Name="MainContent" Orientation="Horizontal" VerticalExpand="True" Margin="4">
+
+				<!--View of turbine sprite-->
+				<BoxContainer Name="TurbineVeiw" Orientation="Horizontal" VerticalExpand="True" Margin="4">
+					<SpriteView Name="EntityView" SetSize="96 160" Scale="2 2" OverrideDirection="South" Margin="15" />
+				</BoxContainer>
+
+				<!--RPM gauge-->
+				<PanelContainer Name="Speed" StyleClasses="Inset">
+					<BoxContainer Orientation="Vertical">
+						<Label Text="{Loc 'comp-turbine-ui-rpm'}" StyleClasses="LabelKeyText" />
+						<GridContainer Name="RPMMeter" Columns="1" VerticalExpand="True" Margin="0 0 0 0">
+						</GridContainer>
+					</BoxContainer>
+				</PanelContainer>
+
+
+				<!--Right panel-->
+				<BoxContainer Name="RightPanel" Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="10" HorizontalExpand="True" VerticalExpand="True">
+					<!--Indicator Lights-->
+					<PanelContainer Name="Indicators" StyleClasses="Inset">
+						<GridContainer Columns="4">
+							<Label Text="{Loc 'comp-turbine-ui-overspeed'}" StyleClasses="StatusFieldTitle" />
+							<TextureRect Name="TurbineOverspeed" SetSize="16 16" HorizontalAlignment="Left" HorizontalExpand="True"/>
+							<Label Text="{Loc 'comp-turbine-ui-overtemp'}" StyleClasses="StatusFieldTitle" />
+							<TextureRect Name="TurbineOvertemp" SetSize="16 16" HorizontalAlignment="Left" HorizontalExpand="True"/>
+							<Label Text="{Loc 'comp-turbine-ui-stalling'}" StyleClasses="StatusFieldTitle" />
+							<TextureRect Name="TurbineStalling" SetSize="16 16" HorizontalAlignment="Left" HorizontalExpand="True"/>
+							<Label Text="{Loc 'comp-turbine-ui-undertemp'}" StyleClasses="StatusFieldTitle" />
+							<TextureRect Name="TurbineUndertemp" SetSize="16 16" HorizontalAlignment="Left" HorizontalExpand="True"/>
+						</GridContainer>
+					</PanelContainer>
+
+					<!--Inputs-->
+					<controls:StripeBack VerticalExpand="True">
+						<BoxContainer Name="Inputs" Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="10" HorizontalExpand="True" >
+							<PanelContainer StyleClasses="Inset" Margin="0 0 0 8">
+								<BoxContainer Orientation="Vertical">
+									<BoxContainer Orientation="Horizontal">
+										<Label Text="{Loc comp-turbine-ui-flow-rate}" StyleClasses="StatusFieldTitle" HorizontalExpand="True" />
+										<LineEdit Name="TurbineFlowRateLabel" MinSize="70 0"/>
+									</BoxContainer>
+									<Slider Name="TurbineFlowRateSlider" />
+									<BoxContainer Orientation="Horizontal">
+										<Button Name="FlowRateDecrease" Text="-100"/>
+										<BoxContainer HorizontalExpand="True" />
+										<Button Name="FlowRateIncrease" Text="+100"/>
+									</BoxContainer>
+								</BoxContainer>
+							</PanelContainer>
+
+							<PanelContainer StyleClasses="Inset" Margin="0 0 0 8">
+								<BoxContainer Orientation="Vertical" >
+									<BoxContainer Orientation="Horizontal">
+										<Label Text="{Loc comp-turbine-ui-stator-load}" StyleClasses="StatusFieldTitle" HorizontalExpand="True" />
+										<LineEdit Name="TurbineStatorLoadLabel" MinSize="70 0"/>
+									</BoxContainer>
+									<Slider Name="TurbineStatorLoadSlider" />
+									<BoxContainer Orientation="Horizontal">
+										<Button Name="StatorLoadDecreaseLarge" Text="-1000"/>
+										<Button Name="StatorLoadDecrease" Text="-100"/>
+										<BoxContainer HorizontalExpand="True" />
+										<Button Name="StatorLoadIncrease" Text="+100"/>
+										<Button Name="StatorLoadIncreaseLarge" Text="+1000"/>
+									</BoxContainer>
+								</BoxContainer>
+							</PanelContainer>
+						</BoxContainer>
+						<Label Name="LockedMessage" Text="{Loc comp-turbine-ui-locked-message}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+					</controls:StripeBack>
+				</BoxContainer>
 			</BoxContainer>
 			
-			<!--RPM gauge-->
-			<PanelContainer Name="Speed" StyleClasses="Inset">
-				<BoxContainer Orientation="Vertical">
-					<Label Text="{Loc 'comp-turbine-ui-rpm'}" StyleClasses="LabelKeyText" />
-					<GridContainer Name="RPMMeter" Columns="1" VerticalExpand="True" Margin="0 0 0 0">
-					</GridContainer>
-				</BoxContainer>
-			</PanelContainer>
-			
-			
-			<!--Right panel-->
-			<BoxContainer Name="RightPanel" Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="10" HorizontalExpand="True" VerticalExpand="True">
-				<!--Indicator Lights-->
-				<PanelContainer Name="Indicators" StyleClasses="Inset">
-					<GridContainer Columns="4">
-						<Label Text="{Loc 'comp-turbine-ui-overspeed'}" StyleClasses="StatusFieldTitle" />
-						<TextureRect Name="TurbineOverspeed" SetSize="16 16" HorizontalAlignment="Left" HorizontalExpand="True"/>
-						<Label Text="{Loc 'comp-turbine-ui-overtemp'}" StyleClasses="StatusFieldTitle" />
-						<TextureRect Name="TurbineOvertemp" SetSize="16 16" HorizontalAlignment="Left" HorizontalExpand="True"/>
-						<Label Text="{Loc 'comp-turbine-ui-stalling'}" StyleClasses="StatusFieldTitle" />
-						<TextureRect Name="TurbineStalling" SetSize="16 16" HorizontalAlignment="Left" HorizontalExpand="True"/>
-						<Label Text="{Loc 'comp-turbine-ui-undertemp'}" StyleClasses="StatusFieldTitle" />
-						<TextureRect Name="TurbineUndertemp" SetSize="16 16" HorizontalAlignment="Left" HorizontalExpand="True"/>
-					</GridContainer>
+			<!--Blade / Stator info-->
+			<BoxContainer Name="PartInfo" Orientation="Horizontal" VerticalExpand="True" Margin="4">
+				<PanelContainer StyleClasses="Inset" HorizontalExpand="True" Margin="4">
+					<BoxContainer Name="BladeInfo" Orientation="Vertical" HorizontalExpand="True" Margin="4">
+						<Label Name="BladeInfoName" Text="{Loc 'comp-turbine-ui-blade'}" StyleClasses="LabelKeyText" HorizontalAlignment="Center" HorizontalExpand="True"/>
+						
+						<TextureRect Name="BladeTexture" SetSize="128 128" TextureScale="2 2" HorizontalAlignment="Center"
+									 TexturePath="/Textures/_FarHorizons/Structures/Power/Generation/FissionGenerator/turbine_parts/blade.png"/>
+
+						<BoxContainer VerticalExpand="True"/>
+
+						<GridContainer Columns="2">
+							<Label Text="{Loc 'comp-turbine-ui-blade-integrity'}" StyleClasses="StatusFieldTitle" />
+							<Label Name="BladeInfoIntegrity" Text="100%" HorizontalAlignment="Right" HorizontalExpand="True"/>
+							<Label Text="{Loc 'comp-turbine-ui-blade-stress'}" StyleClasses="StatusFieldTitle" />
+							<Label Name="BladeInfoStress" Text="0%" HorizontalAlignment="Right" HorizontalExpand="True"/>
+						</GridContainer>
+					</BoxContainer>
 				</PanelContainer>
 				
-				<!--Inputs-->
-				<controls:StripeBack VerticalExpand="True">
-					<BoxContainer Name="Inputs" Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="10" HorizontalExpand="True" >
-						<PanelContainer StyleClasses="Inset" Margin="0 0 0 8">
-							<BoxContainer Orientation="Vertical">
-								<BoxContainer Orientation="Horizontal">
-									<Label Text="{Loc comp-turbine-ui-flow-rate}" StyleClasses="StatusFieldTitle" HorizontalExpand="True" />
-									<LineEdit Name="TurbineFlowRateLabel" MinSize="70 0"/>
-								</BoxContainer>
-								<Slider Name="TurbineFlowRateSlider" />
-								<BoxContainer Orientation="Horizontal">
-									<Button Name="FlowRateDecrease" Text="-100"/>
-									<BoxContainer HorizontalExpand="True" />
-									<Button Name="FlowRateIncrease" Text="+100"/>
-								</BoxContainer>
-							</BoxContainer>
-						</PanelContainer>
+				<PanelContainer StyleClasses="Inset" HorizontalExpand="True" Margin="4">
+					<BoxContainer Name="StatorInfo" Orientation="Vertical" HorizontalExpand="True" Margin="4">
+						<Label Name="StatorInfoName" Text="{Loc 'comp-turbine-ui-stator'}" StyleClasses="LabelKeyText" HorizontalAlignment="Center" HorizontalExpand="True"/>
+						
+						<TextureRect Name="StatorTexture" SetSize="128 128" TextureScale="2 2" HorizontalAlignment="Center"
+									 TexturePath="/Textures/_FarHorizons/Structures/Power/Generation/FissionGenerator/turbine_parts/stator.png"/>
 
-						<PanelContainer StyleClasses="Inset" Margin="0 0 0 8">
-							<BoxContainer Orientation="Vertical" >
-								<BoxContainer Orientation="Horizontal">
-									<Label Text="{Loc comp-turbine-ui-stator-load}" StyleClasses="StatusFieldTitle" HorizontalExpand="True" />
-									<LineEdit Name="TurbineStatorLoadLabel" MinSize="70 0"/>
-								</BoxContainer>
-								<Slider Name="TurbineStatorLoadSlider" />
-								<BoxContainer Orientation="Horizontal">
-									<Button Name="StatorLoadDecreaseLarge" Text="-1000"/>
-									<Button Name="StatorLoadDecrease" Text="-100"/>
-									<BoxContainer HorizontalExpand="True" />
-									<Button Name="StatorLoadIncrease" Text="+100"/>
-									<Button Name="StatorLoadIncreaseLarge" Text="+1000"/>
-								</BoxContainer>
-							</BoxContainer>
-						</PanelContainer>
+						<BoxContainer VerticalExpand="True"/>
+
+						<GridContainer Columns="2">
+							<Label Text="{Loc 'comp-turbine-ui-stator-potential'}" StyleClasses="StatusFieldTitle" />
+							<Label Name="StatorInfoPotential" Text="0.0 W" HorizontalAlignment="Right" HorizontalExpand="True"/>
+							<Label Text="{Loc 'comp-turbine-ui-stator-supply'}" StyleClasses="StatusFieldTitle" />
+							<Label Name="StatorInfoSupply" Text="0.0 W" HorizontalAlignment="Right" HorizontalExpand="True"/>
+						</GridContainer>
 					</BoxContainer>
-					<Label Name="LockedMessage" Text="{Loc comp-turbine-ui-locked-message}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-				</controls:StripeBack>
+				</PanelContainer>
 			</BoxContainer>
-		</BoxContainer>
-		
+			
+		</TabContainer>
 		<!--Footer-->
 		<BoxContainer Name="Footer" Orientation="Vertical">
 			<PanelContainer StyleClasses="LowDivider" />

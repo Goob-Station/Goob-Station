@@ -21,3 +21,9 @@
   id: TurbineSpeedLow
   name: signal-port-name-gas-turbine-speed-low
   description: signal-port-description-gas-turbine-speed-low
+
+- type: sourcePort
+  id: GasTurbineDataSender
+  name: signal-port-name-gas-turbine-data-sender
+  description: signal-port-description-gas-turbine-data-sender
+  defaultLinks: [ GasTurbineDataReceiver ]

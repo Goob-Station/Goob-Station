@@ -34,9 +34,6 @@ public abstract class SharedTurbineSystem : EntitySystem
 
         SubscribeLocalEvent<TurbineComponent, ExaminedEvent>(OnExamined);
 
-        SubscribeLocalEvent<TurbineComponent, TurbineChangeFlowRateMessage>(OnTurbineFlowRateChanged);
-        SubscribeLocalEvent<TurbineComponent, TurbineChangeStatorLoadMessage>(OnTurbineStatorLoadChanged);
-
         SubscribeLocalEvent<TurbineComponent, InteractUsingEvent>(RepairTurbine);
         SubscribeLocalEvent<TurbineComponent, RepairFinishedEvent>(OnRepairTurbineFinished);
     }
@@ -159,28 +156,6 @@ public abstract class SharedTurbineSystem : EntitySystem
         }
         return false; 
     }
-
-    #region User Interface
-    private void OnTurbineFlowRateChanged(EntityUid uid, TurbineComponent turbine, TurbineChangeFlowRateMessage args)
-    {
-        turbine.FlowRate = Math.Clamp(args.FlowRate, 0f, turbine.FlowRateMax);
-        Dirty(uid, turbine);
-        UpdateUI(uid, turbine);
-        _adminLogger.Add(LogType.AtmosVolumeChanged, LogImpact.Medium,
-            $"{ToPrettyString(args.Actor):player} set the flow rate on {ToPrettyString(uid):device} to {args.FlowRate}");
-    }
-
-    private void OnTurbineStatorLoadChanged(EntityUid uid, TurbineComponent turbine, TurbineChangeStatorLoadMessage args)
-    {
-        turbine.StatorLoad = Math.Clamp(args.StatorLoad, 1000f, turbine.StatorLoadMax);
-        Dirty(uid, turbine);
-        UpdateUI(uid, turbine);
-        _adminLogger.Add(LogType.AtmosDeviceSetting, LogImpact.Medium,
-            $"{ToPrettyString(args.Actor):player} set the stator load on {ToPrettyString(uid):device} to {args.StatorLoad}");
-    }
-
-    protected virtual void UpdateUI(EntityUid uid, TurbineComponent turbine) { }
-    #endregion
 
     #region Repairs
     private void RepairTurbine(EntityUid uid, TurbineComponent comp, ref InteractUsingEvent args)

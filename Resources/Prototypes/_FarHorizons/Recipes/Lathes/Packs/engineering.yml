@@ -4,6 +4,7 @@
   - NuclearFabricatorMachineCircuitboard
   - NuclearCentrifugeMachineCircuitboard
   - NuclearReactorMonitorComputerCircuitboard
+  - GasTurbineMonitorComputerCircuitboard
 
 - type: latheRecipePack
   id: ReactorPartsBasic

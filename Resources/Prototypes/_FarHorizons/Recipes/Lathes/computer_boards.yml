@@ -2,3 +2,8 @@
   parent: [ BaseCircuitboardRecipe, BaseEngineeringComputerRecipeCategory ]
   id: NuclearReactorMonitorComputerCircuitboard
   result: NuclearReactorMonitorComputerCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseEngineeringComputerRecipeCategory ]
+  id: GasTurbineMonitorComputerCircuitboard
+  result: GasTurbineMonitorComputerCircuitboard

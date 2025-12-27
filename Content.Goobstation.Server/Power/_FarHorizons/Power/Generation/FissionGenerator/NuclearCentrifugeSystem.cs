@@ -90,7 +90,7 @@ public sealed class NuclearCentrifugeSystem : EntitySystem
         if (!this.IsPowered(uid, _entityManager))
             return;
 
-        if (!_entityManager.TryGetComponent<ReactorPartComponent>(args.Used, out var ReactorPart) || ReactorPart.RodType != ReactorPartComponent.RodTypes.FuelRod)
+        if (!_entityManager.TryGetComponent<ReactorPartComponent>(args.Used, out var ReactorPart) || !ReactorPart.HasRodType(ReactorPartComponent.RodTypes.FuelRod))
         {
             _popupSystem.PopupEntity(Loc.GetString("nuclear-centrifuge-wrong-item", ("item", args.Used)), args.User, args.User);
             return;

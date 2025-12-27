@@ -1,10 +1,14 @@
-using Content.Goobstation.Common.Materials._FarHorizons.Materials;
+using Content.Shared._FarHorizons.Materials;
 using Content.Shared.Atmos;
 using Content.Shared.Materials;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
+namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
+
+// Ported and modified from goonstation by Jhrushbe.
+// CC-BY-NC-SA-3.0
+// https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/reactorcomponents.dm
 
 /// <summary>
 /// A reactor part for the reactor grid.
@@ -34,15 +38,14 @@ public sealed partial class ReactorPartComponent : Component
     /// Byte indicating what type of rod this reactor part is
     /// </summary>
     [DataField]
-    public RodTypes RodType = RodTypes.Generic;
+    public int RodType = 0;
 
     public enum RodTypes
     {
-        Generic = 1 << 0,
-        FuelRod = 1 << 1,
-        ControlRod = 1 << 2,
-        GasChannel = 1 << 3,
-        HeatExchanger = 1 << 4,
+        None = 0,
+        FuelRod = 1 << 0,    // 1 Can be processed by the nuclear centrifuge
+        ControlRod = 1 << 1, // 2 Can change its NeutronCrossSection according to control rod setting
+        GasChannel = 1 << 2, // 4 Can process gas
     }
 
     #region Variables
@@ -161,6 +164,8 @@ public sealed partial class ReactorPartComponent : Component
         GasThermalCrossSection = source.GasThermalCrossSection;
         AirContents = source.AirContents;
     }
+
+    public bool HasRodType(RodTypes type) => (RodType & (int)type) == (int)type;
 }
 
 /// <summary>
@@ -171,53 +176,4 @@ public sealed class ReactorNeutron
 {
     public Direction dir = Direction.North;
     public float velocity = 1;
-}
-
-[NetworkedComponent]
-public static class BaseReactorComponents
-{
-    public static readonly ReactorPartComponent ControlRod = new()
-    {
-        RodType = ReactorPartComponent.RodTypes.ControlRod,
-        ProtoId = "BohrumReactorControlRod",
-        IconStateInserted = "control",
-        IconStateCap = "control_cap",
-        IsControlRod = true,
-        NeutronCrossSection = 2.0f,
-        ThermalCrossSection = 10,
-        Material = "Bohrum",
-    };
-
-    public static readonly ReactorPartComponent FuelRod = new()
-    {
-        RodType = ReactorPartComponent.RodTypes.FuelRod,
-        ProtoId = "CerenkiteReactorFuelRod",
-        IconStateInserted = "fuel",
-        IconStateCap = "fuel_cap",
-        NeutronCrossSection = 1.0f,
-        ThermalCrossSection = 10,
-        ThermalMass = 420000,
-        Material = "Cerenkite",
-    };
-
-    public static readonly ReactorPartComponent GasChannel = new()
-    {
-        RodType = ReactorPartComponent.RodTypes.GasChannel,
-        ProtoId = "SteelReactorGasChannel",
-        IconStateInserted = "gas",
-        IconStateCap = "gas_cap",
-        ThermalCrossSection = 15,
-        GasVolume = 100,
-        ThermalMass = 21000,
-    };
-
-    public static readonly ReactorPartComponent HeatExchanger = new()
-    {
-        RodType = ReactorPartComponent.RodTypes.HeatExchanger,
-        ProtoId = "SteelReactorHeatExchanger",
-        IconStateInserted = "heat",
-        IconStateCap = "heat_cap",
-        NeutronCrossSection = 0.1f,
-        ThermalCrossSection = 25,
-    };
 }

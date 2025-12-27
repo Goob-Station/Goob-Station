@@ -31,13 +31,6 @@ public sealed class TurbineSystem : SharedTurbineSystem
         SubscribeLocalEvent<TurbineComponent, AnimationCompletedEvent>(OnAnimationCompleted);
     }
 
-    protected override void UpdateUI(EntityUid uid, TurbineComponent turbine)
-    {
-        if (_userInterfaceSystem.TryGetOpenUi(uid, TurbineUiKey.Key, out var bui))
-        {
-            bui.Update();
-        }
-    }
     protected override void OnRepairTurbineFinished(Entity<TurbineComponent> ent, ref RepairFinishedEvent args)
     {
         if (args.Cancelled)

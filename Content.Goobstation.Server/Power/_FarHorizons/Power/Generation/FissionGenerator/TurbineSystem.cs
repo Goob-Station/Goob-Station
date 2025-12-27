@@ -60,7 +60,11 @@ public sealed class TurbineSystem : SharedTurbineSystem
         SubscribeLocalEvent<TurbineComponent, AtmosDeviceUpdateEvent>(OnUpdate);
         SubscribeLocalEvent<TurbineComponent, GasAnalyzerScanEvent>(OnAnalyze);
 
+        SubscribeLocalEvent<TurbineComponent, TurbineChangeFlowRateMessage>(OnTurbineFlowRateChanged);
+        SubscribeLocalEvent<TurbineComponent, TurbineChangeStatorLoadMessage>(OnTurbineStatorLoadChanged);
+
         SubscribeLocalEvent<TurbineComponent, SignalReceivedEvent>(OnSignalReceived);
+        SubscribeLocalEvent<TurbineComponent, PortDisconnectedEvent>(OnPortDisconnected);
 
         SubscribeLocalEvent<TurbineComponent, AnchorStateChangedEvent>(OnAnchorChanged);
         SubscribeLocalEvent<TurbineComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
@@ -68,7 +72,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
     private void OnInit(EntityUid uid, TurbineComponent comp, ref ComponentInit args)
     {
-        _signal.EnsureSourcePorts(uid, comp.SpeedHighPort, comp.SpeedLowPort);
+        _signal.EnsureSourcePorts(uid, comp.SpeedHighPort, comp.SpeedLowPort, comp.TurbineDataPort);
         _signal.EnsureSinkPorts(uid, comp.StatorLoadIncreasePort, comp.StatorLoadDecreasePort);
     }
 
@@ -107,13 +111,14 @@ public sealed class TurbineSystem : SharedTurbineSystem
     {
         var supplier = Comp<PowerSupplierComponent>(uid);
         comp.SupplierMaxSupply = supplier.MaxSupply;
+        comp.SupplierLastSupply = supplier.CurrentSupply;
 
         supplier.MaxSupply = comp.LastGen;
 
         if (!comp.InletEnt.HasValue || EntityManager.Deleted(comp.InletEnt.Value))
-            comp.InletEnt = SpawnAttachedTo("TurbineGasPipe", new(uid, comp.InletPos), rotation: Angle.FromDegrees(comp.InletRot));
+            comp.InletEnt = SpawnAttachedTo(comp.PipePrototype, new(uid, comp.InletPos), rotation: Angle.FromDegrees(comp.InletRot));
         if (!comp.OutletEnt.HasValue || EntityManager.Deleted(comp.OutletEnt.Value))
-            comp.OutletEnt = SpawnAttachedTo("TurbineGasPipe", new(uid, comp.OutletPos), rotation: Angle.FromDegrees(comp.OutletRot));
+            comp.OutletEnt = SpawnAttachedTo(comp.PipePrototype, new(uid, comp.OutletPos), rotation: Angle.FromDegrees(comp.OutletRot));
 
         CheckAnchoredPipes(uid, comp);
 
@@ -306,7 +311,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
     #endregion
 
     #region BUI
-    protected override void UpdateUI(EntityUid uid, TurbineComponent turbine)
+    public void UpdateUI(EntityUid uid, TurbineComponent turbine)
     {
         if (!_uiSystem.IsUiOpen(uid, TurbineUiKey.Key))
             return;
@@ -329,7 +334,31 @@ public sealed class TurbineSystem : SharedTurbineSystem
                StatorLoadMin = 1000,
                StatorLoadMax = turbine.StatorLoadMax,
                StatorLoad = turbine.StatorLoad,
+
+               PowerGeneration = turbine.SupplierMaxSupply,
+               PowerSupply = turbine.SupplierLastSupply,
+
+               Health = turbine.BladeHealth,
+               HealthMax = turbine.BladeHealthMax,
            });
+    }
+
+    private void OnTurbineFlowRateChanged(EntityUid uid, TurbineComponent turbine, TurbineChangeFlowRateMessage args)
+    {
+        turbine.FlowRate = Math.Clamp(args.FlowRate, 0f, turbine.FlowRateMax);
+        Dirty(uid, turbine);
+        UpdateUI(uid, turbine);
+        _adminLogger.Add(LogType.AtmosVolumeChanged, LogImpact.Medium,
+            $"{ToPrettyString(args.Actor):player} set the flow rate on {ToPrettyString(uid):device} to {args.FlowRate}");
+    }
+
+    private void OnTurbineStatorLoadChanged(EntityUid uid, TurbineComponent turbine, TurbineChangeStatorLoadMessage args)
+    {
+        turbine.StatorLoad = Math.Clamp(args.StatorLoad, 1000f, turbine.StatorLoadMax);
+        Dirty(uid, turbine);
+        UpdateUI(uid, turbine);
+        _adminLogger.Add(LogType.AtmosDeviceSetting, LogImpact.Medium,
+            $"{ToPrettyString(args.Actor):player} set the stator load on {ToPrettyString(uid):device} to {args.StatorLoad}");
     }
     #endregion
 
@@ -352,10 +381,22 @@ public sealed class TurbineSystem : SharedTurbineSystem
         _adminLogger.Add(LogType.Action, $"{ToPrettyString(args.Trigger):trigger} set the stator load on {ToPrettyString(uid):target} to {logtext}");
     }
 
+    private void OnPortDisconnected(EntityUid uid, TurbineComponent comp, ref PortDisconnectedEvent args)
+    {
+        if (args.Port == comp.StatorLoadIncreasePort)
+            comp.IncreasePortState = SignalState.Low;
+        if (args.Port == comp.StatorLoadDecreasePort)
+            comp.DecreasePortState = SignalState.Low;
+    }
+
+    #region Anchoring
     private void OnAnchorChanged(EntityUid uid, TurbineComponent comp, ref AnchorStateChangedEvent args)
     {
         if (!args.Anchored)
+        {
             CleanUp(comp);
+            return;
+        }
     }
 
     private void OnUnanchorAttempt(EntityUid uid, TurbineComponent comp, ref UnanchorAttemptEvent args)
@@ -379,6 +420,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
             _transform.Unanchor(uid);
         }
     }
+    #endregion
 
     private void CleanUp(TurbineComponent comp)
     {

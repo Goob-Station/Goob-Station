@@ -95,7 +95,7 @@ public sealed partial class TurbineComponent : Component
     /// <summary>
     /// If the turbine is functional or not
     /// </summary>
-    [ViewVariables]
+    [DataField, ViewVariables, AutoNetworkedField]
     public bool Ruined = false;
 
     /// <summary>
@@ -211,6 +211,12 @@ public sealed partial class TurbineComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId ArrowPrototype = "TurbineFlowArrow";
+
+    /// <summary>
+    /// Name of the prototype of the pipes the turbine uses to connect to the pipe network
+    /// </summary>
+    [DataField]
+    public EntProtoId PipePrototype = "TurbineGasPipe";
     #endregion
 
     #region Device Network
@@ -225,6 +231,12 @@ public sealed partial class TurbineComponent : Component
     /// </summary>
     [DataField("speedLowPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
     public string SpeedLowPort = "TurbineSpeedLow";
+
+    /// <summary>
+    /// The proto ID of the "Turbine Data" source port
+    /// </summary>
+    [DataField("turbineDataPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+    public string TurbineDataPort = "GasTurbineDataSender";
 
     /// <summary>
     /// The proto ID of the "Increase Stator Load" sink port
@@ -256,6 +268,8 @@ public sealed partial class TurbineComponent : Component
     public bool HasPipes = false;
     [ViewVariables(VVAccess.ReadOnly)]
     public float SupplierMaxSupply = 0;
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float SupplierLastSupply = 0;
     [ViewVariables(VVAccess.ReadOnly)]
     public float LastVolumeTransfer = 0;
     #endregion

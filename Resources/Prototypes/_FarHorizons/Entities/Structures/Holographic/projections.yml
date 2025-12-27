@@ -1,0 +1,20 @@
+- type: entity
+  id: HolosignRadiationBlocking
+  parent: HolosignWetFloor
+  name: holographic radiation barrier
+  description: A barrier of hard light that blocks light and radiation, but nothing else.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Holo/radiation.rsi
+    state: icon
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+  - type: TimedDespawn
+    lifetime: 180
+  - type: Occluder
+  - type: RadiationBlocker
+    resistance: 50

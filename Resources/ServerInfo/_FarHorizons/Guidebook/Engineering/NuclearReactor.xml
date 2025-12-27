@@ -5,7 +5,7 @@
 
 	## The Nuclear Reactor
 	<Box>
-		<GuideEntityEmbed Entity="BaseNuclearReactor"/>
+		<GuideEntityEmbed Entity="NuclearReactorNormal"/>
 	</Box>
 
 	The Nuclear Reactor is the primary source of heat the generator uses to make power.

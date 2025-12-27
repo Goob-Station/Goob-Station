@@ -11,7 +11,7 @@ public enum TurbineUiKey : byte
 [Serializable, NetSerializable]
 public sealed class TurbineBuiState : BoundUserInterfaceState
 {
-    //Indicator Lights
+    // Indicator Lights
     public bool Overspeed;
     public bool Stalling;
     public bool Overtemp;
@@ -26,10 +26,18 @@ public sealed class TurbineBuiState : BoundUserInterfaceState
     public float FlowRateMax;
     public float FlowRate;
 
-    //Stator load
+    // Stator load
     public float StatorLoadMin;
     public float StatorLoadMax;
     public float StatorLoad;
+
+    // Power generation
+    public float PowerGeneration;
+    public float PowerSupply;
+
+    // Health
+    public float Health;
+    public float HealthMax;
 }
 
 [Serializable, NetSerializable]

@@ -1,10 +1,11 @@
-using Content.Client.UserInterface;
-using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
-using JetBrains.Annotations;
-using Robust.Client.Timing;
 using Robust.Client.UserInterface;
+using Robust.Client.Timing;
+using JetBrains.Annotations;
+using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
+using Content.Client.UserInterface;
+using System.Diagnostics.CodeAnalysis;
 
-namespace Content.Goobstation.Client.Power._FarHorizons.Power.UI;
+namespace Content.Client._FarHorizons.Power.UI;
 
 /// <summary>
 /// Initializes a <see cref="TurbineWindow"/> and updates it when new server messages are received.
@@ -29,12 +30,21 @@ public sealed class TurbineBoundUserInterface : BoundUserInterface, IBuiPreTickU
 
     protected override void Open()
     {
+        EntityUid? turbineUid = null;
+        if (_entityManager.TryGetComponent<GasTurbineMonitorComponent>(Owner, out var turbineMonitorComponent))
+            if (!_entityManager.TryGetEntity(turbineMonitorComponent.turbine, out turbineUid) || turbineUid == null 
+                || !_entityManager.HasComponent<TurbineComponent>(turbineUid))
+                return;
+
         base.Open();
 
         _pred = new BuiPredictionState(this, _gameTiming);
 
         _window = this.CreateWindow<TurbineWindow>();
-        _window.SetEntity(Owner);
+        if (_entityManager.EntityExists(turbineUid))
+            _window.SetEntity(turbineUid.Value, Owner);
+        else
+            _window.SetEntity(Owner);
 
         _window.TurbineFlowRateChanged += val => _flowRateCoalescer.Set(val);
         _window.TurbineStatorLoadChanged += val => _statorLoadCoalescer.Set(val);
@@ -56,7 +66,8 @@ public sealed class TurbineBoundUserInterface : BoundUserInterface, IBuiPreTickU
             return;
 
         if (!_entityManager.TryGetComponent<TurbineComponent>(Owner, out var comp))
-            return;
+            if(!TryGetTurbineComp(Owner, out comp))
+                return;
 
         foreach (var replayMsg in _pred!.MessagesToReplay())
         {
@@ -73,5 +84,21 @@ public sealed class TurbineBoundUserInterface : BoundUserInterface, IBuiPreTickU
         }
 
         _window?.Update(turbineState);
+    }
+
+    public bool TryGetTurbineComp(EntityUid uid, [NotNullWhen(true)] out TurbineComponent? turbineComponent)
+    {
+        turbineComponent = null;
+        if (!_entityManager.TryGetComponent<GasTurbineMonitorComponent>(uid, out var turbineMonitor))
+            return false;
+
+        if (!_entityManager.TryGetEntity(turbineMonitor.turbine, out var turbineUid) || turbineUid == null)
+            return false;
+
+        if (!_entityManager.TryGetComponent<TurbineComponent>(turbineUid, out var turbine))
+            return false;
+
+        turbineComponent = turbine;
+        return true;
     }
 }

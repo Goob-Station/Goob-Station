@@ -96,7 +96,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// Flag indicating total meltdown has happened
     /// </summary>
-    [DataField, ViewVariables]
+    [DataField, ViewVariables, AutoNetworkedField]
     public bool Melted = false;
 
     /// <summary>
@@ -198,13 +198,19 @@ public sealed partial class NuclearReactorComponent : Component
     /// The selected prefab
     /// </summary>
     [DataField]
-    public string Prefab = "normal";
+    public string Prefab = "ReactorPrefab7x7Normal";
 
     /// <summary>
     /// Flag indicating the reactor should apply the selected prefab
     /// </summary>
     [DataField]
     public bool ApplyPrefab = false;
+
+    /// <summary>
+    /// Chance that a reactor slot is filled when applying the random prefab
+    /// </summary>
+    [DataField]
+    public float RandomPrefabFill = 0.3f;
 
     /// <summary>
     /// Material the reactor is made out of
@@ -273,6 +279,11 @@ public sealed partial class NuclearReactorComponent : Component
     [DataField]
     public EntProtoId ArrowPrototype = "ReactorFlowArrow";
 
+    /// <summary>
+    /// Name of the prototype of the pipes the reactor uses to connect to the pipe network
+    /// </summary>
+    [DataField]
+    public EntProtoId PipePrototype = "ReactorGasPipe";
     #endregion
 
     #region Device Network
