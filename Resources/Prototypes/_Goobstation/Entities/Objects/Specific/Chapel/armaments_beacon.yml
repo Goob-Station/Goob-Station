@@ -1,0 +1,55 @@
+- type: entity
+  name: armaments beacon
+  description: Summon a set of standard issue chaplain armaments, as dictated by I.C.R.A.
+  parent: BaseItem
+  id: ArmamentsBeacon
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Objects/armaments_beacon.rsi
+    state: icon
+  - type: Item
+    sprite: _ShitChap/Objects/armaments_beacon.rsi
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: AttachedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    singleUser: true
+  - type: RadialItemSelector
+    entries:
+    - prototype: SpawnArmamentsCursader
+      icon:
+        sprite: _ShitChap/Clothing/OuterClothing/Misc/templar.rsi
+        state: icon
+    - prototype: SpawnArmamentsStudent
+      icon:
+        sprite: _ShitChap/Clothing/OuterClothing/Misc/student.rsi
+        state: icon
+    - prototype: SpawnArmamentsAncient
+      icon:
+        sprite: _ShitChap/Clothing/OuterClothing/Misc/ancient.rsi
+        state: icon
+    - prototype: SpawnArmamentsWitchhunter
+      icon:
+        sprite: _ShitChap/Clothing/OuterClothing/Misc/witchhunter.rsi
+        state: icon
+    - prototype: SpawnArmamentsAdept
+      icon:
+        sprite: _ShitChap/Clothing/OuterClothing/Misc/adept.rsi
+        state: icon
+    - prototype: SpawnArmamentsClock
+      icon:
+        sprite: _ShitChap/Clothing/OuterClothing/Misc/clock.rsi
+        state: icon
+    - prototype: SpawnArmamentsMonk
+      icon:
+        sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
+        state: icon
+    - prototype: SpawnArmamentsBishop
+      icon:
+        sprite: _ShitChap/Clothing/OuterClothing/Misc/bishop.rsi
+        state: icon
+  - type: StaticPrice
+    price: 500

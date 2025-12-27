@@ -153,6 +153,12 @@
   supervisors: job-supervisors-captain
   #canBeAntag: false
   antagAdvantage: 75 # Goobstation
+  guides: # goobstation
+  - Engineering
+  - ChiefEngineer SOP
+  - Engineering SOP
+  - Command
+  - Emergencies SOP
   goobcoins: 40 #Goob content
   access:
   - Maintenance

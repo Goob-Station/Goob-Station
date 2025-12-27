@@ -1,0 +1,26 @@
+- type: entity
+  name: The robust toolbox
+  parent: [ToolboxBase, BaseSyndicateContraband]
+  id: Toolboxrobust
+  description: The robust toolbox, passed down from generation to generation of shitters just by holding it you feel more robust than ever.
+  components:
+  - type: MeleeWeapon
+    heavyStaminaCost: 0
+    damage:
+      types:
+        Blunt: 35
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: Sprite
+    sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: Unremoveable
+
+- type: entity
+  name: Singuloth's hammer
+  parent: SingularityHammer
+  id: SingulothsHammer

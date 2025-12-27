@@ -1,0 +1,40 @@
+- type: entity
+  id: TapeDeck
+  name: tape deck
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  description: An old school tape deck, ready to play the newest podcast made by the crew.
+  components:
+  - type: Transform
+    noRot: false
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/StationRadio/tapedeck.rsi
+    layers:
+    - state: icon
+    # TODO: unlit & maints panel sprite
+  - type: Rotatable
+  - type: Machine
+    board: TapeDeckCircuitboard
+  - type: TapeRecorder
+  - type: ActiveListener
+    range: 4
+  - type: UseDelay
+    delay: 1
+  - type: Speech
+  - type: ItemSlots
+    slots:
+      cassette_tape:
+        priority: 4
+        whitelist:
+          components:
+          - FitsInTapeRecorder
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      cassette_tape: !type:ContainerSlot
+  - type: ActivatableUI
+    key: enum.TapeRecorderUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.TapeRecorderUIKey.Key:
+        type: TapeRecorderBoundUserInterface
