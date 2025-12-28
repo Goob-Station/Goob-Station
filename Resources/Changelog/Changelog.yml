@@ -5093,3 +5093,10 @@ Entries:
   id: 9336
   time: '2025-12-27T14:32:07.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42104
+- author: B_Kirill
+  changes:
+  - message: Broken vending machines now properly block and close their UI.
+    type: Fix
+  id: 9337
+  time: '2025-12-28T01:10:36.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42110
