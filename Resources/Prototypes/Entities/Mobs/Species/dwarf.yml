@@ -95,8 +95,8 @@
       Unsexed: UnisexDwarf
   - type: ReplacementAccent
     accent: dwarf
-  - type: ZombieAccentOverride
-    accent: zombieDwarf
+  - type: ZombieAccentOverride #Goob
+    accent: zombieDwarf #Goob
   - type: Speech
     speechSounds: Bass
   - type: LanguageKnowledge # Einstein Engines - Languages
