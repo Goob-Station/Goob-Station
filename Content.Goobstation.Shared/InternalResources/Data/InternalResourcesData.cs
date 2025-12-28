@@ -30,7 +30,7 @@ public sealed partial class InternalResourcesData
     public float RegenerationRate = 1f;
 
     /// <summary>
-    /// The thresholds at which InternalResourcesThresholdMetEvent will be fired.
+    /// The thresholds at which InternalResourcesThresholdMetEvent will be raised.
     /// </summary>
     [DataField]
     public Dictionary<InternalResourcesThreshold, (float, bool)>? Thresholds = new();
