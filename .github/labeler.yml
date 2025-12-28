@@ -38,6 +38,10 @@
 - changed-files:
     -any-glob-to-any-file: 'Resources/Prototypes/**/*.yml'
 
+"C#":
+- changed-files:
+  - any-glob-to-any-file: '**/*.cs'
+
 "Без C#":
 - changed-files:
   # Equiv to any-glob-to-all as long as this has one matcher. If ALL changed files are not C# files, then apply label.
