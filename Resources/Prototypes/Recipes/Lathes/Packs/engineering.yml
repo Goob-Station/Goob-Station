@@ -63,7 +63,7 @@
   id: EngineeringBoardsStatic
   recipes:
   - SpaceHeaterMachineCircuitBoard
-  - CondenserMachineCircuitBoard
+  - CondenserMachineCircuitBoard # Goob
 
 ## Dynamic
 
