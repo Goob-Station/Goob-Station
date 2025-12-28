@@ -122,6 +122,36 @@ public sealed partial class SupermatterComponent : Component
     [DataField("delamAlarm")]
     public SoundSpecifier DelamAlarm = new SoundPathSpecifier("/Audio/Machines/alarm.ogg");
 
+    // CorvaxGoob-SM-Accent-Sounds-Start
+
+    [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
+    public SoundSpecifier AccentSoundsNormal = new SoundCollectionSpecifier("SupermatterNormalAccents");
+
+    [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
+    public SoundSpecifier AccentSoundsDelam = new SoundCollectionSpecifier("SupermatterDelamAccents");
+
+    /// <summary>
+    /// The time at which the next sound will play.
+    /// </summary>
+    [DataField]
+    public TimeSpan NextAccentSound;
+
+    /// <summary>
+    /// Defines mininal time to play accent sound
+    /// </summary>
+    [DataField]
+    public TimeSpan MinSoundPlaytime = TimeSpan.FromSeconds(30);
+
+    /// <summary>
+    /// Defines maximal time to play accent sound
+    /// </summary>
+    [DataField]
+    public TimeSpan MaxSoundPlaytime = TimeSpan.FromSeconds(59);
+
+    // CorvaxGoob-SM-Accent-Sounds-End
+
     #endregion SM Sound
 
     #region SM Calculation
