@@ -1,0 +1,38 @@
+﻿- type: reaction
+  id: Johntonite
+  impact: Medium
+  minTemp: 400
+  reactants:
+    SoapReagent:
+      amount: 2
+    Fentanyl:
+      amount: 5
+    Cyanide:
+      amount: 2
+    Plasma:
+      amount: 1
+    Chlorine:
+      amount: 1
+    SpaceDrugs:
+      amount: 2
+    OleoresinCapsaicin:
+      amount: 5
+    B52:
+      amount: 2
+    Blood:
+      amount: 5
+  products:
+    Johntonite: 10
+
+- type: reaction
+  id: NitricAcid
+  impact: Medium
+  minTemp: 357
+  reactants:
+    Saltpeter:
+      amount: 2
+    SulfuricAcid:
+      amount: 1
+  products:
+    NitricAcid: 2
+    PotassiumSulfate: 1
