@@ -14,7 +14,7 @@
   - type: Inventory
     speciesId: feroxi
   - type: Thirst
-    baseDecayRate: 0.2
+    baseDecayRate: 0.4
   - type: Icon
     sprite: _DV/Mobs/Species/Feroxi/parts.rsi
     state: full
@@ -23,7 +23,7 @@
   - type: Speech
     speechSounds: Tenor
     speechVerb: Feroxi
-    allowedEmotes: [ "Gnash" ]
+    allowedEmotes: [ "Gnash", 'Thump' ]
   - type: Vocal
     sounds:
       Male: MaleFeroxi
@@ -92,7 +92,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 7 # oooh scary extra damage~
+        Piercing: 8.5 # oooh scary extra damage~ #goob edit
   - type: Perishable
   - type: Damageable
     damageModifierSet: Feroxi
@@ -109,6 +109,8 @@
     understands:
     - TauCetiBasic
     - Nehina
+  - type: BodyEmotes
+    soundsId: FeroxiBodyEmotes
 
 - type: entity
   parent: MobHumanDummy
