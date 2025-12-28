@@ -42,7 +42,7 @@
     sprite: Objects/Specific/Research/researchdisk.rsi
     state: icon
   - type: ResearchDisk
-    points: 5000 # Goobstation: Buff research disks
+    points: 3000 # Goobstation: Buff research disks
   - type: GuideHelp
     guides:
     - Science
@@ -54,7 +54,7 @@
   description: A disk for the R&D server containing 25000 points. # Goobstation: Buff research disks
   components:
   - type: ResearchDisk
-    points: 25000 # Goobstation: Buff research disks
+    points: 10000 # Goobstation: Buff research disks
 
 - type: entity
   parent: ResearchDisk
@@ -63,7 +63,7 @@
   description: A disk for the R&D server containing 50000 points. # Goobstation: Buff research disks
   components:
   - type: ResearchDisk
-    points: 50000 # Goobstation: Buff research disks
+    points: 15000 # Goobstation: Buff research disks
 
 - type: entity
   parent: ResearchDisk
