@@ -257,3 +257,10 @@
   name: lavaland-ruin-flock-large
   path: /Maps/_Lavaland/Lavaland/flock_ruins_large.yml
   priority: 31
+
+- type: lavalandGridRuin
+  id: Reclaimer
+  name: NT-Reclaimer
+  path: /Maps/_Lavaland/Lavaland/reclaimer_shuttle_ruin.yml
+  priority: -1 # highest priority
+  patchToPlanet: false
