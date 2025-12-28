@@ -5107,3 +5107,10 @@ Entries:
   id: 9338
   time: '2025-12-28T06:36:49.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42077
+- author: Ilya246
+  changes:
+  - message: Large grid shuttle collisions should now be somewhat less laggy.
+    type: Fix
+  id: 9339
+  time: '2025-12-28T07:30:08.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40984
