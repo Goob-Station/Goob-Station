@@ -51,6 +51,7 @@
       - Dropper
       - Syringe
       - Medipen
+      - AutoinjectorCartridge
 
   - type: ItemCounter # i do not have the spoons to make itemmapper work with opening/closing so you get this
     count:
