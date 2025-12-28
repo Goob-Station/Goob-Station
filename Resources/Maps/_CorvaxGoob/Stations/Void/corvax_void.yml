@@ -3,9 +3,9 @@ meta:
   category: Map
   engineVersion: 264.0.0
   forkId: syndicate-goob
-  forkVersion: 85768a3337a8ccb00e2e6f5b27b81a4b5c68e36e
-  time: 12/16/2025 15:43:23
-  entityCount: 25425
+  forkVersion: 1c9e4e3eeec3e61dd902a9ab80c89017d43ad250
+  time: 12/27/2025 13:38:01
+  entityCount: 25450
 maps:
 - 1743
 grids:
@@ -8777,6 +8777,9 @@ entities:
             12850: 117,78
             12889: 137,63
             12941: 169,101
+            13125: 135,98
+            13133: 69,98
+            13134: 69,98
         - node:
             color: '#4C2A5EC7'
             id: MiniTileInnerOverlayNW
@@ -8878,6 +8881,10 @@ entities:
             12882: 130,61
             12931: 158,98
             12945: 173,101
+            13126: 133,87
+            13127: 132,86
+            13132: 68,98
+            13135: 79,98
         - node:
             color: '#EFB34193'
             id: MiniTileInnerOverlayNW
@@ -9004,6 +9011,7 @@ entities:
             12757: 90,120
             12802: 101,86
             12803: 100,85
+            13124: 135,96
         - node:
             color: '#DE3A3ACD'
             id: MiniTileInnerOverlaySE
@@ -9336,6 +9344,20 @@ entities:
             12888: 137,64
             12948: 177,101
             12949: 177,99
+            13110: 135,121
+            13111: 135,119
+            13112: 135,117
+            13113: 135,115
+            13114: 135,113
+            13115: 135,111
+            13116: 135,109
+            13117: 135,107
+            13118: 135,105
+            13119: 135,103
+            13120: 135,101
+            13121: 135,99
+            13122: 135,94
+            13123: 135,92
         - node:
             color: '#DE3A3ACD'
             id: MiniTileLineOverlayE
@@ -9668,6 +9690,28 @@ entities:
             12947: 176,102
             12950: 178,98
             12951: 180,98
+            13092: 86,122
+            13093: 88,122
+            13094: 90,122
+            13095: 92,122
+            13096: 94,122
+            13097: 96,122
+            13098: 98,122
+            13099: 100,122
+            13100: 102,122
+            13101: 104,122
+            13102: 106,122
+            13103: 108,122
+            13104: 110,122
+            13105: 112,122
+            13106: 114,122
+            13107: 116,122
+            13108: 118,122
+            13109: 120,122
+            13128: 130,86
+            13129: 128,86
+            13130: 126,86
+            13131: 124,86
         - node:
             color: '#EFB34196'
             id: MiniTileLineOverlayN
@@ -10242,6 +10286,7 @@ entities:
             12880: 130,64
             12881: 130,62
             12935: 161,101
+            13136: 79,99
         - node:
             color: '#DE3A3ACD'
             id: MiniTileLineOverlayW
@@ -16012,6 +16057,17 @@ entities:
     - type: Transform
       pos: 54.570686,110.51848
       parent: 1
+- proto: ActionToggleLight
+  entities:
+  - uid: 5283
+    mapInit: true
+    paused: true
+    components:
+    - type: Transform
+      parent: 8655
+    - type: Action
+      container: 8655
+      originalIconColor: '#FFFFFFFF'
 - proto: AirAlarm
   entities:
   - uid: 464
@@ -21249,6 +21305,14 @@ entities:
     components:
     - type: Transform
       pos: 124.45157,132.36746
+      parent: 1
+- proto: ComputerVirology
+  entities:
+  - uid: 6077
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 71.5,134.5
       parent: 1
 - proto: BaseGasCondenser
   entities:
@@ -67532,6 +67596,12 @@ entities:
     - type: Transform
       pos: 166.54584,72.68503
       parent: 1
+  - uid: 25377
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 67.63524,137.55704
+      parent: 1
 - proto: CrowbarYellow
   entities:
   - uid: 10373
@@ -81391,6 +81461,102 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 51.5,81.5
+      parent: 1
+  - uid: 25374
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 120.5,84.5
+      parent: 1
+  - uid: 25378
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 65.5,139.5
+      parent: 1
+  - uid: 25379
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 62.5,144.5
+      parent: 1
+  - uid: 25380
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 62.5,143.5
+      parent: 1
+  - uid: 25381
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 62.5,142.5
+      parent: 1
+  - uid: 25382
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 83.5,132.5
+      parent: 1
+  - uid: 25383
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 84.5,132.5
+      parent: 1
+  - uid: 25384
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 85.5,132.5
+      parent: 1
+  - uid: 25385
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 79.5,118.5
+      parent: 1
+  - uid: 25386
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 80.5,118.5
+      parent: 1
+  - uid: 25387
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 81.5,118.5
+      parent: 1
+  - uid: 25388
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 94.5,84.5
+      parent: 1
+  - uid: 25389
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 94.5,85.5
+      parent: 1
+  - uid: 25390
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 94.5,86.5
+      parent: 1
+  - uid: 25391
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 120.5,85.5
+      parent: 1
+  - uid: 25392
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 120.5,86.5
       parent: 1
 - proto: GasAnalyzer
   entities:
@@ -110858,8 +111024,24 @@ entities:
   - uid: 8655
     components:
     - type: Transform
-      pos: 168.009,85.850006
+      pos: 168.30673,85.69646
       parent: 1
+    - type: HandheldLight
+      toggleActionEntity: 5283
+    - type: ContainerContainer
+      containers:
+        cell_slot: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+        actions: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 5283
+    - type: Physics
+      canCollide: True
+    - type: ActionsContainer
   - uid: 9483
     components:
     - type: Transform
@@ -120622,6 +120804,66 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 122.5,74.5
       parent: 1
+  - uid: 25393
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 79.5,131.5
+      parent: 1
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
+  - uid: 25394
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 113.5,62.5
+      parent: 1
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
+  - uid: 25395
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 135.5,129.5
+      parent: 1
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
+  - uid: 25396
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 162.5,87.5
+      parent: 1
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
+  - uid: 25397
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 98.5,129.5
+      parent: 1
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
 - proto: Protolathe
   entities:
   - uid: 7988
@@ -126075,6 +126317,11 @@ entities:
     - type: Transform
       pos: 169.5,91.5
       parent: 1
+  - uid: 25376
+    components:
+    - type: Transform
+      pos: 67.5,135.5
+      parent: 1
 - proto: ResearchDisk
   entities:
   - uid: 8594
@@ -130747,6 +130994,13 @@ entities:
     - type: Transform
       pos: 139.5,117.5
       parent: 1
+- proto: SpawnPointVirologist
+  entities:      
+  - uid: 25375
+    components:
+    - type: Transform
+      pos: 69.5,135.5
+      parent: 1
 - proto: SpawnPointLibrarian
   entities:
   - uid: 15383
@@ -133951,6 +134205,13 @@ entities:
     components:
     - type: Transform
       pos: 15.5,93.5
+      parent: 1
+  - proto: VirologyServer
+  entities:
+  - uid: 2129
+    components:
+    - type: Transform
+      pos: 67.5,135.5
       parent: 1
 - proto: SurveillanceCameraRouterGeneral
   entities:
@@ -163419,11 +163680,6 @@ entities:
     components:
     - type: Transform
       pos: 74.5,112.5
-      parent: 1
-  - uid: 6077
-    components:
-    - type: Transform
-      pos: 71.5,134.5
       parent: 1
   - uid: 6745
     components:
