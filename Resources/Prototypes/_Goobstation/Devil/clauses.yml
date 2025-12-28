@@ -54,6 +54,12 @@
   spawnedItems:
   - ClothingShoesRealJordansAutographed
 
+- type: clause # WAKE UP AND SMELL THE BLOOD, MORTALS.
+  id: slaughter
+  clauseWeight: -200
+  spawnedItems:
+  - BottleOfLesserBlood
+
 - type: clause
   id: fearofdeath
   clauseWeight: -25
@@ -91,7 +97,7 @@
 
 - type: clause
   id: fearofclowns
-  clauseWeight: -10
+  clauseWeight: -15
   addedComponents:
   - type: NoSlip
 
@@ -138,12 +144,29 @@
 - type: clause
   id: humanity
   clauseWeight: 80
-  polymorph: MobFrogPolymorphPathetic # Gibs before death. No free revert.
+  polymorph: TimedDevilRat # Reverts after 10 minutes.
 
 - type: clause
   id: strength
   clauseWeight: 30
   damageModifierSet: DevilDealNegative
+
+- type: clause
+  id: mimes
+  clauseWeight: -10
+  addedComponents:
+    - type: ActionGrant
+      actions:
+        - ActionMimeInvisibleWall
+
+- type: clause
+  id: diseases
+  clauseWeight: -15
+  addedComponents:
+    - type: CurseImmune
+    - type: ImmunityModifierMetabolism
+      gainRateModifier: 5.0
+      strengthModifier: 2.0
 
 - type: clause
   id: willtofight
@@ -164,6 +187,28 @@
   - type: PermanentBlindness
 
 - type: clause
+  id: tardiness
+  clauseWeight: -25
+  addedComponents:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 6
+
+- type: clause
+  id: foreigners
+  clauseWeight: -10
+  addedComponents:
+  - type: UniversalLanguageSpeaker
+
+- type: clause
+  id: intelligence
+  clauseWeight: 5
+  addedComponents:
+  - type: OhioAccent
+  - type: RatvarianLanguage
+  - type: Clumsy
+     
+- type: clause
   id: coherence
   clauseWeight: 30
   addedComponents:
@@ -182,9 +227,33 @@
   event: !type:DevilContractLoseLegEvent
 
 - type: clause
+  id: weight
+  clauseWeight: 5
+  addedComponents:
+  - type: ScaleData
+    scale: 0.1, 0.1
+
+- type: clause
+  id: belittling
+  clauseWeight: 10
+  addedComponents:
+  - type: ScaleData
+    scale: 5, 5
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: XenoFootstepLarge
+      params:
+        volume: -10
+
+- type: clause
   id: ahand
   clauseWeight: 20
   event: !type:DevilContractLoseHandEvent
+
+- type: clause
+  id: handshakes
+  clauseWeight: 50
+  event: !type:DevilContractLoseArmsEvent
 
 - type: clause
   id: awake
@@ -198,6 +267,11 @@
   id: anorgan
   clauseWeight: 30
   event: !type:DevilContractLoseOrganEvent
+
+#- type: clause
+#  id: change
+#  clauseWeight: -15
+#  event: !type:UseDnaScramblerImplantEvent
 
 - type: clause
   id: legs
@@ -232,5 +306,5 @@
   addedComponents:
   - type: DelayedDeath
     preventAllRevives: true # :trol:
-    deathTime: 300
+    deathTime: 600
     deathMessageId: devil-deal-time-ran-out

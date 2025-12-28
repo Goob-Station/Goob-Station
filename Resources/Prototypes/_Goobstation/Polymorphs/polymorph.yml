@@ -119,3 +119,15 @@
     forced: true
     duration: 180
     attachToGridOrMap: true
+
+- type: polymorph
+  id: TimedDevilRat
+  configuration:
+    entity: MobMouse
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: true
+    inventory: None
+    revertOnDeath: false
+    revertOnCrit: false
+    duration: 600

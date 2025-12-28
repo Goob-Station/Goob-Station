@@ -287,7 +287,16 @@ public sealed partial class DevilSystem : EntitySystem
             return;
 
         _popup.PopupEntity(Loc.GetString("devil-exorcised", ("target", Name(devil))), devil, PopupType.LargeCaution);
-        _condemned.StartCondemnation(target, behavior: CondemnedBehavior.Banish, doFlavor: false);
+        devil.Comp.TimesExorcised++;
+
+        var behavior = devil.Comp.TimesExorcised <= DevilComponent.MaxBanishedBeforePermanent
+            ? CondemnedBehavior.Banish
+            : CondemnedBehavior.Delete;
+
+        _condemned.StartCondemnation(
+            target,
+            behavior: behavior,
+            doFlavor: false);
 
     }
 

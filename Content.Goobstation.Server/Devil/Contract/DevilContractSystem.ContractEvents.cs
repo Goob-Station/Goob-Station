@@ -27,6 +27,7 @@ public sealed partial class DevilContractSystem
         SubscribeLocalEvent<DevilContractSoulOwnershipEvent>(OnSoulOwnership);
         SubscribeLocalEvent<DevilContractLoseHandEvent>(OnLoseHand);
         SubscribeLocalEvent<DevilContractLoseLegEvent>(OnLoseLeg);
+        SubscribeLocalEvent<DevilContractLoseArmsEvent>(OnLoseArms);
         SubscribeLocalEvent<DevilContractLoseOrganEvent>(OnLoseOrgan);
         SubscribeLocalEvent<DevilContractChanceEvent>(OnChance);
     }
@@ -48,7 +49,6 @@ public sealed partial class DevilContractSystem
 
         var pick = _random.Pick(hands);
 
-        // FIX: We use the _container system we just added as a dependency
         if (!_container.TryGetContainingContainer(pick.Id, out var container))
             return;
 
@@ -67,6 +67,46 @@ public sealed partial class DevilContractSystem
         _sawmill.Debug($"Removed hand from slot {slotName} on {ToPrettyString(args.Target)}");
     }
 
+    private void OnLoseArms(DevilContractLoseArmsEvent args)
+    {
+        if (!TryComp<BodyComponent>(args.Target, out var body))
+            return;
+
+        var arms = _bodySystem
+            .GetBodyChildrenOfType(args.Target, BodyPartType.Arm, body)
+            .ToList();
+
+        if (arms.Count == 0)
+            return;
+
+        var noLimb = EnsureComp<NoLimbForYouComponent>(args.Target);
+
+        foreach (var arm in arms)
+        {
+            if (!_container.TryGetContainingContainer(arm.Id, out var container))
+                continue;
+
+            if (!TryComp<WoundableComponent>(arm.Id, out var woundable) ||
+                !woundable.ParentWoundable.HasValue)
+                continue;
+
+            _wounds.AmputateWoundableSafely(
+                woundable.ParentWoundable.Value,
+                arm.Id,
+                woundable);
+
+            noLimb.ForbiddenSlots.Add(container.ID);
+
+            _sawmill.Debug(
+                $"Removed arm from slot {container.ID} on {ToPrettyString(args.Target)}");
+
+            QueueDel(arm.Id);
+        }
+
+        Dirty(args.Target, body);
+    }
+
+
     private void OnLoseLeg(DevilContractLoseLegEvent args)
     {
         if (!TryComp<BodyComponent>(args.Target, out var body))
@@ -77,7 +117,6 @@ public sealed partial class DevilContractSystem
 
         var pick = _random.Pick(legs);
 
-        // FIX: Using the container system dependency here too
         if (!_container.TryGetContainingContainer(pick.Id, out var container))
             return;
 

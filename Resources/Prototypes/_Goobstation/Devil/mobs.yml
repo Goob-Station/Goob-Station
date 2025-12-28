@@ -33,12 +33,6 @@
   - type: ComplexInteraction
   - type: ReplacementAccent
     accent: genericAggressive
-  - type: ActionGrant
-    actions:
-    - ActionSummonPitchfork
-    - ActionCreateContract
-    - ActionShadowJaunt
-    - ActionDevilGrip
 
 - type: entity
   name: archdevil
@@ -83,13 +77,6 @@
         volume: 8
         maxDistance: 60
         pitch: 0.2
-  - type: ActionGrant
-    actions:
-    - ActionSummonPitchfork
-    - ActionHellFire
-    - ActionCreateContract
-    - ActionShadowJaunt
-    - ActionDevilGrip
 
 - type: entity
   name: frog
