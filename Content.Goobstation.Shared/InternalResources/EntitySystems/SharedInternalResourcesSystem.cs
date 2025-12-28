@@ -7,6 +7,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace Content.Goobstation.Shared.InternalResources.EntitySystems;
 public sealed class SharedInternalResourcesSystem : EntitySystem
@@ -209,15 +210,18 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
     /// <summary>
     /// Tries to remove an internal resource type from an entity with an internal resources component by protoId.
     /// </summary>
-    public void TryRemoveInternalResource(Entity<InternalResourcesComponent> entity, string protoId)
+    public void TryRemoveInternalResource(EntityUid uid, string protoId, InternalResourcesComponent? component = null)
     {
+        if (!Resolve(uid, ref component))
+            return;
+
         if (!_protoMan.TryIndex<InternalResourcesPrototype>(protoId, out var proto))
         {
-            Log.Debug($"Failed to remove {protoId} internal resource type from entity {ToPrettyString(entity.Owner):uid}. Internal resource prototype does not exist.");
+            Log.Debug($"Failed to remove {protoId} internal resource type from entity {ToPrettyString(uid):uid}. Internal resource prototype does not exist.");
             return;
         }
 
-        RemoveInternalResource(entity, proto);
+        RemoveInternalResource((uid, component), proto);
     }
 
     /// <summary>
@@ -234,7 +238,7 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
             return true;
 
         var startingAmount = Math.Clamp(proto.BaseStartingAmount, 0f, proto.BaseMaxAmount);
-        data = new InternalResourcesData(proto.BaseMaxAmount, proto.BaseRegenerationRate, startingAmount, proto.ID);
+        data = new InternalResourcesData(proto.BaseMaxAmount, proto.BaseRegenerationRate, startingAmount, proto.Thresholds, proto.ID);
 
         resourcesComp.CurrentInternalResources.Add(data);
         Dirty(uid, resourcesComp);
@@ -257,6 +261,8 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
         Dirty(entity);
 
         UpdateAppearance(entity, proto.ID);
+
+        Log.Info(entity.Comp.CurrentInternalResources.Count.ToString());
 
         if (entity.Comp.CurrentInternalResources.Count == 0)
             RemComp<InternalResourcesComponent>(entity);
@@ -294,6 +300,30 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
                 RaiseLocalEvent(uid, ref modEv);
 
                 TryUpdateResourcesAmount(uid, resourceData, modEv.Modifier, resourcesComp);
+
+                if (resourceData.Thresholds == null)
+                    continue;
+
+                var thresholdsArray = resourceData.Thresholds.Keys.ToArray();
+                foreach (var key in thresholdsArray)
+                {
+                    var threshold = resourceData.Thresholds[key];
+                    // threshold.Item1 is the threshold percentage
+                    // threshold.Item2 is the bool for the threshold having been met
+
+                    var scaledAmount = resourceData.MaxAmount * threshold.Item1;
+
+                    if (!threshold.Item2 // threshold needs to not have been met already
+                        && resourceData.CurrentAmount <= scaledAmount)
+                    {
+                        var threshEv = new InternalResourcesThresholdMetEvent(uid, resourceData, key);
+                        RaiseLocalEvent(uid, ref threshEv);
+                    }
+
+                    threshold.Item2 = resourceData.CurrentAmount <= scaledAmount;
+
+                    resourceData.Thresholds[key] = threshold;
+                }
             }
         }
     }

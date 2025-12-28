@@ -11,41 +11,26 @@ namespace Content.Goobstation.Shared.Changeling.Components;
 /// <summary>
 /// Component used to mark changelings that use biomass. Typically only via Awakened Instinct.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ChangelingBiomassComponent : Component
 {
+    /// <summary>
+    /// The internal resource prototype to be added.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public string ResourceProto = "ChangelingBiomass";
+
+    /// <summary>
+    /// The InternalResourcesData of the prototype.
+    /// </summary>
     [DataField]
-    public ProtoId<AlertPrototype> AlertId = "ChangelingBiomass";
+    public InternalResourcesData ResourceData = new();
 
+    /// <summary>
+    /// The ProtoID of the changeling chemicals.
+    /// </summary>
     [DataField]
-    public ProtoId<InternalResourcesPrototype> ResourceType = "ChangelingChemicals";
-
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
-    public TimeSpan UpdateTimer = default!;
-
-    /// <summary>
-    /// Delay between update cycles.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public TimeSpan UpdateDelay = TimeSpan.FromSeconds(30); // will last 50 minutes give or take
-
-    /// <summary>
-    /// Current level of biomass the changeling currently has.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float Biomass = 100.0f;
-
-    /// <summary>
-    /// Maximum level of biomass the changeling can have.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float MaxBiomass = 100.0f;
-
-    /// <summary>
-    /// The biomass drain per cycle.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float DrainAmount = 1f;
+    public ProtoId<InternalResourcesPrototype> ChemResourceType = "ChangelingChemicals";
 
     /// <summary>
     /// The amount that the changeling's chemical regeneration multiplier will increase by
@@ -53,36 +38,18 @@ public sealed partial class ChangelingBiomassComponent : Component
     [DataField, AutoNetworkedField]
     public float ChemicalBoost = 0.25f;
 
-    // first warning
-    [DataField, AutoNetworkedField]
-    public bool FirstWarnReached;
-
-    [DataField, AutoNetworkedField]
-    public float FirstWarnThreshold;
-
+    // first threshold
     [DataField]
     public LocId FirstWarnPopup = "changeling-biomass-warn-first";
 
-    // second warning
-    [DataField, AutoNetworkedField]
-    public bool SecondWarnReached;
-
-    [DataField, AutoNetworkedField]
-    public float SecondWarnThreshold;
-
+    // second threshold
     [DataField]
     public LocId SecondWarnPopup = "changeling-biomass-warn-second";
 
     [DataField, AutoNetworkedField]
     public TimeSpan SecondWarnStun = TimeSpan.FromSeconds(1);
 
-    // third warning
-    [DataField, AutoNetworkedField]
-    public bool ThirdWarnReached;
-
-    [DataField, AutoNetworkedField]
-    public float ThirdWarnThreshold;
-
+    // third threshold
     [DataField]
     public LocId ThirdWarnPopup = "changeling-biomass-warn-third";
 
@@ -95,7 +62,7 @@ public sealed partial class ChangelingBiomassComponent : Component
     [DataField]
     public ProtoId<EmotePrototype> CoughEmote = "Cough";
 
-    // gg
+    // final threshold (death)
     [DataField]
     public LocId NoBiomassPopup = "changeling-biomass-warn-death";
 }

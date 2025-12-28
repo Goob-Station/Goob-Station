@@ -10,8 +10,8 @@ namespace Content.Goobstation.Shared.Changeling.Systems;
 
 public abstract partial class SharedChangelingChemicalSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedInternalResourcesSystem _resource = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     private EntityQuery<ChangelingIdentityComponent> _lingQuery;
 
@@ -38,16 +38,15 @@ public abstract partial class SharedChangelingChemicalSystem : EntitySystem
 
     private void OnShutdown(Entity<ChangelingChemicalComponent> ent, ref ComponentShutdown args)
     {
-        var resComp = Comp<InternalResourcesComponent>(ent);
-        _resource.TryRemoveInternalResource((ent, resComp), ent.Comp.ResourceProto);
+        if (TryComp<InternalResourcesComponent>(ent, out var resComp))
+            _resource.TryRemoveInternalResource(ent, ent.Comp.ResourceProto, resComp);
     }
 
     #region Event Handlers
 
     private void BeforeResourceRegenEvent(Entity<ChangelingChemicalComponent> ent, ref InternalResourcesRegenModifierEvent args)
     {
-        if (ent.Comp.ResourceData == null
-            || args.Data.InternalResourcesType != ent.Comp.ResourceData.InternalResourcesType)
+        if (args.Data.InternalResourcesType != ent.Comp.ResourceData.InternalResourcesType)
             return;
 
         if (OnFire(ent))
@@ -57,8 +56,7 @@ public abstract partial class SharedChangelingChemicalSystem : EntitySystem
     private void OnRejuvenate(Entity<ChangelingChemicalComponent> ent, ref RejuvenateEvent args)
     {
         if (_lingQuery.TryComp(ent, out var ling)
-            && ling.IsInStasis
-            || ent.Comp.ResourceData == null)
+            && ling.IsInStasis)
             return;
 
         _resource.TryUpdateResourcesAmount(ent, ent.Comp.ResourceData, ent.Comp.ResourceData.MaxAmount);

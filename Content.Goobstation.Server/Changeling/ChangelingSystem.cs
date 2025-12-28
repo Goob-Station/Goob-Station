@@ -290,15 +290,20 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         UpdateAbilities(uid, comp);
     }
 
-    private void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float amount, ChangelingChemicalComponent? chemComp = null)
+    private void UpdateChemicals(Entity<ChangelingIdentityComponent> ent, float amount, ChangelingChemicalComponent? chemComp = null)
     {
-        if (!Resolve(uid, ref chemComp))
+        if (!Resolve(ent, ref chemComp))
             return;
 
-        if (chemComp.ResourceData == null)
+        _resources.TryUpdateResourcesAmount(ent, chemComp.ResourceData, amount);
+    }
+
+    private void UpdateBiomass(Entity<ChangelingIdentityComponent> ent, float amount, ChangelingBiomassComponent? bioComp = null)
+    {
+        if (!Resolve(ent, ref bioComp))
             return;
 
-        _resources.TryUpdateResourcesAmount(uid, chemComp.ResourceData, amount);
+        _resources.TryUpdateResourcesAmount(ent, bioComp.ResourceData, amount);
     }
 
     private void UpdateAbilities(EntityUid uid, ChangelingIdentityComponent comp)
@@ -418,8 +423,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             return false;
 
         if (!TryComp<ChangelingActionComponent>(action.Action, out var lingAction)
-            || !TryComp<ChangelingChemicalComponent>(uid, out var chemComp)
-            || chemComp.ResourceData == null)
+            || !TryComp<ChangelingChemicalComponent>(uid, out var chemComp))
             return false;
 
         if (CheckFireStatus(uid) && fireAffected) // checks if the changeling is on fire, and if the ability is affected by fire
@@ -450,7 +454,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             return false;
         }
 
-        UpdateChemicals(uid, comp, -chemCost, chemComp);
+        UpdateChemicals((uid, comp), -chemCost, chemComp);
 
         action.Handled = true;
 

@@ -41,4 +41,7 @@ public sealed class InternalResourcesPrototype : IPrototype
     /// </summary>
     [DataField("startingAmount")]
     public float BaseStartingAmount = 100f;
+
+    [DataField]
+    public Dictionary<InternalResourcesThreshold, (float, bool)>? Thresholds;
 }

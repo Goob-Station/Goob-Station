@@ -29,6 +29,18 @@ public sealed partial class ChangelingBiomassSystem : SharedChangelingBiomassSys
             return;
 
         _polymorph.CopyPolymorphComponent<ChangelingBiomassComponent>(ent, args.NewEntity);
+
+        // have to manually copy over the InternalResourcesData stuff
+        var oldData = Comp<ChangelingBiomassComponent>(args.OldEntity).ResourceData;
+
+        var newComp = Comp<ChangelingBiomassComponent>(args.NewEntity);
+        var newData = newComp.ResourceData;
+
+        newData.CurrentAmount = oldData.CurrentAmount;
+        newData.MaxAmount = oldData.MaxAmount;
+        newData.RegenerationRate = oldData.RegenerationRate;
+        newData.Thresholds = oldData.Thresholds;
+        newData.InternalResourcesType = oldData.InternalResourcesType;
     }
 
     protected override void DoCough(Entity<ChangelingBiomassComponent> ent)

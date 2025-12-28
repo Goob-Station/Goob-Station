@@ -1,8 +1,0 @@
-namespace Content.Goobstation.Common.Changeling;
-
-/// <summary>
-/// Used for modifying a changeling's biomass levels.
-/// </summary>
-/// <param name="Amount"> The value that will be applied to a changeling's biomass levels. </param>
-[ByRefEvent]
-public record struct ChangelingModifyBiomassEvent(float Amount);

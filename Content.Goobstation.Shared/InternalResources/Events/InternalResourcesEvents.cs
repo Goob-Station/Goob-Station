@@ -12,12 +12,15 @@ public sealed class InternalResourcesAmountChangeAttemptEvent(EntityUid uid, Int
 
 }
 
-public record struct InternalResourcesAmountChangedEvent(EntityUid Uid, InternalResourcesData Data, float PreviousAmount, float NewAmount, float Delta);
-
-public record struct InternalResourcesCapacityChangedEvent(EntityUid Uid, InternalResourcesData Data, float PreviousAmount, float NewAmount, float Delta);
-
 [ByRefEvent]
 public record struct InternalResourcesRegenModifierEvent(EntityUid Uid, InternalResourcesData Data, float Modifier) : IInventoryRelayEvent
 {
     public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
 }
+
+[ByRefEvent]
+public record struct InternalResourcesThresholdMetEvent(EntityUid Uid, InternalResourcesData Data, InternalResourcesThreshold Threshold);
+
+public record struct InternalResourcesAmountChangedEvent(EntityUid Uid, InternalResourcesData Data, float PreviousAmount, float NewAmount, float Delta);
+
+public record struct InternalResourcesCapacityChangedEvent(EntityUid Uid, InternalResourcesData Data, float PreviousAmount, float NewAmount, float Delta);
