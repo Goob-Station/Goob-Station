@@ -106,7 +106,7 @@ public sealed partial class PhoneMenu : FancyWindow
             case "Service":
                 ServiceHeading.AddChild(btn);
                 break;
-            default:
+            case "Uncategorized":
                 UncategorizedHeading.AddChild(btn);
                 break;
         }
