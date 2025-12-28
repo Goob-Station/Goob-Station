@@ -29,7 +29,7 @@
     ClothingUniformJumpsuitLawyerGood: 1
     ClothingUniformJumpskirtLawyerGood: 1
     ClothingShoesBootsLaceup: 2
-    ClothingHeadsetService: 2
+    ClothingHeadsetLawyer: 2 # CorvaxGoob: ClothingHeadsetService > ClothingHeadsetLawyer
     ClothingNeckLawyerbadge: 2
     BriefcaseBrown: 2
     BookSpaceLaw: 3

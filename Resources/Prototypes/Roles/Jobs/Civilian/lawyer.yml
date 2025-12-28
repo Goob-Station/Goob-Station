@@ -100,7 +100,7 @@
   equipment:
     shoes: ClothingShoesBootsLaceup
     id: LawyerPDA
-    ears: ClothingHeadsetSecurity
+    ears: ClothingHeadsetLawyer # CorvaxGoob: ClothingHeadsetSecurity > ClothingHeadsetLawyer
   inhand:
     - BriefcaseBrownFilled
   storage:
@@ -118,3 +118,4 @@
     neck: ClothingNeckLawyerbadge
     outerClothing: ClothingOuterWinterColorBlack
     gloves: ClothingHandsGlovesColorBlack
+    ears: ClothingHeadsetLawyer # CorvaxGoob
