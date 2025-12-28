@@ -138,7 +138,7 @@
     - HeadSide
 
 - type: entity
-  arent: ClothingOuterBase
+  parent: ClothingOuterBase
   id: ClothingOuterSuitTutu
   name: tutu
   description: Why?..
