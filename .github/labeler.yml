@@ -8,29 +8,37 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-"Changes: Sprites":
+"Спрайты":
 - changed-files:
   - any-glob-to-any-file: '**/*.rsi/*.png'
 
-"Changes: Map":
+"Карты":
 - changed-files:
   - any-glob-to-any-file:
     - 'Resources/Maps/**/*.yml'
     - 'Resources/Prototypes/Maps/**/*.yml'
 
-"Changes: UI":
+"UI":
 - changed-files:
   - any-glob-to-any-file: '**/*.xaml*'
 
-"Changes: Shaders":
+"Шейдеры":
 - changed-files:
   - any-glob-to-any-file: '**/*.swsl'
 
-"Changes: Audio":
+"Аудио":
 - changed-files:
   - any-glob-to-any-file: '**/*.ogg'
 
-"Changes: No C#":
+"Перевод":
+- changed-files:
+  - any-globs-to-any-file: '**/*.ftl'
+
+"Прототипы":
+- changed-files:
+    -any-glob-to-any-file: 'Resources/Prototypes/**/*.yml'
+
+"Без C#":
 - changed-files:
   # Equiv to any-glob-to-all as long as this has one matcher. If ALL changed files are not C# files, then apply label.
   - all-globs-to-all-files: "!**/*.cs"
