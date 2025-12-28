@@ -24,3 +24,6 @@ same_type_timeout = 300.0
 timerrestart = 30
 preset_enabled = false
 restart_enabled = false
+
+[ragequit]
+notify = false
