@@ -92,7 +92,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 8.5 # oooh scary extra damage~ #goob edit
+        Piercing: 9 # oooh scary extra damage~ #goob edit
   - type: Perishable
   - type: Damageable
     damageModifierSet: Feroxi
