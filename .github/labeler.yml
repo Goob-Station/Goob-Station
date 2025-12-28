@@ -32,7 +32,7 @@
 
 "Перевод":
 - changed-files:
-  - any-globs-to-any-file: '**/*.ftl'
+  - any-glob-to-any-file: '**/*.ftl'
 
 "Прототипы":
 - changed-files:
