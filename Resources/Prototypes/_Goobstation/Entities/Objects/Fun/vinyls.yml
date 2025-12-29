@@ -467,7 +467,7 @@
   parent: BaseVinylDisk
   components:
   - type: Sprite
-    state: ephedrine-vinyl-disk
+    state: greenish-vinyl-disk
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/music/RunningOutCover.ogg
