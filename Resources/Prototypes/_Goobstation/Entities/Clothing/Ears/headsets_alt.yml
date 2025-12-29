@@ -139,7 +139,6 @@
     containers:
       key_slots:
       - EncryptionKeyCommon
-      - EncryptionKeyRadioShow
   - type: Sprite
     sprite: _Goobstation/Clothing/Ears/Headsets/radiohost.rsi
   - type: Clothing

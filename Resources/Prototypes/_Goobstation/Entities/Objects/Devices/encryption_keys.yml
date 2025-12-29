@@ -31,13 +31,3 @@
     layers:
     - state: crypt_silver
     - state: nano_label
-
-- type: entity
-  parent: EncryptionKey
-  id: EncryptionKeyRadioShow
-  name: Radio Show encryption key
-  description: 105.6, real rock FM.
-  components:
-  - type: EncryptionKey
-    channels:
-    - RadioShow
