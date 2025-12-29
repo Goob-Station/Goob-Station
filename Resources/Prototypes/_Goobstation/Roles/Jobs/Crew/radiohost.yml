@@ -16,13 +16,8 @@
   equipment:
     ears: ClothingHeadsetAltRadioHost
     eyes: ClothingEyesGlassesSunglasses
-<<<<<<< HEAD
-    jumpsuit: ClothingUniformJumpsuitHawaiBlack
-=======
     belt: ClothingBeltStorageWaistbag
->>>>>>> parent of db2f2f50ae (Revert "waist bag")
     shoes: ClothingShoesColorBlack
-    back: ClothingBackpackSatchel
     id: RadioHostPDA
 
 - type: chameleonOutfit

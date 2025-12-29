@@ -7,7 +7,7 @@
   components:
   - type: Vinyl
   - type: Sprite
-    sprite: Objects/Misc/cd.rsi
+    sprite: _Goobstation/Objects/Misc/RadioStation/cds.rsi
     state: icon
   - type: Damageable
     damageContainer: Inorganic
@@ -146,6 +146,8 @@
   name: cd disk (commander announcement)
   id: CdDiskCommanderAnnouncement
   components:
+  - type: Sprite
+    state: synd-cd
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/misc/commander_announcement.ogg
@@ -155,6 +157,8 @@
   name: cd disk (commander figurines)
   id: CdDiskCommanderFigurines
   components:
+  - type: Sprite
+    state: synd-cd
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/misc/commander_figurines.ogg
@@ -164,6 +168,8 @@
   name: cd disk (commander resignation)
   id: CdDiskCommanderResignation
   components:
+  - type: Sprite
+    state: synd-cd
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/misc/commander_resignation.ogg
@@ -173,6 +179,8 @@
   name: cd disk (commander support)
   id: CdDiskCommanderSupport
   components:
+  - type: Sprite
+    state: synd-cd
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/misc/commander_support.ogg
@@ -222,3 +230,67 @@
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/misc/xg_onboarding4.ogg
+
+## June's autism
+- type: entity
+  parent: BaseCdDisk
+  id: JVNECdDisk
+  abstract: true
+  description: The June and Eels show!
+
+- type: entity
+  parent: [BaseSyndicateContraband, JVNECdDisk]
+  name: cd disk (Syndicate)
+  id: JVNECdDiskSyndicate
+  description: 102.9 Syndicate radio
+  components:
+  - type: Sprite
+    state: synd-cd
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/Syndicate.ogg
+      
+- type: entity
+  parent: JVNECdDisk
+  name: cd disk (Capstien)
+  id: JVNECdDiskCapstien
+  components:
+  - type: Sprite
+    state: jne-cd
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/Capstien.ogg
+      
+- type: entity
+  parent: JVNECdDisk
+  name: cd disk (NINJA!!!)
+  id: JVNECdDiskNinja
+  components:
+  - type: Sprite
+    state: jne-cd
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/Ninja.ogg
+      
+- type: entity
+  parent: JVNECdDisk
+  name: cd disk (Next Up)
+  id: JVNECdDiskNextUp
+  components:
+  - type: Sprite
+    state: jne-cd
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/NextUp.ogg
+      
+- type: entity
+  parent: JVNECdDisk
+  name: cd disk (June & Eels Show)
+  id: JVNECdDiskJNE
+  components:
+  - type: Sprite
+    state: jne-cd
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/JNE.ogg
+      
