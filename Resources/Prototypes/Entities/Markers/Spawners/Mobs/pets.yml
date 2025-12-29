@@ -114,13 +114,13 @@
     - MobCorgiIan
       Weight: 3
     - MobCorgiIanOld
-      Weight: 2
+      Weight: 2.5
     - MobCorgiLisa
-      Weight: 2
+      Weight: 2.25
     - MobCorgiIanPup
       Weight: 2
     - MobCorgiIanClown
-      Weight: 1
+      Weight: 0.25
 
 - type: entity
   parent: MarkerBase
