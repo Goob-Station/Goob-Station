@@ -485,7 +485,7 @@
       pickPlayer: false
       startingGear: SpaceNinjaGear
       roleLoadout:
-      - RoleSurvivalEVA
+      - RoleSurvivalSpaceNinja
       briefing:
         text: ninja-role-greeting
         color: Green

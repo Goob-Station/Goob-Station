@@ -117,6 +117,10 @@
     - Wirecutter
     - Welder
     - Multitool
+    - EmergencyMedipen
+    - Flare
+    - FoodSnackNutribrick
+    - DrinkWaterBottleFull
 
 - type: chameleonOutfit
   id: NinjaChameleonOutfit
