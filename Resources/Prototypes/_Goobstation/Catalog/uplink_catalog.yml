@@ -1612,7 +1612,7 @@
   - UplinkDisruption
 
 - type: listing
-  id: JVNECdDiskSyndicate
+  id: UplinkCdDiskSyndicate
   name: uplink-cddisksyndicate-name
   description: uplink-cddisksyndicate-desc
   productEntity: JVNECdDiskSyndicate
