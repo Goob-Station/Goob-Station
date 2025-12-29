@@ -1,5 +1,7 @@
 using Content.Goobstation.Shared.StationRadio.Components;
 using Content.Goobstation.Shared.StationRadio.Events;
+using Content.Shared.Emag.Systems;
+using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
@@ -11,6 +13,7 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private readonly SharedExplosionSystem _explosionSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -18,6 +21,16 @@ public sealed class StationRadioReceiverSystem : EntitySystem
         SubscribeLocalEvent<StationRadioReceiverComponent, StationRadioMediaStoppedEvent>(OnMediaStopped);
         SubscribeLocalEvent<StationRadioReceiverComponent, ActivateInWorldEvent>(OnRadioToggle);
         SubscribeLocalEvent<StationRadioReceiverComponent, PowerChangedEvent>(OnPowerChanged);
+        SubscribeLocalEvent<StationRadioReceiverComponent, GotEmaggedEvent>(OnEmag);
+    }
+
+    private void OnEmag(EntityUid uid, StationRadioReceiverComponent comp, GotEmaggedEvent args)
+    {
+        if(comp.Emagged)
+            return;
+
+        args.Handled = true;
+        comp.Emagged = true;
     }
 
     private void OnPowerChanged(EntityUid uid, StationRadioReceiverComponent comp, PowerChangedEvent args)
@@ -49,7 +62,12 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 
     private void OnMediaStopped(EntityUid uid, StationRadioReceiverComponent comp, StationRadioMediaStoppedEvent args)
     {
-        if (comp.SoundEntity != null)
-            comp.SoundEntity = _audio.Stop(comp.SoundEntity);
+        if (comp.SoundEntity == null)
+            return;
+
+        comp.SoundEntity = _audio.Stop(comp.SoundEntity);
+
+        if(comp.Emagged)
+            RaiseLocalEvent(uid, new StationRadioExplodeEvent());
     }
 }

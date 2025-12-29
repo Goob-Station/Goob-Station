@@ -19,6 +19,12 @@ public sealed partial class StationRadioReceiverComponent : Component
     public bool Active = true;
 
     /// <summary>
+    /// Is the radio emagged
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Emagged;
+
+    /// <summary>
     /// Default audio params for the played audio.
     /// </summary>
     [DataField, AutoNetworkedField]
