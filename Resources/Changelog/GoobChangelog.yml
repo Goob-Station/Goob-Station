@@ -19537,3 +19537,295 @@ Entries:
       message: Foam and smoke now spread a lot faster
   id: 2208
   time: '2025-12-19T15:29:55.0000000+00:00'
+- author: mikusssssss
+  changes:
+    - type: Add
+      message: Cosmic Cult Hardsuit helmets now have flash protection.
+  id: 2209
+  time: '2025-12-19T18:31:49.0000000+00:00'
+- author: John John
+  changes:
+    - type: Add
+      message: Added Santa
+  id: 2210
+  time: '2025-12-19T18:51:14.0000000+00:00'
+- author: John John
+  changes:
+    - type: Add
+      message: >-
+        Added new job "Radio host" they host a the stations local radiostation
+        and play music and report of stuff around the station, this isn't mapped
+        yet but should be soon! 
+    - type: Add
+      message: Added "vinyl player" it plays vinyls!
+  id: 2211
+  time: '2025-12-19T19:37:06.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Tweak
+      message: Makes the gravity well viro effect rarer
+  id: 2212
+  time: '2025-12-20T08:28:55.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Fix
+      message: Guerrilla gloves are now correctly marked as Syndicate contraband.
+  id: 2213
+  time: '2025-12-20T08:29:27.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Barks can no longer be heard cross-map/in lobby
+  id: 2214
+  time: '2025-12-20T08:38:21.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Fix
+      message: >-
+        Fixed ion breaking bones and organs. (This fixes wonderprod breaking
+        your ribcage too)
+  id: 2215
+  time: '2025-12-20T08:40:11.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Mice now enter ventcrawl faster.
+  id: 2216
+  time: '2025-12-20T08:40:51.0000000+00:00'
+- author: Thatonestomf
+  changes:
+    - type: Tweak
+      message: buffed reactions with vestine to provide more chem per reaction.
+  id: 2217
+  time: '2025-12-20T08:41:07.0000000+00:00'
+- author: gaiads
+  changes:
+    - type: Add
+      message: New 5 Biogenerator recipes.
+  id: 2218
+  time: '2025-12-20T08:42:42.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Added Moth sax!
+  id: 2219
+  time: '2025-12-20T08:42:59.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Tweak
+      message: >-
+        Increases changeling armblade damage from 15 to 20 slashl. as it was
+        before.
+  id: 2220
+  time: '2025-12-20T08:43:22.0000000+00:00'
+- author: Alvixeon
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the Noir glasses to reflect the Detective's role in security,
+        adding SecHud to them. Giving the glasses more utility.
+  id: 2221
+  time: '2025-12-20T08:43:43.0000000+00:00'
+- author: SabreML
+  changes:
+    - type: Tweak
+      message: >-
+        Added a line to RD SOP to clarify that, while the RD is allowed
+        (legally) to change the AI's lawset, the AI's programming still requires
+        them to resist it. Try being sneaky if you need to change laws!
+  id: 2222
+  time: '2025-12-20T08:46:01.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Add
+      message: Added a new costume to the theatre drobe.
+  id: 2223
+  time: '2025-12-20T09:00:45.0000000+00:00'
+- author: GoidaYAMLWarrior
+  changes:
+    - type: Add
+      message: Added a grey quarterzip jumpsuit for passengers with 80 hours
+  id: 2224
+  time: '2025-12-20T09:37:08.0000000+00:00'
+- author: John Shitcode, Rubin, Solstice, Gus, Mocho
+  changes:
+    - type: Add
+      message: >-
+        Added Xenobiology! Scientists can now grow slimes, grind them for
+        extracts, and sell it for points!
+    - type: Add
+      message: >-
+        Electrocutions, teleportations and other stuff are now accompanied by
+        sparks.
+    - type: Add
+      message: >-
+        NPCs will no longer be able to detect fully stealthed entities, unless
+        they've seen one before becoming transparent.
+    - type: Fix
+      message: >-
+        Implants and certain antagonist specific items now get transfered on
+        polymorph. Omniantag can now become real!
+    - type: Fix
+      message: >-
+        Non-heretics who try to swap their brains into heretic bodies will no
+        longer be able to use their abilities! This does not apply to
+        changelings, but expect disappointing results.
+    - type: Fix
+      message: Changelings cannot be beheaded anymore after transformation.
+    - type: Fix
+      message: Implants such as mindshields don't reappear on cloning anymore.
+  id: 2225
+  time: '2025-12-20T09:45:17.0000000+00:00'
+- author: John Shitcode
+  changes:
+    - type: Fix
+      message: Mutation toxins now REALLY transform you.
+    - type: Fix
+      message: Mutation toxins no longer reset your name.
+    - type: Fix
+      message: >-
+        Injecting more than 1 unit into an extract will no longer spam
+        reactions.
+  id: 2226
+  time: '2025-12-20T12:35:28.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added radio host to Amber, Bagel, Box, Chloris, Cog, Delta, Loop and
+        Origin.
+    - type: Tweak
+      message: >-
+        Station radios are now also craftable on circut roundstart, and now you
+        can hear them from 8 meters away instead of 3.
+  id: 2227
+  time: '2025-12-20T17:14:02.0000000+00:00'
+- author: Gallagin
+  changes:
+    - type: Add
+      message: Xenobio to Leonid
+    - type: Add
+      message: Radiohost job and equipment to Leonid
+    - type: Add
+      message: More docking areas for shuttles on Leonid
+    - type: Remove
+      message: Space cobras and lube grenades on Leonid
+    - type: Tweak
+      message: Adjusted layout of Virology
+    - type: Tweak
+      message: upped the min pop of Leonid from 35 to 50
+  id: 2228
+  time: '2025-12-20T17:31:41.0000000+00:00'
+- author: Moony33
+  changes:
+    - type: Remove
+      message: Devil has been removed
+  id: 2229
+  time: '2025-12-20T17:55:54.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Fix
+      message: >-
+        Changelings will now properly have their progress carried over after
+        transformations.
+    - type: Fix
+      message: >-
+        Headslugs will no longer be able to use abilities they shouldn't be able
+        to.
+  id: 2230
+  time: '2025-12-20T19:52:02.0000000+00:00'
+- author: John Shitcode
+  changes:
+    - type: Fix
+      message: Slimes now properly unlatch on being pulled or bashed in the head.
+    - type: Tweak
+      message: Updated xenobio guidebook.
+    - type: Tweak
+      message: Slimes now require less food to grow up and split.
+    - type: Tweak
+      message: Roundstart slimes now spawn with pseudo randomized stats.
+    - type: Tweak
+      message: >-
+        Latched slimes now deal caustic instead of brute. No more bloodbaths in
+        xenobio, but the damage is nasty.
+  id: 2231
+  time: '2025-12-21T05:18:54.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added radio host to Oasis!
+    - type: Fix
+      message: 'Fixed the """mapping""" """"job"""" of Oasis Xenobiology. '
+  id: 2232
+  time: '2025-12-21T05:19:28.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Remove
+      message: >-
+        Reach has been removed from the current map rotation, as its comically
+        small size ended up hindering players and prevented adding new content.
+        As a result, Atlas is now the defacto lowest pop station.
+  id: 2233
+  time: '2025-12-21T05:20:34.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Slime scanner now displays properly when is on tables.
+  id: 2234
+  time: '2025-12-21T09:36:24.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Remove
+      message: Removed viro gravity well effect
+  id: 2235
+  time: '2025-12-21T16:37:51.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Add
+      message: '2 New Vinyl disks have been added: "Floaty" and "Key lime"'
+  id: 2236
+  time: '2025-12-21T16:38:52.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: Potassium iodine heals a very slight amount of rads.
+  id: 2237
+  time: '2025-12-21T17:08:37.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Add
+      message: Marathon station now has an actual xenobio room.
+    - type: Add
+      message: Marathon station now has a radio host booth.
+  id: 2238
+  time: '2025-12-21T17:12:32.0000000+00:00'
+- author: Deatherd
+  changes:
+    - type: Add
+      message: New flora detected in Lavaland Wastes!
+  id: 2239
+  time: '2025-12-21T17:14:47.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed Captain not having radio station access
+  id: 2240
+  time: '2025-12-26T09:04:23.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Tinfoil hats now block possession from slashers.
+    - type: Tweak
+      message: >-
+        Slashers regenerate action must now be recharged after every use by
+        stealing a soul.
+    - type: Tweak
+      message: It is now very obvious when a slasher uses their regenerate action.
+    - type: Tweak
+      message: Slashers do-after to enter incorporeal has been increased.
+    - type: Tweak
+      message: Slashers max resistance has been massively nerfed.
+    - type: Tweak
+      message: Slashers max health has been nerfed.
+  id: 2241
+  time: '2025-12-26T09:06:58.0000000+00:00'
