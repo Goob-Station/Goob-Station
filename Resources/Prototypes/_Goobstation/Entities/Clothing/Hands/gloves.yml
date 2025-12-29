@@ -328,6 +328,12 @@
   - type: Insulated
   - type: Unremoveable
 
+- type: entity
+  parent: ClothingHandsGlovesColorYellow
+  id: ClothingHandsGlovesColorYellowUnremovable
+  suffix: Unremovable
+  components:
+  - type: Unremoveable
 
 # Knuckle Dusters
 
@@ -435,7 +441,7 @@
     tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
-  parent: [ClothingHandsGlovesCombat, BaseSyndicateContraband]
+  parent: [BaseSyndicateContraband, ClothingHandsGlovesCombat]
   id: ClothingHandsGlovesGuerrilla
   name: guerrilla gloves
   description: Superior quality combative gloves, good for grabs as well as absorbing electrical shocks.
