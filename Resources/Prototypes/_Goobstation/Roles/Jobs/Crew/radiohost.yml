@@ -16,7 +16,6 @@
   equipment:
     ears: ClothingHeadsetAltRadioHost
     eyes: ClothingEyesGlassesSunglasses
-    belt: ClothingBeltStorageWaistbag
     shoes: ClothingShoesColorBlack
     id: RadioHostPDA
 
