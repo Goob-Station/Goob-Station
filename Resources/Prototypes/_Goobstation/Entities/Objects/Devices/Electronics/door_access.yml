@@ -44,4 +44,12 @@
   suffix: All Service, Locked
   components:
   - type: AccessReader
-    access: [["Service"], ["Bar"], ["Kitchen"], ["Hydroponics"], ["Chapel"], ["Theatre"], ["Janitor"], ["HeadOfPersonnel"]]
+    access: [["Service"], ["Bar"], ["Kitchen"], ["Hydroponics"], ["Chapel"], ["Theatre"], ["Janitor"], ["HeadOfPersonnel"], ["Journalism"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsJournalism
+  suffix: Journalism, Locked
+  components:
+  - type: AccessReader
+    access: [["Journalism"]]

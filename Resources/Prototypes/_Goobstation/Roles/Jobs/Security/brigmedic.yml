@@ -19,6 +19,10 @@
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
   canBeAntag: false
+  guides:
+  - MedicalDoctor
+  - Brigmedic SOP
+  - Medicine
   goobcoins: 35
   access: # EE parity, make corpsman able function.
   - Security
