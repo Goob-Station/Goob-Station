@@ -9,7 +9,7 @@
 - type: species
   id: Gingerbread
   name: Gingerbread
-  roundStart: false # CorvaxGoob LPR bullshit
+  roundStart: true # CorvaxGoob-NewYear
   prototype: MobGingerbread
   sprites: MobGingerbreadSprites
   markingLimits: MobHumanMarkingLimits
