@@ -1610,16 +1610,3 @@
     Telecrystal: 50 # Same price as what Antimov was. Might be worth increasing the price for nukies as they can do some BAD things with this.
   categories:
   - UplinkDisruption
-
-- type: listing
-  id: JVNECdDiskSyndicate
-  name: uplink-cddisksyndicate-name
-  description: uplink-cddisksyndicate-desc
-  productEntity: JVNECdDiskSyndicate
-  cost:
-    Telecrystal: 1
-  categories:
-  - UplinkPointless
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
