@@ -19676,3 +19676,156 @@ Entries:
       message: Implants such as mindshields don't reappear on cloning anymore.
   id: 2225
   time: '2025-12-20T09:45:17.0000000+00:00'
+- author: John Shitcode
+  changes:
+    - type: Fix
+      message: Mutation toxins now REALLY transform you.
+    - type: Fix
+      message: Mutation toxins no longer reset your name.
+    - type: Fix
+      message: >-
+        Injecting more than 1 unit into an extract will no longer spam
+        reactions.
+  id: 2226
+  time: '2025-12-20T12:35:28.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added radio host to Amber, Bagel, Box, Chloris, Cog, Delta, Loop and
+        Origin.
+    - type: Tweak
+      message: >-
+        Station radios are now also craftable on circut roundstart, and now you
+        can hear them from 8 meters away instead of 3.
+  id: 2227
+  time: '2025-12-20T17:14:02.0000000+00:00'
+- author: Gallagin
+  changes:
+    - type: Add
+      message: Xenobio to Leonid
+    - type: Add
+      message: Radiohost job and equipment to Leonid
+    - type: Add
+      message: More docking areas for shuttles on Leonid
+    - type: Remove
+      message: Space cobras and lube grenades on Leonid
+    - type: Tweak
+      message: Adjusted layout of Virology
+    - type: Tweak
+      message: upped the min pop of Leonid from 35 to 50
+  id: 2228
+  time: '2025-12-20T17:31:41.0000000+00:00'
+- author: Moony33
+  changes:
+    - type: Remove
+      message: Devil has been removed
+  id: 2229
+  time: '2025-12-20T17:55:54.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Fix
+      message: >-
+        Changelings will now properly have their progress carried over after
+        transformations.
+    - type: Fix
+      message: >-
+        Headslugs will no longer be able to use abilities they shouldn't be able
+        to.
+  id: 2230
+  time: '2025-12-20T19:52:02.0000000+00:00'
+- author: John Shitcode
+  changes:
+    - type: Fix
+      message: Slimes now properly unlatch on being pulled or bashed in the head.
+    - type: Tweak
+      message: Updated xenobio guidebook.
+    - type: Tweak
+      message: Slimes now require less food to grow up and split.
+    - type: Tweak
+      message: Roundstart slimes now spawn with pseudo randomized stats.
+    - type: Tweak
+      message: >-
+        Latched slimes now deal caustic instead of brute. No more bloodbaths in
+        xenobio, but the damage is nasty.
+  id: 2231
+  time: '2025-12-21T05:18:54.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added radio host to Oasis!
+    - type: Fix
+      message: 'Fixed the """mapping""" """"job"""" of Oasis Xenobiology. '
+  id: 2232
+  time: '2025-12-21T05:19:28.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Remove
+      message: >-
+        Reach has been removed from the current map rotation, as its comically
+        small size ended up hindering players and prevented adding new content.
+        As a result, Atlas is now the defacto lowest pop station.
+  id: 2233
+  time: '2025-12-21T05:20:34.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Slime scanner now displays properly when is on tables.
+  id: 2234
+  time: '2025-12-21T09:36:24.0000000+00:00'
+- author: 10kee
+  changes:
+    - type: Remove
+      message: Removed viro gravity well effect
+  id: 2235
+  time: '2025-12-21T16:37:51.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Add
+      message: '2 New Vinyl disks have been added: "Floaty" and "Key lime"'
+  id: 2236
+  time: '2025-12-21T16:38:52.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: Potassium iodine heals a very slight amount of rads.
+  id: 2237
+  time: '2025-12-21T17:08:37.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Add
+      message: Marathon station now has an actual xenobio room.
+    - type: Add
+      message: Marathon station now has a radio host booth.
+  id: 2238
+  time: '2025-12-21T17:12:32.0000000+00:00'
+- author: Deatherd
+  changes:
+    - type: Add
+      message: New flora detected in Lavaland Wastes!
+  id: 2239
+  time: '2025-12-21T17:14:47.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed Captain not having radio station access
+  id: 2240
+  time: '2025-12-26T09:04:23.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Tinfoil hats now block possession from slashers.
+    - type: Tweak
+      message: >-
+        Slashers regenerate action must now be recharged after every use by
+        stealing a soul.
+    - type: Tweak
+      message: It is now very obvious when a slasher uses their regenerate action.
+    - type: Tweak
+      message: Slashers do-after to enter incorporeal has been increased.
+    - type: Tweak
+      message: Slashers max resistance has been massively nerfed.
+    - type: Tweak
+      message: Slashers max health has been nerfed.
+  id: 2241
+  time: '2025-12-26T09:06:58.0000000+00:00'
