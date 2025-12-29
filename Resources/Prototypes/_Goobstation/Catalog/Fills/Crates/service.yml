@@ -194,6 +194,12 @@
       weight: 0.6
     - id: VinylDiskGetThatAntag
       weight: 0.6
+    - id: VinylDiskLaw2
+      weight: 0.6
+    - id: VinylDiskEphedrine
+      weight: 0.6
+    - id: VinylDiskRunningOut
+      weight: 0.6
     - id: VinylDiskWantYouGone
       weight: 0.3
 

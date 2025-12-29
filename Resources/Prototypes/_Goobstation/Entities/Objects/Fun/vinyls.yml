@@ -440,6 +440,39 @@
       path: /Audio/_Goobstation/RadioStation/music/WantYouGone.ogg
 
 - type: entity
+  name: "vinyl disk: Law 2, open armory"
+  id: VinylDiskLaw2
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: aisad-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/LAW2OPENARMORY.ogg
+
+- type: entity
+  name: "vinyl disk: Ephedrine Overdose"
+  id: VinylDiskEphedrine
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: ephedrine-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/EphedrineOverdose.ogg
+
+- type: entity
+  name: "vinyl disk: Running Out Cover"
+  id: VinylDiskRunningOut
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: ephedrine-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/RunningOutCover.ogg
+
+- type: entity
   name: forgotten vinyl disk
   id: VinylDiskForgotten
   parent: BaseVinylDisk
