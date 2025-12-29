@@ -16,6 +16,6 @@ public sealed class ExplodeStationRadioSystem : EntitySystem
 
     private void OnExplode(EntityUid uid, StationRadioReceiverComponent component, StationRadioExplodeEvent args)
     {
-        _explosionSystem.QueueExplosion(uid, "DemolitionCharge", 50f, 1f, 50f, canCreateVacuum: false);
+        _explosionSystem.QueueExplosion(uid, "HardBomb", 50f, 1f, 10f, canCreateVacuum: false);
     }
 }

@@ -13,7 +13,6 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
-    [Dependency] private readonly SharedExplosionSystem _explosionSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -24,7 +23,7 @@ public sealed class StationRadioReceiverSystem : EntitySystem
         SubscribeLocalEvent<StationRadioReceiverComponent, GotEmaggedEvent>(OnEmag);
     }
 
-    private void OnEmag(EntityUid uid, StationRadioReceiverComponent comp, GotEmaggedEvent args)
+    private void OnEmag(EntityUid uid, StationRadioReceiverComponent comp, ref GotEmaggedEvent args)
     {
         if(comp.Emagged)
             return;
