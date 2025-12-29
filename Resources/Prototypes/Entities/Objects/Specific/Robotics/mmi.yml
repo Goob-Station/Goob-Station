@@ -244,6 +244,9 @@
       proto: robot
     - type: Speech
       speechSounds: Pai
+    - type: MobState
+      allowedStates:
+      - Alive
     - type: Appearance
     - type: Tag
       tags:
