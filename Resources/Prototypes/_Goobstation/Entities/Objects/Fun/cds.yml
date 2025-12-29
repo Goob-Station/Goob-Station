@@ -23,6 +23,11 @@
           collection: GlassBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Item
+    size: CD
+  - type: Tag
+    tags:
+    - CD
 
 - type: entity
   parent: BaseCdDisk
