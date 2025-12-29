@@ -12,6 +12,5 @@
     containers:
       storagebase: !type:NestedSelector
         tableId: RandomCDDisk
-        blacklist: VinylDiskForgotten
         rolls: !type:RangeNumberSelector
           range: 1, 8
