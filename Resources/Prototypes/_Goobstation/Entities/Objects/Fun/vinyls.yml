@@ -415,7 +415,7 @@
     state: white-vinyl-disk
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/music/PMMUSIC/Bach-Cello-Suite-PM-Music.ogg\
+      path: /Audio/_Goobstation/RadioStation/music/PMMUSIC/Bach-Cello-Suite-PM-Music.ogg
 
 - type: entity
   name: "vinyl disk: Get that antag!"
