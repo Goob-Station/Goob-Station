@@ -415,7 +415,29 @@
     state: white-vinyl-disk
   - type: Vinyl
     song:
-      path: /Audio/_Goobstation/RadioStation/music/PMMUSIC/Bach-Cello-Suite-PM-Music.ogg
+      path: /Audio/_Goobstation/RadioStation/music/PMMUSIC/Bach-Cello-Suite-PM-Music.ogg\
+
+- type: entity
+  name: "vinyl disk: Get that antag!"
+  id: VinylDiskGetThatAntag
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: valid-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/GetThatAntag!.ogg
+
+- type: entity
+  name: "vinyl disk: Want you gone"
+  id: VinylDiskWantYouGone
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: earth-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/WantYouGone.ogg
 
 - type: entity
   name: forgotten vinyl disk

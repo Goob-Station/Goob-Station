@@ -7,3 +7,13 @@
   license: "CC-BY-SA-4.0"
   copyright: "made by lucifermkshelter (discord)"
   source: "https://github.com/LuciferEOS"
+
+- files: ["WantYouGone.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Want you gone by Jonathan Coulton"
+  source: "https://www.youtube.com/watch?v=Pa-P7_XvP_4"
+
+- files: ["peakasshole.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "made by mrjajkes"
+  source: "https://www.youtube.com/watch?v=68cQb37uwGY"

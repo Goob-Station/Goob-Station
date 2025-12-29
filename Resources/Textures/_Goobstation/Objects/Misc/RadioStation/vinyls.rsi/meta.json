@@ -72,6 +72,12 @@
     },
     {
       "name": "lime-vinyl-disk"
+    },
+    {
+      "name": "earth-vinyl-disk"
+    },
+    {
+      "name": "valid-vinyl-disk"
     }
   ]
 }

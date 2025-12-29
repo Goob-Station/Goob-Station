@@ -192,6 +192,10 @@
       weight: 0.6
     - id: VinylDiskLime
       weight: 0.6
+    - id: VinylDiskGetThatAntag
+      weight: 0.6
+    - id: VinylDiskWantYouGone
+      weight: 0.3
 
 - type: entityTable
   id: RandomVinylSleeve
