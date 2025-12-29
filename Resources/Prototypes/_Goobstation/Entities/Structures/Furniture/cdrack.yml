@@ -55,7 +55,6 @@
     anchored: true
     noRot: true
   - type: Anchorable
-  - type: Pullable
   - type: Storage
     grid:
     - 0,0,1,9
