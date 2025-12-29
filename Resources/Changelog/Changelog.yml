@@ -5130,3 +5130,10 @@ Entries:
   id: 9341
   time: '2025-12-29T10:59:18.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42114
+- author: 0-Anon
+  changes:
+  - message: Rat creatures will now restore bloodlevel when exposed to ammonia gas.
+    type: Tweak
+  id: 9342
+  time: '2025-12-29T22:49:25.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42167
