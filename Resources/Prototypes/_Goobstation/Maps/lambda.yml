@@ -126,6 +126,7 @@
             MedicalDoctor: [ 4, 5 ]
             MedicalIntern: [ 3, 4 ]
             Paramedic: [ 1, 2 ]
+            Virologist: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 4, 6 ]

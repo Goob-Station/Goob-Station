@@ -1,0 +1,57 @@
+- type: breed
+  breedName: red slime
+  id: RedMutation
+  producedExtract: RedSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#ff3333"
+    breed: RedMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - RedMutation
+    - OilMutation
+
+- type: breed
+  breedName: green slime
+  id: GreenMutation
+  producedExtract: GreenSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#4dff4d"
+    breed: GreenMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - GreenMutation
+    - BlackMutation
+
+- type: breed
+  breedName: pink slime
+  id: PinkMutation
+  producedExtract: PinkSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#ff33cc"
+    breed: PinkMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - PinkMutation
+    - LightPinkMutation
+
+- type: breed
+  breedName: gold slime
+  id: GoldMutation
+  producedExtract: GoldSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#e8b923"
+    shouldHaveShader: true
+    shader: XenoMetallic
+    breed: GoldMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - GoldMutation
+    - AdamantineMutation
