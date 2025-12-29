@@ -20,7 +20,6 @@ public sealed class ExplodeServerWorldSpaceOverlay : Overlay
     public ExplodeServerWorldSpaceOverlay()
     {
         ZIndex = 1;
-        var cache = IoCManager.Resolve<IResourceCache>();
         IoCManager.InjectDependencies(this);
         _blurShader = _prototype.Index<ShaderPrototype>("BlurryVisionX").InstanceUnique();
     }
