@@ -109,6 +109,14 @@
       weight: 0.6
     - id: CdDiskSecurityPsa
       weight: 0.6
+    - id: JVNECdDiskCapstien
+      weight: 0.4
+    - id: JVNECdDiskNinja
+      weight: 0.4
+    - id: JVNECdDiskNextUp
+      weight: 0.6
+    - id: JVNECdDiskJNE
+      weight: 0.4
     - id: CdDiskCommanderAnnouncement
       weight: 0.2
     - id: CdDiskCommanderFigurines
