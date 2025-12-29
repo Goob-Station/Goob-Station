@@ -36,7 +36,7 @@
 
 "Прототипы":
 - changed-files:
-    -any-glob-to-any-file: 'Resources/Prototypes/**/*.yml'
+    -any-glob-to-any-file: '**/*.yml'
 
 "C#":
 - changed-files:
