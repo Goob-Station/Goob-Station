@@ -8192,7 +8192,6 @@ entities:
       - 10324
       - 540
       - 13760
-      - 13656
       - 23072
   - uid: 26
     components:
@@ -90716,12 +90715,6 @@ entities:
     - type: Transform
       pos: 1.5,-15.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      - invalid
-      deviceLists:
-      - 25
     - type: AtmosPipeColor
       color: '#0055CCFF'
 - proto: GasVentScrubber
