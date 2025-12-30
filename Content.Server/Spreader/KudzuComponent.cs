@@ -56,8 +56,4 @@ public sealed partial class KudzuComponent : Component
     /// </summary>
     [DataField]
     public int SpriteVariants = 3;
-
-    // Goob edit
-    [ViewVariables]
-    public float TimeAccumulated = 0f;
 }
