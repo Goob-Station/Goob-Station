@@ -11,9 +11,7 @@
   - type: LanguageKnowledge
     speaks:
     - TauCetiBasic
-    - Canilunzt
     - Hydraspeak
     understands:
     - TauCetiBasic
-    - Canilunzt
     - Hydraspeak

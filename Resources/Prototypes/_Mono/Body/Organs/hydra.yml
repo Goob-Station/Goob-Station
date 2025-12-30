@@ -37,7 +37,9 @@
   - type: Metabolizer
     maxReagents: 3
     metabolizerTypes: [ Animal, Hydrakin ]
-    removeEmpty: true
+    groups:
+    - id: Food
+    - id: Drink
   - type: SolutionContainerManager
     solutions:
       stomach:

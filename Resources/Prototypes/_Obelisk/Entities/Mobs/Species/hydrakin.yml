@@ -16,7 +16,6 @@
         type: StrippableBoundUserInterface
       enum.SurgeryUIKey.Key: # Shitmed
         type: SurgeryBui
-  - type: Hunger
   - type: Icon
     sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
     state: full
@@ -25,7 +24,6 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Hydrakin
-  - type: Thirst
   - type: Butcherable
     butcheringType: Spike
     spawned:
