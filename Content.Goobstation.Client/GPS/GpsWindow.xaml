@@ -1,7 +1,7 @@
 <ui:GpsWindow xmlns="https://spacestation14.io"
             xmlns:ui="clr-namespace:Content.Goobstation.Client.GPS"
             xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-            SetWidth="400" SetHeight="600"
+            SetWidth="400" SetHeight="670"
             Resizable="False"
             MouseFilter="Stop">
 
@@ -68,11 +68,15 @@
                     </ScrollContainer>
                     <BoxContainer Orientation="Horizontal">
                         <Button Name="DistressButton" Text="⚠" StyleClasses="ButtonCaution" />
+                        <Button Name="EnabledButton" StyleClasses="ButtonCaution" ToolTip="{Loc 'gps-window-visibility-tooltip'}"/>
                         <Control HorizontalExpand="true" />
                         <Button Name="ClearButton" Text="{Loc 'gps-window-clear-tracking-button'}" />
                     </BoxContainer>
 				</BoxContainer>
 			</Control>
 		</Control>
+    </BoxContainer>
+    <BoxContainer Orientation="Horizontal" SetHeight="28">
+        <Label Text="{Loc 'gps-window-footer-text'}" StyleClasses="PdaWindowFooterText" Margin="32 0 0 6"/>
     </BoxContainer>
 </ui:GpsWindow>

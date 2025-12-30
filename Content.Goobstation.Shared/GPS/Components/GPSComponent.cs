@@ -1,17 +1,22 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Map;
 
 namespace Content.Goobstation.Shared.GPS.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true, true)]
 public sealed partial class GPSComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public string GpsName { get; set; } = "";
+    public string GpsName = "";
 
     [DataField, AutoNetworkedField]
-    public bool InDistress { get; set; } = false;
+    public List<GpsEntry> GpsEntries = new();
 
     [DataField, AutoNetworkedField]
-    public NetEntity? TrackedEntity { get; set; }
+    public NetEntity? TrackedEntity;
+
+    [DataField, AutoNetworkedField]
+    public bool InDistress;
+
+    [DataField, AutoNetworkedField]
+    public bool Enabled;
 }

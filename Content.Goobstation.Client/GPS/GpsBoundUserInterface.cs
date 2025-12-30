@@ -1,79 +1,54 @@
 using Content.Goobstation.Shared.GPS;
 using JetBrains.Annotations;
+using Robust.Client.UserInterface;
 
 namespace Content.Goobstation.Client.GPS;
 
 [UsedImplicitly]
-public sealed class GpsBoundUserInterface : BoundUserInterface
+public sealed class GpsBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
     private GpsWindow? _window;
-
-    public GpsBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
-    {
-    }
 
     protected override void Open()
     {
         base.Open();
-        _window = new GpsWindow();
+
+        _window = this.CreateWindow<GpsWindow>();
         _window.OnClose += Close;
         _window.TrackedEntitySelected += OnTrackedEntitySelected;
         _window.GpsNameChanged += OnGpsNameChanged;
         _window.DistressPressed += OnDistressPressed;
+        _window.EnabledPressed += OnEnabledPressed;
+
+        UpdateWindow();
+
+        _window.UpdateGpsName(Owner); // Because of shitty logic i have to do that here
     }
 
-    protected override void UpdateState(BoundUserInterfaceState state)
+    public void UpdateWindow()
     {
-        base.UpdateState(state);
-        if (_window == null || state is not GpsBoundUserInterfaceState gpsState)
-            return;
-
-        _window.UpdateState(gpsState);
-
-        if (!_window.IsOpen)
-            _window.OpenCentered();
-    }
-
-    protected override void ReceiveMessage(BoundUserInterfaceMessage message)
-    {
-        base.ReceiveMessage(message);
-
-        if (_window == null)
-            return;
-
-        switch (message)
-        {
-            case GpsNameChangedMessage msg:
-                _window.UpdateGpsName(msg.GpsName);
-                break;
-            case GpsDistressChangedMessage msg:
-                _window.UpdateDistress(msg.InDistress);
-                break;
-            case GpsTrackedEntityChangedMessage msg:
-                _window.UpdateTrackedEntity(msg.TrackedEntity);
-                break;
-            case GpsEntriesChangedMessage msg:
-                _window.UpdateGpsEntries(msg.GpsEntries);
-                break;
-            case GpsUpdateTrackedCoordinatesMessage msg:
-                _window.UpdateTrackedCoordinates(msg.NetEntity, msg.Coordinates);
-                break;
-        }
+        if (_window != null)
+            _window.UpdateState(Owner);
     }
 
     private void OnTrackedEntitySelected(NetEntity? netEntity)
     {
-        SendMessage(new GpsSetTrackedEntityMessage(netEntity));
+        SendPredictedMessage(new GpsSetTrackedEntityMessage(netEntity));
     }
 
     private void OnGpsNameChanged(string newName)
     {
-        SendMessage(new GpsSetGpsNameMessage(newName));
+        SendPredictedMessage(new GpsSetGpsNameMessage(newName));
     }
 
     private void OnDistressPressed(bool distressed)
     {
-        SendMessage(new GpsSetInDistressMessage(distressed));
+        SendPredictedMessage(new GpsSetInDistressMessage(distressed));
+    }
+
+    private void OnEnabledPressed(bool enabled)
+    {
+        SendPredictedMessage(new GpsSetEnabledMessage(enabled));
     }
 
     protected override void Dispose(bool disposing)

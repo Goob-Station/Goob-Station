@@ -1,34 +1,30 @@
-using Content.Shared.Interaction;
 using Content.Shared.Pinpointer;
 using Content.Goobstation.Shared.GPS;
 using Content.Goobstation.Shared.GPS.Components;
-using Robust.Server.GameObjects;
-using Robust.Shared.Map;
-using Robust.Shared.Player;
 using System.Linq;
-using Content.Server.UserInterface;
-using Robust.Shared.Timing;
+using Content.Goobstation.Common.CCVar;
+using Robust.Shared.Configuration;
+using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.GPS;
 
 public sealed class GpsSystem : SharedGpsSystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+
+    public float UpdateRate { get; private set; } = 1f;
+
+    private float _updateTimer;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<GPSComponent, ActivateInWorldEvent>(OnGpsActivate);
-        SubscribeLocalEvent<GPSComponent, BoundUIOpenedEvent>(OnGpsBuiOpened);
-        SubscribeLocalEvent<GPSComponent, GpsSetTrackedEntityMessage>(OnSetTrackedEntity);
-        SubscribeLocalEvent<GPSComponent, GpsSetGpsNameMessage>(OnSetGpsName);
-        SubscribeLocalEvent<GPSComponent, GpsSetInDistressMessage>(OnSetInDistress);
+        SubscribeLocalEvent<GPSComponent, ComponentInit>(OnGpsInit);
+        Subs.CVar(_config, GoobCVars.GpsUpdateRate, f => UpdateRate = f, true);
     }
 
-    private float _updateTimer;
-    private const float UpdateRate = 1f;
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -42,66 +38,23 @@ public sealed class GpsSystem : SharedGpsSystem
         var allEntries = GetGpsEntries();
         var activeGpsQuery = AllEntityQuery<GPSComponent, ActiveUserInterfaceComponent, TransformComponent>();
 
-        while (activeGpsQuery.MoveNext(out var uid, out var gps, out var _, out var xform))
+        while (activeGpsQuery.MoveNext(out var uid, out var gps, out _, out _))
         {
-            var filteredEntries = allEntries.Where(e => e.NetEntity != GetNetEntity(uid)).ToList();
-            var entriesMsg = new GpsEntriesChangedMessage(filteredEntries);
-            _userInterfaceSystem.ServerSendUiMessage(uid, GpsUiKey.Key, entriesMsg);
+            gps.GpsEntries = allEntries.Where(e => e.NetEntity != GetNetEntity(uid)).ToList();
+            DirtyField(uid, gps, nameof(GPSComponent.GpsEntries));
 
-            if (gps.TrackedEntity is { } tracked)
-            {
-                var trackedUid = GetEntity(tracked);
-                if (Exists(trackedUid))
-                {
-                    var coords = _transform.GetMapCoordinates(trackedUid);
-                    var coordMsg = new GpsUpdateTrackedCoordinatesMessage(GetNetEntity(trackedUid), coords);
-                    _userInterfaceSystem.ServerSendUiMessage(uid, GpsUiKey.Key, coordMsg);
-                }
-            }
+            if (gps.TrackedEntity is not { } tracked)
+                continue;
+
+            gps.TrackedEntity = tracked;
+            DirtyField(uid, gps, nameof(GPSComponent.TrackedEntity));
         }
     }
 
-    private void OnGpsActivate(EntityUid uid, GPSComponent component, ActivateInWorldEvent args)
+    private void OnGpsInit(EntityUid uid, GPSComponent component, ComponentInit args)
     {
-        if (HasComp<ActiveUserInterfaceComponent>(uid))
-            return;
-
-        _userInterfaceSystem.TryOpenUi(uid, GpsUiKey.Key, args.User);
-    }
-
-    private void OnGpsBuiOpened(EntityUid uid, GPSComponent component, BoundUIOpenedEvent args)
-    {
-        var ownCoords = _transform.GetMapCoordinates(uid);
-        var entries = GetGpsEntries();
-        var state = new GpsBoundUserInterfaceState(
-            component.GpsName,
-            component.InDistress,
-            component.TrackedEntity,
-            ownCoords,
-            entries.Where(e => e.NetEntity != GetNetEntity(uid)).ToList());
-
-        _userInterfaceSystem.SetUiState(uid, GpsUiKey.Key, state);
-    }
-
-    private void OnSetTrackedEntity(EntityUid uid, GPSComponent component, GpsSetTrackedEntityMessage args)
-    {
-        component.TrackedEntity = args.NetEntity;
-        Dirty(uid, component);
-        _userInterfaceSystem.ServerSendUiMessage(uid, GpsUiKey.Key, new GpsTrackedEntityChangedMessage(args.NetEntity));
-    }
-
-    private void OnSetGpsName(EntityUid uid, GPSComponent component, GpsSetGpsNameMessage args)
-    {
-        component.GpsName = args.GpsName;
-        Dirty(uid, component);
-        _userInterfaceSystem.ServerSendUiMessage(uid, GpsUiKey.Key, new GpsNameChangedMessage(args.GpsName));
-    }
-
-    private void OnSetInDistress(EntityUid uid, GPSComponent component, GpsSetInDistressMessage args)
-    {
-        component.InDistress = args.InDistress;
-        Dirty(uid, component);
-        _userInterfaceSystem.ServerSendUiMessage(uid, GpsUiKey.Key, new GpsDistressChangedMessage(args.InDistress));
+        if (string.IsNullOrWhiteSpace(component.GpsName))
+            component.GpsName = "GPS-" + _random.Next(1000, 9999);
     }
 
     private List<GpsEntry> GetGpsEntries()
@@ -110,7 +63,10 @@ public sealed class GpsSystem : SharedGpsSystem
         var gpsQuery = EntityQueryEnumerator<GPSComponent, TransformComponent>();
         while (gpsQuery.MoveNext(out var otherUid, out var otherGps, out var otherTransform))
         {
-            var displayName = string.IsNullOrEmpty(otherGps.GpsName) ? $"GPS ({GetNetEntity(otherUid)})" : otherGps.GpsName;
+            if (!otherGps.Enabled)
+                continue;
+
+            var displayName = string.IsNullOrEmpty(otherGps.GpsName) ? "Unknown GPS" : otherGps.GpsName;
             entries.Add(new GpsEntry
             {
                 NetEntity = GetNetEntity(otherUid),
@@ -141,5 +97,4 @@ public sealed class GpsSystem : SharedGpsSystem
 
         return entries;
     }
-
 }

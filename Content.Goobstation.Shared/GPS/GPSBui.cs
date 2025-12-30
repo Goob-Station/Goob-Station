@@ -11,26 +11,7 @@ public enum GpsUiKey
 }
 
 [Serializable, NetSerializable]
-public sealed class GpsBoundUserInterfaceState : BoundUserInterfaceState
-{
-    public string GpsName;
-    public bool InDistress;
-    public NetEntity? TrackedEntity;
-    public MapCoordinates? GpsCoordinates;
-    public List<GpsEntry> GpsEntries;
-
-    public GpsBoundUserInterfaceState(string gpsName, bool inDistress, NetEntity? trackedEntity, MapCoordinates? gpsCoordinates, List<GpsEntry> gpsEntries)
-    {
-        GpsName = gpsName;
-        InDistress = inDistress;
-        TrackedEntity = trackedEntity;
-        GpsCoordinates = gpsCoordinates;
-        GpsEntries = gpsEntries;
-    }
-}
-
-[Serializable, NetSerializable]
-public sealed class GpsEntry
+public sealed class GpsEntry : IEquatable<GpsEntry>
 {
     public NetEntity NetEntity;
     public string? Name;
@@ -38,8 +19,18 @@ public sealed class GpsEntry
     public bool IsDistress;
     public Color Color;
     public MapCoordinates Coordinates;
-}
 
+    public bool Equals(GpsEntry? other)
+    {
+        // We compare only some stuff, since this comparer is used only to
+        // update the entries and not the compass.
+        return !(NetEntity != other?.NetEntity
+                || Name != other.Name
+                || PrototypeId != other.PrototypeId
+                || IsDistress != other.IsDistress
+                || Color != other.Color);
+    }
+}
 
 [Serializable, NetSerializable]
 public sealed class GpsSetTrackedEntityMessage : BoundUserInterfaceMessage
@@ -72,54 +63,11 @@ public sealed class GpsSetInDistressMessage : BoundUserInterfaceMessage
 }
 
 [Serializable, NetSerializable]
-public sealed class GpsNameChangedMessage : BoundUserInterfaceMessage
+public sealed class GpsSetEnabledMessage : BoundUserInterfaceMessage
 {
-    public readonly string GpsName;
-    public GpsNameChangedMessage(string gpsName)
+    public bool Enabled;
+    public GpsSetEnabledMessage(bool inDistress)
     {
-        GpsName = gpsName;
-    }
-}
-
-[Serializable, NetSerializable]
-public sealed class GpsDistressChangedMessage : BoundUserInterfaceMessage
-{
-    public readonly bool InDistress;
-    public GpsDistressChangedMessage(bool inDistress)
-    {
-        InDistress = inDistress;
-    }
-}
-
-[Serializable, NetSerializable]
-public sealed class GpsTrackedEntityChangedMessage : BoundUserInterfaceMessage
-{
-    public readonly NetEntity? TrackedEntity;
-    public GpsTrackedEntityChangedMessage(NetEntity? trackedEntity)
-    {
-        TrackedEntity = trackedEntity;
-    }
-}
-
-[Serializable, NetSerializable]
-public sealed class GpsEntriesChangedMessage : BoundUserInterfaceMessage
-{
-    public readonly List<GpsEntry> GpsEntries;
-    public GpsEntriesChangedMessage(List<GpsEntry> gpsEntries)
-    {
-        GpsEntries = gpsEntries;
-    }
-}
-
-[Serializable, NetSerializable]
-public sealed class GpsUpdateTrackedCoordinatesMessage : BoundUserInterfaceMessage
-{
-    public readonly NetEntity NetEntity;
-    public readonly MapCoordinates Coordinates;
-
-    public GpsUpdateTrackedCoordinatesMessage(NetEntity netEntity, MapCoordinates coordinates)
-    {
-        NetEntity = netEntity;
-        Coordinates = coordinates;
+        Enabled = inDistress;
     }
 }
