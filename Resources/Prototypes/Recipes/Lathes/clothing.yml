@@ -628,18 +628,6 @@
   id: ClothingUniformJumpskirtResearchDirector
   result: ClothingUniformJumpskirtResearchDirector
 
-## Reporter (GOOB CHANGE)
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitReporter
-  result: ClothingUniformJumpsuitReporter
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpskirtReporter
-  result: ClothingUniformJumpskirtReporter
-
 ## Scientist
 
 - type: latheRecipe
