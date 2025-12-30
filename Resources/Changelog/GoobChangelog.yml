@@ -19829,3 +19829,9 @@ Entries:
       message: Slashers max health has been nerfed.
   id: 2241
   time: '2025-12-26T09:06:58.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Tweak
+      message: Fixed Kudzu spreading 3x faster than intended
+  id: 2242
+  time: '2025-12-29T17:12:41.0000000+00:00'
