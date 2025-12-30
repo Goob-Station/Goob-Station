@@ -200,8 +200,14 @@
       weight: 1
     - id: VinylDiskRunningOut
       weight: 1
+    - id: VinylDiskJourney
+      weight: 1
+    - id: VinylDiskTraitorousIntent
+      weight: 1
+    - id: VinylDiskViolet
+      weight: 1
     - id: VinylDiskWantYouGone
-      weight: 0.3
+      weight: 1
 
 - type: entityTable
   id: RandomVinylSleeve
