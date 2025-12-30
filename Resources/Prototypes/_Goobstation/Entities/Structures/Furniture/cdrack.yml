@@ -58,7 +58,6 @@
   - type: Storage
     grid:
     - 0,0,1,9
-    maxItemSize: CD
     whitelist:
       tags:
         - CD
