@@ -473,6 +473,39 @@
       path: /Audio/_Goobstation/RadioStation/music/RunningOutCover.ogg
 
 - type: entity
+  name: "vinyl disk: Journey"
+  id: VinylDiskJourney
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: ttd-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/OpenTTDJourney.ogg
+
+- type: entity
+  name: "vinyl disk: Traitorous Intent"
+  id: VinylDiskTraitorousIntent
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: lightishred-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/TraitorousIntent.ogg
+
+- type: entity
+  name: "vinyl disk: Violet"
+  id: VinylDiskViolet
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: purple-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/violet.ogg
+
+- type: entity
   name: forgotten vinyl disk
   id: VinylDiskForgotten
   parent: BaseVinylDisk
