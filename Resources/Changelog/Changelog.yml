@@ -5145,3 +5145,10 @@ Entries:
   id: 9343
   time: '2025-12-30T21:52:19.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40121
+- author: jessicamaybe
+  changes:
+  - message: Moved borg module remove button to the left side
+    type: Tweak
+  id: 9344
+  time: '2025-12-30T23:26:26.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42119
