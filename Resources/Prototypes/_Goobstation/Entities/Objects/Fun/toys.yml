@@ -1182,7 +1182,7 @@
 - type: entity
   parent: ToyBladeEldritch
   id: ToyBladeFlesh
-  suffix: toy
+  suffix: Toy
   name: replica bloody blade
   description: A crescent blade born from fleshwarped plastic. Keenly aware, it seeks to spread to others the excruciating comedy it has endured from its dreadful origins.
   components:
