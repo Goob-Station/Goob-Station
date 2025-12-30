@@ -1623,7 +1623,7 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-    
+
 - type: listing
   id: UplinkCdDiskNumber
   name: uplink-cddisknumber-name

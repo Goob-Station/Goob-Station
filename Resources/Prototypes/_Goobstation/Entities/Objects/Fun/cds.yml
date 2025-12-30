@@ -254,7 +254,7 @@
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/ads/Syndicate.ogg
-      
+
 - type: entity
   parent: JVNECdDisk
   name: cd disk (Capstien)
@@ -265,7 +265,7 @@
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/ads/Capstien.ogg
-      
+
 - type: entity
   parent: JVNECdDisk
   name: cd disk (NINJA!!!)
@@ -276,7 +276,7 @@
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/ads/Ninja.ogg
-      
+
 - type: entity
   parent: JVNECdDisk
   name: cd disk (Next Up)
@@ -287,7 +287,9 @@
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/ads/NextUp.ogg
-      
+  - type: VinylSummonRule
+    gameRule: NinjaThreats
+
 - type: entity
   parent: JVNECdDisk
   name: cd disk (June & Eels Show)
@@ -309,4 +311,6 @@
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/ads/Number.ogg
-      
+  - type: VinylSummonRule
+    gameRule: NinjaThreats
+
