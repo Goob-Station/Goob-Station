@@ -114,7 +114,7 @@ public sealed class KudzuSystem : EntitySystem
             if (grow.NextTick > curTime)
                 continue;
 
-            grow.NextTick = curTime + TimeSpan.FromSeconds(0.1667);
+            grow.NextTick = curTime + TimeSpan.FromSeconds(0.05);
 
             if (!kudzuQuery.TryGetComponent(uid, out var kudzu))
             {
