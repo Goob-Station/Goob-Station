@@ -8192,7 +8192,6 @@ entities:
       - 10324
       - 540
       - 13760
-      - 23072
   - uid: 26
     components:
     - type: Transform
@@ -92133,11 +92132,6 @@ entities:
     - type: Transform
       pos: 3.5,-15.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 25
     - type: AtmosPipeColor
       color: '#990000FF'
 - proto: GasVolumePump
