@@ -19835,3 +19835,9 @@ Entries:
       message: Fixed Kudzu spreading 3x faster than intended
   id: 2242
   time: '2025-12-29T17:12:41.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: Syringe case storage size changed from 2x5 to 2x3
+  id: 2243
+  time: '2025-12-30T14:07:04.0000000+00:00'
