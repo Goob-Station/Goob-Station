@@ -362,3 +362,6 @@ uplink-customboard-desc = A modified lawboard that allows the user to change the
 
 uplink-cddisksyndicate-name = Syndicate Advertisement
 uplink-cddisksyndicate-desc = 102.9 Syndicate radio
+
+uplink-cddisknumber-name = Syndicate Numbers
+uplink-cddisknumber-desc = Call in a threat to distract the station... good luck playing the whole thing.

@@ -298,4 +298,15 @@
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/ads/JNE.ogg
+
+- type: entity
+  parent: JVNECdDisk
+  name: cd disk (Numbers)
+  id: JVNECdDiskNumber
+  components:
+  - type: Sprite
+    state: synd-cd
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/Number.ogg
       
