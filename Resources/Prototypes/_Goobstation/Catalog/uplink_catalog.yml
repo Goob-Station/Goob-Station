@@ -1636,7 +1636,7 @@
   - UplinkJob
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 1
+    stock: 3
   - !type:BuyerJobCondition
     whitelist:
     - RadioHost

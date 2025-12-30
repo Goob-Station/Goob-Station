@@ -300,7 +300,7 @@
       path: /Audio/_Goobstation/RadioStation/ads/JNE.ogg
 
 - type: entity
-  parent: JVNECdDisk
+  parent: [BaseSyndicateContraband, JVNECdDisk]
   name: cd disk (Numbers)
   id: JVNECdDiskNumber
   components:
