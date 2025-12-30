@@ -360,8 +360,8 @@ uplink-syndiedrobe-desc = A vending machine stocked with Syndicate-branded cloth
 uplink-customboard-name = Custom Syndicate Lawboard
 uplink-customboard-desc = A modified lawboard that allows the user to change the laws to anything they want. Comes with Antimov pre-installed.
 
-uplink-cddisksyndicate-name = Syndicate Advertisement
+uplink-cddisksyndicate-name = Syndicate Advertisement CD
 uplink-cddisksyndicate-desc = 102.9 Syndicate radio
 
-uplink-cddisknumber-name = Syndicate Numbers
+uplink-cddisknumber-name = Number Station CD
 uplink-cddisknumber-desc = Call in a threat to distract the station... good luck playing the whole thing.

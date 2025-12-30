@@ -226,7 +226,6 @@
     song:
       path: /Audio/_Goobstation/RadioStation/misc/xg_onboarding3.ogg
 
-
 - type: entity
   parent: CdDiskWeird
   name: cd disk (xg onboarding 4)
@@ -242,26 +241,15 @@
   id: JVNECdDisk
   abstract: true
   description: The June and Eels show!
-
-- type: entity
-  parent: [BaseSyndicateContraband, JVNECdDisk]
-  name: cd disk (Syndicate)
-  id: JVNECdDiskSyndicate
-  description: 102.9 Syndicate radio
   components:
   - type: Sprite
-    state: synd-cd
-  - type: Vinyl
-    song:
-      path: /Audio/_Goobstation/RadioStation/ads/Syndicate.ogg
+    state: jne-cd
 
 - type: entity
   parent: JVNECdDisk
   name: cd disk (Capstien)
   id: JVNECdDiskCapstien
   components:
-  - type: Sprite
-    state: jne-cd
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/ads/Capstien.ogg
@@ -271,8 +259,6 @@
   name: cd disk (NINJA!!!)
   id: JVNECdDiskNinja
   components:
-  - type: Sprite
-    state: jne-cd
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/ads/Ninja.ogg
@@ -282,8 +268,6 @@
   name: cd disk (Next Up)
   id: JVNECdDiskNextUp
   components:
-  - type: Sprite
-    state: jne-cd
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/ads/NextUp.ogg
@@ -295,22 +279,37 @@
   name: cd disk (June & Eels Show)
   id: JVNECdDiskJNE
   components:
-  - type: Sprite
-    state: jne-cd
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/ads/JNE.ogg
 
 - type: entity
-  parent: [BaseSyndicateContraband, JVNECdDisk]
-  name: cd disk (Numbers)
-  id: JVNECdDiskNumber
+  parent: [BaseSyndicateContraband, BaseCdDisk]
+  id: SyndiCdDisk
+  abstract: true
+  description: Get da disk!
   components:
   - type: Sprite
     state: synd-cd
+
+- type: entity
+  parent: SyndiCdDisk
+  name: cd disk (Numbers)
+  id: JVNECdDiskNumber
+  description: All around the mulberry bush, the monkey chased the weasel...
+  components:
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/ads/Number.ogg
   - type: VinylSummonRule
     gameRule: NinjaThreats
 
+- type: entity
+  parent: SyndiCdDisk
+  name: cd disk (Syndicate)
+  id: JVNECdDiskSyndicate
+  description: 102.9 Syndicate radio
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/ads/Syndicate.ogg
