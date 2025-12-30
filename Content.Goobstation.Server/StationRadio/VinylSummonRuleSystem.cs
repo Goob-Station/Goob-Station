@@ -5,6 +5,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.Communications;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeviceLinking;
+using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
@@ -14,6 +15,9 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using System.Linq;
+using Content.Server.Radio.Components;
+using Content.Server.Chat.Systems;
 
 namespace Content.Goobstation.Server.StationRadio;
 
@@ -31,6 +35,8 @@ public sealed class VinylSummonRuleSystem : EntitySystem
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly SharedPopupSystem _popups = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
 
     private record struct TrackingData(EntityUid VinylPlayerUid, TimeSpan EndTime);
     private readonly Dictionary<EntityUid, TrackingData> _trackingVinyls = new();
@@ -45,26 +51,43 @@ public sealed class VinylSummonRuleSystem : EntitySystem
 
     private void OnVinylInserted(EntityUid uid, VinylPlayerComponent player, ref VinylInsertedEvent args)
     {
-        // Check if the inserted entity has the summon rule component
-        if (!TryComp<VinylSummonRuleComponent>(args.Vinyl, out _))
-            return;
+        var playerUid = uid;
+        var vinylUid = args.Vinyl;
 
-        // Check if the vinyl has a song
-        if (!TryComp<VinylComponent>(args.Vinyl, out var vinylComp)
+        // Check if the inserted entity has the summon rule component / A song
+        if (!TryComp<VinylSummonRuleComponent>(vinylUid, out _)
+            || !TryComp<VinylComponent>(vinylUid, out var vinylComp)
             || vinylComp.Song == null)
             return;
 
+        void QueueSafeEject()
+        {
+            Timer.Spawn(0, () => EjectVinyl(playerUid, vinylUid));
+        }
+
         // Check if vinyl player is on a station
-        if (_stationSystem.GetOwningStation(uid) == null)
+        if (_stationSystem.GetOwningStation(playerUid) == null)
+        {
+            _popups.PopupPredicted("Vinyl-Popout-No-Station", playerUid, null, PopupType.Medium);
+            QueueSafeEject();
             return;
+        }
 
         // Check if vinyl player is powered
-        if (!_power.IsPowered(uid))
+        if (!_power.IsPowered(playerUid))
+        {
+            _popups.PopupPredicted("Vinyl-Popout-No-Power", playerUid, null, PopupType.Medium);
+            QueueSafeEject();
             return;
+        }
 
         // Check if vinyl player is connected to the radio system
-        if (!CheckForRadioRig(uid))
+        if (!CheckForRadioConnection(playerUid))
+        {
+            _popups.PopupPredicted("Vinyl-Popout-No-Radio-Connection", playerUid, null, PopupType.Medium);
+            QueueSafeEject();
             return;
+        }
 
         // Get the audio length
         var resolved = _audio.ResolveSound(vinylComp.Song);
@@ -72,7 +95,7 @@ public sealed class VinylSummonRuleSystem : EntitySystem
         var endTime = _timing.CurTime + audioLength;
 
         // Track this vinyl with its player
-        _trackingVinyls[args.Vinyl] = new TrackingData(uid, endTime);
+        _trackingVinyls[vinylUid] = new TrackingData(playerUid, endTime);
     }
 
     private void OnVinylRemoved(EntityUid uid, VinylPlayerComponent player, ref VinylRemovedEvent args)
@@ -86,28 +109,22 @@ public sealed class VinylSummonRuleSystem : EntitySystem
         base.Update(frameTime);
 
         var currentTime = _timing.CurTime;
-        var toRemove = new List<EntityUid>();
 
-        foreach (var (vinylUid, data) in _trackingVinyls)
+        foreach (var (vinylUid, data) in _trackingVinyls.ToList())
         {
             // Check if the vinyl still exists
-            if (!Exists(vinylUid))
+            if (!Exists(vinylUid)
+                || !Exists(data.VinylPlayerUid))
             {
-                toRemove.Add(vinylUid);
-                continue;
-            }
-
-            // Check if the vinyl player still exists
-            if (!Exists(data.VinylPlayerUid))
-            {
-                toRemove.Add(vinylUid);
+                _trackingVinyls.Remove(vinylUid);
                 continue;
             }
 
             // Check if vinyl player is still on a station
             if (_stationSystem.GetOwningStation(data.VinylPlayerUid) == null)
             {
-                toRemove.Add(vinylUid);
+                _trackingVinyls.Remove(vinylUid);
+                _popups.PopupPredicted("Vinyl-Popout-No-Station", data.VinylPlayerUid, null, PopupType.Medium);
                 EjectVinyl(data.VinylPlayerUid, vinylUid);
                 continue;
             }
@@ -115,15 +132,17 @@ public sealed class VinylSummonRuleSystem : EntitySystem
             // Check if vinyl player is still powered
             if (!_power.IsPowered(data.VinylPlayerUid))
             {
-                toRemove.Add(vinylUid);
+                _trackingVinyls.Remove(vinylUid);
+                _popups.PopupPredicted("Vinyl-Popout-No-Power", data.VinylPlayerUid, null, PopupType.Medium);
                 EjectVinyl(data.VinylPlayerUid, vinylUid);
                 continue;
             }
 
             // Check if vinyl player is still connected to the radio system
-            if (!CheckForRadioRig(data.VinylPlayerUid))
+            if (!CheckForRadioConnection(data.VinylPlayerUid))
             {
-                toRemove.Add(vinylUid);
+                _trackingVinyls.Remove(vinylUid);
+                _popups.PopupPredicted("Vinyl-Popout-No-Radio-Connection", data.VinylPlayerUid, null, PopupType.Medium);
                 EjectVinyl(data.VinylPlayerUid, vinylUid);
                 continue;
             }
@@ -132,32 +151,25 @@ public sealed class VinylSummonRuleSystem : EntitySystem
             if (currentTime >= data.EndTime)
             {
                 HandleVinylFinished(vinylUid);
-                toRemove.Add(vinylUid);
+                _trackingVinyls.Remove(vinylUid);
             }
         }
-
-        // Clean up finished tracking
-        foreach (var uid in toRemove)
-            _trackingVinyls.Remove(uid);
     }
 
     private void EjectVinyl(EntityUid playerUid, EntityUid vinylUid)
     {
-        if (!Exists(vinylUid) || !Exists(playerUid))
-            return;
-
-        if (!TryComp<ItemSlotsComponent>(playerUid, out var itemSlots))
+        if (!Exists(vinylUid)
+            || !Exists(playerUid)
+            || !TryComp<ItemSlotsComponent>(playerUid, out var itemSlots))
             return;
 
         // Find the slot containing the vinyl
-        foreach (var (slotId, slot) in itemSlots.Slots)
-        {
+        foreach (var (_, slot) in itemSlots.Slots)
             if (slot.Item == vinylUid)
             {
                 _itemSlots.TryEject(playerUid, slot, null, out _);
                 return;
             }
-        }
     }
 
     private void HandleVinylFinished(EntityUid vinylUid)
@@ -165,36 +177,18 @@ public sealed class VinylSummonRuleSystem : EntitySystem
         if (!TryComp<VinylSummonRuleComponent>(vinylUid, out var summonComp))
             return;
 
-        // Resolve the game rule ID
-        var ruleId = ResolveGameRule(summonComp.GameRule);
+        // Resolve the game rule ID and get the threat prototype if available
+        var ruleId = ResolveGameRule(summonComp.GameRule, out var threat);
+
         if (ruleId != null)
+        {
             _gameTicker.StartGameRule(ruleId, out _);
 
-        // Destroy the vinyl and spawn ash
-        DestroyVinylAndSpawnAsh(vinylUid, summonComp);
-    }
-
-    private string? ResolveGameRule(string gameRuleIdentifier)
-    {
-        // Check if it's a weighted random pool
-        if (_prototypeManager.TryIndex<WeightedRandomPrototype>(gameRuleIdentifier, out var weightedPool))
-        {
-            // Pick a random threat ID from the weighted pool
-            var threatId = weightedPool.Pick(_random);
-
-            // Look up the threat prototype to get the actual game rule ID
-            if (_prototypeManager.TryIndex<NinjaHackingThreatPrototype>(threatId, out var threat))
-                return threat.Rule;
-
-            return null;
+            // If we have a threat prototype with an announcement, send it
+            if (threat != null)
+                _chat.DispatchGlobalAnnouncement(Loc.GetString(threat.Announcement), playSound: true);
         }
 
-        // Assume it's a direct game rule entity ID
-        return gameRuleIdentifier;
-    }
-
-    private void DestroyVinylAndSpawnAsh(EntityUid vinylUid, VinylSummonRuleComponent summonComp)
-    {
         var vinylXform = Transform(vinylUid);
         var vinylCoords = vinylXform.Coordinates;
 
@@ -212,21 +206,51 @@ public sealed class VinylSummonRuleSystem : EntitySystem
         QueueDel(vinylUid);
     }
 
-    private bool CheckForRadioRig(EntityUid uid)
+    private string? ResolveGameRule(string gameRuleIdentifier, out NinjaHackingThreatPrototype? threat)
     {
-        if (TryComp<DeviceLinkSourceComponent>(uid, out var source))
-            foreach (var linked in source.LinkedPorts.Keys)
-                if (HasComp<RadioRigComponent>(linked) && CheckForRadioServer(linked))
-                    return true;
-        return false;
+        threat = null;
+
+        // Check if it's a weighted random pool
+        if (_prototypeManager.TryIndex<WeightedRandomPrototype>(gameRuleIdentifier, out var weightedPool))
+        {
+            // Pick a random threat ID from the weighted pool
+            var threatId = weightedPool.Pick(_random);
+
+            // Look up the threat prototype to get the actual game rule ID
+            if (_prototypeManager.TryIndex<NinjaHackingThreatPrototype>(threatId, out threat))
+                return threat.Rule;
+
+            return null;
+        }
+
+        // Assume it's a direct game rule entity ID
+        return gameRuleIdentifier;
     }
 
-    private bool CheckForRadioServer(EntityUid uid)
+    private bool CheckForRadioConnection(EntityUid uid)
     {
-        if (TryComp<DeviceLinkSinkComponent>(uid, out var source))
-            foreach (var linked in source.LinkedSources)
-                if (HasComp<StationRadioServerComponent>(linked))
-                    return true;
+        if (!TryComp<DeviceLinkSourceComponent>(uid, out var source))
+            return false;
+
+        foreach (var linkedRig in source.LinkedPorts.Keys)
+        {
+            if (!HasComp<RadioRigComponent>(linkedRig)
+                || !TryComp<DeviceLinkSinkComponent>(linkedRig, out var sink))
+                continue;
+
+            // Check if the radio rig is connected and the server is turned on.
+            foreach (var linkedServer in sink.LinkedSources)
+            {
+                if (!TryComp<StationRadioServerComponent>(linkedServer, out var serverComp)
+                    || !_power.IsPowered(linkedServer)
+                    || !TryComp<RadioMicrophoneComponent>(linkedServer, out var microphone)
+                    || !microphone.Enabled)
+                    continue;
+
+                return true;
+            }
+        }
+
         return false;
     }
 }
