@@ -290,6 +290,11 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
+      outerClothing: # Goob 
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: outerclothing
   # Goobstation start - voxes are uncloneable but do not rot - all the stuff from BaseMobSpeciesOrganic
   - type: Uncloneable
   - type: Absorbable # Goobstation - changelings
@@ -425,6 +430,11 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
+      outerClothing: # Goob
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: outerclothing
   - type: Hands
     leftHandDisplacement:
       sizeMaps:
