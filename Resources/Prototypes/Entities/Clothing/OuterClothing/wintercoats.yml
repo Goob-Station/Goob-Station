@@ -115,9 +115,9 @@
   description: A heavy jacket made from 'synthetic' animal furs.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
   - type: TemperatureProtection
     heatingCoefficient: 1.1
     coolingCoefficient: 0.1
@@ -179,9 +179,20 @@
   name: atmospherics winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatatmos.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: ATMOS-icon
+  - type: Item # CorvaxGoob-Resprite
+    inhandVisuals:
+      left:
+      - state: ATMOS-inhand-left
+      right:
+      - state: ATMOS-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatatmos.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: ATMOS-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterEngineer
@@ -192,9 +203,20 @@
   name: bartender winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatbar.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: BAR-icon
+  - type: Item # CorvaxGoob-Resprite
+    inhandVisuals:
+      left:
+      - state: BAR-inhand-left
+      right:
+      - state: BAR-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatbar.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: BAR-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterBartender
@@ -205,9 +227,20 @@
   name: captain's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatcap.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: CAP-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: CAP-inhand-left
+      right:
+      - state: CAP-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatcap.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: CAP-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterCaptain
@@ -218,9 +251,20 @@
   name: cargo winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatcargo.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: CARGO-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: CARGO-inhand-left
+      right:
+      - state: CARGO-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatcargo.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: CARGO-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterCargo
@@ -231,9 +275,20 @@
   name: chief engineer's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatce.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: CE-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: CE-inhand-left
+      right:
+      - state: CE-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatce.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: CE-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterCE
@@ -244,9 +299,20 @@
   name: CentComm winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatcentcom.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: CENTCOM-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: CENTCOM-inhand-left
+      right:
+      - state: CENTCOM-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatcentcom.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: CENTCOM-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterCentcom
@@ -258,9 +324,20 @@
   description: A coat specifically designed for work inside cold storage, sorely needed by cold-blooded lizard chefs.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatchef.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: CHEF-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: CHEF-inhand-left
+      right:
+      - state: CHEF-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatchef.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: CHEF-equipped-OUTERCLOTHING
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -268,9 +345,20 @@
   name: chemistry winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatchem.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: CHEM-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: CHEM-inhand-left
+      right:
+      - state: CHEM-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatchem.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: CHEM-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -288,9 +376,20 @@
   name: chief medical officer's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatcmo.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: CMO-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: CMO-inhand-left
+      right:
+      - state: CMO-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatcmo.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: CMO-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -308,9 +407,9 @@
   name: clown winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatclown.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coatclown.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatclown.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coatclown.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -318,9 +417,20 @@
   name: engineering winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatengi.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: ENGI-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: ENGI-inhand-left
+      right:
+      - state: ENGI-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatengi.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: ENGI-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterEngineer
@@ -331,9 +441,20 @@
   name: genetics winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatgen.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: GENE-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: GENE-inhand-left
+      right:
+      - state: GENE-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatgen.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: GENE-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -351,9 +472,20 @@
   name: head of personnel's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coathop.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: HOP-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: HOP-inhand-left
+      right:
+      - state: HOP-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coathop.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: HOP-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterHOP
@@ -366,9 +498,9 @@
   description: A sturdy, utilitarian winter coat designed to protect a head of security from any brig-bound threats and hypothermic events.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coathosarmored.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coathosarmored.rsi # CorvaxGoob-Resprite
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterHOS
@@ -395,9 +527,20 @@
   description: A sturdy coat, a warm coat, but not an armored coat.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: HOS-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: HOS-inhand-left
+      right:
+      - state: HOS-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: HOS-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterHOS
@@ -408,9 +551,20 @@
   name: hydroponics winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coathydro.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: HYDRO-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: HYDRO-inhand-left
+      right:
+      - state: HYDRO-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coathydro.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: HYDRO-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterHydro
@@ -421,9 +575,20 @@
   name: janitorial winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatjani.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: JANI-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: JANI-inhand-left
+      right:
+      - state: JANI-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatjani.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: JANI-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -441,9 +606,20 @@
   name: medical winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatmed.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: MED-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: MED-inhand-left
+      right:
+      - state: MED-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatmed.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: MED-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -461,9 +637,20 @@
   name: mime winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatmime.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: MIME-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: MIME-inhand-left
+      right:
+      - state: MIME-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatmime.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: MIME-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterMime
@@ -474,9 +661,20 @@
   name: mining winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatminer.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: MINER-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: MINER-inhand-left
+      right:
+      - state: MINER-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatminer.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: MINER-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterMiner
@@ -487,9 +685,20 @@
   name: paramedic winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatparamed.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: PARA-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: PARA-inhand-left
+      right:
+      - state: PARA-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatparamed.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: PARA-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -507,9 +716,20 @@
   name: quartermaster's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatqm.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: QM-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: QM-inhand-left
+      right:
+      - state: QM-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatqm.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: QM-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterQM
@@ -521,9 +741,20 @@
   name: research director's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatrd.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: RD-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: RD-inhand-left
+      right:
+      - state: RD-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatrd.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: RD-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -541,9 +772,20 @@
   name: robotics winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatrobo.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: ROBO-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: ROBO-inhand-left
+      right:
+      - state: ROBO-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatrobo.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: ROBO-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterRobo
@@ -555,9 +797,20 @@
   name: science winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatsci.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: SCI-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: SCI-inhand-left
+      right:
+      - state: SCI-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatsci.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: SCI-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -575,9 +828,20 @@
   name: security winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatsec.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: SEC-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: SEC-inhand-left
+      right:
+      - state: SEC-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatsec.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: SEC-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterSec
@@ -588,9 +852,20 @@
   name: virology winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatviro.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: VIRO-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: VIRO-inhand-left
+      right:
+      - state: VIRO-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatviro.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: VIRO-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -610,9 +885,9 @@
   description: A sturdy, utilitarian winter coat designed to protect a warden from any brig-bound threats and hypothermic events.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi # CorvaxGoob-Resprite
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterWarden
@@ -640,9 +915,20 @@
   description: A sturdy coat, a warm coat, but not an armored coat.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatwarden.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: WARD-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: WARD-inhand-left
+      right:
+      - state: WARD-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatwarden.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: WARD-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterWarden
@@ -654,9 +940,20 @@
   description: "The syndicate's winter coat is made of durable fabric, with gilded patterns, and coarse wool."
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecap.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: SYNDIECAP-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: SYNDIECAP-inhand-left
+      right:
+      - state: SYNDIECAP-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecap.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: SYNDIECAP-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterSyndie
@@ -669,9 +966,9 @@
   description: "The syndicate's armored winter coat is made of durable fabric, with gilded patterns, and coarse wool."
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi # CorvaxGoob-Resprite
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterSyndie
@@ -684,9 +981,20 @@
   description: Insulated winter coat, looks like a merch from "Syndieland".
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/syndicate/wintercoatsyndie.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: SYNDIE-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: SYNDIE-inhand-left
+      right:
+      - state: SYNDIE-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/syndicate/wintercoatsyndie.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: SYNDIE-equipped-OUTERCLOTHING
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterSyndie
@@ -698,9 +1006,9 @@
   description: An oversized, plasticine space tuxedo that'll have people asking "do you know me?"
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatnomi.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coatnomi.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatnomi.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coatnomi.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -709,9 +1017,20 @@
   description: Feels like the inside of a cocoon, not that this would make you less afraid of being in one.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatweb.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    layers:
+    - state: WEB-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: WEB-inhand-left
+      right:
+      - state: WEB-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatweb.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    clothingVisuals:
+      outerClothing:
+      - state: WEB-equipped-OUTERCLOTHING
   - type: Construction
     graph: WebObjects
     node: coat
@@ -721,9 +1040,9 @@
       amount: 5
   - type: FlavorProfile
     flavors:
-      - cobwebs
+    - cobwebs
     ignoreReagents:
-      - Fiber
+    - Fiber
   - type: SolutionContainerManager
     solutions: # 15 (3 (fiber count of web) * 5 (to craft)) + 5 (magical crafting bonus)
       food:
@@ -741,7 +1060,7 @@
   name: black winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     layers:
     - state: coatybits-icon
       color: "#3f3f3f"
@@ -757,7 +1076,7 @@
         color: "#3f3f3f"
       - state: winterbits-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
@@ -773,7 +1092,7 @@
   name: purple winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     layers:
     - state: coatybits-icon
       color: "#9C0DE1"
@@ -789,7 +1108,7 @@
         color: "#9C0DE1"
       - state: winterbits-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
@@ -805,7 +1124,7 @@
   name: red winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     layers:
     - state: coatybits-icon
       color: "#940000"
@@ -821,7 +1140,7 @@
         color: "#940000"
       - state: winterbits-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
@@ -837,7 +1156,7 @@
   name: blue winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     layers:
     - state: coatybits-icon
       color: "#0089EF"
@@ -853,7 +1172,7 @@
         color: "#0089EF"
       - state: winterbits-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
@@ -869,7 +1188,7 @@
   name: brown winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     layers:
     - state: coatybits-icon
       color: "#723A02"
@@ -885,7 +1204,7 @@
         color: "#723A02"
       - state: winterbits-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
@@ -901,7 +1220,7 @@
   name: gray winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     layers:
     - state: coatybits-icon
       color: "#999999"
@@ -917,7 +1236,7 @@
         color: "#999999"
       - state: winterbits-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
@@ -933,7 +1252,7 @@
   name: green winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     layers:
     - state: coatybits-icon
       color: "#5ABF2F"
@@ -949,7 +1268,7 @@
         color: "#5ABF2F"
       - state: winterbits-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
@@ -965,7 +1284,7 @@
   name: light brown winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     layers:
     - state: coatybits-icon
       color: "#C09F72"
@@ -981,7 +1300,7 @@
         color: "#C09F72"
       - state: winterbits-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
@@ -997,7 +1316,7 @@
   name: orange winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     layers:
     - state: coatybits-icon
       color: "#EF8100"
@@ -1013,7 +1332,7 @@
         color: "#EF8100"
       - state: winterbits-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
@@ -1029,7 +1348,7 @@
   name: white winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     layers:
     - state: coatybits-icon
       color: "#EAE8E8"
@@ -1045,7 +1364,7 @@
         color: "#EAE8E8"
       - state: winterbits-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
@@ -1061,7 +1380,7 @@
   name: yellow winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     layers:
     - state: coatybits-icon
       color: "#EBE216"
@@ -1077,7 +1396,7 @@
         color: "#EBE216"
       - state: winterbits-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING

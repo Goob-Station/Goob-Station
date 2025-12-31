@@ -408,9 +408,9 @@
   name: default winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -419,9 +419,9 @@
   name: bartender winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodbartender.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodbartender.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodbartender.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodbartender.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -431,9 +431,9 @@
   description: An expensive hood, to keep the captain's head warm.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodcaptain.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodcaptain.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodcaptain.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodcaptain.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -442,9 +442,9 @@
   name: cargo winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodcargo.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodcargo.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodcargo.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodcargo.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -453,9 +453,9 @@
   name: chief engineer's winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodce.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodce.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodce.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodce.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -465,9 +465,9 @@
   description: A hood for keeping the central comander's head warm.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodcentcom.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodcentcom.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodcentcom.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodcentcom.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -476,9 +476,9 @@
   name: chemist winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodchemist.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodchemist.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodchemist.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodchemist.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -487,9 +487,9 @@
   name: chief medical officer's winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodcmo.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodcmo.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodcmo.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodcmo.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -498,9 +498,9 @@
   name: engineer winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodengi.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodengi.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodengi.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodengi.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -509,9 +509,9 @@
   name: head of personnel's winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodhop.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodhop.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodhop.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodhop.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -520,9 +520,9 @@
   name: head of security's winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodhos.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodhos.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodhos.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodhos.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -531,9 +531,9 @@
   name: hydroponics coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodhydro.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodhydro.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodhydro.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodhydro.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -542,9 +542,9 @@
   name: janitor coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodjani.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodjani.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodjani.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodjani.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -553,9 +553,9 @@
   name: medic coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodmed.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodmed.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodmed.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodmed.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -564,9 +564,9 @@
   name: mime coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodmime.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodmime.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodmime.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodmime.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -575,9 +575,9 @@
   name: miner coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodminer.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodminer.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodminer.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodminer.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -586,9 +586,9 @@
   name: paramedic coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodpara.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodpara.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodpara.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodpara.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -597,9 +597,9 @@
   name: quartermaster's coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodqm.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodqm.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodqm.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodqm.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -608,9 +608,9 @@
   name: research director's coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodrd.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodrd.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodrd.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodrd.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -619,9 +619,9 @@
   name: robotics coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodrobo.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodrobo.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodrobo.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodrobo.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -630,9 +630,9 @@
   name: scientist coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodsci.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodsci.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodsci.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodsci.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -641,9 +641,9 @@
   name: security coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodsec.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodsec.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -652,9 +652,9 @@
   name: syndicate coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodsyndicate.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodsyndicate.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodsyndicate.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodsyndicate.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -663,9 +663,9 @@
   name: warden's coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodsec.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodsec.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -674,9 +674,9 @@
   name: web coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodweb.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodweb.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodweb.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hoodweb.rsi # CorvaxGoob-Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -685,13 +685,13 @@
   name: black winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     layers:
     - state: coatybits-icon
       color: "#3f3f3f"
     - state: winterbits-icon
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     clothingVisuals:
       head:
       - state: coatybits-equipped-HELMET
@@ -705,13 +705,13 @@
   name: purple winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     layers:
     - state: coatybits-icon
       color: "#9C0DE1"
     - state: winterbits-icon
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     clothingVisuals:
       head:
       - state: coatybits-equipped-HELMET
@@ -725,13 +725,13 @@
   name: red winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     layers:
     - state: coatybits-icon
       color: "#940000"
     - state: winterbits-icon
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     clothingVisuals:
       head:
       - state: coatybits-equipped-HELMET
@@ -745,13 +745,13 @@
   name: blue winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     layers:
     - state: coatybits-icon
       color: "#0089EF"
     - state: winterbits-icon
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     clothingVisuals:
       head:
       - state: coatybits-equipped-HELMET
@@ -765,13 +765,13 @@
   name: brown winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     layers:
     - state: coatybits-icon
       color: "#723A02"
     - state: winterbits-icon
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     clothingVisuals:
       head:
       - state: coatybits-equipped-HELMET
@@ -785,13 +785,13 @@
   name: gray winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     layers:
     - state: coatybits-icon
       color: "#999999"
     - state: winterbits-icon
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     clothingVisuals:
       head:
       - state: coatybits-equipped-HELMET
@@ -805,13 +805,13 @@
   name: green winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     layers:
     - state: coatybits-icon
       color: "#5ABF2F"
     - state: winterbits-icon
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     clothingVisuals:
       head:
       - state: coatybits-equipped-HELMET
@@ -825,13 +825,13 @@
   name: light brown winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     layers:
     - state: coatybits-icon
       color: "#C09F72"
     - state: winterbits-icon
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     clothingVisuals:
       head:
       - state: coatybits-equipped-HELMET
@@ -845,13 +845,13 @@
   name: orange winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     layers:
     - state: coatybits-icon
       color: "#EF8100"
     - state: winterbits-icon
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     clothingVisuals:
       head:
       - state: coatybits-equipped-HELMET
@@ -865,13 +865,13 @@
   name: white winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     layers:
     - state: coatybits-icon
       color: "#EAE8E8"
     - state: winterbits-icon
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     clothingVisuals:
       head:
       - state: coatybits-equipped-HELMET
@@ -885,13 +885,13 @@
   name: yellow winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     layers:
     - state: coatybits-icon
       color: "#EBE216"
     - state: winterbits-icon
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hoods/Coat/hooddefault.rsi # CorvaxGoob-Resprite
     clothingVisuals:
       head:
       - state: coatybits-equipped-HELMET
