@@ -77,6 +77,7 @@
   - type: Gun
     fireRate: 2
   - type: SyringeGun
+    affectsImmune: true
     injectionSpeedMultiplier: 1.5
   - type: Item
     size: Large
@@ -105,4 +106,5 @@
     - 0,0,1,0
     - 0,1,0,1
   - type: SyringeGun
+    affectsImmune: true
     injectionSpeedMultiplier: 2

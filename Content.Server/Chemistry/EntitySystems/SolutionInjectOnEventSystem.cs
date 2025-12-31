@@ -12,6 +12,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._DV.Chemistry.Components; // Goobstation
 using Content.Shared.Armor; // Goobstation - Armor resisting syringe gun
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -26,6 +27,7 @@ using Content.Shared.Projectiles;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Audio.Systems; // Goobstation
 using Robust.Shared.Collections;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing; // Goob
@@ -43,6 +45,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!; // Goobstation
 
     [Dependency] private readonly IGameTiming _timing = default!; // Goobstation
 
@@ -96,6 +99,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
     {
         comp.PierceArmorOverride = null;
         comp.SpeedMultiplier = 1f;
+        comp.AffectsImmuneOverride = false;
     }
 
     private void OnEmbedLand(Entity<SolutionInjectOnEmbedComponent> entity, ref LandEvent args) // Goobstation
@@ -107,6 +111,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
     {
         entity.Comp.UpdateInterval *= entity.Comp.SpeedMultiplier;
         entity.Comp.EmbedTime = TimeSpan.Zero;
+        entity.Comp.HasPlayedBlockedSound = false; // Goobstation
         ResetState(entity.Comp);
     }
 
@@ -159,6 +164,20 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
     }
 
     /// <summary>
+    /// Goobstation
+    /// Plays the blocked sound for an embedded syringe if it hasn't been played yet.
+    /// </summary>
+    private void TryPlayBlockedSound(Entity<BaseSolutionInjectOnEventComponent> injector, EntityUid target)
+    {
+        if (TryComp<SolutionInjectWhileEmbeddedComponent>(injector.Owner, out var embeddedComp)
+            && !embeddedComp.HasPlayedBlockedSound)
+        {
+            _audio.PlayPvs(injector.Comp.BlockedSound, target);
+            embeddedComp.HasPlayedBlockedSound = true;
+        }
+    }
+
+    /// <summary>
     /// Filters <paramref name="targets"/> for valid targets and tries to inject a portion of <see cref="BaseSolutionInjectOnEventComponent.Solution"/> into
     /// each valid target's bloodstream.
     /// </summary>
@@ -187,6 +206,22 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         {
             if (Deleted(target))
                 continue;
+
+            // Goobstation begin
+            if (HasComp<BlockInjectionComponent>(target))
+            {
+                TryPlayBlockedSound(injector, target);
+                continue;
+            }
+
+            if (TryComp<SyringeEmbedImmunityComponent>(target, out var syringeImmunity)
+                && !syringeImmunity.IsPenetrable
+                || !injector.Comp.AffectsImmuneOverride)
+            {
+                TryPlayBlockedSound(injector, target);
+                continue;
+            }
+            // Goobstation end
 
             // Goobstation - Armor resisting syringe gun
             var mult = 1f; // multiplier of how much to actually inject

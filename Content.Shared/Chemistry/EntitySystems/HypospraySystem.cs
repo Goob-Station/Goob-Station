@@ -41,6 +41,8 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry.EntitySystems.Hypospray;
+using Content.Shared.Armor; // Goobstation - Armor resisting hypopen
+using Content.Shared.Inventory; // Goobstation - Armor resisting hypopen
 
 namespace Content.Shared.Chemistry.EntitySystems;
 
@@ -52,6 +54,7 @@ public sealed class HypospraySystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainers = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation - Armor resisting hypopen
 
     public override void Initialize()
     {
@@ -187,6 +190,19 @@ public sealed class HypospraySystem : EntitySystem
 
         // Get transfer amount. May be smaller than component.TransferAmount if not enough room
         var realTransferAmount = FixedPoint2.Min(component.TransferAmount, targetSolution.AvailableVolume);
+
+        // Goobstation start - Armor hypopen resistance
+        if (_inventory.TryGetSlotEntity(target, "outerClothing", out var suit)
+            && !component.IgnoresArmor
+            && TryComp<ArmorComponent>(suit, out var armorComp))
+        {
+            var armorModifiers = armorComp.Modifiers;
+
+            // If armor has 50% pierce resistance only 50% of chemicals are injected
+            if (armorModifiers.Coefficients.TryGetValue("Piercing", out var armorCoefficient))
+                realTransferAmount *= armorCoefficient;
+        }
+        // Goobstation end
 
         if (realTransferAmount <= 0)
         {

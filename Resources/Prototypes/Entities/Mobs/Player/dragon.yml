@@ -334,6 +334,7 @@
     understands:
     - TauCetiBasic
     - Carptongue
+  - type: SyringeEmbedImmunity # Goobstation - syringe gun immunity
 
 - type: entity
   parent: BaseMobDragon

@@ -193,6 +193,7 @@
     - DoorBumpOpener
     - FootstepSound
   - type: XenomorphShoveTracker
+  - type: SyringeEmbedImmunity # Goobstation - syringe gun immunity
 
 - type: entity
   id: BaseMobXenomorphDungeon

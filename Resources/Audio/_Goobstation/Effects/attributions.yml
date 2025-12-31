@@ -14,3 +14,8 @@
   license: "CC0-1.0"
   copyright: '"Retro, Drop 02.wav" by MATRIXXX_ of Freesound.org. Mixed from stereo to mono and reversed.'
   source: "https://freesound.org/people/MATRIXXX_/sounds/415990/"
+
+- files: ["thump.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Created by freesound_community, Modified by Loltart"
+  source: "https://pixabay.com/sound-effects/frying-pan-over-the-head-89303/"

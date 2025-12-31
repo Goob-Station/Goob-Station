@@ -69,6 +69,7 @@
     channels:
     - Shadowmind
   - type: ZombieImmune  # Goobstation
+  - type: SyringeEmbedImmunity # Goobstation - syringe gun immunity
 
 - type: entity
   parent: BaseSpeciesDummy

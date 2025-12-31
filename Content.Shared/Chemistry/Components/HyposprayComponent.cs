@@ -59,4 +59,12 @@ public sealed partial class HyposprayComponent : Component
     /// </summary>
     [DataField]
     public bool InjectOnly = false;
+
+    // Goobstation Begin
+    /// <summary>
+    /// Whether the hypospray ignores armor when injecting.
+    /// </summary>
+    [DataField]
+    public bool IgnoresArmor = false;
+    // Goobstation End
 }

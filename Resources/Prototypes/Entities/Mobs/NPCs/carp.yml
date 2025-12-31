@@ -217,6 +217,7 @@
       deactivateSound: null
     - type: VentCrawler # Goobstation
     - type: Fauna # Lavaland Change
+    - type: SyringeEmbedImmunity # Goobstation - syringe gun immunity
 
 - type: entity
   parent: BaseMobCarp
