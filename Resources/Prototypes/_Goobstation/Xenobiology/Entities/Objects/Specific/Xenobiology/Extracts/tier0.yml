@@ -38,7 +38,7 @@
       - !type:CreateEntityReactionEffect
         delay: 3
         entity: MobSlimeXenobioBabyGrey
-        number: 1
+        number: 3
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
