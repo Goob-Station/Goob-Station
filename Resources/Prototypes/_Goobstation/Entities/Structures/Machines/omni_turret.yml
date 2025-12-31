@@ -1,0 +1,69 @@
+- type: entity
+  parent: BaseWeaponBallisticTurret
+  id: WeaponOmniTurret
+  name: Omni-turret
+  description: Instead of making a moving turret, scientists decided it was a lot simpler to make it shoot from all directions instead.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Machines/omni_turret.rsi
+    noRot: true
+    layers:
+    - state: omni_turret
+  - type: BallisticAmmoProvider
+    proto: BulletFlock
+    capacity: 500
+  - type: Gun
+    fireRate: 0.8
+    selectedMode: FullAuto
+    soundGunshot: /Audio/_Goobstation/Weapons/Guns/Gunshots/TaserGoon.ogg
+  - type: HTN
+    rootTask:
+      task: TurretCompound
+    blackboard:
+      SoundTargetInLOS: !type:SoundPathSpecifier
+        path: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
+  - type: Damageable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/Flock/flock_sound.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          WeaponOmniTurretBroken:
+            min: 1
+            max: 1
+
+- type: entity
+  parent: BaseStructure
+  id: WeaponOmniTurretBroken
+  suffix: broken
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Machines/omni_turret.rsi
+    noRot: true
+    layers:
+    - state: omni_broken
+  - type: Damageable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/glass_break1.ogg

@@ -55,7 +55,7 @@
   recipes:
   - ClothingShoesBootsMagSci
   - ClothingShoesBootsMoon
-#  - ClothingShoesBootsSpeed - Goobstation - Nuked due to sprinting.
+  - ClothingShoesBootsSpeed
   - ClothingShoesBootsJump
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding

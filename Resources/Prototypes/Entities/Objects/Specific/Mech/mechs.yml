@@ -192,6 +192,8 @@
   - type: StaticPrice
     price: 450
   - type: DragDropTargetable
+  - type: Sprinter # Goobstation - Robots are ableist as a whole
+    canSprint: false
   # Goobstation Change End
 
 - type: entity

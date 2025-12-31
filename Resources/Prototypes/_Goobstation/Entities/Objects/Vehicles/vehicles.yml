@@ -100,6 +100,8 @@
     tags:
     - DoorBumpOpener
   - type: RequireProjectileTarget
+  - type: Sprinter # Goobstation - Don't even get me started on how cars are ableist as fuck
+    canSprint: false
 
 - type: entity
   id: VehicleSecway

@@ -138,6 +138,8 @@
     penetrateDamage: 15 # Kill million mices
     damagePenalty: 0.05
   - type: StunVisuals
+  - type: Sprinter # Goobstation - Sprinting is ableist and stands against everything Katawa Shoujo stands for.
+    canSprint: false
 
 - type: entity
   save: false

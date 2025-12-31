@@ -142,7 +142,6 @@
       tags:
       - DoorBumpOpener
       - FootstepSound
-    - type: Sprinter
     - type: CombatPower
       factor: 10 # times more dangerous than a crew-member
 

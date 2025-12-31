@@ -385,8 +385,8 @@
     group: GenericNumber
   - type: Insulated
   - type: MovementSpeedModifier
-    baseWalkSpeed: 5
-    baseSprintSpeed: 5
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
   - type: FlashImmunity
   - type: HTN
     rootTask:
