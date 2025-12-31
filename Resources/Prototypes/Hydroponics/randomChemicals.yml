@@ -97,6 +97,7 @@
   - quantity: 10
     weight: 3
     reagents:
+    - Crapotoxin #bounty gets what bounty wants...
     - Bicaridine
     - Dermaline
     - Ephedrine
