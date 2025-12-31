@@ -3,8 +3,8 @@ meta:
   category: Map
   engineVersion: 264.0.0
   forkId: syndicate-goob
-  forkVersion: 1c9e4e3eeec3e61dd902a9ab80c89017d43ad250
-  time: 12/27/2025 13:38:01
+  forkVersion: 97c9150245f0c34f7ecf55002b50a70f385330ea
+  time: 12/31/2025 10:48:21
   entityCount: 25450
 maps:
 - 1743
@@ -21305,14 +21305,6 @@ entities:
     components:
     - type: Transform
       pos: 124.45157,132.36746
-      parent: 1
-- proto: ComputerVirology
-  entities:
-  - uid: 6077
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 71.5,134.5
       parent: 1
 - proto: BaseGasCondenser
   entities:
@@ -66300,6 +66292,14 @@ entities:
     components:
     - type: Transform
       pos: 87.5,118.5
+      parent: 1
+- proto: ComputerVirology
+  entities:
+  - uid: 6077
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 71.5,134.5
       parent: 1
 - proto: ContainmentFieldGenerator
   entities:
@@ -126317,11 +126317,6 @@ entities:
     - type: Transform
       pos: 169.5,91.5
       parent: 1
-  - uid: 25376
-    components:
-    - type: Transform
-      pos: 67.5,135.5
-      parent: 1
 - proto: ResearchDisk
   entities:
   - uid: 8594
@@ -130994,13 +130989,6 @@ entities:
     - type: Transform
       pos: 139.5,117.5
       parent: 1
-- proto: SpawnPointVirologist
-  entities:      
-  - uid: 25375
-    components:
-    - type: Transform
-      pos: 69.5,135.5
-      parent: 1
 - proto: SpawnPointLibrarian
   entities:
   - uid: 15383
@@ -131326,6 +131314,13 @@ entities:
     components:
     - type: Transform
       pos: 46.5,109.5
+      parent: 1
+- proto: SpawnPointVirologist
+  entities:
+  - uid: 25376
+    components:
+    - type: Transform
+      pos: 69.5,135.5
       parent: 1
 - proto: SpawnPointWarden
   entities:
@@ -134205,13 +134200,6 @@ entities:
     components:
     - type: Transform
       pos: 15.5,93.5
-      parent: 1
-  - proto: VirologyServer
-  entities:
-  - uid: 2129
-    components:
-    - type: Transform
-      pos: 67.5,135.5
       parent: 1
 - proto: SurveillanceCameraRouterGeneral
   entities:
@@ -141364,6 +141352,13 @@ entities:
     components:
     - type: Transform
       pos: 68.5,46.5
+      parent: 1
+- proto: VirologyServer
+  entities:
+  - uid: 25375
+    components:
+    - type: Transform
+      pos: 67.5,135.5
       parent: 1
 - proto: VoiceTrigger
   entities:
