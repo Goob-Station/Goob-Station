@@ -20,7 +20,7 @@
       sprite: _CorvaxGoob/Clothing/OuterClothing/Coats/disco.rsi
     - type: Clothing
       sprite: _CorvaxGoob/Clothing/OuterClothing/Coats/disco.rsi
-      
+
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingAtmosphericsOveralls
@@ -31,3 +31,11 @@
     sprite: _CorvaxGoob/Clothing/OuterClothing/Coats/atmos_overalls.rsi
   - type: Clothing
     sprite: _CorvaxGoob/Clothing/OuterClothing/Coats/atmos_overalls.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: shaded
+      # Это так светооражающие элементы сделаны. Подробности в файле с ClothingOuterVestHazard
