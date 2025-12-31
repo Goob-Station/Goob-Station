@@ -36,13 +36,11 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
     private EntityQuery<AbsorbedComponent> _absorbQuery;
     private EntityQuery<BloodstreamComponent> _bloodQuery;
     private EntityQuery<ChangelingIdentityComponent> _lingQuery;
+    private EntityQuery<InternalResourcesComponent> _resourceQuery;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        _absorbQuery = GetEntityQuery<AbsorbedComponent>();
-        _bloodQuery = GetEntityQuery<BloodstreamComponent>();
 
         SubscribeLocalEvent<ChangelingBiomassComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ChangelingBiomassComponent, ComponentShutdown>(OnShutdown);
@@ -51,7 +49,10 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
         SubscribeLocalEvent<ChangelingBiomassComponent, InternalResourcesRegenModifierEvent>(OnChangelingChemicalRegenEvent);
         SubscribeLocalEvent<ChangelingBiomassComponent, RejuvenateEvent>(OnRejuvenate);
 
+        _absorbQuery = GetEntityQuery<AbsorbedComponent>();
+        _bloodQuery = GetEntityQuery<BloodstreamComponent>();
         _lingQuery = GetEntityQuery<ChangelingIdentityComponent>();
+        _resourceQuery = GetEntityQuery<InternalResourcesComponent>();
     }
 
     private void OnMapInit(Entity<ChangelingBiomassComponent> ent, ref MapInitEvent args)
@@ -64,7 +65,7 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
     private void OnShutdown(Entity<ChangelingBiomassComponent> ent, ref ComponentShutdown args)
     {
-        if (TryComp<InternalResourcesComponent>(ent, out var resComp))
+        if (_resourceQuery.TryComp(ent, out var resComp))
             _resource.TryRemoveInternalResource(ent, ent.Comp.ResourceProto, resComp);
     }
 

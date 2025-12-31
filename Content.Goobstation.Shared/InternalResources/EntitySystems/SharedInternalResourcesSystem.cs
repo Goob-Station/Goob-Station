@@ -262,8 +262,6 @@ public sealed class SharedInternalResourcesSystem : EntitySystem
 
         UpdateAppearance(entity, proto.ID);
 
-        Log.Info(entity.Comp.CurrentInternalResources.Count.ToString());
-
         if (entity.Comp.CurrentInternalResources.Count == 0)
             RemComp<InternalResourcesComponent>(entity);
     }

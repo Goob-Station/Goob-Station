@@ -14,6 +14,7 @@ public abstract partial class SharedChangelingChemicalSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     private EntityQuery<ChangelingIdentityComponent> _lingQuery;
+    private EntityQuery<InternalResourcesComponent> _resourceQuery;
 
     public override void Initialize()
     {
@@ -26,6 +27,7 @@ public abstract partial class SharedChangelingChemicalSystem : EntitySystem
         SubscribeLocalEvent<ChangelingChemicalComponent, RejuvenateEvent>(OnRejuvenate);
 
         _lingQuery = GetEntityQuery<ChangelingIdentityComponent>();
+        _resourceQuery = GetEntityQuery<InternalResourcesComponent>();
     }
 
     private void OnMapInit(Entity<ChangelingChemicalComponent> ent, ref MapInitEvent args)
@@ -38,7 +40,7 @@ public abstract partial class SharedChangelingChemicalSystem : EntitySystem
 
     private void OnShutdown(Entity<ChangelingChemicalComponent> ent, ref ComponentShutdown args)
     {
-        if (TryComp<InternalResourcesComponent>(ent, out var resComp))
+        if (_resourceQuery.TryComp(ent, out var resComp))
             _resource.TryRemoveInternalResource(ent, ent.Comp.ResourceProto, resComp);
     }
 
