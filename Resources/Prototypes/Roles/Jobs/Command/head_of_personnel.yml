@@ -195,6 +195,7 @@
   - Cargo
   - Atmospherics
   - Medical
+  - Journalism
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
