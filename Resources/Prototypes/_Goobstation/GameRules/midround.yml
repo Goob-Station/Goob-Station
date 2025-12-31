@@ -674,7 +674,7 @@
     maxOccurrences: 1
     eventType: Neutral
   - type: GameRule
-    chaosScore: 100
+    chaosScore: -100 # CorvaxGoob-SecretPlusRework : 100 -> -100
   - type: VentCrittersRule # like a chimney
     max: 1
     table:

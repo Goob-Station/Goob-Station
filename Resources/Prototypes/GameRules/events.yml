@@ -172,7 +172,7 @@
     - id: SnakeSpawn
     - id: SpiderClownSpawn
     - id: SpiderSpawn
-    - id: VentClog
+    # - id: VentClog  # CorvaxGoob-SecretPlusRework : the stupidest gamerule ever
 #    - id: TidemindDevelop - Corvax Goob
     - id: MothroachSpawn # DeltaV
     - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
@@ -262,7 +262,7 @@
     eventType: Chaotic # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 70
+    chaosScore: -50 # CorvaxGoob-SecretPlusRework : 70 -> -50
   - type: AnomalySpawnRule
 
 - type: entity
@@ -273,7 +273,7 @@
     delay:
       min:  30
       max:  30
-    chaosScore: 40 # Goobstation
+    chaosScore: -70 # Goobstation && CorvaxGoob-SecretPlusRework : 40 -> -70
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
     startAudio:
@@ -302,7 +302,7 @@
     eventType: Neutral # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 40
+    chaosScore: -100 # CorvaxGoob-SecretPlusRework : 40 -> -100
   - type: BluespaceLockerRule
 
 - type: entity
@@ -323,7 +323,7 @@
     eventType: Maintenance # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 60
+    chaosScore: -70 # CorvaxGoob-SecretPlusRework : 60 -> -70
   - type: BreakerFlipRule
 
 - type: entity
@@ -338,7 +338,7 @@
     eventType: Neutral # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 50
+    chaosScore: -100 # CorvaxGoob-SecretPlusRework : 50 -> -100
   - type: BureaucraticErrorRule
     ignoredJobs:
     - StationAi
@@ -355,7 +355,7 @@
     eventType: Chaotic # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 30
+    chaosScore: -100 # CorvaxGoob-SecretPlusRework : 30 -> -100
   - type: ClericalErrorRule
 
 - type: entity
@@ -631,7 +631,7 @@
         volume: -4
   # Goobstation
   - type: GameRule
-    chaosScore: 80 # most of the time scrubbers just clean it
+    chaosScore: -60 # most of the time scrubbers just clean it # CorvaxGoob-SecretPlusRework : 80 -> -60
   - type: GasLeakRule
 
 - type: entity
@@ -650,7 +650,7 @@
     eventType: Maintenance # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 80
+    chaosScore: -80 # CorvaxGoob-SecretPlusRework : 80 -> -80
   - type: KudzuGrowthRule
 
 - type: entity
@@ -673,7 +673,7 @@
     eventType: Interference # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 80
+    chaosScore: -90 # CorvaxGoob-SecretPlusRework : 80 -> -90
   - type: PowerGridCheckRule
 
 - type: entity
@@ -696,7 +696,7 @@
     eventType: Interference # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 60
+    chaosScore: -90 # CorvaxGoob-SecretPlusRework : 60 -> -90
   - type: SolarFlareRule
     onlyJamHeadsets: true
     affectedChannels:
@@ -733,7 +733,7 @@
     eventType: Interference # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 70
+    chaosScore: -60 # CorvaxGoob-SecretPlusRework : 70 -> -60
   - type: VentClogRule
 
 - type: entity
@@ -991,7 +991,7 @@
     eventType: Chaotic # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 30
+    chaosScore: -100 # CorvaxGoob-SecretPlusRework : 30 -> -100
   - type: MassHallucinationsRule
     minTimeBetweenIncidents: 0.1
     maxTimeBetweenIncidents: 300
@@ -1019,7 +1019,7 @@
         path: /Audio/_CorvaxGoob/Announcements/Announcers/Intern/i-storm1.ogg
   # Goobstation
   - type: GameRule
-    chaosScore: 150
+    chaosScore: -80 # CorvaxGoob-SecretPlusRework : 150 -> -80
   - type: IonStormRule
 
 - type: entity
@@ -1038,7 +1038,7 @@
     eventType: Neutral # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 20
+    chaosScore: -100 # CorvaxGoob-SecretPlusRework : 20 -> -100
   - type: MobReplacementRule
 
 - type: entity
@@ -1060,7 +1060,7 @@
     eventType: Maintenance # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 160
+    chaosScore: -70 # CorvaxGoob-SecretPlusRework : 160 -> -70
   - type: GreytideVirusRule
     accessGroups:
     - Cargo
@@ -1102,7 +1102,7 @@
     eventType: Chaotic # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 80
+    chaosScore: -70 # CorvaxGoob-SecretPlusRework : 80 -> -70
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner

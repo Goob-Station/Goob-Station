@@ -16,7 +16,7 @@
     duration: 30
     eventType: Neutral
   - type: GameRule
-    chaosScore: 40
+    chaosScore: -100 # CorvaxGoob-SecretPlusRework : 40 -> -100
  #- type: PrecognitionResult
  #  message: psionic-power-precognition-mothroach-spawn-result-message
   - type: VentCrittersRule

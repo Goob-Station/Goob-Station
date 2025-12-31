@@ -45,7 +45,7 @@
     eventType: Neutral # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 20
+    chaosScore: -80 # CorvaxGoob-SecretPlusRework : 20 -> -80
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
@@ -102,7 +102,7 @@
     eventType: Neutral # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 20
+    chaosScore: -100 # CorvaxGoob-SecretPlusRework : 20 -> -100
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
@@ -133,7 +133,7 @@
     eventType: Neutral # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 20
+    chaosScore: -100 # CorvaxGoob-SecretPlusRework : 20 -> -100
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
@@ -159,7 +159,7 @@
     eventType: Chaotic # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 30
+    chaosScore: -100 # CorvaxGoob-SecretPlusRework : 30 -> -100
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:

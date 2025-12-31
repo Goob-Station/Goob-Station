@@ -1,0 +1,9 @@
+- type: gamePreset
+  id: SecretPlusCustom
+  alias:
+    - secretpluscustom
+  name: secretplus-custom-title
+  description: secretplus-custom-description
+  showInVote: true
+  rules:
+    - SecretPlusCustom

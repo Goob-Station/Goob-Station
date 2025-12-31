@@ -320,7 +320,7 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
     {
         var ruleUid = _ticker.AddGameRule(rule);
 
-        scheduler.Comp.ChaosScore += GetChaosScore(ruleUid, players)!.Value;
+        scheduler.Comp.ChaosScore -= GetChaosScore(ruleUid, players)!.Value; // CorvaxGoob-SecretPlusRework
 
         // if we hijack playercount, also hijack how many antags we pick
         if (players != null && TryComp<AntagSelectionComponent>(ruleUid, out var selection))

@@ -30,7 +30,7 @@
   id: DerelictCyborgSyndicateSpawn
   components:
   - type: GameRule
-    chaosScore: 150
+    chaosScore: -50 # CorvaxGoob-SecretPlusRework : 150 -> -50
   - type: StationEvent
     weight: 4.5 # Uncommon
     earliestStart: 30
@@ -58,7 +58,7 @@
     weight: 3
     duration: 1
   - type: GameRule
-    chaosScore: 50
+    chaosScore: -100 # CorvaxGoob-SecretPlusRework : 50 -> -100
   - type: JobDistributionErrorRule # Goobstation
     jobs:
     - SecurityClown
