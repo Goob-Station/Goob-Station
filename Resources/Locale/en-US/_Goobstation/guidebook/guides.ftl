@@ -18,6 +18,7 @@ guide-entry-plumbing = Plumbing
 
 guide-entry-alcoholic-drinks = Alcoholic Drinks
 guide-entry-non-alcoholic-drinks = Non-Alcoholic Drinks
+guide-entry-enchanting = Enchanting
 
 # Goob SOP
 # - Main Directories

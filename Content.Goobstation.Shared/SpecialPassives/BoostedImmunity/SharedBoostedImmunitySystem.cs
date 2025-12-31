@@ -66,6 +66,9 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
         if (ent.Comp.RemoveAlienEmbryo)
             RemoveAlienEmbryo(ent);
 
+        if (ent.Comp.RemoveDiseases)
+            RemoveDiseases(ent);
+
         Cycle(ent);
     }
 
@@ -215,6 +218,11 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
     }
 
     protected virtual void RemoveAlienEmbryo(Entity<BoostedImmunityComponent> ent)
+    {
+        // go to BoostedImmunitySystem for the logic
+    }
+
+    protected virtual void RemoveDiseases(Entity<BoostedImmunityComponent> ent)
     {
         // go to BoostedImmunitySystem for the logic
     }

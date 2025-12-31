@@ -22,10 +22,9 @@ public sealed class SharedDiseasePenSystem : EntitySystem
 
     private void OnInjectEvent(Entity<DiseasePenComponent> ent, ref DiseasePenInjectEvent args)
     {
-        if (args.Target == null || ent.Comp.DiseaseUid == null)
-            return;
-
-        if(!_disease.TryInfect(args.Target.Value, ent.Comp.DiseaseUid.Value))
+        if (args.Target == null
+            || ent.Comp.DiseaseUid == null
+            || !_disease.TryInfect(args.Target.Value, ent.Comp.DiseaseUid.Value))
             return;
 
         ent.Comp.Used = true;
@@ -43,7 +42,7 @@ public sealed class SharedDiseasePenSystem : EntitySystem
 
     private void TryInject(Entity<DiseasePenComponent> ent, AfterInteractEvent args)
     {
-        if (args.Target == null || ent.Comp.DiseaseUid == null)
+        if (args.Target == null || ent.Comp.DiseaseUid == null || ent.Comp.Used)
             return;
 
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, ent.Comp.InjectTime, new DiseasePenInjectEvent(), ent, target: args.Target, used: ent)

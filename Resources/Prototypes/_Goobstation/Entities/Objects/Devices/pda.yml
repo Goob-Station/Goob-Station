@@ -347,3 +347,11 @@
   - type: Icon
     state: pda-roboticist
 
+- type: entity
+  parent: BasePDA
+  id: RadioHostPDA
+  name: radio host PDA
+  description: You're listening to the smooth sounds of 145.9 FM.
+  components:
+  - type: Pda
+    id: RadioHostIDCard
