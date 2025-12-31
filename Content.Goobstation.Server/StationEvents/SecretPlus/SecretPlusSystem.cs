@@ -309,18 +309,19 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
                                                 // pick less antags if we have less chaos left
             var effPlayers = (int)MathF.Round(count * scheduler.Comp.ChaosScore / origChaos);
             LogMessage($"Roundstart rule chosen: {pick} with score {GetChaosScore(pickProto, ruleComp, effPlayers)}");
-            StartRule(scheduler, pick, false, effPlayers);
+            StartRule(scheduler, pick, false, effPlayers, invertedChaosScore: true); // CorvaxGoob-SecretPlusRework
         }
     }
 
     /// <summary>
     ///   Adds and, optionally, starts a gamerule while respecting rules with variable chaos.
     /// </summary>
-    private void StartRule(Entity<SecretPlusComponent> scheduler, string rule, bool doStart = true, int? players = null)
+    private void StartRule(Entity<SecretPlusComponent> scheduler, string rule, bool doStart = true, int? players = null, bool invertedChaosScore = false) // CorvaxGoob-SecretPlusRework
     {
         var ruleUid = _ticker.AddGameRule(rule);
 
-        scheduler.Comp.ChaosScore -= GetChaosScore(ruleUid, players)!.Value; // CorvaxGoob-SecretPlusRework
+        var chaosScore = GetChaosScore(ruleUid, players)!.Value;// CorvaxGoob-SecretPlusRework
+        scheduler.Comp.ChaosScore -= invertedChaosScore ? -chaosScore : chaosScore; // CorvaxGoob-SecretPlusRework
 
         // if we hijack playercount, also hijack how many antags we pick
         if (players != null && TryComp<AntagSelectionComponent>(ruleUid, out var selection))
