@@ -68,7 +68,7 @@ public sealed class VinylSummonRuleSystem : EntitySystem
         // Check if vinyl player is on a station
         if (_stationSystem.GetOwningStation(playerUid) == null)
         {
-            _popups.PopupPredicted("vinyl-popout-no-station", playerUid, null, PopupType.Medium);
+            _popups.PopupPredicted(Loc.GetString("vinyl-popout-no-station"), playerUid, null, PopupType.Medium);
             QueueSafeEject();
             return;
         }
@@ -76,7 +76,7 @@ public sealed class VinylSummonRuleSystem : EntitySystem
         // Check if vinyl player is powered
         if (!_power.IsPowered(playerUid))
         {
-            _popups.PopupPredicted("vinyl-popout-no-power", playerUid, null, PopupType.Medium);
+            _popups.PopupPredicted(Loc.GetString("vinyl-popout-no-power"), playerUid, null, PopupType.Medium);
             QueueSafeEject();
             return;
         }
@@ -84,7 +84,7 @@ public sealed class VinylSummonRuleSystem : EntitySystem
         // Check if vinyl player is connected to the radio system
         if (!CheckForRadioConnection(playerUid))
         {
-            _popups.PopupPredicted("vinyl-popout-no-radio-connection", playerUid, null, PopupType.Medium);
+            _popups.PopupPredicted(Loc.GetString("vinyl-popout-no-radio-connection"), playerUid, null, PopupType.Medium);
             QueueSafeEject();
             return;
         }
@@ -124,7 +124,7 @@ public sealed class VinylSummonRuleSystem : EntitySystem
             if (_stationSystem.GetOwningStation(data.VinylPlayerUid) == null)
             {
                 _trackingVinyls.Remove(vinylUid);
-                _popups.PopupPredicted("vinyl-popout-no-station", data.VinylPlayerUid, null, PopupType.Medium);
+                _popups.PopupPredicted(Loc.GetString("vinyl-popout-no-station"), data.VinylPlayerUid, null, PopupType.Medium);
                 EjectVinyl(data.VinylPlayerUid, vinylUid);
                 continue;
             }
@@ -133,7 +133,7 @@ public sealed class VinylSummonRuleSystem : EntitySystem
             if (!_power.IsPowered(data.VinylPlayerUid))
             {
                 _trackingVinyls.Remove(vinylUid);
-                _popups.PopupPredicted("vinyl-popout-no-power", data.VinylPlayerUid, null, PopupType.Medium);
+                _popups.PopupPredicted(Loc.GetString("vinyl-popout-no-power"), data.VinylPlayerUid, null, PopupType.Medium);
                 EjectVinyl(data.VinylPlayerUid, vinylUid);
                 continue;
             }
@@ -142,7 +142,7 @@ public sealed class VinylSummonRuleSystem : EntitySystem
             if (!CheckForRadioConnection(data.VinylPlayerUid))
             {
                 _trackingVinyls.Remove(vinylUid);
-                _popups.PopupPredicted("vinyl-popout-no-radio-connection", data.VinylPlayerUid, null, PopupType.Medium);
+                _popups.PopupPredicted(Loc.GetString("vinyl-popout-no-radio-connection"), data.VinylPlayerUid, null, PopupType.Medium);
                 EjectVinyl(data.VinylPlayerUid, vinylUid);
                 continue;
             }
