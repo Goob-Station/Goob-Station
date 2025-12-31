@@ -10,6 +10,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.BlockTeleport;
+using Content.Goobstation.Common.Effects;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -40,6 +41,7 @@ public sealed class SwapTeleporterSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly SparksSystem _sparks = default!; // goob edit - sparks everywhere
 
     private EntityQuery<TransformComponent> _xformQuery;
 
@@ -198,6 +200,11 @@ public sealed class SwapTeleporterSystem : EntitySystem
             otherTeleEnt,
             PopupType.MediumCaution);
         _transform.SwapPositions(teleEnt, otherTeleEnt);
+
+        // goob edit - sparks everywhere
+        _sparks.DoSparks(Transform(teleEnt).Coordinates);
+        _sparks.DoSparks(Transform(otherTeleEnt).Coordinates);
+        // end goob edit
     }
 
     /// <summary>

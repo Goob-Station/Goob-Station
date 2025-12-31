@@ -1,0 +1,38 @@
+# Expanding box
+- type: entity
+  parent: MarkerBase
+  id: HierophantClubShapeExpandingBox
+  name: hierophant attack box expanding spawner
+  suffix: Hierophant club
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: Sprite
+    state: red
+  - type: ShapeSpawner
+    spawn: LavalandHierophantSquare
+    shape: !type:NestedEntityShape
+      id: BoxHollow
+  - type: ShapeSpawnerCounter
+    maxCounter: 3
+    spawnPeriod: 0.6
+  - type: ExpandingShapeSpawner
+    counterSize: 1
+
+# Sequence crosses
+- type: entity
+  parent: MarkerBase
+  id: HierophantClubShapeRandomCross
+  name: hierophant attack cross sequence spawner
+  suffix: Hierophant club
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: Sprite
+    state: red
+  - type: ShapeSpawner
+    spawn: LavalandHierophantSquare
+    shape: !type:GroupEntityShape
+      children:
+      - id: BishopCross
+        size: 4
+      - id: RookCross
+        size: 4

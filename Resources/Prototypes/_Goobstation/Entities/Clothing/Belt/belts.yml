@@ -242,6 +242,27 @@
           - Sidearm
 
 - type: entity
+  parent: ChemBag
+  id: ClothingBeltChemBagXenobiology
+  name: xenobiology pouch
+  description: A slime-resistant pouch intended for use by Xenobiologists. Smells of.. plasma?
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/xenobag.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/xenobag.rsi
+  - type: Storage
+    whitelist:
+      tags:
+      - Syringe
+      - Dropper
+      components:
+      - SyringeGun
+      - SurgeryTool
+      - SolutionTransfer
+      - SlimeExtract
+      
+- type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband]
   id: ClothingBeltMilitaryWebbingBSOFilled
   name: blueshield chest rig
@@ -267,3 +288,10 @@
       amount: 1
     - id: EbifinlLazideChemistryVial
       amount: 1
+
+- type: entity
+  parent: ClothingBeltUtilityFilled
+  id: ClothingBeltUtilityFilledUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable

@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from yogstation at https://github.com/yogstation13/Yogstation/commit/8c424469c5286a6153435c95b9865a54b686df58",
+  "states": [
+    {
+      "name": "clock",
+      "delays": [
+        [
+          2,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}
