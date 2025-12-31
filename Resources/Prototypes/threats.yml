@@ -20,16 +20,16 @@
 - type: weightedRandom
   id: NumberStationThreats
   weights:
+    LoneOperative: 1 # Goobstation
+    ShuttleInstigator: 0.8 # Goobstation
+    VoxRaiders: 0.8 # Goobstation
+    GreyTide: 0.65 # Goobstation
+    #TODO When Slasher is ready Slasher: 0.6 # Goobstation
+    Blob: 0.5 # Goobstation
     Dragon: 0.4
     SlaughterDemon: 0.4 # Goobstation
-    LoneOperative: 1 # Goobstation
-    Blob: 0.5 # Goobstation
-    VoxRaiders: 0.8 # Goobstation
     LaughterDemon: 0.3 # Goobstation
-    ShuttleInstigator: 0.8 # Goobstation
-    GreyTide: 0.65 # Goobstation
     Revolutionary: 0.2 # Goobstation
-    #TODO When Slasher is ready Slasher: 0.6 # Goobstation
 
 - type: ninjaHackingThreat
   id: Dragon
@@ -75,7 +75,7 @@
 - type: ninjaHackingThreat
   id: Revolutionary
   announcement: terror-rev
-  rule: RevolutionaryMidround 
+  rule: RevolutionaryMidround
 
 # Goob - Wraith
 #- type: ninjaHackingThreat
