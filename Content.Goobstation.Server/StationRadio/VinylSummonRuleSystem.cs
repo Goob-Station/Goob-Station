@@ -234,17 +234,16 @@ public sealed class VinylSummonRuleSystem : EntitySystem
 
         foreach (var linkedRig in source.LinkedPorts.Keys)
         {
+            // Check if the radio rig is connected.
             if (!HasComp<RadioRigComponent>(linkedRig)
                 || !TryComp<DeviceLinkSinkComponent>(linkedRig, out var sink))
                 continue;
 
-            // Check if the radio rig is connected and the server is turned on.
+            // Check if the radio server is connected.
             foreach (var linkedServer in sink.LinkedSources)
             {
-                if (!TryComp<StationRadioServerComponent>(linkedServer, out var serverComp)
-                    || !_power.IsPowered(linkedServer)
-                    || !TryComp<RadioMicrophoneComponent>(linkedServer, out var microphone)
-                    || !microphone.Enabled)
+                if (!TryComp<StationRadioServerComponent>(linkedServer, out var _)
+                    || !_power.IsPowered(linkedServer))
                     continue;
 
                 return true;

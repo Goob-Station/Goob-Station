@@ -235,7 +235,6 @@
     song:
       path: /Audio/_Goobstation/RadioStation/misc/xg_onboarding4.ogg
 
-## June's autism
 - type: entity
   parent: BaseCdDisk
   id: JVNECdDisk

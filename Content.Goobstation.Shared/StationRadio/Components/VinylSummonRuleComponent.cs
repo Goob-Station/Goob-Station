@@ -1,6 +1,5 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.StationRadio.Components;
 
@@ -14,7 +13,7 @@ public sealed partial class VinylSummonRuleComponent : Component
     /// The game rule prototype to spawn when the vinyl finishes playing.
     /// </summary>
     [DataField(required: true)]
-    public EntProtoId GameRule = string.Empty;
+    public string GameRule = string.Empty;
 
     /// <summary>
     /// Sound played when the vinyl burns to ash.
