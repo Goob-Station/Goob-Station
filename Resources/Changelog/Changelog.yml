@@ -5159,3 +5159,10 @@ Entries:
   id: 9345
   time: '2025-12-31T00:23:19.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42142
+- author: YoungThugSS14
+  changes:
+  - message: Ninjas now spawn with a custom satchel.
+    type: Add
+  id: 9346
+  time: '2025-12-31T01:37:36.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42112
