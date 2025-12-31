@@ -106,7 +106,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanimaid
     id: JanitorPDA
-    gloves: ClothingHandsGlovesJanitor
+    gloves: ClothingHandsCatPawsBlack # CorvaxGoob
     head: ClothingHeadHatCatEars
     ears: ClothingHeadsetService
     belt: ClothingBeltJanitorFilled

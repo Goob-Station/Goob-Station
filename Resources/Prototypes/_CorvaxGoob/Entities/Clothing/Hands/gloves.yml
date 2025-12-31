@@ -43,3 +43,48 @@
     - type: Clothing
       sprite: _CorvaxGoob/Clothing/Hands/Gloves/centcom_naval.rsi
     - type: Insulated
+
+- type: entity
+  parent: ClothingHandsCatPawsBase
+  id: ClothingHandsCatPawsBrown
+  name: brown cat paws
+  description: Super-soft brown cat paws, made specially for the most brutal agents.
+  components:
+  - type: Sprite
+    state: brown-icon
+  - type: Clothing
+    clothingVisuals:
+      gloves:
+      - state: brown-equipped-HAND
+  - type: Fiber
+    fiberColor: fibers-brown
+
+- type: entity
+  parent: ClothingHandsCatPawsBase
+  id: ClothingHandsCatPawsBlack
+  name: black cat paws
+  description: Super-soft black paws, made specially for the most brutal agents.
+  components:
+  - type: Sprite
+    state: black-icon
+  - type: Clothing
+    clothingVisuals:
+      gloves:
+      - state: black-equipped-HAND
+  - type: Fiber
+    fiberColor: fibers-black
+
+- type: entity
+  parent: ClothingHandsCatPawsBase
+  id: ClothingHandsCatPawsBlackWhite
+  name: black and white cat paws
+  description: Super-soft black and white cat paws, made specially for the most brutal agents.
+  components:
+  - type: Sprite
+    state: blackwhite-icon
+  - type: Clothing
+    clothingVisuals:
+      gloves:
+      - state: blackwhite-equipped-HAND
+  - type: Fiber
+    fiberColor: fibers-grey

@@ -1,0 +1,19 @@
+- type: entity
+  parent: [ClothingHandsGlovesSyntheticBase, BaseSyndicateContraband]
+  id: ClothingHandsCatPawsBase
+  abstract: true
+  categories: [ DoNotMap ]
+  components:
+  # need to redefine sprites, so game wouldn't cry about icon states
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Hands/Gloves/paws.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Hands/Gloves/paws.rsi
+  - type: MeleeWeapon
+    soundHit:
+      collection: ToySqueak
+    damage:
+      types:
+        Blunt: 0
+    hidden: true
+    mustBeEquippedToUse: true

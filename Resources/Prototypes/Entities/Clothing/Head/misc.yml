@@ -314,7 +314,7 @@
   - type: AddAccentClothing
     accent: OwOAccent
   - type: StaticPrice
-    price: 15000
+    price: 5000 # CorvaxGoob
 
 - type: entity
   parent: [ClothingHeadHatCatEars, BaseToggleClothing]

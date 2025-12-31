@@ -1953,16 +1953,16 @@
   categories:
   - UplinkPointless
 
-
-- type: listing
-  id: UplinkCatEars
-  name: uplink-cat-ears-name
-  description: uplink-cat-ears-desc
-  productEntity: ClothingHeadHatCatEars
-  cost:
-    Telecrystal: 130 # goob
-  categories:
-  - UplinkPointless
+# CorvaxGoob - Cat Maid bundle
+# - type: listing
+#   id: UplinkCatEars
+#   name: uplink-cat-ears-name
+#   description: uplink-cat-ears-desc
+#   productEntity: ClothingHeadHatCatEars
+#   cost:
+#     Telecrystal: 130 # goob
+#   categories:
+#   - UplinkPointless
 
 
 - type: listing

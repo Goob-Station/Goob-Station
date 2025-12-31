@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateCatMaidBundle
+  name: syndicate cat maid bundle
+  description: Contains everything to be the cutest Syndicate agents.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHandsCatPawsBrown
+      - id: ClothingHandsCatPawsBlack
+      - id: ClothingHandsCatPawsBlackWhite
+      - id: ClothingHeadHatCatEars
+      - id: ClothingHeadHatCatEars
+      - id: ClothingHeadHatCatEars
+      - id: ClothingUniformJumpskirtJanimaid
+      - id: ClothingUniformJumpskirtTacticalMaid
+      - id: ClothingUniformJumpskirtJanimaidmini
