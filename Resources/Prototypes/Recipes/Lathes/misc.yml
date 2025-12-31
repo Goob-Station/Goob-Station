@@ -231,7 +231,7 @@
   materials:
     Steel: 600
 
-- type: latheRecipe - Goobstation - Nuked due to sprinting.
+- type: latheRecipe
   id: ClothingShoesBootsSpeed
   result: ClothingShoesBootsSpeed
   completetime: 2
