@@ -271,8 +271,6 @@
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/ads/NextUp.ogg
-  - type: VinylSummonRule
-    gameRule: NinjaThreats
 
 - type: entity
   parent: JVNECdDisk
