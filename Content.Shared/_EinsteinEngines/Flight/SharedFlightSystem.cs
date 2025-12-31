@@ -126,14 +126,14 @@ public abstract class SharedFlightSystem : EntitySystem
         Dirty(uid, component);
     }
 
-    private void OnToggleFlight(EntityUid uid, FlightComponent component, ToggleFlightEvent args)
+    protected virtual void OnToggleFlight(EntityUid uid, FlightComponent component, ToggleFlightEvent args)
     {
-        if (!component.On
-            && !CanFly(uid, component))
+        if (!component.On && !CanFly(uid, component))
             return;
 
         ToggleActive(uid, !component.On, component);
     }
+
 
     private void ToggleCollisionMasks(EntityUid uid, FlightComponent component)
     {
@@ -247,7 +247,7 @@ public abstract class SharedFlightSystem : EntitySystem
 
     #region Conditionals
 
-    private bool CanFly(EntityUid uid, FlightComponent component)
+    protected bool CanFly(EntityUid uid, FlightComponent component)
     {
         var ev = new FlightAttemptEvent();
         RaiseLocalEvent(uid, ref ev);

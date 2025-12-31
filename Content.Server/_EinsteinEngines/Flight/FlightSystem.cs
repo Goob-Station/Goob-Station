@@ -13,11 +13,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Bed.Sleep;
-using Content.Shared.Damage.Components;
 using Content.Shared._EinsteinEngines.Flight;
 using Content.Shared._EinsteinEngines.Flight.Events;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Damage.Components;
+using Content.Shared.DoAfter;
 using Content.Shared.Mobs;
+using Content.Shared.Popups;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Content.Shared.Zombies;
@@ -26,4 +28,54 @@ using Robust.Shared.Audio.Systems;
 namespace Content.Server._EinsteinEngines.Flight;
 public sealed class FlightSystem : SharedFlightSystem
 {
+    
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<FlightComponent, FlightDoAfterEvent>(OnFlightDoAfter);
+    }
+    protected override void OnToggleFlight(EntityUid uid, FlightComponent component, ToggleFlightEvent args)
+    {
+        if (component.On)
+        {
+            ToggleActive(uid, false, component);
+            return;
+        }
+
+        if (!CanFly(uid, component))
+            return;
+
+        var doAfterArgs = new DoAfterArgs(
+            EntityManager,
+            uid,
+            component.ActivationDelay,
+            new FlightDoAfterEvent(),
+            uid,
+            target: uid)
+        {
+            BlockDuplicate = true,
+            BreakOnDamage = true,
+            NeedHand = true,
+            MultiplyDelay = false
+        };
+
+        _doAfter.TryStartDoAfter(doAfterArgs);
+    }
+    private void OnFlightDoAfter(EntityUid uid, FlightComponent component, FlightDoAfterEvent args)
+    {
+        if (args.Cancelled || args.Handled)
+            return;
+
+        if (!CanFly(uid, component))
+            return;
+
+        ToggleActive(uid, true, component);
+        args.Handled = true;
+    }
+
+
 }
