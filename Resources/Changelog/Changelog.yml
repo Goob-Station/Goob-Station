@@ -5166,3 +5166,10 @@ Entries:
   id: 9346
   time: '2025-12-31T01:37:36.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42112
+- author: kontakt
+  changes:
+  - message: Fixed broken FTL links for implanters and medibot.
+    type: Fix
+  id: 9347
+  time: '2025-12-31T01:52:22.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42181
