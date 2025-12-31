@@ -187,6 +187,7 @@
         types:
           Blunt: 5
           Slash: 7
+          Structural: 10 # CorvaxGoob
     - type: TypingIndicator
       proto: alien
     - type: Tag
@@ -393,6 +394,7 @@
         types:
           Slash: 10
           Bloodloss: 5
+          Structural: 20 # CorvaxGoob
 
 - type: entity
   id: MobSharkSalvage
