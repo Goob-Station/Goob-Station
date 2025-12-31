@@ -66,3 +66,6 @@
             - !type:PlaySoundBehavior
               sound:
                 collection: MetalBreak
+    - type: Construction #GoobStation Edit
+      graph: FloorDrainGraph
+      node: FloorDrainNode
