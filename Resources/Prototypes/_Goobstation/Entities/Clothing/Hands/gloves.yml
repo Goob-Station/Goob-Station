@@ -253,9 +253,9 @@
   description: Like normal insulated gloves, but simply better by virtue of being from the Atmospherics department.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Gloves/atmos.rsi
+    sprite: _CorvaxGoob/Clothing/Hands/Gloves/atmosinsuls.rsi # CorvaxGoob-Resprite
   - type: Clothing
-    sprite: _Goobstation/Clothing/Hands/Gloves/atmos.rsi
+    sprite: _CorvaxGoob/Clothing/Hands/Gloves/atmosinsuls.rsi # CorvaxGoob-Resprite
   - type: Fiber
     fiberColor: fibers-blue
 
