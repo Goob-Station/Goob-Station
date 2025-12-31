@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -11,3 +12,7 @@ terror-slaughter-demon = Attention crew, it appears that someone on your station
 terror-lone-operative = Attention crew, it appears that someone on your station has made an unexpected communication with a rival corporation in nearby space.
 terror-wraith = Attention crew, it appears that someone on your station has made an unexpected communication with a vengeful spirit in nearby space.
 terror-slasher = Attention crew, it appears that someone on your station has made an unexpected communication with a notorious serial killer in nearby space.
+terror-vox = Attention crew, it appears that someone on your station has made an unexpected communication with a group of raiders in nearby space.
+terror-blob = Attention crew, it appears that someone on your station has made an unexpected communication with a mad scientist in nearby space.
+terror-grey-tide = Attention crew, it appears that someone on your station has made an unexpected communication with a very robust individual in nearby space.
+terror-rev = Attention crew, it appears that someone on your station has made an unexpected communication with a rival corporation in nearby space.

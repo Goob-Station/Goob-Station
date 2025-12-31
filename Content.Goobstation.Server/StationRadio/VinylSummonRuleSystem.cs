@@ -186,7 +186,7 @@ public sealed class VinylSummonRuleSystem : EntitySystem
 
             // If we have a threat prototype with an announcement, send it
             if (threat != null)
-                _chat.DispatchGlobalAnnouncement(Loc.GetString(threat.Announcement), playSound: true);
+                _chat.DispatchGlobalAnnouncement(Loc.GetString(threat.Announcement), playSound: true, colorOverride: Color.Red);
         }
 
         var vinylXform = Transform(vinylUid);
