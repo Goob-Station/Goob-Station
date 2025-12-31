@@ -16,6 +16,7 @@
     LoneOperative: 1 # Goobstation
     #TODO When Slasher is ready Slasher: 1 # Goobstation
 
+# threats called in by playing the Number Station CD
 - type: weightedRandom
   id: NumberStationThreats
   weights:
