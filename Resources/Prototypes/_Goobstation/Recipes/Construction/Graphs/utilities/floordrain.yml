@@ -15,7 +15,6 @@
       - material: Steel
         amount: 15
         doAfter: 5
-
   - node: FloorDrainNode
     entity: FloorDrain
     edges:
@@ -25,7 +24,3 @@
         doAfter: 5
       - tool: Welding
         doAfter: 10
-
-
-
-
