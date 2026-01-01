@@ -68,7 +68,7 @@
 
 - type: entity
   id: MedkitCombatPurpleFilled
-  suffix: Filled, IPC
+  suffix: Filled, Silicon
   parent: MedkitCombatPurple
   components:
   - type: StorageFill
