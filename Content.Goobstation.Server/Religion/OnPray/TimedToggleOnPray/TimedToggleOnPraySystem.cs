@@ -1,18 +1,13 @@
 using Content.Goobstation.Shared.Religion.Nullrod;
-using Content.Shared.Popups;
 using Content.Shared.Toggleable;
-using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 using Content.Shared.Timing;
 using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
-
 
 namespace Content.Goobstation.Server.Religion.OnPray.TimedToggleOnPray;
 
-public sealed partial class TimedToggleOnPraySystem : EntitySystem
+public sealed class TimedToggleOnPraySystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -26,8 +21,6 @@ public sealed partial class TimedToggleOnPraySystem : EntitySystem
         base.Initialize();
 
         _query = GetEntityQuery<TimedToggleOnPrayComponent>();
-
-
         SubscribeLocalEvent<TimedToggleOnPrayComponent, AlternatePrayEvent>(OnPray);
         SubscribeLocalEvent<TimedToggleOnPrayComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<TimedToggleOnPrayComponent, MapInitEvent>(OnMapInit);
@@ -51,8 +44,6 @@ public sealed partial class TimedToggleOnPraySystem : EntitySystem
     {
         if (_delay.IsDelayed(ent.Owner))
             return;
-
-        var (uid, comp) = ent;
 
         TryActivate((ent, ent.Comp), args.User, predicted: ent.Comp.Predictable);
     }
@@ -81,7 +72,6 @@ public sealed partial class TimedToggleOnPraySystem : EntitySystem
     {
         var (uid, comp) = ent;
         var soundToPlay = comp.SoundActivate;
-        var duration = comp.Duration;
 
         if (!_delay.IsDelayed(ent.Owner))
             _delay.TryResetDelay(ent.Owner);
@@ -92,7 +82,6 @@ public sealed partial class TimedToggleOnPraySystem : EntitySystem
         comp.Time = _timing.CurTime + TimeSpan.FromSeconds(comp.Duration);
         comp.TimerRun = true;
         UpdateVisuals((uid, comp));
-        Dirty(uid, comp);
 
         var toggleUsed = new ItemToggledEvent(predicted, Activated: true, user);
         RaiseLocalEvent(uid, ref toggleUsed);
@@ -125,7 +114,6 @@ public sealed partial class TimedToggleOnPraySystem : EntitySystem
 
         comp.Activated = false;
         UpdateVisuals((uid, comp));
-        Dirty(uid, comp);
 
         var toggleUsed = new ItemToggledEvent(predicted, Activated: false, user);
         RaiseLocalEvent(uid, ref toggleUsed);
