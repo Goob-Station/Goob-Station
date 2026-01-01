@@ -136,26 +136,7 @@ public sealed class EggLayerSystem : EntitySystem
         foreach (var ent in EntitySpawnCollection.GetSpawns(egglayer.EggSpawn, _random))
         {
             // goob edit
-            var trans = Transform(uid);
-            bool succesfull = false;
-            var spawned = Spawn(ent, trans.Coordinates);
-            if (_container.IsEntityInContainer(uid))
-            {
-                var inside = _container.GetContainingContainers(uid);
-                foreach (var container in inside)
-                {
-                    if (_container.Insert(spawned, container))
-                    {
-                        succesfull = true;
-                        break;
-                    }
-                }
-
-                if (!succesfull)
-                {
-                    _transform.AttachToGridOrMap(spawned);
-                }
-            }
+            SpawnNextToOrDrop(ent, uid)
             // goob edit end
         }
 
