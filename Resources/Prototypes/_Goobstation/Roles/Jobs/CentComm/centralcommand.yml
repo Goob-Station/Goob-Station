@@ -262,3 +262,20 @@
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom
     pocket1: BoxFolderCentCom
+
+# Outer Command
+- type: startingGear
+  id: OuterCommandGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOuterCommand
+    shoes: ClothingShoesBootsLaceup
+    head: ClothingHeadHatOuterCommandcap
+    neck: ClothingNeckCloakOuterCommand
+    eyes: ClothingEyesGlassesCommand
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeatherFilledInspector
+    outerClothing: ClothingOuterArmoredJacketOuterCommand
+    id: OuterCommandPDA
+    ears: ClothingHeadsetAltCentCom
+    pocket1: BoxFolderCentCom
+    pocket2: ExecutiveIDCard
