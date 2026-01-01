@@ -131,7 +131,7 @@
   name: EG-1 Taro
   parent: [ BaseWeaponCustomCellSmall, BaseSecurityContraband ]
   id: WeaponLaserCellRevolver
-  description: Originally designed as a sidearm for NanoTrasen security teams, the Taro is an obscure break action energy revolver platform. It was quickly scrapped due to an annoying firerate cap included to prevent overheating. Takes revolver power cells.
+  description: Originally designed as a sidearm for NanoTrasen security teams, the Taro is an obscure break action laser revolver platform. It was quickly scrapped due to an annoying firerate cap included to prevent overheating. Takes revolver power cells.
   components:
   - type: Item
     size: Small
