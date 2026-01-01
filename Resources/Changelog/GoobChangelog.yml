@@ -19849,3 +19849,9 @@ Entries:
         Hushpup and a quarter.
   id: 2244
   time: '2026-01-01T10:02:24.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: DT-8 Terminus is now research locked
+  id: 2245
+  time: '2026-01-01T15:12:30.0000000+00:00'
