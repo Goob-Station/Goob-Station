@@ -18,9 +18,3 @@
       eggLayAction: MouseMultiply
       hungerRequired: true
   - type: EggSack # only for surgery whitelist, doesn't do anything
-  - type: EggLayer
-    eggSpawn:
-    - id: SpawnMobMouse
-    hungerUsage: 20
-    eggLayAction: MouseMultiply
-    hungerRequired: true
