@@ -34,6 +34,8 @@
   description: An early design of the proto-kinetic accelerator.
   components:
   - type: Appearance
+  - type: Item
+    size: Ginormous
   - type: MegafaunaWeaponLooter # TODO reconsider this component entirely
   - type: Sharp
   - type: Execution
@@ -44,12 +46,16 @@
     attackRate: 0.8
     animationRotation: -45
     wideAnimationRotation: -135
-    damage:
-      types:
-        Blunt: 10
-        Slash: 5
     soundHit:
       collection: MetalThud
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: MeleeRequiresWield
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
   - type: UpgradeableGun
   - type: ContainerContainer
     containers:
@@ -57,7 +63,6 @@
       upgrade_slot_main: !type:ContainerSlot
       upgrade_slot_blade: !type:ContainerSlot
       upgrade_slot_handle: !type:ContainerSlot
-      upgrade_slot_special: !type:ContainerSlot
   - type: ItemSlots
     slots:
       flashlight:
@@ -70,45 +75,36 @@
         whitelist:
           components:
           - GunUpgradeFlashlight
-      # Main upgrade is attached to the central part and adds a new attack or defensive ability.
+      # Main upgrade is attached to the central part and is used to add actions
       upgrade_slot_main:
         name: weapon-upgrade-slot-name-main
-        swap: false # can't use the swap...
+        swap: false
         priority: 5
         insertDelay: 3.0 # This is something major
         ejectDelay: 1.8
         whitelist:
           tags:
           - CrusherUpgradeMain
-      # Blade and Handle Secondary upgrade is attached to the respective 2 places and only improve stats
-      upgrade_slot_blade:
-        name: weapon-upgrade-slot-name-blade
-        swap: false # can't use the swap...
-        priority: 4
-        insertDelay: 2.4
-        ejectDelay: 1.2
-        whitelist:
-          tags:
-          - CrusherUpgradeBlade
+      # Handle Secondary upgrade improves damage stats
       upgrade_slot_handle:
         name: weapon-upgrade-slot-name-handle
-        swap: false # can't use the swap...
+        swap: false
         priority: 3
         insertDelay: 2.4
         ejectDelay: 1.2
         whitelist:
           tags:
           - CrusherUpgradeHandle
-      upgrade_slot_special:
-        name: weapon-upgrade-slot-name-special
-        swap: false # can't use the swap...
-        priority: 2
-        insertDelay: 2
-        ejectDelay: 1
+      # Blade Special upgrade applies some effects to attacked enemies
+      upgrade_slot_blade:
+        name: weapon-upgrade-slot-name-blade
+        swap: false
+        priority: 4
+        insertDelay: 2.4
+        ejectDelay: 1.2
         whitelist:
           tags:
-          - CrusherUpgradeSpecial
-      # Special upgrades apply some effects to the user or attacked enemies
+          - CrusherUpgradeBlade
   - type: ItemMapper
     # Imagine if this would support displacement maps.
     # Not that important, but probably required if gun upgrades will become a major mechanic
@@ -125,12 +121,15 @@
         whitelist:
           tags:
           - CrusherUpgradeMainRudeBuster
+  - type: Tag
+    tags:
+    - Pickaxe
 
 # Very high burst damage if you land a mark, while also providing a small amount of healing.
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
   id: WeaponCrusher
-  name: crusher
+  name: crusher axe
   description: An early design of the proto-kinetic accelerator.
   components:
   - type: Sprite
@@ -138,30 +137,17 @@
     layers:
     - state: icon
   - type: Item
-    size: Ginormous
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher-inhands.rsi
   - type: Clothing
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher.rsi
-    quickEquip: false
-    slots:
-    - Back
-    - suitStorage
   - type: MeleeWeapon
-    attackRate: 0.8 # Lavaland Change (slightly faster than fireaxe, still weaker damage wise)
-    animationRotation: -45 # WWDP
+    attackRate: 0.8
+    animationRotation: -45
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 10 # Lavaland Change: no damage when unwielded
-        Slash: 5
-    soundHit:
-      collection: MetalThud
-  - type: Wieldable
-  - type: GunRequiresWield
-  - type: MeleeRequiresWield
-  - type: Tag
-    tags:
-    - Pickaxe
+        Slash: 10
+        Blunt: 5
 
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
@@ -173,83 +159,26 @@
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_glaive.rsi
     state: icon
   - type: Item
-    size: Ginormous
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher-inhands.rsi
   - type: Clothing
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_glaive.rsi
-    quickEquip: false
-    slots:
-    - Back
-    - suitStorage
-  - type: UseDelay
-    delay: 1.9
-  - type: BasicEntityAmmoProvider
-    proto: BulletChargeGlaive
-    capacity: 1
-    count: 1
   - type: LeechOnMarker
     leech:
       groups:
-        Brute: -10 # Lavaland Change: lower crusher healing
-  - type: Tag
-    tags:
-    - Pickaxe
+        Brute: -10
   - type: MeleeWeapon
+    range: 1
     attackRate: 1
-    wideAnimationRotation: -135
-
-- type: entity
-  parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
-  id: LavalandWeaponKineticSpear
-  name: kinetic spear
-  description: A long-ranged melee weapon. Deals less damage than a normal crusher, but has longer attack range.
-  components:
-  - type: Tag
-    tags:
-    - Pickaxe
-  - type: Sprite
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_glaive.rsi
-    state: icon
-  - type: AmmoCounter
-  - type: UseDelayOnShoot
-  - type: UseDelay
-    delay: 0.9
-  - type: Gun
-    soundGunshot: /Audio/Weapons/plasma_cutter.ogg
-    fireRate: 1
-    useKey: false
-  - type: RechargeBasicEntityAmmo
-    rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
-    rechargeCooldown: 0.5
-  - type: BasicEntityAmmoProvider
-    proto: BulletCharge
-    capacity: 1
-    count: 1
-  - type: MeleeWeapon
-    attackRate: 0.65 # insane reach
+    animationRotation: -45
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 10
+        Piercing: 10
         Slash: 5
-    soundHit:
-      collection: MetalThud
-    angle: 0
-    animation: WeaponArcThrust
-    range: 2.2
-  - type: GunRequiresWield
-  - type: Item
-    size: Ginormous
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_glaive-inhands.rsi
-  - type: DisarmMalus
-  - type: Wieldable
-  - type: Sharp
-  - type: MeleeRequiresWield
 
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
-  id: LavalandWeaponKineticHammer
+  id: WeaponCrusherHammer
   name: crusher hammer
   description: A beefy, two-handed weapon that inflicts knockback and heavier damage than a crusher.
   components:
@@ -259,11 +188,11 @@
   - type: UseDelay
     delay: 1
   - type: MeleeWeapon
-    attackRate: 0.70 # slightly slower than the fireaxe
+    attackRate: 0.70
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 17.5
+        Blunt: 15
     soundHit:
       collection: MetalThud
     angle: 0
@@ -280,45 +209,29 @@
   - type: Wieldable
   - type: MeleeRequiresWield
   - type: Tool
-    speedModifier: 1.5 # peak hammer technology
+    speedModifier: 1.5
     useSound:
       path: /Audio/Items/trayhit2.ogg
     qualities:
     - Hammering
 
-# Very high burst damage if you land a mark, while also providing a small amount of healing.
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
   id: WeaponCrusherHalberd
   name: crusher halberd
-  description: An early design of the proto-kinetic accelerator.
+  description: A universal weapon that combines the power of a crusher and the range of a spear.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_halberd.rsi
-    layers:
-    - state: icon
+    state: icon
   - type: Item
     size: Ginormous
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher-inhands.rsi # TODO
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher-inhands.rsi
   - type: Clothing
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_halberd.rsi
-    quickEquip: false
-    slots:
-    - Back
-    - suitStorage
   - type: MeleeWeapon
-    attackRate: 0.8 # Lavaland Change (slightly faster than fireaxe, still weaker damage wise)
-    animationRotation: -45 # WWDP
-    wideAnimationRotation: -135
+    attackRate: 1
     damage:
       types:
-        Blunt: 10 # Lavaland Change: no damage when unwielded
-        Slash: 5
-    soundHit:
-      collection: MetalThud
-  - type: Wieldable
-  - type: GunRequiresWield
-  - type: MeleeRequiresWield
-  - type: Tag
-    tags:
-    - Pickaxe
+        Slash: 10
+        Blunt: 5
