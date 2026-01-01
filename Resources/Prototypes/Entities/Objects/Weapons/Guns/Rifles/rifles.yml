@@ -337,7 +337,7 @@
     selectedMode: Burst
     availableModes:
     - Burst
-    burstFireRate: 11 # Goob
+    burstFireRate: 10 # Goob
   - type: GunWieldBonus
     minAngle: -30 # Goob
     maxAngle: -40 # Goob
@@ -361,8 +361,8 @@
           tags:
           - CartridgeLightRifle # Goob
   - type: SpeedModifiedOnWield
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 3.5 # Goob

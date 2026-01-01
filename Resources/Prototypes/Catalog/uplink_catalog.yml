@@ -712,7 +712,7 @@
   description: uplink-mosin-ammo-desc
   productEntity: MagazineBoxLightRifle
   cost:
-    Telecrystal: 12 # goob
+    Telecrystal: 14 # goob
   categories:
   - UplinkAmmo
 
@@ -723,7 +723,7 @@
   description: uplink-estoc-ammo-desc
   productEntity: MagazineLightRifle
   cost:
-    Telecrystal: 6 # goob - higher ammo cost due to .30 rifle's 40% armour piercing
+    Telecrystal: 7 # goob - higher ammo cost due to .30 rifle's 40% armour piercing
   categories:
   - UplinkAmmo
 
