@@ -113,7 +113,7 @@ uplink-l6-saw-name = L6 Saw
 uplink-l6-saw-desc = More dakka: The iconic L6 light machine gun.
 
 uplink-m90-name = M-90
-uplink-m90-desc = A rugged assault rifle that feeds from .20 Rifle magazines.
+uplink-m90-desc = An M-90 combat rifle.
 
 uplink-estoc-name = Estoc
 uplink-estoc-desc = A designated assault rifle, fitted with a mid-range optic for longer-range combat.
@@ -211,7 +211,7 @@ uplink-high-caliber-shotgun-box-sarin-name = 8 Gauge sarin gas shell box
 uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells for the combat shotgun, which release a small plus-shaped cloud of sarin gas.
 
 uplink-estoc-ammo-name = Rifle Magazine (.20 rifle)
-uplink-estoc-ammo-desc = Rifle magazine with 25 rounds. Compatable with the Estoc and M-90.
+uplink-estoc-ammo-desc = Rifle magazine with 25 rounds. Compatable with the Estoc.
 
 # Grenades
 
