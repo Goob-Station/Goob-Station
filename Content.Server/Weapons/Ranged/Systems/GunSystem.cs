@@ -179,30 +179,30 @@ public sealed partial class GunSystem : SharedGunSystem
         _cfg.OnValueChanged(GoobCVars.CrawlHitzoneSize, value => _crawlHitzoneSize = value, true); // Goobstation
     }
 
-    private void OnBallisticPrice(EntityUid uid, BallisticAmmoProviderComponent component, ref PriceCalculationEvent args)
+    private void OnBallisticPrice(Entity<BallisticAmmoProviderComponent> ent, ref PriceCalculationEvent args)
     {
-        if (string.IsNullOrEmpty(component.Proto) || component.UnspawnedCount == 0)
+        if (string.IsNullOrEmpty(ent.Comp.Proto) || ent.Comp.UnspawnedCount == 0)
             return;
 
-        if (!ProtoManager.TryIndex<EntityPrototype>(component.Proto, out var proto))
+        if (!ProtoManager.TryIndex<EntityPrototype>(ent.Comp.Proto, out var proto))
         {
-            Log.Error($"Unable to find fill prototype for price on {component.Proto} on {ToPrettyString(uid)}");
+            Log.Error($"Unable to find fill prototype for price on {ent.Comp.Proto} on {ToPrettyString(ent)}");
             return;
         }
 
         // Probably good enough for most.
         var price = _pricing.GetEstimatedPrice(proto);
-        args.Price += price * component.UnspawnedCount;
+        args.Price += price * ent.Comp.UnspawnedCount;
     }
 
-    public override void Shoot(EntityUid gunUid, GunComponent gun, List<(EntityUid? Entity, IShootable Shootable)> ammo,
+    public override void Shoot(Entity<GunComponent> gun, List<(EntityUid? Entity, IShootable Shootable)> ammo,
         EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, out bool userImpulse, EntityUid? user = null, bool throwItems = false)
     {
         userImpulse = true;
 
         if (user != null)
         {
-            var selfEvent = new SelfBeforeGunShotEvent(user.Value, (gunUid, gun), ammo);
+            var selfEvent = new SelfBeforeGunShotEvent(user.Value, gun, ammo);
             RaiseLocalEvent(user.Value, selfEvent);
             if (selfEvent.Cancelled)
             {
@@ -238,7 +238,8 @@ public sealed partial class GunSystem : SharedGunSystem
             // pneumatic cannon doesn't shoot bullets it just throws them, ignore ammo handling
             if (throwItems && ent != null)
             {
-                ShootOrThrow(ent.Value, mapDirection, gunVelocity, gun, gunUid, user, targetCoordinates: toMapBeforeRecoil);
+                ShootOrThrow(ent.Value, mapDirection, gunVelocity, gun, user,
+                targetCoordinates: toMapBeforeRecoil); // Goobstation
                 shotProjectiles.Add(ent.Value); // Goobstation
                 continue;
             }
@@ -266,7 +267,7 @@ public sealed partial class GunSystem : SharedGunSystem
                     else
                     {
                         userImpulse = false;
-                        Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
+                        Audio.PlayPredicted(gun.Comp.SoundEmpty, gun, user);
                     }
 
                     // Something like ballistic might want to leave it in the container still
@@ -290,22 +291,22 @@ public sealed partial class GunSystem : SharedGunSystem
                     {
                         FromCoordinates = fromCoordinates,
                         ShotDirection = mapDirection.Normalized(),
-                        Gun = gunUid,
+                        Gun = gun,
                         Shooter = user,
-                        Target = gun.Target,
+                        Target = gun.Comp.Target,
                     };
                     RaiseLocalEvent(ent.Value, ref hitscanEv);
 
                     Del(ent);
 
-                    Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
+                    Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
 
-        RaiseLocalEvent(gunUid, new AmmoShotEvent()
+        RaiseLocalEvent(gun, new AmmoShotEvent()
         {
             FiredProjectiles = shotProjectiles,
         });
@@ -314,7 +315,7 @@ public sealed partial class GunSystem : SharedGunSystem
         if (user.HasValue)
             RaiseLocalEvent(user.Value, new AmmoShotUserEvent()
             {
-                Gun = gunUid,
+                Gun = gun,
                 FiredProjectiles = shotProjectiles,
             });
         // Goobstation end
@@ -324,35 +325,39 @@ public sealed partial class GunSystem : SharedGunSystem
             if (TryComp<ProjectileSpreadComponent>(ammoEnt, out var ammoSpreadComp))
             {
                 var spreadEvent = new GunGetAmmoSpreadEvent(ammoSpreadComp.Spread);
-                RaiseLocalEvent(gunUid, ref spreadEvent);
+                RaiseLocalEvent(gun, ref spreadEvent);
 
                 var angles = LinearSpread(mapAngle - spreadEvent.Spread / 2,
                     mapAngle + spreadEvent.Spread / 2, ammoSpreadComp.Count);
 
-                ShootOrThrow(ammoEnt, angles[0].ToVec(), gunVelocity, gun, gunUid, user, targetCoordinates: toMapBeforeRecoil); // Goobstation
+                ShootOrThrow(ammoEnt, angles[0].ToVec(), gunVelocity, gun, user,
+                    targetCoordinates: toMapBeforeRecoil); // Goobstation
                 shotProjectiles.Add(ammoEnt);
 
                 for (var i = 1; i < ammoSpreadComp.Count; i++)
                 {
                     var newuid = Spawn(ammoSpreadComp.Proto, fromEnt);
                     // Lavaland Change: Raise event when a projectile/pellet is fired from a gun.
-                    RaiseLocalEvent(gunUid, new ProjectileShotEvent()
+                    RaiseLocalEvent(gun, new ProjectileShotEvent()
                     {
                         FiredProjectile = newuid
                     });
                     SetProjectilePerfectHitEntities(newuid, user, new MapCoordinates(toMap, fromMap.MapId));
-                    ShootOrThrow(newuid, angles[i].ToVec(), gunVelocity, gun, gunUid, user, targetCoordinates: toMapBeforeRecoil); // Goobstation
+                    // Lavaland end
+                    ShootOrThrow(newuid, angles[i].ToVec(), gunVelocity, gun, user,
+                    targetCoordinates: toMapBeforeRecoil); // Goob
                     shotProjectiles.Add(newuid);
                 }
             }
             else
             {
-                ShootOrThrow(ammoEnt, mapDirection, gunVelocity, gun, gunUid, user, targetCoordinates: toMapBeforeRecoil); // Goobstation
+                ShootOrThrow(ammoEnt, mapDirection, gunVelocity, gun, user,
+                targetCoordinates: toMapBeforeRecoil); // Goobstation
                 shotProjectiles.Add(ammoEnt);
             }
 
-            MuzzleFlash(gunUid, ammoComp, mapDirection.ToAngle(), user);
-            Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
+            MuzzleFlash(gun, ammoComp, mapDirection.ToAngle(), user);
+            Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
         }
     }
 
@@ -403,9 +408,10 @@ public sealed partial class GunSystem : SharedGunSystem
     }
     // Goobstation end
 
-    private void ShootOrThrow(EntityUid uid, Vector2 mapDirection, Vector2 gunVelocity, GunComponent gun, EntityUid gunUid, EntityUid? user, Vector2? targetCoordinates = null) // Goobstation
+    private void ShootOrThrow(EntityUid uid, Vector2 mapDirection, Vector2 gunVelocity, Entity<GunComponent> gun, EntityUid? user,
+        Vector2? targetCoordinates = null) // Goobstation
     {
-        if (gun.Target is { } target && !TerminatingOrDeleted(target))
+        if (gun.Comp.Target is { } target && !TerminatingOrDeleted(target))
         {
             var targeted = EnsureComp<TargetedProjectileComponent>(uid);
             targeted.Target = target;
@@ -417,11 +423,12 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             RemoveShootable(uid);
             // TODO: Someone can probably yeet this a billion miles so need to pre-validate input somewhere up the call stack.
-            ThrowingSystem.TryThrow(uid, mapDirection, gun.ProjectileSpeedModified, user);
+            ThrowingSystem.TryThrow(uid, mapDirection, gun.Comp.ProjectileSpeedModified, user);
             return;
         }
 
-        ShootProjectile(uid, mapDirection, gunVelocity, gunUid, user, gun.ProjectileSpeedModified, targetCoordinates); // Goobstation
+        ShootProjectile(uid, mapDirection, gunVelocity, gun, user, gun.Comp.ProjectileSpeedModified,
+        targetCoordinates); // Goobstation
     }
 
     /// <summary>

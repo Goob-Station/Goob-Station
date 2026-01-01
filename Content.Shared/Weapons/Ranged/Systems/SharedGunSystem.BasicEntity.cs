@@ -23,87 +23,82 @@ public abstract partial class SharedGunSystem
         SubscribeLocalEvent<BasicEntityAmmoProviderComponent, GetAmmoCountEvent>(OnBasicEntityAmmoCount);
     }
 
-    private void OnBasicEntityMapInit(EntityUid uid, BasicEntityAmmoProviderComponent component, MapInitEvent args)
+    private void OnBasicEntityMapInit(Entity<BasicEntityAmmoProviderComponent> ent, ref MapInitEvent args)
     {
-        if (component.Count is null)
+        if (ent.Comp.Count is null)
         {
-            component.Count = component.Capacity;
-            Dirty(uid, component);
+            ent.Comp.Count = ent.Comp.Capacity;
+            Dirty(ent);
         }
 
-        UpdateBasicEntityAppearance(uid, component);
+        UpdateBasicEntityAppearance(ent);
     }
 
-    private void OnBasicEntityTakeAmmo(EntityUid uid, BasicEntityAmmoProviderComponent component, TakeAmmoEvent args)
+    private void OnBasicEntityTakeAmmo(Entity<BasicEntityAmmoProviderComponent> ent, ref TakeAmmoEvent args)
     {
         // Goobstation start
         WeightedRandomEntityPrototype? prototypes = null;
-        if (component.Proto == null && (!ProtoManager.TryIndex(component.Prototypes, out prototypes) ||
+        if (ent.Comp.Proto == null && (!ProtoManager.TryIndex(ent.Comp.Prototypes, out prototypes) ||
                                         prototypes.Weights.Count == 0))
             return;
         // Goobstation end
 
         for (var i = 0; i < args.Shots; i++)
         {
-            if (component.Count <= 0)
+            if (ent.Comp.Count <= 0)
                 return;
 
-            if (component.Count != null)
-            {
-                component.Count--;
-            }
+            if (ent.Comp.Count != null)
+                ent.Comp.Count--;
 
             // Goob edit start
-            var proto = component.Proto ?? prototypes!.Pick(Random);
-            var ent = Spawn(proto, args.Coordinates);
+            var proto = ent.Comp.Proto ?? prototypes!.Pick(Random);
+            var ammoEnt = Spawn(proto, args.Coordinates);
             // Goob edit end
-            args.Ammo.Add((ent, EnsureShootable(ent)));
+            args.Ammo.Add((ammoEnt, EnsureShootable(ammoEnt)));
         }
 
-        _recharge.Reset(uid);
-        UpdateBasicEntityAppearance(uid, component);
-        Dirty(uid, component);
+        _recharge.Reset(ent.Owner);
+        UpdateBasicEntityAppearance(ent);
+        Dirty(ent);
     }
 
-    private void OnBasicEntityAmmoCount(EntityUid uid, BasicEntityAmmoProviderComponent component, ref GetAmmoCountEvent args)
+    private void OnBasicEntityAmmoCount(Entity<BasicEntityAmmoProviderComponent> ent, ref GetAmmoCountEvent args)
     {
-        args.Capacity = component.Capacity ?? int.MaxValue;
-        args.Count = component.Count ?? int.MaxValue;
-        if (component is { Proto: null, Prototypes: null }) // Goobstation
+        args.Capacity = ent.Comp.Capacity ?? int.MaxValue;
+        args.Count = ent.Comp.Count ?? int.MaxValue;
+        if (ent.Comp is { Proto: null, Prototypes: null }) // Goobstation
             args.Count = 0;
     }
 
-    private void UpdateBasicEntityAppearance(EntityUid uid, BasicEntityAmmoProviderComponent component)
+    private void UpdateBasicEntityAppearance(Entity<BasicEntityAmmoProviderComponent> ent)
     {
-        if (!Timing.IsFirstTimePredicted || !TryComp<AppearanceComponent>(uid, out var appearance))
+        if (!Timing.IsFirstTimePredicted || !TryComp<AppearanceComponent>(ent, out var appearance))
             return;
 
-        Appearance.SetData(uid, AmmoVisuals.HasAmmo, component.Count != 0, appearance);
-        Appearance.SetData(uid, AmmoVisuals.AmmoCount, component.Count ?? int.MaxValue, appearance);
-        Appearance.SetData(uid, AmmoVisuals.AmmoMax, component.Capacity ?? int.MaxValue, appearance);
+        Appearance.SetData(ent, AmmoVisuals.HasAmmo, ent.Comp.Count != 0, appearance);
+        Appearance.SetData(ent, AmmoVisuals.AmmoCount, ent.Comp.Count ?? int.MaxValue, appearance);
+        Appearance.SetData(ent, AmmoVisuals.AmmoMax, ent.Comp.Capacity ?? int.MaxValue, appearance);
     }
 
     #region Public API
-    public bool ChangeBasicEntityAmmoCount(EntityUid uid, int delta, BasicEntityAmmoProviderComponent? component = null)
+    public bool ChangeBasicEntityAmmoCount(Entity<BasicEntityAmmoProviderComponent?> ent, int delta)
     {
-        if (!Resolve(uid, ref component, false) || component.Count == null)
+        if (!Resolve(ent, ref ent.Comp, false) || ent.Comp.Count == null)
             return false;
 
-        return UpdateBasicEntityAmmoCount(uid, component.Count.Value + delta, component);
+        return UpdateBasicEntityAmmoCount((ent.Owner, ent.Comp), ent.Comp.Count.Value + delta);
     }
 
-    public bool UpdateBasicEntityAmmoCount(EntityUid uid, int count, BasicEntityAmmoProviderComponent? component = null)
+    public bool UpdateBasicEntityAmmoCount(Entity<BasicEntityAmmoProviderComponent?> ent, int count)
     {
-        if (!Resolve(uid, ref component, false))
+        if (!Resolve(ent, ref ent.Comp, false) || count > ent.Comp.Capacity)
             return false;
 
-        if (count > component.Capacity)
-            return false;
-
-        component.Count = count;
-        UpdateBasicEntityAppearance(uid, component);
-        UpdateAmmoCount(uid);
-        Dirty(uid, component);
+        ent.Comp.Count = count;
+        UpdateBasicEntityAppearance((ent.Owner, ent.Comp));
+        UpdateAmmoCount(ent);
+        Dirty(ent);
 
         return true;
     }

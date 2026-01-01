@@ -29,9 +29,9 @@ public sealed class RechargeBasicEntityAmmoSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly MetaDataSystem _metadata = default!;
 
     public override void Initialize()
     {
@@ -54,7 +54,7 @@ public sealed class RechargeBasicEntityAmmoSystem : EntitySystem
             if (recharge.NextCharge > _timing.CurTime)
                 continue;
 
-            if (_gun.UpdateBasicEntityAmmoCount(uid, ammo.Count.Value + 1, ammo))
+            if (_gun.UpdateBasicEntityAmmoCount((uid, ammo), ammo.Count.Value + 1))
             {
                 // We don't predict this because occasionally on client it may not play.
                 // PlayPredicted will still be predicted on the client.
@@ -79,43 +79,44 @@ public sealed class RechargeBasicEntityAmmoSystem : EntitySystem
         }
     }
 
-    private void OnInit(EntityUid uid, RechargeBasicEntityAmmoComponent component, MapInitEvent args)
+    private void OnInit(Entity<RechargeBasicEntityAmmoComponent> ent, ref MapInitEvent args)
     {
-        component.NextCharge = _timing.CurTime;
-        Dirty(uid, component);
+        ent.Comp.NextCharge = _timing.CurTime;
+        Dirty(ent);
     }
 
-    private void OnExamined(EntityUid uid, RechargeBasicEntityAmmoComponent component, ExaminedEvent args)
+    private void OnExamined(Entity<RechargeBasicEntityAmmoComponent> ent, ref ExaminedEvent args)
     {
-        if (!component.ShowExamineText)
+        if (!ent.Comp.ShowExamineText)
             return;
 
-        if (!TryComp<BasicEntityAmmoProviderComponent>(uid, out var ammo)
+        if (!TryComp<BasicEntityAmmoProviderComponent>(ent, out var ammo)
             || ammo.Count == ammo.Capacity ||
-            component.NextCharge == null)
+            ent.Comp.NextCharge == null)
         {
             args.PushMarkup(Loc.GetString("recharge-basic-entity-ammo-full"));
             return;
         }
 
-        var timeLeft = component.NextCharge + _metadata.GetPauseTime(uid) - _timing.CurTime;
+        var timeLeft = ent.Comp.NextCharge + _metadata.GetPauseTime(ent) - _timing.CurTime;
         args.PushMarkup(Loc.GetString("recharge-basic-entity-ammo-can-recharge", ("seconds", Math.Round(timeLeft.Value.TotalSeconds, 1))));
     }
 
-    public void Reset(EntityUid uid, RechargeBasicEntityAmmoComponent? recharge = null)
+    public void Reset(Entity<RechargeBasicEntityAmmoComponent?> ent)
     {
-        if (!Resolve(uid, ref recharge, false))
+        if (!Resolve(ent, ref ent.Comp, false))
             return;
 
-        if (recharge.NextCharge == null || recharge.NextCharge < _timing.CurTime)
+        if (ent.Comp.NextCharge == null || ent.Comp.NextCharge < _timing.CurTime)
         {
             // Goobstation
             float multiplier = 1f;
             var ev = new RechargeBasicEntityAmmoGetCooldownModifiersEvent(multiplier);
-            RaiseLocalEvent(uid, ref ev);
+            RaiseLocalEvent(ent, ref ev);
 
-            recharge.NextCharge = _timing.CurTime + TimeSpan.FromSeconds(recharge.RechargeCooldown * ev.Multiplier); // Goobstation
-            Dirty(uid, recharge);
+
+            ent.Comp.NextCharge = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.RechargeCooldown);
+            Dirty(ent);
         }
     }
 }

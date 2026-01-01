@@ -97,7 +97,9 @@ public partial class SharedGunSystem
 
     private void OnClothingTakeAmmo(EntityUid uid, ClothingSlotAmmoProviderComponent component, TakeAmmoEvent args)
     {
-        if (!TryGetClothingSlotEntity(uid, component, out var entity))
+        var getConnectedContainerEvent = new GetConnectedContainerEvent();
+        RaiseLocalEvent(uid, ref getConnectedContainerEvent);
+        if (!getConnectedContainerEvent.ContainerEntity.HasValue)
             return;
         RaiseLocalEvent(entity.Value, args);
     }
