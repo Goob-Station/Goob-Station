@@ -40,9 +40,12 @@
   equipment:
     outerClothing: ClothingOuterBlueshieldArmourKimono
 
-# Belt
-- type: loadout #BSO's belt - Moved to Loadout
-  id: BeltAssaultFilled
+# Neck
+- type: loadout
+  id: BlueshieldOfficerOuterBlueshieldMantleBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
   equipment:
     neck: ClothingNeckMantleTwoBlueshield
 
@@ -51,3 +54,12 @@
   id: BeltAssaultFilled
   equipment:
     belt: ClothingBeltAssaultFilled
+
+# boots
+- type: loadout
+  id: BSOAdvancedJackBoots
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
+  equipment:
+    shoes: ClothingShoesBootsBSOJackAdvancedFilled
