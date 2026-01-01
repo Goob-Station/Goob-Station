@@ -5180,3 +5180,14 @@ Entries:
   id: 9348
   time: '2026-01-01T05:42:54.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42158
+- author: Samuka
+  changes:
+  - message: xenoborg thrusters can't be toggled off
+    type: Tweak
+  - message: xenoborg thrusters can't unwrenched
+    type: Tweak
+  - message: xenoborg thrusters can't be rotated while anchored
+    type: Tweak
+  id: 9349
+  time: '2026-01-01T21:36:57.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42201
