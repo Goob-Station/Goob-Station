@@ -109,18 +109,21 @@
     layers:
     - state: green
     - state: ai
-  - type: ConditionalSpawner
-    prototypes:
-    - MobCorgiIan
-      Weight: 3
-    - MobCorgiIanOld
-      Weight: 2.5
-    - MobCorgiLisa
-      Weight: 2.25
-    - MobCorgiIanPup
-      Weight: 2
-    - MobCorgiIanClown
-      Weight: 0.25
+  - type: EntityTableSpawner
+    offset: 0
+    deleteSpawnerAfterSpawn: false
+    table: !type:GroupSelector
+      children:
+      - id: MobCorgiIan
+        weight: 3
+      - id: MobCorgiIanOld
+        weight: 2.5
+      - id: MobCorgiLisa
+        weight: 2.25
+      - id: MobCorgiIanPup
+        weight: 2
+      - id: MobCorgiIanClown
+        weight: 0.25
 
 - type: entity
   parent: MarkerBase
