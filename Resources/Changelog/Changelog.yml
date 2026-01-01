@@ -5173,3 +5173,10 @@ Entries:
   id: 9347
   time: '2025-12-31T01:52:22.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42181
+- author: Princess-Cheeseballs
+  changes:
+  - message: You can now spill the contents out of hyposprays and jet injectors
+    type: Tweak
+  id: 9348
+  time: '2026-01-01T05:42:54.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42158
