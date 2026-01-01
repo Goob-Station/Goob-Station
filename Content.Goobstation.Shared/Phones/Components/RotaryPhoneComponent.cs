@@ -1,5 +1,7 @@
+using Content.Shared.DeviceLinking;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
@@ -61,6 +63,24 @@ public sealed partial class RotaryPhoneComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? ConnectedPlayer;
+
+    /// <summary>
+    /// What player is holding the other phone
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? ConnectedPhoneStand;
+
+    [DataField]
+    public ProtoId<SourcePortPrototype> RingPort = "PhoneRingPort";
+
+    [DataField]
+    public ProtoId<SourcePortPrototype> OutGoingPort = "PhoneOutgoingPort";
+
+    [DataField]
+    public ProtoId<SourcePortPrototype> PickUpPort = "PhonePickupPort";
+
+    [DataField]
+    public ProtoId<SourcePortPrototype> HangUpPort = "PhoneHangupPort";
 
     #region sounds
 

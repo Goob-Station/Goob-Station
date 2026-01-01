@@ -30,7 +30,7 @@
     - RobotTalk
 
 - type: entity
-  parent: BaseStructure
+  parent: [BaseStructure, BaseItem]
   id: RotaryPhoneStand
   name: phone stand
   description: it's a phone stand
@@ -39,10 +39,29 @@
     sprite: _RMC14/Objects/phone/rotary_phone.rsi
     granularLayersRendering: true
     state: rotary_phone_ear
+  - type: Anchorable
   - type: RotaryPhoneHolder
   - type: ContainerContainer
     containers:
       phone: !type:ContainerSlot
+  - type: DeviceLinkSource
+    ports:
+    - PhoneRingPort
+    - PhoneOutgoingPort
+    - PhonePickupPort
+    - PhoneHangupPort
+  - type: Damageable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: ItemSlots
     slots:
       phone:
@@ -221,11 +240,3 @@
         insertSound: /Audio/_RMC14/phone/sound_machines_phones_hang_up.ogg
         ejectSound: /Audio/_RMC14/phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhoneService
-
-- type: entity
-  parent: BaseItem
-  id: MobilePhone
-  name: mobile phone
-  description: it's a phone
-  components:
-  - type: MobilePhone

@@ -1,6 +1,7 @@
 using Content.Goobstation.Shared.Phones.Components;
 using Content.Goobstation.Shared.Phones.Events;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.DeviceLinking;
 using Content.Shared.Examine;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
@@ -22,7 +23,8 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedJointSystem _jointSystem = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly SharedDeviceLinkSystem _deviceLinkSystem = default!;
 
     public override void Initialize()
     {
@@ -84,6 +86,7 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         if (TryComp<RotaryPhoneComponent>(args.Entity, out var phone))
         {
             comp.PhoneNumber = phone.PhoneNumber;
+            phone.ConnectedPhoneStand = uid;
         }
     }
 
@@ -108,6 +111,7 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
 
         _popupSystem.PopupPredicted(Loc.GetString("phone-popup-ring", ("location", args.otherPhoneComponent.Name ?? "Unknown")), uid, args.phone, PopupType.Medium);
 
+        RaiseDeviceNetworkEvent(comp.ConnectedPhoneStand, comp.RingPort);
         comp.ConnectedPhone = args.phone;
 
         if(audio != null)
@@ -121,6 +125,7 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         if (!TryComp<RotaryPhoneHolderComponent>(args.Container.Owner, out var _))
             return;
 
+        RaiseDeviceNetworkEvent(comp.ConnectedPhoneStand, comp.PickUpPort);
         comp.Engaged = true;
 
         if (_net.IsServer && !Deleted(uid) && !Terminating(uid))
@@ -151,6 +156,7 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
             Dirty(uid, comp);
         }
 
+        RaiseDeviceNetworkEvent(comp.ConnectedPhoneStand, comp.HangUpPort);
         DisconnectPhones(comp);
 
     }
@@ -204,6 +210,14 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         thisPhone.ConnectedPhone = null;
         thisPhone.Engaged = false;
         thisPhone.Connected = false;
+    }
+
+    public void RaiseDeviceNetworkEvent(EntityUid? phoneStand, string portName)
+    {
+        if(phoneStand == null)
+            return;
+
+        _deviceLinkSystem.InvokePort(phoneStand.Value, portName);
     }
 
 }

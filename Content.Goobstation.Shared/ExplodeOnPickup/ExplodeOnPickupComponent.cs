@@ -22,13 +22,4 @@ public sealed partial class ExplodeOnPickupComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool CreateVacuum;
-
-    [DataField, AutoNetworkedField]
-    public bool Exploded;
-
-    /// <summary>
-    /// Should it explode the first time it is picked up, or every time
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool AlwaysExplode;
 }

@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Goobstation.Shared.Phones.Components;
 using Content.Goobstation.Shared.Phones.Events;
+using Content.Goobstation.Shared.Phones.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Radio.Components;
 using Content.Server.Speech;
@@ -23,6 +24,7 @@ public sealed class RotaryPhoneSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly SharedRotaryPhoneSystem _rotaryPhoneSystem = default!;
 
     public override void Initialize()
     {
@@ -106,6 +108,7 @@ public sealed class RotaryPhoneSystem : EntitySystem
                         comp.ConnectedPhone = phone;
                         phoneComp.Engaged = true;
                         var audio = _audio.PlayPvs(comp.RingingSound, uid, AudioParams.Default.WithLoop(true));
+                        _rotaryPhoneSystem.RaiseDeviceNetworkEvent(comp.ConnectedPhoneStand, comp.OutGoingPort);
                         if (audio != null)
                             comp.SoundEntity = audio.Value.Entity;
 

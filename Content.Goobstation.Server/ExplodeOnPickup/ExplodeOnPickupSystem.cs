@@ -14,10 +14,7 @@ public sealed class ExplodeOnPickupSystem : EntitySystem
 
     private void OnPickup(EntityUid uid, ExplodeOnPickupComponent comp, GettingPickedUpAttemptEvent args)
     {
-        if(comp.Exploded)
-            return;
-
         _explosionSystem.QueueExplosion(uid, comp.ExplosionType, comp.ExplosionIntensity, comp.Slope, comp.TileIntensity, canCreateVacuum: comp.CreateVacuum);
-        comp.Exploded = true;
+        RemComp<ExplodeOnPickupComponent>(uid);
     }
 }

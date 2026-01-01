@@ -186,3 +186,25 @@
   id: StationRadioServerPort
   name: signal-port-name-radio-server
   description: signal-port-description-radio-server
+
+# Phones
+
+- type: sourcePort
+  id: PhoneRingPort
+  name: signal-port-name-phone-call
+  description: signal-port-description-phone-call
+
+- type: sourcePort
+  id: PhoneOutgoingPort
+  name: signal-port-name-phone-outgoing
+  description: signal-port-description-phone-outgoing
+
+- type: sourcePort
+  id: PhonePickupPort
+  name: signal-port-name-phone-pickup
+  description: signal-port-description-phone-pickup
+
+- type: sourcePort
+  id: PhoneHangupPort
+  name: signal-port-name-phone-hangup
+  description: signal-port-description-phone-hangup
