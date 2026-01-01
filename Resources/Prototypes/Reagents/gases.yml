@@ -328,7 +328,7 @@
           type: Hydrakin
         - !type:ReagentThreshold
           reagent: Plasma
-          min: 0.5
+          min: 0.01
         damage:
           types:
             Heat: -0.5
@@ -413,7 +413,7 @@
           type: Hydrakin
         - !type:ReagentThreshold
           reagent: Tritium
-          min: 0.5
+          min: 0.01
         damage:
           types:
             Heat: -0.5
@@ -596,7 +596,7 @@
           type: Hydrakin
         - !type:ReagentThreshold
           reagent: NitrousOxide
-          min: 0.75
+          min: 0.05
       - !type:Emote
         conditions:
         - !type:ReagentThreshold
@@ -793,6 +793,9 @@
         - !type:ReagentThreshold
           reagent: Frezon
           min: 1
+        - !type:OrganType # Mono
+          type: Hydrakin
+          shouldHave: false
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 500
@@ -803,6 +806,9 @@
         - !type:ReagentThreshold
           reagent: Frezon
           min: 1
+        - !type:OrganType # Mono
+          type: Hydrakin
+          shouldHave: false
       - !type:PopupMessage
         type: Local
         messages: [ "frezon-lungs-cold" ]
@@ -811,6 +817,9 @@
         - !type:ReagentThreshold
           reagent: Frezon
           min: 0.5
+        - !type:OrganType # Mono
+          type: Hydrakin
+          shouldHave: false
       - !type:PopupMessage
         type: Local
         visualType: Medium
@@ -820,11 +829,14 @@
         - !type:ReagentThreshold
           reagent: Frezon
           min: 1
+        - !type:OrganType # Mono
+          type: Hydrakin
+          shouldHave: false
       - !type:AdjustTemperature # Mono - Hydrakin
         conditions:
         - !type:ReagentThreshold
           reagent: Frezon
-          min: 0.25
+          min: 0.045
         - !type:Temperature
           min: 215.15
         - !type:OrganType

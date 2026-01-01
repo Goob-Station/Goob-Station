@@ -334,12 +334,21 @@
               Airloss: -3
               Brute: -3
               Burn: -3
+        - !type:GenericStatusEffect # Mono edit
+          conditions:
+          - !type:OrganType #
+            type: Hydrakin
+          - !type:Temperature
+            max: 213.0
+          key: ForcedSleep
+          component: ForcedSleeping
+          refresh: false
+          type: Add
 
 - type: reagent
   id: Doxarubixadone
   name: reagent-name-doxarubixadone
   group: Medicine
-  desc: reagent-desc-doxarubixadone
   physicalDesc: reagent-physical-desc-bubbling
   flavor: medicine
   color: "#32cd32"
@@ -357,7 +366,19 @@
             scale: 1.6
           damage:
             types:
-             Cellular: -2
+                Cellular: -2
+            groups: # Frontier
+                Brute: 1 # Frontier
+        - !type:GenericStatusEffect # Mono edit
+          conditions:
+          - !type:OrganType #
+            type: Hydrakin
+          - !type:Temperature
+            max: 213.0
+          key: ForcedSleep
+          component: ForcedSleeping
+          refresh: false
+          type: Add
 
 - type: reagent
   id: Dermaline
@@ -1627,6 +1648,17 @@
               Brute: -5.0
               Burn: -5.0
               Toxin: -5.0
+        - !type:GenericStatusEffect # Mono edit
+          conditions:
+          - !type:OrganType
+            type: Hydrakin
+          - !type:Temperature
+            max: 217.15
+          key: ForcedSleep
+          component: ForcedSleeping
+          refresh: false
+          type: Add
+
 
 - type: reagent
   id : Aloxadone
@@ -1653,6 +1685,16 @@
             Heat: -10.0
             Shock: -10.0
             Caustic: -10.0
+      - !type:GenericStatusEffect # Mono edit
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+        - !type:Temperature
+          max: 213.0
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
 
 - type: reagent
   id : Mannitol # currently this is just a way to create psicodine
