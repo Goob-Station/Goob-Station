@@ -6,7 +6,7 @@
     - to: unfinished
       steps:
       - material: Plastic
-        amount: 4
+        amount: 2
         doAfter: 3
       - material: ReinforcedGlass
         amount: 4

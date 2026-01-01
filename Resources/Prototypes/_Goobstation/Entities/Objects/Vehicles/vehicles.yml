@@ -392,9 +392,55 @@
     containers:
       crate_storage: !type:Container
 
+
+- type: entity
+  id: BaseEnvironmentVehicle
+  parent: BaseVehicle
+  abstract: true
+  save: false
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AirFilter # Copypaste major
+    # everything except oxygen and nitrogen
+    gases:
+    - CarbonDioxide
+    - Plasma
+    - Tritium
+    - WaterVapor
+    - Ammonia
+    - NitrousOxide
+    - Frezon
+    #- Helium3 TODO: fusion
+    # healium not included for ADVANCED trolling 
+    - BZ
+    - Nitrium
+    # remove everything except oxygen to maintain oxygen ratio
+    overflowGases:
+    - Nitrogen
+    - CarbonDioxide
+    - Plasma
+    - Tritium
+    - WaterVapor
+    - Ammonia
+    - NitrousOxide
+    - Frezon
+    #- Helium3 TODO: fusion
+    # <Goobstation>
+    - BZ
+    - Healium
+    - Nitrium
+    - Pluoxium
+  - type: AirIntake
+  # for intake and filter to work
+  - type: AtmosDevice
+    requireAnchored: false
+    joinSystem: true
+  - type: VehicleEnvironment
+    requireTank: true
+
 - type: entity
   id: CritterBall
-  parent: BaseVehicle
+  parent: BaseEnvironmentVehicle
   name: critter ball
   description: A composite-glass sphere to safely store small animals in case of spacing, or a low oxygen environment. Additionally, it has storage for a air tank, and ID card for those VIP pets.
   components:
@@ -418,10 +464,9 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 125
-  - type: SpaceImmunityOnBuckle
   - type: Strap
-    buckleOnInteractHand: false
-    addBuckleverb: false
+    buckleOnInteractHand: true
+    addBuckleverb: true
     allowOthersToUnbuckle: false
     whitelist:
       tags:
@@ -443,7 +488,8 @@
   - type: Construction
     graph: CritterBallGraph
     node: end
-  - type: ResistLocker
+  - type: VehicleEnvironment
+    requireTank: true
 
 - type: entity
   parent: BaseItem

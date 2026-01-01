@@ -237,6 +237,10 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         if (HasComp<TileMovementComponent>(driver))
             EnsureComp<TileMovementComponent>(vehicle);
+
+        // Adds the VehicleDriver component to the driver.
+        var driverComp = EnsureComp<VehicleDriverComponent>(driver);
+        driverComp.Vehicle = vehicle;
     }
 
     private void Dismount(EntityUid driver, EntityUid vehicle)
@@ -245,7 +249,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
             return;
 
         vehicleComp.Driver = null;
-
+        
         if (vehicleComp.ActiveOverlay.HasValue)
         {
             EntityManager.QueueDeleteEntity(vehicleComp.ActiveOverlay.Value);
@@ -262,6 +266,10 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         if (HasComp<TileMovementComponent>(vehicle))
             RemComp<TileMovementComponent>(vehicle);
+
+        // Removes the VehicleDriver component to the driver.
+        if (HasComp<VehicleDriverComponent>(driver))
+            RemComp<VehicleDriverComponent>(driver);
     }
 
     private void OnItemSlotEject(EntityUid uid, VehicleComponent comp, ref ItemSlotEjectAttemptEvent args)
