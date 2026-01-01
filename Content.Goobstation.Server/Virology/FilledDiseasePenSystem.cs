@@ -7,10 +7,12 @@ namespace Content.Goobstation.Server.Virology;
 public sealed class FilledDiseasePenSystem : EntitySystem
 {
     [Dependency] private readonly SharedDiseaseSystem _disease = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<DiseasePenComponent, MapInitEvent>(OnMapInit);
     }
+
     private void OnMapInit(Entity<DiseasePenComponent> ent, ref MapInitEvent args)
     {
         //Impossible to happen but just to make sure it isn't from machine
@@ -32,7 +34,6 @@ public sealed class FilledDiseasePenSystem : EntitySystem
             return;
 
         var genotype = comp.Genotype;
-
         ent.Comp.Genotype = genotype;
 
         //Delete after disease have been created
