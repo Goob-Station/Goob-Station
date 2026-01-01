@@ -4,7 +4,7 @@
 
 - type: entity
   id: BaseHydrakinOrgan
-  name: hydrakin organ 
+  name: hydrakin organ
   parent: [BaseItem]
   abstract: true
   components:
@@ -36,7 +36,7 @@
     slotId: stomach
   - type: Metabolizer
     maxReagents: 3
-    metabolizerTypes: [ Animal ]
+    metabolizerTypes: [ Animal, Hydrakin ]
     removeEmpty: true
   - type: SolutionContainerManager
     solutions:
@@ -72,11 +72,20 @@
   - type: Liver # Shitmed Change
   - type: Organ # Shitmed Change
     slotId: liver # Shitmed Change
+  - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
+    maxReagents: 1
+    metabolizerTypes: [Human]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
 
 - type: entity
   id: OrganHydrakinHeart
   parent: [ BaseHydrakinOrgan , OrganHumanHeart ]
   name: hydrakin heart
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Hydrakin ]
 
 - type: entity
   id: OrganHydrakinLungs
