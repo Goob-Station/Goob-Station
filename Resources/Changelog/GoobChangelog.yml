@@ -19841,3 +19841,11 @@ Entries:
       message: Syringe case storage size changed from 2x5 to 2x3
   id: 2243
   time: '2025-12-30T14:07:04.0000000+00:00'
+- author: Doppiofrog
+  changes:
+    - type: Add
+      message: >-
+        Added the Hushpup silenced shotgun, a 30 TC bundle that comes with the
+        Hushpup and a quarter.
+  id: 2244
+  time: '2026-01-01T10:02:24.0000000+00:00'
