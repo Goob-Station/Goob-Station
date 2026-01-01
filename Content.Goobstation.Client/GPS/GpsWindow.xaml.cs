@@ -68,7 +68,9 @@ public sealed partial class GpsWindow : BaseWindow
         if (!_entityManager.TryGetComponent(owner, out GPSComponent? gps))
             return;
 
-        _lastEnteredText ??= gps.GpsName;
+        if (string.IsNullOrEmpty(_lastEnteredText))
+            _lastEnteredText = gps.GpsName;
+
         _inDistress = gps.InDistress;
         _enabled = gps.Enabled;
         _owner = owner;
@@ -76,8 +78,8 @@ public sealed partial class GpsWindow : BaseWindow
         EnabledButton.Text = gps.Enabled ? Loc.GetString("gps-window-visibility-on") : Loc.GetString("gps-window-visibility-off");
         DistressButton.ModulateSelfOverride = gps.InDistress ? Color.Red : null;
 
-        if (_lastEnteredText != gps.GpsName && !_timing.IsFirstTimePredicted)
-            GpsName.Text = gps.GpsName;
+        if (_lastEnteredText != gps.GpsName && _timing.IsFirstTimePredicted)
+            GpsName.Text = _lastEnteredText;
 
         UpdateTrackedEntity(gps.GpsEntries, gps.TrackedEntity);
         UpdateGpsEntries(gps.GpsEntries, gps.TrackedEntity);

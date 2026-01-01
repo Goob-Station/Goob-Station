@@ -17,23 +17,26 @@ public sealed partial class CompassControl : LayoutContainer
     private MapCoordinates _gpsCoordinates;
     private NetEntity? _trackedEntity;
     private List<GpsEntry> _gpsEntries = new();
-    private float _zoom = 1f;
+    private float _zoom = 6f;
 
-    private const int GridLinesPerZoom = 10;
+    private const float GridLinesPerMeter = 4f;
+    private const int GridMetersPerZoom = 16; // GridMetersPerZoom * MaxZoom = 160, an actual maximum range of a compass
     private const float DotRadius = 3f;
     private const float SelectedDotRadius = 6f;
     private const float DistressDotRadius = 5f;
 
     private const float ScrollSensitivity = 8f;
-    private const float MinZoom = 0.5f;
-    private const float MaxZoom = 10f;
+    public float MinZoom = 1f;
+    public float MaxZoom = 10f;
 
-    private int GridLines => (int) Math.Round(GridLinesPerZoom * _zoom);
+    private float GridLines => GridMetersPerZoom * _zoom;
 
     public CompassControl()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+
+        MouseFilter = MouseFilterMode.Pass;
     }
 
     public void SetState(MapCoordinates gpsCoords, NetEntity? trackedEntity, List<GpsEntry> gpsEntries)
@@ -64,8 +67,8 @@ public sealed partial class CompassControl : LayoutContainer
         handle.DrawRect(new UIBox2(gridTopLeft, gridBottomRight), Color.Black.WithAlpha(0.5f));
 
         // Draw grid lines
-        var cellStep = gridSize / GridLines;
-        for (var i = 0; i <= GridLines; i++)
+        var cellStep = gridSize / GridLines * GridLinesPerMeter;
+        for (var i = 0; i <= GridLines / GridLinesPerMeter; i++)
         {
             var verticalStart = gridTopLeft + new Vector2(i * cellStep, 0);
             var verticalEnd = verticalStart + new Vector2(0, gridSize);
