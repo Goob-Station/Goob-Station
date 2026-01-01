@@ -1,0 +1,82 @@
+# Shared items between all miner-exploration roles - stuff needed for mining.
+- type: entityTable
+  id: FillGeneralMiningExploration
+  table: !type:AllSelector
+    children:
+    - id: RadioHandheld
+    - id: HandheldGPSBasic
+    - id: FlashlightSeclite
+    - id: OreBag
+    - id: Pickaxe
+    - id: MineralScanner
+    - id: Flare
+      prob: 0.3
+      rolls: 3
+
+# Salvage specialist items
+- type: entityTable
+  id: FillSalvageSpecialistHardsuitSpatio
+  table: !type:AllSelector
+    children:
+    - id: OxygenTankFilled
+    - id: ClothingShoesBootsMag
+    - id: ClothingOuterHardsuitSalvage
+    - id: ClothingMaskGasExplorer
+
+- type: entityTable
+  id: LockerFillSalvageSpecialist
+  table: !type:AllSelector
+    children:
+    - id: ClothingBeltUtilityFilled
+    # TODO: add some space-specific mining weapon for salvage specialists
+    - id: SurvivalKnife
+    - id: AppraisalTool
+    - id: FireExtinguisher
+    - !type:NestedSelector
+      tableId: FillGeneralMiningExploration
+
+# Shaft miner items
+- type: entityTable
+  id: FillShaftMinerExplorerSuit
+  table: !type:AllSelector
+    children:
+    - id: OxygenTankFilled
+    - id: LavalandEquipmentExplorerSuit
+    - id: ClothingMaskGasExplorer
+
+- type: entityTable
+  id: LockerFillShaftMiner
+  table: !type:AllSelector
+    children:
+    - id: ClothingBeltUtilityFilled
+    - id: WeaponProtoKineticAccelerator
+    - id: SurvivalKnife
+    - id: LavalandJaunter
+    - !type:NestedSelector
+      tableId: FillGeneralMiningExploration
+
+# NOTE: these lockers actually contain shaft miner equipment.
+# They will get replaced eventually when shaft miners will split from salvage specialists and moved into shaft miner's locker.
+- type: entity
+  id: LockerSalvageSpecialistFilledHardsuit
+  suffix: Filled, Hardsuit
+  parent: LockerSalvageSpecialist
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillShaftMinerExplorerSuit
+        - !type:NestedSelector
+          tableId: LockerFillShaftMiner
+
+- type: entity
+  id: LockerSalvageSpecialistFilled
+  suffix: Filled
+  parent: LockerSalvageSpecialist
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillShaftMiner
