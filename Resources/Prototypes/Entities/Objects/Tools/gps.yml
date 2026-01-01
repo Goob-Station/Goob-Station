@@ -34,8 +34,8 @@
     - GPS
   - type: ActivatableUI
     key: enum.GpsUiKey.Key # Goob Station - what if gps didnt suck doo doo balls
-    #inHandsOnly: true
-    #singleUser: true
+    inHandsOnly: true
+    singleUser: true
   - type: UserInterface
     interfaces:
       enum.GpsUiKey.Key: # Goob Station - what if gps didnt suck doo doo balls
