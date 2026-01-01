@@ -15,8 +15,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Animals.Components;
+using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Shared.Actions.Events;
 using Content.Shared.Mobs.Systems;
@@ -24,6 +26,8 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Storage;
 using Robust.Server.Audio;
+using Robust.Server.Containers;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -43,6 +47,9 @@ public sealed class EggLayerSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -129,7 +136,26 @@ public sealed class EggLayerSystem : EntitySystem
 
         foreach (var ent in EntitySpawnCollection.GetSpawns(egglayer.EggSpawn, _random))
         {
-            Spawn(ent, Transform(uid).Coordinates);
+            var trans = Transform(uid);
+            bool succesfull = false;
+            var spawned = Spawn(ent, trans.Coordinates);
+            if (_container.IsEntityInContainer(uid))
+            {
+                var inside = _container.GetContainingContainers(uid);
+                foreach (var container in inside)
+                {
+                    if (_container.Insert(spawned, container))
+                    {
+                        succesfull = true;
+                        break;
+                    }
+                }
+
+                if (!succesfull)
+                {
+                    _transform.AttachToGridOrMap(spawned);
+                }
+            }
         }
 
         // Sound + popups
