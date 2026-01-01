@@ -1,72 +1,11 @@
-# SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 buletsponge <96000213+buletsponge@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TimrodDX <timrod@gmail.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 778b <33431126+778b@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 Jackrost <jackrost@mail.ru>
-# SPDX-FileCopyrightText: 2023 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 RatherUncreative <RatherUncreativeName@proton.me>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 terezi <147006836+terezi-station@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 PECK <74548962+PeccNeck@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Thesia <lindner.thorben@gmx.de>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 7
   category: Map
-  engineVersion: 260.2.0
+  engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/16/2025 15:19:41
-  entityCount: 12863
+  time: 11/23/2025 09:40:08
+  entityCount: 12868
 maps:
 - 1
 grids:
@@ -327,6 +266,11 @@ entities:
       fixtures: {}
     - type: OccluderTree
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -4841,6 +4785,7 @@ entities:
     - type: SpreaderGrid
     - type: GridPathfinding
     - type: ImplicitRoof
+    - type: FTLDrive
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3
@@ -23264,18 +23209,6 @@ entities:
     - type: Transform
       pos: 30.131155,27.66019
       parent: 2
-- proto: CapacitorStockPart
-  entities:
-  - uid: 3342
-    components:
-    - type: Transform
-      pos: -2.8552828,-31.280602
-      parent: 2
-  - uid: 3343
-    components:
-    - type: Transform
-      pos: -3.7302828,-31.280602
-      parent: 2
 - proto: CapsaicinDispenser
   entities:
   - uid: 4041
@@ -28873,6 +28806,14 @@ entities:
     - type: Transform
       pos: -6.5,56.5
       parent: 2
+- proto: ComputerScienceXenobiologyBounty
+  entities:
+  - uid: 5630
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -14.5,-9.5
+      parent: 2
 - proto: ComputerShuttleCargo
   entities:
   - uid: 4339
@@ -29374,11 +29315,6 @@ entities:
     components:
     - type: Transform
       pos: -23.596352,6.739663
-      parent: 2
-  - uid: 4412
-    components:
-    - type: Transform
-      pos: -14.519168,-9.104249
       parent: 2
   - uid: 4413
     components:
@@ -37046,7 +36982,7 @@ entities:
     - type: Transform
       pos: 2.6014228,3.2195196
       parent: 2
-- proto: FoodDonutJellySlugcat
+- proto: FoodDonutJellyScurret
   entities:
   - uid: 5615
     components:
@@ -37153,13 +37089,6 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: GasAnalyzer
-  entities:
-  - uid: 5630
-    components:
-    - type: Transform
-      pos: -14.47985,-9.759103
-      parent: 2
 - proto: GasFilterFlipped
   entities:
   - uid: 5631
@@ -57680,6 +57609,13 @@ entities:
     - type: Transform
       pos: -15.5,-0.5
       parent: 2
+- proto: LockerScienceFilledXenobiology
+  entities:
+  - uid: 10783
+    components:
+    - type: Transform
+      pos: -17.5,-10.5
+      parent: 2
 - proto: LockerSecurityFilled
   entities:
   - uid: 8509
@@ -58305,13 +58241,6 @@ entities:
     - type: Transform
       pos: -30.470095,-14.477021
       parent: 2
-- proto: MatterBinStockPart
-  entities:
-  - uid: 8619
-    components:
-    - type: Transform
-      pos: -3.3396578,-31.327477
-      parent: 2
 - proto: MedicalBed
   entities:
   - uid: 8620
@@ -58471,6 +58400,21 @@ entities:
       parent: 2
 - proto: MicroManipulatorStockPart
   entities:
+  - uid: 3342
+    components:
+    - type: Transform
+      pos: -2.8552828,-31.280602
+      parent: 2
+  - uid: 3343
+    components:
+    - type: Transform
+      pos: -3.7302828,-31.280602
+      parent: 2
+  - uid: 8619
+    components:
+    - type: Transform
+      pos: -3.3396578,-31.327477
+      parent: 2
   - uid: 8649
     components:
     - type: Transform
@@ -62420,6 +62364,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 9.5,-8.5
+      parent: 2
+  - uid: 12868
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -18.5,-9.5
       parent: 2
 - proto: RailingCornerSmall
   entities:
@@ -67808,6 +67758,20 @@ entities:
     - type: Transform
       pos: 18.5,-0.5
       parent: 2
+- proto: SlimeGrinder
+  entities:
+  - uid: 10784
+    components:
+    - type: Transform
+      pos: -14.5,-10.5
+      parent: 2
+- proto: SlimeScannerXenobio
+  entities:
+  - uid: 12867
+    components:
+    - type: Transform
+      pos: -14.69944,-10.627599
+      parent: 2
 - proto: SMESBasic
   entities:
   - uid: 7322
@@ -68777,6 +68741,13 @@ entities:
     components:
     - type: Transform
       pos: 22.5,-6.5
+      parent: 2
+- proto: SpawnPointVirologist
+  entities:
+  - uid: 128640
+    components:
+    - type: Transform
+      pos: -16.5,19.5
       parent: 2
 - proto: SpawnPointWarden
   entities:
@@ -71688,16 +71659,6 @@ entities:
     components:
     - type: Transform
       pos: -1.5,25.5
-      parent: 2
-  - uid: 10783
-    components:
-    - type: Transform
-      pos: -14.5,-9.5
-      parent: 2
-  - uid: 10784
-    components:
-    - type: Transform
-      pos: -14.5,-10.5
       parent: 2
   - uid: 10785
     components:
@@ -83031,5 +82992,27 @@ entities:
     components:
     - type: Transform
       pos: -28.522102,-7.4028454
+      parent: 2
+- proto: XenobioSlimeBabySpawner
+  entities:
+  - uid: 4412
+    components:
+    - type: Transform
+      pos: -20.5,-8.5
+      parent: 2
+  - uid: 12864
+    components:
+    - type: Transform
+      pos: -20.5,-9.5
+      parent: 2
+  - uid: 12865
+    components:
+    - type: Transform
+      pos: -20.5,-10.5
+      parent: 2
+  - uid: 12866
+    components:
+    - type: Transform
+      pos: -19.5,-8.5
       parent: 2
 ...

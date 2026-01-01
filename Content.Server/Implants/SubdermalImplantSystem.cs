@@ -95,24 +95,14 @@ using Content.Server.Forensics;
 using Content.Server.Humanoid;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
-using Content.Server.Teleportation;
 using Content.Shared.Cuffs.Components;
-using Content.Shared.Forensics;
-using Content.Shared.Forensics.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Map;
-using Robust.Shared.Physics;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Random;
-using System.Numerics;
 using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Movement.Pulling.Systems;
 using Content.Server.IdentityManagement;
 using Content.Shared.DetailExaminable;
 using Content.Shared.DoAfter;
@@ -121,6 +111,8 @@ using Content.Shared.Ensnaring.Components;
 using Content.Shared.Store.Components;
 using Content.Shared.Teleportation;
 using Content.Shared.Stunnable;
+using Content.Goobstation.Shared.Teleportation.Systems;
+using Content.Shared.Polymorph;
 
 namespace Content.Server.Implants;
 
@@ -132,11 +124,8 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
-    [Dependency] private readonly PullingSystem _pullingSystem = default!;
-    [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
-    [Dependency] private readonly TeleportSystem _teleportSys = default!;
+    [Dependency] private readonly SharedRandomTeleportSystem _teleportSys = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
@@ -151,7 +140,24 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         SubscribeLocalEvent<SubdermalImplantComponent, ActivateImplantEvent>(OnActivateImplantEvent);
         SubscribeLocalEvent<SubdermalImplantComponent, UseScramImplantEvent>(OnScramImplant);
         SubscribeLocalEvent<SubdermalImplantComponent, UseDnaScramblerImplantEvent>(OnDnaScramblerImplant);
+
+        SubscribeLocalEvent<ImplantedComponent, PolymorphedEvent>(OnPolymorphed); // goob edit
     }
+
+    // goob edit - implants now transfer on polymorph
+    private void OnPolymorphed(Entity<ImplantedComponent> ent, ref PolymorphedEvent args)
+    {
+        // copy it to prevent collection modification error
+        var implants = new List<EntityUid>(ent.Comp.ImplantContainer.ContainedEntities);
+        foreach (var implant in implants)
+        {
+            if (!TryComp<SubdermalImplantComponent>(implant, out var sic))
+                continue;
+
+            ForceImplant(args.NewEntity, implant, sic);
+        }
+    }
+    // goob edit end
 
     private void OnStoreRelay(EntityUid uid, StoreComponent store, ImplantRelayEvent<AfterInteractUsingEvent> implantRelay)
     {

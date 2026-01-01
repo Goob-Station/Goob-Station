@@ -1,0 +1,71 @@
+# used for disease spread
+- type: entity
+  id: DiseaseBase
+  components:
+  - type: Disease
+
+- type: entity
+  id: DiseaseBaseMouse
+  parent: DiseaseBase
+  components:
+  - type: Disease
+    diseaseType: Bacterial # TODO: make it roll the disease type
+    effects:
+      DiseaseBehaviorCough: 1 # guaranteed cough
+
+- type: entity
+  id: DiseaseFlu
+  parent: DiseaseBase
+  name: flu
+  description: Highly annoying and mildly dangerous.
+  components:
+  - type: Disease
+    diseaseType: Viral
+    infectionRate: 0.01 # 100 seconds
+    genotype: 1234
+    effects:
+      DiseaseBehaviorPoison: 0.4
+      DiseaseBehaviorVomit: 0.6
+      DiseaseBehaviorFeelUnwell: 1
+      DiseaseBehaviorHeadache: 0.8
+      DiseaseBehaviorCough: 0.6
+
+- type: entity
+  id: DiseaseCancer
+  parent: DiseaseBase
+  name: cancer
+  description: Deals genetic damage to the infected. Doesn't go away by itself.
+  components:
+  - type: Disease
+    diseaseType: OwnCells
+    infectionRate: 0.005 # slow
+    immunityGainRate: 0.5 # immunity against it also slow
+    canGainImmunity: false
+    genotype: 1111
+    effects:
+      DiseaseBehaviorCancer: 0.5
+      DiseaseBehaviorFightImmunity: 1 # won't let you cure it
+
+- type: entity
+  id: DiseaseGravitosisA
+  parent: DiseaseBase
+  name: gravitosis A
+  description: A strange disease.
+  components:
+  - type: Disease
+    diseaseType: Bacterial
+    genotype: 56441
+    effects:
+      DiseaseBehaviorGravitosisA: 1
+
+- type: entity
+  id: DiseaseGunemia
+  parent: DiseaseBase
+  name: gunemia
+  description: A strange disease.
+  components:
+  - type: Disease
+    diseaseType: Bacterial
+    genotype: 666323
+    effects:
+      DiseaseBehaviorGunemia: 1
