@@ -29,4 +29,7 @@ public sealed partial class StationRadioReceiverComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public AudioParams DefaultParams = AudioParams.Default.WithVolume(3.5f).WithMaxDistance(8f); // 8 is just the edge of the screen usually
+
+    [DataField, AutoNetworkedField]
+    public SoundPathSpecifier EmaggedSong = new SoundPathSpecifier("/Audio/_Goobstation/RadioStation/misc/amusingduck.ogg");
 }

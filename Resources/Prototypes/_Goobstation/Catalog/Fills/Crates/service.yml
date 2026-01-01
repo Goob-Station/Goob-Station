@@ -208,6 +208,10 @@
       weight: 1
     - id: VinylDiskWantYouGone
       weight: 1
+    - id: VinylDiskEgg
+      weight: 1
+    - id: VinylDiskWeAreNumberTwo
+      weight: 1
 
 - type: entityTable
   id: RandomVinylSleeve

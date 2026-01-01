@@ -506,6 +506,39 @@
       path: /Audio/_Goobstation/RadioStation/music/violet.ogg
 
 - type: entity
+  name: "vinyl disk: lay egg is true"
+  id: VinylDiskEgg
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: pizza-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/lay_egg_is_true.ogg
+
+- type: entity
+  name: "vinyl disk: We are number two"
+  id: VinylDiskWeAreNumberTwo
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: purple-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/we_are_number_two.ogg
+
+- type: entity
+  name: "vinyl disk: EXTRA METAL"
+  id: VinylDiskExtraMetal
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: green-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/xtra.ogg
+
+- type: entity
   name: forgotten vinyl disk
   id: VinylDiskForgotten
   parent: BaseVinylDisk

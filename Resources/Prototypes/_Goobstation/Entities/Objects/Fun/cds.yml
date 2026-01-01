@@ -222,3 +222,12 @@
   - type: Vinyl
     song:
       path: /Audio/_Goobstation/RadioStation/misc/xg_onboarding4.ogg
+
+- type: entity
+  parent: CdDiskWeird
+  name: cd disk (amusingduck)
+  id: CdDiskDck
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/misc/amusingduck.ogg

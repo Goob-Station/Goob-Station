@@ -5,6 +5,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.StationRadio.Systems;
 
@@ -12,6 +13,7 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private readonly INetManager _net = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -29,6 +31,16 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 
         args.Handled = true;
         comp.Emagged = true;
+
+        comp.SoundEntity = _audio.Stop(comp.SoundEntity);
+
+        if(!_net.IsServer)
+            return;
+
+        var audio = _audio.PlayPredicted(comp.EmaggedSong, uid, uid, comp.DefaultParams.WithLoop(true));
+        if (audio != null)
+            comp.SoundEntity = audio.Value.Entity;
+        RemComp<StationRadioReceiverComponent>(uid);
     }
 
     private void OnPowerChanged(EntityUid uid, StationRadioReceiverComponent comp, PowerChangedEvent args)
@@ -64,8 +76,5 @@ public sealed class StationRadioReceiverSystem : EntitySystem
             return;
 
         comp.SoundEntity = _audio.Stop(comp.SoundEntity);
-
-        if(comp.Emagged)
-            RaiseLocalEvent(uid, new StationRadioExplodeEvent());
     }
 }
