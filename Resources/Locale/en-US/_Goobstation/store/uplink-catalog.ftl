@@ -211,7 +211,7 @@ uplink-high-caliber-shotgun-box-sarin-name = 8 Gauge sarin gas shell box
 uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells for the combat shotgun, which release a small plus-shaped cloud of sarin gas.
 
 uplink-estoc-ammo-name = Rifle Magazine (.20 rifle)
-uplink-estoc-ammo-desc = Rifle magazine with 25 rounds. Compatable with the Estoc and M-90.
+uplink-estoc-ammo-desc = Rifle magazine with 25 rounds. Compatible with the Estoc and M-90.
 
 # Grenades
 
