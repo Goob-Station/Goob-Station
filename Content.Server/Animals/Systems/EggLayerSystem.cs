@@ -47,8 +47,8 @@ public sealed class EggLayerSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ContainerSystem _container = default!; // goob edit
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // goob edit
 
     public override void Initialize()
     {
@@ -135,6 +135,7 @@ public sealed class EggLayerSystem : EntitySystem
 
         foreach (var ent in EntitySpawnCollection.GetSpawns(egglayer.EggSpawn, _random))
         {
+            // goob edit
             var trans = Transform(uid);
             bool succesfull = false;
             var spawned = Spawn(ent, trans.Coordinates);
@@ -155,6 +156,7 @@ public sealed class EggLayerSystem : EntitySystem
                     _transform.AttachToGridOrMap(spawned);
                 }
             }
+            // goob edit end
         }
 
         // Sound + popups
