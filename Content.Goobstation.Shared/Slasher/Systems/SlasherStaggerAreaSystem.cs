@@ -1,13 +1,14 @@
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Goobstation.Shared.Slasher.Events;
+using Content.Shared.Actions;
+using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
-using Content.Shared.StatusEffect;
-using Content.Shared.Interaction;
-using Content.Server.Actions;
+using Robust.Shared.Network;
 
-namespace Content.Goobstation.Server.Slasher.Systems;
+namespace Content.Goobstation.Shared.Slasher.Systems;
 
 /// <summary>
 /// Handles the Slasher Stagger Area action. When used, slows nearby mobs in range for a short duration.
@@ -19,7 +20,8 @@ public sealed class SlasherStaggerAreaSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedInteractionSystem _interact = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -57,14 +59,16 @@ public sealed class SlasherStaggerAreaSystem : EntitySystem
 
             _stun.TrySlowdown(targetUid, TimeSpan.FromSeconds(comp.SlowDuration), true, comp.SlowMultiplier, comp.SlowMultiplier);
 
-            // popup for affected entity
-            _popup.PopupEntity(Loc.GetString("slasher-staggerarea-victim"), targetUid, targetUid, PopupType.MediumCaution);
+            // Show popup to the victim
+            if (_net.IsServer)
+                _popup.PopupEntity(Loc.GetString("slasher-staggerarea-victim"), targetUid, targetUid, PopupType.MediumCaution);
         }
 
-        _audio.PlayPvs(comp.StaggerSound, uid);
+        _audio.PlayPredicted(comp.StaggerSound, uid, uid);
 
-        // popup for user
-        _popup.PopupEntity(Loc.GetString("slasher-staggerarea-popup"), uid, uid, PopupType.MediumCaution);
+        // Show popup to the user
+        if (_net.IsServer)
+            _popup.PopupEntity(Loc.GetString("slasher-staggerarea-popup"), uid, uid, PopupType.MediumCaution);
 
         args.Handled = true;
     }
