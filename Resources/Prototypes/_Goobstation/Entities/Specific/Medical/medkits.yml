@@ -88,7 +88,7 @@
 
 - type: entity
   name: combat medical kit
-  description: For the IPCs among us.
+  description: For the Silicon among us.
   parent: Medkit
   id: MedkitCombatPurple
   components:
