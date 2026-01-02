@@ -107,6 +107,10 @@
     proto: ShellShotgun
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+    soundRack: #Mono start
+      path: /Audio/_Mono/Weapons/Guns/Cock/shotgun_cock.ogg
+      params:
+        volume: -3 #Mono end
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
