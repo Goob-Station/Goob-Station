@@ -234,11 +234,11 @@
   id: SpellbookEventSummonGhosts
   name: spellbook-event-summon-ghosts-name
   description: spellbook-event-summon-ghosts-description
-  productEvent: !type:SummonGhostsEvent # Goobstation
+  # productEvent: !type:SummonGhostsEvent # Goobstation : reverted by CorvaxGoob
   icon: # Goobstation
     sprite: Mobs/Ghosts/ghost_human.rsi
     state: icon
-  # productAction: ActionSummonGhosts # Goobstation
+  productAction: ActionSummonGhosts # Goobstation : reverted by CorvaxGoob
   cost:
     WizCoin: 0
   categories:
