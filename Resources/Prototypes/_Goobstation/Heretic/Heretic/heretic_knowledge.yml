@@ -505,14 +505,14 @@
   stage: 2
   event: !type:EventHereticLockPassive
 
-#- type: hereticKnowledge
-#  id: KeyKeepersBurden
-#  path: Lock
-#  sideKnowledge: true
-#  stage: 3
-#  ritualPrototypes:
-#  - KeyKeepersBurden
-#
+- type: hereticKnowledge
+  id: KeyKeepersBurden
+  path: Lock
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - KeyKeepersBurden
+
 #- type: hereticKnowledge
 #  id: MarkOfLock
 #  path: Lock

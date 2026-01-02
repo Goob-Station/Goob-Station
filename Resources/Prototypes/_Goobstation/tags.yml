@@ -503,6 +503,9 @@
   id: RipleyMkII
 
 - type: Tag
+  id: RodMetal
+
+- type: Tag
   id: Rosary
 
 - type: Tag
@@ -799,6 +802,6 @@
 
 - type: Tag
   id: HereticCostume
-  
+
 - type: Tag
   id: VinylSleeveFit

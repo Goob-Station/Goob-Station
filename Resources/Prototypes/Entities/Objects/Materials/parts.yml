@@ -107,6 +107,10 @@
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation
+  - type: Tag # Goobstation
+    tags:
+    - RodMetal
+    - DroneUsable
 
 - type: entity
   parent: PartRodMetal
@@ -117,6 +121,7 @@
   - type: Tag
     tags:
     - RodMetal1
+    - RodMetal # Goobstation
     - DroneUsable # Goobstation
   - type: Sprite
     state: rods
@@ -132,6 +137,7 @@
   - type: Tag
     tags:
     - RodMetal1
+    - RodMetal # Goobstation
     - DroneUsable # Goobstation
   - type: Sprite
     state: rods

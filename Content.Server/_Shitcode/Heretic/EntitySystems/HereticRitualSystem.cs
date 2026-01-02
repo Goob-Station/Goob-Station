@@ -15,15 +15,14 @@ using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using System.Text;
-using System.Linq;
 using Content.Shared.Examine;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Stacks;
+using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Utility;
 
@@ -40,6 +39,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly GhoulSystem _ghoul = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/castsummon.ogg");
 
@@ -85,14 +85,14 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         var lookup = _lookup.GetEntitiesInRange(platform, 1.5f);
 
-        var missingList = new Dictionary<string, float>();
+        var missingList = new Dictionary<LocId, int>();
         var toDelete = new List<EntityUid>();
         var toSplit = new List<(Entity<StackComponent> ent, int amount)>();
 
         // check for all conditions
         // this is god awful but it is that it is
         var behaviors = rit.CustomBehaviors ?? new();
-        var requiredTags = rit.RequiredTags?.ToDictionary(e => e.Key, e => e.Value) ?? new();
+        var ingredientAmounts = new List<int>(rit.Ingredients.Count);
 
         foreach (var behavior in behaviors)
         {
@@ -108,54 +108,51 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         foreach (var look in lookup)
         {
-            // check for matching tags
-            foreach (var tag in requiredTags)
+            for (var i = 0; i < rit.Ingredients.Count; i++)
             {
-                if (!TryComp<TagComponent>(look, out var tags) // no tags?
-                || _container.IsEntityInContainer(look)) // using your own eyes for amber focus?
+                var ritIng = rit.Ingredients[i];
+                var compAmount = ingredientAmounts[i];
+
+                if (compAmount >= ritIng.Amount)
                     continue;
 
-                var ltags = tags.Tags;
+                if (_container.IsEntityInContainer(look)) // using your own eyes for amber focus?
+                    continue;
 
-                if (ltags.Contains(tag.Key))
-                {
-                    TryComp(look, out StackComponent? stack);
-                    var amount = stack == null ? 1 : Math.Min(stack.Count, requiredTags[tag.Key]);
+                if (_whitelist.IsWhitelistFail(ritIng.Whitelist, look))
+                    continue;
 
-                    requiredTags[tag.Key] -= amount;
+                var stack = CompOrNull<StackComponent>(look);
+                var amount = stack == null ? 1 : Math.Min(stack.Count, ritIng.Amount - compAmount);
 
-                    // prevent deletion of more items than needed
-                    if (requiredTags[tag.Key] >= 0)
-                    {
-                        if (stack == null || stack.Count <= amount)
-                            toDelete.Add(look);
-                        else
-                            toSplit.Add(((look, stack), amount));
-                    }
-                }
+                ingredientAmounts[i] += amount;
+
+                if (stack == null || stack.Count <= amount)
+                    toDelete.Add(look);
+                else
+                    toSplit.Add(((look, stack), amount));
             }
         }
 
-        // add missing tags
-        foreach (var tag in requiredTags)
-            if (tag.Value > 0)
-                missingList.Add(tag.Key, tag.Value);
+        // add missing ritual component names
+        for (var i = 0; i < rit.Ingredients.Count; i++)
+        {
+            var ritIng = rit.Ingredients[i];
+            var difference = ritIng.Amount - ingredientAmounts[i];
+            missingList.Add(ritIng.Name, difference);
+        }
 
         // are we missing anything?
         if (missingList.Count > 0)
         {
             // we are! notify the performer about that!
             var sb = new StringBuilder();
-            for (int i = 0; i < missingList.Keys.Count; i++)
+            foreach (var (name, amount) in missingList)
             {
-                var key = missingList.Keys.ToList()[i];
-                var missing = $"{key} x{missingList[key]}";
-
-                // makes a nice, list, of, missing, items.
-                if (i != missingList.Count - 1)
-                    sb.Append($"{missing}, ");
-                else sb.Append(missing);
+                sb.Append($"{name} x{amount} ");
             }
+
+            sb.Remove(sb.Length - 1, 1);
 
             _popup.PopupEntity(Loc.GetString("heretic-ritual-fail-items", ("itemlist", sb.ToString())), platform, performer);
             return false;

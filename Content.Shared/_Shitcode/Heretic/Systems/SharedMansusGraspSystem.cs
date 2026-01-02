@@ -33,7 +33,6 @@ using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
@@ -44,7 +43,6 @@ public abstract class SharedMansusGraspSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
 
     [Dependency] private readonly SharedDoorSystem _door = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
@@ -63,7 +61,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
     [Dependency] private readonly SharedMechSystem _mech = default!;
     [Dependency] private readonly AccessReaderSystem _access = default!;
 
-    public bool TryApplyGraspEffectAndMark(EntityUid user,
+    public bool eryApplyGraspEffectAndMark(EntityUid user,
         HereticComponent hereticComp,
         EntityUid target,
         EntityUid? grasp,
@@ -237,7 +235,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                          !HasComp<ShadowCloakEntityComponent>(target) && // No instakilling shadow cloak heretics
                          (!HasComp<MobStateComponent>(target) || HasComp<SiliconComponent>(target) ||
                           HasComp<BorgChassisComponent>(target) ||
-                          _tag.HasTag(target, "Bot"))) // Check for ingorganic target
+                          _tag.HasTag(target, "Bot"))) // Check for inorganic target
                 {
                     _damage.TryChangeDamage(target,
                         new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 500),
