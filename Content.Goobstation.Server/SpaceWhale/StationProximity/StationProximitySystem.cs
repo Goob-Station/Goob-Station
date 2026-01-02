@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.CCVar;
 using Content.Server.Popups;
 using Content.Server.Station.Components;
 using Content.Goobstation.Server.MobCaller;
@@ -7,6 +8,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 
@@ -20,9 +22,9 @@ public sealed class StationProximitySystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private static readonly TimeSpan CheckInterval = TimeSpan.FromSeconds(60); // le hardcode major
-    private const float MaxDistance = 965; // make it lower for testing idk
     private TimeSpan _nextCheck = TimeSpan.Zero;
 
     public override void Initialize()
@@ -44,6 +46,9 @@ public sealed class StationProximitySystem : EntitySystem
 
     private void CheckStationProximity()
     {
+        if (!_cfg.GetCVar(GoobCVars.SpaceWhaleSpawn))
+            return;
+
         var stationQuery = EntityQueryEnumerator<BecomesStationComponent, MapGridComponent>();
         var stations = new List<(EntityUid Uid, MapGridComponent Grid, TransformComponent Xform)>();
 
@@ -118,18 +123,26 @@ public sealed class StationProximitySystem : EntitySystem
                 closestDistance = Math.Min(closestDistance, distance);
             }
 
-            isNearStation = closestDistance <= MaxDistance;
+            // grab the  max distance from cvar
+            isNearStation = closestDistance <= _cfg.GetCVar(GoobCVars.SpaceWhaleSpawnDistance);
         }
 
         if (isNearStation)
-            RemComp<MobCallerComponent>(humanoid);
+        {
+            // if near station, remove the tracking component and delete the dummy entity
+            if (TryComp<SpaceWhaleTargetComponent>(humanoid, out var whaleTarget))
+            {
+                QueueDel(whaleTarget.Entity);
+                RemComp<SpaceWhaleTargetComponent>(humanoid);
+            }
+        }
         else
             HandleFarFromStation(humanoid);
     }
 
     private void HandleFarFromStation(EntityUid entity) // basically handles space whale spawnings
     {
-        if (HasComp<MobCallerComponent>(entity))
+        if (HasComp<SpaceWhaleTargetComponent>(entity))
             return;
 
         _popup.PopupEntity(
@@ -143,7 +156,10 @@ public sealed class StationProximitySystem : EntitySystem
             entity,
             AudioParams.Default.WithVolume(1f));
 
-        var mobCaller = EnsureComp<MobCallerComponent>(entity);
+        // Spawn a dummy entity at the player's location
+        var dummy = Spawn(null, Transform(entity).Coordinates);
+        _transform.SetParent(dummy, entity);
+        var mobCaller = EnsureComp<MobCallerComponent>(dummy); // assign the goidacaller to the dummy
 
         mobCaller.SpawnProto = "SpaceLeviathanDespawn";
         mobCaller.MaxAlive = 1; // nuh uh
@@ -151,5 +167,8 @@ public sealed class StationProximitySystem : EntitySystem
         mobCaller.NeedAnchored = false;
         mobCaller.NeedPower = false;
         mobCaller.SpawnSpacing = TimeSpan.FromSeconds(65); // to give the guy some time to get back to the station + prevent him from like, QSI-ing to the station to summon the worm in the station lmao, also bru these 5 seconds are really important
+
+        var targetComp = EnsureComp<SpaceWhaleTargetComponent>(entity);// track the dummy on the player
+        targetComp.Entity = dummy;
     }
 }

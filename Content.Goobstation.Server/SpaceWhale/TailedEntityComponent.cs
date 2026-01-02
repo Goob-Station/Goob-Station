@@ -1,3 +1,5 @@
+using Robust.Shared.Prototypes;
+
 namespace Content.Goobstation.Server.SpaceWhale
 {
     /// <summary>
@@ -14,7 +16,7 @@ namespace Content.Goobstation.Server.SpaceWhale
         /// <summary>
         /// the entity/entities that should be spawned after the head
         /// </summary>
-        [DataField] public string Prototype = "Crowbar";
+        [DataField(required: true)] public EntProtoId Prototype;
 
         /// <summary>
         /// How much space between entities
@@ -29,6 +31,6 @@ namespace Content.Goobstation.Server.SpaceWhale
         /// <summary>
         /// List of tail segments
         /// </summary>
-        public readonly List<EntityUid> TailSegments = new();
+        [DataField] public List<EntityUid> TailSegments = new();
     }
 }
