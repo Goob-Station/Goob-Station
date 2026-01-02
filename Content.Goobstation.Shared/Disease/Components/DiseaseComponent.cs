@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Disease.Systems;
 using Content.Shared.Random;
+using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -10,11 +11,13 @@ namespace Content.Goobstation.Shared.Disease.Components;
 [EntityCategory("Diseases")]
 public sealed partial class DiseaseComponent : Component
 {
+    public const string EffectContainerId = "diseaseEffectContainer";
+
     /// <summary>
     /// The effects this disease has
     /// </summary>
-    [ViewVariables, AutoNetworkedField]
-    public List<EntityUid> Effects = [];
+    [ViewVariables]
+    public Container Effects = default!;
 
     /// <summary>
     /// Current strength of the organism's immunity against this disease
