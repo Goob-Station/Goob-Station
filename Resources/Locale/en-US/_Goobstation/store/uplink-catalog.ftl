@@ -113,7 +113,7 @@ uplink-l6-saw-name = L6 Saw
 uplink-l6-saw-desc = More dakka: The iconic L6 light machine gun.
 
 uplink-m90-name = M-90
-uplink-m90-desc = A rugged assault rifle that feeds from .20 Rifle magazines.
+uplink-m90-desc = An M-90 combat rifle.
 
 uplink-estoc-name = Estoc
 uplink-estoc-desc = A designated assault rifle, fitted with a mid-range optic for longer-range combat.
