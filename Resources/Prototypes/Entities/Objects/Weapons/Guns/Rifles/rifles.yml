@@ -317,7 +317,7 @@
   name: Estoc # Goob
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleEstoc
-  description: A designated marksman rifle with a scope, favored for medium-to-long range engagements. Uses .30 rifle ammo. # goob
+  description: A designated assault rifle with a scope, favored for medium-to-long range engagements. Uses .30 rifle ammo. # goob
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/estoc.rsi
