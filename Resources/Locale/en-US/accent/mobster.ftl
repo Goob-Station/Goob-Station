@@ -9,8 +9,8 @@ accent-mobster-prefix-1 = Nyehh,
 accent-mobster-suffix-boss-1 = , see?
 accent-mobster-suffix-boss-2 = , fugeddaboutit.
 accent-mobster-suffix-boss-3 = , capiche?
-accent-mobster-suffix-boss-4 = , gabagool.
-accent-mobster-suffix-boss-5 = , how ya doin'?
+accent-mobster-suffix-boss-4 = , gabagool. # Goob edit
+accent-mobster-suffix-boss-5 = , how ya doin'? # Goob edit
 
 accent-mobster-suffix-minion-1 = , yeah!
 accent-mobster-suffix-minion-2 = , boss says!
