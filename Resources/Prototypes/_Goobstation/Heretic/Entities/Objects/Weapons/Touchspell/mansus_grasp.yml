@@ -77,3 +77,13 @@
     blacklist:
       components:
       - Puddle
+
+- type: entity
+  id: TouchSpellMansusLock
+  parent: TouchSpellMansus
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MansusGrasp
+    # Silent grasp
+    sound: null
+    invocation: null

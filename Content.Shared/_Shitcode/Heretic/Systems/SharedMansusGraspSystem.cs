@@ -10,6 +10,8 @@ using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.BackStab;
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Doors.Components;
@@ -17,6 +19,8 @@ using Content.Shared.Doors.Systems;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Components;
+using Content.Shared.Mech.Components;
+using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -56,21 +60,30 @@ public abstract class SharedMansusGraspSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly SharedMechSystem _mech = default!;
+    [Dependency] private readonly AccessReaderSystem _access = default!;
 
     public bool TryApplyGraspEffectAndMark(EntityUid user,
         HereticComponent hereticComp,
         EntityUid target,
         EntityUid? grasp,
-        out bool triggerGrasp)
+        out bool triggerGrasp,
+        out float cooldownMultiplier)
     {
         triggerGrasp = true;
+        cooldownMultiplier = 1f;
 
         if (hereticComp.CurrentPath == null)
             return true;
 
         if (hereticComp.PathStage >= 2)
         {
-            if (!ApplyGraspEffect((user, hereticComp), target, grasp, out var applyMark, out triggerGrasp))
+            if (!ApplyGraspEffect((user, hereticComp),
+                    target,
+                    grasp,
+                    out var applyMark,
+                    out triggerGrasp,
+                    out cooldownMultiplier))
                 return false;
 
             if (!applyMark)
@@ -100,10 +113,12 @@ public abstract class SharedMansusGraspSystem : EntitySystem
         EntityUid target,
         EntityUid? grasp,
         out bool applyMark,
-        out bool triggerGrasp)
+        out bool triggerGrasp,
+        out float cooldownMultiplier)
     {
         applyMark = true;
         triggerGrasp = true;
+        cooldownMultiplier = 1f;
         var (performer, heretic) = user;
 
         switch (heretic.CurrentPath)
@@ -145,16 +160,30 @@ public abstract class SharedMansusGraspSystem : EntitySystem
 
             case "Lock":
             {
-                if (!TryComp<DoorComponent>(target, out var door))
+                if (TryComp<MechComponent>(target, out var mech) && mech.PilotSlot.ContainedEntity is { } pilot)
+                {
+                    _mech.TryEject(target, mech, pilot);
+                    _stun.TryParalyze(pilot, TimeSpan.FromSeconds(5), true);
+                }
+                else if (TryComp<DoorComponent>(target, out var door))
+                {
+                    if (TryComp<DoorBoltComponent>(target, out var doorBolt))
+                        _door.SetBoltsDown((target, doorBolt), false);
+
+                    _door.StartOpening(target, door);
+                }
+                else if (TryComp<AccessReaderComponent>(target, out var access))
+                    _access.ClearAccesses((target, access));
+                else
                     break;
 
-                if (TryComp<DoorBoltComponent>(target, out var doorBolt))
-                    _door.SetBoltsDown((target, doorBolt), false);
-
-                _door.StartOpening(target, door);
                 _audio.PlayPredicted(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/hereticknock.ogg"),
                     target,
                     user);
+
+                if (user.Comp.PathStage >= 7)
+                    cooldownMultiplier = 0.25f;
+
                 break;
             }
 

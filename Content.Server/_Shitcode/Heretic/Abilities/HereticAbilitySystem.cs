@@ -126,6 +126,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly PvsOverrideSystem _pvs = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _modifier = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     private static readonly ProtoId<HereticRitualPrototype> BladeBladeRitual = "BladeBlade";
 
@@ -264,10 +265,11 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
     private string GetMansusGraspProto(Entity<HereticComponent> ent)
     {
-        if (ent.Comp is { CurrentPath: "Rust", PathStage: >= 2 })
-            return "TouchSpellMansusRust";
+        if (ent.Comp.PathStage < 2)
+            return ent.Comp.MansusGraspProto;
 
-        return "TouchSpellMansus";
+        var pathSpecific = ent.Comp.MansusGraspProto + ent.Comp.CurrentPath;
+        return _proto.HasIndex(pathSpecific) ? pathSpecific : ent.Comp.MansusGraspProto;
     }
 
     private void OnLivingHeart(Entity<HereticComponent> ent, ref EventHereticLivingHeart args)
