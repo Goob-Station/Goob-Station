@@ -57,7 +57,7 @@
   - type: Anchorable
   - type: Storage
     grid:
-    - 0,0,1,9
+    - 0,0,0,9
     whitelist:
       tags:
         - CD

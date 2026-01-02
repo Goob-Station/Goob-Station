@@ -24,7 +24,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Item
-    size: Small
+    size: Tiny
   - type: Tag
     tags:
     - CD
