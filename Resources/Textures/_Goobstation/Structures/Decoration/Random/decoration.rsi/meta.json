@@ -1,0 +1,299 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "gannets_machine10"
+    },
+    {
+      "name": "gannets_machine11",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "gannets_machine20"
+    },
+    {
+      "name": "gannets_machine21",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "gannets_machine30"
+    },
+    {
+      "name": "gannets_machine31",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "rung"
+    },
+    {
+      "name": "lever0-locked"
+    },
+    {
+      "name": "lever0"
+    },
+    {
+      "name": "lever1-locked"
+    },
+    {
+      "name": "lever1"
+    },
+    {
+      "name": "randompc"
+    },
+    {
+      "name": "radar"
+    },
+    {
+      "name": "bottleship"
+    },
+    {
+      "name": "bottleship_broken"
+    },
+    {
+      "name": "rudder"
+    },
+    {
+      "name": "vent1",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "vent2",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "vent3",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "toiletholder",
+      "directions": 4
+    },
+    {
+      "name": "junctionbox"
+    },
+    {
+      "name": "junctionbox2"
+    },
+    {
+      "name": "junctionbox3"
+    },
+    {
+      "name": "junctionbox_open"
+    },
+    {
+      "name": "junctionbox2_open"
+    },
+    {
+      "name": "junctionbox3_open"
+    },
+    {
+      "name": "seccorpse1"
+    },
+    {
+      "name": "seccorpse2"
+    },
+    {
+      "name": "seccorpse3"
+    },
+    {
+      "name": "seccorpse4"
+    },
+    {
+      "name": "seccorpse5"
+    },
+    {
+      "name": "seccorpse6"
+    },
+    {
+      "name": "seccorpse7"
+    },
+    {
+      "name": "syndcorpse1"
+    },
+    {
+      "name": "syndcorpse2"
+    },
+    {
+      "name": "syndcorpse3"
+    },
+    {
+      "name": "syndcorpse4"
+    },
+    {
+      "name": "syndcorpse5"
+    },
+    {
+      "name": "syndcorpse6"
+    },
+    {
+      "name": "syndcorpse7"
+    },
+    {
+      "name": "syndcorpse8"
+    },
+    {
+      "name": "syndcorpse9"
+    },
+    {
+      "name": "syndcorpse10"
+    },
+    {
+      "name": "syndcorpse11"
+    },
+    {
+      "name": "handscanner"
+    },
+    {
+      "name": "ntcrate",
+      "directions": 4
+    },
+    {
+      "name": "weirdmark",
+      "directions": 4
+    },
+    {
+      "name": "frontwalldamage",
+      "directions": 4
+    },
+    {
+      "name": "sidewalldamage",
+      "directions": 4
+    },
+    {
+      "name": "scornerwalldamage"
+    },
+    {
+      "name": "damagedchair",
+      "directions": 4
+    },
+    {
+      "name": "plasma-bhole",
+      "directions": 4
+    },
+    {
+      "name": "keypad"
+    },
+    {
+      "name": "unfinished"
+    },
+    {
+      "name": "target_paper"
+    },
+    {
+      "name": "gibberBroken"
+    },
+    {
+      "name": "wall-lever-down-anim",
+      "delays": [
+        [
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "wall-lever-up"
+    },
+    {
+      "name": "wall-lever-down"
+    },
+    {
+      "name": "wall-lever-up-anim",
+      "delays": [
+        [
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "occupancy-0"
+    },
+    {
+      "name": "occupancy-1"
+    },
+    {
+      "name": "occupancy-glow"
+    },
+    {
+      "name": "gold_bee"
+    },
+    {
+      "name": "antagscanner"
+    },
+    {
+      "name": "antagscanner-u",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

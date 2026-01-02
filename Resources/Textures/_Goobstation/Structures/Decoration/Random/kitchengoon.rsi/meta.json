@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "griddle1_off"
+    },
+    {
+      "name": "griddle3_off"
+    },
+    {
+      "name": "oven_off"
+    },
+    {
+      "name": "range_off"
+    },
+    {
+      "name": "range_alt_off"
+    },
+    {
+      "name": "fryer_off"
+    }
+  ]
+}

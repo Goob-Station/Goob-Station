@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "washer"
+    },
+    {
+      "name": "sovcomp0",
+      "directions": 4
+    },
+    {
+      "name": "sovcomp1",
+      "directions": 4
+    },
+    {
+      "name": "sovcomp2",
+      "directions": 4
+    },
+    {
+      "name": "sovcomp3",
+      "directions": 4
+    },
+    {
+      "name": "charger_skin-soviet"
+    },
+    {
+      "name": "tapedrive0"
+    },
+    {
+      "name": "sovmachine0"
+    },
+    {
+      "name": "sovmachine1"
+    }
+  ]
+}

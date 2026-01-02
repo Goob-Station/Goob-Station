@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "drain"
+    },
+    {
+      "name": "drain_welded"
+    },
+    {
+      "name": "drain_clogged"
+    },
+    {
+      "name": "bigdrain"
+    },
+    {
+      "name": "bigdrain_clogged"
+    },
+    {
+      "name": "bigdrain_welded"
+    },
+    {
+      "name": "ladder"
+    },
+    {
+      "name": "ladder_on"
+    },
+    {
+      "name": "ladder_off"
+    },
+    {
+      "name": "airborne",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "ripple",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

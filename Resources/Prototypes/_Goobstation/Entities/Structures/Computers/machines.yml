@@ -1,0 +1,319 @@
+- type: entity
+  id: GannetsMachineOff
+  parent: BaseStructure
+  name: machine
+  description: An old machine.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: gannets_machine10
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+
+- type: entity
+  id: GannetsMachineOn
+  parent: GannetsMachineOff
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: gannets_machine11
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: White
+
+- type: entity
+  id: GannetsMachineAltOff
+  parent: GannetsMachineOff
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: gannets_machine20
+
+- type: entity
+  id: GannetsMachineAltOn
+  parent: GannetsMachineOff
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: gannets_machine21
+
+- type: entity
+  id: GannetsMachineAltOff2
+  parent: GannetsMachineOff
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: gannets_machine30
+
+- type: entity
+  id: GannetsMachineAltOn2
+  parent: GannetsMachineOff
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: gannets_machine31
+
+# Lever
+
+- type: entity
+  id: LeverMachine0
+  parent: GannetsMachineOff
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: lever0
+
+- type: entity
+  id: LeverMachine0
+  parent: GannetsMachineOff
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: lever0-locked
+
+- type: entity
+  id: LeverMachine1
+  parent: GannetsMachineOff
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: lever1
+
+- type: entity
+  id: LeverMachine0
+  parent: GannetsMachineOff
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: lever1-locked
+
+# Radar
+
+- type: entity
+  id: RadarMachine
+  parent: GannetsMachineOff
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: radar
+
+- type: entity
+  id: RandomPCMachine
+  parent: GannetsMachineOff
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: randompc
+
+# Wall-mounted
+
+- type: entity
+  id: HandScanner
+  parent: BaseStructure
+  name: hand scanner
+  description: What does a hand scanner do? It scans your fingers, of course.
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: handscanner
+    drawdepth: WallMountedItems
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+
+- type: entity
+  id: HandScannerAntag
+  parent: HandScanner
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: antagscanner
+    drawdepth: WallMountedItems
+
+- type: entity
+  id: HandScannerAntagU
+  parent: HandScanner
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: antagscanner-u
+    drawdepth: WallMountedItems
+
+- type: entity
+  id: JunctionBox1
+  parent: BaseStructure
+  name: junction box
+  description: Holds lots of wires inside. Became outdated once APCs became commonplace.
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: junctionbox
+    drawdepth: WallMountedItems
+
+- type: entity
+  id: JunctionBoxOpen1
+  parent: JunctionBox1
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: junctionbox_open
+    drawdepth: WallMountedItems
+
+- type: entity
+  id: JunctionBox2
+  parent: BaseStructure
+  name: junction box
+  description: Holds lots of wires inside. Became outdated once APCs became commonplace.
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: junctionbox2
+    drawdepth: WallMountedItems
+
+- type: entity
+  id: JunctionBoxOpen2
+  parent: JunctionBox1
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: junctionbox2_open
+    drawdepth: WallMountedItems
+
+- type: entity
+  id: JunctionBox3
+  parent: BaseStructure
+  name: junction box
+  description: Holds lots of wires inside. Became outdated once APCs became commonplace.
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: junctionbox3
+    drawdepth: WallMountedItems
+
+- type: entity
+  id: JunctionBoxOpen3
+  parent: JunctionBox1
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: junctionbox3_open
+    drawdepth: WallMountedItems
+
+# Keypad
+
+- type: entity
+  id: SecureKeypad
+  parent: JunctionBox1
+  name: keypad
+  description: If the correct code is put in, it may open something. At least, that's what it would do, if it wasn't busted.
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: keypad
+    drawdepth: WallMountedItems
+
+# Occupancy
+
+- type: entity
+  id: OccupancyLightOff
+  parent: JunctionBox1
+  name: occupancy indicator
+  description: Glows red when in use.
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: occupancy-0
+    drawdepth: WallMountedItems
+
+- type: entity
+  id: OccupancyLightOn
+  parent: OccupancyLightOff
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: occupancy-1
+    drawdepth: WallMountedItems

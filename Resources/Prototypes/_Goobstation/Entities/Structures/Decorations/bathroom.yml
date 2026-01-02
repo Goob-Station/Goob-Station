@@ -1,0 +1,43 @@
+- type: entity
+  id: BathroomToiletPaperHolder
+  parent: BaseStructure
+  name: paper holder
+  description: Don't flip it!
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: toiletholder
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 10
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+
+- type: entity
+  id: BathroomTowelHanger
+  parent: BaseStructure
+  name: rung
+  description: A solidly attached metal bar with many uses.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: rung
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 40
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]

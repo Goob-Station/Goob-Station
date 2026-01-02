@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "empty_shelf_1"
+    },
+    {
+      "name": "empty_shelf_2"
+    },
+    {
+      "name": "empty_shelf_3"
+    },
+    {
+      "name": "shelf_1"
+    },
+    {
+      "name": "shelf_2"
+    },
+    {
+      "name": "shelf_3"
+    },
+    {
+      "name": "shelf_4"
+    },
+    {
+      "name": "shelf_5"
+    },
+    {
+      "name": "shelf_6"
+    },
+    {
+      "name": "shelf_7"
+    },
+    {
+      "name": "shelf_8"
+    },
+    {
+      "name": "shelf_9"
+    },
+    {
+      "name": "shelf_10"
+    },
+    {
+      "name": "shelf_11"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+- type: entity
+  id: FrontWallDamageWallDecal
+  parent: BaseStructure
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: frontwalldamage
+    drawdepth: WallMountedItems
+
+- type: entity
+  id: PlasmaBHoleWallDecal
+  parent: BaseStructure
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: plasma-bhole
+    drawdepth: WallMountedItems
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green
+
+- type: entity
+  id: SCornerWallDamageWallDecal
+  parent: BaseStructure
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: scornerwalldamage
+    drawdepth: WallMountedItems
+
+- type: entity
+  id: SideWallDamageWallDecal
+  parent: BaseStructure
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: sidewalldamage
+    drawdepth: WallMountedItems
+
+- type: entity
+  id: WeirdGlowingMarkWallDecal
+  parent: BaseStructure
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: weirdmark
+    drawdepth: WallMountedItems
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green

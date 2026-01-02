@@ -1,0 +1,20 @@
+- type: entity
+  id: GoldHeisenbeeTrophy
+  parent: MaterialFlockCube
+  name: Gold Bee
+  description: An extremely valuable trophy made of pure gold. May have sentimental value to some.
+  components:
+  - type: StaticPrice
+    price: 10000
+  - type: Sprite
+    sprite: _Goobstation/Structures/Decoration/Random/decoration.rsi
+    layers:
+    - state: gold_bee
+  - type: Item
+    sprite: _Goobstation/Structures/Decoration/Random/decoration.rsi
+    size: Normal
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: Yellow
+    castShadows: true

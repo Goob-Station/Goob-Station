@@ -1,0 +1,195 @@
+- type: entity
+  id: BaseGoonCorpse
+  parent: BaseItem
+  name: mangled corpse
+  description: Oh, the humanity!
+  abstract: true
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: seccorpse1
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+
+- type: entity
+  id: GoonCorpse1
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: seccorpse1
+
+- type: entity
+  id: GoonCorpse2
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: seccorpse2
+
+- type: entity
+  id: GoonCorpse3
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: seccorpse3
+
+- type: entity
+  id: GoonCorpse4
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: seccorpse4
+
+- type: entity
+  id: GoonCorpse5
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: seccorpse5
+
+- type: entity
+  id: GoonCorpse6
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: seccorpse6
+
+- type: entity
+  id: GoonCorpse1
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: seccorpse7
+
+- type: entity
+  id: GoonCorpse1
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: seccorpse7
+
+# Syndi corpses
+
+- type: entity
+  id: GoonCorpseSyndi1
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: syndcorpse1
+
+- type: entity
+  id: GoonCorpseSyndi2
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: syndcorpse2
+
+- type: entity
+  id: GoonCorpseSyndi3
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: syndcorpse3
+
+- type: entity
+  id: GoonCorpseSyndi4
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: syndcorpse4
+
+- type: entity
+  id: GoonCorpseSyndi5
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: syndcorpse5
+
+- type: entity
+  id: GoonCorpseSyndi6
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: syndcorpse6
+
+- type: entity
+  id: GoonCorpseSyndi7
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: syndcorpse7
+
+- type: entity
+  id: GoonCorpseSyndi8
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: syndcorpse8
+
+- type: entity
+  id: GoonCorpseSyndi9
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: syndcorpse9
+
+- type: entity
+  id: GoonCorpseSyndi10
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: syndcorpse10
+
+- type: entity
+  id: GoonCorpseSyndi11
+  parent: BaseGoonCorpse
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: syndcorpse11

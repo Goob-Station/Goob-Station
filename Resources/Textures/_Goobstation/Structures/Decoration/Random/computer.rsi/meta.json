@@ -1,0 +1,300 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "old",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "oldb",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "old0"
+    },
+    {
+      "name": "tour",
+      "delays": [
+        [
+          0.15,
+          0.15,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "oldlap",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "oldlap0"
+    },
+    {
+      "name": "oldlapb",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "oldlapshut"
+    },
+    {
+      "name": "dterm0",
+      "directions": 4
+    },
+    {
+      "name": "dterm",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "dtermb",
+      "directions": 4,
+      "delays": [
+        [
+          0.8,
+          0.2,
+          1.6,
+          0.2
+        ],
+        [
+          0.8,
+          0.2,
+          1.6,
+          0.2
+        ],
+        [
+          0.8,
+          0.2,
+          1.6,
+          0.2
+        ],
+        [
+          0.8,
+          0.2,
+          1.6,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "bcase"
+    },
+    {
+      "name": "bcaseb"
+    },
+    {
+      "name": "bcase0"
+    },
+    {
+      "name": "s_teleport",
+      "directions": 4
+    },
+    {
+      "name": "cruiser",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "cruiserb",
+      "directions": 4
+    },
+    {
+      "name": "cruiser0",
+      "directions": 4
+    },
+    {
+      "name": "drawbr0",
+      "directions": 4
+    },
+    {
+      "name": "drawbr",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "drawbr-alert",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "old_alt",
+      "delays": [
+        [
+          2.4,
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "old_altb"
+    },
+    {
+      "name": "old_alt0"
+    },
+    {
+      "name": "idport",
+      "delays": [
+        [
+          2,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          6,
+          0.1,
+          0.1,
+          2,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          6,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "idportC",
+      "delays": [
+        [
+          2,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          6,
+          0.1,
+          0.1,
+          2,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          6,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "idport0"
+    },
+    {
+      "name": "idportC0"
+    },
+    {
+      "name": "operating-small"
+    },
+    {
+      "name": "operating-small0"
+    },
+    {
+      "name": "operating-smallb"
+    }
+  ]
+}

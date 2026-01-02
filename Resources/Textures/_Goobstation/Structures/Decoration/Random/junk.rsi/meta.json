@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "Junk_1"
+    },
+    {
+      "name": "Junk_2"
+    },
+    {
+      "name": "Junk_3"
+    },
+    {
+      "name": "Junk_4"
+    },
+    {
+      "name": "Junk_5"
+    },
+    {
+      "name": "Junk_6"
+    },
+    {
+      "name": "Junk_7"
+    },
+    {
+      "name": "Junk_8"
+    },
+    {
+      "name": "Junk_9"
+    },
+    {
+      "name": "Junk_10"
+    },
+    {
+      "name": "Junk_11"
+    },
+    {
+      "name": "Junk_12"
+    },
+    {
+      "name": "Junk_13"
+    },
+    {
+      "name": "Junk_14"
+    },
+    {
+      "name": "radiator",
+      "directions": 4
+    },
+    {
+      "name": "bathtub"
+    },
+    {
+      "name": "coatrack"
+    },
+    {
+      "name": "jerseybarrier1",
+      "directions": 4
+    },
+    {
+      "name": "jerseybarrier2",
+      "directions": 4
+    },
+    {
+      "name": "jerseybarrier3",
+      "directions": 4
+    },
+    {
+      "name": "jerseybarrier4",
+      "directions": 4
+    },
+    {
+      "name": "jerseybarrier5",
+      "directions": 4
+    },
+    {
+      "name": "jerseybarrier_alt1",
+      "directions": 4
+    },
+    {
+      "name": "jerseybarrier_alt2",
+      "directions": 4
+    },
+    {
+      "name": "shelf1"
+    },
+    {
+      "name": "shelf2"
+    },
+    {
+      "name": "shelf3"
+    },
+    {
+      "name": "buysign"
+    },
+    {
+      "name": "shelf0-old"
+    },
+    {
+      "name": "shelf0"
+    },
+    {
+      "name": "palette"
+    },
+    {
+      "name": "supply_crate"
+    },
+    {
+      "name": "barrel1"
+    },
+    {
+      "name": "barrel2"
+    },
+    {
+      "name": "barrel3"
+    },
+    {
+      "name": "barrel4"
+    },
+    {
+      "name": "barrel5"
+    }
+  ]
+}

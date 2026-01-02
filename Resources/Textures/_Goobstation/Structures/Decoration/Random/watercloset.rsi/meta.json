@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "urinal",
+      "directions": 4
+    },
+    {
+      "name": "shower",
+      "directions": 4
+    },
+    {
+      "name": "water",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "mist"
+    },
+    {
+      "name": "rubberducky"
+    },
+    {
+      "name": "puddle"
+    },
+    {
+      "name": "puddle-oil",
+      "delays": [
+        [
+          0.1,
+          0.6,
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.3,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "puddle-oil-splash",
+      "delays": [
+        [
+          0.3,
+          0.2,
+          0.4,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "puddle-splash",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    }
+  ]
+}
