@@ -43,6 +43,7 @@ using Content.Goobstation.Common.Mind;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
+using Content.Goobstation.Shared.Changeling;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
@@ -166,7 +167,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ChangelingIdentityComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ChangelingIdentityComponent, MapInitEvent>(OnIdentityMapInit);
         SubscribeLocalEvent<ChangelingComponent, MapInitEvent>(OnChangelingMapInit);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, MobStateChangedEvent>(OnMobStateChange);
@@ -815,45 +816,50 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     #region Event Handlers
 
-    private void OnStartup(EntityUid uid, ChangelingIdentityComponent comp, ref ComponentStartup args)
+    private void OnIdentityMapInit(Entity<ChangelingIdentityComponent> ent, ref MapInitEvent args)
     {
-        RemComp<HungerComponent>(uid);
-        RemComp<ThirstComponent>(uid);
-        RemComp<CanHostGuardianComponent>(uid);
-        RemComp<MartialArtsKnowledgeComponent>(uid);
-        RemComp<CanPerformComboComponent>(uid);
-        EnsureComp<ZombieImmuneComponent>(uid);
+        RemComp<HungerComponent>(ent);
+        RemComp<ThirstComponent>(ent);
+        RemComp<CanHostGuardianComponent>(ent);
+        RemComp<MartialArtsKnowledgeComponent>(ent);
+        RemComp<CanPerformComboComponent>(ent);
+        EnsureComp<ZombieImmuneComponent>(ent);
 
         // add actions
-        foreach (var actionId in comp.BaseChangelingActions)
-            _actions.AddAction(uid, actionId);
-
-        // making sure things are right in this world
-        comp.Chemicals = comp.MaxChemicals;
+        foreach (var actionId in ent.Comp.BaseChangelingActions)
+            _actions.AddAction(ent, actionId);
 
         // make sure its set to the default
-        comp.TotalEvolutionPoints = _changelingRuleSystem.StartingCurrency;
+        ent.Comp.TotalEvolutionPoints = _changelingRuleSystem.StartingCurrency;
 
         // don't want instant stasis
-        comp.StasisTime = comp.DefaultStasisTime;
+        ent.Comp.StasisTime = ent.Comp.DefaultStasisTime;
 
         // show alerts
-        UpdateChemicals(uid, comp, 0);
+        UpdateChemicals(ent, ent.Comp, 0);
         // make their blood unreal
-        _blood.ChangeBloodReagent(uid, "BloodChangeling");
+        _blood.ChangeBloodReagent(ent.Owner, "BloodChangeling");
     }
 
     // in the future ChangelingIdentity should have its own system and be ONLY used for holding stored DNA and handling transformations.
     private void OnChangelingMapInit(Entity<ChangelingComponent> ent, ref MapInitEvent args)
     {
-        // add base comps
-        foreach (var startingComp in ent.Comp.StartingComps)
-        {
-            var comp = Factory.GetComponent(startingComp);
+        if (ent.Comp.EvolutionsAssigned) // this is solely because polymorph will cause mega errors otherwise
+            return;
 
-            if (!HasComp(ent, startingComp)) // don't overwrite the starting components if you already have them
-                AddComp(ent, comp, true);
+        if (!_proto.TryIndex(ent.Comp.EvolutionsProto, out var evoProto))
+            return;
+
+        foreach (var startingComp in evoProto.Components)
+        {
+            var startCompType = startingComp.Value.Component.GetType();
+            var startComp = Factory.GetComponent(startCompType);
+
+            if (!HasComp(ent, startCompType)) // don't overwrite the starting components if you already have them (somehow)
+                AddComp(ent, startComp, true);
         }
+
+        ent.Comp.EvolutionsAssigned = true;
     }
 
     private void OnMobStateChange(EntityUid uid, ChangelingIdentityComponent comp, ref MobStateChangedEvent args)

@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Changeling.Components;
 
@@ -15,12 +16,17 @@ namespace Content.Goobstation.Shared.Changeling.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ChangelingComponent : Component
 {
+    /// <summary>
+    /// The starting components to be assigned to a changeling.
+    /// </summary>
     [DataField]
-    public List<Type> StartingComps = new()
-    {
-        typeof(ChangelingIdentityComponent)
-        // add more starting components here when shit is split from ChangelingIdentity
-    };
+    public ProtoId<ChangelingStartingEvolutionPrototype> EvolutionsProto = "DefaultChangeling";
+
+    /// <summary>
+    /// Have the components been assigned?
+    /// </summary>
+    [DataField]
+    public bool EvolutionsAssigned;
 
     [DataField]
     public string MindswapText = "changeling"; // only used for mindswap attempts
