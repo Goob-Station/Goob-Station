@@ -19869,3 +19869,9 @@ Entries:
         other person.
   id: 2247
   time: '2026-01-02T08:09:23.0000000+00:00'
+- author: router
+  changes:
+    - type: Add
+      message: Borgs can now reference virologists.
+  id: 2248
+  time: '2026-01-02T08:10:04.0000000+00:00'
