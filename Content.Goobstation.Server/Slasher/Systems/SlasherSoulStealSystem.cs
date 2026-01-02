@@ -2,6 +2,7 @@ using Content.Goobstation.Server.Devil.Contract;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Goobstation.Shared.Slasher.Events;
 using Content.Goobstation.Shared.Slasher.Objectives;
+using Content.Goobstation.Shared.Slasher.Systems;
 using Content.Server.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
@@ -59,6 +60,7 @@ public sealed class SlasherSoulStealSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly PoweredLightSystem _light = default!;
+    [Dependency] private readonly SlasherRegenerateSystem _regenerate = default!;
 
     public override void Initialize()
     {
@@ -247,6 +249,9 @@ public sealed class SlasherSoulStealSystem : EntitySystem
                 _audio.PlayGlobal(comp.AscendanceSound, _stationSystem.GetInOwningStation(station.Value), true);
             }
         }
+
+        // Grant a soul for regenerate
+        _regenerate.GrantSoul(user);
 
         // Popup for user
         _popup.PopupEntity(Loc.GetString("slasher-soulsteal-success", ("target", target)), user, user, PopupType.LargeCaution);
