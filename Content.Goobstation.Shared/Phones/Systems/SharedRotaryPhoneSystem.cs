@@ -3,8 +3,10 @@ using Content.Goobstation.Shared.Phones.Events;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Examine;
+using Content.Shared.Interaction;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -12,12 +14,15 @@ using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.Phones.Systems;
 
 public sealed class SharedRotaryPhoneSystem : EntitySystem
 {
+    private static readonly ProtoId<TagPrototype> ScrewdriverTag = "Screwdriver";
+
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
@@ -25,6 +30,9 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedDeviceLinkSystem _deviceLinkSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
 
     public override void Initialize()
     {
@@ -36,10 +44,20 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         SubscribeLocalEvent<RotaryPhoneComponent, EntGotInsertedIntoContainerMessage>(OnHangUp);
         SubscribeLocalEvent<RotaryPhoneComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
         SubscribeLocalEvent<RotaryPhoneComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<RotaryPhoneComponent, InteractUsingEvent>(OnInteract);
         SubscribeLocalEvent<RotaryPhoneHolderComponent, ExaminedEvent>(OnExamineHolder);
         SubscribeLocalEvent<RotaryPhoneHolderComponent, EntInsertedIntoContainerMessage>(OnPhoneInsertHolder);
         SubscribeLocalEvent<RotaryPhoneHolderComponent, ItemSlotInsertAttemptEvent>(OnInsertAttempt);
     }
+
+    private void OnInteract(EntityUid uid, RotaryPhoneComponent comp, InteractUsingEvent args)
+    {
+        if (_tag.HasTag(args.Used, ScrewdriverTag))
+        {
+            _uiSystem.OpenUi(uid, PhoneUiKey.NameChange, args.User);
+        }
+    }
+
     private void OnMapInit(EntityUid uid, RotaryPhoneComponent comp, MapInitEvent args)
     {
         if(comp.PhoneNumber == null)
@@ -109,6 +127,9 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
     {
         var audio = _audio.PlayPvs(comp.RingSound, uid, AudioParams.Default.WithLoop(true));
 
+        if (comp.ConnectedPhoneStand != null)
+            UpdateAppearance(comp.ConnectedPhoneStand.Value, RotaryPhoneVisuals.Ring);
+
         _popupSystem.PopupPredicted(Loc.GetString("phone-popup-ring", ("location", args.otherPhoneComponent.Name ?? "Unknown")), uid, args.phone, PopupType.Medium);
 
         RaiseDeviceNetworkEvent(comp.ConnectedPhoneStand, comp.RingPort);
@@ -120,6 +141,9 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
 
     private void OnPickup(EntityUid uid, RotaryPhoneComponent comp, EntGotRemovedFromContainerMessage args)
     {
+        if (comp.ConnectedPhoneStand != null)
+            UpdateAppearance(comp.ConnectedPhoneStand.Value, RotaryPhoneVisuals.Ear);
+
         comp.ConnectedPlayer = null;
 
         if (!TryComp<RotaryPhoneHolderComponent>(args.Container.Owner, out var _))
@@ -150,6 +174,9 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         if (!TryComp<RotaryPhoneHolderComponent>(args.Container.Owner, out var _))
             return;
 
+        if(comp.ConnectedPhoneStand != null)
+            UpdateAppearance(comp.ConnectedPhoneStand.Value, RotaryPhoneVisuals.Base);
+
         if (_net.IsServer)
         {
             RemComp<JointVisualsComponent>(uid);
@@ -162,8 +189,13 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
     }
     private void OnGotHungUp(EntityUid uid, RotaryPhoneComponent comp, PhoneHungUpEvent args)
     {
-        if(!comp.Connected)
+        if (!comp.Connected)
+        {
+            if (comp.ConnectedPhoneStand != null)
+                UpdateAppearance(comp.ConnectedPhoneStand.Value, RotaryPhoneVisuals.Base);
+
             return;
+        }
 
         var audio = _audio.PlayPvs(comp.HandUpSoundLocal, uid);
         if (audio != null)
@@ -210,6 +242,11 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         thisPhone.ConnectedPhone = null;
         thisPhone.Engaged = false;
         thisPhone.Connected = false;
+    }
+
+    private void UpdateAppearance(Entity<RotaryPhoneComponent?> phone, RotaryPhoneVisuals visual)
+    {
+        _appearance.SetData(phone, RotaryPhoneLayers.Layer, visual);
     }
 
     public void RaiseDeviceNetworkEvent(EntityUid? phoneStand, string portName)

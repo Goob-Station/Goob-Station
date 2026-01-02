@@ -111,9 +111,24 @@ public sealed partial class RotaryPhoneComponent : Component
 }
 
 [Serializable, NetSerializable]
+public enum RotaryPhoneLayers
+{
+    Layer,
+}
+
+[Serializable, NetSerializable]
+public enum RotaryPhoneVisuals
+{
+    Base,
+    Ring,
+    Ear,
+}
+
+[Serializable, NetSerializable]
 public enum PhoneUiKey : byte
 {
-    Key
+    Key,
+    NameChange
 }
 
 [Serializable, NetSerializable]
@@ -133,6 +148,28 @@ public sealed class PhoneBookPressedMessage : BoundUserInterfaceMessage
     public int Value;
 
     public PhoneBookPressedMessage(int value)
+    {
+        Value = value;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class PhoneNameChangedMessage : BoundUserInterfaceMessage
+{
+    public string Value;
+
+    public PhoneNameChangedMessage(string value)
+    {
+        Value = value;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class PhoneCategoryChangedMessage : BoundUserInterfaceMessage
+{
+    public string Value;
+
+    public PhoneCategoryChangedMessage(string value)
     {
         Value = value;
     }

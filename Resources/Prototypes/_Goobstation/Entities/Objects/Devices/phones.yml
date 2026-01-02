@@ -18,6 +18,8 @@
     interfaces:
       enum.PhoneUiKey.Key:
         type: PhoneBoundUserInterface
+      enum.PhoneUiKey.NameChange:
+        type: PhoneNameChangeUI
   - type: ActivatableUI
     key: enum.PhoneUiKey.Key
   - type: LanguageSpeaker # Einstein Engines - Languages
@@ -37,8 +39,9 @@
   components:
   - type: Sprite
     sprite: _RMC14/Objects/phone/rotary_phone.rsi
-    granularLayersRendering: true
-    state: rotary_phone_ear
+    layers:
+      - state: rotary_phone
+        map: [ "base" ]
   - type: Anchorable
   - type: RotaryPhoneHolder
   - type: ContainerContainer
@@ -73,10 +76,40 @@
           components:
           - RotaryPhone
   - type: Appearance
-  - type: ItemMapper
-    containerWhitelist: [phone]
-    mapLayers:
-      rotary_phone:
+  - type: GenericVisualizer
+    visuals:
+      enum.RotaryPhoneLayers.Layer:
+        base:
+          Base: { state: rotary_phone }
+          Ring: { state: rotary_phone_ring }
+          Ear: { state: rotary_phone_ear }
+
+- type: entity
+  parent: RotaryPhoneStand
+  id: RMCRotaryPhoneWallmount
+  name: wall-mounted phone
+  description: "It is a wall mounted telephone. The fine text reads: To log your details with the mainframe please insert your keycard into the slot below. Unfortunately the slot is jammed. You can still use the phone, however."
+  components:
+  - type: Sprite
+    sprite: _RMC14/Structures/wallmount_phone.rsi
+    layers:
+    - state: wall_phone
+      map: [ "base" ]
+  - type: WallMount
+  - type: GenericVisualizer
+    visuals:
+      enum.RotaryPhoneLayers.Layer:
+        base:
+          Base: { state: wall_phone }
+          Ring: { state: wall_phone_ring }
+          Ear: { state: wall_phone_ear }
+  - type: ItemSlots
+    slots:
+      phone:
+        name: phone
+        insertSound: /Audio/_RMC14/phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/phone/sound_machines_phones_pick_up.ogg
+        startingItem: RotaryPhone
         whitelist:
           components:
           - RotaryPhone

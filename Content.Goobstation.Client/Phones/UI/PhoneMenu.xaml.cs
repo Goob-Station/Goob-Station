@@ -83,30 +83,30 @@ public sealed partial class PhoneMenu : FancyWindow
 
         btn.OnPressed += _ => OnPhoneBookButtonPressed?.Invoke(phonenumber);
 
-        switch (catagory)
+        switch (catagory.ToLower())
         {
-            case "Command":
+            case "command":
                 CommandHeading.AddChild(btn);
                 break;
-            case "Security":
+            case "security":
                 SecurityHeading.AddChild(btn);
                 break;
-            case "Engineering":
+            case "engineering":
                 EngineeringHeading.AddChild(btn);
                 break;
-            case "Cargo" or "Supply":
+            case "cargo":
                 CargoHeading.AddChild(btn);
                 break;
-            case "Medical":
+            case "medical":
                 MedicalHeading.AddChild(btn);
                 break;
-            case "Science":
+            case "science":
                 ScienceHeading.AddChild(btn);
                 break;
-            case "Service":
+            case "service":
                 ServiceHeading.AddChild(btn);
                 break;
-            case "Uncategorized":
+            case "uncategorized":
                 UncategorizedHeading.AddChild(btn);
                 break;
         }

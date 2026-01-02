@@ -9,3 +9,5 @@ phone-speakerphone-message = Turn the phones speaker phone on and off
 phone-speakerphone-onoff = The speaker is now {$status}.
 
 phone-speak = {$name} says: {$message}
+
+phone-menu-button-confirm = Change name
