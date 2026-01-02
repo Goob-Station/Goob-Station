@@ -1,3 +1,4 @@
+# Proto-kinetic weapons
 - type: selectableSet
   id: MinerWeaponSelectorPKA
   name: miner-weapon-selector-pka-name
@@ -29,6 +30,43 @@
   - WeaponProtoKineticPistol
   - WeaponProtoKineticPistol
 
+# Proto-kinetic weapons with space upgrades
+- type: selectableSet
+  id: MinerWeaponSelectorPKASpace
+  name: miner-weapon-selector-pka-name
+  description: miner-weapon-selector-pka-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    state: icon
+  content:
+  - WeaponProtoKineticAccelerator
+  - PKAUpgradeSpace
+
+- type: selectableSet
+  id: MinerWeaponSelectorRepeaterSpace
+  name: miner-weapon-selector-repeater-name
+  description: miner-weapon-selector-repeater-description
+  sprite:
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
+    state: icon
+  content:
+  - WeaponProtoKineticRepeater
+  - PKAUpgradeSpace
+
+- type: selectableSet
+  id: MinerWeaponSelectorPistolsSpace
+  name: miner-weapon-selector-pistols-name
+  description: miner-weapon-selector-pistols-description
+  sprite:
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_pistol.rsi
+    state: icon
+  content:
+  - WeaponProtoKineticPistol
+  - WeaponProtoKineticPistol
+  - PKAUpgradeSpace
+  - PKAUpgradeSpace
+
+# Crushers
 - type: selectableSet
   id: MinerWeaponSelectorCrusher
   name: miner-weapon-selector-crusher-name

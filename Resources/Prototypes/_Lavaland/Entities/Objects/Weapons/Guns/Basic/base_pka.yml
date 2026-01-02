@@ -79,6 +79,10 @@
         whitelist:
           components:
           - GunUpgradeFlashlight
+      upgrade-space:
+        whitelist:
+          tags:
+          - PKASpaceUpgrade
   - type: Gun
     fireRate: 0.8
     selectedMode: SemiAuto

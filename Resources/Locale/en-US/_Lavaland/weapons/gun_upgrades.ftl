@@ -23,6 +23,7 @@ gun-upgrade-reload-name = [color=#bbf134][bold]fire rate[/bold][/color]
 gun-upgrade-light-name = [color=#bbf134][bold]light[/bold][/color]
 gun-upgrade-vampirism-name = [color=crimson][bold]vampirism[/bold][/color]
 gun-upgrade-pressure-name = [color=orangered][bold]pressure[/bold][/color]
+gun-upgrade-space-name = [color=#ff00bf][bold]space[/bold][/color]
 
 gun-upgrade-bayonet-name = [bold]bayonet[/bold]
 gun-upgrade-flashlight-name = [bold]flashlight[/bold]

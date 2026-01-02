@@ -28,7 +28,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingBeltUtilityFilled
-    # TODO: add some space-specific mining weapon for salvage specialists
+    - id: UndeterminedWeaponSalvageSpecialist
     - id: SurvivalKnife
     - id: AppraisalTool
     - id: FireExtinguisher

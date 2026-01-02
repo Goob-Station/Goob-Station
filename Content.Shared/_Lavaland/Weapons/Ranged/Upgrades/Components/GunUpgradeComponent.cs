@@ -56,8 +56,8 @@ public sealed partial class GunUpgradeComponent : Component
     public int? CapacityCost;
 
     /// <summary>
-    /// If true, only one such upgrade can be inserted into a gun.
+    /// If this string matches with some other weapon upgrade, it will fil to install.
     /// </summary>
     [DataField]
-    public bool Unique;
+    public string? UniqueGroup;
 }

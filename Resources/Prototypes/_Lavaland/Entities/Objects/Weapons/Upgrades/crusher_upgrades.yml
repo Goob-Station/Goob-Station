@@ -41,7 +41,7 @@
       color: "#4269eb"
   - type: GunUpgrade
     name: gun-upgrade-crusher-kinetic-marker-name
-    unique: true
+    uniqueGroup: mainUpgrade
   - type: GunUpgradeComponents
     components:
     - type: AmmoCounter
@@ -81,7 +81,7 @@
       color: "#ae00ff"
   - type: GunUpgrade
     name: gun-upgrade-crusher-rude-buster-name
-    unique: true
+    uniqueGroup: mainUpgrade
   - type: GunUpgradeComponents
     components:
     - type: AmmoCounter

@@ -115,5 +115,33 @@
       color: "#ff4500"
   - type: GunUpgrade
     name: gun-upgrade-pressure-name
-    unique: true
+    uniqueGroup: pressure
+  - type: GunUpgradePressure # Works almost everywhere now, yupie!
+    newLowerBound: 0
+    newUpperBound: 200
+
+- type: entity
+  id: PKAUpgradeSpace
+  parent: BasePKAUpgrade
+  name: PKA modkit (space)
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#ff00bf"
+    - state: overlay-2
+      color: "#a0038b"
+    - state: overlay-3
+      color: "#ff00bf"
+  - type: GunUpgrade
+    name: gun-upgrade-space-name
+    uniqueGroup: pressure
   - type: GunUpgradePressure
+    newLowerBound: 0
+    newUpperBound: 10
+    newAppliedModifier: 1.25
+  - type: Tag
+    tags:
+    - PKAUpgrade
+    - PKASpaceUpgrade

@@ -152,16 +152,13 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
             return;
         }
 
-        var itemProto = MetaData(args.Item).EntityPrototype?.ID;
-        foreach (var itemSlot in itemSlots.Slots.Values)
+        foreach (var curUpgrade in currentUpgrades)
         {
-            if (itemSlot is not { HasItem: true, Item: { } existingItem }
-                || MetaData(existingItem).EntityPrototype?.ID != itemProto
-                || !upgradeComp.Unique)
+            if (upgradeComp.UniqueGroup != curUpgrade.Comp.UniqueGroup)
                 continue;
 
             args.Cancelled = true;
-            break;
+            return;
         }
     }
 

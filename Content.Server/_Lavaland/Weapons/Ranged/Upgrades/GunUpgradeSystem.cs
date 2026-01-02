@@ -78,13 +78,34 @@ public sealed class GunUpgradeSystem : SharedGunUpgradeSystem
 
     private void OnPressureUpgradeInserted(Entity<GunUpgradePressureComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
-        if (TryComp<PressureDamageChangeComponent>(args.Container.Owner, out var pdc))
-            pdc.Enabled = false;
+        var comp = ent.Comp;
+        if (!TryComp<PressureDamageChangeComponent>(args.Container.Owner, out var pdc))
+            return;
+
+        comp.SavedAppliedModifier = pdc.AppliedModifier;
+        comp.SavedApplyWhenInRange = pdc.ApplyWhenInRange;
+        comp.SavedLowerBound = pdc.LowerBound;
+        comp.SavedUpperBound = pdc.UpperBound;
+
+        if (comp.NewAppliedModifier != null)
+            pdc.AppliedModifier = comp.NewAppliedModifier.Value;
+        if (comp.NewApplyWhenInRange != null)
+            pdc.ApplyWhenInRange = comp.NewApplyWhenInRange.Value;
+        if (comp.NewLowerBound != null)
+            pdc.LowerBound = comp.NewLowerBound.Value;
+        if (comp.NewUpperBound != null)
+            pdc.UpperBound = comp.NewUpperBound.Value;
     }
 
     private void OnPressureUpgradeRemoved(Entity<GunUpgradePressureComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        if (TryComp<PressureDamageChangeComponent>(args.Container.Owner, out var pdc))
-            pdc.Enabled = true;
+        var comp = ent.Comp;
+        if (!TryComp<PressureDamageChangeComponent>(args.Container.Owner, out var pdc))
+            return;
+
+        pdc.AppliedModifier = comp.SavedAppliedModifier;
+        pdc.ApplyWhenInRange = comp.SavedApplyWhenInRange;
+        pdc.LowerBound = comp.SavedLowerBound;
+        pdc.UpperBound = comp.SavedUpperBound;
     }
 }
