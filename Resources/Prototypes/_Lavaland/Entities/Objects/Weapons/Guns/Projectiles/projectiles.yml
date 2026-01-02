@@ -41,11 +41,11 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 40 # Lavaland Change - TOTAL PKA VICTORY
-  #        Structural: 30 Lavaland Change - No easy break-ins :)
+        Blunt: 15
+        Structural: 20
   # Short lifespan
   - type: TimedDespawn
-    lifetime: 0.22 # roughly 5.5 tiles
+    lifetime: 0.18 # roughly 4 tiles
   - type: GatheringProjectile
 
 - type: entity
@@ -63,12 +63,12 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 80 # Goobstation edit
-        # Structural: 35 # Goobstation edit
+        Blunt: 40
+        Structural: 35
   - type: Ammo
     muzzleFlash: HitscanEffect
   - type: TimedDespawn
-    lifetime: 0.3 # Goobstation edit
+    lifetime: 0.3
   - type: PointLight
     radius: 2.5
     color: white
@@ -76,27 +76,27 @@
   - type: GatheringProjectile
 
 - type: entity
-  id: RapidBulletKinetic
+  id: RapidBulletKinetic # Used for PK repeater and pistol
   name: rapid kinetic bolt
   parent: BulletKinetic
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
-    impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 24
+        Blunt: 8
+  - type: TimedDespawn
+    lifetime: 0.22 # roughly 5.5 tiles
 
 - type: entity
-  id: WeakBulletKinetic
+  id: WeakBulletKinetic # Used for PK shotgun
   categories: [ HideSpawnMenu ]
-  parent: BulletKinetic
+  parent: RapidBulletKinetic
   components:
   - type: Projectile
-    impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 12
+        Blunt: 5
 
 - type: entity
   id: PelletKinetic
@@ -139,11 +139,10 @@
       - MobState
     damage:
       types:
-        Blunt: 20
+        Blunt: 15
         Slash: 5
     effect: { sprite: /Textures/Objects/Weapons/effects.rsi, state: shield2 }
     sound: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
-    # Lavaland change end
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
@@ -152,18 +151,3 @@
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.4
-
-  # Deals less damage, glaive has better HP recovery
-- type: entity
-  id: BulletChargeGlaive
-  name: leech bolt
-  parent: BulletCharge
-  components:
-  - type: DamageMarkerOnCollide
-    whitelist:
-      components:
-      - MobState
-    damage:
-      types:
-        Blunt: 1
-        Slash: 5

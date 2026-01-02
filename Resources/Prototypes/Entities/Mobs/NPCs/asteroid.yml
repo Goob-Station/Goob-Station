@@ -104,7 +104,6 @@
       types:
         Blunt: 35
         Slash: 15
-    range: 1.12 # Goob - Allows kinetic crushers to fight them without taking guaranteed damage.
   - type: NpcFactionMember
     factions:
     - Lavafauna
@@ -235,7 +234,7 @@
   name: hivelord
   description: A truly alien creature, it is a mass of unknown organic material, constantly fluctuating. When attacking, pieces of it split off and attack in tandem with the original.
   components:
-  - type: WeatherImmune 
+  - type: WeatherImmune
   - type: Sprite
     sprite: Mobs/Aliens/Asteroid/hivelord.rsi
     layers:

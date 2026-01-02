@@ -677,22 +677,22 @@
   # Short lifespan
 #  - type: TimedDespawn
 #    lifetime: 0.4
-
-  # Deals less damage, glaive has better HP recovery
-#- type: entity
-#  id: BulletChargeGlaive
-#  name: leech bolt
-#  parent: BulletCharge
-#  components:
-#  - type: DamageMarkerOnCollide
-#    whitelist:
-#      components:
-#      - MobState
-#    damage:
-#      types:
-#        Blunt: 1
-#        Slash: 5
 # Lavaland Change end
+
+# Deals less damage, glaive has better HP recovery
+- type: entity
+  id: BulletChargeGlaive
+  name: leech bolt
+  parent: BulletCharge
+  components:
+  - type: DamageMarkerOnCollide
+    whitelist:
+      components:
+      - MobState
+    damage:
+      types:
+        Blunt: 1
+        Slash: 5
 
 - type: entity
   parent: BulletRocket

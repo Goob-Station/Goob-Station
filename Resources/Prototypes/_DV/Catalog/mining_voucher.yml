@@ -20,17 +20,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: thiefBackpackSet
-  id: MiningCrusher
-  name: mining-voucher-crusher-name
-  description: mining-voucher-crusher-description
-  sprite:
-    sprite: Objects/Weapons/Melee/crusher.rsi
-    state: icon
-  content:
-  - WeaponCrusher
-  - FireExtinguisherMini
-
-- type: thiefBackpackSet
   id: MiningExtraction
   name: mining-voucher-extraction-name
   description: mining-voucher-extraction-description
@@ -42,6 +31,7 @@
   - Fulton
   - FultonBeacon
   - BoxMarkerBeacons
+  - ClothingBeltSalvageWebbing
 
 # TODO: resonator
 #- type: thiefBackpackSet
@@ -63,7 +53,6 @@
     sprite: Clothing/Belt/salvagewebbing.rsi
     state: icon
   content:
-  - ClothingBeltSalvageWebbing
   - ShelterCapsule
   - DeathRattleLavalandImplanter
 
@@ -80,13 +69,3 @@
 #  - WelderIndustrial
 #  - ClothingHeadHatWelding
 #  - drone passthrough ka modkit
-
-- type: thiefBackpackSet
-  id: MiningConscription
-  name: mining-voucher-conscription-name
-  description: mining-voucher-conscription-description
-  sprite:
-    sprite: Clothing/Back/Duffels/salvage.rsi
-    state: icon
-  content:
-  - ClothingBackpackDuffelSalvageConscription

@@ -43,11 +43,13 @@
   - type: DisarmMalus
   - type: Prying
   - type: MeleeWeapon
-    attackRate: 0.8
-    animationRotation: -45
+    range: 2 # Enough range so if you're skilled enough you can avoid being hit by a slow enemy
+    attackRate: 1
+    animationRotation: -135
     wideAnimationRotation: -135
     soundHit:
       collection: MetalThud
+  - type: PressureDamageChange
   - type: Wieldable
   - type: GunRequiresWield
   - type: MeleeRequiresWield
@@ -125,7 +127,6 @@
     tags:
     - Pickaxe
 
-# Very high burst damage if you land a mark, while also providing a small amount of healing.
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
   id: WeaponCrusher
@@ -141,13 +142,14 @@
   - type: Clothing
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher.rsi
   - type: MeleeWeapon
-    attackRate: 0.8
-    animationRotation: -45
-    wideAnimationRotation: -135
     damage:
       types:
-        Slash: 10
+        Slash: 6
         Blunt: 5
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 4
 
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
@@ -159,22 +161,28 @@
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_glaive.rsi
     state: icon
   - type: Item
-    sprite: _Lavaland/Objects/Weapons/Crushers/crusher-inhands.rsi
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_glaive-inhands.rsi
   - type: Clothing
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_glaive.rsi
-  - type: LeechOnMarker
-    leech:
-      groups:
-        Brute: -10
+  #- type: LeechOnMarker # TODO make it a crusher upgrade
+  #  leech:
+  #    groups:
+  #      Brute: -10
   - type: MeleeWeapon
-    range: 1
-    attackRate: 1
-    animationRotation: -45
+    attackRate: 1.1
+    range: 2.5
+    animation: WeaponArcThrust
+    angle: 0
+    animationRotation: -135
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 10
-        Slash: 5
+        Piercing: 5
+        Slash: 4
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 3
 
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
@@ -185,29 +193,21 @@
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_hammer.rsi
     state: icon
-  - type: UseDelay
-    delay: 1
-  - type: MeleeWeapon
-    attackRate: 0.70
-    wideAnimationRotation: -135
+  - type: MeleeWeapon # Slower attack speed but higher damage makes it more risky and rewarding to use
+    attackRate: 0.6
     damage:
       types:
-        Blunt: 15
-    soundHit:
-      collection: MetalThud
-    angle: 0
-    animation: WeaponArcThrust
-    range: 1.6
+        Blunt: 12
+    range: 1.5 # A bit shorter range (default)
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 13
+        Structural: 15 # Decent at mining
   - type: Item
     size: Ginormous
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_hammer-inhands.rsi
-  - type: MeleeThrowOnHit
-    distance: 3
-    speed: 5
-  - type: FlipOnHit
-  - type: GunRequiresWield
-  - type: Wieldable
-  - type: MeleeRequiresWield
+  #- type: FlipOnHit # TODO readd this as an upgrade for all crusher weapons
   - type: Tool
     speedModifier: 1.5
     useSound:
@@ -229,9 +229,16 @@
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher-inhands.rsi
   - type: Clothing
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_halberd.rsi
+  # Basically a crusher but better
   - type: MeleeWeapon
-    attackRate: 1
+    range: 2.2
     damage:
       types:
-        Slash: 10
-        Blunt: 5
+        Blunt: 8
+        Slash: 3
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 6
+        Slash: 3
+        Structural: 30 # Breaks weak rocks effectively
