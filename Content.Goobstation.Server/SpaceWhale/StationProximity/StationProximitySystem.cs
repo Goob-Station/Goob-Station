@@ -156,7 +156,7 @@ public sealed class StationProximitySystem : EntitySystem
             entity,
             AudioParams.Default.WithVolume(1f));
 
-        // Spawn a dummy entity at the player's location
+        // Spawn a dummy entity at the player's location and lock it onto the player
         var dummy = Spawn(null, Transform(entity).Coordinates);
         _transform.SetParent(dummy, entity);
         var mobCaller = EnsureComp<MobCallerComponent>(dummy); // assign the goidacaller to the dummy
