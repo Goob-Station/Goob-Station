@@ -23,6 +23,9 @@ round_restart_time = 240
 fallbackpreset = "secretpluscustom"
 defaultpreset = "secretpluscustom"
 
+[events]
+enabled = true
+
 [server]
 rules_file = "CorvaxRuleset"
 
