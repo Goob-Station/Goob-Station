@@ -154,7 +154,9 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
 
         foreach (var curUpgrade in currentUpgrades)
         {
-            if (upgradeComp.UniqueGroup != curUpgrade.Comp.UniqueGroup)
+            if (upgradeComp.UniqueGroup == null
+                || curUpgrade.Comp.UniqueGroup == null
+                || upgradeComp.UniqueGroup != curUpgrade.Comp.UniqueGroup)
                 continue;
 
             args.Cancelled = true;
