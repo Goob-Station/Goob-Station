@@ -15,12 +15,10 @@ public interface IGoobstationDbManager
 {
     void Init();
     void Shutdown();
-
     Task<List<BrainrotWord>> GetBrainrotWordsAsync();
     Task AddBrainrotWordAsync(string keyword, string username);
     Task RemoveBrainrotWordAsync(string keyword);
 }
-
 
 public sealed class GoobstationDbManager : IGoobstationDbManager
 {
@@ -36,103 +34,75 @@ public sealed class GoobstationDbManager : IGoobstationDbManager
     {
         _sawmill = _logMgr.GetSawmill("goob.db");
 
-        var engine = _cfg.GetCVar(GoobCVars.GoobDatabaseEngine).ToLower();
-        switch (engine)
-        {
-            case "sqlite":
-                SetupSqlite();
-                break;
-            case "postgres":
-                SetupPostgres();
-                break;
-            default:
-                throw new InvalidDataException($"Unknown Goobstation database engine: {engine}");
-        }
+        var _ = _cfg.GetCVar(GoobCVars.GoobDatabaseEngine).ToLower() switch
+        { "sqlite" => SetupSqlite()
+        , "postgres" => SetupPostgres()
+        , var engine => throw new InvalidDataException($"Unknown Goobstation database engine: {engine}")
+        };
 
-        // Run migrations
         using var ctx = CreateContext();
         ctx.Database.Migrate();
     }
 
-    public void Shutdown()
-    {
+    public void Shutdown() { }
+
+    private bool SetupSqlite()
+    { _isPostgres = false;
+      var path = _cfg.GetCVar(GoobCVars.GoobDatabaseSqlitePath);
+      var finalPath = _res.UserData.RootDir is { } root
+          ? Path.Combine(root, path)
+          : ":memory:";
+      _sawmill.Debug($"Using Goobstation SQLite DB: {finalPath}");
+      var builder = new DbContextOptionsBuilder<GoobstationSqliteServerDbContext>();
+      builder.UseSqlite($"Data Source={finalPath}");
+      _options = builder.Options;
+      return true;
     }
 
-    private void SetupSqlite()
-    {
-        _isPostgres = false;
-        var path = _cfg.GetCVar(GoobCVars.GoobDatabaseSqlitePath);
-
-        string finalPath;
-        if (_res.UserData.RootDir != null)
-        {
-            finalPath = Path.Combine(_res.UserData.RootDir, path);
-        }
-        else
-        {
-            finalPath = ":memory:";
-        }
-
-        _sawmill.Debug($"Using Goobstation SQLite DB: {finalPath}");
-
-        var builder = new DbContextOptionsBuilder<GoobstationSqliteServerDbContext>();
-        builder.UseSqlite($"Data Source={finalPath}");
-        _options = builder.Options;
+    private bool SetupPostgres()
+    { _isPostgres = true;
+      var (host, port, db, user, pass) =
+          ( _cfg.GetCVar(GoobCVars.GoobDatabasePgHost)
+          , _cfg.GetCVar(GoobCVars.GoobDatabasePgPort)
+          , _cfg.GetCVar(GoobCVars.GoobDatabasePgDatabase)
+          , _cfg.GetCVar(GoobCVars.GoobDatabasePgUsername)
+          , _cfg.GetCVar(GoobCVars.GoobDatabasePgPassword)
+          );
+      var connString = new NpgsqlConnectionStringBuilder
+          { Host = host
+          , Port = port
+          , Database = db
+          , Username = user
+          , Password = pass
+          }.ConnectionString;
+      _sawmill.Debug($"Using Goobstation Postgres: {host}:{port}/{db}");
+      var builder = new DbContextOptionsBuilder<GoobstationPostgresServerDbContext>();
+      builder.UseNpgsql(connString);
+      _options = builder.Options;
+      return true;
     }
 
-    private void SetupPostgres()
-    {
-        _isPostgres = true;
-        var host = _cfg.GetCVar(GoobCVars.GoobDatabasePgHost);
-        var port = _cfg.GetCVar(GoobCVars.GoobDatabasePgPort);
-        var db = _cfg.GetCVar(GoobCVars.GoobDatabasePgDatabase);
-        var user = _cfg.GetCVar(GoobCVars.GoobDatabasePgUsername);
-        var pass = _cfg.GetCVar(GoobCVars.GoobDatabasePgPassword);
-
-        var connString = new NpgsqlConnectionStringBuilder
-        {
-            Host = host,
-            Port = port,
-            Database = db,
-            Username = user,
-            Password = pass
-        }.ConnectionString;
-
-        _sawmill.Debug($"Using Goobstation Postgres: {host}:{port}/{db}");
-
-        var builder = new DbContextOptionsBuilder<GoobstationPostgresServerDbContext>();
-        builder.UseNpgsql(connString);
-        _options = builder.Options;
-    }
-
-    private GoobstationServerDbContext CreateContext()
-    {
-        if (_isPostgres)
-            return new GoobstationPostgresServerDbContext((DbContextOptions<GoobstationPostgresServerDbContext>)_options!);
-        return new GoobstationSqliteServerDbContext((DbContextOptions<GoobstationSqliteServerDbContext>)_options!);
-    }
+    private GoobstationServerDbContext CreateContext() => _isPostgres switch
+    { true => new GoobstationPostgresServerDbContext((DbContextOptions<GoobstationPostgresServerDbContext>)_options!)
+    , false => new GoobstationSqliteServerDbContext((DbContextOptions<GoobstationSqliteServerDbContext>)_options!)
+    };
 
     public async Task<List<BrainrotWord>> GetBrainrotWordsAsync()
-    {
-        await using var ctx = CreateContext();
-        return await ctx.BrainrotWords.ToListAsync();
+    { await using var ctx = CreateContext();
+      return await ctx.BrainrotWords.ToListAsync();
     }
 
     public async Task AddBrainrotWordAsync(string keyword, string username)
-    {
-        await using var ctx = CreateContext();
-        ctx.BrainrotWords.Add(new BrainrotWord { Keyword = keyword, Username = username });
-        await ctx.SaveChangesAsync();
+    { await using var ctx = CreateContext();
+      ctx.BrainrotWords.Add(new BrainrotWord { Keyword = keyword, Username = username });
+      await ctx.SaveChangesAsync();
     }
 
     public async Task RemoveBrainrotWordAsync(string keyword)
-    {
-        await using var ctx = CreateContext();
-        var word = await ctx.BrainrotWords.FirstOrDefaultAsync(w => w.Keyword == keyword);
-        if (word != null)
-        {
-            ctx.BrainrotWords.Remove(word);
-            await ctx.SaveChangesAsync();
-        }
+    { await using var ctx = CreateContext();
+      if (await ctx.BrainrotWords.FirstOrDefaultAsync(w => w.Keyword == keyword) is { } word)
+      { ctx.BrainrotWords.Remove(word);
+        await ctx.SaveChangesAsync();
+      }
     }
 }
