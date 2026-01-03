@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Server.Administration.Logs;
 using Content.Server.DeviceLinking.Systems;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;

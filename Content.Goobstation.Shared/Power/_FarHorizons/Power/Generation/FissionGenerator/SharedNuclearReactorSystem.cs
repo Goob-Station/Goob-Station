@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Popups;
 using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Prototypes;
@@ -110,13 +111,13 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
         }
     }
 
-    public static bool AdjustControlRods(NuclearReactorComponent comp, float change) { 
+    public static bool AdjustControlRods(NuclearReactorComponent comp, float change) {
         var newSet = Math.Clamp(comp.ControlRodInsertion + change, 0, 2);
         if (comp.ControlRodInsertion != newSet)
         {
             comp.ControlRodInsertion = newSet;
             return true;
         }
-        return false; 
+        return false;
     }
 }

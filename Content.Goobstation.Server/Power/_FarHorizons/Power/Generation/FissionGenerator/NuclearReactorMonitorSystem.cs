@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Server.Administration.Logs;
 using Content.Server.DeviceLinking.Systems;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
@@ -39,7 +40,7 @@ public sealed partial class NuclearReactorMonitorSystem : EntitySystem
     {
         if (!_entityManager.TryGetComponent<DeviceLinkSinkComponent>(uid, out var sink))
             return;
-        
+
         foreach(var source in sink.LinkedSources)
         {
             if (!HasComp<NuclearReactorComponent>(source))

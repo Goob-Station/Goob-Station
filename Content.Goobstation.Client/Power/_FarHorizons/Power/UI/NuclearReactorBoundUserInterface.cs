@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
+using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 

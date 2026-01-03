@@ -1,3 +1,5 @@
+using Content.Goobstation.Common.Materials._FarHorizons.Materials;
+using Content.Goobstation.Common.Materials._FarHorizons.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
@@ -6,8 +8,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
-using Content.Shared._FarHorizons.Materials;
-using Content.Shared._FarHorizons.Materials.Systems;
 using Content.Shared.Nutrition;
 using Content.Shared.Damage;
 
@@ -54,7 +54,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ReactorPartComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<ReactorPartComponent, IngestedEvent>(OnIngest);
+        SubscribeLocalEvent<ReactorPartComponent, AfterFullyEatenEvent>(OnIngest);
     }
 
     private void OnExamine(Entity<ReactorPartComponent> ent, ref ExaminedEvent args)
@@ -119,7 +119,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
         }
     }
 
-    private void OnIngest(Entity<ReactorPartComponent> ent, ref IngestedEvent args)
+    private void OnIngest(Entity<ReactorPartComponent> ent, ref AfterFullyEatenEvent args)
     {
         var comp = ent.Comp;
         if (comp.Properties == null)
@@ -127,7 +127,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
 
         var properties = comp.Properties;
 
-        if (!_entityManager.TryGetComponent<DamageableComponent>(args.Target, out var damageable) || damageable.Damage.DamageDict == null)
+        if (!_entityManager.TryGetComponent<DamageableComponent>(args.User, out var damageable) || damageable.Damage.DamageDict == null)
             return;
 
         var dict = damageable.Damage.DamageDict;

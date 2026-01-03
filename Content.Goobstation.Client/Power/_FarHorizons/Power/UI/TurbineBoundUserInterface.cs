@@ -1,11 +1,12 @@
-using Robust.Client.UserInterface;
-using Robust.Client.Timing;
-using JetBrains.Annotations;
-using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
-using Content.Client.UserInterface;
 using System.Diagnostics.CodeAnalysis;
+using Content.Client.UserInterface;
+using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
+using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
+using JetBrains.Annotations;
+using Robust.Client.Timing;
+using Robust.Client.UserInterface;
 
-namespace Content.Client._FarHorizons.Power.UI;
+namespace Content.Goobstation.Client.Power._FarHorizons.Power.UI;
 
 /// <summary>
 /// Initializes a <see cref="TurbineWindow"/> and updates it when new server messages are received.
@@ -32,7 +33,7 @@ public sealed class TurbineBoundUserInterface : BoundUserInterface, IBuiPreTickU
     {
         EntityUid? turbineUid = null;
         if (_entityManager.TryGetComponent<GasTurbineMonitorComponent>(Owner, out var turbineMonitorComponent))
-            if (!_entityManager.TryGetEntity(turbineMonitorComponent.turbine, out turbineUid) || turbineUid == null 
+            if (!_entityManager.TryGetEntity(turbineMonitorComponent.turbine, out turbineUid) || turbineUid == null
                 || !_entityManager.HasComponent<TurbineComponent>(turbineUid))
                 return;
 

@@ -1,4 +1,5 @@
 using Content.Client.UserInterface.Controls;
+using Content.Goobstation.Shared.Power._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos;
 using Content.Shared.Lock;
@@ -8,7 +9,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Timing;
 
-namespace Content.Client._FarHorizons.Power.UI;
+namespace Content.Goobstation.Client.Power._FarHorizons.Power.UI;
 
 /// <summary>
 /// Client-side UI used to view a nuclear reactor.
@@ -206,7 +207,7 @@ public sealed partial class NuclearReactorWindow : FancyWindow
                 {
                     case (byte)DisplayModes.Temperature:
                         box.BackgroundColor = GetColor(293.15, 1200, exists ? _data[vect].Temperature : 0);
-                        ViewLabel.Text = Loc.GetString("comp-nuclear-reactor-ui-view-temp"); 
+                        ViewLabel.Text = Loc.GetString("comp-nuclear-reactor-ui-view-temp");
                         break;
                     case (byte)DisplayModes.Neutron:
                         box.BackgroundColor = GetColor(0, 7, exists ? _data[vect].NeutronCount : 0);
@@ -220,7 +221,7 @@ public sealed partial class NuclearReactorWindow : FancyWindow
 
                 var icon = exists ? _data[vect].IconName : "base";
                 _reactorRect[vect].TexturePath = "/Textures/_FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_part_inserted/" +  icon + ".png";
-                
+
                 _reactorButton[vect].ToolTip = exists && _data[vect].SpentFuel > 0
                     ? "Fuel Level: " + (int)Math.Round((1 - (_data[vect].SpentFuel / (_data[vect].SpentFuel + (_data[vect].Radioactivity * 0.5) + (_data[vect].NeutronRadioactivity * 0.25)))) * 100) + "%"
                     : "";
