@@ -83,8 +83,8 @@
     slots:
       phone:
         name: phone
-        insertSound: /Audio/_RMC14/phone/sound_machines_phones_hang_up.ogg
-        ejectSound: /Audio/_RMC14/phone/sound_machines_phones_pick_up.ogg
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhone
         ejectOnInteract: true
         whitelist:
