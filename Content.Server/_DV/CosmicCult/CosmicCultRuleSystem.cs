@@ -314,10 +314,19 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     private void StewardVote()
     {
+        // If there's already an entity with steward, don't hold a vote. This allows admins to add the Cosmic Cult rule a 2nd time
+        // in the case that there is only one cultist and they've been chosen as the steward already.
+        if (EntityQuery<CosmicCultLeadComponent>().Any())
+        {
+            _adminLogger.Add(LogType.Vote, LogImpact.Medium,
+                $"Cosmic cult steward already exists. Cancelling steward vote.");
+            return;
+        }
         var cultists = new List<(string, EntityUid)>();
 
         var cultQuery = EntityQueryEnumerator<CosmicCultComponent, MetaDataComponent>();
-        while (cultQuery.MoveNext(out var cult, out var cultComp, out var metadata))
+
+        while (cultQuery.MoveNext(out var cult, out _, out var metadata))
         {
             var playerInfo = metadata.EntityName;
             if (TryComp<PolymorphedEntityComponent>(cult, out var polyComp)) // If the cultist is polymorphed, we use the original entity instead and hope that they'll polymorph back eventually
@@ -334,8 +343,25 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             VoterEligibility = VoteManager.VoterEligibility.CosmicCult
         };
 
+        // If there are no cultists, don't hold a vote, or the server will crash.
+        if (cultists.Count == 0)
+        {
+            Log.Warning($"There are no cosmic cultists present for the steward vote. Voting is cancelled to prevent the server crashing.");
+            _adminLogger.Add(LogType.Vote, LogImpact.Extreme, $"There are no cosmic cultists for the steward vote. Steward vote is cancelled to prevent the server crashing.");
+            return;
+        }
+
         foreach (var (name, ent) in cultists)
             options.Options.Add((Loc.GetString(name), ent));
+
+        // If somehow there are cultists but no options, still don't hold a vote.
+        // Holding a vote with zero options crashes the server.
+        if (options.Options.Count == 0)
+        {
+            Log.Warning($"There are {cultists.Count} cosmic cultists but no options for the steward vote. Voting is cancelled to prevent the server crashing.");
+            _adminLogger.Add(LogType.Vote, LogImpact.Extreme, $"There are {cultists.Count} cosmic cultists but no options for the steward vote. Steward vote is cancelled to prevent the server crashing.");
+            return;
+        }
 
         var vote = _votes.CreateVote(options);
 
