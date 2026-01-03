@@ -13,9 +13,9 @@
     Food:
       effects:
       - !type:SatiateHunger
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
+#        conditions: i majorly cannot be assed to fix this specifically
+#        - !type:MetabolizerTypeCondition
+#          type: [ Plant ]
 
 - type: reagent
   id: AmmoniumNitrate
