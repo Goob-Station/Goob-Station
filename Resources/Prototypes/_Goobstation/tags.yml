@@ -109,6 +109,9 @@
   id: CartridgeG8
 
 - type: Tag
+  id: CameraElectronics
+
+- type: Tag
   id: CannotSuicideAny
 
 - type: Tag
@@ -310,6 +313,9 @@
   id: HEVSuit
 
 - type: Tag
+  id: Holosign
+
+- type: Tag
   id: HolyClaymore
 
 - type: Tag
@@ -485,6 +491,9 @@
   id: Poppy
 
 - type: Tag
+  id: RatvarianSpear
+
+- type: Tag
   id: ReptilianEmotes
 
 - type: Tag
@@ -599,6 +608,9 @@
   id: Undead
 
 - type: Tag
+  id: Unedible
+
+- type: Tag
   id: UristHand
 
 - type: Tag
@@ -652,6 +664,9 @@
 - type: Tag
   id: WizardHat
 
+- type: Tag
+  id: Wonderprod
+
 - type: Tag # These tags are NOT alphabetical!!
   id: Xenomorph
 
@@ -693,3 +708,15 @@
 
 - type: Tag
   id: DisposableBattery
+
+- type: Tag
+  id: HolyChainsaw
+
+- type: Tag
+  id: ChaplainsHolster
+
+- type: Tag
+  id: ForkliftKeys
+
+- type: Tag
+  id: Crate
