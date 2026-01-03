@@ -1,1 +1,0 @@
-jukebox-menu-volume = Громкость:

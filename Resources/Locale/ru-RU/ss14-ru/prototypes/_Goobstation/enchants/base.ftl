@@ -1,2 +1,0 @@
-ent-BaseEnchant = { "" }
-    .desc = { "" }

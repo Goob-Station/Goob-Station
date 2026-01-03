@@ -1,1 +1,0 @@
-observer-role-name = Наблюдатель

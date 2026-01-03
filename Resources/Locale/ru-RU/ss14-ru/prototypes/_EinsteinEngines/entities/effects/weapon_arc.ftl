@@ -1,2 +1,0 @@
-ent-WeaponArcPurplePunch = { "" }
-    .desc = { "" }

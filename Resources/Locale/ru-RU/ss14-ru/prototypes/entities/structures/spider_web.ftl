@@ -1,3 +1,0 @@
-ent-SpiderWebBase = { "" }
-    .desc = { "" }
-

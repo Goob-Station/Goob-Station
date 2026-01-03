@@ -1,9 +1,0 @@
-ent-MobDebugCounter = дебаг счётчик
-    .desc = Он умеет считать
-    .suffix = ИИ, ДЕБАГ
-ent-MobDebugRandomCounter = дебаг случайный счётчик
-    .desc = Он умеет рандомизировать
-    .suffix = ИИ, ДЕБАГ
-ent-MobDebugRandomLess = дебаг случайный меньше
-    .desc = Он умеет.. уменьшать?
-    .suffix = ИИ, ДЕБАГ
