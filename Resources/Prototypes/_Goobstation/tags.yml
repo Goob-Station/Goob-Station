@@ -667,6 +667,9 @@
 - type: Tag
   id: WizardHat
 
+- type: Tag
+  id: WoodPlank
+
 # XENOBIO - START
 
 - type: Tag

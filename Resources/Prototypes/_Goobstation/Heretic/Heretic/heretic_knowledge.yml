@@ -518,13 +518,13 @@
   path: Lock
   stage: 4
 
-#- type: hereticKnowledge
-#  id: ConciergesRite
-#  path: Lock
-#  stage: 5
-#  actionPrototypes:
-#  - ConciergesRite
-#
+- type: hereticKnowledge
+  id: ConciergesRite
+  path: Lock
+  stage: 5
+  ritualPrototypes:
+  - ConciergesRite
+
 #- type: hereticKnowledge
 #  id: BurglarsFinesse
 #  path: Lock

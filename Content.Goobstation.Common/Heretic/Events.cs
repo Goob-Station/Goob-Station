@@ -15,3 +15,6 @@ public sealed class ButtonTagPressedEvent(string id, NetEntity user, NetCoordina
 
 [ByRefEvent]
 public record struct BeforeAccessReaderCheckEvent(bool Cancelled = false);
+
+[ByRefEvent]
+public record struct BeforeHolosignUsedEvent(EntityUid User, EntityCoordinates ClickLocation, bool Handled = false, bool Cancelled = false);

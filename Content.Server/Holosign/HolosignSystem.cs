@@ -15,10 +15,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Heretic;
 using Content.Shared.Examine;
 using Content.Shared.Coordinates.Helpers;
 using Content.Server.Power.Components;
 using Content.Server.PowerCell;
+using Content.Shared.Charges.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Physics; // Goobstation
 using Content.Shared.Storage;
@@ -38,6 +40,7 @@ public sealed class HolosignSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedChargesSystem _charges = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
     // Goobstation end
@@ -55,7 +58,9 @@ public sealed class HolosignSystem : EntitySystem
     {
         // TODO: This should probably be using an itemstatus
         // TODO: I'm too lazy to do this rn but it's literally copy-paste from emag.
-        _powerCell.TryGetBatteryFromSlot(uid, out var battery);
+        if (!_powerCell.TryGetBatteryFromSlot(uid, out var battery)) // Goob edit
+            return;
+
         var charges = UsesRemaining(component, battery);
         var maxCharges = MaxUses(component, battery);
 
@@ -74,8 +79,12 @@ public sealed class HolosignSystem : EntitySystem
     {
         // Goob edit start
         if (args.Handled
-            || !args.CanReach // prevent placing out of range
             || HasComp<StorageComponent>(args.Target)) // if it's a storage component like a bag, we ignore usage so it can be stored
+            return;
+
+        var ev = new BeforeHolosignUsedEvent(args.User, args.ClickLocation);
+        RaiseLocalEvent(uid, ref ev);
+        if (ev.Cancelled || !ev.Handled && !args.CanReach)
             return;
 
         // places the holographic sign at the click location, snapped to grid.
@@ -99,7 +108,7 @@ public sealed class HolosignSystem : EntitySystem
                         CollisionGroup.HighImpassable)) != 0)
                 return;
         }
-        if (!_powerCell.TryUseCharge(uid, component.ChargeUse, user: args.User)) // if no battery or no charge, doesn't work
+        if (!_powerCell.TryUseCharge(uid, component.ChargeUse, user: args.User) || !_charges.TryUseCharge(uid)) // if no battery or no charge, doesn't work
             return;
         var holoUid = Spawn(component.SignProto, coords);
         // Goob edit end

@@ -101,3 +101,21 @@
     stage: 3
     whitelist:
     - Lock
+
+- type: listing
+  id: HereticLockPath5
+  name: knowledge-path-lock-s5-name
+  description: knowledge-path-lock-s5-desc
+  icon: { sprite: _Goobstation/Heretic/Entities/heretichandbook.rsi, state: icon }
+  productHereticKnowledge: ConciergesRite
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
+    whitelist:
+    - Lock

@@ -476,6 +476,29 @@
       - Door
     name: heretic-ritual-ingredient-door
 
+- type: hereticRitual
+  id: ConciergesRite
+  locName: knowledge-path-lock-s5-name
+  locDesc: knowledge-path-lock-s5-desc
+  icon:
+    sprite: _Goobstation/Heretic/Entities/heretichandbook.rsi
+    state: icon
+  ingredients:
+  - whitelist:
+      components:
+      - Crayon
+    name: heretic-ritual-ingredient-crayon
+  - whitelist:
+      tags:
+      - WoodPlank
+    name: heretic-ritual-ingredient-wood-plank
+  - whitelist:
+      tags:
+      - Multitool
+    name: heretic-ritual-ingredient-multitool
+  output:
+    LabyrinthHandbook: 1
+
 ### side knowledge
 - type: hereticRitual
   id: RitualOfKnowledge

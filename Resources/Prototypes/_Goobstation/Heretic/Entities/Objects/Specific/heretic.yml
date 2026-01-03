@@ -152,3 +152,29 @@
   - type: Tag
     tags:
     - HereticItem
+
+- type: entity
+  parent: [BaseItem, BaseMagicalContraband]
+  id: LabyrinthHandbook
+  name: labyrinth handbook
+  description: A book containing the laws and regulations of the Locked Labyrinth, penned on an unknown substance. Its pages squirm and strain, looking to lash out and escape.
+  components:
+  - type: UnholyItem
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Entities/heretichandbook.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Heretic/book.rsi
+  - type: UseDelay
+  - type: HolosignProjector
+    signProto: WallLabyrinth
+  - type: LimitedCharges
+    maxCharges: 5
+  - type: AutoRecharge
+    rechargeDuration: 15
+  - type: LabyrinthHandbook
+  - type: Tag
+    tags:
+    - HereticItem

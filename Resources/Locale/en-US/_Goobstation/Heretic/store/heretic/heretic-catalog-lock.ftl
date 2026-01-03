@@ -57,35 +57,35 @@ knowledge-path-lock-s4-desc =
     Attack a marked person to bar them from all passages for the duration of the mark.
     This will make it so that they have no access whatsoever, even public access doors will reject them.
 
-knowledge-path-lock-s6-name = Concierge's Rite
-knowledge-path-lock-s6-desc =
+knowledge-path-lock-s5-name = Concierge's Rite
+knowledge-path-lock-s5-desc =
     The Concierge scribbled my name into the Handbook. "Welcome to your new home, fellow Steward."
 
     Allows you to transmute a crayon, a wooden plank, and a multitool to create a Labyrinth Handbook.
     It can materialize a barricade at range that only you and people resistant to magic can pass. Has 5 charges which regenerate over time.
 
-knowledge-path-lock-s7-name = Burglar's Finesse
-knowledge-path-lock-s7-desc =
+knowledge-path-lock-s6-name = Burglar's Finesse
+knowledge-path-lock-s6-desc =
     Consorting with Burglar spirits is frowned upon, but a Steward will always want to learn about new doors.
 
     Grants you Burglar's Finesse, a single-target spell that puts a random item from the victims backpack into your hand.
 
-knowledge-path-lock-s8-name = Opening Blade
-knowledge-path-lock-s8-desc =
+knowledge-path-lock-s7-name = Opening Blade
+knowledge-path-lock-s7-desc =
     The Pilgrim-Surgeon was not an Steward. Nonetheless, its blades and sutures proved a match for their keys.
 
     Your blade has better wounding and a chance to cause a weeping avulsion on attack.
 
-knowledge-path-lock-s9-name = Caretaker's Last Refuge
-knowledge-path-lock-s9-desc =
+knowledge-path-lock-s8-name = Caretaker's Last Refuge
+knowledge-path-lock-s8-desc =
     Jealously, the Guard and the Hound hunted me. But I unlocked my form, and was but a haze, untouchable.
 
     Gives you a spell that makes you transparent and not dense. Cannot be used near living sentient beings.
     While in refuge, you cannot use your hands or spells, and you are immune to slowdown.
     You are invincible but unable to harm anything. Cancelled by being hit with an anti-magic item.
 
-knowledge-path-lock-s10-name = Unlock the Labyrinth
-knowledge-path-lock-s10-desc =
+knowledge-path-lock-s9-name = Unlock the Labyrinth
+knowledge-path-lock-s9-desc =
     The ascension ritual of the Path of Knock.
     Bring 3 corpses without groin to a transmutation rune to complete the ritual.
     When completed, you gain the ability to transform into empowered eldritch creatures and your keyblades will become even deadlier.
