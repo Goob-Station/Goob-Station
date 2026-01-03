@@ -49,6 +49,9 @@ public sealed class GunUpgradeSystem : SharedGunUpgradeSystem
     {
         foreach (var (ammo, _) in args.Ammo)
         {
+            if (!TryComp<ProjectileComponent>(ammo, out var projectile))
+                continue;
+
             var multiplier = 1f;
 
             if (TryComp<PressureDamageChangeComponent>(Transform(ent).ParentUid, out var pressure)
@@ -56,8 +59,9 @@ public sealed class GunUpgradeSystem : SharedGunUpgradeSystem
                 && pressure.ApplyToProjectiles)
                 multiplier = pressure.AppliedModifier;
 
-            if (TryComp<ProjectileComponent>(ammo, out var proj))
-                proj.Damage += ent.Comp.Damage * multiplier;
+            if (ent.Comp.BonusDamage != null)
+                projectile.Damage += ent.Comp.BonusDamage * multiplier;
+            projectile.Damage *= ent.Comp.Modifier;
         }
     }
 
@@ -73,7 +77,9 @@ public sealed class GunUpgradeSystem : SharedGunUpgradeSystem
             && pressure.ApplyToProjectiles)
             multiplier = pressure.AppliedModifier;
 
-        projectile.Damage += ent.Comp.Damage * multiplier * ent.Comp.Modifier;
+        if (ent.Comp.BonusDamage != null)
+            projectile.Damage += ent.Comp.BonusDamage * multiplier;
+        projectile.Damage *= ent.Comp.Modifier;
     }
 
     private void OnPressureUpgradeInserted(Entity<GunUpgradePressureComponent> ent, ref EntGotInsertedIntoContainerMessage args)

@@ -89,6 +89,11 @@
   - WeaponProtoKineticAccelerator
   - ShuttleGunKineticCircuitboard
   - MechEquipmentKineticAccelerator # Goobstation
+  # Lavaland Change start
+  - WeaponProtoKineticShotgun
+  - WeaponProtoKineticRepeater
+  - WeaponProtoKineticPistol
+  # Lavaland Change end
   # These are roundstart but not replenishable for salvage
   position: 1,0 # Goobstation R&D Console rework
 

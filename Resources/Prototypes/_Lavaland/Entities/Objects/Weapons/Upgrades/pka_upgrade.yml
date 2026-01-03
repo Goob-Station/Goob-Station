@@ -56,10 +56,10 @@
   - type: GunUpgrade
     name: gun-upgrade-damage-name
   - type: GunUpgradeDamage
-    #modifier: 1.25
-    damage:
-      types:
-        Blunt: 10
+    modifier: 1.25
+    #damage:
+    #  types:
+    #    Blunt: 10
 
 - type: entity
   id: PKAUpgradeRange
@@ -140,7 +140,7 @@
   - type: GunUpgradePressure
     newLowerBound: 0
     newUpperBound: 10
-    newAppliedModifier: 1.25
+    newAppliedModifier: 1.5 # Basically 2 damage upgrades in 1
   - type: Tag
     tags:
     - PKAUpgrade

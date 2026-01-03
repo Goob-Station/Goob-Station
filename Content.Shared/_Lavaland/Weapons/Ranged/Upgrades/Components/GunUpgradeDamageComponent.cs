@@ -32,7 +32,7 @@ namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 public sealed partial class GunUpgradeDamageComponent : Component
 {
     [DataField]
-    public DamageSpecifier Damage = new();
+    public DamageSpecifier? BonusDamage;
 
     /// <summary>
     /// How much should we multiply the total projectile's damage.
