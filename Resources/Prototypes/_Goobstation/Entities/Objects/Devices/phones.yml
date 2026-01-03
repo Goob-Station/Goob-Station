@@ -143,6 +143,16 @@
 
 - type: entity
   parent: RotaryPhone
+  suffix: Security
+  categories: [ HideSpawnMenu ]
+  id: RotaryPhoneSecurity911
+  components:
+  - type: RotaryPhone
+    category: Security
+    phoneNumber: 911
+
+- type: entity
+  parent: RotaryPhone
   suffix: Engineering
   categories: [ HideSpawnMenu ]
   id: RotaryPhoneEngineering
@@ -197,8 +207,8 @@
     slots:
       phone:
         name: phone
-        insertSound: /Audio/_RMC14/phone/sound_machines_phones_hang_up.ogg
-        ejectSound: /Audio/_RMC14/phone/sound_machines_phones_pick_up.ogg
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhoneCommand
 
 - type: entity
@@ -210,9 +220,22 @@
     slots:
       phone:
         name: phone
-        insertSound: /Audio/_RMC14/phone/sound_machines_phones_hang_up.ogg
-        ejectSound: /Audio/_RMC14/phone/sound_machines_phones_pick_up.ogg
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhoneSecurity
+
+- type: entity
+  parent: RotaryPhoneStand
+  suffix: Security (911)
+  id: RotaryPhoneStandSecurity911
+  components:
+  - type: ItemSlots
+    slots:
+      phone:
+        name: phone
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
+        startingItem: RotaryPhoneSecurity911
 
 - type: entity
   parent: RotaryPhoneStand
@@ -223,8 +246,8 @@
     slots:
       phone:
         name: phone
-        insertSound: /Audio/_RMC14/phone/sound_machines_phones_hang_up.ogg
-        ejectSound: /Audio/_RMC14/phone/sound_machines_phones_pick_up.ogg
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhoneMedical
 
 - type: entity
@@ -236,8 +259,8 @@
     slots:
       phone:
         name: phone
-        insertSound: /Audio/_RMC14/phone/sound_machines_phones_hang_up.ogg
-        ejectSound: /Audio/_RMC14/phone/sound_machines_phones_pick_up.ogg
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhoneEngineering
 
 - type: entity
@@ -249,8 +272,8 @@
     slots:
       phone:
         name: phone
-        insertSound: /Audio/_RMC14/phone/sound_machines_phones_hang_up.ogg
-        ejectSound: /Audio/_RMC14/phone/sound_machines_phones_pick_up.ogg
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhoneCargo
 
 - type: entity
@@ -262,8 +285,8 @@
     slots:
       phone:
         name: phone
-        insertSound: /Audio/_RMC14/phone/sound_machines_phones_hang_up.ogg
-        ejectSound: /Audio/_RMC14/phone/sound_machines_phones_pick_up.ogg
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhoneScience
 
 - type: entity
@@ -275,6 +298,6 @@
     slots:
       phone:
         name: phone
-        insertSound: /Audio/_RMC14/phone/sound_machines_phones_hang_up.ogg
-        ejectSound: /Audio/_RMC14/phone/sound_machines_phones_pick_up.ogg
+        insertSound: /Audio/_RMC14/Phone/sound_machines_phones_hang_up.ogg
+        ejectSound: /Audio/_RMC14/Phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhoneService
