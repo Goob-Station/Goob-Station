@@ -19875,3 +19875,11 @@ Entries:
       message: Borgs can now reference virologists.
   id: 2248
   time: '2026-01-02T08:10:04.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Remove
+      message: >-
+        Did you know that you could selfprotag as captain while being an
+        assistant?
+  id: 2249
+  time: '2026-01-02T18:50:05.0000000+00:00'
