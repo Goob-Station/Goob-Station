@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Polymorph;
 using Robust.Shared.Prototypes;
@@ -30,8 +31,21 @@ public sealed class HereticShapeshiftMessage(ProtoId<PolymorphPrototype> protoId
     public ProtoId<PolymorphPrototype> ProtoId = protoId;
 }
 
+
 [Serializable, NetSerializable]
 public enum HereticShapeshiftUiKey : byte
 {
     Key
+}
+
+[Serializable, NetSerializable]
+public sealed class EldritchIdMessage(EldritchIdConfiguration config) : BoundUserInterfaceMessage
+{
+    public EldritchIdConfiguration Config = config;
+}
+
+[Serializable, NetSerializable]
+public enum EldritchIdUiKey : byte
+{
+    Key,
 }

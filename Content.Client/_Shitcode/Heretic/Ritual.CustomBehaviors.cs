@@ -153,3 +153,17 @@ public sealed partial class RitualCanAscend : RitualCustomBehavior
         // do nothing
     }
 }
+
+public sealed partial class RitualEldritchIdBehavior : RitualCustomBehavior
+{
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        // do nothing
+    }
+}

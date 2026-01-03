@@ -39,11 +39,11 @@
   - whitelist:
       tags:
       - SheetGlass
-    name: heretic-ritual-component-glass-sheet
+    name: heretic-ritual-ingredient-glass-sheet
   - whitelist:
       components:
       - Eyes
-    name: heretic-ritual-component-eyes
+    name: heretic-ritual-ingredient-eyes
   output:
     ClothingNeckAmberFocus: 1
 
@@ -58,15 +58,15 @@
   - whitelist:
       tags:
       - Paper
-    name: heretic-ritual-component-paper
+    name: heretic-ritual-ingredient-paper
   - whitelist:
       tags:
       - Pen
-    name: heretic-ritual-component-pen
+    name: heretic-ritual-ingredient-pen
   - whitelist:
       components:
       - Heart
-    name: heretic-ritual-component-heart
+    name: heretic-ritual-ingredient-heart
   outputEvent: !type:EventHereticRerollTargets
 
 - type: hereticRitual
@@ -80,15 +80,15 @@
   - whitelist:
       tags:
       - Meat
-    name: heretic-ritual-component-meat
+    name: heretic-ritual-ingredient-meat
   - whitelist:
       tags:
       - Pen
-    name: heretic-ritual-component-pen
+    name: heretic-ritual-ingredient-pen
   - whitelist:
       tags:
       - Book
-    name: heretic-ritual-component-book
+    name: heretic-ritual-ingredient-book
   output:
     CodexCicatrix: 1
 
@@ -105,7 +105,7 @@
   - whitelist:
       tags:
       - Chair
-    name: heretic-ritual-component-chair
+    name: heretic-ritual-ingredient-chair
 
 - type: hereticRitual
   id: FeastOfOwls
@@ -132,11 +132,11 @@
   - whitelist:
       tags:
       - Knife
-    name: heretic-ritual-component-knife
+    name: heretic-ritual-ingredient-knife
   - whitelist:
       tags:
       - Matchstick
-    name: heretic-ritual-component-matchstick
+    name: heretic-ritual-ingredient-matchstick
   output:
     HereticBladeAsh: 1
   limit: 2
@@ -152,23 +152,23 @@
   - whitelist:
       components:
       - Mask
-    name: heretic-ritual-component-mask
+    name: heretic-ritual-ingredient-mask
   - whitelist:
       tags:
       - Flare
-    name: heretic-ritual-component-flare
+    name: heretic-ritual-ingredient-flare
   - whitelist:
       tags:
       - Lighter
-    name: heretic-ritual-component-lighter
+    name: heretic-ritual-ingredient-lighter
   - whitelist:
       tags:
       - Ash
-    name: heretic-ritual-component-ash
+    name: heretic-ritual-ingredient-ash
   - whitelist:
       components:
       - Stunbaton
-    name: heretic-ritual-component-stun-baton
+    name: heretic-ritual-ingredient-stun-baton
   output:
     ClothingMaskMadHeretic: 1
 
@@ -199,7 +199,7 @@
   - whitelist:
       tags:
       - Knife
-    name: heretic-ritual-component-knife
+    name: heretic-ritual-ingredient-knife
     amount: 2
   output:
     HereticBladeBlade: 1
@@ -235,7 +235,7 @@
   - whitelist:
       tags:
       - Knife
-    name: heretic-ritual-component-knife
+    name: heretic-ritual-ingredient-knife
   output:
     HereticBladeFlesh: 1
   limit: 2
@@ -254,7 +254,7 @@
   - whitelist:
       components:
       - Muzzle
-    name: heretic-ritual-component-muzzle
+    name: heretic-ritual-ingredient-muzzle
   limit: 2
 
 - type: hereticRitual
@@ -271,11 +271,11 @@
   - whitelist:
       components:
       - Eyes
-    name: heretic-ritual-component-eyes
+    name: heretic-ritual-ingredient-eyes
   - whitelist:
       components:
       - Stomach
-    name: heretic-ritual-component-stomach
+    name: heretic-ritual-ingredient-stomach
   output:
     MobGhoulProphet: 1
   limit: 2
@@ -294,19 +294,19 @@
   - whitelist:
       tags:
       - Pen
-    name: heretic-ritual-component-pen
+    name: heretic-ritual-ingredient-pen
   - whitelist:
       components:
       - Heart
-    name: heretic-ritual-component-heart
+    name: heretic-ritual-ingredient-heart
   - whitelist:
       components:
       - Stomach
-    name: heretic-ritual-component-stomach
+    name: heretic-ritual-ingredient-stomach
   - whitelist:
       components:
       - Lung
-    name: heretic-ritual-component-lung
+    name: heretic-ritual-ingredient-lung
   output:
     MobGhoulStalker: 1
 
@@ -342,7 +342,7 @@
   - whitelist:
       tags:
       - Knife
-    name: heretic-ritual-component-knife
+    name: heretic-ritual-ingredient-knife
   output:
     HereticBladeVoid: 1
   limit: 2
@@ -376,11 +376,11 @@
   - whitelist:
       tags:
       - Knife
-    name: heretic-ritual-component-knife
+    name: heretic-ritual-ingredient-knife
   - whitelist:
       tags:
       - Trash
-    name: heretic-ritual-component-trash
+    name: heretic-ritual-ingredient-trash
   output:
     HereticBladeRust: 1
   limit: 2
@@ -412,11 +412,11 @@
   - whitelist:
       tags:
       - Knife
-    name: heretic-ritual-component-knife
+    name: heretic-ritual-ingredient-knife
   - whitelist:
       tags:
       - SheetGlass
-    name: heretic-ritual-component-glass-sheet
+    name: heretic-ritual-ingredient-glass-sheet
   output:
     HereticBladeCosmos: 1
   limit: 2
@@ -448,37 +448,33 @@
   - whitelist:
       tags:
       - Knife
-    name: heretic-ritual-component-knife
+    name: heretic-ritual-ingredient-knife
   - whitelist:
       tags:
       - Crowbar
-    name: heretic-ritual-component-crowbar
+    name: heretic-ritual-ingredient-crowbar
   output:
     HereticBladeLock: 1
   limit: 2
 
 - type: hereticRitual
   id: KeyKeepersBurden
-  locName: knowledge-path-lock-s1-name
-  locDesc: knowledge-path-lock-s1-desc
+  locName: knowledge-path-lock-s3-name
+  locDesc: knowledge-path-lock-s3-desc
   icon:
-    sprite: _Goobstation/Heretic/Blades/blade_lock.rsi
-    state: icon
+    sprite: Objects/Misc/id_cards.rsi
+    state: gold
+  customBehaviors:
+  - !type:RitualEldritchIdBehavior
   ingredients:
   - whitelist:
       tags:
       - RodMetal
-    name: heretic-ritual-component-metal-rod
+    name: heretic-ritual-ingredient-metal-rod
   - whitelist:
       components:
       - Door
-    name: heretic-ritual-component-door
-  - whitelist:
-      components:
-      - IdCard
-    name: heretic-ritual-component-id-card
-  output:
-    EldritchIdCard: 1
+    name: heretic-ritual-ingredient-door
 
 ### side knowledge
 - type: hereticRitual
@@ -503,11 +499,11 @@
   - whitelist:
       tags:
       - Table
-    name: heretic-ritual-component-table
+    name: heretic-ritual-ingredient-table
   - whitelist:
       tags:
       - GasMask
-    name: heretic-ritual-component-gas-mask
+    name: heretic-ritual-ingredient-gas-mask
   customBehaviors:
   - !type:RitualPathBasedSpawnBehavior
     fallbackEntity: ClothingOuterArmorHeretic
@@ -531,11 +527,11 @@
   - whitelist:
       tags:
       - WaterTank
-    name: heretic-ritual-component-water-tank
+    name: heretic-ritual-ingredient-water-tank
   - whitelist:
       tags:
       - GlassShard
-    name: heretic-ritual-component-glass-shard
+    name: heretic-ritual-ingredient-glass-shard
   output:
     HereticEldritchFlask: 1
 
@@ -550,15 +546,15 @@
   - whitelist:
       tags:
       - GlassShard
-    name: heretic-ritual-component-glass-shard
+    name: heretic-ritual-ingredient-glass-shard
   - whitelist:
       components:
       - Eyes
-    name: heretic-ritual-component-eyes
+    name: heretic-ritual-ingredient-eyes
   - whitelist:
       tags:
       - Flare
-    name: heretic-ritual-component-flare
+    name: heretic-ritual-ingredient-flare
   output:
     ClothingEldritchMedalion: 1
 
@@ -573,15 +569,15 @@
   - whitelist:
       tags:
       - GlassShard
-    name: heretic-ritual-component-glass-shard
+    name: heretic-ritual-ingredient-glass-shard
   - whitelist:
       tags:
       - Bedsheet
-    name: heretic-ritual-component-bedsheet
+    name: heretic-ritual-ingredient-bedsheet
   - whitelist:
       tags:
       - WinterCoat
-    name: heretic-ritual-component-winter-coat
+    name: heretic-ritual-ingredient-winter-coat
   output:
     ClothingOuterArmorCloakVoid: 1
 
@@ -596,16 +592,16 @@
   - whitelist:
       tags:
       - Ash
-    name: heretic-ritual-component-ash
+    name: heretic-ritual-ingredient-ash
     amount: 3
   - whitelist:
       components:
       - Liver
-    name: heretic-ritual-component-liver
+    name: heretic-ritual-ingredient-liver
   - whitelist:
       tags:
       - SheetPlasma
-    name: heretic-ritual-component-plasma-sheet
+    name: heretic-ritual-ingredient-plasma-sheet
     amount: 3
   output:
     MobGhoulFireShark: 3
@@ -627,12 +623,12 @@
   - whitelist:
       tags:
       - Steel
-    name: heretic-ritual-component-steel
+    name: heretic-ritual-ingredient-steel
     amount: 10
   - whitelist:
       tags:
       - CableCoil
-    name: heretic-ritual-component-cable-coil
+    name: heretic-ritual-ingredient-cable-coil
     amount: 15
   output:
     MobGhoulRustWalker: 1
@@ -648,14 +644,14 @@
   - whitelist:
       tags:
       - GlassShard
-    name: heretic-ritual-component-glass-shard
+    name: heretic-ritual-ingredient-glass-shard
   - whitelist:
       tags:
       - Paper
-    name: heretic-ritual-component-paper
+    name: heretic-ritual-ingredient-paper
   - whitelist:
       tags:
       - Knife
-    name: heretic-ritual-component-knife
+    name: heretic-ritual-ingredient-knife
   output:
     CarvingKnife: 1

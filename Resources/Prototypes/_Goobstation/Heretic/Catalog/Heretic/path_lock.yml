@@ -47,3 +47,39 @@
     - Void
     - Rust
     - Cosmos
+
+- type: listing
+  id: HereticLockPath2
+  name: knowledge-path-lock-s2-name
+  description: knowledge-path-lock-s2-desc
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: GraspOfLock
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 1
+    whitelist:
+    - Lock
+
+- type: listing
+  id: HereticLockPath3
+  name: knowledge-path-lock-s3-name
+  description: knowledge-path-lock-s3-desc
+  icon: { sprite: Objects/Misc/id_cards.rsi, state: gold }
+  productHereticKnowledge: KeyKeepersBurden
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+    whitelist:
+    - Lock

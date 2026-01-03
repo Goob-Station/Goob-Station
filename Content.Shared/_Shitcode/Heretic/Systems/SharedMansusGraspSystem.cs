@@ -166,9 +166,9 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                 else if (TryComp<DoorComponent>(target, out var door))
                 {
                     if (TryComp<DoorBoltComponent>(target, out var doorBolt))
-                        _door.SetBoltsDown((target, doorBolt), false);
+                        _door.SetBoltsDown((target, doorBolt), false, user, true);
 
-                    _door.StartOpening(target, door);
+                    _door.StartOpening(target, door, user, true);
                 }
                 else if (TryComp<AccessReaderComponent>(target, out var access))
                     _access.ClearAccesses((target, access));
