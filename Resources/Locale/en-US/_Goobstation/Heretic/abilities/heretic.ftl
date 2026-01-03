@@ -91,6 +91,8 @@ heretic-speech-star-blast = R'T'T' ST'R!!
 heretic-speech-cosmic-expansion = C'SM'S 'XP'ND!
 heretic-speech-stargaze = SH''P D' W''P
 
+heretic-speech-bulglar-finesse = Y'O'K!
+
 heretic-speech-cleave = CL'VE!
 heretic-speech-bloodsiphon = FL'MS O'ET'RN'ITY!
 heretic-speech-mansuslink = PI'RC' TH' M'ND!

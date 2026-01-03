@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseAction
+  id: ActionHereticBurglarsFinesse
+  name: Burglar's Finesse
+  description: Steal a random item from the victim's backpack.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    predicted: false
+    useDelay: 15
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: bulglar_finesse
+  - type: TargetAction
+    checkCanAccess: false
+    range: 6
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Inventory
+    canTargetSelf: false
+    event: !type:EventHereticBulglarFinesse
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-bulglar-finesse

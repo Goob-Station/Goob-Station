@@ -10,6 +10,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Heretic;
@@ -92,7 +93,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
         // check for all conditions
         // this is god awful but it is that it is
         var behaviors = rit.CustomBehaviors ?? new();
-        var ingredientAmounts = new List<int>(rit.Ingredients.Count);
+        var ingredientAmounts = Enumerable.Repeat(0, rit.Ingredients.Count).ToList();
 
         foreach (var behavior in behaviors)
         {
@@ -139,7 +140,8 @@ public sealed partial class HereticRitualSystem : EntitySystem
         {
             var ritIng = rit.Ingredients[i];
             var difference = ritIng.Amount - ingredientAmounts[i];
-            missingList.Add(ritIng.Name, difference);
+            if (difference > 0)
+                missingList.Add(ritIng.Name, difference);
         }
 
         // are we missing anything?
@@ -149,7 +151,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
             var sb = new StringBuilder();
             foreach (var (name, amount) in missingList)
             {
-                sb.Append($"{name} x{amount} ");
+                sb.Append($"{Loc.GetString(name)} x{amount} ");
             }
 
             sb.Remove(sb.Length - 1, 1);

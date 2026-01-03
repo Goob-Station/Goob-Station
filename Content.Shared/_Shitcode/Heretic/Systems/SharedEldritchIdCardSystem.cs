@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Access.Components;
@@ -22,6 +23,7 @@ public abstract class SharedEldritchIdCardSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IComponentFactory _compFact = default!;
 
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedIdCardSystem _idCard = default!;
@@ -51,6 +53,7 @@ public abstract class SharedEldritchIdCardSystem : EntitySystem
 
         if (TryComp(target, out IdCardComponent? idCard))
         {
+            args.Handled = true;
             EatCard(ent, (target, idCard), args.User);
             return;
         }
@@ -95,7 +98,7 @@ public abstract class SharedEldritchIdCardSystem : EntitySystem
             Dirty(ent.Comp.PortalTwo.Value, portalTwoComp);
             ent.Comp.PortalOne = ent.Comp.PortalTwo.Value;
             ent.Comp.PortalTwo = newPortal;
-            _popup.PopupClient(Loc.GetString("eldritch-id-card-component-link-two"), args.User, args.User);
+            _popup.PopupEntity(Loc.GetString("eldritch-id-card-component-link-two"), args.User, args.User);
             return;
         }
 
@@ -109,11 +112,11 @@ public abstract class SharedEldritchIdCardSystem : EntitySystem
 
             if (!portalTwoResolved)
             {
-                _popup.PopupClient(Loc.GetString("eldritch-id-card-component-link-one"), args.User, args.User);
+                _popup.PopupEntity(Loc.GetString("eldritch-id-card-component-link-one"), args.User, args.User);
                 return;
             }
 
-            _popup.PopupClient(Loc.GetString("eldritch-id-card-component-link-two"), args.User, args.User);
+            _popup.PopupEntity(Loc.GetString("eldritch-id-card-component-link-two"), args.User, args.User);
 
             var portalTwoComp = EnsureComp<LockPortalComponent>(ent.Comp.PortalTwo!.Value);
             portalTwoComp.Inverted = ent.Comp.Inverted;
@@ -134,11 +137,11 @@ public abstract class SharedEldritchIdCardSystem : EntitySystem
 
             if (!portalOneResolved)
             {
-                _popup.PopupClient(Loc.GetString("eldritch-id-card-component-link-one"), args.User, args.User);
+                _popup.PopupEntity(Loc.GetString("eldritch-id-card-component-link-one"), args.User, args.User);
                 return;
             }
 
-            _popup.PopupClient(Loc.GetString("eldritch-id-card-component-link-two"), args.User, args.User);
+            _popup.PopupEntity(Loc.GetString("eldritch-id-card-component-link-two"), args.User, args.User);
 
             var portalOneComp = EnsureComp<LockPortalComponent>(ent.Comp.PortalOne!.Value);
             portalOneComp.Inverted = ent.Comp.Inverted;
@@ -175,6 +178,8 @@ public abstract class SharedEldritchIdCardSystem : EntitySystem
 
         if (GetConfig(ent.Owner) is { } config)
             ent.Comp.Configs.Add(config);
+
+        DirtyField(ent.Owner, ent.Comp, nameof(EldritchIdCardComponent.Configs));
 
         Shapeshift(ent.Owner, args.Config, args.Actor);
     }
@@ -231,22 +236,33 @@ public abstract class SharedEldritchIdCardSystem : EntitySystem
 
         ent.Comp1.CurrentProto = config.CardPrototype;
         DirtyField(ent.Owner, ent.Comp1, nameof(EldritchIdCardComponent.CurrentProto));
+
+        UpdateSprite((ent.Owner, ent.Comp1));
     }
 
-    private EldritchIdConfiguration? GetConfig(Entity<IdCardComponent?, AccessComponent?> ent)
+    private EldritchIdConfiguration? GetConfig(Entity<IdCardComponent?, AccessComponent?, EldritchIdCardComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp1, ref ent.Comp2, false))
             return null;
 
-        if (Prototype(ent) is not { } proto)
-            return null;
+        EntProtoId? proto = null;
+
+        if (Resolve(ent, ref ent.Comp3, false))
+            proto = ent.Comp3.CurrentProto;
+
+        if (proto == null)
+        {
+            proto = Prototype(ent)?.ID;
+            if (proto == null)
+                return null;
+        }
 
         return new EldritchIdConfiguration(ent.Comp1.FullName,
             ent.Comp1.LocalizedJobTitle,
             ent.Comp1.JobIcon,
-            ent.Comp1.JobDepartments,
-            ent.Comp2.Tags,
-            proto);
+            ent.Comp1.JobDepartments.ToList(),
+            ent.Comp2.Tags.ToHashSet(),
+            proto.Value);
     }
 
     private void ClearPortals(Entity<EldritchIdCardComponent> ent)
@@ -280,26 +296,31 @@ public abstract class SharedEldritchIdCardSystem : EntitySystem
         PredictedDel(idCard.Owner);
     }
 
-    protected virtual void InitializeEldritchId(Entity<EldritchIdCardComponent> ent)
+    protected virtual void UpdateSprite(Entity<EldritchIdCardComponent> ent) { }
+
+    protected virtual bool InitializeEldritchId(Entity<EldritchIdCardComponent> ent)
     {
         if (!TryComp(ent, out IdCardComponent? id))
-            return;
+            return false;
 
         id.BypassLogging = true;
         id.CanMicrowave = false;
 
-        var ui = EnsureComp<ActivatableUIComponent>(ent);
+        ent.Comp.CurrentProto = Prototype(ent)?.ID;
+
+        Entity<EldritchIdCardComponent, IdCardComponent> idCard = (ent.Owner, ent.Comp, id);
+        Dirty(idCard);
+
+        var ui = _compFact.GetComponent<ActivatableUIComponent>();
         ui.InHandsOnly = true;
         ui.SingleUser = true;
         ui.Key = EldritchIdUiKey.Key;
 
-        ent.Comp.CurrentProto = Prototype(ent)?.ID;
-
-        Entity<EldritchIdCardComponent, IdCardComponent, ActivatableUIComponent> idCard = (ent.Owner, ent.Comp, id, ui);
-        Dirty(idCard);
+        AddComp(ent.Owner, ui, true);
 
         _ui.SetUi(ent.Owner, EldritchIdUiKey.Key, new InterfaceData("EldritchIdBoundUserInterface"));
 
         RemCompDeferred<ChameleonClothingComponent>(ent);
+        return true;
     }
 }

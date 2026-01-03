@@ -255,7 +255,8 @@ public sealed partial class EventHereticRealignment : InstantActionEvent
 public sealed partial class EventHereticFuriousSteel : InstantActionEvent { }
 
 // lock
-public sealed partial class EventHereticBulglarFinesse : InstantActionEvent { }
+public sealed partial class EventHereticBulglarFinesse : EntityTargetActionEvent;
+
 public sealed partial class EventHereticLastRefugee : InstantActionEvent { }
 
 public sealed partial class EventHereticShapeshift : InstantActionEvent;

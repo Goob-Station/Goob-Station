@@ -503,7 +503,7 @@
   id: GraspOfLock
   path: Lock
   stage: 2
-  event: !type:EventHereticLockPassive
+  # event: !type:EventHereticLockPassive
 
 - type: hereticKnowledge
   id: KeyKeepersBurden
@@ -525,14 +525,14 @@
   ritualPrototypes:
   - ConciergesRite
 
-#- type: hereticKnowledge
-#  id: BurglarsFinesse
-#  path: Lock
-#  sideKnowledge: true
-#  stage: 6
-#  actionPrototypes:
-#  - BurglarsFinesse
-#
+- type: hereticKnowledge
+  id: BurglarsFinesse
+  path: Lock
+  sideKnowledge: true
+  stage: 6
+  actionPrototypes:
+  - ActionHereticBurglarsFinesse
+
 #- type: hereticKnowledge
 #  id: OpeningBlade
 #  path: Lock

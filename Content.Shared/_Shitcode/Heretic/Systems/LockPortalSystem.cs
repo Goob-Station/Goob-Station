@@ -71,23 +71,24 @@ public sealed class LockPortalSystem : EntitySystem
             var parent = Transform(ent).ParentUid;
 
             if (HasComp<DoorComponent>(parent) && FindRandomDoor(parent) is { } destination)
-                Teleport(subject, ent, destination.AsNullable());
+                Teleport(subject, ent, destination.AsNullable(), false);
             return;
         }
 
         var link = ent.Comp.LinkedPortal!.Value;
         var linkParent = Transform(link).ParentUid;
 
-        Teleport(subject, ent, linkParent);
+        Teleport(subject, ent, linkParent, true);
     }
 
     private void Teleport(EntityUid uid,
         Entity<LockPortalComponent> portal,
-        Entity<DoorComponent?, TransformComponent?, DoorBoltComponent?> destination)
+        Entity<DoorComponent?, TransformComponent?, DoorBoltComponent?> destination,
+        bool addTimeout)
     {
         var coords = Transform(uid).Coordinates;
 
-        if (!Resolve(destination, ref destination.Comp1, ref destination.Comp2))
+        if (!Resolve(destination, ref destination.Comp1, ref destination.Comp2, false))
             return;
 
         var to = destination.Comp2.Coordinates;
@@ -112,11 +113,25 @@ public sealed class LockPortalSystem : EntitySystem
 
         _door.StartOpening(destination, destination.Comp1);
 
+        if (addTimeout)
+        {
+            var timeout = EnsureComp<PortalTimeoutComponent>(uid);
+            timeout.EnteredPortal = portal.Owner;
+            Dirty(uid, timeout);
+        }
+
         _pulling.StopAllPulls(uid);
         _transform.SetCoordinates(uid, to);
 
         if (pulling == null)
             return;
+
+        if (addTimeout)
+        {
+            var timeout2 = EnsureComp<PortalTimeoutComponent>(pulling.Value);
+            timeout2.EnteredPortal = portal.Owner;
+            Dirty(pulling.Value, timeout2);
+        }
 
         _transform.SetCoordinates(pulling.Value, to);
         _pulling.TryStartPull(uid, pulling.Value, puller, null, grabStage, force: true);

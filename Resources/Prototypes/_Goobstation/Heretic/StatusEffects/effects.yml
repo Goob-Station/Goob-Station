@@ -31,4 +31,4 @@
   id: LockMarkedStatusEffectEffect
   name: lock marked
   components:
-  - type: AccessDeniedStatusEffectComponent
+  - type: AccessDeniedStatusEffect

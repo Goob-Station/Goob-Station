@@ -163,6 +163,14 @@
     sprite: _Goobstation/Heretic/Blades/blade_lock-inhand.rsi
   - type: Prying
     speedModifier: 1.5
+  - type: ToolTileCompatible
+  - type: Tool
+    qualities:
+    - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: UseDelay # For insta prying
+    delay: 0.5
 
 - type: entity
   parent: HereticBladeBase

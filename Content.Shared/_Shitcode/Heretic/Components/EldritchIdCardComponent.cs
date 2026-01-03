@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Access;
 using Content.Shared.Roles;
 using Content.Shared.StatusIcon;
@@ -12,7 +13,7 @@ namespace Content.Shared._Shitcode.Heretic.Components;
 public sealed partial class EldritchIdCardComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public List<EldritchIdConfiguration> Configs = new();
+    public HashSet<EldritchIdConfiguration> Configs = new();
 
     [DataField, AutoNetworkedField]
     public EntProtoId? CurrentProto;
@@ -37,26 +38,52 @@ public sealed partial class EldritchIdCardComponent : Component
 public sealed class EldritchIdConfiguration(
     string? fullName,
     string? jobTitle,
-    ProtoId<JobIconPrototype>  jobIcon,
+    ProtoId<JobIconPrototype> jobIcon,
     List<ProtoId<DepartmentPrototype>> departments,
     HashSet<ProtoId<AccessLevelPrototype>> tags,
     EntProtoId cardPrototype)
 {
-    [DataField]
     public string? FullName = fullName;
-
-    [DataField]
     public string? JobTitle = jobTitle;
-
-    [DataField]
     public ProtoId<JobIconPrototype> JobIcon = jobIcon;
-
-    [DataField]
     public HashSet<ProtoId<AccessLevelPrototype>> AccessTags = tags;
-
-    [DataField]
     public List<ProtoId<DepartmentPrototype>> Departments = departments;
-
-    [DataField]
     public EntProtoId CardPrototype = cardPrototype;
+
+    public override bool Equals(object? obj)
+    {
+        if (obj is not EldritchIdConfiguration other)
+            return false;
+
+        return FullName == other.FullName &&
+               JobTitle == other.JobTitle &&
+               JobIcon.Id == other.JobIcon.Id &&
+               CardPrototype.Id == other.CardPrototype.Id &&
+               AccessTags.SetEquals(other.AccessTags) &&
+               Departments.SequenceEqual(other.Departments);
+    }
+
+    public override int GetHashCode()
+    {
+        var hash = new HashCode();
+
+        hash.Add(FullName);
+        hash.Add(JobTitle);
+        hash.Add(JobIcon.Id);
+        hash.Add(CardPrototype.Id);
+
+        hash.Add(AccessTags.Count);
+        foreach (var tag in AccessTags.OrderBy(x => x.Id))
+        {
+            hash.Add(tag);
+        }
+
+        hash.Add(Departments.Count);
+        foreach (var dept in Departments)
+        {
+            hash.Add(dept);
+        }
+
+        return hash.ToHashCode();
+    }
 }

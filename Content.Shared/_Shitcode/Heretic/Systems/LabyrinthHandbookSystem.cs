@@ -20,7 +20,7 @@ public sealed class LabyrinthHandbookSystem : EntitySystem
         SubscribeLocalEvent<ContainmentFieldThrowEvent>(OnThrow);
     }
 
-    private void OnThrow(ContainmentFieldThrowEvent args)
+    private void OnThrow(ref ContainmentFieldThrowEvent args)
     {
         if (!HasComp<LabyrinthWallComponent>(args.Field))
             return;

@@ -21,10 +21,12 @@ public sealed class EldritchIdCardSystem : SharedEldritchIdCardSystem
             QueueDel(ent.Comp.PortalTwo);
     }
 
-    protected override void InitializeEldritchId(Entity<EldritchIdCardComponent> ent)
+    protected override bool InitializeEldritchId(Entity<EldritchIdCardComponent> ent)
     {
-        base.InitializeEldritchId(ent);
+        if (!base.InitializeEldritchId(ent))
+            return false;
 
         RemCompDeferred<AgentIDCardComponent>(ent);
+        return true;
     }
 }

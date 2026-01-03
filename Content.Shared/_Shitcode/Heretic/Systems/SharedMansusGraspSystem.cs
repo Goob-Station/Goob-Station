@@ -61,7 +61,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
     [Dependency] private readonly SharedMechSystem _mech = default!;
     [Dependency] private readonly AccessReaderSystem _access = default!;
 
-    public bool eryApplyGraspEffectAndMark(EntityUid user,
+    public bool TryApplyGraspEffectAndMark(EntityUid user,
         HereticComponent hereticComp,
         EntityUid target,
         EntityUid? grasp,
@@ -156,7 +156,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                 break;
             }
 
-            case "Lock":
+            case "Lock": // TODO: Predict
             {
                 if (TryComp<MechComponent>(target, out var mech) && mech.PilotSlot.ContainedEntity is { } pilot)
                 {
@@ -166,18 +166,16 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                 else if (TryComp<DoorComponent>(target, out var door))
                 {
                     if (TryComp<DoorBoltComponent>(target, out var doorBolt))
-                        _door.SetBoltsDown((target, doorBolt), false, user, true);
+                        _door.SetBoltsDown((target, doorBolt), false);
 
-                    _door.StartOpening(target, door, user, true);
+                    _door.StartOpening(target, door);
                 }
                 else if (TryComp<AccessReaderComponent>(target, out var access))
                     _access.ClearAccesses((target, access));
                 else
                     break;
 
-                _audio.PlayPredicted(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/hereticknock.ogg"),
-                    target,
-                    user);
+                _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/hereticknock.ogg"), target);
 
                 if (user.Comp.PathStage >= 7)
                     cooldownMultiplier = 0.25f;

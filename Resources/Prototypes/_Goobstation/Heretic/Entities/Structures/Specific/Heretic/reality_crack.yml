@@ -2,7 +2,6 @@
   id: RealityCrack
   name: crack in reality
   description: A crack in space, impossibly deep and painful to the eyes. Definitely not safe.
-  abstract: true
   placement:
     mode: SnapgridCenter
   components:
@@ -28,3 +27,4 @@
     tags:
     - HideContextMenu
   - type: LockPortal
+  - type: Clickable

@@ -17,6 +17,7 @@
 
 using Content.Goobstation.Common.Heretic;
 using Content.Shared.Examine;
+using Content.Shared.Charges.Components; // Goobstation
 using Content.Shared.Coordinates.Helpers;
 using Content.Server.Power.Components;
 using Content.Server.PowerCell;
@@ -108,7 +109,9 @@ public sealed class HolosignSystem : EntitySystem
                         CollisionGroup.HighImpassable)) != 0)
                 return;
         }
-        if (!_powerCell.TryUseCharge(uid, component.ChargeUse, user: args.User) || !_charges.TryUseCharge(uid)) // if no battery or no charge, doesn't work
+        LimitedChargesComponent? charges;
+        EntityUid? user = TryComp(uid, out charges) ? null : args.User; // Don't popup if it has
+        if (!_powerCell.TryUseCharge(uid, component.ChargeUse, user: user) && !_charges.TryUseCharge((uid, charges))) // if no battery or no charge, doesn't work
             return;
         var holoUid = Spawn(component.SignProto, coords);
         // Goob edit end

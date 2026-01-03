@@ -246,8 +246,12 @@
 
 - type: entity
   id: WallLabyrinth
-  name: force wall
+  name: labyrinth pages
   description: A field of papers flying in the air, repulsing heathens with impossible force.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
   components:
   - type: TimedDespawn
     lifetime: 15
@@ -279,4 +283,5 @@
     pathStage: 11 # Can't rust
   - type: LabyrinthWall
   - type: ContainmentField
-    throwForce: 10
+    throwForce: 50
+  - type: Clickable

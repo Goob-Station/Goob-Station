@@ -47,5 +47,5 @@ public sealed class EldritchIdMessage(EldritchIdConfiguration config) : BoundUse
 [Serializable, NetSerializable]
 public enum EldritchIdUiKey : byte
 {
-    Key,
+    Key
 }
