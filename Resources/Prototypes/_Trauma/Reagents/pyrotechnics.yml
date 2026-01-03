@@ -11,9 +11,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-            type: [ Yowie ]
-            inverted: true
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
         damage:
           types: # methanol is bad for your health
             Poison: 3
@@ -42,9 +42,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
         damage:
           types: # do not eat C4
             Poison: 3
@@ -63,9 +63,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
         damage:
           types: # Oil is not good
             Poison: 1
@@ -84,9 +84,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
         damage:
           types: # do not eat C4's bigger brother
             Poison: 2
