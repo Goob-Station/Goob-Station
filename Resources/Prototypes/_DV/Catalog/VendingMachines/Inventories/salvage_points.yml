@@ -85,6 +85,12 @@
     cost: 1000
   - id: LavalandEquipmentExplorerSuit
     cost: 1000
+  - id: LavalandWeaponKineticMachete
+    cost: 1050
+  - id: LavalandWeaponKineticClaws
+    cost: 1050
+  - id: WeaponCrusherDagger
+    cost: 1050
   - id: AdvancedMineralScanner
     cost: 1100
   - id: PKAUpgradeDamage
@@ -107,7 +113,7 @@
     cost: 2000
   - id: ClothingOuterHardsuitSalvage
     cost: 2000
-    #TODO:  super resonator for 2500
+    #TODO: super resonator for 2500
   - id: ClothingShoesBootsJump
     cost: 2500
   - id: ClothingOuterHardsuitLuxury

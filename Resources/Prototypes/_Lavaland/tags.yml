@@ -57,7 +57,7 @@
   id: PKAUpgrade
 
 - type: Tag
-  id: PKASpaceUpgrade
+  id: PKAUpgradeSpace
 
 - type: Tag
   id: MarkerBeacon

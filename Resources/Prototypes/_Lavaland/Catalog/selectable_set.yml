@@ -39,8 +39,7 @@
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
     state: icon
   content:
-  - WeaponProtoKineticAccelerator
-  - PKAUpgradeSpace
+  - WeaponProtoKineticAcceleratorSpace
 
 - type: selectableSet
   id: MinerWeaponSelectorRepeaterSpace
@@ -50,8 +49,7 @@
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
     state: icon
   content:
-  - WeaponProtoKineticRepeater
-  - PKAUpgradeSpace
+  - WeaponProtoKineticRepeaterSpace
 
 - type: selectableSet
   id: MinerWeaponSelectorPistolsSpace
@@ -61,10 +59,8 @@
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_pistol.rsi
     state: icon
   content:
-  - WeaponProtoKineticPistol
-  - WeaponProtoKineticPistol
-  - PKAUpgradeSpace
-  - PKAUpgradeSpace
+  - WeaponProtoKineticPistolSpace
+  - WeaponProtoKineticPistolSpace
 
 # Crushers
 - type: selectableSet

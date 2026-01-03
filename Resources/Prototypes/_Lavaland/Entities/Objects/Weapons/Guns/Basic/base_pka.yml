@@ -82,7 +82,7 @@
       upgrade-space:
         whitelist:
           tags:
-          - PKASpaceUpgrade
+          - PKAUpgradeSpace
   - type: Gun
     fireRate: 0.8
     selectedMode: SemiAuto

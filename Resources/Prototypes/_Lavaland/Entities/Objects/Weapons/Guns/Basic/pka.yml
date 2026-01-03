@@ -148,3 +148,42 @@
     - 0,1,0,1
 
 # Space versions of all PKAs
+- type: entity
+  id: WeaponProtoKineticAcceleratorSpace
+  parent: WeaponProtoKineticAccelerator
+  suffix: Space upgrade
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      upgrade_slot_1:
+        id: PKAUpgradeSpace
+
+- type: entity
+  id: WeaponProtoKineticShotgunSpace
+  parent: WeaponProtoKineticShotgun
+  suffix: Space upgrade
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      upgrade_slot_1:
+        id: PKAUpgradeSpace
+
+- type: entity
+  id: WeaponProtoKineticRepeaterSpace
+  parent: WeaponProtoKineticRepeater
+  suffix: Space upgrade
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      upgrade_slot_1:
+        id: PKAUpgradeSpace
+
+- type: entity
+  id: WeaponProtoKineticPistolSpace
+  parent: WeaponProtoKineticPistol
+  suffix: Space upgrade
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      upgrade_slot_1:
+        id: PKAUpgradeSpace
