@@ -42,11 +42,16 @@
     components:
     - type: AmmoCounter
     - type: UseDelayOnShoot
-    - type: UseDelay
-      delay: 0.8
+    - type: GunRequiresWield
     - type: Gun
       soundGunshot: /Audio/Weapons/plasma_cutter.ogg
-      fireRate: 2
+      fireRate: 1
+      useKey: false
+    - type: MapRestrictedGun
+      planetWhitelist:
+        components:
+        - Biome
+      popupOnBlock: gun-lavaland-restricted-message
       useKey: false
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 1
@@ -82,13 +87,17 @@
     components:
     - type: AmmoCounter
     - type: UseDelayOnShoot
-    - type: UseDelay
-      delay: 0.9
+    - type: GunRequiresWield
     - type: Gun
       projectileSpeed: 12
       soundGunshot: /Audio/Weapons/plasma_cutter.ogg
       fireRate: 1
       useKey: false
+    - type: MapRestrictedGun
+      planetWhitelist:
+        components:
+        - Biome
+      popupOnBlock: gun-lavaland-restricted-message
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 10
       rechargeSound:

@@ -53,6 +53,9 @@
   - type: Wieldable
   - type: GunRequiresWield
   - type: MeleeRequiresWield
+  - type: UseDelayBlockMelee
+  - type: UseDelay
+    delay: 0.8
   - type: Clothing
     quickEquip: false
     slots:
