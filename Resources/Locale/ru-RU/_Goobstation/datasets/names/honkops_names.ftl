@@ -1,0 +1,14 @@
+names-honkops-prefix-dataset-1 = Хонкперативник
+names-honkops-elite-dataset-1 = Хонкмен
+names-honkops-elite-dataset-2 = Бонкмен
+names-honkops-elite-dataset-3 = Джокер
+names-honkops-elite-dataset-4 = Клоун
+names-honkops-elite-dataset-5 = Пранкстер
+names-honkops-elite-dataset-6 = Бозо
+names-honkops-elite-dataset-7 = Циркус
+names-honkops-elite-dataset-8 = Безерк
+names-honkops-elite-dataset-9 = Доуп
+names-honkops-elite-dataset-10 = Джестер
+names-honkops-elite-dataset-11 = Чаклер
+names-honkops-elite-dataset-12 = Чакстер
+names-honkops-elite-dataset-13 = Джоклер

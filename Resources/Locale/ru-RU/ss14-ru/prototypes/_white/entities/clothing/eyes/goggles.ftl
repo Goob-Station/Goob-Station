@@ -1,0 +1,14 @@
+ent-ClothingEyesNightVisionGoggles = прибор ночного видения
+    .desc = Теперь вы можете видеть в темноте!
+ent-ClothingEyesNightVisionGogglesSyndie = прибор ночного видения синдиката
+    .desc = Высокотехнологичные прибор ночного видения с медицинской анализирующей технологией.
+ent-ClothingEyesNightVisionGogglesNukie = { ent-ClothingEyesNightVisionGogglesSyndie }
+    .suffix = Ядерные оперативники
+    .desc = { ent-ClothingEyesNightVisionGogglesSyndie.desc }
+ent-ClothingEyesThermalVisionGoggles = прибор теплового видения
+    .desc = Теперь вы можете видеть всех!
+ent-ClothingEyesThermalVisionGogglesSyndie = прибор теплового видения
+    .desc = Высокотехнологичные тепловизионные прибор.
+ent-ClothingEyesThermalVisionGogglesNukie = { ent-ClothingEyesThermalVisionGogglesSyndie }
+    .suffix = Ядерные оперативники
+    .desc = { ent-ClothingEyesThermalVisionGogglesSyndie.desc }

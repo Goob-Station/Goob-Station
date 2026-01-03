@@ -1,0 +1,13 @@
+operation-prefix-honkops-dataset-1 = Хонк
+operation-prefix-honkops-dataset-2 = Бонк
+operation-prefix-honkops-dataset-3 = Клоун
+operation-prefix-honkops-dataset-4 = Убиватель
+operation-prefix-honkops-dataset-5 = Шутник
+operation-prefix-honkops-dataset-6 = Бозо
+operation-prefix-honkops-dataset-7 = Циркус
+operation-prefix-honkops-dataset-8 = Безерк
+operation-prefix-honkops-dataset-9 = Доуп
+operation-prefix-honkops-dataset-10 = Чаклер
+operation-prefix-honkops-dataset-11 = Чакстер
+operation-prefix-honkops-dataset-12 = Бум
+operation-prefix-honkops-dataset-13 = Веселый

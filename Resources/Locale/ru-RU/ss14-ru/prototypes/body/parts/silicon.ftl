@@ -1,0 +1,14 @@
+ent-PartSiliconBase = { ent-BasePartInorganic }
+    .desc = { ent-BasePartInorganic.desc }
+ent-LeftArmBorg = левая рука борга
+    .desc = { ent-PartSilicon.desc }
+ent-RightArmBorg = правая рука борга
+    .desc = { ent-PartSilicon.desc }
+ent-LeftLegBorg = левая нога борга
+    .desc = { ent-PartSilicon.desc }
+ent-RightLegBorg = правая нога борга
+    .desc = { ent-PartSilicon.desc }
+ent-LightHeadBorg = голова борга
+    .desc = { ent-PartSilicon.desc }
+ent-TorsoBorg = туловище борга
+    .desc = { ent-PartSilicon.desc }

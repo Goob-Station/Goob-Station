@@ -1,0 +1,9 @@
+ent-ContrabandDetector = детектор контрабанды
+    .desc = Заходи с уверенностью, выходи с охраной за спиной.
+ent-ContrabandDetectorSecure = { ent-ContrabandDetector }
+    .suffix = СБ
+    .desc = { ent-ContrabandDetector.desc }
+ent-ContrabandDetectorFrame = каркас детектора контрабанды
+    .desc = { "" }
+ent-ContrabandDetectorCircuitboard = детектор контрабанды (машинная плата)
+    .desc = Машинная плата для детектора контрабанды.

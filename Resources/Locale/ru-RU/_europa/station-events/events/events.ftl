@@ -1,0 +1,3 @@
+station-event-inteqagent-start-announcement = Что за металлический хруст в технических туннелях?...
+station-event-wisdom-cow = В вашем секторе была замечена мудрая корова. Обязательно спросите у неё совета.
+station-event-wormholes-spawn-announcement = На станции обнаружены пространственно-временные аномалии.

@@ -1,0 +1,12 @@
+traitor-corporations-flavor-dataset-1 = Террористы АРК
+traitor-corporations-flavor-dataset-2 = Фронт Освобождённых Пчёл
+traitor-corporations-flavor-dataset-3 = Киберсан Индастрис
+traitor-corporations-flavor-dataset-4 = Мародёры Горлекс
+traitor-corporations-flavor-dataset-5 = Корпоративный Альпинист
+traitor-corporations-flavor-dataset-6 = Донк Ко.
+traitor-corporations-flavor-dataset-7 = Юридические Проблемы
+traitor-corporations-flavor-dataset-8 = МИ13
+traitor-corporations-flavor-dataset-9 = Корпоратив "Тигр"
+traitor-corporations-flavor-dataset-10 = Корпорация Ваффель
+traitor-corporations-flavor-dataset-11 = Террористы Корпорации Ваффель
+traitor-corporations-flavor-dataset-12 = Провидец из Федерации Неулитов

@@ -1,0 +1,13 @@
+ent-ClothingModsuitResponsoryJanitorial = контроллер скафандра уборочного ОБР
+    .desc = Основной контроллер скафандра уборочного ОБР.
+ent-ClothingModsuitGauntletsResponsoryJanitorial = перчатки скафандра уборочного ОБР
+    .desc = Пара перчаток, изготовленных для скафандра уборочного ОБР.
+ent-ClothingModsuitHelmetResponsoryJanitorial = шлем скафандра уборочного ОБР
+    .desc = Передовой шлем, разработанный НаноТрейзен для скафандра уборочного ОБР. Имеет встроенный ИЛС.
+ent-ClothingModsuitChestplateResponsoryJanitorial = нагрудная пластина скафандра уборочного ОБР
+    .desc = Передовой нагрудник, разработанный НаноТрейзен для скафандра уборочного ОБР. Оснащён сервоприводами для снижения нагрузки.
+ent-ClothingModsuitBootsResponsoryJanitorial = ботинки скафандра уборочного ОБР
+    .desc = Передовая пара магнитных ботинок для скафандра уборочного ОБР.
+ent-SuitStorageResponsoryJanitorial = { ent-SuitStorageBase }
+    .suffix = модульный скафандр уборочного ОБР
+    .desc = { ent-SuitStorageBase.desc }

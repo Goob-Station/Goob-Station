@@ -1,0 +1,14 @@
+ent-BaseMagazineHighCaliber = магазин (.50 калибр)
+    .desc = { ent-BaseItem.desc }
+ent-MagazineHighCaliberEmpty = магазин (.50 пустой)
+    .desc = { ent-BaseMagazineHighCaliber.desc }
+ent-MagazineHighCaliber = магазин (.50 анти-материя)
+    .desc = { ent-BaseMagazineHighCaliber.desc }
+ent-MagazineHighCaliberExplosive = магазин (.50 взрывные поджигательные)
+    .desc = { ent-BaseMagazineHighCaliber.desc }
+ent-BaseMagazineAntiMateriel = магазин (.60 калибр)
+    .desc = { ent-BaseItem.desc }
+ent-MagazineAntiMaterielEmpty = магазин (.60 пусто)
+    .desc = { ent-BaseMagazineAntiMateriel.desc }
+ent-MagazineAntiMateriel = магазин (.60 анти-материя)
+    .desc = { ent-BaseMagazineAntiMateriel.desc }

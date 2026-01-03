@@ -1,0 +1,10 @@
+ent-XenoWeeds = сорняки
+    .desc = Странные чёрные сорняки…
+ent-XenoWeedsSource = узел сорняка
+    .desc = Странный пульсирующий узел
+ent-XenoWeedsWall = сорняки
+    .desc = { "" }
+ent-XenoHardyWeeds = { ent-XenoWeeds }
+    .desc = { ent-XenoWeeds.desc }
+ent-XenoHardyWeedsSource = узел выносливого сорняка
+    .desc = Странный пульсирующий узел

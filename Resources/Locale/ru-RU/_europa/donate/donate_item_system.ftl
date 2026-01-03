@@ -1,0 +1,1 @@
+donate-system-is-shit = ILLUZORR, проснись, ты обосрался!

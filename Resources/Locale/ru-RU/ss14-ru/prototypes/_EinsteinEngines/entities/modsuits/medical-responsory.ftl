@@ -1,0 +1,13 @@
+ent-ClothingModsuitResponsoryMedical = контроллер скафандра медицинского ОБР
+    .desc = Основной контроллер скафандра медицинского ОБР.
+ent-ClothingModsuitGauntletsResponsoryMedical = перчатки скафандра медицинского ОБР
+    .desc = Пара перчаток, изготовленных для скафандра медицинского ОБР.
+ent-ClothingModsuitHelmetResponsoryMedical = шлем скафандра медицинского ОБР
+    .desc = Передовой шлем, разработанный НаноТрейзен для скафандра медицинского ОБР. Имеет встроенный ИЛС.
+ent-ClothingModsuitChestplateResponsoryMedical = нагрудная пластина скафандра медицинского ОБР
+    .desc = Передовой нагрудник, разработанный НаноТрейзен для скафандра медицинского ОБР. Оснащён сервоприводами для снижения нагрузки.
+ent-ClothingModsuitBootsResponsoryMedical = ботинки скафандра медицинского ОБР
+    .desc = Передовая пара магнитных ботинок для скафандра медицинского ОБР.
+ent-SuitStorageResponsoryMedical = { ent-SuitStorageBase }
+    .suffix = модульный скафандр медицинского ОБР
+    .desc = { ent-SuitStorageBase.desc }

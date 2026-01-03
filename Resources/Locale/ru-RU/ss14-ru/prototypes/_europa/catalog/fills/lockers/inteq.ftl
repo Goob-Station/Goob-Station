@@ -1,0 +1,12 @@
+ent-GunSafeInteQFilled = { ent-GunSafe }
+    .desc = { ent-GunSafe.desc }
+    .suffix = InteQ Авангард-73, Заполненный
+ent-LockerInteQVanguardLeaderSizoFilled = { ent-LockerInteQVanguardLeader }
+    .desc = { ent-LockerInteQVanguardLeader.desc }
+    .suffix = InteQ Авангард-73, Коммандер, Заполненный
+ent-LockerInteQVanguardSizoFilled = { ent-LockerInteQVanguard }
+    .desc = { ent-LockerInteQVanguard.desc }
+    .suffix = InteQ Авангард-73, Авангард, Заполненный
+ent-LockerInteQVanguardMedicSizoFilled = { ent-LockerInteQVanguard }
+    .desc = { ent-LockerInteQVanguard.desc }
+    .suffix = InteQ Авангард-73, Медик, Заполненный

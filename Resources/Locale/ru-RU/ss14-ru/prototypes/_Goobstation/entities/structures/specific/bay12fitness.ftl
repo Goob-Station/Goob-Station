@@ -1,0 +1,17 @@
+ent-FitnessWeightsBench1 = скамья для жима
+    .desc = { ent-SeatBase.desc }
+ent-FitnessWeightLifter = скамья со штангой
+    .desc = { ent-FitnessWeightsBench1.desc }
+ent-FitnessPunchingBagBopClown = { ent-FitnessPunchingBag }
+    .desc = Боксерская груша с принтом клоуна.
+ent-FitnessPunchingBag = боксерская груша
+    .desc = Боксерская груша.
+ent-FitnessPunchingBagCaptain = { ent-FitnessPunchingBag }
+    .desc = Боксерская груша с принтом капитана.
+    .suffix = Капитан
+ent-FitnessPunchingBagSyndicate = { ent-FitnessPunchingBag }
+    .desc = Боксерская груша с принтом агента синдиката.
+    .suffix = Синдикат
+ent-FitnessPunchingBagWizard = { ent-FitnessPunchingBag }
+    .desc = Боксерская груша с принтом мага.
+    .suffix = Маг

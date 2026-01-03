@@ -1,0 +1,15 @@
+ent-ClothingBackpackStasisBattery = аккумулятор стазиса
+    .desc = Хранит энергию для заморозки течения времени, искажая пространство внутри для увеличения ёмкости.
+ent-ClothingBackpackStasisBatteryUnremoveable = { ent-ClothingBackpackStasisBattery }
+    .suffix = Неснимаемый
+    .desc = { ent-ClothingBackpackStasisBattery.desc }
+ent-ClothingBackpackStasisBatteryUnremoveableFilled = { ent-ClothingBackpackStasisBatteryUnremoveable }
+    .suffix = Заполненный, Неснимаемый
+    .desc = { ent-ClothingBackpackStasisBatteryUnremoveable.desc }
+ent-ClothingBackpackMercFilledHECU = { ent-ClothingBackpackMerc }
+    .suffix = Заполненный, HECU
+    .desc = { ent-ClothingBackpackMerc.desc }
+ent-ClothingBackpackDuffelGman = странный вещмешок
+    .desc = Странная, неснимаемая сумка, способная содержать абсурдное количество предметов. Кажется невидимой для невооружённого глаза.
+ent-ClothingBackpackLMGBattery = Батарея EL-20
+    .desc = Принимает специализированные автомобильные батареи для питания EL-20 HAMRR LMG.

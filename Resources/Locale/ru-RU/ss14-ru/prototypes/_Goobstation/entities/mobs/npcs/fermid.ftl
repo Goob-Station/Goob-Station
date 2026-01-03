@@ -1,0 +1,10 @@
+ent-MobFermidBase = фермид
+    .desc = Чрезвычайно враждебные насекомые, обитающие на астероидах. Лучше избегать их при любой возможности.
+ent-MobFermidSmall = { ent-MobFermidBase }
+    .desc = { ent-MobFermidBase.desc }
+ent-MobFermidLarge = { ent-MobFermidBase }
+    .desc = { ent-MobFermidBase.desc }
+ent-MobFermidWarrior = фермид воин
+    .desc = { ent-MobFermidBase.desc }
+ent-MobFermidQueen = фермид королева
+    .desc = Кто-нибудь принес аэрозоль от насекомых?

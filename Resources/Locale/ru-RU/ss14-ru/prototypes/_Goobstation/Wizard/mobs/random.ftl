@@ -1,0 +1,12 @@
+ent-MobArachnidRandom = { ent-MobArachnid }
+    .suffix = Случайный вид
+    .desc = { ent-MobArachnid.desc }
+ent-MobIPCRandom = { ent-MobIPC }
+    .suffix = Случайный вид
+    .desc = { ent-MobIPC.desc }
+ent-MobOniRandom = { ent-MobOni }
+    .suffix = Случайный вид
+    .desc = { ent-MobOni.desc }
+ent-MobCluwneRandom = { ent-MobCluwne }
+    .suffix = Случайный вид
+    .desc = { ent-MobCluwne.desc }

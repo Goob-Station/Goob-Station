@@ -1,0 +1,9 @@
+cmd-equipto-hint = Название слота.
+cmd-equipto-desc = Дать сущности другую указанную сущность.
+cmd-equipto-help = Использование: equipto <target> <itemUid/ProtoId> <bool-DeletePrevious> / equipto <target> <itemUid/ProtoId> <bool-DeletePrevious> <slot>
+cmd-equipto-args-error = Неверный аргумент. { cmd-equipto-help }
+cmd-equipto-bad-target = Невозможно найти энтити '{ $target }'.
+cmd-equipto-bad-proto = Неверный предмет UID/прототип: '{ $item }'
+cmd-equipto-success = Экипировать { $item } на { $target } в слот { $targetSlot }.
+cmd-equipto-failure = Невозможно экипировать { $item } на { $target } в слот { $targetSlot }.
+cmd-equipto-total-failure = Ошибка при экипировке { $item } в любом слот { $target }.

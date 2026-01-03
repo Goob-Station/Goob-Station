@@ -1,0 +1,14 @@
+ent-BaseAutosurgeon = { ent-BaseStructure }
+    .desc = Одноразовая автооперация для замены или улучшения ваших частей кибернетическими имплантами. Разорвите эту станцию и сделайте её частью себя.
+ent-BaseAutosurgeonSyndicate = { ent-BaseAutosurgeon }
+    .desc = { ent-BaseAutosurgeon.desc }
+ent-AutosurgeonRightSpeedLeg = автооперация (правая нога Б.Е.Г.У.Н)
+    .desc = { ent-BaseAutosurgeon.desc }
+ent-AutosurgeonLeftSpeedLeg = автооперация (левая нога Б.Е.Г.У.Н)
+    .desc = { ent-BaseAutosurgeon.desc }
+ent-AutosurgeonRightMantisBlade = автооперация синдиката (правые клинки богомола)
+    .desc = { ent-BaseAutosurgeonSyndicate.desc }
+ent-AutosurgeonLeftMantisBlade = автооперация синдиката (левые клинки богомола)
+    .desc = { ent-BaseAutosurgeonSyndicate.desc }
+ent-AutosurgeonSandevistan = автооперация синдиката (сандевистан)
+    .desc = { ent-BaseAutosurgeonSyndicate.desc }

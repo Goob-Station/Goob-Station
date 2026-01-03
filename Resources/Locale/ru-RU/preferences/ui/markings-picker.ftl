@@ -1,0 +1,39 @@
+markings-used = Используемые черты
+markings-unused = Неиспользуемые черты
+markings-add = Добавить черту
+markings-remove = Убрать черту
+markings-rank-up = Вверх
+markings-rank-down = Вниз
+markings-search = Поиск
+marking-points-remaining = Черт осталось: { $points }
+marking-used = { $marking-name }
+marking-used-forced = { $marking-name } (Принудительно)
+marking-slot-add = Добавить
+marking-slot-remove = Удалить
+marking-slot = Слот { $number }
+
+# Categories
+
+markings-category-Special = Специальное
+markings-category-Hair = Причёска
+markings-category-FacialHair = Лицевая растительность
+markings-category-Face = Лицо
+markings-category-Head = Голова
+markings-category-HeadTop = Голова (верх)
+markings-category-HeadSide = Голова (бок)
+markings-category-Snout = Морда
+markings-category-Chest = Грудь
+markings-category-Arms = Руки
+markings-category-RightArm = Правая рука
+markings-category-RightHand = Правая ладонь
+markings-category-LeftArm = Левая рука
+markings-category-LeftHand = Левая ладонь
+markings-category-RightLeg = Правая нога
+markings-category-RightFoot = Правая стопа
+markings-category-LeftLeg = Левая нога
+markings-category-LeftFoot = Левая стопа
+markings-category-Legs = Ноги
+markings-category-Tail = Хвост
+markings-category-Undershirt = Майка
+markings-category-Underwear = Нижнее белье
+markings-category-Overlay = Наложение

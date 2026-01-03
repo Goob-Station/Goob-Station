@@ -1,0 +1,16 @@
+construction-graph-tag-dried-cannabis-vita = высушенная конопля жизни
+construction-graph-tag-geranium = герань
+construction-graph-tag-geranium-crown = венок из герани
+construction-graph-tag-geranium-crown-desc = Величественный венок из свежих цветков герани. Идеально для ботаников и любителей природы.
+construction-graph-tag-sunflower-crown = венок из подсолнухов
+construction-graph-tag-sunflower-crown-desc = Яркий цветочный венок из подсолнухов, который гарантированно скрасит чей угодно день!
+construction-graph-tag-lily = лилия
+construction-graph-tag-ground-cannabis-vita = измельченная конопля жизни
+construction-graph-tag-ground-cannabis-vita-desc = В каком то смысле это будет полезно "занюхнуть".
+construction-graph-tag-sunflower = подсолнух
+construction-graph-tag-poppy-crown = венок из мака
+construction-graph-tag-poppy-crown-desc = венок из мака
+construction-graph-tag-lily-wreath = венок из лилий
+construction-graph-tag-lily-wreath-desc = венок из лилий
+construction-graph-tag-joint-vita = косяк вита
+construction-graph-tag-joint-vita-desc = Лечащая самокрутка из конопли жизни!

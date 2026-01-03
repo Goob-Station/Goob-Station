@@ -1,0 +1,14 @@
+ent-PosterContrabandInteQRecruitment = Набор в Интек
+    .desc = Набор в Интек.
+ent-PosterContrabandInteQWorkship = Сотрудничество с Интек
+    .desc = Сотрудничество с Интек.
+ent-PosterContrabandInteQWorkship2 = Сотрудничество с Интек
+    .desc = Сотрудничество с Интек.
+ent-PosterContrabandInteQ = Интек
+    .desc = Интек.
+ent-PosterContrabandInteQNoSex = НЕТ СЕКСУ
+    .desc = НЕТ СЕКСУ!!!
+ent-PosterContrabandInteQVulp = Вульпа Интек
+    .desc = Мы берём даже фурри фриков, вступайте к нам!
+ent-PosterContrabandInteQJulie = Горячие Ящерицы
+    .desc = Самые красивые ящерицы во вселенной, вступайте к нам!
