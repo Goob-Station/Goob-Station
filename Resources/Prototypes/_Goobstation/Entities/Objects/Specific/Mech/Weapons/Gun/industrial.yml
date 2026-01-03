@@ -31,7 +31,7 @@
   - type: Appearance
   - type: AmmoCounter
   - type: PressureDamageChange
-  - type: UpgradeableGun
+  - type: UpgradeableWeapon
     maxUpgradeCapacity: 40
   - type: ContainerContainer
     containers:

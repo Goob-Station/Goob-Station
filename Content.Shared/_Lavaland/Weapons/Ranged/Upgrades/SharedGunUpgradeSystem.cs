@@ -33,10 +33,11 @@ using Content.Shared.Examine;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using System.Linq;
+using Content.Goobstation.Common.Weapons;
 using Content.Shared._Goobstation.Weapons.Ranged;
 using Content.Shared.Actions;
+using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
-using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
@@ -49,29 +50,32 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<UpgradeableGunComponent, EntInsertedIntoContainerMessage>(OnUpgradeInserted);
-        SubscribeLocalEvent<UpgradeableGunComponent, ItemSlotInsertAttemptEvent>(OnItemSlotInsertAttemptEvent);
-        SubscribeLocalEvent<UpgradeableGunComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<UpgradeableWeaponComponent, EntInsertedIntoContainerMessage>(OnUpgradeInserted);
+        SubscribeLocalEvent<UpgradeableWeaponComponent, ItemSlotInsertAttemptEvent>(OnItemSlotInsertAttemptEvent);
+        SubscribeLocalEvent<UpgradeableWeaponComponent, ExaminedEvent>(OnExamine);
 
-        SubscribeLocalEvent<UpgradeableGunComponent, GunRefreshModifiersEvent>(RelayEvent);
-        SubscribeLocalEvent<UpgradeableGunComponent, RechargeBasicEntityAmmoGetCooldownModifiersEvent>(RelayEvent);
-        SubscribeLocalEvent<UpgradeableGunComponent, GunShotEvent>(RelayEvent);
-        SubscribeLocalEvent<UpgradeableGunComponent, ProjectileShotEvent>(RelayEvent);
-        SubscribeLocalEvent<UpgradeableGunComponent, GetRelayMeleeWeaponEvent>(RelayEvent);
+        SubscribeLocalEvent<UpgradeableWeaponComponent, GunRefreshModifiersEvent>(RelayEvent);
+        SubscribeLocalEvent<UpgradeableWeaponComponent, RechargeBasicEntityAmmoGetCooldownModifiersEvent>(RelayEvent);
+        SubscribeLocalEvent<UpgradeableWeaponComponent, GunShotEvent>(RelayEvent);
+        SubscribeLocalEvent<UpgradeableWeaponComponent, ProjectileShotEvent>(RelayEvent);
+        SubscribeLocalEvent<UpgradeableWeaponComponent, GetRelayMeleeWeaponEvent>(RelayEvent);
+        SubscribeLocalEvent<UpgradeableWeaponComponent, GetMeleeDamageEvent>(RelayEvent);
+        SubscribeLocalEvent<UpgradeableWeaponComponent, MeleeHitEvent>(RelayEvent);
+        SubscribeLocalEvent<UpgradeableWeaponComponent, GetLightAttackRangeEvent>(RelayEvent);
+        SubscribeLocalEvent<UpgradeableWeaponComponent, GetMeleeAttackRateEvent>(RelayEvent);
 
-        SubscribeLocalEvent<UpgradeableGunComponent, GetItemActionsEvent>(RelayGetActionEvent);
+        SubscribeLocalEvent<UpgradeableWeaponComponent, GetItemActionsEvent>(RelayGetActionEvent);
 
         SubscribeLocalEvent<GunUpgradeComponent, ExaminedEvent>(OnUpgradeExamine);
 
         InitializeUpgrades();
     }
 
-    private void RelayEvent<T>(Entity<UpgradeableGunComponent> ent, ref T args) where T : notnull
+    private void RelayEvent<T>(Entity<UpgradeableWeaponComponent> ent, ref T args) where T : notnull
     {
         foreach (var upgrade in GetCurrentUpgrades(ent))
         {
@@ -80,7 +84,7 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
     }
 
     // Because of how action container work we need that workaround for GetItemActionsEvent
-    private void RelayGetActionEvent(Entity<UpgradeableGunComponent> ent, ref GetItemActionsEvent args)
+    private void RelayGetActionEvent(Entity<UpgradeableWeaponComponent> ent, ref GetItemActionsEvent args)
     {
         foreach (var upgrade in GetCurrentUpgrades(ent))
         {
@@ -102,10 +106,10 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
         }
     }
 
-    private void OnExamine(Entity<UpgradeableGunComponent> ent, ref ExaminedEvent args)
+    private void OnExamine(Entity<UpgradeableWeaponComponent> ent, ref ExaminedEvent args)
     {
         var usedCapacity = 0;
-        using (args.PushGroup(nameof(UpgradeableGunComponent)))
+        using (args.PushGroup(nameof(UpgradeableWeaponComponent)))
         {
             foreach (var upgrade in GetCurrentUpgrades(ent))
             {
@@ -129,14 +133,14 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
             args.PushMarkup(Loc.GetString("gun-upgrade-capacity-cost", ("value", ent.Comp.CapacityCost.Value)));
     }
 
-    private void OnUpgradeInserted(Entity<UpgradeableGunComponent> ent, ref EntInsertedIntoContainerMessage args)
+    private void OnUpgradeInserted(Entity<UpgradeableWeaponComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
         // Update some characteristics here.
         if (TryComp(ent.Owner, out GunComponent? gun))
             _gun.RefreshModifiers((ent.Owner, gun));
     }
 
-    private void OnItemSlotInsertAttemptEvent(Entity<UpgradeableGunComponent> ent, ref ItemSlotInsertAttemptEvent args)
+    private void OnItemSlotInsertAttemptEvent(Entity<UpgradeableWeaponComponent> ent, ref ItemSlotInsertAttemptEvent args)
     {
         // TODO: Figure out how to kill the interaction verbs bypassing checks, yet also allowing
         // for non-duplicate popups to the user when they interact without having to do all of this crap twice.
@@ -164,7 +168,7 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
         }
     }
 
-    public HashSet<Entity<GunUpgradeComponent>> GetCurrentUpgrades(Entity<UpgradeableGunComponent> ent, ItemSlotsComponent? itemSlots = null)
+    public HashSet<Entity<GunUpgradeComponent>> GetCurrentUpgrades(Entity<UpgradeableWeaponComponent> ent, ItemSlotsComponent? itemSlots = null)
     {
         if (!Resolve(ent, ref itemSlots))
             return [];

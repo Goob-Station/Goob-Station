@@ -1,7 +1,7 @@
 {
 	"version": 1,
 	"license": "CC-BY-SA-3.0",
-	"copyright": "Taken from https://github.com/tgstation/tgstation at commit 6665eec76c98a4f3f89bebcd10b34b47dcc0b8ae.",
+	"copyright": "Taken from https://github.com/tgstation/tgstation at commit 6665eec76c98a4f3f89bebcd10b34b47dcc0b8ae, edited and added states for rude buster and kinetic marker upgrades by Roudenn",
 	"size":
     {
         "x": 32,
@@ -13,16 +13,36 @@
             "name": "base"
         },
 		{
-            "name": "overlay-1"
+            "name": "rude-buster",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
         },
         {
-            "name": "overlay-2"
-        },
-        {
-            "name": "overlay-3"
-        },
-        {
-            "name": "display"
+            "name": "kinetic-marker",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
         }
     ]
 }

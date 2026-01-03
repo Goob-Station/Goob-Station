@@ -30,5 +30,11 @@ gun-upgrade-flashlight-name = [bold]flashlight[/bold]
 
 gun-upgrade-crusher-kinetic-marker-name = [color=#4269eb][bold]kinetic marker[/bold][/color]
 gun-upgrade-crusher-rude-buster-name = [color=#ae00ff][bold]rude buster[/bold][/color]
-gun-upgrade-crusher-dual-buster-name = [color=#4269eb][bold]dual buster[/bold][/color]
-gun-upgrade-crusher-god-buster-name = [color=#4269eb][bold]God buster[/bold][/color]
+
+gun-upgrade-crusher-lava-aspect = [bold]lava aspect[/bold] blade
+gun-upgrade-crusher-ice-frost = [bold]ice frost[/bold] blade
+gun-upgrade-crusher-sharpness = [bold]sharpness[/bold] blade
+
+gun-upgrade-crusher-weights = [bold]weighted[/bold] handle
+gun-upgrade-crusher-lightweight = [bold]lightweight[/bold] handle
+gun-upgrade-crusher-range = [bold]long[/bold] handle

@@ -66,16 +66,31 @@
   id: CrusherUpgradeMain
 
 - type: Tag
+  id: CrusherUpgradeMainMarker
+
+- type: Tag
+  id: CrusherUpgradeMainRudeBuster
+
+- type: Tag
   id: CrusherUpgradeBlade
+
+- type: Tag
+  id: CrusherUpgradeBladeLavaAspect
+
+- type: Tag
+  id: CrusherUpgradeBladeIceFrost
+
+- type: Tag
+  id: CrusherUpgradeBladeSharpness
 
 - type: Tag
   id: CrusherUpgradeHandle
 
 - type: Tag
-  id: CrusherUpgradeSpecial
+  id: CrusherUpgradeHandleWeights
 
 - type: Tag
-  id: CrusherUpgradeMainMarker
+  id: CrusherUpgradeHandleLightweight
 
 - type: Tag
-  id: CrusherUpgradeMainRudeBuster
+  id: CrusherUpgradeHandleRange

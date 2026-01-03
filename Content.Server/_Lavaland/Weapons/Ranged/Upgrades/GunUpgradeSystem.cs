@@ -22,10 +22,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server._Lavaland.Pressure;
+using Content.Server._Lavaland.Weapons.Ranged.Upgrades.Components;
 using Content.Shared._Lavaland.Weapons.Ranged.Events;
 using Content.Shared._Lavaland.Weapons.Ranged.Upgrades;
 using Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
+using Content.Shared.EntityEffects;
 using Content.Shared.Projectiles;
+using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Containers;
 
@@ -34,6 +37,7 @@ namespace Content.Server._Lavaland.Weapons.Ranged.Upgrades;
 public sealed class GunUpgradeSystem : SharedGunUpgradeSystem
 {
     [Dependency] private readonly PressureEfficiencyChangeSystem _pressure = default!;
+    [Dependency] private readonly EntityEffectSystem _entityEffect = default!;
 
     public override void Initialize()
     {
@@ -43,6 +47,8 @@ public sealed class GunUpgradeSystem : SharedGunUpgradeSystem
         SubscribeLocalEvent<GunUpgradeDamageComponent, ProjectileShotEvent>(OnProjectileShot);
         SubscribeLocalEvent<GunUpgradePressureComponent, EntGotInsertedIntoContainerMessage>(OnPressureUpgradeInserted);
         SubscribeLocalEvent<GunUpgradePressureComponent, EntGotRemovedFromContainerMessage>(OnPressureUpgradeRemoved);
+
+        SubscribeLocalEvent<WeaponUpgradeEffectsComponent, MeleeHitEvent>(OnEffectsUpgradeHit);
     }
 
     private void OnDamageGunShot(Entity<GunUpgradeDamageComponent> ent, ref GunShotEvent args)
@@ -113,5 +119,16 @@ public sealed class GunUpgradeSystem : SharedGunUpgradeSystem
         pdc.ApplyWhenInRange = comp.SavedApplyWhenInRange;
         pdc.LowerBound = comp.SavedLowerBound;
         pdc.UpperBound = comp.SavedUpperBound;
+    }
+
+    private void OnEffectsUpgradeHit(Entity<WeaponUpgradeEffectsComponent> ent, ref MeleeHitEvent args)
+    {
+        foreach (var hit in args.HitEntities)
+        {
+            foreach (var effect in ent.Comp.Effects)
+            {
+                _entityEffect.Effect(effect, new EntityEffectBaseArgs(hit, EntityManager));
+            }
+        }
     }
 }

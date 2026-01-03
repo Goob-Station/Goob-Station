@@ -12,7 +12,7 @@
     - 0,0,1,1
   - type: PressureDamageChange
     applyToMelee: false
-  - type: UpgradeableGun
+  - type: UpgradeableWeapon
   - type: MeleeWeaponRelay # Used for the bayonet to work
   - type: ContainerContainer
     containers:

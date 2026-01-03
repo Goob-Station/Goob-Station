@@ -1,7 +1,9 @@
-﻿using Content.Shared._Goobstation.Weapons.Ranged;
+﻿using Content.Goobstation.Common.Weapons;
+using Content.Shared._Goobstation.Weapons.Ranged;
 using Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
+using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Containers;
@@ -26,6 +28,11 @@ public abstract partial class SharedGunUpgradeSystem
         SubscribeLocalEvent<ProjectileVampirismComponent, ProjectileHitEvent>(OnVampirismProjectileHit);
 
         SubscribeLocalEvent<GunUpgradeBayonetComponent, GetRelayMeleeWeaponEvent>(OnGetMeleeRelay);
+
+        SubscribeLocalEvent<WeaponUpgradeDamageComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
+
+        SubscribeLocalEvent<WeaponUpgradeRangeComponent, GetLightAttackRangeEvent>(OnGetRange);
+        SubscribeLocalEvent<WeaponUpgradeSpeedComponent, GetMeleeAttackRateEvent>(OnGetAttackRate);
     }
 
     private void OnFireRateRefresh(Entity<GunUpgradeFireRateComponent> ent, ref GunRefreshModifiersEvent args)
@@ -42,13 +49,13 @@ public abstract partial class SharedGunUpgradeSystem
 
     private void OnCompsUpgradeInsert(Entity<GunUpgradeComponentsComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
-        if (!_timing.ApplyingState && HasComp<UpgradeableGunComponent>(args.Container.Owner))
+        if (!_timing.ApplyingState && HasComp<UpgradeableWeaponComponent>(args.Container.Owner))
             EntityManager.AddComponents(args.Container.Owner, ent.Comp.Components);
     }
 
     private void OnCompsUpgradeEject(Entity<GunUpgradeComponentsComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        if (!_timing.ApplyingState && HasComp<UpgradeableGunComponent>(args.Container.Owner))
+        if (!_timing.ApplyingState && HasComp<UpgradeableWeaponComponent>(args.Container.Owner))
             EntityManager.RemoveComponents(args.Container.Owner, ent.Comp.Components);
     }
 
@@ -92,5 +99,28 @@ public abstract partial class SharedGunUpgradeSystem
 
         args.Found = ent.Owner;
         args.Handled = true;
+    }
+
+    private void OnGetMeleeDamage(Entity<WeaponUpgradeDamageComponent> ent, ref GetMeleeDamageEvent args)
+    {
+        if (ent.Comp.BonusDamage != null)
+            args.Damage += ent.Comp.BonusDamage;
+        args.Damage *= ent.Comp.Modifier;
+    }
+
+    private void OnGetRange(Entity<WeaponUpgradeRangeComponent> ent, ref GetLightAttackRangeEvent args)
+    {
+        if (ent.Comp.BonusRange != null)
+            args.Range += ent.Comp.BonusRange.Value;
+        if (ent.Comp.RangeMultiplier != null)
+            args.Range *= ent.Comp.RangeMultiplier.Value;
+    }
+
+    private void OnGetAttackRate(Entity<WeaponUpgradeSpeedComponent> ent, ref GetMeleeAttackRateEvent args)
+    {
+        if (ent.Comp.BonusAttackRate != null)
+            args.Rate += ent.Comp.BonusAttackRate.Value;
+        if (ent.Comp.AttackRateMultiplier != null)
+            args.Multipliers *= ent.Comp.AttackRateMultiplier.Value;
     }
 }

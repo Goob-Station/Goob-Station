@@ -50,6 +50,40 @@
           0.2
         ]
       ]
+    },
+    {
+      "name": "upgrade-lava-aspect"
+    },
+    {
+      "name": "upgrade-ice-frost"
+    },
+    {
+      "name": "upgrade-sharpness",
+      "delays": [
+        [
+          6,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "upgrade-handle-weights"
+    },
+    {
+      "name": "upgrade-handle-range"
+    },
+    {
+      "name": "upgrade-handle-lightweight"
     }
   ]
 }
