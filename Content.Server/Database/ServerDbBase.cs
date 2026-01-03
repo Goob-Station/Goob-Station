@@ -2388,4 +2388,33 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
         }
     }
+
+    /// <summary>
+    /// Generic base for database providers. Inherit from this instead of ServerDbBase.
+    /// </summary>
+    public abstract class ServerDbBase<TContext> : ServerDbBase where TContext : ServerDbContext
+    {
+        protected readonly IDbProvider Provider;
+
+        protected ServerDbBase(ISawmill opsLog, IDbProvider provider) : base(opsLog)
+        {
+            Provider = provider;
+        }
+
+        protected abstract Task<DbGuard<TContext>> GetTypedDb(
+            CancellationToken cancel = default,
+            [CallerMemberName] string? name = null);
+
+        protected sealed override async Task<DbGuard> GetDb(
+            CancellationToken cancel = default,
+            [CallerMemberName] string? name = null)
+        {
+            return await GetTypedDb(cancel, name);
+        }
+
+        protected sealed override DateTime NormalizeDatabaseTime(DateTime time)
+        {
+            return Provider.NormalizeDatabaseTime(time);
+        }
+    }
 }

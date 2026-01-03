@@ -81,7 +81,7 @@ namespace Content.Server.Database
     ///     Provides methods to retrieve and update character preferences.
     ///     Don't use this directly, go through <see cref="ServerPreferencesManager" /> instead.
     /// </summary>
-    public sealed class ServerDbSqlite : ServerDbBase
+    public sealed class ServerDbSqlite : ServerDbBase<SqliteServerDbContext>
     {
         private readonly Func<DbContextOptions<SqliteServerDbContext>> _options;
 
@@ -97,7 +97,7 @@ namespace Content.Server.Database
             IConfigurationManager cfg,
             bool synchronous,
             ISawmill opsLog)
-            : base(opsLog)
+            : base(opsLog, new SqliteDbProvider())
         {
             _options = options;
 
@@ -603,10 +603,11 @@ namespace Content.Server.Database
             return Task.CompletedTask;
         }
 
-        protected override DateTime NormalizeDatabaseTime(DateTime time)
+        protected override Task<DbGuard<SqliteServerDbContext>> GetTypedDb(
+            CancellationToken cancel = default,
+            [CallerMemberName] string? name = null)
         {
-            DebugTools.Assert(time.Kind == DateTimeKind.Unspecified);
-            return DateTime.SpecifyKind(time, DateTimeKind.Utc);
+            return GetDbImpl(cancel, name);
         }
 
         private async Task<DbGuard<SqliteServerDbContext>> GetDbImpl(
@@ -623,13 +624,6 @@ namespace Content.Server.Database
             var dbContext = new SqliteServerDbContext(_options());
 
             return new DbGuard<SqliteServerDbContext>(dbContext, _prefsSemaphore.Release);
-        }
-
-        protected override async Task<DbGuard> GetDb(
-            CancellationToken cancel = default,
-            [CallerMemberName] string? name = null)
-        {
-            return await GetDbImpl(cancel, name).ConfigureAwait(false);
         }
 
         private sealed class ConcurrencySemaphore

@@ -73,7 +73,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Database
 {
-    public sealed partial class ServerDbPostgres : ServerDbBase
+    public sealed partial class ServerDbPostgres : ServerDbBase<PostgresServerDbContext>
     {
         private readonly DbContextOptions<PostgresServerDbContext> _options;
         private readonly ISawmill _notifyLog;
@@ -87,7 +87,7 @@ namespace Content.Server.Database
             IConfigurationManager cfg,
             ISawmill opsLog,
             ISawmill notifyLog)
-            : base(opsLog)
+            : base(opsLog, new PostgresDbProvider())
         {
             var concurrency = cfg.GetCVar(CCVars.DatabasePgConcurrency);
 
@@ -616,10 +616,11 @@ WHERE to_tsvector('english'::regconfig, a.message) @@ websearch_to_tsquery('engl
             return db.AdminLog;
         }
 
-        protected override DateTime NormalizeDatabaseTime(DateTime time)
+        protected override Task<DbGuard<PostgresServerDbContext>> GetTypedDb(
+            CancellationToken cancel = default,
+            [CallerMemberName] string? name = null)
         {
-            DebugTools.Assert(time.Kind == DateTimeKind.Utc);
-            return time;
+            return GetDbImpl(cancel, name);
         }
 
         private async Task<DbGuard<PostgresServerDbContext>> GetDbImpl(
@@ -635,13 +636,6 @@ WHERE to_tsvector('english'::regconfig, a.message) @@ websearch_to_tsquery('engl
                 await Task.Delay(_msLag, cancel);
 
             return new DbGuard<PostgresServerDbContext>(new PostgresServerDbContext(_options), _prefsSemaphore);
-        }
-
-        protected override async Task<DbGuard> GetDb(
-            CancellationToken cancel = default,
-            [CallerMemberName] string? name = null)
-        {
-            return await GetDbImpl(cancel, name);
         }
     }
 }
