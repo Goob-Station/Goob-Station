@@ -32,7 +32,7 @@ public sealed class LabyrinthHandbookSystem : EntitySystem
         }
 
         var ev = new BeforeCastTouchSpellEvent(args.Entity, false);
-        RaiseLocalEvent(args.Entity, ev);
+        RaiseLocalEvent(args.Entity, ev, true);
         args.Cancelled = ev.Cancelled;
     }
 

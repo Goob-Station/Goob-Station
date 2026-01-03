@@ -176,9 +176,10 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                     break;
 
                 _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/hereticknock.ogg"), target);
+                _popup.PopupEntity(Loc.GetString("heretic-lock-unlocked"), user, user);
 
                 if (user.Comp.PathStage >= 7)
-                    cooldownMultiplier = 0.25f;
+                    cooldownMultiplier = 0.1f;
 
                 break;
             }
@@ -252,8 +253,6 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                     _starMark.SpawnCosmicField(Transform(performer).Coordinates, heretic.PathStage);
                 break;
             }
-            default:
-                return true;
         }
 
         return true;

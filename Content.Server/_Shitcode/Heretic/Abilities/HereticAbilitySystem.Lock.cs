@@ -10,6 +10,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Religion;
 using Content.Server.GameTicking.Rules;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Components;
@@ -108,7 +109,18 @@ public sealed partial class HereticAbilitySystem
         if (!TryUseAbility(ent, args))
             return;
 
+        if (!Examine.InRangeUnOccluded(ent, args.Target))
+        {
+            Popup.PopupClient(Loc.GetString("dash-ability-cant-see"), ent, ent);
+            return;
+        }
+
         args.Handled = true;
+
+        var ev = new BeforeCastTouchSpellEvent(args.Target);
+        RaiseLocalEvent(args.Target, ev, true);
+        if (ev.Cancelled)
+            return;
 
         if (!_inventory.TryGetSlotEntity(args.Target, "back", out var backpack))
             return;
@@ -121,7 +133,7 @@ public sealed partial class HereticAbilitySystem
             if (items.Count > 0)
                 toSteal = _random.Pick(items);
         }
-        
+
         _hands.PickupOrDrop(ent, toSteal.Value, false, false, true, true);
     }
 }
