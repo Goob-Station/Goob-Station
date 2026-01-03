@@ -7,4 +7,10 @@ public sealed partial class RotaryPhoneHolderComponent : Component
 {
     [DataField, AutoNetworkedField]
     public int? PhoneNumber;
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? ConnectedPhone;
+
+    [DataField, AutoNetworkedField]
+    public bool Emagged;
 }

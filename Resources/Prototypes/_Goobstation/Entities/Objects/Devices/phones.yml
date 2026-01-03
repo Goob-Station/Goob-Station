@@ -32,7 +32,7 @@
     - RobotTalk
 
 - type: entity
-  parent: [BaseStructure, BaseItem]
+  parent: BaseStructure
   id: RotaryPhoneStand
   name: phone stand
   description: it's a phone stand
@@ -56,6 +56,8 @@
         - BulletImpassable
   - type: Anchorable
   - type: RotaryPhoneHolder
+  - type: InteractionOutline
+  - type: Animateable
   - type: ContainerContainer
     containers:
       phone: !type:ContainerSlot
@@ -84,6 +86,7 @@
         insertSound: /Audio/_RMC14/phone/sound_machines_phones_hang_up.ogg
         ejectSound: /Audio/_RMC14/phone/sound_machines_phones_pick_up.ogg
         startingItem: RotaryPhone
+        ejectOnInteract: true
         whitelist:
           components:
           - RotaryPhone
@@ -115,16 +118,6 @@
           Base: { state: wall_phone }
           Ring: { state: wall_phone_ring }
           Ear: { state: wall_phone_ear }
-  - type: ItemSlots
-    slots:
-      phone:
-        name: phone
-        insertSound: /Audio/_RMC14/phone/sound_machines_phones_hang_up.ogg
-        ejectSound: /Audio/_RMC14/phone/sound_machines_phones_pick_up.ogg
-        startingItem: RotaryPhone
-        whitelist:
-          components:
-          - RotaryPhone
 
 # Different category's for mappers
 

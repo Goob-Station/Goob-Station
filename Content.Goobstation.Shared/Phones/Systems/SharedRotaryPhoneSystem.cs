@@ -1,8 +1,11 @@
 using System.Numerics;
+using Content.Goobstation.Shared.ExplodeOnPickup;
 using Content.Goobstation.Shared.Phones.Components;
 using Content.Goobstation.Shared.Phones.Events;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Destructible;
 using Content.Shared.DeviceLinking;
+using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Physics;
@@ -25,7 +28,7 @@ namespace Content.Goobstation.Shared.Phones.Systems;
 public sealed class SharedRotaryPhoneSystem : EntitySystem
 {
     private static readonly ProtoId<TagPrototype> ScrewdriverTag = "Screwdriver";
-    public const string GrapplingJoint = "grappling";
+    public const string PhoneJoint = "jointphone";
 
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -50,9 +53,32 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         SubscribeLocalEvent<RotaryPhoneComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
         SubscribeLocalEvent<RotaryPhoneComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<RotaryPhoneComponent, InteractUsingEvent>(OnInteract);
+        SubscribeLocalEvent<RotaryPhoneHolderComponent, GotEmaggedEvent>(OnEmag);
         SubscribeLocalEvent<RotaryPhoneHolderComponent, ExaminedEvent>(OnExamineHolder);
         SubscribeLocalEvent<RotaryPhoneHolderComponent, EntInsertedIntoContainerMessage>(OnPhoneInsertHolder);
         SubscribeLocalEvent<RotaryPhoneHolderComponent, ItemSlotInsertAttemptEvent>(OnInsertAttempt);
+        SubscribeLocalEvent<RotaryPhoneHolderComponent, DestructionEventArgs>(OnDestruction);
+    }
+    private void OnMapInit(EntityUid uid, RotaryPhoneComponent comp, MapInitEvent args)
+    {
+        if(comp.PhoneNumber == null)
+            comp.PhoneNumber = _random.Next(11111,99999);
+    }
+
+    private void OnDestruction(EntityUid uid, RotaryPhoneHolderComponent comp, DestructionEventArgs args)
+    {
+        QueueDel(comp.ConnectedPhone);
+    }
+
+    private void OnEmag(EntityUid uid, RotaryPhoneHolderComponent comp, ref GotEmaggedEvent args)
+    {
+        if(args.Handled || comp.Emagged || comp.ConnectedPhone == null)
+            return;
+
+        args.Handled = true;
+        comp.Emagged = true;
+
+        EnsureComp<ExplodeOnPickupComponent>(comp.ConnectedPhone.Value);
     }
 
     private void OnInteract(EntityUid uid, RotaryPhoneComponent comp, InteractUsingEvent args)
@@ -63,14 +89,10 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         }
     }
 
-    private void OnMapInit(EntityUid uid, RotaryPhoneComponent comp, MapInitEvent args)
-    {
-        if(comp.PhoneNumber == null)
-            comp.PhoneNumber = _random.Next(11111,99999);
-    }
-
     private void OnExamine(EntityUid uid, RotaryPhoneComponent comp, ExaminedEvent args)
     {
+        Dirty(uid, comp);
+
         if(comp.PhoneNumber != null)
             args.PushMarkup(Loc.GetString("phone-number-description", ("number", comp.PhoneNumber)));
     }
@@ -109,7 +131,9 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         if (TryComp<RotaryPhoneComponent>(args.Entity, out var phone))
         {
             comp.PhoneNumber = phone.PhoneNumber;
+            comp.ConnectedPhone = args.Entity;
             phone.ConnectedPhoneStand = uid;
+            Dirty(uid, comp);
         }
     }
 
@@ -165,7 +189,7 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
             Dirty(uid, visuals);
 
             var jointComp = EnsureComp<JointComponent>(uid);
-            var joint = _jointSystem.CreateDistanceJoint(uid, args.Container.Owner, anchorA: new Vector2(0f, 0f), id: GrapplingJoint);
+            var joint = _jointSystem.CreateDistanceJoint(uid, args.Container.Owner, anchorA: new Vector2(0f, 0f), id: PhoneJoint);
             joint.MaxLength = 3f;
             joint.Stiffness = 0.5f;
             joint.MinLength = 0;

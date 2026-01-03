@@ -9,7 +9,7 @@ namespace Content.Goobstation.Shared.ExplodeOnPickup;
 public sealed partial class ExplodeOnPickupComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public float ExplosionIntensity = 300f;
+    public float ExplosionIntensity = 150f;
 
     [DataField, AutoNetworkedField]
     public string ExplosionType = "HardBomb";
