@@ -136,9 +136,6 @@
     unlockOnClick: false
   - type: WarpPoint
     location: Nuclear Reactor
-    blacklist:
-      tags:
-      - GhostOnlyWarp
 
 - type: entity
   id: NuclearReactorNormal
