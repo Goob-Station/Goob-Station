@@ -137,7 +137,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: LavalandWeaponKineticSpear
+- proto: WeaponCrusherGlaive
   entities:
   - uid: 16
     components:
