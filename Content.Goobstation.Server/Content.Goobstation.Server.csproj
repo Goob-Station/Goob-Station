@@ -28,6 +28,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <ItemGroup>
       <ProjectReference Include="..\Content.Goobstation.Maths\Content.Goobstation.Maths.csproj" />
       <ProjectReference Include="..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" />
+      <ProjectReference Include="..\Content.Goobstation.Server.Database\Content.Goobstation.Server.Database.csproj" />
       <ProjectReference Include="..\Content.Server\Content.Server.csproj" />
       <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
     </ItemGroup>

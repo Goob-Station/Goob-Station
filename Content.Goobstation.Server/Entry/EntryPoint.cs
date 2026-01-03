@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Server.Database;
 using Content.Goobstation.Server.IoC;
 using Content.Goobstation.Server.Voice;
 using Content.Goobstation.Common.JoinQueue;
@@ -18,6 +19,7 @@ public sealed class EntryPoint : GameServer
 {
     private IVoiceChatServerManager _voiceManager = default!;
     private ICommonCurrencyManager _curr = default!;
+    private IGoobstationDbManager _db = default!;
 
     public override void Init()
     {
@@ -33,6 +35,9 @@ public sealed class EntryPoint : GameServer
 
         _curr = IoCManager.Resolve<ICommonCurrencyManager>();
         _curr.Initialize();
+
+        _db = IoCManager.Resolve<IGoobstationDbManager>();
+        _db.Init();
     }
 
     public override void Update(ModUpdateLevel level, FrameEventArgs frameEventArgs)
@@ -52,7 +57,8 @@ public sealed class EntryPoint : GameServer
     {
         base.Dispose(disposing);
 
-        _curr.Shutdown(); // Goobstation
-        _voiceManager.Shutdown(); // Goobstation
+        _db.Shutdown();
+        _curr.Shutdown();
+        _voiceManager.Shutdown();
     }
 }

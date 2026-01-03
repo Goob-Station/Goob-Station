@@ -1,13 +1,33 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>$(TargetFramework)</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
+
+        <!-- Necessary at design time -->
+        <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Condition="'$(UseSystemSqlite)' == 'True' and '$(Configuration)' != 'Release'" />
+        <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Condition="'$(UseSystemSqlite)' != 'True' and '$(Configuration)' != 'Release'" />
+    </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\Content.Server.Database\Content.Server.Database.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="Migrations\Postgres\20260103172843_Initial.cs" />
+      <Compile Remove="Migrations\Postgres\20260103172843_Initial.Designer.cs" />
+    </ItemGroup>
+
+    <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
 </Project>

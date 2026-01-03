@@ -1,25 +1,29 @@
-using Content.Server.Database;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace Content.Goobstation.Server.Database;
 
-public sealed class GoobstationServerDbContext : ServerDbContext
+public abstract class GoobstationServerDbContext : DbContext
 {
-    public GoobstationServerDbContext(DbContextOptions<GoobstationServerDbContext> options)
+    public DbSet<BrainrotWord> BrainrotWords { get; set; } = null!;
+
+    protected GoobstationServerDbContext(DbContextOptions options) : base(options)
+    {
+    }
+}
+
+public sealed class GoobstationSqliteServerDbContext : GoobstationServerDbContext
+{
+    public GoobstationSqliteServerDbContext(DbContextOptions<GoobstationSqliteServerDbContext> options)
         : base(options)
     {
     }
+}
 
-    protected override void OnConfiguring(DbContextOptionsBuilder options)
+public sealed class GoobstationPostgresServerDbContext : GoobstationServerDbContext
+{
+    public GoobstationPostgresServerDbContext(DbContextOptions<GoobstationPostgresServerDbContext> options)
+        : base(options)
     {
-        base.OnConfiguring(options);
-
-        // Goobstation-specific configuration here
-    }
-
-    // ass
-    public override int CountAdminLogs()
-    {
-        return AdminLog.Count();
     }
 }

@@ -9,6 +9,7 @@
 
 using Content.Goobstation.Common.JoinQueue;
 using Content.Goobstation.Common.ServerCurrency;
+using Content.Goobstation.Server.Database;
 using Content.Goobstation.Server.JoinQueue;
 using Content.Goobstation.Server.MisandryBox.JumpScare;
 using Content.Goobstation.Server.Polls;
@@ -31,5 +32,6 @@ internal static class ServerGoobContentIoC
         instance.Register<IJoinQueueManager, JoinQueueManager>();
         instance.Register<IFullScreenImageJumpscare, ServerFullScreenImageJumpscare>();
         instance.Register<ICommonCurrencyManager, ServerCurrencyManager>();
+        instance.Register<IGoobstationDbManager, GoobstationDbManager>();
     }
 }
