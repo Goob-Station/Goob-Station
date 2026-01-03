@@ -5202,3 +5202,10 @@ Entries:
   id: 9350
   time: '2026-01-03T01:33:43.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/34165
+- author: K-Dynamic
+  changes:
+  - message: Intercoms have new appearance.
+    type: Tweak
+  id: 9351
+  time: '2026-01-03T07:01:04.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41962
