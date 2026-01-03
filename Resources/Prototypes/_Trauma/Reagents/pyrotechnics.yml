@@ -25,7 +25,7 @@
   desc: reagent-desc-hexamine
   flavor: sweet
   physicalDesc: reagent-physical-desc-crystalline
-  contrabandSeverity: Major # not explosive, but it's only use is for explosives
+# we havent upstreamed yet contrabandSeverity: Major # not explosive, but it's only use is for explosives
   color: white
 
 - type: reagent
@@ -35,7 +35,7 @@
   desc: reagent-desc-cyclonite
   flavor: nothing
   physicalDesc: reagent-physical-desc-crystalline
-# we havent upstreamed yet  contrabandSeverity: Major # you probably aren't making this or the other explosives with permission from HOS
+#contrabandSeverity: Major # you probably aren't making this or the other explosives with permission from HOS
   color: "#e0c009"
   metabolisms:
     Poison:
@@ -56,7 +56,7 @@
   desc: reagent-desc-ammonium-nitrate-fuel-oil
   flavor: nothing
   physicalDesc: reagent-physical-desc-odorless
-  contrabandSeverity: Major
+#  contrabandSeverity: Major
   color: white
   metabolisms:
     Poison:
@@ -77,7 +77,7 @@
   desc: reagent-desc-octogen
   flavor: nothing
   physicalDesc: reagent-physical-desc-crystalline
-# we havent upstreamed yet  contrabandSeverity: Major
+#contrabandSeverity: Major
   color: white
   metabolisms:
     Poison:
