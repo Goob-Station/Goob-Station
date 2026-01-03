@@ -112,3 +112,21 @@
     stage: 5
     whitelist:
     - Lock
+
+- type: listing
+  id: HereticLockPath7
+  name: knowledge-path-lock-s7-name
+  description: knowledge-path-lock-s7-desc
+  icon: { sprite: _Goobstation/Heretic/Blades/blade_lock.rsi, state: icon }
+  productHereticKnowledge: OpeningBlade
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 6
+    whitelist:
+    - Lock

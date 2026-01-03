@@ -533,11 +533,11 @@
   actionPrototypes:
   - ActionHereticBurglarsFinesse
 
-#- type: hereticKnowledge
-#  id: OpeningBlade
-#  path: Lock
-#  stage: 7
-#
+- type: hereticKnowledge
+  id: OpeningBlade
+  path: Lock
+  stage: 7
+
 #- type: hereticKnowledge
 #  id: CaretakersLastRefuge
 #  path: Lock

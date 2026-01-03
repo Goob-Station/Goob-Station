@@ -75,6 +75,7 @@ knowledge-path-lock-s7-desc =
     The Pilgrim-Surgeon was not an Steward. Nonetheless, its blades and sutures proved a match for their keys.
 
     Your blade has better wounding and a chance to cause a weeping avulsion on attack.
+    Your grasp no longer goes on cooldown when used to open a door or locker.
 
 knowledge-path-lock-s8-name = Caretaker's Last Refuge
 knowledge-path-lock-s8-desc =
@@ -87,7 +88,7 @@ knowledge-path-lock-s8-desc =
 knowledge-path-lock-s9-name = Unlock the Labyrinth
 knowledge-path-lock-s9-desc =
     The ascension ritual of the Path of Knock.
-    Bring 3 corpses without groin to a transmutation rune to complete the ritual.
+    Bring 3 corpses without organs in their torso to a transmutation rune to complete the ritual.
     When completed, you gain the ability to transform into empowered eldritch creatures and your keyblades will become even deadlier.
     In addition, you will create a tear to the Labyrinth's heart; a tear in reality located at the site of this ritual.
     Eldritch creatures will endlessly pour from this rift who are bound to obey your instructions.

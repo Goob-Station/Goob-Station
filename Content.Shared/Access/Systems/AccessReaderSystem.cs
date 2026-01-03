@@ -207,7 +207,7 @@ public sealed class AccessReaderSystem : EntitySystem
 
         // Goob edit start
         var ev = new BeforeAccessReaderCheckEvent();
-        RaiseLocalEvent(target, ref ev);
+        RaiseLocalEvent(user, ref ev);
         if (ev.Cancelled)
             return false;
         // Goob edit end

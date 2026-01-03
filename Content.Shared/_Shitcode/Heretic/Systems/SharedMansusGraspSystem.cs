@@ -170,7 +170,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
 
                     _door.StartOpening(target, door);
                 }
-                else if (TryComp<AccessReaderComponent>(target, out var access))
+                else if (TryComp<AccessReaderComponent>(target, out var access) && !HasComp<MobStateComponent>(target))
                     _access.ClearAccesses((target, access));
                 else
                     break;
