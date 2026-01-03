@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Goobstation.Shared.Phones.Components;
 using Content.Goobstation.Shared.Phones.Events;
 using Content.Shared.Containers.ItemSlots;
@@ -12,16 +13,19 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Phones.Systems;
 
 public sealed class SharedRotaryPhoneSystem : EntitySystem
 {
     private static readonly ProtoId<TagPrototype> ScrewdriverTag = "Screwdriver";
+    public const string GrapplingJoint = "grappling";
 
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -33,6 +37,7 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -152,12 +157,19 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         RaiseDeviceNetworkEvent(comp.ConnectedPhoneStand, comp.PickUpPort);
         comp.Engaged = true;
 
-        if (_net.IsServer && !Deleted(uid) && !Terminating(uid))
+        if (_net.IsServer && !Deleted(uid) && !Terminating(uid) && _timing.IsFirstTimePredicted)
         {
             var visuals = EnsureComp<JointVisualsComponent>(uid);
             visuals.Sprite = comp.RopeSprite;
             visuals.Target = GetNetEntity(args.Container.Owner);
             Dirty(uid, visuals);
+
+            var jointComp = EnsureComp<JointComponent>(uid);
+            var joint = _jointSystem.CreateDistanceJoint(uid, args.Container.Owner, anchorA: new Vector2(0f, 0f), id: GrapplingJoint);
+            joint.MaxLength = 3f;
+            joint.Stiffness = 0.5f;
+            joint.MinLength = 0;
+            Dirty(uid, jointComp);
         }
 
         if(comp.ConnectedPhone == null || !TryComp<RotaryPhoneComponent>(comp.ConnectedPhone, out var otherPhone) )
@@ -177,9 +189,10 @@ public sealed class SharedRotaryPhoneSystem : EntitySystem
         if(comp.ConnectedPhoneStand != null)
             UpdateAppearance(comp.ConnectedPhoneStand.Value, RotaryPhoneVisuals.Base);
 
-        if (_net.IsServer)
+        if (_net.IsServer && _timing.IsFirstTimePredicted)
         {
             RemComp<JointVisualsComponent>(uid);
+            RemComp<JointComponent>(uid);
             Dirty(uid, comp);
         }
 

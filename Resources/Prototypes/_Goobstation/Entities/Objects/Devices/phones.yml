@@ -42,6 +42,18 @@
     layers:
       - state: rotary_phone
         map: [ "base" ]
+    drawdepth: SmallObjects
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.10,0.10,0.10"
+        density: 500
+        mask:
+        - TabletopMachineMask
+        layer:
+        - BulletImpassable
   - type: Anchorable
   - type: RotaryPhoneHolder
   - type: ContainerContainer
