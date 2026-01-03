@@ -176,6 +176,8 @@
     - id: ClothingHeadsetAltSecurityRegular # Goobstation
     - id: PanicButton # Goobstation
     - id: PepperSpray # Goobstation
+    - id: PoliceBaton # Goobstation
+      prob: 0.2
     # Goobstation - Martial Arts - start
     - !type:GroupSelector
       children:

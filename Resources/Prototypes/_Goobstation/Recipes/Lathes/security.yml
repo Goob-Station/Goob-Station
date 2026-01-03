@@ -213,6 +213,13 @@
     Plastic: 750
     Gold: 500
 
+- type: latheRecipe
+  parent: BaseWeaponRecipe
+  id: PoliceBaton
+  result: PoliceBaton
+  materials:
+    Wood: 1000
+
 # Smartgun
 
 - type: latheRecipe
