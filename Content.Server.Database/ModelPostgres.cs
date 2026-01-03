@@ -12,8 +12,6 @@
 using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 using Npgsql;
 
@@ -23,24 +21,6 @@ namespace Content.Server.Database
     {
         public PostgresServerDbContext(DbContextOptions<PostgresServerDbContext> options) : base(options)
         {
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-        {
-            ((IDbContextOptionsBuilderInfrastructure) options).AddOrUpdateExtension(new SnakeCaseExtension());
-
-            options.ConfigureWarnings(x =>
-            {
-                x.Ignore(CoreEventId.ManyServiceProvidersCreatedWarning);
-#if DEBUG
-                // for tests
-                x.Ignore(CoreEventId.SensitiveDataLoggingEnabledWarning);
-#endif
-            });
-
-#if DEBUG
-            options.EnableSensitiveDataLogging();
-#endif
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

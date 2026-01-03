@@ -123,7 +123,7 @@ public sealed partial class ServerDbPostgres
     {
         await using var db = await GetDbImpl();
 
-        await db.PgDbContext.Database.ExecuteSqlAsync(
+        await db.TypedContext.Database.ExecuteSqlAsync(
             $"SELECT pg_notify({notification.Channel}, {notification.Payload})");
     }
 

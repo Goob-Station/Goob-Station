@@ -2347,6 +2347,37 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             public abstract ValueTask DisposeAsync();
         }
 
+        /// <summary>
+        /// Generic database guard that provides typed access to the context.
+        /// Database providers should use this instead of creating their own DbGuardImpl.
+        /// </summary>
+        protected sealed class DbGuard<TContext> : DbGuard where TContext : ServerDbContext
+        {
+            private readonly TContext _context;
+            private readonly Action _onRelease;
+
+            public DbGuard(TContext context, SemaphoreSlim semaphore)
+                : this(context, () => semaphore.Release())
+            {
+            }
+
+            public DbGuard(TContext context, Action onRelease)
+            {
+                _context = context;
+                _onRelease = onRelease;
+            }
+
+            public TContext TypedContext => _context;
+
+            public override ServerDbContext DbContext => _context;
+
+            public override async ValueTask DisposeAsync()
+            {
+                await _context.DisposeAsync();
+                _onRelease();
+            }
+        }
+
         protected void NotificationReceived(DatabaseNotification notification)
         {
             OnNotificationReceived?.Invoke(notification);
