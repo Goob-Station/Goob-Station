@@ -92,6 +92,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Common.Heretic;
 using Content.Shared.Access.Components;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Emag.Systems;
@@ -203,6 +204,13 @@ public sealed class AccessReaderSystem : EntitySystem
     {
         if (!Resolve(target, ref reader, false))
             return true;
+
+        // Goob edit start
+        var ev = new BeforeAccessReaderCheckEvent();
+        RaiseLocalEvent(target, ref ev);
+        if (ev.Cancelled)
+            return false;
+        // Goob edit end
 
         if (!reader.Enabled)
             return true;

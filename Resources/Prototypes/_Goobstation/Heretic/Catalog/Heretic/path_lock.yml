@@ -83,3 +83,21 @@
     stage: 2
     whitelist:
     - Lock
+
+- type: listing
+  id: HereticLockPath4
+  name: knowledge-path-lock-s4-name
+  description: knowledge-path-lock-s4-desc
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: MarkOfLock
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+    whitelist:
+    - Lock

@@ -25,3 +25,10 @@
   name: alerted
   components:
   - type: CarvingAlertedStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: LockMarkedStatusEffectEffect
+  name: lock marked
+  components:
+  - type: AccessDeniedStatusEffectComponent

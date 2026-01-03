@@ -513,11 +513,11 @@
   ritualPrototypes:
   - KeyKeepersBurden
 
-#- type: hereticKnowledge
-#  id: MarkOfLock
-#  path: Lock
-#  stage: 4
-#
+- type: hereticKnowledge
+  id: MarkOfLock
+  path: Lock
+  stage: 4
+
 #- type: hereticKnowledge
 #  id: ConciergesRite
 #  path: Lock
