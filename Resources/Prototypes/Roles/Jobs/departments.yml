@@ -133,6 +133,7 @@
   - Visitor
   - Zookeeper
   - ServiceWorker
+  - PhoneMerchant # Goobstation
   - PartyMaker # event-restricted, Goobstation
 
 - type: department

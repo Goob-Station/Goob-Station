@@ -107,3 +107,11 @@
     sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
     state: radiohost
   jobName: job-name-radiohost
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPhoneMerchant
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    state: phonemerchant
+  jobName: job-name-phonemerchant
