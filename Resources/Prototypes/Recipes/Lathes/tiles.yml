@@ -388,6 +388,21 @@
     Steel: 25
     Plastic: 25
 
+- type: latheRecipe
+  parent: BaseConcreteTileRecipe
+  id: FloorTileItemIronsandConcrete
+  result: FloorTileItemIronsandConcrete
+
+- type: latheRecipe
+  parent: BaseConcreteTileRecipe
+  id: FloorTileItemIronsandConcreteMono
+  result: FloorTileItemIronsandConcreteMono
+
+- type: latheRecipe
+  parent: BaseConcreteTileRecipe
+  id: FloorTileItemIronsandConcreteSmooth
+  result: FloorTileItemIronsandConcreteSmooth
+
 # Faux
 - type: latheRecipe
   parent: BaseFauxTileRecipe
@@ -438,6 +453,16 @@
   parent: BaseFauxTileRecipe
   id: FauxTileDesertAstroSand
   result: FloorTileItemDesertAstroSand
+
+- type: latheRecipe
+  parent: BaseFauxTileRecipe
+  id: FauxTileAstroIronsand
+  result: FloorTileItemAstroIronsand
+
+- type: latheRecipe
+  parent: BaseFauxTileRecipe
+  id: FauxTileAstroIronsandBorderless
+  result: FloorTileItemAstroIronsandBorderless
 
 # Marble
 - type: latheRecipe
