@@ -19805,3 +19805,93 @@ Entries:
       message: New flora detected in Lavaland Wastes!
   id: 2239
   time: '2025-12-21T17:14:47.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed Captain not having radio station access
+  id: 2240
+  time: '2025-12-26T09:04:23.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Tinfoil hats now block possession from slashers.
+    - type: Tweak
+      message: >-
+        Slashers regenerate action must now be recharged after every use by
+        stealing a soul.
+    - type: Tweak
+      message: It is now very obvious when a slasher uses their regenerate action.
+    - type: Tweak
+      message: Slashers do-after to enter incorporeal has been increased.
+    - type: Tweak
+      message: Slashers max resistance has been massively nerfed.
+    - type: Tweak
+      message: Slashers max health has been nerfed.
+  id: 2241
+  time: '2025-12-26T09:06:58.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Tweak
+      message: Fixed Kudzu spreading 3x faster than intended
+  id: 2242
+  time: '2025-12-29T17:12:41.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: Syringe case storage size changed from 2x5 to 2x3
+  id: 2243
+  time: '2025-12-30T14:07:04.0000000+00:00'
+- author: Doppiofrog
+  changes:
+    - type: Add
+      message: >-
+        Added the Hushpup silenced shotgun, a 30 TC bundle that comes with the
+        Hushpup and a quarter.
+  id: 2244
+  time: '2026-01-01T10:02:24.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: DT-8 Terminus is now research locked
+  id: 2245
+  time: '2026-01-01T15:12:30.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: Diseases now can give you fun accents.
+  id: 2246
+  time: '2026-01-01T22:50:43.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Fix
+      message: >-
+        Lobotomies are now re-enabled, and are now able to be mended by any
+        other person.
+  id: 2247
+  time: '2026-01-02T08:09:23.0000000+00:00'
+- author: router
+  changes:
+    - type: Add
+      message: Borgs can now reference virologists.
+  id: 2248
+  time: '2026-01-02T08:10:04.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Remove
+      message: >-
+        Did you know that you could selfprotag as captain while being an
+        assistant?
+  id: 2249
+  time: '2026-01-02T18:50:05.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Remove
+      message: Ghost bar
+  id: 2250
+  time: '2026-01-03T22:48:20.0000000+00:00'
+- author: mikusssssss
+  changes:
+    - type: Tweak
+      message: Oops all thieves now has a lower chance to roll.
+  id: 2251
+  time: '2026-01-04T08:01:18.0000000+00:00'
