@@ -69,7 +69,7 @@
     announcersStartAudio: # CorvaxGoob-CustomAnnouncers
       Intern:
         collection: InternCommandReport
-    weight: 0.5 #Common, but not every round # CorvaxGoob-SecretPlusRework : 4 -> 0.5
+    weight: 4 #Common, but not every round
     reoccurrenceDelay: 30
     earliestStart: 20 # Goobstation
     duration: 1
@@ -80,7 +80,7 @@
     eventType: FriendlySpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -80 # CorvaxGoob-SecretPlusRework : -140 -> -80
+    chaosScore: -140
   - type: RuleGrids
   - type: LoadMapRule
 
@@ -166,7 +166,7 @@
     eventType: FriendlySpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -80 # CorvaxGoob-SecretPlusRework : -150 -> -80
+    chaosScore: -150
   - type: LoadMapRule
     preloadedGrid: Cruiser
 
@@ -200,7 +200,7 @@
     eventType: FriendlySpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -80 # CorvaxGoob-SecretPlusRework : -140 -> -80
+    chaosScore: -140
   - type: LoadMapRule
     preloadedGrid: Flatline
 
@@ -220,14 +220,14 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
-    weight: 0.5 # Its just a big ship, so it needs to be rarer to be interesting. # CorvaxGoob-SecretPlusRework : 2 -> 0.5
+    weight: 2 # Its just a big ship, so it needs to be rarer to be interesting.
     earliestStart: 45 # late to hopefully have enough ghosts to fill all roles quickly. (5-6)
     chaos: # Goobstation
       Friend: -50
     eventType: FriendlySpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -80 # CorvaxGoob-SecretPlusRework : -150 -> -80
+    chaosScore: -150
   - type: LoadMapRule
     preloadedGrid: NTIncorporation
 
@@ -237,7 +237,7 @@
   components:
   - type: StationEvent
     startAnnouncement: null #dont nark on antags
-    weight: 0.1 #  lower because antags. CorvaxGoob-SecretPlusRework : 1 -> 0.1
+    weight: 1 #  lower because antags.
     earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly (3) and because antags
     chaos: # Goobstation
       # holy mini-nukies

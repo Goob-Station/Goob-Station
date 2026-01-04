@@ -63,7 +63,7 @@
     eventType: FreeStuff # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -100 # CorvaxGoob-SecretPlusRework : -15 -> -100
+    chaosScore: -15
   - type: CargoGiftsRule
     description: cargo-gift-pizza-small
     dest: cargo-gift-dest-bar
@@ -88,7 +88,7 @@
     eventType: FreeStuff # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -100 # CorvaxGoob-SecretPlusRework: -30 -> -100
+    chaosScore: -30
   - type: CargoGiftsRule
     description: cargo-gift-pizza-large
     dest: cargo-gift-dest-bar
@@ -112,7 +112,7 @@
     eventType: FreeStuffUseful # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -100 # CorvaxGoob-SecretPlusRework : -40 -> -100
+    chaosScore: -40
   - type: CargoGiftsRule
     description: cargo-gift-eng
     dest: cargo-gift-dest-eng
@@ -139,7 +139,7 @@
     eventType: FreeStuff # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -100 # CorvaxGoob-SecretPlusRework : -20 -> -100
+    chaosScore: -20
   - type: CargoGiftsRule
     description: cargo-gift-vending
     dest: cargo-gift-dest-supp
@@ -263,7 +263,7 @@
     eventType: FreeStuffUseful # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -150 # CorvaxGoob-SecretPlusRework : -90 -> -150
+    chaosScore: -90
   - type: CargoGiftsRule
     description: cargo-gift-security-guns
     dest: cargo-gift-dest-sec
@@ -279,7 +279,7 @@
   parent: CargoGiftsBase
   components:
   - type: StationEvent
-    weight: 2 # CorvaxGoob-SecretPlusRework : 4 -> 2
+    weight: 4
     duration: 120
     earliestStart: 20
     minimumPlayers: 50
@@ -289,7 +289,7 @@
     eventType: FreeStuffUseful # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -100 # CorvaxGoob-SecretPlusRework : -80 -> -100
+    chaosScore: -80
   - type: CargoGiftsRule
     description: cargo-gift-security-riot
     dest: cargo-gift-dest-sec

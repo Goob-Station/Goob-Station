@@ -13,7 +13,7 @@
   id: UnknownShuttleFrontierProspector
   components:
   - type: StationEvent
-    weight: 0.5 # CorvaxGoob-SecretPlusRework : 2 -> 0.5
+    weight: 2
   - type: LoadMapRule
     preloadedGrid: FrontierProspector
 
@@ -23,7 +23,7 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
-    weight: 0.5 # CorvaxGoob-SecretPlusRework : 4 -> 0.5
+    weight: 4
     chaos:
       Friend: -20
     eventType: FriendlySpawn
