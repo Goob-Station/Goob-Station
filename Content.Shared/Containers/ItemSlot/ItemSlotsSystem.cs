@@ -165,8 +165,11 @@ namespace Content.Shared.Containers.ItemSlots
 
                 var item = Spawn(slot.StartingItem, Transform(uid).Coordinates);
 
-                if (slot.ContainerSlot != null)
+                if (slot.ContainerSlot != null) // Lavaland Change start - light occlusion
+                {
                     _containers.Insert(item, slot.ContainerSlot);
+                    slot.ContainerSlot.OccludesLight = slot.OccludesLight;
+                } // Lavaland Change end
             }
         }
 
@@ -178,7 +181,6 @@ namespace Content.Shared.Containers.ItemSlots
             foreach (var (id, slot) in itemSlots.Slots)
             {
                 slot.ContainerSlot = _containers.EnsureContainer<ContainerSlot>(uid, id);
-                slot.ContainerSlot.OccludesLight = slot.OccludesLight; // Lavaland Change
             }
             itemSlots.Slots = itemSlots.Slots.OrderByDescending((pair => pair.Value.Priority)).ToDictionary(); //Goob Edit - Ordered lists are good.
         }

@@ -212,7 +212,7 @@
 - type: entity
   id: CrusherUpgradeHandleWeights
   parent: BaseCrusherUpgradeHandle
-  name: crusher blade upgrade (weights)
+  name: crusher handle upgrade (weights)
   description: A set of weighed loads that can be attached to a handle to make a weapon deal knockback to enemies.
   components:
   - type: Sprite
@@ -227,7 +227,7 @@
       speed: 3
   - type: Tag
     tags:
-    - CrusherUpgradeBlade
+    - CrusherUpgradeHandle
     - CrusherUpgradeHandleWeights
 
 - type: entity
@@ -244,13 +244,13 @@
     attackRateMultiplier: 1.3 # 30% faster
   - type: Tag
     tags:
-    - CrusherUpgradeBlade
+    - CrusherUpgradeHandle
     - CrusherUpgradeHandleLightweight
 
 - type: entity
   id: CrusherUpgradeHandleRange
   parent: BaseCrusherUpgradeHandle
-  name: crusher blade upgrade (range)
+  name: crusher handle upgrade (range)
   description: A long handle replacement that allows you to make attacks more frequently.
   components:
   - type: Sprite
@@ -261,7 +261,7 @@
     rangeMultiplier: 1.2 # 20% longer
   - type: Tag
     tags:
-    - CrusherUpgradeBlade
+    - CrusherUpgradeHandle
     - CrusherUpgradeHandleRange
 
 - type: entityTable

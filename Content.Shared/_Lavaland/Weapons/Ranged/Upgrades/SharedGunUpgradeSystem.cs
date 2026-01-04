@@ -142,8 +142,6 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
 
     private void OnItemSlotInsertAttemptEvent(Entity<UpgradeableWeaponComponent> ent, ref ItemSlotInsertAttemptEvent args)
     {
-        // TODO: Figure out how to kill the interaction verbs bypassing checks, yet also allowing
-        // for non-duplicate popups to the user when they interact without having to do all of this crap twice.
         if (!TryComp<GunUpgradeComponent>(args.Item, out var upgradeComp)
             || !TryComp<ItemSlotsComponent>(ent, out var itemSlots))
             return;
