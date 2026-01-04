@@ -1,4 +1,4 @@
-namespace Content.Server._Goobstation.Cult.Components;
+namespace Content.Goobstation.Server.Cult.Components;
 
 /// <summary>
 ///    Marks the leader of the blood cult.

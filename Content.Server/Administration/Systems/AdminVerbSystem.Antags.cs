@@ -311,21 +311,5 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(cosmiccult);
         // End DeltaV Additions
-
-        // goobstation - cult
-        var cultName = Loc.GetString("admin-verb-text-make-cultist");
-        Verb cult = new()
-        {
-            Text = cultName,
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Cult/Icons/antag_icons.rsi"), "cult"),
-            Act = () =>
-            {
-                _antag.ForceMakeAntag<BloodCultRuleComponent>(targetPlayer, "BloodCult");
-            },
-            Impact = LogImpact.High,
-            Message = string.Join(": ", cultName, Loc.GetString("admin-verb-make-cultist")),
-        };
-        args.Verbs.Add(cult);
     }
 }

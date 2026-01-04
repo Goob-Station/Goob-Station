@@ -1,6 +1,6 @@
 using Content.Shared.Roles;
 
-namespace Content.Server._Goobstation.Cult.GameTicking;
+namespace Content.Goobstation.Server.Cult.GameTicking;
 
 [RegisterComponent]
 public sealed partial class MindRoleBloodCultist : BaseMindRoleComponent;

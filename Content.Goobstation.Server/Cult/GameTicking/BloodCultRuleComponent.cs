@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server._Goobstation.Cult.GameTicking;
+namespace Content.Goobstation.Server.Cult.GameTicking;
 
 [RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class BloodCultRuleComponent : Component

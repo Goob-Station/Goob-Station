@@ -3,7 +3,7 @@ using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Cult.GameTicking;
+namespace Content.Goobstation.Server.Cult.GameTicking;
 public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;

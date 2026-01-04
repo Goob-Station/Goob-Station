@@ -13,6 +13,7 @@ using Content.Goobstation.Common.Blob;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Devil.GameTicking.Rules;
 using Content.Goobstation.Server.Shadowling.Rules;
+using Content.Server._Goobstation.Cult.GameTicking;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
 using Content.Shared._EinsteinEngines.Silicon.Components;
@@ -89,8 +90,7 @@ public sealed partial class GoobAdminVerbSystem
             Text = Loc.GetString("admin-verb-text-make-shadowling"),
             Category = VerbCategory.Antag,
             Icon = new SpriteSpecifier.Rsi(
-                new("/Textures/_EinsteinEngines/Shadowling/shadowling_abilities.rsi"),
-                "engage_hatch"),
+                new("/Textures/_EinsteinEngines/Shadowling/shadowling_abilities.rsi"), "engage_hatch"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<ShadowlingRuleComponent>(targetPlayer, "Shadowling");
@@ -99,6 +99,21 @@ public sealed partial class GoobAdminVerbSystem
             Message = Loc.GetString("admin-verb-make-shadowling"),
         };
         args.Verbs.Add(shadowling);
+
+        var cultName = Loc.GetString("admin-verb-text-make-cultist");
+        Verb cult = new()
+        {
+            Text = cultName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Cult/Icons/antag_icons.rsi"), "cult"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<BloodCultRuleComponent>(targetPlayer, "BloodCult");
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", cultName, Loc.GetString("admin-verb-make-cultist")),
+        };
+        args.Verbs.Add(cult);
     }
 
     public bool AntagVerbAllowed(GetVerbsEvent<Verb> args, [NotNullWhen(true)] out ICommonSession? target)
