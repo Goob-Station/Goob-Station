@@ -154,6 +154,22 @@
     damage:
       types:
         Slash: 10
+  - type: SolutionContainerManager #goob edit: Knives can be coated start
+    solutions:
+      melee:
+        maxVol: 5 # Goobstation
+  - type: MeleeChemicalInjector
+    transferAmount: 1 # Goobstation
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionInjectOnEmbed
+    transferAmount: 2
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 2 # goob edit: knives can be coated end
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   # Goobstation edit start
