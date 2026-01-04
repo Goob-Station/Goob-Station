@@ -41,3 +41,229 @@
         behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
+
+- type: entity
+  id: BathroomTrashcan
+  parent: BaseStructure
+  name: trashcan
+  description: After the invetion of disposal units, people forgot how to use trashcans.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/disposal.rsi
+    state: trashcan
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 40
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+
+- type: entity
+  id: MetalPipeWater # This is literally just the goonstation water pipe sprite so remove this if you ever add water pipes
+  parent: BaseStructure
+  name: Water tank
+  description: Its purpose is unknown.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/disposal.rsi
+    state: pipe-water
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 40
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+
+- type: entity
+  id: BathroomDrain
+  parent: BaseStructure
+  name: drain
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 40
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/fluid.rsi
+    state: drain
+  - type: Transform
+    anchored: true
+
+- type: entity
+  id: BathroomDrainWelded
+  parent: BathroomDrain
+  name: welded drain
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/fluid.rsi
+    state: drain_welded
+
+- type: entity
+  id: BathroomDrainClogged
+  parent: BathroomDrain
+  name: clogged drain
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/fluid.rsi
+    state: drain_clogged
+
+- type: entity
+  id: BathroomBigDrain
+  parent: BaseStructure
+  name: floor drain
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/fluid.rsi
+    state: bigdrain
+  - type: Transform
+    anchored: true
+
+- type: entity
+  id: BathroomBigDrainClogged
+  parent: BathroomBigDrain
+  name: clogged floor drain
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/fluid.rsi
+    state: bigdrain_clogged
+
+- type: entity
+  id: BathroomBigDrainWelded
+  parent: BathroomBigDrain
+  name: welded floor drain
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/fluid.rsi
+    state: bigdrain_welded
+
+- type: entity
+  id: UglyBathtub
+  name: bathtub
+  description: Don't slip!
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: bathtub
+
+- type: entity
+  id: RadiatorMachine
+  name: radiator
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: radiator
+  - type: Rotatable
+
+# WaterCloset Decorations
+
+- type: entity
+  id: Urinal
+  parent: BaseStructure
+  name: Urinal
+  description: Don't you dare.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/watercloset.rsi
+    state: urinal
+
+- type: entity
+  id: Shower
+  parent: BaseStructure
+  name: Showerhead
+  description: Might do you some good.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/watercloset.rsi
+    state: shower
+
+- type: entity
+  id: WaterShower
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/watercloset.rsi
+    state: water
+    drawdepth: Effects
+  - type: EffectVisuals
+  - type: AnimationPlayer
+
+- type: entity
+  id: Mist
+  parent: WaterShower
+  name: Mist
+  description: Hard to see what's inside.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/watercloset.rsi
+    state: mist
+    drawdepth: Effects
+
+- type: entity
+  id: PuddleAlt
+  parent: BaseStructure
+  name: Puddle
+  description: It's a puddle of something.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/watercloset.rsi
+    state: puddle
+
+- type: entity
+  id: PuddleOil
+  parent: BaseStructure
+  name: Puddle
+  description: It's a puddle of oil.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/watercloset.rsi
+    state: puddle-oil
+
+- type: entity
+  id: PuddleOilSplash
+  parent: BaseStructure
+  name: Puddle
+  description: It's a puddle of oil.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/watercloset.rsi
+    state: puddle-oil-splash
+
+- type: entity
+  id: PuddleSplash
+  parent: BaseStructure
+  name: Puddle
+  description: It's a puddle of something.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/watercloset.rsi
+    state: puddle-splash

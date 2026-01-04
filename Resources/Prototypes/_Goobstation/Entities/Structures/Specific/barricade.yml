@@ -1,0 +1,78 @@
+# Jersey Barrier Standard Series
+- type: entity
+  id: JerseyBarrier1
+  parent: GannetsMachineOff
+  name: jersey barrier
+  description: A heavy concrete barrier used for traffic control and fortification.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: jerseybarrier1
+  - type: Rotatable
+
+- type: entity
+  id: JerseyBarrier2
+  parent: GannetsMachineOff
+  name: jersey barrier
+  description: A heavy concrete barrier. This one looks slightly weathered.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: jerseybarrier2
+  - type: Rotatable
+
+- type: entity
+  id: JerseyBarrier3
+  parent: GannetsMachineOff
+  name: jersey barrier
+  description: A heavy concrete barrier with some noticeable chipping.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: jerseybarrier3
+  - type: Rotatable
+
+- type: entity
+  id: JerseyBarrier4
+  parent: GannetsMachineOff
+  name: damaged jersey barrier
+  description: A concrete barrier that has clearly seen some impact.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: jerseybarrier4
+  - type: Rotatable
+
+- type: entity
+  id: JerseyBarrier5
+  parent: GannetsMachineOff
+  name: broken jersey barrier
+  description: A crumbling concrete barrier. It's barely holding together.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: jerseybarrier5
+  - type: Rotatable
+
+# Jersey Barrier Alt Series
+- type: entity
+  id: JerseyBarrierAlt1
+  parent: GannetsMachineOff
+  name: reinforced jersey barrier
+  description: A jersey barrier with additional structural markings.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: jerseybarrier_alt1
+  - type: Rotatable
+
+- type: entity
+  id: JerseyBarrierAlt2
+  parent: GannetsMachineOff
+  name: reinforced jersey barrier
+  description: A jersey barrier with additional structural markings.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: jerseybarrier_alt2
+  - type: Rotatable

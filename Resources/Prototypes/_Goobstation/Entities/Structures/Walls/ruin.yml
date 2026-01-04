@@ -1,0 +1,124 @@
+- type: entity
+  id: BaseRuinStructure
+  parent: BaseStructure
+  name: ruins
+  description: Look upon my works, ye migthy!
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: gannets_machine10
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            path: /Audio/Effects/break_stone.ogg
+            params:
+              volume: -6
+
+- type: entity
+  id: CWall1
+  parent: BaseRuinStructure
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: cwall1
+
+- type: entity
+  id: CWall2
+  parent: BaseRuinStructure
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: cwall2
+
+- type: entity
+  id: CWall3
+  parent: BaseRuinStructure
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: cwall3
+
+- type: entity
+  id: CWall4
+  parent: BaseRuinStructure
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: cwall4
+
+- type: entity
+  id: WallContainer1
+  parent: BaseRuinStructure
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: wallcont1
+
+- type: entity
+  id: WallContainer2
+  parent: BaseRuinStructure
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: wallcont2
+
+- type: entity
+  id: WallRuin1
+  parent: BaseRuinStructure
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: wallruin1
+
+- type: entity
+  id: WallRuin2
+  parent: BaseRuinStructure
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: wallruin2
+
+- type: entity
+  id: Crubble1
+  parent: BaseRuinStructure
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: crubble1
+
+- type: entity
+  id: Crubble2
+  parent: BaseRuinStructure
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: crubble2
+
+- type: entity
+  id: Crubble3
+  parent: BaseRuinStructure
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: crubble3
+
+- type: entity
+  id: CArch1
+  parent: BaseRuinStructure
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: carch1

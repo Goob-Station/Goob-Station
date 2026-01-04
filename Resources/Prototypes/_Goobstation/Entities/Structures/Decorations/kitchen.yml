@@ -1,0 +1,100 @@
+# Kitchen1
+- type: entity
+  id: Griddle1Off
+  parent: GannetsMachineOff
+  name: Griddle
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/kitchen1.rsi
+    state: griddle1_off
+
+- type: entity
+  id: Griddle3Off
+  parent: GannetsMachineOff
+  name: Griddle
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/kitchen1.rsi
+    state: griddle3_off
+
+- type: entity
+  id: OvenOff1
+  parent: GannetsMachineOff
+  name: Oven
+  description: It's an oven. It ovens your food for you.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/kitchen1.rsi
+    state: oven_off
+
+- type: entity
+  id: RangeOff
+  parent: GannetsMachineOff
+  name: Oven
+  description: It's an oven. It ovens your food for you.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/kitchen1.rsi
+    state: range_off
+
+- type: entity
+  id: RangeAltOff
+  parent: GannetsMachineOff
+  name: Oven
+  description: It's an oven. It ovens your food for you.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/kitchen1.rsi
+    state: range_alt_off
+
+- type: entity
+  id: FryerOff
+  parent: GannetsMachineOff
+  name: Oven
+  description: It's an oven. It ovens your food for you.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/kitchen1.rsi
+    state: fryer_off
+
+# Kitchen2
+- type: entity
+  id: GoonOvenOff2
+  parent: GannetsMachineOff
+  name: Oven
+  description: It's an oven. It ovens your food for you.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/kitchen2.rsi
+    state: oven_off
+    directions: 4
+
+- type: entity
+  id: GoonSink
+  parent: GannetsMachineOff
+  name: Large sink
+  description: A huge sink.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/kitchen2.rsi
+    state: sink
+    directions: 4
+
+- type: entity
+  id: GoonBowl
+  parent: BaseItem
+  name: old bowl
+  description: What do you want? It's a bowl.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/kitchen2.rsi
+    state: bowl

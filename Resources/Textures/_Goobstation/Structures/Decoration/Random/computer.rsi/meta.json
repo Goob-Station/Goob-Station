@@ -131,10 +131,6 @@
       "name": "bcase0"
     },
     {
-      "name": "s_teleport",
-      "directions": 4
-    },
-    {
       "name": "cruiser",
       "directions": 4,
       "delays": [

@@ -95,7 +95,7 @@
     state: lever0
 
 - type: entity
-  id: LeverMachine0
+  id: LeverMachine0Locked
   parent: GannetsMachineOff
   placement:
     mode: SnapgridCenter
@@ -117,7 +117,7 @@
     state: lever1
 
 - type: entity
-  id: LeverMachine0
+  id: LeverMachine1Locked
   parent: GannetsMachineOff
   placement:
     mode: SnapgridCenter
@@ -317,3 +317,403 @@
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
     state: occupancy-1
     drawdepth: WallMountedItems
+
+# Idk
+
+- type: entity
+  id: GannetsMachine
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: gannets_machine1
+
+- type: entity
+  id: GannetsMachineAlt
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: gannets_machine10
+
+- type: entity
+  id: GunbotFab
+  parent: GannetsMachineOff
+  name: mass-replication machine
+  description: Seems like it used to fabricate some sort of weaponry in the past. Doesn't seem to be working anymore.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: gunbot_fab
+
+- type: entity
+  id: GunbotFabBroken
+  parent: GunbotFab
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: gunbot_fab-broken
+
+- type: entity
+  id: MarsFactoryArm
+  parent: GannetsMachineOff
+  name: Factory arm
+  description: Used for moving large payloads in hazardous enviroments.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: marsfactory_arm
+
+# Panels
+
+- type: entity
+  id: DisplayPanelMachine
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: displays
+
+- type: entity
+  id: DisplayPanelOffMachine
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: displays_off
+
+- type: entity
+  id: GaugePanelMachine
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: gauges
+
+- type: entity
+  id: GaugePanelOffMachine
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: gauges_off
+
+# Lockdown
+
+- type: entity
+  id: LockdownPanelMachine
+  parent: GannetsMachineOff
+  name: lockdown control
+  description: Green good. Red bad.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: lockdown
+
+- type: entity
+  id: LockdownPanelLeftOKMachine
+  parent: LockdownPanel
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: lockdown_leftOK
+
+- type: entity
+  id: LockdownPanelRightOKMachine
+  parent: LockdownPanel
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: lockdown_rightOK
+
+- type: entity
+  id: LockdownPanelSafeMachine
+  parent: LockdownPanel
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: lockdown_safe
+
+# Recorders
+
+- type: entity
+  id: RecorderRackMachine
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: recorders
+
+- type: entity
+  id: RecorderRackOffMachine
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: recorders-off
+
+
+- type: entity
+  id: OldTerminalComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: old
+
+- type: entity
+  id: OldTerminalBrokenComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: oldb
+
+- type: entity
+  id: OldTerminalIdleComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: old0
+
+
+- type: entity
+  id: TourTerminalComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: tour
+
+
+- type: entity
+  id: OldTerminalLaptopComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: oldlap
+
+- type: entity
+  id: OldTerminalLaptopIdleComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: oldlap0
+
+- type: entity
+  id: OldTerminalLaptopBrokenComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: oldlapb
+
+- type: entity
+  id: OldTerminalLaptopShutComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: oldlapshut
+
+
+- type: entity
+  id: DataTerminalIdleComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: dterm0
+
+- type: entity
+  id: DataTerminalComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: dterm
+
+- type: entity
+  id: DataTerminalBrokenComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: dtermb
+
+
+- type: entity
+  id: BriefcaseComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: bcase
+
+- type: entity
+  id: BriefcaseBrokenComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: bcaseb
+
+- type: entity
+  id: BriefcaseIdleComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: bcase0
+
+
+- type: entity
+  id: CruiserConsoleComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: cruiser
+
+- type: entity
+  id: CruiserConsoleBrokenComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: cruiserb
+
+- type: entity
+  id: CruiserConsoleIdleComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: cruiser0
+
+
+- type: entity
+  id: DrawerConsoleIdleComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: drawbr0
+
+- type: entity
+  id: DrawerConsoleComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: drawbr
+
+- type: entity
+  id: DrawerConsoleAlertComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: drawbr-alert
+
+
+- type: entity
+  id: OldTerminalAlternateComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: old_alt
+
+- type: entity
+  id: OldTerminalAlternateBrokenComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: old_altb
+
+- type: entity
+  id: OldTerminalAlternateIdleComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: old_alt0
+
+# does it matter
+
+- type: entity
+  id: IdentificationPortComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: idport
+
+- type: entity
+  id: IdentificationPortControlComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: idportC
+
+- type: entity
+  id: IdentificationPortIdleComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: idport0
+
+- type: entity
+  id: IdentificationPortControlIdleComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: idportC0
+
+
+- type: entity
+  id: OperatingConsoleSmallComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: operating-small
+
+- type: entity
+  id: OperatingConsoleSmallIdleComputer
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: operating-small0
+
+- type: entity
+  id: OperatingConsoleSmallBrokenComputer
+  parent: GannetsMachineOffComputer
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: operating-smallb
+
+# Hospital
+
+- type: entity
+  id: LaundromatWashingMachine
+  parent: GannetsMachineOff
+  name: Washing machine
+  description: An old and obsolete machine. 
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/hospital.rsi
+    state: washer

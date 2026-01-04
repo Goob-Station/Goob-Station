@@ -7,173 +7,61 @@
     "y": 64
   },
   "states": [
-    {
-      "name": "cwall1"
-    },
-    {
-      "name": "cwall2"
-    },
-    {
-      "name": "wallcont1"
-    },
-    {
-      "name": "wallcont2"
-    },
-    {
-      "name": "wallruin1"
-    },
-    {
-      "name": "wallruin2"
-    },
-    {
-      "name": "crubble1"
-    },
-    {
-      "name": "cwall3"
-    },
-    {
-      "name": "cwall4"
-    },
-    {
-      "name": "crubble2"
-    },
-    {
-      "name": "crubble3"
-    },
-    {
-      "name": "statueOLD"
-    },
-    {
-      "name": "statue"
-    },
-    {
-      "name": "statue_broken"
-    },
-    {
-      "name": "carch1"
-    },
-    {
-      "name": "gannets_machine1"
-    },
-    {
-      "name": "gannets_machine10"
-    },
+    { "name": "carch1" },
+    { "name": "cwall1" },
+    { "name": "cwall2" },
+    { "name": "wallcont1" },
+    { "name": "wallcont2" },
+    { "name": "wallruin1" },
+    { "name": "wallruin2" },
+    { "name": "crubble1" },
+    { "name": "cwall3" },
+    { "name": "cwall4" },
+    { "name": "crubble2" },
+    { "name": "crubble3" },
+    { "name": "statue" },
+    { "name": "statue_broken" },
+    { "name": "gannets_machine1" },
+    { "name": "gannets_machine10" },
     {
       "name": "marsfactory_arm",
       "directions": 4
     },
-    {
-      "name": "mantax",
-      "directions": 4
-    },
-    {
-      "name": "manta-s",
-      "directions": 4
-    },
-    {
-      "name": "manta-s-open"
-    },
-    {
-      "name": "manta",
-      "directions": 4
-    },
-    {
-      "name": "mineralshelf"
-    },
-    {
-      "name": "shelf"
-    },
-    {
-      "name": "toolshelf"
-    },
-    {
-      "name": "gunbot_fab"
-    },
-    {
-      "name": "gunbot_fab-broken"
-    },
+    { "name": "mineralshelf" },
+    { "name": "shelf" },
+    { "name": "toolshelf" },
+    { "name": "gunbot_fab" },
+    { "name": "gunbot_fab-broken" },
     {
       "name": "displays",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
+      "delays": [[0.1, 0.1, 0.1, 0.1]]
     },
-    {
-      "name": "displays_off"
-    },
+    { "name": "displays_off" },
     {
       "name": "gauges",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
+      "delays": [[0.1, 0.1, 0.1, 0.1, 0.1]]
     },
-    {
-      "name": "gauges_off"
-    },
+    { "name": "gauges_off" },
     {
       "name": "lockdown",
-      "delays": [
-        [
-          0.1,
-          0.2,
-          0.1
-        ]
-      ]
+      "delays": [[0.1, 0.2, 0.1]]
     },
     {
       "name": "lockdown_leftOK",
-      "delays": [
-        [
-          0.1,
-          0.2,
-          0.1
-        ]
-      ]
+      "delays": [[0.1, 0.2, 0.1]]
     },
     {
       "name": "lockdown_rightOK",
-      "delays": [
-        [
-          0.1,
-          0.2,
-          0.1
-        ]
-      ]
+      "delays": [[0.1, 0.2, 0.1]]
     },
     {
       "name": "lockdown_safe",
-      "delays": [
-        [
-          0.1,
-          0.2,
-          0.1
-        ]
-      ]
+      "delays": [[0.1, 0.2, 0.1]]
     },
     {
       "name": "recorders",
-      "delays": [
-        [
-          2,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
+      "delays": [[2, 0.1, 0.1, 0.1]]
     },
-    {
-      "name": "recorders-off"
-    }
+    { "name": "recorders-off" }
   ]
 }

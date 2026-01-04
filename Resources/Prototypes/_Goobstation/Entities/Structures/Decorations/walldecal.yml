@@ -12,6 +12,8 @@
 - type: entity
   id: PlasmaBHoleWallDecal
   parent: BaseStructure
+  name: Weird glowing mark
+  description: I'm sure it's safe.
   components:
   - type: Anchorable
   - type: Sprite
@@ -49,6 +51,8 @@
 - type: entity
   id: WeirdGlowingMarkWallDecal
   parent: BaseStructure
+  name: Weird glowing mark
+  description: I'm sure it's safe.
   components:
   - type: Anchorable
   - type: Sprite
@@ -60,3 +64,12 @@
     radius: 2
     energy: 2
     color: Green
+
+- type: entity
+  id: BuySignWallDecal
+  parent: FrontWallDamageWallDecal
+  name: buy sign
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: buysign

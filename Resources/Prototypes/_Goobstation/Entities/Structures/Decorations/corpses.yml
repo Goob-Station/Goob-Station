@@ -76,16 +76,7 @@
     state: seccorpse6
 
 - type: entity
-  id: GoonCorpse1
-  parent: BaseGoonCorpse
-  components:
-  - type: Sprite
-    noRot: true
-    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
-    state: seccorpse7
-
-- type: entity
-  id: GoonCorpse1
+  id: GoonCorpse7
   parent: BaseGoonCorpse
   components:
   - type: Sprite

@@ -48,7 +48,7 @@
     damageModifierSet: StrongMetallic
   - type: ContainerFill
     containers:
-      board: [ DoorElectronics ]
+      board: [ DoorElectronicsWizard ]
   - type: StaticPrice
     price: 1 # Do I have to say it again?
   - type: InteractionPopup

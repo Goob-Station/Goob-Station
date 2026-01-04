@@ -72,56 +72,6 @@
       "name": "radar"
     },
     {
-      "name": "bottleship"
-    },
-    {
-      "name": "bottleship_broken"
-    },
-    {
-      "name": "rudder"
-    },
-    {
-      "name": "vent1",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
-    },
-    {
-      "name": "vent2",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
-    },
-    {
-      "name": "vent3",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
-    },
-    {
       "name": "toiletholder",
       "directions": 4
     },
@@ -220,10 +170,6 @@
       "name": "scornerwalldamage"
     },
     {
-      "name": "damagedchair",
-      "directions": 4
-    },
-    {
       "name": "plasma-bhole",
       "directions": 4
     },
@@ -231,52 +177,13 @@
       "name": "keypad"
     },
     {
-      "name": "unfinished"
-    },
-    {
       "name": "target_paper"
-    },
-    {
-      "name": "gibberBroken"
-    },
-    {
-      "name": "wall-lever-down-anim",
-      "delays": [
-        [
-          0.2,
-          0.1,
-          0.1,
-          0.1,
-          0.2
-        ]
-      ]
-    },
-    {
-      "name": "wall-lever-up"
-    },
-    {
-      "name": "wall-lever-down"
-    },
-    {
-      "name": "wall-lever-up-anim",
-      "delays": [
-        [
-          0.2,
-          0.1,
-          0.1,
-          0.1,
-          0.2
-        ]
-      ]
     },
     {
       "name": "occupancy-0"
     },
     {
       "name": "occupancy-1"
-    },
-    {
-      "name": "occupancy-glow"
     },
     {
       "name": "gold_bee"

@@ -1,0 +1,11 @@
+- type: entity
+  id: MistAirborneEffect
+  name: strange gas
+  description: Might be dangerous.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/fluid.rsi
+    state: airborne
+    drawdepth: Effects
+  - type: Transform
+    anchored: true

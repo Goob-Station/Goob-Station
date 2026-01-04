@@ -1,0 +1,177 @@
+# The items themselves
+
+- type: entityTable
+  id: FillMetalShelfCommon
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: MetalShelfCommonFood
+    - !type:NestedSelector
+      tableId: MetalShelfCommonTools
+    - !type:NestedSelector
+      tableId: MetalShelfCommonMeds
+
+- type: entityTable
+  id: MetalShelfCommonFood
+  table: !type:GroupSelector
+    children:
+    - id: DrinkWaterBottleFull
+    - id: FoodSnackNutribrick
+    - id: DrinkMREFlask
+    - id: FoodSnackMREBrownie
+    - id: FoodTinMRE
+    - id: FoodTinPeachesMaint
+
+- type: entityTable
+  id: MetalShelfCommonTools
+  table: !type:GroupSelector
+    children:
+    - id: Crowbar
+    - id: Wirecutter
+    - id: Wrench
+    - id: Screwdriver
+    - id: MeleeHammer
+    - id: WelderExperimental
+
+- type: entityTable
+  id: MetalShelfCommonMeds
+  table: !type:GroupSelector
+    children:
+    - id: Gauze
+    - id: Bloodpack
+    - id: RegenerativeMesh
+    - id: MedicatedSuture
+    - id: EmergencyMedipen
+
+
+- type: entityTable
+  id: FillMetalShelfRare
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: MetalShelfRareWeapons
+    - !type:NestedSelector
+      tableId: MetalShelfRareUtility
+    - !type:NestedSelector
+      tableId: MetalShelfRareMeds
+    - !type:NestedSelector
+      tableId: MetalShelfRareCreatures
+
+- type: entityTable
+  id: MetalShelfRareWeapons
+  table: !type:GroupSelector
+    children:
+    - id: WeaponSniperMosin
+    - id: WeaponPistolMk58
+    - id: WeaponFlareGun
+
+- type: entityTable
+  id: MetalShelfRareUtility
+  table: !type:GroupSelector
+    children:
+    - id: Wrench
+    - id: RifleStock
+    - id: ClothingHandsGlovesCombat
+    - id: SheetPlasma10
+    - id: PowerCellHigh
+
+- type: entityTable
+  id: MetalShelfRareMeds
+  table: !type:GroupSelector
+    children:
+    - id: MedkitBruteFilled
+    - id: MedkitBurnFilled
+    - id: Stimpack
+    - id: CombatMedipen
+
+- type: entityTable
+  id: MetalShelfRareCreatures
+  table: !type:GroupSelector
+    children:
+    - id: MonkeyCube
+      amount: !type:RangeNumberSelector
+        range: 1, 5
+    - id: KoboldCube
+      amount: !type:RangeNumberSelector
+        range: 1, 5
+
+- type: entityTable
+  id: FillMetalShelfVeryRare
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: MetalShelfVeryRareWeapons
+    - !type:NestedSelector
+      tableId: MetalShelfVeryRarePower
+    - !type:NestedSelector
+      tableId: MetalShelfVeryRareMeds
+    - !type:NestedSelector
+      tableId: MetalShelfVeryRareValuables
+    - !type:NestedSelector
+      tableId: MetalShelfVeryRareAnomalies
+
+- type: entityTable
+  id: MetalShelfVeryRareWeapons
+  table: !type:GroupSelector
+    children:
+    - id: WeaponRifleLecter
+    - id: WeaponPistolMk58
+    - id: MagazineRifle
+
+- type: entityTable
+  id: MetalShelfVeryRarePower
+  table: !type:GroupSelector
+    children:
+    - id: PowerCellHyper
+    - id: PowerCellMicroreactor
+
+- type: entityTable
+  id: MetalShelfVeryRareMeds
+  table: !type:GroupSelector
+    children:
+    - id: MedkitCombatFilled
+    - id: MedkitAdvancedFilled
+    - id: ChemistryBottleOmnizine
+    - id: ChemistryBottleCognizine
+    - id: VestineChemistryVial
+
+- type: entityTable
+  id: MetalShelfVeryRareValuables
+  table: !type:GroupSelector
+    children:
+    - id: SpaceCash5000
+    - id: SpaceCash10000
+    - id: MaterialDiamond1
+    - id: AmmoTechFabCircuitboard
+
+- type: entityTable
+  id: MetalShelfVeryRareAnomalies
+  table: !type:GroupSelector
+    children:
+    - id: AnomalyCorePyroclastic
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: AnomalyCoreGravity
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: AnomalyCoreIce
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: AnomalyCoreFlesh
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: AnomalyCoreLiquid
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: AnomalyCoreBluespace
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: AnomalyCoreElectricity
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: AnomalyCoreFlora
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: AnomalyCoreShadow
+      amount: !type:RangeNumberSelector
+        range: 1, 3

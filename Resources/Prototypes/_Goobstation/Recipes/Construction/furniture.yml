@@ -14,3 +14,13 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  id: MetalShelfLarge
+  graph: MetalShelfLargeGraph
+  targetNode: MetalShelfLargeNode
+  category: construction-category-storage
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked

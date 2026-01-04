@@ -1,0 +1,265 @@
+- type: entity
+  id: MetalShelfLarge
+  name: large metal shelf
+  description: Might hold some goodies.
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: shelf
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: Clickable
+  - type: InteractionOutline
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Construction
+    graph: MetalShelfLargeGraph
+    node: MetalShelfLargeNode
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,4
+
+- type: entity
+  id: MineralShelfLarge
+  parent: MetalShelfLarge
+  components:
+    - type: Sprite
+      sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+      state: mineralshelf
+
+- type: entity
+  id: ToolShelfLarge
+  parent: MetalShelfLarge
+  components:
+    - type: Sprite
+      sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+      state: toolshelf
+    - type: EntityTableContainerFill
+      containers:
+        storagebase: !type:NestedSelector
+          tableId: MaintToolsTable
+          rolls: !type:RangeNumberSelector
+            range: 3, 6
+
+- type: entity
+  id: MetalShelfLargeFilled
+  parent: MetalShelfLarge
+  suffix: filled, random
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        storagebase: !type:NestedSelector
+          tableId: FillSmugglerBackpack
+
+- type: entity
+  id: MetalShelfLargeFilledCommon
+  parent: MetalShelfLarge
+  suffix: filled, common
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        storagebase: !type:NestedSelector
+          tableId: FillMetalShelfCommon
+
+- type: entity
+  id: MetalShelfLargeFilledRare
+  parent: MetalShelfLarge
+  suffix: filled, rare
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        storagebase: !type:NestedSelector
+          tableId: FillMetalShelfRare
+
+- type: entity
+  id: MetalShelfLargeFilledVeryRare
+  parent: MetalShelfLarge
+  suffix: filled, very rare
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        storagebase: !type:NestedSelector
+          tableId: FillMetalShelfVeryRare
+
+# Wood
+
+- type: entity
+  id: GoonWoodenShelf
+  name: wooden shelf
+  description: A simple wooden shelf.
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/furniture.rsi
+    state: empty_shelf_1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: Clickable
+  - type: InteractionOutline
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,5,4
+
+- type: entity
+  id: WoodenShelfEmpty2
+  parent: GoonWoodenShelf
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/furniture.rsi
+    state: empty_shelf_2
+
+- type: entity
+  id: WoodenShelfEmpty3
+  parent: GoonWoodenShelf
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/furniture.rsi
+    state: empty_shelf_3
+
+- type: entity
+  id: WoodenShelf1
+  parent: GoonWoodenShelf
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/furniture.rsi
+    state: shelf_1
+
+- type: entity
+  id: WoodenShelf2
+  parent: GoonWoodenShelf
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/furniture.rsi
+    state: shelf_2
+
+- type: entity
+  id: WoodenShelf3
+  parent: GoonWoodenShelf
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/furniture.rsi
+    state: shelf_3
+
+- type: entity
+  id: WoodenShelf4
+  parent: GoonWoodenShelf
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/furniture.rsi
+    state: shelf_4
+
+- type: entity
+  id: WoodenShelf5
+  parent: GoonWoodenShelf
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/furniture.rsi
+    state: shelf_5
+
+- type: entity
+  id: WoodenShelf6
+  parent: GoonWoodenShelf
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/furniture.rsi
+    state: shelf_6
+
+- type: entity
+  id: WoodenShelf7
+  parent: GoonWoodenShelf
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/furniture.rsi
+    state: shelf_7
+
+- type: entity
+  id: WoodenShelf8
+  parent: GoonWoodenShelf
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/furniture.rsi
+    state: shelf_8
+
+- type: entity
+  id: WoodenShelf9
+  parent: GoonWoodenShelf
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/furniture.rsi
+    state: shelf_9
+
+- type: entity
+  id: WoodenShelf10
+  parent: GoonWoodenShelf
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/furniture.rsi
+    state: shelf_10
+
+- type: entity
+  id: WoodenShelf11
+  parent: GoonWoodenShelf
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/furniture.rsi
+    state: shelf_11
+
+- type: entity
+  id: GoonSupplyCrate
+  name: supply crate
+  description: Used for paramilitary drops. Could have some good stuff.
+  parent: MetalShelfLarge
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: supply_crate
+
+- type: entity
+  id: GoonSupplyCrate
+  name: supply crate
+  description: Used for paramilitary drops. Could have some good stuff.
+  parent: MetalShelfLargeFilledVeryRare
+  suffix: filled, very rare
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: supply_crate
+
+# i dont fucking care anymore
+
+- type: entity
+  id: CoatRack
+  name: coat rack
+  description: A standing rack for coats. It's empty.
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: coatrack
+  - type: Clickable
+  - type: InteractionOutline
+
+- type: entity
+  id: WoodenFloorPalette
+  name: wooden pallet
+  description: A wooden pallet for stackables. 
+  parent: MetalShelfLarge
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: palette
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,5,4 
