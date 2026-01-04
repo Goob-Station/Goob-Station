@@ -40,7 +40,6 @@
   recipes:
   - PolymerBaton
   - SpearTelescopic
-  - PoliceBaton
 
 ## Dynamic
 - type: latheRecipePack
