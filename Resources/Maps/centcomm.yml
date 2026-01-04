@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/04/2026 21:02:39
-  entityCount: 6889
+  time: 01/04/2026 21:54:22
+  entityCount: 6887
 maps: []
 grids:
 - 1668
@@ -18433,11 +18433,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -26.5,-10.5
       parent: 1668
-  - uid: 2202
-    components:
-    - type: Transform
-      pos: 15.5,1.5
-      parent: 1668
   - uid: 2203
     components:
     - type: Transform
@@ -18585,11 +18580,6 @@ entities:
     components:
     - type: Transform
       pos: -14.5,30.5
-      parent: 1668
-  - uid: 2774
-    components:
-    - type: Transform
-      pos: 13.5,1.5
       parent: 1668
   - uid: 2783
     components:
@@ -28428,12 +28418,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 16.5,-0.5
       parent: 1668
-  - uid: 2130
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 13.5,1.5
-      parent: 1668
   - uid: 2212
     components:
     - type: Transform
@@ -28445,12 +28429,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 16.5,1.5
-      parent: 1668
-  - uid: 2214
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 15.5,1.5
       parent: 1668
   - uid: 2765
     components:
@@ -38519,10 +38497,20 @@ entities:
     - type: Transform
       pos: 28.5,8.5
       parent: 1668
+  - uid: 2130
+    components:
+    - type: Transform
+      pos: 13.5,1.5
+      parent: 1668
   - uid: 2145
     components:
     - type: Transform
       pos: 10.5,34.5
+      parent: 1668
+  - uid: 2202
+    components:
+    - type: Transform
+      pos: 15.5,1.5
       parent: 1668
   - uid: 2230
     components:
@@ -41657,6 +41645,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 20.5,-0.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 6301
@@ -41666,6 +41657,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -17.5,-9.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 2771
@@ -41675,6 +41669,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -17.5,-3.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 2771
@@ -41684,6 +41681,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 32.5,5.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       configurators:
       - invalid
@@ -41696,6 +41696,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 20.5,5.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       configurators:
       - invalid
@@ -41708,6 +41711,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 17.5,-5.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       configurators:
       - invalid
@@ -41720,6 +41726,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,10.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5700
@@ -41729,6 +41738,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,14.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5700
@@ -41738,6 +41750,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 11.5,12.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5700
@@ -41747,36 +41762,54 @@ entities:
       rot: 3.141592653589793 rad
       pos: 13.5,31.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
   - uid: 5608
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -13.5,22.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
   - uid: 5609
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -5.5,27.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
   - uid: 5610
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -9.5,14.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
   - uid: 5611
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -10.5,8.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
   - uid: 5612
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -13.5,-0.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5700
@@ -41786,6 +41819,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -21.5,-0.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5700
@@ -41795,6 +41831,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 4.5,-6.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5700
@@ -41817,6 +41856,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,4.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       configurators:
       - invalid
@@ -41829,6 +41871,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,-13.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5700
@@ -41839,6 +41884,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -6.5,-2.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       configurators:
       - invalid
@@ -41851,6 +41899,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 4.5,-9.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       configurators:
       - invalid
@@ -41862,6 +41913,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 10.5,-14.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5701
@@ -41871,12 +41925,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,-19.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
   - uid: 5622
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -13.5,-32.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5701
@@ -41886,6 +41946,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,-35.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5701
@@ -41895,12 +41958,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: 13.5,-32.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
   - uid: 5625
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 14.5,-25.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5701
@@ -41910,6 +41979,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 25.5,-23.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5701
@@ -41919,12 +41991,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: 23.5,-16.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
   - uid: 5628
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 25.5,20.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5700
@@ -41934,6 +42012,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 31.5,20.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5700
@@ -41943,6 +42024,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 28.5,17.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5700
@@ -41952,6 +42036,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 18.5,16.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5700
@@ -41961,6 +42048,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 18.5,20.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5700
@@ -41970,6 +42060,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 28.5,12.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 5700
@@ -41979,6 +42072,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 32.5,-0.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 6301
@@ -41988,6 +42084,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 14.5,0.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       configurators:
       - invalid
@@ -41998,6 +42097,9 @@ entities:
     - type: Transform
       pos: -22.5,-6.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 2771
@@ -42007,6 +42109,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 20.5,-6.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 6301
@@ -42099,6 +42204,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 4.5,24.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
     - type: DeviceNetwork
       deviceLists:
       - 2868
@@ -42108,6 +42216,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 10.5,33.5
       parent: 1668
+    - type: AccessReader
+      access:
+      - - CentralCommand
 - proto: WeaponEnergyTurretSecurityControlPanel
   entities:
   - uid: 2832
