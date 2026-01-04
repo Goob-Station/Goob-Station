@@ -13,9 +13,9 @@ public sealed partial class BloodCultVisualEyesSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<BloodCultVisualEyesComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<BloodCultVisualEyesComponent, ComponentStartup>(OnCultEyesAdded);
         SubscribeLocalEvent<BloodCultVisualEyesComponent, ComponentShutdown>(OnCultEyesRemoved);
-        SubscribeLocalEvent<BloodCultVisualEyesComponent, ExaminedEvent>(OnExamined);
     }
 
     private void OnExamined(Entity<BloodCultVisualEyesComponent> ent, ref ExaminedEvent args)
