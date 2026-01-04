@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/04/2026 17:31:43
-  entityCount: 6871
+  time: 01/04/2026 17:50:29
+  entityCount: 6870
 maps: []
 grids:
 - 1668
@@ -3596,7 +3596,6 @@ entities:
       pos: 33.5,1.5
       parent: 1668
     - type: Door
-      secondsUntilStateChange: -10574.577
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -20723,7 +20722,6 @@ entities:
       pos: -11.5,-22.5
       parent: 1668
     - type: Door
-      secondsUntilStateChange: -25316.648
       state: Closing
 - proto: DecalSpawnerBloodSplatters
   entities:
@@ -22324,12 +22322,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 20.5,-33.5
-      parent: 1668
-  - uid: 6660
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 21.5,-33.5
       parent: 1668
   - uid: 6661
     components:
@@ -42572,6 +42564,7 @@ entities:
         armorPenetration: 0
         groups: null
         types:
+          Piercing: 0
           Slash: 5
     - type: Wieldable
       wieldSound: !type:SoundPathSpecifier
