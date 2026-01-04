@@ -25,5 +25,9 @@ cult-master-died = The Cult's Master, {$name}, has fallen! The vote for a new ma
 cult-mindshield-resist = You feel something interfering with your mental conditioning, but you resist it!
 
 cult-tier-none = The veil weakens as your cult grows.
+
 cult-tier-eyes = The veil weakens as your cult grows, your eyes begin to glow ever brighter.
+
+cult-tier-eyes-examine = [color=red]Their eyes glow with an unnatural light.[/color]
+
 cult-tier-halos = Your cult is ascendant and the red harvest approaches - you cannot hide your true nature for much longer!!

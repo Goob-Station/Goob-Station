@@ -1,6 +1,4 @@
-using Content.Client.Humanoid;
 using Content.Goobstation.Shared.Cult;
-using Content.Shared.Humanoid;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
@@ -12,7 +10,6 @@ public sealed partial class CultVisualsSystem : EntitySystem
 {
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _human = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
 
     public override void Initialize()
@@ -22,8 +19,6 @@ public sealed partial class CultVisualsSystem : EntitySystem
         SubscribeLocalEvent<BloodCultistComponent, GetStatusIconsEvent>(OnGetStatusIcons);
         SubscribeLocalEvent<BloodCultistLeaderComponent, GetStatusIconsEvent>(OnLeaderGetStatusIcons);
 
-        SubscribeLocalEvent<BloodCultVisualEyesComponent, ComponentStartup>(OnCultEyesAdded);
-        SubscribeLocalEvent<BloodCultVisualEyesComponent, ComponentShutdown>(OnCultEyesRemoved);
         SubscribeLocalEvent<BloodCultVisualHaloComponent, ComponentStartup>(OnCultHaloAdded);
         SubscribeLocalEvent<BloodCultVisualHaloComponent, ComponentShutdown>(OnCultHaloRemoved);
     }
@@ -41,23 +36,6 @@ public sealed partial class CultVisualsSystem : EntitySystem
     {
         if (_prot.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
-    }
-
-    private void OnCultEyesAdded(Entity<BloodCultVisualEyesComponent> ent, ref ComponentStartup args)
-    {
-        if (!TryComp<HumanoidAppearanceComponent>(ent, out var huac))
-            return;
-
-        ent.Comp.LastEyeColor = huac.EyeColor;
-        _human.SetBaseLayerColor(ent.Owner, HumanoidVisualLayers.Eyes, ent.Comp.EyeColor);
-    }
-
-    private void OnCultEyesRemoved(Entity<BloodCultVisualEyesComponent> ent, ref ComponentShutdown args)
-    {
-        if (!TryComp<HumanoidAppearanceComponent>(ent, out var huac) || ent.Comp.LastEyeColor == null)
-            return;
-
-        _human.SetBaseLayerColor(ent.Owner, HumanoidVisualLayers.Eyes, ent.Comp.LastEyeColor);
     }
 
     private void OnCultHaloAdded(Entity<BloodCultVisualHaloComponent> ent, ref ComponentStartup args)
