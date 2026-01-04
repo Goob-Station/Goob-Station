@@ -19883,3 +19883,9 @@ Entries:
         assistant?
   id: 2249
   time: '2026-01-02T18:50:05.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Remove
+      message: Ghost bar
+  id: 2250
+  time: '2026-01-03T22:48:20.0000000+00:00'
