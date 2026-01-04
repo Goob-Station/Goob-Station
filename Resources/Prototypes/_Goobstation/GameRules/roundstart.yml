@@ -42,6 +42,7 @@
 
 # GameModes
 
+# Changeling
 - type: entity
   parent: BaseGameRule
   id: Changeling
@@ -78,6 +79,7 @@
     tags:
       - RoundstartAntag
 
+# Corporate agent (command tot)
 - type: entity
   parent: BaseTraitorRule
   id: CorporateAgent
@@ -110,6 +112,7 @@
       mindRoles:
       - MindRoleTraitor
 
+# Calmtot
 - type: entity
   parent: BaseTraitorRule
   id: CalmTraitor # For Dual Antag Gamemodes
@@ -134,6 +137,7 @@
     tags:
       - CalmAntag
 
+# Calmling
 - type: entity
   parent: Changeling
   id: CalmLing # For Dual Antag Gamemodes
@@ -157,6 +161,7 @@
     tags:
       - CalmAntag
 
+# Calmops
 - type: entity
   parent: BaseNukeopsRule
   id: Calmops # For Dual Antag Gamemodes
@@ -226,6 +231,7 @@
     tags:
       - CalmAntag
 
+# Calmrevs
 - type: entity
   id: CalmRevs # For Dual Antag Gamemodes
   parent: BaseGameRule
@@ -255,6 +261,7 @@
   - type: Tag
     tags:
       - CalmAntag
+
 # Blob
 - type: entity
   id: BlobRule
@@ -315,6 +322,7 @@
     playersPerCarrierBlob: 30
     maxCarrierBlob: 1
 
+# Honkops
 - type: entity
   parent: BaseNukeopsRule
   id: Honkops
@@ -390,6 +398,7 @@
       mindRoles:
       - MindRoleNukeops
 
+# Devil
 - type: entity
   parent: BaseGameRule
   id: Devil
@@ -417,6 +426,7 @@
     tags:
     - RoundstartAntag
 
+# Thieves
 - type: entity
   parent: Thief
   id: OopsAllThieves
@@ -443,3 +453,32 @@
       - MindRoleThief
       briefing:
         sound: "/Audio/Misc/thief_greeting.ogg"
+
+# Cult
+- type: entity
+  parent: BaseGameRule
+  id: BloodCult
+  components:
+  - type: BloodCultRule
+  - type: GameRule
+    minPlayers: 25
+    chaosScore: 1200
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ BloodCultist ]
+      min: 2
+      max: 4
+      playerRatio: 10
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      blacklist:
+        components:
+        - CommandStaff # GOOBSTATION
+        - AntagImmune
+        - BibleUser
+      components:
+      - type: BloodCultist
+      - type: WeakToHoly # GOOBSTATION
+      mindRoles:
+      - MindRoleBloodCultist
+      briefing:
+        sound: "/Audio/_Goobstation/Ambience/Antag/bloodcult_gain.ogg"

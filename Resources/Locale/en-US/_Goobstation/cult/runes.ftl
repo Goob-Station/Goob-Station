@@ -1,0 +1,10 @@
+rune-offering-invoke = Mah'weyh pleggh at e'ntrath!
+rune-empower-invoke = H'drak v'loso, mir'kanas verbot!
+rune-teleport-invoke = 	Sas'so c'arta forbici!
+rune-revive-invoke = Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth remium il'tarat!
+rune-barrier-invoke = Khari'd! Eske'te tannin!
+rune-summon-invoke = N'ath reth sh'yro eth d'rekkathnor!	
+rune-bloodboil-invoke =	Dedo ol'btoh!
+rune-spirit-invoke = Gal'h'rfikk harfrandid mud'gib!
+rune-apocalypse-invoke = Ta'gh fara'qha fel d'amar det!
+rune-narsie-invoke = TOK-LYR RQA-NAP G'OLT-ULOFT!!

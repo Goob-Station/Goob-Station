@@ -1,0 +1,38 @@
+- type: entity
+  abstract: true
+  id: TouchSpellBase
+  name: basic touch spell
+  description: i'm going to touch you.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/TouchSpell/touchspell_greyscale.rsi
+    state: icon
+    shader: unshaded
+    color: "#ffffff" # change color here
+  - type: Appearance
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 1
+    color: "#ffffff" # change color here too
+  - type: Unremoveable
+  - type: Item
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcThrust
+    wideAnimationRotation: 90
+    damage:
+      types:
+        Blunt: 0 # idk
+  - type: TouchSpell
+
+- type: entity
+  abstract: true
+  parent: TouchSpellBase
+  id: TouchSpellUnholyBase
+  name: unholy touch spell
+  description: i'm going to touch you evil style.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: UnholyItem

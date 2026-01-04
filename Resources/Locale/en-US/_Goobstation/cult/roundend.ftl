@@ -1,0 +1,5 @@
+roundend-cult-cult-major = [color=crimson]The cult has succeeded! Nar'Sie has snuffed out another torch in the void![/color]
+roundend-cult-cult-minor = [color=crimson]Regardless of what happened, the red harvest was inevitable![/color]
+roundend-cult-neutral = [color=yellow]The staff managed to escape, but some of the acolytes have managed to tag along.[/color]
+roundend-cult-crew-minor = [color=yellow]The staff managed to escape before the red harvest![/color]
+roundend-cult-crew-major = [color=green]The staff managed to stop the cult! Dark words and heresy are no match for Nanotrasen's finest![/color]
