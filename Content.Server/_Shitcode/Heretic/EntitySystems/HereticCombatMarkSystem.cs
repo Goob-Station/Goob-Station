@@ -99,7 +99,7 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
                 break;
 
             case "Lock":
-                _status.TryUpdateStatusEffectDuration(target, "LockMarkedStatusEffectEffect", TimeSpan.FromSeconds(20));
+                _status.TryUpdateStatusEffectDuration(target, "LockMarkedStatusEffect", TimeSpan.FromSeconds(20));
                 break;
 
             case "Rust":

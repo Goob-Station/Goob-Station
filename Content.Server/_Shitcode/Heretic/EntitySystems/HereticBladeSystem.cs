@@ -7,6 +7,9 @@ using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Goobstation.Shared.Teleportation.Systems;
 using Content.Goobstation.Shared.Teleportation.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -34,8 +37,21 @@ public sealed class HereticBladeSystem : SharedHereticBladeSystem
         if (!_random.Prob(probability))
             return;
 
-        if (_wound.TryInduceWound(target, "WeepingAvulsion", 25f, out _, damageGroup: "Brute"))
-            _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/blood3.ogg"), target);
+        if (!_wound.TryInduceWound(target, "WeepingAvulsion", 25f, out _, damageGroup: "Brute"))
+            return;
+
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/blood3.ogg"), target);
+
+        // Open ribcage for easier ascension if part is fully mangled
+        if (TryComp(target, out WoundableComponent? woundable) && woundable.RootWoundable == target &&
+            woundable.WoundableSeverity >= WoundableSeverity.Mangled &&
+            (!EnsureComp<SkinRetractedComponent>(target, out _) | !EnsureComp<IncisionOpenComponent>(target, out _) |
+             !EnsureComp<BonesSawedComponent>(target, out _) | !EnsureComp<BonesOpenComponent>(target, out _)))
+        {
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/crack2.ogg"),
+                target,
+                AudioParams.Default.WithVolume(10f));
+        }
     }
 
     protected override void ApplyAshBladeEffect(EntityUid target)

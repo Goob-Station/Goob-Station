@@ -2,6 +2,7 @@ using Content.Goobstation.Common.Identity;
 using Content.Goobstation.Common.Projectiles;
 using Content.Goobstation.Common.Speech;
 using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared._Shitcode.Heretic.Components.StatusEffects;
 using Content.Shared._Shitmed.DoAfter;
 using Content.Shared.Actions;
 using Content.Shared.Chat;
@@ -11,10 +12,9 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Rotation;
 using Content.Shared.Standing;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -28,10 +28,9 @@ public abstract class SharedShadowCloakSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
@@ -47,7 +46,6 @@ public abstract class SharedShadowCloakSystem : EntitySystem
 
         SubscribeLocalEvent<ShadowCloakedComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ShadowCloakedComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<ShadowCloakedComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<ShadowCloakedComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
         SubscribeLocalEvent<ShadowCloakedComponent, GetDoAfterDelayMultiplierEvent>(OnGetDoAfterSpeed);
         SubscribeLocalEvent<ShadowCloakedComponent, DamageChangedEvent>(OnDamageChanged);
@@ -150,12 +148,10 @@ public abstract class SharedShadowCloakSystem : EntitySystem
 
     private void OnCloakShutdown(Entity<ShadowCloakEntityComponent> ent, ref ComponentShutdown args)
     {
-        var parent = Transform(ent).ParentUid;
+        var parent = ent.Comp.User ?? Transform(ent).ParentUid;
 
-        if (!TerminatingOrDeleted(parent) && TryComp(parent, out ShadowCloakedComponent? shadowCloaked))
-            RemoveShadowCloak((parent, shadowCloaked));
-        else if (_net.IsServer && !TerminatingOrDeleted(ent))
-            QueueDel(ent);
+        if (!RemoveShadowCloak(parent))
+            PredictedQueueDel(ent.Owner);
     }
 
     private void OnGetDoAfterSpeed(Entity<ShadowCloakedComponent> ent, ref GetDoAfterDelayMultiplierEvent args)
@@ -165,6 +161,9 @@ public abstract class SharedShadowCloakSystem : EntitySystem
 
     private void OnRefreshMoveSpeed(Entity<ShadowCloakedComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
+        if (ent.Comp.LifeStage > ComponentLifeStage.Running)
+            return;
+
         var (walk, sprint) = ent.Comp.MoveSpeedModifiers;
         args.ModifySpeed(walk, sprint);
     }
@@ -174,53 +173,52 @@ public abstract class SharedShadowCloakSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        var xform = Transform(ent);
+        var user = ent.Comp.User ?? Transform(ent).ParentUid;
 
-        if (TerminatingOrDeleted(xform.ParentUid) || !HasComp<ShadowCloakedComponent>(xform.ParentUid))
+        if (TerminatingOrDeleted(user) || !HasComp<ShadowCloakedComponent>(user))
         {
-            AttemptDeleteShadowCloakEntity(ent);
+            PredictedQueueDel(ent.Owner);
             return;
         }
 
         if (args.DamageDelta is not { } damage)
             return;
 
-        _damageable.TryChangeDamage(xform.ParentUid,
-            damage,
-            origin: args.Origin,
-            interruptsDoAfters: args.InterruptsDoAfters);
+        _damageable.TryChangeDamage(user, damage, origin: args.Origin, interruptsDoAfters: args.InterruptsDoAfters);
     }
 
+    /// <summary>
+    /// Failsafe method in case shadow cloak entity unparents from heretic
+    /// </summary>
     private void OnEntParentChanged(Entity<ShadowCloakEntityComponent> ent, ref EntParentChangedMessage args)
     {
-        if (TerminatingOrDeleted(ent) || ent.Comp.DeletionAccumulator != null)
+        var userIsOldParent = ent.Comp.User == args.OldParent;
+
+        // If we are being deleted, just remove status effect from our old parent
+        if (TerminatingOrDeleted(ent))
         {
-            if (args.OldParent != null && !TerminatingOrDeleted(args.OldParent.Value) &&
-                TryComp(args.OldParent.Value, out ShadowCloakedComponent? shadowCloaked))
-                RemoveShadowCloak((args.OldParent.Value, shadowCloaked));
+            RemoveShadowCloak(args.OldParent);
+            if (!userIsOldParent)
+                RemoveShadowCloak(ent.Comp.User);
             return;
         }
 
+        // If our current parent is shadow cloaked then it's fine - do nothing
         if (_net.IsClient || HasComp<ShadowCloakedComponent>(args.Transform.ParentUid))
             return;
 
+        // Our current parent isn't shadow cloaked - bad
+        // If old parent isn't shadow cloaked either or it is being deleted - delete us
         if (TerminatingOrDeleted(args.OldParent) || !HasComp<ShadowCloakedComponent>(args.OldParent))
         {
-            AttemptDeleteShadowCloakEntity(ent);
+            PredictedQueueDel(ent.Owner);
             return;
         }
 
-        _transform.SetParent(ent, args.Transform, args.OldParent.Value);
-    }
+        ent.Comp.User ??= args.OldParent.Value;
 
-    private void OnRemove(Entity<ShadowCloakedComponent> ent, ref ComponentRemove args)
-    {
-        if (TerminatingOrDeleted(ent))
-            return;
-
-        _modifier.RefreshMovementSpeedModifiers(ent);
-
-        ResetAbilityCooldown(ent, ent.Comp.RevealCooldown);
+        // Parent us to the old user
+        _transform.SetParent(ent, args.Transform, ent.Comp.User.Value);
     }
 
     private void OnShutdown(Entity<ShadowCloakedComponent> ent, ref ComponentShutdown args)
@@ -234,22 +232,15 @@ public abstract class SharedShadowCloakSystem : EntitySystem
 
         var shadowCloakQuery = GetEntityQuery<ShadowCloakEntityComponent>();
         var children = xform.ChildEnumerator;
-        List<Entity<ShadowCloakEntityComponent>> toDelete = new();
         while (children.MoveNext(out var child))
         {
-            if (shadowCloakQuery.TryComp(child, out var comp))
-                toDelete.Add((child, comp));
+            if (shadowCloakQuery.HasComp(child))
+                PredictedQueueDel(child);
         }
 
-        foreach (var child in toDelete)
-        {
-            AttemptDeleteShadowCloakEntity(child);
-        }
+        _modifier.RefreshMovementSpeedModifiers(ent);
 
-        if (_net.IsClient)
-            return;
-
-        _audio.PlayPvs(ent.Comp.Sound, ent);
+        ResetAbilityCooldown(ent, ent.Comp.RevealCooldown);
     }
 
     private void OnStartup(Entity<ShadowCloakedComponent> ent, ref ComponentStartup args)
@@ -261,20 +252,23 @@ public abstract class SharedShadowCloakSystem : EntitySystem
         if (_net.IsClient)
             return;
 
-        _audio.PlayPvs(ent.Comp.Sound, ent);
-
         var xform = Transform(ent);
 
         var shadowCloakQuery = GetEntityQuery<ShadowCloakEntityComponent>();
         var children = xform.ChildEnumerator;
         while (children.MoveNext(out var child))
         {
-            if (shadowCloakQuery.HasComponent(child))
-                return;
+            if (!shadowCloakQuery.TryComp(child, out var shadowCloak))
+                continue;
+
+            shadowCloak.User = ent;
+            return;
         }
 
         var cloakEntity = SpawnAttachedTo(ent.Comp.ShadowCloakEntity, ent.Owner.ToCoordinates());
-        EnsureComp<ShadowCloakEntityComponent>(cloakEntity);
+        var cloak = EnsureComp<ShadowCloakEntityComponent>(cloakEntity);
+        cloak.User = ent;
+        Dirty(cloakEntity, cloak);
 
         _appearance.SetData(cloakEntity,
             RotationVisuals.RotationState,
@@ -299,8 +293,10 @@ public abstract class SharedShadowCloakSystem : EntitySystem
         var children = xform.ChildEnumerator;
         while (children.MoveNext(out var child))
         {
-            if (!shadowCloakQuery.HasComponent(child))
+            if (!shadowCloakQuery.TryComp(child, out var  shadowCloak))
                 continue;
+
+            shadowCloak.User = ent;
 
             return child;
         }
@@ -308,21 +304,28 @@ public abstract class SharedShadowCloakSystem : EntitySystem
         return null;
     }
 
-    private void AttemptDeleteShadowCloakEntity(Entity<ShadowCloakEntityComponent> ent)
+    private bool RemoveShadowCloak(EntityUid? ent)
     {
-        ent.Comp.DeletionAccumulator ??= ent.Comp.Lifetime;
+        if (ent == null || TerminatingOrDeleted(ent))
+            return false;
 
-        var xform = Transform(ent);
-        if (!xform.ParentUid.IsValid())
-            return;
+        if (!_status.TryEffectsWithComp<HereticCloakedStatusEffectComponent>(ent, out var effects))
+        {
+            RemCompDeferred<ShadowCloakedComponent>(ent.Value);
+            return false;
+        }
 
-        _transform.DetachEntity(ent, xform);
-    }
+        var result = false;
 
-    private void RemoveShadowCloak(Entity<ShadowCloakedComponent> ent)
-    {
-        _status.TryRemoveStatusEffect(ent, ent.Comp.Status, remComp: false);
-        RemCompDeferred(ent.Owner, ent.Comp);
+        foreach (var effect in effects)
+        {
+            if (effect.Comp1.Component == "ShadowCloaked")
+                result = true;
+
+            PredictedQueueDel(effect.Owner);
+        }
+
+        return result;
     }
 
     protected virtual void Startup(Entity<ShadowCloakedComponent> ent) { }

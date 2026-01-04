@@ -28,7 +28,27 @@
 
 - type: entity
   parent: MobStatusEffectBase
-  id: LockMarkedStatusEffectEffect
+  id: LockMarkedStatusEffect
   name: lock marked
   components:
   - type: AccessDeniedStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: ShadowCloakedStatusEffect
+  name: shadow cloak
+  components:
+  - type: HereticCloakedStatusEffect
+    component: ShadowCloaked
+    loseFocusMessage: heretic-ability-lose-focus-shadow-cloak
+  - type: StatusEffectAlert
+    alert: ShadowCloak
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: LastRefugeStatusEffect
+  name: caretaker's last refuge
+  components:
+  - type: HereticCloakedStatusEffect
+    component: LastRefuge
+    loseFocusMessage: heretic-ability-lose-focus-last-refuge

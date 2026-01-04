@@ -24,3 +24,24 @@
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-bulglar-finesse
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticLastRefuge
+  name: Caretaker’s Last Refuge
+  description: Shifts you into the Caretaker's Refuge, rendering you translucent and intangible. While in the Refuge your movement is unrestricted, but you cannot use your hands or cast any spells. You cannot enter the Refuge while near other sentient beings, and you can be removed from it upon contact with antimagical artifacts.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 6
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: last_refuge
+  - type: InstantAction
+    event: !type:EventHereticCloak
+      status: LastRefugeStatusEffect
+  - type: HereticAction
+    requireMagicItem: true
+  - type: LastRefugeAction

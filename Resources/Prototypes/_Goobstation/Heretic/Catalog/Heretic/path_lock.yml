@@ -130,3 +130,40 @@
     stage: 6
     whitelist:
     - Lock
+
+- type: listing
+  id: HereticLockPath8
+  name: knowledge-path-lock-s8-name
+  description: knowledge-path-lock-s8-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: last_refuge }
+  productHereticKnowledge: CaretakersLastRefuge
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 7
+    whitelist:
+    - Lock
+
+- type: listing
+  id: HereticLockPath9
+  name: knowledge-path-lock-s9-name
+  description: knowledge-path-lock-s9-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: labyrinth }
+  productHereticKnowledge: AscensionLock
+  cost:
+    KnowledgePoint: 3
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    requiresCanAscend: true
+    stage: 8
+    whitelist:
+    - Lock

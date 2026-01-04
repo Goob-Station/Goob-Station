@@ -56,20 +56,6 @@ public sealed class ShadowCloakSystem : SharedShadowCloakSystem
     {
         base.Update(frameTime);
 
-        var shadowEntityQuery = AllEntityQuery<ShadowCloakEntityComponent>();
-        while (shadowEntityQuery.MoveNext(out var uid, out var comp))
-        {
-            if (comp.DeletionAccumulator == null)
-                continue;
-
-            comp.DeletionAccumulator -= frameTime;
-
-            if (comp.DeletionAccumulator > 0)
-                continue;
-
-            QueueDel(uid);
-        }
-
         _accumulator += frameTime;
 
         if (_accumulator < SustainedDamageReductionInterval)

@@ -49,6 +49,7 @@ heretic-ritual-fail-sacrifice-ash = There's either not enough of them dead, or b
 heretic-ritual-fail-sacrifice-blade = Some of them are still having a head on their shoulders.
 heretic-ritual-fail-sacrifice-rust = Not enough rotting or silicon corpses.
 heretic-ritual-fail-sacrifice-cosmos = Not enough star marked corpses.
+heretic-ritual-fail-sacrifice-lock = Some of them still have orgains in their chest.
 heretic-ritual-fail-limit = You have reached a limit of items that this ritual provides.
 heretic-ritual-fail-no-lost-blades = No lost blades can be found.
 heretic-ritual-fail-already-ascended = You are already ascended.

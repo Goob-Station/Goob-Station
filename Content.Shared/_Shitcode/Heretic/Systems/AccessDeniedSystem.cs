@@ -1,5 +1,5 @@
 using Content.Goobstation.Common.Heretic;
-using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared._Shitcode.Heretic.Components.StatusEffects;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.StatusEffectNew.Components;
 

@@ -102,11 +102,7 @@ public sealed class HolosignSystem : EntitySystem
             if (!_physicsQuery.TryComp(entity, out var physics))
                 continue;
 
-            if ((physics.CollisionLayer &
-                 (int) (CollisionGroup.Impassable |
-                        CollisionGroup.LowImpassable |
-                        CollisionGroup.MidImpassable |
-                        CollisionGroup.HighImpassable)) != 0)
+            if ((physics.CollisionLayer & (int) (CollisionGroup.Impassable | CollisionGroup.HighImpassable)) != 0)
                 return;
         }
         LimitedChargesComponent? charges;

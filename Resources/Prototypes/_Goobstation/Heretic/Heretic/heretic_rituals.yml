@@ -499,6 +499,21 @@
   output:
     LabyrinthHandbook: 1
 
+- type: hereticRitual
+  id: AscensionLock
+  locName: knowledge-path-lock-s9-name
+  locDesc: knowledge-path-lock-s9-desc
+  icon:
+    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    state: labyrinth
+  customBehaviors:
+  - !type:RitualCanAscend
+  - !type:RitualLockAscendBehavior
+    min: 3
+    max: 3
+  outputKnowledge: UnlockTheLabyrinth
+  outputEvent: !type:EventHereticAscension
+
 ### side knowledge
 - type: hereticRitual
   id: RitualOfKnowledge
