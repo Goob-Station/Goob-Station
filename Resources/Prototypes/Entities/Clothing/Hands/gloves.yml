@@ -549,8 +549,8 @@
     attackRate: 10
     damage:
       types:
-       Blunt: 5
-       Slash: 5
+       Blunt: 3
+       Slash: 3
     soundHit:
       collection: Punch
     animation: WeaponArcFist
