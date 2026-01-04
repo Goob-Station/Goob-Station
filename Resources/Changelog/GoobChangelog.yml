@@ -19889,3 +19889,9 @@ Entries:
       message: Ghost bar
   id: 2250
   time: '2026-01-03T22:48:20.0000000+00:00'
+- author: mikusssssss
+  changes:
+    - type: Tweak
+      message: Oops all thieves now has a lower chance to roll.
+  id: 2251
+  time: '2026-01-04T08:01:18.0000000+00:00'
