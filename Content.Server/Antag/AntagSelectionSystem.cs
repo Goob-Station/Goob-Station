@@ -154,7 +154,6 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly LastRolledAntagManager _lastRolled = default!; // Goobstation
     [Dependency] private readonly PlayTimeTrackingManager _playTime = default!; // Goobstation
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly PopupSystem _popup = default!; // goobstation
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
@@ -629,19 +628,6 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         // goob edit - actual pacifism implant
         foreach (var special in def.Special)
             special.AfterEquip(ent);
-
-        // goob edit - clumsy antag no more
-        if (TryComp<ClumsyComponent>(player, out var clumsy))
-        {
-            // if not for the clown car i would've nuked it off the planet
-            clumsy.ClumsyCatching = false;
-            clumsy.ClumsyDefib = false;
-            clumsy.ClumsyGuns = false;
-            clumsy.ClumsyVaulting = false;
-            clumsy.ClumsyHypo = false;
-
-            _popup.PopupEntity(Loc.GetString("antag-gain-remove-clumsy"), player, player, Shared.Popups.PopupType.Medium);
-        }
 
         var afterEv = new AfterAntagEntitySelectedEvent(session, player, ent, def);
         RaiseLocalEvent(ent, ref afterEv, true);

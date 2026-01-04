@@ -134,6 +134,9 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
+using Content.Server.Database;
+using Content.Shared.Clumsy;
+using Content.Server.Popups;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -153,6 +156,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly CodewordSystem _codewordSystem = default!;
+    [Dependency] private readonly PopupSystem _popup = default!; // goob edit
 
     public override void Initialize()
     {
@@ -241,6 +245,19 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         // Change the faction
         _npcFaction.RemoveFaction(traitor, component.NanoTrasenFaction, false);
         _npcFaction.AddFaction(traitor, component.SyndicateFaction);
+
+        // goob edit - clumsy antag no more
+        if (TryComp<ClumsyComponent>(traitor, out var clumsy))
+        {
+            // if not for the clown car i would've nuked it off the planet
+            clumsy.ClumsyCatching = false;
+            clumsy.ClumsyDefib = false;
+            clumsy.ClumsyGuns = false;
+            clumsy.ClumsyVaulting = false;
+            clumsy.ClumsyHypo = false;
+
+            _popup.PopupEntity(Loc.GetString("antag-gain-remove-clumsy"), traitor, traitor, Shared.Popups.PopupType.Medium);
+        }
 
         return true;
     }
