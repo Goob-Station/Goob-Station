@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/04/2026 18:27:46
-  entityCount: 6879
+  time: 01/04/2026 20:34:41
+  entityCount: 6880
 maps: []
 grids:
 - 1668
@@ -20346,6 +20346,20 @@ entities:
         899:
         - - SignalContrabandDetected
           - Close
+  - uid: 6721
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 12.5,0.5
+      parent: 1668
+    - type: DeviceLinkSource
+      linkedPorts:
+        899:
+        - - SignalContrabandDetected
+          - Toggle
+        2103:
+        - - SignalContrabandDetected
+          - Toggle
 - proto: ConveyorBelt
   entities:
   - uid: 1576
@@ -41914,7 +41928,8 @@ entities:
   - uid: 5669
     components:
     - type: Transform
-      pos: 12.5,0.5
+      rot: -1.5707963267948966 rad
+      pos: 14.5,0.5
       parent: 1668
     - type: DeviceNetwork
       configurators:
