@@ -19,6 +19,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Timing;
 
 namespace Content.Server.EntityEffects.Effects;
 
@@ -61,42 +62,38 @@ public sealed partial class AreaReactionEffect : EntityEffect
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        if (args is EntityEffectReagentArgs reagentArgs)
+        if (args is not EntityEffectReagentArgs reagentArgs)
+            throw new NotImplementedException();
+
+        if (reagentArgs.Source == null)
+            return;
+
+        var spreadAmount = (int) Math.Max(0, Math.Ceiling((reagentArgs.Quantity / OverflowThreshold).Float()));
+        var splitSolution = reagentArgs.Source.SplitSolution(reagentArgs.Source.Volume);
+        var transform = args.EntityManager.GetComponent<TransformComponent>(args.TargetEntity);
+        var mapManager = IoCManager.Resolve<IMapManager>();
+        var mapSys = args.EntityManager.System<MapSystem>();
+        var spreaderSys = args.EntityManager.System<SpreaderSystem>();
+        var sys = args.EntityManager.System<TransformSystem>();
+        var turfSys = args.EntityManager.System<TurfSystem>();
+        var mapCoords = sys.GetMapCoordinates(args.TargetEntity, xform: transform);
+
+        if (!mapManager.TryFindGridAt(mapCoords, out var gridUid, out var grid) ||
+            !mapSys.TryGetTileRef(gridUid, grid, transform.Coordinates, out var tileRef))
         {
-            if (reagentArgs.Source == null)
-                return;
-
-            var spreadAmount = (int) Math.Max(0, Math.Ceiling((reagentArgs.Quantity / OverflowThreshold).Float()));
-            var splitSolution = reagentArgs.Source.SplitSolution(reagentArgs.Source.Volume);
-            var transform = reagentArgs.EntityManager.GetComponent<TransformComponent>(reagentArgs.TargetEntity);
-            var mapManager = IoCManager.Resolve<IMapManager>();
-            var mapSys = reagentArgs.EntityManager.System<MapSystem>();
-            var spreaderSys = args.EntityManager.System<SpreaderSystem>();
-            var sys = args.EntityManager.System<TransformSystem>();
-            var turfSys = args.EntityManager.System<TurfSystem>();
-            var mapCoords = sys.GetMapCoordinates(reagentArgs.TargetEntity, xform: transform);
-
-            if (!mapManager.TryFindGridAt(mapCoords, out var gridUid, out var grid) ||
-                !mapSys.TryGetTileRef(gridUid, grid, transform.Coordinates, out var tileRef))
-            {
-                return;
-            }
-
-            if (spreaderSys.RequiresFloorToSpread(_prototypeId) && turfSys.IsSpace(tileRef.Tile))
-                return;
-
-            var coords = mapSys.MapToGrid(gridUid, mapCoords);
-            var ent = reagentArgs.EntityManager.SpawnEntity(_prototypeId, coords.SnapToGrid());
-
-            var smoke = reagentArgs.EntityManager.System<SmokeSystem>();
-            smoke.StartSmoke(ent, splitSolution, _duration, spreadAmount);
-
-            var audio = reagentArgs.EntityManager.System<SharedAudioSystem>();
-            audio.PlayPvs(_sound, reagentArgs.TargetEntity, AudioParams.Default.WithVariation(0.25f));
             return;
         }
 
-        // TODO: Someone needs to figure out how to do this for non-reagent effects.
-        throw new NotImplementedException();
+        if (spreaderSys.RequiresFloorToSpread(_prototypeId) && turfSys.IsSpace(tileRef.Tile))
+            return;
+
+        var coords = mapSys.MapToGrid(gridUid, mapCoords);
+        var ent = args.EntityManager.SpawnEntity(_prototypeId, coords.SnapToGrid());
+
+        var smoke = args.EntityManager.System<SmokeSystem>();
+        smoke.StartSmoke(ent, splitSolution, _duration, spreadAmount);
+
+        var audio = args.EntityManager.System<SharedAudioSystem>();
+        audio.PlayPvs(_sound, args.TargetEntity, AudioParams.Default.WithVariation(0.25f));
     }
 }

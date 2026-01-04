@@ -9,3 +9,8 @@
   name: guide-entry-non-alcoholic-drinks
   text: /ServerInfo/_Goobstation/Guidebook/ReferenceTables/NonAlcoholicDrinks.xml
   filterEnabled: true
+
+- type: guideEntry
+  id: Enchanting
+  name: guide-entry-enchanting
+  text: /ServerInfo/_Goobstation/Guidebook/ReferenceTables/Enchanting.xml

@@ -85,3 +85,23 @@
     randomizeName: true
   - type: Loadout
     prototypes: [ VoxRaiderAntagGear ]
+
+- type: entity
+  parent: BaseMobHuman
+  id: SantaClaus
+  name: Santa Claus
+  components:
+  - type: Loadout
+    prototypes: [ SantaGear ]
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-santa-name
+    description: ghost-role-information-santa-description
+    rules: ghost-role-information-nonantagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleNeutral
+    raffle:
+      settings: default
