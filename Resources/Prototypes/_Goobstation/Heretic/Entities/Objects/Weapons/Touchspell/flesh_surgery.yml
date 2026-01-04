@@ -9,7 +9,7 @@
   - type: Item
   - type: UnholyItem
   - type: Sprite
-    scolor: "#911500"
+    color: "#911500"
   - type: Appearance
   - type: PointLight
     color: "#911500"

@@ -97,7 +97,6 @@ using Content.Shared.Verbs;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Content.Goobstation.Server.Cult.GameTicking;
 
 namespace Content.Server.Administration.Systems;
 

@@ -13,5 +13,5 @@ public sealed partial class BloodCultRuneComponent : Component
     /// <summary>
     ///     What will the rune do when activated.
     /// </summary>
-    [DataField] public List<EntityEventArgs> Events = new();
+    [DataField] public EntityEventArgs? Event;
 }

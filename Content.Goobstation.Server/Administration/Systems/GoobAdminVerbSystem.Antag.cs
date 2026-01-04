@@ -11,9 +11,9 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Blob;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
+using Content.Goobstation.Server.Cult.GameTicking;
 using Content.Goobstation.Server.Devil.GameTicking.Rules;
 using Content.Goobstation.Server.Shadowling.Rules;
-using Content.Server._Goobstation.Cult.GameTicking;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
 using Content.Shared._EinsteinEngines.Silicon.Components;
