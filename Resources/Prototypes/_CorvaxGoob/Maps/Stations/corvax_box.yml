@@ -39,6 +39,7 @@
             Paramedic: [ 1, 1 ]
             Chemist: [ 2, 3 ]
             Surgeon: [ 1, 1 ]
+            Virologist: [ 2, 2 ]
             # science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 6 ]
@@ -69,6 +70,7 @@
             Zookeeper: [ 1, 1 ]
             Reporter: [ 1, 2 ]
             Passenger: [ -1, -1 ]
+            RadioHost: [ 1, 1 ]
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]
