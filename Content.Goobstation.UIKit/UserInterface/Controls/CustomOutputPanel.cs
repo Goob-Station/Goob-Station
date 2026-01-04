@@ -51,7 +51,7 @@ public sealed class CustomOutputPanel : Control
 
     public void UpdateLastMessage(FormattedMessage message)
     {
-        var newEnt = new CustomRichTextEntry(message, this, _tagManager, _entManager, null);
+        var newEnt = new CustomRichTextEntry(message, this, _tagManager, _entManager);
         newEnt.Update(_tagManager, _getFont(), _getContentBox().Width, UIScale);
         _entries[_entries.Count - 1] = newEnt;
     }
@@ -101,12 +101,17 @@ public sealed class CustomOutputPanel : Control
     {
         var msg = new FormattedMessage();
         msg.AddText(text);
-        AddMessage(msg);
+        AddMessage(msg, null);
     }
 
     public void AddMessage(FormattedMessage message)
     {
-        var entry = new CustomRichTextEntry(message, this, _tagManager, _entManager, null);
+        AddMessage(message, CustomRichTextEntry.DefaultTags);
+    }
+
+    public void AddMessage(FormattedMessage message, Type[]? tagsAllowed)
+    {
+        var entry = new CustomRichTextEntry(message, this, _tagManager, _entManager, tagsAllowed);
 
         entry.Update(_tagManager, _getFont(), _getContentBox().Width, UIScale);
 

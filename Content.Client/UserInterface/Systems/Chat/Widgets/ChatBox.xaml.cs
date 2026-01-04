@@ -26,7 +26,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Goobstation.Common.CCVar; // Goobstation Change
 using Content.Shared.Chat;
@@ -54,8 +53,8 @@ public partial class ChatBox : UIWidget
 
     private readonly ISawmill _sawmill;
     private readonly ChatUIController _controller;
-    private readonly IConfigurationManager _cfg; // WD EDIT
-    private readonly ILocalizationManager _loc; // WD EDIT
+    private readonly IConfigurationManager _cfg = default!; // WD EDIT
+    private readonly ILocalizationManager _loc = default!; // WD EDIT
 
     public bool Main { get; set; }
 
@@ -70,7 +69,6 @@ public partial class ChatBox : UIWidget
     {
         RobustXamlLoader.Load(this);
         _sawmill = _log.GetSawmill("chat");
-        _loc = IoCManager.Resolve<ILocalizationManager>();
 
         ChatInput.Input.OnTextEntered += OnTextEntered;
         ChatInput.Input.OnKeyBindDown += OnInputKeyBindDown;
@@ -122,6 +120,9 @@ public partial class ChatBox : UIWidget
         // Thanks robustengine, very cool.
         if (_coalescence && msg.CanCoalesce && _lastLine == tup)
         {
+            if (!msg.CanCoalesce) // Goobstation Edit - Coalescing Chat
+                return;
+
             _lastLineRepeatCount++;
             AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
             Contents.RemoveEntry(^2);
@@ -188,7 +189,6 @@ public partial class ChatBox : UIWidget
         formatted.PushColor(color);
         formatted.AddMarkupOrThrow(message);
         formatted.Pop();
-        Contents.AddMessage(formatted);
         if(repeat != 0) // WD EDIT START
         {
             int displayRepeat = repeat + 1;
@@ -198,7 +198,7 @@ public partial class ChatBox : UIWidget
                                 ("size", 8+sizeIncrease)
                                 ));
         } // WD EDIT END
-        Contents.AddMessage(formatted);
+        Contents.AddMessage(formatted, tagsAllowed: null);
     }
 
     public void Focus(ChatSelectChannel? channel = null)
