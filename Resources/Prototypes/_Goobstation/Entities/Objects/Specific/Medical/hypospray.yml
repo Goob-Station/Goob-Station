@@ -42,7 +42,6 @@
     transferAmount: 10
     onlyAffectsMobs: false
     injectOnly: true
-    ignoresArmor: true
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
     delay: 30
@@ -114,7 +113,6 @@
     transferAmount: 10
     onlyAffectsMobs: false
     injectOnly: true
-    ignoresArmor: true
   - type: HyposprayBlockNonMobInjection
   - type: ContainerContainer
     containers:

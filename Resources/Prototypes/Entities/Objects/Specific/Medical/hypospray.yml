@@ -188,7 +188,6 @@
     solution: hypospray
   - type: Hypospray
     onlyAffectsMobs: false
-    ignoresArmor: true # Goobstation
   - type: UseDelay
     delay: 0.25
   - type: Appearance
@@ -235,7 +234,6 @@
     - type: UseDelay
       delay: 0.0
     - type: Hypospray # Goobstation
-      ignoresArmor: true
 
 - type: entity
   name: chemical medipen
@@ -273,7 +271,6 @@
     transferAmount: 20 # Goobstation
     onlyAffectsMobs: false
     injectOnly: true
-    ignoresArmor: true # Goobstation
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 1
@@ -392,7 +389,6 @@
     transferAmount: 25 # Goobstation
     onlyAffectsMobs: false
     injectOnly: true
-    ignoresArmor: true # Goobstation
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -439,7 +435,7 @@
     transferAmount: 25 # Goobstation
     onlyAffectsMobs: false
     injectOnly: true
-    ignoresArmor: true # Goobstation
+
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -484,7 +480,6 @@
     transferAmount: 20
     onlyAffectsMobs: false
     injectOnly: true
-    ignoresArmor: true # Goobstation
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -527,7 +522,6 @@
     transferAmount: 15
     onlyAffectsMobs: false
     injectOnly: true
-    ignoresArmor: true # Goobstation
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -570,7 +564,6 @@
     transferAmount: 20
     onlyAffectsMobs: false
     injectOnly: true
-    ignoresArmor: true # Goobstation
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -613,7 +606,6 @@
     transferAmount: 40
     onlyAffectsMobs: false
     injectOnly: true
-    ignoresArmor: true # Goobstation
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -657,7 +649,6 @@
     transferAmount: 30
     onlyAffectsMobs: false
     injectOnly: true
-    ignoresArmor: true # Goobstation
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -714,7 +705,6 @@
     transferAmount: 30
     onlyAffectsMobs: false
     injectOnly: true
-    ignoresArmor: true # Goobstation
   - type: StaticPrice
     price: 1500
 
@@ -798,7 +788,6 @@
     transferAmount: 35
     onlyAffectsMobs: false
     injectOnly: true
-    ignoresArmor: true # Goobstation
   - type: StaticPrice
     price: 1500
 
@@ -871,4 +860,3 @@
     transferAmount: 1
     onlyAffectsMobs: false
     injectOnly: true
-    ignoresArmor: true # Goobstation
