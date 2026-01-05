@@ -130,7 +130,7 @@
   parent: [BaseTraitorObjective, BaseLivingObjective]
   id: EscapeShuttleObjective
   name: Escape to centcomm alive and unrestrained.
-  description: One of our undercover agents will debrief you when you arrive. Don't show up in cuffs.
+  description: One of our undercover agents will debrief you when you arrive on the evacuation shuttle. Don't show up in cuffs. # Goobstation
   components:
   - type: Objective
     difficulty: 1.3

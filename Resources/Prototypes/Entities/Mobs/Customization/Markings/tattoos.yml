@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 portfiend <109661617+portfiend@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Froffy025 <78222136+Froffy025@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
@@ -156,7 +157,7 @@
   id: TattooEyeRight
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin, Plasmaman] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin, Plasmaman, Feroxi] # Delta V - Felinid, Harpy, Rodentia, Feroxi; Goob - Tajaran; EE- Oni, Shadowkins
   coloring:
     default:
       type:
@@ -170,7 +171,7 @@
   id: TattooEyeLeft
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin, Plasmaman] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin, Plasmaman, Feroxi] # Delta V - Felinid, Harpy, Rodentia, Feroxi; Goob - Tajaran; EE- Oni, Shadowkins
   coloring:
     default:
       type:
@@ -275,3 +276,28 @@
   - sprite: Mobs/Customization/tattoos.rsi
     state: tattoo_eye_l
   shader: unshaded
+
+- type: marking
+  id: TattooEyeshadowUpper
+  # there are a lot of deliberate limitations with this marking that should be pointed out. some of them may seem overly restrictive on the surface, but most of them are fully intentional.
+  # this marking is meant to be supplementary so they are transparent. if you give this 255 alpha it will probably be really distracting looking and make the face very difficult to read
+  # the reason these are also not recolorable is because allowing for the full RGB range makes these look not very good (especially considering they are stackable, and ESPECIALLY considering vox can stack 3 at once.)
+  # this is not a very big issue on humans, but is much more pronounced on vox & other nonhuman species, where the skin being more colorful can make for some truly dreadful meshing with the sprite thats definitely not desired.
+  # some of these limitations could possibly be removed with better control over how the marking can be customized - possibly removing stacking, allowing recoloring & clamping higher-end colors for the eyeshadow, etc.
+  bodyPart: Eyes
+  markingCategory: Overlay
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
+  forcedColoring: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: eyeshadow_upper
+
+- type: marking
+  id: TattooEyeshadowLower
+  bodyPart: Eyes
+  markingCategory: Overlay
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
+  forcedColoring: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: eyeshadow_lower

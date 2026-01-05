@@ -23,6 +23,7 @@ using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Medical;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
+using Content.Shared.Body.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;

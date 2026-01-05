@@ -24,3 +24,16 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+
+- type: loadout
+  id: RDSummerShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRDSummer
+
+- type: loadout
+  id: ResearchDirectorLabCoatPurple
+  equipment:
+    outerClothing: ClothingOuterCoatRDPurple
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterRD

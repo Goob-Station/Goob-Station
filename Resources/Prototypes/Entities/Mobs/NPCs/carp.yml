@@ -121,6 +121,7 @@
   description: It's a space carp.
   abstract: true
   components:
+    - type: WeatherImmune
     - type: InputMover
     - type: MobMover
     - type: HTN
@@ -192,8 +193,15 @@
       tags:
         - Carp
         - DoorBumpOpener
-    - type: ReplacementAccent
-      accent: genericAggressive
+        - CannotSuicide
+    # - type: ReplacementAccent
+    #   accent: genericAggressive
+    - type: LanguageKnowledge # goob edit - swap replacement accent for language
+      speaks:
+      - Carptongue
+      understands:
+      - TauCetiBasic
+      - Carptongue
     - type: Speech
       speechVerb: LargeMob
     - type: InteractionPopup
@@ -207,6 +215,7 @@
       color: "#808080"
       activateSound: null
       deactivateSound: null
+    - type: VentCrawler # Goobstation
     - type: Fauna # Lavaland Change
 
 - type: entity
@@ -279,6 +288,10 @@
   suffix: "Salvage Ruleset"
   components:
     - type: SalvageMobRestrictions
+#    - type: MobThresholds # Lavaland change
+#      thresholds:
+#        0: Alive
+#        30: Dead
 
 - type: entity
   name: space carp
@@ -354,7 +367,8 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        150: Dead
+        #82: Dead # Might seem random, but this brings up the hits to kill with a crusher mark to 3
+        150: Dead # Lavaland Change
     - type: Stamina
       critThreshold: 150
     - type: DamageStateVisuals

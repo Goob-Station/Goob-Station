@@ -113,15 +113,19 @@
     boardName: wires-board-name-computer
     layoutId: Computer
   - type: SpamEmitSound # Goobstation - random lathe sounds
-    minInterval: 300
-    maxInterval: 900
+    minInterval: 45
+    maxInterval: 120
     sound:
-      collection: RandomComputerSounds
+      collection: MonoComputerSFX
       params:
         volume: -12 # Ambient
         maxDistance: 10
         variation: 0.05
   - type: SpamEmitSoundRequirePower # Goobstation
+  - type: InteractedBlacklist # Goobstation - xenos too stupid to use computer
+    blacklist:
+      components:
+      - Xenomorph
   # Einstein Engines - Language begin
   - type: LanguageSpeaker
   - type: LanguageKnowledge

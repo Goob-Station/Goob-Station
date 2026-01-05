@@ -54,6 +54,7 @@
     - BaseStationCargo
     - BaseStationJobsSpawning
     - BaseStationRecords
+    - BaseStationNtrTasks
     - BaseStationArrivals
     - BaseStationGateway
     - BaseStationShuttles

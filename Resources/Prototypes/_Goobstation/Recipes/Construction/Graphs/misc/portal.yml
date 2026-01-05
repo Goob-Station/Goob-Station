@@ -1,0 +1,16 @@
+- type: constructionGraph
+  id: LavaPortal
+  graph:
+    - node: start
+    - node: Lavaportal
+      entity: GatewayLavalandStation
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: GatewayFlatpackLavaland
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 3

@@ -4,13 +4,14 @@
   name: Urist McPlasma
   abstract: true
   components:
+  - type: ZombieImmune
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
     state: full
   - type: Sprite
     layers:
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Groin" ]
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
@@ -145,18 +146,6 @@
       - 0    # nitrogen
       - 0    # CO2
       - 100  # plasma
-  - type: Fixtures
-    fixtures: # TODO: This needs a second fixture just for mob collisions.
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 160
-        restitution: 0.0
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
   - type: Destructible
     thresholds:
     - trigger:

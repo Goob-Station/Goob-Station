@@ -87,6 +87,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
+using System.Linq; // Goob Edit
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -177,6 +178,7 @@ namespace Content.Shared.Containers.ItemSlots
             {
                 slot.ContainerSlot = _containers.EnsureContainer<ContainerSlot>(uid, id);
             }
+            itemSlots.Slots = itemSlots.Slots.OrderByDescending((pair => pair.Value.Priority)).ToDictionary(); //Goob Edit - Ordered lists are good.
         }
 
         /// <summary>
@@ -192,7 +194,7 @@ namespace Content.Shared.Containers.ItemSlots
             {
                 if (existing.Local)
                     Log.Error(
-                        $"Duplicate item slot key. Entity: {EntityManager.GetComponent<MetaDataComponent>(uid).EntityName} ({uid}), key: {id}");
+                        $"Duplicate item slot key. Entity: {Comp<MetaDataComponent>(uid).EntityName} ({uid}), key: {id}");
                 else
                     // server state takes priority
                     slot.CopyFrom(existing);
@@ -223,7 +225,7 @@ namespace Content.Shared.Containers.ItemSlots
             itemSlots.Slots.Remove(slot.ContainerSlot.ID);
 
             if (itemSlots.Slots.Count == 0)
-                EntityManager.RemoveComponent(uid, itemSlots);
+                RemComp(uid, itemSlots);
             else
                 Dirty(uid, itemSlots);
         }
@@ -297,7 +299,7 @@ namespace Content.Shared.Containers.ItemSlots
             if (args.Handled)
                 return;
 
-            if (!EntityManager.TryGetComponent(args.User, out HandsComponent? hands))
+            if (!TryComp(args.User, out HandsComponent? hands))
                 return;
 
             if (itemSlots.Slots.Count == 0)
@@ -320,6 +322,7 @@ namespace Content.Shared.Containers.ItemSlots
                 if (CanInsert(uid, args.Used, args.User, slot, slot.Swap))
                 {
                     slots.Add(slot);
+                    break; //Goobstation: If an item has multiple ItemSlots, stick with the highest priority and stop looking.
                 }
                 else
                 {
@@ -346,7 +349,7 @@ namespace Content.Shared.Containers.ItemSlots
             }
 
             // Drop the held item onto the floor. Return if the user cannot drop.
-            if (_handsSystem.IsHolding(args.User, args.Used) && !_handsSystem.TryDrop(args.User, args.Used, handsComp: hands)) // Goobstation - don't try to drop if not holding
+            if (_handsSystem.IsHolding(args.User, args.Used) && !_handsSystem.TryDrop(args.User, args.Used)) // Goobstation - don't try to drop if not holding
                 return;
 
             slots.Sort(SortEmpty);
@@ -486,17 +489,17 @@ namespace Content.Shared.Containers.ItemSlots
             if (!Resolve(user, ref hands, false))
                 return false;
 
-            if (hands.ActiveHand?.HeldEntity is not { } held)
+            if (!_handsSystem.TryGetActiveItem((user, hands), out var held))
                 return false;
 
-            if (!CanInsert(uid, held, user, slot))
+            if (!CanInsert(uid, held.Value, user, slot))
                 return false;
 
             // hands.Drop(item) checks CanDrop action blocker
-            if (!_handsSystem.TryDrop(user, hands.ActiveHand))
+            if (!_handsSystem.TryDrop(user, hands.ActiveHandId!))
                 return false;
 
-            Insert(uid, slot, held, user, excludeUserAudio: excludeUserAudio);
+            Insert(uid, slot, held.Value, user, excludeUserAudio: excludeUserAudio);
             return true;
         }
 
@@ -519,16 +522,14 @@ namespace Content.Shared.Containers.ItemSlots
             if (!Resolve(ent, ref ent.Comp, false))
                 return false;
 
-            TryComp(user, out HandsComponent? handsComp);
-
             if (!TryGetAvailableSlot(ent,
                     item,
-                    user == null ? null : (user.Value, handsComp),
+                    user,
                     out var itemSlot,
                     emptyOnly: true))
                 return false;
 
-            if (user != null && !_handsSystem.TryDrop(user.Value, item, handsComp: handsComp))
+            if (user != null && !_handsSystem.TryDrop(user.Value, item))
                 return false;
 
             Insert(ent, itemSlot, item, user, excludeUserAudio: excludeUserAudio);
@@ -557,7 +558,7 @@ namespace Content.Shared.Containers.ItemSlots
                 && Resolve(user, ref user.Comp)
                 && _handsSystem.IsHolding(user, item))
             {
-                if (!_handsSystem.CanDrop(user, item, user.Comp))
+                if (!_handsSystem.CanDrop(user, item))
                     return false;
             }
 
@@ -793,7 +794,7 @@ namespace Content.Shared.Containers.ItemSlots
 
                 var verbSubject = slot.Name != string.Empty
                     ? Loc.GetString(slot.Name)
-                    : EntityManager.GetComponent<MetaDataComponent>(slot.Item.Value).EntityName ?? string.Empty;
+                    : Comp<MetaDataComponent>(slot.Item.Value).EntityName ?? string.Empty;
 
                 AlternativeVerb verb = new()
                 {

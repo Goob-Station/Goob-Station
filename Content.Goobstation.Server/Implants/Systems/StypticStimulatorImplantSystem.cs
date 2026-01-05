@@ -10,8 +10,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Server.Implants.Components;
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Implants;
 using Robust.Shared.Containers;
@@ -45,13 +45,13 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<StypticStimulatorImplantComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        while (query.MoveNext(out var comp))
         {
             if (comp.NextExecutionTime > _gameTiming.CurTime || comp.User is not { } user)
                 continue;
 
             if (TryComp<BloodstreamComponent>(user, out var bloodstreamComponent))
-                _bloodstream.TryModifyBleedAmount(user, comp.BleedingModifier, bloodstreamComponent);
+                _bloodstream.TryModifyBleedAmount((user, bloodstreamComponent), comp.BleedingModifier);
 
             if (TryComp<DamageableComponent>(user, out var damageableComponent))
                 _damageable.TryChangeDamage(user, comp.DamageModifier, true, false, damageableComponent);

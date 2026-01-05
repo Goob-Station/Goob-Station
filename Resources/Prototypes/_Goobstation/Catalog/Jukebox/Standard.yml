@@ -288,3 +288,27 @@
   name: Crockitz - Abductor
   path:
     path: /Audio/_Goobstation/Music/Abductor.ogg
+
+- type: jukebox
+  id: blackswarm
+  name: Bobik-music - Black Swarm
+  path:
+    path: /Audio/_Goobstation/Music/Black_Swarm.ogg
+
+- type: jukebox
+  id: asgore
+  name: KennyTheLyr1c1st - Asgore Runs Over Dess
+  path:
+    path: /Audio/_Goobstation/Music/Asgore_runs_over_dess_short.ogg
+
+- type: jukebox
+  id: the_final_battle
+  name: Bobik-music - The Final Battle
+  path:
+    path: /Audio/_Goobstation/Music/Colonial_Marines_The_Final_Battle.ogg
+
+- type: jukebox
+  id: graytide
+  name: Mrjajkes - The Greytide Song
+  path:
+    path: /Audio/_Goobstation/Music/the_gray_tide_song.ogg

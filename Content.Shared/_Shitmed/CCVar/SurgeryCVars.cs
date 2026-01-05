@@ -18,7 +18,7 @@ public sealed class SurgeryCVars : CVars
     /// Whether or not players can operate on themselves.
     /// </summary>
     public static readonly CVarDef<bool> CanOperateOnSelf =
-        CVarDef.Create("surgery.can_operate_on_self", true, CVar.SERVERONLY);
+        CVarDef.Create("surgery.can_operate_on_self", true, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     /// How many times per second do we want to heal wounds.

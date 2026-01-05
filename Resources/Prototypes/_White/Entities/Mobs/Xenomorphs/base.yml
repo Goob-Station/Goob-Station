@@ -4,18 +4,18 @@
   - MobDamageable
   - MobPolymorphable
   - MobCombat
-  - MobBloodstream
+  - XenomorphBloodstream # Goob, uses custom bloodstream so we can disable bleeding for the time being.
   - MobFlammable
   id: BaseMobXenomorph
   abstract: true
   components:
   - type: Xenomorph
-    weedHeal:
+    weedHeal: # Goobstation - nerfed healing
       groups:
-        Burn: -5
+        Burn: -3
         Toxin: -5
         Airloss: -10
-        Brute: -5
+        Brute: -4
   - type: Pinpointer
     whitelist:
       components:
@@ -27,7 +27,8 @@
     canExamine: false
   - type: ThermalVision
     toggleAction: ToggleThermalVisionXenomorph
-    color: "#7d0cc9"
+    color: white
+    drawOverlay: false
     lightRadius: 10
     strength: 0
     noise: 0
@@ -46,7 +47,6 @@
   - type: Deathgasp
     prototype: XenomorphDeathgasp
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: xenomorph
@@ -93,6 +93,7 @@
     bloodlossHealDamage:
       types:
         Bloodloss: -1
+    bleedReductionAmount: 5  #goob
   - type: MeleeWeapon
     altDisarm: true
     angle: 0
@@ -104,10 +105,18 @@
         Brute: 25
   - type: TypingIndicator
     proto: alien
+  - type: AtmosExposed
   - type: Temperature
-    heatDamageThreshold: 360
+    heatDamageThreshold: 600
     coldDamageThreshold: -150
     currentTemperature: 310.15
+    coldDamage: #per second, scales with temperature & other constants
+      types:
+        Cold : 0.1
+    specificHeat: 42
+    heatDamage: #per second, scales with temperature & other constants
+      types:
+        Heat : 1.5
   - type: ZombieImmune
   - type: StatusEffects
     allowed:
@@ -128,30 +137,37 @@
   - type: LanguageKnowledge
     speaks:
     - Xeno
-    - XenoHivemind
+#    - XenoHivemind # Goobstation - collective mind
     understands:
     - Xeno
-    - XenoHivemind
+#    - XenoHivemind # Goobstation - collective mind
     - Hissing
     - Draconic
+  - type: CollectiveMind # Goobstation
+    defaultChannel: Xenomorphivemind
+    channels:
+    - Xenomorphivemind
   - type: SSDIndicator
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
+  - type: Access # Goobstation - xeno doors
+    enabled: true
+    groups:
+    - XenomorphAccess
+
 
 - type: entity
   parent: [BaseMobXenomorph, StripableInventoryBase]
   id: BaseMobXenomorphAdult
   abstract: true
   components:
-  - type: Tool
+  - type: Prying #Switched from Tools component to this
     speedModifier: 1.5
-    qualities:
-    - Prying
-  - type: Prying
     pryPowered: true
   - type: ComplexInteraction
   - type: Hands
+  - type: ShowHealthIcons
   - type: Puller
     needsHands: false
   - type: IdExaminable
@@ -176,6 +192,7 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
+  - type: XenomorphShoveTracker
 
 - type: entity
   id: BaseMobXenomorphDungeon

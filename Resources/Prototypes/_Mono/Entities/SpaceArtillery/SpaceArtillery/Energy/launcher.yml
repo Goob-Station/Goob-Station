@@ -1,0 +1,177 @@
+# RUBICON
+# TODO: When shields will be added, debuff the damage and make EMP effect temporarily disable shields
+- type: entity
+  id: WeaponShuttleEnergyRubicon
+  name: M220 RUBICON EMP launcher
+  parent: BallisticArtillery
+  description: Launches EMP projectiles at ships. Can be remotely activated, or linked up to a GCS.
+  components:
+  - type: StaticPrice
+    price: 5000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/rubicon.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 2
+    projectileSpeed: 90
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 200
+    powerUsePassive: 2000
+    powerUseActive: 0
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipRubiconProjectile
+    fireCost: 400
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 800
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadarBlip
+    radarColor: "#035EFC"
+    scale: 2
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Light
+
+# MARAUDER
+
+- type: entity
+  id: WeaponShuttleEnergyMarauder
+  name: MARAUDER plasma weapon
+  parent: BallisticArtillery
+  description: Launches magnetically contained balls of plasma at targets. Can be remotely activated, or linked up to a GCS.
+  components:
+  - type: StaticPrice
+    price: 2500
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/t35.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 3000
+    startingCharge: 3000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 0.5
+    projectileSpeed: 90
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  #- type: BatterySelfRecharger
+  #  autoRecharge: true
+  #  autoRechargeRate: 350
+  - type: SpaceArtillery
+    powerChargeRate: 100
+    powerUsePassive: 500
+    powerUseActive: 0
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipMediumPlasmaProjectile
+    fireCost: 1000
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 2
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Medium
+
+# DYMERE
+
+- type: entity
+  id: WeaponShuttleEnergyDymere
+  name: ADEX-9 DYMERE turbolaser
+  parent: BallisticArtilleryUnanchorable
+  description: Aetherion Dynamics Weapons Development Branch's most iconic product. Ionized gas projectiles will melt through anything you put in front of them. Can be remotely activated, or linked up to a GCS.
+  components:
+  - type: StaticPrice
+    price: 20000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/dymere.rsi
+    state: space_artillery
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 20000
+    startingCharge: 20000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.75,-0.75,0.75,0.75"
+        density: 1500
+  - type: Gun
+    projectileSpeed: 90
+    fireRate: 0.1
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/laserfire.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 2000
+    powerUsePassive: 20000
+    powerUseActive: 0
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipDymereProjectile
+    fireCost: 20000
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 3
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Heavy

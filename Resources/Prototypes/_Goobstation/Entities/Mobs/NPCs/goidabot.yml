@@ -1,0 +1,55 @@
+# goida
+- type: entity
+  parent: [MobSiliconBase, MobCombat]
+  id: MobGoidaBot
+  name: goida bot
+  description: ГОЙДА
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Silicon/Bots/goidabot.rsi
+    state: goidabot
+  - type: RussianAccent
+  - type: Advertise
+    pack: Goida
+    minimumWait: 1
+    maximumWait: 8
+  - type: MeleeWeapon # same as a wielded baseball bat, only used with admin abuse
+    animationRotation: -135
+    heavyStaminaCost: 15
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 15
+        Structural: 15
+    soundHit:
+      collection: MetalThud
+  - type: HTN
+    rootTask:
+      task: HonkbotCompound
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 220
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      220: Dead
+  - type: Construction
+    graph: GoidaBot
+    node: bot
+  - type: InteractionPopup
+    interactSuccessString: goida-1
+    interactFailureString: goida-1
+
+- type: localizedDataset
+  id: Goida
+  values:
+    prefix: goida-
+    count: 1

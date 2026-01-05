@@ -13,9 +13,24 @@
   slots:
     chest:
       part: ChestAnimal
+      connections: # Shitmed
+      - groin
       organs:
         lungs: OrganAnimalLungs
+        heart: OrganAnimalHeart
+    # <Shitmed>
+    groin:
+      part: GroinAnimal
+      connections:
+      - legs
+      organs:
         stomach: OrganMothStomach
         liver: OrganAnimalLiver
-        heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
+    legs:
+      part: LegsAnimal
+      connections:
+      - feet
+    feet:
+      part: FeetAnimal
+    # </Shitmed>

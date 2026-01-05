@@ -1,0 +1,10 @@
+- type: entity
+  id: CrateBiomass
+  parent: CrateGenericSteel
+  name: Biomass Crate
+  description: A crate full of biomass cubes for use in cloning or other printers.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MaterialBiomass
+        amount: 1  #it was too op guys

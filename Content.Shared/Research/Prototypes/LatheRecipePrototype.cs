@@ -73,13 +73,12 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Materials;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Research.Prototypes
 {
-    [NetSerializable, Serializable, Prototype]
+    [Prototype]
     public sealed partial class LatheRecipePrototype : IPrototype, IInheritingPrototype
     {
         [ViewVariables]
@@ -100,6 +99,12 @@ namespace Content.Shared.Research.Prototypes
         /// </summary>
         [DataField]
         public LocId? Name;
+
+        /// <summary>
+        ///     Goobstation - Subname displayed in brackets near name. Used for recipes that should have same name, but have some difference.
+        /// </summary>
+        [DataField("subname")]
+        public LocId? SubName;
 
         /// <summary>
         ///     Short description displayed in the lathe GUI.

@@ -29,20 +29,20 @@
 
 # Surplus Voidsuits
 
-uplink-hardsuit-syndiemedic-name = Gorlex Agent Voidsuit
-uplink-hardsuit-syndiemedic-desc = A bundle with a surplus combat medic voidsuit, from the Gorlex Marauders.
+uplink-hardsuit-syndiemedic-name = Gorlex Agent Hardsuit
+uplink-hardsuit-syndiemedic-desc = A bundle with a surplus combat medic hardsuit, from the Gorlex Marauders.
 
-uplink-hardsuit-syndiecommander-name = Gorlex Commander Voidsuit
-uplink-hardsuit-syndiecommander-desc = A surplus commander voidsuit, from the Gorlex Marauders. Too bulky to put in a bundle, so no tanks included!
+uplink-hardsuit-syndiecommander-name = Gorlex Commander Hardsuit
+uplink-hardsuit-syndiecommander-desc = A surplus commander hardsuit, from the Gorlex Marauders. Too bulky to put in a bundle, so no tanks included!
 
 # Cybersun Stealth
 
-uplink-hardsuit-cybersun-stealth-name = Cybersun Stealth Voidsuit
-uplink-hardsuit-cybersun-stealth-desc = Reversed engineered from Spider Clan technology, this voidsuit has stealth plating in it for those special ops. Slightly slower and less armor than the default voidsuits.
+uplink-hardsuit-cybersun-stealth-name = Cybersun Stealth Hardsuit
+uplink-hardsuit-cybersun-stealth-desc = Reverse-engineered from Spider Clan technology, this hardsuit has stealth plating in it for those special ops. Slightly slower and less armored than other hardsuits.
 
 # Cybersun Dreadnought suit
 uplink-hardsuit-cybersun-dreadnought-name = Cybersun Dreadnought suit
-uplink-hardsuit-cybersun-dreadnought-desc = An insanely tough combat voidsuit utilizing hyper-bluespace enhanced plasteel to make an almost impenetrable wall out of the wearer. However, only the absolutely insane syndicate followers will put this on. Because of its weight, it must be tightened very hard, to the point of impaling the user and being unable to be taken off without completely ripping off their skin. The syndicate sends their regards.
+uplink-hardsuit-cybersun-dreadnought-desc = An insanely tough combat hardsuit utilizing hyper-bluespace enhanced plasteel to make an almost impenetrable wall out of the wearer. However, only the absolutely insane syndicate followers will put this on. Because of its weight, it must be tightened very hard, to the point of impaling the user and being unable to be taken off without completely ripping off their skin. The syndicate sends their regards.
 
 # Misc
 
@@ -85,6 +85,9 @@ uplink-magazine-nailgun-desc = Almost like a normal magazine for your nail gun. 
 
 uplink-pressure-modkit-name = Pressure Modkit
 uplink-pressure-modkit-desc = This illegal modkit takes 30 capacity of your proto-kinetic accelerator and overclocks it to deal full damage even in unsuitable pressure.
+
+uplink-grey-tide-name = Grey Tide
+uplink-grey-tide-desc = An antient artifact with magical properties. Identical to plasma spear but capable of summoning illusions upon hitting living mob if wielder is an Assistant.
 
 # Weapons
 
@@ -202,21 +205,27 @@ uplink-high-caliber-shotgun-box-slug-name = 8 Gauge slug box
 uplink-high-caliber-shotgun-box-slug-desc = 16 shells of 8 Gauge slugs, for the combat shotgun.
 
 uplink-high-caliber-shotgun-box-flash-slug-name = 8 Gauge flash shell box
-uplink-high-caliber-shotgun-box-flash-slug-desc = 16 shells of 8 Gauge flashbang shells, for the combat shotgun. Doesn't down those without hearing protection.
+uplink-high-caliber-shotgun-box-flash-slug-desc = 16 shells of 8 Gauge flashbang shells, for the combat shotgun. Doesn't down those with flash protection.
 
 uplink-high-caliber-shotgun-box-sarin-name = 8 Gauge sarin gas shell box
 uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells for the combat shotgun, which release a small plus-shaped cloud of sarin gas.
 
+uplink-estoc-ammo-name = Rifle Magazine (.20 rifle)
+uplink-estoc-ammo-desc = Rifle magazine with 25 rounds. Compatable with the Estoc.
+
 # Grenades
 
 uplink-sarin-gas-grenade-name = Sarin Gas Grenade
-uplink-sarin-gas-grenade-desc = A brutal neurotoxin gas that stuns, blinds, and poisons anybody unlucky enough to catch a whiff aswell as burning anyone not in a voidsuit, leaving them writhing on the floor begging to be finished off
+uplink-sarin-gas-grenade-desc = A brutal neurotoxin gas that stuns, blinds, and poisons anybody unlucky enough to catch a whiff as well as burning anyone not in a voidsuit, leaving them writhing on the floor begging to be finished off.
 
 uplink-M172LAW-name = M172 Light Anti-structure Weapon
 uplink-M172LAW-desc = A single shot disposable rocket launcher for taking out singular walls/machines with minimal collateral damage. can be stored in your backpack conveniently.
 
 uplink-RPOA-name = RPO-A 'Shmel'
 uplink-RPOA-desc = A single shot disposable thermobaric rocket launcher, which lights hostiles and hostages on fire in a wide radius. can be stored in your backpack.
+
+uplink-ExplosivePayloadBlueprint-name = Explosive Payload Blueprint
+uplink-ExplosivePayloadBlueprint-desc = A blueprint that will allow a single lathe to print explosive payloads, an illegal and dangerous device that can be used in grenades.
 
 # Mechs
 
@@ -276,6 +285,18 @@ uplink-autosurgeon-cyberdeck-desc = Replaces the user's eyes with Cyberdeck, a c
 uplink-davids-jacket-name = Edgerunner Jacket
 uplink-davids-jacket-desc = A jacket for those particularly interested in improving their bodies, just like you.
 
+uplink-autosurgeon-smartlink-name = Smartlink Autosurgeon
+uplink-autosurgeon-smartlink-desc = Modifies the user's arms to include smartlink cyberware, improving aim with ranged weapons. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-autosurgeon-recoil-absorbing-name = Recoil Absorbing Arms Autosurgeon
+uplink-autosurgeon-recoil-absorbing-desc = Modifies the user's arms to include recoil absorbing cyberware, drastically reducing recoil when firing ranged weapons. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-autosurgeon-berserker-heart-name = Berserker Heart Autosurgeon
+uplink-autosurgeon-berserker-heart-desc = Replaces the user's heart with a berserker implant, that allows them to enter a berserk state, greatly increasing their melee damage, speed and preventing from critical damage. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-autosurgeon-jumpstarter-heart-name = Jumpstarter Heart Autosurgeon
+uplink-autosurgeon-jumpstarter-heart-desc = Replaces the user's heart with a jumpstarter implant, that injects enough omnizine to get up once you got critical damage. Has a 3 minutes cooldown. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
 # Wearables
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet
@@ -286,6 +307,9 @@ uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced
 
 uplink-belt-rig-name = Grenadier Belt
 uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
+
+uplink-guerrilla-gloves-name = Guerrilla Gloves
+uplink-guerrilla-gloves-desc = A special shock resistant pair of gloves that make you hard grab by default, reduce your slowdown when actively grabbing and make it harder for victims to escape your grabs.
 
 # Deception
 
@@ -329,6 +353,11 @@ uplink-undetermined-bundle-desc = This crate comes with three random bundles and
 uplink-energy-pickaxe-name = Energy Pickaxe
 uplink-energy-pickaxe-desc = A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
 
-uplink-bloodred-casette-name = Bloodred Casette Player
-uplink-bloodred-casette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!
+uplink-bloodred-cassette-name = Bloodred Casette Player
+uplink-bloodred-cassette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!
 
+uplink-syndiedrobe-name = Syndiedrobe
+uplink-syndiedrobe-desc = A vending machine stocked with Syndicate-branded clothing. Simple, sharp, and unmistakably red-and-black, it offers operatives a way to dress with Syndicate style.
+
+uplink-customboard-name = Custom Syndicate Lawboard
+uplink-customboard-desc = A modified lawboard that allows the user to change the laws to anything they want. Comes with Antimov pre-installed.

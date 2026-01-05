@@ -13,7 +13,7 @@
     icon:
       sprite: _Goobstation/SlaughterDemon/abilities.rsi
       state: crawl
-    useDelay: 3
+    useDelay: 4
   - type: InstantAction
     event: !type:BloodCrawlEvent
 
@@ -24,12 +24,14 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    raiseOnUser: true
     icon:
       sprite: _Goobstation/SlaughterDemon/abilities.rsi
       state: whisper
     itemIconStyle: NoItem
   - type: TargetAction
     interactOnMiss: false
+    range: 15
   - type: EntityTargetAction
     canTargetSelf: false
     event: !type:DemonicWhisperEvent

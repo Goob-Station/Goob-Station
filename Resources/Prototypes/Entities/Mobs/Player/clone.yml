@@ -14,10 +14,11 @@
   - Dna
   - Fingerprint
   - NpcFactionMember
+  - EncryptionKeyHolder # Goobstation
   # traits
   # - LegsParalyzed (you get healed)
+  - BlackAndWhiteOverlay
   - LightweightDrunk
-  - Monochromacy
   - Muted
   - Narcolepsy
   - Pacified
@@ -30,9 +31,10 @@
   - BibleUser
   - CommandStaff
   - Clumsy
-  - MindShield
+  # - MindShield # goob edit - it's an implant. why?
   - MimePowers
   - SpaceNinja
+  - Thieving
   # accents
   - Accentless
   - BackwardsAccent
@@ -61,6 +63,14 @@
   - SouthernAccent
   - SpanishAccent
   - StutteringAccent
+  # <Goobstation>
+  - Heretic
+  - Changeling
+  - ChangelingIdentity # the actual ling component
+  - WeakToHoly
+  - CanEnchant
+  - Store # needed for heretic and any other antags with an intrinsic store, IDEALLY this would be on the mind
+  # </Goobstation>
   # Einstein Engines - Language begin
   - LanguageSpeaker
   - LanguageKnowledge

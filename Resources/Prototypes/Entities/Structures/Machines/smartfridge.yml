@@ -19,8 +19,11 @@
   categories: [ HideSpawnMenu ] # DeltaV - apparently we can't migrate abstract/disabled prototypes
   components:
   - type: StationAiWhitelist
-  - type: Advertise
-    pack: SmartFridgeAds
+  - type: Vocalizer
+    hideChat: true
+  - type: VocalizerRequiresPower
+  - type: DatasetVocalizer
+    dataset: SmartFridgeAds
   - type: Speech
   - type: Appearance
   - type: Sprite

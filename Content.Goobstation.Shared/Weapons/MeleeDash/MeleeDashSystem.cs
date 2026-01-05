@@ -8,6 +8,7 @@
 using Content.Goobstation.Common.Weapons.MeleeDash;
 using Content.Shared.Emoting;
 using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Standing;
@@ -33,6 +34,7 @@ public sealed class MeleeDashSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     private const int DashCollisionLayer = (int) CollisionGroup.MidImpassable;
 
@@ -61,7 +63,7 @@ public sealed class MeleeDashSystem : EntitySystem
         if (!HasComp<MobStateComponent>(args.OtherEntity))
             return;
 
-        if (!TryComp(uid, out HandsComponent? hands) || hands.ActiveHandEntity != comp.Weapon)
+        if (!_hands.IsHolding(ent.Owner, ent.Comp.Weapon))
             return;
 
         comp.HitEntities.Add(args.OtherEntity);

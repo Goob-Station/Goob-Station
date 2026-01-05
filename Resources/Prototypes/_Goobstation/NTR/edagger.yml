@@ -1,0 +1,42 @@
+- type: entity
+  name: Phoron dagger
+  parent: [ BaseMeleeWeaponEnergy, BaseCentcommContraband ]
+  id: PhoronDagger
+  suffix: DO NOT MAP
+  description: A sleek dagger for grilling cheese and slaying tiders.
+  components:
+    - type: ItemToggle
+      soundFailToActivate:
+        path: /Audio/Machines/button.ogg
+        params:
+          variation: 0.250
+      soundActivate:
+        path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+      soundDeactivate:
+        path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyoff.ogg
+    - type: ItemToggleActiveSound
+      activeSound:
+        path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyhum.ogg
+    - type: Sprite
+      sprite: _Goobstation/Objects/Weapons/Melee/e_daggerntr.rsi
+      layers:
+        - state: edagger
+        - state: edagger_blade
+          color: "#b5fbfa"
+          visible: false
+          shader: unshaded
+          map: [ "blade" ]
+    - type: MeleeWeapon
+      heavyStaminaCost: 10
+      swingLeft: true
+      wideAnimationRotation: 135
+      attackRate: 1
+      damage:
+        types:
+          Slash: 2
+    - type: ItemToggleMeleeWeapon
+      activatedDamage:
+        types:
+          Heat: 10
+          Slash: 10
+          Structural: 20

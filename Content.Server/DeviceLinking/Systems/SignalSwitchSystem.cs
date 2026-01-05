@@ -19,8 +19,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.DeviceLinking;
 using Content.Server.DeviceLinking.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Lock;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 
@@ -30,6 +33,8 @@ public sealed class SignalSwitchSystem : EntitySystem
 {
     [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly LockSystem _lock = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!; // CorvaxGoob-ButtonsVisuals
 
     public override void Initialize()
     {
@@ -42,11 +47,16 @@ public sealed class SignalSwitchSystem : EntitySystem
     private void OnInit(EntityUid uid, SignalSwitchComponent comp, ComponentInit args)
     {
         _deviceLink.EnsureSourcePorts(uid, comp.OnPort, comp.OffPort, comp.StatusPort);
+
+        UpdateAppearance((uid, comp)); // CorvaxGoob-ButtonsVisuals
     }
 
     private void OnActivated(EntityUid uid, SignalSwitchComponent comp, ActivateInWorldEvent args)
     {
         if (args.Handled || !args.Complex)
+            return;
+
+        if (_lock.IsLocked(uid))
             return;
 
         comp.State = !comp.State;
@@ -60,6 +70,16 @@ public sealed class SignalSwitchSystem : EntitySystem
 
         _audio.PlayPvs(comp.ClickSound, uid, AudioParams.Default.WithVariation(0.125f).WithVolume(8f));
 
+        UpdateAppearance((uid, comp)); // CorvaxGoob-ButtonsVisuals
+
         args.Handled = true;
     }
+
+    // CorvaxGoob-ButtonsVisuals-Start
+    private void UpdateAppearance(Entity<SignalSwitchComponent> entity)
+    {
+        if (TryComp(entity, out AppearanceComponent? appearance))
+            _appearance.SetData(entity, SignalSwitchVisuals.State, entity.Comp.State ? SignalSwitchState.On : SignalSwitchState.Off, appearance);
+    }
+    // CorvaxGoob-ButtonsVisuals-End
 }

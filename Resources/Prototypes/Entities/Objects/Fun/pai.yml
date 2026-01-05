@@ -210,8 +210,6 @@
           Searching: { state: pai-searching-overlay }
           On: { state: pai-on-overlay }
   - type: StationMap
-  - type: StationAiVision # Goobstation - AI can see through NT silicon
-    range: 1
   - type: ChangeVoiceInContainer
     whitelist:
       components:
@@ -261,6 +259,12 @@
     - Schechi
     - NewKinPidgin
   # Einstein Engines - Language end
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSilicon
+  - type: Tag
+    tags:
+    - SiliconEmotes
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]
@@ -295,10 +299,28 @@
           Off: { state: syndicate-pai-off-overlay }
           Searching: { state: syndicate-pai-searching-overlay }
           On: { state: syndicate-pai-on-overlay }
-  - type: StationAiVision # Goobstation - AI can see through NT silicon
-    enabled: false
   - type: StaticPrice
     price: 500
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSiliconSyndicate
+
+- type: entity
+  parent: PersonalAI
+  id: GoldenPersonalAI
+  name: golden personal ai device
+  description: Your electronic pal who's fun to be with! Special golden edition!
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/pai.rsi
+    layers:
+    - state: golden-pai-base
+    - state: pai-off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: Appearance
+  - type: StaticPrice
+    price: 5000
 
 - type: entity
   parent: PersonalAI

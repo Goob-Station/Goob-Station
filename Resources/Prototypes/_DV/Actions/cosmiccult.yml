@@ -84,7 +84,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 999
+    useDelay: 600
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -95,7 +95,7 @@
   - type: InstantAction
     event: !type:EventCosmicMoveMonument
   - type: MonumentPlacementPreview
-    tier: 2
+    tier: 1
 
 - type: entity
   parent: BaseAction

@@ -36,9 +36,18 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD
+      head-vox:
+      - state: equipped-HEAD-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-vulpkanin
+    
   - type: Tag
     tags:
     - WhitelistChameleon
+    - PlasmamanSafe
+  - type: IgniteFromGasImmunity
+    parts:
+    - Head
   - type: Armor
     coverage:
     - Head
@@ -54,6 +63,7 @@
     - Snout
     - HeadTop
     - HeadSide
+  - type: FaceHuggerBlocker
 
 - type: entity
   abstract: true
@@ -75,7 +85,7 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetStandard
-  name: standard hardsuit helmet
+  name: standard modsuit helmet
   description: A special modular suit spaceproof helmet designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
@@ -101,6 +111,10 @@
       - state: equipped-HEAD-sealed
       head-resomi:
       - state: equipped-HEAD-sealed-resomi
+      head-vox:
+      - state: equipped-HEAD-sealed-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-sealed-vulpkanin
   - type: Armor
     modifiers:
       coefficients:
@@ -133,7 +147,7 @@
     energy: 2
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -152,8 +166,8 @@
         id: blinking
         interpolate: Nearest
         maxDuration: 1.0
-        minValue: 0.1
-        maxValue: 2.0
+        startValue: 0.1
+        endValue: 2.0
         isLooped: true
   - type: Battery
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
@@ -172,7 +186,7 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetSecurity
-  name: soldat hardsuit helmet
+  name: soldat modsuit helmet
   description: A robust brain bucket for holding your brain in place just enough for it to be salvageable.
   categories: [ HideSpawnMenu ]
   components:
@@ -183,6 +197,10 @@
       - state: equipped-HEAD
       head-resomi:
       - state: equipped-HEAD-resomi
+      head-vox:
+      - state: equipped-HEAD-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-vulpkanin
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/security.rsi
     layers:
@@ -203,6 +221,10 @@
       - state: equipped-HEAD-sealed
       head-resomi:
       - state: equipped-HEAD-sealed-resomi
+      head-vox:
+      - state: equipped-HEAD-sealed-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-sealed-vulpkanin
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -241,7 +263,7 @@
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -260,8 +282,8 @@
         id: blinking
         interpolate: Nearest
         maxDuration: 1.0
-        minValue: 0.1
-        maxValue: 2.0
+        startValue: 0.1
+        endValue: 2.0
         isLooped: true
   - type: Battery
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
@@ -274,7 +296,7 @@
 - type: entity
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetHeadOfSecurity
-  name: bulwark hardsuit helmet
+  name: bulwark modsuit helmet
   description: Put on the HEAD of security.. How do you see out of this thing?
   categories: [ HideSpawnMenu ]
   components:
@@ -285,6 +307,10 @@
       - state: equipped-HEAD
       head-resomi:
       - state: equipped-HEAD-resomi
+      head-vox:
+      - state: equipped-HEAD-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-vulpkanin
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/headofsecurity.rsi
     layers:
@@ -304,6 +330,10 @@
       - state: equipped-HEAD-sealed
       head-resomi:
       - state: equipped-HEAD-sealed-resomi
+      head-vox:
+      - state: equipped-HEAD-sealed-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-sealed-vulpkanin
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -335,7 +365,7 @@
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -354,8 +384,8 @@
         id: blinking
         interpolate: Nearest
         maxDuration: 1.0
-        minValue: 0.1
-        maxValue: 2.0
+        startValue: 0.1
+        endValue: 2.0
         isLooped: true
   - type: Battery
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
@@ -367,7 +397,7 @@
 - type: entity
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetParamedic
-  name: sanitater hardsuit helmet
+  name: sanitater modsuit helmet
   description: A robust brain bucket for working on barely salvageable brains.
   categories: [ HideSpawnMenu ]
   components:
@@ -389,6 +419,10 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
+      head-vox:
+      - state: equipped-HEAD-sealed-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-sealed-vulpkanin
   - type: Armor
     modifiers:
       coefficients:
@@ -414,7 +448,7 @@
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -433,8 +467,8 @@
         id: blinking
         interpolate: Nearest
         maxDuration: 1.0
-        minValue: 0.1
-        maxValue: 2.0
+        startValue: 0.1
+        endValue: 2.0
         isLooped: true
   - type: Battery
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
@@ -446,7 +480,7 @@
 - type: entity
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetEngineer
-  name: sapper hardsuit helmet
+  name: sapper modsuit helmet
   description: A flat plate with cameras allowing your vision. turns you into an aero-cuck, but not like that matters in space.
   categories: [ HideSpawnMenu ]
   components:
@@ -458,6 +492,7 @@
     - state: helmet-sealed
       visible: false
       map: [ "sealed" ]
+  - type: HideLayerClothing
     hideOnToggle: true
   - type: IdentityBlocker
   - type: IngestionBlocker
@@ -469,6 +504,10 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
+      head-vox:
+      - state: equipped-HEAD-sealed-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-sealed-vulpkanin
   - type: Armor
     modifiers:
       coefficients:
@@ -496,7 +535,7 @@
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -515,8 +554,8 @@
         id: blinking
         interpolate: Nearest
         maxDuration: 1.0
-        minValue: 0.1
-        maxValue: 2.0
+        startValue: 0.1
+        endValue: 2.0
         isLooped: true
   - type: Battery
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
@@ -528,7 +567,7 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetAtmostech
-  name: aeolus hardsuit helmet
+  name: aeolus modsuit helmet
   description: A specialised gas helmet to provide oxygen more efficiently.
   categories: [ HideSpawnMenu ]
   components:
@@ -550,6 +589,10 @@
       - state: equipped-HEAD
       head-resomi:
       - state: equipped-HEAD-resomi
+      head-vox:
+      - state: equipped-HEAD-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-vulpkanin
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -560,6 +603,10 @@
       - state: equipped-HEAD-sealed
       head-resomi:
       - state: equipped-HEAD-sealed-resomi
+      head-vox:
+      - state: equipped-HEAD-sealed-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-sealed-vulpkanin
   - type: Armor
     modifiers:
       coefficients:
@@ -592,7 +639,7 @@
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -611,8 +658,8 @@
         id: blinking
         interpolate: Nearest
         maxDuration: 1.0
-        minValue: 0.1
-        maxValue: 2.0
+        startValue: 0.1
+        endValue: 2.0
         isLooped: true
   - type: Battery
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
@@ -626,7 +673,7 @@
 - type: entity
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetResearchDirector
-  name: minerva hardsuit helmet
+  name: minerva modsuit helmet
   description: A dark dark dark visor protecting your precious face from shrap and blast.
   categories: [ HideSpawnMenu ]
   components:
@@ -655,6 +702,10 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
+      head-vox:
+      - state: equipped-HEAD-sealed-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-sealed-vulpkanin
   - type: Armor
     modifiers:
       coefficients:
@@ -681,7 +732,7 @@
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -700,8 +751,8 @@
         id: blinking
         interpolate: Nearest
         maxDuration: 1.0
-        minValue: 0.1
-        maxValue: 2.0
+        startValue: 0.1
+        endValue: 2.0
         isLooped: true
   - type: Battery
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
@@ -713,7 +764,7 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetCaptain
-  name: magnate hardsuit helmet
+  name: magnate modsuit helmet
   description: The visor is made from 10,000 year old amythest.
   categories: [ HideSpawnMenu ]
   components:
@@ -724,6 +775,8 @@
       - state: equipped-HEAD
       head-resomi:
       - state: equipped-HEAD-resomi
+      head-vox:
+      - state: equipped-HEAD-vox
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/captain.rsi
     layers:
@@ -744,6 +797,10 @@
       - state: equipped-HEAD-sealed
       head-resomi:
       - state: equipped-HEAD-sealed-resomi
+      head-vox:
+      - state: equipped-HEAD-sealed-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-sealed-vulpkanin
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -783,7 +840,7 @@
     energy: 3
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    netsync: true
   - type: HandheldLight
     addPrefix: true
     blinkingBehaviourId: blinking
@@ -802,8 +859,8 @@
         id: blinking
         interpolate: Nearest
         maxDuration: 1.0
-        minValue: 0.1
-        maxValue: 2.0
+        startValue: 0.1
+        endValue: 2.0
         isLooped: true
   - type: Battery
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.

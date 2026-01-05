@@ -74,9 +74,9 @@
       - Trash
   - type: Ammo
   - type: Sprite
-    sprite: Objects/Fun/toys.rsi
+    sprite: Objects/Fun/Foam/foam_dart.rsi
     layers:
-      - state: foamdart
+    - state: foamdart
   - type: EmbeddableProjectile
     removalTime: .2
   - type: ThrowingAngle

@@ -108,3 +108,41 @@
       board: [ DoorElectronicsAllService ]
   - type: Wires
     layoutId: AirlockService
+
+#Robo
+
+- type: entity
+  parent: AirlockRobotics
+  id: AirlockRoboticsLocked
+  suffix: Robotics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsRobotics ]
+
+# Journalism
+
+- type: entity
+  parent: AirlockServiceLocked
+  id: AirlockJournalismLocked
+  suffix: Journalism, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJournalism ]
+
+- type: entity
+  parent: AirlockServiceGlassLocked
+  id: AirlockJournalismGlassLocked
+  suffix: Journalism, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJournalism ]
+
+- type: entity
+  parent: AirlockJournalismLocked
+  id: AirlockMaintJournalismLocked
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/maint.rsi

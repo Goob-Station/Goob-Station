@@ -133,6 +133,19 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+  # Goobstation
+  - type: DiseaseProtection
+    # full prot with even a normal mask
+    incoming:
+      powerModifiers:
+        Aerial: -0.8
+      chanceMultipliers:
+        Aerial: 0.5
+    outgoing:
+      powerModifiers:
+        Aerial: -0.8
+      chanceMultipliers:
+        Aerial: 0.5
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
@@ -328,6 +341,11 @@
   - type: AddAccentClothing
     accent: ReplacementAccent
     replacement: dog
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - ClothMade
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadBase

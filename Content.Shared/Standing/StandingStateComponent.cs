@@ -33,8 +33,12 @@ public sealed partial class StandingStateComponent : Component
     public StandingState CurrentState { get; set; } = StandingState.Standing;
     // WD EDIT END
 
-    [DataField, AutoNetworkedField]
-    public bool Standing { get; set; } = true;
+    /// <summary>
+    /// Goobstation - made to just use CurrentState and no longer a real field
+    /// This means while you try to get up it pushes mobs away which looks a bit better than standing up and suddenly pushing everyone out.
+    /// </summary>
+    [ViewVariables]
+    public bool Standing => CurrentState != StandingState.Lying;
 
     /// <summary>
     ///     List of fixtures that had their collision mask changed when the entity was downed.

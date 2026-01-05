@@ -94,7 +94,7 @@ public sealed partial class NPCSteeringSystem
 
         if (TryComp<FixturesComponent>(uid, out var manager))
         {
-            (layer, mask) = _physics.GetHardCollision(uid, manager);
+            (layer, mask) = PhysicsSystem.GetHardCollision(uid, manager);
         }
         else
         {
@@ -207,7 +207,7 @@ public sealed partial class NPCSteeringSystem
             // Try smashing obstacles.
             else if ((component.Flags & PathFlags.Smashing) != 0x0)
             {
-                if (_melee.TryGetWeapon(uid, out _, out var meleeWeapon) && meleeWeapon.NextAttack <= _timing.CurTime && TryComp<CombatModeComponent>(uid, out var combatMode))
+                if (_melee.TryGetWeapon(uid, out _, out var meleeWeapon) && meleeWeapon.NextAttack <= Timing.CurTime && TryComp<CombatModeComponent>(uid, out var combatMode))
                 {
                     _combat.SetInCombatMode(uid, true, combatMode);
                     var destructibleQuery = GetEntityQuery<DestructibleComponent>();

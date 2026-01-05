@@ -82,16 +82,16 @@
         children:
         - id: SpeedLoaderCap
           amount: !type:RangeNumberSelector
-            range: 4, 8
+            range: 4, 5
         - !type:GroupSelector
           children:
           - id: RevolverCapGun
             amount: !type:RangeNumberSelector
-              range: 4, 8
+              range: 4, 5
             weight: 95
           - id: RevolverCapGunFake
             amount: !type:RangeNumberSelector
-              range: 1, 8
+              range: 1, 2
             weight: 5
 
 - type: entity

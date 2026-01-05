@@ -40,7 +40,7 @@ public sealed partial class LavalandGridRuinPrototype : IPrototype
     public ResPath Path { get; }
 
     [DataField]
-    public int SpawnAttemps = 8;
+    public int SpawnAttempts = 8;
 
     [DataField]
     public bool PatchToPlanet = true;

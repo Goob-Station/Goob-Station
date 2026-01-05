@@ -129,9 +129,9 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 17.5
-        Cold: 10
-        Asphyxiation: 7.5
+        Piercing: 5
+        Cold: 5
+        Asphyxiation: 5
         Ion: 17.5
   - type: Wieldable
     wieldSound:
@@ -206,12 +206,12 @@
       groups:
         Brute: -10
   - type: Gun
-    projectileSpeed: 4
+    projectileSpeed: 5
     soundGunshot: /Audio/_DV/CosmicCult/projectile_razor.ogg
     fireRate: 1.75
     useKey: false
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.1
+    rechargeCooldown: 0.3
     rechargeSound:
       path: /Audio/_DV/CosmicCult/projectile_razor_reload.ogg
   - type: BasicEntityAmmoProvider

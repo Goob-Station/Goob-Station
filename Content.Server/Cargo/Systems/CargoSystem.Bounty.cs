@@ -99,7 +99,6 @@ using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Cargo.Systems;
@@ -110,8 +109,7 @@ public sealed partial class CargoSystem
     [Dependency] private readonly NameIdentifierSystem _nameIdentifier = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSys = default!;
 
-    [ValidatePrototypeId<NameIdentifierGroupPrototype>]
-    private const string BountyNameIdentifierGroup = "Bounty";
+    private static readonly ProtoId<NameIdentifierGroupPrototype> BountyNameIdentifierGroup = "Bounty";
 
     private EntityQuery<StackComponent> _stackQuery;
     private EntityQuery<ContainerManagerComponent> _containerQuery;
@@ -521,7 +519,8 @@ public sealed partial class CargoSystem
         // This bounty id already exists! Probably because NameIdentifierSystem ran out of ids.
         if (component.Bounties.Any(b => b.Id == newBounty.Id))
         {
-            Log.Error("Failed to add bounty {ID} because another one with the same ID already existed!", newBounty.Id);
+            // goob edit - changed this to a warning
+            Log.Warning("Failed to add bounty {ID} because another one with the same ID already existed!", newBounty.Id);
             return false;
         }
         component.Bounties.Add(new CargoBountyData(bounty, randomVal));

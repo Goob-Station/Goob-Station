@@ -74,7 +74,7 @@ public sealed class BlockGameArcadeSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        var query = EntityManager.EntityQueryEnumerator<BlockGameArcadeComponent>();
+        var query = EntityQueryEnumerator<BlockGameArcadeComponent>();
         while (query.MoveNext(out var _, out var blockGame))
         {
             blockGame.Game?.GameTick(frameTime);

@@ -18,7 +18,6 @@ namespace Content.Shared.DeviceLinking;
 /// <summary>
 ///     A prototype for a device port, for use with device linking.
 /// </summary>
-[Serializable, NetSerializable]
 public abstract class DevicePortPrototype
 {
     [IdDataField]
@@ -28,24 +27,22 @@ public abstract class DevicePortPrototype
     ///     Localization string for the port name. Displayed in the linking UI.
     /// </summary>
     [DataField("name", required:true)]
-    public string Name = default!;
+    public LocId Name; // Goobstation - LocId
 
     /// <summary>
     ///     Localization string for a description of the ports functionality. Should either indicate when a source
     ///     port is fired, or what function a sink port serves. Displayed as a tooltip in the linking UI.
     /// </summary>
     [DataField("description", required: true)]
-    public string Description = default!;
+    public LocId Description; // Goobstation - LocId
 }
 
 [Prototype]
-[Serializable, NetSerializable]
 public sealed partial class SinkPortPrototype : DevicePortPrototype, IPrototype
 {
 }
 
 [Prototype]
-[Serializable, NetSerializable]
 public sealed partial class SourcePortPrototype : DevicePortPrototype, IPrototype
 {
     /// <summary>

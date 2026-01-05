@@ -8,11 +8,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared.Heretic.Prototypes;
 
-[Serializable, NetSerializable, DataDefinition]
 [Prototype("hereticKnowledge")]
 public sealed partial class HereticKnowledgePrototype : IPrototype
 {

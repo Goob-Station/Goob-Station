@@ -103,7 +103,7 @@ public sealed class SetSelectorSystem : EntitySystem
             _container.TryGetContainer(spawnedStorage, spawnedStorageContainer, out target);
         }
 
-        ignoredContainers.AddRange(_hands.EnumerateHands(args.Actor).Select(hand => hand.Name));
+        ignoredContainers.AddRange(_hands.EnumerateHands(args.Actor));
         spawnedEntities.ForEach(ent => RecursiveInsert(ent, target, ignoredContainers));
 
         if (openSpawnedStorage)

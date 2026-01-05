@@ -14,8 +14,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitResponsoryLeader
-  name: Leader Responsory hardsuit control unit # Goob edit
-  description: The main controller for a Leader Responsory hardsuit. # Goob edit
+  name: Leader Responsory modsuit control unit
+  description: The main controller for a Leader Responsory modsuit.
   components:
     - type: ClothingSpeedModifier
       walkModifier: 1
@@ -48,8 +48,8 @@
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsResponsoryLeader
-  name: Leader Responsory hardsuit gauntlets # Goob edit
-  description: A pair of gauntlets made for the Leader Responsory hardsuit. # Goob edit
+  name: Leader Responsory modsuit gauntlets
+  description: A pair of gauntlets made for the Leader Responsory modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -65,8 +65,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
   id: ClothingModsuitHelmetResponsoryLeader
-  name: Leader Responsory hardsuit helmet # Goob edit
-  description: A state-of-the-art helmet designed by NanoTrasen for the Leader Responsory hardsuit. It includes a built-in HUD. # Goob edit
+  name: Leader Responsory modsuit helmet
+  description: A state-of-the-art helmet designed by NanoTrasen for the Leader Responsory modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -111,8 +111,8 @@
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateResponsoryLeader
-  name: Leader Responsory hardsuit chestplate # Goob edit
-  description: A state of the art chestplate designed by NanoTrasen for the Leader Responsory hardsuit. It incorporates powered servos to reduce the equipment load. # Goob edit
+  name: Leader Responsory modsuit chestplate
+  description: A state of the art chestplate designed by NanoTrasen for the Leader Responsory modsuit. It incorporates powered servos to reduce the equipment load.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -153,8 +153,8 @@
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsResponsoryLeader
-  name: Leader Responsory hardsuit boots # Goob edit
-  description: A state-of-the-art pair of magboots for the Leader Responsory hardsuit. So long as the suit is powered, these will not slow the wearer down. # Goob edit
+  name: Leader Responsory modsuit boots
+  description: A state-of-the-art pair of magboots for the Leader Responsory modsuit. So long as the suit is powered, these will not slow the wearer down.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

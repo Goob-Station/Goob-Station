@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -12,7 +13,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Clumsy;
 
 /// <summary>
-/// A simple clumsy tag-component.
+/// Makes the entity clumsy, randomly failing some interactions and hurting themselves.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ClumsyComponent : Component
@@ -55,10 +56,16 @@ public sealed partial class ClumsyComponent : Component
     public TimeSpan GunShootFailStunTime = TimeSpan.FromSeconds(3);
 
     /// <summary>
-    ///     Stun time after failing to shoot a gun.
+    ///     Damage taken after failing to shoot a gun.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public DamageSpecifier? GunShootFailDamage;
+    public DamageSpecifier? GunShootFailDamage = new() {DamageDict = new Dictionary<string, FixedPoint2> {{"Brute", 12}}}; // Goob edit - add a default value (evil)
+
+    /// <summary>
+    ///     Damage taken after failing to catch an item.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public DamageSpecifier? CatchingFailDamage;
 
     /// <summary>
     ///     Noise to play after failing to shoot a gun. Boom!
@@ -85,6 +92,12 @@ public sealed partial class ClumsyComponent : Component
     public bool ClumsyGuns = true;
 
     /// <summary>
+    ///      Whether or not to apply Clumsy to catching items.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ClumsyCatching = true;
+
+    /// <summary>
     ///      Whether or not to apply Clumsy to vaulting.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -94,17 +107,23 @@ public sealed partial class ClumsyComponent : Component
     ///      Lets you define a new "failed" message for each event.
     /// </summary>
     [DataField]
-    public LocId HypoFailedMessage = "hypospray-component-inject-self-clumsy-message";
+    public LocId HypoFailedMessage = "clumsy-hypospray-fail-message";
 
     [DataField]
-    public LocId GunFailedMessage = "gun-clumsy";
+    public LocId GunFailedMessage = "clumsy-gun-fail-message";
 
     [DataField]
-    public LocId VaulingFailedMessageSelf = "bonkable-success-message-user";
+    public LocId CatchingFailedMessageSelf = "clumsy-catch-fail-message-user";
 
     [DataField]
-    public LocId VaulingFailedMessageOthers = "bonkable-success-message-others";
+    public LocId CatchingFailedMessageOthers = "clumsy-catch-fail-message-others";
 
     [DataField]
-    public LocId VaulingFailedMessageForced = "forced-bonkable-success-message";
+    public LocId VaulingFailedMessageSelf = "clumsy-vaulting-fail-message-user";
+
+    [DataField]
+    public LocId VaulingFailedMessageOthers = "clumsy-vaulting-fail-message-others";
+
+    [DataField]
+    public LocId VaulingFailedMessageForced = "clumsy-vaulting-fail-forced-message";
 }

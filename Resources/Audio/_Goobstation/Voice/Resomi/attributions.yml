@@ -6,7 +6,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- files: ["trill, warble, wurble"]
+- files: ["trill.ogg", "warble.ogg", "wurble.ogg"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Taken from 'FD-NewBay' - Other places link to freesound.org"
+  copyright: "Taken from 'FD-NewBay' - Other places link to freesound.org. warble.ogg converted to mono by @deltanedas (github)"
   source: "https://github.com/RepoStash/FD-NewBay/tree/dev-sierra/mods/_fd/resomi_fd/sound"

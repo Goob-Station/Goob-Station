@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseItem
+  name: station report paper
+  id: NanoRepStationReport
+  description: The document is made out of gold, but somehow you are still able to write on it.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: station-report-paper
+  - type: StationReport
+  - type: Paper
+    content: station-report-text
+  - type: PaperLabelType
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface

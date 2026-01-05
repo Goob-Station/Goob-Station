@@ -1,0 +1,10 @@
+- type: listing
+  id: SpellbookCrateOfEnchanting
+  name: spellbook-crate-of-enchanting-name
+  description: spellbook-crate-of-enchanting-description
+  productEntity: CrateWizardAnomCore
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookEquipment
+  disableRefund: true #no gamble scamming

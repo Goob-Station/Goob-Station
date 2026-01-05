@@ -18,26 +18,20 @@ using System.Linq;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
-using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
-using Content.Shared.Eye.Blinding.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Movement.Pulling.Events;
-using Content.Shared.Standing;
-using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 
 // Shitmed Change
 using Content.Shared.Body.Part;
-using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Humanoid;
-using Robust.Shared.Player;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Goobstation.Shared.MartialArts;
 
@@ -52,15 +46,16 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, HellRipHeadRipPerformedEvent>(OnHellRipHeadRip);
         SubscribeLocalEvent<CanPerformComboComponent, HellRipTearDownPerformedEvent>(OnHellRipTearDown);
 
-        SubscribeLocalEvent<GrantHellRipComponent, ComponentStartup>(OnGrantHellRip);
+        SubscribeLocalEvent<GrantHellRipComponent, MapInitEvent>(OnGrantHellRip);
         SubscribeLocalEvent<GrantHellRipComponent, ComponentShutdown>(OnRemoveHellRip);
+        SubscribeLocalEvent<GrantHellRipComponent, UseInHandEvent>(OnGrantCQCUse);
     }
 
     #region Generic Methods
 
-    private void OnGrantHellRip(Entity<GrantHellRipComponent> ent, ref ComponentStartup args)
+    private void OnGrantHellRip(Entity<GrantHellRipComponent> ent, ref MapInitEvent args)
     {
-        if (_netManager.IsClient)
+        if (!HasComp<MobStateComponent>(ent))
             return;
 
         TryGrantMartialArt(ent.Owner, ent.Comp);
@@ -70,19 +65,6 @@ public partial class SharedMartialArtsSystem
     private void OnRemoveHellRip(Entity<GrantHellRipComponent> ent, ref ComponentShutdown args)
     {
         var user = ent.Owner;
-        if (!TryComp<MartialArtsKnowledgeComponent>(user, out var martialArtsKnowledge))
-            return;
-
-        if (martialArtsKnowledge.MartialArtsForm != MartialArtsForms.HellRip)
-            return;
-
-        if (!TryComp<MeleeWeaponComponent>(user, out var meleeWeaponComponent))
-            return;
-
-        var originalDamage = new DamageSpecifier();
-        originalDamage.DamageDict[martialArtsKnowledge.OriginalFistDamageType]
-            = FixedPoint2.New(martialArtsKnowledge.OriginalFistDamage);
-        meleeWeaponComponent.Damage = originalDamage;
 
         RemComp<MartialArtsKnowledgeComponent>(user);
         RemComp<CanPerformComboComponent>(user);
@@ -96,8 +78,7 @@ public partial class SharedMartialArtsSystem
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !TryUseMartialArt(ent, proto, out var target, out var downed)
-            || !downed
-            || !TryComp(target, out StatusEffectsComponent? status)
+            || !_mobState.IsDead(target)
             || !TryComp<PullableComponent>(target, out var pullable))
             return;
 
@@ -107,7 +88,7 @@ public partial class SharedMartialArtsSystem
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", 300);
-        _damageable.TryChangeDamage(target, damage, true, origin: ent, targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Head);
+        _damageable.TryChangeDamage(target, damage, true, origin: ent, targetPart: TargetBodyPart.Head);
         var head = _body.GetBodyChildrenOfType(target , BodyPartType.Head).FirstOrDefault();
         if (head != default
             && TryComp<WoundableComponent>(head.Id, out var woundable)
@@ -166,7 +147,7 @@ public partial class SharedMartialArtsSystem
         var targetPos = _transform.GetMapCoordinates(target).Position;
         var direction = targetPos - entPos; // vector from ent to target
 
-        _grabThrowing.Throw(target, ent, direction, 25);
+        _grabThrowing.Throw(target, ent, direction, 25, behavior: proto.DropHeldItemsBehavior);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg"), ent);
         ComboPopup(ent, target, proto.Name);

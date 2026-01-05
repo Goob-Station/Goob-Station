@@ -28,6 +28,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Graphics;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
 
@@ -40,6 +41,7 @@ namespace Content.Client.Hands
         [Dependency] private readonly IClyde _clyde = default!;
         [Dependency] private readonly IEntityManager _entMan = default!;
         [Dependency] private readonly IPlayerManager _player = default!; // Goobstation
+        [Dependency] private readonly IPrototypeManager _protoMan = default!; // Goobstation
         [Dependency] private readonly IResourceCache _resourceCache = default!; // Goobstation
 
         private readonly SpriteSystem _sprite; // Goobstation
@@ -140,7 +142,8 @@ namespace Content.Client.Hands
             if (_entMan.TryGetComponent(handEntity.Value, out AmmoSelectorComponent? ammoSelector) &&
                 ammoSelector.CurrentlySelected is { } selected)
             {
-                var texture = _sprite.Frame0(selected.Icon);
+                var selectedProto = _protoMan.Index(selected);
+                var texture = _sprite.Frame0(selectedProto.Icon);
                 screen.DrawTexture(texture,
                     mousePos.Position - texture.Size / 2 + offsetVec,
                     Color.White.WithAlpha(0.75f));

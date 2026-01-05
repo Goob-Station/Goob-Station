@@ -13,14 +13,18 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 #nullable enable
-using System.Linq;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Server.Database;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind.Commands;
 using Content.Server.Roles;
+using Content.Shared._Shitmed.Body;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Part;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Players;
@@ -32,12 +36,15 @@ using Robust.Server.Player;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using System.Linq;
 
 namespace Content.IntegrationTests.Tests.Minds;
 
 [TestFixture]
 public sealed partial class MindTests
 {
+    private static readonly ProtoId<DamageTypePrototype> BluntDamageType = "Blunt";
+
     [TestPrototypes]
     private const string Prototypes = @"
 - type: entity
@@ -136,6 +143,7 @@ public sealed partial class MindTests
         EntityUid mindId = default!;
         var mindSystem = entMan.EntitySysManager.GetEntitySystem<SharedMindSystem>();
         var damageableSystem = entMan.EntitySysManager.GetEntitySystem<DamageableSystem>();
+        var woundSystem = entMan.EntitySysManager.GetEntitySystem<WoundSystem>();
 
         await server.WaitAssertion(() =>
         {
@@ -158,11 +166,26 @@ public sealed partial class MindTests
         await server.WaitAssertion(() =>
         {
             var damageable = entMan.GetComponent<DamageableComponent>(entity);
-            if (!protoMan.TryIndex<DamageTypePrototype>("Blunt", out var prototype))
+            if (!protoMan.TryIndex(BluntDamageType, out var prototype))
             {
                 return;
             }
 
+            if (entMan.TryGetComponent(entity, out BodyComponent? body) &&
+                body.BodyType == BodyType.Complex &&
+                body.RootContainer?.ContainedEntity is EntityUid rootPart)
+            {
+                foreach (var (woundable, _) in woundSystem.GetAllWoundableChildren(rootPart))
+                {
+                    if (!entMan.TryGetComponent(woundable, out DamageableComponent? wdc) ||
+                        !entMan.TryGetComponent(woundable, out BodyPartComponent? bpc))
+                    {
+                        continue;
+                    }
+
+                    damageableSystem.SetDamage(woundable, wdc, new DamageSpecifier(prototype, FixedPoint2.New(100)));
+                }
+            }
             damageableSystem.SetDamage(entity, damageable, new DamageSpecifier(prototype, FixedPoint2.New(401)));
             Assert.That(mindSystem.GetMind(entity, mindContainerComp), Is.EqualTo(mindId));
         });

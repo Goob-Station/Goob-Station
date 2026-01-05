@@ -4,3 +4,11 @@
   speechVerbStrings:
   - chat-speech-verb-demon-1
   - chat-speech-verb-demon-2
+
+- type: emoteSounds
+  id: SlaughterDemon
+  sounds:
+    Laugh:
+      collection: demonLaugh
+    Scream:
+      path: /Audio/_Goobstation/SlaughterDemon/demon_scream.ogg

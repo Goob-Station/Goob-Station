@@ -9,14 +9,42 @@
   id: NinjaThreats
   weights:
     Dragon: 1
-    Revenant: 1
+    # Revenant: 1 # Goob - Removed in favor of LoneOperative
+    SlaughterDemon: 1 # Goobstation
+    # Wraith: 1 # Goobstation
+    LoneOperative: 1 # Goobstation
+    #TODO When Slasher is ready Slasher: 1 # Goobstation
 
 - type: ninjaHackingThreat
   id: Dragon
   announcement: terror-dragon
   rule: DragonSpawn
 
+# Goobstation - start
 - type: ninjaHackingThreat
-  id: Revenant
-  announcement: terror-revenant
-  rule: RevenantSpawn
+  id: SlaughterDemon
+  announcement: terror-slaughter-demon
+  rule: SlaughterDemonMidround
+
+- type: ninjaHackingThreat
+  id: LoneOperative
+  announcement: terror-lone-operative
+  rule: LoneOpsSpawn
+
+# Goob - Wraith
+#- type: ninjaHackingThreat
+#  id: Wraith
+#  announcement: terror-wraith
+#  rule: WraithMidround
+
+# TODO When Slasher is Ready
+#- type: ninjaHackingThreat
+#  id: Slasher
+#  announcement: terror-slasher
+#  rule: SlasherSpawn
+
+#- type: ninjaHackingThreat
+#  id: Revenant
+#  announcement: terror-revenant
+#  rule: RevenantSpawn
+# Revenant was disabledz

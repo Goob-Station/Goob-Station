@@ -357,7 +357,7 @@
       prob: 0.05
       orGroup: Pizza
     - id: KnifePlastic
-  
+
 - type: entity
   name: pizza box
   parent: FoodBoxPizzaFilled
@@ -452,6 +452,9 @@
     contents:
     - id: FoodDonkpocket
       amount: 6
+    - id: DonkcoLighter
+      amount: 1
+      prob: 0.10
 
 - type: entity
   parent: FoodBoxDonkpocket

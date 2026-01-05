@@ -3,7 +3,6 @@ using Content.Server._White.Spawners.Components;
 using Content.Server.Atmos.Components;
 using Content.Shared.Maps;
 using Robust.Server.GameObjects;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
@@ -14,9 +13,8 @@ namespace Content.Server._White.Spawners.Systems;
 public sealed class AreaSpawnerSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-
+    [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
@@ -29,6 +27,7 @@ public sealed class AreaSpawnerSystem : EntitySystem
 
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<AreaSpawnerComponent, ComponentShutdown>(OnShutdown);
     }
 
@@ -36,11 +35,13 @@ public sealed class AreaSpawnerSystem : EntitySystem
     {
         foreach (var spawned in component.Spawneds)
         {
-            var despawnComponent = new TimedDespawnComponent
-            {
-                Lifetime = _random.NextFloat(component.MinTime, component.MaxTime)
-            };
-            AddComp(spawned, despawnComponent);
+            // <Goobstation> rewrote to be non goida
+            if (TerminatingOrDeleted(spawned))
+                continue;
+
+            var comp = EnsureComp<TimedDespawnComponent>(spawned);
+            comp.Lifetime = _random.NextFloat(component.MinTime, component.MaxTime);
+            // </Goobstation>
         }
     }
 
@@ -92,7 +93,7 @@ public sealed class AreaSpawnerSystem : EntitySystem
             return false;
 
         var coords = xform.Coordinates.Offset(offset);
-        var tile = coords.GetTileRef(EntityManager, _mapManager);
+        var tile = _turf.GetTileRef(coords);
 
         if (!tile.HasValue || tile.Value.Tile.IsEmpty)
             return false;

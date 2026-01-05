@@ -42,3 +42,8 @@
   id: CaptainGloves
   equipment:
     gloves: ClothingHandsGlovesCaptain
+
+- type: loadout
+  id: CaptainSummerShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCaptainSummer

@@ -1,47 +1,59 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot
+// SPDX-FileCopyrightText: 2025 Ilya246
+// SPDX-FileCopyrightText: 2025 deltanedas
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Factory;
 using Content.Server.Construction.Components;
+using Content.Shared.Timing;
 
 namespace Content.Goobstation.Server.Factory;
 
 public sealed class InteractorSystem : SharedInteractorSystem
 {
+    [Dependency] private readonly UseDelaySystem _useDelay = default!;
+
     private EntityQuery<ConstructionComponent> _constructionQuery;
+    private EntityQuery<UseDelayComponent> _useDelayQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
         _constructionQuery = GetEntityQuery<ConstructionComponent>();
+        _useDelayQuery = GetEntityQuery<UseDelayComponent>();
 
         SubscribeLocalEvent<InteractorComponent, MachineStartedEvent>(OnStarted);
     }
 
     private void OnStarted(Entity<InteractorComponent> ent, ref MachineStartedEvent args)
     {
-        // nothing there or another doafter is already running
-        var count = ent.Comp.TargetEntities.Count;
-        if (count == 0 || HasDoAfter(ent))
+        // don't let it get spammed every tick to avoid lag machines
+        if (_useDelayQuery.TryComp(ent, out var delay) && !_useDelay.TryResetDelay((ent, delay), true))
+            return;
+
+        // another doafter is already running
+        if (HasDoAfter(ent))
         {
             Machine.Failed(ent.Owner);
             return;
         }
 
-        var i = count - 1;
-        var netEnt = ent.Comp.TargetEntities[i].Item1;
-        var target = GetEntity(netEnt);
+        // nothing there
+        if (FindTarget(ent) is not {} target)
+        {
+            Machine.Failed(ent.Owner);
+            return;
+        }
+
         _constructionQuery.TryComp(target, out var construction);
-        var originalCount = construction?.InteractionQueue?.Count ?? 0;
+        var originalCount = construction?.InteractionQueue.Count ?? 0;
         if (!InteractWith(ent, target))
         {
             // have to remove it since user's filter was bad due to unhandled interaction
-            RemoveTarget(ent, target);
             Machine.Failed(ent.Owner);
             return;
         }
@@ -57,7 +69,6 @@ public sealed class InteractorSystem : SharedInteractorSystem
         else
         {
             // no doafter, complete it immediately
-            TryRemoveTarget(ent, target);
             Machine.Completed(ent.Owner);
             UpdateAppearance(ent);
         }

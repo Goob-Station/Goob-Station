@@ -48,9 +48,11 @@
     - AllHostile
     - Heretic # goob edit - heretics
     - Blob # Goobstation - Blob
+    - Shadowling # Einstein Engines - Shadowlings
   friendly: # Goobstation
     - Wizard
     - PirateFaction # goob - pirates
+    - Lavafauna # Goob - Lavaland
 
 - type: npcFaction
   id: NanoTrasen
@@ -65,9 +67,12 @@
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Shadowling # Einstein Engines - Shadowlings
   - Wizard
   - PirateFaction # goob - pirates
   - Xenoborg
+  - Wraith # Goobstation - Wraith
+  - Lavafauna # Goob - Lavaland
 
 - type: npcFaction
   id: Mouse
@@ -88,6 +93,7 @@
   - Wizard
   - Dragon
   - Blob # Goobstation - Blob
+  - Lavafauna # Goob - Lavaland
 
 - type: npcFaction
   id: SimpleHostile
@@ -105,8 +111,11 @@
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - PirateFaction # goob - pirates
+  - Lavafauna # Goob - Lavaland
   friendly: # Goobstation
-    - Wizard
+  - Wizard
+  - Shadowling # Einstein Engines - Shadowlings
+  - Wraith # Goobstation - Wraith
 
 - type: npcFaction
   id: SimpleNeutral
@@ -127,6 +136,9 @@
   - Blob # Goobstation - Blob
   - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
+  - Shadowling # Einstein Engines - Shadowlings
+  - Wraith # Goobstation - Wraith
+  - Lavafauna # Goob - Lavaland
 
 - type: npcFaction
   id: Xeno
@@ -144,6 +156,8 @@
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - PirateFaction # goob - pirates
+  - Wraith # Goobstation - Wraith
+  - Lavafauna # Goob - Lavaland
   friendly: # Goobstation
     - Wizard
 
@@ -162,9 +176,12 @@
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Shadowling # Einstein Engines - Shadowlings
   - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
   - Xenoborg
+  - Wraith # Goobstation - Wraith
+  - Lavafauna # Goob - Lavaland
 
 - type: npcFaction
   id: Revolutionary
@@ -175,9 +192,11 @@
   - Dragon
   - AllHostile
   - Blob # Goobstation - Blob
+  - Shadowling # Einstein Engines - Shadowlings
   - Wizard # Goobstation - wizard
   - PirateFaction # goob - pirates
   - Xenoborg
+  - Lavafauna # Goob - Lavaland
 
 - type: npcFaction
   id: AllHostile
@@ -196,8 +215,11 @@
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Shadowling # Einstein Engines - Shadowlings
   - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
+  - Wraith # Goobstation - Wraith
+  - Lavafauna # Goob - Lavaland
 
 # Balloons Factions Edit:
 - type: npcFaction  
@@ -228,3 +250,47 @@
   - SimpleHostile 
   - AllHostile
   - Blob # Goobstation - Blob
+  - Shadowling # Einstein Engines - Shadowlings
+
+- type: npcFaction
+  id: Wraith # Goobstation
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - Passive
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - Dragon
+  - Xeno
+  - AllHostile
+  - Xenoborg
+  - Heretic # goob edit - heretics
+  - Blob # Goobstation - Blob
+  - PirateFaction # goob - pirates
+  friendly: # Goobstation
+  - Wraith # Goobstation
+  - Lavafauna # Lavaland
+
+# Lavaland mob faction to stop gang wars
+- type: npcFaction
+  id: Lavafauna
+  hostile:
+  - NanoTrasen
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Changeling # goob edit - changelings
+  - Heretic # goob edit - heretics
+  - Blob # Goobstation - Blob
+  - Shadowling # Einstein Engines - Shadowlings
+  - Wizard # goob edit - wizard
+  - PirateFaction # goob - pirates
+  friendly:
+  - Dragon

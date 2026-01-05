@@ -30,6 +30,12 @@ public readonly record struct RadioReceiveEvent(
 // Einstein Engines - Language end
 
 /// <summary>
+/// Event raised on the parent entity of a headset radio when a radio message is received
+/// </summary>
+[ByRefEvent]
+public readonly record struct HeadsetRadioReceiveRelayEvent(RadioReceiveEvent RelayedEvent);
+
+/// <summary>
 /// Use this event to cancel sending message per receiver
 /// </summary>
 [ByRefEvent]

@@ -1,0 +1,65 @@
+- type: entity
+  id: RandomAnomalyCoreSpawner
+  name: random anomaly core spawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Structures/Specific/anomaly.rsi
+      state: anom1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomAnomalyCoreTable
+    offset: 0.15
+
+- type: entity
+  id: RandomAnomalyCoreInertSpawner
+  name: random inert anomaly core spawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Structures/Specific/anomaly.rsi
+      state: anom1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomAnomalyCoreInertTable
+    offset: 0.15
+
+- type: entityTable
+  id: RandomAnomalyCoreTable
+  table: !type:GroupSelector
+    children:
+    - id: AnomalyCorePyroclastic
+    - id: AnomalyCoreGravity
+    - id: AnomalyCoreElectricity
+    - id: AnomalyCoreFlesh
+    - id: AnomalyCoreBluespace
+    - id: AnomalyCoreIce
+    - id: AnomalyCoreRock
+    - id: AnomalyCoreLiquid
+    - id: AnomalyCoreFlora
+    - id: AnomalyCoreShadow
+    - id: AnomalyCoreTech
+    - id: AnomalyCoreSanta
+      weight: 0.4 #same % value as AnomalySpawner
+
+- type: entityTable
+  id: RandomAnomalyCoreInertTable
+  table: !type:GroupSelector
+    children:
+    - id: AnomalyCorePyroclasticInert
+    - id: AnomalyCoreGravityInert
+    - id: AnomalyCoreElectricityInert
+    - id: AnomalyCoreFleshInert
+    - id: AnomalyCoreBluespaceInert
+    - id: AnomalyCoreIceInert
+    - id: AnomalyCoreRockInert
+    - id: AnomalyCoreLiquidInert
+    - id: AnomalyCoreFloraInert
+    - id: AnomalyCoreShadowInert
+    - id: AnomalyCoreTechInert
+    - id: AnomalyCoreSantaInert
+      weight: 0.4 #same % value as AnomalySpawner

@@ -19,7 +19,7 @@ using Content.Server.Radiation.Components;
 using Content.Server.Radiation.Events;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Radiation.Systems;
-using Content.Shared.Singularity.Components;
+using Content.Shared.Singularity.Components; // Goobstation - Radiation Overhaul
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
@@ -51,7 +51,7 @@ public partial class RadiationSystem
         stopwatch.Start();
 
         _sources.Clear();
-        _sources.EnsureCapacity(EntityManager.Count<RadiationSourceComponent>());
+        _sources.EnsureCapacity(Count<RadiationSourceComponent>());
 
         var sources = EntityQueryEnumerator<RadiationSourceComponent, TransformComponent>();
         var destinations = EntityQueryEnumerator<RadiationReceiverComponent, TransformComponent>();
@@ -151,6 +151,7 @@ public partial class RadiationSystem
 
         var mapId = destTrs.MapID;
 
+        // Goobstation Start - Radiation Overhaul
         // get direction from rad source to destination and its distance
         var dir = destWorld - source.WorldPosition;
         var dist = Math.Max(dir.Length(),0.5f);
@@ -159,6 +160,7 @@ public partial class RadiationSystem
         var rads = source.Intensity / (dist );
         if (rads < 0.01)
             return null;
+        // Goobstation End - Radiation Overhaul
 
         // create a new radiation ray from source to destination
         // at first we assume that it doesn't hit any radiation blockers
@@ -203,12 +205,14 @@ public partial class RadiationSystem
 
         return ray;
     }
-/// <summary>
-/// Similar to GridLineEnumerator, but also returns the distance the ray traveled in each cell
-/// </summary>
-/// <param name="sourceGridPos">source of the ray, in grid space</param>
-/// <param name="destGridPos"></param>
-/// <returns></returns>
+
+    // Goobstation - Radiation Overhaul
+    /// <summary>
+    /// Similar to GridLineEnumerator, but also returns the distance the ray traveled in each cell
+    /// </summary>
+    /// <param name="sourceGridPos">source of the ray, in grid space</param>
+    /// <param name="destGridPos"></param>
+    /// <returns></returns>
     private static IEnumerable<(Vector2i cell, float distInCell)> AdvancedGridRaycast(Vector2 sourceGridPos,Vector2 destGridPos)
     {
         var delta = destGridPos - sourceGridPos;
@@ -281,6 +285,8 @@ public partial class RadiationSystem
 
         // get coordinate of source and destination in grid coordinates
 
+        // Goobstation Start - Radiation Overhaul
+
         // TODO Grid overlap. This currently assumes the grid is always parented directly to the map (local matrix == world matrix).
         // If ever grids are allowed to overlap, this might no longer be true. In that case, this should precompute and cache
         // inverse world matrices.
@@ -322,6 +328,8 @@ public partial class RadiationSystem
             }
         }
 
+        // Goobstation End - Radiation Overhaul
+
 
         if (!saveVisitedTiles || blockers!.Count <= 0)
             return ray;
@@ -353,10 +361,12 @@ public partial class RadiationSystem
 
             if (_blockerQuery.TryComp(xform.ParentUid, out var blocker))
             {
-                var ratio =blocker.RadResistance>2? 1 / (blocker.RadResistance/2):1;
-                rads *= ratio;
-                if (rads < 0)
+                // Goobstation Start - Radiation Overhaul
+                var ratio = blocker.RadDecay>2? 1 / (blocker.RadDecay/2):1;
+                rads = (rads - blocker.RadResistance) * ratio;
+                if (rads < 0.1)
                     return 0;
+                // Goobstation End - Radiation Overhaul
             }
 
             child = parent;

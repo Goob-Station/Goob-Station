@@ -31,13 +31,14 @@
 // SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Avalon <jfbentley1@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Tools.Systems;
-using Content.Shared.Nyanotrasen.Abilities.Oni; //Oni port from deltaV to make onis use tools faster
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
@@ -45,7 +46,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Tools.Components;
 
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(SharedToolSystem),typeof(SharedOniSystem))]
+[Access(typeof(SharedToolSystem))]
 public sealed partial class ToolComponent : Component
 {
     [DataField]

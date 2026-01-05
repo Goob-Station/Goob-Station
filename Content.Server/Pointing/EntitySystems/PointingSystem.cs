@@ -131,7 +131,7 @@ using Robust.Shared.Timing;
 namespace Content.Server.Pointing.EntitySystems
 {
     [UsedImplicitly]
-    internal sealed class PointingSystem : SharedPointingSystem
+    internal sealed partial class PointingSystem : SharedPointingSystem // Goobstation: Partial Class
     {
         [Dependency] private readonly IConfigurationManager _config = default!;
         [Dependency] private readonly IReplayRecordingManager _replay = default!;
@@ -249,6 +249,13 @@ namespace Content.Server.Pointing.EntitySystems
                 return false;
             }
 
+            // Goobstation Begin: Disallow pointing at stealthed entities.
+            if (!CanPointAtStealthedEntity(player, pointed))
+            {
+                return false;
+            }
+            // Goobstation End.
+
             if (!CanPoint(player))
             {
                 return false;
@@ -262,7 +269,7 @@ namespace Content.Server.Pointing.EntitySystems
             var mapCoordsPointed = _transform.ToMapCoordinates(coordsPointed);
             _rotateToFaceSystem.TryFaceCoordinates(player, mapCoordsPointed.Position);
 
-            var arrow = EntityManager.SpawnEntity("PointingArrow", coordsPointed);
+            var arrow = Spawn("PointingArrow", coordsPointed);
 
             if (TryComp<PointingArrowComponent>(arrow, out var pointing))
             {
@@ -283,7 +290,7 @@ namespace Content.Server.Pointing.EntitySystems
             var layer = (int) VisibilityFlags.Normal;
             if (TryComp(player, out VisibilityComponent? playerVisibility))
             {
-                var arrowVisibility = EntityManager.EnsureComponent<VisibilityComponent>(arrow);
+                var arrowVisibility = EnsureComp<VisibilityComponent>(arrow);
                 layer = playerVisibility.Layer;
                 _visibilitySystem.SetLayer((arrow, arrowVisibility), (ushort) layer);
             }

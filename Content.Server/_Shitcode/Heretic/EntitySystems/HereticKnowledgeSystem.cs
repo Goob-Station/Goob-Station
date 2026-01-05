@@ -26,16 +26,23 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
     public HereticKnowledgePrototype GetKnowledge(ProtoId<HereticKnowledgePrototype> id)
         => _proto.Index(id);
 
-    public void AddKnowledge(EntityUid uid, HereticComponent comp, ProtoId<HereticKnowledgePrototype> id, bool silent = true)
+    public void AddKnowledge(EntityUid uid, HereticComponent comp, ProtoId<HereticKnowledgePrototype> id, bool silent = true, bool research = true)
     {
         var data = GetKnowledge(id);
 
         if (data.Event != null)
-            RaiseLocalEvent(uid, (object) data.Event, true);
+            RaiseLocalEvent(uid, data.Event, true);
 
         if (data.ActionPrototypes != null && data.ActionPrototypes.Count > 0)
+        {
             foreach (var act in data.ActionPrototypes)
-                _action.AddAction(uid, act);
+            {
+                if (_action.AddAction(uid, act) is {} action)
+                    comp.ProvidedActions.Add(action);
+                else
+                    Log.Error($"Failed to give heretic {ToPrettyString(uid)} action {act}!");
+            }
+        }
 
         if (data.RitualPrototypes != null && data.RitualPrototypes.Count > 0)
             foreach (var ritual in data.RitualPrototypes)
@@ -54,8 +61,8 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         if (data.Stage > comp.PathStage && data.Path == comp.CurrentPath)
             comp.PathStage = data.Stage;
 
-        if (!silent)
-            _popup.PopupEntity(Loc.GetString("heretic-knowledge-gain"), uid, uid);
+        if (!silent) _popup.PopupEntity(Loc.GetString("heretic-knowledge-gain"), uid, uid);
+        if (research) comp.ResearchedKnowledge.Add(id);
     }
     public void RemoveKnowledge(EntityUid uid, HereticComponent comp, ProtoId<HereticKnowledgePrototype> id, bool silent = false)
     {
@@ -65,11 +72,15 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         {
             foreach (var act in data.ActionPrototypes)
             {
-                var actionName = (EntityPrototype) _proto.Index(typeof(EntityPrototype), act);
-                // jesus christ.
-                foreach (var action in _action.GetActions(uid))
-                    if (Name(action.Owner) == actionName.Name)
-                        _action.RemoveAction(action.Owner);
+                comp.ProvidedActions.RemoveAll(action =>
+                {
+                    // goida
+                    if (Prototype(action)?.ID is not {} id || id != act)
+                        return false;
+
+                    _action.RemoveAction(action);
+                    return true;
+                });
             }
         }
 

@@ -15,7 +15,7 @@
       - right arm
       - left arm
       organs:
-        lungs: OrganSpaceAnimalLungs # pressure immunity
+        lungs: OrganSpaceAnimalLungs # airloss immunity
         heart: OrganSlaughterHeart # blood crawl ability
     groin:
       part: GroinSlaughter

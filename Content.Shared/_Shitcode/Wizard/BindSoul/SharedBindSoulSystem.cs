@@ -132,7 +132,7 @@ public abstract class SharedBindSoulSystem : EntitySystem
         var particle = Spawn(ParticlePrototype, coords);
         var direction = itemCoords.Position - coords.Position;
         _physics.SetLinearVelocity(particle, direction.Normalized());
-        EnsureComp<TimedDespawnComponent>(particle).Lifetime = 15f * (1 + ent.Comp.ResurrectionsCount);
+        EnsureComp<TimedDespawnComponent>(particle).Lifetime = 30f * (1 + ent.Comp.ResurrectionsCount);
         var homing = EnsureComp<HomingProjectileComponent>(particle);
         homing.Target = item.Value;
         Dirty(particle, homing);

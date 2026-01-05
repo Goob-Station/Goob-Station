@@ -126,11 +126,11 @@
   id: InfluenceVacuousVitality
   name: influence-name-vitality
   influenceType: influence-type-passive
-  cost: 10
+  cost: 8
   description: influence-description-vitality
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: astral
   add:
   - type: InfluenceVitality
-  tier: 3
+  tier: 2

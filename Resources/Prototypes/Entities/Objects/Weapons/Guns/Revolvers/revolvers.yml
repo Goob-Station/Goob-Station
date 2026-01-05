@@ -111,14 +111,23 @@
       path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
   - type: StaticPrice
     price: 500
-  - type: Multishot # Goobstation
-  # Goobstation edit start
+  - type: Multishot # Goobstation V
+    missChance: 0.4
+    spreadMultiplier: 3
+    spreadAddition: 40
   - type: EmitSoundOnPickup
     sound:
       collection: RevolversPickUp
   - type: EmitSoundOnDrop
     sound:
       collection: RevolversDrop
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   - type: EmitSoundOnLand
     sound:
       collection: RevolversDrop

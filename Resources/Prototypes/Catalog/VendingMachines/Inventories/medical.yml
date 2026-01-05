@@ -101,6 +101,7 @@
   id: NanoMedPlusInventory
   startingInventory:
     HandheldHealthAnalyzer: 3
+    Gauze: 5 # Goobstation
     Brutepack: 5
     Ointment: 5
     Bloodpack: 5
@@ -112,15 +113,19 @@
     Tourniquet: 6 # Goobstation - start
     MedicalPatchPrefilledBicaridine: 3
     MedicalPatchPrefilledDermaline: 3
+    MedicalPatchBasic: 5 # so people don't rip clothes to get them shift start
+    CigPackMedical: 2 # same as above
     ParamedHypo: 2
-    CartridgeSaline: 6
-    CartridgeBicaridine: 6
-    CartridgeDermaline: 6
-    CartridgeAtropine: 6
+    CartridgeSaline: 4
+    CartridgeBicaridine: 4
+    CartridgeDermaline: 4
+    CartridgeAtropine: 4
     VehicleWheelchairFolded: 3
     FoodSnackLollypopWrappedMystery: 10
     FoodSnackLollypopWrappedTricordrazine: 8
+    NitrousOxideTankFilled: 2
   emaggedInventory:
+    SyringeMicroplastics: 2 #Technically a medicine
     FoodSnackLollypopWrappedLexorin: 3
     FoodSnackLollypopWrappedMysteryEvil: 5 # Goobstation - end
   contrabandInventory:

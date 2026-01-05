@@ -1,0 +1,35 @@
+# Wraith Points Alert
+- type: alert
+  id: WraithPoints
+  category: EntityResource
+  icons:
+  - sprite: /Textures/_Goobstation/Wraith/UI/alert.rsi
+    state: wp
+  alertViewEntity: AlertWraithPointsSpriteView
+  name: alerts-wraith-wp-name
+  description: alerts-wraith-wp-desc
+
+- type: alertCategory
+  id: EntityResource
+
+- type: entity
+  id: AlertWraithPointsSpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GenericCounterAlert
+    centerGlyph: false
+    hideLeadingZeroes: false
+  - type: Sprite
+    sprite: /Textures/Interface/Alerts/essence_counter.rsi
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]
+    - map: [ "1" ]
+      offset: 0.5, 0
+    - map: [ "10" ]
+      offset: 0.375, 0
+    - map: [ "100" ]
+      offset: 0.25, 0
+    - map: [ "1000" ]
+      offset: 0.125, 0
+    - map: [ "10000" ]
+      offset: 0, 0

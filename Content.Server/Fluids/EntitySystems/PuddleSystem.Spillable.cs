@@ -123,7 +123,8 @@ public sealed partial class PuddleSystem
         if (totalSplit == 0)
             return;
 
-        args.Handled = true;
+        // Optionally allow further melee handling occur
+        args.Handled = entity.Comp.PreventMelee;
 
         if (hitCount == 0 && args.Direction == null)
         {
@@ -155,7 +156,7 @@ public sealed partial class PuddleSystem
                 hit, args.User);
 
             _popups.PopupEntity(
-                Loc.GetString("spill-melee-hit-others", ("attacker", args.User), ("spillable", entity.Owner),
+                Loc.GetString("spill-melee-hit-others", ("attacker", Identity.Name(args.User, EntityManager)), ("spillable", entity.Owner), // Goobstation - indentity hidden on splash
                     ("target", Identity.Entity(hit, EntityManager))),
                 hit, Filter.PvsExcept(args.User), true, PopupType.SmallCaution);
         }

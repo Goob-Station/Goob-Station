@@ -123,7 +123,6 @@ namespace Content.Server.Dragon;
 public sealed partial class DragonSystem : EntitySystem
 {
     [Dependency] private readonly CarpRiftsConditionSystem _carpRifts = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -136,7 +135,7 @@ public sealed partial class DragonSystem : EntitySystem
     [Dependency] private readonly StunSystem _stun = default!; // Goobstation
     [Dependency] private readonly ISerializationManager _serManager = default!; // Goobstation
     [Dependency] private readonly DamageableSystem _damage = default!; // Goobstation
-
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     private EntityQuery<CarpRiftsConditionComponent> _objQuery;
 
@@ -276,7 +275,7 @@ public sealed partial class DragonSystem : EntitySystem
         // cant put a rift on solars
         foreach (var tile in _map.GetTilesIntersecting(xform.GridUid.Value, grid, new Circle(_transform.GetWorldPosition(xform), RiftTileRadius), false))
         {
-            if (!tile.IsSpace(_tileDef))
+            if (!_turf.IsSpace(tile))
                 continue;
 
             _popup.PopupEntity(Loc.GetString("carp-rift-space-proximity", ("proximity", RiftTileRadius)), uid, uid);

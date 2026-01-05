@@ -71,7 +71,6 @@ namespace Content.Server.Mail
     public sealed class MailSystem : EntitySystem
     {
         [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly AccessReaderSystem _accessSystem = default!;
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
         [Dependency] private readonly IdCardSystem _idCardSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
@@ -90,6 +89,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly MindSystem _mindSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
         [Dependency] private readonly EmagSystem _emag = default!;
+        [Dependency] private readonly TurfSystem _turf = default!;
 
         // DeltaV - system that keeps track of mail and cargo stats
         [Dependency] private readonly LogisticStatsSystem _logisticsStatsSystem = default!;
@@ -231,7 +231,7 @@ namespace Content.Server.Mail
                     return;
                 }
 
-                if (!_accessSystem.IsAllowed(args.User, uid))
+                if (!_accessReader.IsAllowed(args.User, uid))
                 {
                     _popupSystem.PopupEntity(Loc.GetString("mail-invalid-access"), uid, args.User);
                     return;
@@ -579,7 +579,7 @@ namespace Content.Server.Mail
             // parcels spawned by the teleporter and see if they're not carried
             // by someone, but this is simple, and simple is good.
             List<EntityUid> undeliveredParcels = new();
-            foreach (var entityInTile in TurfHelpers.GetEntitiesInTile(Transform(uid).Coordinates, LookupFlags.Dynamic | LookupFlags.Sundries))
+            foreach (var entityInTile in _turf.GetEntitiesInTile(Transform(uid).Coordinates, LookupFlags.Dynamic | LookupFlags.Sundries))
             {
                 if (HasComp<MailComponent>(entityInTile))
                     undeliveredParcels.Add(entityInTile);

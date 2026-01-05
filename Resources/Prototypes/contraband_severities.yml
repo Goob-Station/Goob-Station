@@ -39,3 +39,9 @@
 - type: contrabandSeverity
   id: Magical
   examineText: contraband-examine-text-Magical
+
+# These toys belong to the clown, give them back or get honked
+- type: contrabandSeverity
+  id: Honkraband 
+  examineText: contraband-examine-text-Clown
+  

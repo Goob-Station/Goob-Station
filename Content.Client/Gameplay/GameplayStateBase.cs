@@ -325,9 +325,16 @@ namespace Content.Client.Gameplay
                 var transformSystem = _entitySystemManager.GetEntitySystem<SharedTransformSystem>();
                 var mapSystem = _entitySystemManager.GetEntitySystem<MapSystem>();
 
-                coordinates = _mapManager.TryFindGridAt(mousePosWorld, out var uid, out _) ?
-                    mapSystem.MapToGrid(uid, mousePosWorld) :
-                    transformSystem.ToCoordinates(mousePosWorld);
+                // Goobstation start - fix exception
+                if (!mapSystem.TryGetMap(mousePosWorld.MapId, out var map))
+                    coordinates = EntityCoordinates.Invalid;
+                else
+                {
+                    coordinates = _mapManager.TryFindGridAt(map.Value, mousePosWorld.Position, out var uid, out _)
+                        ? mapSystem.MapToGrid(uid, mousePosWorld)
+                        : transformSystem.ToCoordinates(map.Value, mousePosWorld);
+                }
+                // Goobstation end
             }
             else
             {

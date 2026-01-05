@@ -174,10 +174,9 @@
       Female: FemaleMoth
       Unsexed: UnisexMoth
   - type: MovementSpeedModifier
-    weightlessAcceleration: 3 # Goobstation value
-    weightlessFriction: 1
+    baseWeightlessAcceleration: 3 # Goobstation value
+    baseWeightlessFriction: 1
     baseWeightlessModifier: 1
-    weightlessModifier: 0.8 # up from 0.7 base
   - type: Flammable
     damage:
       types:
@@ -192,7 +191,7 @@
         Cold : 0.05 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat : 3 #per second, scales with temperature & other constants
+        Heat : 2 # Goob edit #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
       289: 0.8
@@ -202,8 +201,8 @@
     noRot: true
     drawdepth: Mobs
     layers:
-      - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Groin" ]
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
@@ -227,9 +226,9 @@
       - map: [ "shoes" ]
       - map: [ "ears" ]
       - map: [ "eyes" ]
-      - map: [ "belt" ]
       - map: [ "id" ]
       - map: [ "outerClothing" ]
+      - map: [ "belt" ] #Goobedit - Belts over outerwear
       - map: [ "enum.HumanoidVisualLayers.Tail" ] #in the utopian future we should probably have a wings enum inserted here so everyhting doesn't break
       - map: [ "back" ]
       - map: [ "neck" ]

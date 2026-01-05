@@ -27,6 +27,7 @@
     count: 6 # Goob edit
   - type: RechargeBasicEntityAmmo # Goobstation
     rechargeCooldown: 8
+  - type: PacifismAllowedGun
 
 - type: entity
   name: staff of door creation

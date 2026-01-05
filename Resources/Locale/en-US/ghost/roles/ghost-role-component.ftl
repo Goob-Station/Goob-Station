@@ -86,6 +86,9 @@ ghost-role-information-mothroach-description = A cute but mischievous mothroach.
 ghost-role-information-squackroach-name = Squackroach
 ghost-role-information-squackroach-description = A diabolical but nearly harmless squackroach.
 
+ghost-role-information-moproach-name = Moproach
+ghost-role-information-moproach-description = A cute mothroach with more cute moplike shoes on its feet.
+
 ghost-role-information-snail-name = Snail
 ghost-role-information-snail-description = A little snail who doesn't mind a bit of space. Just stay on grid!
 
@@ -377,3 +380,8 @@ ghost-role-information-gingerbread-name = Gingerbread Man
 ghost-role-information-gingerbread-description = A being of pure holiday spirit.
                                      Spread molassesy goodness and to all good cheer.
 
+ghost-role-information-wizard-name = Wizard
+ghost-role-information-wizard-desc = YER A WIZARD! Show the station what your magic is made of.
+
+ghost-role-information-emotional-support-scurret-name = Emotional Support Scurret
+ghost-role-information-emotional-support-scurret-description = Support the crew, be adorable, say "wa" a lot.

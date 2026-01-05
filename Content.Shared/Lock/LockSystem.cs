@@ -99,6 +99,7 @@ using Content.Shared.Storage.Components;
 using Content.Shared.UserInterface;
 using Content.Shared.Verbs;
 using Content.Shared.Wires;
+using Content.Shared.Item.ItemToggle.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
@@ -141,6 +142,8 @@ public sealed class LockSystem : EntitySystem
 
         SubscribeLocalEvent<ActivatableUIRequiresLockComponent, ActivatableUIOpenAttemptEvent>(OnUIOpenAttempt);
         SubscribeLocalEvent<ActivatableUIRequiresLockComponent, LockToggledEvent>(LockToggled);
+
+        SubscribeLocalEvent<ItemToggleRequiresLockComponent, ItemToggleActivateAttemptEvent>(OnActivateAttempt);
     }
 
     private void OnStartup(EntityUid uid, LockComponent lockComp, ComponentStartup args)
@@ -156,11 +159,13 @@ public sealed class LockSystem : EntitySystem
         // Only attempt an unlock by default on Activate
         if (lockComp.Locked && lockComp.UnlockOnClick)
         {
-            args.Handled = TryUnlock(uid, args.User, lockComp);
+            args.Handled = true;
+            TryUnlock(uid, args.User, lockComp);
         }
         else if (!lockComp.Locked && lockComp.LockOnClick)
         {
-            args.Handled = TryLock(uid, args.User, lockComp);
+            args.Handled = true;
+            TryLock(uid, args.User, lockComp);
         }
     }
 
@@ -498,5 +503,21 @@ public sealed class LockSystem : EntitySystem
             return;
 
         _activatableUI.CloseAll(uid);
+    }
+    
+    private void OnActivateAttempt(EntityUid uid, ItemToggleRequiresLockComponent component, ref ItemToggleActivateAttemptEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (TryComp<LockComponent>(uid, out var lockComp) && lockComp.Locked != component.RequireLocked)
+        {
+            args.Cancelled = true;
+            if (lockComp.Locked)
+                _sharedPopupSystem.PopupClient(Loc.GetString("lock-comp-generic-fail",
+                ("target", Identity.Entity(uid, EntityManager))),
+                uid,
+                args.User);
+        }
     }
 }

@@ -502,7 +502,7 @@ public sealed class AtmosMonitoringConsoleSystem : SharedAtmosMonitoringConsoleS
         if (component.NavMapBlip == null)
             return;
 
-        var netEntity = EntityManager.GetNetEntity(uid);
+        var netEntity = GetNetEntity(uid);
         var query = AllEntityQuery<AtmosMonitoringConsoleComponent, TransformComponent>();
 
         while (query.MoveNext(out var ent, out var entConsole, out var entXform))
@@ -536,7 +536,7 @@ public sealed class AtmosMonitoringConsoleSystem : SharedAtmosMonitoringConsoleS
         if (component.NavMapBlip == null)
             return;
 
-        var netEntity = EntityManager.GetNetEntity(uid);
+        var netEntity = GetNetEntity(uid);
         var query = AllEntityQuery<AtmosMonitoringConsoleComponent>();
 
         while (query.MoveNext(out var ent, out var entConsole))

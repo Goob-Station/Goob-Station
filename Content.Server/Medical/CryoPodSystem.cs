@@ -65,7 +65,6 @@ using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Atmos.Piping.Unary.EntitySystems;
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Medical.Components;
 using Content.Server.NodeContainer.EntitySystems;
@@ -75,6 +74,7 @@ using Content.Server.Temperature.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Actions; // Shitmed Change
 using Content.Shared.UserInterface;
+using Content.Shared.Body.Components;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -187,7 +187,7 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
                 var solutionToInject = _solutionContainerSystem.SplitSolutionReagentsEvenly(containerSolution.Value, cryoPod.BeakerTransferAmount);
                 //  for every .25 units used, .5 units per second are added to the body, making cryo-pod more efficient than injections
                 solutionToInject.ScaleSolution(cryoPod.PotencyMultiplier);
-                _bloodstreamSystem.TryAddToChemicals(patient.Value, solutionToInject, bloodstream);
+                _bloodstreamSystem.TryAddToChemicals((patient.Value, bloodstream), solutionToInject);
                 _reactiveSystem.DoEntityReaction(patient.Value, solutionToInject, ReactionMethod.Injection);
             }
         }

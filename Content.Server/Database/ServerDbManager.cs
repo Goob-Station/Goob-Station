@@ -48,7 +48,6 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -66,9 +65,7 @@
 // SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 YotaXP <yotaxp@gmail.com>
 // SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -443,9 +440,9 @@ namespace Content.Server.Database
 
         Task SetNTShoutout(Guid player, string name);
 
-        Task<(string Message, string User)?> GetRandomLobbyMessage();
+        Task<List<(string, string)>> GetLobbyMessages();
 
-        Task<string?> GetRandomShoutout();
+        Task<List<string>> GetShoutouts();
 
         #endregion
 
@@ -454,6 +451,22 @@ namespace Content.Server.Database
         Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score);
         Task<IPIntelCache?> GetIPIntelCache(IPAddress ip);
         Task<bool> CleanIPIntelCache(TimeSpan range);
+
+        #endregion
+
+        #region Goob Polls
+
+        Task<int> CreatePollAsync(Poll poll);
+        Task<Poll?> GetPollAsync(int pollId, CancellationToken cancel = default);
+        Task<List<Poll>> GetActivePollsAsync(CancellationToken cancel = default);
+        Task<List<Poll>> GetAllPollsAsync(bool includeInactive = true, CancellationToken cancel = default);
+        Task UpdatePollStatusAsync(int pollId, bool active, CancellationToken cancel = default);
+        Task<bool> AddPollVoteAsync(int pollId, int optionId, NetUserId userId, CancellationToken cancel = default);
+        Task<bool> RemovePollVoteAsync(int pollId, int optionId, NetUserId userId, CancellationToken cancel = default);
+        Task<List<PollVote>> GetPollVotesAsync(int pollId, CancellationToken cancel = default);
+        Task<List<PollVote>> GetPlayerVotesAsync(int pollId, NetUserId userId, CancellationToken cancel = default);
+        Task<bool> HasPlayerVotedAsync(int pollId, NetUserId userId, CancellationToken cancel = default);
+        Task<Dictionary<int, int>> GetPollResultsAsync(int pollId, CancellationToken cancel = default);
 
         #endregion
 
@@ -475,14 +488,6 @@ namespace Content.Server.Database
         /// </remarks>
         /// <param name="notification">The notification to send.</param>
         Task SendNotification(DatabaseNotification notification);
-
-        #endregion
-
-        #region Comedy
-
-        Task<List<Guid>> GetAllSpiderUserIds();
-
-        Task AddPermanentSpiderFriend(NetUserId player);
 
         #endregion
     }
@@ -1236,16 +1241,16 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.SetNTShoutout(player, name));
         }
 
-        public Task<(string Message, string User)?> GetRandomLobbyMessage()
+        public Task<List<(string, string)>> GetLobbyMessages()
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetRandomLobbyMessage());
+            return RunDbCommand(() => _db.GetLobbyMessages());
         }
 
-        public Task<string?> GetRandomShoutout()
+        public Task<List<string>> GetShoutouts()
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetRandomShoutout());
+            return RunDbCommand(() => _db.GetShoutouts());
         }
 
         #endregion
@@ -1267,20 +1272,75 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.CleanIPIntelCache(range));
         }
 
-        public Task<List<Guid>> GetAllSpiderUserIds()
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetAllSpiderFriends());
-        }
+        #region Goob Polls
 
-        public Task AddPermanentSpiderFriend(NetUserId player)
+        public Task<int> CreatePollAsync(Poll poll)
         {
             DbWriteOpsMetric.Inc();
-            SpiderFriend friend = new SpiderFriend();
-            friend.Guid = player.UserId;
-
-            return RunDbCommand(() => _db.AddSpiderFriend(friend));
+            return RunDbCommand(() => _db.CreatePollAsync(poll));
         }
+
+        public Task<Poll?> GetPollAsync(int pollId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPollAsync(pollId, cancel));
+        }
+
+        public Task<List<Poll>> GetActivePollsAsync(CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetActivePollsAsync(cancel));
+        }
+
+        public Task<List<Poll>> GetAllPollsAsync(bool includeInactive = true, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetAllPollsAsync(includeInactive, cancel));
+        }
+
+        public Task UpdatePollStatusAsync(int pollId, bool active, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpdatePollStatusAsync(pollId, active, cancel));
+        }
+
+        public Task<bool> AddPollVoteAsync(int pollId, int optionId, NetUserId userId, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddPollVoteAsync(pollId, optionId, userId, cancel));
+        }
+
+        public Task<bool> RemovePollVoteAsync(int pollId, int optionId, NetUserId userId, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.RemovePollVoteAsync(pollId, optionId, userId, cancel));
+        }
+
+        public Task<List<PollVote>> GetPollVotesAsync(int pollId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPollVotesAsync(pollId, cancel));
+        }
+
+        public Task<List<PollVote>> GetPlayerVotesAsync(int pollId, NetUserId userId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayerVotesAsync(pollId, userId, cancel));
+        }
+
+        public Task<bool> HasPlayerVotedAsync(int pollId, NetUserId userId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.HasPlayerVotedAsync(pollId, userId, cancel));
+        }
+
+        public Task<Dictionary<int, int>> GetPollResultsAsync(int pollId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPollResultsAsync(pollId, cancel));
+        }
+
+        #endregion
 
         public void SubscribeToNotifications(Action<DatabaseNotification> handler)
         {

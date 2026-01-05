@@ -1,0 +1,22 @@
+- type: language
+  id: FloorGoblin
+  speech:
+    color: "#288f43"
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 3
+    replacement:
+    - mi
+    - mimi
+    - mimi
+    - yoyo
+    - iyo
+    - me
+    - memimimi
+    - mimimi
+    - mi
+    - bibi
+    - bi
+    - mi
+    - yo

@@ -68,9 +68,104 @@ SPDX-License-Identifier: MIT
                             Text="{controls:Loc 'shuttle-console-iff-toggle'}"
                             TextAlign="Center"
                             ToggleMode="True"/>
+                    <!-- Frontier: hide player shuttles -->
+                    <controls:Button Name="IFFShuttleToggle"
+                             Text="{controls:Loc 'shuttle-console-iffshuttles-toggle'}"
+                             TextAlign="Center"
+                             ToggleMode="True"/>
+                    <!-- End Frontier: hide player shuttles -->
                     <controls:Button Name="DockToggle"
                             Text="{controls:Loc 'shuttle-console-dock-toggle'}"
                             TextAlign="Center"
                             ToggleMode="True"/>
+                    <!-- Frontier - Inertia dampener controls-->
+                    <controls:BoxContainer Name="DampenerModeButtons"
+                                  Orientation="Horizontal"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalExpand="True"
+                                  Align="Center"
+                                  Margin="0 0 0 3">
+                        <controls:Button Name="DampenerOff"
+                                         Text="{controls:Loc 'shuttle-console-inertia-dampener-off'}"
+                                         TextAlign="Center"
+                                         ToggleMode="True"
+                                         MinWidth="85"
+                                         StyleClasses="OpenRight"
+                                         Margin="0"/>
+                        <controls:Button Name="DampenerOn"
+                                         Text="{controls:Loc 'shuttle-console-inertia-dampener-dampen'}"
+                                         TextAlign="Center"
+                                         ToggleMode="True"
+                                         MinWidth="85"
+                                         StyleClasses="OpenBoth"
+                                         Margin="0"/>
+                        <controls:Button Name="AnchorOn"
+                                         Text="{controls:Loc 'shuttle-console-inertia-dampener-anchor'}"
+                                         TextAlign="Center"
+                                         ToggleMode="True"
+                                         MinWidth="85"
+                                         StyleClasses="OpenLeft"
+                                         Margin="0"/>
+                    </controls:BoxContainer>
+                    <!-- End Frontier - Inertia dampener controls-->
+                    <!-- Frontier - IFF search -->
+                    <controls:BoxContainer Orientation="Vertical" HorizontalExpand="True" Name="IffSearchBox">
+                        <controls:Label Text="{controls:Loc 'shuttle-console-iff-search'}"/>
+                        <controls:LineEdit Name="IffSearchCriteria" Access="Public" HorizontalExpand="True"/>
+                    </controls:BoxContainer>
+                    <!-- End Frontier - IFF search -->
+
+                    <!-- Frontier - Maximum IFF Distance -->
+                    <controls:BoxContainer Orientation="Vertical" HorizontalExpand="True" Name="MaximumIFFDistanceBox">
+                        <controls:Label Text="{controls:Loc 'shuttle-console-maximum-iff-distance'}"/>
+                        <controls:SliderIntInput Name="MaximumIFFDistanceValue"
+                                                 Access="Public"
+                                                 MinValue="0"
+                                                 MaxValue="3000"
+                                                 Value="3000"
+                                                 HorizontalExpand="True"/>
+                    </controls:BoxContainer>
+                    <!-- End Frontier - Maximum IFF Distance -->
+
+                    <!-- Network Port Buttons -->
+                    <controls:BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                        <controls1:StripeBack
+                            MinSize="48 48"
+                            Margin="0 5 0 0">
+                            <controls:Label Text="{controls:Loc 'shuttle-console-network-ports'}"
+                                   VerticalExpand="False"
+                                   HorizontalAlignment="Center"/>
+                        </controls1:StripeBack>
+
+                        <controls:PanelContainer>
+                            <controls:ScrollContainer
+                                HorizontalExpand="True"
+                                MinHeight="150"
+                                MaxHeight="150">
+                                <controls:BoxContainer Orientation="Vertical"
+                                             HorizontalExpand="True"
+                                             Name="NetworkPortsBox">
+                                    <controls:Button Name="DeviceButton1"
+                                                     Text="{controls:Loc 'shuttle-console-device-button-1'}"
+                                                     TextAlign="Center"
+                                                     Margin="0 2 0 2"/>
+                                    <controls:Button Name="DeviceButton2"
+                                                     Text="{controls:Loc 'shuttle-console-device-button-2'}"
+                                                     TextAlign="Center"
+                                                     Margin="0 2 0 2"/>
+                                    <controls:Button Name="DeviceButton3"
+                                                     Text="{controls:Loc 'shuttle-console-device-button-3'}"
+                                                     TextAlign="Center"
+                                                     Margin="0 2 0 2"/>
+                                    <controls:Button Name="DeviceButton4"
+                                                     Text="{controls:Loc 'shuttle-console-device-button-8'}"
+                                                     TextAlign="Center"
+                                                     ToolTip="{controls:Loc 'shuttle-console-network-connect-tooltip'}"
+                                                     Margin="0 2 0 2"/>
+                                </controls:BoxContainer>
+                            </controls:ScrollContainer>
+                        </controls:PanelContainer>
+                    </controls:BoxContainer>
+                    <!-- End Network Port Buttons -->
+                    </controls:BoxContainer>
                 </controls:BoxContainer>
-            </controls:BoxContainer>

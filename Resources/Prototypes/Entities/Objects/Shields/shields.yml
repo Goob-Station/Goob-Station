@@ -316,6 +316,9 @@
   id: MakeshiftShield
   description: A rundown looking shield, not good for much.
   components:
+    - type: Tag #goobstation
+      tags:
+       - MakeshiftShield
     - type: Sprite
       state: makeshift-icon
     - type: Item
@@ -674,4 +677,4 @@
                   min: 2
                   max: 2
     - type: StaticPrice
-      price: 250
+      price: 150

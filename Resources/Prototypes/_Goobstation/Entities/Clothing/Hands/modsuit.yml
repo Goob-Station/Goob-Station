@@ -11,10 +11,33 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+## Parent File to easily add more attributes, here it's used for plasmaman mostly
 - type: entity
   parent: ClothingHandsBase
+  id: ClothingHandModsuitBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Modsuits/standard.rsi
+    layers:
+    - state: gauntlets
+    - state: gauntlets-sealed
+      visible: false
+      map: [ "sealed" ]
+  - type: Tag
+    tags:
+    - PlasmamanSafe
+  - type: IgniteFromGasImmunity
+    parts:
+    - LeftHand
+    - RightHand
+
+
+- type: entity
+  parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsStandard
-  name: standard hardsuit gauntlets
+  name: standard modsuit gauntlets
   description: Special modular suit gloves that protect wearer from electric shock.
   categories: [ HideSpawnMenu ]
   components:
@@ -46,11 +69,10 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
-
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsSecurity
-  name: soldat hardsuit gauntlets
+  name: soldat modsuit gauntlets
   description: Robust modular suit gloves for gripping perps and guns tight.
   categories: [ HideSpawnMenu ]
   components:
@@ -82,11 +104,12 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
-
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsParamedic
-  name: sanitater hardsuit gauntlets
+  name: sanitater modsuit gauntlets
   description: Black and white modular suit gloves for gripping percs and patients tight.
   categories: [ HideSpawnMenu ]
   components:
@@ -118,6 +141,8 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
   - type: Armor
     modifiers:
       coefficients:
@@ -126,9 +151,9 @@
         Piercing: 0.9
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsHeadOfSecurity
-  name: bulwark hardsuit gauntlets
+  name: bulwark modsuit gauntlets
   description: Robust modular suit gloves for gripping perps and guns tight. Insulated.
   categories: [ HideSpawnMenu ]
   components:
@@ -161,6 +186,8 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
   - type: Armor
     modifiers:
       coefficients:
@@ -170,9 +197,9 @@
         Shock: 0.75
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsEngineer
-  name: sapper hardsuit gauntlets
+  name: sapper modsuit gauntlets
   description: Oil stained modular suit gloves for easily pushing buttons on an RCD.
   categories: [ HideSpawnMenu ]
   components:
@@ -207,6 +234,8 @@
       - state: equipped-HAND-sealed
       gloves-resomi:
       - state: equipped-HAND-sealed-resomi
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
   - type: Armor
     modifiers:
       coefficients:
@@ -216,9 +245,9 @@
         Shock: 0.5
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsAtmostech
-  name: aeolus hardsuit gauntlets
+  name: aeolus modsuit gauntlets
   description: Asbestos-lined modular suit gloves for easily pushing buttons on an RPD.
   categories: [ HideSpawnMenu ]
   components:
@@ -253,6 +282,8 @@
       - state: equipped-HAND-sealed
       gloves-resomi:
       - state: equipped-HAND-sealed-resomi
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
   - type: Armor
     modifiers:
       coefficients:
@@ -263,9 +294,9 @@
         Shock: 0.75
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsResearchDirector
-  name: minerva hardsuit gauntlets
+  name: minerva modsuit gauntlets
   description: For keeping your digits at 10 after the artifact goes thermonuclear on you.
   categories: [ HideSpawnMenu ]
   components:
@@ -298,6 +329,8 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
   - type: Armor
     modifiers:
       coefficients:
@@ -307,9 +340,9 @@
         Shock: 0.75
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsCaptain
-  name: magnate hardsuit gauntlets
+  name: magnate modsuit gauntlets
   description: Has specialised grooves and cuts for holding dat fukn diiisskk easier.
   categories: [ HideSpawnMenu ]
   components:
@@ -349,6 +382,8 @@
       - state: equipped-HAND-sealed
       gloves-resomi:
       - state: equipped-HAND-sealed-resomi
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
   - type: Armor
     modifiers:
       coefficients:

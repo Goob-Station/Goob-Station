@@ -84,14 +84,14 @@ public sealed class DroppableBorgModuleSystem : EntitySystem
         {
             var item = items[0]; // the contained items will gradually go to 0
             var handId = HandId(ent, i);
-            _hands.AddHand(chassis, handId, HandLocation.Middle, hands);
-            var hand = hands.Hands[handId];
-            _hands.DoPickup(chassis, hand, item, hands);
-            if (hand.HeldEntity != item)
+            _hands.AddHand((chassis, hands), handId, HandLocation.Middle);
+            _hands.DoPickup(chassis, handId, item, hands);
+            var held = _hands.GetHeldItem((chassis, hands), handId);
+            if (held != item)
             {
-                Log.Error($"Failed to pick up {ToPrettyString(item)} into hand {handId} of {ToPrettyString(chassis)}, it holds {ToPrettyString(hand.HeldEntity)}");
+                Log.Error($"Failed to pick up {ToPrettyString(item)} into hand {handId} of {ToPrettyString(chassis)}, it holds {ToPrettyString(held)}");
                 // If we didn't pick up our expected item, delete the hand.  No free hands!
-                _hands.RemoveHand(chassis, handId, hands);
+                _hands.RemoveHand((chassis, hands), handId);
             }
             else
             {
@@ -112,12 +112,12 @@ public sealed class DroppableBorgModuleSystem : EntitySystem
             for (int i = 0; i < ent.Comp.Items.Count; i++)
             {
                 var handId = HandId(ent, i);
-                _hands.TryGetHand(chassis, handId, out var hand, hands);
-                if (hand?.HeldEntity is { } item)
+                var held = _hands.GetHeldItem((chassis, hands), handId);
+                if (held is { } item)
                     QueueDel(item);
                 else if (!TerminatingOrDeleted(chassis)) // don't care if its empty if the server is shutting down
                     Log.Error($"Borg {ToPrettyString(chassis)} terminated with empty hand {i} in {ToPrettyString(ent)}");
-                _hands.RemoveHand(chassis, handId, hands);
+                _hands.RemoveHand((chassis, hands), handId);
             }
             return;
         }
@@ -126,8 +126,9 @@ public sealed class DroppableBorgModuleSystem : EntitySystem
         for (int i = 0; i < ent.Comp.Items.Count; i++)
         {
             var handId = HandId(ent, i);
-            _hands.TryGetHand(chassis, handId, out var hand, hands);
-            if (hand?.HeldEntity is { } item)
+            _hands.TryGetHand((chassis, hands), handId, out var hand);
+            var held = _hands.GetHeldItem((chassis, hands), handId);
+            if (held is { } item)
             {
                 _placeholder.SetEnabled(item, false);
                 _container.Insert(item, container, force: true);
@@ -137,7 +138,7 @@ public sealed class DroppableBorgModuleSystem : EntitySystem
                 Log.Error($"Borg {ToPrettyString(chassis)} had an empty hand in the slot for {ent.Comp.Items[i].Id}");
             }
 
-            _hands.RemoveHand(chassis, handId, hands);
+            _hands.RemoveHand((chassis, hands), handId);
         }
     }
 

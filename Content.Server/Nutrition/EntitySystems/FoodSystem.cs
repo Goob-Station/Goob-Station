@@ -135,9 +135,11 @@ using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Stacks;
 using Content.Shared.Storage;
+using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared.Containers.ItemSlots;
@@ -145,6 +147,7 @@ using Robust.Server.GameObjects;
 using Content.Shared.Whitelist;
 using Content.Shared.Destructible;
 using Content.Shared.Clothing.EntitySystems;
+using Content.Shared.Heretic; // Goobstation
 
 namespace Content.Server.Nutrition.EntitySystems;
 
@@ -171,6 +174,9 @@ public sealed class FoodSystem : EntitySystem
     [Dependency] private readonly StomachSystem _stomach = default!;
     [Dependency] private readonly UtensilSystem _utensil = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly TagSystem _tag = default!; // Goobstation
+
+    private static readonly ProtoId<TagPrototype> UnedibleTag = "Unedible"; // Goobstaion
 
     public const float MaxFeedDistance = 1.0f;
 
@@ -386,7 +392,14 @@ public sealed class FoodSystem : EntitySystem
         }
 
         _reaction.DoEntityReaction(args.Target.Value, solution, ReactionMethod.Ingestion);
-        _stomach.TryTransferSolution(stomachToUse!.Value.Owner, split, stomachToUse);
+        // Goobstation start
+        var volume = split.Volume;
+        if (_stomach.TryTransferSolution(stomachToUse!.Value.Owner, split, stomachToUse))
+        {
+            var ev = new ConsumingFoodEvent(entity.Owner, volume);
+            RaiseLocalEvent(args.Target.Value, ref ev);
+        }
+        // Goobstation end
 
         var flavors = args.FlavorMessage;
 
@@ -436,7 +449,7 @@ public sealed class FoodSystem : EntitySystem
 
         // don't try to repeat if its being deleted
         args.Repeat = false;
-        DeleteAndSpawnTrash(entity.Comp, entity.Owner, args.User);
+        DeleteAndSpawnTrash(entity.Comp, entity.Owner, args.Target.Value); // Goobstation
     }
 
     public void DeleteAndSpawnTrash(FoodComponent component, EntityUid food, EntityUid user)
@@ -462,7 +475,7 @@ public sealed class FoodSystem : EntitySystem
 
         if (component.Trash.Count == 0)
         {
-            QueueDel(food);
+            PredictedQueueDel(food);
             return;
         }
 
@@ -473,10 +486,10 @@ public sealed class FoodSystem : EntitySystem
         var trashes = component.Trash;
         var tryPickup = _hands.IsHolding(user, food, out _);
 
-        Del(food);
+        PredictedDel(food);
         foreach (var trash in trashes)
         {
-            var spawnedTrash = Spawn(trash, position);
+            var spawnedTrash = EntityManager.PredictedSpawn(trash, position);
 
             // If the user is holding the item
             if (tryPickup)
@@ -541,6 +554,9 @@ public sealed class FoodSystem : EntitySystem
     {
         var digestible = true;
 
+        if (_tag.HasTag(food, UnedibleTag)) // Goobstation
+            return false;
+
         // Does the mob have enough stomachs?
         if (stomachs.Count < component.RequiredStomachs)
             return false;
@@ -579,7 +595,7 @@ public sealed class FoodSystem : EntitySystem
 
         var usedTypes = UtensilType.None;
 
-        foreach (var item in _hands.EnumerateHeld(user, hands))
+        foreach (var item in _hands.EnumerateHeld((user, hands)))
         {
             // Is utensil?
             if (!TryComp<UtensilComponent>(item, out var utensil))

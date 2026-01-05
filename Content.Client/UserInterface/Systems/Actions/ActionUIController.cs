@@ -130,6 +130,7 @@ using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Actions.Components;
 using Content.Shared.Charges.Systems;
+using Content.Shared.Heretic;
 using Content.Shared.Input;
 using Content.Shared.Mobs.Components;
 using Robust.Client.GameObjects;
@@ -400,18 +401,18 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (_actionsSystem.GetAction(actionId) is not { } action)
             return false;
 
-        if (!EntityManager.TryGetComponent(user, out TargetActionComponent? targetComp))
+        if (!EntityManager.TryGetComponent(actionId, out TargetActionComponent? targetComp))
             return false;
 
         // Is the action currently valid?
-        if (!action.Comp.Enabled || action.Comp.Cooldown.HasValue && action.Comp.Cooldown.Value.End > _timing.CurTime)
+        if (!_actionsSystem.ValidAction(action))
         {
             // The user is targeting with this action, but it is not valid. Maybe mark this click as
             // handled and prevent further interactions.
             return !targetComp.InteractOnMiss;
         }
 
-        if (!EntityManager.TryGetComponent(user, out EntityTargetActionComponent? entityTarget))
+        if (!EntityManager.TryGetComponent(actionId, out EntityTargetActionComponent? entityTarget))
             return false;
 
         if (!EntityManager.TryGetComponent(actionId, out SwapSpellComponent? swap))
@@ -1019,7 +1020,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             SearchAndDisplay();
 
         // Goobstation start
-        if (SelectingTargetFor.HasValue || _mark == null)
+        if (_mark == null)
             return;
 
         if (EntityManager.HasComponent<SwapSpellComponent>(SelectingTargetFor))
@@ -1121,6 +1122,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         // If we were targeting something else we should stop
         StopTargeting();
+
+        // Goobstation
+        if (EntityManager.TryGetComponent(ent, out WorldTargetActionComponent? worldTarget) &&
+            worldTarget.Event is InstantWorldTargetActionEvent)
+            _actionsSystem?.TriggerAction(ent, true); // We just perform it and hope for the best :godo:
 
         SelectingTargetFor = uid;
         // TODO inform the server

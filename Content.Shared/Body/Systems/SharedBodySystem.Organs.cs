@@ -96,6 +96,7 @@ using Robust.Shared.Containers;
 using Content.Shared.Damage;
 using Content.Shared._Shitmed.BodyEffects;
 using Content.Shared._Shitmed.Body.Organ;
+using Content.Shared.Heretic;
 
 namespace Content.Shared.Body.Systems;
 
@@ -123,7 +124,7 @@ public partial class SharedBodySystem
         EntityUid parentPartUid)
     {
         organEnt.Comp.Body = bodyUid;
-        var addedEv = new OrganAddedEvent(parentPartUid);
+        var addedEv = new OrganAddedEvent(parentPartUid, bodyUid); // Shitmed - add body
         RaiseLocalEvent(organEnt, ref addedEv);
 
         if (organEnt.Comp.Body is not null)
@@ -141,7 +142,7 @@ public partial class SharedBodySystem
 
     private void RemoveOrgan(Entity<OrganComponent> organEnt, EntityUid parentPartUid)
     {
-        var removedEv = new OrganRemovedEvent(parentPartUid);
+        var removedEv = new OrganRemovedEvent(parentPartUid, organEnt.Comp.Body); // Shitmed - add body
         RaiseLocalEvent(organEnt, ref removedEv);
 
         if (organEnt.Comp.Body is { Valid: true } bodyUid)
@@ -154,11 +155,6 @@ public partial class SharedBodySystem
             var removedInBodyEv = new OrganRemovedFromBodyEvent(bodyUid, parentPartUid);
             RaiseLocalEvent(organEnt, ref removedInBodyEv);
         }
-
-        if (parentPartUid is { Valid: true }
-            && TryComp(parentPartUid, out DamageableComponent? damageable)
-            && damageable.TotalDamage > 200)
-            TrySetOrganUsed(organEnt, true, organEnt.Comp);
 
         organEnt.Comp.Body = null;
         Dirty(organEnt, organEnt.Comp);
@@ -304,6 +300,14 @@ public partial class SharedBodySystem
         if (!Resolve(entity, ref entity.Comp))
             return new List<Entity<T, OrganComponent>>();
 
+        // Goobstation start
+        var ev = new GetBodyOrganOverrideEvent<T>();
+        RaiseLocalEvent(entity, ref ev);
+        var result = ev.Organ;
+        if (result != null)
+            return new List<Entity<T, OrganComponent>> {result.Value};
+        // Goobstation end
+
         var query = GetEntityQuery<T>();
         var list = new List<Entity<T, OrganComponent>>(3);
         foreach (var organ in GetBodyOrgans(entity.Owner, entity.Comp))
@@ -346,17 +350,6 @@ public partial class SharedBodySystem
     }
 
     // Shitmed Change Start
-
-    public bool TrySetOrganUsed(EntityUid organId, bool used, OrganComponent? organ = null)
-    {
-        if (!Resolve(organId, ref organ)
-            || organ.Used == used)
-            return false;
-
-        organ.Used = used;
-        Dirty(organId, organ);
-        return true;
-    }
 
     private void OnOrganEnableChanged(Entity<OrganComponent> organEnt, ref OrganEnableChangedEvent args)
     {

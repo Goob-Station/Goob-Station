@@ -7,15 +7,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Speech;
 using Content.Server.Speech.EntitySystems;
-using Robust.Shared.Random;
+using Content.Shared.Speech;
 
 namespace Content.Goobstation.Server.Speech;
 
 public sealed class CheeseAccentSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
 
     public override void Initialize()
@@ -28,7 +26,7 @@ public sealed class CheeseAccentSystem : EntitySystem
     {
         var message = args.Message;
 
-        message = _replacement.ApplyReplacements(message, "Cheese");
+        message = _replacement.ApplyReplacements(message, "cheese");
 
         // Sanitize capital again, in case we substituted a word that should be capitalized
         message = message[0].ToString().ToUpper() + message.Remove(0, 1);

@@ -11,12 +11,10 @@
 
 using Content.Goobstation.Common.Standing;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Common.MartialArts;
 
 [Prototype("combo")]
-[Serializable, NetSerializable, DataDefinition]
 public sealed partial class ComboPrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;

@@ -20,3 +20,16 @@ stack-filter-stack-chunk-size = Out chunk size
 pressure-filter-window-title = Edit Pressure Filter
 pressure-filter-min-pressure = Min Pressure
 pressure-filter-max-pressure = Max Pressure
+
+anchor-filter-examine-enabled = It is set to only allow anchored, anchorable objects.
+anchor-filter-examine-disabled = It is set to only allow unanchored, anchorable objects.
+
+mob-filter-window-title = Edit Mob Filter
+mob-state-Alive = Alive
+mob-state-Dead = Dead
+mob-state-Critical = Critical
+mob-filter-examine-unset = No mob states are configured
+mob-filter-examine-set = It is configured to allow mobs in these states: {$states}
+
+cuff-filter-examine-enabled = It is set to only allow mobs that are handcuffed.
+cuff-filter-examine-disabled = It is set to only allow mobs that are uncuffed.

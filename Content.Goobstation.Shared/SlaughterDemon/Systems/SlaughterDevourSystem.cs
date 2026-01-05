@@ -1,6 +1,10 @@
 using Content.Goobstation.Shared.SlaughterDemon.Objectives;
+using Content.Goobstation.Shared.SlaughterDemon.Other;
 using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._Shitmed.Damage;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
+using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
@@ -22,6 +26,7 @@ public sealed class SlaughterDevourSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
     private EntityQuery<PullerComponent> _pullerQuery;
     private EntityQuery<HumanoidAppearanceComponent> _humanoid;
@@ -37,19 +42,34 @@ public sealed class SlaughterDevourSystem : EntitySystem
 
         SubscribeLocalEvent<SlaughterDevourComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SlaughterDevourComponent, BloodCrawlAttemptEvent>(OnBloodCrawlAttempt);
+
+        SubscribeLocalEvent<SlaughterDevourComponent, SlaughterDevourDoAfter>(OnDoAfter);
+
+        // Drink-related
+        SubscribeLocalEvent<DemonsBloodComponent, SlaughterDevourAttemptEvent>(OnAttemptDemonsBlood);
+        SubscribeLocalEvent<DemonsKissComponent, SlaughterDevourAttemptEvent>(OnAttemptDemonsKiss);
     }
 
     private void OnMapInit(Entity<SlaughterDevourComponent> ent, ref MapInitEvent args) =>
         ent.Comp.Container = _container.EnsureContainer<Container>(ent.Owner, "stomach");
 
     private void OnBloodCrawlAttempt(Entity<SlaughterDevourComponent> ent, ref BloodCrawlAttemptEvent args) =>
-        TryDevour(ent.Owner);
+        TryDevour(ent.Owner, ent.Comp, ref args);
+
+    private void OnDoAfter(Entity<SlaughterDevourComponent> ent, ref SlaughterDevourDoAfter args)
+    {
+        if (args.Target == null
+            || args.Cancelled)
+            return;
+
+        var ev = new SlaughterDevourEvent(args.Target.Value, ent.Owner);
+        RaiseLocalEvent(ent.Owner, ref ev, true);
+    }
 
     /// <summary>
     /// Exclusive to slaughter demons. They devour targets once they enter blood crawl jaunt form.
-    /// Laughter demons do not directly devour them, however.
     /// </summary>
-    private void TryDevour(EntityUid uid)
+    private void TryDevour(EntityUid uid, SlaughterDevourComponent comp, ref BloodCrawlAttemptEvent args)
     {
         if (!_pullerQuery.TryComp(uid, out var puller)
             || puller.Pulling == null)
@@ -60,28 +80,72 @@ public sealed class SlaughterDevourSystem : EntitySystem
         if (_mobState.IsAlive(pullingEnt))
             return;
 
-        var ev = new SlaughterDevourEvent(pullingEnt, Transform(uid).Coordinates);
-        RaiseLocalEvent(uid, ref ev);
+        var doAfterArgs = new DoAfterArgs(
+            EntityManager,
+            uid,
+            comp.DoAfterDelay,
+            new SlaughterDevourDoAfter(),
+            uid,
+            pullingEnt)
+        {
+            BreakOnMove = true,
+            ColorOverride = Color.Red
+        };
+
+        args.Cancelled = true; // cancel the jaunt and devour instead
+
+        _doAfter.TryStartDoAfter(doAfterArgs);
     }
+
+    #region Drink-related
+
+    private void OnAttemptDemonsBlood(Entity<DemonsBloodComponent> ent, ref SlaughterDevourAttemptEvent args)
+    {
+        if (args.Handled || args.Cancelled)
+            return;
+
+        _popup.PopupEntity(Loc.GetString("slaughter-demons-blood-devour"), args.Devourer, args.Devourer, PopupType.SmallCaution);
+        args.Cancelled = true;
+    }
+
+    private void OnAttemptDemonsKiss(Entity<DemonsKissComponent> ent, ref SlaughterDevourAttemptEvent args)
+    {
+        if (args.Handled || args.Cancelled)
+            return;
+
+        _damageable.TryChangeDamage(args.Devourer, ent.Comp.Damage, ignoreResistances: true);
+        _popup.PopupEntity(Loc.GetString("slaughter-demons-kiss-devour"), args.Devourer, args.Devourer, PopupType.MediumCaution);
+
+        if (ent.Comp.Eject)
+            args.Cancelled = true;
+    }
+    #endregion
 
     public void HealAfterDevouring(EntityUid target, EntityUid devourer, SlaughterDevourComponent component)
     {
         // I dont know how to refactor this into events so im leaving it like this
+        var toHeal = component.ToHeal;
         if (HasComp<HumanoidAppearanceComponent>(target) && !HasComp<SiliconComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("slaughter-devour-humanoid"), devourer);
-            _damageable.TryChangeDamage(devourer, component.ToHeal);
         }
         else if (HasComp<BorgChassisComponent>(target) || HasComp<SiliconComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("slaughter-devour-robot"), devourer);
-            _damageable.TryChangeDamage(devourer, component.ToHealNonCrew);
+            toHeal = component.ToHealNonCrew;
         }
         else
         {
             _popup.PopupEntity(Loc.GetString("slaughter-devour-other"), devourer);
-            _damageable.TryChangeDamage(devourer, component.ToHealAnythingElse);
+            toHeal = component.ToHealAnythingElse;
         }
+
+        _damageable.TryChangeDamage(devourer,
+            toHeal,
+            true,
+            false,
+            targetPart: TargetBodyPart.All,
+            splitDamage: SplitDamageBehavior.SplitEnsureAll);
     }
 
     /// <summary>

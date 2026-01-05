@@ -8,10 +8,10 @@
 
 - files: ["badtothebone.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Sound taken from https://www.myinstants.com/en/instant/bad-to-the-bone-riff-10536/ and turned into .ogg by @LuciferEOS"
+  copyright: "Sound taken from https://www.myinstants.com/en/instant/bad-to-the-bone-riff-10536/ and turned into .ogg by @LuciferEOS, converted to mono by @deltanedas (github)"
   source: "https://www.myinstants.com/en/instant/bad-to-the-bone-riff-10536/"
 
 - files: ["gulpexotic.ogg"]
   license: "CC0-1.0"
-  copyright: "Stock sounds from Pixabay"
+  copyright: "Stock sounds from Pixabay, converted to mono by @deltanedas (github)"
   source: "https://pixabay.com/sound-effects/gulp-48452/"

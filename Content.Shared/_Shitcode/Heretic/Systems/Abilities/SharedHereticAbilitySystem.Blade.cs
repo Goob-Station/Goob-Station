@@ -5,12 +5,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Stunnable;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Components;
-using Content.Shared.Actions.Events;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Slippery;
+using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee.Events;
 
@@ -28,15 +30,23 @@ public abstract partial class SharedHereticAbilitySystem
         // SubscribeLocalEvent<SilverMaelstromComponent, BeforeStatusEffectAddedEvent>(OnBeforeBladeStatusEffect);
         // Remove this after adding noslip heretic magboots side knowledge
         SubscribeLocalEvent<SilverMaelstromComponent, SlipAttemptEvent>(OnBladeSlipAttempt);
+        SubscribeLocalEvent<SilverMaelstromComponent, GetClothingStunModifierEvent>(OnBladeStunModify);
+        SubscribeLocalEvent<SilverMaelstromComponent, DropHandItemsEvent>(OnBladeDropItems,
+            before: new[] { typeof(SharedHandsSystem) });
         // Protective blades do that
         // SubscribeLocalEvent<SilverMaelstromComponent, BeforeHarmfulActionEvent>(OnBladeHarmfulAction);
 
         SubscribeLocalEvent<RealignmentComponent, BeforeStaminaDamageEvent>(OnBeforeBladeStaminaDamage);
-        SubscribeLocalEvent<RealignmentComponent, BeforeStatusEffectAddedEvent>(OnBeforeBladeStatusEffect);
+        SubscribeLocalEvent<RealignmentComponent, OldBeforeStatusEffectAddedEvent>(OnBeforeBladeStatusEffect);
         SubscribeLocalEvent<RealignmentComponent, SlipAttemptEvent>(OnBladeSlipAttempt);
         SubscribeLocalEvent<RealignmentComponent, BeforeHarmfulActionEvent>(OnBladeHarmfulAction);
         SubscribeLocalEvent<RealignmentComponent, StatusEffectEndedEvent>(OnStatusEnded);
         SubscribeLocalEvent<RealignmentComponent, ComponentRemove>(OnComponentRemove);
+    }
+
+    private void OnBladeDropItems(Entity<SilverMaelstromComponent> ent, ref DropHandItemsEvent args)
+    {
+        args.Handled = true;
     }
 
     private void OnComponentRemove(Entity<RealignmentComponent> ent, ref ComponentRemove args) =>
@@ -47,7 +57,7 @@ public abstract partial class SharedHereticAbilitySystem
         if (args.Key != "Pacified")
             return;
 
-        if (!_status.TryRemoveStatusEffect(ent, "Realignment"))
+        if (!Status.TryRemoveStatusEffect(ent, "Realignment"))
             RemCompDeferred(ent.Owner, ent.Comp);
     }
 
@@ -59,12 +69,17 @@ public abstract partial class SharedHereticAbilitySystem
         args.Cancel();
     }
 
+    private void OnBladeStunModify(Entity<SilverMaelstromComponent> ent, ref GetClothingStunModifierEvent args)
+    {
+        args.Modifier *= 0.5f;
+    }
+
     private void OnBladeSlipAttempt(EntityUid uid, Component component, SlipAttemptEvent args)
     {
         args.NoSlip = true;
     }
 
-    private void OnBeforeBladeStatusEffect(EntityUid uid, Component component, ref BeforeStatusEffectAddedEvent args)
+    private void OnBeforeBladeStatusEffect(EntityUid uid, Component component, ref OldBeforeStatusEffectAddedEvent args)
     {
         if (args.Key is not ("KnockedDown" or "Stun"))
             return;

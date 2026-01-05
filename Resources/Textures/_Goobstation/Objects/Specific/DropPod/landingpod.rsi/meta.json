@@ -1,0 +1,33 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/blob/f157d623a167431ee05432fe0f8b8090baa073e1/icons/obj/supplypods.dmi",
+    "size": {
+        "x": 140,
+        "y": 320
+    },
+    "states": [
+		{
+            "name": "landing",
+			"delays": [
+                [
+                    1.25,
+                    0.04,
+                    0.04,
+					0.04,
+					0.04,
+                    0.04,
+					0.04,
+                    0.04,
+					0.04,
+					0.04,
+                    0.04,
+					0.04,
+					0.04,
+					0.04,
+                    0.04
+                ]
+            ]
+        }
+    ]
+}

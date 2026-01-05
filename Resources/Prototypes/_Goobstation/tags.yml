@@ -91,6 +91,9 @@
   id: BreathMask
 
 - type: Tag
+  id: Bulwark
+
+- type: Tag
   id: CartridgeHighCaliber
 
 - type: Tag
@@ -104,6 +107,9 @@
 
 - type: Tag
   id: CartridgeG8
+
+- type: Tag
+  id: CameraElectronics
 
 - type: Tag
   id: CannotSuicideAny
@@ -140,6 +146,9 @@
 
 - type: Tag
   id: CombatMech
+
+- type: Tag
+  id: CorporateOverride
 
 - type: Tag
   id: ContrabandDetectorCircuitboard
@@ -304,6 +313,9 @@
   id: HEVSuit
 
 - type: Tag
+  id: Holosign
+
+- type: Tag
   id: HolyClaymore
 
 - type: Tag
@@ -319,7 +331,13 @@
   id: IgnoreImmovableRod
 
 - type: Tag
+  id: IPCDrinkBlacklist
+
+- type: Tag
   id: ItemPickaxe
+
+- type: Tag
+  id: ImprovisedShotgun
 
 - type: Tag
   id: IndustrialMech
@@ -329,6 +347,9 @@
 
 - type: Tag
   id: Justice
+
+- type: Tag
+  id: Keyring
 
 - type: Tag
   id: Kidneys
@@ -381,6 +402,9 @@
 
 - type: Tag
   id: MechThruster
+
+- type: Tag
+  id: MechUnGrabbable
 
 - type: Tag
   id: MedicalPatch
@@ -467,6 +491,9 @@
   id: Poppy
 
 - type: Tag
+  id: RatvarianSpear
+
+- type: Tag
   id: ReptilianEmotes
 
 - type: Tag
@@ -491,6 +518,9 @@
   id: ShadowCloakAction
 
 - type: Tag
+  id: SheetPlasma
+
+- type: Tag
   id: ShowWizardIcons
 
 - type: Tag
@@ -498,6 +528,9 @@
 
 - type: Tag
   id: SnapPop
+
+- type: Tag
+  id: SolarAssemblyFlatpack # stupid upstream thing used it in a construction graph
 
 - type: Tag
   id: SoulTapped
@@ -530,6 +563,9 @@
   id: ShellShotgunHeavier
 
 - type: Tag
+  id: SheetGlass
+
+- type: Tag
   id: ShellShotgunHeavy
 
 - type: Tag
@@ -560,6 +596,9 @@
   id: ToySword
 
 - type: Tag
+  id: MakeshiftShield
+
+- type: Tag
   id: MolotovConstruction
 
 - type: Tag
@@ -569,7 +608,13 @@
   id: Undead
 
 - type: Tag
+  id: Unedible
+
+- type: Tag
   id: UristHand
+
+- type: Tag
+  id: Ushanka
 
 - type: Tag
   id: VehicleKey
@@ -578,16 +623,31 @@
   id: VulpEmotes
 
 - type: Tag
+  id: Vial
+
+- type: Tag
+  id: WallLight
+
+- type: Tag
   id: WaterTank
 
 - type: Tag
   id: WeaponDisabler
 
 - type: Tag
+  id: Flash
+
+- type: Tag
+  id: RevFlash
+
+- type: Tag
   id: WeaponPistolDualetta
 
 - type: Tag
   id: WeaponEnergyGunLawbringer
+
+- type: Tag
+  id: WideSwingIgnore
 
 - type: Tag
   id: WeaponPistolCasul
@@ -603,6 +663,79 @@
 
 - type: Tag
   id: WizardHat
+
+# XENOBIO - START
+
+- type: Tag
+  id: XenobiologyGreyExtract
+
+- type: Tag
+  id: XenobiologyOrangeExtract
+
+- type: Tag
+  id: XenobiologyPurpleExtract
+
+- type: Tag
+  id: XenobiologyBlueExtract
+
+- type: Tag
+  id: XenobiologyMetalExtract
+
+- type: Tag
+  id: XenobiologyYellowExtract
+
+- type: Tag
+  id: XenobiologyDarkPurpleExtract
+
+- type: Tag
+  id: XenobiologyDarkBlueExtract
+
+- type: Tag
+  id: XenobiologySilverExtract
+
+- type: Tag
+  id: XenobiologyBluespaceExtract
+
+- type: Tag
+  id: XenobiologySepiaExtract
+
+- type: Tag
+  id: XenobiologyCeruleanExtract
+
+- type: Tag
+  id: XenobiologyPyriteExtract
+
+- type: Tag
+  id: XenobiologyRedExtract
+
+- type: Tag
+  id: XenobiologyGreenExtract
+
+- type: Tag
+  id: XenobiologyPinkExtract
+
+- type: Tag
+  id: XenobiologyGoldExtract
+
+- type: Tag
+  id: XenobiologyOilExtract
+
+- type: Tag
+  id: XenobiologyLightPinkExtract
+
+- type: Tag
+  id: XenobiologyBlackExtract
+
+- type: Tag
+  id: XenobiologyAdamantineExtract
+
+# XENOBIO - END
+
+- type: Tag
+  id: Wonderprod
+
+- type: Tag # These tags are NOT alphabetical!!
+  id: Xenomorph
 
 - type: Tag
   id: HudMedicalSecurity
@@ -633,3 +766,39 @@
 
 - type: Tag
   id: MidroundAntag
+
+- type: Tag
+  id: FoodTinMRE
+
+- type: Tag
+  id: EmergencyWaterVaporTank
+
+- type: Tag
+  id: DisposableBattery
+
+- type: Tag
+  id: HolyChainsaw
+
+- type: Tag
+  id: ChaplainsHolster
+
+- type: Tag
+  id: ForkliftKeys
+
+- type: Tag
+  id: Crate
+
+- type: Tag
+  id: GreenGloves
+
+- type: Tag
+  id: WaterBottle
+
+- type: Tag
+  id: IceBucket
+
+- type: Tag
+  id: HereticCostume
+  
+- type: Tag
+  id: VinylSleeveFit

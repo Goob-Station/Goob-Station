@@ -20,6 +20,7 @@ using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Inventory;
+using Content.Shared.Polymorph;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -65,14 +66,22 @@ public sealed partial class HereticActionComponent : Component
         Target = target;
     }
 }
-[Serializable, NetSerializable] public sealed partial class EventHereticFleshSurgeryDoAfter : SimpleDoAfterEvent
-{
-    [NonSerialized] public EntityUid? Target;
 
-    public EventHereticFleshSurgeryDoAfter(EntityUid target)
+[Serializable, NetSerializable]
+public sealed partial class EventHereticFleshSurgeryDoAfter : SimpleDoAfterEvent;
+
+[Serializable, NetSerializable]
+public sealed partial class StarGazeDoAfterEvent : DoAfterEvent
+{
+    public StarGazeDoAfterEvent(NetEntity orbEffect)
     {
-        Target = target;
+        OrbEffect = orbEffect;
     }
+
+    [DataField]
+    public NetEntity OrbEffect = NetEntity.Invalid;
+
+    public override DoAfterEvent Clone() => this;
 }
 
 #endregion
@@ -115,20 +124,120 @@ public sealed partial class EventHereticShadowCloak : InstantActionEvent
 public sealed partial class EventHereticMansusLink : EntityTargetActionEvent { }
 
 // ash
-public sealed partial class EventHereticAshenShift : InstantActionEvent { }
-public sealed partial class EventHereticVolcanoBlast : InstantActionEvent { }
-public sealed partial class EventHereticNightwatcherRebirth : InstantActionEvent { }
+public sealed partial class EventHereticAshenShift : InstantActionEvent
+{
+    [DataField]
+    public ProtoId<PolymorphPrototype> Jaunt = "AshJaunt";
+}
+
+public sealed partial class EventHereticVolcanoBlast : InstantActionEvent
+{
+    [DataField]
+    public float Radius = 5;
+}
+
+public sealed partial class EventHereticNightwatcherRebirth : InstantActionEvent
+{
+    [DataField]
+    public float Range = 7f;
+
+    [DataField]
+    public DamageSpecifier Damage = new()
+    {
+        DamageDict =
+        {
+            { "Heat", 20 },
+        },
+    };
+
+    [DataField]
+    public float FireStacks = 3f;
+
+    [DataField]
+    public float FireProtectionPenetration = 0.5f;
+
+    [DataField]
+    public float HealAmount = -10f;
+}
 public sealed partial class EventHereticFlames : InstantActionEvent { }
 public sealed partial class EventHereticCascade : InstantActionEvent { }
 
 // flesh
-public sealed partial class EventHereticFleshSurgery : EntityTargetActionEvent { }
+public sealed partial class EventHereticFleshSurgery : InstantActionEvent, ITouchSpellEvent
+{
+    [DataField]
+    public EntProtoId TouchSpell { get; set; } = "TouchSpellFleshSurgery";
+}
+
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class EventHereticFleshPassive : EntityEventArgs;
 
 // void (+ upgrades)
-[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAristocratWayEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class HereticAristocratWayEvent : EntityEventArgs
+{
+    [DataField]
+    public bool GrantBreathingImmunity;
+}
 public sealed partial class HereticVoidBlastEvent : InstantActionEvent { }
-public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent { }
-public sealed partial class HereticVoidPullEvent : InstantActionEvent { }
+
+public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent
+{
+    [DataField]
+    public DamageSpecifier Damage = new ()
+    {
+        DamageDict =
+        {
+            {"Cold", 20},
+        },
+    };
+
+    [DataField]
+    public float Radius = 1.5f;
+
+    [DataField]
+    public EntProtoId InEffect = "EffectVoidBlinkIn";
+
+    [DataField]
+    public EntProtoId OutEffect = "EffectVoidBlinkOut";
+}
+
+public sealed partial class HereticVoidPullEvent : InstantActionEvent
+{
+    [DataField]
+    public DamageSpecifier Damage = new ()
+    {
+        DamageDict =
+        {
+            {"Cold", 30},
+        },
+    };
+
+    [DataField]
+    public TimeSpan StunTime = TimeSpan.FromSeconds(0.5);
+
+    [DataField]
+    public TimeSpan KnockDownTime = TimeSpan.FromSeconds(3);
+
+    [DataField]
+    public float Radius = 3f;
+
+    [DataField]
+    public EntProtoId InEffect = "EffectVoidBlinkIn";
+}
+
+public sealed partial class HereticVoidPrisonEvent : EntityTargetActionEvent
+{
+    [DataField]
+    public ProtoId<PolymorphPrototype> Polymorph = "VoidPrison";
+}
+
+public sealed partial class HereticVoidConduitEvent : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId VoidConduit = "VoidConduit";
+}
+
 public sealed partial class HereticVoidVisionEvent : EntityEventArgs { } // done only via void's ascension
 
 // blade (+ upgrades)
@@ -148,6 +257,8 @@ public sealed partial class EventHereticFuriousSteel : InstantActionEvent { }
 // lock
 public sealed partial class EventHereticBulglarFinesse : InstantActionEvent { }
 public sealed partial class EventHereticLastRefugee : InstantActionEvent { }
+
+public sealed partial class EventHereticShapeshift : InstantActionEvent;
 
 // rust
 [Serializable, NetSerializable, DataDefinition]
@@ -204,6 +315,9 @@ public sealed partial class EventHereticEntropicPlume : InstantActionEvent
     public float LookupRange = 0.1f;
 
     [DataField]
+    public int RustStrength = 7; // Toxic blade level
+
+    [DataField]
     public EntProtoId TileRune = "TileHereticRustRune";
 }
 
@@ -219,8 +333,61 @@ public sealed partial class EventHereticAggressiveSpread : InstantActionEvent
     public float LookupRange = 0.1f;
 
     [DataField]
+    public int RustStrength = 4; // Mark of rust level
+
+    [DataField]
     public EntProtoId TileRune = "TileHereticRustRune";
 }
+
+// cosmos
+public sealed partial class EventHereticCosmicRune : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId Rune = "HereticRuneCosmos";
+}
+
+public sealed partial class EventHereticStarTouch : InstantActionEvent, ITouchSpellEvent
+{
+    [DataField]
+    public EntProtoId TouchSpell { get; set; } = "TouchSpellStar";
+}
+
+public sealed partial class EventHereticStarBlast : InstantWorldTargetActionEvent
+{
+    [DataField]
+    public EntProtoId Projectile = "ProjectileStarBall";
+
+    [DataField]
+    public float ProjectileSpeed = 2f;
+}
+
+public sealed partial class EventHereticCosmicExpansion : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId Effect = "EffectCosmicDomain";
+
+    [DataField]
+    public float Range = 7f;
+}
+
+public sealed partial class StarGazeEvent : InstantActionEvent // Giga lazor
+{
+    [DataField]
+    public TimeSpan DoAfterDelay = TimeSpan.FromSeconds(3);
+
+    [DataField]
+    public EntProtoId OrbEffect = "EffectGazerOrb";
+
+    [DataField]
+    public SoundSpecifier BeamStartSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/stargazer/beam_open.ogg");
+}
+
+public sealed partial class ResetStarGazerConsciousnessEvent : InstantActionEvent;
+
+public sealed partial class StarGazerSeekMasterEvent : InstantActionEvent;
+
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class EventHereticCosmosPassive : EntityEventArgs;
 
 // side
 public sealed partial class EventHereticIceSpear : InstantActionEvent;
@@ -266,4 +433,22 @@ public sealed partial class EventHereticRustCharge : WorldTargetActionEvent
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionLockEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionBladeEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionRustEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionCosmosEvent : EntityEventArgs { }
 #endregion
+
+public interface ITouchSpellEvent
+{
+    EntProtoId TouchSpell { get; set; }
+}
+
+public abstract partial class InstantWorldTargetActionEvent : WorldTargetActionEvent
+{
+}
+
+[Serializable, NetSerializable]
+public sealed class LaserBeamEndpointPositionEvent(NetEntity uid, MapCoordinates coords) : EntityEventArgs
+{
+    public NetEntity Uid = uid;
+
+    public MapCoordinates Coordinates = coords;
+}

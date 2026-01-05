@@ -220,7 +220,7 @@ namespace Content.Shared.Examine
             if (!examinerComp.CheckInRangeUnOccluded)
                 return true;
 
-            if (EntityManager.GetComponent<TransformComponent>(examiner).MapID != target.MapId)
+            if (Comp<TransformComponent>(examiner).MapID != target.MapId)
                 return false;
 
             // Do target InRangeUnoccluded which has different checks.
@@ -573,7 +573,7 @@ namespace Content.Shared.Examine
         public void PushText(string text, int priority=0)
         {
             var msg = new FormattedMessage();
-            msg.AddText(text);
+            msg.AddText(FormattedMessage.EscapeText(text)); // Goob Sanitize Text
             PushMessage(msg, priority);
         }
 
@@ -621,7 +621,7 @@ namespace Content.Shared.Examine
         public void AddText(string text, int priority=0)
         {
             var msg = new FormattedMessage();
-            msg.AddText(text);
+            msg.AddText(FormattedMessage.EscapeText(text)); // Goob Sanitize Text
             AddMessage(msg, priority);
         }
 

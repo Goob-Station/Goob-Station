@@ -59,9 +59,7 @@ public sealed class InfusedItemSystem : EntitySystem
             _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
         }
 
-        if (TryComp<HandsComponent>(target, out var hands))
-            _hands.TryDrop(target, Transform(target).Coordinates, handsComp: hands);
-
+        _hands.TryDrop(target, Transform(target).Coordinates);
         SpendInfusionCharges(ent);
     }
 
@@ -85,7 +83,7 @@ public sealed class InfusedItemSystem : EntitySystem
             if ((TryComp<HereticComponent>(target, out var th) && th.CurrentPath == heretic.CurrentPath))
                 continue;
 
-            if (!_grasp.TryApplyGraspEffectAndMark(args.User, heretic, target, null))
+            if (!_grasp.TryApplyGraspEffectAndMark(args.User, heretic, target, null, out _))
                 continue;
 
             success = true;

@@ -1,0 +1,136 @@
+- type: entity
+  id: ActionHereticCosmicRune
+  name: Cosmic Rune
+  description: Creates a cosmic rune at your position, only two can exist at a time. Invoking one rune transports you to the other. Anyone with a star mark gets transported along with you.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 15
+    itemIconStyle: NoItem
+    sound:
+      path: /Audio/Magic/forcewall.ogg
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: cosmic_rune
+  - type: InstantAction
+    event: !type:EventHereticCosmicRune
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-cosmic-rune
+  - type: HereticCosmicRuneAction
+
+- type: entity
+  id: ActionHereticStarTouch
+  name: Star Touch
+  description: Can be used to apply a star mark to a target. If your victim is already star marked, tethers you to your target with a cosmic ray. If the tether remains unbroken for 8 seconds, they will be put to sleep and teleported to you. Star Touch can also remove Cosmic Runes, or teleport you to your Star Gazer when used in hand.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: star_touch
+  - type: InstantAction
+    event: !type:EventHereticStarTouch
+  - type: HereticAction
+    requireMagicItem: true
+
+- type: entity
+  id: ActionHereticStarBlast
+  name: Star Blast
+  description: This spell fires an unstoppable disk with cosmic energies at a target, spreading the star mark. When recasted, you will be teleported to the disk, and cosmic fields will generate from the disk and from the caster, pulling nearby heathens into it.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 1
+    itemIconStyle: NoItem
+    sound:
+      path: /Audio/_Goobstation/Heretic/cosmic_energy.ogg
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: star_blast
+  - type: TargetAction
+    range: 0
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:EventHereticStarBlast
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-star-blast
+  - type: StarBlastAction
+
+- type: entity
+  id: ActionHereticCosmicExpansion
+  name: Cosmic Expansion
+  description: This spell generates a 5x5 domain of cosmic fields. Creatures up to 7 tiles away will also receive a star mark.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 15
+    itemIconStyle: NoItem
+    sound:
+      path: /Audio/_Goobstation/Heretic/cosmic_expansion.ogg
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: cosmic_domain
+  - type: InstantAction
+    event: !type:EventHereticCosmicExpansion
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-cosmic-expansion
+
+- type: entity
+  id: ActionStarGaze
+  name: Star Gaze
+  description: Generates a massive death beam that eradicates everything in it's path. Has it's own gravitational pull, sucking in new victims.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: gazer_beam_charge
+  - type: InstantAction
+    event: !type:StarGazeEvent
+  - type: HereticAction
+    messageLoc: heretic-speech-stargaze
+
+- type: entity
+  id: ActionResetStarGazerConsciousness
+  name: Reset Star Gazer Consciousness
+  description: Replaces the mind of your summon with that of a different ghost.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: stargazer
+  - type: InstantAction
+    event: !type:ResetStarGazerConsciousnessEvent
+  - type: ConfirmableAction
+    popup: heretic-stargazer-reset-consciousness
+
+- type: entity
+  id: ActionStarGazerSeekMaster
+  name: Seek Master
+  description: Teleports you to your master.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 5
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: stargazer
+  - type: InstantAction
+    event: !type:StarGazerSeekMasterEvent

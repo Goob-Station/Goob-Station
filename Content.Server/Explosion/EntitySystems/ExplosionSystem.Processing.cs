@@ -508,6 +508,16 @@ public sealed partial class ExplosionSystem
         if (resistanceEv.DamageCoefficient != 1)
             damage *= resistanceEv.DamageCoefficient;
 
+        // Goob edit start
+        damage *= _damageableSystem.UniversalExplosionDamageModifier;
+        if (damage.PartDamageVariation == 0f)
+            damage.PartDamageVariation = PartVariation;
+        foreach (var type in new List<string> {"Blunt", "Slash", "Piercing", "Heat", "Cold"})
+        {
+            damage.WoundSeverityMultipliers.TryAdd(type, WoundMultiplier);
+        }
+        // Goob edit end
+
         return damage;
     }
 
@@ -1072,10 +1082,10 @@ sealed class Explosion
 /// <summary>
 /// Data needed to spawn an explosion with <see cref="ExplosionSystem.SpawnExplosion"/>.
 /// </summary>
-public sealed class QueuedExplosion
+public sealed class QueuedExplosion(ExplosionPrototype proto)
 {
     public MapCoordinates Epicenter;
-    public ExplosionPrototype Proto = new();
+    public ExplosionPrototype Proto = proto;
     public float TotalIntensity, Slope, MaxTileIntensity, TileBreakScale;
     public int MaxTileBreak;
     public bool CanCreateVacuum;

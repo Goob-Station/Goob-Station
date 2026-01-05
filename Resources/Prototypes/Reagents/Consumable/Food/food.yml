@@ -29,6 +29,15 @@
     Food:
       effects:
       - !type:SatiateHunger
+      - !type:HealthChange #GOOBSTART
+        damage:
+          groups:
+            Brute: -0.2 #30 nutriment will heal 12 dmg/group, this will help make up for small, consistent damage, and make service more valued
+            Burn: -0.2
+      - !type:ModifyBleedAmount #makes bleeding healable outside of med WOW....
+        amount: -0.1
+      - !type:ModifyBloodLevel
+        amount: 0.25 #GOOBEND
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 1.5
@@ -48,10 +57,10 @@
     Food: #This makes it not compete with medicines, a large bonus for something that can heal
       effects:
       - !type:HealthChange
-        probability: 0.5
+        #        probability: 0.5, goob
         damage:
           groups:
-            Brute: -0.5
+            Brute: -0.5 #vitamin will heal 1 dmg per 1u
             Burn: -0.5
       # Helps you stop bleeding to an extent.
       - !type:ModifyBleedAmount
@@ -77,12 +86,12 @@
     Food:
       effects:
       - !type:HealthChange
-        probability: 0.5
+        #        probability: 0.5, goob
         damage:
           groups:
-            Brute: -0.4
+            Brute: -0.8 #goob, was -0.4
       - !type:ModifyBloodLevel
-        amount: 1 # weaker than iron but pretty good all things considered
+        amount: 2 # Goob
       - !type:SatiateHunger
   pricePerUnit: 3
 

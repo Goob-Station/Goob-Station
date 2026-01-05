@@ -71,6 +71,9 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Hagvan <22118902+Hagvan@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -84,7 +87,21 @@ public sealed partial class DnaData : ReagentData
     [DataField]
     public string DNA = String.Empty;
 
-    public override ReagentData Clone() => this;
+    [DataField] // Goobstation
+    public TimeSpan Freshness = TimeSpan.Zero; // Goobstation
+
+    // Goobstation start - fix solution shallow copy
+    public DnaData(DnaData other)
+    {
+        DNA = other.DNA;
+        Freshness = other.Freshness;
+    }
+
+    public override DnaData Clone()
+    {
+        return new DnaData(this);
+    }
+    // Goobstation End
 
     public override bool Equals(ReagentData? other)
     {

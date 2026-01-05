@@ -165,6 +165,16 @@
     tags:
     - Grenade
     - HandGrenade
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 20 # derived from base_item
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
   name: explosive grenade
@@ -545,7 +555,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Grenades/smoke.rsi
   - type: SmokeOnTrigger
-    duration: 30
+    duration: 15 # goob edit - faster foam
     spreadAmount: 50
   - type: SoundOnTrigger
     sound: /Audio/Items/smoke_grenade_smoke.ogg
@@ -563,7 +573,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Grenades/janitor.rsi
   - type: SmokeOnTrigger
-    duration: 15
+    duration: 5 # goob edit - faster foam
     spreadAmount: 50
     smokePrototype: Foam
     solution:
@@ -580,7 +590,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Grenades/tear_gas.rsi
   - type: SmokeOnTrigger
-    duration: 10
+    duration: 5 # goob edit - faster smoke
     spreadAmount: 30
     smokePrototype: TearGasSmokeWhite
     solution:
@@ -599,7 +609,7 @@
   - type: OnUseTimerTrigger
     delay: 5
   - type: SmokeOnTrigger
-    duration: 10
+    duration: 5 # goob edit - faster smoke
     spreadAmount: 20
     smokePrototype: AluminiumMetalFoam
   - type: StaticPrice

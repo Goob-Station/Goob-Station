@@ -120,7 +120,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
-using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Lock;
 using Content.Shared.Materials;
 using Content.Shared.Popups;
@@ -142,7 +141,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Rounding;
 using Robust.Shared.Collections;
@@ -186,8 +184,7 @@ public abstract class SharedStorageSystem : EntitySystem
     /// </summary>
     public bool NestedStorage = true;
 
-    [ValidatePrototypeId<ItemSizePrototype>]
-    public const string DefaultStorageMaxItemSize = "Normal";
+    public static readonly ProtoId<ItemSizePrototype> DefaultStorageMaxItemSize = "Normal";
 
     public const float AreaInsertDelayPerItem = 0.075f;
     private static AudioParams _audioParams = AudioParams.Default
@@ -357,7 +354,7 @@ public abstract class SharedStorageSystem : EntitySystem
 
     private void UpdatePrototypeCache()
     {
-        _defaultStorageMaxItemSize = _prototype.Index<ItemSizePrototype>(DefaultStorageMaxItemSize);
+        _defaultStorageMaxItemSize = _prototype.Index(DefaultStorageMaxItemSize);
         _sortedSizes.Clear();
         _sortedSizes.AddRange(_prototype.EnumeratePrototypes<ItemSizePrototype>());
         _sortedSizes.Sort();
@@ -792,7 +789,7 @@ public abstract class SharedStorageSystem : EntitySystem
             return;
 
         // If the user's active hand is empty, try pick up the item.
-        if (player.Comp.ActiveHandEntity == null)
+        if (!_sharedHandsSystem.TryGetActiveItem(player.AsNullable(), out var activeItem))
         {
             _adminLog.Add(
                 LogType.Storage,
@@ -812,11 +809,11 @@ public abstract class SharedStorageSystem : EntitySystem
         _adminLog.Add(
             LogType.Storage,
             LogImpact.Low,
-            $"{ToPrettyString(player):player} is interacting with {ToPrettyString(item):item} while it is stored in {ToPrettyString(storage):storage} using {ToPrettyString(player.Comp.ActiveHandEntity):used}");
+            $"{ToPrettyString(player):player} is interacting with {ToPrettyString(item):item} while it is stored in {ToPrettyString(storage):storage} using {ToPrettyString(activeItem):used}");
 
         // Else, interact using the held item
         if (_interactionSystem.InteractUsing(player,
-                player.Comp.ActiveHandEntity.Value,
+                activeItem.Value,
                 item,
                 Transform(item).Coordinates,
                 checkCanInteract: false))
@@ -1311,10 +1308,10 @@ public abstract class SharedStorageSystem : EntitySystem
     {
         if (!Resolve(ent.Owner, ref ent.Comp)
             || !Resolve(player.Owner, ref player.Comp)
-            || player.Comp.ActiveHandEntity == null)
+            || !_sharedHandsSystem.TryGetActiveItem(player, out var activeItem))
             return false;
 
-        var toInsert = player.Comp.ActiveHandEntity;
+        var toInsert = activeItem;
 
         if (!CanInsert(ent, toInsert.Value, out var reason, ent.Comp))
         {
@@ -1322,7 +1319,7 @@ public abstract class SharedStorageSystem : EntitySystem
             return false;
         }
 
-        if (!_sharedHandsSystem.CanDrop(player, toInsert.Value, player.Comp))
+        if (!_sharedHandsSystem.CanDrop(player, toInsert.Value))
         {
             _popupSystem.PopupClient(Loc.GetString("comp-storage-cant-drop", ("entity", toInsert.Value)), ent, player);
             return false;
@@ -1814,6 +1811,9 @@ public abstract class SharedStorageSystem : EntitySystem
 
     private void RemoveOccupiedEntity(Entity<StorageComponent> storageEnt, Entity<ItemComponent?> itemEnt, ItemStorageLocation location)
     {
+        if (!Resolve(itemEnt, ref itemEnt.Comp, false)) // Goobstation - fix error from resomi
+            return;
+
         var adjustedShape = ItemSystem.GetAdjustedItemShape((itemEnt.Owner, itemEnt.Comp), location);
 
         RemoveOccupied(adjustedShape, storageEnt.Comp.OccupiedGrid);
@@ -2036,7 +2036,7 @@ public abstract class SharedStorageSystem : EntitySystem
 
         if (held)
         {
-            if (!_sharedHandsSystem.IsHolding(player, itemUid, out _))
+            if (!_sharedHandsSystem.IsHolding(player.AsNullable(), itemUid, out _))
                 return false;
         }
         else

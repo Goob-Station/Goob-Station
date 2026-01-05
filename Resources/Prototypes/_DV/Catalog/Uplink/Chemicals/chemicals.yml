@@ -1,0 +1,13 @@
+- type: listing
+  id: UplinkBeastBlood
+  name: uplink-beast-gourd-name
+  description: uplink-beast-gourd-desc
+  productEntity: BeastBloodGourd
+  cost:
+   Telecrystal: 15
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Oni

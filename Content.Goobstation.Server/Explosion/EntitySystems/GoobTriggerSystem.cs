@@ -48,12 +48,12 @@ public sealed class GoobTriggerSystem : EntitySystem
             return;
 
 
-        foreach (var hand in _hands.EnumerateHands(containingEntity.Value, hands))
+        foreach (var hand in _hands.EnumerateHands((containingEntity.Value, hands)))
         {
-            if (hand.HeldEntity == null)
+            if (_hands.GetHeldItem((containingEntity.Value, hands), hand) == null)
                 continue;
 
-            _hands.TryDrop(containingEntity.Value, hand, handsComp: hands);
+            _hands.TryDrop((containingEntity.Value, hands), hand);
         }
         args.Handled = true;
     }

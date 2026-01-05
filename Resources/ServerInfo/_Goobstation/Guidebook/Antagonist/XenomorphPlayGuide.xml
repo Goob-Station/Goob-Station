@@ -1,0 +1,95 @@
+<Document>
+## Playing as a Xenomorph
+
+<Box>
+  <GuideEntityEmbed Entity="ResinWeedNode" Caption=""/>
+</Box>
+
+  ### Initial Spawn and Survival
+
+  When you spawn as a xenomorph, you will always begin as a Larva.
+  Larvae are extremely vulnerable, and your sole objective is to survive long enough to evolve.
+  Use your hivemind language by pressing L (or language keybind) to communicate with other xenos.
+
+  If you spawn alone, finding safety is critical.
+  You can hide under tables and crawl through vents (alt+click) to escape danger.
+  Being space-proof also means you can wait safely on the station's exterior.
+  Once you have survived long enough on plasma weeds, you can evolve into an adult caste.
+
+  ### Resources and Abilities
+
+  Once you evolve, plasma becomes your primary resource.
+  You generate it over time and can spend it to plant weeds.
+  Weeds create resin floors that significantly boost your plasma regeneration, so begin planting them immediately to establish territory and accelerate your power.
+  Adult xenomorphs share several powerful abilities:
+  - Corrosive Acid: A spit that slowly melts walls, doors, and other structures.
+  Use it to break into secure areas and reshape the station.
+  - Neurotoxin Spit: A ranged attack that stuns your target.
+  Ready the ability, then click your target to fire.
+
+  - Innate Abilities: All adults have night vision, can see humans through walls, and can pry open airlocks.
+
+  ### The First Xeno: Becoming the Queen
+
+  If you are the first and only xenomorph, [bold]it is absolutely essential that you evolve into a Drone.[/bold]
+
+  - Your entire goal is to become a Queen as quickly as possible.
+  This requires evolving from Drone to Praetorian, and then to Queen.
+  Find a secure, hidden location before you evolve, as Praetorians and Queens lose the ability to crawl through vents.
+  As the Queen, your main role is to build a nest and lay eggs.
+  - Find a Nest: Choose a defensible, out-of-the-way location with room to expand.
+  - Secure the Area: Destroy cameras and consider depressurizing the area to make it hostile for human intruders.
+  - Lay Eggs Constantly: Your plasma should be almost exclusively used for laying eggs to grow your hive.
+
+  [bold]Click a fully grown egg to open it.[/bold]
+  Once you have facehuggers, you can begin hunting.
+  Monkeys are easy, defenseless targets.
+  For human targets, a thrown facehugger can be an instant incapacitation, but be aware that Medbay can surgically remove the larva.
+  Prioritize your own survival above all; if the Queen dies without a successor, the hive is finished.
+  In a direct fight, your tail swing is a powerful stun, but it has a long cooldown.
+  You are slow and vulnerable to ranged attackers, but deadly in melee.
+
+  ### The Hunter: Aggressive Offense
+
+  If a hive already has a Queen, the Hunter is an excellent choice for an offensive role.
+  Your high speed and ability to ventcrawl make you perfect for navigating the station.
+  The Hunter's signature ability is the pounce, a long-range leap that heavily stuns a target on impact.
+  Be cautious of shields, which will stun you instead.
+  Your main tactic is to carry facehuggers from the nest, pounce on an isolated crewmember, apply the facehugger, and drag them away.
+  Remember to sabotage the station by destroying machines and ripping open airlocks as you move.
+
+  ### The Sentinel: Defensive Guardian
+
+  The Sentinel is the hive's dedicated defender.
+  Your primary role is to guard the nest, protect the Queen, and watch over captured hosts.
+  While slower than a Hunter, you are tougher and have larger plasma reserves that recharge faster, allowing for more frequent use of Neurotoxin Spit and Corrosive Acid.
+  The Sentinel's key ability is partial invisibility.
+  By staying still, you can blend into the resin-covered floors of your nest, making you perfect for ambushing intruders.
+
+  ### The Drone: Hive Architect
+
+  With a Queen already established, the Drone functions as the hive's architect.
+  You can construct several key structures to fortify your nest:
+
+<Box>
+<GuideEntityEmbed Entity="WallResin" Caption=""/>
+</Box>
+
+  - Resin Walls: Standard walls to block paths and create chokepoints.
+
+<Box>
+<GuideEntityEmbed Entity="ResinMembrane" Caption=""/>
+</Box>
+
+  - Resin Membranes: Durable windows that allow sight in and out of the nest.
+
+<Box>
+<GuideEntityEmbed Entity="ResinNest" Caption=""/>
+</Box>
+
+  - Resin Nests: Beds used to secure captured hosts while their larva gestates.
+  While not a primary combatant, you must be ready to defend the Queen.
+
+  Crucially, if the Queen dies, a Drone must evolve to replace her.
+  If you are the last surviving Drone, your priority is to escape, find a safe place, and begin the evolution process to save the hive.
+</Document>

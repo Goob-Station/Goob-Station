@@ -37,3 +37,12 @@
   id: OnlyStructural
   supportedTypes:
   - Structural
+
+- type: damageContainer
+  id: Barricade
+  supportedGroups:
+  - Brute
+  supportedTypes:
+  - Heat
+  - Caustic
+  - Structural

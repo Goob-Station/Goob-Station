@@ -21,3 +21,13 @@
   recipes:
   - ClothingUniformJumpsuitCasualCentcom
   - ClothingUniformJumpsuitCasualSyndicate
+
+- type: latheRecipePack
+  id: ClothingCommandSummer
+  recipes:
+  - ClothingUniformJumpsuitHoSSummer
+  - ClothingUniformJumpsuitQMSummer
+  - ClothingUniformJumpsuitRDSummer
+  - ClothingUniformJumpsuitCESummer
+  - ClothingUniformJumpsuitCaptainSummer
+  - ClothingUniformJumpsuitHoPSummer

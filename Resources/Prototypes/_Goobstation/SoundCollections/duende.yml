@@ -1,0 +1,10 @@
+- type: soundCollection
+  id: DuendeSounds
+  files:
+  - /Audio/_Goobstation/FloorGoblin/duende-01.ogg
+  - /Audio/_Goobstation/FloorGoblin/duende-02.ogg
+  - /Audio/_Goobstation/FloorGoblin/duende-03.ogg
+  - /Audio/_Goobstation/FloorGoblin/duende-04.ogg
+  - /Audio/_Goobstation/FloorGoblin/duende-05.ogg
+  - /Audio/_Goobstation/FloorGoblin/duende-06.ogg
+  - /Audio/_Goobstation/FloorGoblin/duende-07.ogg

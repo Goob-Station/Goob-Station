@@ -8,6 +8,7 @@
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
+using Content.Shared.Body.Part;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
@@ -31,6 +32,8 @@ public sealed partial class DevilSystem
         || !HasComp<MobStateComponent>(args.Target)
         || HasComp<CondemnedComponent>(args.Target)
         || args.Target == args.User
+        || !_body.BodyHasPartType(uid, BodyPartType.Hand) // cant shake if you have no hands
+        || !_body.BodyHasPartType(args.Target, BodyPartType.Hand) // or if they have none
         || !_contract.IsUserValid(args.Target, out _))
             return;
 

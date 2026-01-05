@@ -53,13 +53,6 @@
         - MachineMask
         layer:
         - MachineLayer
-      interactor_target:
-        shape: !type:PhysShapeAabb
-          bounds: "-0.45,-1.45,0.45,-0.55"
-        density: 100
-        hard: false
-        layer:
-        - Impassable
   # Construction
   - type: Machine
     board: InteractorCircuitboard
@@ -99,6 +92,8 @@
       input: AutomationSlotFilter
       output: AutomationSlotFilter
       slotId: filter_slot
+  - type: UseDelay
+    delay: 0.5 # to avoid tps lag machines
   # Fake interaction stuff
   - type: DoAfter
     raiseEndedEvent: true # so Completed can be fired off
@@ -119,6 +114,7 @@
     ports:
     - Start
     - AutoStart
+    - AltInteract
   - type: DeviceLinkSource
     ports:
     - Started
