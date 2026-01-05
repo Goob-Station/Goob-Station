@@ -194,13 +194,13 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         }
 
         // upgraded grasp
-        if (!TryApplyGraspEffectAndMark(args.User,
+        if (!TryApplyGraspEffectAndMark(user,
                 hereticComp,
                 target,
                 grasp,
                 out var triggerGrasp,
                 out var cooldownMultiplier))
-            return;
+            return false;
 
         if (triggerGrasp && TryComp(target, out StatusEffectsComponent? status))
         {
