@@ -15,4 +15,4 @@
   - !type:GroupLoadoutEffect
     proto: MasterHoS
   equipment:
-    outerClothing: ClothingNeckCloakHosExperimental
+    neck: ClothingNeckCloakHosExperimental

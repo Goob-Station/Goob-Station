@@ -1288,6 +1288,7 @@
   loadouts:
   - HeadofSecurityCloak
   - HeadofSecurityMantle
+  - HeadofSecurityCloakExperimental # CorvaxGoob
   - Bodycam # Goobstation - Body cameras
 
 - type: loadoutGroup
