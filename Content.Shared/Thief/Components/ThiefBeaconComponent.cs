@@ -16,9 +16,7 @@
 // SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
 // SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
 // SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 John <35928781+sporkyz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
@@ -34,7 +32,6 @@
 // SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
 // SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
@@ -76,98 +73,22 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Mind;
-using Content.Server.Objectives.Components;
-using Content.Server.Thief.Components;
-using Content.Shared.Examine;
-using Content.Shared.Foldable;
-using Content.Shared.Popups;
-using Content.Shared.Verbs;
-using Content.Shared.Roles;
-using Content.Shared.Roles.Components;
-using Robust.Shared.Audio.Systems;
+using Content.Shared.Thief.Systems;
+using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 
-namespace Content.Server.Thief.Systems;
+namespace Content.Shared.Thief.Components;
 
 /// <summary>
-/// <see cref="ThiefBeaconComponent"/>
+/// working together with StealAreaComponent, allows the thief to count objects near the beacon as stolen when setting up.
 /// </summary>
-public sealed class ThiefBeaconSystem : EntitySystem
+[RegisterComponent, NetworkedComponent]
+[Access(typeof(ThiefBeaconSystem))]
+public sealed partial class ThiefBeaconComponent : Component
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-    public override void Initialize()
-    {
-        base.Initialize();
+    [DataField]
+    public SoundSpecifier LinkSound = new SoundPathSpecifier("/Audio/Machines/high_tech_confirm.ogg");
 
-        SubscribeLocalEvent<ThiefBeaconComponent, GetVerbsEvent<InteractionVerb>>(OnGetInteractionVerbs);
-        SubscribeLocalEvent<ThiefBeaconComponent, FoldedEvent>(OnFolded);
-        SubscribeLocalEvent<ThiefBeaconComponent, ExaminedEvent>(OnExamined);
-    }
-
-    private void OnGetInteractionVerbs(Entity<ThiefBeaconComponent> beacon, ref GetVerbsEvent<InteractionVerb> args)
-    {
-        if (!args.CanAccess || !args.CanInteract || args.Hands is null)
-            return;
-
-        if (TryComp<FoldableComponent>(beacon, out var foldable) && foldable.IsFolded)
-            return;
-
-        var mind = _mind.GetMind(args.User);
-        if (mind == null || !_roles.MindHasRole<ThiefRoleComponent>(mind.Value))
-            return;
-
-        var user = args.User;
-        args.Verbs.Add(new()
-        {
-            Act = () =>
-            {
-                SetCoordinate(beacon, mind.Value);
-            },
-            Message = Loc.GetString("thief-fulton-verb-message"),
-            Text = Loc.GetString("thief-fulton-verb-text"),
-        });
-    }
-
-    private void OnFolded(Entity<ThiefBeaconComponent> beacon, ref FoldedEvent args)
-    {
-        if (args.IsFolded)
-            ClearCoordinate(beacon);
-    }
-
-    private void OnExamined(Entity<ThiefBeaconComponent> beacon, ref ExaminedEvent args)
-    {
-        if (!TryComp<StealAreaComponent>(beacon, out var area))
-            return;
-
-        args.PushText(Loc.GetString(area.Owners.Count == 0
-            ? "thief-fulton-examined-unset"
-            : "thief-fulton-examined-set"));
-    }
-
-    private void SetCoordinate(Entity<ThiefBeaconComponent> beacon, EntityUid mind)
-    {
-        if (!TryComp<StealAreaComponent>(beacon, out var area))
-            return;
-
-        _audio.PlayPvs(beacon.Comp.LinkSound, beacon);
-        _popup.PopupEntity(Loc.GetString("thief-fulton-set"), beacon);
-        area.Owners.Clear(); //We only reconfigure the beacon for ourselves, we don't need multiple thieves to steal from the same beacon.
-        area.Owners.Add(mind);
-    }
-
-    private void ClearCoordinate(Entity<ThiefBeaconComponent> beacon)
-    {
-        if (!TryComp<StealAreaComponent>(beacon, out var area))
-            return;
-
-        if (area.Owners.Count == 0)
-            return;
-
-        _audio.PlayPvs(beacon.Comp.UnlinkSound, beacon);
-        _popup.PopupEntity(Loc.GetString("thief-fulton-clear"), beacon);
-        area.Owners.Clear();
-    }
+    [DataField]
+    public SoundSpecifier UnlinkSound = new SoundPathSpecifier("/Audio/Machines/beep.ogg");
 }
