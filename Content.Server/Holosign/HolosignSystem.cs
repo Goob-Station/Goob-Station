@@ -106,7 +106,7 @@ public sealed class HolosignSystem : EntitySystem
                 return;
         }
         LimitedChargesComponent? charges;
-        EntityUid? user = TryComp(uid, out charges) ? null : args.User; // Don't popup if it has
+        EntityUid? user = TryComp(uid, out charges) ? null : args.User; // Don't show popups if it has limited charges
         if (!_powerCell.TryUseCharge(uid, component.ChargeUse, user: user) && !_charges.TryUseCharge((uid, charges))) // if no battery or no charge, doesn't work
             return;
         var holoUid = Spawn(component.SignProto, coords);
