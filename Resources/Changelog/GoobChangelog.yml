@@ -19954,3 +19954,9 @@ Entries:
       message: You can now print reporter clothes at a uniform printer.
   id: 2260
   time: '2026-01-05T02:24:48.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Add
+      message: Mansus Grasp is now usable in combat mode
+  id: 2261
+  time: '2026-01-05T02:28:13.0000000+00:00'
