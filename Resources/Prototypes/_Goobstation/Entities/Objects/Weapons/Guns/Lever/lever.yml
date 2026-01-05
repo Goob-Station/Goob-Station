@@ -52,7 +52,7 @@
       path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
   - type: ChamberMagazineAmmoProvider
     autoCycle: false
-    autoEject: true
+    autoEject: false
     soundAutoEject:
       path: /Audio/_Goobstation/Weapons/Guns/MagOut/garand_eject.ogg
     soundRack:
