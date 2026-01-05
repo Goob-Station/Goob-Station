@@ -19942,3 +19942,9 @@ Entries:
         as a layering issue where their tank would appear over their hair.!
   id: 2258
   time: '2026-01-05T02:20:47.0000000+00:00'
+- author: oldschool_otaku
+  changes:
+    - type: Fix
+      message: Virologist can spawn in his envirosuit now.
+  id: 2259
+  time: '2026-01-05T02:22:16.0000000+00:00'
