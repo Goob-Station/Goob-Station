@@ -19,6 +19,10 @@
       "name": "equipped-OUTERCLOTHING-vox",
       "directions": 4
     },
+	{
+      "name": "equipped-OUTERCLOTHING-hydrakin",
+      "directions": 4
+    },
     {
       "name": "icon"
     },

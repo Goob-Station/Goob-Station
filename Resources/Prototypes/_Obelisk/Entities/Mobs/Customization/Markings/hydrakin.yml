@@ -240,3 +240,319 @@
   sprites:
   - sprite: _Obelisk/Mobs/Customization/hydraproto_parts.rsi
     state: leg_right
+
+# Hydrakin Enforcer markings
+
+- type: marking
+  id: HydrakinEnforcerHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_enforcer.rsi
+    state: hydrakin_head_enforcer
+
+- type: marking
+  id: HydrakinEnforcerChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_enforcer.rsi
+    state: hydrakin_torso_enforcer
+
+- type: marking
+  id: HydrakinEnforcerLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_enforcer.rsi
+    state: hydrakin_arm_enforcer_L
+
+- type: marking
+  id: HydrakinEnforcerRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_enforcer.rsi
+    state: hydrakin_arm_enforcer_R
+
+- type: marking
+  id: HydrakinEnforcerLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_enforcer.rsi
+    state: hydrakin_leg_enforcer_L
+
+- type: marking
+  id: HydrakinEnforcerRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_enforcer.rsi
+    state: hydrakin_leg_enforcer_R
+
+# Hydrakin Hydra markings
+
+- type: marking
+  id: HydrakinHydraFaceMask
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_hydraseer.rsi
+    state: hydra_face_mask
+
+- type: marking
+  id: HydrakinHydraSeerMarking
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_hydraseer.rsi
+    state: hydra_seer_marking
+
+- type: marking
+  id: HydrakinHydraMantleMaw
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_hydraseer.rsi
+    state: hydra_mantle_maw
+
+- type: marking
+  id: HydrakinHydraUnderbelly
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_hydraseer.rsi
+    state: hydra_underbelly
+
+- type: marking
+  id: HydrakinHydraLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_hydraseer.rsi
+    state: hydra_seer_arm_left
+
+- type: marking
+  id: HydrakinHydraRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_hydraseer.rsi
+    state: hydra_seer_arm_right
+
+- type: marking
+  id: HydrakinHydraLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_hydraseer.rsi
+    state: hydra_seer_leg_left
+
+- type: marking
+  id: HydrakinHydraRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_hydraseer.rsi
+    state: hydra_seer_leg_right
+
+- type: marking
+  id: HydrakinHydraTailFeathers
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_hydraseer.rsi
+    state: hydra_seer_tail_feathers
+
+- type: marking
+  id: HydrakinHydraSeerEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_hydraseer.rsi
+    state: hydra_seer_ears
+
+# Hydraking Mystic Markings
+
+- type: marking
+  id: HydrakinMysticHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_mystic.rsi
+    state: hydrakin_head_mystic
+
+- type: marking
+  id: HydrakinMysticChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_mystic.rsi
+    state: hydrakin_torso_mystic
+
+- type: marking
+  id: HydrakinMysticLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_mystic.rsi
+    state: hydrakin_arm_mystic_L
+
+- type: marking
+  id: HydrakinMysticRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_mystic.rsi
+    state: hydrakin_arm_mystic_R
+
+- type: marking
+  id: HydrakinMysticLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_mystic.rsi
+    state: hydrakin_leg_mystic_L
+
+- type: marking
+  id: HydrakinMysticRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_mystic.rsi
+    state: hydrakin_leg_mystic_L
+
+# Hydraking Rebel Markings
+
+- type: marking
+  id: HydrakinRebelHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_rebel.rsi
+    state: hydrakin_head_rebel
+
+- type: marking
+  id: HydrakinRebelChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_rebel.rsi
+    state: hydrakin_torso_rebel
+
+- type: marking
+  id: HydrakinRebelLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_rebel.rsi
+    state: hydrakin_arm_rebel_L
+
+- type: marking
+  id: HydrakinRebelRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_rebel.rsi
+    state: hydrakin_arm_rebel_R
+
+- type: marking
+  id: HydrakinRebelLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_rebel.rsi
+    state: hydrakin_leg_rebel_L
+
+- type: marking
+  id: HydrakinRebelRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_rebel.rsi
+    state: hydrakin_leg_rebel_R
+
+# Hydraking Tribal Markings
+
+- type: marking
+  id: HydrakinTribalHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_tribal.rsi
+    state: hydrakin_head_tribal
+
+- type: marking
+  id: HydrakinTribalChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_tribal.rsi
+    state: hydrakin_torso_tribal
+
+- type: marking
+  id: HydrakinTribalLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_tribal.rsi
+    state: hydrakin_arm_tribal_L
+
+- type: marking
+  id: HydrakinTribalRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_tribal.rsi
+    state: hydrakin_arm_tribal_R
+
+- type: marking
+  id: HydrakinTribalLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_tribal.rsi
+    state: hydrakin_leg_tribal_L
+
+- type: marking
+  id: HydrakinTribalRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Obelisk/Mobs/Customization/hydrakin_tribal.rsi
+    state: hydrakin_leg_tribal_R
