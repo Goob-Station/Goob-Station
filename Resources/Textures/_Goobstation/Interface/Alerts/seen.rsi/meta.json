@@ -8,10 +8,10 @@
     },
     "states": [
         {
-            "name": "Seen"
+            "name": "seen"
         },
         {
-            "name": "Unseen"
+            "name": "unseen"
         }
     ]
 }
