@@ -22,8 +22,8 @@ public sealed partial class ElevatorMenu : FancyWindow
 
         foreach (var floor in state.Floors)
         {
-            var id = floor.Item1;
-            var name = floor.Item2;
+            var id = floor.Id;
+            var name = floor.Name;
 
             var btn = new Button
             {
@@ -34,5 +34,6 @@ public sealed partial class ElevatorMenu : FancyWindow
             btn.OnPressed += _ => OnFloorPressed?.Invoke(id);
             FloorList.AddChild(btn);
         }
+
     }
 }

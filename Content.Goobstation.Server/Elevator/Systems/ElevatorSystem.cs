@@ -29,8 +29,8 @@ public sealed class ElevatorSystem : EntitySystem
         BoundUIOpenedEvent args)
     {
         var floors = component.Floors
-            .Select(f => (f.Id, f.Name))
-            .ToList();
+        .Select(f => new ElevatorFloorUiData(f.Id, f.Name))
+        .ToList();
 
         _uiSystem.SetUiState(
             uid,
