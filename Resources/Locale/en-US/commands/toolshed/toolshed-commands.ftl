@@ -9,6 +9,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# Please add future toolshed locale to their own files. This needs to be cleaned up.
+
 command-description-visualize =
     Takes the input list of entities and puts them into a UI window for easy browsing.
 command-description-runverbas =
@@ -184,4 +186,4 @@ command-description-statuseffect-update =
 command-description-statuseffect-set =
     Sets the duration of a status effect to the inputted time in seconds. If time is 0, duration will be infinite.
 command-description-statuseffect-remove =
-    Removes a time from a given status effect by prototype. If time isn't set, removes the status effect. 
+    Removes a time from a given status effect by prototype. If time isn't set, removes the status effect.
