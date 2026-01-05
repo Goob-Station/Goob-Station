@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/05/2026 00:29:31
-  entityCount: 3286
+  time: 01/05/2026 06:37:12
+  entityCount: 3287
 maps:
 - 1
 grids:
@@ -4981,6 +4981,13 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: ElevatorSpawnBunkerAlfaFloor1
+  entities:
+  - uid: 3287
+    components:
+    - type: Transform
+      pos: 7.8452835,16.254326
+      parent: 2
 - proto: EnvironmentalHazardSlow30
   entities:
   - uid: 3175

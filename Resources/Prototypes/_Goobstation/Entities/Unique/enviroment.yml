@@ -50,3 +50,48 @@
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.25
     sprintSpeedModifier: 0.2
+
+- type: entity
+  id: ElevatorSpawnBunkerAlfaFloor1
+  components:
+  - type: Transform
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: occupancy-0
+
+- type: entity
+  id: ElevatorSpawnBunkerAlfaFloor2
+  components:
+  - type: Transform
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: occupancy-0
+
+- type: entity
+  id: ElevatorSpawnBunkerAlfaFloor3
+  components:
+  - type: Transform
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: occupancy-0
+
+- type: entity
+  id: ElevatorSpawnBunkerAlfaFloor4
+  components:
+  - type: Transform
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: occupancy-0
+
+- type: entity
+  id: ElevatorSpawnBunkerAlfaFloor5
+  components:
+  - type: Transform
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: occupancy-0

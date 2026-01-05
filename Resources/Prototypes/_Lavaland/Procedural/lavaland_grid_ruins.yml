@@ -263,3 +263,4 @@
   name: lavaland-ruin-bunker-alfa-floor-1
   path: /Maps/_Lavaland/Lavaland/bunker_alfa.yml
   priority: 32
+  patchToPlanet: false

@@ -1,0 +1,17 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+    Title="Elevator"
+    MinSize="200 150"
+    Resizable="False">
+
+    <BoxContainer Orientation="Vertical" SeparationOverride="6">
+        <Label Text="Select floor:" />
+        <ScrollContainer>
+            <BoxContainer
+                Name="FloorList"
+                Orientation="Vertical"
+                Access="Public" />
+        </ScrollContainer>
+    </BoxContainer>
+</controls:FancyWindow>
