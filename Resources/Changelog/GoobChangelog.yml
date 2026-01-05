@@ -19968,3 +19968,9 @@ Entries:
         dead.
   id: 2262
   time: '2026-01-05T02:31:25.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Guerrilla gloves now cost 60tc for nuclear operatives.
+  id: 2263
+  time: '2026-01-05T07:26:02.0000000+00:00'
