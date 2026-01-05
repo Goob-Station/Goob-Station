@@ -2019,9 +2019,9 @@
   footstepSounds:
     collection: FootstepBlood
   itemDrop: FloorTileItemFlesh
-  friction: 0.25 #slippy
   heatCapacity: 10000
   tileRipResistance: 80
+  # Goobstation, no longer slippery, instead slows you down
 
 - type: tile
   id: FloorTechMaint2

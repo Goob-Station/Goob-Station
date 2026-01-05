@@ -412,7 +412,7 @@
 
 - type: entity
   id: LockdownPanelLeftOKMachine
-  parent: LockdownPanel
+  parent: LockdownPanelMachine
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
@@ -420,7 +420,7 @@
 
 - type: entity
   id: LockdownPanelRightOKMachine
-  parent: LockdownPanel
+  parent: LockdownPanelMachine
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
@@ -428,7 +428,7 @@
 
 - type: entity
   id: LockdownPanelSafeMachine
-  parent: LockdownPanel
+  parent: LockdownPanelMachine
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
@@ -535,6 +535,10 @@
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
     state: dterm
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green
 
 - type: entity
   id: DataTerminalBrokenComputer
@@ -543,7 +547,10 @@
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
     state: dtermb
-
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green
 
 - type: entity
   id: BriefcaseComputer
@@ -552,6 +559,10 @@
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
     state: bcase
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green
 
 - type: entity
   id: BriefcaseBrokenComputer
@@ -560,6 +571,10 @@
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
     state: bcaseb
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Blue
 
 - type: entity
   id: BriefcaseIdleComputer
@@ -577,6 +592,10 @@
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
     state: cruiser
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green
 
 - type: entity
   id: CruiserConsoleBrokenComputer
@@ -585,6 +604,10 @@
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
     state: cruiserb
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Blue
 
 - type: entity
   id: CruiserConsoleIdleComputer
@@ -598,6 +621,8 @@
 - type: entity
   id: DrawerConsoleIdleComputer
   parent: GannetsMachineOff
+  name: alert display
+  description: The alert system might be down.
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
@@ -605,20 +630,34 @@
 
 - type: entity
   id: DrawerConsoleComputer
-  parent: GannetsMachineOff
+  parent: DrawerConsoleIdleComputer
+  description: Warning! Automated defense system has been hijacked! Evacuate the premises immediatelly!
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
     state: drawbr
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Red
 
 - type: entity
   id: DrawerConsoleAlertComputer
-  parent: GannetsMachineOff
+  parent: DrawerConsoleIdleComputer
+  description: Warning! Lockdown is currently in effect! Large hostile entity detected inside the facility!
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
     state: drawbr-alert
-
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Red
+  - type: AmbientSound
+    volume: -2
+    range: 8
+    sound:
+      path: /Audio/Ambience/Objects/alarm.ogg
 
 - type: entity
   id: OldTerminalAlternateComputer
@@ -649,14 +688,20 @@
 - type: entity
   id: IdentificationPortComputer
   parent: GannetsMachineOff
+  name: Identification Control Port
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
     state: idport
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green
 
 - type: entity
   id: IdentificationPortControlComputer
   parent: GannetsMachineOff
+  name: Identification Control Port
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
@@ -665,6 +710,7 @@
 - type: entity
   id: IdentificationPortIdleComputer
   parent: GannetsMachineOff
+  name: Identification Control Port
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
@@ -673,6 +719,7 @@
 - type: entity
   id: IdentificationPortControlIdleComputer
   parent: GannetsMachineOff
+  name: Identification Control Port
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
@@ -682,6 +729,8 @@
 - type: entity
   id: OperatingConsoleSmallComputer
   parent: GannetsMachineOff
+  name: elevator control system
+  description: Goes up and down. May not work if the floor is still in lockdown mode.
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
@@ -689,7 +738,7 @@
 
 - type: entity
   id: OperatingConsoleSmallIdleComputer
-  parent: GannetsMachineOff
+  parent: OperatingConsoleSmallComputer
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
@@ -697,7 +746,7 @@
 
 - type: entity
   id: OperatingConsoleSmallBrokenComputer
-  parent: GannetsMachineOffComputer
+  parent: OperatingConsoleSmallComputer
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi

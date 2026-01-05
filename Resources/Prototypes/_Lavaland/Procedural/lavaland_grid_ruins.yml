@@ -257,3 +257,9 @@
   name: lavaland-ruin-flock-large
   path: /Maps/_Lavaland/Lavaland/flock_ruins_large.yml
   priority: 31
+
+- type: lavalandGridRuin
+  id: BunkerAlfa
+  name: lavaland-ruin-bunker-alfa-floor-1
+  path: /Maps/_Lavaland/Lavaland/bunker_alfa.yml
+  priority: 32

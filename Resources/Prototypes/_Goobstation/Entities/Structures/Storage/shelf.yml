@@ -226,7 +226,7 @@
     state: supply_crate
 
 - type: entity
-  id: GoonSupplyCrate
+  id: GoonSupplyCrateFilled
   name: supply crate
   description: Used for paramilitary drops. Could have some good stuff.
   parent: MetalShelfLargeFilledVeryRare

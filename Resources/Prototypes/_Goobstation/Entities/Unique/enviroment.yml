@@ -1,0 +1,52 @@
+- type: entity
+  id: EnvironmentalHazardBase
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      hazard:
+        hard: false
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - MidImpassable
+  - type: SpeedModifierContacts
+
+- type: entity
+  id: EnvironmentalHazardSlow15
+  parent: EnvironmentalHazardBase
+  components:
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.85
+    sprintSpeedModifier: 0.8
+
+- type: entity
+  id: EnvironmentalHazardSlow30
+  parent: EnvironmentalHazardBase
+  components:
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.7
+    sprintSpeedModifier: 0.65
+
+- type: entity
+  id: EnvironmentalHazardSlow60
+  parent: EnvironmentalHazardBase
+  components:
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.4
+    sprintSpeedModifier: 0.35
+
+- type: entity
+  id: EnvironmentalHazardSlow75
+  parent: EnvironmentalHazardBase
+  components:
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.25
+    sprintSpeedModifier: 0.2

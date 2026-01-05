@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "prisonbed",
+      "directions": 8
+    },
+    {
+      "name": "zbunkbed",
+      "directions": 4
+    },
+    {
+      "name": "zbunkbed2",
+      "directions": 4
+    },
+    {
+      "name": "zbunkbed3",
+      "directions": 4
+    },
+    {
+      "name": "zbunkbed4",
+      "directions": 4
+    }
+  ]
+}
