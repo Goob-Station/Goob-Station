@@ -19,17 +19,8 @@ public sealed partial class StationRadioReceiverComponent : Component
     public bool Active = true;
 
     /// <summary>
-    /// Is the radio emagged
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool Emagged;
-
-    /// <summary>
     /// Default audio params for the played audio.
     /// </summary>
     [DataField, AutoNetworkedField]
     public AudioParams DefaultParams = AudioParams.Default.WithVolume(3.5f).WithMaxDistance(8f); // 8 is just the edge of the screen usually
-
-    [DataField, AutoNetworkedField]
-    public SoundPathSpecifier EmaggedSong = new SoundPathSpecifier("/Audio/_Goobstation/RadioStation/misc/amusingduck.ogg");
 }
