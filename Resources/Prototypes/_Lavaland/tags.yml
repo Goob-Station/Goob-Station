@@ -94,3 +94,12 @@
 
 - type: Tag
   id: CrusherUpgradeHandleRange
+
+- type: Tag
+  id: WatcherWing
+
+- type: Tag
+  id: WatcherMagmaWing
+
+- type: Tag
+  id: WatcherIceWing

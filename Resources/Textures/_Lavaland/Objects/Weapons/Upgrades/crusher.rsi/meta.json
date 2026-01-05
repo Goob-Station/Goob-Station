@@ -43,6 +43,24 @@
                     0.1
                 ]
             ]
+        },
+        {
+            "name": "black-shard"
+        },
+        {
+            "name": "lava-shard"
+        },
+        {
+            "name": "ice-shard"
+        },
+        {
+            "name": "handle-lightweight"
+        },
+        {
+            "name": "handle-spikes"
+        },
+        {
+            "name": "handle-weights"
         }
     ]
 }
