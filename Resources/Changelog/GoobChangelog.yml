@@ -19921,3 +19921,7 @@ Entries:
       message: Jacked galoshes are now jacked for real.
   id: 2255
   time: '2026-01-05T02:17:27.0000000+00:00'
+- author: Added a lot of new helmet sprites for vulps,
+  changes: []
+  id: 2256
+  time: '2026-01-05T02:18:34.0000000+00:00'
