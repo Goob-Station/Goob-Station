@@ -1,2 +1,3 @@
-ent-EffectTelepadSparks = { "" }
+ent-SpawnEffectSparks = { ent-AdminInstantEffectBase }
+    .suffix = Искры
     .desc = { "" }

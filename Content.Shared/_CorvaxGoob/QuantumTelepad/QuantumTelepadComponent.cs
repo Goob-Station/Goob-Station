@@ -48,7 +48,7 @@ public sealed partial class QuantumTelepadComponent : Component
     /// Visual effect of teleport that applies to entity
     /// </summary>
     [DataField]
-    public EntProtoId? TeleportEffect;
+    public EntProtoId? TeleportEffect = "SpawnEffectSparks";
 
     /// <summary>
     /// Current telepad status

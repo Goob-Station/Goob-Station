@@ -1,19 +1,9 @@
 - type: entity
-  id: EffectTelepadSparks
-  categories: [ HideSpawnMenu ]
+  id: SpawnEffectSparks
   components:
-  - type: TimedDespawn
-    lifetime: 2.8
-  - type: Sprite
-    drawdepth: Effects
-    noRot: true
-    layers:
-      - shader: unshaded
-        map: ["enum.EffectLayers.Unshaded"]
-        sprite: _CorvaxGoob/Effects/sparks.rsi
-        state: sparks
-  - type: EffectVisuals
-  - type: Tag
-    tags:
-      - HideContextMenu
-  - type: AnimationPlayer
+  - type: ExecuteTargetEventsOnTrigger
+    events:
+    - !type:DoSparksTargetEvent
+      playSound: false
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
