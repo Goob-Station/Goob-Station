@@ -1,0 +1,8 @@
+#I am a lizard, and I must scream.
+- type: soundCollection
+  id: ReptilianScream
+  files:
+  - /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - /Audio/_Omu/Voice/Reptilian/humanoid_lizard_scream_2.ogg
+  - /Audio/_Omu/Voice/Reptilian/humanoid_lizard_scream_3.ogg
+  - /Audio/_Omu/Voice/Reptilian/humanoid_lizard_scream_4.ogg

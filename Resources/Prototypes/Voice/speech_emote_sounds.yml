@@ -148,7 +148,7 @@
     variation: 0.125
   sounds:
     Scream:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+      collection: ReptilianScream
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
     Honk:
@@ -185,6 +185,11 @@
       collection: MaleYawn
     Belch: # Frontier
       collection: Belch # Frontier
+    ReptilianPurr: #Omu
+      path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_purr.ogg
+    Rattle: #Omu
+      path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_rattle.ogg
+
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -192,7 +197,7 @@
     variation: 0.125
   sounds:
     Scream:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+      collection: ReptilianScream
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
     Honk:
@@ -229,6 +234,10 @@
       collection: FemaleYawn
     Belch: # Frontier
       collection: Belch # Frontier
+    ReptilianPurr: #Omu
+      path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_purr.ogg
+    Rattle: #Omu
+      path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_rattle.ogg
 
 - type: emoteSounds
   id: MaleSlime
