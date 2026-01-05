@@ -1,0 +1,17 @@
+- type: marking
+  id: PuppyEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Human, Dwarf]
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/puppy_markings.rsi
+      state: puppy_ears_standard
+
+- type: marking
+  id: PuppyEarsWag
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Human, Dwarf]
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/puppy_markings.rsi
+      state: puppy_ears_animated

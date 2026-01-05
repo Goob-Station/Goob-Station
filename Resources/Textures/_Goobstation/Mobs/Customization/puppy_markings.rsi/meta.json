@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by TheShuEd for Space Station 14, cutting and recolor by Jvne",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "puppy_ears_animated",
+	  "directions": 4,
+      "delays": [
+                [0.2, 0.2, 0.2, 0.2],
+                [0.2, 0.2, 0.2, 0.2],
+                [0.2, 0.2, 0.2, 0.2],
+                [0.2, 0.2, 0.2, 0.2]
+            ]
+    },
+    {
+      "name": "puppy_ears_standard",
+	  "directions": 4
+    },
+	{
+      "name": "puppy_tail_animated",
+	  "directions": 4,
+      "delays": [
+                [0.2, 0.2, 0.2, 0.2],
+                [0.2, 0.2, 0.2, 0.2],
+                [0.2, 0.2, 0.2, 0.2],
+                [0.2, 0.2, 0.2, 0.2]
+            ]
+    },
+    {
+      "name": "puppy_tail_standard",
+	  "directions": 4
+    }
+  ]
+}
