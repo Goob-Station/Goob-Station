@@ -74,7 +74,6 @@
     noRot: true
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/kitchen2.rsi
     state: oven_off
-    directions: 4
 
 - type: entity
   id: GoonSink
