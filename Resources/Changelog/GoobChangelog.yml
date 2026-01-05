@@ -19925,3 +19925,9 @@ Entries:
   changes: []
   id: 2256
   time: '2026-01-05T02:18:34.0000000+00:00'
+- author: mikusssssss
+  changes:
+    - type: Tweak
+      message: Shadowling ascension egg no longer has more health than the Hierophant.
+  id: 2257
+  time: '2026-01-05T02:18:41.0000000+00:00'
