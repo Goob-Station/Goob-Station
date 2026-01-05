@@ -19901,3 +19901,11 @@ Entries:
       message: made present anoms rarer );
   id: 2252
   time: '2026-01-05T02:13:24.0000000+00:00'
+- author: SPCR
+  changes:
+    - type: Fix
+      message: >-
+        Fixed egg-laying entities inside duffelbags or hands orbiting
+        players/duffelbags
+  id: 2253
+  time: '2026-01-05T02:13:44.0000000+00:00'
