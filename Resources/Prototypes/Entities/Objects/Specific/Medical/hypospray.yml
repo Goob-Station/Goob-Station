@@ -233,7 +233,6 @@
           maxVol: 3000
     - type: UseDelay
       delay: 0.0
-    - type: Hypospray # Goobstation
 
 - type: entity
   name: chemical medipen
@@ -435,7 +434,6 @@
     transferAmount: 25 # Goobstation
     onlyAffectsMobs: false
     injectOnly: true
-
   - type: SolutionContainerManager
     solutions:
       pen:
