@@ -19931,3 +19931,14 @@ Entries:
       message: Shadowling ascension egg no longer has more health than the Hierophant.
   id: 2257
   time: '2026-01-05T02:18:41.0000000+00:00'
+- author: ZOXELON
+  changes:
+    - type: Add
+      message: Added outer clothing displacement map for voxes!
+    - type: Fix
+      message: >-
+        Wizden#39219 Several strange sprite issues with Vox have been fixed,
+        most notably jumpsuits and many neck items overlapping the face, as well
+        as a layering issue where their tank would appear over their hair.!
+  id: 2258
+  time: '2026-01-05T02:20:47.0000000+00:00'
