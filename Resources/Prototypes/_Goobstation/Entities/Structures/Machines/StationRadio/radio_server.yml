@@ -8,6 +8,9 @@
     sprite: _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
     layers:
     - state: icon
+  - type: DeviceLinkSource
+    ports:
+    - StationRadioServerPort
     # TODO: unlit & maints panel sprite
   - type: Transform
     noRot: false
@@ -38,24 +41,22 @@
   id: StationRadioRig
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: station radio rig
-  description: A collection of everything you need to play music over the station, has a slot for Cds and vinyls.
+  description: A collection of everything you need to play music over the station.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/radiostationrig.rsi
-    drawdepth: SmallObjects
     layers:
     - state: icon
     # TODO: unlit & maints panel sprite
+  - type: DeviceLinkSink
+    ports:
+    - StationRadioRigPort
   - type: Transform
     noRot: false
   - type: Rotatable
   - type: Machine
     board: StationRadioRigCircuitboard
-  - type: TelecomExempt
-  - type: RadioMicrophone
-    powerRequired: true
-    broadcastChannel: RadioShow
-    secondaryBroadcastChannel: Common
+  - type: RadioRig
   - type: DeviceNetworkRequiresPower
   - type: DeviceLinkSource
     ports:

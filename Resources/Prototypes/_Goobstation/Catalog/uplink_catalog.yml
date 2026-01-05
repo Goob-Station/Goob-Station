@@ -526,7 +526,7 @@
   icon: { sprite: /Textures/Clothing/Head/Helmets/swat_syndicate.rsi, state: icon }
   productEntity: ClothingHeadHelmetSwatSyndicate
   cost:
-    Telecrystal: 5
+    Telecrystal: 10
   categories:
   - UplinkWearables
 
@@ -590,16 +590,6 @@
   categories:
   - UplinkWearables
 
-- type: listing
-  id: UplinkSecondSkinSyndicate
-  name: uplink-second-skin-name
-  description: uplink-second-skin-desc
-  icon: { sprite: _Goobstation/Clothing/OuterClothing/second_skin.rsi, state: action }
-  productEntity: SecondSkinSyndicate
-  cost:
-    Telecrystal: 10
-  categories:
-  - UplinkWearables
 
 - type: listing
   id: UplinkClothingHandsGlovesGuerrilla
@@ -611,6 +601,27 @@
     Telecrystal: 20
   categories:
   - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkClothingHandsGlovesGuerrillaNukeops
+  name: uplink-guerrilla-gloves-name
+  description: uplink-guerrilla-gloves-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
+  productEntity: ClothingHandsGlovesGuerrilla
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 # Job specific
 - type: listing
@@ -814,7 +825,7 @@
   description: uplink-advanced-combat-medipen-desc
   productEntity: AdvancedCombatMedipen
   cost:
-    Telecrystal: 20
+    Telecrystal: 24
   categories:
   - UplinkChemicals
 

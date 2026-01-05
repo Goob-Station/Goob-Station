@@ -1,4 +1,11 @@
+# Default frequency for the station radio stream, only 1 server at a time can translate on it
 - type: deviceFrequency
   id: StationRadio
   name: device-frequency-prototype-name-station-radio
   frequency: 1225
+
+# Used by virology servers to send data over to receivers
+- type: deviceFrequency
+  id: VirologyServer
+  name: device-frequency-prototype-name-virology-console
+  frequency: 1330

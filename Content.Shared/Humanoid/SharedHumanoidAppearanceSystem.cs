@@ -55,6 +55,7 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
+using Robust.Shared.Enums;
 
 namespace Content.Shared.Humanoid;
 
@@ -155,7 +156,10 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         if (args.Examiner == args.Examined) // Use the selfaware locale when examining yourself
             locale += "-selfaware";
 
-        args.PushText(Loc.GetString(locale, ("user", identity), ("age", age), ("species", species)), 100); // priority for examine
+        // Goob Sanitize Text
+        var escapedIdentity = FormattedMessage.EscapeText(identity.ToString());
+        args.PushText(Loc.GetString(locale, ("user", escapedIdentity), ("age", age), ("species", species)),
+            100); // priority for examine
         // WWDP EDIT END
     }
 
@@ -408,6 +412,22 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             Dirty(uid, humanoid);
         }
     }
+
+    // goob edit - genderfluid potion.
+    // thanks wizden!
+    public void SetGender(EntityUid uid, Gender gender, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
+    {
+        if (!Resolve(uid, ref humanoid) || humanoid.Gender == gender)
+            return;
+
+        humanoid.Gender = gender;
+
+        if (sync)
+        {
+            Dirty(uid, humanoid);
+        }
+    }
+    // goob edit end
 
     // begin Goobstation: port EE height/width sliders
 

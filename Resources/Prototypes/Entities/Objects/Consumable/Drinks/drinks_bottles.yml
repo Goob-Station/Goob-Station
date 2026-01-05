@@ -859,7 +859,7 @@
   - type: Tag # Goobstation
     tags:
     - DrinkBottle
-
+    - WaterBottle
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassSmallBaseFull]
   id: DrinkBeerBottleFull

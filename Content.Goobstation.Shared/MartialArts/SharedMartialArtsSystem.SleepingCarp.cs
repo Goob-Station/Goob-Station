@@ -87,13 +87,10 @@ public partial class SharedMartialArtsSystem
                 if (!TryGrantMartialArt(args.User, ent.Comp))
                     return;
                 _faction.AddFaction(args.User, "Dragon");
-                var userReflect = EnsureComp<ReflectComponent>(args.User); // holy fucking shitcode bro what was I doing
-                // WHAT IS YML
+                var userReflect = EnsureComp<ReflectComponent>(args.User);
                 userReflect.Examinable = false; // no doxxing scarp users by examining lmao
                 userReflect.ReflectProb = 1;
                 userReflect.Spread = 60;
-                userReflect.CombatModeRequired = true;
-
                 Dirty(args.User, userReflect);
                 _popupSystem.PopupEntity(
                     Loc.GetString("carp-scroll-complete"),

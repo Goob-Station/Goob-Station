@@ -56,3 +56,4 @@ JobInspector = Central Command Auditor
 JobMercenaryCaptain = Mercenary Captain
 JobRoboticist = Roboticist
 JobRadioHost = Radio Host
+JobVirologist = Virologist

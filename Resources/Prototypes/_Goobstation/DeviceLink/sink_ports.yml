@@ -149,3 +149,8 @@
   id: StationRadioRelay
   name: signal-port-name-station-radio-relay
   description: signal-port-description-station-radio-relay
+
+- type: sinkPort
+  id: StationRadioRigPort
+  name: signal-port-name-radio-rig
+  description: signal-port-description-radio-rig

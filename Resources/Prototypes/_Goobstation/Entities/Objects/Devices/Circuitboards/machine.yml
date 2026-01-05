@@ -83,12 +83,13 @@
   description: A machine printed circuit board for a vinyl player.
   components:
   - type: Sprite
-    state: engineering
+    state: service
   - type: MachineBoard
     prototype: VinylPlayer
     stackRequirements:
-      Manipulator: 3
+      Manipulator: 1
       Steel: 1
+      WoodPlank: 3
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -97,37 +98,69 @@
   description: A machine printed circuit board for a tape deck.
   components:
   - type: Sprite
-    state: engineering
+    state: service
   - type: MachineBoard
     prototype: TapeDeck
     stackRequirements:
-      Manipulator: 5
-      Steel: 3
+      Manipulator: 2
+      Plastic: 3
+      WoodPlank: 5
 
 - type: entity
   parent: BaseMachineCircuitboard
   id: StationRadioServerCircuitboard
-  name: radio station server machine board
-  description: A machine printed circuit board for a radio station server.
+  name: station radio server machine board
+  description: A machine printed circuit board for a station radio server.
   components:
   - type: Sprite
-    state: engineering
+    state: service
   - type: MachineBoard
     prototype: StationRadioServer
     stackRequirements:
-      Manipulator: 5
+      Manipulator: 1
       Steel: 10
+      Plastic: 10
+      Plasma: 5
+      CableHV: 4
 
 - type: entity
   parent: BaseMachineCircuitboard
   id: StationRadioRigCircuitboard
-  name: radio station rig machine board
-  description: A machine printed circuit board for a radio station rig.
+  name: station radio rig machine board
+  description: A machine printed circuit board for a station radio rig.
   components:
   - type: Sprite
-    state: engineering
+    state: service
   - type: MachineBoard
     prototype: StationRadioRig
     stackRequirements:
-      Manipulator: 10
-      Steel: 20
+      Manipulator: 3
+      Steel: 5
+      Glass: 5
+      Cable: 2
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: StationRadioCircuitboard
+  name: station radio machine board
+  description: A machine printed circuit board for a station radio receiver.
+  components:
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: StationRadioReceiver
+    stackRequirements:
+      Manipulator: 1
+      Cable: 2
+
+- type: entity
+  id: VirologyServerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: virology server machine board
+  description: A machine printed circuit board for a virology server.
+  components:
+    - type: MachineBoard
+      prototype: VirologyServer
+      stackRequirements:
+        Steel: 1
+        Cable: 2

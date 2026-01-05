@@ -41,10 +41,14 @@
   - type: Appearance
   - type: WiresPanel
   - type: WiresVisuals
+  - type: VinylPlayer
   - type: Machine
     board: VinylPlayerCircuitboard
   - type: ApcPowerReceiver
     powerLoad: 300 # This is a simple machine
+  - type: DeviceLinkSource
+    ports:
+    - VinylPlayerPort
   - type: ContainerContainer
     containers:
       machine_board: !type:Container
@@ -78,7 +82,4 @@
     deviceNetId: Wireless
     transmitFrequencyId: StationRadio # Default value, can be changed
   - type: DeviceNetworkRequiresPower
-  - type: DeviceLinkSource
-    ports:
-    - VynilMusic
   - type: VinylPlayer

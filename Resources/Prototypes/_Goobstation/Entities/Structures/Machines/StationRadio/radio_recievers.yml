@@ -1,10 +1,10 @@
-
 - type: entity
   id: StationRadioReceiver
   name: station radio
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   description: Listen to the top hits of your stations local radio.
   components:
+  - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/stationradio.rsi
     layers:
@@ -46,6 +46,8 @@
   #- type: ActiveRadio
   #  channels:
   #  - RadioShow
+  - type: Machine
+    board: StationRadioCircuitboard
   - type: DeviceNetwork
     receiveAll: true
     deviceNetId: Wireless

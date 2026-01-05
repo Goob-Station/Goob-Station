@@ -178,11 +178,11 @@
 # Station Radio
 
 - type: sourcePort
-  id: VynilMusic
-  name: signal-port-name-vynil-music
-  description: signal-port-description-vynil-music
-
-- type: sourcePort
   id: Microphone
   name: signal-port-name-microphone
   description: signal-port-description-microphone
+
+- type: sourcePort
+  id: VinylPlayerPort
+  name: signal-port-name-vinyl-player
+  description: signal-port-description-vinyl-player
