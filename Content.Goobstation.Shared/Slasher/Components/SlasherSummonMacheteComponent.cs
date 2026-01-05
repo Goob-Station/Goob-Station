@@ -1,4 +1,3 @@
-using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -7,7 +6,7 @@ namespace Content.Goobstation.Shared.Slasher.Components;
 /// <summary>
 /// Grants the Slasher the ability to summon (or create) their machete into their active hand. Very generic.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SlasherSummonMacheteComponent : Component
 {
     [ViewVariables]
@@ -25,6 +24,6 @@ public sealed partial class SlasherSummonMacheteComponent : Component
     /// <summary>
     /// The current tracked machete entity.
     /// </summary>
-    [ViewVariables]
+    [DataField, AutoNetworkedField]
     public EntityUid? MacheteUid;
 }

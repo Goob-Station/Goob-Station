@@ -143,3 +143,15 @@
   description: alerts-disgust-desc
   minSeverity: 1
   maxSeverity: 3
+
+- type: alert
+  id: SlasherSeen
+  icons:
+  - sprite: /Textures/_Goobstation/Interface/Alerts/seen.rsi
+    state: Unseen
+  - sprite: /Textures/_Goobstation/Interface/Alerts/seen.rsi
+    state: Seen
+  name: alerts-slasher-seen-name
+  description: alerts-slasher-seen-desc
+  minSeverity: 0
+  maxSeverity: 1

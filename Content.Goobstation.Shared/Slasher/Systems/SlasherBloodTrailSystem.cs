@@ -4,6 +4,7 @@ using Content.Goobstation.Shared.Slasher.Events;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Fluids;
+using Content.Shared.Mobs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
@@ -33,20 +34,17 @@ public sealed class SlasherBloodTrailSystem : EntitySystem
         SubscribeLocalEvent<SlasherBloodTrailComponent, ToggleBloodTrailEvent>(OnToggle);
 
         SubscribeLocalEvent<SlasherBloodTrailComponent, SlasherIncorporealizeDoAfterEvent>(OnIncorporealize);
+        SubscribeLocalEvent<SlasherBloodTrailComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
 
     private void OnMapInit(Entity<SlasherBloodTrailComponent> ent, ref MapInitEvent args)
     {
-        if (!_net.IsServer)
-            return;
-
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEntity, ent.Comp.ActionId);
     }
 
     private void OnShutdown(Entity<SlasherBloodTrailComponent> ent, ref ComponentShutdown args)
     {
-        if (_net.IsServer)
-            _actions.RemoveAction(ent.Owner, ent.Comp.ActionEntity);
+        _actions.RemoveAction(ent.Owner, ent.Comp.ActionEntity);
 
         _nextDropAt.Remove(ent.Owner);
         StopFunkyslasher(ent.Owner, ent.Comp);
@@ -100,6 +98,20 @@ public sealed class SlasherBloodTrailSystem : EntitySystem
         StopFunkyslasher(ent.Owner, ent.Comp); // AURRAAA LOSSS
     }
 
+    private void OnMobStateChanged(Entity<SlasherBloodTrailComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (!_net.IsServer)
+            return;
+
+        if (args.NewMobState == MobState.Dead && ent.Comp.IsActive)
+        {
+            ent.Comp.IsActive = false;
+            Dirty(ent, ent.Comp);
+            _nextDropAt.Remove(ent.Owner);
+            StopFunkyslasher(ent.Owner, ent.Comp);
+        }
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -130,7 +142,7 @@ public sealed class SlasherBloodTrailSystem : EntitySystem
 
     private void StartFunkyslasher(EntityUid uid, SlasherBloodTrailComponent comp)
     {
-        if (_net.IsClient)
+        if (!_net.IsServer)
             return;
 
         if (comp.FunkyslasherStream != null)
@@ -141,7 +153,7 @@ public sealed class SlasherBloodTrailSystem : EntitySystem
 
     private void StopFunkyslasher(EntityUid uid, SlasherBloodTrailComponent comp)
     {
-        if (_net.IsClient)
+        if (!_net.IsServer)
             return;
 
         comp.FunkyslasherStream = _audio.Stop(comp.FunkyslasherStream);

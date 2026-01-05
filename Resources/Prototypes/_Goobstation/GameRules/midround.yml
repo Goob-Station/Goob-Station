@@ -582,7 +582,7 @@
     eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 400
-  - type: AntagRandomSpawn
+  - type: AntagBetterRandomSpawn
   - type: AntagLoadProfileRule
     speciesOverride: Human
     speciesOverrideBlacklist:
@@ -591,6 +591,7 @@
     - Diona
     - Harpy
     - Plasmaman
+    forceMaxSize: true
   - type: AntagObjectives
     objectives:
     - SlasherSurviveObjective
@@ -614,19 +615,29 @@
       - type: Slasher
       - type: SlasherSummonMachete
       - type: SlasherStaggerArea
+      - type: SlasherRelentlessGrab
       - type: SlasherRegenerate
-      - type: SlasherPossession
       - type: SlasherBloodTrail
       - type: SlasherIncorporeal
       - type: SlasherSoulSteal
       - type: SlasherSummonMeatSpike
+      - type: NightVision
+        color: "#FF0000"
+        toggleAction: ActionSlasherNightVision
+        activateSound: !type:SoundCollectionSpecifier
+          collection: EyeOpen
+        deactivateSound: !type:SoundCollectionSpecifier
+          collection: EyeClose
+      - type: Puller
+        grabThrownSpeed: 10
+        throwingDistance: 8
+        softGrabSpeedModifier: 1
+        hardGrabSpeedModifier: 1
+        chokeGrabSpeedModifier: 1
       - type: BreathingImmunity
       - type: GunBlocked
         PopupText: slasher-cannot-use-guns # Seems to be broken inside AntagSelection
       - type: WeakToHoly
-      - type: NightVision
-        activateSound: null
-        deactivateSound: null
       - type: Hunger
         baseDecayRate: 0
       - type: Thirst

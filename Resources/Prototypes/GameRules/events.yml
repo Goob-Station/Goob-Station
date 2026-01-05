@@ -203,6 +203,7 @@
     - id: BingleSpawn #Goobstation - Bingle
     - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
+    - id: SlasherSpawn # Goobstation - The Slasher
     #- id: GreyTideAntagMidround # Goobstation - New Midrounds
     #- id: SingulothKnightsMidround # Goobstation - New Midrounds
     #- id: DarkLordMidround # Goobstation - New Midrounds
@@ -212,7 +213,6 @@
     #- id: TunnelClownMidround # Goobstation
     #- id: WraithMidround # Goobstation - Wraith
     #TODO when midrounds are "reviewed" by the chudmins add them back
-    #TODO When Slasher is Ready - id: SlasherSpawn # Goobstation - The Slasher
 
 - type: entity
   id: BaseStationEvent

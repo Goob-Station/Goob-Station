@@ -93,6 +93,18 @@ public sealed partial class SlasherSoulStealComponent : Component
     public bool HasAscended;
 
     /// <summary>
+    /// Number of total souls required to unlock possession ability.
+    /// </summary>
+    [DataField]
+    public int PossessionSoulThreshold = 10;
+
+    /// <summary>
+    /// Whether the possession ability has been unlocked.
+    /// </summary>
+    [ViewVariables]
+    public bool HasUnlockedPossession;
+
+    /// <summary>
     /// Amount of ammonia gas moles to release on successful soul steal.
     /// </summary>
     [DataField]
