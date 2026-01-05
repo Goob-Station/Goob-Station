@@ -19895,3 +19895,9 @@ Entries:
       message: Oops all thieves now has a lower chance to roll.
   id: 2251
   time: '2026-01-04T08:01:18.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Tweak
+      message: made present anoms rarer );
+  id: 2252
+  time: '2026-01-05T02:13:24.0000000+00:00'
