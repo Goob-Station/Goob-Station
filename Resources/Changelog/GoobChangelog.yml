@@ -19974,3 +19974,9 @@ Entries:
       message: Guerrilla gloves now cost 60tc for nuclear operatives.
   id: 2263
   time: '2026-01-05T07:26:02.0000000+00:00'
+- author: TytosB
+  changes:
+    - type: Add
+      message: added xenobio room to serpentcrest
+  id: 2264
+  time: '2026-01-05T07:26:32.0000000+00:00'
