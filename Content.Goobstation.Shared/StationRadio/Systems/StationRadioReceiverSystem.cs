@@ -1,6 +1,5 @@
 using Content.Goobstation.Shared.StationRadio.Components;
 using Content.Goobstation.Shared.StationRadio.Events;
-using Content.Shared.Emag.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
@@ -19,16 +18,6 @@ public sealed class StationRadioReceiverSystem : EntitySystem
         SubscribeLocalEvent<StationRadioReceiverComponent, StationRadioMediaStoppedEvent>(OnMediaStopped);
         SubscribeLocalEvent<StationRadioReceiverComponent, ActivateInWorldEvent>(OnRadioToggle);
         SubscribeLocalEvent<StationRadioReceiverComponent, PowerChangedEvent>(OnPowerChanged);
-        SubscribeLocalEvent<StationRadioReceiverComponent, GotEmaggedEvent>(OnEmag);
-    }
-
-    private void OnEmag(EntityUid uid, StationRadioReceiverComponent comp, ref GotEmaggedEvent args)
-    {
-        if(comp.Emagged)
-            return;
-
-        args.Handled = true;
-        comp.Emagged = true;
     }
 
     private void OnPowerChanged(EntityUid uid, StationRadioReceiverComponent comp, PowerChangedEvent args)
@@ -64,8 +53,5 @@ public sealed class StationRadioReceiverSystem : EntitySystem
             return;
 
         comp.SoundEntity = _audio.Stop(comp.SoundEntity);
-
-        if(comp.Emagged)
-            RaiseLocalEvent(uid, new StationRadioExplodeEvent());
     }
 }
