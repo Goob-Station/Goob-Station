@@ -1,4 +1,4 @@
-revolutionary-converter-speech-1 = The Captian commands, we disobey!
+revolutionary-converter-speech-1 = The Captain commands, we disobey!
 revolutionary-converter-speech-2 = Cast off Nanotrasen's oppression!
 revolutionary-converter-speech-3 = Join me, and together we will liberate this station!
 revolutionary-converter-speech-4 = Rise up! The station belongs to the workers, not the bureaucrats!
@@ -110,7 +110,7 @@ revolutionary-converter-speech-109 = Comrades, today we reclaim not just our lab
 revolutionary-converter-speech-110 = No longer shall we bow! No longer shall we beg! We shall rule together!
 revolutionary-converter-speech-111 = We are slaves to institutions, whos to say we can't make our own?
 revolutionary-converter-speech-112 = We have been mining plasma for decades, but we've yet to see a single speso!
-revolutionary-converter-speech-113 = This station wasn't built in a day, but it will burn on one!
+revolutionary-converter-speech-113 = This station wasn't built in a day, but it will burn in one!
 revolutionary-converter-speech-114 = One war, class war!
 revolutionary-converter-speech-115 = Long live the Atmosian Association of Socialists!
 revolutionary-converter-speech-116 = Future generations will remember our sacrifice!
