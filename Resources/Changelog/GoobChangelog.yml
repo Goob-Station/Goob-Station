@@ -19960,3 +19960,11 @@ Entries:
       message: Mansus Grasp is now usable in combat mode
   id: 2261
   time: '2026-01-05T02:28:13.0000000+00:00'
+- author: charcuteriesampler
+  changes:
+    - type: Tweak
+      message: >-
+        Xenomorph facehuggers will no longer force you to sleep when they are
+        dead.
+  id: 2262
+  time: '2026-01-05T02:31:25.0000000+00:00'
