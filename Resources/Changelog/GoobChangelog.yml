@@ -19948,3 +19948,9 @@ Entries:
       message: Virologist can spawn in his envirosuit now.
   id: 2259
   time: '2026-01-05T02:22:16.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Add
+      message: You can now print reporter clothes at a uniform printer.
+  id: 2260
+  time: '2026-01-05T02:24:48.0000000+00:00'
