@@ -1,4 +1,7 @@
 ﻿using Content.Goobstation.Common.Cyberdeck.Components;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.StationAi;
@@ -58,8 +61,13 @@ public abstract partial class SharedCyberdeckSystem
                 if (!_cyberdeckUserQuery.TryComp(ent.Comp.RemoteEntity, out var userComp))
                     return;
 
+                var remote = ent.Comp.RemoteEntity.Value;
                 var sound = ent.Comp.CounterHackSound;
                 DetachFromProjection((ent.Comp.RemoteEntity.Value, userComp));
+
+                // All components are in common so i can't just put it in YAML. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+                _damage.TryChangeDamage(remote, new DamageSpecifier() { DamageDict = new Dictionary<string, FixedPoint2>() { ["Shock"] = 10, }}, targetPart: TargetBodyPart.Head);
+                _stun.KnockdownOrStun(remote, TimeSpan.FromSeconds(5), true);
 
                 Popup.PopupClient("cyberdeck-player-get-hacked", ent.Comp.RemoteEntity.Value, ent.Comp.RemoteEntity, PopupType.LargeCaution);
                 _audio.PlayLocal(sound, ent.Owner, ent.Owner);

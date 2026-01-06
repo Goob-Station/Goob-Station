@@ -120,6 +120,7 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
             addr = netConn.Address;
 
         _airAlarm.SetMode(ent.Owner, addr, AirAlarmMode.Panic, false, ent.Comp);
+        ent.Comp.AutoMode = false;
     }
 
     private void OnApcHacked(Entity<ApcComponent> ent, ref CyberdeckHackDeviceEvent args)
