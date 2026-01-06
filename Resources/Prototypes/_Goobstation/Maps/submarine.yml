@@ -44,6 +44,7 @@
             MedicalIntern: [ 1, 2 ]
             Paramedic: [ 2, 3 ]
             Psychologist: [ 1, 2 ]
+            Virologist: [ 1, 1 ]
           #security
             Detective: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]

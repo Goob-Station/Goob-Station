@@ -86,7 +86,7 @@
 - type: entity
   id: ActionSlasherRegenerate
   name: Regenerate
-  description: Quickly regenerate your being, restoring all lost health, repairing wounds, and removing all stuns.
+  description: Quickly regenerate your being, restoring all lost health, repairing wounds, and removing all stuns. Must be recharged by stealing a soul after every use.
   components:
   - type: Action
     raiseOnUser: true
@@ -133,7 +133,7 @@
   components:
   - type: Action
     raiseOnUser: true
-    useDelay: 5
+    useDelay: 2
     checkCanInteract: false
     itemIconStyle: BigAction
     icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: SoulSteal }

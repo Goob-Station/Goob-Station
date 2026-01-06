@@ -638,7 +638,7 @@
       - type: MobThresholds
         thresholds:
           0: Alive
-          200: Dead
+          150: Dead
       - type: RandomMetadata
         nameSegments:
         - NamesSlasherTitle
@@ -647,3 +647,22 @@
   - type: Tag
     tags:
     - MidroundAntag
+
+# Santa
+
+- type: entity
+  id: SantaClausSpawn
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 25 # Tune down after Christmas
+    earliestStart: 3
+    minimumPlayers: 10
+    maxOccurrences: 1
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: 100
+  - type: VentCrittersRule # like a chimney
+    max: 1
+    table:
+      id: SantaClaus

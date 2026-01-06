@@ -72,4 +72,7 @@
   id: JobRoboticist
 
 - type: playTimeTracker
+  id: JobRadioHost
+
+- type: playTimeTracker
   id: JobVirologist
