@@ -146,7 +146,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
             foreach (var effect in diseaseComp.Effects.ContainedEntities)
                 CleanupEffect((disease, diseaseComp), effect);
         }
-
+        ent.Comp.Diseases.Remove(disease);
         QueueDel(disease);
         Dirty(ent);
         return true;
