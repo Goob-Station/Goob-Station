@@ -67,11 +67,15 @@
       time: 1800 # 30 Minutes
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 18000 #5 hrs
+      time: 36000 #10 hrs
       inverted: true # stop playing intern if you're good at engineering!
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
   supervisors: job-supervisors-engineering
+  guides: # goobstation
+  - Construction
+  - Power
+  - Networking
   goobcoins: 20 #Goob content
   access:
   - Maintenance

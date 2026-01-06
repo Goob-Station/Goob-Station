@@ -132,13 +132,10 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobCargoTechnician
-      time: 18000 #5 hrs
+      time: 28800 #8 hrs
     - !type:RoleTimeRequirement
       role: JobSalvageSpecialist
-      time: 9000 #2.5 hrs
-    - !type:DepartmentTimeRequirement
-      department: Cargo
-      time: 36000 #10 hours
+      time: 14400 #4 hrs
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:
@@ -149,6 +146,11 @@
   supervisors: job-supervisors-captain
   #canBeAntag: false
   antagAdvantage: 75 # Goobstation
+  guides: # goobstation
+  - Cargo
+  - Quartermaster SOP
+  - Cargo SOP
+  - Command
   goobcoins: 40 #Goob content
   access:
   - Cargo
@@ -166,6 +168,7 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+      - type: QuartermasterTraining
 
 - type: startingGear
   id: QuartermasterGear
