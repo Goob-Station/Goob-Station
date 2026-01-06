@@ -3,6 +3,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Database;
+using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Verbs;
@@ -15,6 +16,8 @@ public abstract partial class SharedCyberdeckSystem
     {
         SubscribeLocalEvent<CyberdeckUserComponent, ComponentStartup>(OnUserInit);
         SubscribeLocalEvent<CyberdeckUserComponent, ComponentShutdown>(OnUserShutdown);
+        SubscribeLocalEvent<CyberdeckUserComponent, AccessibleOverrideEvent>(OnCyberdeckAccessible);
+        SubscribeLocalEvent<CyberdeckUserComponent, InRangeOverrideEvent>(OnCyberdeckRangeAccessible);
         SubscribeLocalEvent<CyberdeckProjectionComponent, GetVerbsEvent<AlternativeVerb>>(OnProjectionVerbs);
     }
 
@@ -75,5 +78,23 @@ public abstract partial class SharedCyberdeckSystem
             },
             Impact = LogImpact.High,
         });
+    }
+
+    private void OnCyberdeckAccessible(Entity<CyberdeckUserComponent> ent, ref AccessibleOverrideEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Accessible = _aiWhitelistQuery.HasComp(args.Target);
+        args.Handled = true;
+    }
+
+    private void OnCyberdeckRangeAccessible(Entity<CyberdeckUserComponent> ent, ref InRangeOverrideEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.InRange = _aiWhitelistQuery.HasComp(args.Target);
+        args.Handled = true;
     }
 }

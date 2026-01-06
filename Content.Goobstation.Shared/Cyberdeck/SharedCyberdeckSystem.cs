@@ -18,6 +18,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -51,6 +52,7 @@ public abstract partial class SharedCyberdeckSystem : EntitySystem
     private EntityQuery<LimitedChargesComponent> _chargesQuery;
     private EntityQuery<CyberdeckHackableComponent> _hackableQuery;
     private EntityQuery<CyberdeckUserComponent> _cyberdeckUserQuery;
+    private EntityQuery<StationAiWhitelistComponent> _aiWhitelistQuery;
 
     public override void Initialize()
     {
@@ -66,6 +68,7 @@ public abstract partial class SharedCyberdeckSystem : EntitySystem
         _chargesQuery = GetEntityQuery<LimitedChargesComponent>();
         _hackableQuery = GetEntityQuery<CyberdeckHackableComponent>();
         _cyberdeckUserQuery = GetEntityQuery<CyberdeckUserComponent>();
+        _aiWhitelistQuery = GetEntityQuery<StationAiWhitelistComponent>();
     }
 
     /// <summary>
