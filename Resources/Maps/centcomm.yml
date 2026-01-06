@@ -41682,8 +41682,6 @@ entities:
       access:
       - - CentralCommand
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6301
       - 5700
@@ -41697,8 +41695,6 @@ entities:
       access:
       - - CentralCommand
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6301
       - 5700
@@ -41712,8 +41708,6 @@ entities:
       access:
       - - CentralCommand
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 5700
       - 6301
@@ -41842,8 +41836,6 @@ entities:
       pos: -3.5,4.5
       parent: 1668
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 5700
       - 5701
@@ -41857,8 +41849,6 @@ entities:
       access:
       - - CentralCommand
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 5700
       - 5701
@@ -41885,8 +41875,6 @@ entities:
       access:
       - - CentralCommand
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 5700
       - 5701
@@ -41900,8 +41888,6 @@ entities:
       access:
       - - CentralCommand
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 5701
   - uid: 5620
@@ -42085,8 +42071,6 @@ entities:
       access:
       - - CentralCommand
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 6302
   - uid: 6488
