@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation https://github.com/tgstation/tgstation (unknown commit). Vox state by Flareguy for SS14, vulp version fixed by YERO",
+  "copyright": "Taken from tgstation https://github.com/tgstation/tgstation (unknown commit). Vox state by Flareguy for SS14",
   "size": {
     "x": 32,
     "y": 32
@@ -24,10 +24,6 @@
     },
     {
       "name": "inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "equipped-HELMET-vulpkanin",
       "directions": 4
     }
   ]

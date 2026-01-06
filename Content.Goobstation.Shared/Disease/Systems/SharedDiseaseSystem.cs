@@ -43,6 +43,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         SubscribeLocalEvent<DiseaseCarrierComponent, ComponentStartup>(OnDiseaseCarrierStartup);
 
         SubscribeLocalEvent<DiseaseComponent, MapInitEvent>(OnDiseaseInit);
+        SubscribeLocalEvent<DiseaseComponent, ComponentStartup>(OnDiseaseStartup);
         SubscribeLocalEvent<DiseaseComponent, DiseaseUpdateEvent>(OnUpdateDisease);
 
         EffectQuery = GetEntityQuery<DiseaseEffectComponent>();
@@ -91,15 +92,17 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
 
     private void OnDiseaseCarrierInit(Entity<DiseaseCarrierComponent> ent, ref MapInitEvent args)
     {
-
         foreach (var diseaseId in ent.Comp.StartingDiseases)
             TryInfect((ent, ent.Comp), diseaseId, out _);
     }
 
-    private void OnDiseaseInit(Entity<DiseaseComponent> ent, ref MapInitEvent args)
+    private void OnDiseaseStartup(Entity<DiseaseComponent> ent, ref ComponentStartup args)
     {
         ent.Comp.Effects = ContainerSystem.EnsureContainer<Container>(ent.Owner, DiseaseComponent.EffectContainerId);
+    }
 
+    private void OnDiseaseInit(Entity<DiseaseComponent> ent, ref MapInitEvent args)
+    {
         // check if disease is a preset
         if (ent.Comp.StartingEffects.Count == 0)
             return;

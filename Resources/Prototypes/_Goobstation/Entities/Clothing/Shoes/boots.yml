@@ -334,7 +334,3 @@
           tags:
           - Knife
           - Sidearm
-  - type: ClothingSlowOnDamageModifier
-    modifier: 0.5
-  - type: ModifyStandingUpTime
-    multiplier: 0.5

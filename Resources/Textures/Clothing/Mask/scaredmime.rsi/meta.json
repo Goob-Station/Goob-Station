@@ -19,11 +19,7 @@
       "directions": 4
     },
     {
-      "name": "equipped-MASK-vox",
-      "directions": 4
-    },
-    {
-      "name": "equipped-MASK-vulpkanin",
+      "name":"equipped-MASK-vox",
       "directions": 4
     }
   ]

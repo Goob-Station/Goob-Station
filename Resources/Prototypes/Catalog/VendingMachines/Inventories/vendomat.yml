@@ -30,5 +30,3 @@
   contrabandInventory:
     ProximitySensor: 1
     LeftArmBorg: 1
-  emaggedInventory: # goob
-    ClothingMaskGasSyndicate: 1

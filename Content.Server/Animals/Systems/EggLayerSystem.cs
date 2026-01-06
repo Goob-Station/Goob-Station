@@ -129,7 +129,7 @@ public sealed class EggLayerSystem : EntitySystem
 
         foreach (var ent in EntitySpawnCollection.GetSpawns(egglayer.EggSpawn, _random))
         {
-            SpawnNextToOrDrop(ent, uid); // goob edit
+            Spawn(ent, Transform(uid).Coordinates);
         }
 
         // Sound + popups
