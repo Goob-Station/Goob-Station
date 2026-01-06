@@ -19986,3 +19986,11 @@ Entries:
       message: Server no break
   id: 2265
   time: '2026-01-06T03:33:28.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: EMAG and Access breaker resprite.
+    - type: Add
+      message: Added lots of new items into vend machines.
+  id: 2266
+  time: '2026-01-06T04:03:46.0000000+00:00'
