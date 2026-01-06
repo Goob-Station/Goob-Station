@@ -147,7 +147,7 @@
 
 - type: latheRecipe
   id: Onicube
-  result: Onicube
+  result: OniCube
   completetime: 30
   materials:
     Biomass: 70
