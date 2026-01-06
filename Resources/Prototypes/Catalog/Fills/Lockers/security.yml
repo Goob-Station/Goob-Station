@@ -115,8 +115,8 @@
     - id: ClothingOuterWinterWarden
     - id: RubberStampWarden
     - id: DoorRemoteArmory
-    - id: HoloprojectorSecurity
-    - id: BookSpaceLaw
+    #- id: HoloprojectorSecurity Goob, its in your belt
+    #- id: BookSpaceLaw, Goob moved to backpack to make warden players read it more, in the locker its just bloat
     - id: ClothingBackpackElectropack
       amount: 2
     - id: RemoteSignaller
@@ -129,6 +129,7 @@
     - id: Multitool # Goobstation
     - id: Wrench # Goobstation
     - id: ContrabandDetectorFlatpack # Goobstation
+      amount: 2 #Im tired of wardens making sec entrances a chokepoint just because of this item
     - id: SecurityMegaphone # goob - loudspeakers
 
 - type: entityTable
@@ -160,17 +161,17 @@
       prob: 0.3
     - id: ClothingHeadHelmetBasic
     - id: ClothingOuterArmorBasic
-    - id: ClothingBeltSecurityFilled
+    #- id: ClothingBeltSecurityFilled Goob, see GroupSelector below
     - id: Flash
       prob: 0.5
     - id: ClothingEyesGlassesSecurity
-    - id: ClothingHeadsetSecurity
+    # - id: ClothingHeadsetSecurity, Goob, over ear headsets
     - id: ClothingHandsGlovesColorBlack
     - id: ClothingShoesBootsJack
     - id: WeaponMeleeNeedle
       prob: 0.1
-    - id: HoloprojectorSecurity
-      prob: 0.6
+    #- id: HoloprojectorSecurity, Goobstation, it's in every belt
+    #  prob: 0.6
     - id: BookSpaceLaw
       prob: 0.5
     - id: ClothingHeadsetAltSecurityRegular # Goobstation
@@ -228,9 +229,14 @@
     children:
     - id: ClothingEyesGlassesNoir
     - id: ClothingHeadHatDetGadget
-    - id: ClothingNeckTieDet
-    - id: ClothingOuterVestDetective
-    - id: ClothingOuterCoatDetectiveLoadout
+    # - id: ClothingNeckTieDet Goob, get it from the detvend
+    - !type:GroupSelector #Goob, if you want the other one, get it from detvend
+      children:
+      - id: ClothingOuterVestDetective
+        weight: 0.5
+      - id: ClothingOuterCoatDetectiveLoadout
+        weight: 0.5
+        #Goobend
     - id: FlippoEngravedLighter
     - id: FlashlightSeclite
     - id: ForensicScanner
