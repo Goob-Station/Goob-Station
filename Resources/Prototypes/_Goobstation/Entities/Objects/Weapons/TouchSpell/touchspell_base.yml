@@ -18,6 +18,13 @@
     color: "#ffffff" # change color here too
   - type: Unremoveable
   - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff" # here too
+      right:
+      - state: inhand-right
+        color: "#ffffff" # here too...
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcThrust

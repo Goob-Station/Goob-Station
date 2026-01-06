@@ -75,3 +75,15 @@
     exclusiveAntag: true
     roleType: SoloAntagonist
     subtype: role-subtype-slasher
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleBloodCultist
+  name: Blood Cultist
+  components:
+  - type: MindRole
+    antagPrototype: BloodCultist
+    exclusiveAntag: true
+    roleType: TeamAntagonist
+    subtype: antagdef-cultist
+  - type: MindRoleBloodCultist

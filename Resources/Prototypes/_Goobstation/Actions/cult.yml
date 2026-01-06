@@ -149,7 +149,7 @@
 
 - type: entity
   parent: BaseAction
-  id: ActionCultManipulation
+  id: ActionCultTouchSpellManipulation
   name: Blood Rites
   description: Empowers your hand to absorb blood to be used for advanced rites, or heal a cultist on contact. Use the spell in-hand to cast advanced rites.
   categories: [ HideSpawnMenu ]
@@ -160,9 +160,11 @@
       sprite: _Goobstation/Cult/actions_cult.rsi
       state: manip
   - type: InstantAction
-    event: !type:Event
+    event: !type:EventTouchSpellInvoke
   - type: BloodCultAction
     healthCost: 0
+  - type: TouchSpellAction
+    touchSpell: TouchSpellCultManipulation
 
 # - type: entity
 #   parent: BaseAction

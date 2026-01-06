@@ -30,6 +30,14 @@
         Piercing: 1
   - type: Sprite
     color: "#329a00"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#329a00" # here too
+      right:
+      - state: inhand-right
+        color: "#329a00" # here too...
   - type: UseDelay
     delays: # For rust path
       rust:

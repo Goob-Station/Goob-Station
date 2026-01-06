@@ -7,5 +7,13 @@
   components:
   - type: Sprite
     color: "#4e2952"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#4e2952" # here too
+      right:
+      - state: inhand-right
+        color: "#4e2952" # here too...
   - type: PointLight
     color: "#4e2952"

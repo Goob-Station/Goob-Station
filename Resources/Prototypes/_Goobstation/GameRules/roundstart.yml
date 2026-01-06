@@ -464,6 +464,7 @@
     minPlayers: 25
     chaosScore: 1200
   - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ BloodCultist ]
       min: 2

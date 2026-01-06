@@ -1,4 +1,4 @@
-using Content.Goobstation.Server.Cult.Components;
+using Content.Goobstation.Server.Cult.Magic;
 using Content.Goobstation.Shared.Cult;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
