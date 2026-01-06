@@ -27,14 +27,9 @@
           !type:PhysShapeCircle
           radius: 0.2
   - type: InteractionOutline
-  - type: Gatherable
-    toolWhitelist:
-      components:
-      - Hands
-    loot:
-      All: !type:GroupSelector
-        children:
-        - id: FoodSpaceshroom # TODO
+  - type: Harvestable
+    delay: 3.5
+    loot: FoodSpaceshroom # TODO: make lavashroom food
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Wood

@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/master/icons/obj/radiostation.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+	  {
+      "name": "ai-vinyl-disk"
+    },
+    {
+      "name": "devil-vinyl-disk"
+    },
+    {
+      "name": "pizza-vinyl-disk"
+    },
+    {
+      "name": "glossy-vinyl-disk"
+    },
+    {
+      "name": "red-vinyl-disk"
+    },
+    {
+      "name": "lightblue-vinyl-disk"
+    },
+    {
+      "name": "banana-vinyl-disk"
+    },
+    {
+      "name": "carrot-vinyl-disk"
+    },
+    {
+      "name": "cyan-vinyl-disk"
+    },
+    {
+      "name": "blue-vinyl-disk"
+    },
+    {
+      "name": "yellow-vinyl-disk"
+    },
+    {
+      "name": "green-vinyl-disk"
+    },
+    {
+      "name": "purple-vinyl-disk"
+    },
+    {
+      "name": "orange-vinyl-disk"
+    },
+    {
+      "name": "white-vinyl-disk"
+    },
+    {
+      "name": "lightishred-vinyl-disk"
+    },
+    {
+      "name": "darkblue-vinyl-disk"
+    },
+    {
+      "name": "pink-vinyl-disk"
+    },
+    {
+      "name": "broken-vinyl-disk"
+    },
+    {
+      "name": "forgotten-vinyl-disk"
+    },
+    {
+      "name": "floaty-vinyl-disk"
+    },
+    {
+      "name": "lime-vinyl-disk"
+    }
+  ]
+}

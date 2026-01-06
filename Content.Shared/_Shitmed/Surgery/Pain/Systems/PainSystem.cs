@@ -28,7 +28,6 @@ using Robust.Shared.Timing;
 using Robust.Shared.Random;
 using System.Linq;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 

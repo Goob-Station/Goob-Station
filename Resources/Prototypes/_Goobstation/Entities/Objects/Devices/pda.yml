@@ -282,6 +282,25 @@
     - NanoTaskCartridge
     - NanoChatCartridge # DeltaV
 
+- type: entity
+  parent: BaseMedicalPDA
+  id: VirologistPDA
+  name: virology PDA
+  description: You're not sure if touching it is safe.
+  components:
+  - type: Pda
+    id: VirologistIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-virology
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentVColor: "#447987"
+  - type: Icon
+    state: pda-virology
+
 # event-resctricted jobs
 - type: entity
   parent: ClownPDA
@@ -327,3 +346,12 @@
     accentVColor: "#cc4d03"
   - type: Icon
     state: pda-roboticist
+
+- type: entity
+  parent: BasePDA
+  id: RadioHostPDA
+  name: radio host PDA
+  description: You're listening to the smooth sounds of 145.9 FM.
+  components:
+  - type: Pda
+    id: RadioHostIDCard

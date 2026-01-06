@@ -65,6 +65,8 @@ ghost-role-information-inspector-name = Central Command Auditor
 ghost-role-information-inspector-description = Perform inspections on the stations assets and its crew. Probably die in a horrific accident and get a deathsquad called.
 
 ghost-role-information-sentient-shark-name = Sentient Sharkminnow
+ghost-role-information-plague-mouse-name = Plague Mouse
+ghost-role-information-plague-mouse-description = A hungry and mischievous mouse. This one carries a disease and will spread it on bite.
 
 ghost-role-information-trevor-name = Trevor
 ghost-role-information-trevor-description = Securities trusted battle steed.
@@ -186,5 +188,8 @@ vox-raider-role-greeting = You are a [color=#7851A9]Vox Raider[/color], a Vox th
 
 ghost-role-information-clown-goblin-name = Clown goblin
 ghost-role-information-clown-goblin-description = A terrible creature, born out of hell.
+
+ghost-role-information-santa-name = Santa Claus
+ghost-role-information-santa-description = Spread christmas cheer around the station!
 
 ghost-role-information-slasher-token = The Slasher (Token)
