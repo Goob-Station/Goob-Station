@@ -173,7 +173,7 @@
 
 - type: entity
   parent: MonkeyCube
-  id: Gingerbreadcube
+  id: GingerbreadCube
   name: gingerbread cube
   components:
   - type: Rehydratable
