@@ -238,7 +238,7 @@
           
 #NCT
 - type: entity
-  parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
+  parent: [ClothingModsuitCorporate, ClothingModsuitStandard, BaseCentcommContraband]
   id: ClothingModsuitTrainer
   name: Career Trainer modsuit control unit
   description: The main controller for a Career Trainer modsuit.
@@ -251,29 +251,9 @@
         gloves: ClothingModsuitGauntletsTrainer
         outerClothing: ClothingModsuitChestplateTrainer
         shoes: ClothingModsuitBootsTrainer
-    - type: ItemSlots
-      slots:
-        cell_slot:
-          name: power-cell-slot-component-slot-name-default
-          startingItem: PowerCellAntiqueProto
-          whitelist:
-            components:
-              - PowerCell
-    - type: Storage
-      grid:
-        - 0,0,7,6
-    - type: ExplosionResistance
-      damageCoefficient: 0.1
-    - type: SealableClothingVisuals
-      spriteLayer: sealed
-      clothingVisuals:
-        back:
-        - state: equipped-BACKPACK-sealed
-        - state: equipped-BACKPACK-sealed-unshaded
-          shader: unshaded      
 
 - type: entity
-  parent: [ClothingModsuitGauntletsStandard, BaseCentcommContraband]
+  parent: [ClothingModsuitGauntletsCorporate, ClothingModsuitGauntletsStandard, BaseCentcommContraband]
   id: ClothingModsuitGauntletsTrainer
   name: Corporate modsuit gauntlets
   description: A pair of gauntlets made for the Career Trainer modsuit.
@@ -281,24 +261,9 @@
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
-    - type: SealableClothingVisuals
-      spriteLayer: sealed
-      clothingVisuals:
-        gloves:
-        - state: equipped-HAND-sealed
-        - state: equipped-HAND-sealed-unshaded
-          shader: unshaded
-    - type: ComponentToggler
-      components:
-      - type: Insulated
-      - type: GrabModifier
-        grabEscapeModifier: -0.1
-        grabEscapeMultiplier: 0.8
-        grabMoveSpeedMultiplier: 2
-        startingGrabStage: Hard
 
 - type: entity
-  parent: [ClothingModsuitHelmetStandard, BaseHandheldInstrument, ShowSecurityIcons, BaseCentcommContraband]
+  parent: [ClothingModsuitHelmetCorporate, ClothingModsuitHelmetStandard, BaseHandheldInstrument, ShowSecurityIcons, BaseCentcommContraband]
   id: ClothingModsuitHelmetTrainer
   name: Corporate modsuit helmet
   description: A state-of-the-art helmet designed by NanoTrasen for the Career Trainer modsuit. It includes a built-in HUD.
@@ -306,72 +271,15 @@
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
-    - type: PressureProtection
-      highPressureMultiplier: 0.08
-      lowPressureMultiplier: 1000
-    - type: Armor
-      traumaDeductions: # prevents traumas at all (kinda)
-        Dismemberment: 1
-        OrganDamage: 1
-        BoneDamage: 1
-        VeinsDamage: 1
-        NerveDamage: 1
-      modifiers:
-        coefficients:
-          Blunt: 0.1 # Best armor in the game - Yeah no shit.
-          Slash: 0.1
-          Piercing: 0.1
-          Heat: 0.1
-          Cold: 0.1
-          Cellular: 0.1
-          Radiation: 0.1
-          Caustic: 0.1
     - type: ThermalVision
       isEquipment: true
       color: "#7c073b"
       lightRadius: 15
-    - type: FlashImmunity # Goobstation
-    - type: FlashSoundSuppression # Goobstation
-      protectionRange: 0
-    - type: ShowHealthBars
-      damageContainers:
-        - Biological
     - type: PointLight
       color: "#fc0574"
-    - type: SealableClothingVisuals
-      spriteLayer: sealed
-      clothingVisuals:
-        head:
-        - state: equipped-HEAD-sealed
-        - state: equipped-HEAD-sealed-unshaded
-          shader: unshaded
-    - type: ComponentToggler
-      components:
-      - type: ActivatableUI
-        inHandsOnly: false # Goobstation
-        singleUser: true
-        requireActiveHand: false # Goobstation
-        verbText: verb-instrument-openui
-        key: enum.InstrumentUiKey.Key
-      - type: Instrument
-        program: 62
-      - type: SwappableInstrument
-        instrumentList:
-          "Synth": {62: 0}
-          "Friend": {2: 0}
-          "Overdriven": {29: 0}
-          "Bass": {33: 0}
-          "Rock": {29: 0}
-          "Acoustic": {24: 0}
-          "Flute": {73: 0}
-          "Sax": {66: 0}
-      - type: UserInterface
-        interfaces:
-          enum.InstrumentUiKey.Key:
-            type: InstrumentBoundUserInterface
 
 - type: entity
-  parent: [ClothingModsuitChestplateStandard, BaseCentcommContraband]
+  parent: [ClothingModsuitChestplateCorporate, ClothingModsuitChestplateStandard, BaseCentcommContraband]
   id: ClothingModsuitChestplateTrainer
   name: Career Trainer modsuit chestplate
   description: A state of the art chestplate designed by NanoTrasen for the Career Trainer modsuit. It incorporates powered servos to reduce the equipment load.
@@ -379,70 +287,17 @@
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
-    - type: ClothingSpeedModifier
-      walkModifier: 1
-      sprintModifier: 1
-    - type: Armor
-      traumaDeductions: # prevents traumas at all (kinda)
-        Dismemberment: 1
-        OrganDamage: 1
-        BoneDamage: 1
-        VeinsDamage: 1
-        NerveDamage: 1
-      modifiers:
-        coefficients:
-          Blunt: 0.1 # Best armor in the game - Yeah no shit.
-          Slash: 0.1
-          Piercing: 0.1
-          Heat: 0.1
-          Cold: 0.1
-          Cellular: 0.1
-          Radiation: 0.1
-          Caustic: 0.1
-    - type: SealableClothingVisuals
-      spriteLayer: sealed
-      clothingVisuals:
-        outerClothing:
-        - state: equipped-OUTERCLOTHING-sealed
-    - type: StaminaResistance
-      damageCoefficient: 0 # 100%
-    - type: PressureProtection
-      highPressureMultiplier: 0.02
-      lowPressureMultiplier: 1000
-    - type: ExplosionResistance
-      damageCoefficient: 0.2
 
 - type: entity
-  parent: [ClothingModsuitBootsStandard, BaseCentcommContraband]
+  parent: [ClothingModsuitBootsCorporate, ClothingModsuitBootsStandard, BaseCentcommContraband]
   id: ClothingModsuitBootsTrainer
   name: Career Trainer modsuit boots
-  description: A state-of-the-art pair of magboots for the Corporate modsuit. So long as the suit is powered, these will not slow the wearer down.
+  description: A state-of-the-art pair of magboots for the Career Trainer modsuit. So long as the suit is powered, these will not slow the wearer down.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
-    - type: Tag
-      tags:
-        - WhitelistChameleon
-    - type: SealableClothingVisuals
-      spriteLayer: sealed
-      clothingVisuals:
-        shoes:
-        - state: equipped-FEET-sealed
-        - state: equipped-FEET-sealed-unshaded
-          shader: unshaded
-    - type: ItemToggle
-    - type: ToggleClothing
-      action: ActionToggleMagboots
-    - type: ComponentToggler
-      components:
-      - type: NoSlip
-    - type: Magboots
-      enabledPrefix: null
-    - type: ClothingSpeedModifier
-      walkModifier: 1.1
-      sprintModifier: 1.1
 
 - type: entity
   id: SuitStorageTrainer
