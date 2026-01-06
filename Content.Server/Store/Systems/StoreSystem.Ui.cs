@@ -55,7 +55,8 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing; // Goob
+using Robust.Shared.Timing;
+using Content.Goobstation.Common.Effects; // Goob
 
 namespace Content.Server.Store.Systems;
 
@@ -74,6 +75,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly HereticKnowledgeSystem _heretic = default!; // goobstation - heretics
     [Dependency] private readonly IGameTiming _timing = default!; // goobstation - ntr update
+    [Dependency] private readonly SparksSystem _sparks = default!; // CorvaxGoob
 
     private void InitializeUi()
     {
@@ -338,11 +340,14 @@ public sealed partial class StoreSystem
                 RaiseLocalEvent(buyer, listing.ProductEvent);
         }
 
+        if (listing.PlaySparksEffect) // CorvaxGoob-SparkleEffects
+            _sparks.DoSparks(Transform(uid).Coordinates, playSound: false);
+
         // Goob edit start
-        /* if (listing.DisableRefund)
-        {
-            component.RefundAllowed = false;
-        } */
+            /* if (listing.DisableRefund)
+            {
+                component.RefundAllowed = false;
+            } */
         if (listing.BlockRefundListings.Count > 0)
         {
             foreach (var listingData in component.Listings.Where(x => listing.BlockRefundListings.Contains(x.ID)))

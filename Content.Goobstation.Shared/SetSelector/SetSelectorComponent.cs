@@ -59,4 +59,11 @@ public sealed partial class SetSelectorComponent : Component
 
     [DataField]
     public SoundSpecifier? ApproveSound;
+
+    // CorvaxGoob-SparksEffect
+    /// <summary>
+    /// Will spawn sparks when the selector choosen.
+    /// </summary>
+    [DataField]
+    public bool PlaySparksEffect = true;
 }

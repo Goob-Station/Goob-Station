@@ -19,12 +19,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._CorvaxGoob.Events;
+using Content.Shared._CorvaxGoob.Events.StatusEffects;
 using Content.Shared.Heretic.Prototypes; // Goob
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using System.Linq;
 
 namespace Content.Shared.Store;
 
@@ -134,6 +136,13 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
 
     [DataField]
     public bool RaiseProductEventOnUser;
+
+    // CorvaxGoob-SparksEffect
+    /// <summary>
+    /// Will spawn sparks when the listing is purchased. 
+    /// </summary>
+    [DataField]
+    public bool PlaySparksEffect = true;
 
     /// <summary>
     /// used internally for tracking how many times an item was purchased.

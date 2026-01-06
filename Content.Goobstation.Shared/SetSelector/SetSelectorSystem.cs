@@ -7,6 +7,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Effects;
 using Content.Shared.EntityTable;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Storage.EntitySystems;
@@ -30,6 +31,7 @@ public sealed class SetSelectorSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly SparksSystem _sparks = default!;
 
     public override void Initialize()
     {
@@ -92,7 +94,15 @@ public sealed class SetSelectorSystem : EntitySystem
 
         // Since we immediately delete the selector, the sound played on it would get deleted too,
         // so we play the sound on coordinates of the selector instead.
-        _audio.PlayPvs(selector.Comp.ApproveSound, Transform(selector.Owner).Coordinates);
+        // CorvaxGoob-SparksEffects-Start : a little changes in code
+        var coords = Transform(selector.Owner).Coordinates;
+
+        _audio.PlayPvs(selector.Comp.ApproveSound, coords);
+
+        if (selector.Comp.PlaySparksEffect)
+            _sparks.DoSparks(coords, playSound: false);
+        // CorvaxGoob-SparksEffects-End
+
         Del(selector);
 
         // We do this after deleting the selector so the spawned storage does not collide with it
