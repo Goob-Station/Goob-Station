@@ -42,6 +42,14 @@
     {
       "name": "equipped-HAND-sealed-unshaded",
       "directions": 4
+    },    
+	{
+      "name": "equipped-FEET-sealed-unshaded",
+      "directions": 4
+    },    
+	{
+      "name": "equipped-BACKPACK-sealed-unshaded",
+      "directions": 4
     },
     {
       "name": "equipped-HAND",
