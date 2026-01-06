@@ -19994,3 +19994,11 @@ Entries:
       message: Added lots of new items into vend machines.
   id: 2266
   time: '2026-01-06T04:03:46.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: >-
+        Sentient artifacts self activation action cooldown has been massively
+        reduced.
+  id: 2267
+  time: '2026-01-06T04:04:54.0000000+00:00'
