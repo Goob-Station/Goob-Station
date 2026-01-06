@@ -79,8 +79,8 @@
     - type: AmmoCounter
     - type: UseDelayOnShoot
     - type: GunRequiresWield
-    - type: Gun
-      projectileSpeed: 12
+    - type: Gun # TODO turn it into an action gun and add auto-targeting
+      projectileSpeed: 12 # Needed for the trail to look good
       soundGunshot: /Audio/Weapons/plasma_cutter.ogg
       fireRate: 1
       useKey: false
@@ -125,16 +125,16 @@
   id: CrusherUpgradeBladeLavaAspect
   parent: BaseCrusherUpgradeBlade
   name: crusher blade upgrade (lava aspect)
-  description: A blade made out of the lava crystal, making it constantly hot and highly flammable.
+  description: A crystal made out of uncooling lava, making it constantly hot and highly flammable.
   components:
   - type: Sprite
-    state: rude-buster
+    state: lava-shard
   - type: GunUpgrade
     name: gun-upgrade-crusher-lava-aspect
   - type: WeaponUpgradeDamage
     bonusDamage:
       types:
-        Heat: 7
+        Heat: 5
   - type: WeaponUpgradeEffects
     effects:
     - !type:FlammableReaction
@@ -142,7 +142,10 @@
       multiplierOnExisting: 0.5
     - !type:Ignite
     - !type:AdjustTemperature
-      amount: 10000 # thermal energy, not temperature!
+      amount: 7500 # thermal energy, not temperature!
+  - type: Construction
+    graph: CrusherUpgradeLavaCrystalConstructionGraph
+    node: crystal
   - type: Tag
     tags:
     - CrusherUpgradeBlade
@@ -152,20 +155,23 @@
   id: CrusherUpgradeBladeIceFrost
   parent: BaseCrusherUpgradeBlade
   name: crusher blade upgrade (ice frost)
-  description: A blade that emits coldness, probably by violating laws of thermodynamics.
+  description: A crystal that emits coldness, probably by violating laws of thermodynamics.
   components:
   - type: Sprite
-    state: rude-buster
+    state: ice-shard
   - type: GunUpgrade
     name: gun-upgrade-crusher-ice-frost
   - type: WeaponUpgradeDamage
     bonusDamage:
       types:
-        Cold: 5 # Less because no armors protect from it
+        Cold: 4 # Less because no armors protect from it
   - type: WeaponUpgradeEffects
     effects:
     - !type:AdjustTemperature
-      amount: -10000 # thermal energy, not temperature!
+      amount: -7500 # thermal energy, not temperature! That's not that great actually, but it slows down the target after enough hits
+  - type: Construction
+    graph: CrusherUpgradeIceCrystalConstructionGraph
+    node: crystal
   - type: Tag
     tags:
     - CrusherUpgradeBlade
@@ -178,13 +184,16 @@
   description: A simple grindstone that improves the damage of a crusher.
   components:
   - type: Sprite
-    state: rude-buster
+    state: black-shard
   - type: GunUpgrade
     name: gun-upgrade-crusher-sharpness
   - type: WeaponUpgradeDamage
     bonusDamage:
       types:
-        Slash: 9 # Crusher hammer becomes extra-sharp on the sides the more you know
+        Slash: 7 # Let's just say crusher hammer becomes extra-sharp on the sides
+  - type: Construction
+    graph: CrusherUpgradeCrystalConstructionGraph
+    node: crystal
   - type: Tag
     tags:
     - CrusherUpgradeBlade
@@ -216,7 +225,7 @@
   description: A set of weighed loads that can be attached to a handle to make a weapon deal knockback to enemies.
   components:
   - type: Sprite
-    state: rude-buster
+    state: handle-weights
   - type: GunUpgrade
     name: gun-upgrade-crusher-weights
   - type: GunUpgradeComponents
@@ -237,7 +246,7 @@
   description: A lightweight handle replacement that allows you to make attacks more frequently.
   components:
   - type: Sprite
-    state: rude-buster
+    state: handle-lightweight
   - type: GunUpgrade
     name: gun-upgrade-crusher-lightweight
   - type: WeaponUpgradeSpeed
@@ -254,7 +263,7 @@
   description: A long handle replacement that allows you to make attacks more frequently.
   components:
   - type: Sprite
-    state: rude-buster
+    state: handle-spikes # Why spikes improve range? Cuz they're badass.
   - type: GunUpgrade
     name: gun-upgrade-crusher-range
   - type: WeaponUpgradeRange
