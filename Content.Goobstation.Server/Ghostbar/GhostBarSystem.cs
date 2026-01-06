@@ -14,16 +14,20 @@
 
 using Content.Goobstation.Server.Ghostbar.Components;
 using Content.Server._CorvaxGoob.Objectives.Components;
+using Content.Server.Actions;
 using Content.Server.Antag.Components;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
+using Content.Server.Ghost.Roles;
 using Content.Server.Mind;
 using Content.Server.Station.Systems;
+using Content.Shared._CorvaxGoob.GhostBar;
 using Content.Shared.Ghost;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Players;
 using Content.Shared.Roles;
+using Robust.Server.Player;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
@@ -42,6 +46,9 @@ public sealed class GhostBarSystem : EntitySystem
     [Dependency] private readonly StationSpawningSystem _spawningSystem = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly GhostRoleSystem _ghostRole = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     private static readonly List<ProtoId<JobPrototype>> _jobComponents = new()
     {
@@ -52,7 +59,8 @@ public sealed class GhostBarSystem : EntitySystem
     {
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
         SubscribeNetworkEvent<GhostBarSpawnEvent>(SpawnPlayer);
-        SubscribeLocalEvent<GhostBarPlayerComponent, MindRemovedMessage>(OnPlayerGhosted);
+
+        SubscribeLocalEvent<GhostBarPlayerComponent, OpenGhostRolesListActionEvent>(OnActionOpenGhostRoles);
     }
 
     const string MapPath = "Maps/_Goobstation/Nonstations/ghostbar.yml";
@@ -107,16 +115,30 @@ public sealed class GhostBarSystem : EntitySystem
             return;
         }
 
+        // auto clearing existed before player's characters
+        var ghostBarEntitiesQuery = EntityQueryEnumerator<GhostBarPlayerComponent>();
+        while (ghostBarEntitiesQuery.MoveNext(out var ent, out var ghostBar))
+        {
+            if (ghostBar.PlayerSession == player)
+                QueueDel(ent);
+        }
+
         var randomSpawnPoint = _random.Pick(spawnPoints);
         var randomJob = _random.Pick(_jobComponents);
         var profile = _ticker.GetPlayerProfile(args.SenderSession);
         var mobUid = _spawningSystem.SpawnPlayerMob(randomSpawnPoint, randomJob, profile, null);
 
-        _entityManager.EnsureComponent<GhostBarPlayerComponent>(mobUid);
+        var ghostBarPlayer = _entityManager.EnsureComponent<GhostBarPlayerComponent>(mobUid);
         _entityManager.EnsureComponent<MindShieldComponent>(mobUid);
         _entityManager.EnsureComponent<AntagImmuneComponent>(mobUid);
         _entityManager.EnsureComponent<IsDeadICComponent>(mobUid);
         _entityManager.EnsureComponent<AntagObjectiveImmunityComponent>(mobUid); // CorvaxGoob antag-target-immunity
+        _entityManager.EnsureComponent<GhostHearingComponent>(mobUid); // CorvaxGoob
+
+        ghostBarPlayer.OpenGhostRolesListActionEntity = _actions.AddAction(mobUid, ghostBarPlayer.OpenGhostRolesListAction);
+        ghostBarPlayer.PlayerSession = player;
+
+        Dirty(mobUid, ghostBarPlayer);
 
         if (mind.Objectives.Count == 0)
             _mindSystem.WipeMind(player);
@@ -124,8 +146,11 @@ public sealed class GhostBarSystem : EntitySystem
         _mindSystem.TransferTo(mindId, mobUid, true);
     }
 
-    private void OnPlayerGhosted(EntityUid uid, GhostBarPlayerComponent component, MindRemovedMessage args)
+    public void OnActionOpenGhostRoles(Entity<GhostBarPlayerComponent> entity, ref OpenGhostRolesListActionEvent args)
     {
-        _entityManager.DeleteEntity(uid);
+        if (!_playerManager.TryGetSessionByEntity(entity, out var session))
+            return;
+
+        _ghostRole.OpenEui(session);
     }
 }

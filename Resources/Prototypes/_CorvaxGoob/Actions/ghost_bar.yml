@@ -1,0 +1,12 @@
+- type: entity
+  parent: BaseAction
+  id: ActionOpenGhostRoles
+  name: Ghost roles
+  description: Opens list of available ghost roles.
+  components:
+  - type: Action
+    icon: { sprite: Mobs/Ghosts/ghost_human.rsi, state: icon }
+    checkCanInteract: false
+    raiseOnUser: true
+  - type: InstantAction
+    event: !type:OpenGhostRolesListActionEvent

@@ -7,7 +7,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.Ghostbar.Components;
+// CorvaxGoob : moved to Content.Server._CorvaxGoob.GhostBar
+
+/*namespace Content.Goobstation.Server.Ghostbar.Components;
 
 /// <summary>
 /// Tracker for ghostbar players
@@ -17,3 +19,4 @@ public sealed partial class GhostBarPlayerComponent : Component
 {
 
 }
+*/
