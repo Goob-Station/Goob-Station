@@ -3,7 +3,7 @@
   parent: GasMinerBase
   description: It seems to always be producing a gust of fresh air. The ground around it feels hot to the touch.
   id: AirPlantSmall
-  suffix: Shuttle, 300kPa
+  suffix: Shuttle, 100kPa
   placement:
     mode: SnapgridCenter
   components:
@@ -33,7 +33,7 @@
   name: oxygen plant
   parent: GasMinerBase
   id: AirPlantLarge
-  suffix: Large, 600kPa
+  suffix: Large, 500kPa
   placement:
     mode: SnapgridCenter
   components:
