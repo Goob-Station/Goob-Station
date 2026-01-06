@@ -26,19 +26,12 @@ namespace Content.Client._Shitmed.Medical.Surgery.Wounds;
 
 public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsComponent>
 {
-    /*
-    // Disabled Wound Visuals
-    // It gets applied no problem but after attempts it doesn't seem to be removeable
-    // I will at somepoint might try to fix it, by writing/reviewing the code fully.
-    // RichardBlonski 🐢
-
     [Dependency] private readonly SharedBodySystem _body = default!;
-
     [Dependency] private readonly IRobustRandom _random = default!;
-
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-
     [Dependency] private readonly WoundSystem _wound = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
     private const float AltBleedingSpriteChance = 0.15f;
 
     public override void Initialize()
@@ -52,153 +45,199 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
         SubscribeLocalEvent<WoundableVisualsComponent, WoundableIntegrityChangedEvent>(OnWoundableIntegrityChanged);
     }
 
-    private void InitializeEntity(EntityUid uid, WoundableVisualsComponent component, ref ComponentInit args)
+    private void InitializeEntity(Entity<WoundableVisualsComponent> ent, ref ComponentInit args)
     {
-        if (!TryComp(uid, out SpriteComponent? partSprite))
+        if (!TryComp(ent, out SpriteComponent? partSprite))
             return;
 
-        foreach (var (group, sprite) in component.DamageOverlayGroups!)
-        {
-            AddDamageLayerToSprite(partSprite,
+        InitDamage(ent, partSprite);
+        InitBleeding(ent, partSprite);
+    }
+
+    private void InitBleeding(Entity<WoundableVisualsComponent> ent, SpriteComponent partSprite)
+    {
+        if (ent.Comp.BleedingOverlay == null)
+            return;
+        AddDamageLayerToSprite((ent, partSprite),
+            ent.Comp.BleedingOverlay,
+            $"{ent.Comp.OccupiedLayer}_Minor",
+            $"{ent.Comp.OccupiedLayer}Bleeding");
+    }
+
+    private void InitDamage(Entity<WoundableVisualsComponent> ent, SpriteComponent partSprite)
+    {
+        if (ent.Comp.DamageOverlayGroups is null)
+            return;
+        foreach (var (group, sprite) in ent.Comp.DamageOverlayGroups)
+            AddDamageLayerToSprite((ent, partSprite),
                 sprite.Sprite,
-                $"{component.OccupiedLayer}_{group}_100",
-                $"{component.OccupiedLayer}{group}",
+                $"{ent.Comp.OccupiedLayer}_{group}_100",
+                $"{ent.Comp.OccupiedLayer}{group}",
                 sprite.Color);
-        }
-
-        if (component.BleedingOverlay != null)
-        {
-            AddDamageLayerToSprite(partSprite,
-                component.BleedingOverlay,
-                $"{component.OccupiedLayer}_Minor",
-                $"{component.OccupiedLayer}Bleeding");
-        }
     }
 
-    private void OnAfterAutoHandleState(EntityUid uid, WoundableVisualsComponent component, ref AfterAutoHandleStateEvent args)
+    private void OnAfterAutoHandleState(Entity<WoundableVisualsComponent> ent, ref AfterAutoHandleStateEvent args)
     {
-        if (!TryComp(uid, out SpriteComponent? partSprite))
+        if (!TryComp(ent, out SpriteComponent? partSprite))
             return;
 
-        UpdateWoundableVisuals(uid, component, partSprite);
+        UpdateWoundableVisuals(ent, (ent, partSprite));
     }
 
-    private void WoundableConnected(EntityUid uid, WoundableVisualsComponent component, ref BodyPartAddedEvent args)
+    private void WoundableConnected(Entity<WoundableVisualsComponent> ent, ref BodyPartAddedEvent args)
     {
         var bodyPart = args.Part.Comp;
-        if (!bodyPart.Body.HasValue
-            || !TryComp(bodyPart.Body.Value, out SpriteComponent? bodySprite)
-            || !HasComp<HumanoidAppearanceComponent>(bodyPart.Body.Value))
+        if (bodyPart.Body is not { } bodyUid ||
+            !TryComp(bodyUid, out SpriteComponent? bodySprite) ||
+            !HasComp<HumanoidAppearanceComponent>(bodyUid))
             return;
 
-        foreach (var (group, sprite) in component.DamageOverlayGroups!)
+        if (ent.Comp.DamageOverlayGroups != null)
         {
-            if (!bodySprite.LayerMapTryGet($"{component.OccupiedLayer}{group}", out _))
-            {
-                AddDamageLayerToSprite(bodySprite,
-                    sprite.Sprite,
-                    $"{component.OccupiedLayer}_{group}_100",
-                    $"{component.OccupiedLayer}{group}",
-                    sprite.Color);
-            }
+            foreach (var (group, sprite) in ent.Comp.DamageOverlayGroups)
+                if (!_sprite.LayerMapTryGet((args.Part.Owner, bodySprite), $"{ent.Comp.OccupiedLayer}{group}", out _, false))
+                {
+                    AddDamageLayerToSprite((args.Part.Owner, bodySprite),
+                        sprite.Sprite,
+                        $"{ent.Comp.OccupiedLayer}_{group}_100",
+                        $"{ent.Comp.OccupiedLayer}{group}",
+                        sprite.Color);
+                }
         }
 
-        if (!bodySprite.LayerMapTryGet($"{component.OccupiedLayer}Bleeding", out _) && component.BleedingOverlay != null)
+        if (ent.Comp.BleedingOverlay == null)
+            return;
+        if (!_sprite.LayerMapTryGet((args.Part.Owner, bodySprite),
+                $"{ent.Comp.OccupiedLayer}Bleeding",
+                out _,
+                true)
+            && ent.Comp.BleedingOverlay != null)
         {
-            AddDamageLayerToSprite(bodySprite,
-                component.BleedingOverlay,
-                $"{component.OccupiedLayer}_Minor",
-                $"{component.OccupiedLayer}Bleeding");
+            AddDamageLayerToSprite((args.Part.Owner, bodySprite),
+                ent.Comp.BleedingOverlay,
+                $"{ent.Comp.OccupiedLayer}_Minor",
+                $"{ent.Comp.OccupiedLayer}Bleeding");
         }
+
+        UpdateWoundableVisuals(ent, (bodyUid,bodySprite));
     }
 
-    private void WoundableRemoved(EntityUid uid, WoundableVisualsComponent component, ref BodyPartRemovedEvent args)
+    private void WoundableRemoved(Entity<WoundableVisualsComponent> ent, ref BodyPartRemovedEvent args)
     {
         var body = args.Part.Comp.Body;
         if (!TryComp(body, out SpriteComponent? bodySprite))
             return;
 
-        foreach (var part in _body.GetBodyPartChildren(uid))
+        foreach (var part in _body.GetBodyPartChildren(ent))
         {
             if (!TryComp<WoundableVisualsComponent>(part.Id, out var woundableVisuals))
                 continue;
-
-            foreach (var (group, _) in woundableVisuals.DamageOverlayGroups!)
-            {
-                if (!bodySprite.LayerMapTryGet($"{woundableVisuals.OccupiedLayer}{group}", out var layer))
-                    continue;
-
-                bodySprite.LayerSetVisible(layer, false);
-                bodySprite.LayerMapRemove($"{woundableVisuals.OccupiedLayer}{group}");
-            }
-
-            if (bodySprite.LayerMapTryGet($"{woundableVisuals.OccupiedLayer}Bleeding", out var childBleeds))
-            {
-                bodySprite.LayerSetVisible(childBleeds, false);
-                bodySprite.LayerMapRemove($"{woundableVisuals.OccupiedLayer}Bleeding");
-            }
-
-            if (TryComp(uid, out SpriteComponent? pieceSprite))
-                UpdateWoundableVisuals(part.Id, woundableVisuals, pieceSprite);
+            RemoveWoundableLayers((body.Value, bodySprite), woundableVisuals);
+            if (TryComp(ent, out SpriteComponent? pieceSprite))
+                UpdateWoundableVisuals((part.Id, woundableVisuals), (ent, pieceSprite));
         }
     }
 
-    private void OnWoundableIntegrityChanged(EntityUid uid, WoundableVisualsComponent component, ref WoundableIntegrityChangedEvent args)
+    private void RemoveWoundableLayers(Entity<SpriteComponent?> entity, WoundableVisualsComponent visuals)
     {
-        var bodyPart = Comp<BodyPartComponent>(uid);
+        if (visuals.DamageOverlayGroups == null)
+            return;
+
+        // Remove damage overlay layers
+        foreach (var (group, _) in visuals.DamageOverlayGroups)
+        {
+            var layerKey = $"{visuals.OccupiedLayer}{group}";
+            if (!_sprite.LayerMapTryGet(entity, layerKey, out var layer, false))
+                continue;
+            _sprite.LayerSetVisible(entity, layer, false);
+            _sprite.RemoveLayer(entity, layer);
+            _sprite.LayerMapRemove(entity, layerKey);
+        }
+
+        // Remove bleeding layer
+        var bleedingKey = $"{visuals.OccupiedLayer}Bleeding";
+        if (!_sprite.LayerMapTryGet(entity, bleedingKey, out var bleedLayer, false))
+            return;
+        _sprite.LayerSetVisible(entity, bleedLayer, false);
+        _sprite.RemoveLayer(entity, bleedLayer, out _, false);
+        _sprite.LayerMapRemove(entity, bleedingKey, out _);
+    }
+
+    private void OnWoundableIntegrityChanged(Entity<WoundableVisualsComponent> ent,
+        ref WoundableIntegrityChangedEvent args)
+    {
+        var bodyPart = Comp<BodyPartComponent>(ent);
         if (!bodyPart.Body.HasValue)
         {
-            if (TryComp(uid, out SpriteComponent? partSprite))
-                UpdateWoundableVisuals(uid, component, partSprite);
+            if (TryComp(ent, out SpriteComponent? partSprite))
+                UpdateWoundableVisuals(ent, (ent, partSprite));
 
             return;
         }
 
         if (TryComp(bodyPart.Body, out SpriteComponent? bodySprite))
-            UpdateWoundableVisuals(uid, component, bodySprite);
+            UpdateWoundableVisuals(ent, (bodyPart.Body.Value, bodySprite));
     }
 
-    private void AddDamageLayerToSprite(SpriteComponent spriteComponent, string sprite, string state, string mapKey, string? color = null)
+    private void AddDamageLayerToSprite(Entity<SpriteComponent?> ent,
+        string sprite,
+        string state,
+        string mapKey,
+        string? color = null)
     {
-        var newLayer = spriteComponent.AddLayer(
+        if (_sprite.LayerMapTryGet(ent, mapKey, out _, false)) // prevent dupes
+            return;
+
+        var newLayer = _sprite.AddLayer(ent,
             new SpriteSpecifier.Rsi(
                 new ResPath(sprite),
                 state
             ));
-        spriteComponent.LayerMapSet(mapKey, newLayer);
+        _sprite.LayerMapSet(ent, mapKey, newLayer);
         if (color != null)
-            spriteComponent.LayerSetColor(newLayer, Color.FromHex(color));
-        spriteComponent.LayerSetVisible(newLayer, false);
+            _sprite.LayerSetColor(ent, newLayer, Color.FromHex(color));
+        _sprite.LayerSetVisible(ent, newLayer, false);
     }
 
-    private void UpdateWoundableVisuals(EntityUid uid, WoundableVisualsComponent visuals, SpriteComponent sprite)
+    private void UpdateWoundableVisuals(Entity<WoundableVisualsComponent> visuals, Entity<SpriteComponent?> sprite)
     {
-        foreach (var group in visuals.DamageOverlayGroups!)
-        {
-            if (!sprite.LayerMapTryGet($"{visuals.OccupiedLayer}{group.Key}", out var damageLayer))
-                continue;
-
-            var severityPoint = _wound.GetWoundableSeverityPoint(uid, damageGroup: group.Key);
-            UpdateDamageLayerState(sprite,
-                damageLayer,
-                $"{visuals.OccupiedLayer}_{group.Key}",
-                severityPoint <= visuals.Thresholds.First() ? 0 : GetThreshold(severityPoint, visuals));
-        }
-        UpdateBleeding(uid, visuals, visuals.OccupiedLayer, sprite);
-    }
-
-    private void UpdateBleeding(EntityUid uid, WoundableVisualsComponent comp, Enum layer, SpriteComponent sprite)
-    {
-        if (!TryComp<BodyPartComponent>(uid, out var bodyPart))
+        if (sprite.Comp is not { } spriteComponent)
             return;
 
-        if (comp.BleedingOverlay == null)
+        UpdateDamage(visuals, sprite);
+        UpdateBleeding(visuals, visuals.Comp.OccupiedLayer, spriteComponent);
+    }
+
+    private void UpdateDamage(Entity<WoundableVisualsComponent> visuals, Entity<SpriteComponent?> sprite)
+    {
+        if (visuals.Comp.DamageOverlayGroups == null)
+            return;
+        foreach (var group in visuals.Comp.DamageOverlayGroups)
         {
-            if (!_body.TryGetParentBodyPart(uid, out var parentUid, out _))
+            if (!_sprite.LayerMapTryGet(sprite, $"{visuals.Comp.OccupiedLayer}{group.Key}", out var damageLayer, false))
+                continue;
+            var severityPoint = _wound.GetWoundableSeverityPoint(visuals, damageGroup: group.Key);
+            UpdateDamageLayerState(sprite,
+                damageLayer,
+                $"{visuals.Comp.OccupiedLayer}_{group.Key}",
+                severityPoint <= visuals.Comp.Thresholds.FirstOrDefault() ? 0 : GetThreshold(severityPoint, visuals));
+        }
+    }
+
+    private void UpdateBleeding(Entity<WoundableVisualsComponent> ent, Enum layer, SpriteComponent sprite)
+    {
+        if (!TryComp<BodyPartComponent>(ent, out var bodyPart))
+            return;
+
+        if (ent.Comp.BleedingOverlay == null)
+        {
+            if (!_body.TryGetParentBodyPart(ent, out var parentUid, out _))
                 return;
 
-            if (!_appearance.TryGetData<WoundVisualizerGroupData>(uid, WoundableVisualizerKeys.Wounds, out var wounds)
-                || !_appearance.TryGetData<WoundVisualizerGroupData>(parentUid.Value, WoundableVisualizerKeys.Wounds, out var parentWounds))
+            if (!_appearance.TryGetData<WoundVisualizerGroupData>(ent, WoundableVisualizerKeys.Wounds, out var wounds)
+                || !_appearance.TryGetData<WoundVisualizerGroupData>(parentUid.Value,
+                    WoundableVisualizerKeys.Wounds,
+                    out var parentWounds))
                 return;
 
             var woundList = new List<EntityUid>();
@@ -207,46 +246,46 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
 
             var totalBleeds = (FixedPoint2) 0;
             foreach (var wound in woundList)
-            {
                 if (TryComp<BleedInflicterComponent>(wound, out var bleeds))
                     totalBleeds += bleeds.BleedingAmount;
-            }
 
             var symmetry = bodyPart.Symmetry == BodyPartSymmetry.Left ? "L" : "R";
             var partType = bodyPart.PartType == BodyPartType.Foot ? "Leg" : "Arm";
 
             var part = symmetry + partType;
 
-            if (sprite.LayerMapTryGet($"{part}Bleeding", out var parentBleedingLayer))
+            if (_sprite.LayerMapTryGet((ent, sprite), $"{part}Bleeding", out var parentBleedingLayer, false))
+            {
                 UpdateBleedingLayerState(
-                sprite,
-                parentBleedingLayer,
-                part,
-                totalBleeds,
-                GetBleedingThreshold(totalBleeds, comp));
+                    (ent, sprite),
+                    parentBleedingLayer,
+                    part,
+                    totalBleeds,
+                    GetBleedingThreshold(totalBleeds, ent));
+            }
         }
         else
         {
-            if (!_appearance.TryGetData<WoundVisualizerGroupData>(uid, WoundableVisualizerKeys.Wounds, out var wounds))
+            if (!_appearance.TryGetData<WoundVisualizerGroupData>(ent, WoundableVisualizerKeys.Wounds, out var wounds))
                 return;
 
             var totalBleeds = (FixedPoint2) 0;
             foreach (var wound in wounds.GroupList.Select(GetEntity))
-            {
                 if (TryComp<BleedInflicterComponent>(wound, out var bleeds))
                     totalBleeds += bleeds.BleedingAmount;
-            }
 
-            if (sprite.LayerMapTryGet($"{layer}Bleeding", out var bleedingLayer))
-                UpdateBleedingLayerState(sprite,
-                bleedingLayer,
-                layer.ToString(),
-                totalBleeds,
-                GetBleedingThreshold(totalBleeds, comp));
+            if (_sprite.LayerMapTryGet((ent, sprite), $"{layer}Bleeding", out var bleedingLayer, false))
+            {
+                UpdateBleedingLayerState((ent,sprite),
+                    bleedingLayer,
+                    layer.ToString(),
+                    totalBleeds,
+                    GetBleedingThreshold(totalBleeds, ent));
+            }
         }
     }
 
-    private FixedPoint2 GetThreshold(FixedPoint2 threshold, WoundableVisualsComponent comp)
+    private static FixedPoint2 GetThreshold(FixedPoint2 threshold, WoundableVisualsComponent comp)
     {
         var nearestSeverity = FixedPoint2.Zero;
 
@@ -262,7 +301,7 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
         return nearestSeverity;
     }
 
-    private BleedingSeverity GetBleedingThreshold(FixedPoint2 threshold, WoundableVisualsComponent comp)
+    private static BleedingSeverity GetBleedingThreshold(FixedPoint2 threshold, WoundableVisualsComponent comp)
     {
         var nearestSeverity = BleedingSeverity.Minor;
 
@@ -278,55 +317,45 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
         return nearestSeverity;
     }
 
-    private void UpdateBleedingLayerState(SpriteComponent spriteComponent, int spriteLayer, string statePrefix, FixedPoint2 damage, BleedingSeverity threshold)
+    private void UpdateBleedingLayerState(Entity<SpriteComponent?> sprite,
+        int spriteLayer,
+        string statePrefix,
+        FixedPoint2 damage,
+        BleedingSeverity threshold)
     {
         if (damage <= 0)
         {
-            spriteComponent.LayerSetVisible(spriteLayer, false);
+            _sprite.LayerSetVisible(sprite, spriteLayer, false);
+            return;
         }
-        else
-        {
-            if (!spriteComponent[spriteLayer].Visible)
-            {
-                spriteComponent.LayerSetVisible(spriteLayer, true);
-            }
 
-            if (_random.Prob(AltBleedingSpriteChance))
-            {
-                var rsi = spriteComponent.LayerGetActualRSI(spriteLayer);
+        if (!_sprite.TryGetLayer(sprite, spriteLayer, out var layer, false) || !layer.Visible)
+            _sprite.LayerSetVisible(sprite, spriteLayer, true);
 
-                if (rsi != null && rsi.TryGetState($"{statePrefix}_{threshold}_alt", out _))
-                {
-                    spriteComponent.LayerSetState(spriteLayer, $"{statePrefix}_{threshold}_alt");
-                }
-            }
-            else
-            {
-                var rsi = spriteComponent.LayerGetActualRSI(spriteLayer);
+        var rsi = _sprite.LayerGetEffectiveRsi(sprite, spriteLayer);
+        if (rsi == null)
+            return;
+        var state = $"{statePrefix}_{threshold}";
+        var altState = $"{state}_alt";
 
-                // ... for some reason?
-                if (rsi != null && rsi.TryGetState($"{statePrefix}_{threshold}", out _))
-                {
-                    spriteComponent.LayerSetState(spriteLayer, $"{statePrefix}_{threshold}");
-                }
-            }
-        }
+        if (_random.Prob(AltBleedingSpriteChance) && rsi.TryGetState(altState, out _))
+            _sprite.LayerSetRsiState(sprite, spriteLayer, altState);
+        else if (rsi.TryGetState(state, out _))
+            _sprite.LayerSetRsiState(sprite, spriteLayer, state);
     }
 
-    private void UpdateDamageLayerState(SpriteComponent spriteComponent, int spriteLayer, string statePrefix, FixedPoint2 threshold)
+    private void UpdateDamageLayerState(Entity<SpriteComponent?> sprite,
+        int spriteLayer,
+        string statePrefix,
+        FixedPoint2 threshold)
     {
         if (threshold <= 0)
-        {
-            spriteComponent.LayerSetVisible(spriteLayer, false);
-        }
+            _sprite.LayerSetVisible(sprite, spriteLayer, false);
         else
         {
-            if (!spriteComponent[spriteLayer].Visible)
-            {
-                spriteComponent.LayerSetVisible(spriteLayer, true);
-            }
-            spriteComponent.LayerSetState(spriteLayer, $"{statePrefix}_{threshold}");
+            if (!_sprite.TryGetLayer(sprite, spriteLayer, out var layer, false) || !layer.Visible)
+                _sprite.LayerSetVisible(sprite, spriteLayer, true);
+            _sprite.LayerSetRsiState(sprite, spriteLayer, $"{statePrefix}_{threshold}");
         }
     }
-    */
 }
