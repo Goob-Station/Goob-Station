@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Content.Shared.Ghost;
 using Content.Shared.Humanoid;
+using Content.Shared.Mind;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
 
@@ -22,12 +23,12 @@ public sealed partial class GameDirectorSystem
         {
             if (player.AttachedEntity == null)
                 continue;
-            // TODO: Consider a custom component here instead of HumanoidAppearanceComponent to represent
-            //        "significant enough to count as a whole player"
-            if (HasComp<HumanoidAppearanceComponent>(player.AttachedEntity))
-                count.Players += 1;
-            else if (HasComp<GhostComponent>(player.AttachedEntity))
-                count.Ghosts += 1;
+            var ev = new GetCharactedDeadIcEvent();
+            RaiseLocalEvent(player.AttachedEntity.Value, ref ev);
+            if (ev.Dead is not true)
+                count.Players++;
+            else
+                count.Ghosts++;
         }
 
         count.Players += _event.PlayerCountBias;
