@@ -132,6 +132,8 @@
       amount: 3
     - id: MaterialGoliathHide1
       amount: 1
+    - id: MaterialBones1 # Lavaland Change
+      maxAmount: 2
   - type: Fauna # Lavaland Change
 
 - type: entity

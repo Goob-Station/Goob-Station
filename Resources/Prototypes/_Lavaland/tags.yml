@@ -54,6 +54,9 @@
   id: LavalandInterior7x7
 
 - type: Tag
+  id: LegionSkull
+
+- type: Tag
   id: PKAUpgrade
 
 - type: Tag
