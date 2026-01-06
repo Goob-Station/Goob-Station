@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.TouchSpell;
+namespace Content.Goobstation.Shared.TouchSpell;
 
 /// <summary>
 ///     Indicates that it should spawn a touch spell when used.

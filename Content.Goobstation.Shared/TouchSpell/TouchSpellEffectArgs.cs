@@ -1,7 +1,7 @@
 using Content.Shared.EntityEffects;
 using Robust.Shared.Map;
 
-namespace Content.Goobstation.Server.TouchSpell;
+namespace Content.Goobstation.Shared.TouchSpell;
 
 public record class TouchSpellEffectArgs : EntityEffectBaseArgs
 {

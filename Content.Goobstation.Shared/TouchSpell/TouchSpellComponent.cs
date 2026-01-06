@@ -1,6 +1,6 @@
 using Content.Shared.EntityEffects;
 
-namespace Content.Goobstation.Server.TouchSpell;
+namespace Content.Goobstation.Shared.TouchSpell;
 
 [RegisterComponent]
 public sealed partial class TouchSpellComponent : Component

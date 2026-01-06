@@ -1,16 +1,15 @@
-using Content.Server.Actions;
-using Content.Server.Hands.Systems;
+using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
-using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.EntityEffects;
 using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Map;
 
-namespace Content.Goobstation.Server.TouchSpell;
+namespace Content.Goobstation.Shared.TouchSpell;
 
 /// <summary>
 ///     Generic system for touch spells.
@@ -22,8 +21,8 @@ namespace Content.Goobstation.Server.TouchSpell;
 public sealed partial class TouchSpellSystem : EntitySystem
 {
     [Dependency] private readonly EntityEffectSystem _effects = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
 
     public override void Initialize()
