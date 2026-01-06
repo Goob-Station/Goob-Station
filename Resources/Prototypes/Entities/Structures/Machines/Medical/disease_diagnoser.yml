@@ -96,6 +96,11 @@
     headerMargin: 0.0, 0.0, 0.0, 6.0
     backgroundImageTile: true
     backgroundPatchMargin: 0.0, 6.0, 0.0, 6.0
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+      storagebase: !type:Container
+        ents: []
   - type: ItemSlots #goob edit - swabs in disease reports
     slots:
       item:
