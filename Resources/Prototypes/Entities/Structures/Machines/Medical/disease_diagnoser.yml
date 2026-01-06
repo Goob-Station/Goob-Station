@@ -96,3 +96,9 @@
     headerMargin: 0.0, 0.0, 0.0, 6.0
     backgroundImageTile: true
     backgroundPatchMargin: 0.0, 6.0, 0.0, 6.0
+  - type: ItemSlots
+    slots:
+      item:
+        whitelist:
+          components:
+          - DiseaseSwab
